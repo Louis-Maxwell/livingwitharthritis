@@ -124,11 +124,12 @@ const ContactSection = memo(() => {
         toast.success("Thank you — a real person will reply within two working days.");
         return;
       }
-      toast.error(
+      const msg =
         result.error ||
-          `Sorry — we could not send that just now. Please email ${CONTACT_EMAIL} and we will help.`,
-      );
-      if (result.mailtoSuggested) {
+        `Sorry — we could not send that just now. Please email ${CONTACT_EMAIL} and we will help.`;
+      toast.error(msg);
+      // Only fall back to mailto for server/network failures — not validation or rate limits.
+      if (result.mailtoSuggested && result.code !== "rate_limited") {
         openMailto({
           subject: form.subject,
           body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
@@ -218,7 +219,8 @@ const ContactSection = memo(() => {
               </p>
               <button
                 onClick={() => { setForm(blank); setSubmitted(false); }}
-                className="px-6 py-2.5 text-sm font-semibold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                type="button"
+                className="min-h-11 px-6 py-2.5 text-sm font-semibold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 Send another message
               </button>
@@ -295,8 +297,11 @@ const ContactSection = memo(() => {
               </div>
 
               <button
-                onClick={handleSend} disabled={loading}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-sm"
+                type="button"
+                onClick={handleSend}
+                disabled={loading}
+                aria-busy={loading}
+                className="w-full min-h-11 flex items-center justify-center gap-2 py-3.5 px-6 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 shadow-sm"
               >
                 {loading ? (
                   <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Sending your message…</>

@@ -104,6 +104,7 @@ export function filterSearchItems(
 export async function handleSearch(
   request: Request,
   env: { ASSETS?: { fetch: (request: Request) => Promise<Response> } },
+  requestId?: string,
 ): Promise<Response> {
   const url = new URL(request.url);
   const q = url.searchParams.get("q") || "";
@@ -123,22 +124,26 @@ export async function handleSearch(
     wordCount: item.wordCount,
   }));
 
-  return new Response(
-    JSON.stringify({
-      ok: true,
-      q,
-      topic: normalizeTopic(topic),
-      words: words || "any",
-      total: filtered.length,
-      count: results.length,
-      results,
-    }),
-    {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "Cache-Control": "public, max-age=300, stale-while-revalidate=3600",
-      },
-    },
-  );
+  const body: Record<string, unknown> = {
+    ok: true,
+    q,
+    topic: normalizeTopic(topic),
+    words: words || "any",
+    total: filtered.length,
+    count: results.length,
+    results,
+  };
+  if (requestId) body.requestId = requestId;
+
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json; charset=utf-8",
+    // Public catalog — short cache helps TTFB without serving stale filters long.
+    "Cache-Control": "public, max-age=300, stale-while-revalidate=3600",
+  };
+  if (requestId) headers["x-request-id"] = requestId;
+
+  return new Response(JSON.stringify(body), {
+    status: 200,
+    headers,
+  });
 }

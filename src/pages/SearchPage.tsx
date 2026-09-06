@@ -107,7 +107,7 @@ const SearchPage = () => {
             <label className="flex-1 text-sm space-y-1">
               <span className="font-medium">Topic</span>
               <select
-                className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                className="w-full min-h-11 h-11 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label="Filter by topic"
                 value={topic}
                 onChange={(e) => setTopic(normalizeTopic(e.target.value))}
@@ -122,7 +122,7 @@ const SearchPage = () => {
             <label className="flex-1 text-sm space-y-1">
               <span className="font-medium">Word count</span>
               <select
-                className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+                className="w-full min-h-11 h-11 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label="Filter by word count"
                 value={wordCount}
                 onChange={(e) => setWordCount(e.target.value as WordCountBucket)}
@@ -168,13 +168,37 @@ const SearchPage = () => {
               </Card>
             ))}
             {results.length === 0 && (
-              <p className="text-muted-foreground">
-                No matches. Try a shorter query, or browse the{" "}
-                <Link to="/guides" className="text-primary underline underline-offset-2">
-                  guides hub
-                </Link>
-                .
-              </p>
+              <div
+                className="rounded-2xl border border-dashed border-border bg-muted/20 p-8 text-center"
+                role="status"
+                aria-live="polite"
+              >
+                <p className="font-semibold text-foreground">No matches for that search</p>
+                <p className="mt-2 text-sm text-muted-foreground max-w-md mx-auto">
+                  Try a shorter phrase, clear a filter, or browse a hub — living with arthritis
+                  is hard enough without hunting through empty results.
+                </p>
+                <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+                  <Link
+                    to="/guides"
+                    className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
+                  >
+                    Guides hub
+                  </Link>
+                  <Link
+                    to="/blog"
+                    className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    to="/exercises"
+                    className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
+                  >
+                    Exercises
+                  </Link>
+                </div>
+              </div>
             )}
           </div>
         </section>

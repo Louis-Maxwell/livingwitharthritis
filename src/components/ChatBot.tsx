@@ -42,7 +42,7 @@ function getOrCreateSessionKey(): string {
 }
 
 const TypingIndicator = () => (
-  <div className="flex items-center gap-1.5 px-4 py-2.5">
+  <div className="flex items-center gap-1.5 px-4 py-2.5" role="status" aria-live="polite" aria-label="Assistant is typing">
     {[0, 1, 2].map((i) => (
       <motion.div
         key={i}
@@ -51,6 +51,7 @@ const TypingIndicator = () => (
         transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.15 }}
       />
     ))}
+    <span className="sr-only">Assistant is typing</span>
   </div>
 );
 
@@ -245,7 +246,7 @@ export function ChatBot() {
               onClick={openHistory}
               title="Past conversations"
               aria-label="Open past conversations"
-              className="text-primary-foreground hover:text-primary-foreground p-1.5 -ml-1 rounded-lg hover:bg-background/10 transition-colors"
+              className="text-primary-foreground hover:text-primary-foreground p-2.5 -ml-1 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
             >
               <History className="h-4 w-4" />
             </button>
@@ -256,8 +257,8 @@ export function ChatBot() {
           <div>
             <h2 className="font-semibold text-sm text-primary-foreground leading-tight">Help & Support</h2>
             <div className="flex items-center gap-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-[10px] text-primary-foreground/60">
+              <div className={`w-1.5 h-1.5 rounded-full ${isLoading ? "bg-amber-300 animate-pulse" : "bg-emerald-300"}`} aria-hidden="true" />
+              <span className="text-[10px] text-primary-foreground/70" aria-live="polite">
                 {isLoading ? "Typing…" : "Online"}
               </span>
             </div>
@@ -268,7 +269,7 @@ export function ChatBot() {
             onClick={newChat}
             title="New chat"
             aria-label="Start a new chat"
-            className="text-primary-foreground/60 hover:text-primary-foreground p-1.5 rounded-lg hover:bg-background/10 transition-colors"
+            className="text-primary-foreground/60 hover:text-primary-foreground p-2.5 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
           >
             <Plus className="h-3.5 w-3.5" />
           </button>
@@ -277,7 +278,7 @@ export function ChatBot() {
               onClick={clearMessages}
               title="Clear messages"
               aria-label="Clear messages"
-              className="text-primary-foreground/40 hover:text-primary-foreground p-1.5 rounded-lg hover:bg-background/10 transition-colors"
+              className="text-primary-foreground/40 hover:text-primary-foreground p-2.5 rounded-lg hover:bg-background/10 transition-colors min-h-11 min-w-11 inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/40"
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>
@@ -379,8 +380,8 @@ export function ChatBot() {
 
               <p className="font-semibold text-lg text-foreground mb-1">How can I help?</p>
               <p className="text-sm text-muted-foreground mb-5 max-w-[280px] leading-relaxed">
-                Living with joint pain is exhausting. Ask about symptoms, diet, exercises or
-                treatments — warm, UK-safe guidance (we do not prescribe).
+                Living with arthritis or frailty can be exhausting. Ask about symptoms, diet,
+                exercises or treatments — warm, UK-safe guidance (we do not prescribe).
               </p>
 
               <div className="w-full grid grid-cols-2 gap-2">
@@ -393,7 +394,8 @@ export function ChatBot() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.06 }}
                       onClick={() => safelySend(s.label)}
-                      className="flex flex-col text-left rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md active:scale-[0.98] transition-all group overflow-hidden"
+                      disabled={isLoading}
+                      className="flex flex-col text-left rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md active:scale-[0.98] transition-all group overflow-hidden min-h-[44px] disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
                       <div className="relative w-full h-20 overflow-hidden">
                         <img
@@ -450,8 +452,10 @@ export function ChatBot() {
 
       {/* Input */}
       <form onSubmit={handleSubmit} className="p-2.5 border-t border-border/40">
-        <div className="flex items-end gap-2 rounded-xl border border-border/50 focus-within:border-primary/30 focus-within:ring-1 focus-within:ring-primary/10 transition-all px-3 py-1.5 bg-muted/20">
+        <div className="flex items-end gap-2 rounded-xl border border-border/50 focus-within:border-primary/40 focus-within:ring-2 focus-within:ring-primary/15 transition-all px-3 py-1.5 bg-muted/20">
+          <label htmlFor="chatbot-input" className="sr-only">Message</label>
           <textarea
+            id="chatbot-input"
             ref={inputRef}
             value={input}
             onChange={handleTextareaChange}
@@ -459,14 +463,15 @@ export function ChatBot() {
             placeholder="Type a message…"
             disabled={isLoading}
             rows={1}
-            className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground max-h-[100px] py-1.5 leading-relaxed"
+            aria-busy={isLoading}
+            className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground max-h-[100px] py-2 leading-relaxed disabled:opacity-60"
           />
           <Button
             type="submit"
             disabled={isLoading || !input.trim()}
             size="icon"
             aria-label={isLoading ? "Sending message" : "Send message"}
-            className="h-8 w-8 rounded-lg shrink-0 transition-all"
+            className="h-11 w-11 min-h-11 min-w-11 rounded-lg shrink-0 transition-all"
           >
             {isLoading ? (
               <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
@@ -478,7 +483,7 @@ export function ChatBot() {
         <div className="flex items-center justify-center gap-1 mt-1.5">
           <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
           <p className="text-[10px] text-muted-foreground">
-            Always consult your healthcare provider
+            Educational support only — always consult your healthcare provider
           </p>
         </div>
       </form>

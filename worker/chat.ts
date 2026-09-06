@@ -19,7 +19,7 @@ export const MAX_CHAT_MESSAGE_CHARS = 2000;
 export const MAX_CHAT_HISTORY = 10;
 export const CHAT_PROVIDER_TIMEOUT_MS = 25_000;
 
-export const SYSTEM_PROMPT = `You are the Living With Arthritis UK support assistant for registered charity 1218461 (Oswestry, England). You give clear, compassionate, UK-focused educational information about arthritis and related joint health.
+export const SYSTEM_PROMPT = `You are the Living With Arthritis UK support assistant for registered charity 1218461 (Oswestry, England). You give clear, compassionate, UK-focused educational information about arthritis, frailty-related mobility challenges, and related joint health.
 
 Tone: warm and human. Acknowledge that living with joint pain is exhausting and that the reader is not alone — without drama, pity, or invented testimonials. Prefer practical next steps they can try today. Prefer “we’re a young charity building this with you” honesty over scale claims.
 
@@ -147,19 +147,22 @@ async function* readWorkersAiStream(stream: ReadableStream): AsyncGenerator<stri
   }
 }
 
-function sseResponse(readable: ReadableStream): Response {
-  return new Response(readable, {
-    headers: {
-      "Content-Type": "text/event-stream; charset=utf-8",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
+function sseResponse(readable: ReadableStream, requestId?: string): Response {
+  const headers: Record<string, string> = {
+    "Content-Type": "text/event-stream; charset=utf-8",
+    "Cache-Control": "no-cache, no-transform",
+    Connection: "keep-alive",
+    // Discourage intermediary buffering so tokens reach the browser promptly.
+    "X-Accel-Buffering": "no",
+  };
+  if (requestId) headers["x-request-id"] = requestId;
+  return new Response(readable, { headers });
 }
 
 async function streamOpenAiCompatible(
   env: EnvAI,
   messages: ChatMessage[],
+  requestId?: string,
 ): Promise<Response | null> {
   if (!env.OPENAI_API_KEY) return null;
   const base = (env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/$/, "");
@@ -214,12 +217,13 @@ async function streamOpenAiCompatible(
     }
   })();
 
-  return sseResponse(readable);
+  return sseResponse(readable, requestId);
 }
 
 async function streamWorkersAi(
   env: EnvAI,
   messages: ChatMessage[],
+  requestId?: string,
 ): Promise<Response | null> {
   if (!env.AI) return null;
   const model = "@cf/meta/llama-3.1-8b-instruct";
@@ -248,7 +252,7 @@ async function streamWorkersAi(
         controller.close();
       },
     });
-    return sseResponse(stream);
+    return sseResponse(stream, requestId);
   }
 
   const userText = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
@@ -278,7 +282,7 @@ async function streamWorkersAi(
     }
   })();
 
-  return sseResponse(readable);
+  return sseResponse(readable, requestId);
 }
 
 export function aiConfigured(env: EnvAI): { workersAi: boolean; openai: boolean } {
@@ -292,6 +296,7 @@ export async function handleChatStream(
   env: EnvAI,
   messages: ChatMessage[],
   profileSummary?: string,
+  requestId?: string,
 ): Promise<Response> {
   const cfg = aiConfigured(env);
   if (!cfg.workersAi && !cfg.openai) {
@@ -299,6 +304,7 @@ export async function handleChatStream(
       503,
       "AI chat is not configured. Enable Workers AI on this Worker, or set the OPENAI_API_KEY secret.",
       "not_configured",
+      requestId,
     );
   }
 
@@ -309,35 +315,40 @@ export async function handleChatStream(
 
   // Prefer Workers AI binding; fall back to OpenAI-compatible secret.
   try {
-    const aiRes = await streamWorkersAi(env, withSystem);
+    const aiRes = await streamWorkersAi(env, withSystem, requestId);
     if (aiRes) return aiRes;
   } catch (err) {
     console.error("Workers AI failed, trying OpenAI-compatible", err);
     if (!cfg.openai) {
       const msg = err instanceof Error ? err.message : "Workers AI error";
-      return jsonError(502, msg, "provider_error");
+      return jsonError(502, msg, "provider_error", requestId);
     }
   }
 
   try {
-    const openAiRes = await streamOpenAiCompatible(env, withSystem);
+    const openAiRes = await streamOpenAiCompatible(env, withSystem, requestId);
     if (openAiRes) return openAiRes;
   } catch (err) {
     console.error("OpenAI-compatible chat failed", err);
     const msg = err instanceof Error ? err.message : "AI provider error";
-    return jsonError(502, msg, "provider_error");
+    return jsonError(502, msg, "provider_error", requestId);
   }
 
   return jsonError(
     503,
     "AI chat is not configured. Enable Workers AI on this Worker, or set the OPENAI_API_KEY secret.",
     "not_configured",
+    requestId,
   );
 }
 
-function jsonError(status: number, error: string, code: string): Response {
-  return new Response(JSON.stringify({ ok: false, error, code }), {
-    status,
-    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
-  });
+function jsonError(status: number, error: string, code: string, requestId?: string): Response {
+  const body: Record<string, unknown> = { ok: false, error, code };
+  if (requestId) body.requestId = requestId;
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store",
+  };
+  if (requestId) headers["x-request-id"] = requestId;
+  return new Response(JSON.stringify(body), { status, headers });
 }

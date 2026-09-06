@@ -59,7 +59,7 @@ export function useContact() {
         result.error ||
           `We could not deliver your message. Please email ${CONTACT_EMAILS.info}.`,
       );
-      if (result.mailtoSuggested) {
+      if (result.mailtoSuggested && result.code !== "rate_limited") {
         const lines = [
           `Name: ${sanitizedData.name}`,
           `Email: ${sanitizedData.email}`,

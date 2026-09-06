@@ -176,7 +176,12 @@ async function handleContact(request: Request, env: Env, requestId: string): Pro
   const rl = await rateLimitDurable(env.RATE_LIMIT, `contact:${ip}`, 5, 60_000);
   if (!rl.ok) {
     return json(
-      { ok: false, error: "Too many submissions. Please wait and try again.", code: "rate_limited" },
+      {
+        ok: false,
+        error: "Too many submissions. Please wait and try again.",
+        code: "rate_limited",
+        retryAfterSec: rl.retryAfterSec,
+      },
       429,
       { "Retry-After": String(rl.retryAfterSec) },
       requestId,
@@ -274,6 +279,7 @@ async function handleAppointment(request: Request, env: Env, requestId: string):
         ok: false,
         error: "Too many booking attempts. Please wait and try again.",
         code: "rate_limited",
+        retryAfterSec: rl.retryAfterSec,
       },
       429,
       { "Retry-After": String(rl.retryAfterSec) },
@@ -367,7 +373,12 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
   const rl = await rateLimitDurable(env.RATE_LIMIT, `chat:${ip}`, 20, 60_000);
   if (!rl.ok) {
     return json(
-      { ok: false, error: "Too many chat messages. Please wait a minute.", code: "rate_limited" },
+      {
+        ok: false,
+        error: "Too many chat messages. Please wait a minute.",
+        code: "rate_limited",
+        retryAfterSec: rl.retryAfterSec,
+      },
       429,
       { "Retry-After": String(rl.retryAfterSec) },
       requestId,
@@ -416,7 +427,7 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
       ? sanitizeInput(body.profileSummary, 500)
       : undefined;
 
-  return handleChatStream(env, messages, profileSummary || undefined);
+  return handleChatStream(env, messages, profileSummary || undefined, requestId);
 }
 
 async function handleIndexNow(request: Request, env: Env, requestId: string): Promise<Response> {
@@ -493,7 +504,7 @@ export default {
     }
 
     if (url.pathname === "/api/search" && request.method === "GET") {
-      return withApiHeaders(await handleSearch(request, env), request, requestId);
+      return withApiHeaders(await handleSearch(request, env, requestId), request, requestId);
     }
 
     if (
@@ -532,6 +543,32 @@ export default {
 
     if (url.pathname === "/api/indexnow" && request.method === "POST") {
       return withApiHeaders(await handleIndexNow(request, env, requestId), request, requestId);
+    }
+
+    const knownApi = new Set([
+      "/api/health",
+      "/api/search",
+      "/api/contact",
+      "/api/appointment",
+      "/api/chat",
+      "/api/chat/stream",
+      "/api/indexnow",
+    ]);
+    if (knownApi.has(url.pathname)) {
+      return withApiHeaders(
+        json(
+          {
+            ok: false,
+            error: `Method ${request.method} not allowed for ${url.pathname}.`,
+            code: "method_not_allowed",
+          },
+          405,
+          { Allow: url.pathname === "/api/health" || url.pathname === "/api/search" ? "GET, OPTIONS" : "POST, OPTIONS" },
+          requestId,
+        ),
+        request,
+        requestId,
+      );
     }
 
     if (url.pathname.startsWith("/api/")) {

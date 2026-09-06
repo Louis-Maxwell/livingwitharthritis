@@ -70,7 +70,7 @@ export function useAppointment() {
         result.error ||
           `We could not send your request. Please email ${CONTACT_EMAILS.info}.`,
       );
-      if (result.mailtoSuggested) {
+      if (result.mailtoSuggested && result.code !== "rate_limited") {
         const body = [
           `Name: ${sanitizedData.name}`,
           `Email: ${sanitizedData.email}`,

@@ -13,6 +13,7 @@ describe("chat system prompt", () => {
     expect(SYSTEM_PROMPT).toMatch(/PH128483/);
     expect(SYSTEM_PROMPT).toMatch(/Louis Maxwell/);
     expect(SYSTEM_PROMPT).toMatch(/NICE/);
+    expect(SYSTEM_PROMPT).toMatch(/frailty/i);
     expect(SYSTEM_PROMPT).toMatch(/NEVER prescribe|must NEVER prescribe/i);
     expect(SYSTEM_PROMPT).toMatch(/\/diet/);
     expect(SYSTEM_PROMPT).toMatch(/\/exercises/);

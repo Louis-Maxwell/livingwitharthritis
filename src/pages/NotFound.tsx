@@ -92,11 +92,11 @@ const NotFound = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search articles, e.g. knee pain, diet, exercises"
-            className="flex-1 bg-transparent px-2 py-2 text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
+            className="flex-1 min-h-11 bg-transparent px-2 py-2 text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
           />
           <Link
             to={searchTarget}
-            className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="inline-flex min-h-11 min-w-[5.5rem] items-center justify-center gap-1 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Search
           </Link>

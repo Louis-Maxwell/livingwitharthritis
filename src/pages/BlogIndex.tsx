@@ -373,15 +373,41 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             );
           })()}
 
+          {/* Empty filter / search */}
+          {!isLoading && filtered.length === 0 && (
+            <div
+              className="rounded-2xl border border-dashed border-border bg-muted/20 p-10 text-center mb-6"
+              role="status"
+              aria-live="polite"
+            >
+              <p className="font-semibold text-foreground text-lg">No articles match that filter</p>
+              <p className="mt-2 text-sm text-muted-foreground max-w-md mx-auto">
+                Try another category, clear your search, or head back to all articles — we will
+                keep the list honest and useful.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery("");
+                  setActiveCategory("All");
+                  setCurrentPage(1);
+                }}
+                className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                Show all articles
+              </button>
+            </div>
+          )}
+
           {/* Grid */}
-          {!isLoading && (
+          {!isLoading && filtered.length > 0 && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {paginated.map((post) => (
                 <article
                   key={post.slug}
-                  className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-primary/30"
                 >
-                  <Link to={`/blog/${post.slug}`} className="block">
+                  <Link to={`/blog/${post.slug}`} className="block focus-visible:outline-none">
 
                   <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                     <img
