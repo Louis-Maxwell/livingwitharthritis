@@ -20,7 +20,10 @@
 // Copies dist/index.html into dist/<route>/index.html with the head
 // rewritten and a unique article body. Keeps a Puppeteer snapshot only
 // when it already contains the full article; thin homepage shells are
-// rebuilt so Google does not see a Soft 404.
+// rebuilt so Google does not see a Soft 404. Existing full-article files
+// still get a lightweight share-meta patch (title / description / og:image)
+// from ai/blog/condition head-data — so regenerating blog-head-data.json
+// and re-running this script refreshes crawler meta without a full vite build.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, join, dirname } from "node:path";
@@ -173,6 +176,54 @@ function escAttr(s) {
 
 function escText(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/**
+ * Lightweight share-preview refresh: update title / description / og+twitter
+ * image on an existing per-route HTML file without rebuilding the body or
+ * re-injecting JSON-LD. Used when a Puppeteer snapshot (or prior inject) already
+ * has a full article — so regenerating blog-head-data.json + re-running this
+ * script can fix crawler meta without a full vite build.
+ */
+export function patchShareMeta(html, d) {
+  if (!d) return html;
+  let out = html;
+  if (d.title) {
+    out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
+    out = out.replace(
+      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
+      `<meta property="og:title" content="${escAttr(d.title)}" />`,
+    );
+    out = out.replace(
+      /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
+      `<meta name="twitter:title" content="${escAttr(d.title)}" />`,
+    );
+  }
+  if (d.description) {
+    out = out.replace(
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
+      `<meta name="description" content="${escAttr(d.description)}" />`,
+    );
+    out = out.replace(
+      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
+      `<meta property="og:description" content="${escAttr(d.description)}" />`,
+    );
+    out = out.replace(
+      /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i,
+      `<meta name="twitter:description" content="${escAttr(d.description)}" />`,
+    );
+  }
+  if (d.ogImage) {
+    out = out.replace(
+      /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
+      `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,
+    );
+    out = out.replace(
+      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
+      `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
+    );
+  }
+  return out;
 }
 
 // JSON.stringify drops undefined object properties automatically, but we
@@ -374,6 +425,7 @@ function writeRouteFiles() {
   let skipped = 0;
   let rebuilt = 0;
   let enriched = 0;
+  let headPatched = 0;
 
   for (const route of routes) {
     const dir = join(DIST, route.replace(/^\//, ""));
@@ -383,7 +435,16 @@ function writeRouteFiles() {
       const existing = readFileSync(file, "utf8");
       // Keep a successful Puppeteer snapshot. Rebuild thin shells that
       // still look like the homepage or only have a short answer teaser.
+      // Still refresh title / description / og:image from head-data so
+      // social crawlers pick up cover images after blog-head-data regen.
       if (htmlHasFullArticle(existing, data)) {
+        if (data) {
+          const patched = patchShareMeta(existing, data);
+          if (patched !== existing) {
+            writeFileSync(file, patched);
+            headPatched++;
+          }
+        }
         skipped++;
         continue;
       }
@@ -396,7 +457,7 @@ function writeRouteFiles() {
   }
 
   console.log(
-    `[inject-canonicals] wrote ${written} per-route HTML files (skipped ${skipped} existing, rebuilt ${rebuilt} thin snapshots, ${enriched} AI-enriched with static JSON-LD)`,
+    `[inject-canonicals] wrote ${written} per-route HTML files (skipped ${skipped} existing, head-patched ${headPatched}, rebuilt ${rebuilt} thin snapshots, ${enriched} AI-enriched with static JSON-LD)`,
   );
 }
 
