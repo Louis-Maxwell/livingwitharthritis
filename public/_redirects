@@ -31,6 +31,34 @@
 /arthritis-support/oswestry /arthritis-support/stoke-on-trent 301
 /arthritis-support/shrewsbury /arthritis-support/wolverhampton 301
 /zakat /zakat-appeal 301
+/library/glucosamine /supplements/glucosamine 301
+/conditions/hip-arthritis/exercises /guides/hip-exercises-for-osteoarthritis 301
+/about/ /about 301
+/de/glossary/facet-joint-injection /glossary/facet-joint-injection 301
+/de/glossary/methotrexate /glossary/methotrexate 301
+/de/glossary/ankylosis /glossary/ankylosis 301
+/de/glossary/bone-density /glossary/bone-density 301
+/de/glossary/cartilage /glossary/cartilage 301
+/es/glossary/pain-scale /glossary/pain-scale 301
+/es/glossary/self-referral /glossary/self-referral 301
+/es/glossary/bone-density /glossary/bone-density 301
+/es/glossary/codeine /glossary/codeine 301
+/es/glossary/enthesitis /glossary/enthesitis 301
+/es/glossary/bisphosphonates /glossary/bisphosphonates 301
+/es/glossary/hydroxychloroquine /glossary/hydroxychloroquine 301
+/es/glossary/nice /glossary/nice 301
+/fr/glossary/nice /glossary/nice 301
+/fr/glossary/bisphosphonates /glossary/bisphosphonates 301
+/fr/glossary/hydroxychloroquine /glossary/hydroxychloroquine 301
+/fr/guides/wet-vs-dry-heat-therapy /guides/wet-vs-dry-heat-therapy 301
+/es/guides/wet-vs-dry-heat-therapy /guides/wet-vs-dry-heat-therapy 301
+/de/pets/pet-weight-and-joint-health /pets/pet-weight-and-joint-health 301
+/fr/uk/coventry/waiting-list-help /arthritis-support/coventry 301
+/de/uk/coventry/waiting-list-help /arthritis-support/coventry 301
+/es/corporate-partnerships /corporate-partnerships 301
+/fr/corporate-partnerships /corporate-partnerships 301
+/de/corporate-partnerships /corporate-partnerships 301
+/pt/corporate-partnerships /corporate-partnerships 301
 
 # --- Locale 404s (must sit above the /{lang}/* splats) ---
 /es/404 / 301

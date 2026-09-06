@@ -1623,11 +1623,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/library/glucosamine</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/library/hypermobility</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

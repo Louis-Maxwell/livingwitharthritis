@@ -75,6 +75,32 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/library/pain-management-hub": "/guides/arthritis-pain-relief",
   "/library/exercise-hub": "/exercises",
   "/library/nutrition-hub": "/diet",
+  // Duplicate without canonical — keep one clear glucosamine URL.
+  "/library/glucosamine": "/supplements/glucosamine",
+  // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
+  "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
+  // GSC soft-404 locale junk → English equivalent (exact stubs for Lovable SPA hosts).
+  "/de/glossary/facet-joint-injection": "/glossary/facet-joint-injection",
+  "/de/glossary/methotrexate": "/glossary/methotrexate",
+  "/de/glossary/ankylosis": "/glossary/ankylosis",
+  "/de/glossary/bone-density": "/glossary/bone-density",
+  "/de/glossary/cartilage": "/glossary/cartilage",
+  "/es/glossary/pain-scale": "/glossary/pain-scale",
+  "/es/glossary/self-referral": "/glossary/self-referral",
+  "/es/glossary/bone-density": "/glossary/bone-density",
+  "/es/glossary/codeine": "/glossary/codeine",
+  "/es/glossary/enthesitis": "/glossary/enthesitis",
+  "/es/glossary/bisphosphonates": "/glossary/bisphosphonates",
+  "/es/glossary/hydroxychloroquine": "/glossary/hydroxychloroquine",
+  "/es/glossary/nice": "/glossary/nice",
+  "/fr/glossary/nice": "/glossary/nice",
+  "/fr/glossary/bisphosphonates": "/glossary/bisphosphonates",
+  "/fr/glossary/hydroxychloroquine": "/glossary/hydroxychloroquine",
+  "/fr/guides/wet-vs-dry-heat-therapy": "/guides/wet-vs-dry-heat-therapy",
+  "/es/guides/wet-vs-dry-heat-therapy": "/guides/wet-vs-dry-heat-therapy",
+  "/de/pets/pet-weight-and-joint-health": "/pets/pet-weight-and-joint-health",
+  "/fr/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
+  "/de/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
 };
 
 function normalizePath(pathname: string): string {
@@ -152,8 +178,12 @@ function resolveOnce(path: string): string | null {
  * the current route. Collapses redirect chains into a single hop.
  */
 export function resolveSeoRedirect(pathname: string): string | null {
+  const raw = String(pathname || "").split("?")[0].split("#")[0].replace(/\/{2,}/g, "/");
+  const hadTrailingSlash = raw.length > 1 && raw.endsWith("/");
   let current = normalizePath(pathname);
-  let dest: string | null = null;
+  // Collapse /about/ → /about (and any other trailing-slash variants) unless a
+  // stronger exact/pattern redirect wins below. Do not invent link rel=canonical.
+  let dest: string | null = hadTrailingSlash ? current : null;
   const seen = new Set<string>([current]);
   for (let i = 0; i < 5; i++) {
     const next = resolveOnce(current);

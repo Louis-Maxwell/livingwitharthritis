@@ -101,6 +101,19 @@ describe("host + client SEO redirects", () => {
     expect(routes).not.toContain("/blog/mindfulness-meditation-chronic-pain");
   });
 
+
+  it("includes GSC locale + glucosamine + hip exercises in the exact host map", () => {
+    const paths = exactRedirectPathSet();
+    expect(paths.has("/es/glossary/nice")).toBe(true);
+    expect(paths.has("/library/glucosamine")).toBe(true);
+    expect(paths.has("/conditions/hip-arthritis/exercises")).toBe(true);
+    expect(paths.has("/de/glossary/methotrexate")).toBe(true);
+    expect(resolveSeoRedirect("/es/glossary/nice")).toBe("/glossary/nice");
+    expect(resolveSeoRedirect("/library/glucosamine")).toBe(
+      "/supplements/glucosamine",
+    );
+  });
+
   it("still bakes static-article HTML for the live mindfulness guide", () => {
     const template = `<!doctype html>
 <html lang="en-GB">

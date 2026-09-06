@@ -137,6 +137,29 @@ describe("resolveSeoRedirect", () => {
   });
 });
 
+
+  it("301s trailing-slash URLs onto the slashless path", () => {
+    expect(resolveSeoRedirect("/about/")).toBe("/about");
+    expect(resolveSeoRedirect("/blog/")).toBe("/blog");
+  });
+
+  it("301s hip exercises alternate and glucosamine library duplicate", () => {
+    expect(resolveSeoRedirect("/conditions/hip-arthritis/exercises")).toBe(
+      "/guides/hip-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/library/glucosamine")).toBe(
+      "/supplements/glucosamine",
+    );
+  });
+
+  it("301s GSC locale soft-404 glossary URLs onto English glossary pages", () => {
+    expect(resolveSeoRedirect("/es/glossary/nice")).toBe("/glossary/nice");
+    expect(resolveSeoRedirect("/fr/glossary/nice")).toBe("/glossary/nice");
+    expect(resolveSeoRedirect("/de/glossary/facet-joint-injection")).toBe(
+      "/glossary/facet-joint-injection",
+    );
+  });
+
 describe("isIndexableCityHubPath", () => {
   it("allows real city hubs and rejects unknown or nested paths", () => {
     expect(isIndexableCityHubPath("/arthritis-support/manchester")).toBe(true);

@@ -146,6 +146,7 @@ export function vercelRedirects() {
     permanent: true,
   }));
   const patterns = [
+    { source: "/about/", destination: "/about", permanent: true },
     { source: "/es/404", destination: "/", permanent: true },
     { source: "/fr/404", destination: "/", permanent: true },
     { source: "/de/404", destination: "/", permanent: true },

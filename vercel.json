@@ -86,6 +86,121 @@
       "permanent": true
     },
     {
+      "source": "/library/glucosamine",
+      "destination": "/supplements/glucosamine",
+      "permanent": true
+    },
+    {
+      "source": "/conditions/hip-arthritis/exercises",
+      "destination": "/guides/hip-exercises-for-osteoarthritis",
+      "permanent": true
+    },
+    {
+      "source": "/de/glossary/facet-joint-injection",
+      "destination": "/glossary/facet-joint-injection",
+      "permanent": true
+    },
+    {
+      "source": "/de/glossary/methotrexate",
+      "destination": "/glossary/methotrexate",
+      "permanent": true
+    },
+    {
+      "source": "/de/glossary/ankylosis",
+      "destination": "/glossary/ankylosis",
+      "permanent": true
+    },
+    {
+      "source": "/de/glossary/bone-density",
+      "destination": "/glossary/bone-density",
+      "permanent": true
+    },
+    {
+      "source": "/de/glossary/cartilage",
+      "destination": "/glossary/cartilage",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/pain-scale",
+      "destination": "/glossary/pain-scale",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/self-referral",
+      "destination": "/glossary/self-referral",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/bone-density",
+      "destination": "/glossary/bone-density",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/codeine",
+      "destination": "/glossary/codeine",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/enthesitis",
+      "destination": "/glossary/enthesitis",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/bisphosphonates",
+      "destination": "/glossary/bisphosphonates",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/hydroxychloroquine",
+      "destination": "/glossary/hydroxychloroquine",
+      "permanent": true
+    },
+    {
+      "source": "/es/glossary/nice",
+      "destination": "/glossary/nice",
+      "permanent": true
+    },
+    {
+      "source": "/fr/glossary/nice",
+      "destination": "/glossary/nice",
+      "permanent": true
+    },
+    {
+      "source": "/fr/glossary/bisphosphonates",
+      "destination": "/glossary/bisphosphonates",
+      "permanent": true
+    },
+    {
+      "source": "/fr/glossary/hydroxychloroquine",
+      "destination": "/glossary/hydroxychloroquine",
+      "permanent": true
+    },
+    {
+      "source": "/fr/guides/wet-vs-dry-heat-therapy",
+      "destination": "/guides/wet-vs-dry-heat-therapy",
+      "permanent": true
+    },
+    {
+      "source": "/es/guides/wet-vs-dry-heat-therapy",
+      "destination": "/guides/wet-vs-dry-heat-therapy",
+      "permanent": true
+    },
+    {
+      "source": "/de/pets/pet-weight-and-joint-health",
+      "destination": "/pets/pet-weight-and-joint-health",
+      "permanent": true
+    },
+    {
+      "source": "/fr/uk/coventry/waiting-list-help",
+      "destination": "/arthritis-support/coventry",
+      "permanent": true
+    },
+    {
+      "source": "/de/uk/coventry/waiting-list-help",
+      "destination": "/arthritis-support/coventry",
+      "permanent": true
+    },
+    {
       "source": "/blog/nhs-arthritis-exercises",
       "destination": "/blog/arthritis-exercises-uk-clinical",
       "permanent": true
@@ -473,6 +588,11 @@
     {
       "source": "/exercises/strength-training-for-ankle",
       "destination": "/exercises/strength-training-for-ankle-arthritis",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about",
       "permanent": true
     },
     {
