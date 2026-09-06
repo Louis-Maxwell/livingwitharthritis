@@ -545,15 +545,34 @@ async function handleChat(request: Request, env: Env, requestId: string): Promis
 async function handleIndexNow(request: Request, env: Env, requestId: string): Promise<Response> {
   // Prefer scripts/indexnow-ping.mjs after deploy. This endpoint is optional ops glue.
   const expected = (env.INDEXNOW_KEY || "").trim();
-  if (!expected) {
+  // Callers must present a private admin token that is NOT the public IndexNow
+  // verification key (which is published at /<key>.txt for search engines).
+  const adminToken = (env.INDEXNOW_ADMIN_TOKEN || "").trim();
+  if (!expected || !adminToken) {
     return json(
       {
         ok: false,
-        error: "IndexNow is not configured on this Worker (missing INDEXNOW_KEY).",
+        error: "IndexNow is not configured on this Worker.",
         code: "not_configured",
       },
       503,
       undefined,
+      requestId,
+    );
+  }
+
+  const ip = clientIp(request);
+  const rl = await rateLimitDurable(env.RATE_LIMIT, `indexnow:${ip}`, 5, 60_000);
+  if (!rl.ok) {
+    return json(
+      {
+        ok: false,
+        error: "Too many requests. Please wait and try again.",
+        code: "rate_limited",
+        retryAfterSec: rl.retryAfterSec,
+      },
+      429,
+      { "Retry-After": String(rl.retryAfterSec) },
       requestId,
     );
   }
@@ -565,9 +584,10 @@ async function handleIndexNow(request: Request, env: Env, requestId: string): Pr
   const body = parsed.data;
   const keyFromBody = typeof body.key === "string" ? body.key : "";
   const provided = bearer || keyFromBody;
-  if (!provided || provided !== expected) {
+  if (!provided || provided !== adminToken || adminToken === expected) {
     return json({ ok: false, error: "Unauthorized", code: "unauthorized" }, 401, undefined, requestId);
   }
+
 
   const host = "livingwitharthritis.org.uk";
   const urlList =
