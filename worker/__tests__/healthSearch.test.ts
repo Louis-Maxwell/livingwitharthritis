@@ -35,4 +35,13 @@ describe("search filter", () => {
     const under = filterSearchItems(items, { words: "under1000" });
     expect(under.every((i) => i.wordCount > 0 && i.wordCount < 1000)).toBe(true);
   });
+
+  it("ranks title matches above excerpt-only hits", () => {
+    const items = getBakedSearchIndex().items;
+    const ranked = filterSearchItems(items, { q: "pip" });
+    expect(ranked.length).toBeGreaterThan(0);
+    const top = ranked.slice(0, 5);
+    expect(top.some((i) => i.title.toLowerCase().includes("pip"))).toBe(true);
+  });
+
 });

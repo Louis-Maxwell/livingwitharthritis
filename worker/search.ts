@@ -82,6 +82,31 @@ export async function loadSearchIndex(env: {
   return getBakedSearchIndex().items;
 }
 
+/** Rank title / intent matches above weak excerpt-only hits. */
+function scoreSearchItem(item: SearchIndexItem, q: string): number {
+  if (!q) return 0;
+  const title = item.title.toLowerCase();
+  const excerpt = (item.excerpt || "").toLowerCase();
+  const topic = (item.topic || "").toLowerCase();
+  const keywords = (item.keywords || []).map((k) => k.toLowerCase());
+  const tokens = q.split(/\s+/).filter(Boolean);
+
+  let score = 0;
+  if (title === q) score += 120;
+  else if (title.startsWith(q)) score += 80;
+  else if (title.includes(q)) score += 50;
+
+  for (const token of tokens) {
+    if (title.includes(token)) score += 14;
+    if (keywords.some((k) => k.includes(token) || token.includes(k))) score += 8;
+    if (topic.includes(token)) score += 4;
+    if (excerpt.includes(token)) score += 2;
+  }
+
+  if (excerpt.includes(q)) score += 6;
+  return score;
+}
+
 export function filterSearchItems(
   items: SearchIndexItem[],
   opts: { q?: string; topic?: string; words?: string },
@@ -90,15 +115,25 @@ export function filterSearchItems(
   const words = (opts.words || "any").trim().toLowerCase();
   const q = (opts.q || "").trim().toLowerCase();
 
-  return items.filter((item) => {
+  const filtered = items.filter((item) => {
     if (topic !== "All" && item.topic !== topic) return false;
     if (!wordCountInBucket(item.wordCount, words)) return false;
     if (!q) return true;
     const hay = [item.title, item.excerpt, item.topic, ...(item.keywords || [])]
       .join(" ")
       .toLowerCase();
-    return hay.includes(q);
+    // Prefer full-phrase match; also allow all tokens present for multi-word intent.
+    if (hay.includes(q)) return true;
+    const tokens = q.split(/\s+/).filter(Boolean);
+    return tokens.length > 1 && tokens.every((token) => hay.includes(token));
   });
+
+  if (!q) return filtered;
+
+  return filtered
+    .map((item) => ({ item, score: scoreSearchItem(item, q) }))
+    .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+    .map(({ item }) => item);
 }
 
 export async function handleSearch(
