@@ -35,6 +35,7 @@ import {
   mkdirSync,
 } from 'node:fs';
 import { join, resolve, relative, sep } from 'node:path';
+import { exactRedirectPathSet } from './seo-redirect-map.mjs';
 
 const ROOT = resolve('.');
 const argv = process.argv.slice(2);
@@ -121,6 +122,7 @@ function walkHtml(dir, out = []) {
 
 const rootIndex = join(DIST, 'index.html');
 const pages = walkHtml(DIST).filter((p) => p !== rootIndex);
+const redirectStubs = exactRedirectPathSet();
 
 const genericTitle = [];
 const genericDescription = [];
@@ -131,6 +133,10 @@ for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const route =
     '/' + relative(DIST, file).split(sep).slice(0, -1).join('/');
+
+  // Redirect stubs are *supposed* to ship noindex + a unique "moved" head.
+  // They are not prerendered content pages.
+  if (redirectStubs.has(route)) continue;
 
   if (/<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
     noindex.push(route);

@@ -1,10 +1,18 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
+import { exactRedirects } from "./seo-redirect-map.mjs";
 
 const SITE = "https://livingwitharthritis.org.uk";
 const redirectSource = readFileSync("src/data/blogRedirects.ts", "utf8");
 const sitemap = readFileSync("public/sitemap.xml", "utf8");
 const csv = readFileSync("docs/seo/redirect-map.csv", "utf8");
+const hostRedirects = existsSync("public/_redirects")
+  ? readFileSync("public/_redirects", "utf8")
+  : "";
+const vercel = existsSync("vercel.json")
+  ? readFileSync("vercel.json", "utf8")
+  : "";
+const gate = readFileSync("src/components/SeoRedirectGate.tsx", "utf8");
 
 const redirects = new Map(
   [...redirectSource.matchAll(/^\s*"([^"]+)"\s*:\s*"([^"]+)",?\s*$/gm)].map(
@@ -52,7 +60,28 @@ for (const [from, to] of csvRedirects) {
   }
 }
 
-console.log(`Redirect audit: ${redirects.size} mappings checked`);
+for (const { from, to } of exactRedirects()) {
+  const line = `${from} ${to} 301`;
+  if (from.startsWith("/blog/") || from.startsWith("/arthritis-support/") || from === "/zakat") {
+    if (!hostRedirects.includes(`${from} ${to} 301`) && !hostRedirects.includes(line)) {
+      failures.push(`${from}: missing from public/_redirects`);
+    }
+  }
+  if (from === "/blog/mindfulness-meditation-chronic-pain" || from === "/arthritis-support/stockport") {
+    if (!vercel.includes(`"source": "${from}"`) || !vercel.includes(`"destination": "${to}"`)) {
+      failures.push(`${from}: missing from vercel.json`);
+    }
+    if (sitemap.includes(`${SITE}${from}<`)) {
+      failures.push(`${from}: still listed in sitemap.xml`);
+    }
+  }
+}
+
+if (!gate.includes('rel="canonical"') || !gate.includes("window.location.replace")) {
+  failures.push("SeoRedirectGate must emit a destination canonical and location.replace");
+}
+
+console.log(`Redirect audit: ${redirects.size} blog mappings + host adapters checked`);
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);
   process.exit(1);
