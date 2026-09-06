@@ -216,6 +216,15 @@ describe("SEO build safety", () => {
     expect(new Set(BLOG_CATEGORY_KEYS).size).toBe(BLOG_CATEGORY_KEYS.length);
   });
 
+  it("maps frailty slug and Treatment Guides aliases for BlogIndex filters", () => {
+    expect(canonicalBlogCategoryKey("frailty")).toBe("frailty");
+    expect(canonicalBlogCategoryKey("Frailty")).toBe("frailty");
+    expect(canonicalBlogCategoryKey("Prevention & Longevity")).toBe("frailty");
+    expect(canonicalBlogCategoryKey("Treatment Guides")).toBe("treatment");
+    expect(canonicalBlogCategoryKey("Surgery & Recovery")).toBe("treatment");
+    expect(BLOG_CATEGORY_KEYS).toContain("frailty");
+  });
+
 
   it("waits for route-specific prerender content and metadata", () => {
     document.title = GENERIC_HOME_TITLE;

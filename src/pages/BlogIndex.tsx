@@ -13,10 +13,29 @@ import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticle
 import { Skeleton } from "@/components/ui/skeleton";
 import { coverImage } from "@/lib/articleImages";
 import { displayTitle } from "@/lib/blogTitle";
+import {
+  BLOG_CATEGORY_KEYS,
+  canonicalBlogCategoryKey,
+  type BlogCategoryKey,
+} from "@/data/blogCategories";
 
-type Category = "All" | "Exercise" | "Nutrition" | "Lifestyle" | "Health" | "Mental Health" | "Supplements" | "Treatment";
+const CATEGORY_LABELS: Record<BlogCategoryKey, string> = {
+  exercise: "Exercise",
+  nutrition: "Nutrition",
+  lifestyle: "Lifestyle",
+  health: "Health",
+  "mental-health": "Mental Health",
+  supplements: "Supplements",
+  treatment: "Treatment",
+  frailty: "Frailty",
+};
 
-const categories: Category[] = ["All", "Exercise", "Nutrition", "Lifestyle", "Health", "Mental Health", "Supplements", "Treatment"];
+type Category = "All" | (typeof CATEGORY_LABELS)[BlogCategoryKey];
+
+const categories: Category[] = [
+  "All",
+  ...BLOG_CATEGORY_KEYS.map((key) => CATEGORY_LABELS[key]),
+];
 const POSTS_PER_PAGE = 24;
 
 /**
@@ -52,14 +71,27 @@ const categoryColors: Record<Category, string> = {
   "Mental Health": "bg-background text-primary hover:bg-primary/10 border-primary/40",
   Supplements: "bg-background text-primary hover:bg-primary/10 border-primary/40",
   Treatment: "bg-background text-primary hover:bg-primary/10 border-primary/40",
+  Frailty: "bg-background text-primary hover:bg-primary/10 border-primary/40",
 };
 
-/** Convert a URL slug like "mental-health" or "exercise" to a Category. */
+/** Match posts via blogCategories aliases (Treatment Guides → treatment, etc.). */
+function postMatchesCategory(postCategory: string, active: Category): boolean {
+  if (active === "All") return true;
+  const activeKey = canonicalBlogCategoryKey(active);
+  const postKey = canonicalBlogCategoryKey(postCategory);
+  return !!activeKey && postKey === activeKey;
+}
+
+function countInCategory(posts: { category: string }[], cat: Category): number {
+  return posts.filter((p) => postMatchesCategory(p.category, cat)).length;
+}
+
+/** Convert a URL slug like "mental-health", "frailty", or "exercise" to a Category. */
 function slugToCategory(slug?: string): Category {
   if (!slug) return "All";
-  const normalized = slug.toLowerCase().replace(/-/g, " ");
-  const match = categories.find((c) => c.toLowerCase() === normalized);
-  return match ?? "All";
+  const key = canonicalBlogCategoryKey(slug);
+  if (key) return CATEGORY_LABELS[key];
+  return "All";
 }
 
 interface BlogIndexProps {
@@ -104,7 +136,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
     const base = activeCategory === "All" && !searchQuery.trim()
       ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
       : blogPosts;
-    let posts = activeCategory === "All" ? base : base.filter((p) => p.category === activeCategory);
+    let posts = activeCategory === "All" ? base : base.filter((p) => postMatchesCategory(p.category, activeCategory));
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
@@ -312,7 +344,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                 {cat}
                 {cat !== "All" && (
                   <span className="ml-1.5">
-                    ({blogPosts.filter((p) => p.category === cat).length})
+                    ({countInCategory(blogPosts, cat)})
                   </span>
                 )}
               </button>
@@ -542,7 +574,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <p className="text-muted-foreground text-sm mb-6">Explore all our arthritis advice topics</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {categories.filter((c) => c !== "All").map((cat) => {
-                const count = blogPosts.filter((p) => p.category === cat).length;
+                const count = countInCategory(blogPosts, cat);
                 const isActive = activeCategory === cat;
                 return (
                   <Link
@@ -569,6 +601,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                         {cat === "Mental Health" && "Mood, anxiety & coping with chronic pain"}
                         {cat === "Supplements" && "Turmeric, omega-3, glucosamine & collagen"}
                         {cat === "Treatment" && "Medication, TENS, hydrotherapy & relief"}
+                        {cat === "Frailty" && "Falls prevention, sarcopenia & longevity"}
                       </p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />

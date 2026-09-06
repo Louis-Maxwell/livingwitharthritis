@@ -51,7 +51,7 @@ export default function BlogComments({ slug }: { slug: string }) {
     <section className="mt-14 border-t border-border pt-10">
       <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
         <MessageSquare className="w-5 h-5 text-primary" />
-        Comments {comments.length > 0 && `(${comments.length})`}
+        Email a comment
       </h2>
 
       {/* Comment form */}
@@ -73,10 +73,10 @@ export default function BlogComments({ slug }: { slug: string }) {
             required
           />
           <div className="flex items-center justify-between">
-            <p className="text-xs text-muted-foreground">Comments are moderated before appearing.</p>
+            <p className="text-xs text-muted-foreground">Opens your email app to info@livingwitharthritis.org.uk. Comments are not stored on this site.</p>
             <Button type="submit" disabled={submitting} size="sm" className="gap-1.5">
               <Send className="w-3.5 h-3.5" />
-              {submitting ? "Submitting…" : "Post Comment"}
+              {submitting ? "Opening email…" : "Email comment"}
             </Button>
           </div>
         </form>
@@ -84,7 +84,7 @@ export default function BlogComments({ slug }: { slug: string }) {
 
       {/* Comment list */}
       {comments.length === 0 ? (
-        <p className="text-muted-foreground text-sm">No comments yet. Be the first to share your thoughts!</p>
+        <p className="text-muted-foreground text-sm">No on-site comments yet — use the form above to email us.</p>
       ) : (
         <div className="space-y-4">
           {comments.map((c) => (

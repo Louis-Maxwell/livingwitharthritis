@@ -15,6 +15,7 @@ import {
   nextArticle,
   type DBBlogArticle,
 } from "@/data/staticBlog";
+import { canonicalBlogCategoryKey, blogCategoryAliases } from "@/data/blogCategories";
 
 export { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 export type { DBBlogArticle, BlogArticleCitation } from "@/data/staticBlog";
@@ -70,15 +71,15 @@ export function useFeaturedArticles(limit = 3) {
   });
 }
 
-const CATEGORY_ALIASES: Record<string, string[]> = {
-  Exercise: ["Exercise", "Exercises", "Exercise Guides", "exercises"],
-  Treatment: ["Treatment", "Treatment Guides", "treatments"],
-};
-
 function expandCategoryAliases(categories: string[]): string[] {
   const expanded = new Set<string>();
   for (const c of categories) {
-    for (const alias of CATEGORY_ALIASES[c] ?? [c]) expanded.add(alias);
+    const key = canonicalBlogCategoryKey(c);
+    if (key) {
+      for (const alias of blogCategoryAliases(key)) expanded.add(alias);
+      expanded.add(key);
+    }
+    expanded.add(c);
   }
   return [...expanded];
 }

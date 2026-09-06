@@ -15,7 +15,7 @@ describe("NotFound", () => {
         <NotFound />
       </MemoryRouter>,
     );
-    expect(screen.getByRole("heading", { name: /couldn.t find that page/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /could not find that page/i })).toBeInTheDocument();
     expect(screen.getByLabelText(/search articles/i)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /^home$/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /^blog$/i })).toBeInTheDocument();
