@@ -1,9 +1,10 @@
-import { memo, type MouseEvent } from "react";
+import { memo, type MouseEvent, lazy, Suspense } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
 
+const GalaxySpiralBackdrop = lazy(() => import("@/components/landing/GalaxySpiralBackdrop"));
 
 const scrollToStartHere = (event: MouseEvent<HTMLAnchorElement>) => {
   const target = document.getElementById("start-here");
@@ -26,25 +27,48 @@ const OAHero = memo(() => {
   return (
     <section
       aria-labelledby="oa-hero"
-      className="band-red relative w-full max-w-full overflow-hidden"
+      className="relative w-full max-w-full overflow-hidden text-white"
+      style={{ background: "#03050a" }}
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl py-16 lg:py-24">
+      {/* Interactive spiral-galaxy particle backdrop (lazy; canvas aria-hidden). */}
+      <Suspense fallback={null}>
+        <GalaxySpiralBackdrop />
+      </Suspense>
+
+      {/* Readability scrim — keeps empathetic copy high-contrast over particles */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(105deg, rgba(3,5,10,0.88) 0%, rgba(3,5,10,0.72) 42%, rgba(3,5,10,0.35) 68%, rgba(3,5,10,0.55) 100%)",
+        }}
+      />
+
+      <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Copy column */}
           <div className="hero-stagger">
             <h1
               id="oa-hero"
-              className="hero-item text-balance break-words text-[clamp(2rem,8vw,5.5rem)] leading-[0.95] uppercase"
+              className="hero-item text-balance break-words text-[clamp(2rem,8vw,5.5rem)] leading-[0.95] uppercase text-white"
+              style={{ textShadow: "0 2px 24px rgba(0,0,0,0.65)" }}
             >
               Living With Arthritis — UK charity for arthritis and frailty support
             </h1>
 
-            <p className="hero-item mt-6 text-sm lg:text-base font-medium max-w-xl leading-relaxed">
+            <p
+              className="hero-item mt-6 text-sm lg:text-base font-medium max-w-xl leading-relaxed text-white/95"
+              style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
+            >
               Living with joint pain is exhausting — the stiff mornings, the cancelled plans,
               the feeling that nobody quite gets it. You are not alone.
             </p>
 
-            <p className="hero-item mt-4 text-lg lg:text-xl max-w-xl leading-relaxed">
+            <p
+              className="hero-item mt-4 text-lg lg:text-xl max-w-xl leading-relaxed text-white/95"
+              style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
+            >
               We are a young UK charity (no.&nbsp;1218461) in Oswestry, independent of Arthritis UK.
               Here you will find clinically reviewed exercises, diet guidance and plain-English
               support you can use today — free, honest, and built with people who live this too.
@@ -60,7 +84,11 @@ const OAHero = memo(() => {
                 Start your gentle plan
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
-              <a href="/donate" className="btn-map w-full sm:w-auto justify-center min-h-11" style={{ background: "white", color: "hsl(var(--foreground))" }}>
+              <a
+                href="/donate"
+                className="btn-map w-full sm:w-auto justify-center min-h-11"
+                style={{ background: "white", color: "hsl(var(--foreground))" }}
+              >
                 Donate — keep it free
               </a>
               <a
@@ -75,7 +103,7 @@ const OAHero = memo(() => {
 
             <ul
               aria-label="Clinical alignment"
-              className="hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]"
+              className="hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-white/90"
             >
               <li className="flex items-center gap-2">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
@@ -91,9 +119,9 @@ const OAHero = memo(() => {
               </li>
             </ul>
 
-            <p className="hero-item mt-4 text-xs">
+            <p className="hero-item mt-4 text-xs text-white/85">
               Learn about our{" "}
-              <Link to="/editorial-standards" className="underline hover:no-underline font-medium">
+              <Link to="/editorial-standards" className="underline hover:no-underline font-medium text-white">
                 medical review process and editorial standards
               </Link>
               .
@@ -101,19 +129,27 @@ const OAHero = memo(() => {
 
             <nav
               aria-label="Popular guides"
-              className="hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+              className="hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/90"
             >
-              <span className="font-semibold">Popular:</span>
-              <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
+              <span className="font-semibold text-white">Popular:</span>
+              <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline text-white">Knee exercises</a>
               <span aria-hidden="true" className="opacity-50">·</span>
-              <a href="/diet" className="font-semibold underline underline-offset-4 hover:no-underline">Anti-inflammatory diet</a>
+              <a href="/diet" className="font-semibold underline underline-offset-4 hover:no-underline text-white">Anti-inflammatory diet</a>
               <span aria-hidden="true" className="opacity-50">·</span>
-              <a href="/guides/arthritis-pain-relief" className="font-semibold underline underline-offset-4 hover:no-underline">Pain-relief tips</a>
+              <a href="/guides/arthritis-pain-relief" className="font-semibold underline underline-offset-4 hover:no-underline text-white">Pain-relief tips</a>
             </nav>
           </div>
 
           {/* Octagon image — MAP signature shape */}
           <div className="reveal relative aspect-square w-full max-w-[min(560px,100%)] mx-auto min-w-0">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-6 rounded-full opacity-70 blur-2xl"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(255,200,120,0.35) 0%, rgba(120,170,255,0.15) 45%, transparent 70%)",
+              }}
+            />
             <img
               src={HERO_IMG}
               srcSet={HERO_SRCSET}
@@ -124,7 +160,7 @@ const OAHero = memo(() => {
               {...({ fetchpriority: "high" } as Record<string, string>)}
               decoding="async"
               loading="eager"
-              className="clip-octagon w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+              className="clip-octagon relative z-[1] w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
             />
           </div>
         </div>
