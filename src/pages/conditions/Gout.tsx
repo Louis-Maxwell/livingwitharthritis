@@ -177,6 +177,11 @@ const data: ConditionPageData = {
   ],
   related: [
     {
+      label: "Gout symptoms",
+      to: "/conditions/gout/symptoms",
+      desc: "Early signs of a gout attack, big-toe pain, and when to see a GP",
+    },
+    {
       label: "Febuxostat for gout",
       to: "/guides/febuxostat-for-gout",
       desc: "How febuxostat works for long-term uric acid control and gout prevention",

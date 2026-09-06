@@ -97,6 +97,9 @@ function HomePage() {
       areaServed: { "@type": "Country", name: "United Kingdom" },
       knowsAbout: [
         "Osteoarthritis",
+        "Rheumatoid arthritis",
+        "Gout",
+        "Fibromyalgia",
         "Anti-inflammatory diet",
         "Physiotherapy",
         "Chronic pain management",

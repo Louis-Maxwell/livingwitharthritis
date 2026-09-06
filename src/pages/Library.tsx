@@ -50,18 +50,18 @@ const Library = () => {
   return (
     <>
       <Helmet>
-        <title>Health Library | Living With Arthritis UK</title>
+        <title>Health Library UK | Arthritis conditions & medicines</title>
         <meta
           name="description"
-          content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health. Search 65+ clinician-reviewed topics."
+          content="UK health library on arthritis, fibromyalgia, gout medicines and treatments. Search 65+ clinician-reviewed topics in plain English — free to read."
         />
-        <meta property="og:title" content="Health Library | Living With Arthritis UK" />
-        <meta property="og:description" content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health." />
+        <meta property="og:title" content="Health Library UK | Arthritis conditions & medicines" />
+        <meta property="og:description" content="UK health library on arthritis, fibromyalgia, gout medicines and treatments. Search 65+ clinician-reviewed topics in plain English — free to read." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/library" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Health Library | Living With Arthritis UK" />
-        <meta name="twitter:description" content="Plain-English library of conditions, medications, supplements and treatments related to arthritis and joint health." />
+        <meta name="twitter:title" content="Health Library UK | Arthritis conditions & medicines" />
+        <meta name="twitter:description" content="UK health library on arthritis, fibromyalgia, gout medicines and treatments. Search 65+ clinician-reviewed topics in plain English — free to read." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
@@ -89,8 +89,8 @@ const Library = () => {
               Knowledge Base
             </span>
           }
-          title="Health Library"
-          subtitle="Plain-English explanations of conditions, medications, supplements and treatments. Search a term — find what you need."
+          title="UK arthritis health library"
+          subtitle="Plain-English explanations of conditions, medications, supplements and treatments — including fibromyalgia, osteoarthritis and common UK medicines."
         />
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-6xl py-12">

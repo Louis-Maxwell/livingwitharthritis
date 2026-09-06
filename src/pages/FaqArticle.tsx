@@ -1,8 +1,33 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { faqArticles } from '@/data/faqArticles';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+
+const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
+  'what-is-osteoarthritis': [
+    { label: 'Osteoarthritis guide', href: '/conditions/osteoarthritis' },
+    { label: 'Osteoarthritis library note', href: '/library/osteoarthritis' },
+  ],
+  'what-is-rheumatoid-arthritis': [
+    { label: 'Rheumatoid arthritis guide', href: '/conditions/rheumatoid-arthritis' },
+  ],
+  'osteoarthritis-vs-rheumatoid-arthritis': [
+    { label: 'Osteoarthritis guide', href: '/conditions/osteoarthritis' },
+    { label: 'Rheumatoid arthritis guide', href: '/conditions/rheumatoid-arthritis' },
+  ],
+  'arthritis-and-cold-weather': [
+    { label: 'Flare-up guide', href: '/arthritis-flare-ups' },
+    { label: 'Gout symptoms', href: '/conditions/gout/symptoms' },
+    { label: 'Fibromyalgia library guide', href: '/library/fibromyalgia' },
+  ],
+  'weight-management-osteoarthritis': [
+    { label: 'Osteoarthritis guide', href: '/conditions/osteoarthritis' },
+    { label: 'Diet hub', href: '/diet' },
+  ],
+};
 
 /**
  * Data-driven FAQ article page. One component renders all 19 entries
@@ -32,7 +57,7 @@ export default function FaqArticle() {
     };
     const breadcrumb = buildBreadcrumb([
       { name: 'Home', path: '/' },
-      { name: 'Living With Arthritis', path: '/living-with-arthritis' },
+      { name: 'FAQ', path: '/faq' },
       { name: article.title, path: `/faq/${article.slug}` },
     ]);
     const cleanup1 = injectJsonLd(`faq-jsonld-${article.slug}`, faq);
@@ -47,7 +72,11 @@ export default function FaqArticle() {
     return <Navigate to="/living-with-arthritis" replace />;
   }
 
+  const extraLinks = FAQ_CONDITION_LINKS[article.slug] ?? [];
+
   return (
+    <>
+    <Header />
     <article className="max-w-3xl mx-auto py-12 px-4">
       <SeoHead
         title={article.question}
@@ -60,8 +89,8 @@ export default function FaqArticle() {
       <nav aria-label="Breadcrumb" className="text-sm mb-4">
         <Link to="/" className="text-primary hover:underline">Home</Link>
         <span className="mx-2 text-muted-foreground">/</span>
-        <Link to="/living-with-arthritis" className="text-primary hover:underline">
-          Living With Arthritis
+        <Link to="/faq" className="text-primary hover:underline">
+          FAQ
         </Link>
         <span className="mx-2 text-muted-foreground">/</span>
         <span className="text-muted-foreground">{article.title}</span>
@@ -82,10 +111,17 @@ export default function FaqArticle() {
         ))}
       </div>
 
-      {article.relatedArticles.length > 0 && (
+      {(article.relatedArticles.length > 0 || extraLinks.length > 0) && (
         <section className="bg-muted p-6 rounded-lg my-12">
-          <h2 className="text-xl font-bold mb-4">Related questions</h2>
+          <h2 className="text-xl font-bold mb-4">Related questions and guides</h2>
           <ul className="space-y-2">
+            {extraLinks.map((link) => (
+              <li key={link.href}>
+                <Link to={link.href} className="text-primary hover:underline font-semibold">
+                  → {link.label}
+                </Link>
+              </li>
+            ))}
             {article.relatedArticles.map((relSlug) => {
               const rel = faqArticles.find((a) => a.slug === relSlug);
               if (!rel) return null;
@@ -108,5 +144,7 @@ export default function FaqArticle() {
         </Link>
       </section>
     </article>
+    <Footer />
+    </>
   );
 }

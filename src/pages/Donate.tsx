@@ -138,11 +138,11 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to Living With Arthritis UK | Gift Aid</title>
-        <meta name="description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
+        <title>Donate to Living With Arthritis UK | Gift Aid CIO</title>
+        <meta name="description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-      <meta property="og:title" content="Donate to Living With Arthritis UK | Gift Aid" />
-      <meta property="og:description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
+      <meta property="og:title" content="Donate to Living With Arthritis UK | Gift Aid CIO" />
+      <meta property="og:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
@@ -152,8 +152,8 @@ export default function Donate() {
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Living With Arthritis UK | Gift Aid" />
-      <meta name="twitter:description" content={`Give to ${CHARITY.shortName}: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.`} />
+      <meta name="twitter:title" content="Donate to Living With Arthritis UK | Gift Aid CIO" />
+      <meta name="twitter:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
       <Header />

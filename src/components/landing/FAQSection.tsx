@@ -53,6 +53,23 @@ const FAQSection = memo(() => {
         ))}
       </Accordion>
 
+      <div className="mt-12 grid sm:grid-cols-2 gap-3 text-start">
+        {[
+          { href: "/faq/what-is-osteoarthritis", label: "What is osteoarthritis?" },
+          { href: "/faq/what-is-rheumatoid-arthritis", label: "What is rheumatoid arthritis?" },
+          { href: "/faq/arthritis-and-cold-weather", label: "Why does cold weather worsen arthritis?" },
+          { href: "/faq/arthritis-disability-benefits-uk", label: "Can I claim PIP for arthritis?" },
+        ].map((item) => (
+          <Link
+            key={item.href}
+            to={item.href}
+            className="rounded-xl border border-border/60 bg-card px-4 py-3 text-sm font-semibold text-primary hover:border-primary/40 hover:bg-primary/[0.03]"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+
       <div className="mt-20 text-center space-y-5">
         <p className="text-sm text-muted-foreground tracking-wide">
           Still wondering about something? Our help chat is here whenever you need a kind, quick answer.
@@ -65,9 +82,9 @@ const FAQSection = memo(() => {
             <MessageCircle className="w-4 h-4 me-2" />
             Ask our help chat helper
           </Button>
-          <Link to="/blog">
+          <Link to="/faq">
             <Button variant="outline" className="rounded-full h-[54px] px-10 text-sm font-bold tracking-wider border-2 border-primary/15 text-primary hover:bg-primary/[0.03]">
-              Read our gentle guides <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
+              Browse all FAQs <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
             </Button>
           </Link>
         </div>

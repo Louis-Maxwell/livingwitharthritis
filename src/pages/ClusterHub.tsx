@@ -35,9 +35,6 @@ export default function ClusterHub({
   pillarArticleSlug,
   pillarArticleTitle,
   articles,
-  statsKeywords,
-  statsTraffic,
-  statsSnippets,
 }: ClusterHubProps) {
   useAnalytics('library', `${clusterSlug}-hub`);
 
@@ -80,21 +77,6 @@ export default function ClusterHub({
             </Link>
           </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Keywords</div>
-              <div className="text-2xl font-bold text-blue-600">{statsKeywords}</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Avg Traffic</div>
-              <div className="text-2xl font-bold text-green-600">{statsTraffic}</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Featured</div>
-              <div className="text-2xl font-bold text-amber-600">{statsSnippets}</div>
-            </div>
-          </div>
         </header>
 
         {/* Cluster Articles Grid */}
@@ -154,25 +136,25 @@ export default function ClusterHub({
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Topics</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <Link
-              to="/library/pain-management-hub"
+              to="/guides/arthritis-pain-relief"
               className="p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all"
             >
               <p className="font-semibold text-gray-900">Pain Management</p>
-              <p className="text-sm text-gray-600">12 guides</p>
+              <p className="text-sm text-gray-600">UK pain-relief guide</p>
             </Link>
             <Link
-              to="/library/exercise-hub"
+              to="/exercises"
               className="p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all"
             >
               <p className="font-semibold text-gray-900">Exercise & Movement</p>
-              <p className="text-sm text-gray-600">12 guides</p>
+              <p className="text-sm text-gray-600">Exercise hub</p>
             </Link>
             <Link
-              to="/library/nutrition-hub"
+              to="/diet"
               className="p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all"
             >
               <p className="font-semibold text-gray-900">Diet & Nutrition</p>
-              <p className="text-sm text-gray-600">12 guides</p>
+              <p className="text-sm text-gray-600">Diet hub</p>
             </Link>
           </div>
         </section>

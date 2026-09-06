@@ -5,6 +5,11 @@
 # --- Known GSC hard 404 / soft 404 exact URLs ---
 /blog/mindfulness-meditation-chronic-pain /blog/mindfulness-chronic-pain-arthritis-guide 301
 /exercise-hub /exercises 301
+/library/osteoarthritis-hub /conditions/osteoarthritis 301
+/library/rheumatoid-arthritis-hub /conditions/rheumatoid-arthritis 301
+/library/pain-management-hub /guides/arthritis-pain-relief 301
+/library/exercise-hub /exercises 301
+/library/nutrition-hub /diet 301
 /conditions /conditions/arthritis 301
 /about-us /about 301
 /trust-credibility /trust 301

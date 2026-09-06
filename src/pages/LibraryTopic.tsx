@@ -7,10 +7,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, AlertTriangle, ArrowRight } from "lucide-react";
 import { getHealthTopic, healthTopics } from "@/data/healthTopics";
+import { getLibraryTopicSeo } from "@/data/libraryTopicSeo";
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
   const topic = useMemo(() => getHealthTopic(slug), [slug]);
+  const seo = useMemo(() => getLibraryTopicSeo(slug), [slug]);
 
   useEffect(() => {
     if (!topic) return;
@@ -22,45 +24,54 @@ const LibraryTopic = () => {
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
-      name: topic.title,
-      description: topic.subtitle || topic.sections[0]?.body?.slice(0, 160),
+      name: seo?.h1 || topic.title,
+      description:
+        seo?.description ||
+        topic.subtitle ||
+        topic.sections[0]?.body?.slice(0, 160),
       url: `https://livingwitharthritis.org.uk/library/${topic.slug}`,
+      inLanguage: "en-GB",
       about: { "@type": "MedicalCondition", name: topic.title },
       publisher: {
         "@type": "Organization",
         name: "Living With Arthritis UK",
+      },
+      isPartOf: {
+        "@type": "CollectionPage",
+        name: "Health Library",
+        url: "https://livingwitharthritis.org.uk/library",
       },
     });
     document.head.appendChild(script);
     return () => {
       document.getElementById(id)?.remove();
     };
-  }, [topic]);
+  }, [topic, seo]);
 
   if (!topic) return <Navigate to="/library" replace />;
 
   const related = healthTopics
     .filter((t) => t.category === topic.category && t.slug !== topic.slug)
     .slice(0, 6);
+  const title = seo?.title ?? `${topic.title} | Living With Arthritis UK`;
+  const description =
+    seo?.description ||
+    topic.subtitle ||
+    `${topic.title} — plain-English information from Living With Arthritis UK.`;
+  const heading = seo?.h1 ?? topic.title;
 
   return (
     <>
       <Helmet>
-        <title>{topic.title} | Living With Arthritis UK</title>
-        <meta
-          name="description"
-          content={
-            topic.subtitle ||
-            `${topic.title} — plain-English information from Living With Arthritis UK.`
-          }
-        />
-        <meta property="og:title" content={`${topic.title} | Living With Arthritis UK`} />
-        <meta property="og:description" content={topic.subtitle || `${topic.title} — plain-English information from Living With Arthritis UK.`} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://livingwitharthritis.org.uk/library/${topic.slug}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${topic.title} | Living With Arthritis UK`} />
-        <meta name="twitter:description" content={topic.subtitle || `${topic.title} — plain-English information from Living With Arthritis UK.`} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
       </Helmet>
 
       <Header />
@@ -78,11 +89,11 @@ const LibraryTopic = () => {
             {topic.category}
           </Badge>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-3">
-            {topic.title}
+            {heading}
           </h1>
-          {topic.subtitle && (
+          {(seo?.description || topic.subtitle) && (
             <p className="text-lg text-muted-foreground mb-10">
-              {topic.subtitle}
+              {seo?.description || topic.subtitle}
             </p>
           )}
 
@@ -120,6 +131,29 @@ const LibraryTopic = () => {
               />
               <p className="text-foreground/80">{topic.disclaimer}</p>
             </aside>
+          )}
+
+          {seo?.related && seo.related.length > 0 && (
+            <section className="mt-16 pt-10 border-t border-border">
+              <h2 className="font-serif text-2xl font-semibold mb-6">
+                Related guides
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {seo.related.map((r) => (
+                  <Link
+                    key={r.href}
+                    to={r.href}
+                    className="group flex items-center justify-between p-4 rounded-xl border border-border hover:border-primary/40 hover:bg-muted/40 transition-colors"
+                  >
+                    <span className="font-medium">{r.label}</span>
+                    <ArrowRight
+                      size={16}
+                      className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </section>
           )}
 
           {related.length > 0 && (
