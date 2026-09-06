@@ -16,7 +16,7 @@ const ROWS = [
     href: "/contact",
     cta: "Contact us",
     image:
-      "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=1080&q=80&auto=format",
+      "/openverse/cover-0159-elderly-couple-walk-together.webp",
     alt: "Older man in a yellow jumper on the phone at home, smiling.",
   },
   {
@@ -27,7 +27,7 @@ const ROWS = [
     href: "/arthritis-flare-ups",
     cta: "See pain-relief guide",
     image:
-      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1080&q=80&auto=format",
+      "/openverse/cover-0290-female-physiotherapist-with-elderly-female-pa.webp",
     alt: "Therapist supporting a patient's shoulder in a warm clinic.",
   },
   {
@@ -38,7 +38,7 @@ const ROWS = [
     href: "/conditions/osteoarthritis",
     cta: "Read the guide",
     image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1080&q=80&auto=format",
+      "/openverse/cover-0128-two-colorful-elderly-women.webp",
     alt: "Middle-aged woman relaxing on a sofa with a warm throw blanket.",
   },
   {
@@ -49,7 +49,7 @@ const ROWS = [
     href: "/faq",
     cta: "Browse FAQ",
     image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1080&q=80&auto=format",
+      "/openverse/community-04-renewing-bonds-family-reconnects-at-4th-asog-marri.webp",
     alt: "Small group of adults consulting a tablet together.",
   },
 ];
@@ -69,7 +69,7 @@ const Row = ({
     <div className="overflow-hidden rounded-2xl bg-muted aspect-[4/3]">
       <img
         src={row.image}
-        srcSet={unsplashSrcSet(row.image)}
+        srcSet={unsplashSrcSet(row.image) || undefined}
         sizes={defaultSizes}
         alt={row.alt}
         width={1080}

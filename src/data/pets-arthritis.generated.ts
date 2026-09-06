@@ -1,5 +1,5 @@
 // AUTO-GENERATED — Pet arthritis articles (dogs, cats, llamas/alpacas, horses)
-// Images: Unsplash (free licence). Replace with owned photos when available.
+// Images: local Openverse/og assets (no Unsplash hotlinks). Prefer owned pet photos when available.
 
 export interface PetImage { url: string; alt: string; caption: string; }
 export interface PetSection { heading: string; body: string; }
@@ -17,17 +17,17 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Around 80% of dogs over 8 show signs of arthritis. Learn the early warning signs, what your vet can offer (from supplements to Librela), and simple home changes that make a big difference.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=75",
+        "url": "/openverse/cover-0168-elderly-woman-with-dog-in-stroller.webp",
         "alt": "Senior dachshund resting on a soft bed",
         "caption": "Long-backed and large breeds are at higher risk of joint problems."
       },
       {
-        "url": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&q=75",
+        "url": "/openverse/cover-0161-haringey-dog-buggy.webp",
         "alt": "Golden retriever on a gentle walk in the park",
         "caption": "Little-and-often walks beat one long weekend hike for arthritic joints."
       },
       {
-        "url": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=75",
+        "url": "/openverse/community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.webp",
         "alt": "Dog being examined by a veterinarian",
         "caption": "Your vet can grade arthritis and build a stepped treatment plan."
       }
@@ -73,17 +73,17 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Up to 90% of cats over 12 have arthritic changes on X-ray, yet most are never diagnosed \u2014 cats mask pain superbly. Here's how to spot it and what genuinely helps.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&q=75",
+        "url": "/openverse/cover-0159-elderly-couple-walk-together.webp",
         "alt": "Senior tabby cat resting on a windowsill",
         "caption": "Cats rarely limp \u2014 they simply stop doing things that hurt."
       },
       {
-        "url": "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=800&q=75",
+        "url": "/openverse/cover-0334-older-couple-walking-the-aquila-loop-trail.webp",
         "alt": "Cat stepping carefully down from furniture",
         "caption": "Hesitating before jumps is one of the clearest arthritis signs in cats."
       },
       {
-        "url": "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=800&q=75",
+        "url": "/openverse/cover-0119-out-for-morning-walk.webp",
         "alt": "Cat being gently stroked at home",
         "caption": "Grooming changes and grumpiness when touched can signal joint pain."
       }
@@ -129,17 +129,17 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Degenerative joint disease is the leading cause of early retirement in UK horses. Early management \u2014 footcare, surfaces, warm-up and vet support \u2014 keeps horses comfortable for years longer.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=75",
+        "url": "/openverse/cover-0334-older-couple-walking-the-aquila-loop-trail.webp",
         "alt": "Horse grazing in a green paddock",
         "caption": "Consistent turnout keeps joints moving \u2014 box rest stiffens arthritic horses."
       },
       {
-        "url": "https://images.unsplash.com/photo-1534773728080-33d31da27ae5?w=800&q=75",
+        "url": "/openverse/cover-0080-buenos-aires-botanical-garden.webp",
         "alt": "Horse and rider walking calmly in an arena",
         "caption": "A long, progressive walk warm-up is the cheapest joint treatment there is."
       },
       {
-        "url": "https://images.unsplash.com/photo-1450052590821-8bf91254a353?w=800&q=75",
+        "url": "/openverse/cover-0108-old-runner-a3.webp",
         "alt": "Farrier working on a horse's hoof",
         "caption": "Balanced, regular farriery directly reduces abnormal joint loading."
       }
@@ -185,12 +185,12 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Camelids are stoic animals that hide lameness until it's advanced. Learn the subtle signs of joint disease in llamas and alpacas and the husbandry changes that keep them comfortable.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1531928351158-2f736078e0a1?w=800&q=75",
+        "url": "/openverse/cover-0159-elderly-couple-walk-together.webp",
         "alt": "Llama standing in a grassy field",
         "caption": "Camelids mask pain \u2014 watch for lying down more and lagging behind the herd."
       },
       {
-        "url": "https://images.unsplash.com/photo-1589182337358-2cb63099350c?w=800&q=75",
+        "url": "/openverse/cover-0334-older-couple-walking-the-aquila-loop-trail.webp",
         "alt": "Alpacas grazing together in a paddock",
         "caption": "Arthritic camelids often separate slightly from the herd and graze less widely."
       }
@@ -228,12 +228,12 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "The single most common mistake owners make is weekend-warrior exercise. Here's how to build a joint-friendly movement routine for dogs, cats and horses alike.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&q=75",
+        "url": "/openverse/cover-0059-elderly-walking.webp",
         "alt": "Older dog walking slowly beside owner on a lead",
         "caption": "Consistency beats intensity: the same gentle route daily is ideal."
       },
       {
-        "url": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=75",
+        "url": "/openverse/cover-0159-elderly-couple-walk-together.webp",
         "alt": "Two dogs walking calmly with owner in a field",
         "caption": "Avoid high-speed chase games that twist and jar arthritic joints."
       }
@@ -271,12 +271,12 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Excess weight is the most powerful \u2014 and most fixable \u2014 driver of arthritis pain in pets. A practical guide to body condition scoring and safe weight loss for dogs, cats, horses and camelids.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=800&q=75",
+        "url": "/openverse/cover-0334-older-couple-walking-the-aquila-loop-trail.webp",
         "alt": "Healthy lean dog standing in profile",
         "caption": "You should feel ribs easily under a light fat cover and see a waist from above."
       },
       {
-        "url": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&q=75",
+        "url": "/openverse/cover-0119-out-for-morning-walk.webp",
         "alt": "Cat at a healthy weight sitting upright",
         "caption": "Cats lose weight safely at no more than 1-2% of body weight per week."
       }
@@ -314,12 +314,12 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Ramps, rugs, raised bowls and warm beds \u2014 small changes around the home dramatically reduce daily joint strain for arthritic dogs and cats.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?w=800&q=75",
+        "url": "/openverse/community-03-a-senior-indian-couple-on-a-scooty.webp",
         "alt": "Dog resting comfortably on a thick orthopaedic bed",
         "caption": "A supportive orthopaedic bed in a draught-free spot pays for itself in comfort."
       },
       {
-        "url": "https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=800&q=75",
+        "url": "/openverse/cover-0141-senior-citizen-walking-club-at-alki-playgroun.webp",
         "alt": "Cat using low steps to reach a sofa",
         "caption": "Steps or a ramp let cats keep their favourite high spots without painful jumps."
       }
@@ -361,12 +361,12 @@ export const PET_ARTICLES: PetArticle[] = [
     "summary": "Most pet arthritis can be managed at a routine appointment \u2014 but some signs need urgent attention. Know the difference.",
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=800&q=75",
+        "url": "/openverse/cover-0059-elderly-walking.webp",
         "alt": "Vet examining a dog's leg in a clinic",
         "caption": "Book a routine appointment for gradual stiffness; go urgently for sudden non-weight-bearing lameness."
       },
       {
-        "url": "https://images.unsplash.com/photo-1615751072497-5f5169febe17?w=800&q=75",
+        "url": "/openverse/cover-0159-elderly-couple-walk-together.webp",
         "alt": "Cat being checked over by a veterinary nurse",
         "caption": "Many UK practices run free nurse-led mobility and weight clinics."
       }

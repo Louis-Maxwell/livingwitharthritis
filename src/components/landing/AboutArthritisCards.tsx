@@ -13,7 +13,7 @@ const CARDS = [
     body: "Talk with people who get it. A kind, judgement-free space to share experience and small wins.",
     href: "/community",
     image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1080&q=80&auto=format",
+      "/openverse/community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.webp",
     alt: "Group of older adults talking and laughing together in warm afternoon light.",
   },
   {
@@ -22,7 +22,7 @@ const CARDS = [
     body: "Clinically-reviewed advice on flare-ups, diet and movement — written like a friend, not a textbook.",
     href: "/blog-hub",
     image:
-      "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=1080&q=80&auto=format",
+      "/openverse/nutrition-02-healthy-meal-planning-with-fresh-fruits-and-vegeta.webp",
     alt: "Person reading an arthritis self-help guide on a tablet at a sunlit kitchen table.",
   },
   {
@@ -31,7 +31,7 @@ const CARDS = [
     body: "Every page references the science behind it — NICE, peer-reviewed studies and HCPC clinicians.",
     href: "/about",
     image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1080&q=80&auto=format",
+      "/openverse/community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp",
     alt: "Clinician in a consultation room reviewing notes with a patient.",
   },
 ];
@@ -69,7 +69,7 @@ const AboutArthritisCards = () => {
               <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <img
                   src={card.image}
-                  srcSet={unsplashSrcSet(card.image)}
+                  srcSet={unsplashSrcSet(card.image) || undefined}
                   sizes={defaultSizes}
                   alt={card.alt}
                   width={1080}

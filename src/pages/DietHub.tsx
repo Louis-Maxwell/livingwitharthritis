@@ -160,11 +160,11 @@ const DietHub = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1200&q=80&fm=webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/og/diet-hub.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Arthritis Diet Hub: Anti-Inflammatory Foods & Nutrition" />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1200&q=80&fm=webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/diet-hub.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Diet for Arthritis Pain UK – Complete Guide" />
         <meta name="twitter:description" content="Foods to avoid with arthritis: Inflammatory foods, omega-6 oils, sugar & salt. Anti-inflammatory diet strategies from a nutritionist." />

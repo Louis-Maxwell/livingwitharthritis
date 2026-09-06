@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const heroImage =
-  "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=1600&q=80";
+  "/openverse/arthritis-01-arthritic-hands-in-pain.webp";
 
 const evidence = [
   {

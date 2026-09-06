@@ -21,7 +21,7 @@ const SITE = 'https://livingwitharthritis.org.uk';
 const PATH = '/blog/knee-arthritis-exercises-uk';
 
 const heroImage =
-  'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?auto=format&fit=crop&w=1600&q=80';
+  '/og/exercise-hub.png';
 
 const tier1Exercises = [
   {

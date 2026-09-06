@@ -27,7 +27,7 @@ const PATH = "/diet/foods-to-avoid-with-arthritis";
 const URL = `${SITE}${PATH}`;
 
 const heroImage =
-  "https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1600&q=80";
+  "/openverse/nutrition-04-healthy-meal-prep-with-fresh-salad-fruits-and-plan.webp";
 
 const triggers = [
   {

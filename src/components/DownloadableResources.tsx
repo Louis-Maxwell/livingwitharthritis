@@ -9,21 +9,21 @@ const resources = [
     title: "UK Arthritis Fact Sheet",
     desc: "Key statistics, prevalence data and economic impact of arthritis in the UK. Perfect for articles, presentations and resource pages.",
     fn: "generateArthritisFactSheet" as const,
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=250&fit=crop",
+    image: "/og/conditions-rheumatoid-arthritis.png",
   },
   {
     icon: ShoppingCart,
     title: "Anti-Inflammatory Shopping List",
     desc: "Printable grocery checklist organised by food group — oily fish, berries, leafy greens, spices and more.",
     fn: "generateShoppingListPdf" as const,
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=250&fit=crop",
+    image: "/openverse/nutrition-02-healthy-meal-planning-with-fresh-fruits-and-vegeta.webp",
   },
   {
     icon: ClipboardCheck,
     title: "Joint Pain Self-Assessment",
     desc: "A simple printable tracker to rate pain, stiffness and mobility across all major joints — great for GP appointments.",
     fn: "generateSelfAssessmentPdf" as const,
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=250&fit=crop",
+    image: "/og/exercise-hub.png",
   },
 ];
 

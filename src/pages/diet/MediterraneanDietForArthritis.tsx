@@ -22,7 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const heroImage =
-  "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=1600&q=80";
+  "/openverse/cover-0469-organic-olive-oil-salad.webp";
 
 const whyItWorks = [
   {

@@ -12,13 +12,13 @@ interface Face {
 
 const FACES: Face[] = [
   {
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    image: "/openverse/hero-friends-800.webp",
     alt: "Older woman smiling outdoors in a garden",
     name: "Margaret, 68",
     caption: "Walks her dog every morning — gentle daily movement keeps the knees moving.",
   },
   {
-    image: "https://images.unsplash.com/photo-1559963110-71b394e7494d?w=800&q=80",
+    image: "/openverse/cover-0108-old-runner-a3.webp",
     alt: "Senior man preparing fresh Mediterranean food in a sunlit kitchen",
     name: "Ronald, 72",
     caption: "Switched to a Mediterranean plate — olive oil, oily fish, plenty of greens.",

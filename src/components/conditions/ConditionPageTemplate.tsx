@@ -88,12 +88,12 @@ export interface ConditionPageData {
 
 // Real Unsplash photographs (free to use) — replaces previous AI-generated webp set.
 const CONDITION_IMAGES: Record<string, string> = {
-  osteoarthritis: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80&fm=webp",
-  "rheumatoid-arthritis": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&fm=webp",
-  "psoriatic-arthritis": "https://images.unsplash.com/photo-1586104195538-050b9f74f58e?w=1200&q=80&fm=webp",
-  "ankylosing-spondylitis": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80&fm=webp",
-  fibromyalgia: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80&fm=webp",
-  gout: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&q=80&fm=webp",
+  osteoarthritis: "/og/conditions-osteoarthritis.png",
+  "rheumatoid-arthritis": "/og/conditions-rheumatoid-arthritis.png",
+  "psoriatic-arthritis": "/og/conditions-psoriatic-arthritis.png",
+  "ankylosing-spondylitis": "/og/conditions-ankylosing-spondylitis.png",
+  fibromyalgia: "/og/conditions-fibromyalgia.png",
+  gout: "/og/conditions-gout.png",
 };
 
 function resolveOgImage(slug: string, override?: string): string {

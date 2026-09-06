@@ -16,7 +16,7 @@ const stories = [
     location: "Leeds, West Yorkshire",
     condition: "Osteoarthritis",
     yearsLiving: 12,
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+    image: "/openverse/community-01-an-elderly-tibetan-women-holding-a-prayer-wheel-on.webp",
     pullQuote: "I went from barely climbing stairs to walking 5 miles on the Yorkshire Dales. The key was finding the right combination of gentle exercise and diet changes.",
     timeline: [
       { year: "2012", event: "First symptoms — stiffness in both knees every morning" },
@@ -44,7 +44,7 @@ Now at 67, I walk regularly on the Dales again. I'm not pain-free — I don't th
     location: "Glasgow, Scotland",
     condition: "Rheumatoid Arthritis",
     yearsLiving: 8,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    image: "/openverse/cover-0108-old-runner-a3.webp",
     pullQuote: "RA at 34 felt like a death sentence for my career as a joiner. Eight years on, I'm still working full-time and coaching my daughter's football team.",
     timeline: [
       { year: "2016", event: "Sudden onset — woke up unable to close both hands" },
@@ -74,7 +74,7 @@ Eight years on, I'm still a joiner. I'm slower some days, and I've had to be hon
     location: "Birmingham, West Midlands",
     condition: "Psoriatic Arthritis",
     yearsLiving: 6,
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
+    image: "/openverse/adult-daughter-with-elderly-mother-48181ce1.webp",
     pullQuote: "The hardest part wasn't the pain — it was people not believing me because I 'look fine'. Invisible illness is incredibly isolating.",
     timeline: [
       { year: "2018", event: "Psoriasis diagnosis aged 32; joint pain dismissed as 'stress'" },
@@ -104,7 +104,7 @@ Now I'm a peer mentor for newly diagnosed patients. I remember how scared and al
     location: "Cardiff, Wales",
     condition: "Osteoarthritis (hip and knee)",
     yearsLiving: 15,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    image: "/openverse/cover-0135-old-runner-a1.webp",
     pullQuote: "After my hip replacement at 66, the physio exercises I'd learned gave me the best recovery my surgeon had seen in someone my age.",
     timeline: [
       { year: "2009", event: "Gradual onset of hip pain; blamed old rugby injury" },
@@ -134,7 +134,7 @@ I'm 71 now. I still swim twice a week, do the chair exercises from the LWA progr
     location: "Bristol, South West England",
     condition: "Juvenile Idiopathic Arthritis (now adult)",
     yearsLiving: 18,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    image: "/openverse/cover-0128-two-colorful-elderly-women.webp",
     pullQuote: "I was diagnosed at 11. Growing up with arthritis means your whole identity forms around managing a chronic condition. But it also makes you incredibly resilient.",
     timeline: [
       { year: "2007", event: "Age 11: swollen knee after PE; diagnosed with JIA" },

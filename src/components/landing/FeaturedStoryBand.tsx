@@ -35,7 +35,7 @@ const FALLBACK: FeaturedStory = {
     "I was on the waiting list for sixteen months. Within a fortnight of starting here, I was walking the dog again — properly, without wincing.",
   body: null,
   portrait_url:
-    "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?auto=format&fit=crop&w=1200&q=80",
+    "/openverse/cover-0159-elderly-couple-walk-together.webp",
   portrait_alt:
     "Margaret, 62, smiling outdoors after her morning walk in Sheffield",
 };

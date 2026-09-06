@@ -1,6 +1,6 @@
 import { memo, useState, lazy, Suspense } from "react";
 import { Heart, RefreshCw } from "lucide-react";
-import { unsplashSrcSet, fullWidthSizes, portraitHeroWomenOutdoors } from "@/data/images";
+import { fullWidthSizes, portraitHeroWomenOutdoors, portraitHeroWomenOutdoorsSrcSet } from "@/data/images";
 
 const StripeDonationModal = lazy(() => import("@/components/StripeDonationModal"));
 
@@ -29,7 +29,7 @@ const InspiredHeroBand = memo(() => {
       <div className="absolute inset-0">
         <img
           src={portraitHeroWomenOutdoors}
-          srcSet={unsplashSrcSet(portraitHeroWomenOutdoors, [800, 1200, 1600, 1920])}
+          srcSet={portraitHeroWomenOutdoorsSrcSet}
           sizes={fullWidthSizes}
           alt="People supported by Living With Arthritis UK walking outdoors"
           width={1920}
