@@ -58,12 +58,18 @@ export function sanitizeStaticHtml(html) {
     });
 }
 
+function looksLikeMarkdown(src) {
+  return /(?:^|\n)#{1,6}\s+\S/.test(src) || /(?:^|\n)(?:[-*+]|\d+\.)\s+\S/.test(src);
+}
+
 export function renderArticleHtml(content) {
   const raw = String(content ?? "").replace(/\\n/g, "\n").trim();
   if (!raw) return "";
-  const html = raw.startsWith("<")
-    ? raw
-    : String(marked.parse(raw, { async: false }));
+  // Mixed HTML + markdown must go through marked (same rule as BlogPost).
+  const html =
+    raw.startsWith("<") && !looksLikeMarkdown(raw)
+      ? raw
+      : String(marked.parse(raw, { async: false }));
   return sanitizeStaticHtml(html);
 }
 

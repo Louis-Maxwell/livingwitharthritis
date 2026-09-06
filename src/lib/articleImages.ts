@@ -321,6 +321,21 @@ export function getArticleImages(
     if (picked.length >= 2) break;
   }
 
+  // Diet / nutrition posts must reliably show food imagery mid/end-article,
+  // even when historical covers were mis-mapped to exercise/clinical stock.
+  if (allowNutrition && picked.length < 2) {
+    const nutritionPool = CATEGORY_FILES.nutrition.filter(
+      (f) => f !== coverFile && !picked.includes(f),
+    );
+    nutritionPool.sort(
+      (a, b) => ((hashStr(a) ^ h) - (hashStr(b) ^ h)) | 0,
+    );
+    for (const file of nutritionPool) {
+      picked.push(file);
+      if (picked.length >= 2) break;
+    }
+  }
+
   return [cover, ...picked.map(toImg)];
 }
 

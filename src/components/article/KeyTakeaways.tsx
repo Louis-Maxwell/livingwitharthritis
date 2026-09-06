@@ -8,22 +8,48 @@ interface KeyTakeawaysProps {
 
 /**
  * Extract 3 short takeaway bullets from article HTML.
- * Priority: first <ul>/<ol> items → otherwise first 3 sentences from opening paragraphs.
+ * Priority: early <ul>/<ol> items that are not related-article dumps →
+ * otherwise first 3 sentences from opening paragraphs.
  * Pure presentational; no GA, no state.
  */
+function stripTags(s: string): string {
+  return s.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function isRelatedDumpItem(rawLi: string, text: string): boolean {
+  // Related / continue-reading lists are mostly blog links + blurbs
+  if (/href=["']\/blog\//i.test(rawLi)) return true;
+  if (/continue reading|related articles|keep reading/i.test(text)) return true;
+  return false;
+}
+
 function extractTakeaways(html: string): string[] {
-  const listMatch = html.match(/<(?:ul|ol)[^>]*>([\s\S]*?)<\/(?:ul|ol)>/i);
-  if (listMatch) {
+  // Prefer lists that appear before "Continue reading" / internal-links footers
+  const cut = html.search(
+    /<(?:section[^>]*class=["'][^"']*internal-links|h2[^>]*>\s*Continue reading)/i,
+  );
+  const scope = cut > 0 ? html.slice(0, cut) : html;
+
+  const listMatches = Array.from(
+    scope.matchAll(/<(?:ul|ol)[^>]*>([\s\S]*?)<\/(?:ul|ol)>/gi),
+  );
+  for (const listMatch of listMatches) {
     const items = Array.from(listMatch[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi))
-      .map((m) => m[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim())
-      .filter((t) => t.length > 20 && t.length < 220)
+      .map((m) => ({ raw: m[1], text: stripTags(m[1]) }))
+      .filter(({ raw, text }) => {
+        if (text.length <= 20 || text.length >= 220) return false;
+        if (isRelatedDumpItem(raw, text)) return false;
+        return true;
+      })
+      .map(({ text }) => text)
       .slice(0, 3);
     if (items.length >= 3) return items;
   }
-  const paras = Array.from(html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi))
-    .map((m) => m[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim())
-    .filter(Boolean);
-  const joined = paras.slice(0, 3).join(" ");
+
+  const paras = Array.from(scope.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi))
+    .map((m) => stripTags(m[1]))
+    .filter((t) => t.length > 40 && !/^quick answer/i.test(t));
+  const joined = paras.slice(0, 4).join(" ");
   const sentences = joined.split(/(?<=[.!?])\s+/).filter((s) => s.length > 30);
   return sentences.slice(0, 3);
 }

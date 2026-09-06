@@ -71,13 +71,21 @@ function firstParagraphSummary(html: string): string {
 
 
 
+function looksLikeMarkdown(src: string): boolean {
+  // ATX headings, emphasis lists, or bold lines that CMS rows sometimes leave unparsed
+  return /(?:^|\n)#{1,6}\s+\S/.test(src) || /(?:^|\n)(?:[-*+]|\d+\.)\s+\S/.test(src);
+}
+
 function markdownToHtml(md: string): string {
-  // If content already looks like HTML, sanitize and return
-  if (md.trim().startsWith("<")) {
-    return DOMPurify.sanitize(md, { USE_PROFILES: { html: true } });
-  }
   // Database may store literal \n instead of real newlines
   const normalized = md.replace(/\\n/g, "\n");
+  const trimmed = normalized.trim();
+  // Pure HTML (no leftover markdown) — sanitize only.
+  // Mixed HTML + markdown (common after quick-answer blocks) must go through marked,
+  // otherwise headings/lists stay as literal text and KeyTakeaways scrape related-links.
+  if (trimmed.startsWith("<") && !looksLikeMarkdown(normalized)) {
+    return DOMPurify.sanitize(normalized, { USE_PROFILES: { html: true } });
+  }
   const rawHtml = marked.parse(normalized, { async: false }) as string;
   return DOMPurify.sanitize(rawHtml, { USE_PROFILES: { html: true } });
 }
