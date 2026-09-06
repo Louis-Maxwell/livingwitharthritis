@@ -1,26 +1,23 @@
-# Static hosting & hard 404s (Cloudflare)
+# Static hosting & hard 404s (Lovable-first)
 
 Living With Arthritis UK is a prerendered Vite SPA. Every indexable route should
 emit its own file under `dist/` with a unique `<title>`, `<h1>` and
 self-referencing canonical. Soft 404s happen when the host answers unknown paths
 with `index.html` and HTTP 200 (homepage tags leak onto junk URLs).
 
-## Cloudflare Pages / Workers Assets
+## Lovable (current production)
 
-`wrangler.jsonc` sets:
+Production DNS points at **Lovable**. The CDN often serves the SPA shell for
+unknown paths (HTTP 200). Mitigations in this repo:
 
-```jsonc
-"assets": {
-  "directory": "./dist",
-  "not_found_handling": "404-page"
-}
-```
+1. `scripts/generate-404.mjs` — emits `dist/404.html` (noindex, unique title).
+2. `scripts/write-redirect-html.mjs` — static noindex + canonical + refresh stubs.
+3. `public/_redirects` — Netlify/static-compatible 301 + 404 rules when supported.
+4. `vercel.json` — optional host redirect map (`scripts/sync-host-redirects.mjs`).
+5. `SeoRedirectGate` — client Navigate + refresh when `_redirects` are ignored.
 
-That tells Cloudflare to serve the nearest `404.html` with a **real HTTP 404**
-when no static file matches. `scripts/generate-404.mjs` runs in `postbuild` /
-`postbuild:prerender` and writes `dist/404.html` (noindex, unique title, no
-homepage metadata). The React SPA still hydrates so `<NotFound />` renders for
-humans.
+Cloudflare Workers / `wrangler.jsonc` / `not_found_handling: "404-page"` were
+**removed**. Do not treat Cloudflare as the required deploy path.
 
 App-only shells (`/admin`, `/auth`, …) keep a 200 via explicit rewrite rules in
 `public/_redirects` (copied to `dist/_redirects`). Alias 301s such as
@@ -50,18 +47,11 @@ so `dist/guides/index.html`, `dist/diet/index.html`, `dist/about/index.html`,
 is gitignored build output. Deploying a stale `dist/` without prebuild can omit
 blogs and create soft-404 inventory gaps. Always deploy from a fresh prebuild.
 
-## Deploy checklist
+## Deploy checklist (Lovable)
 
 1. `bun run build:prerender` (or CI equivalent) — emits static HTML + `404.html`.
-2. Deploy `dist/` to Cloudflare with `not_found_handling: "404-page"` (see
-   `wrangler.jsonc`). Do **not** enable SPA single-page fallback for all routes.
-3. Smoke-check live:
-   - `curl -sI https://livingwitharthritis.org.uk/guides` → **200**, title contains Guides
-   - `curl -sI https://livingwitharthritis.org.uk/diet` → **200**, unique diet title
-   - `curl -sI https://livingwitharthritis.org.uk/about` → **200**, About title
-   - `curl -sI https://livingwitharthritis.org.uk/benefits-pip` → **200**
-   - `curl -sI https://livingwitharthritis.org.uk/this-path-should-404` → **404**
-4. Confirm `/about-us` returns **301** to `/about`.
-
-Without a Cloudflare (or equivalent) deploy that honours `404-page`, local
-prerender alone cannot fix soft 404s on the live edge.
+2. Publish via **Lovable** from `main` (no Wrangler / Worker deploy).
+3. Smoke-check live hubs (**200**, unique titles) and known aliases (prefer **301**).
+4. Confirm `/about-us` resolves to `/about`.
+5. Soft-404 GSC validation may still fail while Lovable returns SPA 200 for junk
+   URLs — keep stubs honest; see `docs/GSC-INDEXING-FIX.md`.

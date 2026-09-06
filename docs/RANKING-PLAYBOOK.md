@@ -18,7 +18,7 @@ Charity: Living With Arthritis (England & Wales **1218461**) — independent of 
 | Sitemap present (`sitemap.xml` + `sitemap-index.xml`) | Pass — **943** URLs total, **513** `/blog/...` posts |
 | `llms.txt` / `ai.txt` charity identity + preferred citation URLs | Pass |
 | Hub pages not accidentally `noindex` (home, diet, exercises, benefits-pip, blog, search, guides) | Pass — noindex only on private/utility/404/city-doorway stubs |
-| `wrangler.jsonc` `not_found_handling: "404-page"` + `docs/STATIC-HOSTING.md` | Pass — avoids soft-404 SPA fallback |
+| `docs/STATIC-HOSTING.md` Lovable-first stubs + `_redirects` / `vercel.json` | Pass — CF Worker 404-page path removed |
 
 ### Ranking signals strengthened (safe / high-ROI)
 
@@ -65,9 +65,9 @@ Google: sitemap and GSC. Bing: sitemap and package indexnow script. DuckDuckGo: 
 
 ## Notify engines
 - After publish run the package indexnow script.
-- See scripts/indexnow-ping.mjs and docs/CLOUDFLARE-API.md for Worker behaviour when unset.
+- See scripts/indexnow-ping.mjs (HTTP IndexNow ping; Worker API removed).
 - Keep seo:blog-guards green before merge.
 
 ## Related docs
-- docs/STATIC-HOSTING.md, docs/CLOUDFLARE-API.md, docs/seo-publish-checklist.md
+- docs/STATIC-HOSTING.md, docs/archive/CLOUDFLARE-API-REMOVED.md, docs/seo-publish-checklist.md
 - public/llms.txt and public/ai.txt

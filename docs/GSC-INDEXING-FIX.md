@@ -16,14 +16,13 @@ Code in this repo already prepares the correct edge behaviour:
 
 | Artefact | Role |
 |----------|------|
-| `wrangler.jsonc` → `assets.not_found_handling: "404-page"` | Real HTTP 404 via nearest `404.html` |
 | `scripts/generate-404.mjs` | Emits `dist/404.html` (noindex, unique title) |
-| `public/_redirects` | Netlify / Cloudflare Pages 301 + 404 rules |
-| `vercel.json` + `functions/_middleware.js` | Host 301 maps (from `sync-host-redirects`) |
+| `public/_redirects` | Netlify / static-host 301 + 404 rules (when supported) |
+| `vercel.json` | Host redirect map (from `sync-host-redirects`) |
 | `scripts/write-redirect-html.mjs` | Static noindex+refresh stubs under `dist/<alias>/` for SPA hosts |
 | `src/lib/seoRedirects.ts` + `SeoRedirectGate` | Client fallback when the CDN ignores `_redirects` |
 
-**Soft 404 GSC validation will keep failing until production is served from a Cloudflare (or equivalent) deploy that honours `not_found_handling: "404-page"`** — not Lovable’s SPA-fallback CDN alone. See also `docs/STATIC-HOSTING.md`.
+**Production is Lovable-first.** Soft 404 GSC validation can keep failing while Lovable’s CDN returns HTTP 200 SPA shells for unknown paths. Cloudflare Worker/`wrangler.jsonc` 404-page deploy is **not** the mandated path (removed). Keep stubs + redirects honest; see `docs/STATIC-HOSTING.md`.
 
 Keep: Bytespider `Disallow: /` in `public/robots.txt`, charity identity (1218461), and `seo:blog-guards`.
 
@@ -38,8 +37,8 @@ Do **not** re-add sitewide `link rel=canonical` tags; consolidate with **301s** 
    bun run build:prerender   # or CI equivalent
    ```
    Confirm `dist/404.html`, hub HTML, and redirect stubs exist (`dist/exercise-hub/index.html`, `dist/blog/mindfulness-meditation-chronic-pain/index.html`, locale glossary stubs, etc.).
-2. Deploy `dist/` to Cloudflare Workers/Pages with `wrangler.jsonc` (`not_found_handling: "404-page"`). Do **not** enable SPA fallback for all routes.
-3. Smoke-check live (expect **404** / **301**, not soft 200 homepage):
+2. Publish via **Lovable** from `main` (no Wrangler / Worker deploy).
+3. Smoke-check live (prefer **404** / **301**; Lovable may still soft-200 junk URLs):
    ```bash
    curl -sI https://livingwitharthritis.org.uk/this-is-not-a-real-page-xyz   # → 404
    curl -sI https://livingwitharthritis.org.uk/exercise-hub                 # → 301 → /exercises
@@ -48,7 +47,7 @@ Do **not** re-add sitewide `link rel=canonical` tags; consolidate with **301s** 
    curl -sI https://livingwitharthritis.org.uk/es/glossary/nice             # → 301 → /glossary/nice
    curl -sI https://livingwitharthritis.org.uk/blog                         # → 200, unique title
    ```
-4. After Cloudflare 404-page is live: in GSC → URL Inspection → **Request indexing** for priority real URLs (`/blog`, `/blog/category/exercise`, `/arthritis-support`, `/supplements/glucosamine`, `/glossary/nice`, `/conditions/hip-arthritis`, `/guides/hip-exercises-for-osteoarthritis`, top blog posts).
+4. After publish: in GSC → URL Inspection → **Request indexing** for priority real URLs (`/blog`, `/blog/category/exercise`, `/arthritis-support`, `/supplements/glucosamine`, `/glossary/nice`, `/conditions/hip-arthritis`, `/guides/hip-exercises-for-osteoarthritis`, top blog posts).
 5. IndexNow: `INDEXNOW=1 bun run indexnow` (also runs on production `postbuild`).
 
 ---
@@ -135,14 +134,14 @@ Verify with `bun run seo:redirects` and `bunx vitest run src/lib/__tests__/seo-r
 
 ## Crawled — not indexed
 
-Cannot force Google. After Cloudflare 404-page deploy: IndexNow priority hubs, then Louis requests indexing in GSC for the real enriched URLs. Thin condition subpages should keep unique prerender HTML (title/h1/body) — prefer enriching over noindex.
+Cannot force Google. After Lovable publish: IndexNow priority hubs (`scripts/indexnow-ping.mjs`), then Louis requests indexing in GSC for the real enriched URLs. Thin condition subpages should keep unique prerender HTML (title/h1/body) — prefer enriching over noindex.
 
 ---
 
 ## Maintainer commands
 
 ```bash
-node scripts/sync-host-redirects.mjs    # rewrite vercel.json + functions/_middleware.js
+node scripts/sync-host-redirects.mjs    # rewrite vercel.json
 bun run seo:redirects                   # drift check
 bun scripts/generate-sitemap.ts         # drop redirect sources from sitemap
 bunx vitest run src/lib/__tests__/seo-redirects.test.ts src/lib/__tests__/host-redirects.test.ts

@@ -1,3 +1,15 @@
+# REMOVED — Cloudflare Worker API (archived)
+
+**Status:** Removed from the live product (2026-09-06). Do not redeploy Workers or wrangler.
+
+Living With Arthritis is **Lovable-hosted** static front-end only. Forms use mailto; chat uses local UK-safe canned answers; search is client-side (`getSiteSearchCatalog` / search index). IndexNow remains `scripts/indexnow-ping.mjs` (HTTP ping, no Worker).
+
+Do **not** reintroduce Supabase or Vercel as an API backend.
+
+---
+
+Original doc (historical):
+
 # Cloudflare Worker API - Living With Arthritis
 
 Worker entry: worker/index.ts. Config: wrangler.jsonc (assets ./dist, 404-page, run_worker_first /api/*, AI binding).

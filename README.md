@@ -1,6 +1,6 @@
 # Living With Arthritis
 
-Vite + React + TypeScript charity site for Living With Arthritis UK, built with Vite and deployable on Cloudflare Workers (static assets + API).
+Vite + React + TypeScript charity site for Living With Arthritis UK, built with Vite and hosted on Lovable (static front-end).
 
 Live URL: https://livingwitharthritis.org.uk
 
@@ -28,9 +28,9 @@ Copy .env.example to .env.local if you need Stripe, PayPal or analytics keys. Ne
 
 - Homepage, about, donate, zakat appeal, guides, conditions and the static blog
 - Stripe/PayPal donate UI (hosted payment link via VITE_STRIPE_DONATE_URL, otherwise email)
-- Contact, appointment, volunteer and partnership forms POST to Cloudflare Worker /api/* and email info@ via Resend (success toast only after 2xx)
-- Help chat streams from /api/chat (Workers AI or OPENAI_API_KEY) with canned fallback if AI fails
-- See docs/CLOUDFLARE-API.md for secrets and deploy
+- Contact, appointment, volunteer and partnership forms open a mailto draft to info@ (never claim automatic delivery success)
+- Help chat uses local UK-safe canned answers only (no Worker streaming API)
+- Site search is client-side; Cloudflare Worker APIs were removed (see docs/archive/CLOUDFLARE-API-REMOVED.md)
 
 Admin, sign-in, comments, forum, appointments, CMS and article audio are paused.
 
@@ -44,4 +44,4 @@ MIT - see LICENSE.
 
 ## Production hosting
 
-For real HTTP 404s (not homepage soft-404s), publish with Cloudflare static assets. See docs/STATIC-HOSTING.md.
+**Lovable only** for the live site today. Soft-404 mitigation uses prerendered HTML, public/_redirects, vercel.json (optional), and static redirect stubs. See docs/STATIC-HOSTING.md and docs/GSC-INDEXING-FIX.md.
