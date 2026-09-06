@@ -166,6 +166,7 @@ const Buddy = lazy(() => import("./pages/Buddy"));
 const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
 const DebugSchema = lazy(() => import("./pages/DebugSchema"));
 const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
+const SeoContentFrameworkPage = lazy(() => import("./pages/SeoContentFrameworkPage"));
 const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
 const AuthorsIndex = lazy(() => import("./pages/AuthorsIndex"));
 const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
@@ -343,6 +344,7 @@ function AnimatedRoutes() {
         <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
+        <Route path="/seo-content-framework" element={<SeoContentFrameworkPage />} />
         <Route path="/authors" element={<AuthorsIndex variant="author" />} />
         <Route path="/reviewers" element={<AuthorsIndex variant="reviewer" />} />
         <Route path="/authors/:slug" element={<AuthorProfile variant="author" />} />

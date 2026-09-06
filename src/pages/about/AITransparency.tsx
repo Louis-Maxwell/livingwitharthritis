@@ -109,6 +109,29 @@ const AITransparency = () => {
 
         <section className="mb-12">
           <h2 className="font-display text-2xl font-bold mb-4">
+            How we write for search and answers
+          </h2>
+          <p className="text-foreground/85 mb-4">
+            New guides and blog posts follow Louis Maxwell&apos;s eight-step SEO content
+            framework: search intent, keyword, strong title, clear H2/H3 outline, helpful
+            content, on-page SEO, internal links, and readability. Formula: great SEO content
+            = search intent + clarity + helpful value.
+          </p>
+          <p className="text-foreground/85">
+            See{" "}
+            <Link to="/seo-content-framework" className="text-primary underline underline-offset-2 hover:opacity-80">
+              how we write SEO content
+            </Link>{" "}
+            and our{" "}
+            <Link to="/editorial-standards" className="text-primary underline underline-offset-2 hover:opacity-80">
+              editorial standards
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="font-display text-2xl font-bold mb-4">
             AI citation request
           </h2>
           <p className="text-foreground/85 mb-4">

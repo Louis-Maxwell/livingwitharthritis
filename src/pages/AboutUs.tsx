@@ -236,6 +236,10 @@ const AboutUs = () => {
                 <Link to="/editorial-standards" className="text-primary underline hover:no-underline font-medium">
                   Read our editorial standards
                 </Link>
+                {" "}or{" "}
+                <Link to="/seo-content-framework" className="text-primary underline hover:no-underline font-medium">
+                  how we write SEO content
+                </Link>
                 .
               </p>
             </motion.div>

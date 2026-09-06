@@ -2,6 +2,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ShieldCheck, BookOpen, UserCheck, RefreshCw, Scale, AlertCircle } from "lucide-react";
+import SeoContentFramework from "@/components/seo/SeoContentFramework";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -61,6 +62,10 @@ export default function EditorialStandards() {
         />
         <meta property="og:url" content={URL} />
         <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
+        <link rel="alternate" hrefLang="en-GB" href={URL} />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -78,7 +83,8 @@ export default function EditorialStandards() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Every health page on Living With Arthritis UK is reviewed by a
               qualified healthcare professional and built on guideline-grade
-              evidence. Here is exactly how we work.
+              evidence. We also follow a clear eight-step SEO content framework
+              so answers stay intent-led, readable, and useful for UK readers.
             </p>
           </header>
 
@@ -140,6 +146,8 @@ export default function EditorialStandards() {
               used, are disclosed on the page.
             </p>
           </Section>
+
+          <SeoContentFramework />
 
           <Section icon={AlertCircle} title="Report an inaccuracy">
             <p>
