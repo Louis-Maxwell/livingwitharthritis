@@ -32,7 +32,7 @@ const RelatedArticles = memo(
     currentExcerpt,
     currentKeywords,
     clusters,
-    heading = "You might also like",
+    heading = "Keep reading",
     preferUnvisited = false,
   }: RelatedArticlesProps) => {
     const { data: related = [] } = useRelatedArticles(currentSlug, {
@@ -43,7 +43,6 @@ const RelatedArticles = memo(
       seedKeywords: currentKeywords,
     });
 
-    // Bias toward unvisited slugs without removing visited ones entirely.
     const orderedRelated = useMemo(() => {
       if (!preferUnvisited) return related;
       const { unvisited, visited } = partitionByVisited(related, currentSlug);
@@ -52,10 +51,11 @@ const RelatedArticles = memo(
 
     const unvisitedSet = useMemo(() => {
       if (!preferUnvisited) return new Set<string>();
-      return new Set(partitionByVisited(related, currentSlug).unvisited.map((r) => r.slug));
+      return new Set(
+        partitionByVisited(related, currentSlug).unvisited.map((r) => r.slug),
+      );
     }, [related, preferUnvisited, currentSlug]);
 
-    // Determine the best supporting guide based on the highest-signal cluster.
     const seedClusterIds =
       clusters && clusters.length > 0
         ? clusters
@@ -76,16 +76,72 @@ const RelatedArticles = memo(
 
     if (orderedRelated.length === 0) return null;
 
+    const [featured, ...rest] = orderedRelated;
+    const gridItems = rest.slice(0, 3);
+
     return (
       <aside className="mt-16 pt-12 border-t border-border/50" aria-label="Related articles">
-        <h2 className="font-display text-2xl font-bold text-foreground mb-6">{heading}</h2>
+        <div className="mb-6">
+          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5">
+            Next clicks
+          </p>
+          <h2 className="font-display text-2xl font-bold text-foreground m-0">
+            {heading}
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            Topic-matched articles and guides — chosen from this post&apos;s themes.
+          </p>
+        </div>
+
+        {featured && (
+          <Link
+            to={`/blog/${featured.slug}`}
+            onClick={() =>
+              trackEvent("related_click", {
+                target_slug: featured.slug,
+                source_slug: currentSlug,
+                unvisited: unvisitedSet.has(featured.slug),
+                position: "featured",
+              })
+            }
+            className="group mb-5 flex flex-col sm:flex-row rounded-2xl border border-primary/25 bg-primary/[0.03] overflow-hidden hover:shadow-medium hover:border-primary/40 transition-all duration-300 min-h-[44px]"
+          >
+            <div className="sm:w-48 md:w-56 aspect-[16/9] sm:aspect-auto overflow-hidden bg-muted/20 shrink-0">
+              <img
+                src={coverImage(featured.category, featured.title, featured.slug).src}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="flex flex-1 flex-col justify-center p-5 md:p-6">
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2">
+                {preferUnvisited && unvisitedSet.has(featured.slug)
+                  ? "New to you · Up next"
+                  : "Up next"}
+              </span>
+              <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                {featured.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2">
+                {featured.excerpt}
+              </p>
+              <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5">
+                Read this article <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </span>
+            </div>
+          </Link>
+        )}
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {orderedRelated.map((post) => {
+          {gridItems.map((post) => {
             const cluster = primaryClusterFor(post);
             const isUnvisited = unvisitedSet.has(post.slug);
-            const eyebrow = preferUnvisited && isUnvisited
-              ? "New to you"
-              : (cluster?.label ?? post.category);
+            const eyebrow =
+              preferUnvisited && isUnvisited
+                ? "New to you"
+                : (cluster?.label ?? post.category);
             return (
               <Link
                 key={post.slug}
@@ -97,7 +153,7 @@ const RelatedArticles = memo(
                     unvisited: isUnvisited,
                   })
                 }
-                className="group rounded-xl border border-border/60 bg-card overflow-hidden hover:shadow-medium hover:border-primary/20 transition-all duration-300"
+                className="group rounded-xl border border-border/60 bg-card overflow-hidden hover:shadow-medium hover:border-primary/20 transition-all duration-300 min-h-[44px]"
               >
                 <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                   <img
@@ -109,18 +165,18 @@ const RelatedArticles = memo(
                   />
                 </div>
                 <div className="p-5">
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
-                  {eyebrow}
-                </span>
-                <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
-                  {post.title}
-                </h3>
-                <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">
-                  {post.excerpt}
-                </p>
-                <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
-                  Read article <ArrowRight className="w-3 h-3" />
-                </span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
+                    {eyebrow}
+                  </span>
+                  <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
+                    Read article <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                  </span>
                 </div>
               </Link>
             );
@@ -129,10 +185,10 @@ const RelatedArticles = memo(
           {bestGuide && (
             <Link
               to={bestGuide.to}
-              className="group rounded-xl border border-primary/30 bg-primary/[0.04] p-5 hover:shadow-medium hover:border-primary/50 transition-all duration-300 flex flex-col"
+              className="group rounded-xl border border-primary/30 bg-primary/[0.04] p-5 hover:shadow-medium hover:border-primary/50 transition-all duration-300 flex flex-col min-h-[44px]"
             >
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 inline-flex items-center gap-1.5">
-                <Compass className="w-3 h-3" /> Best supporting guide
+                <Compass className="w-3 h-3" aria-hidden="true" /> Best supporting guide
               </span>
               <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
                 {bestGuide.title}
@@ -141,7 +197,7 @@ const RelatedArticles = memo(
                 {bestGuide.description}
               </p>
               <span className="mt-auto text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all">
-                Open the guide <ArrowRight className="w-3 h-3" />
+                Open the guide <ArrowRight className="w-3 h-3" aria-hidden="true" />
               </span>
             </Link>
           )}

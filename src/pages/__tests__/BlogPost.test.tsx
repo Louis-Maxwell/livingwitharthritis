@@ -26,7 +26,8 @@ const mockArticle = {
 
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
-  useRelatedArticles: vi.fn(() => []),
+  useRelatedArticles: vi.fn(() => ({ data: [] })),
+  useNextArticle: vi.fn(() => ({ data: null })),
 }));
 vi.mock("@/hooks/useBlogViews", () => ({
   useBlogViews: vi.fn(() => 42),
@@ -39,6 +40,9 @@ vi.mock("@/components/RelatedArticles", () => ({ default: () => <div data-testid
 vi.mock("@/components/SocialShareButtons", () => ({ default: () => <div data-testid="share" /> }));
 vi.mock("@/components/ScrollProgress", () => ({ default: () => null }));
 vi.mock("@/components/ContinueReadingBar", () => ({ default: () => null }));
+vi.mock("@/components/article/InlineRelatedStrip", () => ({ default: () => null }));
+vi.mock("@/components/article/MidArticleNextSteps", () => ({ default: () => null }));
+vi.mock("@/components/article/EndNextArticleCard", () => ({ default: () => null }));
 vi.mock("@/components/HealthToolsCTA", () => ({ default: () => null }));
 vi.mock("@/components/TableOfContents", () => ({
   default: () => null,
@@ -94,7 +98,7 @@ describe("BlogPost Page", () => {
 
     renderBlogPost("nonexistent");
     expect(
-      screen.getByRole("heading", { level: 1, name: "We couldn't find that page" }),
+      screen.getByRole("heading", { level: 1, name: /could not find that page/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Article library" })).toBeInTheDocument();
   });
@@ -129,7 +133,7 @@ describe("BlogPost Page", () => {
     expect(screen.getByText("15 June 2025")).toBeInTheDocument();
   });
 
-  it("renders view count", () => {
+  it("renders honest view count when a real count is available", () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: mockArticle,
       isLoading: false,
@@ -138,6 +142,7 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
+    // Mocked useBlogViews returns 42 — UI only shows counts > 0 (never invents numbers).
     expect(screen.getByText("42")).toBeInTheDocument();
   });
 

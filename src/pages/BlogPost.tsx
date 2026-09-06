@@ -41,6 +41,8 @@ const FeedbackPoll = lazy(() => import("@/components/article/FeedbackPoll"));
 const InlineRelatedStrip = lazy(() => import("@/components/article/InlineRelatedStrip"));
 const ArticleFaqSection = lazy(() => import("@/components/article/ArticleFaqSection"));
 const ArticleClosingCTA = lazy(() => import("@/components/article/ArticleClosingCTA"));
+const MidArticleNextSteps = lazy(() => import("@/components/article/MidArticleNextSteps"));
+const EndNextArticleCard = lazy(() => import("@/components/article/EndNextArticleCard"));
 const ArticleCitations = lazy(() => import("@/components/blog/ArticleCitations"));
 
 
@@ -378,11 +380,12 @@ const BlogPost = () => {
                 )}
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                 <span>{readingTime} min read</span>
-                {viewCount !== null && (
+                {typeof viewCount === "number" && viewCount > 0 && (
                   <>
                     <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                     <span className="flex items-center gap-1">
-                      <Eye className="w-3 h-3" />
+                      <Eye className="w-3 h-3" aria-hidden="true" />
+                      <span className="sr-only">Views: </span>
                       {viewCount.toLocaleString()}
                     </span>
                   </>
@@ -498,7 +501,19 @@ const BlogPost = () => {
           <KeyTakeaways html={htmlContent} title={article.title} />
           <TableOfContents html={htmlWithIds} />
 
-
+          {slug && (
+            <Suspense fallback={null}>
+              <InlineRelatedStrip
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+                heading="Keep reading — related articles"
+                limit={2}
+              />
+            </Suspense>
+          )}
 
           <section
             aria-label="Article body"
@@ -535,12 +550,11 @@ const BlogPost = () => {
             )}
             {slug && htmlAfterStrip && (
               <Suspense fallback={null}>
-                <InlineRelatedStrip
+                <MidArticleNextSteps
                   currentSlug={slug}
-                  currentCategory={article.category}
-                  currentTitle={article.title}
-                  currentExcerpt={article.excerpt}
-                  currentKeywords={article.keywords ?? undefined}
+                  category={article.category}
+                  title={article.title}
+                  keywords={article.keywords ?? undefined}
                 />
               </Suspense>
             )}
@@ -567,8 +581,9 @@ const BlogPost = () => {
           </section>
 
           <Suspense fallback={null}>
+            {slug && <EndNextArticleCard currentSlug={slug} />}
             <ArticleFaqSection faqs={faqs} />
-            <ArticleClosingCTA title={article.title} />
+            <ArticleClosingCTA title={article.title} category={article.category} />
           </Suspense>
 
           {/* Print footer: only visible when saving to PDF / printing */}
@@ -606,6 +621,7 @@ const BlogPost = () => {
                   currentTitle={article.title}
                   currentExcerpt={article.excerpt}
                   currentKeywords={article.keywords ?? undefined}
+                  heading="Keep reading"
                   preferUnvisited
                 />
               )}
@@ -618,8 +634,18 @@ const BlogPost = () => {
           <Suspense fallback={null}>
             {slug && <ContinueReadingBar currentSlug={slug} />}
             <InternalLinks
-              tags={[article.category, "blog", "articles"].filter(Boolean) as string[]}
-              keywords={article.keywords ?? undefined}
+              tags={[
+                article.category,
+                "blog",
+                "articles",
+                "guide",
+                "exercise",
+                "diet",
+              ].filter(Boolean) as string[]}
+              keywords={[article.keywords, article.title, article.category]
+                .filter(Boolean)
+                .join(", ")}
+              count={4}
             />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
           </Suspense>

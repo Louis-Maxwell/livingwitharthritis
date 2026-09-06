@@ -25,7 +25,8 @@ const mockArticle = {
 
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
-  useRelatedArticles: vi.fn(() => []),
+  useRelatedArticles: vi.fn(() => ({ data: [] })),
+  useNextArticle: vi.fn(() => ({ data: null })),
 }));
 vi.mock("@/hooks/useBlogViews", () => ({ useBlogViews: vi.fn(() => 42) }));
 vi.mock("@/components/Header", () => ({ default: () => <div data-testid="header" /> }));
@@ -36,6 +37,8 @@ vi.mock("@/components/RelatedArticles", () => ({ default: () => null }));
 vi.mock("@/components/SocialShareButtons", () => ({ default: () => null }));
 vi.mock("@/components/ScrollProgress", () => ({ default: () => null }));
 vi.mock("@/components/ContinueReadingBar", () => ({ default: () => null }));
+vi.mock("@/components/article/MidArticleNextSteps", () => ({ default: () => null }));
+vi.mock("@/components/article/EndNextArticleCard", () => ({ default: () => null }));
 vi.mock("@/components/HealthToolsCTA", () => ({ default: () => null }));
 vi.mock("@/components/TableOfContents", () => ({ default: () => null, addHeadingIds: (html: string) => html }));
 vi.mock("@/components/CrossLinkBanner", () => ({ default: () => null }));

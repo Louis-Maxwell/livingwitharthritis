@@ -69,13 +69,9 @@ function getStepConfig(pathname: string): StepConfig | null {
     };
   }
 
-  // Blog post / category
+  // Blog posts use ContinueReadingBar (next article) — skip this overlay to avoid double sticky CTAs.
   if (pathname.startsWith("/blog/")) {
-    return {
-      eyebrow: "From this article",
-      primary: { label: "Try the symptom quiz", href: "/self-help", Icon: ClipboardCheck },
-      secondary: { label: "Local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },
-    };
+    return null;
   }
 
   if (pathname === "/blog") {

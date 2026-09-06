@@ -56,10 +56,18 @@ const SITE_PAGES: SitePage[] = [
 
 function normalizeTags(raw?: string[] | string | null): string[] {
   if (!raw) return [];
-  const list = Array.isArray(raw) ? raw : String(raw).split(/[,|]/);
-  return list
-    .map((t) => t.trim().toLowerCase())
-    .filter(Boolean);
+  const list = Array.isArray(raw) ? raw : String(raw).split(/[,|;/]/);
+  const out = new Set<string>();
+  for (const part of list) {
+    const t = part.trim().toLowerCase();
+    if (!t) continue;
+    out.add(t);
+    // Also index meaningful words so "knee arthritis pain" matches knee/exercise hubs.
+    for (const word of t.split(/\s+/)) {
+      if (word.length >= 4) out.add(word);
+    }
+  }
+  return [...out];
 }
 
 function getRelated(
