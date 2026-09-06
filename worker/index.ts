@@ -40,6 +40,13 @@ export interface Env {
    * Must be set via Wrangler — no hardcoded fallback in the Worker.
    */
   INDEXNOW_KEY?: string;
+  /**
+   * Private admin token required to call POST /api/indexnow.
+   * Must differ from INDEXNOW_KEY (that key is published publicly at /<key>.txt).
+   * Set via `wrangler secret put INDEXNOW_ADMIN_TOKEN`.
+   */
+  INDEXNOW_ADMIN_TOKEN?: string;
+
 }
 
 const ALLOWED_ORIGINS = new Set([
