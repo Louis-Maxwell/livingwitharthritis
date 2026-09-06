@@ -13,8 +13,8 @@ describe("seoMeta", () => {
         { route: "/arthritis-support/cardiff/osteoarthritis" },
       );
 
-      expect(bristol).toBe("Osteoarthritis Support in Bristol");
-      expect(cardiff).toBe("Osteoarthritis Support in Cardiff");
+      expect(bristol).toBe("Osteoarthritis Support in Bristol | Living With Arthritis UK");
+      expect(cardiff).toBe("Osteoarthritis Support in Cardiff | Living With Arthritis UK");
       expect(bristol).not.toBe(cardiff);
       expect(bristol.length).toBeLessThanOrEqual(60);
     });
@@ -39,6 +39,14 @@ describe("seoMeta", () => {
       const result = enforceTitle(longTitle, { includeSiteName: true });
       expect(result.length).toBeLessThanOrEqual(60);
     });
+
+    it("uses short brand when full suffix does not fit", () => {
+      const result = enforceTitle("Comprehensive Osteoarthritis Support in Bristol", {
+        includeSiteName: true,
+      });
+      expect(result).toBe("Comprehensive Osteoarthritis Support in Bristol | LWA");
+      expect(result.length).toBeLessThanOrEqual(60);
+    });
   });
 
   describe("enforceDescription", () => {
@@ -50,7 +58,7 @@ describe("seoMeta", () => {
     });
 
     it("truncates descriptions over 160 chars on word boundary", () => {
-      const longDesc = "This is a very long description that will definitely exceed the maximum length allowed for search engine result previews.";
+      const longDesc = "This is a very long description that will definitely exceed the maximum length allowed for search engine result previews and therefore must be truncated on a word boundary for SERP safety while remaining readable for users scanning results.";
       const result = enforceDescription(longDesc);
       expect(result.length).toBeLessThanOrEqual(160);
       expect(result.endsWith("…")).toBe(true);

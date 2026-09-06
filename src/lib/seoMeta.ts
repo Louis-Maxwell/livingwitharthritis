@@ -11,6 +11,7 @@
  */
 
 const SITE_SUFFIX = " | Living With Arthritis UK";
+const SHORT_SITE_SUFFIX = " | LWA";
 const MAX_TITLE = 60;
 const MAX_DESC = 160;
 const MIN_DESC = 120;
@@ -49,6 +50,13 @@ export function enforceTitle(
 
   const composed = `${title}${SITE_SUFFIX}`;
   if (composed.length <= MAX_TITLE) return composed;
+
+  // Prefer a short brand tag over dropping branding entirely when it still fits.
+  const shortComposed = `${title}${SHORT_SITE_SUFFIX}`;
+  if (shortComposed.length <= MAX_TITLE) {
+    if (isDev) warnLength("title", composed.length, MAX_TITLE, route, composed);
+    return shortComposed;
+  }
 
   // Preserve the unique page title before preserving branding. Truncating the
   // page title to make room for the suffix caused hundreds of programmatic
@@ -105,4 +113,5 @@ export const SEO_LIMITS = {
   MAX_DESC,
   MIN_DESC,
   SITE_SUFFIX,
+  SHORT_SITE_SUFFIX,
 } as const;

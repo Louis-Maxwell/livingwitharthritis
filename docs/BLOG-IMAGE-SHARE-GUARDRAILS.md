@@ -33,6 +33,21 @@ cannot blank cards, not a license to bypass the map.
 
 See checklist below. Regenerate cover map, head data, then run seo:blog-guards.
 
+## After batch import (dual pipeline)
+
+Blog posts currently live in two checked-in sources that merge at runtime:
+`src/data/blogList.json` / `blogArticles.json` (~238) and `src/content/blog/*-batch.json` (~267).
+Do **not** merge the batches into one file unless you have a dedicated, tested import.
+
+After any batch import or list refresh:
+
+1. Confirm published slug union is still ~505 (list + content batches, no accidental drop).
+2. Regenerate cover map / openverse alignment for new slugs.
+3. Run `bun scripts/generate-sitemap.ts` so `public/sitemap.xml` lists all blog URLs.
+4. Run `node scripts/generate-blog-head-data.mjs` then `bun run seo:blog-guards`.
+5. Deploy with a full `prebuild` (never ship a stale `dist/sitemap.xml` from an old build).
+
+
 ## Refresh social caches after deploy
 
 After deploying fixed meta, re-scrape URLs in Meta Sharing Debugger and LinkedIn Post Inspector. Confirm live HTML has the full title and /openverse/ og:image.

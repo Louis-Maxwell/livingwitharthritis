@@ -13,7 +13,7 @@ describe("blog-head-data social meta (share preview)", () => {
     const entry = data[`/blog/${SLUG}`];
     expect(entry).toBeTruthy();
     expect(entry.title).toBe(
-      "Supporting a Partner With Arthritis: Practical and Emotional Strategies | Living With Arthritis UK",
+      "Supporting a Partner With Arthritis: Practical and Emotional Strategies",
     );
     expect(entry.title).not.toMatch(/Partner With \|/);
     const cover = (blogCoverMap as Record<string, string>)[SLUG];

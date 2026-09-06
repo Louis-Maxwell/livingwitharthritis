@@ -84,12 +84,13 @@ export function buildPageTitle(headline) {
   const h = String(headline ?? '').replace(/\s+/g, ' ').trim();
   if (!h) return BRAND;
   const withBrand = `${h} | ${BRAND}`;
-  // Soft SERP-friendly target ~60–70 when we can keep a complete phrase.
+  // Soft SERP-friendly target ~60–70 when we can keep a complete branded phrase.
   if (withBrand.length <= 70) return withBrand;
-  // Full branded title is fine for social / crawler heads when headline ≤ 72.
-  if (h.length <= 72) return withBrand;
-  // Longer headlines: keep a complete phrase (word boundary) under ~110.
-  return clipText(h, 110);
+  // Prefer dropping the brand over shipping 90–110 char titles. Never chop
+  // mid-phrase like "Supporting a Partner With | …".
+  if (h.length <= 72) return h;
+  // Longer headlines: word-boundary clip under ~70 (no brand after a clip).
+  return clipText(h, 70);
 }
 
 export function loadCoverMap(path = COVER_MAP_PATH) {

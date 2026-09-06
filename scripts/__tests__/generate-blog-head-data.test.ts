@@ -15,7 +15,7 @@ describe("generate-blog-head-data title + ogImage", () => {
     expect(looksTruncatedMeta(row.meta_title, row.title)).toBe(true);
     expect(pickHeadline(row)).toBe(row.title);
     expect(buildPageTitle(pickHeadline(row))).toBe(
-      "Supporting a Partner With Arthritis: Practical and Emotional Strategies | Living With Arthritis UK",
+      "Supporting a Partner With Arthritis: Practical and Emotional Strategies",
     );
   });
 

@@ -44,6 +44,12 @@ They are listed in `scripts/prerender-routes.mjs` (curated) and discovered from
 so `dist/guides/index.html`, `dist/diet/index.html`, `dist/about/index.html`,
 `dist/benefits-pip/index.html` and `dist/search/index.html` exist on the CDN.
 
+## Sitemap soft-404 footgun
+
+`prebuild` regenerates `public/sitemap.xml` (~505 blog post URLs). `dist/sitemap.xml`
+is gitignored build output. Deploying a stale `dist/` without prebuild can omit
+blogs and create soft-404 inventory gaps. Always deploy from a fresh prebuild.
+
 ## Deploy checklist
 
 1. `bun run build:prerender` (or CI equivalent) — emits static HTML + `404.html`.
