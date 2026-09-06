@@ -13,7 +13,7 @@
   "scripts": {
     "predev": "bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
-    "prebuild": "node scripts/generate-search-index.mjs || true; bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts",
+    "prebuild": "node scripts/generate-search-index.mjs || true; bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && node scripts/write-redirect-html.mjs && (node scripts/indexnow-ping.mjs || true)",
     "og:generate": "bun scripts/generate-og-images.ts",
@@ -31,6 +31,7 @@
     "seo:social": "node scripts/check-social-meta.mjs",
     "seo:meta-lengths": "bun scripts/audit-meta-lengths.ts",
     "seo:images": "bun scripts/audit-images.ts",
+    "seo:blog-guards": "bunx vitest run src/lib/__tests__/blog-share-guards.test.ts src/lib/__tests__/blog-image-url-backfill.test.ts src/lib/__tests__/blog-head-social-meta.test.ts src/lib/__tests__/articleImages.unique-covers.test.ts",
     "seo:inventory": "node scripts/generate-seo-inventory.mjs",
     "seo:headings": "bun scripts/audit-headings.ts",
     "seo:aeo-sync": "bun scripts/check-aeo-sync.mjs",

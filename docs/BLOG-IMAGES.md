@@ -85,3 +85,7 @@ for optional mid/end figures.
 
 Listing UIs must still use `coverImage` only — never body gallery picks.
 
+
+## Share preview / crawler meta
+
+For og:image, static HTML titles, image_url alignment, and the merge checklist, see BLOG-IMAGE-SHARE-GUARDRAILS.md. Run seo:blog-guards before publish.

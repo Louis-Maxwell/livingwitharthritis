@@ -23,10 +23,29 @@ describe("blog-head-data social meta (share preview)", () => {
     );
   });
 
-  it("sets ogImage from cover map for the majority of blogs", () => {
-    const data = JSON.parse(readFileSync(HEAD, "utf8"));
-    const entries = Object.values(data) as Array<{ ogImage?: string }>;
-    const fromCover = entries.filter((e) => e.ogImage?.includes("/openverse/")).length;
-    expect(fromCover).toBeGreaterThan(400);
+  it("sets ogImage from cover map for every /blog/* head entry", () => {
+    const data = JSON.parse(readFileSync(HEAD, "utf8")) as Record<
+      string,
+      { title?: string; ogImage?: string }
+    >;
+    const map = blogCoverMap as Record<string, string>;
+    const bad: string[] = [];
+    for (const [path, entry] of Object.entries(data)) {
+      if (!path.startsWith("/blog/")) continue;
+      const slug = path.slice("/blog/".length);
+      const expected = `https://livingwitharthritis.org.uk/openverse/${map[slug]}`;
+      const og = entry?.ogImage ?? "";
+      const title = entry?.title ?? "";
+      if (
+        !og.includes("/openverse/") ||
+        (map[slug] && og !== expected && og !== `/openverse/${map[slug]}`)
+      ) {
+        bad.push(`${path} ogImage=${og}`);
+      }
+      if (!title || title.includes("Page not found") || /\bWith\s*\|/.test(title)) {
+        bad.push(`${path} title=${title}`);
+      }
+    }
+    expect(bad, bad.slice(0, 10).join("\n")).toEqual([]);
   });
 });
