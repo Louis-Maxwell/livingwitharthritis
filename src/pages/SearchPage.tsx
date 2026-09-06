@@ -97,8 +97,14 @@ const SearchPage = () => {
             Looking for a starting point instead of a keyword? Try the{" "}
             <Link to="/guides" className="text-primary underline underline-offset-2">guides hub</Link>,{" "}
             <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>,{" "}
-            <Link to="/diet" className="text-primary underline underline-offset-2">diet hub</Link>, or{" "}
-            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">benefits &amp; PIP</Link>.
+            <Link to="/diet" className="text-primary underline underline-offset-2">diet hub</Link>,{" "}
+            <Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">conditions</Link>,{" "}
+            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">benefits &amp; PIP</Link>, or the{" "}
+            <Link to="/blog" className="text-primary underline underline-offset-2">arthritis blog</Link>.
+          </p>
+          <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed">
+            Search covers clinically reviewed UK guides on exercise, anti-inflammatory diet, PIP and benefits,
+            flare-ups and condition explainers — filter by topic and length when you already know the angle.
           </p>
           <div className="relative">
             <Search

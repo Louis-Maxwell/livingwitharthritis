@@ -93,19 +93,39 @@ const PAYLOAD = {
   ],
 };
 
+const WEBSITE_PAYLOAD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE}/#website`,
+  name: "Living With Arthritis UK",
+  url: BASE,
+  inLanguage: "en-GB",
+  publisher: { "@id": `${BASE}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${BASE}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootOrganizationSchema() {
   useEffect(() => {
-    const id = "root-organization-jsonld";
-    const existing = document.getElementById(id);
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = id;
-    script.text = JSON.stringify(PAYLOAD);
-    document.head.appendChild(script);
+    const ids = [
+      { id: "root-organization-jsonld", payload: PAYLOAD },
+      { id: "root-website-jsonld", payload: WEBSITE_PAYLOAD },
+    ];
+    const created: HTMLScriptElement[] = [];
+    for (const { id, payload } of ids) {
+      document.getElementById(id)?.remove();
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = id;
+      script.text = JSON.stringify(payload);
+      document.head.appendChild(script);
+      created.push(script);
+    }
     return () => {
-      const el = document.getElementById(id);
-      if (el) el.remove();
+      for (const script of created) script.remove();
     };
   }, []);
   return null;

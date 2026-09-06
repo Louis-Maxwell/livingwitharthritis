@@ -55,9 +55,10 @@ const PRIORITY_SLUGS = [
 
 /** Real, crawlable topic hubs surfaced above the grid. */
 const TOPIC_HUBS: { label: string; to: string; blurb: string }[] = [
-  { label: "Exercise", to: "/blog/category/exercise", blurb: "Knee, hip and hand routines" },
-  { label: "Nutrition", to: "/blog/category/nutrition", blurb: "Anti-inflammatory eating" },
-  { label: "Benefits & PIP", to: "/blog/pip-for-arthritis-uk", blurb: "Claims, evidence and appeals" },
+  { label: "Exercise hub", to: "/exercises", blurb: "Joint-by-joint NICE-aligned routines" },
+  { label: "Diet hub", to: "/diet", blurb: "Anti-inflammatory & Mediterranean eating" },
+  { label: "Conditions", to: "/conditions/osteoarthritis", blurb: "OA, RA and joint-specific guides" },
+  { label: "Benefits & PIP", to: "/benefits-pip", blurb: "Claims, evidence and appeals" },
   { label: "Treatments", to: "/blog/category/treatment", blurb: "Medication, physio and surgery" },
   { label: "Flare-ups", to: "/blog/arthritis-flare-up-what-to-do", blurb: "What to do when pain spikes" },
 ];
@@ -238,7 +239,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">
               Browse by topic
             </h2>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               {TOPIC_HUBS.map((hub) => (
                 <li key={hub.to}>
                   <Link

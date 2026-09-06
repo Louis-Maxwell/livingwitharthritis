@@ -46,7 +46,7 @@ so `dist/guides/index.html`, `dist/diet/index.html`, `dist/about/index.html`,
 
 ## Sitemap soft-404 footgun
 
-`prebuild` regenerates `public/sitemap.xml` (~505 blog post URLs). `dist/sitemap.xml`
+`prebuild` regenerates `public/sitemap.xml` (~513 blog post URLs as of 2026-09-06). `dist/sitemap.xml`
 is gitignored build output. Deploying a stale `dist/` without prebuild can omit
 blogs and create soft-404 inventory gaps. Always deploy from a fresh prebuild.
 

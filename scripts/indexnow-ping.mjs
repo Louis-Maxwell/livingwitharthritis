@@ -19,11 +19,19 @@ const PATHS = [
   '/guides/benefits-pip',
   '/arthritis-waiting-list-help',
   '/diet',
+  '/exercises',
   '/guides/exercise',
   '/guides/newly-diagnosed',
   '/about',
   '/blog/working-with-arthritis-uk-rights',
   '/blog/managing-methotrexate-side-effects-practical-tips',
+  '/blog/knee-arthritis-exercises-uk',
+  '/blog/turmeric-for-arthritis',
+  '/blog/omega-3-foods-for-joints',
+  '/blog/mediterranean-diet-arthritis-14-day-plan',
+  '/blog/pip-for-arthritis-uk',
+  '/blog/expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild',
+  '/blog/best-walking-shoes-arthritis-uk',
   '/conditions/osteoarthritis',
   '/conditions/rheumatoid-arthritis',
   '/editorial-standards',
@@ -31,7 +39,8 @@ const PATHS = [
   '/benefits-pip',
   '/search',
   '/donate',
-  '/blog',];
+  '/blog',
+];
 
 async function main() {
   // Only ping for real production builds — local/dev builds would

@@ -280,6 +280,48 @@ function HomePage() {
             <ResourcesForYouSection />
           </ViewportSection>
 
+          {/* 09a — Money-page hubs (internal PageRank toward conversion/intent pages) */}
+          <section aria-labelledby="hubs-heading" className="py-12 md:py-16 bg-background border-y border-border/40">
+            <div className="container mx-auto px-5 md:px-10 max-w-6xl">
+              <div className="text-center mb-8">
+                <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2">Start here</p>
+                <h2 id="hubs-heading" className="font-display font-bold text-2xl md:text-3xl text-foreground">
+                  Practical hubs for living with arthritis in the UK
+                </h2>
+                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+                  Clear entry points for diet, exercise, conditions, PIP and the blog — clinically reviewed, free to use.
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <Link to="/diet" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Nutrition</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Diet hub</p>
+                  <p className="text-sm text-muted-foreground mt-1">Anti-inflammatory and Mediterranean eating patterns.</p>
+                </Link>
+                <Link to="/exercises" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Movement</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Exercise hub</p>
+                  <p className="text-sm text-muted-foreground mt-1">NICE-aligned routines for knees, hands and more.</p>
+                </Link>
+                <Link to="/conditions/osteoarthritis" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Conditions</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Condition guides</p>
+                  <p className="text-sm text-muted-foreground mt-1">OA, RA and joint-specific explainers in plain English.</p>
+                </Link>
+                <Link to="/benefits-pip" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Support</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Benefits &amp; PIP</p>
+                  <p className="text-sm text-muted-foreground mt-1">Eligibility, evidence, claiming and appeals.</p>
+                </Link>
+                <Link to="/blog" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
+                  <p className="text-xs text-primary font-bold mb-1">Library</p>
+                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">Arthritis blog</p>
+                  <p className="text-sm text-muted-foreground mt-1">500+ clinically reviewed articles for UK readers.</p>
+                </Link>
+              </div>
+            </div>
+          </section>
+
           {/* 09b — Medication guides quick links (SEO topical authority) */}
           <section aria-labelledby="medication-guides-heading" className="py-12 md:py-16 bg-muted/30">
             <div className="container mx-auto px-5 md:px-10 max-w-6xl">

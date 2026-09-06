@@ -71,6 +71,7 @@ const INDEXNOW_HUB_PATHS = [
   "/guides/benefits-pip",
   "/arthritis-waiting-list-help",
   "/diet",
+  "/exercises",
   "/guides/exercise",
   "/guides/newly-diagnosed",
   "/about",
@@ -82,6 +83,9 @@ const INDEXNOW_HUB_PATHS = [
   "/blog",
   "/conditions/osteoarthritis",
   "/conditions/rheumatoid-arthritis",
+  "/blog/knee-arthritis-exercises-uk",
+  "/blog/pip-for-arthritis-uk",
+  "/blog/mediterranean-diet-arthritis-14-day-plan",
 ];
 
 function corsHeaders(request: Request): HeadersInit {
