@@ -6,13 +6,19 @@ import ContactSection from "./ContactSection";
 // ── Mocks ──────────────────────────────────────────────────────────────
 
 vi.mock("sonner", () => ({
-  toast: { success: vi.fn(), error: vi.fn() },
+  toast: { success: vi.fn(), error: vi.fn(), message: vi.fn() },
 }));
 
 vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn() }));
 vi.mock("@/lib/ga-events", () => ({ trackContactFormSubmit: vi.fn() }));
 vi.mock("@/lib/formApi", () => ({
-  postFormApi: vi.fn(async () => ({ ok: true })),
+  submitViaMailto: vi.fn(() => ({
+    ok: false,
+    code: "mailto_only",
+    mailtoSuggested: true,
+    mailtoOpened: true,
+    error: "Your email app should open with a draft. Please press Send there.",
+  })),
 }));
 
 const renderSection = () =>
@@ -77,7 +83,7 @@ describe("ContactSection validation", () => {
   });
 });
 
-// ── Loading and success feedback ──────────────────────────────────────
+// ── Loading and mailto feedback ──────────────────────────────────────
 
 describe("ContactSection submission feedback", () => {
   const fillValid = () => {
@@ -87,33 +93,19 @@ describe("ContactSection submission feedback", () => {
     fill(/your message/i, "I would like to know more about knee osteoarthritis exercises.");
   };
 
-  it("shows success only after the server accepts the submission", async () => {
-    const { postFormApi } = await import("@/lib/formApi");
-    vi.mocked(postFormApi).mockResolvedValueOnce({ ok: true });
+  it("shows honest mailto guidance and never claims auto-delivery success", async () => {
+    const { submitViaMailto } = await import("@/lib/formApi");
     renderSection();
     fillValid();
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
-    expect(await screen.findByText(/message received/i)).toBeInTheDocument();
-    expect(postFormApi).toHaveBeenCalledWith(
-      "/api/contact",
-      expect.objectContaining({ email: "jane@example.com" }),
+    expect(await screen.findByText(/email draft ready/i)).toBeInTheDocument();
+    expect(submitViaMailto).toHaveBeenCalledWith(
+      expect.objectContaining({
+        subject: "General enquiry",
+        body: expect.stringContaining("jane@example.com"),
+      }),
     );
-  });
-
-  it("does not show success when the server rejects the submission", async () => {
-    const { postFormApi } = await import("@/lib/formApi");
-    vi.mocked(postFormApi).mockResolvedValueOnce({
-      ok: false,
-      error: "Email delivery is not configured",
-      mailtoSuggested: true,
-    });
-    renderSection();
-    fillValid();
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
-    await waitFor(() => {
-      expect(screen.queryByText(/message received/i)).not.toBeInTheDocument();
-    });
-    expect(screen.getByRole("button", { name: /send message/i })).toBeInTheDocument();
+    expect(screen.queryByText(/message received/i)).not.toBeInTheDocument();
   });
 });
 

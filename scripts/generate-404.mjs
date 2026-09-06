@@ -1,7 +1,7 @@
 /**
  * Emit dist/404.html — a standalone, noindex error document.
  *
- * Static hosting (Lovable / Cloudflare) serves /404.html with a real HTTP 404
+ * Static hosting (Lovable) serves /404.html with a real HTTP 404
  * status for unknown paths instead of falling back to index.html with a 200.
  * That kills the soft-404 problem where junk URLs inherited the homepage
  * title, canonical and OG tags.

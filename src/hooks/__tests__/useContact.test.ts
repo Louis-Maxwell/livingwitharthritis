@@ -4,7 +4,7 @@ import { useContact } from "../useContact";
 import { toast } from "sonner";
 
 vi.mock("sonner", () => ({
-  toast: { error: vi.fn(), success: vi.fn() },
+  toast: { error: vi.fn(), success: vi.fn(), message: vi.fn() },
 }));
 
 const hrefs: string[] = [];
@@ -31,42 +31,9 @@ describe("useContact", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     hrefs.length = 0;
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () =>
-        new Response(JSON.stringify({ ok: true }), {
-          status: 200,
-          headers: { "Content-Type": "application/json" },
-        }),
-      ),
-    );
   });
 
-  it("toasts success only after confirmed 2xx accept", async () => {
-    const { result } = renderHook(() => useContact());
-    let response: { success: boolean };
-    await act(async () => {
-      response = await result.current.submitContact(valid);
-    });
-    expect(response!.success).toBe(true);
-    expect(toast.success).toHaveBeenCalled();
-    expect(fetch).toHaveBeenCalledWith(
-      "/api/contact",
-      expect.objectContaining({ method: "POST" }),
-    );
-    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
-  });
-
-  it("does not toast success on failure", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () =>
-        new Response(JSON.stringify({ ok: false, error: "Nope", mailtoSuggested: true }), {
-          status: 502,
-          headers: { "Content-Type": "application/json" },
-        }),
-      ),
-    );
+  it("opens mailto and never toasts success", async () => {
     const { result } = renderHook(() => useContact());
     let response: { success: boolean };
     await act(async () => {
@@ -74,6 +41,18 @@ describe("useContact", () => {
     });
     expect(response!.success).toBe(false);
     expect(toast.success).not.toHaveBeenCalled();
-    expect(toast.error).toHaveBeenCalled();
+    expect(toast.message).toHaveBeenCalled();
+    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
+  });
+
+  it("rejects invalid email without mailto", async () => {
+    const { result } = renderHook(() => useContact());
+    let response: { success: boolean; error?: string };
+    await act(async () => {
+      response = await result.current.submitContact({ ...valid, email: "nope" });
+    });
+    expect(response!.success).toBe(false);
+    expect(response!.error).toBe("Invalid email");
+    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
   });
 });

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bake public/search-index.json for GET /api/search (no Supabase)."""
+"""Bake public/search-index.json for client-side search (no Worker API)."""
 import json, re, pathlib
 from datetime import datetime, timezone
 

@@ -1,8 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
-import { openMailto } from "@/lib/mailtoSubmit";
-import { postFormApi } from "@/lib/formApi";
+import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 interface AppointmentData {
@@ -33,6 +32,10 @@ export function useAppointment() {
     }
     attemptsRef.current.push(now);
 
+    if (data.website && String(data.website).trim()) {
+      return { success: false, error: "Rejected" };
+    }
+
     const sanitizedEmail = sanitizeEmail(data.email);
     if (!sanitizedEmail) {
       toast.error("Please enter a valid email address.");
@@ -45,46 +48,27 @@ export function useAppointment() {
       email: sanitizedEmail,
       phone: data.phone ? sanitizePhone(data.phone) : undefined,
       notes: data.notes ? sanitizeInput(data.notes, 1000) : undefined,
-      website: data.website ? String(data.website) : "",
     };
 
     setIsLoading(true);
     try {
-      const result = await postFormApi("/api/appointment", {
-        name: sanitizedData.name,
-        email: sanitizedData.email,
-        phone: sanitizedData.phone,
-        appointmentType: sanitizedData.appointmentType,
-        preferredDate: sanitizedData.preferredDate,
-        preferredTime: sanitizedData.preferredTime,
-        notes: sanitizedData.notes,
-        website: sanitizedData.website,
-      });
-
-      if (result.ok) {
-        toast.success("Appointment request received — we will confirm by email.");
-        return { success: true };
-      }
-
-      toast.error(
+      const body = [
+        `Name: ${sanitizedData.name}`,
+        `Email: ${sanitizedData.email}`,
+        sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
+        `Type: ${sanitizedData.appointmentType}`,
+        `Preferred date: ${sanitizedData.preferredDate}`,
+        `Preferred time: ${sanitizedData.preferredTime}`,
+        sanitizedData.notes ? `Notes: ${sanitizedData.notes}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+      const result = submitViaMailto({ subject: "Appointment request", body });
+      toast.message(
         result.error ||
-          `We could not send your request. Please email ${CONTACT_EMAILS.info}.`,
+          `Please email ${CONTACT_EMAILS.info} to request an appointment.`,
       );
-      if (result.mailtoSuggested && result.code !== "rate_limited") {
-        const body = [
-          `Name: ${sanitizedData.name}`,
-          `Email: ${sanitizedData.email}`,
-          sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
-          `Type: ${sanitizedData.appointmentType}`,
-          `Preferred date: ${sanitizedData.preferredDate}`,
-          `Preferred time: ${sanitizedData.preferredTime}`,
-          sanitizedData.notes ? `Notes: ${sanitizedData.notes}` : "",
-        ]
-          .filter(Boolean)
-          .join("\n");
-        openMailto({ subject: "Appointment request", body });
-      }
-      return { success: false, error: result.error || "Delivery failed" };
+      return { success: false, error: result.error, mailtoOpened: true as const };
     } finally {
       setIsLoading(false);
     }

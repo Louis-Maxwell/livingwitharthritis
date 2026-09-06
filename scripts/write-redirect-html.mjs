@@ -2,7 +2,7 @@
 /**
  * Post-build: write a tiny redirect document at every exact stub path.
  *
- * The live host (Lovable CDN behind Cloudflare) ignores public/_redirects
+ * The live host (Lovable CDN) ignores public/_redirects
  * and serves the homepage SPA shell as HTTP 200 for unknown paths. That
  * is the GSC soft-404. A real file at dist/<path>/index.html wins over
  * the SPA fallback, so crawlers receive noindex + canonical + refresh

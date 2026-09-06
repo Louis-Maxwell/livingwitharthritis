@@ -13,8 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { openMailto } from "@/lib/mailtoSubmit";
-import { postFormApi } from "@/lib/formApi";
+import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -119,36 +118,19 @@ export default function WaysToHelp() {
 
     setSubmitting(true);
     try {
-      const result = await postFormApi("/api/contact", {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
+      const result = submitViaMailto({
         subject: "Volunteer enquiry",
-        message: [
+        body: [
+          "Name: " + formData.name.trim(),
+          "Email: " + formData.email.trim(),
           "Interest: " + formData.area_of_interest,
           formData.message.trim() || "",
         ].filter(Boolean).join("\n"),
-        kind: "volunteer",
-        website: "",
       });
-      if (result.ok) {
-        setSubmitted(true);
-        toast.success("Volunteer enquiry received — we will reply within two working days.");
-        return;
-      }
-      toast.error(result.error || `We could not deliver your enquiry. Please email ${CONTACT_EMAILS.info}.`);
-      if (result.mailtoSuggested) {
-        openMailto({
-          subject: "Volunteer enquiry",
-          body: [
-            "Name: " + formData.name.trim(),
-            "Email: " + formData.email.trim(),
-            "Interest: " + formData.area_of_interest,
-            formData.message.trim() || "",
-          ].filter(Boolean).join("\n"),
-        });
-      }
+      toast.message(result.error);
+      setSubmitted(true);
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
       setSubmitting(false);
     }
@@ -480,9 +462,9 @@ export default function WaysToHelp() {
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                         <CheckCircle2 className="w-8 h-8 text-primary" />
                       </div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">Thank you!</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-2">Email draft ready — please press Send</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        We've received your application. A member of our team will be in touch within 5 working days.
+                        Your email app should have opened with a volunteer enquiry draft. We only receive it after you press Send — nothing was submitted automatically. We aim to reply within 5 working days once it arrives.
                       </p>
                     </div>
                   ) : (

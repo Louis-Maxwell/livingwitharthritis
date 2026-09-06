@@ -12,8 +12,7 @@ import {
 } from "lucide-react";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { trackContactSubmit } from "@/lib/analytics";
-import { openMailto } from "@/lib/mailtoSubmit";
-import { postFormApi } from "@/lib/formApi";
+import { submitViaMailto } from "@/lib/formApi";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
@@ -106,35 +105,20 @@ const ContactSection = memo(() => {
       firstErrRef.current?.focus();
       return;
     }
+    if (honeypot.trim()) {
+      return;
+    }
     setLoading(true);
     try {
-      const payload = {
-        name: form.name.trim(),
-        email: form.email.trim(),
+      const result = submitViaMailto({
         subject: form.subject,
-        message: form.message.trim(),
-        website: honeypot,
-        kind: "contact",
-      };
-      const result = await postFormApi("/api/contact", payload);
-      if (result.ok) {
-        setSubmitted(true);
-        trackContactSubmit({ topic: form.subject });
-        trackContactFormSubmit(form.subject);
-        toast.success("Thank you — a real person will reply within two working days.");
-        return;
-      }
-      const msg =
-        result.error ||
-        `Sorry — we could not send that just now. Please email ${CONTACT_EMAIL} and we will help.`;
-      toast.error(msg);
-      // Only fall back to mailto for server/network failures — not validation or rate limits.
-      if (result.mailtoSuggested && result.code !== "rate_limited") {
-        openMailto({
-          subject: form.subject,
-          body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
-        });
-      }
+        body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
+      });
+      // Honest: mailto opened — not auto-delivered. Track intent only.
+      trackContactSubmit({ topic: form.subject });
+      trackContactFormSubmit(form.subject);
+      toast.message(result.error);
+      setSubmitted(true);
     } finally {
       setLoading(false);
     }
@@ -211,11 +195,12 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Message received — thank you</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Email draft ready — please press Send</h3>
               <p className="text-muted-foreground mb-6">
-                We know it takes courage to reach out. Your note was delivered to{" "}
-                <strong>{CONTACT_EMAIL}</strong>. A real person will read it and reply within
-                two working days.
+                Your email app should have opened with a draft to{" "}
+                <strong>{CONTACT_EMAIL}</strong>. We only receive your message after you press
+                Send there — nothing was submitted automatically. A real person will reply within
+                two working days once it arrives.
               </p>
               <button
                 onClick={() => { setForm(blank); setSubmitted(false); }}

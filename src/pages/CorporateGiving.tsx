@@ -1,5 +1,4 @@
-import { openMailto } from "@/lib/mailtoSubmit";
-import { postFormApi } from "@/lib/formApi";
+import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -105,39 +104,21 @@ const CorporateGiving = () => {
 
     setIsSubmitting(true);
     try {
-      const result = await postFormApi("/api/contact", {
-        name: parsed.data.contact_name,
-        contact_name: parsed.data.contact_name,
-        email: parsed.data.email,
-        organization_name: parsed.data.organization_name,
-        inquiry_type: parsed.data.inquiry_type,
-        phone: parsed.data.phone,
-        message: parsed.data.message || "Corporate giving enquiry",
+      const result = submitViaMailto({
         subject: "Corporate giving enquiry",
-        kind: "corporate",
-        website: "",
+        body: [
+          "Name: " + parsed.data.contact_name,
+          "Email: " + parsed.data.email,
+          parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
+          "Type: " + parsed.data.inquiry_type,
+          parsed.data.phone ? "Phone: " + parsed.data.phone : "",
+          parsed.data.message ? parsed.data.message : "",
+        ].filter(Boolean).join("\n"),
       });
-      if (result.ok) {
-        toast.success("Enquiry received — we will reply within two working days.");
-        setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
-        return;
-      }
-      toast.error(result.error || `We could not deliver your enquiry. Please email ${CONTACT_EMAILS.info}.`);
-      if (result.mailtoSuggested) {
-        openMailto({
-          subject: "Corporate giving enquiry",
-          body: [
-            "Name: " + parsed.data.contact_name,
-            "Email: " + parsed.data.email,
-            parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
-            "Type: " + parsed.data.inquiry_type,
-            parsed.data.phone ? "Phone: " + parsed.data.phone : "",
-            parsed.data.message ? parsed.data.message : "",
-          ].filter(Boolean).join("\n"),
-        });
-      }
+      toast.message(result.error);
+      setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
       setIsSubmitting(false);
     }

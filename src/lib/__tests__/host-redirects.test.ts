@@ -74,7 +74,7 @@ describe("host + client SEO redirects", () => {
     }
   });
 
-  it("keeps vercel.json and the Cloudflare middleware generated from the map", () => {
+  it("keeps vercel.json generated from the map", () => {
     expect(hostRedirectsDrift()).toEqual([]);
     const vercel = JSON.parse(
       readFileSync(resolve(process.cwd(), "vercel.json"), "utf8"),
@@ -84,15 +84,6 @@ describe("host + client SEO redirects", () => {
     );
     expect(sources.has("/arthritis-support/stockport")).toBe(true);
     expect(sources.has("/blog/mindfulness-meditation-chronic-pain")).toBe(true);
-    const mw = readFileSync(
-      resolve(process.cwd(), "functions/_middleware.js"),
-      "utf8",
-    );
-    expect(mw).toContain('"/arthritis-support/stockport": "/arthritis-support/manchester"');
-    expect(mw).toContain(
-      '"/blog/mindfulness-meditation-chronic-pain": "/blog/mindfulness-chronic-pain-arthritis-guide"',
-    );
-    expect(mw).toContain("status: 301");
   });
 
   it("does not bake article HTML onto redirect sources via inject-canonicals", () => {

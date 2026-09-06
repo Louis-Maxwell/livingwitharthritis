@@ -1,8 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
-import { openMailto } from "@/lib/mailtoSubmit";
-import { postFormApi } from "@/lib/formApi";
+import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 interface ContactData {
@@ -31,6 +30,11 @@ export function useContact() {
     }
     attemptsRef.current.push(now);
 
+    // Honeypot: silent no-op for bots
+    if (data.website && String(data.website).trim()) {
+      return { success: false, error: "Rejected" };
+    }
+
     const sanitizedEmail = sanitizeEmail(data.email);
     if (!sanitizedEmail) {
       toast.error("Please enter a valid email address.");
@@ -43,36 +47,24 @@ export function useContact() {
       phone: data.phone ? sanitizePhone(data.phone) : undefined,
       subject: sanitizeInput(data.subject, 200),
       message: sanitizeInput(data.message, 1000),
-      website: data.website ? String(data.website) : "",
-      kind: "contact",
     };
 
     setIsLoading(true);
     try {
-      const result = await postFormApi("/api/contact", sanitizedData);
-      if (result.ok) {
-        toast.success("Message received — we will reply within two working days.");
-        return { success: true };
-      }
-
-      toast.error(
-        result.error ||
-          `We could not deliver your message. Please email ${CONTACT_EMAILS.info}.`,
-      );
-      if (result.mailtoSuggested && result.code !== "rate_limited") {
-        const lines = [
-          `Name: ${sanitizedData.name}`,
-          `Email: ${sanitizedData.email}`,
-          sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
-          "",
-          sanitizedData.message,
-        ].filter(Boolean);
-        openMailto({
-          subject: sanitizedData.subject || "Website enquiry",
-          body: lines.join("\n"),
-        });
-      }
-      return { success: false, error: result.error || "Delivery failed" };
+      const lines = [
+        `Name: ${sanitizedData.name}`,
+        `Email: ${sanitizedData.email}`,
+        sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
+        "",
+        sanitizedData.message,
+      ].filter(Boolean);
+      const result = submitViaMailto({
+        subject: sanitizedData.subject || "Website enquiry",
+        body: lines.join("\n"),
+      });
+      // Never toast success — mailto is not delivery confirmation.
+      toast.message(result.error);
+      return { success: false, error: result.error, mailtoOpened: true as const };
     } finally {
       setIsLoading(false);
     }
