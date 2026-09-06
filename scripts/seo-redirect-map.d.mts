@@ -1,0 +1,10 @@
+export declare const SITE: string;
+export declare const EXACT_SEO_REDIRECTS: Record<string, string>;
+export declare const CITY_HUB_ALIASES: Record<string, string>;
+export declare const BLOG_SLUG_REDIRECTS: Record<string, string>;
+export declare const CITY_SLUGS: Set<string>;
+export declare function exactRedirects(...args: unknown[]): { from: string; to: string }[];
+export declare function exactRedirectPathSet(...args: unknown[]): Set<string>;
+export declare function normalizePath(pathname: string): string;
+export declare function buildRedirectHtml(from: string, to: string): string;
+export declare function vercelRedirects(...args: unknown[]): unknown[];

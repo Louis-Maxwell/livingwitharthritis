@@ -87,7 +87,7 @@ class AnalyticsTracker {
   /**
    * Track click on city or library link
    */
-  trackClick(pageType: 'city' | 'library', slug: string) {
+  trackClick(pageType: 'city' | 'library' | 'article', slug: string) {
     const event: AnalyticsEvent = {
       type: 'click',
       page: `/${pageType === 'city' ? 'arthritis-support' : 'library'}/${slug}`,
@@ -107,7 +107,7 @@ class AnalyticsTracker {
   /**
    * Track engagement (scrolling, interactions)
    */
-  trackEngagement(pageType: 'city' | 'library', slug: string, scrollDepth: number) {
+  trackEngagement(pageType: 'city' | 'library' | 'article', slug: string, scrollDepth: number) {
     const event: AnalyticsEvent = {
       type: 'engagement',
       page: `/${pageType === 'city' ? 'arthritis-support' : 'library'}/${slug}`,
@@ -180,7 +180,7 @@ export function useAnalytics(pageType: 'city' | 'library' | 'article', slug: str
   }, [pageType, slug]);
 
   return {
-    trackClick: (linkedPageType: 'city' | 'library') => {
+    trackClick: (linkedPageType: 'city' | 'library' | 'article') => {
       if (analytics) {
         analytics.trackClick(linkedPageType, slug);
       }
