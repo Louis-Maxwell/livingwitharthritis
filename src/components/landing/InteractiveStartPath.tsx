@@ -416,11 +416,6 @@ const InteractiveStartPath = memo(() => {
                 })}
               </ul>
 
-              <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
-                This is general information, not personal medical advice. Living With Arthritis
-                is a registered charity in England and Wales (no.&nbsp;1218461), serving the UK,
-                and independent of Arthritis UK. Clinical review: HCPC PH128483.
-              </p>
 
               <button
                 type="button"

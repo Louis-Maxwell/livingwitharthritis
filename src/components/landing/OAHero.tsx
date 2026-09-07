@@ -68,24 +68,6 @@ const OAHero = memo(() => {
               </a>
             </div>
 
-            <ul
-              aria-label="Clinical alignment"
-              className="hero-item mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]"
-            >
-              <li className="flex items-center gap-2">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
-                HCPC-registered physiotherapists
-              </li>
-              <li className="flex items-center gap-2">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
-                CSP members
-              </li>
-              <li className="flex items-center gap-2">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
-                Aligned with NICE guidance
-              </li>
-            </ul>
-
             <p className="hero-item mt-4 text-xs">
               Learn about our{" "}
               <Link to="/editorial-standards" className="underline hover:no-underline font-medium">
