@@ -20,7 +20,7 @@
  *     mid-phrase (e.g. "Supporting a Partner With").
  *   - ogImage is resolved from src/data/blog-cover-map.generated.json →
  *     https://livingwitharthritis.org.uk/openverse/<file>, falling back to
- *     /og/home.png only when no cover exists (homepage banner stays for `/`).
+ *     /og/landing-share.png only when no cover exists (real landing photo, never the red icon).
  *
  * Lightweight refresh (no full vite build) when dist/ already exists:
  *   node scripts/generate-blog-head-data.mjs && node scripts/inject-canonicals.mjs
@@ -35,7 +35,7 @@ const LOCAL_BLOG_DIR = resolve('src/content/blog');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
 const SITE = 'https://livingwitharthritis.org.uk';
 const BRAND = 'Living With Arthritis UK';
-const DEFAULT_OG_IMAGE = `${SITE}/og/home.png`;
+const DEFAULT_OG_IMAGE = `${SITE}/og/landing-share.png`;
 
 export function clipText(text, max) {
   const value = String(text ?? '').replace(/\s+/g, ' ').trim();
@@ -272,7 +272,7 @@ async function main() {
   ).length;
   const fallbackOg = Object.values(data).filter((e) => e?.ogImage === DEFAULT_OG_IMAGE).length;
   console.log(
-    `[blog-head-data] local JSON only — ${Object.keys(data).length} entries, ${withContent} with article content, ${fromCover} ogImage from cover map, ${fallbackOg} fallback /og/home.png`,
+    `[blog-head-data] local JSON only — ${Object.keys(data).length} entries, ${withContent} with article content, ${fromCover} ogImage from cover map, ${fallbackOg} fallback /og/landing-share.png`,
   );
 }
 

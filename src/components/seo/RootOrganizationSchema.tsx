@@ -23,6 +23,13 @@ const PAYLOAD = {
     width: 512,
     height: 512,
   },
+  // Primary share/photo for platforms that misuse Organization.logo as a preview.
+  image: {
+    "@type": "ImageObject",
+    url: `${BASE}/og/landing-share.png`,
+    width: 1200,
+    height: 630,
+  },
   foundingDate: "2026-06-15",
   founder: {
     "@type": "Person",

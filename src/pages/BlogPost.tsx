@@ -182,7 +182,7 @@ const BlogPost = () => {
   const relatedImages = getArticleImages(article.category, article.title, slug || article.title, article.keywords).slice(1);
   const coverAbsolute = cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
-    : "https://livingwitharthritis.org.uk/images/og-blog-default.webp";
+    : "https://livingwitharthritis.org.uk/og/landing-share.png";
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });

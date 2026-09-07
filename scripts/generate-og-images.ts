@@ -209,8 +209,18 @@ async function main() {
   let created = 0;
   let skipped = 0;
 
+  // Default share cards must be real photos — never solid red stick-figure icons
+  // (Facebook crops those to the red mark and fills Page Photos with it).
+  const landingPhoto = join(OUT_DIR, "landing-share.png");
   for (const page of pages) {
     const out = join(OUT_DIR, `${page.slug}.png`);
+    if ((page.slug === "home" || page.slug === "blog") && existsSync(landingPhoto)) {
+      const { copyFile } = await import("node:fs/promises");
+      await copyFile(landingPhoto, out);
+      created++;
+      console.log(`[og] ${page.slug}.png <- landing-share.png`);
+      continue;
+    }
     if (!FORCE && existsSync(out)) {
       skipped++;
       continue;
