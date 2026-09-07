@@ -147,14 +147,14 @@ export default function Donate() {
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+      <meta property="og:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Donate to Living With Arthritis UK | Gift Aid CIO" />
       <meta name="twitter:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
-      <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+      <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
     </Helmet>
       <Header />
       <main id="main-content" className="min-h-screen bg-background">

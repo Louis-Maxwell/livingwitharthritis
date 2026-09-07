@@ -136,11 +136,11 @@ const AboutUs = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:site_name" content={CHARITY.shortName} />
-        <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+        <meta property="og:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
-        <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
+        <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis UK | Independent CIO charity" />
         <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
@@ -204,8 +204,8 @@ const AboutUs = () => {
         </PageHero>
 
         {/* Disambiguation line — who we are and who we are not */}
-        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl -mt-4 mb-4">
-          <p className="text-center text-base lg:text-lg font-medium text-foreground leading-relaxed">
+        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-6 overflow-visible">
+          <p className="text-center text-base lg:text-lg font-medium text-foreground leading-[1.65] py-1">
             Living With Arthritis is a registered charity in England and Wales
             (no.&nbsp;1218461), a UK national charity. We are independent of Arthritis UK.
           </p>

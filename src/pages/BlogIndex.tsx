@@ -170,11 +170,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
         <meta property="og:site_name" content="Living With Arthritis UK" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
         <meta name="twitter:description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />

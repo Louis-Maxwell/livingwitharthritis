@@ -172,20 +172,20 @@ function HomePage() {
             "Free UK arthritis exercises, diet guidance and support. No sign-up required. Registered charity 1218461.",
           )}
         />
-        {/* Homepage social share card: branded /og/home.png (1200×630). */}
-        <meta property="og:image" content={`${SITE_URL}/og/home.png`} />
-        <meta property="og:image:secure_url" content={`${SITE_URL}/og/home.png`} />
+        {/* Homepage social share card: branded /og/landing-share.png (1200×630). */}
+        <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
+        <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="Living With Arthritis UK logo – free physiotherapy and arthritis support across the United Kingdom"
+          content="People walking together — Living With Arthritis UK free joint-pain support"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={`${SITE_URL}/og/home.png`} />
+        <meta name="twitter:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta
           name="twitter:image:alt"
-          content="Living With Arthritis UK logo – free physiotherapy and arthritis support across the United Kingdom"
+          content="People walking together — Living With Arthritis UK free joint-pain support"
         />
       </Helmet>
 
