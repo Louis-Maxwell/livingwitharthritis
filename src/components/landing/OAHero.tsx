@@ -36,7 +36,7 @@ const OAHero = memo(() => {
               id="oa-hero"
               className="hero-item text-balance break-words text-[clamp(2rem,8vw,5.5rem)] leading-[0.95] uppercase"
             >
-              Living With Arthritis — UK charity for arthritis and frailty support
+              Living With Arthritis UK — evidence-based health guides
             </h1>
 
             <p className="hero-item mt-6 text-sm lg:text-base font-medium max-w-xl leading-relaxed">
