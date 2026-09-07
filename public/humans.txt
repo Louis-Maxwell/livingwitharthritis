@@ -3,7 +3,7 @@ Founder / clinical lead: Louis Maxwell (Maxwell)
 Role: First Contact Practitioner
 HCPC: PH128483
 Contact: info@livingwitharthritis.org.uk
-Location: Oswestry, Shropshire, United Kingdom
+Location: United Kingdom
 
 /* ORG */
 Name: Living With Arthritis
@@ -11,7 +11,7 @@ Brand: Living With Arthritis UK
 Legal: Charitable Incorporated Organisation (CIO)
 Charity number (England and Wales): 1218461
 Registered: 15 June 2026
-Registered office: Oswestry Primary Care Centre, Thomas Savin Road, Oswestry, Shropshire SY11 1GA
+Scope: UK national charity (England and Wales registration)
 Site: https://livingwitharthritis.org.uk/
 Disambiguation: Independent of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis Foundation.
 

@@ -27,7 +27,7 @@ const stats = [
     icon: Users,
     value: "Young",
     label: "Built with you, not for a brochure",
-    desc: "Registered charity 1218461 (June 2026), based in Oswestry. We are still growing — tell us what you need.",
+    desc: "Registered charity 1218461 (June 2026), a UK national charity. We are still growing — tell us what you need.",
     bg: "bg-primary",
     fg: "text-white",
     iconBg: "bg-white text-primary",

@@ -104,7 +104,7 @@ const DONATE_FAQS: FAQItem[] = [
   {
     question: "What is your charity number?",
     answer:
-      "Living With Arthritis is a registered charity in England and Wales, no. 1218461, based in Oswestry. We are independent of Arthritis UK.",
+      "Living With Arthritis is a registered charity in England and Wales, no. 1218461, serving people across the UK. We are independent of Arthritis UK.",
   },
   {
     question: "Should I donate here or through the Zakat appeal?",

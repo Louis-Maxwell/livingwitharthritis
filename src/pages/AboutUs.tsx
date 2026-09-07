@@ -99,7 +99,7 @@ const impactStats = [
   { value: "2026", label: "Charity registered", icon: Shield, color: "text-primary" },
   { value: "1218461", label: "Charity number", icon: Award, color: "text-primary" },
   { value: "Free", label: "Guides & tools", icon: Heart, color: "text-primary" },
-  { value: "Oswestry", label: "Based in the UK", icon: Globe, color: "text-primary" },
+  { value: "UK-wide", label: "National charity", icon: Globe, color: "text-primary" },
 ];
 
 const teamMembers = [
@@ -128,10 +128,10 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Living With Arthritis UK | Independent CIO charity</title>
-        <meta name="description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) in Oswestry, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta name="description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Living With Arthritis UK | Independent CIO charity" />
-        <meta property="og:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) in Oswestry, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta property="og:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -143,7 +143,7 @@ const AboutUs = () => {
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis UK | Independent CIO charity" />
-        <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) in Oswestry, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -207,7 +207,7 @@ const AboutUs = () => {
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl -mt-4 mb-4">
           <p className="text-center text-base lg:text-lg font-medium text-foreground leading-relaxed">
             Living With Arthritis is a registered charity in England and Wales
-            (no.&nbsp;1218461), based in Oswestry. We are independent of Arthritis UK.
+            (no.&nbsp;1218461), a UK national charity. We are independent of Arthritis UK.
           </p>
         </section>
 

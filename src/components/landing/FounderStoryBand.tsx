@@ -45,7 +45,7 @@ const FounderStoryBand = memo(() => {
             </p>
 
             <p>
-              We are a young charity (registered 15 June 2026, no.&nbsp;1218461), based in Oswestry
+              We are a young charity (registered 15 June 2026, no.&nbsp;1218461), serving people across the UK
               and independent of Arthritis UK. We will not invent a large clinical board. Louis
               reviews our content. Motion is lotion — and we are building this with you.
             </p>

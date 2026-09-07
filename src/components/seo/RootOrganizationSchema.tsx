@@ -36,14 +36,6 @@ const PAYLOAD = {
     },
     url: `${BASE}/authors/maxwell`,
   },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Oswestry Primary Care Centre, Thomas Savin Road",
-    addressLocality: "Oswestry",
-    addressRegion: "Shropshire",
-    postalCode: "SY11 1GA",
-    addressCountry: "GB",
-  },
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   email: "info@livingwitharthritis.org.uk",

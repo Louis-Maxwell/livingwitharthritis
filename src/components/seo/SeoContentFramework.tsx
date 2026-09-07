@@ -102,7 +102,7 @@ export default function SeoContentFramework({
           className="w-full h-auto"
         />
         <figcaption className="px-4 py-3 text-xs text-muted-foreground border-t border-border/30">
-          Living With Arthritis UK SEO content framework — Motion is Lotion, charity 1218461 (Oswestry).
+          Living With Arthritis UK SEO content framework — Motion is Lotion, charity 1218461 (UK national charity).
         </figcaption>
       </figure>
 

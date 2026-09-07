@@ -22,11 +22,11 @@ export const CHARITY = {
   websiteDomain: 'livingwitharthritis.org.uk',
   contactEmail: 'info@livingwitharthritis.org.uk',
   address: {
-    name: 'Oswestry Primary Care Centre',
-    street: 'Thomas Savin Road',
-    locality: 'Oswestry',
-    postalCode: 'SY11 1GA',
-    region: 'Shropshire',
+    name: '',
+    street: '',
+    locality: '',
+    postalCode: '',
+    region: '',
     country: 'GB',
   },
 } as const;

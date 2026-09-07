@@ -155,7 +155,7 @@ const DONATE_LINKS: ResultLink[] = [
   {
     href: "/about",
     label: "About the charity",
-    sub: "Registered charity 1218461, based in Oswestry. Independent of Arthritis UK.",
+    sub: "Registered charity 1218461, serving the UK. Independent of Arthritis UK.",
   },
 ];
 
@@ -213,7 +213,7 @@ function buildResults(joint: JointId, need: NeedId): { links: ResultLink[]; next
     return {
       links: DONATE_LINKS,
       nextStep:
-        "A gift keeps clinically reviewed guidance free. Living With Arthritis is charity 1218461, based in Oswestry, and independent of Arthritis UK.",
+        "A gift keeps clinically reviewed guidance free. Living With Arthritis is charity 1218461, a UK national charity independent of Arthritis UK.",
     };
   }
 
@@ -418,8 +418,8 @@ const InteractiveStartPath = memo(() => {
 
               <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
                 This is general information, not personal medical advice. Living With Arthritis
-                is a registered charity in England and Wales (no.&nbsp;1218461), based in
-                Oswestry, and independent of Arthritis UK. Clinical review: HCPC PH128483.
+                is a registered charity in England and Wales (no.&nbsp;1218461), serving the UK,
+                and independent of Arthritis UK. Clinical review: HCPC PH128483.
               </p>
 
               <button

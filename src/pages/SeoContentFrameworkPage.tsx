@@ -77,7 +77,7 @@ export default function SeoContentFrameworkPage() {
               How we write SEO content
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Living With Arthritis UK (charity 1218461, Oswestry) publishes free, clinically
+              Living With Arthritis UK (charity 1218461, UK national charity) publishes free, clinically
               reviewed guidance. This page documents the framework every new guide and blog post
               should follow — independent of Arthritis UK.
             </p>

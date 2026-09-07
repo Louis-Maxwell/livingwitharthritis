@@ -142,7 +142,7 @@ const ContactSection = memo(() => {
           </h2>
           <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
             Living with arthritis can feel lonely. When you write to us, a human reads it —
-            usually Louis or someone on our small Oswestry team — and we aim to reply within
+            usually Louis or someone on our small UK team — and we aim to reply within
             two working days (Monday to Friday, 9am – 5pm).
           </p>
         </div>
