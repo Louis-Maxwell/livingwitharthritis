@@ -22,7 +22,6 @@ import {
   dedentIndentedHtmlForMarked,
   unwrapEscapedHtmlCodeBlocks,
 } from "@/lib/articleHtmlCodeBlocks.mjs";
-import DOMPurify from "dompurify";
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
@@ -90,14 +89,12 @@ function markdownToHtml(md: string): string {
   // Mixed HTML + markdown (common after quick-answer blocks) must go through marked,
   // otherwise headings/lists stay as literal text and KeyTakeaways scrape related-links.
   if (unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)) {
-    return DOMPurify.sanitize(unwrapped, { USE_PROFILES: { html: true } });
+    return sanitizeHtml(unwrapped);
   }
   // Dedent indented HTML so marked never fences block tags as <pre><code>.
   const forMarked = dedentIndentedHtmlForMarked(unwrapped);
   const rawHtml = marked.parse(forMarked, { async: false }) as string;
-  return DOMPurify.sanitize(unwrapEscapedHtmlCodeBlocks(rawHtml), {
-    USE_PROFILES: { html: true },
-  });
+  return sanitizeHtml(unwrapEscapedHtmlCodeBlocks(rawHtml));
 }
 
 function getReadingTime(html: string) {

@@ -40,10 +40,13 @@ function getNameField(data: any): string | null {
 
 function sanitizePath(raw: string | null): string {
   if (!raw) return "/";
-  // Only allow same-origin relative paths (must start with a single "/" and
-  // not be a protocol-relative "//..." URL that browsers treat as absolute).
-  if (raw.startsWith("/") && !raw.startsWith("//")) return raw;
-  return "/";
+  const path = raw.trim();
+  // Same-origin path only. Reject protocol-relative URLs, backslash tricks,
+  // and any scheme such as javascript: or https:.
+  if (!path.startsWith("/") || path.startsWith("//") || path.includes("\\")) return "/";
+  if (/[\s\u0000]/.test(path) || path.includes(":")) return "/";
+  if (!/^\/[^?#]*(\?[^#]*)?$/.test(path)) return "/";
+  return path;
 }
 
 export default function DebugSchema() {
@@ -104,9 +107,10 @@ export default function DebugSchema() {
   }, [pagePath]);
 
   const handleLoad = (path: string) => {
-    setPagePath(path);
-    setInputValue(path);
-    setSearchParams({ page: path });
+    const safe = sanitizePath(path);
+    setPagePath(safe);
+    setInputValue(safe);
+    setSearchParams({ page: safe });
     setExpanded({});
   };
 
@@ -153,7 +157,7 @@ export default function DebugSchema() {
             className="flex gap-2"
             onSubmit={(e) => {
               e.preventDefault();
-              handleLoad(inputValue.startsWith("/") ? inputValue : `/${inputValue}`);
+              handleLoad(sanitizePath(inputValue.startsWith("/") ? inputValue : `/${inputValue}`));
             }}
           >
             <input

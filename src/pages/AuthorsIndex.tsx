@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck, ChevronRight } from 'lucide-react';
 import SeoHead from '@/components/SeoHead';
+import { jsonLdScript } from '@/utils/sanitizeHtml';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import authors from '@/data/medical-authors.json';
@@ -85,7 +86,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
       <SeoHead title={title} includeSiteName={false} description={description} path={`/${prefix}`} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(itemListLd) }}
       />
       <Header />
       <main id="main-content" role="main" tabIndex={-1} className="flex-1">
