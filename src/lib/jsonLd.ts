@@ -19,7 +19,7 @@ export const buildCharitySchema = () => ({
   name: CHARITY.shortName,
   legalName: CHARITY.legalName,
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon.png`,
+  logo: `${SITE_URL}/og/landing-share.png`,
   taxID: CHARITY.number,
   foundingDate: CHARITY.registrationDate,
   identifier: [

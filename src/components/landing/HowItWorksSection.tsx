@@ -1,12 +1,13 @@
 import { memo } from "react";
 import { Search, UserCheck, Dumbbell, Heart, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 
 const STEPS = [
-  { key: "explore", icon: Search, num: "01", link: "/blog", title: "Explore Resources", desc: "Browse our curated library of 120+ clinically reviewed exercises, nutrition plans, and expert articles.", linkText: "Browse articles" },
+  { key: "explore", icon: Search, num: "01", link: "/blog", title: "Explore Resources", desc: `Browse ${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed articles on exercise, nutrition and daily living.`, linkText: "Browse articles" },
   { key: "guidance", icon: UserCheck, num: "02", link: "/chat", title: "Get Personalised Guidance", desc: "Use our help chat or book a free virtual consultation with a HCPC-registered physiotherapist.", linkText: "Start a chat" },
   { key: "programme", icon: Dumbbell, num: "03", link: "/exercises", title: "Follow Your Programme", desc: "Begin with tailored low-impact exercises and an anti-inflammatory Mediterranean diet plan.", linkText: "View exercises" },
-  { key: "transform", icon: Heart, num: "04", link: "/community", title: "Transform Your Life", desc: "Track your progress, connect with 10,000+ people in our community, and celebrate milestones.", linkText: "Join community" },
+  { key: "transform", icon: Heart, num: "04", link: "/community", title: "Transform Your Life", desc: "Use the community pages and free guides at your own pace. We are a young charity and do not claim a large membership.", linkText: "Join community" },
 ] as const;
 
 const HowItWorksSection = memo(() => {
@@ -21,7 +22,7 @@ const HowItWorksSection = memo(() => {
             Your path to better living
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
-            A structured, evidence-based approach designed by our clinical team. Most patients report significant improvement within 8–12 weeks.
+            A practical path through free UK guides — start with what you can manage today. This is general information, not a promise of a particular result.
           </p>
         </div>
 

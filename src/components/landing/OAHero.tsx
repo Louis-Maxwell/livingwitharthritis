@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
+import { onCoverImgError } from "@/lib/articleImages";
 
 
 const scrollToStartHere = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -101,6 +102,7 @@ const OAHero = memo(() => {
               {...({ fetchpriority: "high" } as Record<string, string>)}
               decoding="async"
               loading="eager"
+              onError={onCoverImgError}
               className="clip-octagon w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
             />
           </div>

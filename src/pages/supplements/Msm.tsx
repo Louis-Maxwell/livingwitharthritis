@@ -71,7 +71,7 @@ export default function Msm() {
         "@type": "Organization",
         name: "Living With Arthritis",
         url: BASE,
-        logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
+        logo: { "@type": "ImageObject", url: `${BASE}/og/landing-share.png` },
       },
     };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.

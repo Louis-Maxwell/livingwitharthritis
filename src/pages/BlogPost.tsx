@@ -28,7 +28,7 @@ import KeyTakeaways from "@/components/article/KeyTakeaways";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
-import { getArticleImages, coverImage } from "@/lib/articleImages";
+import { getArticleImages, coverImage, onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/articleImages";
 import NotFound from "@/pages/NotFound";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 
@@ -179,7 +179,7 @@ const BlogPost = () => {
   const relatedImages = getArticleImages(article.category, article.title, slug || article.title, article.keywords).slice(1);
   const coverAbsolute = cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
-    : "https://livingwitharthritis.org.uk/og/landing-share.png";
+    : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -453,8 +453,9 @@ const BlogPost = () => {
         <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
           <figure className="mt-6 md:mt-8 mb-2">
             <img
-              src={cover.src}
+              src={safeCoverSrc(cover.src)}
               alt={cover.alt}
+              onError={onCoverImgError}
               width={1600}
               height={900}
               sizes="(min-width: 860px) 860px, 100vw"
@@ -550,7 +551,7 @@ const BlogPost = () => {
             {htmlAfterStrip && relatedImages[0] && (
               <figure className="not-prose my-8">
                 <img
-                  src={relatedImages[0].src}
+                  src={safeCoverSrc(relatedImages[0].src)}
                   alt={relatedImages[0].alt}
                   width={1200}
                   height={800}
@@ -580,7 +581,7 @@ const BlogPost = () => {
             {relatedImages[1] && (
               <figure className="not-prose my-8">
                 <img
-                  src={relatedImages[1].src}
+                  src={safeCoverSrc(relatedImages[1].src)}
                   alt={relatedImages[1].alt}
                   width={1200}
                   height={800}

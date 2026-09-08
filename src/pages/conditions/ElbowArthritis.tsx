@@ -29,7 +29,7 @@ const jsonLd = {
   "datePublished": "2026-06-12",
   "dateModified": "2026-06-12",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/favicon.ico` } },
+  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
   "about": {
     "@type": "MedicalCondition",
     "name": "Elbow Arthritis",

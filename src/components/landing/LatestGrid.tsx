@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useBlogArticlesList } from "@/hooks/useBlogArticles";
-import { coverImage } from "@/lib/articleImages";
+import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
 
 /**
  * MAP-style "Latest" 3-up grid. Covers always come from coverImage()
@@ -61,15 +61,16 @@ export default function LatestGrid() {
                 to={`/blog/${a.slug}`}
                 className="group bg-white block overflow-hidden hover:shadow-xl transition-shadow focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/50"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-primary flex items-center justify-center">
+                <div className="aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center">
                   <img
-                    src={coverImage(a.category, a.title, a.slug).src}
+                    src={safeCoverSrc(coverImage(a.category, a.title, a.slug).src)}
                     alt=""
                     aria-hidden="true"
                     width={400}
                     height={300}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
+                    onError={onCoverImgError}
                   />
                 </div>
                 <div className="p-5 md:p-6">

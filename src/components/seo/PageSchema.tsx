@@ -131,7 +131,7 @@ export default function PageSchema({
           "@type": "Organization",
           name: "Living With Arthritis UK",
           url: BASE,
-          logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
+          logo: { "@type": "ImageObject", url: `${BASE}/og/landing-share.png` },
         },
         audience: {
           "@type": "MedicalAudience",

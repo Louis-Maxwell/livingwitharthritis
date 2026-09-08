@@ -199,23 +199,15 @@ export default function LivedExperiences() {
         <Header />
         <main id="main-content">
           <PageHero
-            title="Real Stories, Real People"
-            subtitle="Honest accounts from people across the UK living with arthritis — their diagnoses, challenges, breakthroughs, and advice for others on the same journey."
+            title="Stories about living with arthritis"
+            subtitle="Illustrative accounts of diagnosis, day-to-day limits and what people try next. Not a count of people this charity has supported."
           />
 
-          {/* Stats bar */}
           <section className="bg-primary/5 border-y border-primary/10 py-6">
-            <div className="container mx-auto px-4 flex flex-wrap justify-center gap-8 text-center">
-              {[
-                { num: "10,000+", label: "People Supported" },
-                { num: "50+", label: "Shared Stories" },
-                { num: "98%", label: "Say Community Helps" },
-              ].map(s => (
-                <div key={s.label}>
-                  <p className="text-2xl font-bold text-primary">{s.num}</p>
-                  <p className="text-sm text-muted-foreground">{s.label}</p>
-                </div>
-              ))}
+            <div className="container mx-auto px-4 max-w-3xl text-center">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                These are illustrative accounts of living with arthritis, not a membership total and not audited outcomes. Living With Arthritis was registered on 15 June 2026 (charity 1218461) and does not publish a people-supported total.
+              </p>
             </div>
           </section>
 

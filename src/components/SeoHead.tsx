@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import { DEFAULT_OG_PATH } from "@/lib/articleImages";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 const SITE_NAME = "Living With Arthritis UK";
-const DEFAULT_IMAGE = `${SITE_URL}/og/landing-share.png`;
+const DEFAULT_IMAGE = `${SITE_URL}${DEFAULT_OG_PATH}`;
 
 interface SeoHeadProps {
   /** Page title (will be appended with site name unless includeSiteName=false) */

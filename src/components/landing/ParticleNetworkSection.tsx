@@ -1,4 +1,5 @@
 import { memo, useEffect, useRef, useCallback } from "react";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 
 /**
  * Interactive 3D molecular/neural network — full-width dark section.
@@ -254,15 +255,15 @@ const ParticleNetworkSection = memo(() => {
             <span style={{ color: "#D60000" }}>interconnected</span>
           </h2>
           <p className="text-primary-foreground text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-            Our network links physiotherapists, dietitians, exercise specialists,
-            and community volunteers into a living support system — so no aspect
-            of your wellbeing is ever overlooked.
+            Free guides you can use today, reviewed by an HCPC-registered
+            physiotherapist. We do not claim a panel of specialists — just
+            practical UK information, written in plain English.
           </p>
           <div className="grid grid-cols-2 gap-4 pt-4 max-w-sm mx-auto lg:mx-0">
             {[
-              { val: "24/7", label: "Always-on Support" },
-              { val: "50+", label: "Specialists" },
-              { val: "120+", label: "Resources" },
+              { val: "Free", label: "Guides to read" },
+              { val: formatInventoryCount(CONTENT_INVENTORY.blogArticles), label: "Articles" },
+              { val: "UK", label: "National charity" },
               { val: "0", label: "Cost to you" },
             ].map((s) => (
               <div key={s.label} className="text-center lg:text-left">

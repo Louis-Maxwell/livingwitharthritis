@@ -8,8 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
-  Heart, Users, Star, Quote, CheckCircle,
-  Activity, BookOpen, MessageCircle, Shield, Target, Sparkles
+  Heart, Star, Quote, CheckCircle,
+  Activity, BookOpen, Shield, Target, Sparkles
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -47,7 +47,7 @@ const caseStudies = [
     location: "Leeds",
     condition: "Hip Osteoarthritis",
     quote: "I was on the rheumatology waiting list for a physiotherapy referral for months. The virtual physio service meant I could start exercises immediately. The chair exercises were perfect for my level and gave me confidence to move more.",
-    outcome: "Started rehabilitation 4 months earlier tha public health appointment",
+    outcome: "Started rehabilitation 4 months earlier than public health appointment",
     services: ["Virtual Physiotherapy", "Chair Exercises", "Hip Exercise Programme"],
   },
   {
@@ -61,13 +61,10 @@ const caseStudies = [
   },
 ];
 
-const impactNumbers = [
-  { value: "10,000+", label: "People supported since our founding", icon: Users },
-  { value: "3,200", label: "Virtual physio consultations (2024/25)", icon: Activity },
-  { value: "4,500", label: "Active community forum members", icon: MessageCircle },
-  { value: "18,000+", label: "symptom checker uses", icon: Target },
-  { value: "50+", label: "Evidence-based exercise guides", icon: BookOpen },
-  { value: "92%", label: "Users who would recommend us", icon: Star },
+const impactNotes = [
+  { value: "Free", label: "Guides you can read without a paywall", icon: BookOpen },
+  { value: "UK", label: "National charity, independent of Arthritis UK", icon: Shield },
+  { value: "2026", label: "Registered on 15 June (charity 1218461)", icon: Heart },
 ];
 
 const publicBenefitEvidence = [
@@ -83,22 +80,17 @@ const publicBenefitEvidence = [
   {
     title: "How They Benefit",
     points: [
-      "Free 24/7 access to clinically reviewed exercise programmes for all major joints",
-      "Virtual physiotherapy consultations removing geographic and mobility barriers",
-      "Evidence-based nutrition guidance including anti-inflammatory diet plans",
-      "Peer support community reducing isolation and improving mental wellbeing",
-      "guided symptom assessment helping users understand their condition",
-      "Pain journal for tracking symptoms and sharing with their GP or rheumatologist",
+      "Free access to clinically reviewed exercise and diet guides",
+      "Plain-English help you can read while you wait for a health service appointment",
+      "Community pages without a claimed membership total",
     ],
   },
   {
-    title: "Evidence of Impact",
+    title: "What we will not claim",
     points: [
-      "92% of users report improved understanding of their condition",
-      "78% report reduced pain after following exercise programmes for 8+ weeks",
-      "85% of community members say the forum has reduced their sense of isolation",
-      "Average user visits 4.2 pages per session, indicating genuine engagement",
-      "Users from every region of the UK, including rural and underserved areas",
+      "We do not publish visitor counts, people-supported totals or satisfaction scores we cannot verify",
+      "We do not claim a panel of specialists or a measured pages-per-visit figure",
+      "The charity was registered on 15 June 2026. We will not invent earlier reach",
     ],
   },
 ];
@@ -114,7 +106,7 @@ const ImpactStories = () => {
           "name": "Impact & Patient Stories",
           "url": "https://livingwitharthritis.org.uk/impact",
           "inLanguage": "en-GB",
-          "description": "Real stories from people supported by Living With Arthritis UK — over 10,000 people helped with free physiotherapy, nutrition guidance and community.",
+          "description": "Illustrative examples of the day-to-day problems Living With Arthritis UK writes about. Not a count of people supported.",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -132,11 +124,11 @@ const ImpactStories = () => {
             }
           }))
         })}</script>
-        <meta name="description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK live better." />
+        <meta name="description" content="Illustrative examples of living with arthritis in the UK. Living With Arthritis is charity 1218461 and does not publish unverified support totals." />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
       <meta property="og:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
-      <meta property="og:description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK with free physiotherapy, nutrition guidance, and community support." />
+      <meta property="og:description" content="Illustrative examples of living with arthritis in the UK, from a young independent charity (1218461). Not audited outcomes." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/impact" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -147,7 +139,7 @@ const ImpactStories = () => {
         <meta property="og:image:alt" content="Impact Stories | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
-      <meta name="twitter:description" content="Real stories from people we've helped. See how Living With Arthritis has supported over 10,000 people across the UK with free physiotherapy, nutrition guidance, and community support." />
+      <meta name="twitter:description" content="Illustrative examples of living with arthritis in the UK, from a young independent charity (1218461). Not audited outcomes." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -159,12 +151,12 @@ const ImpactStories = () => {
             <Heart className="w-3.5 h-3.5 mr-1.5" /> Real Impact, Real Stories
           </Badge>
         }
-        title={<>The People <span className="text-primary">We've Helped</span></>}
-        subtitle="Every statistic represents a real person whose life has been improved. Here are their stories — and the evidence of our public benefit."
+        title={<>What this charity <span className="text-primary">is for</span></>}
+        subtitle="We write free UK guides for people living with arthritis. The notes below are illustrative, not a count of people we have supported."
       />
       <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-          <Activity className="w-3 h-3" /> Last updated: March 2026
+          <Activity className="w-3 h-3" /> Registered charity 1218461 · 15 June 2026
         </p>
       </div>
 
@@ -173,11 +165,11 @@ const ImpactStories = () => {
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="text-center mb-10">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Our Impact in Numbers</h2>
-              <p className="text-sm text-muted-foreground">Measurable outcomes demonstrating our public benefit</p>
+              <h2 className="text-2xl font-bold text-foreground mb-2">What we can say honestly</h2>
+              <p className="text-sm text-muted-foreground">No invented visitor counts, specialist panels or engagement scores</p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-              {impactNumbers.map((m, i) => (
+              {impactNotes.map((m, i) => (
                 <motion.div key={m.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
                   <Card className="text-center border border-border/40 h-full">
                     <CardContent className="p-5">
@@ -200,8 +192,8 @@ const ImpactStories = () => {
                 <Quote className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Patient Case Studies</h2>
-                <p className="text-sm text-muted-foreground">Real stories from people we've supported (names changed for privacy)</p>
+                <h2 className="text-2xl font-bold text-foreground">Illustrative examples</h2>
+                <p className="text-sm text-muted-foreground">Composite sketches of everyday situations the guides are written for — not audited patient outcomes, and not a measure of reach.</p>
               </div>
             </div>
 
@@ -293,31 +285,14 @@ const ImpactStories = () => {
                 <Star className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">User Satisfaction Survey (2024/25)</h2>
-                <p className="text-sm text-muted-foreground">Based on 847 responses from our annual user survey</p>
+                <h2 className="text-2xl font-bold text-foreground">We do not publish a satisfaction survey</h2>
+                <p className="text-sm text-muted-foreground">There is no verified 2024/25 survey behind earlier percentages on this page. If something on the site helped or missed the mark, write to us.</p>
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { question: "Would you recommend Living With Arthritis?", result: "92% Yes", bar: 92 },
-                { question: "Did our resources help you manage your condition?", result: "87% Yes", bar: 87 },
-                { question: "Is the information easy to understand?", result: "94% Yes", bar: 94 },
-                { question: "Has your quality of life improved?", result: "78% Yes", bar: 78 },
-              ].map((q) => (
-                <Card key={q.question} className="border border-border/40">
-                  <CardContent className="p-5">
-                    <p className="text-sm font-medium text-foreground mb-2">{q.question}</p>
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
-                        <div className="h-full rounded-full bg-primary transition-all duration-700" style={{ width: `${q.bar}%` }} />
-                      </div>
-                      <span className="text-sm font-bold text-primary">{q.result}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <p className="text-sm text-muted-foreground max-w-2xl">
+              Email info@livingwitharthritis.org.uk. We will not turn that correspondence into a public percentage.
+            </p>
           </div>
         </section>
 

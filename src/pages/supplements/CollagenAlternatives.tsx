@@ -89,7 +89,7 @@ export default function CollagenAlternatives() {
         '@type': 'Organization',
         name: 'Living With Arthritis',
         url: BASE,
-        logo: { '@type': 'ImageObject', url: `${BASE}/favicon.ico` },
+        logo: { '@type': 'ImageObject', url: `${BASE}/og/landing-share.png` },
       },
     };
     // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.

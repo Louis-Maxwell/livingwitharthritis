@@ -9,7 +9,7 @@ import {
 } from "@/lib/relatedClusters";
 import { partitionByVisited } from "@/lib/visitedArticles";
 import { trackEvent } from "@/lib/analytics";
-import { coverImage } from "@/lib/articleImages";
+import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
 
 interface RelatedArticlesProps extends RelatedArticlesOptions {
   currentSlug: string;
@@ -108,10 +108,11 @@ const RelatedArticles = memo(
           >
             <div className="sm:w-48 md:w-56 aspect-[16/9] sm:aspect-auto overflow-hidden bg-muted/20 shrink-0">
               <img
-                src={coverImage(featured.category, featured.title, featured.slug).src}
+                src={safeCoverSrc(coverImage(featured.category, featured.title, featured.slug).src)}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
+                onError={onCoverImgError}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -157,10 +158,11 @@ const RelatedArticles = memo(
               >
                 <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                   <img
-                    src={coverImage(post.category, post.title, post.slug).src}
+                    src={safeCoverSrc(coverImage(post.category, post.title, post.slug).src)}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
+                    onError={onCoverImgError}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

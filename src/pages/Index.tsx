@@ -24,6 +24,7 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
@@ -316,7 +317,7 @@ function HomePage() {
                 <Link to="/blog" className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all">
                   <p className="text-xs text-primary font-bold mb-1">Library</p>
                   <p className="font-bold text-foreground group-hover:text-primary transition-colors">Arthritis blog</p>
-                  <p className="text-sm text-muted-foreground mt-1">500+ clinically reviewed articles for UK readers.</p>
+                  <p className="text-sm text-muted-foreground mt-1">{formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed articles for UK readers.</p>
                 </Link>
               </div>
             </div>

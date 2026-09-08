@@ -70,7 +70,7 @@ export default function Turmeric() {
         "@type": "Organization",
         name: "Living With Arthritis",
         url: BASE,
-        logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
+        logo: { "@type": "ImageObject", url: `${BASE}/og/landing-share.png` },
       },
     };
     const faq = {

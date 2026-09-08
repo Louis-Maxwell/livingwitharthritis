@@ -31,7 +31,7 @@ const jsonLd = {
   "datePublished": "2025-06-01",
   "dateModified": "2025-12-15",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/favicon.ico` } },
+  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
   "about": {
     "@type": "MedicalCondition",
     "name": "Rheumatoid Arthritis",

@@ -1,12 +1,13 @@
 import { memo } from "react";
-import { Users, TrendingUp, BookOpen, Shield } from "lucide-react";
+import { BookOpen, Shield, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 
 const milestones = [
-  { icon: Users, value: "90,000+", label: "People visited" },
-  { icon: TrendingUp, value: "97%", label: "Satisfaction rate" },
-  { icon: BookOpen, value: "120+", label: "Expert articles" },
-  { icon: Shield, value: "100%", label: "Free access" },
+  { icon: BookOpen, value: formatInventoryCount(CONTENT_INVENTORY.blogArticles), label: "Reviewed articles" },
+  { icon: Heart, value: "Free", label: "No paywall to read" },
+  { icon: Shield, value: "1218461", label: "Charity Commission no." },
+  { icon: Shield, value: "2026", label: "Registered in June" },
 ];
 
 const AboutSection = memo(() => {
@@ -53,13 +54,13 @@ const AboutSection = memo(() => {
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <p className="text-4xl font-display font-bold text-foreground tracking-tight">{m.value}</p>
-                    <p className="text-[10px] text-muted-foreground font-bold mt-3 tracking-[0.2em] uppercase">{m.label}</p>
+                    <p className="text-[10px] text-muted-foreground font-bold mt-3 tracking-[0.12em] uppercase text-balance break-words">{m.label}</p>
                   </div>
                 );
               })}
             </div>
-            <p className="text-[9px] text-muted-foreground mt-5 text-center tracking-[0.15em] uppercase">
-              Based on internal user feedback surveys, 2024–2025
+            <p className="text-[11px] text-muted-foreground mt-5 text-center leading-relaxed">
+              Article count is the published catalogue. We do not publish visitor or satisfaction figures we cannot verify.
             </p>
           </div>
         </div>

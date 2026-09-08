@@ -133,7 +133,7 @@ const articleJsonLd = {
     url: SITE,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://livingwitharthritis.org.uk/favicon.ico',
+      url: 'https://livingwitharthritis.org.uk/og/landing-share.png',
     },
   },
   about: {

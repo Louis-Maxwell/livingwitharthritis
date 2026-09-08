@@ -1,11 +1,12 @@
 import { memo } from "react";
 import { BookOpen, Dumbbell, FileText, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 
 const contentItems = [
   {
     icon: BookOpen,
-    count: "120+",
+    count: formatInventoryCount(CONTENT_INVENTORY.blogArticles),
     label: "Expert Articles",
     description: "Clinically reviewed guides covering exercise, nutrition, supplements, and daily living with arthritis.",
     link: "/blog",
@@ -13,16 +14,16 @@ const contentItems = [
   },
   {
     icon: Dumbbell,
-    count: "50+",
-    label: "Exercise Guides",
-    description: "Joint-specific exercises designed by HCPC-registered physiotherapists for every fitness level.",
+    count: formatInventoryCount(CONTENT_INVENTORY.exerciseJointPages),
+    label: "Joint exercise pages",
+    description: "Joint-specific exercise pages you can follow at home. Reviewed by an HCPC-registered physiotherapist (PH128483), not a panel of specialists.",
     link: "/exercises",
     linkText: "View Exercises",
   },
   {
     icon: FileText,
-    count: "5",
-    label: "Pillar Guides",
+    count: formatInventoryCount(CONTENT_INVENTORY.pillarGuides),
+    label: "Written guides",
     description: "Comprehensive UK-focused guides on health services, diet, exercise, benefits & PIP, and living with arthritis.",
     link: "/guides/uk-arthritis",
     linkText: "Read Guides",

@@ -11,7 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
-import { coverImage } from "@/lib/articleImages";
+import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 import { displayTitle } from "@/lib/blogTitle";
 import {
   BLOG_CATEGORY_KEYS,
@@ -220,7 +221,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             </div>
           }
           title={heroTitle ?? <>Arthritis blog UK: <span className="text-primary">exercise, diet, PIP and pain guides</span></>}
-          subtitle={heroSubtitle ?? `Clinically reviewed articles for UK readers — practical help when living with arthritis feels exhausting. You are not alone.`}
+          subtitle={heroSubtitle ?? `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed articles for UK readers — practical help when living with arthritis feels exhausting. You are not alone.`}
         />
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
@@ -283,13 +284,14 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                     <Link to={`/blog/${post.slug}`} className="block">
                       <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                         <img
-                          src={coverImage(post.category, post.title, post.slug).src}
+                          src={safeCoverSrc(coverImage(post.category, post.title, post.slug).src)}
                           alt=""
                           aria-hidden="true"
                           width={640}
                           height={360}
                           loading="lazy"
                           decoding="async"
+                          onError={onCoverImgError}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
@@ -459,13 +461,14 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
                   <div className="aspect-[16/9] overflow-hidden bg-muted/20">
                     <img
-                      src={coverImage(post.category, post.title, post.slug).src}
+                      src={safeCoverSrc(coverImage(post.category, post.title, post.slug).src)}
                       alt=""
                       aria-hidden="true"
                       width={640}
                       height={360}
                       loading="lazy"
                       decoding="async"
+                      onError={onCoverImgError}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

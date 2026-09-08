@@ -14,6 +14,27 @@ type Bucket = "arthritis" | "community" | "nutrition" | "wellness";
 
 const COVER_MAP = blogCoverMap as Record<string, string>;
 
+/** Local files that exist under public/. Never the red favicon or an empty src. */
+export const LOCAL_COVER_FALLBACK = "/openverse/hero-friends-800.webp";
+export const DEFAULT_OG_PATH = "/og/landing-share.png";
+
+const BROKEN_SRC_RE = /(?:^$|favicon\.(?:ico|png|svg)$|logo-mark)/i;
+
+export function safeCoverSrc(src: string | null | undefined): string {
+  const trimmed = (src ?? "").trim();
+  if (!trimmed || BROKEN_SRC_RE.test(trimmed)) return LOCAL_COVER_FALLBACK;
+  return trimmed;
+}
+
+/** Listing/hero onError: swap a 404 or empty load for a file that is on disk. */
+export function onCoverImgError(event: { currentTarget: HTMLImageElement }) {
+  const img = event.currentTarget;
+  if (!img || img.dataset.coverFallback === "1") return;
+  img.dataset.coverFallback = "1";
+  img.src = LOCAL_COVER_FALLBACK;
+}
+
+
 const CATEGORY_FILES: Record<Bucket, string[]> = {
   arthritis: [
     "arthritis-01-arthritic-hands-in-pain.webp",
@@ -356,16 +377,20 @@ export function coverImage(
   slug: string,
 ): ArticleImage {
   const mapped = slug ? COVER_MAP[slug] : undefined;
-  if (mapped) {
+  if (mapped && mapped.trim() && !BROKEN_SRC_RE.test(mapped)) {
     return toImg(mapped);
   }
-  const corpus = Object.values(COVER_MAP);
+  const corpus = Object.values(COVER_MAP).filter((file) => file && !BROKEN_SRC_RE.test(file));
   if (corpus.length > 0) {
     const file = corpus[hashStr(slug || title || "unmapped") % corpus.length];
     return toImg(file);
   }
-  // Last resort: branded hero that exists in public/openverse (never 404).
-  return toImg("hero-friends-800.webp");
+  // Last resort: branded hero that exists in public/openverse (never favicon, never 404).
+  return {
+    src: LOCAL_COVER_FALLBACK,
+    alt: "People walking together",
+    credit: "Living With Arthritis UK",
+  };
 }
 
 /** Test helper: true if a path/filename is nutrition/fruit stock. */

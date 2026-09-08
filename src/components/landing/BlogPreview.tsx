@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { coverImage } from "@/lib/articleImages";
+import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
 import { listPublishedArticles, type BlogListItem } from "@/data/staticBlog";
 
 function estimateReadingTime(text: string | null | undefined): string {
@@ -10,7 +10,7 @@ function estimateReadingTime(text: string | null | undefined): string {
 }
 
 function pickImage(a: BlogListItem): string {
-  return coverImage(a.category, a.title, a.slug).src;
+  return safeCoverSrc(coverImage(a.category, a.title, a.slug).src);
 }
 
 const PREVIEW = listPublishedArticles().slice(0, 4);
@@ -34,7 +34,7 @@ const BlogPreview = memo(() => {
         {featured && (
           <article className="mb-10 rounded-2xl overflow-hidden bg-card shadow-sm ring-1 ring-border md:flex">
             <Link to={`/blog/${featured.slug}`} className="md:w-1/2 block" aria-label={featured.title}>
-              <img src={pickImage(featured)} alt="" aria-hidden="true" className="w-full h-72 object-cover" loading="lazy" decoding="async" />
+              <img src={pickImage(featured)} alt="" aria-hidden="true" className="w-full h-72 object-cover bg-muted" loading="lazy" decoding="async" onError={onCoverImgError} />
             </Link>
             <div className="p-6 flex flex-col justify-center">
               <span className="text-xs font-semibold text-primary bg-primary/5 px-3 py-1 rounded-full w-fit">{featured.category}</span>
@@ -56,7 +56,7 @@ const BlogPreview = memo(() => {
           {rest.map((a) => (
             <article key={a.slug} className="card-accent-top group bg-card rounded-2xl shadow-sm ring-1 ring-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all">
               <Link to={`/blog/${a.slug}`} className="block aspect-[16/10] overflow-hidden" tabIndex={-1} aria-label={a.title}>
-                <img src={pickImage(a)} alt="" aria-hidden="true" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+                <img src={pickImage(a)} alt="" aria-hidden="true" className="w-full h-full object-cover bg-muted group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" onError={onCoverImgError} />
               </Link>
               <div className="p-5">
                 <span className="text-xs font-semibold text-primary bg-primary/5 px-3 py-1 rounded-full">{a.category}</span>

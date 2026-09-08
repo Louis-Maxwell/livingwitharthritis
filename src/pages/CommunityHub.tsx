@@ -11,6 +11,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { dailyTips } from "@/data/dailyTips";
+import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, Star, Globe, BookOpen, HandHeart, Download
@@ -127,8 +128,8 @@ const CommunityHub = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
               <StatCounter value="24/7" label="help chat availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
-              <StatCounter value="50+" label="Free guides & resources" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
-              <StatCounter value="9" label="Downloadable PDF guides" icon={<Download className="w-6 h-6" />} color="amber" />
+              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.pillarGuides)} label="Free written guides" icon={<BookOpen className="w-6 h-6" />} color="emerald" />
+              <StatCounter value={formatInventoryCount(CONTENT_INVENTORY.downloadablePdfs)} label="Starter PDF you can download" icon={<Download className="w-6 h-6" />} color="amber" />
             </div>
           </div>
         </section>
