@@ -88,7 +88,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
-    "dompurify": "^3.4.12",
+    "dompurify": "^3.4.15",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.26.2",
     "input-otp": "^1.4.2",
@@ -103,7 +103,7 @@
     "react-hook-form": "^7.61.1",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^2.1.9",
-    "react-router-dom": "^7.18.1",
+    "react-router-dom": "^7.18.3",
     "recharts": "^3.9.0",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
@@ -162,15 +162,16 @@
     "vite": "^6.4.3",
     "marked": "^18.0.5",
     "@remix-run/router": "^1.23.0",
-    "react-router": "^7.18.1",
-    "react-router-dom": "^7.18.1",
-    "dompurify": "^3.4.12",
+    "react-router": "^7.18.3",
+    "react-router-dom": "^7.18.3",
+    "dompurify": "^3.4.15",
     "jspdf": "^4.2.1",
     "picomatch": "^4.0.5",
     "lodash": "^4.17.21",
     "ts-deepmerge": "^8.0.0",
     "esbuild": "^0.25.12",
-    "qs": "^6.16.0"
+    "qs": "^6.16.0",
+    "brace-expansion": "^2.1.4"
   },
   "resolutions": {
     "minimatch": "^10.2.6",
@@ -181,9 +182,10 @@
     "rollup": "^4.24.4",
     "marked": "^18.0.5",
     "@remix-run/router": "^1.23.0",
-    "dompurify": "^3.4.12",
+    "dompurify": "^3.4.15",
     "jspdf": "^4.2.1",
     "picomatch": "^4.0.5",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "brace-expansion": "^2.1.4"
   }
 }
