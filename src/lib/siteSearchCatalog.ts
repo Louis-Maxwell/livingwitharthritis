@@ -1,17 +1,10 @@
 import blogList from "@/data/blogList.json";
-import blogArticles from "@/data/blogArticles.json";
+import contentStats from "@/data/contentStats.generated.json";
 import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
 import {
   mapBlogCategoryToTopic,
   type SearchCatalogItem,
 } from "@/lib/siteSearchFilters";
-
-function countWords(html: string | null | undefined): number {
-  if (!html) return 0;
-  const text = html.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ");
-  const tokens = text.match(/[A-Za-z][A-Za-z'-]*/g);
-  return tokens?.length ?? 0;
-}
 
 const HUB_PAGES: SearchCatalogItem[] = [
   {

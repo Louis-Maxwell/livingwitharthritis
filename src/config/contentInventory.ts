@@ -2,28 +2,16 @@
  * Honest public inventory. Counts come from the checked-in catalogs,
  * not from marketing copy. Do not round these up.
  */
-import frailtyBatch from "@/content/blog/frailty-batch.json";
-import phase2Batch from "@/content/blog/phase2-batch.json";
-import blogList from "@/data/blogList.json";
+import contentStats from "@/data/contentStats.generated.json";
 import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
 import { generateExerciseJointPages } from "@/data/exerciseJointMatrix";
 
-type CatalogRow = { slug?: string; is_published?: boolean };
-
-function publishedSlugs(rows: CatalogRow[]): string[] {
-  return rows
-    .filter((row) => typeof row?.slug === "string" && row.slug.length > 0 && row.is_published !== false)
-    .map((row) => row.slug as string);
-}
-
-const blogArticleSlugs = new Set<string>([
-  ...publishedSlugs(frailtyBatch as CatalogRow[]),
-  ...publishedSlugs(phase2Batch as CatalogRow[]),
-  ...publishedSlugs(blogList as CatalogRow[]),
-]);
-
-/** Unique published blog posts across frailty-batch, phase2-batch and blogList. */
-export const BLOG_ARTICLE_COUNT = blogArticleSlugs.size;
+/**
+ * Unique published blog posts across frailty-batch, phase2-batch and blogList.
+ * Counted at build time by scripts/generate-content-stats.mjs so the browser
+ * never downloads the multi-megabyte article catalogues just for a number.
+ */
+export const BLOG_ARTICLE_COUNT = contentStats.blogArticleCount;
 
 /** /guides/* pillar and medication pages listed in GUIDE_REGISTRY. */
 export const PILLAR_GUIDE_COUNT = GUIDE_REGISTRY.length;
