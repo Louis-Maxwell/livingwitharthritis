@@ -1,14 +1,21 @@
 /**
- * Optimized Chatbot Service - High Performance, No Backend Dependencies
- * Features:
- * - In-memory response caching for instant replies
- * - Streaming simulation for perceived performance
- * - Rate limiting to prevent abuse
- * - Fallback answers for all questions
- * - Parallel processing without blocking
+ * Unified local chat engine for Living With Arthritis.
+ * - Keyword + synonym scoring (not first-regex-wins)
+ * - Cache + rate limit
+ * - Streaming UX with optional status line
+ * - Structured replies: answer + next steps + related resource fence
+ * UK charity safety: no doses/diagnosis; signpost GP / 111 / 999.
  */
 
-interface CacheEntry {
+import {
+  GENERIC_TOPIC,
+  SAFETY_DISCLAIMER,
+  TOPICS,
+  type ChatResourceRef,
+  type KnowledgeTopic,
+} from "./knowledgeBase";
+
+export interface CacheEntry {
   response: string;
   timestamp: number;
 }
@@ -18,375 +25,283 @@ interface RateLimitEntry {
   resetTime: number;
 }
 
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const RATE_LIMIT_MAX = 30; // 30 messages per minute
-const STREAMING_CHUNK_DELAY = 10; // ms between chunks for streaming effect
+export interface EngineResult {
+  topicId: string;
+  score: number;
+  response: string;
+  related: ChatResourceRef[];
+}
+
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const RATE_LIMIT_MAX = 30;
+const STREAMING_CHUNK_DELAY = 12;
+const MATCH_THRESHOLD = 2.5;
+
+function normalize(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[’']/g, "'")
+    .replace(/[^a-z0-9+#.\s/-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Fuzzy-ish contains: phrase match, or all tokens present for multi-word terms. */
+function termHits(haystack: string, term: string): boolean {
+  const t = term.toLowerCase().trim();
+  if (!t) return false;
+  if (haystack.includes(t)) return true;
+  // Token AND match for multi-word (order-flexible)
+  const parts = t.split(/\s+/).filter(Boolean);
+  if (parts.length > 1 && parts.every((p) => haystack.includes(p))) return true;
+  // Soft singular/plural: knee <-> knees
+  if (t.endsWith("s") && haystack.includes(t.slice(0, -1))) return true;
+  if (!t.endsWith("s") && haystack.includes(`${t}s`)) return true;
+  return false;
+}
+
+function scoreTopic(query: string, topic: KnowledgeTopic): number {
+  let score = 0;
+  const q = normalize(query);
+
+  for (const kw of topic.keywords) {
+    if (termHits(q, kw)) {
+      // Longer phrases score higher
+      score += 3 + Math.min(3, kw.split(/\s+/).length);
+    }
+  }
+  for (const syn of topic.synonyms || []) {
+    if (termHits(q, syn)) {
+      score += 2 + Math.min(2, syn.split(/\s+/).length) * 0.5;
+    }
+  }
+
+  if (topic.requireAny?.length) {
+    const ok = topic.requireAny.some((r) => termHits(q, r));
+    if (!ok) score *= 0.35;
+    else score += 1.5;
+  }
+
+  if (topic.priority) score += topic.priority * 0.05;
+
+  // Light boost when id words appear
+  if (termHits(q, topic.id.replace(/-/g, " "))) score += 1;
+
+  return score;
+}
+
+function formatResourcesFence(related: ChatResourceRef[] | undefined): string {
+  if (!related?.length) return "";
+  const payload = related.slice(0, 3).map((r) => ({
+    type: r.type,
+    title: r.title,
+    url: r.url,
+    ...(r.description ? { description: r.description } : {}),
+  }));
+  return `\n\n\`\`\`resources\n${JSON.stringify(payload, null, 2)}\n\`\`\``;
+}
+
+function formatNextSteps(steps: string[] | undefined): string {
+  if (!steps?.length) return "";
+  const lines = steps.map((s) => `- ${s}`).join("\n");
+  return `\n\n**Next steps**\n${lines}`;
+}
+
+function buildResponse(topic: KnowledgeTopic): string {
+  return (
+    topic.answer +
+    formatNextSteps(topic.nextSteps) +
+    SAFETY_DISCLAIMER +
+    formatResourcesFence(topic.related)
+  );
+}
+
+export function matchKnowledge(query: string): EngineResult {
+  const trimmed = query.trim();
+  if (!trimmed) {
+    return {
+      topicId: GENERIC_TOPIC.id,
+      score: 0,
+      response: buildResponse(GENERIC_TOPIC),
+      related: GENERIC_TOPIC.related || [],
+    };
+  }
+
+  let best: KnowledgeTopic = GENERIC_TOPIC;
+  let bestScore = 0;
+
+  for (const topic of TOPICS) {
+    const s = scoreTopic(trimmed, topic);
+    if (s > bestScore) {
+      bestScore = s;
+      best = topic;
+    }
+  }
+
+  if (bestScore < MATCH_THRESHOLD) {
+    best = GENERIC_TOPIC;
+    bestScore = 0;
+  }
+
+  return {
+    topicId: best.id,
+    score: bestScore,
+    response: buildResponse(best),
+    related: best.related || [],
+  };
+}
+
+/** Synchronous answer string — used by arthritisChatFallback compatibility. */
+export function getLocalAnswer(query: string): string {
+  return matchKnowledge(query).response;
+}
 
 class OptimizedChatService {
   private responseCache = new Map<string, CacheEntry>();
   private rateLimits = new Map<string, RateLimitEntry>();
-  private questionKnowledgeBase: Record<string, string> = {};
 
-  constructor() {
-    this.initializeKnowledgeBase();
-  }
-
-  /**
-   * Initialize with arthritis-specific Q&A
-   */
-  private initializeKnowledgeBase() {
-    this.questionKnowledgeBase = {
-      arthritis: `Arthritis is a condition affecting one or more joints, causing inflammation and pain. There are over 100 types of arthritis:
-
-**Common Types:**
-- **Osteoarthritis (OA)**: Wear-and-tear arthritis, most common in older adults
-- **Rheumatoid Arthritis (RA)**: Autoimmune condition causing inflammation
-- **Gout**: Caused by uric acid crystal buildup
-- **Lupus**: Autoimmune disease affecting joints and organs
-
-We have detailed guides, exercises, and resources to help manage your arthritis. Would you like information about a specific type or management strategy?`,
-
-      pain: `Pain management is essential for living well with arthritis. Multiple strategies can help:
-
-**Physical Approaches:**
-- Regular, gentle exercise (tai chi, swimming, walking)
-- Heat therapy for stiffness
-- Ice for acute inflammation
-- Massage and stretching
-
-**Medical Options:**
-- Anti-inflammatory medications
-- Topical pain relief creams
-- Steroid injections
-- Prescription treatments
-
-**Lifestyle Changes:**
-- Weight management (reduces joint stress)
-- Stress reduction
-- Good sleep habits
-- Anti-inflammatory diet
-
-Explore our exercise library and diet guides for specific recommendations.`,
-
-      exercise: `Safe exercise is crucial for arthritis management. It improves flexibility, strength, and reduces pain:
-
-**Recommended Exercises:**
-- Tai Chi: Gentle, flowing movements (especially for balance)
-- Swimming: Low-impact, full-body workout
-- Walking: Start slowly, build gradually
-- Yoga: Adapted poses for joint health
-- Strength training: Light weights or resistance bands
-
-**Exercise Guidelines:**
-- Start slowly and build gradually
-- Avoid high-impact activities
-- Exercise on good pain days
-- 20-30 minutes most days is ideal
-- Warm up and cool down properly
-
-We have video guides for specific joint exercises. Which area interests you?`,
-
-      diet: `An anti-inflammatory diet can significantly help manage arthritis symptoms:
-
-**Anti-Inflammatory Foods:**
-- Fatty fish (salmon, mackerel, sardines)
-- Berries (blueberries, strawberries)
-- Olive oil
-- Nuts and seeds
-- Leafy greens
-- Whole grains
-
-**Foods to Limit:**
-- Processed foods
-- Sugary drinks
-- Refined carbohydrates
-- Some vegetable oils
-- Excessive red meat
-
-**Mediterranean Diet Benefits:**
-Research shows the Mediterranean diet is particularly beneficial for arthritis. We have meal plans and recipes available.`,
-
-      doctor: `See a healthcare provider if you experience:
-
-**Immediate Concerns:**
-- Sudden severe joint swelling
-- High fever with joint pain
-- Inability to move a joint
-- Suspected joint infection
-
-**Ongoing Management:**
-- New or worsening joint pain
-- Swelling lasting more than 2 weeks
-- Stiffness affecting daily activities
-- Need for medication adjustments
-
-**Preparation Tips:**
-- Track your symptoms before visiting
-- Keep a pain diary
-- Write down questions beforehand
-- Bring a list of current medications
-- Discuss your activity goals
-
-Don't hesitate to seek professional advice—early intervention is often more effective.`,
-
-      treatment: `Treatment options vary based on arthritis type and severity:
-
-**Non-Medication Approaches:**
-- Physical therapy
-- Exercise programs
-- Weight management
-- Stress reduction
-- Heat/cold therapy
-
-**Medications:**
-- NSAIDs (anti-inflammatory pain relievers)
-- Corticosteroids
-- Disease-modifying antirheumatic drugs (DMARDs)
-- Biologics (for autoimmune arthritis)
-
-**Procedures:**
-- Joint injections
-- Joint replacement surgery (for severe cases)
-
-**Lifestyle Changes:**
-- Ergonomic adjustments
-- Assistive devices
-- Activity pacing
-
-Your doctor can recommend the best approach for your specific situation.`,
-
-      frailty: `Frailty is a state of reduced strength and resilience. It's different from just aging:
-
-**Signs of Frailty:**
-- Weakness and fatigue
-- Slow walking speed
-- Weight loss
-- Reduced activity
-- Difficulty with daily tasks
-
-**Prevention & Management:**
-- Regular exercise (especially strength training)
-- Adequate nutrition and protein
-- Fall prevention strategies
-- Social engagement
-- Cognitive activity
-- Managing chronic conditions
-
-**Resources:**
-We have specific guides on fall prevention, muscle building, and maintaining independence. Would you like information on any of these?`,
-
-      support: `Support is essential for managing arthritis long-term:
-
-**Types of Support Available:**
-- Online community forum
-- Support group connections
-- Expert articles and guides
-- Exercise programs
-- Peer stories and experiences
-- Professional resources
-
-**Getting Help:**
-- Join our community forum
-- Connect with others through buddy system
-- Access expert advice
-- Share your story
-- Learn from others' experiences
-
-Remember, you're not alone. Many people successfully manage arthritis with proper support and strategies.`,
-    };
-  }
-
-  /**
-   * Check rate limit for a user/IP
-   */
   private isRateLimited(identifier: string): boolean {
     const now = Date.now();
     const limit = this.rateLimits.get(identifier);
-
     if (!limit || now > limit.resetTime) {
-      this.rateLimits.set(identifier, {
-        count: 1,
-        resetTime: now + RATE_LIMIT_WINDOW,
-      });
+      this.rateLimits.set(identifier, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
       return false;
     }
-
-    if (limit.count >= RATE_LIMIT_MAX) {
-      return true;
-    }
-
-    limit.count++;
+    if (limit.count >= RATE_LIMIT_MAX) return true;
+    limit.count += 1;
     return false;
   }
 
-  /**
-   * Find cached response
-   */
   private getCachedResponse(query: string): string | null {
-    const normalized = query.toLowerCase().trim();
-    const cached = this.responseCache.get(normalized);
-
+    const key = normalize(query);
+    const cached = this.responseCache.get(key);
     if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
       return cached.response;
     }
-
-    // Clear expired cache
-    if (cached) {
-      this.responseCache.delete(normalized);
-    }
-
+    if (cached) this.responseCache.delete(key);
     return null;
   }
 
-  /**
-   * Match query to knowledge base and generate response
-   */
-  private generateResponse(query: string): string {
-    const lower = query.toLowerCase();
-
-    // Match keywords and return relevant response
-    for (const [keyword, answer] of Object.entries(this.questionKnowledgeBase)) {
-      if (lower.includes(keyword)) {
-        return answer;
-      }
-    }
-
-    // Default fallback response
-    return `Thank you for your question about arthritis and living well.
-
-We have comprehensive resources covering:
-- **Different types of arthritis** and their management
-- **Exercise programs** tailored for arthritis
-- **Pain management** strategies
-- **Diet and nutrition** guidance
-- **Support and community** resources
-
-What specific aspect would you like to learn more about? You can ask about:
-- Types of arthritis
-- Exercise and movement
-- Pain management
-- Diet recommendations
-- When to see a doctor
-- Support options`;
+  private setCache(query: string, response: string) {
+    this.responseCache.set(normalize(query), { response, timestamp: Date.now() });
   }
 
   /**
-   * Send message with streaming effect
+   * Stream a local answer. Always resolves with useful content (never empty).
+   * onStatus is optional UX ("Searching guidance…").
    */
   async sendMessage(
     query: string,
     userId: string,
     onChunk: (text: string) => void,
-    onComplete: () => void
-  ): Promise<void> {
-    // Validate input
-    if (!query || query.trim().length === 0) {
-      onChunk("Please ask me something about arthritis management.");
+    onComplete: () => void,
+    onStatus?: (status: string) => void,
+  ): Promise<EngineResult> {
+    if (!query || !query.trim()) {
+      const empty = matchKnowledge("");
+      onChunk(empty.response);
       onComplete();
-      return;
+      return empty;
     }
 
     if (query.length > 5000) {
-      onChunk("Your message is too long. Please keep it under 5000 characters.");
+      const msg =
+        "Your message is too long. Please keep it under 5000 characters, or ask about one topic at a time (e.g. knee exercises, PIP, or flares)." +
+        SAFETY_DISCLAIMER;
+      onChunk(msg);
       onComplete();
-      return;
+      return { topicId: "too-long", score: 0, response: msg, related: [] };
     }
 
-    // Check rate limit
-    if (this.isRateLimited(userId)) {
-      onChunk(
-        "You've sent many messages recently. Please wait a moment before sending another."
-      );
+    if (this.isRateLimited(userId || "anon")) {
+      const msg =
+        "You've sent many messages recently. Please wait a moment, then ask again — or browse **/exercises**, **/diet**, **/guides/benefits-pip**." +
+        SAFETY_DISCLAIMER;
+      onChunk(msg);
       onComplete();
-      return;
+      return { topicId: "rate-limit", score: 0, response: msg, related: [] };
     }
 
-    try {
-      // Check cache first
-      let response = this.getCachedResponse(query);
+    onStatus?.("Searching guidance…");
 
-      // Generate if not cached
-      if (!response) {
-        response = this.generateResponse(query);
-        // Cache for future use
-        this.responseCache.set(query.toLowerCase().trim(), {
-          response,
-          timestamp: Date.now(),
-        });
-      }
+    let response = this.getCachedResponse(query);
+    let result: EngineResult;
 
-      // Stream response in chunks for better UX
-      await this.streamResponse(response, onChunk);
-      onComplete();
-    } catch (error) {
-      const errorMsg =
-        error instanceof Error ? error.message : "An unexpected error occurred";
-      onChunk(`Sorry, I encountered an error: ${errorMsg}`);
-      onComplete();
+    if (response) {
+      result = { topicId: "cache", score: 99, response, related: [] };
+    } else {
+      // Tiny delay so status can paint
+      await new Promise((r) => setTimeout(r, 120));
+      result = matchKnowledge(query);
+      response = result.response;
+      this.setCache(query, response);
     }
+
+    await this.streamResponse(response, onChunk);
+    onComplete();
+    return result;
   }
 
-  /**
-   * Stream response text for smooth rendering
-   */
   private async streamResponse(text: string, onChunk: (chunk: string) => void): Promise<void> {
-    // Split into sentences for better chunking
-    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-
-    for (const sentence of sentences) {
-      // Send sentence with slight delay for streaming effect
-      onChunk(sentence);
-      // Use requestAnimationFrame for non-blocking delay
-      await new Promise(resolve => {
-        setTimeout(resolve, STREAMING_CHUNK_DELAY);
-      });
+    // Stream by paragraphs / sentences for smoother UX than dumping all at once
+    const parts = text.split(/(\n\n+)/);
+    let buffer = "";
+    for (const part of parts) {
+      buffer += part;
+      // Emit in ~120–220 char slices inside large paragraphs
+      while (buffer.length > 180) {
+        let cut = 160;
+        const slice = buffer.slice(0, 220);
+        const sp = slice.lastIndexOf(" ");
+        if (sp > 80) cut = sp;
+        onChunk(buffer.slice(0, cut));
+        buffer = buffer.slice(cut);
+        await new Promise((r) => setTimeout(r, STREAMING_CHUNK_DELAY));
+      }
     }
+    if (buffer) onChunk(buffer);
   }
 
-  /**
-   * Get cache statistics for monitoring
-   */
   getCacheStats() {
     const now = Date.now();
-    const validCache = Array.from(this.responseCache.values()).filter(
-      entry => now - entry.timestamp < CACHE_DURATION
+    const valid = Array.from(this.responseCache.values()).filter(
+      (e) => now - e.timestamp < CACHE_DURATION,
     );
-
     return {
       totalCached: this.responseCache.size,
-      validCached: validCache.length,
-      hitRate: validCache.length / Math.max(1, this.responseCache.size),
+      validCached: valid.length,
+      hitRate: valid.length / Math.max(1, this.responseCache.size),
       rateLimitEntries: this.rateLimits.size,
+      topicCount: TOPICS.length,
     };
   }
 
-  /**
-   * Clear old cache entries
-   */
   cleanupCache() {
     const now = Date.now();
     for (const [key, entry] of this.responseCache.entries()) {
-      if (now - entry.timestamp > CACHE_DURATION) {
-        this.responseCache.delete(key);
-      }
+      if (now - entry.timestamp > CACHE_DURATION) this.responseCache.delete(key);
     }
-
-    // Clear old rate limit entries
     for (const [key, entry] of this.rateLimits.entries()) {
-      if (now > entry.resetTime) {
-        this.rateLimits.delete(key);
-      }
+      if (now > entry.resetTime) this.rateLimits.delete(key);
     }
   }
 }
 
-// Single instance for entire app
 export const chatService = new OptimizedChatService();
 
-// Periodic cleanup (every 5 minutes)
-setInterval(() => {
-  chatService.cleanupCache();
-}, 5 * 60 * 1000);
+if (typeof window !== "undefined") {
+  const g = window as unknown as { __lwaChatCleanup?: number };
+  if (!g.__lwaChatCleanup) {
+    g.__lwaChatCleanup = window.setInterval(() => chatService.cleanupCache(), 5 * 60 * 1000);
+  }
+}
 
 export default OptimizedChatService;
+
+// Silence unused escape helper if tree-shaken differently — keep for future regex modes
+void escapeRegExp;
