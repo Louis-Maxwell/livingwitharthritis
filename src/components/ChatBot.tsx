@@ -18,8 +18,8 @@ import { trackChatStart } from "@/lib/ga-events";
 const quickSuggestions = [
   { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
   { icon: Apple, label: "Best anti-inflammatory foods?", image: chatFoods },
-  { icon: Dumbbell, label: "Safe exercises for OA?", image: chatExercise },
-  { icon: HelpCircle, label: "When should I see a doctor?", image: chatDoctor },
+  { icon: Dumbbell, label: "Safe exercises for knee pain?", image: chatExercise },
+  { icon: HelpCircle, label: "Can I claim PIP with arthritis?", image: chatDoctor },
 ];
 
 const SESSION_KEY_STORAGE = "arthritis_chat_session_key_v1";
@@ -148,6 +148,7 @@ export function ChatBot() {
   const {
     messages,
     isLoading,
+    statusLabel,
     sendMessage,
     clearMessages,
     newChat,
@@ -259,7 +260,7 @@ export function ChatBot() {
             <div className="flex items-center gap-1">
               <div className={`w-1.5 h-1.5 rounded-full ${isLoading ? "bg-amber-300 animate-pulse" : "bg-emerald-300"}`} aria-hidden="true" />
               <span className="text-[10px] text-primary-foreground/70" aria-live="polite">
-                {isLoading ? "Typing…" : "Online"}
+                {isLoading ? (statusLabel || "Searching guidance…") : "Online"}
               </span>
             </div>
           </div>
@@ -380,8 +381,8 @@ export function ChatBot() {
 
               <p className="font-semibold text-lg text-foreground mb-1">How can I help?</p>
               <p className="text-sm text-muted-foreground mb-5 max-w-[280px] leading-relaxed">
-                Living with arthritis or frailty can be exhausting. Ask about symptoms, diet,
-                exercises or treatments — warm, UK-safe guidance (we do not prescribe).
+                Living with arthritis or frailty can be exhausting. Ask about pain, flares, diet,
+                exercises, PIP/benefits or who we are — warm, UK-safe guidance (we do not prescribe).
               </p>
 
               <div className="w-full grid grid-cols-2 gap-2">

@@ -51,35 +51,58 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/** Fuzzy-ish contains: phrase match, or all tokens present for multi-word terms. */
+/** Word-boundary safe contains; multi-word = all tokens; light plural flex. */
 function termHits(haystack: string, term: string): boolean {
   const t = term.toLowerCase().trim();
   if (!t) return false;
-  if (haystack.includes(t)) return true;
-  // Token AND match for multi-word (order-flexible)
   const parts = t.split(/\s+/).filter(Boolean);
-  if (parts.length > 1 && parts.every((p) => haystack.includes(p))) return true;
-  // Soft singular/plural: knee <-> knees
-  if (t.endsWith("s") && haystack.includes(t.slice(0, -1))) return true;
-  if (!t.endsWith("s") && haystack.includes(`${t}s`)) return true;
-  return false;
+
+  const wordHit = (token: string): boolean => {
+    if (!token) return false;
+    // Short tokens need word boundaries to avoid "work" in "network"
+    const pattern =
+      token.length <= 4
+        ? new RegExp(`(^|[^a-z0-9])${escapeRegExp(token)}([^a-z0-9]|$)`, "i")
+        : null;
+    if (pattern) {
+      if (pattern.test(haystack)) return true;
+      if (!token.endsWith("s") && new RegExp(`(^|[^a-z0-9])${escapeRegExp(token)}s([^a-z0-9]|$)`, "i").test(haystack)) {
+        return true;
+      }
+      return false;
+    }
+    if (haystack.includes(token)) return true;
+    if (!token.endsWith("s") && haystack.includes(`${token}s`)) return true;
+    if (token.endsWith("s") && haystack.includes(token.slice(0, -1))) return true;
+    return false;
+  };
+
+  if (parts.length === 1) return wordHit(parts[0]);
+  // Phrase first, then flexible AND of tokens
+  if (haystack.includes(t)) return true;
+  return parts.every((p) => wordHit(p));
 }
 
 function scoreTopic(query: string, topic: KnowledgeTopic): number {
   let score = 0;
+  let hits = 0;
   const q = normalize(query);
 
   for (const kw of topic.keywords) {
     if (termHits(q, kw)) {
+      hits += 1;
       // Longer phrases score higher
       score += 3 + Math.min(3, kw.split(/\s+/).length);
     }
   }
   for (const syn of topic.synonyms || []) {
     if (termHits(q, syn)) {
+      hits += 1;
       score += 2 + Math.min(2, syn.split(/\s+/).length) * 0.5;
     }
   }
+
+  if (!hits) return 0;
 
   if (topic.requireAny?.length) {
     const ok = topic.requireAny.some((r) => termHits(q, r));
@@ -303,5 +326,3 @@ if (typeof window !== "undefined") {
 
 export default OptimizedChatService;
 
-// Silence unused escape helper if tree-shaken differently — keep for future regex modes
-void escapeRegExp;

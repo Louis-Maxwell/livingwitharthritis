@@ -6,6 +6,18 @@ vi.mock("@/lib/arthritisChatFallback", () => ({
   getFallbackAnswer: () => "FALLBACK_ANSWER",
 }));
 
+vi.mock("@/lib/chatbot/optimizedChatService", () => ({
+  chatService: {
+    sendMessage: vi.fn(async (_q: string, _u: string, onChunk: (t: string) => void, onComplete: () => void) => {
+      onChunk("LOCAL_ENGINE_ANSWER");
+      onComplete();
+      return { topicId: "mock", score: 10, response: "LOCAL_ENGINE_ANSWER", related: [] };
+    }),
+  },
+  getLocalAnswer: () => "LOCAL_ENGINE_ANSWER",
+  matchKnowledge: () => ({ topicId: "mock", score: 10, response: "LOCAL_ENGINE_ANSWER", related: [] }),
+}));
+
 vi.mock("@/lib/chatHistory", () => ({
   loadAnonChatHistory: () => [],
   saveAnonChatHistory: () => {},
@@ -18,14 +30,14 @@ describe("useStreamingChat", () => {
     vi.stubGlobal("fetch", vi.fn());
   });
 
-  it("answers from local UK-safe fallback without calling /api/chat", async () => {
+  it("answers from local UK-safe engine without calling /api/chat by default", async () => {
     const { result } = renderHook(() => useStreamingChat());
     await act(async () => {
       await result.current.sendMessage("What about methotrexate?");
     });
     await waitFor(() => {
       const assistant = result.current.messages.find((m) => m.role === "assistant");
-      expect(assistant?.content).toContain("FALLBACK_ANSWER");
+      expect(assistant?.content).toContain("LOCAL_ENGINE_ANSWER");
     });
     expect(fetch).not.toHaveBeenCalled();
   });
