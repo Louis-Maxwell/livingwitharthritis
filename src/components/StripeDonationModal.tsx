@@ -71,7 +71,9 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         email: CONTACT_EMAILS.info,
       });
       onClose();
-      toast.success(`Please send the email that opened, or donate via the PayPal option if shown. Card checkout needs a hosted Stripe link (VITE_STRIPE_DONATE_URL).`);
+      toast.success(
+        "Card payments are temporarily unavailable. We've opened an email so our team can send you a secure payment link — thank you for your support.",
+      );
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to create checkout";
       setError(msg);
