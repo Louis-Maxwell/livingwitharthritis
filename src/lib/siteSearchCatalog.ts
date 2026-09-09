@@ -89,7 +89,7 @@ const BLOG_ITEMS: SearchCatalogItem[] = (
   href: `/blog/${a.slug}`,
   excerpt: a.excerpt || "",
   topic: mapBlogCategoryToTopic(a.category),
-  wordCount: WORD_BY_SLUG.get(a.slug) || 0,
+  wordCount: WORD_BY_SLUG[a.slug] || 0,
   keywords: [
     a.category || "",
     ...(typeof a.keywords === "string"
