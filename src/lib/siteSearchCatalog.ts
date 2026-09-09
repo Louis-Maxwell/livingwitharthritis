@@ -1,17 +1,10 @@
 import blogList from "@/data/blogList.json";
-import blogArticles from "@/data/blogArticles.json";
+import contentStats from "@/data/contentStats.generated.json";
 import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
 import {
   mapBlogCategoryToTopic,
   type SearchCatalogItem,
 } from "@/lib/siteSearchFilters";
-
-function countWords(html: string | null | undefined): number {
-  if (!html) return 0;
-  const text = html.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ");
-  const tokens = text.match(/[A-Za-z][A-Za-z'-]*/g);
-  return tokens?.length ?? 0;
-}
 
 const HUB_PAGES: SearchCatalogItem[] = [
   {
@@ -79,12 +72,8 @@ const HUB_PAGES: SearchCatalogItem[] = [
   },
 ];
 
-const WORD_BY_SLUG = new Map(
-  (blogArticles as Array<{ slug: string; content?: string }>).map((a) => [
-    a.slug,
-    countWords(a.content),
-  ]),
-);
+/** Word counts precomputed at build time (scripts/generate-content-stats.mjs). */
+const WORD_BY_SLUG: Record<string, number> = contentStats.wordCounts;
 
 const BLOG_ITEMS: SearchCatalogItem[] = (
   blogList as Array<{
@@ -100,7 +89,7 @@ const BLOG_ITEMS: SearchCatalogItem[] = (
   href: `/blog/${a.slug}`,
   excerpt: a.excerpt || "",
   topic: mapBlogCategoryToTopic(a.category),
-  wordCount: WORD_BY_SLUG.get(a.slug) || 0,
+  wordCount: WORD_BY_SLUG[a.slug] || 0,
   keywords: [
     a.category || "",
     ...(typeof a.keywords === "string"
