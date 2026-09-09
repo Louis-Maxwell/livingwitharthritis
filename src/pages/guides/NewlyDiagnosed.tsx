@@ -243,6 +243,18 @@ export default function NewlyDiagnosed() {
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${BASE}/${SLUG}`} />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
+        <link rel="alternate" hrefLang="en-GB" href={`${BASE}/${SLUG}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "url": `${BASE}/${SLUG}`,
+          "name": "Newly Diagnosed With Arthritis: Step-by-Step UK Guide",
+          "inLanguage": "en-GB",
+          "areaServed": { "@type": "Country", "name": "United Kingdom" },
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] },
+        })}</script>
       </Helmet>
 
       <main id="main-content" className="bg-background">
@@ -303,10 +315,8 @@ export default function NewlyDiagnosed() {
               Newly diagnosed with arthritis? Your step-by-step guide
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              A clear, practical UK guide that walks you through the first
-              weeks after diagnosis — what to ask, what to expect, and how to
-              start living well right away.
+            <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
+              Newly diagnosed with arthritis in the UK? Start with your GP or rheumatology team, write down your questions, and use this checklist for the first weeks — general information only, not personal medical advice.
             </p>
           </header>
 

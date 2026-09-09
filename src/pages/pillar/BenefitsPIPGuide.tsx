@@ -210,6 +210,8 @@ export default function BenefitsPIPGuide() {
         <meta name="description" content="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
+        <meta name="geo.region" content="GB" />
+        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
       <meta property="og:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />
       <meta property="og:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
       <meta property="og:type" content="website" />
@@ -257,6 +259,9 @@ export default function BenefitsPIPGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
+            Personal Independence Payment (PIP) can help with extra costs when arthritis limits daily living or mobility in England and Wales — always check GOV.UK and get welfare advice for your own claim.
+          </p>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
           <section id="benefits-pip-faq" className="mt-16 pt-8 border-t border-border/30">

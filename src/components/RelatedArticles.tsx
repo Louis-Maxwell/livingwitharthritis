@@ -7,6 +7,10 @@ import {
   getClusterById,
   CONTENT_CLUSTERS,
 } from "@/lib/relatedClusters";
+import {
+  getClusterForSlug,
+  type TopicCluster,
+} from "@/data/topicClusters";
 import { partitionByVisited } from "@/lib/visitedArticles";
 import { trackEvent } from "@/lib/analytics";
 import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
@@ -74,7 +78,14 @@ const RelatedArticles = memo(
       (seedClusterIds.map((id) => getClusterById(id)).find(Boolean) ??
         CONTENT_CLUSTERS[0])?.bestGuide;
 
-    if (orderedRelated.length === 0) return null;
+    const seoCluster: TopicCluster | null = useMemo(() => {
+      const hay = [currentTitle, currentExcerpt, currentCategory, currentKeywords]
+        .filter(Boolean)
+        .join(" ");
+      return getClusterForSlug(currentSlug, hay);
+    }, [currentSlug, currentTitle, currentExcerpt, currentCategory, currentKeywords]);
+
+    if (orderedRelated.length === 0 && !seoCluster) return null;
 
     const [featured, ...rest] = orderedRelated;
     const gridItems = rest.slice(0, 3);
@@ -92,6 +103,53 @@ const RelatedArticles = memo(
             Topic-matched articles and guides — chosen from this post&apos;s themes.
           </p>
         </div>
+
+        {seoCluster && (
+          <div className="mb-6 grid sm:grid-cols-2 gap-3">
+            <Link
+              to={seoCluster.pillarPath}
+              onClick={() =>
+                trackEvent("cluster_pillar_click", {
+                  cluster: seoCluster.id,
+                  source_slug: currentSlug,
+                  target: seoCluster.pillarPath,
+                })
+              }
+              className="group rounded-xl border border-primary/25 bg-primary/[0.04] p-4 hover:border-primary/40 transition-colors min-h-[44px]"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5 inline-flex items-center gap-1.5">
+                <Compass className="w-3 h-3" aria-hidden="true" /> Parent pillar · {seoCluster.label}
+              </span>
+              <p className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors m-0">
+                {seoCluster.pillarTitle}
+              </p>
+              <span className="text-primary text-xs font-medium inline-flex items-center gap-1 mt-2">
+                Open the pillar <ArrowRight className="w-3 h-3" aria-hidden="true" />
+              </span>
+            </Link>
+            <Link
+              to={seoCluster.toolPath}
+              onClick={() =>
+                trackEvent("cluster_tool_click", {
+                  cluster: seoCluster.id,
+                  source_slug: currentSlug,
+                  target: seoCluster.toolPath,
+                })
+              }
+              className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/30 transition-colors min-h-[44px]"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5 block">
+                Practical next step
+              </span>
+              <p className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors m-0">
+                {seoCluster.toolLabel}
+              </p>
+              <span className="text-primary text-xs font-medium inline-flex items-center gap-1 mt-2">
+                Open tool <ArrowRight className="w-3 h-3" aria-hidden="true" />
+              </span>
+            </Link>
+          </div>
+        )}
 
         {featured && (
           <Link

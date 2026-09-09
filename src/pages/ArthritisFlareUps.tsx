@@ -110,6 +110,7 @@ export default function ArthritisFlareUps() {
       "Comprehensive UK guide to managing arthritis flare-ups: triggers, symptoms, immediate relief, diet, exercise, mental health, medications, and prevention strategies.",
     url: "https://livingwitharthritis.org.uk/arthritis-flare-ups",
     inLanguage: "en-GB",
+    areaServed: { "@type": "Country", name: "United Kingdom" },
     datePublished: "2026-03-11",
     dateModified: "2026-03-11",
     publisher: {

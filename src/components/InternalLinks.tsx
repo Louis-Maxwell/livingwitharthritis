@@ -2,6 +2,7 @@ import { memo, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Activity, Apple, Users, Dumbbell, Heart, BookOpen, Stethoscope, Search, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { getClusterForPath } from "@/data/topicClusters";
 
 interface SitePage {
   path: string;
@@ -52,6 +53,8 @@ const SITE_PAGES: SitePage[] = [
   { path: "/guides/benefits-pip", title: "Benefits & PIP Guide", description: "UK benefits guide for arthritis: PIP eligibility, application process and disability support.", icon: Heart, tags: ["guide", "PIP", "benefits", "disability"] },
   { path: "/donate", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
   { path: "/chat", title: "Help Chat", description: "Free personalised arthritis assistant — ask about symptoms, exercises, diet and health services.", icon: Activity, tags: ["chat", "support", "help"] },
+  { path: "/self-help", title: "Self-help tool", description: "Interactive joint diagram and practical self-management starting points for UK readers.", icon: Activity, tags: ["exercise", "self-help", "pain", "tool"] },
+  { path: "/symptom-checker", title: "Symptom checker", description: "A careful UK starting point for common arthritis symptoms — not a diagnosis; see a GP when unsure.", icon: Stethoscope, tags: ["symptom", "symptoms", "tool", "guide"] },
 ];
 
 function normalizeTags(raw?: string[] | string | null): string[] {
@@ -124,10 +127,28 @@ interface InternalLinksProps {
 
 const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) => {
   const { pathname } = useLocation();
-  const links = useMemo(
-    () => getRelated(pathname, count, tags, keywords),
-    [pathname, count, tags, keywords],
-  );
+  const links = useMemo(() => {
+    const related = getRelated(pathname, count, tags, keywords);
+    const cluster = getClusterForPath(pathname);
+    if (!cluster) return related;
+    const extras: SitePage[] = [];
+    const pillar = SITE_PAGES.find((p) => p.path === cluster.pillarPath);
+    const tool = SITE_PAGES.find((p) => p.path === cluster.toolPath);
+    if (pillar && pillar.path !== pathname && !related.some((r) => r.path === pillar.path)) {
+      extras.push(pillar);
+    }
+    if (
+      tool &&
+      tool.path !== pathname &&
+      tool.path !== cluster.pillarPath &&
+      !related.some((r) => r.path === tool.path) &&
+      !extras.some((r) => r.path === tool.path)
+    ) {
+      extras.push(tool);
+    }
+    if (extras.length === 0) return related;
+    return [...extras, ...related].slice(0, count);
+  }, [pathname, count, tags, keywords]);
 
   if (links.length === 0) return null;
 

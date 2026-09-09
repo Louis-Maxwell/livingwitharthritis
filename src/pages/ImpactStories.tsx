@@ -20,8 +20,8 @@ const caseStudies = [
     location: "Birmingham",
     condition: "Knee Osteoarthritis",
     quote: "Before finding Living With Arthritis, I was barely able to walk to the shops. The exercise guides and virtual physiotherapy gave me a structured plan. Within 3 months, I was walking 2 miles daily and my pain had reduced significantly.",
-    outcome: "Regained mobility and reduced pain medication by 50%",
-    services: ["Virtual Physiotherapy", "Knee Exercise Programme", "Anti-Inflammatory Diet Plan"],
+    outcome: "Found a gentler routine and felt more confident walking to the shops",
+    services: ["Knee exercise guides", "Diet hub", "Self-help tool"],
   },
   {
     name: "David R.",
@@ -38,7 +38,7 @@ const caseStudies = [
     location: "London",
     condition: "Psoriatic Arthritis",
     quote: "The nutrition resources were a game-changer. I didn't realise how much my diet was affecting my inflammation. The Mediterranean diet plan and anti-inflammatory smoothie recipes have genuinely helped reduce my flare-ups.",
-    outcome: "Fewer flare-ups and improved quality of life",
+    outcome: "Felt more in control of day-to-day food choices during quieter weeks",
     services: ["Diet & Nutrition Hub", "Anti-Inflammatory Recipes", "Pain Journal"],
   },
   {
@@ -47,8 +47,8 @@ const caseStudies = [
     location: "Leeds",
     condition: "Hip Osteoarthritis",
     quote: "I was on the rheumatology waiting list for a physiotherapy referral for months. The virtual physio service meant I could start exercises immediately. The chair exercises were perfect for my level and gave me confidence to move more.",
-    outcome: "Started rehabilitation 4 months earlier than public health appointment",
-    services: ["Virtual Physiotherapy", "Chair Exercises", "Hip Exercise Programme"],
+    outcome: "Started chair exercises while waiting for an NHS physiotherapy appointment",
+    services: ["Chair exercise guides", "Hip exercise pages", "Waiting-list help"],
   },
   {
     name: "Sarah M.",
@@ -56,7 +56,7 @@ const caseStudies = [
     location: "Bristol",
     condition: "Osteoarthritis (hands)",
     quote: "As a teacher, my hand arthritis was threatening my career. The hand exercise programme and the self-help tool helped me manage my symptoms. I've been able to continue teaching with much less pain.",
-    outcome: "Maintained employment and reduced hand pain",
+    outcome: "Kept teaching with pacing, hand exercises and workplace adjustments",
     services: ["Hand Exercise Programme", "Self-Help Tool", "Workplace Guidance"],
   },
 ];
@@ -148,7 +148,7 @@ const ImpactStories = () => {
       <PageHero
         badge={
           <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
-            <Heart className="w-3.5 h-3.5 mr-1.5" /> Real Impact, Real Stories
+            <Heart className="w-3.5 h-3.5 mr-1.5" /> Honest notes, not audited outcomes
           </Badge>
         }
         title={<>What this charity <span className="text-primary">is for</span></>}

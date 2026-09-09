@@ -143,6 +143,8 @@ const DietHub = () => {
     name: "Best Diet for Arthritis Pain UK – Complete Nutrition Guide",
     description: "Evidence-based arthritis diet guide covering anti-inflammatory foods, the Mediterranean diet and foods to avoid for joint pain relief.",
     url: "https://livingwitharthritis.org.uk/diet",
+    inLanguage: "en-GB",
+    areaServed: { "@type": "Country", name: "United Kingdom" },
     mainEntity: { "@type": "MedicalCondition", name: "Arthritis" },
     about: { "@type": "Diet", dietFeatures: "Anti-inflammatory, Mediterranean, omega-3 rich" },
   };
@@ -178,6 +180,14 @@ const DietHub = () => {
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
             { "@type": "ListItem", "position": 2, "name": "Diet", "item": "https://livingwitharthritis.org.uk/diet" }
           ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "url": "https://livingwitharthritis.org.uk/diet",
+          "inLanguage": "en-GB",
+          "areaServed": { "@type": "Country", "name": "United Kingdom" },
+          "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
         })}</script>
       </Helmet>
 

@@ -64,6 +64,7 @@ const BenefitsPipHub = () => {
           name: "Benefits & PIP Hub",
           url: "https://livingwitharthritis.org.uk/benefits-pip",
           inLanguage: "en-GB",
+          areaServed: { "@type": "Country", name: "United Kingdom" },
           isPartOf: {
             "@type": "WebSite",
             name: "Living With Arthritis UK",
@@ -82,6 +83,14 @@ const BenefitsPipHub = () => {
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/benefits-pip" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          url: "https://livingwitharthritis.org.uk/benefits-pip",
+          inLanguage: "en-GB",
+          areaServed: { "@type": "Country", name: "United Kingdom" },
+          speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".speakable-intro"] },
+        })}</script>
       </Helmet>
 
       <Header />
@@ -97,6 +106,9 @@ const BenefitsPipHub = () => {
         />
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl py-12 space-y-8">
+          <p className="speakable-intro text-muted-foreground text-base leading-relaxed m-0">
+            PIP is a UK working-age benefit that looks at how arthritis affects daily living and mobility, not just your diagnosis name — check GOV.UK for the latest rules.
+          </p>
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <p>
               If getting dressed, cooking or walking to the shops feels harder than it should,

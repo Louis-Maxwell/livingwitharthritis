@@ -144,6 +144,8 @@ const ExerciseHub = () => {
     name: "Best Exercises for Arthritis UK – Complete Guide",
     description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. clinically aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
     url: "https://livingwitharthritis.org.uk/exercises",
+    inLanguage: "en-GB",
+    areaServed: { "@type": "Country", name: "United Kingdom" },
     mainEntity: {
       "@type": "MedicalCondition",
       name: "Arthritis",
@@ -203,6 +205,8 @@ const ExerciseHub = () => {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "url": "https://livingwitharthritis.org.uk/exercises",
+          "inLanguage": "en-GB",
+          "areaServed": { "@type": "Country", "name": "United Kingdom" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
         })}</script>
       </Helmet>

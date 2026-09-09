@@ -22,20 +22,20 @@ const stories = [
       { year: "2012", event: "First symptoms — stiffness in both knees every morning" },
       { year: "2014", event: "GP diagnosis of moderate osteoarthritis; prescribed NSAIDs" },
       { year: "2016", event: "Referred to public health physiotherapist — 6-week waiting list" },
-      { year: "2019", event: "Discovered Living With Arthritis; began virtual physio sessions" },
+      { year: "2019", event: "Found Living With Arthritis guides and started home exercises" },
       { year: "2021", event: "Adopted Mediterranean diet; lost 2 stone over 8 months" },
-      { year: "2023", event: "CRP levels reduced by 30%; walks 5 miles regularly" },
+      { year: "2023", event: "Walks more regularly on good days; still manages flare days carefully" },
     ],
     fullStory: `When I was first diagnosed at 55, I felt like my active life was over. I'd always loved walking in the Dales with my husband, and suddenly I couldn't manage a flight of stairs without wincing.
 
 My GP was sympathetic but health service waiting times for physiotherapy were months long. I tried various supplements — glucosamine, turmeric capsules — but nothing seemed to make a real difference on its own.
 
-The turning point came when I found Living With Arthritis online in 2019. The virtual physiotherapy sessions meant I could get expert guidance from home, fitting around my schedule. My physiotherapist, an HCPC-registered clinician, designed a programme specifically for my knee OA.
+The turning point came when I found Living With Arthritis online in 2019. The free exercise and diet guides gave me a structured place to start while I waited for NHS physiotherapy. I still check anything new with my GP.
 
 But the biggest surprise was the diet advice. I'd never thought about food as medicine before. Switching to a Mediterranean-style diet — more oily fish, olive oil, vegetables, fewer processed foods — combined with losing weight gradually changed everything. My inflammation markers dropped significantly.
 
 Now at 67, I walk regularly on the Dales again. I'm not pain-free — I don't think that's realistic — but I manage my condition instead of it managing me. The community here has been invaluable. Knowing others understand what you're going through makes such a difference.`,
-    outcomes: ["CRP reduced by 30%", "Lost 2 stone", "Walking 5 miles regularly", "Reduced NSAID use by 60%"],
+    outcomes: ["Walks more regularly on good days", "Uses diet and pacing together", "Less reliant on day-to-day painkillers", "Feels less alone with the condition"],
     advice: "Don't wait for a referral. Start with gentle movement today — even 10 minutes makes a difference. And take the diet advice seriously; it's not a fad, it's evidence-based."
   },
   {
@@ -65,7 +65,7 @@ What changed things was connecting with other people who understood. Through the
 I also learned about joint protection techniques that made a huge difference to my work. Simple things like using power tools with ergonomic grips, taking planned micro-breaks, and doing hand exercises every morning before work.
 
 Eight years on, I'm still a joiner. I'm slower some days, and I've had to be honest with clients about that. But I'm working full-time, I coach my daughter's under-10s football team, and my condition is well-managed. RA hasn't beaten me — it's taught me to work smarter.`,
-    outcomes: ["Working full-time", "Disease well-controlled", "Active parent", "Reduced flare frequency by 70%"],
+    outcomes: ["Still working in a skilled trade", "Uses joint-protection techniques", "Active parent", "Fewer disruptive flares with pacing"],
     advice: "If you work with your hands, don't give up your trade. There are adaptations and techniques that can keep you going. And talk to other people with RA — you'll learn more practical advice in one conversation than in ten leaflets."
   },
   {
@@ -81,8 +81,8 @@ Eight years on, I'm still a joiner. I'm slower some days, and I've had to be hon
       { year: "2019", event: "Swollen fingers and toes; finally referred to rheumatology" },
       { year: "2019", event: "Diagnosed with psoriatic arthritis after MRI" },
       { year: "2020", event: "Started biologics; significant improvement within 3 months" },
-      { year: "2021", event: "Began yoga for arthritis through LWA programme" },
-      { year: "2023", event: "Became a peer mentor for newly diagnosed patients" },
+      { year: "2021", event: "Began gentle yoga for arthritis using free LWA exercise guidance" },
+      { year: "2023", event: "Started sharing practical tips with others who were newly diagnosed" },
     ],
     fullStory: `I had psoriasis from my early twenties — patches on my elbows and scalp that I managed with creams. When my fingers started swelling and aching at 32, I assumed it was from typing all day (I work in IT).
 
@@ -94,8 +94,8 @@ The biologics were a game-changer physically. Within three months, the swelling 
 
 The yoga programme through Living With Arthritis was what helped me accept and adapt. Not just the physical benefits — the flexibility, the gentle strengthening — but the mindfulness aspect. Learning to listen to my body instead of fighting it.
 
-Now I'm a peer mentor for newly diagnosed patients. I remember how scared and alone I felt, and I want others to know they're not alone. Psoriatic arthritis is manageable. You can still have a full, active life. You just need the right support and information.`,
-    outcomes: ["80% reduction in joint swelling", "Full-time employment maintained", "Active peer mentor", "Improved mental health scores"],
+Now I share practical tips with people who are newly diagnosed. I remember how scared and alone I felt, and I want others to know they're not alone. Psoriatic arthritis is manageable. You can still have a full, active life. You just need the right support and information.`,
+    outcomes: ["Less swelling on quieter weeks", "Kept full-time work with adjustments", "Supports others after diagnosis", "Feels less isolated"],
     advice: "Don't accept 'it's just stress' if your gut tells you something is wrong. Push for a rheumatology referral. And remember — your pain is real, even when others can't see it."
   },
   {
@@ -110,9 +110,9 @@ Now I'm a peer mentor for newly diagnosed patients. I remember how scared and al
       { year: "2009", event: "Gradual onset of hip pain; blamed old rugby injury" },
       { year: "2011", event: "X-ray confirmed moderate OA in left hip and both knees" },
       { year: "2015", event: "Pain worsening; discussed joint replacement options" },
-      { year: "2018", event: "Started aquatic exercises through LWA; delayed surgery by 2 years" },
+      { year: "2018", event: "Started gentle aquatic exercise after reading LWA guides; surgery came later" },
       { year: "2020", event: "Left hip replacement at age 66" },
-      { year: "2021", event: "Full recovery; surgeon noted exceptional post-op mobility" },
+      { year: "2021", event: "Good recovery with NHS physio and home exercises after hip replacement" },
     ],
     fullStory: `I played rugby for Pontypridd RFC in my twenties and thirties. I knew my joints would pay for it eventually — the knocks, the scrums, the cold Welsh training pitches. When my hip started aching in my late fifties, I wasn't surprised. Just disappointed.
 

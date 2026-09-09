@@ -45,23 +45,10 @@ export default function SEODashboard() {
   }, []);
 
   const fetchDashboardData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch('/api/seo/dashboard', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (!response.ok) throw new Error('Failed to fetch dashboard data');
-      const dashboardData: DashboardData = await response.json();
-      setData(dashboardData);
-      setError(null);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
-      console.error('Dashboard error:', err);
-    } finally {
-      setLoading(false);
-    }
+    // Static GitHub hosting: /api/seo/dashboard is not deployed. Avoid console 404s.
+    setLoading(false);
+    setData(null);
+    setError('SEO dashboard API is disabled on static hosting. Use Google Search Console directly.');
   };
 
   if (loading) {

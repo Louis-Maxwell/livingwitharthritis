@@ -140,19 +140,10 @@ class AnalyticsTracker {
    * Send events to backend
    */
   private async flushEvents() {
+    // Static hosting: no /api/analytics/events — keep events in-memory only
+    // so the browser console does not 404. GA4 (if present) remains separate.
     if (this.events.length === 0) return;
-
-    try {
-      await fetch(this.apiEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ events: this.events }),
-      });
-      this.events = [];
-    } catch (error) {
-      console.error('Analytics flush error:', error);
-      // Keep events in memory to retry
-    }
+    this.events = [];
   }
 
   /**

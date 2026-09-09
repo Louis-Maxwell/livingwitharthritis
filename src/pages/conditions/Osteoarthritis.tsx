@@ -28,6 +28,7 @@ const jsonLd = {
   "description": "Comprehensive guide to osteoarthritis (OA): symptoms, causes, risk factors, diagnosis, treatment options, exercises, diet and self-management tips for UK patients.",
   "url": `${BASE}/conditions/osteoarthritis`,
   "inLanguage": "en-GB",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
   "datePublished": "2025-06-01",
   "dateModified": "2025-12-15",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
@@ -106,6 +107,14 @@ const Osteoarthritis = () => (
       <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/osteoarthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": `${BASE}/conditions/osteoarthritis`,
+        "inLanguage": "en-GB",
+        "areaServed": { "@type": "Country", "name": "United Kingdom" },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
@@ -136,8 +145,8 @@ const Osteoarthritis = () => (
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/osteoarthritis" />
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Osteoarthritis (OA) is the most common form of arthritis in the UK, affecting over 8.75 million people. This comprehensive guide covers everything you need to know about living with and managing osteoarthritis.
+            <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
+              Osteoarthritis (OA) is the most common form of arthritis in the UK — joint pain and stiffness that you can often manage with exercise, weight advice and NHS care pathways; this page is general information, not a diagnosis.
             </p>
           </motion.div>
         </div>
