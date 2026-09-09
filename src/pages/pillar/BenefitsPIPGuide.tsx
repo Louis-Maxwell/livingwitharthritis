@@ -15,24 +15,25 @@ const Footer = lazy(() => import("@/components/Footer"));
 const CONTENT = `
 <h2 id="introduction">Benefits and Financial Support for Arthritis in the UK</h2>
 <p>Living with arthritis can have a significant financial impact. Reduced working hours, early retirement, the cost of medications, travel to appointments, home adaptations and specialist equipment all place financial strain on individuals and families. Yet many people with arthritis in the UK are unaware of the <strong>benefits and financial support</strong> they may be entitled to.</p>
-<p>According to Versus Arthritis, <strong>1 in 4 people</strong> with musculoskeletal conditions who are eligible for benefits are not claiming them. This guide explains every major benefit available, with a particular focus on <strong>Personal Independence Payment (PIP)</strong>, the primary disability benefit for working-age adults in England and Wales.</p>
+<p>According to Arthritis UK (formerly Versus Arthritis), <strong>1 in 4 people</strong> with musculoskeletal conditions who are eligible for benefits are not claiming them. This guide explains every major benefit available, with a particular focus on <strong>Personal Independence Payment (PIP)</strong>, the primary disability benefit for working-age adults in England and Wales.</p>
 
 <h2 id="personal-independence-payment">Personal Independence Payment (PIP)</h2>
 <p>PIP is a tax-free, non-means-tested benefit designed to help with the <strong>extra costs of living with a long-term health condition or disability</strong>. It is available to people aged 16 to State Pension age in England and Wales (replaced by Adult Disability Payment in Scotland). Importantly, PIP is available whether you work or not — it is not an out-of-work benefit.</p>
 
-<h3 id="pip-components">PIP Components and Rates (2024/25)</h3>
+<h3 id="pip-components">PIP components and rates (2026/27)</h3>
 <p>PIP has two components, and you can claim either or both:</p>
 <p><strong>Daily Living Component</strong> — for help with everyday tasks like preparing food, washing, dressing, managing medications and communicating:</p>
 <ul>
-<li>Standard rate: <strong>£72.65 per week</strong></li>
-<li>Enhanced rate: <strong>£108.55 per week</strong></li>
+<li>Standard rate: <strong>£76.70 per week</strong></li>
+<li>Enhanced rate: <strong>£114.60 per week</strong></li>
 </ul>
+<p>Confirm current amounts on <a href="https://www.gov.uk/pip/how-much-youll-get" target="_blank" rel="noopener noreferrer">GOV.UK PIP rates</a>.</p>
 <p><strong>Mobility Component</strong> — for help getting around:</p>
 <ul>
-<li>Standard rate: <strong>£28.70 per week</strong></li>
-<li>Enhanced rate: <strong>£75.75 per week</strong></li>
+<li>Standard rate: <strong>£30.30 per week</strong></li>
+<li>Enhanced rate: <strong>£80.00 per week</strong></li>
 </ul>
-<p>At the enhanced rate for both components, PIP provides up to <strong>£184.30 per week</strong> (£9,584 per year), which can make a transformative difference to quality of life.</p>
+<p>At the enhanced rate for both components, PIP provides up to <strong>£194.60 per week</strong> (usually paid every 4 weeks), which can make a transformative difference to quality of life.</p>
 
 <h3 id="pip-eligibility">Who Is Eligible?</h3>
 <p>To qualify for PIP, you must:</p>
@@ -87,7 +88,7 @@ const CONTENT = `
 <li><strong>Note time taken</strong> — if a task takes you twice as long as someone without arthritis, this counts</li>
 <li><strong>List all aids and adaptations</strong> — jar openers, perching stools, grab rails, orthotics, walking sticks, wheelchairs</li>
 <li><strong>Keep a pain diary</strong> — a 2-week diary showing daily symptom levels strengthens your claim significantly</li>
-<li><strong>Get help completing the form</strong> — Citizens Advice, Versus Arthritis and local welfare rights services offer free support</li>
+<li><strong>Get help completing the form</strong> — Citizens Advice, Arthritis UK and local welfare rights services offer free support</li>
 </ul>
 
 <h3 id="pip-mandatory-reconsideration">If Your PIP Claim Is Refused</h3>
@@ -96,15 +97,15 @@ const CONTENT = `
 <li><strong>Mandatory Reconsideration</strong> — request this within <strong>1 month</strong> of the decision. Provide additional evidence. Around <strong>17% of reconsiderations</strong> result in a changed decision (DWP, 2024)</li>
 <li><strong>Appeal to a tribunal</strong> — if reconsideration fails, appeal to the Social Security and Child Support Tribunal within 1 month. You'll have a hearing before an independent panel. <strong>Around 70% of PIP appeals are successful</strong> (Ministry of Justice, 2024), so it is well worth pursuing if you believe your needs were underestimated</li>
 </ol>
-<p>Free help with appeals is available from Citizens Advice, law centres, and Versus Arthritis (helpline: 0800 5200 520).</p>
+<p>Free help with appeals is available from Citizens Advice, law centres, and Arthritis UK (helpline: 0800 5200 520).</p>
 
 <h2 id="other-benefits">Other Benefits You May Be Entitled To</h2>
 
 <h3 id="attendance-allowance">Attendance Allowance</h3>
 <p>If you are <strong>over State Pension age</strong>, Attendance Allowance replaces PIP. It has two rates:</p>
 <ul>
-<li>Lower rate: <strong>£72.65 per week</strong> (daytime or night-time needs)</li>
-<li>Higher rate: <strong>£108.55 per week</strong> (day and night needs)</li>
+<li>Lower rate: <strong>£76.70 per week</strong> (daytime or night-time needs)</li>
+<li>Higher rate: <strong>£114.60 per week</strong> (day and night needs)</li>
 </ul>
 <p>There is no mobility component, but qualifying opens access to additional benefits like Pension Credit, Council Tax Reduction and Carer's Allowance for someone who helps you.</p>
 
@@ -119,7 +120,7 @@ const CONTENT = `
 <p>If you have limited income and savings, Universal Credit may provide additional financial support. If you have a <strong>Limited Capability for Work and Work-Related Activity (LCWRA)</strong> determination, you receive an extra <strong>£416.19 per month</strong>. Having PIP also often passports you to the LCWRA element without a separate assessment.</p>
 
 <h3 id="carers-allowance">Carer's Allowance</h3>
-<p>If someone provides care for you for at least <strong>35 hours per week</strong> and you receive the daily living component of PIP at the enhanced rate (or Attendance Allowance at the higher rate), your carer may be eligible for <strong>Carer's Allowance</strong> of <strong>£81.90 per week</strong>.</p>
+<p>If someone provides care for you for at least <strong>35 hours per week</strong> and you receive the daily living component of PIP at the enhanced rate (or Attendance Allowance at the higher rate), your carer may be eligible for <strong>Carer's Allowance</strong> of <strong>£86.45 per week</strong> (GOV.UK).</p>
 
 <h3 id="blue-badge">Blue Badge Scheme</h3>
 <p>The Blue Badge allows you to park closer to your destination. You automatically qualify if you receive the <strong>enhanced rate mobility component of PIP</strong> (scoring 8+ points on the "moving around" activity). You can also apply via your local council if you have a condition that affects your ability to walk, even if you don't receive PIP mobility.</p>
@@ -166,7 +167,7 @@ const CONTENT = `
 <h2 id="where-to-get-help">Where to Get Free Help</h2>
 <ul>
 <li><strong>Citizens Advice</strong> — free benefits advice and form-filling help: <a href="https://www.citizensadvice.org.uk" target="_blank" rel="noopener noreferrer">citizensadvice.org.uk</a> or 0800 144 8848</li>
-<li><strong>Versus Arthritis helpline</strong> — 0800 5200 520 (includes benefits advice)</li>
+<li><strong>Arthritis UK helpline (formerly Versus Arthritis)</strong> — 0800 5200 520 (includes benefits advice)</li>
 <li><strong>Turn2us</strong> — benefits calculator and grants directory: <a href="https://www.turn2us.org.uk" target="_blank" rel="noopener noreferrer">turn2us.org.uk</a></li>
 <li><strong>Scope</strong> — disability rights and benefits support: <a href="https://www.scope.org.uk" target="_blank" rel="noopener noreferrer">scope.org.uk</a></li>
 <li><strong>Local welfare rights services</strong> — many councils offer free benefits advice</li>
@@ -175,19 +176,63 @@ const CONTENT = `
 </ul>
 
 <h2 id="sources-benefits">Sources &amp; Disclaimer</h2>
-<p>This guide is based on GOV.UK official benefit rates and eligibility criteria (2024/25), DWP statistics, Ministry of Justice tribunal statistics, and guidance from Citizens Advice and Versus Arthritis. Benefit rates are subject to annual uprating (usually in April). This information is for educational purposes only and does not constitute legal or financial advice. For personalised advice, contact Citizens Advice or a qualified welfare rights adviser.</p>
+<p>This guide is based on GOV.UK official benefit rates and eligibility criteria (2026/27 GOV.UK rates), DWP statistics, Ministry of Justice tribunal statistics, and guidance from Citizens Advice and Arthritis UK. Benefit rates are subject to annual uprating (usually in April). This information is for educational purposes only and does not constitute legal or financial advice. For personalised advice, contact Citizens Advice or a qualified welfare rights adviser.</p>
 `;
 
 export default function BenefitsPIPGuide() {
   const html = addHeadingIds(CONTENT);
 
   const PIP_GUIDE_FAQS = [
-    { question: "How much is PIP worth for arthritis?", answer: "PIP has two components you can claim either or both of. The Daily Living component pays £72.65/week (standard) or £108.55/week (enhanced); the Mobility component pays £28.70/week (standard) or £75.75/week (enhanced). At the enhanced rate for both, PIP is worth up to £184.30 per week (£9,584 per year)." },
-    { question: "Do I need a specific arthritis diagnosis to qualify for PIP?", answer: "No — there is no minimum level of disability or specific diagnosis required. PIP is assessed on how your condition affects you on your worst days, not on diagnosis alone. Many people with osteoarthritis, rheumatoid arthritis, psoriatic arthritis and other forms of arthritis qualify." },
-    { question: "How long do I need to have had arthritis to claim PIP?", answer: "Your condition must have affected you for at least 3 months and be expected to continue for at least 9 months. You must also be aged 16 to State Pension age and resident in England or Wales (Scotland has Adult Disability Payment instead)." },
-    { question: "What happens if my PIP claim is refused?", answer: "You can request a Mandatory Reconsideration within 1 month of the decision, providing additional evidence — around 17% of reconsiderations result in a changed decision (DWP, 2024). If that fails, you can appeal to the Social Security and Child Support Tribunal within 1 month; around 70% of PIP appeals are successful (Ministry of Justice, 2024)." },
-    { question: "What benefit replaces PIP once I reach State Pension age?", answer: "Attendance Allowance replaces PIP if you are over State Pension age. It pays £72.65/week (lower rate, day or night needs) or £108.55/week (higher rate, day and night needs), though it has no mobility component." },
-    { question: "Can I get help with a PIP application for arthritis?", answer: "Yes — free help with PIP applications and appeals is available from Citizens Advice, law centres, and Versus Arthritis (helpline: 0800 5200 520)." },
+    {
+      question: "How much is PIP for arthritis in 2026/27?",
+      answer:
+        "From April 2026 (GOV.UK rates): Daily Living is £76.70/week (standard) or £114.60/week (enhanced); Mobility is £30.30/week (standard) or £80.00/week (enhanced). You can get either or both. The maximum (both enhanced) is £194.60/week, usually paid every 4 weeks. Rates are uprated each April — always check gov.uk/pip.",
+    },
+    {
+      question: "Can I claim PIP for osteoarthritis or rheumatoid arthritis?",
+      answer:
+        "Yes — PIP is not diagnosis-led. Assessors look at how arthritis affects daily living and mobility on your worst days (points for activities such as cooking, dressing, managing treatments and moving around). Osteoarthritis, rheumatoid arthritis, psoriatic arthritis and other forms can all qualify if the functional impact is enough.",
+    },
+    {
+      question: "How long must arthritis have affected me before I claim PIP?",
+      answer:
+        "Your difficulties must have lasted at least 3 months and be expected to continue for at least 9 months. You usually need to be aged 16 to State Pension age and living in England or Wales (Scotland uses Adult Disability Payment; Northern Ireland has a separate PIP system).",
+    },
+    {
+      question: "What if my PIP claim for arthritis is refused?",
+      answer:
+        "Ask for a Mandatory Reconsideration within 1 month and send stronger evidence (rheumatology letters, OT/physio notes, a diary of bad days). If that fails, appeal to the Social Security and Child Support Tribunal within 1 month — a large share of PIP appeals succeed. Free help is available from Citizens Advice and welfare rights services.",
+    },
+    {
+      question: "What replaces PIP after State Pension age?",
+      answer:
+        "Attendance Allowance is the main disability benefit if you claim after State Pension age (it has no mobility component). From April 2026 GOV.UK rates: lower £76.70/week and higher £114.60/week. If you already get PIP when you reach State Pension age, PIP can often continue — check GOV.UK or a benefits adviser before stopping a claim.",
+    },
+    {
+      question: "Where can I get free help with a PIP form for arthritis?",
+      answer:
+        "Citizens Advice, local welfare rights / law centres, and disability charities can help with PIP2 forms and appeals. Arthritis UK (formerly Versus Arthritis) runs a helpline on 0800 5200 520. Living With Arthritis (charity 1218461) publishes this guide for education only — we are independent of Arthritis UK and cannot replace regulated advice.",
+    },
+    {
+      question: "Does PIP affect other benefits or mean-tested support?",
+      answer:
+        "PIP itself is not means-tested and is usually ignored as income for Universal Credit, but it can unlock premiums, Blue Badge eligibility routes, Motability (enhanced mobility) and carer entitlement. Always check a benefits calculator (e.g. Turn2us or Entitledto) or an adviser for your household.",
+    },
+    {
+      question: "Can I work while claiming PIP for arthritis?",
+      answer:
+        "Yes. PIP is not an out-of-work benefit — you can work full-time, part-time or not at all if you meet the daily living or mobility criteria. Tell DWP if your needs change a lot, and ask your employer about Equality Act reasonable adjustments and Access to Work support.",
+    },
+    {
+      question: "How should I describe arthritis flares on the PIP form?",
+      answer:
+        "Describe your worst days and how often they happen, not only good days. Cover morning stiffness, pain, fatigue, extra time needed, aids you use, and what you cannot do safely or repeatedly (for example gripping a kettle or walking on a flare day). A short symptom diary helps.",
+    },
+    {
+      question: "What if I live in Scotland — is PIP different?",
+      answer:
+        "In Scotland, working-age adults claim Adult Disability Payment (ADP) from Social Security Scotland instead of PIP. If you move between Scotland and England or Wales, report the move and claim the correct benefit so payments are not interrupted — check mygov.scot for ADP and GOV.UK for PIP.",
+    },
   ];
 
   return (

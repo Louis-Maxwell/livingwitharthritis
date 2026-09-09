@@ -84,6 +84,7 @@ const ALL_LINKS: SitemapLink[] = [
   // Main pages
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
+  { label: "UK Arthritis Search Insights", href: "/about/uk-arthritis-search-insights" },
   { label: "Accessibility", href: "/accessibility" },
   { label: "Blog", href: "/blog" },
   { label: "Blog Hub", href: "/blog-hub" },

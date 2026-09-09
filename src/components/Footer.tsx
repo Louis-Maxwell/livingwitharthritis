@@ -49,6 +49,7 @@ const columns = [
       { label: "Connect an AI Assistant", href: "/connect" },
       { label: "Clinical Sources", href: "/sources" },
       { label: "Editorial Standards", href: "/editorial-standards" },
+      { label: "UK Search Insights", href: "/about/uk-arthritis-search-insights" },
       { label: "Governance", href: "/governance" },
       
       { label: "Our Impact", href: "/impact" },

@@ -64,6 +64,7 @@ const Sitemap = lazy(() => import("./pages/Sitemap"));
 const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const AITransparency = lazy(() => import("./pages/about/AITransparency"));
+const UkArthritisSearchInsights = lazy(() => import("./pages/about/UkArthritisSearchInsights"));
 const Connect = lazy(() => import("./pages/Connect"));
 const Sources = lazy(() => import("./pages/about/Sources"));
 const AICitations = lazy(() => import("./pages/about/AICitations"));
@@ -337,6 +338,7 @@ function AnimatedRoutes() {
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/about/ai-transparency" element={<AITransparency />} />
+        <Route path="/about/uk-arthritis-search-insights" element={<UkArthritisSearchInsights />} />
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />
         <Route path="/ai-guidelines" element={<AIGuidelines />} />
