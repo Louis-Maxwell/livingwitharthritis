@@ -72,12 +72,8 @@ const HUB_PAGES: SearchCatalogItem[] = [
   },
 ];
 
-const WORD_BY_SLUG = new Map(
-  (blogArticles as Array<{ slug: string; content?: string }>).map((a) => [
-    a.slug,
-    countWords(a.content),
-  ]),
-);
+/** Word counts precomputed at build time (scripts/generate-content-stats.mjs). */
+const WORD_BY_SLUG: Record<string, number> = contentStats.wordCounts;
 
 const BLOG_ITEMS: SearchCatalogItem[] = (
   blogList as Array<{
