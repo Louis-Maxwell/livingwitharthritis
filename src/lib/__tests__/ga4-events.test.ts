@@ -34,7 +34,7 @@ describe("GA4 conversion events", () => {
 });
 
 describe("GA4 measurement ID", () => {
-  it("ships only G-ZLLSD3PXZ9 and never G-X8GTW05JJS", () => {
+  it("ships only G-ZLLSD3PXZ9 as the measurement ID", () => {
     const html = readFileSync(resolve(process.cwd(), "index.html"), "utf8");
     const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
     const ids = [
@@ -42,7 +42,6 @@ describe("GA4 measurement ID", () => {
       ...app.matchAll(/G-[A-Z0-9]+/g),
     ].map((m) => m[0]);
     expect(new Set(ids)).toEqual(new Set(["G-ZLLSD3PXZ9"]));
-    expect(html).not.toContain("G-X8GTW05JJS");
     expect(html).toContain("www.googletagmanager.com");
     expect(html).toContain("region1.google-analytics.com");
   });

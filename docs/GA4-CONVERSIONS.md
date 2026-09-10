@@ -2,7 +2,7 @@
 
 Property: `G-ZLLSD3PXZ9` (livingwitharthritis.org.uk)
 
-This is the only measurement ID. Do not add or restore `G-X8GTW05JJS`.
+This is the only measurement ID used by the site.
 
 `page_view` is sent by the SPA router in `src/App.tsx` (`send_page_view: false` on the gtag config in `index.html`). Enhanced measurement is not relied on for SPA navigations.
 
