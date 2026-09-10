@@ -58,6 +58,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/about/uk-arthritis-search-insights</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/sources</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
