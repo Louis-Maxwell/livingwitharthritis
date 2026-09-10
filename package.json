@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Living With Arthritis — frontend built with Vite, React, TypeScript, and TailwindCSS",
+  "description": "Living With Arthritis \u2014 frontend built with Vite, React, TypeScript, and TailwindCSS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Louis-Maxwell/livingwitharthritis.git"
@@ -171,7 +171,7 @@
     "ts-deepmerge": "^8.0.0",
     "esbuild": "^0.25.12",
     "qs": "^6.16.0",
-    "brace-expansion": "^5.0.1"
+    "brace-expansion": "^5.0.9"
   },
   "resolutions": {
     "minimatch": "^10.2.6",
