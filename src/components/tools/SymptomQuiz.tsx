@@ -1,225 +1,727 @@
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  AlertTriangle,
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  Dumbbell,
+  HandHeart,
+  MessageCircle,
+  Phone,
+  PhoneCall,
+  RotateCcw,
+  ShieldAlert,
+  Stethoscope,
+  Utensils,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ArrowLeft, AlertTriangle, CheckCircle, Stethoscope } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import {
+  BODY_AREAS,
+  DURATION_OPTIONS,
+  FLOW_STEPS,
+  NEXT_STEP_RESOURCES,
+  QuizAnswers,
+  QuizStepId,
+  RED_FLAGS,
+  SEVERITY_OPTIONS,
+  SKIN_OPTIONS,
+  SOFT_CTAS,
+  STORAGE_KEY,
+  SWELLING_OPTIONS,
+  TIMING_OPTIONS,
+  BodyAreaId,
+  DurationId,
+  SeverityId,
+  TimingId,
+  SwellingId,
+  SkinId,
+  emptyAnswers,
+  getTriggeredRedFlags,
+  highestRedFlagLevel,
+  progressPercent,
+  rankEducationalGuides,
+  stepLabel,
+} from "@/data/symptomChecker";
 
-interface Question {
-  id: string;
-  text: string;
-  options: { label: string; scores: Record<string, number> }[];
+interface SymptomQuizProps {
+  /** Compact mode when embedded in Health Tools tabs */
+  compact?: boolean;
+  onComplete?: () => void;
 }
 
-const questions: Question[] = [
-  {
-    id: "age_onset",
-    text: "When did your joint symptoms first begin?",
-    options: [
-      { label: "After age 45", scores: { oa: 3, ra: 0, psa: 0, gout: 1 } },
-      { label: "Between 25–45", scores: { oa: 1, ra: 2, psa: 2, gout: 1 } },
-      { label: "Before age 25", scores: { oa: 0, ra: 2, psa: 1, gout: 0 } },
-      { label: "I'm not sure", scores: { oa: 1, ra: 1, psa: 1, gout: 1 } },
-    ],
-  },
-  {
-    id: "morning_stiffness",
-    text: "How long does your morning stiffness typically last?",
-    options: [
-      { label: "Less than 30 minutes", scores: { oa: 3, ra: 0, psa: 0, gout: 1 } },
-      { label: "30–60 minutes", scores: { oa: 1, ra: 2, psa: 2, gout: 0 } },
-      { label: "Over an hour", scores: { oa: 0, ra: 3, psa: 3, gout: 0 } },
-      { label: "I don't experience morning stiffness", scores: { oa: 1, ra: 0, psa: 0, gout: 2 } },
-    ],
-  },
-  {
-    id: "joints_affected",
-    text: "Which joints are most affected?",
-    options: [
-      { label: "Weight-bearing joints (knees, hips, spine)", scores: { oa: 3, ra: 1, psa: 1, gout: 0 } },
-      { label: "Small joints (fingers, wrists, toes)", scores: { oa: 1, ra: 3, psa: 2, gout: 1 } },
-      { label: "Big toe or ankle", scores: { oa: 0, ra: 0, psa: 0, gout: 3 } },
-      { label: "Multiple different joints", scores: { oa: 1, ra: 2, psa: 3, gout: 0 } },
-    ],
-  },
-  {
-    id: "symmetry",
-    text: "Are your symptoms symmetrical (same joints on both sides)?",
-    options: [
-      { label: "Yes, both sides equally", scores: { oa: 0, ra: 3, psa: 1, gout: 0 } },
-      { label: "No, mainly one side", scores: { oa: 2, ra: 0, psa: 2, gout: 3 } },
-      { label: "It varies", scores: { oa: 1, ra: 1, psa: 2, gout: 1 } },
-    ],
-  },
-  {
-    id: "swelling",
-    text: "Do you experience joint swelling?",
-    options: [
-      { label: "Yes, warm and swollen joints", scores: { oa: 0, ra: 3, psa: 2, gout: 3 } },
-      { label: "Mild swelling occasionally", scores: { oa: 2, ra: 1, psa: 1, gout: 1 } },
-      { label: "Bony enlargement but not soft swelling", scores: { oa: 3, ra: 0, psa: 0, gout: 0 } },
-      { label: "No noticeable swelling", scores: { oa: 2, ra: 0, psa: 0, gout: 0 } },
-    ],
-  },
-  {
-    id: "skin",
-    text: "Do you have any skin conditions (psoriasis, rashes, or skin changes)?",
-    options: [
-      { label: "Yes, psoriasis or scaly patches", scores: { oa: 0, ra: 0, psa: 4, gout: 0 } },
-      { label: "Lumps or nodules under the skin", scores: { oa: 0, ra: 2, psa: 0, gout: 2 } },
-      { label: "No skin issues", scores: { oa: 2, ra: 1, psa: 0, gout: 1 } },
-    ],
-  },
-  {
-    id: "family",
-    text: "Does anyone in your family have arthritis or an autoimmune condition?",
-    options: [
-      { label: "Yes, autoimmune conditions", scores: { oa: 0, ra: 2, psa: 2, gout: 0 } },
-      { label: "Yes, osteoarthritis", scores: { oa: 2, ra: 0, psa: 0, gout: 0 } },
-      { label: "Yes, gout", scores: { oa: 0, ra: 0, psa: 0, gout: 3 } },
-      { label: "No / I'm not sure", scores: { oa: 1, ra: 1, psa: 1, gout: 1 } },
-    ],
-  },
-];
-
-const conditionInfo: Record<string, { name: string; color: string; desc: string; link: string }> = {
-  oa: { name: "Osteoarthritis", color: "bg-primary/10 text-primary", desc: "The most common type — caused by wear and tear of joint cartilage over time.", link: "/conditions/osteoarthritis" },
-  ra: { name: "Rheumatoid Arthritis", color: "bg-primary/10 text-primary", desc: "An autoimmune condition where the immune system attacks joint lining.", link: "/conditions/rheumatoid-arthritis" },
-  psa: { name: "Psoriatic Arthritis", color: "bg-primary/10 text-primary", desc: "Joint inflammation linked with the skin condition psoriasis.", link: "/conditions/psoriatic-arthritis" },
-  gout: { name: "Gout", color: "bg-primary/10 text-primary", desc: "Caused by uric acid crystal buildup, often affecting the big toe.", link: "/about" },
-};
-
-export default function SymptomQuiz() {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, number>>({}); // question index -> option index
-  const [showResults, setShowResults] = useState(false);
-
-  const handleAnswer = (optionIndex: number) => {
-    setAnswers((prev) => ({ ...prev, [step]: optionIndex }));
-  };
-
-  const calculateResults = () => {
-    const totals: Record<string, number> = { oa: 0, ra: 0, psa: 0, gout: 0 };
-    questions.forEach((q, qi) => {
-      const chosen = answers[qi];
-      if (chosen !== undefined) {
-        const scores = q.options[chosen].scores;
-        Object.entries(scores).forEach(([k, v]) => { totals[k] += v; });
-      }
-    });
-    const max = Math.max(...Object.values(totals));
-    const total = Object.values(totals).reduce((a, b) => a + b, 0);
-    return Object.entries(totals)
-      .map(([key, score]) => ({
-        key,
-        score,
-        percentage: total > 0 ? Math.round((score / max) * 100) : 0,
-        ...conditionInfo[key],
-      }))
-      .sort((a, b) => b.score - a.score);
-  };
-
-  const finish = () => setShowResults(true);
-  const restart = () => { setStep(0); setAnswers({}); setShowResults(false); };
-
-  if (showResults) {
-    const results = calculateResults();
-    const top = results[0];
-    return (
-      <div className="space-y-6">
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-primary dark:bg-primary/20 border border-primary dark:border-primary/30">
-          <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-          <p className="text-sm text-primary dark:text-primary">
-            <strong>Important:</strong> This quiz is for educational purposes only and does not replace a medical diagnosis. Please consult your GP or rheumatologist for proper assessment.
-          </p>
-        </div>
-
-        <div className="text-center mb-6">
-          <Badge className={`${top.color} text-sm px-4 py-1.5 mb-3`}>Most Likely</Badge>
-          <h2 className="text-2xl font-bold text-foreground">{top.name}</h2>
-          <p className="text-muted-foreground mt-1 text-sm max-w-md mx-auto">{top.desc}</p>
-        </div>
-
-        <div className="space-y-3">
-          {results.map((r) => (
-            <div key={r.key} className="flex items-center gap-4">
-              <span className="text-sm font-medium text-foreground w-40 shrink-0">{r.name}</span>
-              <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-primary rounded-full transition-all duration-700"
-                  style={{ width: `${r.percentage}%` }}
-                />
-              </div>
-              <span className="text-sm font-bold text-foreground w-12 text-right">{r.percentage}%</span>
-            </div>
-          ))}
-        </div>
-
-        <Card className="border-border/30">
-          <CardContent className="pt-5 pb-5">
-            <h4 className="font-semibold text-foreground flex items-center gap-2 mb-3">
-              <Stethoscope className="w-4 h-4 text-primary" /> Recommended Next Steps
-            </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" /> Book an appointment with your GP to discuss your symptoms</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" /> Keep a symptom diary to track pain, stiffness and swelling patterns</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" /> Your GP may refer you to a rheumatologist for specialist assessment</li>
-              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" /> Blood tests and imaging may be needed to confirm a diagnosis</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        <div className="flex justify-center">
-          <Button variant="outline" onClick={restart}>Take Quiz Again</Button>
-        </div>
-      </div>
-    );
+function loadStored(): { step: QuizStepId; answers: QuizAnswers } | null {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { step: QuizStepId; answers: QuizAnswers };
+    if (!parsed?.step || !parsed?.answers) return null;
+    return parsed;
+  } catch {
+    return null;
   }
+}
 
-  const q = questions[step];
-  const selected = answers[step];
+function persist(step: QuizStepId, answers: QuizAnswers) {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ step, answers }));
+  } catch {
+    /* private mode / quota */
+  }
+}
+
+function clearStored() {
+  try {
+    sessionStorage.removeItem(STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
+export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuizProps) {
+  const headingId = useId();
+  const liveRef = useRef<HTMLDivElement>(null);
+  const [step, setStep] = useState<QuizStepId>("intro");
+  const [answers, setAnswers] = useState<QuizAnswers>(emptyAnswers);
+  const [hydrated, setHydrated] = useState(false);
+  const [resumeOffer, setResumeOffer] = useState(false);
+
+  useEffect(() => {
+    const saved = loadStored();
+    if (saved && saved.step !== "intro" && saved.step !== "results") {
+      setResumeOffer(true);
+      setAnswers(saved.answers);
+    }
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    if (step === "intro") return;
+    persist(step, answers);
+  }, [step, answers, hydrated]);
+
+  useEffect(() => {
+    liveRef.current?.focus({ preventScroll: true });
+  }, [step]);
+
+  const progress = progressPercent(step);
+  const flowIndex = Math.max(0, FLOW_STEPS.indexOf(step === "urgent" ? "redflags" : step));
+  const flowTotal = FLOW_STEPS.length - 1; // exclude results from "of N questions" feel
+
+  const go = useCallback((next: QuizStepId) => setStep(next), []);
+
+  const resume = () => {
+    const saved = loadStored();
+    if (saved) {
+      setAnswers(saved.answers);
+      setStep(saved.step);
+    }
+    setResumeOffer(false);
+  };
+
+  const restart = () => {
+    clearStored();
+    setAnswers(emptyAnswers());
+    setStep("intro");
+    setResumeOffer(false);
+  };
+
+  const toggleRedFlag = (id: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      redFlags: prev.redFlags.includes(id)
+        ? prev.redFlags.filter((x) => x !== id)
+        : [...prev.redFlags, id],
+    }));
+  };
+
+  const toggleArea = (id: BodyAreaId) => {
+    setAnswers((prev) => {
+      const has = prev.areas.includes(id);
+      return {
+        ...prev,
+        areas: has ? prev.areas.filter((a) => a !== id) : [...prev.areas, id],
+      };
+    });
+  };
+
+  const continueAfterRedFlags = () => {
+    const triggered = getTriggeredRedFlags(answers.redFlags);
+    const level = highestRedFlagLevel(triggered);
+    if (level) {
+      go("urgent");
+      return;
+    }
+    go("areas");
+  };
+
+  const finish = () => {
+    go("results");
+    onComplete?.();
+  };
+
+  const guides = useMemo(
+    () => (step === "results" ? rankEducationalGuides(answers) : []),
+    [step, answers],
+  );
+
+  const triggered = useMemo(
+    () => getTriggeredRedFlags(answers.redFlags),
+    [answers.redFlags],
+  );
+  const urgentLevel = highestRedFlagLevel(triggered);
+
+  const optionClass = (selected: boolean) =>
+    `w-full text-left px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl border-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+      selected
+        ? "border-primary bg-primary/5 text-foreground"
+        : "border-border bg-card hover:border-primary/40 text-foreground"
+    }`;
+
+  const stepHeading = (
+    <h2 id={headingId} className="font-display text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+      {stepLabel(step)}
+    </h2>
+  );
 
   return (
-    <div className="space-y-6">
-      {/* Progress */}
-      <div className="flex items-center gap-3">
-        <span className="text-xs font-bold text-muted-foreground">Question {step + 1} of {questions.length}</span>
-        <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
-          <div className="h-full bg-primary rounded-full transition-all duration-300" style={{ width: `${((step + 1) / questions.length) * 100}%` }} />
+    <div className={compact ? "space-y-6" : "space-y-8"} role="region" aria-labelledby={headingId}>
+      <div
+        ref={liveRef}
+        tabIndex={-1}
+        className="sr-only"
+        aria-live="polite"
+      >
+        {stepLabel(step)}
+      </div>
+
+      {step !== "intro" && step !== "urgent" && (
+        <div className="space-y-2" aria-hidden={false}>
+          <div className="flex items-center justify-between gap-3 text-sm">
+            <span className="font-semibold text-foreground">
+              {step === "results"
+                ? "Complete"
+                : `Step ${Math.min(flowIndex, flowTotal)} of ${flowTotal}`}
+            </span>
+            <span className="text-muted-foreground tabular-nums">{progress}%</span>
+          </div>
+          <Progress value={progress} className="h-2" aria-label={`Progress ${progress} percent`} />
         </div>
-      </div>
+      )}
 
-      <h3 className="text-xl font-bold text-foreground">{q.text}</h3>
-
-      <div className="space-y-2.5">
-        {q.options.map((opt, i) => (
-          <button
-            key={i}
-            onClick={() => handleAnswer(i)}
-            className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
-              selected === i
-                ? "border-primary bg-primary/5 text-foreground"
-                : "border-border/30 bg-card hover:border-primary/30 text-foreground"
-            }`}
+      {/* INTRO */}
+      {step === "intro" && (
+        <div className="space-y-6">
+          {stepHeading}
+          <div
+            className="rounded-xl border border-amber-600/40 bg-amber-50 dark:bg-amber-950/40 p-4 sm:p-5 flex gap-3"
+            role="note"
           >
-            <span className="text-sm font-medium">{opt.label}</span>
-          </button>
-        ))}
-      </div>
+            <ShieldAlert className="w-5 h-5 text-amber-800 dark:text-amber-200 shrink-0 mt-0.5" aria-hidden />
+            <div className="text-sm sm:text-base text-amber-950 dark:text-amber-50 leading-relaxed">
+              <p className="font-semibold mb-1">Educational tool — not a diagnosis</p>
+              <p>
+                This checker helps you find UK arthritis guides that often overlap with your symptom pattern.
+                It cannot diagnose arthritis. Always speak to a GP or rheumatologist for personal medical advice.
+                In an emergency call <strong>999</strong>; for urgent advice use{" "}
+                <strong>NHS 111</strong>.
+              </p>
+            </div>
+          </div>
 
-      <div className="flex justify-between pt-2">
-        <Button variant="ghost" onClick={() => setStep((s) => s - 1)} disabled={step === 0} className="gap-1">
-          <ArrowLeft className="w-4 h-4" /> Back
-        </Button>
-        {step < questions.length - 1 ? (
-          <Button onClick={() => setStep((s) => s + 1)} disabled={selected === undefined} className="gap-1">
-            Next <ArrowRight className="w-4 h-4" />
+          {resumeOffer && (
+            <div className="rounded-xl border border-border bg-muted/30 p-4 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+              <p className="text-sm text-foreground">You have an unfinished session on this device.</p>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" onClick={resume} className="min-h-11">
+                  Resume
+                </Button>
+                <Button type="button" variant="outline" onClick={restart} className="min-h-11">
+                  Start fresh
+                </Button>
+              </div>
+            </div>
+          )}
+
+          <ul className="text-sm sm:text-base text-muted-foreground space-y-2 list-disc pl-5">
+            <li>About 3–4 minutes · answers stay in your browser only</li>
+            <li>Starts with an urgent-symptom screen for safety</li>
+            <li>Ends with condition hubs, exercise, diet and PIP links — not a label</li>
+          </ul>
+
+          <Button type="button" size="lg" className="min-h-12 gap-2 w-full sm:w-auto text-base" onClick={() => go("redflags")}>
+            Start symptom check <ArrowRight className="w-4 h-4" aria-hidden />
           </Button>
-        ) : (
-          <Button onClick={finish} disabled={selected === undefined} className="gap-1">
-            See Results <CheckCircle className="w-4 h-4" />
-          </Button>
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* RED FLAGS */}
+      {step === "redflags" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Select any that apply right now. If none apply, choose Continue. This screen exists so urgent problems
+            are not buried under educational content.
+          </p>
+          <fieldset className="space-y-3">
+            <legend className="sr-only">Urgent or emergency symptoms</legend>
+            {RED_FLAGS.map((flag) => {
+              const checked = answers.redFlags.includes(flag.id);
+              return (
+                <label key={flag.id} className={`${optionClass(checked)} flex gap-3 cursor-pointer items-start`}>
+                  <input
+                    type="checkbox"
+                    className="mt-1 h-4 w-4 accent-[hsl(var(--primary))] shrink-0"
+                    checked={checked}
+                    onChange={() => toggleRedFlag(flag.id)}
+                    aria-describedby={`rf-help-${flag.id}`}
+                  />
+                  <span className="min-w-0">
+                    <span className="block text-sm sm:text-base font-medium text-foreground leading-snug">
+                      {flag.label}
+                    </span>
+                    <span
+                      id={`rf-help-${flag.id}`}
+                      className={`mt-1 inline-block text-xs font-bold uppercase tracking-wide ${
+                        flag.level === "emergency" ? "text-destructive" : "text-amber-700 dark:text-amber-300"
+                      }`}
+                    >
+                      {flag.level === "emergency" ? "Emergency — 999" : "Urgent — 111 / GP"}
+                    </span>
+                  </span>
+                </label>
+              );
+            })}
+          </fieldset>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("intro")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button type="button" className="min-h-11 gap-1" onClick={continueAfterRedFlags}>
+              Continue <ArrowRight className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* URGENT INTERRUPT */}
+      {step === "urgent" && (
+        <div
+          className="space-y-5 rounded-2xl border-2 border-destructive bg-destructive/5 p-5 sm:p-8"
+          role="alert"
+          aria-labelledby={headingId}
+        >
+          <div className="flex gap-3 items-start">
+            <AlertTriangle className="w-7 h-7 text-destructive shrink-0" aria-hidden />
+            <div>
+              <h2 id={headingId} className="font-display text-2xl font-bold text-foreground">
+                {urgentLevel === "emergency" ? "Call 999 now" : "Get urgent NHS advice"}
+              </h2>
+              <p className="mt-2 text-base text-foreground leading-relaxed">
+                Based on what you selected, please seek clinical help before browsing educational guides.
+                This tool cannot assess emergencies.
+              </p>
+            </div>
+          </div>
+
+          <ul className="space-y-3">
+            {triggered.map((f) => (
+              <li key={f.id} className="rounded-xl bg-background/80 border border-border p-4 text-sm sm:text-base">
+                <p className="font-semibold text-foreground">{f.label}</p>
+                <p className="mt-1 text-muted-foreground">{f.help}</p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            {urgentLevel === "emergency" ? (
+              <Button asChild size="lg" className="min-h-14 text-base gap-2 bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                <a href="tel:999" aria-label="Call 999 emergency services">
+                  <PhoneCall className="w-5 h-5" aria-hidden /> Call 999
+                </a>
+              </Button>
+            ) : (
+              <Button asChild size="lg" className="min-h-14 text-base gap-2">
+                <a href="tel:111" aria-label="Call NHS 111 for urgent advice">
+                  <Phone className="w-5 h-5" aria-hidden /> Call NHS 111
+                </a>
+              </Button>
+            )}
+            <Button asChild size="lg" variant="outline" className="min-h-14 text-base gap-2">
+              <a
+                href="https://111.nhs.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open NHS 111 online in a new tab"
+              >
+                NHS 111 online
+              </a>
+            </Button>
+          </div>
+
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            If you are sure these symptoms have resolved and a clinician has already assessed you, you may continue
+            for educational reading only.
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <Button type="button" variant="outline" className="min-h-11" onClick={() => go("areas")}>
+              Continue for education only
+            </Button>
+            <Button type="button" variant="ghost" className="min-h-11" onClick={restart}>
+              Start again
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* AREAS */}
+      {step === "areas" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground">Select all areas that bother you most. Multi-select is fine.</p>
+          <fieldset className="grid sm:grid-cols-2 gap-3">
+            <legend className="sr-only">Affected body areas</legend>
+            {BODY_AREAS.map((area) => {
+              const selected = answers.areas.includes(area.id);
+              return (
+                <button
+                  key={area.id}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => toggleArea(area.id)}
+                  className={optionClass(selected)}
+                >
+                  <span className="block text-sm sm:text-base font-semibold">{area.label}</span>
+                  <span className="block text-xs sm:text-sm text-muted-foreground mt-0.5">{area.hint}</span>
+                </button>
+              );
+            })}
+          </fieldset>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("redflags")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button
+              type="button"
+              className="min-h-11 gap-1"
+              disabled={answers.areas.length === 0}
+              onClick={() => go("duration")}
+            >
+              Next <ArrowRight className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* DURATION */}
+      {step === "duration" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground">Roughly how long have the main symptoms been present?</p>
+          <div className="space-y-3" role="radiogroup" aria-label="Symptom duration">
+            {DURATION_OPTIONS.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                role="radio"
+                aria-checked={answers.duration === opt.id}
+                onClick={() => setAnswers((a) => ({ ...a, duration: opt.id as DurationId }))}
+                className={optionClass(answers.duration === opt.id)}
+              >
+                <span className="text-sm sm:text-base font-medium">{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("areas")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button
+              type="button"
+              className="min-h-11 gap-1"
+              disabled={!answers.duration}
+              onClick={() => go("severity")}
+            >
+              Next <ArrowRight className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* SEVERITY */}
+      {step === "severity" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground">On a typical day recently, how much do symptoms limit you?</p>
+          <div className="space-y-3" role="radiogroup" aria-label="Symptom severity">
+            {SEVERITY_OPTIONS.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                role="radio"
+                aria-checked={answers.severity === opt.id}
+                onClick={() => setAnswers((a) => ({ ...a, severity: opt.id as SeverityId }))}
+                className={optionClass(answers.severity === opt.id)}
+              >
+                <span className="block text-sm sm:text-base font-semibold">{opt.label}</span>
+                <span className="block text-xs sm:text-sm text-muted-foreground mt-0.5">{opt.description}</span>
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("duration")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button
+              type="button"
+              className="min-h-11 gap-1"
+              disabled={!answers.severity}
+              onClick={() => go("timing")}
+            >
+              Next <ArrowRight className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* TIMING */}
+      {step === "timing" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground">When do symptoms usually feel worst?</p>
+          <div className="space-y-3" role="radiogroup" aria-label="When symptoms are worst">
+            {TIMING_OPTIONS.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                role="radio"
+                aria-checked={answers.timing === opt.id}
+                onClick={() => setAnswers((a) => ({ ...a, timing: opt.id as TimingId }))}
+                className={optionClass(answers.timing === opt.id)}
+              >
+                <span className="text-sm sm:text-base font-medium">{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("severity")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button
+              type="button"
+              className="min-h-11 gap-1"
+              disabled={!answers.timing}
+              onClick={() => go("swelling")}
+            >
+              Next <ArrowRight className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* SWELLING */}
+      {step === "swelling" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground">Which best describes any swelling?</p>
+          <div className="space-y-3" role="radiogroup" aria-label="Swelling pattern">
+            {SWELLING_OPTIONS.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                role="radio"
+                aria-checked={answers.swelling === opt.id}
+                onClick={() => setAnswers((a) => ({ ...a, swelling: opt.id as SwellingId }))}
+                className={optionClass(answers.swelling === opt.id)}
+              >
+                <span className="text-sm sm:text-base font-medium">{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("timing")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button
+              type="button"
+              className="min-h-11 gap-1"
+              disabled={!answers.swelling}
+              onClick={() => go("skin")}
+            >
+              Next <ArrowRight className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* SKIN */}
+      {step === "skin" && (
+        <div className="space-y-5">
+          {stepHeading}
+          <p className="text-base text-muted-foreground">Any skin changes that might relate to your joints?</p>
+          <div className="space-y-3" role="radiogroup" aria-label="Skin changes">
+            {SKIN_OPTIONS.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                role="radio"
+                aria-checked={answers.skin === opt.id}
+                onClick={() => setAnswers((a) => ({ ...a, skin: opt.id as SkinId }))}
+                className={optionClass(answers.skin === opt.id)}
+              >
+                <span className="text-sm sm:text-base font-medium">{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button type="button" variant="ghost" className="min-h-11 gap-1" onClick={() => go("swelling")}>
+              <ArrowLeft className="w-4 h-4" aria-hidden /> Back
+            </Button>
+            <Button
+              type="button"
+              className="min-h-11 gap-1"
+              disabled={!answers.skin}
+              onClick={finish}
+            >
+              See educational guides <CheckCircle2 className="w-4 h-4" aria-hidden />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* RESULTS */}
+      {step === "results" && (
+        <div className="space-y-8">
+          <div
+            className="rounded-xl border border-amber-600/40 bg-amber-50 dark:bg-amber-950/40 p-4 flex gap-3"
+            role="note"
+          >
+            <ShieldAlert className="w-5 h-5 text-amber-800 dark:text-amber-200 shrink-0 mt-0.5" aria-hidden />
+            <p className="text-sm sm:text-base text-amber-950 dark:text-amber-50 leading-relaxed">
+              <strong>Not a diagnosis.</strong> These are educational guides whose typical patterns may overlap with
+              your answers. Real conditions overlap — only a clinician can diagnose you.
+            </p>
+          </div>
+
+          <div>
+            <h2 id={headingId} className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2">
+              Guides worth reading next
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground mb-5">
+              Ranked by educational pattern overlap — not certainty, probability of disease, or clinical risk.
+            </p>
+
+            <ol className="space-y-4">
+              {guides.map((g, i) => (
+                <li key={g.key}>
+                  <article className="rounded-2xl border border-border bg-card p-5 sm:p-6 hover:border-primary/50 transition-colors">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span
+                          className="w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold text-sm flex items-center justify-center shrink-0"
+                          aria-hidden
+                        >
+                          {i + 1}
+                        </span>
+                        <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">{g.name}</h3>
+                      </div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary border border-primary/30 px-2.5 py-1 rounded-full whitespace-nowrap">
+                        Pattern overlap {g.relevance}%
+                      </span>
+                    </div>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3">{g.summary}</p>
+                    <p className="text-sm text-foreground/90 flex gap-2 items-start mb-4">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden />
+                      <span>{g.whyRelevant}</span>
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Button asChild size="sm" className="min-h-10 gap-1">
+                        <Link to={g.path}>
+                          <BookOpen className="w-3.5 h-3.5" aria-hidden /> Read {g.name} hub
+                        </Link>
+                      </Button>
+                      {g.jointHint && g.jointHint !== g.path && (
+                        <Button asChild size="sm" variant="outline" className="min-h-10">
+                          <Link to={g.jointHint}>Related joint page</Link>
+                        </Button>
+                      )}
+                    </div>
+                  </article>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <section aria-labelledby="next-steps-heading" className="space-y-4">
+            <h3 id="next-steps-heading" className="font-display text-lg font-bold text-foreground">
+              Practical next steps
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {NEXT_STEP_RESOURCES.map((r) => {
+                const Icon =
+                  r.href.includes("exercise")
+                    ? Dumbbell
+                    : r.href.includes("diet")
+                      ? Utensils
+                      : r.href.includes("benefits")
+                        ? HandHeart
+                        : Stethoscope;
+                return (
+                  <Link
+                    key={r.href}
+                    to={r.href}
+                    className="rounded-xl border border-border p-4 hover:border-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <Icon className="w-5 h-5 text-primary mb-2" aria-hidden />
+                    <p className="font-semibold text-foreground text-sm sm:text-base">{r.label}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">{r.description}</p>
+                  </Link>
+                );
+              })}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              If symptoms last more than a few weeks, book a GP appointment. Take a short symptom diary (when it hurts,
+              which joints, morning stiffness length, swelling, and what helps).
+            </p>
+          </section>
+
+          <section aria-labelledby="soft-cta-heading" className="rounded-2xl border border-border/60 bg-muted/20 p-5">
+            <h3 id="soft-cta-heading" className="font-display text-base font-bold text-foreground mb-3">
+              Optional extras
+            </h3>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+              {SOFT_CTAS.map((c) => (
+                <Button key={c.href} asChild variant="outline" className="min-h-11 justify-start gap-2">
+                  <Link to={c.href}>
+                    {c.href === "/chat" ? (
+                      <MessageCircle className="w-4 h-4" aria-hidden />
+                    ) : c.href === "/donate" ? (
+                      <HandHeart className="w-4 h-4" aria-hidden />
+                    ) : (
+                      <BookOpen className="w-4 h-4" aria-hidden />
+                    )}
+                    {c.label}
+                  </Link>
+                </Button>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mt-3">Soft prompts only — never required to use this tool.</p>
+          </section>
+
+          <div className="flex flex-wrap gap-3">
+            <Button type="button" variant="outline" className="min-h-11 gap-2" onClick={restart}>
+              <RotateCcw className="w-4 h-4" aria-hidden /> Start again
+            </Button>
+            <Button asChild className="min-h-11">
+              <Link to="/guides/newly-diagnosed">Prepare for your GP visit</Link>
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

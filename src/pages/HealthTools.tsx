@@ -12,7 +12,7 @@ import InflammationCalculator from "@/components/tools/InflammationCalculator";
 import ExercisePlanGenerator from "@/components/tools/ExercisePlanGenerator";
 
 const tools = [
-  { id: "quiz", label: "Symptom Quiz", icon: Stethoscope, desc: "Identify your arthritis type" },
+  { id: "quiz", label: "Symptom Quiz", icon: Stethoscope, desc: "Find related guides (not a diagnosis)" },
   { id: "inflammation", label: "Inflammation Score", icon: Flame, desc: "Calculate your risk level" },
   { id: "plan", label: "Exercise Plan", icon: Dumbbell, desc: "Get a personalised routine" },
 ] as const;
@@ -60,7 +60,7 @@ export default function HealthTools() {
             </Badge>
           }
           title={<>Your Arthritis <span className="text-primary">Health Toolkit</span></>}
-          subtitle="Three free, evidence-based interactive tools to help you understand your symptoms, assess your inflammation risk, and build a personalised exercise plan."
+          subtitle="Three free educational tools to explore symptom patterns, inflammation risk factors, and exercise ideas — not a diagnosis or personal clinical advice."
         />
 
         <main id="main-content" className="container mx-auto px-5 md:px-8 py-8 md:py-12 max-w-3xl">
