@@ -2,6 +2,9 @@
  * Living With Arthritis — local chatbot knowledge base.
  * Educational UK guidance only: no diagnosis, no doses/prescribing.
  * Signpost GP / NHS 111 / 999. Charity 1218461 · HCPC PH128483.
+ *
+ * Matching uses keywords + synonyms scored in optimizedChatService.
+ * Keep answers concrete, UK-safe, and link internal hubs where useful.
  */
 
 export type ChatResourceRef = {
@@ -24,10 +27,59 @@ export type KnowledgeTopic = {
   answer: string;
   nextSteps?: string[];
   related?: ChatResourceRef[];
+  /** Suggested follow-up chip labels for the UI / clarifying prompts. */
+  chips?: string[];
 };
 
 export const SAFETY_DISCLAIMER =
   "\n\n---\n\n_General guidance from Living With Arthritis (registered charity 1218461). Educational information only — not a diagnosis or prescription. Speak with your GP, pharmacist or rheumatology team before changing medication or starting a new programme. For urgent symptoms call **NHS 111**; for emergencies call **999**._";
+
+/** Suggested topic chips shown in low-confidence / generic replies. */
+export const SUGGESTED_CHIPS: string[] = [
+  "Safe exercises for knee pain",
+  "Anti-inflammatory diet",
+  "How do I manage a flare?",
+  "Can I claim PIP?",
+  "What is rheumatoid arthritis?",
+  "Gout flare tips",
+  "Fatigue and pacing",
+  "Who are you?",
+  "Donate or contact",
+];
+
+/** Keywords that should surface the emergency red-flag block even on other topics. */
+export const URGENT_RED_FLAG_TERMS: string[] = [
+  "chest pain",
+  "can't breathe",
+  "cannot breathe",
+  "difficulty breathing",
+  "shortness of breath",
+  "slurred speech",
+  "face drooping",
+  "stroke",
+  "anaphylaxis",
+  "swelling of the face",
+  "swollen face",
+  "throat swelling",
+  "call 999",
+  "heart attack",
+  "hot red swollen",
+  "fever and joint",
+  "joint infection",
+  "can't walk",
+  "cannot walk",
+  "unable to bear weight",
+  "blackout",
+  "unconscious",
+];
+
+export const EMERGENCY_RED_FLAG_BLOCK = `**If you have urgent symptoms right now**
+- **Chest pain**, sudden weakness/slurred speech, severe difficulty breathing, or face/throat swelling → call **999**
+- A joint that is suddenly **hot, red, very swollen** with **fever** or feeling very unwell → **NHS 111** or A&E (possible joint infection)
+- Feeling unsafe or in crisis → call **999**, or Samaritans **116 123** (free, 24/7)
+
+This chat cannot replace emergency or crisis services.
+`;
 
 export const TOPICS: KnowledgeTopic[] = [
   {
@@ -45,21 +97,26 @@ export const TOPICS: KnowledgeTopic[] = [
       "call 999",
       "heart attack",
     ],
-    synonyms: ["emergency", "999", "life threatening"],
+    synonyms: ["emergency", "999", "life threatening", "a and e", "aande", "casualty"],
     priority: 100,
+    chips: ["When should I see a GP?", "Flare-up tips", "Contact the charity"],
     answer: `**This may need emergency care**
 
 If you have **chest pain**, sudden weakness or slurred speech, severe difficulty breathing, or swelling of the face/throat, call **999** now.
 
 For a joint that is suddenly **hot, red, very swollen** with fever or feeling very unwell, seek urgent care today (possible joint infection) — call **NHS 111** or go to A&E if you cannot get through.
 
+If you are in emotional crisis, call **999** or Samaritans **116 123**.
+
 This chat cannot replace emergency services.`,
     nextSteps: [
       "Call 999 for life-threatening symptoms",
       "Call NHS 111 for urgent but non-life-threatening advice",
+      "Samaritans 116 123 for crisis support",
     ],
     related: [
-      { type: "guide", title: "Contact us", url: "/contact", description: "Non-urgent charity contact" },
+      { type: "guide", title: "Contact us (non-urgent)", url: "/contact", description: "Charity contact — not emergency care" },
+      { type: "guide", title: "When to seek care", url: "/guides" },
     ],
   },
   {
@@ -77,8 +134,9 @@ This chat cannot replace emergency services.`,
       "louis maxwell",
       "motion is lotion",
     ],
-    synonyms: ["about us", "independent", "who runs", "founder", "ph128483", "1218461"],
+    synonyms: ["about us", "independent", "who runs", "founder", "ph128483", "1218461", "are you versus"],
     priority: 20,
+    chips: ["Donate or contact", "Exercise hub", "Diet hub"],
     answer: `**Who we are**
 
 We are **Living With Arthritis** — an independent UK charity (Charitable Incorporated Organisation, registered charity **1218461** in England and Wales).
@@ -101,9 +159,22 @@ Ask about exercises, diet, flares, PIP, or browse **/about**.`,
   },
   {
     id: "donate-contact",
-    keywords: ["donate", "donation", "gift aid", "contact", "email you", "phone number", "whatsapp", "get in touch", "helpline"],
-    synonyms: ["support the charity", "how to help", "volunteer"],
+    keywords: [
+      "donate",
+      "donation",
+      "gift aid",
+      "contact",
+      "email you",
+      "phone number",
+      "whatsapp",
+      "get in touch",
+      "helpline",
+      "how to help",
+      "support the charity",
+    ],
+    synonyms: ["volunteer", "fundraising", "give money", "speak to someone", "call you", "text you"],
     priority: 15,
+    chips: ["Who are you?", "PIP benefits", "Exercise hub"],
     answer: `**Donate or contact Living With Arthritis**
 
 We are a small independent UK charity (**1218461**). Donations and Gift Aid help keep guides, exercises and this chat free.
@@ -124,10 +195,61 @@ We cannot provide emergency medical care by phone — for urgent symptoms use **
     ],
   },
   {
+    id: "website-nav",
+    keywords: [
+      "where is the blog",
+      "find exercises",
+      "exercise hub",
+      "diet hub",
+      "website map",
+      "site navigation",
+      "where do i find",
+      "browse the site",
+      "pillar guides",
+      "show me the blog",
+    ],
+    synonyms: ["sitemap", "menu", "pages on the site", "hub pages", "library"],
+    priority: 11,
+    chips: ["Safe knee exercises", "Anti-inflammatory diet", "Benefits & PIP"],
+    answer: `**Finding your way around the site**
+
+Useful hubs on Living With Arthritis:
+
+- **Exercises:** **/exercises** (also **/guides/exercise**) — joint-friendly routines; *Motion is Lotion*
+- **Diet:** **/diet** (also **/guides/diet**) — Mediterranean / anti-inflammatory eating
+- **Blog:** **/blog** — practical articles and updates
+- **Conditions:** **/conditions/osteoarthritis**, **/conditions/rheumatoid-arthritis**, gout, PsA, AS, JIA, fibromyalgia and more
+- **Benefits & PIP:** **/guides/benefits-pip** and **/benefits-pip**
+- **Flares:** **/arthritis-flare-ups**
+- **Mental health:** **/arthritis-mental-health**
+- **About / contact / donate:** **/about**, **/contact**, **/donate**
+
+Ask me about a joint, condition, diet, flares or PIP and I will answer with links.`,
+    nextSteps: ["Open /exercises or /diet", "Browse /blog for recent articles"],
+    related: [
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Diet hub", url: "/diet" },
+      { type: "article", title: "Blog", url: "/blog" },
+      { type: "guide", title: "Guides hub", url: "/guides" },
+    ],
+  },
+  {
     id: "pip-benefits",
-    keywords: ["pip", "personal independence payment", "disability benefit", "dla", "attendance allowance", "universal credit", "benefits", "claim pip"],
-    synonyms: ["welfare", "disability support", "daily living component", "mobility component"],
+    keywords: [
+      "pip",
+      "personal independence payment",
+      "disability benefit",
+      "dla",
+      "attendance allowance",
+      "universal credit",
+      "benefits",
+      "claim pip",
+      "pip assessment",
+      "mandatory reconsideration",
+    ],
+    synonyms: ["welfare", "disability support", "daily living component", "mobility component", "esa", "pip form"],
     priority: 18,
+    chips: ["Access to Work", "Work adjustments", "Contact us"],
     answer: `**PIP and arthritis benefits (UK) — orientation only**
 
 **Personal Independence Payment (PIP)** is a working-age disability benefit for people who need help with daily living or getting around because of a long-term condition — including many forms of arthritis. It is **not means-tested** and you can claim whether or not you work.
@@ -156,9 +278,22 @@ We cannot assess your entitlement — rules change.`,
   },
   {
     id: "access-to-work",
-    keywords: ["access to work", "work", "employer", "workplace", "job", "equality act", "reasonable adjustment", "occupational health", "sick leave", "fit note"],
-    synonyms: ["at work", "working with arthritis", "disability at work", "adjustments"],
+    keywords: [
+      "access to work",
+      "work",
+      "employer",
+      "workplace",
+      "job",
+      "equality act",
+      "reasonable adjustment",
+      "occupational health",
+      "sick leave",
+      "fit note",
+      "work adjustments",
+    ],
+    synonyms: ["at work", "working with arthritis", "disability at work", "adjustments", "hr arthritis", "phased return"],
     priority: 12,
+    chips: ["PIP benefits", "Fatigue pacing", "Flare-up tips"],
     answer: `**Work, Access to Work and arthritis (UK)**
 
 Many people with arthritis stay in work with the right adjustments.
@@ -185,14 +320,24 @@ For benefit income support see **/guides/benefits-pip**. This is general informa
     related: [
       { type: "guide", title: "Benefits & PIP", url: "/guides/benefits-pip" },
       { type: "article", title: "Guides hub", url: "/guides" },
+      { type: "article", title: "Blog", url: "/blog" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
   },
   {
     id: "waiting-lists",
-    keywords: ["waiting list", "nhs wait", "referral", "rheumatology wait", "physio wait", "how long for", "appointment delay"],
-    synonyms: ["waiting times", "backlog", "queue for physio", "seen by specialist"],
+    keywords: [
+      "waiting list",
+      "nhs wait",
+      "referral",
+      "rheumatology wait",
+      "physio wait",
+      "how long for",
+      "appointment delay",
+    ],
+    synonyms: ["waiting times", "backlog", "queue for physio", "seen by specialist", "stuck on waiting"],
     priority: 10,
+    chips: ["Safe exercises while waiting", "When to see a GP", "Flare plan"],
     answer: `**NHS waiting lists — what you can do while you wait**
 
 Waiting for rheumatology, orthopaedics or physiotherapy is common in the UK. You can still act safely while you wait.
@@ -222,9 +367,17 @@ We cannot shorten official waiting times, but self-management and primary-care p
   },
   {
     id: "newly-diagnosed",
-    keywords: ["newly diagnosed", "just diagnosed", "new diagnosis", "first diagnosed", "what now", "where do i start"],
-    synonyms: ["recently diagnosed", "new to arthritis", "diagnosis today"],
+    keywords: [
+      "newly diagnosed",
+      "just diagnosed",
+      "new diagnosis",
+      "first diagnosed",
+      "what now",
+      "where do i start",
+    ],
+    synonyms: ["recently diagnosed", "new to arthritis", "diagnosis today", "got diagnosed"],
     priority: 14,
+    chips: ["Exercise hub", "Flare-up plan", "Anti-inflammatory diet"],
     answer: `**Newly diagnosed with arthritis — a calm starting plan**
 
 Hearing a diagnosis can feel overwhelming. You do not need to fix everything today.
@@ -256,9 +409,10 @@ We are Living With Arthritis (charity **1218461**), independent of Arthritis UK 
   },
   {
     id: "flare",
-    keywords: ["flare", "flare-up", "flare up", "flaring", "bad flare", "sudden worse"],
-    synonyms: ["flareups", "exacerbation", "symptom spike"],
+    keywords: ["flare", "flare-up", "flare up", "flaring", "bad flare", "sudden worse", "flare management"],
+    synonyms: ["flareups", "exacerbation", "symptom spike", "joints flared"],
     priority: 16,
+    chips: ["Heat or cold?", "Gentle exercises", "When to call 111"],
     answer: `**Managing an arthritis flare**
 
 A flare is a temporary worsening of pain, swelling and fatigue. The goal is to calm it without losing all your progress.
@@ -293,9 +447,20 @@ Full guide: **/arthritis-flare-ups**`,
   },
   {
     id: "heat-cold",
-    keywords: ["heat", "cold", "ice pack", "hot water bottle", "wheat bag", "heat pad", "ice for", "hot or cold"],
-    synonyms: ["warmth", "cryotherapy", "thermal"],
+    keywords: [
+      "heat",
+      "cold",
+      "ice pack",
+      "hot water bottle",
+      "wheat bag",
+      "heat pad",
+      "ice for",
+      "hot or cold",
+      "heat or ice",
+    ],
+    synonyms: ["warmth", "cryotherapy", "thermal", "ice or heat", "cold pack"],
     priority: 9,
+    chips: ["Flare-up tips", "Knee exercises", "Pain relief basics"],
     answer: `**Heat and cold for arthritis**
 
 Both can help — choose based on how the joint feels.
@@ -322,9 +487,10 @@ Combine with pacing and movement — see **/exercises** and **/arthritis-flare-u
   },
   {
     id: "fatigue",
-    keywords: ["fatigue", "exhausted", "tired all the time", "no energy", "brain fog", "worn out"],
-    synonyms: ["energy crash", "worn down", "lethargy"],
+    keywords: ["fatigue", "exhausted", "tired all the time", "no energy", "brain fog", "worn out", "arthritis tiredness"],
+    synonyms: ["energy crash", "worn down", "lethargy", "crippling tiredness"],
     priority: 11,
+    chips: ["Sleep tips", "Pacing at work", "Gentle exercise"],
     answer: `**Arthritis fatigue — practical pacing**
 
 Fatigue in inflammatory arthritis and OA is real — it is not "just tiredness".
@@ -348,13 +514,103 @@ See energy and exercise articles via **/exercises** and **/guides**. Seek GP rev
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Guides", url: "/guides" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+      { type: "guide", title: "Mental health", url: "/arthritis-mental-health" },
+    ],
+  },
+  {
+    id: "sleep",
+    keywords: [
+      "sleep",
+      "insomnia",
+      "can't sleep",
+      "cannot sleep",
+      "waking at night",
+      "night pain",
+      "sleeping with pain",
+    ],
+    synonyms: ["poor sleep", "restless night", "broken sleep", "sleep hygiene"],
+    priority: 11,
+    chips: ["Fatigue pacing", "Flare tips", "Mental health"],
+    answer: `**Sleep and arthritis**
+
+Night pain and broken sleep are common with arthritis — and poor sleep makes pain and fatigue worse next day.
+
+**Practical ideas**
+- Consistent bed/wake times; wind-down routine (dim lights, less screens)
+- Supportive mattress/pillows; side-sleepers may cushion knees with a pillow
+- Heat for stiffness before bed; ice earlier if a joint is hot
+- Limit late caffeine, alcohol and heavy meals
+- Gentle daytime movement often improves sleep more than daytime napping
+
+**See your GP if:** loud snoring / gasping (possible sleep apnoea), new severe night pain, or mood is dropping with insomnia.
+
+Pair with pacing (**/exercises**) and flare plans (**/arthritis-flare-ups**).`,
+    nextSteps: [
+      "Trial a consistent wind-down for 7 nights",
+      "Ask GP about sleep apnoea or medication timing if nights are severe",
+    ],
+    related: [
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+      { type: "guide", title: "Mental health", url: "/arthritis-mental-health" },
+    ],
+  },
+  {
+    id: "mental-health",
+    keywords: [
+      "mental health",
+      "depression",
+      "anxiety",
+      "low mood",
+      "stressed",
+      "overwhelmed",
+      "lonely",
+      "feeling down",
+      "panic",
+    ],
+    synonyms: ["wellbeing", "emotional", "crying a lot", "worried all the time", "mental wellbeing"],
+    priority: 13,
+    chips: ["Fatigue pacing", "Contact us", "Gentle exercise"],
+    answer: `**Arthritis and mental health**
+
+Living with pain, flares and uncertainty commonly affects mood. That does not mean you are weak — it is a recognised part of long-term conditions.
+
+**What often helps**
+- Talking to your **GP** about mood; NHS talking therapies / IAPT referral where available
+- Paced movement — **/exercises** — which can lift mood as well as joints
+- Sleep, social contact, and realistic daily goals
+- Peer stories and practical articles: **/arthritis-mental-health** and **/blog**
+
+**Urgent / crisis**
+- If you feel unsafe or are in crisis, call **999** or Samaritans **116 123** (free, 24/7)
+- This chat is not a crisis line
+
+We are Living With Arthritis (charity **1218461**) — educational support only.`,
+    nextSteps: [
+      "Read /arthritis-mental-health",
+      "Speak to your GP about mood support",
+      "Use Samaritans 116 123 if in crisis",
+    ],
+    related: [
+      { type: "guide", title: "Arthritis & mental health", url: "/arthritis-mental-health" },
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Contact", url: "/contact" },
     ],
   },
   {
     id: "knee-exercise",
-    keywords: ["knee pain", "knee exercise", "exercises for knee", "knee arthritis", "sore knee", "bad knee"],
-    synonyms: ["patella", "knees hurt", "osteoarthritis knee", "oa knee"],
+    keywords: [
+      "knee pain",
+      "knee exercise",
+      "exercises for knee",
+      "knee arthritis",
+      "sore knee",
+      "bad knee",
+      "knees hurt",
+    ],
+    synonyms: ["patella", "osteoarthritis knee", "oa knee", "swollen knee", "knee oa"],
     priority: 13,
+    chips: ["Hip exercises", "Anti-inflammatory diet", "Flare tips"],
     answer: `**Knee pain and exercise (UK-safe)**
 
 For most osteoarthritis-related knee pain, **strength + low-impact movement** beats rest alone. *Motion is Lotion.*
@@ -385,9 +641,10 @@ See **/exercises** and joint pages under **/exercises/knee** where available. Se
   },
   {
     id: "hip-exercise",
-    keywords: ["hip pain", "hip exercise", "exercises for hip", "hip arthritis", "sore hip"],
-    synonyms: ["hips hurt", "oa hip", "osteoarthritis hip"],
+    keywords: ["hip pain", "hip exercise", "exercises for hip", "hip arthritis", "sore hip", "hips hurt"],
+    synonyms: ["oa hip", "osteoarthritis hip", "groin pain arthritis"],
     priority: 12,
+    chips: ["Knee exercises", "Exercise hub", "Weight & diet"],
     answer: `**Hip pain and exercise**
 
 Strong glutes and gentle mobility often ease OA-related hip pain.
@@ -400,18 +657,28 @@ Strong glutes and gentle mobility often ease OA-related hip pain.
 
 Avoid forcing deep stretches into sharp groin pain. Sudden inability to weight-bear after a fall needs urgent assessment (possible fracture), especially if you take steroids.
 
-Browse **/exercises** for paced programmes.`,
+Browse **/exercises** and **/conditions/hip-arthritis** for paced programmes.`,
     nextSteps: ["Build glute strength 2–3 times weekly", "Use /exercises for guided sessions"],
     related: [
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Hip arthritis", url: "/conditions/hip-arthritis" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
   },
   {
     id: "hand-exercise",
-    keywords: ["hand pain", "hand exercise", "finger", "wrist pain", "exercises for hands", "hand arthritis"],
-    synonyms: ["fingers stiff", "thumb pain", "oa hands"],
+    keywords: [
+      "hand pain",
+      "hand exercise",
+      "finger",
+      "wrist pain",
+      "exercises for hands",
+      "hand arthritis",
+      "thumb pain",
+    ],
+    synonyms: ["fingers stiff", "oa hands", "knuckle pain", "base of thumb"],
     priority: 11,
+    chips: ["RA overview", "Heat vs cold", "Diet hub"],
     answer: `**Hand and wrist arthritis — movement tips**
 
 Short, frequent mobility beats occasional hard sessions.
@@ -424,52 +691,116 @@ Short, frequent mobility beats occasional hard sessions.
 
 Inflammatory signs (warm swelling, long morning stiffness) deserve GP review for possible inflammatory arthritis.
 
-See **/exercises** for hand-friendly routines.`,
+See **/exercises** and **/conditions/hand-arthritis**.`,
     nextSteps: ["Try warm-water hand mobility each morning", "Pace gripping and jar-opening tasks"],
     related: [
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Hand arthritis", url: "/conditions/hand-arthritis" },
       { type: "guide", title: "Diet hub", url: "/diet" },
     ],
   },
   {
+    id: "back-pain",
+    keywords: [
+      "back pain",
+      "lower back",
+      "lumbar",
+      "spine pain",
+      "backache",
+      "sciatica",
+      "back arthritis",
+    ],
+    synonyms: ["sore back", "spinal arthritis", "disc pain", "lumbago"],
+    priority: 12,
+    chips: ["AS / axial SpA", "Gentle exercise", "When to see a GP"],
+    answer: `**Back pain and arthritis — general UK guidance**
+
+Many people with OA or inflammatory disease get spinal stiffness and ache. Most mechanical back pain improves with paced movement rather than long bed rest.
+
+**Helpful habits**
+- Short walks and gentle mobility several times a day
+- Core/hip strength within comfort (physio-guided if available)
+- Heat for stiffness; change posture every 30–40 minutes
+- Supportive sleep setup
+
+**See a GP soon if:** pain after trauma, unexplained weight loss, fever, progressive leg weakness, bladder/bowel change, or saddle numbness — these can be **red flags**.
+
+Inflammatory back pain (younger adults, night pain, marked morning stiffness improving with movement) may need rheumatology pathways — see **/conditions/ankylosing-spondylitis**.
+
+Routines: **/exercises**.`,
+    nextSteps: [
+      "Keep gentle movement rather than prolonged bed rest",
+      "Seek urgent care for neurological red flags",
+      "Browse /exercises",
+    ],
+    related: [
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Ankylosing spondylitis", url: "/conditions/ankylosing-spondylitis" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+    ],
+  },
+  {
     id: "shoulder-neck-exercise",
-    keywords: ["shoulder pain", "neck pain", "shoulder exercise", "neck exercise", "frozen shoulder"],
-    synonyms: ["stiff neck", "shoulder arthritis"],
+    keywords: [
+      "shoulder pain",
+      "neck pain",
+      "shoulder exercise",
+      "neck exercise",
+      "frozen shoulder",
+      "stiff neck",
+    ],
+    synonyms: ["shoulder arthritis", "cervical", "neck stiffness"],
     priority: 10,
+    chips: ["Exercise hub", "Heat vs cold", "When to see a GP"],
     answer: `**Shoulder and neck — gentle movement**
 
 Posture breaks, scapular squeezes and supported range-of-motion often help stiffness. Avoid aggressive overhead loading during flares.
 
 Red flags needing urgent care: trauma with severe pain, unexplained weight loss, fever with joint pain, progressive weakness, or neurological symptoms in arms/legs.
 
-Routines: **/exercises** including neck/shoulder pages where listed.`,
+Routines: **/exercises** including **/exercises/neck-arthritis-exercises** where listed. Condition page: **/conditions/shoulder-arthritis**.`,
     nextSteps: ["Alternate posture every 30–40 minutes", "Use /exercises for seated options"],
     related: [
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "exercise", title: "Neck exercises", url: "/exercises/neck-arthritis-exercises" },
+      { type: "condition", title: "Shoulder arthritis", url: "/conditions/shoulder-arthritis" },
     ],
   },
   {
     id: "ankle-foot-exercise",
-    keywords: ["ankle pain", "foot pain", "ankle exercise", "foot exercise", "ankle arthritis"],
-    synonyms: ["sore ankles", "plantar", "feet hurt"],
+    keywords: ["ankle pain", "foot pain", "ankle exercise", "foot exercise", "ankle arthritis", "sore feet"],
+    synonyms: ["sore ankles", "plantar", "feet hurt", "toe arthritis"],
     priority: 9,
+    chips: ["Gout overview", "Exercise hub", "Supportive footwear"],
     answer: `**Ankle and foot arthritis**
 
 Supportive shoes, calf stretches and gentle ankle circles help many people. Pool exercise reduces load.
+
+Sudden hot swollen big toe or midfoot with intense pain may be **gout** — see **/conditions/gout** and seek GP advice.
 
 See **/exercises/ankle-arthritis-exercises** and the main **/exercises** hub. Sudden hot swollen joint with fever → urgent care.`,
     nextSteps: ["Check footwear wear", "Try pool or seated ankle mobility"],
     related: [
       { type: "exercise", title: "Ankle exercises", url: "/exercises/ankle-arthritis-exercises" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Gout", url: "/conditions/gout" },
     ],
   },
   {
     id: "anti-inflammatory-diet",
-    keywords: ["anti-inflammatory", "anti inflammatory", "inflammation diet", "mediterranean", "best foods", "foods for arthritis", "anti-inflammatory foods", "anti inflammatory foods"],
-    synonyms: ["eat for joints", "inflammatory foods", "omega-3 food"],
+    keywords: [
+      "anti-inflammatory",
+      "anti inflammatory",
+      "inflammation diet",
+      "mediterranean",
+      "best foods",
+      "foods for arthritis",
+      "anti-inflammatory foods",
+      "anti inflammatory foods",
+    ],
+    synonyms: ["eat for joints", "inflammatory foods", "omega-3 food", "joint friendly food"],
     priority: 15,
+    chips: ["Foods to avoid", "Gout diet", "Exercise hub"],
     answer: `**Anti-inflammatory eating for arthritis**
 
 A **Mediterranean-style** pattern has the strongest everyday evidence for joint-friendly eating.
@@ -495,9 +826,18 @@ Modest weight loss, if relevant, often eases knee and hip load. Recipes and plan
   },
   {
     id: "diet-general",
-    keywords: ["diet", "nutrition", "what to eat", "meal plan", "weight loss", "lose weight", "foods to avoid"],
-    synonyms: ["eating", "calories", "healthy eating"],
+    keywords: [
+      "diet",
+      "nutrition",
+      "what to eat",
+      "meal plan",
+      "weight loss",
+      "lose weight",
+      "foods to avoid",
+    ],
+    synonyms: ["eating", "calories", "healthy eating", "what should i eat"],
     priority: 8,
+    chips: ["Anti-inflammatory foods", "Gout diet notes", "Exercise hub"],
     answer: `**Eating well with arthritis**
 
 Focus on a **Mediterranean pattern**: plants, olive oil, oily fish, pulses, whole grains; limit ultra-processed foods and sugary drinks.
@@ -516,9 +856,16 @@ Explore **/diet** and **/guides/diet**.`,
   },
   {
     id: "oa-exercise",
-    keywords: ["osteoarthritis exercise", "safe exercises for oa", "exercises for osteoarthritis", "oa exercise", "safe exercises for osteoarthritis"],
-    synonyms: ["exercise for oa", "oa workout"],
+    keywords: [
+      "osteoarthritis exercise",
+      "safe exercises for oa",
+      "exercises for osteoarthritis",
+      "oa exercise",
+      "safe exercises for osteoarthritis",
+    ],
+    synonyms: ["exercise for oa", "oa workout", "oa physio"],
     priority: 14,
+    chips: ["Knee exercises", "Diet for joints", "OA overview"],
     answer: `**Safe exercises for osteoarthritis**
 
 Low-impact movement is one of the most effective OA treatments — it eases stiffness, strengthens supporting muscles and lifts mood.
@@ -527,18 +874,31 @@ Low-impact movement is one of the most effective OA treatments — it eases stif
 **Strength (2–3×/week):** sit-to-stands, straight-leg raises, wall sits, glute bridges
 **Flexibility & balance:** gentle stretches, tai chi, chair yoga
 
-Discomfort that settles quickly can be OK; sharp or prolonged pain means ease back. Free routines: **/exercises**.`,
+Discomfort that settles quickly can be OK; sharp or prolonged pain means ease back. Free routines: **/exercises** and **/guides/exercise**.`,
     nextSteps: ["Pick one aerobic and one strength habit this week", "Open /exercises"],
     related: [
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Exercise guide", url: "/guides/exercise" },
       { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
     ],
   },
   {
     id: "exercise-general",
-    keywords: ["exercise", "workout", "physio", "walking", "swimming", "activity", "tai chi", "yoga", "pilates", "movement"],
-    synonyms: ["gym", "stretching", "strength training", "aqua"],
+    keywords: [
+      "exercise",
+      "workout",
+      "physio",
+      "walking",
+      "swimming",
+      "activity",
+      "tai chi",
+      "yoga",
+      "pilates",
+      "movement",
+    ],
+    synonyms: ["gym", "stretching", "strength training", "aqua", "motion is lotion"],
     priority: 7,
+    chips: ["Knee exercises", "OA exercises", "Flare-day movement"],
     answer: `**Exercise with arthritis — practical UK guidance**
 
 Movement is medicine for many people with OA and inflammatory arthritis when paced sensibly. **Motion is Lotion.**
@@ -548,19 +908,21 @@ Movement is medicine for many people with OA and inflammatory arthritis when pac
 - Strength 2–3×/week for muscles that support sore joints
 - Flexibility and balance little and often (tai chi, gentle yoga)
 
-On flare days, reduce intensity rather than stopping completely. Browse **/exercises**. A physiotherapist (including First Contact Practitioners in many GP practices) can tailor a plan.`,
+On flare days, reduce intensity rather than stopping completely. Browse **/exercises** and **/guides/exercise**. A physiotherapist (including First Contact Practitioners in many GP practices) can tailor a plan.`,
     nextSteps: ["Visit /exercises", "Start with 10–15 minutes and build"],
     related: [
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Exercise guide", url: "/guides/exercise" },
       { type: "exercise", title: "Tai chi for arthritis", url: "/exercises/tai-chi-for-arthritis" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
   },
   {
     id: "ra",
-    keywords: ["rheumatoid", "what is ra", "rheumatoid arthritis"],
-    synonyms: ["autoimmune arthritis", "inflammatory arthritis ra"],
+    keywords: ["rheumatoid", "what is ra", "rheumatoid arthritis", "ra symptoms"],
+    synonyms: ["autoimmune arthritis", "inflammatory arthritis ra", "ra diagnosis"],
     priority: 13,
+    chips: ["DMARDs overview", "Flare tips", "Exercise with RA"],
     answer: `**Rheumatoid arthritis (RA) — essentials**
 
 RA is an **autoimmune** condition where the immune system attacks joint linings, often symmetrically (both hands/feet), with pain, swelling, stiffness and fatigue.
@@ -575,7 +937,7 @@ RA is an **autoimmune** condition where the immune system attacks joint linings,
 - DMARDs (e.g. methotrexate) and sometimes biologics — **only as prescribed by your team**
 - Physio, OT, movement, sleep and not smoking all help
 
-Only a clinician can diagnose RA. We do not prescribe. Learn more under **/conditions** and self-care via **/exercises** and **/diet**.`,
+Only a clinician can diagnose RA. We do not prescribe. Learn more: **/conditions/rheumatoid-arthritis**. Self-care: **/exercises**, **/diet**, **/arthritis-flare-ups**.`,
     nextSteps: ["See GP promptly for suspected inflammatory arthritis", "Use /exercises for paced movement"],
     related: [
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
@@ -585,9 +947,10 @@ Only a clinician can diagnose RA. We do not prescribe. Learn more under **/condi
   },
   {
     id: "oa-general",
-    keywords: ["osteoarthritis", "what is oa", "wear and tear"],
-    synonyms: ["degenerative joint", "cartilage wear"],
+    keywords: ["osteoarthritis", "what is oa", "wear and tear", "oa symptoms"],
+    synonyms: ["degenerative joint", "cartilage wear", "oa vs ra"],
     priority: 12,
+    chips: ["OA exercises", "Knee OA", "Diet hub"],
     answer: `**Osteoarthritis (OA) — essentials**
 
 OA is the most common arthritis. Cartilage cushioning wears, so joints feel stiff, achy and sometimes swollen — often knees, hips, hands and spine.
@@ -603,7 +966,7 @@ OA is the most common arthritis. Cartilage cushioning wears, so joints feel stif
 - Topical gels before long-term oral painkillers for many knee/hand cases (pharmacist/GP advice)
 - Heat, footwear, pacing
 
-Explore **/exercises** and condition pages. Hot/red joint with fever needs urgent care.`,
+Explore **/conditions/osteoarthritis** and **/exercises**. Hot/red joint with fever needs urgent care.`,
     nextSteps: ["Build a weekly movement habit", "Open /exercises"],
     related: [
       { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
@@ -612,10 +975,204 @@ Explore **/exercises** and condition pages. Hot/red joint with fever needs urgen
     ],
   },
   {
+    id: "psa",
+    keywords: [
+      "psoriatic arthritis",
+      "psa",
+      "psoriasis arthritis",
+      "psoriatic",
+      "skin and joints",
+    ],
+    synonyms: ["psa flare", "nail pitting arthritis", "psoriasis joints"],
+    priority: 13,
+    chips: ["RA vs PsA", "Flare tips", "Exercise hub"],
+    answer: `**Psoriatic arthritis (PsA) — essentials**
+
+PsA is an inflammatory arthritis linked with psoriasis. Joints, tendons (enthesitis), spine and nails can be involved — patterns vary a lot between people.
+
+**Typical themes**
+- Joint pain/swelling that may be asymmetric
+- Sausage digits (dactylitis), tendon pain, nail changes
+- Skin psoriasis (sometimes mild or in the past)
+- Fatigue and flares
+
+**UK care (general)**
+- GP referral to rheumatology; dermatology often involved
+- Treatments may include DMARDs or biologics — **only as prescribed**
+- Movement, sleep, not smoking, and skin care all matter
+
+We do not diagnose. Read **/conditions/psoriatic-arthritis**; self-care via **/exercises**, **/diet**, **/arthritis-flare-ups**.`,
+    nextSteps: [
+      "See GP/rheumatology for suspected PsA",
+      "Pace movement with /exercises",
+      "Plan for flares",
+    ],
+    related: [
+      { type: "condition", title: "Psoriatic arthritis", url: "/conditions/psoriatic-arthritis" },
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+    ],
+  },
+  {
+    id: "gout",
+    keywords: [
+      "gout",
+      "gout flare",
+      "uric acid",
+      "big toe pain",
+      "gout attack",
+      "gout diet",
+      "allopurinol",
+      "febuxostat",
+    ],
+    synonyms: ["gouty", "high urate", "podagra", "gout crystal"],
+    priority: 14,
+    chips: ["Anti-inflammatory diet", "Flare tips", "When to see a GP"],
+    answer: `**Gout — essentials (educational only)**
+
+Gout is caused by urate crystals in a joint — often a sudden, very painful, hot swollen joint (commonly the big toe).
+
+**During a flare (general self-care themes)**
+- Rest and elevate; ice with a cloth barrier
+- Ask a pharmacist/GP about short-term pain relief options suitable for you
+- Keep drinking fluids unless advised otherwise
+- Do **not** stop long-term urate-lowering medicines during a flare unless your clinician says so
+
+**Longer term**
+- Urate-lowering therapy (e.g. allopurinol or febuxostat) is a clinical decision — see **/guides/febuxostat-for-gout**
+- Limit excess alcohol, sugary drinks and very high-purine binge patterns; maintain a healthy weight
+- Condition page: **/conditions/gout** · diet ideas: **/diet**
+
+Fever with a hot joint can also be infection — use **NHS 111**/urgent care if unsure.`,
+    nextSteps: [
+      "Read /conditions/gout",
+      "Ask GP about prevention after repeated attacks",
+      "Review diet patterns on /diet",
+    ],
+    related: [
+      { type: "condition", title: "Gout", url: "/conditions/gout" },
+      { type: "guide", title: "Febuxostat guide", url: "/guides/febuxostat-for-gout" },
+      { type: "guide", title: "Diet hub", url: "/diet" },
+    ],
+  },
+  {
+    id: "as-axial",
+    keywords: [
+      "ankylosing spondylitis",
+      "axial spondyloarthritis",
+      "axial spa",
+      "as arthritis",
+      "inflammatory back",
+    ],
+    synonyms: ["bechterew", "spondyloarthritis", "hla-b27", "morning back stiffness"],
+    priority: 13,
+    chips: ["Back pain tips", "Exercise hub", "When to see a GP"],
+    answer: `**Ankylosing spondylitis / axial spondyloarthritis — essentials**
+
+These inflammatory conditions mainly affect the spine and sacroiliac joints. Pain often improves with movement and may wake you in the second half of the night; morning stiffness can last over 30–45 minutes.
+
+**UK care themes**
+- Early rheumatology assessment matters
+- Physio-led exercise is a cornerstone — keep the spine moving
+- Medicines (including biologics for some people) are clinician-prescribed only
+
+Red flags (trauma, neurological deficits, fever, unexplained weight loss) need urgent assessment.
+
+Read **/conditions/ankylosing-spondylitis** and build movement via **/exercises**.`,
+    nextSteps: [
+      "Discuss inflammatory back pain features with your GP",
+      "Keep daily mobility — /exercises",
+    ],
+    related: [
+      { type: "condition", title: "Ankylosing spondylitis", url: "/conditions/ankylosing-spondylitis" },
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+    ],
+  },
+  {
+    id: "jia",
+    keywords: [
+      "jia",
+      "juvenile idiopathic arthritis",
+      "juvenile arthritis",
+      "child arthritis",
+      "kids arthritis",
+      "teen arthritis",
+    ],
+    synonyms: ["childhood arthritis", "paediatric rheumatology", "juvenile ra"],
+    priority: 12,
+    chips: ["Contact us", "Exercise hub", "When to see a doctor"],
+    answer: `**Juvenile idiopathic arthritis (JIA) — orientation**
+
+JIA is arthritis lasting 6+ weeks in someone under 16. There are several subtypes. Care belongs with **paediatric rheumatology** — not this chat.
+
+**Parents/carers — general themes**
+- Seek GP/urgent review for a limp, swollen joint, morning stiffness, or unexplained fever with joint symptoms in a child
+- Treatment plans (including medicines) are specialist decisions
+- Keep schooling, play and paced activity in the plan where clinicians advise
+
+We provide adult-focused educational content. Condition overview: **/conditions/juvenile-arthritis**. Non-urgent charity contact: **/contact**.
+
+Emergencies: **999** / **NHS 111**.`,
+    nextSteps: [
+      "Seek paediatric/GP review promptly for childhood joint swelling",
+      "Read /conditions/juvenile-arthritis for orientation only",
+    ],
+    related: [
+      { type: "condition", title: "Juvenile arthritis", url: "/conditions/juvenile-arthritis" },
+      { type: "guide", title: "Contact", url: "/contact" },
+    ],
+  },
+  {
+    id: "fibromyalgia",
+    keywords: [
+      "fibromyalgia",
+      "fibro",
+      "widespread pain",
+      "tender points",
+      "fibromyalgia vs arthritis",
+    ],
+    synonyms: ["fm syndrome", "central sensitisation", "all over pain"],
+    priority: 12,
+    chips: ["Sleep tips", "Fatigue pacing", "Mental health"],
+    answer: `**Fibromyalgia — essentials**
+
+Fibromyalgia involves widespread pain, fatigue, sleep problems and often brain fog. Joints are usually not hot/swollen the way inflammatory arthritis is — but the two can coexist.
+
+**What often helps (general)**
+- Paced graded activity rather than boom-and-bust
+- Sleep routines and stress reduction
+- GP-led care; sometimes pain-management / psychology pathways
+- Gentle movement: **/exercises**
+
+Medicines, if used, are individual clinical decisions — we do not prescribe.
+
+Read **/conditions/fibromyalgia** and **/arthritis-mental-health**. Sudden hot swollen joints with fever still need urgent assessment.`,
+    nextSteps: [
+      "Open /conditions/fibromyalgia",
+      "Try paced short movement daily",
+      "Discuss sleep and mood with your GP",
+    ],
+    related: [
+      { type: "condition", title: "Fibromyalgia", url: "/conditions/fibromyalgia" },
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Mental health", url: "/arthritis-mental-health" },
+    ],
+  },
+  {
     id: "pain",
-    keywords: ["pain", "ache", "hurts", "sore", "pain relief", "painkiller", "nsaid", "ibuprofen", "paracetamol", "naproxen"],
-    synonyms: ["agony", "throbbing", "stiff and sore"],
+    keywords: [
+      "pain",
+      "ache",
+      "hurts",
+      "sore",
+      "pain relief",
+      "painkiller",
+      "paracetamol",
+    ],
+    synonyms: ["agony", "throbbing", "stiff and sore", "joint ache"],
     priority: 8,
+    chips: ["NSAIDs overview", "Heat vs cold", "Exercise pacing"],
     answer: `**Pain management — general guidance (not prescribing)**
 
 Combine paced movement, sleep, stress reduction and pharmacist/GP-advised pain relief.
@@ -628,21 +1185,166 @@ Combine paced movement, sleep, stress reduction and pharmacist/GP-advised pain r
 
 **We never give personal doses.** Check combinations with your pharmacist — especially if you take blood thinners or heart medicines.
 
-Opioids have limited role in most arthritis and carry dependence risk.
+Opioids have limited role in most arthritis and carry dependence risk. More detail: **/guides/painkillers-and-nsaids**.
 
 Urgent: sudden severe pain with hot swollen joint and fever → **NHS 111/999** as appropriate.`,
     nextSteps: ["Ask a pharmacist about topical options", "Pair relief with /exercises pacing"],
     related: [
+      { type: "guide", title: "Painkillers & NSAIDs guide", url: "/guides/painkillers-and-nsaids" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
-      { type: "guide", title: "Guides", url: "/guides" },
+    ],
+  },
+  {
+    id: "nsaids",
+    keywords: [
+      "nsaid",
+      "nsaids",
+      "ibuprofen",
+      "naproxen",
+      "anti inflammatory tablets",
+      "voltarol",
+      "diclofenac",
+    ],
+    synonyms: ["anti-inflammatory tablets", "oral nsaid", "ibuprofen gel"],
+    priority: 12,
+    chips: ["Pain relief basics", "Ask a pharmacist", "Flare tips"],
+    answer: `**NSAIDs — educational overview (not prescribing)**
+
+NSAIDs (e.g. ibuprofen, naproxen) reduce pain and inflammation for some people with arthritis. Gels/creams are often tried first for local joint pain.
+
+**Important safety themes (ask a pharmacist/GP)**
+- Stomach irritation/ulcer risk; kidney and blood-pressure effects; heart risk with some NSAIDs
+- Interactions with blood thinners, certain blood-pressure and heart medicines
+- Never combine multiple NSAIDs (tablet + another oral NSAID)
+- Follow labelled limits; we **do not give personal doses**
+
+Guide: **/guides/painkillers-and-nsaids**. Alternatives include pacing, topical options, heat/cold and physio — **/exercises**, **/arthritis-flare-ups**.`,
+    nextSteps: [
+      "Check suitability with a pharmacist before starting",
+      "Read /guides/painkillers-and-nsaids",
+    ],
+    related: [
+      { type: "guide", title: "Painkillers & NSAIDs", url: "/guides/painkillers-and-nsaids" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+    ],
+  },
+  {
+    id: "steroids",
+    keywords: [
+      "steroid",
+      "steroids",
+      "prednisolone",
+      "cortisone",
+      "steroid injection",
+      "corticosteroid",
+    ],
+    synonyms: ["steroid tablets", "depomedrone", "kenalog", "bridging steroid"],
+    priority: 13,
+    chips: ["DMARDs overview", "Flare tips", "When to seek care"],
+    answer: `**Steroids for arthritis — educational only**
+
+Corticosteroids (tablets, injections or infusions) can quickly calm inflammation. They are **prescribed and monitored by clinicians** — we never advise doses or taper schedules.
+
+**General points often discussed in UK care**
+- Bridging flares while longer-term medicines take effect
+- Joint injections for selected inflamed joints
+- Side-effect awareness: sleep, mood, blood sugar, blood pressure, bone health, infection risk with longer use
+- Do not stop tablets suddenly without medical advice
+
+Read **/guides/steroids-for-arthritis**. Urgent review if you are on steroids and develop severe illness, possible fracture after a fall, or vision changes (as advised by your team).`,
+    nextSteps: [
+      "Use your rheumatology/GP advice line for steroid questions",
+      "Read /guides/steroids-for-arthritis",
+    ],
+    related: [
+      { type: "guide", title: "Steroids guide", url: "/guides/steroids-for-arthritis" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+      { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
+    ],
+  },
+  {
+    id: "dmards",
+    keywords: [
+      "dmard",
+      "dmards",
+      "disease modifying",
+      "sulfasalazine",
+      "hydroxychloroquine",
+      "leflunomide",
+      "azathioprine",
+    ],
+    synonyms: ["immune modulating", "conventional dmard", "csdmard"],
+    priority: 13,
+    chips: ["Methotrexate", "Biologics overview", "RA overview"],
+    answer: `**DMARDs — educational overview (not prescribing)**
+
+**Disease-modifying anti-rheumatic drugs (DMARDs)** slow inflammatory arthritis activity (RA, PsA and related conditions). Examples discussed in UK care include methotrexate, sulfasalazine, hydroxychloroquine, leflunomide and others.
+
+**Shared themes**
+- Regular blood monitoring is common
+- Infection-risk awareness; vaccines — ask your team
+- Never start, stop or change doses yourself
+- Pregnancy/contraception planning may be essential for some DMARDs
+
+Methotrexate-specific notes are available if you ask. Azathioprine orientation: **/guides/azathioprine-for-arthritis**. Always confirm with rheumatology/GP/pharmacist.
+
+We do not provide doses or personal regimens.`,
+    nextSteps: [
+      "Keep monitoring appointments",
+      "Use your rheumatology advice line for medicine queries",
+    ],
+    related: [
+      { type: "guide", title: "Azathioprine guide", url: "/guides/azathioprine-for-arthritis" },
+      { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
+      { type: "guide", title: "Guides hub", url: "/guides" },
+    ],
+  },
+  {
+    id: "biologics",
+    keywords: [
+      "biologic",
+      "biologics",
+      "anti-tnf",
+      "humira",
+      "adalimumab",
+      "etanercept",
+      "jak inhibitor",
+      "biosimilar",
+      "infusion arthritis",
+    ],
+    synonyms: ["biologic therapy", "monoclonal", "il-17", "il-6 inhibitor", "advanced therapy"],
+    priority: 13,
+    chips: ["DMARDs overview", "Infection awareness", "RA / PsA pages"],
+    answer: `**Biologics & advanced therapies — educational only**
+
+Biologic and targeted synthetic medicines (e.g. anti-TNF, other monoclonal antibodies, some JAK inhibitors) are used when inflammatory arthritis needs stronger control. They are **specialist-prescribed** with screening and monitoring.
+
+**General themes**
+- Infection-risk awareness; report fevers promptly to your team
+- Screening (e.g. TB/hepatitis) before starting is common
+- Vaccination advice comes from your clinical team
+- Never share injectables or change schedules yourself
+
+We do not name personal regimens or doses. Condition pages (**/conditions/rheumatoid-arthritis**, **/conditions/psoriatic-arthritis**) and **/guides** give orientation — your rheumatology team decides treatment.`,
+    nextSteps: [
+      "Use your rheumatology advice line for biologic questions",
+      "Report significant infection symptoms promptly",
+    ],
+    related: [
+      { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
+      { type: "condition", title: "Psoriatic arthritis", url: "/conditions/psoriatic-arthritis" },
+      { type: "guide", title: "Guides hub", url: "/guides" },
     ],
   },
   {
     id: "methotrexate",
-    keywords: ["methotrexate", "mtx", "dmard"],
-    synonyms: ["immune suppressant", "disease modifying"],
+    keywords: ["methotrexate", "mtx"],
+    synonyms: ["methotrexate weekly", "mtx side effects"],
+    requireAny: ["methotrexate", "mtx"],
     priority: 14,
+    chips: ["DMARDs overview", "RA overview", "When to seek care"],
     answer: `**Methotrexate — general information (not prescribing)**
 
 Methotrexate is a common **DMARD** used in RA, psoriatic arthritis and related conditions. It reduces over-active immune activity that drives joint inflammation.
@@ -667,9 +1369,21 @@ We do not provide doses. Confirm everything with your clinical team.`,
   },
   {
     id: "supplements",
-    keywords: ["supplement", "glucosamine", "chondroitin", "collagen", "turmeric", "curcumin", "omega-3", "fish oil", "vitamin d", "vit d"],
-    synonyms: ["vitamins", "cod liver"],
+    keywords: [
+      "supplement",
+      "glucosamine",
+      "chondroitin",
+      "collagen",
+      "turmeric",
+      "curcumin",
+      "omega-3",
+      "fish oil",
+      "vitamin d",
+      "vit d",
+    ],
+    synonyms: ["vitamins", "cod liver", "msm supplement"],
     priority: 10,
+    chips: ["Diet hub", "Pain relief basics", "Ask a pharmacist"],
     answer: `**Supplements — evidence snapshot (not a shopping list prescription)**
 
 No supplement reverses arthritis. A few may help symptoms modestly for some people.
@@ -679,18 +1393,32 @@ No supplement reverses arthritis. A few may help symptoms modestly for some peop
 - **Glucosamine ± chondroitin** — mixed evidence for knee OA
 - **Vitamin D** — UK autumn/winter low-dose advice is common; correct deficiency with GP guidance; avoid high doses without advice
 
-Always check interactions (blood thinners, diabetes meds, etc.) with a **pharmacist or GP**. Give any trial enough weeks before judging — and stop if you feel unwell.`,
+Always check interactions (blood thinners, diabetes meds, etc.) with a **pharmacist or GP**. Give any trial enough weeks before judging — and stop if you feel unwell.
+
+Hub: **/supplements** · diet first: **/diet**.`,
     nextSteps: ["Ask a pharmacist before combining supplements with medicines", "Prioritise diet and movement first"],
     related: [
+      { type: "guide", title: "Supplements hub", url: "/supplements" },
       { type: "guide", title: "Diet hub", url: "/diet" },
       { type: "guide", title: "Guides", url: "/guides" },
     ],
   },
   {
     id: "see-doctor",
-    keywords: ["see a doctor", "see my gp", "when to see", "should i see", "go to gp", "visit the doctor", "red flag"],
-    synonyms: ["need a doctor", "gp appointment", "call 111"],
+    keywords: [
+      "see a doctor",
+      "see my gp",
+      "when to see",
+      "should i see",
+      "go to gp",
+      "visit the doctor",
+      "red flag",
+      "urgent care",
+      "when to worry",
+    ],
+    synonyms: ["need a doctor", "gp appointment", "call 111", "a&e arthritis", "should i go to a and e"],
     priority: 12,
+    chips: ["Flare tips", "Emergency signs", "Contact charity"],
     answer: `**When to see a doctor about joint pain**
 
 **See your GP soon if:**
@@ -705,21 +1433,90 @@ Always check interactions (blood thinners, diabetes meds, etc.) with a **pharmac
 - Inability to bear weight after injury
 - Chest pain, sudden weakness, slurred speech, severe breathing difficulty
 
-Early review of possible inflammatory arthritis can protect joints long-term.`,
+Early review of possible inflammatory arthritis can protect joints long-term. Non-urgent charity contact: **/contact**.`,
     nextSteps: ["Book GP if symptoms persist beyond two weeks", "Call 111/999 for red-flag symptoms"],
     related: [
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
       { type: "guide", title: "Contact (non-urgent)", url: "/contact" },
+      { type: "guide", title: "Guides", url: "/guides" },
+    ],
+  },
+  {
+    id: "weather-cold",
+    keywords: [
+      "cold weather",
+      "weather and arthritis",
+      "damp weather",
+      "barometric",
+      "winter arthritis",
+      "cold makes pain worse",
+    ],
+    synonyms: ["rain and joints", "weather pain", "cold climate joints"],
+    priority: 8,
+    chips: ["Heat vs cold", "Layering & movement", "Flare tips"],
+    answer: `**Cold, damp weather and arthritis**
+
+Many people notice more ache in cold or damp weather. Evidence is mixed, but comfort strategies still help.
+
+**Practical ideas**
+- Layer clothing; keep hands/feet warm
+- Gentle warm-up before outdoor walks
+- Indoor movement on very cold days — **/exercises**
+- Heat for stiffness; continue pacing rather than stopping activity
+
+Weather does not replace medical review if symptoms suddenly change. See **/arthritis-flare-ups** if pain spikes.`,
+    nextSteps: ["Plan an indoor movement option for cold days", "Use heat before gentle mobility"],
+    related: [
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+    ],
+  },
+  {
+    id: "morning-stiffness",
+    keywords: [
+      "morning stiffness",
+      "stiff in the morning",
+      "stiffness lasting",
+      "waking stiff",
+    ],
+    synonyms: ["morning ache", "takes ages to get going", "gel phenomenon"],
+    priority: 10,
+    chips: ["RA overview", "OA overview", "Gentle warm-up"],
+    answer: `**Morning stiffness**
+
+Brief stiffness that eases within ~30 minutes is common in OA. Stiffness lasting **over 30–60 minutes**, especially with warm swollen joints, can suggest inflammatory arthritis and deserves GP review.
+
+**Easing the morning**
+- Warm shower or wheat bag before mobility
+- Gentle range-of-motion in bed or seated
+- Lay out clothes/aids the night before to reduce rushing
+
+Track duration for your clinician. Movement hub: **/exercises**. Condition overviews: **/conditions/osteoarthritis**, **/conditions/rheumatoid-arthritis**.`,
+    nextSteps: [
+      "Note how long stiffness lasts each morning",
+      "Book GP if stiffness is prolonged with swelling",
+    ],
+    related: [
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
+      { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
     ],
   },
   {
     id: "arthritis-general",
-    keywords: ["arthritis", "joint pain", "what is arthritis", "types of arthritis", "symptoms of arthritis"],
-    synonyms: ["joints hurt", "stiff joints"],
+    keywords: [
+      "arthritis",
+      "joint pain",
+      "what is arthritis",
+      "types of arthritis",
+      "symptoms of arthritis",
+    ],
+    synonyms: ["joints hurt", "stiff joints", "arthritis help"],
     priority: 5,
+    chips: ["OA overview", "RA overview", "Exercise hub", "PIP benefits"],
     answer: `**Arthritis — overview**
 
-"Arthritis" covers 100+ conditions affecting joints. Most common in the UK: **osteoarthritis (OA)** and inflammatory types such as **rheumatoid arthritis (RA)**.
+"Arthritis" covers 100+ conditions affecting joints. Most common in the UK: **osteoarthritis (OA)** and inflammatory types such as **rheumatoid arthritis (RA)**. Others include PsA, gout, AS/axial SpA, JIA and overlapping issues like fibromyalgia.
 
 **Shared themes**
 - Pain, stiffness, swelling, reduced movement
@@ -738,6 +1535,7 @@ We are Living With Arthritis, charity **1218461**, independent of Arthritis UK. 
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Diet hub", url: "/diet" },
       { type: "guide", title: "About us", url: "/about" },
+      { type: "article", title: "Blog", url: "/blog" },
     ],
   },
 ];
@@ -745,28 +1543,39 @@ We are Living With Arthritis, charity **1218461**, independent of Arthritis UK. 
 export const GENERIC_TOPIC: KnowledgeTopic = {
   id: "generic",
   keywords: [],
-  answer: `**Thanks for your question.**
+  chips: SUGGESTED_CHIPS,
+  answer: `**I can help with UK-safe arthritis topics**
 
-I can help with UK-safe **arthritis** topics — pain, OA/RA, flares, exercise by joint, diet, fatigue, heat/cold, PIP/benefits, waiting lists, work/Access to Work, newly diagnosed guidance, and who we are.
+Try one of these (or rephrase your question):
+- Pain & joints — knee, hip, hand, back, neck
+- Conditions — OA, RA, PsA, gout, AS, JIA, fibromyalgia
+- Flares, heat/cold, fatigue, sleep, mental health
+- Exercise & diet hubs — **/exercises**, **/diet**, **/blog**
+- Medicines (educational) — NSAIDs, steroids, DMARDs, biologics
+- PIP / benefits, work adjustments, waiting lists
+- Who we are (charity **1218461**), donate & contact
 
-Try asking:
+**Suggested questions**
 - "Safe exercises for knee pain"
 - "Anti-inflammatory diet"
 - "How do I manage a flare?"
 - "Can I claim PIP with arthritis?"
+- "What is psoriatic arthritis?"
 - "Who are you?"
 
-Browse **/exercises**, **/diet**, **/arthritis-flare-ups**, **/guides/benefits-pip**, **/about** or **/contact**.
+Browse **/exercises**, **/diet**, **/arthritis-flare-ups**, **/guides/benefits-pip**, **/blog**, **/about** or **/contact** (email **info@livingwitharthritis.org.uk** · **07760 512 084**).
 
-Urgent symptoms (hot swollen joint with fever, chest pain, severe breathlessness): **999** or **NHS 111** — not chat.`,
+**Urgent symptoms** (hot swollen joint with fever, chest pain, severe breathlessness, or crisis): **999**, **NHS 111**, or Samaritans **116 123** — not chat.`,
   nextSteps: [
-    "Ask about a joint, diet, flares or benefits",
-    "Explore /exercises and /diet",
+    "Ask about a joint, condition, diet, flares or benefits",
+    "Explore /exercises, /diet and /blog",
+    "Email info@livingwitharthritis.org.uk for non-urgent help",
   ],
   related: [
     { type: "exercise", title: "Exercise hub", url: "/exercises" },
     { type: "guide", title: "Diet hub", url: "/diet" },
     { type: "guide", title: "Benefits & PIP", url: "/guides/benefits-pip" },
+    { type: "article", title: "Blog", url: "/blog" },
     { type: "guide", title: "About us", url: "/about" },
     { type: "guide", title: "Contact", url: "/contact" },
   ],

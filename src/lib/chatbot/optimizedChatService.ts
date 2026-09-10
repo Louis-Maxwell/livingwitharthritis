@@ -1,16 +1,22 @@
 /**
  * Unified local chat engine for Living With Arthritis.
- * - Keyword + synonym scoring (not first-regex-wins)
- * - Cache + rate limit
- * - Streaming UX with optional status line
- * - Structured replies: answer + next steps + related resource fence
+ * - Keyword + synonym + light typo scoring (not first-regex-wins)
+ * - Multi-intent: primary answer + secondary hub links when useful
+ * - Low confidence → clarifying question OR partial answer + hubs (never a dead-end)
+ * - Urgent red-flag block when emergency keywords appear
+ * - Cache + rate limit + streaming UX
  * UK charity safety: no doses/diagnosis; signpost GP / 111 / 999.
+ *
+ * Still a canned knowledge base — not a live LLM.
  */
 
 import {
+  EMERGENCY_RED_FLAG_BLOCK,
   GENERIC_TOPIC,
   SAFETY_DISCLAIMER,
+  SUGGESTED_CHIPS,
   TOPICS,
+  URGENT_RED_FLAG_TERMS,
   type ChatResourceRef,
   type KnowledgeTopic,
 } from "./knowledgeBase";
@@ -30,13 +36,21 @@ export interface EngineResult {
   score: number;
   response: string;
   related: ChatResourceRef[];
+  /** Secondary topic ids merged for multi-intent queries. */
+  secondaryTopicIds?: string[];
+  confidence?: "high" | "medium" | "low";
 }
 
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
 const RATE_LIMIT_WINDOW = 60 * 1000;
 const RATE_LIMIT_MAX = 30;
 const STREAMING_CHUNK_DELAY = 12;
+/** Strong match threshold — answer the best topic as-is. */
 const MATCH_THRESHOLD = 2.5;
+/** Soft threshold — offer partial answer + clarifying chips instead of pure generic. */
+const SOFT_THRESHOLD = 1.4;
+/** Secondary topic must be at least this close to the winner for multi-intent merge. */
+const MULTI_INTENT_RATIO = 0.72;
 
 function normalize(text: string): string {
   return text
@@ -47,11 +61,89 @@ function normalize(text: string): string {
     .trim();
 }
 
+/** Common UK arthritis chat typos / abbreviations → canonical forms. */
+const TYPO_MAP: Record<string, string> = {
+  arthritus: "arthritis",
+  artritis: "arthritis",
+  arthirits: "arthritis",
+  rheumotoid: "rheumatoid",
+  rheumitoid: "rheumatoid",
+  osteoartritis: "osteoarthritis",
+  osteoarthritus: "osteoarthritis",
+  fibromialgia: "fibromyalgia",
+  fibromyalga: "fibromyalgia",
+  methatrexate: "methotrexate",
+  methotrexat: "methotrexate",
+  ibuprophen: "ibuprofen",
+  ibuprofin: "ibuprofen",
+  naprosyn: "naproxen",
+  prednislone: "prednisolone",
+  biologic: "biologic",
+  biolgic: "biologic",
+  inflamation: "inflammation",
+  inflamatory: "inflammatory",
+  exersize: "exercise",
+  excercise: "exercise",
+  exercize: "exercise",
+  dietry: "dietary",
+  suplement: "supplement",
+  suppliment: "supplement",
+  faigue: "fatigue",
+  fatige: "fatigue",
+  stilness: "stiffness",
+  stifness: "stiffness",
+  ankel: "ankle",
+  sholder: "shoulder",
+  psoratic: "psoriatic",
+  psoriasis: "psoriasis",
+  ankylosing: "ankylosing",
+  spondilitis: "spondylitis",
+  spondolytis: "spondylitis",
+};
+
+function applyTypoFixes(q: string): string {
+  return q
+    .split(/\s+/)
+    .map((w) => TYPO_MAP[w] || w)
+    .join(" ");
+}
+
 function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/** Word-boundary safe contains; multi-word = all tokens; light plural flex. */
+/** Levenshtein distance capped for short tokens. */
+function editDistance(a: string, b: string): number {
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  if (Math.abs(a.length - b.length) > 2) return 99;
+  const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    let prev = i - 1;
+    row[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const tmp = row[j];
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + cost);
+      prev = tmp;
+    }
+  }
+  return row[b.length];
+}
+
+function fuzzyTokenInHaystack(haystack: string, token: string): boolean {
+  if (token.length < 5) return false;
+  const words = haystack.split(/\s+/);
+  const maxDist = token.length >= 8 ? 2 : 1;
+  for (const w of words) {
+    if (w.length < 4) continue;
+    if (editDistance(w, token) <= maxDist) return true;
+  }
+  return false;
+}
+
+/** Word-boundary safe contains; multi-word = all tokens; light plural + typo flex. */
 function termHits(haystack: string, term: string): boolean {
   const t = term.toLowerCase().trim();
   if (!t) return false;
@@ -59,26 +151,27 @@ function termHits(haystack: string, term: string): boolean {
 
   const wordHit = (token: string): boolean => {
     if (!token) return false;
-    // Short tokens need word boundaries to avoid "work" in "network"
     const pattern =
       token.length <= 4
         ? new RegExp(`(^|[^a-z0-9])${escapeRegExp(token)}([^a-z0-9]|$)`, "i")
         : null;
     if (pattern) {
       if (pattern.test(haystack)) return true;
-      if (!token.endsWith("s") && new RegExp(`(^|[^a-z0-9])${escapeRegExp(token)}s([^a-z0-9]|$)`, "i").test(haystack)) {
+      if (
+        !token.endsWith("s") &&
+        new RegExp(`(^|[^a-z0-9])${escapeRegExp(token)}s([^a-z0-9]|$)`, "i").test(haystack)
+      ) {
         return true;
       }
-      return false;
+      return fuzzyTokenInHaystack(haystack, token);
     }
     if (haystack.includes(token)) return true;
     if (!token.endsWith("s") && haystack.includes(`${token}s`)) return true;
     if (token.endsWith("s") && haystack.includes(token.slice(0, -1))) return true;
-    return false;
+    return fuzzyTokenInHaystack(haystack, token);
   };
 
   if (parts.length === 1) return wordHit(parts[0]);
-  // Phrase first, then flexible AND of tokens
   if (haystack.includes(t)) return true;
   return parts.every((p) => wordHit(p));
 }
@@ -86,12 +179,11 @@ function termHits(haystack: string, term: string): boolean {
 function scoreTopic(query: string, topic: KnowledgeTopic): number {
   let score = 0;
   let hits = 0;
-  const q = normalize(query);
+  const q = applyTypoFixes(normalize(query));
 
   for (const kw of topic.keywords) {
     if (termHits(q, kw)) {
       hits += 1;
-      // Longer phrases score higher
       score += 3 + Math.min(3, kw.split(/\s+/).length);
     }
   }
@@ -115,12 +207,20 @@ function scoreTopic(query: string, topic: KnowledgeTopic): number {
   // Light boost when id words appear
   if (termHits(q, topic.id.replace(/-/g, " "))) score += 1;
 
+  // Prefer more specific topics when several keywords hit
+  if (hits >= 2) score += Math.min(3, hits * 0.4);
+
   return score;
+}
+
+function detectUrgent(query: string): boolean {
+  const q = normalize(query);
+  return URGENT_RED_FLAG_TERMS.some((t) => termHits(q, t));
 }
 
 function formatResourcesFence(related: ChatResourceRef[] | undefined): string {
   if (!related?.length) return "";
-  const payload = related.slice(0, 3).map((r) => ({
+  const payload = related.slice(0, 4).map((r) => ({
     type: r.type,
     title: r.title,
     url: r.url,
@@ -135,13 +235,83 @@ function formatNextSteps(steps: string[] | undefined): string {
   return `\n\n**Next steps**\n${lines}`;
 }
 
-function buildResponse(topic: KnowledgeTopic): string {
-  return (
-    topic.answer +
-    formatNextSteps(topic.nextSteps) +
-    SAFETY_DISCLAIMER +
-    formatResourcesFence(topic.related)
-  );
+function formatChips(chips: string[] | undefined): string {
+  const list = (chips && chips.length ? chips : SUGGESTED_CHIPS).slice(0, 6);
+  const lines = list.map((c) => `- "${c}"`).join("\n");
+  return `\n\n**Suggested questions**\n${lines}`;
+}
+
+function mergeRelated(
+  primary: ChatResourceRef[] | undefined,
+  secondary: ChatResourceRef[] | undefined,
+): ChatResourceRef[] {
+  const out: ChatResourceRef[] = [];
+  const seen = new Set<string>();
+  for (const r of [...(primary || []), ...(secondary || [])]) {
+    if (seen.has(r.url)) continue;
+    seen.add(r.url);
+    out.push(r);
+    if (out.length >= 4) break;
+  }
+  return out;
+}
+
+function buildResponse(
+  topic: KnowledgeTopic,
+  opts?: {
+    prefix?: string;
+    suffix?: string;
+    extraRelated?: ChatResourceRef[];
+    includeChips?: boolean;
+  },
+): string {
+  const related = mergeRelated(topic.related, opts?.extraRelated);
+  let body = (opts?.prefix || "") + topic.answer;
+  if (opts?.suffix) body += opts.suffix;
+  body += formatNextSteps(topic.nextSteps);
+  if (opts?.includeChips) body += formatChips(topic.chips);
+  body += SAFETY_DISCLAIMER;
+  body += formatResourcesFence(related);
+  return body;
+}
+
+function buildLowConfidenceResponse(
+  query: string,
+  weak: KnowledgeTopic | null,
+  weakScore: number,
+): string {
+  const urgent = detectUrgent(query) ? `${EMERGENCY_RED_FLAG_BLOCK}\n` : "";
+  if (weak && weakScore >= SOFT_THRESHOLD && weak.id !== GENERIC_TOPIC.id) {
+    const clarifying = `
+
+---
+
+**Did you mean something like this?** If not, try a more specific question (joint + symptom, or a condition name).
+
+${formatChips(weak.chips).trim()}
+`;
+    return buildResponse(weak, {
+      prefix: urgent + `**Here is a partial answer** based on what I matched — please confirm or rephrase if this is not what you meant.\n\n`,
+      suffix: clarifying,
+      includeChips: false,
+      extraRelated: GENERIC_TOPIC.related,
+    });
+  }
+
+  return buildResponse(GENERIC_TOPIC, {
+    prefix: urgent,
+    includeChips: true,
+  });
+}
+
+function rankTopics(query: string): { topic: KnowledgeTopic; score: number }[] {
+  const ranked: { topic: KnowledgeTopic; score: number }[] = [];
+  for (const topic of TOPICS) {
+    const s = scoreTopic(query, topic);
+    if (s > 0) ranked.push({ topic, score: s });
+  }
+  ranked.sort((a, b) => b.score - a.score);
+  return ranked;
 }
 
 export function matchKnowledge(query: string): EngineResult {
@@ -150,32 +320,71 @@ export function matchKnowledge(query: string): EngineResult {
     return {
       topicId: GENERIC_TOPIC.id,
       score: 0,
-      response: buildResponse(GENERIC_TOPIC),
+      response: buildResponse(GENERIC_TOPIC, { includeChips: true }),
       related: GENERIC_TOPIC.related || [],
+      confidence: "low",
     };
   }
 
-  let best: KnowledgeTopic = GENERIC_TOPIC;
-  let bestScore = 0;
+  const ranked = rankTopics(trimmed);
+  const best = ranked[0];
+  const second = ranked[1];
+  const urgent = detectUrgent(trimmed);
 
-  for (const topic of TOPICS) {
-    const s = scoreTopic(trimmed, topic);
-    if (s > bestScore) {
-      bestScore = s;
-      best = topic;
+  if (!best || best.score < MATCH_THRESHOLD) {
+    const weak = best && best.score >= SOFT_THRESHOLD ? best.topic : null;
+    const weakScore = best?.score || 0;
+    // Emergency-only queries should still hit emergency topic if scored at all
+    if (best && best.topic.id === "emergency" && best.score > 0) {
+      return {
+        topicId: best.topic.id,
+        score: best.score,
+        response: buildResponse(best.topic, {
+          prefix: urgent ? `${EMERGENCY_RED_FLAG_BLOCK}\n` : "",
+        }),
+        related: best.topic.related || [],
+        confidence: "high",
+      };
     }
+    return {
+      topicId: weak ? weak.id : GENERIC_TOPIC.id,
+      score: weakScore,
+      response: buildLowConfidenceResponse(trimmed, weak, weakScore),
+      related: mergeRelated(weak?.related, GENERIC_TOPIC.related),
+      confidence: "low",
+    };
   }
 
-  if (bestScore < MATCH_THRESHOLD) {
-    best = GENERIC_TOPIC;
-    bestScore = 0;
+  const secondaryIds: string[] = [];
+  let extraRelated: ChatResourceRef[] | undefined;
+  let suffix = "";
+
+  if (
+    second &&
+    second.topic.id !== best.topic.id &&
+    second.score >= MATCH_THRESHOLD &&
+    second.score >= best.score * MULTI_INTENT_RATIO
+  ) {
+    secondaryIds.push(second.topic.id);
+    extraRelated = second.topic.related;
+    const hubs = (second.topic.related || [])
+      .slice(0, 2)
+      .map((r) => `**${r.title}** (${r.url})`)
+      .join("; ");
+    suffix = `\n\n**Also related to your question:** ${second.topic.answer.split("\n")[0].replace(/\*\*/g, "")}${
+      hubs ? ` — see ${hubs}` : ""
+    }`;
   }
+
+  const prefix = urgent && best.topic.id !== "emergency" ? `${EMERGENCY_RED_FLAG_BLOCK}\n` : "";
 
   return {
-    topicId: best.id,
-    score: bestScore,
-    response: buildResponse(best),
-    related: best.related || [],
+    topicId: best.topic.id,
+    score: best.score,
+    response: buildResponse(best.topic, { prefix, suffix, extraRelated }),
+    related: mergeRelated(best.topic.related, extraRelated),
+    secondaryTopicIds: secondaryIds.length ? secondaryIds : undefined,
+    confidence: best.score >= 6 ? "high" : "medium",
   };
 }
 
@@ -238,16 +447,16 @@ class OptimizedChatService {
         SAFETY_DISCLAIMER;
       onChunk(msg);
       onComplete();
-      return { topicId: "too-long", score: 0, response: msg, related: [] };
+      return { topicId: "too-long", score: 0, response: msg, related: [], confidence: "low" };
     }
 
     if (this.isRateLimited(userId || "anon")) {
       const msg =
-        "You've sent many messages recently. Please wait a moment, then ask again — or browse **/exercises**, **/diet**, **/guides/benefits-pip**." +
+        "You've sent many messages recently. Please wait a moment, then ask again — or browse **/exercises**, **/diet**, **/guides/benefits-pip**, **/blog**." +
         SAFETY_DISCLAIMER;
       onChunk(msg);
       onComplete();
-      return { topicId: "rate-limit", score: 0, response: msg, related: [] };
+      return { topicId: "rate-limit", score: 0, response: msg, related: [], confidence: "low" };
     }
 
     onStatus?.("Searching guidance…");
@@ -256,9 +465,8 @@ class OptimizedChatService {
     let result: EngineResult;
 
     if (response) {
-      result = { topicId: "cache", score: 99, response, related: [] };
+      result = { topicId: "cache", score: 99, response, related: [], confidence: "high" };
     } else {
-      // Tiny delay so status can paint
       await new Promise((r) => setTimeout(r, 120));
       result = matchKnowledge(query);
       response = result.response;
@@ -271,12 +479,10 @@ class OptimizedChatService {
   }
 
   private async streamResponse(text: string, onChunk: (chunk: string) => void): Promise<void> {
-    // Stream by paragraphs / sentences for smoother UX than dumping all at once
     const parts = text.split(/(\n\n+)/);
     let buffer = "";
     for (const part of parts) {
       buffer += part;
-      // Emit in ~120–220 char slices inside large paragraphs
       while (buffer.length > 180) {
         let cut = 160;
         const slice = buffer.slice(0, 220);
@@ -325,4 +531,3 @@ if (typeof window !== "undefined") {
 }
 
 export default OptimizedChatService;
-
