@@ -27,14 +27,19 @@ function extractHeadings(html: string): TocItem[] {
 
 interface TableOfContentsProps {
   html: string;
+  /** sticky = desktop sidebar; inline = collapsible in-flow (default / mobile). */
+  variant?: "inline" | "sticky";
+  className?: string;
 }
 
-const TableOfContents = memo(({ html }: TableOfContentsProps) => {
+const TableOfContents = memo(({ html, variant = "inline", className = "" }: TableOfContentsProps) => {
   const headings = useMemo(() => extractHeadings(html), [html]);
   const [activeId, setActiveId] = useState("");
-  // Collapsed by default on narrow viewports to reduce early scroll height / CLS risk.
+  const isSticky = variant === "sticky";
   const [isOpen, setIsOpen] = useState(() =>
-    typeof window !== "undefined" ? window.matchMedia("(min-width: 768px)").matches : true,
+    typeof window !== "undefined"
+      ? isSticky || window.matchMedia("(min-width: 768px)").matches
+      : true,
   );
 
   useEffect(() => {
@@ -55,17 +60,59 @@ const TableOfContents = memo(({ html }: TableOfContentsProps) => {
 
   if (headings.length < 3) return null;
 
+  const list = (
+    <ol id={isSticky ? "blog-toc-sticky-list" : "blog-toc-list"} className="px-4 pb-4 space-y-0.5 max-h-[min(70vh,28rem)] overflow-y-auto">
+      {headings.map((h) => (
+        <li key={h.id}>
+          <a
+            href={`#${h.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById(h.id)?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              if (!isSticky) setIsOpen(false);
+            }}
+            className={`block py-2 min-h-[40px] text-[13px] leading-snug transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm ${
+              h.level === 3 ? "pl-4 border-l border-border/30" : ""
+            } ${activeId === h.id ? "text-primary font-semibold" : "text-muted-foreground"}`}
+          >
+            {h.text}
+          </a>
+        </li>
+      ))}
+    </ol>
+  );
+
+  if (isSticky) {
+    return (
+      <nav
+        aria-label="Table of contents"
+        className={`rounded-xl border border-border/40 bg-card/95 backdrop-blur-sm shadow-sm overflow-hidden ${className}`}
+      >
+        <div className="px-4 py-3 border-b border-border/30">
+          <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <List className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
+            On this page
+          </span>
+        </div>
+        {list}
+      </nav>
+    );
+  }
+
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-xl border border-border/30 bg-muted/40 overflow-hidden shadow-sm"
+      className={`mb-10 rounded-xl border border-border/30 bg-muted/40 overflow-hidden shadow-sm ${className}`}
     >
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls="blog-toc-list"
-        className="w-full flex items-center justify-between px-5 py-3.5 min-h-[44px] text-left hover:bg-muted/50 transition-colors"
+        className="w-full flex items-center justify-between px-5 py-3.5 min-h-[44px] text-left hover:bg-muted/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
           <List className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
@@ -79,30 +126,7 @@ const TableOfContents = memo(({ html }: TableOfContentsProps) => {
           />
         </span>
       </button>
-      {isOpen && (
-        <ol id="blog-toc-list" className="px-5 pb-5 space-y-0.5">
-          {headings.map((h) => (
-            <li key={h.id}>
-              <a
-                href={`#${h.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById(h.id)?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                  setIsOpen(false);
-                }}
-                className={`block py-2 min-h-[40px] text-[13px] leading-snug transition-colors hover:text-primary ${
-                  h.level === 3 ? "pl-4 border-l border-border/30" : ""
-                } ${activeId === h.id ? "text-primary font-semibold" : "text-muted-foreground"}`}
-              >
-                {h.text}
-              </a>
-            </li>
-          ))}
-        </ol>
-      )}
+      {isOpen && list}
     </nav>
   );
 });

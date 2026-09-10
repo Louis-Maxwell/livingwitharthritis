@@ -42,7 +42,12 @@ export type BlogListItem = Pick<
   | "display_order"
   | "keywords"
   | "direct_answer"
->;
+  | "author"
+  | "updated_at"
+> & {
+  /** Optional tags — skipped gracefully when absent on posts. */
+  tags?: string[] | null;
+};
 
 function expandCategoryAliases(categories: string[]): string[] {
   const expanded = new Set<string>();

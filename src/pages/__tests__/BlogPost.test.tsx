@@ -29,9 +29,6 @@ vi.mock("@/hooks/useBlogArticles", () => ({
   useRelatedArticles: vi.fn(() => ({ data: [] })),
   useNextArticle: vi.fn(() => ({ data: null })),
 }));
-vi.mock("@/hooks/useBlogViews", () => ({
-  useBlogViews: vi.fn(() => 42),
-}));
 vi.mock("@/components/Header", () => ({ default: () => <div data-testid="header" /> }));
 vi.mock("@/components/Footer", () => ({ default: () => <div data-testid="footer" /> }));
 vi.mock("@/components/BlogComments", () => ({ default: () => <div data-testid="comments" /> }));
@@ -133,7 +130,7 @@ describe("BlogPost Page", () => {
     expect(screen.getByText("15 June 2025")).toBeInTheDocument();
   });
 
-  it("renders honest view count when a real count is available", () => {
+  it("does not display visitor or view counts (no fake engagement metrics)", () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: mockArticle,
       isLoading: false,
@@ -142,8 +139,11 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    // Mocked useBlogViews returns 42 — UI only shows counts > 0 (never invents numbers).
-    expect(screen.getByText("42")).toBeInTheDocument();
+    // Listing/post UI refuses fabricated or orphan view metrics.
+    expect(screen.queryByText("42")).not.toBeInTheDocument();
+    expect(screen.queryByText(/views/i)).not.toBeInTheDocument();
+    // Bookmark toggle is available (localStorage, keyed by slug).
+    expect(screen.getAllByRole("button", { name: /bookmark/i }).length).toBeGreaterThan(0);
   });
 
   it("renders breadcrumb navigation", () => {

@@ -5,14 +5,16 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
-import { Eye, BookOpen, ChevronRight, Download } from "lucide-react";
+import { BookOpen, ChevronRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 import { useBlogArticle } from "@/hooks/useBlogArticles";
-import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
+import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
+import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
+import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -133,7 +135,6 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const redirectTo = slug ? BLOG_SLUG_REDIRECTS[slug] : undefined;
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
-  const viewCount = useBlogViews(redirectTo ? undefined : slug);
 
   // Mark this article as visited after 5s dwell so bounces don't pollute the set.
   useEffect(() => {
@@ -226,13 +227,25 @@ const BlogPost = () => {
     "url": "https://livingwitharthritis.org.uk/authors/maxwell",
     "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
   };
-  const authorSchema =
-    authorName === "Maxwell" && /\bPH128483\b/.test(authorCreds)
+  const isMaxwellAuthor =
+    /\bmaxwell\b/i.test(authorName) && /\bPH128483\b/.test(authorCreds);
+  const isNamedPersonAuthor =
+    isMaxwellAuthor ||
+    (/louis\s+maxwell/i.test(authorName) && authorName.length < 80);
+  const authorSchema = isMaxwellAuthor
+    ? {
+        "@type": "Person",
+        "name": authorName,
+        "jobTitle": authorCreds,
+        ...maxwellSchemaFields,
+      }
+    : isNamedPersonAuthor
       ? {
           "@type": "Person",
           "name": authorName,
-          "jobTitle": authorCreds,
-          ...maxwellSchemaFields,
+          ...(authorCreds && authorCreds !== "Editorial content"
+            ? { "jobTitle": authorCreds }
+            : {}),
         }
       : {
           "@type": "Organization",
@@ -293,6 +306,7 @@ const BlogPost = () => {
           "url": pageUrl,
           "headline": article.title,
           "description": metaDesc,
+          "image": coverAbsolute,
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
@@ -361,12 +375,12 @@ const BlogPost = () => {
 
         <header className="border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
-            <nav className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-              <ChevronRight className="w-3 h-3" />
-              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-foreground/60 truncate max-w-[200px]">{article.title}</span>
+            <nav aria-label="Breadcrumb" className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
+              <ChevronRight className="w-3 h-3" aria-hidden="true" />
+              <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
+              <ChevronRight className="w-3 h-3" aria-hidden="true" />
+              <span className="text-foreground/60 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
             <div className="pb-10 md:pb-14">
@@ -395,16 +409,6 @@ const BlogPost = () => {
                 )}
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                 <span>{readingTime} min read</span>
-                {typeof viewCount === "number" && viewCount > 0 && (
-                  <>
-                    <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                    <span className="flex items-center gap-1">
-                      <Eye className="w-3 h-3" aria-hidden="true" />
-                      <span className="sr-only">Views: </span>
-                      {viewCount.toLocaleString()}
-                    </span>
-                  </>
-                )}
               </div>
 
 
@@ -442,6 +446,12 @@ const BlogPost = () => {
 
               <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-6 max-w-[640px]" />
 
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {slug && (
+                  <ArticleBookmarkButton slug={slug} title={article.title} />
+                )}
+              </div>
+
               {slug && (
                 <SocialShareButtons title={article.title} slug={slug} instance="header" />
               )}
@@ -470,7 +480,9 @@ const BlogPost = () => {
           </figure>
         </div>
 
-        <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[860px]">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[1100px]">
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
+          <div className="min-w-0 max-w-[860px]">
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
@@ -492,14 +504,18 @@ const BlogPost = () => {
             )}
           </div>
 
-          <div className="no-print mb-6 flex justify-end">
+          <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
+            {slug && (
+              <ArticleBookmarkButton slug={slug} title={article.title} className="lg:hidden" />
+            )}
             <Button
               variant="outline"
               size="sm"
               onClick={() => window.print()}
               aria-label="Download this article as PDF"
+              className="min-h-11"
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-4 h-4 mr-2" aria-hidden="true" />
               Download PDF
             </Button>
           </div>
@@ -515,7 +531,9 @@ const BlogPost = () => {
           )}
 
           <KeyTakeaways html={htmlContent} title={article.title} />
-          <TableOfContents html={htmlWithIds} />
+          <div className="lg:hidden">
+            <TableOfContents html={htmlWithIds} variant="inline" />
+          </div>
 
           {slug && (
             <Suspense fallback={null}>
@@ -599,7 +617,17 @@ const BlogPost = () => {
           <Suspense fallback={null}>
             {slug && <EndNextArticleCard currentSlug={slug} />}
             <ArticleFaqSection faqs={faqs} />
+            {slug && (
+              <ClusterRelatedLinks
+                slug={slug}
+                title={article.title}
+                excerpt={article.excerpt}
+                category={article.category}
+                keywords={article.keywords}
+              />
+            )}
             <ArticleClosingCTA title={article.title} category={article.category} />
+            <BlogSoftCTAs variant="inline" className="mt-10" />
           </Suspense>
 
           {/* Print footer: only visible when saving to PDF / printing */}
@@ -625,7 +653,25 @@ const BlogPost = () => {
             <HealthToolsCTA />
           </Suspense>
 
-          <footer className="mt-14 pt-8 border-t border-border/20">
+          </div>{/* end article column */}
+
+          <aside className="hidden lg:block no-print" aria-label="Article navigation">
+            <div className="sticky top-24 space-y-4">
+              <TableOfContents html={htmlWithIds} variant="sticky" />
+              {slug && (
+                <ArticleBookmarkButton slug={slug} title={article.title} className="w-full" />
+              )}
+              <Link
+                to="/donate"
+                className="block text-center text-xs font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded min-h-11 leading-[2.75rem]"
+              >
+                Soft support · Donate
+              </Link>
+            </div>
+          </aside>
+          </div>{/* end lg grid */}
+
+          <footer className="mt-14 pt-8 border-t border-border/20 max-w-[860px]">
             {slug && <SocialShareButtons title={article.title} slug={slug} instance="footer" />}
             <Suspense fallback={null}>
               {slug && <BlogHelpfulness slug={slug} />}

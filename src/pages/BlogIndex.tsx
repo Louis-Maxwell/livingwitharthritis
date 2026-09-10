@@ -5,20 +5,30 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, Sparkles, Newspaper, Search, Clock, Flame, Headphones } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  Newspaper,
+  Search,
+  RefreshCw,
+  Compass,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useBlogViewCounts } from "@/hooks/useBlogViews";
 import { useBlogArticlesList, useFeaturedArticles } from "@/hooks/useBlogArticles";
 import { Skeleton } from "@/components/ui/skeleton";
-import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
-import { displayTitle } from "@/lib/blogTitle";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
   type BlogCategoryKey,
 } from "@/data/blogCategories";
+import { TOPIC_CLUSTERS } from "@/data/topicClusters";
+import BlogCard from "@/components/blog/BlogCard";
+import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 
 const CATEGORY_LABELS: Record<BlogCategoryKey, string> = {
   exercise: "Exercise",
@@ -32,6 +42,14 @@ const CATEGORY_LABELS: Record<BlogCategoryKey, string> = {
 };
 
 type Category = "All" | (typeof CATEGORY_LABELS)[BlogCategoryKey];
+
+type SortMode = "newest" | "updated" | "az";
+
+const SORT_OPTIONS: { id: SortMode; label: string }[] = [
+  { id: "newest", label: "Newest" },
+  { id: "updated", label: "Recently updated" },
+  { id: "az", label: "A–Z" },
+];
 
 const categories: Category[] = [
   "All",
@@ -76,7 +94,6 @@ const categoryColors: Record<Category, string> = {
   Frailty: "bg-background text-primary hover:bg-primary/10 border-primary/40",
 };
 
-/** Match posts via blogCategories aliases (Treatment Guides → treatment, etc.). */
 function postMatchesCategory(postCategory: string, active: Category): boolean {
   if (active === "All") return true;
   const activeKey = canonicalBlogCategoryKey(active);
@@ -88,7 +105,6 @@ function countInCategory(posts: { category: string }[], cat: Category): number {
   return posts.filter((p) => postMatchesCategory(p.category, cat)).length;
 }
 
-/** Convert a URL slug like "mental-health", "frailty", or "exercise" to a Category. */
 function slugToCategory(slug?: string): Category {
   if (!slug) return "All";
   const key = canonicalBlogCategoryKey(slug);
@@ -96,11 +112,24 @@ function slugToCategory(slug?: string): Category {
   return "All";
 }
 
+function effectiveUpdated(post: { date: string; updated_at?: string | null }): string {
+  return post.updated_at || post.date || "";
+}
+
+function collectTags(posts: { tags?: string[] | null }[]): string[] {
+  const set = new Set<string>();
+  for (const p of posts) {
+    if (!Array.isArray(p.tags)) continue;
+    for (const t of p.tags) {
+      if (typeof t === "string" && t.trim()) set.add(t.trim());
+    }
+  }
+  return [...set].sort((a, b) => a.localeCompare(b, "en-GB"));
+}
+
 interface BlogIndexProps {
   initialCategory?: string;
-  /** Category-specific H1 override — keeps each /blog/category/:slug page's heading distinct instead of always showing the generic blog title. */
   heroTitle?: ReactNode;
-  /** Category-specific hero subtitle override, paired with heroTitle. */
   heroSubtitle?: string;
 }
 
@@ -108,65 +137,111 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
   const [activeCategory, setActiveCategory] = useState<Category>(slugToCategory(initialCategory));
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortMode, setSortMode] = useState<SortMode>("newest");
+  const [activeTag, setActiveTag] = useState<string | null>(null);
 
   const { data: blogPosts = [], isLoading } = useBlogArticlesList();
   const { data: editorPicks = [] } = useFeaturedArticles(6);
 
-  // Ranking posts first, then the editorial picks, capped at six cards.
+  const availableTags = useMemo(() => collectTags(blogPosts), [blogPosts]);
+
   const featuredPosts = useMemo(() => {
     const bySlug = new Map(blogPosts.map((p) => [p.slug, p]));
     const picked: typeof blogPosts = [];
     const seen = new Set<string>();
     for (const slug of PRIORITY_SLUGS) {
       const post = bySlug.get(slug);
-      if (post && !seen.has(slug)) { picked.push(post); seen.add(slug); }
+      if (post && !seen.has(slug)) {
+        picked.push(post);
+        seen.add(slug);
+      }
     }
     for (const post of editorPicks) {
       if (picked.length >= 6) break;
-      if (!seen.has(post.slug)) { picked.push(post); seen.add(post.slug); }
+      if (!seen.has(post.slug)) {
+        picked.push(post);
+        seen.add(post.slug);
+      }
     }
     return picked.slice(0, 6);
   }, [blogPosts, editorPicks]);
 
   const featuredSlugs = useMemo(() => new Set(featuredPosts.map((p) => p.slug)), [featuredPosts]);
 
-  const allSlugs = useMemo(() => blogPosts.map((p) => p.slug), [blogPosts]);
-  const viewCounts = useBlogViewCounts(allSlugs);
+  const recentlyUpdated = useMemo(() => {
+    return [...blogPosts]
+      .sort((a, b) => effectiveUpdated(b).localeCompare(effectiveUpdated(a)))
+      .filter((p) => !featuredSlugs.has(p.slug))
+      .slice(0, 6);
+  }, [blogPosts, featuredSlugs]);
 
   const filtered = useMemo(() => {
-    // Exclude featured rows from the grid only when no filter is active.
-    const base = activeCategory === "All" && !searchQuery.trim()
-      ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
-      : blogPosts;
-    let posts = activeCategory === "All" ? base : base.filter((p) => postMatchesCategory(p.category, activeCategory));
+    const base =
+      activeCategory === "All" && !searchQuery.trim() && !activeTag
+        ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
+        : blogPosts;
+    let posts =
+      activeCategory === "All"
+        ? base
+        : base.filter((p) => postMatchesCategory(p.category, activeCategory));
+
+    if (activeTag) {
+      posts = posts.filter(
+        (p) => Array.isArray(p.tags) && p.tags.some((t) => t.toLowerCase() === activeTag.toLowerCase()),
+      );
+    }
+
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
-      posts = posts.filter((p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+      posts = posts.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          (p.author && p.author.toLowerCase().includes(q)) ||
+          (p.category && p.category.toLowerCase().includes(q)),
+      );
     }
-    return posts;
-  }, [activeCategory, searchQuery, blogPosts, featuredSlugs]);
 
-  const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
-  const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
+    const sorted = [...posts];
+    if (sortMode === "newest") {
+      sorted.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    } else if (sortMode === "updated") {
+      sorted.sort((a, b) => effectiveUpdated(b).localeCompare(effectiveUpdated(a)));
+    } else {
+      sorted.sort((a, b) => a.title.localeCompare(b.title, "en-GB", { sensitivity: "base" }));
+    }
+    return sorted;
+  }, [activeCategory, searchQuery, blogPosts, featuredSlugs, sortMode, activeTag]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
+  const safePage = Math.min(currentPage, totalPages);
+  const paginated = filtered.slice((safePage - 1) * POSTS_PER_PAGE, safePage * POSTS_PER_PAGE);
 
   const handleCategory = (cat: Category) => {
     setActiveCategory(cat);
     setCurrentPage(1);
   };
 
-  const getReadTime = (excerpt: string) => {
-    const words = excerpt.split(/\s+/).length;
-    return `${Math.max(4, Math.ceil(words / 40) + 3)} min read`;
-  };
+  const showDiscovery =
+    activeCategory === "All" && !searchQuery.trim() && !activeTag && safePage === 1;
 
   return (
     <>
       <Helmet>
         <title>Arthritis blog UK | Exercise, diet, PIP and pain guides</title>
-        <meta name="description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />
-        <meta name="keywords" content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up" />
+        <meta
+          name="description"
+          content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
+        />
+        <meta
+          name="keywords"
+          content="arthritis blog UK, joint pain advice, arthritis, anti-inflammatory diet UK, osteoarthritis exercises, arthritis help UK, joint pain diet, rheumatoid arthritis UK, swimming arthritis, yoga arthritis, turmeric arthritis, arthritis flare up"
+        />
         <meta property="og:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
-        <meta property="og:description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />
+        <meta
+          property="og:description"
+          content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
+        />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
@@ -178,29 +253,45 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
-        <meta name="twitter:description" content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis." />
+        <meta
+          name="twitter:description"
+          content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
+        />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/blog" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "name": "Arthritis Blog UK",
-          "description": "Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain.",
-          "url": "https://livingwitharthritis.org.uk/blog",
-          "inLanguage": "en-GB",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
-          "about": { "@type": "MedicalCondition", "name": "Arthritis" },
-          "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" }
-          ]
-        })}</script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Arthritis Blog UK",
+            description:
+              "Expert UK arthritis articles on diet, exercise, supplements and osteoarthritis. Free guidance for living well with joint pain.",
+            url: "https://livingwitharthritis.org.uk/blog",
+            inLanguage: "en-GB",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Living With Arthritis UK",
+              url: "https://livingwitharthritis.org.uk",
+            },
+            about: { "@type": "MedicalCondition", name: "Arthritis" },
+            audience: {
+              "@type": "MedicalAudience",
+              audienceType: "Patient",
+              geographicArea: { "@type": "Country", name: "United Kingdom" },
+            },
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://livingwitharthritis.org.uk/" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://livingwitharthritis.org.uk/blog" },
+            ],
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
@@ -220,31 +311,43 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </Badge>
             </div>
           }
-          title={heroTitle ?? <>Arthritis blog UK: <span className="text-primary">exercise, diet, PIP and pain guides</span></>}
-          subtitle={heroSubtitle ?? `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed articles for UK readers — practical help when living with arthritis feels exhausting. You are not alone.`}
+          title={
+            heroTitle ?? (
+              <>
+                Arthritis blog UK: <span className="text-primary">exercise, diet, PIP and pain guides</span>
+              </>
+            )
+          }
+          subtitle={
+            heroSubtitle ??
+            `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed articles for UK readers — practical help when living with arthritis feels exhausting. You are not alone.`
+          }
         />
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
-          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-8">
-            This arthritis blog is written for people in the United Kingdom who need plain-English
-            help with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic
-            below, or{" "}
-            <Link to="/search" className="text-primary underline underline-offset-2">search</Link>{" "}
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+            This arthritis blog is written for people in the United Kingdom who need plain-English help
+            with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic below, or{" "}
+            <Link to="/search" className="text-primary underline underline-offset-2">
+              search
+            </Link>{" "}
             when you know what you need. Living With Arthritis UK (registered charity 1218461)
-            publishes clinically reviewed guides — honest evidence, no invented miracle cures.
-            Start with{" "}
+            publishes clinically reviewed guides — honest evidence, no invented miracle cures. Start
+            with{" "}
             <Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">
               exercise articles
             </Link>
             , the{" "}
-            <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>
+            <Link to="/exercises" className="text-primary underline underline-offset-2">
+              exercise hub
+            </Link>
             , or see{" "}
             <Link to="/seo-content-framework" className="text-primary underline underline-offset-2">
               how we write SEO content
             </Link>
             .
           </p>
-          {/* Topic hubs — real links, crawlable from the first screen */}
+
           <nav aria-label="Browse arthritis topics" className="mb-10">
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">
               Browse by topic
@@ -254,7 +357,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                 <li key={hub.to}>
                   <Link
                     to={hub.to}
-                    className="group flex h-full flex-col rounded-xl border border-border/40 bg-card p-4 transition-all duration-200 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5"
+                    className="group flex h-full flex-col rounded-xl border border-border/40 bg-card p-4 transition-all duration-200 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <span className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
                       {hub.label}
@@ -267,179 +370,253 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           </nav>
 
           {/* Featured / Editor's picks */}
-          {activeCategory === "All" && !searchQuery && currentPage === 1 && featuredPosts.length > 0 && (
+          {showDiscovery && featuredPosts.length > 0 && (
             <section aria-labelledby="featured-heading" className="mb-12">
               <div className="flex items-baseline justify-between mb-5">
-                <h2 id="featured-heading" className="flex items-center gap-2 font-display text-xl font-bold text-foreground">
-                  <Sparkles className="w-5 h-5 text-primary" /> Editor&rsquo;s Picks
+                <h2
+                  id="featured-heading"
+                  className="flex items-center gap-2 font-display text-xl md:text-2xl font-bold text-foreground"
+                >
+                  <Sparkles className="w-5 h-5 text-primary" aria-hidden="true" /> Editor&rsquo;s Picks
                 </h2>
                 <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Featured</span>
               </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                {featuredPosts.map((post) => (
-                  <article
-                    key={post.slug}
-                    className="card-accent-top group rounded-2xl overflow-hidden border border-border/30 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <Link to={`/blog/${post.slug}`} className="block">
-                      <div className="aspect-[16/9] overflow-hidden bg-muted/20">
-                        <img
-                          src={safeCoverSrc(coverImage(post.category, post.title, post.slug).src)}
-                          alt=""
-                          aria-hidden="true"
-                          width={640}
-                          height={360}
-                          loading="lazy"
-                          decoding="async"
-                          onError={onCoverImgError}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="p-5 pb-2">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                          {post.category}
-                        </span>
-                        <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors leading-snug break-words">
-                          {displayTitle(post)}
-                        </h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-3">
-                          {post.excerpt}
-                        </p>
-                      </div>
-                    </Link>
-                    <div className="px-5 pb-5 flex flex-wrap items-center gap-x-4 gap-y-2">
-                      <Link
-                        to={`/blog/${post.slug}`}
-                        className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all"
-                      >
-                        Read article <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </Link>
-                      <Link
-                        to={`/blog/${post.slug}#listen`}
-                        className="text-muted-foreground text-sm font-medium inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-                        aria-label={`Listen to ${displayTitle(post)}`}
-                      >
-                        <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
-                      </Link>
-                    </div>
-                  </article>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {featuredPosts.map((post, i) => (
+                  <BlogCard key={post.slug} post={post} featured priority={i === 0} />
                 ))}
               </div>
             </section>
           )}
 
-          <div className="relative max-w-md mb-8">
-            <label htmlFor="blog-search" className="sr-only">Search articles</label>
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
-            <input
-              id="blog-search"
-              type="search"
-              placeholder="Search articles..."
-              aria-label="Search articles"
-              value={searchQuery}
-              onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-              className="w-full pl-11 pr-4 py-3 rounded-xl border border-border/40 bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all focus-glow"
-            />
-          </div>
+          {/* Recently updated — real dates only, never popular/view counts */}
+          {showDiscovery && recentlyUpdated.length > 0 && (
+            <section aria-labelledby="updated-heading" className="mb-12">
+              <div className="flex items-baseline justify-between mb-5">
+                <h2
+                  id="updated-heading"
+                  className="flex items-center gap-2 font-display text-xl md:text-2xl font-bold text-foreground"
+                >
+                  <RefreshCw className="w-5 h-5 text-primary" aria-hidden="true" /> Recently updated
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSortMode("updated");
+                    setCurrentPage(1);
+                    document.getElementById("blog-filters")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-xs font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                >
+                  Sort all by updated
+                </button>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {recentlyUpdated.map((post) => (
+                  <BlogCard key={post.slug} post={post} />
+                ))}
+              </div>
+            </section>
+          )}
 
-          <div className="flex flex-wrap gap-2 mb-8">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => handleCategory(cat)}
-                className={`min-h-11 px-4 py-2.5 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer inline-flex items-center ${
-                  activeCategory === cat
-                    ? `${categoryColors[cat]} border-current shadow-sm scale-105`
-                    : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
-                }`}
+          {/* Editor journeys → topic cluster pillars */}
+          {showDiscovery && (
+            <section aria-labelledby="journeys-heading" className="mb-12">
+              <h2
+                id="journeys-heading"
+                className="flex items-center gap-2 font-display text-xl md:text-2xl font-bold text-foreground mb-2"
               >
-                {cat}
-                {cat !== "All" && (
-                  <span className="ml-1.5">
-                    ({countInCategory(blogPosts, cat)})
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
+                <Compass className="w-5 h-5 text-primary" aria-hidden="true" /> Editor journeys
+              </h2>
+              <p className="text-sm text-muted-foreground mb-5 max-w-2xl">
+                Follow a pillar topic — pain, osteoarthritis, exercises, diet, treatments, flare-ups or
+                PIP — then open the practical tool that sits beside it.
+              </p>
+              <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {TOPIC_CLUSTERS.map((cluster) => (
+                  <li key={cluster.id}>
+                    <Link
+                      to={cluster.pillarPath}
+                      className="group flex h-full flex-col rounded-xl border border-border/40 bg-card p-4 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1">
+                        {cluster.label}
+                      </span>
+                      <span className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {cluster.pillarTitle}
+                      </span>
+                      <span className="mt-auto pt-3 text-xs text-primary font-medium inline-flex items-center gap-1">
+                        Open pillar <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-          <p className="text-sm text-muted-foreground mb-6">
-            Showing {paginated.length} of {filtered.length} article{filtered.length !== 1 ? "s" : ""}
-            {searchQuery && <span className="text-primary font-medium"> for "{searchQuery}"</span>}
-          </p>
+          {showDiscovery && <BlogSoftCTAs variant="inline" className="mb-12" />}
+
+          {/* Search + filters */}
+          <div id="blog-filters" className="scroll-mt-24">
+            <div className="relative max-w-xl mb-6">
+              <label htmlFor="blog-search" className="sr-only">
+                Search articles
+              </label>
+              <Search
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none"
+                aria-hidden="true"
+              />
+              <input
+                id="blog-search"
+                type="search"
+                placeholder="Search by title, topic or author…"
+                aria-label="Search articles"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setCurrentPage(1);
+                }}
+                className="w-full pl-11 pr-12 py-3.5 rounded-xl border border-border/40 bg-card text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
+              />
+              {searchQuery ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery("");
+                    setCurrentPage(1);
+                  }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 min-h-9 min-w-9 inline-flex items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4" aria-hidden="true" />
+                </button>
+              ) : null}
+            </div>
+
+            <div
+              role="group"
+              aria-label="Filter by category"
+              className="flex flex-wrap gap-2 mb-4"
+            >
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => handleCategory(cat)}
+                  aria-pressed={activeCategory === cat}
+                  className={`min-h-11 px-4 py-2.5 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                    activeCategory === cat
+                      ? `${categoryColors[cat]} border-current shadow-sm scale-105`
+                      : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
+                  }`}
+                >
+                  {cat}
+                  {cat !== "All" && (
+                    <span className="ml-1.5 opacity-80">({countInCategory(blogPosts, cat)})</span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Optional tags — only when posts carry tags */}
+            {availableTags.length > 0 && (
+              <div role="group" aria-label="Filter by tag" className="flex flex-wrap gap-2 mb-4">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground self-center mr-1">
+                  Tags
+                </span>
+                {availableTags.map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    aria-pressed={activeTag === tag}
+                    onClick={() => {
+                      setActiveTag((prev) => (prev === tag ? null : tag));
+                      setCurrentPage(1);
+                    }}
+                    className={`min-h-10 px-3 py-1.5 rounded-full text-xs font-medium border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                      activeTag === tag
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-card text-muted-foreground border-border/40 hover:border-primary/30"
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+              <p className="text-sm text-muted-foreground" aria-live="polite">
+                Showing {paginated.length} of {filtered.length} article
+                {filtered.length !== 1 ? "s" : ""}
+                {searchQuery && (
+                  <span className="text-primary font-medium"> for &ldquo;{searchQuery}&rdquo;</span>
+                )}
+                {activeTag && (
+                  <span className="text-primary font-medium"> tagged {activeTag}</span>
+                )}
+              </p>
+              <div role="group" aria-label="Sort articles" className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mr-1">
+                  Sort
+                </span>
+                {SORT_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    aria-pressed={sortMode === opt.id}
+                    onClick={() => {
+                      setSortMode(opt.id);
+                      setCurrentPage(1);
+                    }}
+                    className={`min-h-10 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                      sortMode === opt.id
+                        ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                        : "bg-card text-muted-foreground border-border/40 hover:border-primary/30"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {isLoading && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-busy="true" aria-label="Loading articles">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className="rounded-2xl border border-border/30 bg-card overflow-hidden">
                   <Skeleton className="aspect-[16/9] w-full rounded-none" />
-                  <div className="p-6">
-                    <Skeleton className="h-4 w-24 mb-3" />
-                    <Skeleton className="h-6 w-full mb-3" />
+                  <div className="p-6 space-y-3">
+                    <Skeleton className="h-4 w-24" />
+                    <Skeleton className="h-6 w-full" />
                     <Skeleton className="h-4 w-3/4" />
+                    <Skeleton className="h-4 w-1/2" />
                   </div>
                 </div>
               ))}
             </div>
           )}
 
-          {/* Trending articles */}
-          {!isLoading && activeCategory === "All" && !searchQuery && currentPage === 1 && (() => {
-            const trending = [...blogPosts]
-              .sort((a, b) => (viewCounts[b.slug] || 0) - (viewCounts[a.slug] || 0))
-              .slice(0, 3)
-              .filter((p) => (viewCounts[p.slug] || 0) > 0);
-            if (trending.length === 0) return null;
-            return (
-              <div className="mb-10">
-                <h2 className="flex items-center gap-2 font-display text-xl font-bold text-foreground mb-5">
-                  <Flame className="w-5 h-5 text-primary" /> Trending Now
-                </h2>
-                <div className="grid md:grid-cols-3 gap-5">
-                  {trending.map((post, i) => (
-                    <Link
-                      key={post.slug}
-                      to={`/blog/${post.slug}`}
-                      className="group rounded-2xl border border-primary/15 bg-primary/[0.03] p-6 hover:bg-primary/[0.06] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-                    >
-                      <div className="flex items-start gap-4">
-                        <span className="text-3xl font-black text-primary leading-none" aria-hidden="true">
-                          {i + 1}
-                        </span>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug mb-2 break-words">
-                            {displayTitle(post)}
-                          </h3>
-                          <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">{post.excerpt}</p>
-                          <span className="text-xs text-muted-foreground flex items-center gap-1.5 font-medium">
-                            <Eye className="w-3.5 h-3.5" /> {(viewCounts[post.slug] || 0).toLocaleString()} views
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })()}
-
-          {/* Empty filter / search */}
           {!isLoading && filtered.length === 0 && (
             <div
               className="rounded-2xl border border-dashed border-border bg-muted/20 p-10 text-center mb-6"
               role="status"
               aria-live="polite"
             >
-              <p className="font-semibold text-foreground text-lg">No articles match that filter</p>
-              <p className="mt-2 text-sm text-muted-foreground max-w-md mx-auto">
-                Try another category, clear your search, or head back to all articles — we will
-                keep the list honest and useful.
+              <p className="font-semibold text-foreground text-lg md:text-xl">No articles match that filter</p>
+              <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-md mx-auto">
+                Try another category, clear your search, or head back to all articles — we keep the
+                list honest and useful.
               </p>
               <button
                 type="button"
                 onClick={() => {
                   setSearchQuery("");
                   setActiveCategory("All");
+                  setActiveTag(null);
+                  setSortMode("newest");
                   setCurrentPage(1);
                 }}
                 className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -449,102 +626,43 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             </div>
           )}
 
-          {/* Grid */}
           {!isLoading && filtered.length > 0 && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
               {paginated.map((post) => (
-                <article
-                  key={post.slug}
-                  className="group rounded-2xl border border-border/30 bg-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-primary/30"
-                >
-                  <Link to={`/blog/${post.slug}`} className="block focus-visible:outline-none">
-
-                  <div className="aspect-[16/9] overflow-hidden bg-muted/20">
-                    <img
-                      src={safeCoverSrc(coverImage(post.category, post.title, post.slug).src)}
-                      alt=""
-                      aria-hidden="true"
-                      width={640}
-                      height={360}
-                      loading="lazy"
-                      decoding="async"
-                      onError={onCoverImgError}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
-                      <span className={`text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border ${categoryColors[post.category as Category] || categoryColors.Health}`}>
-                        {post.category}
-                      </span>
-                    </div>
-                    <h2 className="font-display text-lg font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors leading-snug break-words">
-                      {displayTitle(post)}
-                    </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between pt-3 border-t border-border/15">
-                      <span className="text-primary text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                        Read article <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </span>
-                      <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" /> {getReadTime(post.excerpt)}
-                        </span>
-                        {viewCounts[post.slug] > 0 && (
-                          <span className="flex items-center gap-1">
-                            <Eye className="w-3 h-3" /> {viewCounts[post.slug].toLocaleString()}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                                  </Link>
-                  <div className="px-6 pb-5 -mt-1">
-                    <Link
-                      to={`/blog/${post.slug}#listen`}
-                      className="text-muted-foreground text-sm font-medium inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-                      aria-label={`Listen to ${displayTitle(post)}`}
-                    >
-                      <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
-                    </Link>
-                  </div>
-                </article>
+                <BlogCard key={post.slug} post={post} />
               ))}
             </div>
           )}
 
-          {/* Pagination */}
-          {totalPages > 1 && (
+          {totalPages > 1 && filtered.length > 0 && (
             <nav aria-label="Blog pagination" className="flex items-center justify-center gap-2 mt-14">
               <Button
                 variant="outline"
                 size="sm"
-                disabled={currentPage === 1}
-                onClick={() => setCurrentPage((p) => p - 1)}
-                className="gap-1 rounded-full"
+                disabled={safePage === 1}
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                className="gap-1 rounded-full min-h-11"
               >
-                <ChevronLeft className="w-4 h-4" /> Previous
+                <ChevronLeft className="w-4 h-4" aria-hidden="true" /> Previous
               </Button>
 
               {Array.from({ length: totalPages }, (_, i) => i + 1)
                 .filter(
-                  (page) =>
-                    page === 1 ||
-                    page === totalPages ||
-                    Math.abs(page - currentPage) <= 1,
+                  (page) => page === 1 || page === totalPages || Math.abs(page - safePage) <= 1,
                 )
                 .map((page, i, pages) => (
                   <span key={page} className="flex items-center gap-2">
                     {i > 0 && page - pages[i - 1] > 1 && (
-                      <span className="text-xs text-muted-foreground" aria-hidden="true">…</span>
+                      <span className="text-xs text-muted-foreground" aria-hidden="true">
+                        …
+                      </span>
                     )}
                     <Button
-                      variant={page === currentPage ? "default" : "outline"}
+                      variant={page === safePage ? "default" : "outline"}
                       size="icon"
                       aria-label={`Page ${page}`}
-                      aria-current={page === currentPage ? "page" : undefined}
-                      className="w-9 h-9 text-xs rounded-full"
+                      aria-current={page === safePage ? "page" : undefined}
+                      className="w-11 h-11 text-xs rounded-full"
                       onClick={() => setCurrentPage(page)}
                     >
                       {page}
@@ -555,72 +673,82 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               <Button
                 variant="outline"
                 size="sm"
-                disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage((p) => p + 1)}
-                className="gap-1 rounded-full"
+                disabled={safePage === totalPages}
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                className="gap-1 rounded-full min-h-11"
               >
-                Next <ChevronRight className="w-4 h-4" />
+                Next <ChevronRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </nav>
           )}
 
-          {/* Topic Hub callout */}
+          <BlogSoftCTAs variant="banner" />
+
           <div className="mt-16 rounded-2xl border border-primary/20 bg-primary/[0.04] p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5">
             <div className="flex-1">
               <h2 className="font-display text-lg md:text-xl font-bold text-foreground mb-1">
                 Looking for answers by topic?
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Visit the Advice Hub for guidance grouped by diet, exercises, flare-ups and treatment — including the questions readers ask Google most.
+                Visit the Advice Hub for guidance grouped by diet, exercises, flare-ups and treatment —
+                including the questions readers ask Google most.
               </p>
             </div>
-            <Button asChild className="rounded-full self-start md:self-auto">
+            <Button asChild className="rounded-full self-start md:self-auto min-h-11">
               <Link to="/blog-hub">
-                Open Advice Hub <ArrowRight className="w-4 h-4 ml-1" />
+                Open Advice Hub <ArrowRight className="w-4 h-4 ml-1" aria-hidden="true" />
               </Link>
             </Button>
           </div>
 
-          {/* Browse by Category */}
           <nav aria-label="Browse by category" className="mt-16 pt-10 border-t border-border/30">
-            <h2 className="font-display text-xl font-bold text-foreground mb-2">Browse by Category</h2>
+            <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
+              Browse by Category
+            </h2>
             <p className="text-muted-foreground text-sm mb-6">Explore all our arthritis advice topics</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {categories.filter((c) => c !== "All").map((cat) => {
-                const count = countInCategory(blogPosts, cat);
-                const isActive = activeCategory === cat;
-                return (
-                  <Link
-                    key={cat}
-                    to={`/blog/category/${cat.toLowerCase().replace(/\s+/g, "-")}`}
-                    className={`group flex items-center gap-4 rounded-xl border p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
-                      isActive
-                        ? `${categoryColors[cat]} border-current bg-opacity-20`
-                        : "border-border/40 bg-card hover:border-primary/30"
-                    }`}
-                  >
-                    <span className={`flex items-center justify-center w-10 h-10 rounded-lg text-sm font-bold ${categoryColors[cat]}`}>
-                      {count}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {cat} Articles
-                      </h3>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {cat === "Exercise" && "Physio routines, yoga, swimming & cycling"}
-                        {cat === "Nutrition" && "Anti-inflammatory diet, meal plans & recipes"}
-                        {cat === "Lifestyle" && "Work, travel, gardening & daily living"}
-                        {cat === "Health" && "Symptoms, diagnosis & condition guides"}
-                        {cat === "Mental Health" && "Mood, anxiety & coping with chronic pain"}
-                        {cat === "Supplements" && "Turmeric, omega-3, glucosamine & collagen"}
-                        {cat === "Treatment" && "Medication, TENS, hydrotherapy & relief"}
-                        {cat === "Frailty" && "Falls prevention, sarcopenia & longevity"}
-                      </p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
-                  </Link>
-                );
-              })}
+              {categories
+                .filter((c) => c !== "All")
+                .map((cat) => {
+                  const count = countInCategory(blogPosts, cat);
+                  const isActive = activeCategory === cat;
+                  return (
+                    <Link
+                      key={cat}
+                      to={`/blog/category/${cat.toLowerCase().replace(/\s+/g, "-")}`}
+                      className={`group flex items-center gap-4 rounded-xl border p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                        isActive
+                          ? `${categoryColors[cat]} border-current bg-opacity-20`
+                          : "border-border/40 bg-card hover:border-primary/30"
+                      }`}
+                    >
+                      <span
+                        className={`flex items-center justify-center w-10 h-10 rounded-lg text-sm font-bold ${categoryColors[cat]}`}
+                      >
+                        {count}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                          {cat} Articles
+                        </h3>
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {cat === "Exercise" && "Physio routines, yoga, swimming & cycling"}
+                          {cat === "Nutrition" && "Anti-inflammatory diet, meal plans & recipes"}
+                          {cat === "Lifestyle" && "Work, travel, gardening & daily living"}
+                          {cat === "Health" && "Symptoms, diagnosis & condition guides"}
+                          {cat === "Mental Health" && "Mood, anxiety & coping with chronic pain"}
+                          {cat === "Supplements" && "Turmeric, omega-3, glucosamine & collagen"}
+                          {cat === "Treatment" && "Medication, TENS, hydrotherapy & relief"}
+                          {cat === "Frailty" && "Falls prevention, sarcopenia & longevity"}
+                        </p>
+                      </div>
+                      <ArrowRight
+                        className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  );
+                })}
             </div>
           </nav>
         </main>

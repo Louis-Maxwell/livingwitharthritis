@@ -22,8 +22,19 @@ export type { DBBlogArticle, BlogArticleCitation } from "@/data/staticBlog";
 
 type BlogListItem = Pick<
   DBBlogArticle,
-  "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order"
->;
+  | "slug"
+  | "title"
+  | "meta_title"
+  | "excerpt"
+  | "date"
+  | "category"
+  | "image_url"
+  | "display_order"
+  | "author"
+  | "updated_at"
+> & {
+  tags?: string[] | null;
+};
 
 function asArticle(row: unknown): DBBlogArticle {
   return row as DBBlogArticle;

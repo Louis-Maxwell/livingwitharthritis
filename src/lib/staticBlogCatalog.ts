@@ -25,8 +25,19 @@ export interface StaticBlogArticle {
 
 export type BlogListItem = Pick<
   StaticBlogArticle,
-  "slug" | "title" | "meta_title" | "excerpt" | "date" | "category" | "image_url" | "display_order"
->;
+  | "slug"
+  | "title"
+  | "meta_title"
+  | "excerpt"
+  | "date"
+  | "category"
+  | "image_url"
+  | "display_order"
+  | "author"
+  | "updated_at"
+> & {
+  tags?: string[] | null;
+};
 
 const STATIC_ARTICLES: StaticBlogArticle[] = [
   ...(frailtyBatch as StaticBlogArticle[]),
@@ -56,6 +67,8 @@ export function getStaticBlogList(): BlogListItem[] {
     category: article.category,
     image_url: article.image_url,
     display_order: article.display_order,
+    author: article.author,
+    updated_at: article.updated_at ?? null,
   }));
 }
 

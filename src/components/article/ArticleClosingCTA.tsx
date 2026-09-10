@@ -94,14 +94,32 @@ const ArticleClosingCTA = ({ title }: Props) => {
       <div className="flex flex-wrap gap-3">
         <Link
           to="/self-help"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Explore self-help tools
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
         <Link
+          to="/exercises"
+          className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Exercise hub
+        </Link>
+        <Link
+          to="/diet"
+          className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Diet hub
+        </Link>
+        <Link
+          to="/donate"
+          className="inline-flex items-center gap-2 rounded-full border border-border/50 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Soft support · Donate
+        </Link>
+        <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary hover:bg-primary/5 transition-colors"
+          className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Talk to us
         </Link>
