@@ -23,6 +23,7 @@ import {
   MessageCircle, Download
 } from "lucide-react";
 import {
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
   StatCounter,
   ProgressRing,
   HorizontalBar,
@@ -220,6 +221,7 @@ const DietHub = () => {
           sore hands — clinically honest, free, and written so you do not have to feel alone at
           the supermarket shelf.
         </p>
+        <AeoEnhancement route="/diet" />
       </section>
 
       <main id="main-content">

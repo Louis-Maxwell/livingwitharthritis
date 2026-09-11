@@ -12,8 +12,7 @@ interface SitePage {
   tags: string[];
 }
 
-const SITE_PAGES: SitePage[] = [
-  { path: "/conditions/osteoarthritis", title: "Osteoarthritis Guide", description: "Symptoms, causes, diagnosis and evidence-based management for the UK's most common joint condition.", icon: Stethoscope, tags: ["condition", "osteoarthritis", "joints", "pain"] },
+const SITE_PAGES: SitePage[] = [  { path: "/conditions/osteoarthritis", title: "Osteoarthritis Guide", description: "Symptoms, causes, diagnosis and evidence-based management for the UK's most common joint condition.", icon: Stethoscope, tags: ["condition", "osteoarthritis", "joints", "pain"] },
   { path: "/conditions/rheumatoid-arthritis", title: "Rheumatoid Arthritis", description: "Understand RA symptoms, treatments, flare management and living well with autoimmune arthritis.", icon: Heart, tags: ["condition", "rheumatoid", "autoimmune", "inflammation"] },
   { path: "/conditions/psoriatic-arthritis", title: "Psoriatic Arthritis", description: "Learn about psoriatic arthritis symptoms, skin-joint connection and UK treatment options.", icon: Activity, tags: ["condition", "psoriatic", "skin", "autoimmune"] },
   { path: "/conditions/arthritis", title: "Arthritis Overview", description: "A complete introduction to arthritis types, symptoms, causes and treatment pathways in the UK.", icon: Stethoscope, tags: ["condition", "arthritis", "overview"] },
@@ -34,7 +33,7 @@ const SITE_PAGES: SitePage[] = [
   { path: "/community", title: "Community Hub", description: "Connect with others living with arthritis through peer support forums and shared stories.", icon: Users, tags: ["community", "support", "forum", "stories"] },
   { path: "/blog", title: "Blog & Articles", description: "Expert articles on managing arthritis, from cold-weather tips to supplement reviews.", icon: BookOpen, tags: ["blog", "articles", "tips", "research"] },
   { path: "/guides", title: "Guides Hub", description: "Practical UK arthritis guides — benefits, exercise, diet, pain relief and NHS pathways.", icon: BookOpen, tags: ["guide", "arthritis", "UK", "blog", "articles"] },
-  { path: "/benefits-pip", title: "Benefits & PIP Hub", description: "UK starting point for PIP, disability support, work rights and arthritis benefits.", icon: Heart, tags: ["PIP", "benefits", "disability", "guide", "finances"] },
+  { path: "/guides/benefits-pip", title: "Benefits & PIP Hub", description: "UK starting point for PIP, disability support, work rights and arthritis benefits.", icon: Heart, tags: ["PIP", "benefits", "disability", "guide", "finances"] },
   { path: "/search", title: "Search guides & articles", description: "Filter Living With Arthritis UK guides and blog posts by topic and length.", icon: Search, tags: ["search", "blog", "guides", "articles"] },
   { path: "/faq", title: "Arthritis FAQs", description: "UK answers on OA, RA, gout, PIP, diet, exercise and cold-weather flares.", icon: BookOpen, tags: ["faq", "questions", "osteoarthritis", "rheumatoid"] },
   { path: "/library", title: "Health Library", description: "Plain-English notes on conditions, medications and treatments, including fibromyalgia.", icon: BookOpen, tags: ["library", "fibromyalgia", "condition"] },
@@ -50,7 +49,8 @@ const SITE_PAGES: SitePage[] = [
   { path: "/guides/health-services", title: "Health Services Guide", description: "Navigate arthritis services: GP referrals, rheumatology, physiotherapy and specialist pathways.", icon: Stethoscope, tags: ["guide", "Public Health", "referral", "rheumatology"] },
   { path: "/guides/diet", title: "Diet Guide", description: "Complete anti-inflammatory diet guide for arthritis: Mediterranean diet, meal plans and foods to avoid.", icon: Apple, tags: ["guide", "diet", "anti-inflammatory", "food"] },
   { path: "/guides/exercise", title: "Exercise Guide", description: "Evidence-based exercise guide for arthritis: low-impact routines, swimming, yoga and strength training.", icon: Dumbbell, tags: ["guide", "exercise", "physio", "movement"] },
-  { path: "/guides/benefits-pip", title: "Benefits & PIP Guide", description: "UK benefits guide for arthritis: PIP eligibility, application process and disability support.", icon: Heart, tags: ["guide", "PIP", "benefits", "disability"] },
+  { path: "/arthritis-waiting-list-help", title: "Waiting List Help", description: "What to do while waiting for rheumatology, physiotherapy or joint replacement in the UK.", icon: Stethoscope, tags: ["guide", "waiting", "rheumatology", "NHS", "UK"] },
+  { path: "/blog/working-with-arthritis-uk-rights", title: "Work Rights & Access to Work", description: "Equality Act, reasonable adjustments and Access to Work for arthritis in the UK.", icon: ShieldCheck, tags: ["work", "Equality Act", "Access to Work", "PIP", "benefits"] },
   { path: "/donate", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
   { path: "/chat", title: "Help Chat", description: "Free personalised arthritis assistant — ask about symptoms, exercises, diet and health services.", icon: Activity, tags: ["chat", "support", "help"] },
   { path: "/self-help", title: "Self-help tool", description: "Interactive joint diagram and practical self-management starting points for UK readers.", icon: Activity, tags: ["exercise", "self-help", "pain", "tool"] },

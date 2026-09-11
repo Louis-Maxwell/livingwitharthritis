@@ -8,6 +8,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -232,6 +233,7 @@ export default function ExerciseGuide() {
             plus two sessions of strength work and a flexibility practice such as tai chi.
             Start short, build gradually, and pick activities you enjoy.
           </p>
+          <AeoEnhancement route="/guides/exercise" />
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
           <section id="exercise-guide-faq" className="mt-16 pt-8 border-t border-border/30">

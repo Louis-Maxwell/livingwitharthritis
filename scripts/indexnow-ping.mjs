@@ -43,6 +43,7 @@ const PATHS = [
   '/glossary/nice',
   '/arthritis-support',
   '/editorial-standards',
+  '/humans.txt',
   '/guides',
   '/benefits-pip',
   '/search',

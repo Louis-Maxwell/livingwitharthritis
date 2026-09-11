@@ -6464,5 +6464,17 @@
     "question": "How do I search Living With Arthritis UK?",
     "answer": "Use the site search page to filter blogs and hub pages by keyword, topic and approximate word count. Results update in your browser without needing an account.",
     "breadcrumb": "Search"
+  },
+  "/blog/working-with-arthritis-uk-rights": {
+    "title": "Working with Arthritis UK Rights | Equality Act & Access to Work",
+    "description": "UK workplace rights for arthritis: Equality Act reasonable adjustments, Access to Work grants, and practical steps to talk to your employer.",
+    "question": "What workplace rights do people with arthritis have in the UK?",
+    "answer": "Arthritis can count as a disability under the Equality Act 2010 when effects are substantial and long-term, which can trigger reasonable adjustments. Access to Work may fund equipment or support. Speak to your employer or Acas for next steps."
+  },
+  "/blog/managing-methotrexate-side-effects-practical-tips": {
+    "title": "Methotrexate Side Effects UK | Practical Tips & Folic Acid",
+    "description": "Practical UK tips for methotrexate side effects, folic acid timing, alcohol questions, and when to contact your rheumatology team.",
+    "question": "How do I manage methotrexate side effects?",
+    "answer": "Follow your team’s dose and timing. Folic acid often reduces some side effects. Report fever, severe mouth ulcers, breathlessness or persistent vomiting promptly."
   }
 }

@@ -348,6 +348,72 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "Combine aerobic (walking, swimming, cycling) with strength training 2-3 times a week and flexibility work. NICE guideline NG226 recommends exercise as first-line for all arthritis types — with pain reduction comparable to NSAIDs and no side effects.",
   }),
+
+  // --- Priority UK hubs (AEO / GEO) -----------------------------------------
+  "/": withDefaults({
+    question: "What is Living With Arthritis UK?",
+    answer:
+      "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
+    faqs: [
+      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
+      { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
+      { q: "Who reviews your medical content?", a: "Clinical review is led by Louis Maxwell, First Contact Practitioner (HCPC PH128483), Chartered Society of Physiotherapy." },
+    ],
+  }),
+  "/about": withDefaults({
+    question: "Who is Living With Arthritis UK?",
+    answer:
+      "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461), based in Oswestry, Shropshire. We publish free UK arthritis guidance and are independent of Arthritis UK.",
+    faqs: [
+      { q: "Where is the charity based?", a: "Registered office: Oswestry Primary Care Centre, Thomas Savin Road, Oswestry, Shropshire SY11 1GA. We serve people across the UK online." },
+      { q: "What is the charity number?", a: "1218461 (England and Wales)." },
+    ],
+  }),
+  "/diet": withDefaults({
+    question: "What is the best diet for arthritis?",
+    answer:
+      "A Mediterranean-style pattern has the strongest evidence for many people with arthritis: vegetables, fruit, wholegrains, beans, olive oil, nuts and oily fish, with less ultra-processed food and excess alcohol. No diet cures arthritis; weight management helps weight-bearing joints.",
+    faqs: [
+      { q: "Can diet cure arthritis?", a: "No. Diet supports self-management alongside exercise and clinical care — it is not a cure." },
+      { q: "Are there foods to avoid?", a: "Cutting back on ultra-processed food, added sugar and excess alcohol is sensible. Blanket elimination diets are not well supported." },
+    ],
+  }),
+  "/guides/exercise": withDefaults({
+    question: "What exercise is best for arthritis?",
+    answer:
+      "NICE places exercise first-line for osteoarthritis: combine low-impact aerobic activity (walking, cycling, swimming) with strengthening two or more days a week and flexibility work. Moderate discomfort that settles within 24 hours is expected; reduce intensity if pain stays high overnight or joints swell.",
+    faqs: [
+      { q: "Should I exercise if my joints hurt?", a: "Yes — start gently. Stop and scale back if pain stays high overnight or swelling increases." },
+      { q: "How much each week?", a: "Around 150 minutes of moderate low-impact activity plus two strengthening sessions, split into short blocks if needed." },
+    ],
+  }),
+  "/arthritis-waiting-list-help": withDefaults({
+    question: "What can I do while waiting for a rheumatology appointment?",
+    answer:
+      "Keep gently active, ask about physiotherapy self-referral where your area allows it, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary widely by NHS trust.",
+    faqs: [
+      { q: "Should I go back to my GP while waiting?", a: "Yes if symptoms worsen or new red-flag symptoms appear, so urgency can be reassessed." },
+      { q: "Can I self-refer to physiotherapy?", a: "Many UK areas allow physiotherapy self-referral — ask your GP surgery or check your ICB website." },
+    ],
+  }),
+  "/blog/working-with-arthritis-uk-rights": withDefaults({
+    question: "What workplace rights do people with arthritis have in the UK?",
+    answer:
+      "Arthritis can be a disability under the Equality Act 2010 when it has a substantial, long-term effect on day-to-day activities. That can trigger reasonable adjustments. Access to Work may fund equipment, travel or support. Speak to your employer or Acas for practical next steps.",
+    faqs: [
+      { q: "What is Access to Work?", a: "A UK government grant that can help pay for workplace support if a disability or health condition affects your job." },
+      { q: "Do I have to tell my employer?", a: "You are not forced to disclose, but sharing enough for reasonable adjustments is often needed for legal protection to apply in practice." },
+    ],
+  }),
+  "/blog/managing-methotrexate-side-effects-practical-tips": withDefaults({
+    question: "How do I manage methotrexate side effects?",
+    answer:
+      "Follow your rheumatology team's dose and timing. Folic acid is often prescribed to reduce some side effects. Report fever, unexplained bruising, severe mouth ulcers, breathlessness or persistent vomiting promptly. Never stop methotrexate suddenly without clinical advice unless told to for an acute reason.",
+    faqs: [
+      { q: "Why take folic acid with methotrexate?", a: "Folic acid reduces some methotrexate side effects; use the dose and day your team recommended." },
+      { q: "Can I drink alcohol?", a: "Ask your team — many people are advised to keep alcohol low because both alcohol and methotrexate affect the liver." },
+    ],
+  }),
 };
 
 /** Look up AEO data for a route. Returns undefined if not configured. */

@@ -25,6 +25,7 @@ import OAHero from "@/components/landing/OAHero";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
@@ -197,6 +198,10 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Editorial hero (eager LCP) */}
           <OAHero />
+
+          <div className="container mx-auto px-5 md:px-10 max-w-3xl">
+            <AeoEnhancement route="/" />
+          </div>
 
           {/* 01b — Interactive start-here path, immediately after the hero. */}
           <Suspense fallback={<SectionFallback />}>

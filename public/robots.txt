@@ -557,3 +557,6 @@ Disallow: /site-index
 
 Sitemap: https://livingwitharthritis.org.uk/sitemap-index.xml
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+
+# Team / E-E-A-T
+# https://livingwitharthritis.org.uk/humans.txt
