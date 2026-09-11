@@ -18,7 +18,7 @@ const scrollToStartHere = (event: MouseEvent<HTMLAnchorElement>) => {
 // LCP element stays tiny on mobile (~14KB at 400w).
 const HERO_IMG = "/openverse/hero-friends-800.webp";
 const HERO_SRCSET = "/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w";
-const HERO_SIZES = "(min-width: 1024px) 560px, 100%";
+const HERO_SIZES = "(min-width: 1024px) 320px, 220px";
 
 const OAHero = memo(() => {
   const navigate = useNavigate();
@@ -29,24 +29,29 @@ const OAHero = memo(() => {
       aria-labelledby="oa-hero"
       className="band-red relative w-full max-w-full overflow-hidden"
     >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Fill the first screen under sticky chrome (banner + donate + nav),
+          without a tall empty red field. Header stack is ~13.5rem on desktop. */}
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-7xl flex items-center py-6 sm:py-7 lg:py-8">
+        <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-6 lg:gap-10 items-center w-full">
           {/* Copy column */}
-          <div className="hero-stagger">
+          <div className="hero-stagger min-w-0">
             <h1
               id="oa-hero"
-              className="hero-item text-balance break-words text-[clamp(2rem,8vw,5.5rem)] leading-[0.95] uppercase"
+              className="hero-item text-balance break-words text-[clamp(1.65rem,3.6vw,2.85rem)] leading-[1.15] uppercase"
             >
-              Living With Arthritis UK — evidence-based health guides
+              Living With Arthritis UK
+              <span className="mt-1.5 block text-[0.42em] sm:text-[0.38em] font-semibold tracking-[0.12em] normal-case">
+                Evidence-based health guides
+              </span>
             </h1>
 
-            <p className="hero-item mt-6 text-sm lg:text-base font-medium max-w-xl leading-relaxed">
+            <p className="hero-item mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
               Living with joint pain is exhausting — the stiff mornings, the cancelled plans,
               the feeling that nobody quite gets it. You are not alone.
             </p>
 
 
-            <div className="hero-item mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 min-w-0">
+            <div className="hero-item mt-5 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 min-w-0">
               <button
                 type="button"
                 onClick={() => navigate("/conditions/osteoarthritis")}
@@ -59,17 +64,18 @@ const OAHero = memo(() => {
               <a href="/donate" className="btn-map w-full sm:w-auto justify-center min-h-11" style={{ background: "white", color: "hsl(var(--foreground))" }}>
                 Donate — keep it free
               </a>
+            </div>
+            <p className="hero-item mt-3">
               <a
                 href="#start-here"
                 onClick={scrollToStartHere}
-                className="btn-map w-full sm:w-auto justify-center min-h-11"
-                style={{ background: "transparent", color: "inherit", border: "2px solid currentColor" }}
+                className="text-sm font-semibold underline underline-offset-4 hover:no-underline"
               >
                 Find your starting point
               </a>
-            </div>
+            </p>
 
-            <p className="hero-item mt-4 text-xs">
+            <p className="hero-item mt-3 text-xs">
               Learn about our{" "}
               <Link to="/editorial-standards" className="underline hover:no-underline font-medium">
                 medical review process and editorial standards
@@ -79,7 +85,7 @@ const OAHero = memo(() => {
 
             <nav
               aria-label="Popular guides"
-              className="hero-item mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+              className="hero-item mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"
             >
               <span className="font-semibold">Popular:</span>
               <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
@@ -90,8 +96,8 @@ const OAHero = memo(() => {
             </nav>
           </div>
 
-          {/* Octagon image — MAP signature shape */}
-          <div className="reveal relative aspect-square w-full max-w-[min(560px,100%)] mx-auto min-w-0">
+          {/* Octagon image — MAP signature shape, sized to sit in one viewport */}
+          <div className="reveal relative aspect-square w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[320px] mx-auto min-w-0">
             <img
               src={HERO_IMG}
               srcSet={HERO_SRCSET}
