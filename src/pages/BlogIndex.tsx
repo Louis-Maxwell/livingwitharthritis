@@ -1,4 +1,4 @@
-import { useState, useMemo, type ReactNode } from "react";
+import { useState, useMemo, useEffect, type ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -7,6 +7,8 @@ import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
 import {
   ArrowRight,
+  Bookmark,
+  BookOpen,
   ChevronLeft,
   ChevronRight,
   Sparkles,
@@ -29,6 +31,8 @@ import {
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
 import BlogCard from "@/components/blog/BlogCard";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
+import { getBookmarks } from "@/lib/bookmarkedArticles";
+import { getLastRead, type LastReadArticle } from "@/lib/lastReadArticle";
 
 const CATEGORY_LABELS: Record<BlogCategoryKey, string> = {
   exercise: "Exercise",
@@ -139,11 +143,53 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
   const [searchQuery, setSearchQuery] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("newest");
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeAuthor, setActiveAuthor] = useState<string | null>(null);
+  const [bookmarkSlugs, setBookmarkSlugs] = useState<string[]>([]);
+  const [lastRead, setLastReadState] = useState<LastReadArticle | null>(null);
 
   const { data: blogPosts = [], isLoading } = useBlogArticlesList();
   const { data: editorPicks = [] } = useFeaturedArticles(6);
 
+  useEffect(() => {
+    setBookmarkSlugs([...getBookmarks()]);
+    setLastReadState(getLastRead());
+    const onFocus = () => {
+      setBookmarkSlugs([...getBookmarks()]);
+      setLastReadState(getLastRead());
+    };
+    window.addEventListener("focus", onFocus);
+    window.addEventListener("storage", onFocus);
+    return () => {
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener("storage", onFocus);
+    };
+  }, []);
+
   const availableTags = useMemo(() => collectTags(blogPosts), [blogPosts]);
+
+  const availableAuthors = useMemo(() => {
+    const set = new Set<string>();
+    for (const p of blogPosts) {
+      if (typeof p.author === "string" && p.author.trim()) set.add(p.author.trim());
+    }
+    return [...set].sort((a, b) => a.localeCompare(b, "en-GB"));
+  }, [blogPosts]);
+
+  const showAuthorFilter = availableAuthors.length >= 2;
+
+  const savedPosts = useMemo(() => {
+    if (bookmarkSlugs.length === 0) return [];
+    const bySlug = new Map(blogPosts.map((p) => [p.slug, p]));
+    return bookmarkSlugs
+      .map((s) => bySlug.get(s))
+      .filter((p): p is (typeof blogPosts)[number] => Boolean(p))
+      .slice(0, 6);
+  }, [bookmarkSlugs, blogPosts]);
+
+  const continuePost = useMemo(() => {
+    if (!lastRead?.slug) return null;
+    return blogPosts.find((p) => p.slug === lastRead.slug) ?? null;
+  }, [lastRead, blogPosts]);
 
   const featuredPosts = useMemo(() => {
     const bySlug = new Map(blogPosts.map((p) => [p.slug, p]));
@@ -177,7 +223,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
   const filtered = useMemo(() => {
     const base =
-      activeCategory === "All" && !searchQuery.trim() && !activeTag
+      activeCategory === "All" && !searchQuery.trim() && !activeTag && !activeAuthor
         ? blogPosts.filter((p) => !featuredSlugs.has(p.slug))
         : blogPosts;
     let posts =
@@ -189,6 +235,10 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
       posts = posts.filter(
         (p) => Array.isArray(p.tags) && p.tags.some((t) => t.toLowerCase() === activeTag.toLowerCase()),
       );
+    }
+
+    if (activeAuthor) {
+      posts = posts.filter((p) => (p.author || "").trim() === activeAuthor);
     }
 
     if (searchQuery.trim()) {
@@ -211,7 +261,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
       sorted.sort((a, b) => a.title.localeCompare(b.title, "en-GB", { sensitivity: "base" }));
     }
     return sorted;
-  }, [activeCategory, searchQuery, blogPosts, featuredSlugs, sortMode, activeTag]);
+  }, [activeCategory, searchQuery, blogPosts, featuredSlugs, sortMode, activeTag, activeAuthor]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
@@ -223,7 +273,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
   };
 
   const showDiscovery =
-    activeCategory === "All" && !searchQuery.trim() && !activeTag && safePage === 1;
+    activeCategory === "All" &&
+    !searchQuery.trim() &&
+    !activeTag &&
+    !activeAuthor &&
+    safePage === 1;
 
   return (
     <>
@@ -369,7 +423,48 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             </ul>
           </nav>
 
-          {/* Featured / Editor's picks */}
+          {/* Continue reading — last opened article on this device */}
+          {continuePost && (
+            <section aria-labelledby="continue-heading" className="mb-10">
+              <div className="flex items-baseline justify-between mb-4">
+                <h2
+                  id="continue-heading"
+                  className="flex items-center gap-2 font-display text-lg md:text-xl font-bold text-foreground"
+                >
+                  <BookOpen className="w-5 h-5 text-primary" aria-hidden="true" /> Continue reading
+                </h2>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Resume</span>
+              </div>
+              <BlogCard post={continuePost} variant="compact" className="max-w-3xl" />
+            </section>
+          )}
+
+          {/* Saved for later — local bookmarks only; no view counts */}
+          <section aria-labelledby="saved-heading" className="mb-12">
+            <div className="flex items-baseline justify-between mb-4">
+              <h2
+                id="saved-heading"
+                className="flex items-center gap-2 font-display text-xl md:text-2xl font-bold text-foreground"
+              >
+                <Bookmark className="w-5 h-5 text-primary" aria-hidden="true" /> Saved articles
+              </h2>
+              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">This device</span>
+            </div>
+            {savedPosts.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {savedPosts.map((post) => (
+                  <BlogCard key={`saved-${post.slug}`} post={post} />
+                ))}
+              </div>
+            ) : (
+              <p className="rounded-xl border border-dashed border-border/60 bg-muted/20 px-5 py-6 text-sm md:text-base text-muted-foreground dark:border-border/70">
+                No saved articles yet. Open any guide and tap <strong className="text-foreground">Save</strong>{" "}
+                to bookmark it on this device — we never invent popularity or view counts.
+              </p>
+            )}
+          </section>
+
+          {/* Featured / Editor's picks — magazine lead spans 2 cols on md+ */}
           {showDiscovery && featuredPosts.length > 0 && (
             <section aria-labelledby="featured-heading" className="mb-12">
               <div className="flex items-baseline justify-between mb-5">
@@ -383,7 +478,14 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredPosts.map((post, i) => (
-                  <BlogCard key={post.slug} post={post} featured priority={i === 0} />
+                  <BlogCard
+                    key={post.slug}
+                    post={post}
+                    featured
+                    priority={i === 0}
+                    variant={i === 0 ? "lead" : "default"}
+                    className={i === 0 ? "md:col-span-2" : undefined}
+                  />
                 ))}
               </div>
             </section>
@@ -457,9 +559,12 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
           {showDiscovery && <BlogSoftCTAs variant="inline" className="mb-12" />}
 
-          {/* Search + filters */}
-          <div id="blog-filters" className="scroll-mt-24">
-            <div className="relative max-w-xl mb-6">
+          {/* Sticky compact filter bar (md+) — search + category + sort; no fake metrics */}
+          <div
+            id="blog-filters"
+            className="scroll-mt-24 mb-6 md:sticky md:top-16 md:z-30 md:-mx-2 md:px-2 md:py-3 md:rounded-2xl md:border md:border-border/40 md:bg-background/85 md:backdrop-blur-md dark:md:border-border/60 dark:md:bg-background/80"
+          >
+            <div className="relative max-w-xl mb-4 md:mb-3">
               <label htmlFor="blog-search" className="sr-only">
                 Search articles
               </label>
@@ -477,7 +582,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   setSearchQuery(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="w-full pl-11 pr-12 py-3.5 rounded-xl border border-border/40 bg-card text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
+                className="w-full min-h-11 pl-11 pr-12 py-3 rounded-xl border border-border/50 bg-card text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all dark:border-border/70"
               />
               {searchQuery ? (
                 <button
@@ -486,7 +591,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                     setSearchQuery("");
                     setCurrentPage(1);
                   }}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 min-h-9 min-w-9 inline-flex items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 min-h-11 min-w-11 inline-flex items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" aria-hidden="true" />
@@ -497,7 +602,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <div
               role="group"
               aria-label="Filter by category"
-              className="flex flex-wrap gap-2 mb-4"
+              className="flex flex-wrap gap-2 mb-3"
             >
               {categories.map((cat) => (
                 <button
@@ -508,7 +613,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   className={`min-h-11 px-4 py-2.5 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                     activeCategory === cat
                       ? `${categoryColors[cat]} border-current shadow-sm scale-105`
-                      : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50"
+                      : "bg-muted/30 text-muted-foreground border-border/40 hover:bg-muted/50 dark:border-border/55"
                   }`}
                 >
                   {cat}
@@ -519,9 +624,35 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               ))}
             </div>
 
+            {showAuthorFilter && (
+              <div role="group" aria-label="Filter by author" className="flex flex-wrap gap-2 mb-3">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground self-center mr-1">
+                  Author
+                </span>
+                {availableAuthors.map((author) => (
+                  <button
+                    key={author}
+                    type="button"
+                    aria-pressed={activeAuthor === author}
+                    onClick={() => {
+                      setActiveAuthor((prev) => (prev === author ? null : author));
+                      setCurrentPage(1);
+                    }}
+                    className={`min-h-11 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                      activeAuthor === author
+                        ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                        : "bg-card text-muted-foreground border-border/50 hover:border-primary/30 dark:border-border/60"
+                    }`}
+                  >
+                    {author}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Optional tags — only when posts carry tags */}
             {availableTags.length > 0 && (
-              <div role="group" aria-label="Filter by tag" className="flex flex-wrap gap-2 mb-4">
+              <div role="group" aria-label="Filter by tag" className="flex flex-wrap gap-2 mb-3">
                 <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground self-center mr-1">
                   Tags
                 </span>
@@ -534,7 +665,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                       setActiveTag((prev) => (prev === tag ? null : tag));
                       setCurrentPage(1);
                     }}
-                    className={`min-h-10 px-3 py-1.5 rounded-full text-xs font-medium border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    className={`min-h-11 px-3 py-1.5 rounded-full text-xs font-medium border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                       activeTag === tag
                         ? "bg-primary text-primary-foreground border-primary"
                         : "bg-card text-muted-foreground border-border/40 hover:border-primary/30"
@@ -546,7 +677,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </div>
             )}
 
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <p className="text-sm text-muted-foreground" aria-live="polite">
                 Showing {paginated.length} of {filtered.length} article
                 {filtered.length !== 1 ? "s" : ""}
@@ -555,6 +686,9 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                 )}
                 {activeTag && (
                   <span className="text-primary font-medium"> tagged {activeTag}</span>
+                )}
+                {activeAuthor && (
+                  <span className="text-primary font-medium"> by {activeAuthor}</span>
                 )}
               </p>
               <div role="group" aria-label="Sort articles" className="flex flex-wrap items-center gap-2">
@@ -570,10 +704,10 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                       setSortMode(opt.id);
                       setCurrentPage(1);
                     }}
-                    className={`min-h-10 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                    className={`min-h-11 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                       sortMode === opt.id
                         ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                        : "bg-card text-muted-foreground border-border/40 hover:border-primary/30"
+                        : "bg-card text-muted-foreground border-border/40 hover:border-primary/30 dark:border-border/60"
                     }`}
                   >
                     {opt.label}
@@ -586,11 +720,21 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           {isLoading && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-busy="true" aria-label="Loading articles">
               {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="rounded-2xl border border-border/30 bg-card overflow-hidden">
-                  <Skeleton className="aspect-[16/9] w-full rounded-none" />
-                  <div className="p-6 space-y-3">
+                <div
+                  key={i}
+                  className={`rounded-2xl border border-border/40 bg-card overflow-hidden dark:border-border/60 ${
+                    i === 0 ? "md:col-span-2 md:flex md:flex-row" : ""
+                  }`}
+                >
+                  <Skeleton
+                    className={`aspect-[16/9] w-full rounded-none ${
+                      i === 0 ? "md:aspect-auto md:w-[48%] md:min-h-[240px]" : ""
+                    }`}
+                  />
+                  <div className={`p-6 space-y-3 ${i === 0 ? "md:w-[52%] md:flex md:flex-col md:justify-center" : ""}`}>
                     <Skeleton className="h-4 w-24" />
-                    <Skeleton className="h-6 w-full" />
+                    <Skeleton className="h-7 w-full" />
+                    <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-4 w-3/4" />
                     <Skeleton className="h-4 w-1/2" />
                   </div>
@@ -616,6 +760,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   setSearchQuery("");
                   setActiveCategory("All");
                   setActiveTag(null);
+                  setActiveAuthor(null);
                   setSortMode("newest");
                   setCurrentPage(1);
                 }}

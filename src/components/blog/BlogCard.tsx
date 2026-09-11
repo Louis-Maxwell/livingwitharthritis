@@ -16,15 +16,22 @@ export interface BlogCardPost {
 
 interface BlogCardProps {
   post: BlogCardPost;
-  /** Priority image for LCP (first featured card). */
+  /** Priority image for LCP (first featured / lead card). */
   priority?: boolean;
   /** Slightly larger typography for featured strip. */
   featured?: boolean;
+  /**
+   * Layout variant:
+   * - default: vertical card
+   * - lead: magazine horizontal (image left, copy right) on md+
+   * - compact: denser resume / strip card
+   */
+  variant?: "default" | "lead" | "compact";
   className?: string;
 }
 
 const CATEGORY_BADGE =
-  "text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border border-primary/30 bg-background text-primary";
+  "text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border border-primary/40 bg-background/90 text-primary dark:border-primary/50 dark:bg-card dark:text-primary";
 
 /** Estimate reading time from excerpt when full body is unavailable on the list. */
 export function estimateListReadTime(excerpt: string): string {
@@ -49,24 +56,42 @@ function formatDate(iso: string): string {
  * Premium healthcare blog card — larger type for 40+, clear hierarchy,
  * hover lift/shadow, focus rings, aspect-ratio covers to avoid CLS.
  */
-const BlogCard = ({ post, priority = false, featured = false, className = "" }: BlogCardProps) => {
+const BlogCard = ({
+  post,
+  priority = false,
+  featured = false,
+  variant = "default",
+  className = "",
+}: BlogCardProps) => {
   const title = displayTitle(post);
   const cover = coverImage(post.category, post.title, post.slug);
   const readTime = estimateListReadTime(post.excerpt);
   const dateLabel = formatDate(post.date);
+  const isLead = variant === "lead";
+  const isCompact = variant === "compact";
 
   return (
     <article
-      className={`group flex flex-col rounded-2xl border border-border/40 bg-card overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary/40 focus-within:ring-offset-2 ${
-        featured ? "card-accent-top" : ""
-      } ${className}`}
+      className={`group relative flex flex-col rounded-2xl border border-border/50 bg-card overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-primary/25 dark:border-border/70 dark:hover:border-primary/40 dark:hover:bg-card/95 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary/40 focus-within:ring-offset-2 focus-within:ring-offset-background ${
+        featured || isLead ? "card-accent-top" : ""
+      } ${isLead ? "md:flex-row md:items-stretch" : ""} ${className}`}
     >
       <Link
         to={`/blog/${post.slug}`}
-        className="block focus-visible:outline-none flex-1 min-w-0"
+        className={`block focus-visible:outline-none flex-1 min-w-0 ${
+          isLead ? "md:flex md:flex-row md:min-h-[280px]" : "flex flex-col"
+        }`}
         aria-label={`Read: ${title}`}
       >
-        <div className="aspect-[16/9] overflow-hidden bg-muted/30">
+        <div
+          className={`overflow-hidden bg-muted/30 dark:bg-muted/20 ${
+            isLead
+              ? "aspect-[16/9] md:aspect-auto md:w-[48%] md:min-h-[280px] md:shrink-0"
+              : isCompact
+                ? "aspect-[16/9] max-h-36"
+                : "aspect-[16/9]"
+          }`}
+        >
           <img
             src={safeCoverSrc(cover.src)}
             alt=""
@@ -80,7 +105,11 @@ const BlogCard = ({ post, priority = false, featured = false, className = "" }: 
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div className={`flex flex-col flex-1 ${featured ? "p-5 md:p-6" : "p-5 md:p-6"}`}>
+        <div
+          className={`flex flex-col flex-1 min-w-0 ${
+            isLead ? "p-5 md:p-7 md:w-[52%] md:justify-center" : isCompact ? "p-4 md:p-5" : "p-5 md:p-6"
+          }`}
+        >
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className={CATEGORY_BADGE}>{post.category}</span>
             <time dateTime={post.date} className="text-xs sm:text-sm text-muted-foreground">
@@ -89,40 +118,55 @@ const BlogCard = ({ post, priority = false, featured = false, className = "" }: 
           </div>
           <h3
             className={`font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-snug break-words mb-2 ${
-              featured ? "text-lg md:text-xl" : "text-lg md:text-[1.15rem]"
+              isLead
+                ? "text-[1.35rem] md:text-2xl lg:text-[1.65rem]"
+                : featured
+                  ? "text-[1.25rem] md:text-xl"
+                  : "text-[1.2rem] md:text-[1.25rem]"
             }`}
           >
             {title}
           </h3>
-          <p className="text-sm md:text-[0.95rem] text-muted-foreground leading-relaxed line-clamp-3 mb-4 flex-1">
+          <p
+            className={`text-muted-foreground leading-relaxed mb-4 flex-1 ${
+              isCompact ? "text-base line-clamp-2" : "text-base line-clamp-3"
+            }`}
+          >
             {post.excerpt}
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-3 border-t border-border/20 text-xs sm:text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-3 border-t border-border/30 dark:border-border/50 text-sm text-muted-foreground">
             {post.author ? (
-              <span className="inline-flex items-center gap-1.5 min-w-0">
+              <span className="inline-flex items-center gap-1.5 min-w-0 min-h-11">
                 <User className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                 <span className="truncate">{post.author}</span>
               </span>
             ) : null}
-            <span className="inline-flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1.5 min-h-11">
               <Clock className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
               {readTime}
             </span>
-            <span className="ml-auto text-primary font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-              Read article <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            <span className="ml-auto text-primary font-medium inline-flex min-h-11 items-center gap-1.5 group-hover:gap-2.5 transition-all">
+              {isCompact ? "Continue" : "Read article"}{" "}
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </span>
           </div>
         </div>
       </Link>
-      <div className="px-5 md:px-6 pb-5 -mt-1">
-        <Link
-          to={`/blog/${post.slug}#listen`}
-          className="text-muted-foreground text-sm font-medium inline-flex min-h-11 items-center gap-1.5 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
-          aria-label={`Listen to ${title}`}
+      {!isCompact && (
+        <div
+          className={`px-5 md:px-6 pb-4 ${
+            isLead ? "md:absolute md:bottom-4 md:right-6 md:px-0 md:pb-0" : "-mt-1"
+          }`}
         >
-          <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
-        </Link>
-      </div>
+          <Link
+            to={`/blog/${post.slug}#listen`}
+            className="text-muted-foreground text-sm font-medium inline-flex min-h-11 items-center gap-1.5 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+            aria-label={`Listen to ${title}`}
+          >
+            <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
+          </Link>
+        </div>
+      )}
     </article>
   );
 };

@@ -30,6 +30,7 @@ import KeyTakeaways from "@/components/article/KeyTakeaways";
 import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
+import { setLastRead } from "@/lib/lastReadArticle";
 import { getArticleImages, coverImage, onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/articleImages";
 import NotFound from "@/pages/NotFound";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
@@ -135,6 +136,17 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const redirectTo = slug ? BLOG_SLUG_REDIRECTS[slug] : undefined;
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
+
+  // Persist last-read immediately for "Continue reading" on /blog.
+  useEffect(() => {
+    if (!slug || redirectTo || !article) return;
+    setLastRead({
+      slug,
+      title: article.title,
+      excerpt: article.excerpt,
+      category: article.category,
+    });
+  }, [slug, redirectTo, article]);
 
   // Mark this article as visited after 5s dwell so bounces don't pollute the set.
   useEffect(() => {
@@ -367,15 +379,15 @@ const BlogPost = () => {
         )}
       </Helmet>
       <div className="min-h-screen bg-background">
-        <ScrollProgress />
-        <div className="no-print"><Header /></div>
+        <div className="no-print print:hidden"><ScrollProgress /></div>
+        <div className="no-print print:hidden"><Header /></div>
 
         <article itemScope itemType="https://schema.org/MedicalWebPage">
 
 
         <header className="border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
-            <nav aria-label="Breadcrumb" className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground">
+            <nav aria-label="Breadcrumb" className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
               <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
               <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
@@ -420,7 +432,7 @@ const BlogPost = () => {
                 {metaDesc}
               </p>
 
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 flex-wrap">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10 border-2 border-primary/15">
                     <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
@@ -442,18 +454,20 @@ const BlogPost = () => {
                     </div>
                   </>
                 )}
+
+                {slug && (
+                  <div className="sm:ml-auto no-print print:hidden">
+                    <ArticleBookmarkButton slug={slug} title={article.title} prominent />
+                  </div>
+                )}
               </div>
 
               <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-6 max-w-[640px]" />
 
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                {slug && (
-                  <ArticleBookmarkButton slug={slug} title={article.title} />
-                )}
-              </div>
-
               {slug && (
-                <SocialShareButtons title={article.title} slug={slug} instance="header" />
+                <div className="no-print print:hidden">
+                  <SocialShareButtons title={article.title} slug={slug} instance="header" />
+                </div>
               )}
 
             </div>
@@ -672,7 +686,11 @@ const BlogPost = () => {
           </div>{/* end lg grid */}
 
           <footer className="mt-14 pt-8 border-t border-border/20 max-w-[860px]">
-            {slug && <SocialShareButtons title={article.title} slug={slug} instance="footer" />}
+            {slug && (
+              <div className="no-print print:hidden">
+                <SocialShareButtons title={article.title} slug={slug} instance="footer" />
+              </div>
+            )}
             <Suspense fallback={null}>
               {slug && <BlogHelpfulness slug={slug} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />

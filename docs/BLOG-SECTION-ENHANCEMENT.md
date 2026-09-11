@@ -65,3 +65,40 @@ Living With Arthritis UK — registered charity **1218461**. Clinical reviewer: 
 - HCPC **PH128483**
 - Motion is Lotion
 - Independent of Arthritis UK
+
+## Wave 2 (September 2026)
+
+Premium UK health-magazine listing + post polish. **No public view / popular counts** (honest metrics only; Louis’s viewer-count request is deferred until a real counter exists — we will not invent numbers or restore empty-map trending UI).
+
+### Listing (`BlogIndex` + `BlogCard`)
+
+- **Magazine lead**: first Editor’s Pick uses `BlogCard` `variant="lead"` and `md:col-span-2` — horizontal card (image left, copy right) on `md+`; remaining picks stay in the grid.
+- **Continue reading**: `lwa.lastRead.v1` (`lastReadArticle.ts`) — compact resume card when a last-read slug exists in session/localStorage.
+- **Saved articles**: strip of bookmarked `BlogCard`s from `lwa.bookmarks.v1`; empty-state hint when none (device-local only).
+- **Sticky filter bar** (`md+`): search + category + sort with `backdrop-blur` / translucent background; a11y labels retained (`aria-label`, `aria-pressed`, `sr-only`).
+- **Author chip filter**: shown only when the catalog has **≥ 2** distinct authors; omitted otherwise.
+- **40+ readability**: card titles ≥ `1.2rem`, excerpts ≥ `1rem` (`text-base`), tap targets `min-h-11`.
+- **Dark-mode contrast**: stronger badge/border/hover tokens on `bg-card`.
+- Pagination kept; skeleton grid polished (lead-shaped first skeleton). Still **no infinite scroll**.
+
+### Post (`BlogPost`)
+
+- Persists last-read slug (+ light meta) on view via `setLastRead`.
+- Print-friendly: progress, header chrome, breadcrumbs, share wrapped in `no-print` / `print:hidden`; article body + citations kept.
+- **Your reading journey** band (`ClusterRelatedLinks`): next cluster sibling + pillar + tool, with optional extra cluster links; educational disclaimer retained (no diagnosis language).
+- Bookmark control moved into the byline row with `prominent` styling (“Save for later”).
+- UK-safe educational framing unchanged (charity 1218461, HCPC PH128483, Motion is Lotion).
+
+### Shared
+
+- New helper: `src/lib/lastReadArticle.ts`.
+- `BlogCard` variants: `default` | `lead` | `compact`.
+- `ArticleBookmarkButton` `prominent` prop for byline visibility.
+
+### Still deferred
+
+| Idea | Why |
+|------|-----|
+| Public view / popular counts on listing or posts | No honest live counter; refuse fabricated engagement metrics. |
+| Infinite scroll | Pagination preferred for a11y/SEO. |
+| Cloudflare / Lovable send_message / Oswestry address | Out of scope — GitHub-only. |
