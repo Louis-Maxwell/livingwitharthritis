@@ -16,6 +16,7 @@ import FaqAccordion from "@/components/faq/FaqAccordion";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
 
@@ -127,10 +128,10 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Living With Arthritis UK | Independent CIO charity</title>
+        <title>About Living With Arthritis UK | Registered charity 1218461</title>
         <meta name="description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
-        <meta property="og:title" content="About Living With Arthritis UK | Independent CIO charity" />
+        <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461" />
         <meta property="og:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
@@ -142,7 +143,7 @@ const AboutUs = () => {
         <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Living With Arthritis UK | Independent CIO charity" />
+        <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461" />
         <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
@@ -202,6 +203,10 @@ const AboutUs = () => {
             ))}
           </div>
         </PageHero>
+
+        <div className="container mx-auto max-w-3xl px-4 -mt-4 mb-8">
+          <AeoEnhancement route="/about" />
+        </div>
 
         {/* Disambiguation line — who we are and who we are not */}
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-6 overflow-visible">

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Clock, Hospital, ArrowRight, Calculator, CheckCircle2, Phone, BookOpen } from "lucide-react";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -87,6 +88,7 @@ const WaitingListHelp = () => {
         <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
           Arthritis Waiting List Help
         </h1>
+        <AeoEnhancement route="/arthritis-waiting-list-help" />
         <p className="text-lg text-muted-foreground leading-relaxed mb-10">
           Waiting for an rheumatology appointment? You don't need to wait in pain. We provide free, clinically aligned guidance, exercises, and tools — built specifically for UK patients on the rheumatology waiting list.
         </p>

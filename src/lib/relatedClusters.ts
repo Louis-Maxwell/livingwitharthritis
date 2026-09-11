@@ -116,7 +116,61 @@ export const CONTENT_CLUSTERS: ContentCluster[] = [
       to: "/supplements",
       description: "What actually works for arthritis — and what to skip.",
     },
+  },,
+
+  {
+    id: "pip-benefits",
+    label: "PIP & benefits",
+    triggers: [
+      "pip", "personal independence payment", "attendance allowance",
+      "blue badge", "motability", "disability benefit", "universal credit",
+      "adult disability payment", "dfa", "disabled facilities",
+    ],
+    bestGuide: {
+      title: "UK Arthritis Benefits & PIP Guide",
+      to: "/guides/benefits-pip",
+      description: "PIP, Attendance Allowance, Blue Badge and appeals for arthritis in the UK.",
+    },
   },
+  {
+    id: "waiting-list",
+    label: "Waiting lists",
+    triggers: [
+      "waiting list", "waiting well", "rheumatology wait", "physio wait",
+      "joint replacement wait", "nhs wait", "referral",
+    ],
+    bestGuide: {
+      title: "Arthritis Waiting List Help",
+      to: "/arthritis-waiting-list-help",
+      description: "What to do while waiting for rheumatology, physio or surgery in the UK.",
+    },
+  },
+  {
+    id: "work-rights",
+    label: "Work & rights",
+    triggers: [
+      "access to work", "equality act", "reasonable adjustment", "workplace",
+      "occupational health", "fit note", "wfh", "working with arthritis",
+    ],
+    bestGuide: {
+      title: "Working with Arthritis — UK Rights",
+      to: "/blog/working-with-arthritis-uk-rights",
+      description: "Equality Act, reasonable adjustments and Access to Work.",
+    },
+  },
+  {
+    id: "methotrexate",
+    label: "Methotrexate",
+    triggers: [
+      "methotrexate", "mtx", "folic acid", "dmard", "weekly injection",
+    ],
+    bestGuide: {
+      title: "Managing Methotrexate Side Effects",
+      to: "/blog/managing-methotrexate-side-effects-practical-tips",
+      description: "Practical UK tips, folic acid timing and when to call your team.",
+    },
+  },
+
 ];
 
 const CLUSTERS_BY_ID = new Map(CONTENT_CLUSTERS.map((c) => [c.id, c]));
