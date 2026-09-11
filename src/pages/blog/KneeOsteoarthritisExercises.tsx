@@ -16,6 +16,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
+import AeoEnhancement from '@/components/seo/AeoEnhancement';
+import TopicClusterNav from '@/components/seo/TopicClusterNav';
+import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
 
 const SITE = 'https://livingwitharthritis.org.uk';
 const PATH = '/blog/knee-arthritis-exercises-uk';
@@ -269,6 +272,9 @@ export default function KneeOsteoarthritisExercises() {
               date="Reviewed June 2026"
             />
           </div>
+          <AeoEnhancement route="/blog/knee-arthritis-exercises-uk" />
+          <EducationalDisclaimerBox />
+          <TopicClusterNav path="/blog/knee-arthritis-exercises-uk" />
           <AnswerBox
             question="What are the best exercises for knee arthritis?"
             reviewed="2026-06-21"
@@ -307,7 +313,7 @@ export default function KneeOsteoarthritisExercises() {
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Core exercises to consider
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="speakable-intro text-lg text-muted-foreground">
               These options cover strengthening and low-impact aerobic activity.
               Choose a manageable starting point rather than doing all three at once.
             </p>

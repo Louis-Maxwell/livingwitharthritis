@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
@@ -96,7 +98,7 @@ const ArthritisPainRelief = () => (
             Arthritis Pain Relief
           </h1>
             <AeoEnhancement route="/guides/arthritis-pain-relief" />
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
             More than 10 million people in the UK live with arthritis. Most days are manageable; some are not. This guide pulls together the everyday things that lower pain — the small habits, the right medicines, the moves that work — so you can build a kit that fits your life.
           </p>
         </div>
@@ -194,7 +196,10 @@ const ArthritisPainRelief = () => (
           </div>
         </div>
       </main>
-      <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
+      
+      <EducationalDisclaimerBox />
+      <TopicClusterNav path="/guides/arthritis-pain-relief" />
+<GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />
     </div>
   </>

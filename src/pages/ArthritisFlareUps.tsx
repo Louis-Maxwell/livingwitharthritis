@@ -15,6 +15,9 @@ import {
   Pill, Apple, BadgeCheck, ChevronRight
 } from "lucide-react";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -205,6 +208,7 @@ export default function ArthritisFlareUps() {
           ))}
         </nav>
       </PageHero>
+      <div className="container mx-auto px-6 md:px-10 max-w-3xl"><AeoEnhancement route="/arthritis-flare-ups" /></div>
 
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
         <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-6">
@@ -557,7 +561,10 @@ export default function ArthritisFlareUps() {
         <p className="text-xs text-muted-foreground mt-8 leading-relaxed">
           <strong>Medical disclaimer:</strong> This guide is for educational purposes only and does not replace professional medical advice. Content is aligned with publicly available national clinical and NICE guidance as of March 2026. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment plan. In an emergency, call 999.
         </p>
-        <CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />
+        
+      <EducationalDisclaimerBox />
+      <TopicClusterNav path="/arthritis-flare-ups" />
+<CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />
         <ContextualLinks
           heading="Reduce flare-ups, long term"
           intro="Flare-ups respond best to a combined plan: anti-inflammatory food, gentle daily movement, mental health support and the right condition-specific treatment."

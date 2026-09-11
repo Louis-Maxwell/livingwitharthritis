@@ -17,6 +17,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -416,7 +418,10 @@ const Osteoarthritis = () => (
               Read our articles
             </Link>
           </div>
-          <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
+          
+      <EducationalDisclaimerBox />
+      <TopicClusterNav path="/conditions/osteoarthritis" />
+<CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <RelatedArticles

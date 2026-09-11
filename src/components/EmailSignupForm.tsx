@@ -17,8 +17,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const EmailSignupForm = memo(({
   placeholder = "your@email.com",
-  label = "Get free guides and updates",
-  buttonText = "Get free guides",
+  label = "Free educational emails (PECR consent)",
+  buttonText = "Request emails",
   sequence = "welcome-sequence",
   onSuccess,
   compact = false,
@@ -167,12 +167,15 @@ const EmailSignupForm = memo(({
               </div>
             )}
 
-            <p className="text-[11px] text-muted-foreground">
-              By subscribing, you agree to receive emails from Living with Arthritis UK and our{" "}
+            <p className="text-[11px] text-muted-foreground leading-relaxed">
+              Tick-free request only starts a confirmation email workflow. We send educational
+              guides (flares, exercise, benefits) from Living With Arthritis UK (charity 1218461).
+              Double-consent applies before a marketing list is created. Unsubscribe anytime.
+              See our{" "}
               <a href="/privacy" className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
                 privacy policy
               </a>
-              .
+              . We do not store signups on this site yet — your mail client opens so you can confirm.
             </p>
           </>
         )}

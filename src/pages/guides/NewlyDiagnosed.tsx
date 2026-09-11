@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -460,6 +462,9 @@ export default function NewlyDiagnosed() {
               items={FAQS.map((f) => ({ question: f.q, answer: f.a }))}
             />
           </section>
+
+          <EducationalDisclaimerBox />
+          <TopicClusterNav path="/guides/newly-diagnosed" />
 
           {/* Related */}
           <section className="my-12 border-t border-border pt-8 print:hidden">

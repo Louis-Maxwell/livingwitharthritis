@@ -134,7 +134,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
             <div className="rounded-2xl border border-primary/20 bg-primary/[0.04] overflow-hidden">
               <div className="flex items-center gap-2.5 px-5 py-3 bg-primary/[0.06] border-b border-primary/10">
                 <Gift className="w-4 h-4 text-primary shrink-0" />
-                <p className="text-sm font-semibold text-foreground">Boost your donation with Gift Aid</p>
+                <p className="text-sm font-semibold text-foreground">Gift Aid (when registration is live)</p>
               </div>
 
               <div className="px-5 py-4 space-y-4">
@@ -179,7 +179,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
                     className="mt-0.5 border-primary/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                   />
                   <span className="text-xs text-foreground leading-relaxed">
-                    I want to Gift Aid this donation and any donations I make in the future or have made in the past 4 years to <strong>Living With Arthritis</strong> (Registered Charity in England &amp; Wales No. 1218461). I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all my donations in that tax year, it is my responsibility to pay any difference.
+                    I am a UK taxpayer and, <strong>once Gift Aid registration is live</strong>, I want Gift Aid applied to this and eligible past/future gifts to <strong>Living With Arthritis</strong> (charity 1218461). If I pay less Income Tax/CGT than the Gift Aid claimed, I am responsible for any difference. We will not reclaim Gift Aid until HMRC registration is complete.
                   </span>
 
                 </label>
@@ -197,7 +197,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
           <Button
             onClick={handleCheckout}
             disabled={isLoading}
-            className={`w-full h-12 rounded-full text-base font-semibold ${
+            className={`w-full min-h-12 h-14 rounded-full text-base font-semibold ${
               recurring
                 ? "bg-primary hover:bg-primary text-primary-foreground"
                 : "btn-primary-cta"

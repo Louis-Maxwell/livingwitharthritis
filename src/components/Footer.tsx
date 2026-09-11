@@ -17,6 +17,9 @@ const columns = [
       { label: "Supplements Guide", href: "/supplements" },
       { label: "Self Help Tool", href: "/self-help" },
       { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
+      { label: "Flare Action Plan", href: "/resources/flare-action-plan" },
+      { label: "PIP Evidence Diary", href: "/resources/pip-evidence-diary" },
+      { label: "Clinic Pack", href: "/resources/clinic-pack" },
       { label: "Contact Us", href: "/contact" },
       { label: "FAQ", href: "/faq" },
     ],
@@ -49,6 +52,7 @@ const columns = [
       { label: "Connect an AI Assistant", href: "/connect" },
       { label: "Clinical Sources", href: "/sources" },
       { label: "Editorial Standards", href: "/editorial-standards" },
+      { label: "Claims Policy", href: "/about/editorial-claims-policy" },
       { label: "UK Search Insights", href: "/about/uk-arthritis-search-insights" },
       { label: "Governance", href: "/governance" },
       

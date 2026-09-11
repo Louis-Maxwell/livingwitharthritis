@@ -12,6 +12,9 @@ import {
   Leaf,
 } from "lucide-react";
 import Header from "@/components/Header";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageHero from "@/components/ui/PageHero";
@@ -342,6 +345,7 @@ export default function MediterraneanDietForArthritis() {
           </Button>
         </div>
       </PageHero>
+      <div className="container mx-auto px-6 md:px-10 max-w-3xl"><p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-4">A practical UK Mediterranean-style eating pattern to support joint health — educational nutrition guidance, not a personal diet prescription.</p><AeoEnhancement route="/diet/mediterranean-diet-for-arthritis" /></div>
 
       {/* Hero image */}
       <section className="bg-secondary/30 border-b border-border/15">
@@ -609,7 +613,10 @@ export default function MediterraneanDietForArthritis() {
         </div>
       </section>
 
-      <Footer />
+      
+      <EducationalDisclaimerBox />
+      <TopicClusterNav path="/diet/mediterranean-diet-for-arthritis" />
+<Footer />
     </div>
   );
 }

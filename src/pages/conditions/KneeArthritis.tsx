@@ -14,6 +14,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -125,7 +127,7 @@ const KneeArthritis = () => (
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/knee-arthritis" />
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               The knee is the most commonly affected joint in osteoarthritis. This guide covers what knee arthritis feels like, the exercises that help most, and the treatment ladder used in the UK — from self-management through to knee replacement.
             </p>
           </motion.div>
@@ -317,7 +319,10 @@ const KneeArthritis = () => (
               Read our articles
             </Link>
           </div>
-          <CrossLinkBanner preset="condition" exclude="/conditions/knee-arthritis" title="Explore related resources" />
+          
+      <EducationalDisclaimerBox />
+      <TopicClusterNav path="/conditions/knee-arthritis" />
+<CrossLinkBanner preset="condition" exclude="/conditions/knee-arthritis" title="Explore related resources" />
         </div>
       </main>
       <InternalLinks />

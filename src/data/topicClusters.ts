@@ -68,6 +68,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/conditions/shoulder-arthritis",
       "/guides/hip-exercises-for-osteoarthritis",
       "/guides/can-exercise-make-osteoarthritis-worse",
+      "/blog/knee-arthritis-exercises-uk",
     ],
     toolPath: "/exercises",
     toolLabel: "Exercise hub",
@@ -213,6 +214,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/exercises",
       "/diet",
       "/chat",
+      "/resources/flare-action-plan",
     ],
     toolPath: "/chat",
     toolLabel: "Help chat during a flare",
@@ -232,6 +234,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarTitle: "Benefits & PIP guide",
     supportingPaths: [
       "/benefits-pip",
+      "/resources/pip-evidence-diary",
       "/guides/disability-support",
       "/guides/work-with-arthritis",
       "/guides/insurance-coverage",

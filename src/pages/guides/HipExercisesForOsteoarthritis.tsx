@@ -6,6 +6,9 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
@@ -170,6 +173,9 @@ export default function HipExercisesForOsteoarthritis() {
           badge="Clinical Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
+          <EducationalDisclaimerBox />
+          <TopicClusterNav path="/guides/hip-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Hip osteoarthritis responds to targeted strength and mobility work.
             UK NICE guidance (NG226) puts structured exercise <em>ahead of</em>{" "}
@@ -246,7 +252,8 @@ export default function HipExercisesForOsteoarthritis() {
           </div>
         </div>
       </main>
-      <GuideOnwardJourney currentPath="/guides/hip-exercises-for-osteoarthritis" />
+      
+<GuideOnwardJourney currentPath="/guides/hip-exercises-for-osteoarthritis" />
       <Suspense fallback={null}>
         <Footer />
       </Suspense>

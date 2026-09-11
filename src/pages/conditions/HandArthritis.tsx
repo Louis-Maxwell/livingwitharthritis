@@ -14,6 +14,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
@@ -133,7 +135,7 @@ const HandArthritis = () => (
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/hand-arthritis" />
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               Hand arthritis is osteoarthritis of the small finger joints and the base of the thumb. This UK guide explains the difference between Heberden's nodes, Bouchard's nodes and thumb base (CMC) arthritis — and the exercises, splints and treatments that help most.
             </p>
           </motion.div>
@@ -334,7 +336,10 @@ const HandArthritis = () => (
               Read our articles
             </Link>
           </div>
-          <CrossLinkBanner preset="condition" exclude="/conditions/hand-arthritis" title="Explore related resources" />
+          
+      <EducationalDisclaimerBox />
+      <TopicClusterNav path="/conditions/hand-arthritis" />
+<CrossLinkBanner preset="condition" exclude="/conditions/hand-arthritis" title="Explore related resources" />
         </div>
       </main>
       <InternalLinks />

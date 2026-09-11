@@ -15,8 +15,8 @@ export interface AeoPage {
   updatedAt?: string; // ISO YYYY-MM-DD
 }
 
-const REVIEWER = "Living With Arthritis clinical team (HCPC-registered physiotherapy)";
-const UPDATED = "2026-07-01";
+const REVIEWER = "Louis Maxwell, HCPC PH128483";
+const UPDATED = "2026-09-11";
 
 const withDefaults = (p: Omit<AeoPage, "reviewer" | "updatedAt"> & Partial<Pick<AeoPage, "reviewer" | "updatedAt">>): AeoPage => ({
   reviewer: REVIEWER,
@@ -220,16 +220,31 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "I've just been diagnosed with arthritis — what should I do?",
     answer:
       "Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.",
+    faqs: [
+      { q: "What should I ask at my first rheumatology appointment?", a: "Ask about your arthritis type, medicines, flare plan, work adjustments, and when to seek urgent help. Bring a written symptom diary and medication list." },
+      { q: "Should I rest completely after diagnosis?", a: "No — short rests during flares help, but daily gentle movement usually protects joints better than bed rest. Check specific advice with your clinical team." },
+      { q: "Where can I get PIP information?", a: "Start with our Benefits & PIP guide and evidence diary, then speak to Citizens Advice or a welfare-rights adviser. We provide education, not legal representation." },
+    ],
   }),
   "/guides/arthritis-pain-relief": withDefaults({
     question: "How do I relieve arthritis pain?",
     answer:
       "First-line pain relief includes paracetamol, topical NSAID gels and heat/cold packs. Exercise reduces pain more than most drugs long-term. If pain persists, your GP can consider oral NSAIDs, corticosteroid injections or, for inflammatory arthritis, DMARDs.",
+    faqs: [
+      { q: "What is the fastest way to ease an arthritis flare?", a: "For a hot swollen joint use a cold pack for 10–15 minutes with a cloth barrier, pace activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
+      { q: "Does exercise help arthritis pain?", a: "Yes — consistent low-impact movement and strength work often reduce OA pain as much as medicines over 8–12 weeks, without the same side-effect profile." },
+      { q: "When should I see a GP about joint pain?", a: "If pain lasts more than six weeks, wakes you at night, involves hot swollen joints, or limits daily life — especially with morning stiffness over an hour." },
+    ],
   }),
   "/guides/hip-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best hip exercises for osteoarthritis?",
     answer:
       "Evidence-based hip OA exercises include glute bridges, clamshells, standing hip abduction, wall squats and stationary cycling. Aim for 3 sessions per week of 30 minutes; expect meaningful pain reduction after 8-12 weeks. NICE guideline NG226 recommends supervised programmes.",
+    faqs: [
+      { q: "Can I exercise during a hip flare?", a: "Use gentle range-of-motion and avoid sharp pain. Reduce load, then rebuild. Seek advice if pain lasts more than 24 hours after activity." },
+      { q: "How often should I strengthen my hip?", a: "Most people do well with two to three short strength sessions each week plus daily walking as tolerated." },
+      { q: "Do I need a gym?", a: "No — bridges, clamshells and sit-to-stands can be done at home. A physiotherapist can tailor progression." },
+    ],
   }),
   "/guides/can-exercise-make-osteoarthritis-worse": withDefaults({
     question: "Can exercise make osteoarthritis worse?",
@@ -273,6 +288,56 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   }),
 
   // â”€â”€ Hubs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  "/arthritis-flare-ups": withDefaults({
+    question: "What should I do during an arthritis flare-up?",
+    answer:
+      "Pace activity, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and track triggers. Seek urgent care for a single hot joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.",
+    faqs: [
+      { q: "How long do arthritis flares last?", a: "Many OA flares settle over days to a couple of weeks with pacing and usual treatments. Inflammatory disease flares vary — contact your rheumatology team if your care plan says to." },
+      { q: "Should I stop all exercise in a flare?", a: "Avoid boom-and-bust. Keep gentle range-of-motion unless advised otherwise; rebuild load gradually as pain settles." },
+      { q: "Where is the printable flare plan?", a: "Use our free printable flare action plan under Resources, then read the full flare-ups guide for detail." },
+    ],
+  }),
+  "/guides/benefits-pip": withDefaults({
+    question: "Can I get PIP for arthritis in the UK?",
+    answer:
+      "Personal Independence Payment (PIP) is based on how your condition affects daily living and mobility, not the diagnosis name alone. Keep an evidence diary, gather clinic letters, and seek advice from Citizens Advice or a welfare-rights service. We explain the process; we do not decide claims.",
+    faqs: [
+      { q: "What evidence helps a PIP arthritis claim?", a: "A daily diary of activities, medication lists, clinic letters, and notes on aids or help from others. Our printable PIP evidence diary can help you structure this." },
+      { q: "Is osteoarthritis enough for PIP?", a: "PIP looks at functional impact, not the label. Some people with OA qualify; others do not. Advice services can map your difficulties to descriptors." },
+      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis UK provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
+    ],
+  }),
+  "/guides/diet": withDefaults({
+    question: "What is the best anti-inflammatory diet for arthritis?",
+    answer:
+      "A Mediterranean-style pattern — vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses, with less ultra-processed food — has the strongest evidence for supporting joint health. It does not replace prescribed treatment.",
+    faqs: [
+      { q: "Does turmeric cure arthritis?", a: "No. Curcumin supplements show modest pain benefits in some trials but are not a cure and can interact with medicines — ask a pharmacist." },
+      { q: "Will diet replace my medicines?", a: "No. Food patterns support care; they do not replace DMARDs, biologics or GP advice." },
+      { q: "Where is the Mediterranean meal plan?", a: "See our Mediterranean diet for arthritis page for a practical UK-focused plan." },
+    ],
+  }),
+  "/diet/mediterranean-diet-for-arthritis": withDefaults({
+    question: "Does the Mediterranean diet help arthritis?",
+    answer:
+      "Trials link Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods — educational guidance only.",
+    faqs: [
+      { q: "How quickly might diet changes help?", a: "Some people notice energy or stiffness changes over weeks; joint pain changes are usually gradual and individual." },
+      { q: "Is this a weight-loss diet?", a: "It can support healthy weight, which helps knee OA load, but the primary aim here is an anti-inflammatory pattern." },
+      { q: "Can I use this with gout?", a: "General Mediterranean patterns often help, but gout also needs specific purine and alcohol advice from your clinician." },
+    ],
+  }),
+  "/blog/knee-arthritis-exercises-uk": withDefaults({
+    question: "What are the best knee arthritis exercises in the UK?",
+    answer:
+      "Quadriceps strengthening, sit-to-stands, straight-leg raises, gentle cycling and walking as tolerated are commonly recommended for knee osteoarthritis. Start low, progress slowly, and stop sharp pain. Educational only — check with a physiotherapist if unsure.",
+    faqs: [
+      { q: "Should I squat with knee OA?", a: "Shallow sit-to-stands are often fine; deep loaded squats may aggravate some knees. Individual assessment is best." },
+      { q: "How many days per week?", a: "Two to three strength sessions plus daily gentle movement suits many people, adjusted for flares." },
+      { q: "Where else can I read about knee OA?", a: "See our knee arthritis condition page and the osteoarthritis pillar guide." },
+    ],
+  }),
   "/diet-hub": withDefaults({
     question: "What's the best diet for arthritis?",
     answer:

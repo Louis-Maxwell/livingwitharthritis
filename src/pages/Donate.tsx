@@ -99,7 +99,7 @@ const DONATE_FAQS: FAQItem[] = [
   {
     question: "Can I add Gift Aid to my donation?",
     answer:
-      "Yes, if you are a UK taxpayer. Tick Gift Aid when you donate and we reclaim 25p from HMRC for every £1 you give, at no extra cost to you. A £100 gift becomes £125.",
+      "When our HMRC Gift Aid registration is complete, UK taxpayers will be able to tick Gift Aid so we can reclaim 25p for every £1 at no extra cost to you (a £100 gift becomes £125). Until then, you can still donate — we will email eligible donors when Gift Aid is live.",
   },
   {
     question: "What is your charity number?",
@@ -228,7 +228,7 @@ export default function Donate() {
         <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
           <h2 className="text-2xl font-bold text-foreground text-center mb-3">Choose what you can give</h2>
           <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">
-            One-time or monthly. Gift Aid adds 25p in every £1 from UK taxpayers, at no extra cost to you.
+            One-time or monthly. UK taxpayers may add Gift Aid once our HMRC Gift Aid registration is complete — we will confirm on the form when reclaim is live.
           </p>
 
           <div className="bg-card rounded-2xl border border-border/40 p-4 sm:p-8 shadow-sm max-w-full overflow-x-hidden">
@@ -247,7 +247,7 @@ export default function Donate() {
                     role="radio"
                     aria-checked={active}
                     onClick={() => setFrequency(f)}
-                    className={`inline-flex items-center justify-center gap-2 h-11 rounded-full text-sm font-semibold transition-all ${
+                    className={`inline-flex items-center justify-center gap-2 min-h-11 h-12 rounded-full text-sm font-semibold transition-all ${
                       active
                         ? "bg-background text-foreground shadow-sm"
                         : "text-muted-foreground hover:text-foreground"
@@ -275,7 +275,7 @@ export default function Donate() {
                       setSelectedAmount(amt);
                       setCustomAmount("");
                     }}
-                    className={`h-12 rounded-xl border-2 text-base font-bold transition-all ${
+                    className={`min-h-12 h-14 rounded-xl border-2 text-base font-bold transition-all ${
                       active
                         ? "border-primary bg-primary/10 text-primary"
                         : "border-border bg-background text-foreground hover:border-primary/40"
@@ -323,7 +323,7 @@ export default function Donate() {
               size="lg"
               disabled={!canDonate}
               onClick={() => setIsModalOpen(true)}
-              className="btn-primary-cta w-full h-14 rounded-full text-sm font-bold tracking-wide group"
+              className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group"
             >
               <Heart className="w-5 h-5 mr-2 fill-current/20" />
               {isMonthly ? `Give £${activeAmount || 0} / month` : `Donate £${activeAmount || 0}`}
@@ -331,7 +331,7 @@ export default function Donate() {
             </Button>
 
             <p className="text-[11px] text-muted-foreground text-center mt-4">
-              Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""} · Gift Aid eligible
+              Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""} · Gift Aid registration in progress
             </p>
           </div>
           <p className="text-xs text-muted-foreground text-center mt-6 max-w-xl mx-auto leading-relaxed">
@@ -407,7 +407,7 @@ export default function Donate() {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Gift Aid (+25%)</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Tick one box and we reclaim 25p for every £1 you donate from HMRC — at no cost to you. A £100 gift becomes £125.
+                Once Louis completes HMRC Gift Aid registration for charity 1218461, eligible UK taxpayers can add Gift Aid (+25%). Registration is in progress — we will not claim Gift Aid on donations until it is live.
               </p>
             </div>
             <div className="bg-card rounded-2xl border border-border/30 p-6">

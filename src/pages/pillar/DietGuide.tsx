@@ -8,6 +8,9 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import AnswerBox from "@/components/seo/AnswerBox";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -218,6 +221,12 @@ export default function DietGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-6">
+            Anti-inflammatory and Mediterranean-style eating for arthritis in the UK — what the evidence supports, without miracle-food claims.
+          </p>
+          <AeoEnhancement route="/guides/diet" />
+          <EducationalDisclaimerBox />
+          <TopicClusterNav path="/guides/diet" />
           <AnswerBox
             question="What is the best diet for arthritis joint pain?"
             reviewed="2026-06-13"
@@ -247,7 +256,8 @@ export default function DietGuide() {
           </div>
         </div>
       </main>
-      <GuideOnwardJourney currentPath="/guides/diet" />
+      
+<GuideOnwardJourney currentPath="/guides/diet" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );

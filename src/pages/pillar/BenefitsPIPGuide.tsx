@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
@@ -304,6 +307,9 @@ export default function BenefitsPIPGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/benefits-pip" />
+          <EducationalDisclaimerBox />
+          <TopicClusterNav path="/guides/benefits-pip" />
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
             Personal Independence Payment (PIP) can help with extra costs when arthritis limits daily living or mobility in England and Wales — always check GOV.UK and get welfare advice for your own claim.
           </p>
@@ -333,7 +339,8 @@ export default function BenefitsPIPGuide() {
           </div>
         </div>
       </main>
-      <GuideOnwardJourney currentPath="/guides/benefits-pip" />
+      
+<GuideOnwardJourney currentPath="/guides/benefits-pip" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
