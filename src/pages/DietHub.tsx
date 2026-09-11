@@ -22,8 +22,8 @@ import {
   AlertTriangle, TrendingDown, Droplets, Flame,
   MessageCircle, Download
 } from "lucide-react";
-import {
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import {
   StatCounter,
   ProgressRing,
   HorizontalBar,
