@@ -44,6 +44,9 @@ jobs:
       - name: CSS utility check
         run: npm run css:check -- --json
 
+      - name: Security header regression check
+        run: node scripts/security-audit.mjs
+
       - name: Build (prerendered)
         run: npm run build:prerender
 
