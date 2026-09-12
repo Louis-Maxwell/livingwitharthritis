@@ -82,7 +82,6 @@ const ImpactStories = () => {
           "description": "Situations Living With Arthritis UK writes about. Not a count of people supported.",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
-        })}</script>
         <meta name="description" content="Situations Living With Arthritis UK writes about. Charity 1218461. We do not publish unverified support totals." />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
