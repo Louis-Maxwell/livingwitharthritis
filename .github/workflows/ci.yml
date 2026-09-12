@@ -17,7 +17,7 @@ permissions:
 jobs:
   build-and-audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,6 +50,9 @@ jobs:
       - name: Prerender meta check
         run: npm run seo:prerender-meta -- --json
 
+      - name: First-response HTML integrity
+        run: node scripts/audit-indexable-html.mjs
+
       - name: SEO schema check
         run: npm run seo:schema
 
@@ -74,8 +77,11 @@ jobs:
             sleep 1
           done
           timeout 5m npm run seo:audit
+
+      - name: WCAG 2.2 AA rendered audit
+        run: node scripts/a11y-audit.mjs
         env:
-          BASE_URL: http://localhost:4173
+          A11Y_BASE_URL: http://localhost:4173
 
       - name: Public template performance gate
         run: node scripts/perf-lighthouse.mjs --no-build
