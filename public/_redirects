@@ -1,9 +1,8 @@
-# HTTP 301s for Google Search Console clean-up.
-# Honoured by Netlify and Cloudflare Pages (first matching rule wins).
+# HTTP 301s for Google Search Console clean-up (host redirects).
+# Honoured by Netlify and similar static hosts (first matching rule wins).
 # The live Lovable CDN ignores this file and serves the SPA shell as 200 —
 # postbuild scripts/write-redirect-html.mjs drops noindex+canonical stubs
-# at these paths so crawlers do not see the homepage. vercel.json and
-# functions/_middleware.js cover Vercel / Cloudflare Pages Functions.
+# at these paths so crawlers do not see the homepage.
 # Client fallback: src/lib/seoRedirects.ts + SeoRedirectGate.
 
 # --- Known GSC hard 404 / soft 404 exact URLs ---
@@ -117,3 +116,50 @@
 # Real bio pages are prerendered static files and win over these rules.
 /authors/* /404.html 404
 /reviewers/* /404.html 404
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/exercises/swimming-for-knee /exercises/swimming-for-knee-arthritis 301
+/exercises/swimming-for-hip /exercises/swimming-for-hip-arthritis 301
+/exercises/swimming-for-shoulder /exercises/swimming-for-shoulder-arthritis 301
+/exercises/swimming-for-hand /exercises/swimming-for-hand-arthritis 301
+/exercises/swimming-for-back /exercises/swimming-for-back-arthritis 301
+/exercises/swimming-for-ankle /exercises/swimming-for-ankle-arthritis 301
+/exercises/yoga-for-knee /exercises/yoga-for-knee-arthritis 301
+/exercises/yoga-for-hip /exercises/yoga-for-hip-arthritis 301
+/exercises/yoga-for-shoulder /exercises/yoga-for-shoulder-arthritis 301
+/exercises/yoga-for-hand /exercises/yoga-for-hand-arthritis 301
+/exercises/yoga-for-back /exercises/yoga-for-back-arthritis 301
+/exercises/yoga-for-ankle /exercises/yoga-for-ankle-arthritis 301
+/exercises/cycling-for-knee /exercises/cycling-for-knee-arthritis 301
+/exercises/cycling-for-hip /exercises/cycling-for-hip-arthritis 301
+/exercises/cycling-for-shoulder /exercises/cycling-for-shoulder-arthritis 301
+/exercises/cycling-for-hand /exercises/cycling-for-hand-arthritis 301
+/exercises/cycling-for-back /exercises/cycling-for-back-arthritis 301
+/exercises/cycling-for-ankle /exercises/cycling-for-ankle-arthritis 301
+/exercises/walking-for-knee /exercises/walking-for-knee-arthritis 301
+/exercises/walking-for-hip /exercises/walking-for-hip-arthritis 301
+/exercises/walking-for-shoulder /exercises/walking-for-shoulder-arthritis 301
+/exercises/walking-for-hand /exercises/walking-for-hand-arthritis 301
+/exercises/walking-for-ankle /exercises/walking-for-ankle-arthritis 301
+/exercises/tai-chi-for-knee /exercises/tai-chi-for-knee-arthritis 301
+/exercises/tai-chi-for-hip /exercises/tai-chi-for-hip-arthritis 301
+/exercises/tai-chi-for-shoulder /exercises/tai-chi-for-shoulder-arthritis 301
+/exercises/tai-chi-for-hand /exercises/tai-chi-for-hand-arthritis 301
+/exercises/tai-chi-for-back /exercises/tai-chi-for-back-arthritis 301
+/exercises/tai-chi-for-ankle /exercises/tai-chi-for-ankle-arthritis 301
+/exercises/pilates-for-hip /exercises/pilates-for-hip-arthritis 301
+/exercises/pilates-for-shoulder /exercises/pilates-for-shoulder-arthritis 301
+/exercises/pilates-for-hand /exercises/pilates-for-hand-arthritis 301
+/exercises/pilates-for-back /exercises/pilates-for-back-arthritis 301
+/exercises/pilates-for-ankle /exercises/pilates-for-ankle-arthritis 301
+/exercises/stretching-for-hip /exercises/stretching-for-hip-arthritis 301
+/exercises/stretching-for-shoulder /exercises/stretching-for-shoulder-arthritis 301
+/exercises/stretching-for-hand /exercises/stretching-for-hand-arthritis 301
+/exercises/stretching-for-back /exercises/stretching-for-back-arthritis 301
+/exercises/stretching-for-ankle /exercises/stretching-for-ankle-arthritis 301
+/exercises/strength-training-for-knee /exercises/strength-training-for-knee-arthritis 301
+/exercises/strength-training-for-hip /exercises/strength-training-for-hip-arthritis 301
+/exercises/strength-training-for-shoulder /exercises/strength-training-for-shoulder-arthritis 301
+/exercises/strength-training-for-hand /exercises/strength-training-for-hand-arthritis 301
+/exercises/strength-training-for-back /exercises/strength-training-for-back-arthritis 301
+/exercises/strength-training-for-ankle /exercises/strength-training-for-ankle-arthritis 301

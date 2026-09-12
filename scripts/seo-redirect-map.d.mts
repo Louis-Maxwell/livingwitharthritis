@@ -7,4 +7,5 @@ export declare function exactRedirects(...args: unknown[]): { from: string; to: 
 export declare function exactRedirectPathSet(...args: unknown[]): Set<string>;
 export declare function normalizePath(pathname: string): string;
 export declare function buildRedirectHtml(from: string, to: string): string;
-export declare function vercelRedirects(...args: unknown[]): unknown[];
+export declare function hostRedirectRules(...args: unknown[]): unknown[];
+export declare const vercelRedirects: typeof hostRedirectRules;

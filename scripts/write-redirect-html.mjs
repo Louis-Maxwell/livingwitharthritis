@@ -8,7 +8,7 @@
  * the SPA fallback, so crawlers receive noindex + canonical + refresh
  * and browsers run location.replace immediately.
  *
- * Hosts that honour _redirects / vercel.json still emit a real 301/308
+ * Hosts that honour public/_redirects still emit a real 301/308
  * and never reach these files.
  */
 import { mkdirSync, writeFileSync, existsSync } from "node:fs";

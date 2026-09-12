@@ -89,7 +89,6 @@ const ContactSection = memo(() => {
   const [errors, setErrors] = useState<FieldErr>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [submitVia, setSubmitVia] = useState<"supabase" | "mailto" | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const firstErrRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
 
@@ -119,16 +118,9 @@ const ContactSection = memo(() => {
       });
       trackContactSubmit({ topic: form.subject });
       trackContactFormSubmit(form.subject);
-      if (result.ok) {
-        toast.success(result.message);
-        setSubmitVia("supabase");
-        setSubmitted(true);
-      } else {
-        // Mailto fallback — not delivery confirmation
-        toast.message(result.message);
-        setSubmitVia("mailto");
-        setSubmitted(true);
-      }
+      // Mailto-only — not delivery confirmation
+      toast.message(result.message);
+      setSubmitted(true);
     } catch {
       toast.error(
         `Something went wrong. Please email ${CONTACT_EMAIL} or call ${CONTACT_PHONE}.`,
@@ -210,27 +202,16 @@ const ContactSection = memo(() => {
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">
-                {submitVia === "supabase"
-                  ? "Message received"
-                  : "Email draft ready — please press Send"}
+                Email draft ready — please press Send
               </h3>
               <p className="text-muted-foreground mb-6">
-                {submitVia === "supabase" ? (
-                  <>
-                    Thank you — we have your enquiry. A real person will reply within two working
-                    days at <strong>{CONTACT_EMAIL}</strong>. For urgent help call {CONTACT_PHONE}.
-                  </>
-                ) : (
-                  <>
-                    Your email app should have opened with a draft to{" "}
-                    <strong>{CONTACT_EMAIL}</strong>. We only receive your message after you press
-                    Send there — nothing was submitted automatically. A real person will reply within
-                    two working days once it arrives.
-                  </>
-                )}
+                Your email app should have opened with a draft to{" "}
+                <strong>{CONTACT_EMAIL}</strong>. We only receive your message after you press
+                Send there — nothing was submitted automatically. A real person will reply within
+                two working days once it arrives.
               </p>
               <button
-                onClick={() => { setForm(blank); setSubmitted(false); setSubmitVia(null); }}
+                onClick={() => { setForm(blank); setSubmitted(false); }}
                 type="button"
                 className="min-h-11 px-6 py-2.5 text-sm font-semibold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >

@@ -64,7 +64,7 @@
   Cache-Control: public, max-age=86400
 
 # HTML: browsers always revalidate so new deploys show immediately.
-# CDN may keep a short fresh copy (Cloudflare/Lovable often override Cache-Control).
+# CDN may keep a short fresh copy (static hosts often override Cache-Control).
 # CSP matches index.html and adds frame-ancestors (HTTP header only; ignored in meta CSP).
 /*
   Cache-Control: public, max-age=0, must-revalidate

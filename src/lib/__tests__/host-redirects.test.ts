@@ -74,16 +74,18 @@ describe("host + client SEO redirects", () => {
     }
   });
 
-  it("keeps vercel.json generated from the map", () => {
+  it("keeps public/_redirects covering the exact map", () => {
     expect(hostRedirectsDrift()).toEqual([]);
-    const vercel = JSON.parse(
-      readFileSync(resolve(process.cwd(), "vercel.json"), "utf8"),
+    const redirects = readFileSync(
+      resolve(process.cwd(), "public/_redirects"),
+      "utf8",
     );
-    const sources = new Set(
-      vercel.redirects.map((r: { source: string }) => r.source),
+    expect(redirects).toContain(
+      "/arthritis-support/stockport /arthritis-support/manchester 301",
     );
-    expect(sources.has("/arthritis-support/stockport")).toBe(true);
-    expect(sources.has("/blog/mindfulness-meditation-chronic-pain")).toBe(true);
+    expect(redirects).toContain(
+      "/blog/mindfulness-meditation-chronic-pain /blog/mindfulness-chronic-pain-arthritis-guide 301",
+    );
   });
 
   it("does not bake article HTML onto redirect sources via inject-canonicals", () => {

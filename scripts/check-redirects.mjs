@@ -9,9 +9,6 @@ const csv = readFileSync("docs/seo/redirect-map.csv", "utf8");
 const hostRedirects = existsSync("public/_redirects")
   ? readFileSync("public/_redirects", "utf8")
   : "";
-const vercel = existsSync("vercel.json")
-  ? readFileSync("vercel.json", "utf8")
-  : "";
 const gate = readFileSync("src/components/SeoRedirectGate.tsx", "utf8");
 
 const redirects = new Map(
@@ -68,9 +65,6 @@ for (const { from, to } of exactRedirects()) {
     }
   }
   if (from === "/blog/mindfulness-meditation-chronic-pain" || from === "/arthritis-support/stockport") {
-    if (!vercel.includes(`"source": "${from}"`) || !vercel.includes(`"destination": "${to}"`)) {
-      failures.push(`${from}: missing from vercel.json`);
-    }
     if (sitemap.includes(`${SITE}${from}<`)) {
       failures.push(`${from}: still listed in sitemap.xml`);
     }

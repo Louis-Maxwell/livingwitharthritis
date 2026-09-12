@@ -9,7 +9,6 @@ const SITE = "https://livingwitharthritis.org.uk";
  * Client-side redirect for hosts that serve the SPA shell for every path
  * (HTTP 200). Paired with:
  *   - public/_redirects          — Netlify / static-host 301s
- *   - vercel.json                — Vercel permanent redirects (optional)
  *   - dist/<path>/index.html     — static noindex+canonical+refresh stubs
  *     written by scripts/write-redirect-html.mjs for Lovable's SPA host,
  *     which ignores _redirects and otherwise returns the homepage shell.

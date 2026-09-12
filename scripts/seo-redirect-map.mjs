@@ -1,7 +1,6 @@
 /**
- * Single source of exact-path SEO redirects for every host adapter:
+ * Single source of exact-path SEO redirects (host redirects) for adapters:
  *   - public/_redirects          (Netlify / static hosts)
- *   - vercel.json                (Vercel edge 308)
  *   - scripts/write-redirect-html.mjs  (static HTML for Lovable SPA hosts)
  *   - src/lib/seoRedirects.ts    (client Navigate; kept in sync by tests)
  *
@@ -138,7 +137,8 @@ export function buildRedirectHtml(from, to) {
 `;
 }
 
-export function vercelRedirects() {
+/** Exact + common pattern rules previously used by vercel.json (kept for tooling). */
+export function hostRedirectRules() {
   const exact = exactRedirects().map(({ from, to }) => ({
     source: from,
     destination: to,
@@ -157,3 +157,6 @@ export function vercelRedirects() {
   const seen = new Set(exact.map((r) => r.source));
   return [...exact, ...patterns.filter((r) => !seen.has(r.source))];
 }
+
+/** @deprecated removed Vercel adapter — use hostRedirectRules */
+export const vercelRedirects = hostRedirectRules;

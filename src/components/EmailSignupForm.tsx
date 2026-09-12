@@ -51,16 +51,7 @@ const EmailSignupForm = memo(({
 
     try {
       const result = await subscribeNewsletter({ email: addr, source: sequence });
-      if (result.ok) {
-        trackNewsletterSignup();
-        trackEvent("email_signup", { sequence, via: "supabase" });
-        setSuccessCopy(result.message);
-        setSuccess(true);
-        setEmail("");
-        toast.success(result.message);
-        onSuccess?.();
-        setTimeout(() => setSuccess(false), 8000);
-      } else if (result.via === "mailto") {
+      if (result.via === "mailto") {
         trackNewsletterSignup();
         trackEvent("email_signup", { sequence, via: "mailto" });
         setSuccessCopy(
@@ -198,8 +189,7 @@ const EmailSignupForm = memo(({
               <a href="/privacy" className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
                 privacy policy
               </a>
-              . If the form cannot reach our database, your email app opens as a fallback
-              to {CONTACT_EMAILS.info}.
+              . Your email app opens a draft to {CONTACT_EMAILS.info} — please press Send so we can add you.
             </p>
           </>
         )}

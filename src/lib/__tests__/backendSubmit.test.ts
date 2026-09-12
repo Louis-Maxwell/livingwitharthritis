@@ -1,12 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-
-const insertMock = vi.fn();
-const fromMock = vi.fn(() => ({ insert: insertMock }));
-
-vi.mock("@/integrations/supabase/client", () => ({
-  isSupabaseConfigured: true,
-  supabase: { from: (...args: unknown[]) => fromMock(...args) },
-}));
+import { describe, it, expect, beforeEach } from "vitest";
 
 const hrefs: string[] = [];
 Object.defineProperty(window, "location", {
@@ -27,24 +19,19 @@ import {
   submitBlogComment,
 } from "../backendSubmit";
 
-describe("backendSubmit throw-safety", () => {
+describe("backendSubmit mailto-only", () => {
   beforeEach(() => {
     hrefs.length = 0;
-    insertMock.mockReset();
-    fromMock.mockReset();
-    fromMock.mockImplementation(() => ({ insert: insertMock }));
   });
 
-  it("falls back to mailto when newsletter insert throws (does not reject)", async () => {
-    insertMock.mockRejectedValue(new Error("network down"));
+  it("opens mailto for newsletter signup", async () => {
     const result = await subscribeNewsletter({ email: "jane@example.com" });
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
   });
 
-  it("falls back to mailto when contact insert throws (does not reject)", async () => {
-    insertMock.mockRejectedValue(new Error("Failed to fetch"));
+  it("opens mailto for contact inquiry", async () => {
     const result = await submitContactInquiry({
       name: "Jane",
       email: "jane@example.com",
@@ -53,10 +40,10 @@ describe("backendSubmit throw-safety", () => {
     });
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");
+    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
   });
 
-  it("falls back to mailto when blog comment insert throws (does not reject)", async () => {
-    insertMock.mockRejectedValue(new TypeError("fetch failed"));
+  it("opens mailto for blog comment", async () => {
     const result = await submitBlogComment({
       slug: "knee-oa",
       author_name: "Jane",
@@ -64,21 +51,6 @@ describe("backendSubmit throw-safety", () => {
     });
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");
-  });
-
-  it("returns supabase success when insert has no error", async () => {
-    insertMock.mockResolvedValue({ error: null });
-    const result = await subscribeNewsletter({ email: "jane@example.com" });
-    expect(result.ok).toBe(true);
-    expect(result.via).toBe("supabase");
-    expect(hrefs).toHaveLength(0);
-  });
-
-  it("treats unique-email 23505 as honest success for newsletter", async () => {
-    insertMock.mockResolvedValue({ error: { code: "23505" } });
-    const result = await subscribeNewsletter({ email: "jane@example.com" });
-    expect(result.ok).toBe(true);
-    expect(result.via).toBe("supabase");
-    expect(result.message.toLowerCase()).toMatch(/already/);
+    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
   });
 });

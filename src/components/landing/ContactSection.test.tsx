@@ -115,8 +115,7 @@ describe("ContactSection input length caps", () => {
     renderSection();
     const huge = "x".repeat(1500);
     fill(/your message/i, huge);
-    // The counter is rendered against the trimmed length; ensure it renders
-    // a value (validation of a hard cap on server side lives in edge fn).
+    // The counter is rendered against the trimmed length; ensure it renders a value.
     expect(screen.getByText(/\/ 1000 characters/i)).toBeInTheDocument();
   });
 });

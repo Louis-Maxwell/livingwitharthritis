@@ -1,32 +1,30 @@
-# Local / static frontend + Supabase backend
+# Local / static frontend (mailto + local chat)
 
-Living With Arthritis UK is a **static Vite SPA** (GitHub / Lovable publish) with an
-optional **Supabase** project for forms, comments and honest blog view counts.
+Living With Arthritis UK is a **static Vite SPA** (GitHub / Lovable publish).
+There is **no** Supabase, Vercel, or Cloudflare Workers backend in this repo.
 
-Cloudflare Workers were **removed** — do not restore `wrangler` or `/api/*` Workers.
+## Forms
 
-## Environment
+Newsletter, contact, partner, corporate giving, and blog comment forms use
+**mailto** only (`info@livingwitharthritis.org.uk` / `07760 512 084`).
+Opening a draft is **not** delivery confirmation — visitors must press Send.
 
-Set in `.env` / `.env.local` / `.env.production` (gitignored — never commit real keys):
-
-- `VITE_SUPABASE_URL` — project URL (`https://eswdtpmknwjxtvkyxvmi.supabase.co`)
-- `VITE_SUPABASE_PUBLISHABLE_KEY` — anon/publishable key only (never `service_role`)
-
-Placeholders live in `.env.example`. If either variable is missing, the client is
-`null` and forms fall back to **mailto** (`info@livingwitharthritis.org.uk` /
-`07760 512 084`).
+Helpers live in `src/lib/backendSubmit.ts` → `submitViaMailto`.
 
 ## What is wired
 
-| Feature | Table / RPC | Fallback |
-|---------|-------------|----------|
-| Newsletter | `newsletter_subscriptions` (anon INSERT; no public SELECT of emails) | mailto |
-| Contact | `contact_inquiries` (anon INSERT; admin SELECT) | mailto |
-| Blog comments | `blog_comments` (anon INSERT `pending`; public SELECT `approved`) | mailto |
-| Blog views | `blog_views` + `increment_blog_view(p_slug)` once per session | hide count (never fake) |
-| Exercise demos | Static `/exercise-videos/*.mp4` + SVG / “Demonstration unavailable” | n/a |
-| Chat / search | Local engine + `search-index.json` | n/a |
-| Exercise progress | localStorage | n/a |
+| Feature | Behaviour |
+|---------|-----------|
+| Newsletter / contact / comments | mailto draft |
+| Blog views | Not tracked (UI hides counts; never faked) |
+| Exercise demos | Static `/exercise-videos/*.mp4` + SVG fallbacks |
+| Chat / search | Local engine + `search-index.json` |
+| Exercise progress | localStorage |
+
+## Environment
+
+Optional Vite keys only (GA4, Sentry, Stripe/PayPal). See `.env.example`.
+Never commit real `.env` / `.env.local` / `.env.production`.
 
 ## What Louis still needs
 
@@ -38,10 +36,10 @@ Placeholders live in `.env.example`. If either variable is missing, the client i
 
 ## Do not
 
-- Restore Cloudflare Workers/APIs
-- Invent a Node server in this repo
+- Re-add Supabase clients, Vercel config, or Cloudflare Workers/APIs
+- Invent a Node API server for forms in this repo
 - Show fake visitor / view counts
-- Commit `.env` / publishable keys into docs
+- Commit secrets into docs
 
 ## Smoke
 
