@@ -137,6 +137,8 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const redirectTo = slug ? BLOG_SLUG_REDIRECTS[slug] : undefined;
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
+  // Hooks must run on every render — never after the loading/404 early returns.
+  const viewCount = useBlogViews(redirectTo ? undefined : slug);
 
   // Persist last-read immediately for "Continue reading" on /blog.
   useEffect(() => {
@@ -196,7 +198,6 @@ const BlogPost = () => {
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
-  const viewCount = useBlogViews(slug);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
   const updatedDate = updatedAtRaw
