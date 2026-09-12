@@ -33,4 +33,16 @@ describe("rejected soft pages that still matter", () => {
     expect(cold?.sections.length).toBeGreaterThan(3);
     expect(cold?.quickAnswer.length).toBeGreaterThan(40);
   });
+
+  it("thickens lupus, reactive arthritis and AS subpages that GSC rejected", () => {
+    const lupusEx = conditionSubpages.lupus.exercises;
+    const reDiet = conditionSubpages["reactive-arthritis"].diet;
+    const asTreat = conditionSubpages["ankylosing-spondylitis"].treatment;
+    expect(lupusEx.extraSections?.length).toBeGreaterThan(2);
+    expect(reDiet.extraSections?.some((s) => /gut|NSAID/i.test(s.body))).toBe(true);
+    expect(asTreat.extraSections?.some((s) => /NICE|biologic|NASS/i.test(s.body))).toBe(
+      true,
+    );
+    expect(getLibraryTopicSeo("lupus-symptoms")?.extraSections?.length).toBeGreaterThan(3);
+  });
 });

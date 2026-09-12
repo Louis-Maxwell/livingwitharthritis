@@ -80,7 +80,7 @@ const ConditionSubpagePage = () => {
     const subLabel = subpageLabel[subpage];
     const title = subpageTitle(cond.name, subpage);
     const description = subpageDescription(cond.name, subpage);
-    const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
+    const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage, cond.slug);
 
     const medicalLd = {
       "@context": "https://schema.org",
@@ -123,7 +123,7 @@ const ConditionSubpagePage = () => {
   const lcName = cond.name.toLowerCase();
   const title = subpageTitle(cond.name, subpage);
   const description = subpageDescription(cond.name, subpage);
-  const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
+  const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage, cond.slug);
 
   const Icon = subpageIcon[subpage];
 
@@ -251,6 +251,30 @@ const ConditionSubpagePage = () => {
             </section>
           </>
         )}
+
+        {"extraSections" in sub &&
+          sub.extraSections?.map((section) => (
+            <section key={section.heading} className="mb-10">
+              <h2 className="text-xl font-semibold text-foreground mb-4">
+                {section.heading}
+              </h2>
+              {section.body.split("\n\n").map((para) => (
+                <p key={para.slice(0, 48)} className="text-foreground leading-relaxed mb-4">
+                  {para}
+                </p>
+              ))}
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="space-y-2">
+                  {section.bullets.map((item) => (
+                    <li key={item} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <span className="text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
 
         {/* People also ask — long-tail question keywords + FAQPage schema */}
         <section className="mb-10">

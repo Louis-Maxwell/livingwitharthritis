@@ -44,6 +44,7 @@ const SRC = join(DIST, "index.html");
 const AI_DATA_PATH = resolve("scripts/ai-head-data.json");
 const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 const CONDITION_DATA_PATH = resolve("scripts/condition-head-data.json");
+const LIBRARY_DATA_PATH = resolve("scripts/library-head-data.json");
 
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
@@ -96,6 +97,7 @@ function authorHeadData() {
 const AI_DATA = {
   ...readJson(BLOG_DATA_PATH),
   ...readJson(CONDITION_DATA_PATH),
+  ...readJson(LIBRARY_DATA_PATH),
   ...authorHeadData(),
   ...readJson(AI_DATA_PATH),
 };
