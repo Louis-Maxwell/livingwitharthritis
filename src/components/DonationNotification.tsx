@@ -54,7 +54,7 @@ const DonationNotification = () => {
     const fetchDonations = async () => {
       const data: never[] = [];
 
-      setDonations(data && data.length > 0 ? data : prepareFakeDonations());
+      setDonations(data && data.length > 0 ? data : []);
     };
     fetchDonations();
   }, []);

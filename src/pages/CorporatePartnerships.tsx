@@ -129,13 +129,10 @@ export default function CorporatePartnerships() {
 
         {/* Case Study */}
         <section className="max-w-4xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">What Companies Say</h2>
-          <blockquote className="border-l-4 border-primary pl-6 py-4 mb-8">
-            <p className="text-lg italic text-gray-700 mb-4">
-              "Partnering with Living With Arthritis let us reach 15,000 of our employees who have arthritis or family members with it. We saw a 22% increase in our wellness programme participation, and the partnership strengthened our ESG story with investors."
-            </p>
-            <footer className="font-semibold">— Sarah Chen, Head of Wellness, TechCorp UK</footer>
-          </blockquote>
+          <h2 className="text-3xl font-bold mb-8 text-center">We do not invent partner quotes</h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto text-center">
+            Living With Arthritis is a young charity (1218461, registered 15 June 2026). We will not invent an employee-reach figure, a wellness-programme percentage, or a named Head of Wellness. Email info@livingwitharthritis.org.uk if your organisation wants to talk.
+          </p>
         </section>
 
         {/* CTA */}

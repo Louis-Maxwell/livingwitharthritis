@@ -351,18 +351,9 @@ export default function WaysToHelp() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
                 <Quote className="w-5 h-5 text-primary" />
               </div>
-              <blockquote className="text-lg sm:text-xl lg:text-2xl font-medium text-foreground leading-relaxed italic mb-5">
-                "Volunteering with Living With Arthritis has been one of the most rewarding experiences of my life. Knowing that my time directly helps someone manage their pain and stay active — that's priceless."
-              </blockquote>
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-background border border-primary/20 flex items-center justify-center text-sm font-bold text-primary">
-                  SC
-                </div>
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-foreground">Sarah C.</p>
-                  <p className="text-xs text-muted-foreground">Volunteer Peer Mentor, Birmingham</p>
-                </div>
-              </div>
+              <p className="text-lg sm:text-xl font-medium text-foreground leading-relaxed mb-5">
+                We are a young charity. If you volunteer, we will not invent a testimonial for you. Email info@livingwitharthritis.org.uk and tell us how you can help.
+              </p>
             </div>
           </section>
 

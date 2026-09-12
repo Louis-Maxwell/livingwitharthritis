@@ -14,19 +14,19 @@ const FACES: Face[] = [
   {
     image: "/openverse/hero-friends-800.webp",
     alt: "Older woman smiling outdoors in a garden",
-    name: "Margaret, 68",
+    name: "Knee osteoarthritis",
     caption: "Walks her dog every morning — gentle daily movement keeps the knees moving.",
   },
   {
     image: "/openverse/cover-0108-old-runner-a3.webp",
     alt: "Senior man preparing fresh Mediterranean food in a sunlit kitchen",
-    name: "Ronald, 72",
+    name: "Mediterranean-style meals",
     caption: "Switched to a Mediterranean plate — olive oil, oily fish, plenty of greens.",
   },
   {
     image: joanPeterImg,
     alt: "Elderly couple stretching together in a bright living room",
-    name: "Joan & Peter, 70",
+    name: "A short stretch together",
     caption: "Ten minutes of stretching together — the only routine they've ever kept.",
   },
 ];
@@ -45,8 +45,7 @@ const FacesStrip = memo(() => {
             id="faces-strip-heading"
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.02em] leading-[1.05] text-foreground"
           >
-            The plan is for people like{" "}
-            <span className="italic text-primary">Margaret, Ronald and Joan</span>.
+            The plan is for people living with arthritis.
           </h2>
         </div>
 

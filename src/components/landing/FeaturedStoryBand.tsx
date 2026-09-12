@@ -25,19 +25,19 @@ type FeaturedStory = {
 
 const FALLBACK: FeaturedStory = {
   id: "fallback",
-  name: "Margaret Holloway",
-  location: "Sheffield",
-  age: "62",
-  diagnosis: "Knee OA",
-  with_us_since: "Jan 2025",
-  kicker: "Featured · Reader Story",
+  name: "Waiting-list guides",
+  location: "United Kingdom",
+  age: null,
+  diagnosis: "Osteoarthritis",
+  with_us_since: null,
+  kicker: "Guides, not a named story",
   headline:
-    "I was on the waiting list for sixteen months. Within a fortnight of starting here, I was walking the dog again — properly, without wincing.",
-  body: null,
+    "We write for people waiting for NHS physio. We will not invent a named recovery or a date we started supporting someone.",
+  body: "Registered 15 June 2026 (charity 1218461). If you send a real account and approve it, we can publish that. Until then this band points to the guides.",
   portrait_url:
     "/openverse/cover-0159-elderly-couple-walk-together.webp",
   portrait_alt:
-    "Margaret, 62, smiling outdoors after her morning walk in Sheffield",
+    "Two people walking together outdoors",
 };
 
 const FeaturedStoryBand = memo(() => {
@@ -72,10 +72,10 @@ const FeaturedStoryBand = memo(() => {
         <div className="flex items-center justify-between gap-6 pb-8 mb-10 border-b border-foreground/10">
           <p className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary">
             <span className="w-8 h-px bg-primary" aria-hidden="true" />
-            One story, this week
+            What we will not invent
           </p>
           <p className="hidden sm:block text-[10px] font-semibold tracking-[0.24em] uppercase text-muted-foreground">
-            Issue No. 04
+            Charity 1218461
           </p>
         </div>
 
@@ -174,7 +174,7 @@ const FeaturedStoryBand = memo(() => {
                 onClick={() => navigate("/donate")}
                 className="group inline-flex items-center justify-center gap-2 px-7 h-[48px] rounded-full border border-foreground/20 text-foreground text-[12px] font-bold tracking-[0.16em] uppercase hover:bg-foreground hover:text-background transition-colors duration-300"
               >
-                Help the next {story.name.split(" ")[0]}
+                Support the next reader
               </button>
             </div>
           </div>

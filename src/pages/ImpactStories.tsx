@@ -13,51 +13,24 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const caseStudies = [
+const situations = [
   {
-    name: "Margaret T.",
-    age: 67,
-    location: "Birmingham",
-    condition: "Knee Osteoarthritis",
-    quote: "Before finding Living With Arthritis, I was barely able to walk to the shops. The exercise guides and virtual physiotherapy gave me a structured plan. Within 3 months, I was walking 2 miles daily and my pain had reduced significantly.",
-    outcome: "Found a gentler routine and felt more confident walking to the shops",
-    services: ["Knee exercise guides", "Diet hub", "Self-help tool"],
+    title: "Knee osteoarthritis",
+    text: "Morning stiffness, stairs that feel steeper, and a wait for NHS physio. Our knee exercise guides and waiting-list page are written for that gap.",
+    href: "/conditions/knee-arthritis",
+    links: ["Knee exercises", "Waiting-list help", "Self-help tool"],
   },
   {
-    name: "David R.",
-    age: 54,
-    location: "Manchester",
-    condition: "Rheumatoid Arthritis",
-    quote: "The community forum changed everything for me. I felt completely alone with my diagnosis. Connecting with others who understood what I was going through made a huge difference to my mental health and helped me manage my condition better.",
-    outcome: "Improved mental health and better disease management",
-    services: ["Community Forum", "Peer Support", "RA Information Hub"],
+    title: "Rheumatoid arthritis",
+    text: "A new diagnosis can feel lonely. We publish plain-English RA guides, diet notes and a help chat — not a claimed community membership total.",
+    href: "/conditions/rheumatoid-arthritis",
+    links: ["RA guide", "Diet hub", "Help chat"],
   },
   {
-    name: "Fatima K.",
-    age: 42,
-    location: "London",
-    condition: "Psoriatic Arthritis",
-    quote: "The nutrition resources were a game-changer. I didn't realise how much my diet was affecting my inflammation. The Mediterranean diet plan and anti-inflammatory smoothie recipes have genuinely helped reduce my flare-ups.",
-    outcome: "Felt more in control of day-to-day food choices during quieter weeks",
-    services: ["Diet & Nutrition Hub", "Anti-Inflammatory Recipes", "Pain Journal"],
-  },
-  {
-    name: "John W.",
-    age: 72,
-    location: "Leeds",
-    condition: "Hip Osteoarthritis",
-    quote: "I was on the rheumatology waiting list for a physiotherapy referral for months. The virtual physio service meant I could start exercises immediately. The chair exercises were perfect for my level and gave me confidence to move more.",
-    outcome: "Started chair exercises while waiting for an NHS physiotherapy appointment",
-    services: ["Chair exercise guides", "Hip exercise pages", "Waiting-list help"],
-  },
-  {
-    name: "Sarah M.",
-    age: 38,
-    location: "Bristol",
-    condition: "Osteoarthritis (hands)",
-    quote: "As a teacher, my hand arthritis was threatening my career. The hand exercise programme and the self-help tool helped me manage my symptoms. I've been able to continue teaching with much less pain.",
-    outcome: "Kept teaching with pacing, hand exercises and workplace adjustments",
-    services: ["Hand Exercise Programme", "Self-Help Tool", "Workplace Guidance"],
+    title: "Hands at work",
+    text: "Teachers, joiners and anyone who uses their hands all day. Hand exercises, pacing and workplace adjustments — general information, not a case study.",
+    href: "/conditions/hand-arthritis",
+    links: ["Hand exercises", "Work & rights", "Self-help tool"],
   },
 ];
 
@@ -106,29 +79,15 @@ const ImpactStories = () => {
           "name": "Impact & Patient Stories",
           "url": "https://livingwitharthritis.org.uk/impact",
           "inLanguage": "en-GB",
-          "description": "Illustrative examples of the day-to-day problems Living With Arthritis UK writes about. Not a count of people supported.",
+          "description": "Situations Living With Arthritis UK writes about. Not a count of people supported.",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          "itemListElement": caseStudies.map((c, i) => ({
-            "@type": "ListItem",
-            "position": i + 1,
-            "item": {
-              "@type": "Review",
-              "name": `${c.condition} — ${c.location}`,
-              "reviewBody": c.quote,
-              "author": { "@type": "Person", "name": c.name },
-              "itemReviewed": { "@type": "Organization", "name": "Living With Arthritis UK" }
-            }
-          }))
         })}</script>
-        <meta name="description" content="Illustrative examples of living with arthritis in the UK. Living With Arthritis is charity 1218461 and does not publish unverified support totals." />
+        <meta name="description" content="Situations Living With Arthritis UK writes about. Charity 1218461. We do not publish unverified support totals." />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
       <meta property="og:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
-      <meta property="og:description" content="Illustrative examples of living with arthritis in the UK, from a young independent charity (1218461). Not audited outcomes." />
+      <meta property="og:description" content="Situations Living With Arthritis UK writes about. Young independent charity 1218461. Not audited outcomes." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/impact" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
@@ -139,7 +98,7 @@ const ImpactStories = () => {
         <meta property="og:image:alt" content="Impact Stories | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
-      <meta name="twitter:description" content="Illustrative examples of living with arthritis in the UK, from a young independent charity (1218461). Not audited outcomes." />
+      <meta name="twitter:description" content="Situations Living With Arthritis UK writes about. Young independent charity 1218461. Not audited outcomes." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -154,7 +113,7 @@ const ImpactStories = () => {
         title={<>What this charity <span className="text-primary">is for</span></>}
         subtitle="We write free UK guides for people living with arthritis. The notes below are illustrative, not a count of people we have supported."
       />
-      <div className="container mx-auto px-6 md:px-10 max-w-5xl -mt-4 mb-6">
+      <div className="container mx-auto px-6 md:px-10 max-w-5xl mt-2 mb-6 overflow-visible">
         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
           <Activity className="w-3 h-3" /> Registered charity 1218461 · 15 June 2026
         </p>
@@ -192,15 +151,15 @@ const ImpactStories = () => {
                 <Quote className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Illustrative examples</h2>
-                <p className="text-sm text-muted-foreground">Composite sketches of everyday situations the guides are written for — not audited patient outcomes, and not a measure of reach.</p>
+                <h2 className="text-2xl font-bold text-foreground">Situations these guides are for</h2>
+                <p className="text-sm text-muted-foreground">Everyday situations we write about. Not named patients, not audited outcomes, not a measure of reach.</p>
               </div>
             </div>
 
             <div className="space-y-5">
-              {caseStudies.map((cs, i) => (
+              {situations.map((cs, i) => (
                 <motion.div
-                  key={cs.name}
+                  key={cs.title}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -209,27 +168,15 @@ const ImpactStories = () => {
                   <Card className="border border-border/40 hover:border-primary/20 transition-colors overflow-hidden">
                     <CardContent className="p-6 md:p-8">
                       <div className="flex flex-col md:flex-row gap-6">
-                        <div className="md:w-48 shrink-0">
-                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-primary-foreground font-bold text-lg mb-3">
-                            {cs.name[0]}
-                          </div>
-                          <h3 className="font-bold text-foreground">{cs.name}, {cs.age}</h3>
-                          <p className="text-xs text-muted-foreground">{cs.location}</p>
-                          <Badge variant="outline" className="mt-2 text-xs">{cs.condition}</Badge>
-                        </div>
                         <div className="flex-1 min-w-0">
-                          <blockquote className="text-sm text-muted-foreground leading-relaxed italic border-l-2 border-primary/30 pl-4 mb-4">
-                            "{cs.quote}"
-                          </blockquote>
-                          <div className="flex items-start gap-2 mb-3">
-                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                            <p className="text-sm font-semibold text-foreground">{cs.outcome}</p>
-                          </div>
-                          <div className="flex flex-wrap gap-1.5">
-                            {cs.services.map((s) => (
+                          <h3 className="font-bold text-foreground mb-2">{cs.title}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">{cs.text}</p>
+                          <div className="flex flex-wrap gap-1.5 mb-3">
+                            {cs.links.map((s) => (
                               <Badge key={s} variant="secondary" className="text-[10px] font-medium">{s}</Badge>
                             ))}
                           </div>
+                          <Link to={cs.href} className="text-sm font-semibold text-primary hover:underline">Open the guide</Link>
                         </div>
                       </div>
                     </CardContent>
@@ -305,7 +252,7 @@ const ImpactStories = () => {
               Every donation helps us reach more people living with arthritis across the UK with free, evidence-based support.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link to="/#involved">
+              <Link to="/donate">
                 <Button className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
                   <Heart className="w-4 h-4 mr-2" /> Donate Now
                 </Button>

@@ -55,25 +55,10 @@ const newlyDiagnosedSteps = [
   { step: "5", title: "Connect with Community", desc: "You're not alone — join our peer support forum and resources.", href: "#community-features" },
 ];
 
-const patientStories = [
-  {
-    name: "Sarah",
-    age: 42,
-    condition: "Osteoarthritis",
-    quote: "I was diagnosed at 42 and felt completely lost. The exercise guides here helped me regain confidence in my body. I'm now walking 5km three times a week.",
-  },
-  {
-    name: "John",
-    age: 58,
-    condition: "Knee Arthritis",
-    quote: "After years of sport, my knees gave out. The chair exercises and swimming guides were a lifeline. I only wish I'd found this site sooner.",
-  },
-  {
-    name: "Maria",
-    age: 35,
-    condition: "Rheumatoid Arthritis",
-    quote: "Living with RA at 35 is isolating. The nutrition advice and knowing other young people share this journey makes all the difference.",
-  },
+const situationCards = [
+  { title: "Newly diagnosed", text: "Start with the condition guides, then the exercise hub. No invented walking-distance claims.", href: "/guides/newly-diagnosed" },
+  { title: "Sore knees after sport", text: "Chair work, swimming and knee-strength pages — general information, not a named recovery story.", href: "/exercises" },
+  { title: "RA in your thirties", text: "Diet notes, pacing and the help chat. We will not invent a young-adult membership total.", href: "/conditions/rheumatoid-arthritis" },
 ];
 
 const CommunityHub = () => {
@@ -235,14 +220,14 @@ const CommunityHub = () => {
                 <Heart className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Living With Arthritis Stories</h2>
-                <p className="text-sm text-muted-foreground">Real people sharing their journey to help you feel less alone</p>
+                <h2 className="text-2xl font-bold text-foreground">Situations we write for</h2>
+                <p className="text-sm text-muted-foreground">Guides for common situations. Not named patients and not star ratings.</p>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {patientStories.map((s, i) => (
+              {situationCards.map((s, i) => (
                 <motion.div
-                  key={s.name}
+                  key={s.title}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -250,21 +235,9 @@ const CommunityHub = () => {
                 >
                   <Card className="h-full border border-border/40">
                     <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                          <span className="text-lg font-bold text-primary">{s.name[0]}</span>
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground">{s.name}, {s.age}</h3>
-                          <p className="text-xs text-muted-foreground">{s.condition}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, j) => (
-                          <Star key={j} className="w-3.5 h-3.5 text-primary fill-primary" />
-                        ))}
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed italic">"{s.quote}"</p>
+                      <h3 className="font-semibold text-foreground mb-2">{s.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.text}</p>
+                      <Link to={s.href} className="text-sm font-semibold text-primary hover:underline">Open the guide</Link>
                     </CardContent>
                   </Card>
                 </motion.div>
