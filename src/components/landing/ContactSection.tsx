@@ -297,16 +297,16 @@ const ContactSection = memo(() => {
                 className="w-full min-h-11 flex items-center justify-center gap-2 py-3.5 px-6 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 shadow-sm"
               >
                 {loading ? (
-                  <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Sending your message…</>
+                  <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Preparing your email…</>
                 ) : (
-                  <><Send className="w-4 h-4" aria-hidden="true" /> Send Message</>
+                  <><Send className="w-4 h-4" aria-hidden="true" /> Open Mail App</>
                 )}
               </button>
 
               <p className="text-center text-xs text-muted-foreground">
-                Delivered securely to{" "}
+                This opens a draft in your email app, addressed to{" "}
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]">{CONTACT_EMAIL}</a>
-                . We reply within 2 business days.
+                . Press Send there and we will reply within 2 working days.
               </p>
             </div>
           )}
