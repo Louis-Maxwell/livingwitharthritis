@@ -79,9 +79,17 @@ jobs:
           timeout 5m npm run seo:audit
 
       - name: WCAG 2.2 AA rendered audit
-        run: node scripts/a11y-audit.mjs
-        env:
-          A11Y_BASE_URL: http://localhost:4173
+        run: |
+          set -e
+          npx serve -s dist -p 4173 > /tmp/lwa-a11y-serve.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4173 > /dev/null; then break; fi
+            if [ "$i" = "30" ]; then cat /tmp/lwa-a11y-serve.log || true; exit 1; fi
+            sleep 1
+          done
+          A11Y_BASE_URL=http://localhost:4173 node scripts/a11y-audit.mjs
 
       - name: Public template performance gate
         run: node scripts/perf-lighthouse.mjs --no-build
