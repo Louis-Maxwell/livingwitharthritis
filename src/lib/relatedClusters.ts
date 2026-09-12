@@ -116,7 +116,7 @@ export const CONTENT_CLUSTERS: ContentCluster[] = [
       to: "/supplements",
       description: "What actually works for arthritis — and what to skip.",
     },
-  },,
+  },
 
   {
     id: "pip-benefits",
@@ -173,7 +173,9 @@ export const CONTENT_CLUSTERS: ContentCluster[] = [
 
 ];
 
-const CLUSTERS_BY_ID = new Map(CONTENT_CLUSTERS.map((c) => [c.id, c]));
+const CLUSTERS_BY_ID = new Map(
+  CONTENT_CLUSTERS.filter((c): c is ContentCluster => Boolean(c)).map((c) => [c.id, c]),
+);
 
 interface ArticleLike {
   title?: string | null;
