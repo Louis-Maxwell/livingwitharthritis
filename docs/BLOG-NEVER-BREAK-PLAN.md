@@ -20,7 +20,9 @@
 | Those two batches, published, unique slugs, no empty title/content/date | **267** |
 | `src/data/blogArticles.json` / `blogList.json` | **238** |
 | `contentStats.wordCounts` keys | **238** (the older set only) |
-| `src/data/prerender-routes.generated.json` `/blog/*` routes | **8** |
+| `scripts/prerender-routes.mjs` `/blog/:slug` list (from `blog-slugs.generated.json`) | **505** |
+| `src/data/prerender-routes.generated.json` `/blog` hubs + categories | **10** (not article slugs) |
+| Surfaces that still read `blogList.json` only | search, footer most-read, homepage preview (**238**) |
 
 505 = 267 (JSON batches used by `staticBlogCatalog.ts`) + 238 (legacy `staticBlog.ts` / `blogArticles.json`).
 
@@ -49,14 +51,15 @@ These are real incidents on this site, not theory.
 
 Ranked by what actually hurts a reader or a share.
 
-1. **Only 8 of 505 blog URLs are in the generated prerender list.** Head-data exists for all 505, but if Lovable/hosting serves the SPA shell (or a 404) to a crawler, group shares look broken again.
+1. **`blogList.json` is still 238.** Search (`siteSearchCatalog.ts`), footer most-read, and the homepage blog preview only read that list. The other **267** posts open if you have the URL, but they do not show in those surfaces.
 2. **Two catalogs.** A new post added to only one of `frailty-batch.json`, `phase2-batch.json`, `blogArticles.json`, `blogList.json`, slugs, covers, or head-data will 404, list without opening, or share with the wrong title/image.
-3. **`wordCounts` is 238, public count is 505.** Any page that treats word-count keys as “all posts” will skip the frailty set.
-4. **CI does not fail the site on a broken blog e2e.** `lint-and-test.yml` runs Playwright with `continue-on-error: true`. Vitest on `tests.yml` does run unit guards, but a live blank article can still ship.
-5. **`tests.yml` still boots a Supabase `functions serve` job** after Supabase was removed. That job can go red for a reason that has nothing to do with blogs — or hide a real fail in noise.
-6. **Article HTML is `dangerouslySetInnerHTML`.** One bad batch row (unclosed tag, `undefined` in a Map, hook after a return) crashes the route for that slug or every slug that shares the chunk.
-7. **Lovable publish lag.** GitHub `main` is not the live hostname until publish. A “fixed on GitHub” blog can still be broken on livingwitharthritis.org.uk.
-8. **No single smoke that opens every slug.** Guards check covers and head-data. They do not render 505 articles through `BlogPost`.
+3. **The prerender *list* has all 505 slugs. A default `npm run build` does not write `/blog/*/index.html`.** `PRERENDER=1` / `build:prerender` does; `inject-canonicals.mjs` can still stamp head-data after a normal build. This workspace `dist/` currently has **0** blog HTML files. If Lovable ships the SPA shell, group shares look like 404s again.
+4. **`wordCounts` is 238, public count is 505.** Any page that treats word-count keys as “all posts” will skip the frailty set.
+5. **CI does not fail the site on a broken blog e2e.** `lint-and-test.yml` runs Playwright with `continue-on-error: true`. Vitest on `tests.yml` does run unit guards, but a live blank article can still ship.
+6. **`tests.yml` still boots a Supabase `functions serve` job** after Supabase was removed. That job can go red for a reason that has nothing to do with blogs — or hide a real fail in noise.
+7. **Article HTML is `dangerouslySetInnerHTML`.** One bad batch row (unclosed tag, `undefined` in a Map, hook after a return) crashes the route for that slug or every slug that shares the chunk.
+8. **Lovable publish lag.** GitHub `main` is not the live hostname until publish. A “fixed on GitHub” blog can still be broken on livingwitharthritis.org.uk.
+9. **No single smoke that opens every slug.** Guards check covers and head-data. They do not render 505 articles through `BlogPost`.
 
 ---
 
@@ -89,7 +92,7 @@ For every published slug:
 
 ### Gate D — shares never show 404 or the red icon
 
-- Every `/blog/:slug` gets prerendered head (title, description, `og:image` 1200×630, canonical) or injected head after build.
+- Every `/blog/:slug` is on the prerender list (already true). Every production build must write that HTML (title, description, `og:image` 1200×630, canonical) via inject or Puppeteer. Fail CI if the file is missing.
 - `blog-head-social-meta` and `blog-share-guards` stay red-fail, not warnings.
 - After every Lovable publish: Facebook Sharing Debugger rescrape is a named step, not optional folklore.
 - Copy-for-groups / WhatsApp keep the real URL `https://livingwitharthritis.org.uk/blog/{slug}`.
@@ -114,7 +117,7 @@ For every published slug:
 1. Merge the 238 + 267 into one catalog module. `useBlogArticle` reads one map.
 2. Regenerate slugs, covers, head-data, sitemap, `contentStats` (including wordCounts for all 505) from that module.
 3. Add `src/lib/__tests__/blog-catalog-integrity.test.ts`: counts must match; every slug openable; no empty body.
-4. Expand prerender/head injection from **8** blog routes to **all 505**.
+4. Make every production build write head + first HTML for all **505** slugs (`inject-canonicals` or `build:prerender`). Fail CI if `dist/blog/<slug>/index.html` is missing or still has the homepage title.
 5. Remove or skip the dead Supabase job in `tests.yml` so CI means “site health”.
 6. Turn Playwright blog smoke **on** (fail the workflow). First slice: `/blog` + 5 known slugs, including `vitamin-d-arthritis-uk`.
 
