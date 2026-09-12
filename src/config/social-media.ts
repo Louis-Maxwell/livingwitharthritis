@@ -51,7 +51,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Facebook',
     color: 'hover:text-blue-600',
     description: 'Connect with us on Facebook',
-    enabled: false, // ownership not verified
+    enabled: true,
   },
   instagram: {
     platform: 'instagram',
@@ -71,7 +71,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'Linkedin',
     color: 'hover:text-blue-700',
     description: 'Follow us on LinkedIn for professional updates',
-    enabled: false, // ownership not verified
+    enabled: true,
   },
   youtube: {
     platform: 'youtube',
@@ -144,7 +144,7 @@ export const getSocialLinksForContext = (context: 'footer' | 'header' | 'social-
       return enabled;
     case 'header':
       // Header shows only main platforms
-      return enabled.filter(link => ['twitter', 'facebook', 'instagram'].includes(link.platform));
+      return enabled.filter(link => ['facebook', 'instagram', 'linkedin'].includes(link.platform));
     case 'social-buttons':
       // Social buttons show all except email
       return enabled.filter(link => link.platform !== 'email');

@@ -1,6 +1,5 @@
 /**
- * Reusable Social Media Links Component
- * Displays social media icons with proper accessibility and analytics
+ * Charity social profiles. Icons open the real Living With Arthritis pages.
  */
 
 import {
@@ -27,9 +26,6 @@ interface SocialLinksProps {
   orientation?: 'horizontal' | 'vertical';
 }
 
-/**
- * Icon map for social platforms
- */
 const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
   twitter: Twitter,
   facebook: Facebook,
@@ -42,24 +38,18 @@ const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
   email: Mail,
 };
 
-/**
- * Size map for icons
- */
 const sizeMap = {
   sm: 'w-4 h-4',
   md: 'w-5 h-5',
   lg: 'w-6 h-6',
 };
 
-/**
- * SocialLinks Component
- */
 const SocialLinks: React.FC<SocialLinksProps> = ({
   context = 'footer',
   size = 'md',
   showLabels = false,
   className = '',
-  linkClassName = 'text-foreground/70 transition-colors duration-200',
+  linkClassName,
   orientation = 'horizontal',
 }) => {
   const socialLinks = getSocialLinksForContext(context);
@@ -68,33 +58,31 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
     return null;
   }
 
-  const handleSocialClick = (platform: SocialPlatform, url: string) => {
-    trackSocialMediaClick(platform, context);
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   const containerClass =
-    orientation === 'horizontal' ? 'flex items-center gap-4' : 'flex flex-col gap-3';
+    orientation === 'horizontal' ? 'flex flex-wrap items-center gap-2.5' : 'flex flex-col gap-3';
+
+  const defaultLink = showLabels
+    ? 'text-foreground/70 hover:text-primary transition-colors duration-200'
+    : 'inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full border border-border/40 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all';
 
   return (
-    <div className={`${containerClass} ${className}`} role="list" aria-label="Social media links">
+    <div className={`${containerClass} ${className}`} role="list" aria-label="Living With Arthritis social pages">
       {socialLinks.map(link => {
         const Icon = iconMap[link.platform];
         if (!Icon) return null;
+        const isMail = link.url.startsWith('mailto:');
 
         return (
           <a
             key={link.platform}
             href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${linkClassName} ${link.color} group`}
+            {...(isMail
+              ? {}
+              : { target: '_blank', rel: 'noopener noreferrer' })}
+            className={`${linkClassName || defaultLink} ${link.color} group`}
             aria-label={`Visit ${link.displayName}`}
             title={link.description}
-            onClick={e => {
-              e.preventDefault();
-              handleSocialClick(link.platform, link.url);
-            }}
+            onClick={() => trackSocialMediaClick(link.platform, context)}
             role="listitem"
           >
             <span className="sr-only">{link.displayName}</span>
