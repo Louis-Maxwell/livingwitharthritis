@@ -129,6 +129,10 @@ const ContactSection = memo(() => {
         setSubmitVia("mailto");
         setSubmitted(true);
       }
+    } catch {
+      toast.error(
+        `Something went wrong. Please email ${CONTACT_EMAIL} or call ${CONTACT_PHONE}.`,
+      );
     } finally {
       setLoading(false);
     }

@@ -1,15 +1,49 @@
 /**
  * Supabase-first form helpers with mailto fallback when env is missing
- * or the insert fails. Never invent success for undelivered mail.
+ * or the insert fails/throws. Never invent success for undelivered mail.
  */
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
-import { submitViaMailto, type FormApiResult } from "@/lib/formApi";
+import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 export type BackendSubmitResult =
   | { ok: true; via: "supabase"; message: string }
   | { ok: false; via: "mailto"; message: string; mailtoOpened: true }
   | { ok: false; via: "none"; message: string };
+
+type InsertError = { code?: string } | null;
+
+/** Run a Supabase insert. Network / client throws become "fail" (mailto). */
+async function tryInsert(
+  run: () => PromiseLike<{ error: InsertError }>,
+): Promise<"ok" | "duplicate" | "fail"> {
+  try {
+    const { error } = await run();
+    if (!error) return "ok";
+    if (error.code === "23505") return "duplicate";
+    return "fail";
+  } catch {
+    return "fail";
+  }
+}
+
+function mailtoFallback(opts: { subject: string; body: string }): BackendSubmitResult {
+  try {
+    const result = submitViaMailto(opts);
+    return {
+      ok: false,
+      via: "mailto",
+      mailtoOpened: true,
+      message: result.error,
+    };
+  } catch {
+    return {
+      ok: false,
+      via: "none",
+      message: `Sorry — that did not work. Please email ${CONTACT_EMAILS.info} or call 07760 512 084.`,
+    };
+  }
+}
 
 export async function subscribeNewsletter(opts: {
   email: string;
@@ -19,16 +53,19 @@ export async function subscribeNewsletter(opts: {
   const source = (opts.source || "website").slice(0, 80);
 
   if (isSupabaseConfigured && supabase) {
-    const { error } = await supabase.from("newsletter_subscriptions").insert({
-      email,
-      source,
-      // RLS requires these to stay null on anon insert
-      confirmation_token: null,
-      confirmed_at: null,
-      unsubscribe_token: null,
-    });
+    const client = supabase;
+    const outcome = await tryInsert(() =>
+      client.from("newsletter_subscriptions").insert({
+        email,
+        source,
+        // RLS requires these to stay null on anon insert
+        confirmation_token: null,
+        confirmed_at: null,
+        unsubscribe_token: null,
+      }),
+    );
 
-    if (!error) {
+    if (outcome === "ok") {
       return {
         ok: true,
         via: "supabase",
@@ -38,7 +75,7 @@ export async function subscribeNewsletter(opts: {
     }
 
     // Unique email → already subscribed (honest success)
-    if (error.code === "23505") {
+    if (outcome === "duplicate") {
       return {
         ok: true,
         via: "supabase",
@@ -48,16 +85,10 @@ export async function subscribeNewsletter(opts: {
     // fall through to mailto
   }
 
-  const result: FormApiResult = submitViaMailto({
+  return mailtoFallback({
     subject: "Newsletter signup",
     body: `Please add this email to the newsletter list: ${email}\nSource: ${source}`,
   });
-  return {
-    ok: false,
-    via: "mailto",
-    mailtoOpened: true,
-    message: result.error,
-  };
 }
 
 export async function submitContactInquiry(opts: {
@@ -77,8 +108,9 @@ export async function submitContactInquiry(opts: {
   };
 
   if (isSupabaseConfigured && supabase) {
-    const { error } = await supabase.from("contact_inquiries").insert(row);
-    if (!error) {
+    const client = supabase;
+    const outcome = await tryInsert(() => client.from("contact_inquiries").insert(row));
+    if (outcome === "ok") {
       return {
         ok: true,
         via: "supabase",
@@ -96,16 +128,10 @@ export async function submitContactInquiry(opts: {
     row.message,
   ].filter(Boolean);
 
-  const result = submitViaMailto({
+  return mailtoFallback({
     subject: row.subject,
     body: lines.join("\n"),
   });
-  return {
-    ok: false,
-    via: "mailto",
-    mailtoOpened: true,
-    message: result.error,
-  };
 }
 
 export async function submitBlogComment(opts: {
@@ -121,8 +147,9 @@ export async function submitBlogComment(opts: {
   };
 
   if (isSupabaseConfigured && supabase) {
-    const { error } = await supabase.from("blog_comments").insert(row);
-    if (!error) {
+    const client = supabase;
+    const outcome = await tryInsert(() => client.from("blog_comments").insert(row));
+    if (outcome === "ok") {
       return {
         ok: true,
         via: "supabase",
@@ -132,14 +159,8 @@ export async function submitBlogComment(opts: {
     }
   }
 
-  const result = submitViaMailto({
+  return mailtoFallback({
     subject: `Comment on ${row.slug}`,
     body: `${row.author_name} wrote:\n\n${row.content}`,
   });
-  return {
-    ok: false,
-    via: "mailto",
-    mailtoOpened: true,
-    message: result.error,
-  };
 }
