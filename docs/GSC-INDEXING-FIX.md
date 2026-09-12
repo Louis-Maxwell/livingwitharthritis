@@ -1,7 +1,81 @@
 # Google Search Console indexing fix (livingwitharthritis.org.uk)
 
 **Owner:** Louis Maxwell (`info@livingwitharthritis.org.uk`)  
-**Last updated:** 2026-09-06 (Europe/London)
+**Last updated:** 2026-09-12 (Europe/London)
+
+## 12 Sep 2026 — “Indexing request rejected” (not quota)
+
+GSC rejected Request Indexing on several real URLs. Live curl already showed
+unique titles and `id="static-article"` on the condition pages; `/library/lupus-symptoms`
+was a **48-word stub** (`<h1>Library — lupus symptoms</h1>` + a generic answer box)
+because `inject-canonicals.mjs` had no library head-data and fell back to
+`deriveHeadData()`.
+
+**What we changed in GitHub (this repo only — no Lovable edit):**
+
+1. Bake every `/library/:slug` topic from `healthTopics.ts` + `libraryTopicSeo.ts`
+   into `scripts/library-head-data.json` (same pipeline as condition subpages).
+2. Thicken `/library/lupus-symptoms` and similar symptom stubs with unique UK
+   copy (not a homepage duplicate, not a copy-paste of the condition hub).
+3. Expand lupus / reactive arthritis / ankylosing spondylitis condition subpages
+   so static-article HTML is hundreds of unique words, not a short list.
+
+GA stays **G-ZLLSD3PXZ9** only. City doorway URLs were not re-added.
+
+### After deploy — verify with curl
+
+```bash
+# Library stub must be gone (unique H1 + real body, not "Library — lupus symptoms")
+curl -sS https://livingwitharthritis.org.uk/library/lupus-symptoms \
+  | grep -oE '<title>[^<]+</title>|<h1>[^<]+</h1>'
+# expect title/h1 about lupus symptoms UK — NOT "Library — lupus symptoms"
+
+curl -sS https://livingwitharthritis.org.uk/library/lupus-symptoms \
+  | grep -c 'butterfly\|malar\|photosensitiv'
+
+# Condition pages must stay unique (not homepage heading)
+for p in \
+  /conditions/lupus/exercises \
+  /conditions/lupus/symptoms \
+  /conditions/reactive-arthritis/diet \
+  /conditions/reactive-arthritis/symptoms \
+  /conditions/ankylosing-spondylitis/diet \
+  /conditions/ankylosing-spondylitis/treatment
+do
+  echo "==== $p ===="
+  curl -sS "https://livingwitharthritis.org.uk$p" \
+    | grep -oE '<title>[^<]+</title>|<h1>[^<]+</h1>'
+done
+```
+
+A page is ready to retry in GSC when:
+
+- HTTP 200, self-referencing canonical, `index, follow`
+- `<title>` and `<h1>` name the condition/topic (never the homepage heading
+  “Living With Arthritis — UK charity…”)
+- `#static-article` contains unique paragraphs (library lupus-symptoms should
+  mention butterfly/malar rash and UK GP tests; lupus exercises should mention
+  UV/photosensitivity)
+
+### GSC URLs to retry after publish
+
+Request indexing **once** for each of these after the deploy is live:
+
+- `https://livingwitharthritis.org.uk/library/lupus-symptoms`
+- `https://livingwitharthritis.org.uk/library/gout-symptoms`
+- `https://livingwitharthritis.org.uk/library/arthritis-symptoms`
+- `https://livingwitharthritis.org.uk/library/ankylosing-spondylitis`
+- `https://livingwitharthritis.org.uk/conditions/lupus/exercises`
+- `https://livingwitharthritis.org.uk/conditions/lupus/symptoms`
+- `https://livingwitharthritis.org.uk/conditions/reactive-arthritis/diet`
+- `https://livingwitharthritis.org.uk/conditions/reactive-arthritis/symptoms`
+- `https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis/diet`
+- `https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis/treatment`
+
+Do not retry junk/doorway city URLs. If GSC still rejects, wait for Googlebot
+to recrawl; a same-day retry on thin HTML will fail again.
+
+---
 
 ## Critical live finding (must read first)
 

@@ -44,11 +44,33 @@ function pageDescription(name: string, subpage: SubpageSlug): string {
   return descriptions[subpage].slice(0, 158);
 }
 
+function extraSectionsHtml(
+  content: ConditionSubpages[SubpageSlug],
+): string {
+  const extras = "extraSections" in content ? content.extraSections : undefined;
+  if (!extras?.length) return "";
+  return extras
+    .map((section) => {
+      const paras = section.body
+        .split("\n\n")
+        .map((p) => p.trim())
+        .filter(Boolean)
+        .map((p) => `<p>${esc(p)}</p>`)
+        .join("");
+      const bullets = section.bullets?.length
+        ? `<ul>${section.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>`
+        : "";
+      return `<h2>${esc(section.heading)}</h2>${paras}${bullets}`;
+    })
+    .join("");
+}
+
 function bodyHtml(
   name: string,
   subpage: SubpageSlug,
   content: ConditionSubpages[SubpageSlug],
 ): string {
+  const extra = extraSectionsHtml(content);
   if (subpage === "symptoms" && "commonSymptoms" in content) {
     return [
       `<p>${esc(content.intro)}</p>`,
@@ -56,6 +78,7 @@ function bodyHtml(
       `<ul>${content.commonSymptoms.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`,
       `<h2>When to see your GP</h2>`,
       `<p>${esc(content.whenToSeeGP)}</p>`,
+      extra,
     ].join("");
   }
   if (subpage === "treatment" && "approaches" in content) {
@@ -65,6 +88,7 @@ function bodyHtml(
       content.approaches
         .map((a) => `<h3>${esc(a.name)}</h3><p>${esc(a.description)}</p>`)
         .join(""),
+      extra,
     ].join("");
   }
   if (subpage === "exercises" && "keyBenefits" in content) {
@@ -72,6 +96,7 @@ function bodyHtml(
       `<p>${esc(content.intro)}</p>`,
       `<h2>Key benefits</h2>`,
       `<ul>${content.keyBenefits.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`,
+      extra,
     ].join("");
   }
   if (subpage === "diet" && "foodsToFavor" in content) {
@@ -81,9 +106,10 @@ function bodyHtml(
       `<ul>${content.foodsToFavor.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`,
       `<h2>Foods to limit</h2>`,
       `<ul>${content.foodsToLimit.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`,
+      extra,
     ].join("");
   }
-  return `<p>${esc("intro" in content ? content.intro : "")}</p>`;
+  return `<p>${esc("intro" in content ? content.intro : "")}</p>${extra}`;
 }
 
 const data: Record<
@@ -105,7 +131,7 @@ for (const [slug, pages] of Object.entries(conditionSubpages)) {
   if (!cond) continue;
   for (const subpage of subpageSlugs) {
     const sub = pages[subpage];
-    const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage);
+    const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage, slug);
     const route = `/conditions/${slug}/${subpage}`;
     data[route] = {
       title: `${pageTitle(cond.name, subpage)} | Living With Arthritis UK`.slice(

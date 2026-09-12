@@ -120,6 +120,28 @@ const LibraryTopic = () => {
                 )}
               </section>
             ))}
+            {seo?.extraSections?.map((section, i) => (
+              <section key={`seo-extra-${i}`}>
+                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+                  {section.heading}
+                </h2>
+                {section.body &&
+                  section.body.split("\n\n").map((para, pi) => (
+                    <p key={pi} className="mb-4 leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                {section.bullets && section.bullets.length > 0 && (
+                  <ul className="list-disc ps-6 space-y-2">
+                    {section.bullets.map((b, bi) => (
+                      <li key={bi} className="leading-relaxed">
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
           </div>
 
           {topic.disclaimer && (

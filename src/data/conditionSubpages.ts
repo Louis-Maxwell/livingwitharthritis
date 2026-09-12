@@ -13,23 +13,32 @@ export const subpageLabel: Record<SubpageSlug, string> = {
   diet: "Diet",
 };
 
+export interface ExtraSection {
+  heading: string;
+  body: string;
+  bullets?: string[];
+}
+
 export interface SymptomsContent {
   headline: string;
   intro: string;
   commonSymptoms: string[];
   whenToSeeGP: string;
+  extraSections?: ExtraSection[];
 }
 
 export interface TreatmentContent {
   headline: string;
   intro: string;
   approaches: Array<{ name: string; description: string }>;
+  extraSections?: ExtraSection[];
 }
 
 export interface ExercisesContent {
   headline: string;
   intro: string;
   keyBenefits: string[];
+  extraSections?: ExtraSection[];
 }
 
 export interface DietContent {
@@ -37,6 +46,7 @@ export interface DietContent {
   intro: string;
   foodsToFavor: string[];
   foodsToLimit: string[];
+  extraSections?: ExtraSection[];
 }
 
 export interface ConditionSubpages {
@@ -298,7 +308,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Ankylosing spondylitis symptoms",
       intro:
-        "Ankylosing spondylitis (AS), now often called axial spondyloarthritis, is an inflammatory arthritis that mainly affects the spine and sacroiliac joints. It usually starts before age 45.",
+        "Ankylosing spondylitis (AS), now often called axial spondyloarthritis, is an inflammatory arthritis that mainly affects the spine and sacroiliac joints. It usually starts before age 45. Unlike ordinary back strain, the pain eases when you move and stiffens when you sit or lie still — a pattern NICE asks GPs to treat as a referral clue, not a gym niggle.",
       commonSymptoms: [
         "Lower back and buttock pain that improves with activity, worsens with rest",
         "Morning stiffness lasting more than 30 minutes",
@@ -309,24 +319,52 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
       whenToSeeGP:
         "See your GP if you've had back pain for more than three months that improves with movement and worsens with rest — this is a recognised red flag for inflammatory back pain.",
+      extraSections: [
+        {
+          heading: "How AS symptoms differ from mechanical back pain",
+          body: "Mechanical back pain usually follows lifting, a long drive or a poor night's sleep and eases with rest. AS pain is the opposite: people feel worse after a Sunday on the sofa and better after a walk or a swim. Buttock pain that swaps sides, alternating sciatica-like aches, and stiffness that needs a hot shower before you can put socks on are typical. Symptoms starting before 45, lasting more than three months, and responding to NSAIDs are the cluster NICE NG65 uses to separate inflammatory back pain from everyday strain.",
+        },
+        {
+          heading: "Eyes, heels and chest — symptoms outside the spine",
+          body: "A sudden painful red eye with light sensitivity is uveitis until proven otherwise and needs same-day ophthalmology, not another week of lubricating drops. Heel and Achilles insertion pain (enthesitis) is common. Rib-joint inflammation can make a deep breath feel tight and is sometimes mistaken for a chest infection. Mentioning these extras at a GP appointment is often what moves the story from 'bad back' to 'please consider axial SpA'.",
+        },
+        {
+          heading: "What your GP can do before rheumatology",
+          body: "Ask for a CRP or ESR, and discuss HLA-B27 if the history is typical — a negative gene test does not rule AS out. MRI of the sacroiliac joints is more useful than a plain lumbar X-ray in early disease, because X-rays can stay normal for years. Keep a two-week note of night waking, morning stiffness length, and what movement does to the pain. That note is more useful than another generic 'back pain' leaflet.",
+        },
+      ],
     },
     treatment: {
       headline: "Ankylosing spondylitis treatment",
       intro:
-        "AS treatment combines daily exercise — the single most important self-management step — with medication to control inflammation and prevent spinal fusion.",
+        "AS treatment combines daily exercise — the single most important self-management step — with medication to control inflammation and prevent spinal fusion. In the UK this is a rheumatology-led pathway, not a one-off pain-clinic injection.",
       approaches: [
-        { name: "Daily spinal exercise", description: "Mobility, stretching, and posture work are the foundation of AS management." },
-        { name: "NSAIDs", description: "First-line pharmacological treatment, often taken regularly rather than as needed." },
-        { name: "Biologic therapies", description: "Anti-TNF and IL-17 inhibitors for active disease that doesn't respond to NSAIDs." },
-        { name: "Specialist physiotherapy", description: "NASS-recommended structured programmes maintain spinal mobility." },
-        { name: "Hydrotherapy", description: "Particularly helpful for stiffness and supported movement." },
-        { name: "Surgery", description: "Rare but considered for severe spinal deformity or hip involvement." },
+        { name: "Daily spinal exercise", description: "Mobility, stretching, and posture work are the foundation of AS management — NASS treats this as daily medicine, not an optional extra." },
+        { name: "NSAIDs", description: "First-line pharmacological treatment, often taken regularly rather than as needed so inflammation stays down overnight." },
+        { name: "Biologic therapies", description: "Anti-TNF and IL-17 inhibitors for active disease that doesn't respond to NSAIDs, started through NHS rheumatology." },
+        { name: "Specialist physiotherapy", description: "NASS-recommended structured programmes maintain spinal mobility and teach safe extension work." },
+        { name: "Hydrotherapy", description: "Particularly helpful for stiffness and supported movement when land exercise feels too sore." },
+        { name: "Surgery", description: "Rare but considered for severe spinal deformity or hip involvement after specialist review." },
+      ],
+      extraSections: [
+        {
+          heading: "How UK treatment is stepped",
+          body: "Most people start with a regular NSAID plus a daily mobility routine while awaiting or attending rheumatology. If disease activity stays high — ongoing night pain, raised CRP, or MRI inflammation — NICE-aligned practice is to consider a biologic rather than adding stronger opioids. Smoking cessation is part of treatment: smoking is linked to worse radiographic progression. Steroid injections can help a stubborn sacroiliac or peripheral joint but are not a long-term spine strategy.",
+        },
+        {
+          heading: "What to ask in rheumatology clinic",
+          body: "Useful questions include: is my disease currently active on bloods or MRI; should I take NSAIDs every day; am I eligible for a TNF or IL-17 inhibitor; and can I be referred to hydrotherapy or a NASS-linked physio class. Ask about bone health if you have been less mobile or used steroids. Bring a list of eye episodes and gut or skin problems — they change the extra-articular picture.",
+        },
+        {
+          heading: "Treatment is not the same as rest",
+          body: "Resting a stiff AS spine makes it stiffer. Short rests during a flare are sensible; days in bed are not. The treatment page exists because people still hear 'take it easy' from well-meaning relatives. Pair any new medicine with the exercise page so the two plans do not fight each other.",
+        },
       ],
     },
     exercises: {
       headline: "Best exercises for ankylosing spondylitis",
       intro:
-        "Daily exercise is the single most important self-management step in AS. It preserves spinal range of motion, maintains posture, and reduces stiffness — and is recommended by NASS as a daily routine.",
+        "Daily exercise is the single most important self-management step in AS. It preserves spinal range of motion, maintains posture, and reduces stiffness — and is recommended by NASS as a daily routine, including on quieter days when it is tempting to skip.",
       keyBenefits: [
         "Preserves spinal mobility and prevents stiffening",
         "Maintains posture and reduces deformity risk",
@@ -334,11 +372,21 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Supports chest expansion and breathing capacity",
         "Improves sleep, mood, and overall wellbeing",
       ],
+      extraSections: [
+        {
+          heading: "A practical UK daily routine",
+          body: "Ten to twenty minutes is enough if it is every day. A typical NASS-style session includes thoracic extension over a rolled towel, knee-to-chest and hip flexor stretches, standing side-bends, and a few deep breaths with hands on the ribs to remind the chest wall to move. Swimming (especially backstroke) and walking on even ground are the aerobic staples. Do the mobility block before sitting at a desk, not only in the evening when the spine has already seized.",
+        },
+        {
+          heading: "What to avoid with AS",
+          body: "Avoid high-impact loading of a fused or very stiff spine, repeated loaded flexion (toes-to-floor 'good mornings', sit-up batteries), and contact sport until a physiotherapist has cleared you. Heavy overhead work can aggravate neck and thoracic joints. If a movement causes sharp pain rather than a stretch, stop that variation and keep the rest of the session.",
+        },
+      ],
     },
     diet: {
       headline: "Diet for ankylosing spondylitis",
       intro:
-        "There's no specific AS diet, but a Mediterranean eating pattern supports inflammation control, bone health (a concern with long-term AS), and a healthy weight.",
+        "There's no specific AS diet, but a Mediterranean eating pattern supports inflammation control, bone health (a concern with long-term AS), and a healthy weight so the spine and hips carry less load.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil as the main cooking fat",
@@ -351,6 +399,20 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Excess sugar and refined carbohydrates",
         "Excess alcohol",
         "Foods that personally appear to trigger your symptoms",
+      ],
+      extraSections: [
+        {
+          heading: "Bone health is part of the AS diet conversation",
+          body: "Reduced mobility, inflammation and, for some people, steroid exposure raise osteoporosis risk. Calcium-rich foods or fortified alternatives, vitamin D (especially in UK winter), and not skipping protein at breakfast matter as much as 'anti-inflammatory' branding on a yoghurt pot. If you have been on long-term steroids or have had a fragility fracture, ask about a DEXA scan rather than guessing from diet alone.",
+        },
+        {
+          heading: "Weight, alcohol and gut overlap",
+          body: "Extra weight loads the hips and lumbar spine and makes exercise harder — the one treatment AS cannot skip. Alcohol adds empty calories and can worsen sleep, which already suffers when night pain wakes you. Some people with axial SpA also have inflammatory bowel disease; if diarrhoea, blood or unexplained weight loss appear, that is a gastroenterology question, not a reason to start a restrictive 'AS protocol' diet from social media.",
+        },
+        {
+          heading: "Supplements with honest evidence",
+          body: "Omega-3 fish oil has the most consistent supportive data for inflammatory arthritis in general; vitamin D should be replaced if you are deficient. There is no robust evidence that cutting all starch, going gluten-free without coeliac disease, or taking high-dose turmeric replaces NSAIDs or biologics. Tell your pharmacist about any supplement if you take methotrexate, warfarin or a biologic.",
+        },
       ],
     },
   },
@@ -480,7 +542,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Lupus symptoms",
       intro:
-        "Systemic lupus erythematosus (SLE) is an autoimmune condition that can affect joints, skin, kidneys, blood, and other organs. Symptoms come and go in flares and remissions.",
+        "Systemic lupus erythematosus (SLE) is an autoimmune condition that can affect joints, skin, kidneys, blood, and other organs. Symptoms come and go in flares and remissions. This page is the NHS-pathway checklist; the library note at /library/lupus-symptoms explains the same signs in more narrative detail.",
       commonSymptoms: [
         "Joint pain and swelling, often in the hands, wrists, and knees",
         "Persistent fatigue",
@@ -491,24 +553,56 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
       whenToSeeGP:
         "See your GP if you have persistent unexplained fatigue, joint pain, rashes — particularly sun-triggered — or recurrent mouth ulcers. Blood tests can screen for lupus.",
+      extraSections: [
+        {
+          heading: "How lupus symptoms differ from rheumatoid arthritis",
+          body: "Both SLE and RA can swell the small joints of the hands. RA is typically more persistent, symmetrical and damaging to cartilage if untreated. Lupus joint pain often flits between joints, may be less destructive, and almost always travels with extra-articular clues — a sun-triggered rash, mouth ulcers, hair loss, low white cells, or urine changes. Telling your GP about those extras is what stops the story being filed as 'possible RA' or 'viral illness' for another six months.",
+        },
+        {
+          heading: "Photosensitivity on ordinary UK days",
+          body: "UV can trigger both skin and systemic flares. You do not need a Mediterranean holiday: a bright March day, a conservatory, or fluorescent lighting can be enough for some people. A rash that appears after gardening or a lunchtime walk, then fades, is worth mentioning. Daily SPF 50, a wide-brimmed hat and UV-protective clothing are clinical advice from Lupus UK, not vanity.",
+        },
+        {
+          heading: "Kidney and chest clues you should not ignore",
+          body: "Foamy or pink urine, new ankle swelling, or rising blood pressure can be lupus nephritis and need prompt blood and urine tests. Chest pain that is worse on inspiration can be pleurisy or pericarditis. These are not 'wait and see' symptoms if you already have a lupus diagnosis — contact your rheumatology advice line the same day. If you are not yet diagnosed, take them to a GP urgently rather than waiting for a routine slot.",
+        },
+        {
+          heading: "Tests that help a UK diagnosis",
+          body: "A GP can start FBC, U&E, LFT, urine protein, ESR/CRP and ANA. Rheumatology may add anti-dsDNA, ENA, complement and antiphospholipid antibodies. A positive ANA alone is not a diagnosis; a matching clinical picture is. Keep a photograph of the rash and a two-week fatigue/joint diary for the first specialist letter.",
+        },
+      ],
     },
     treatment: {
       headline: "Lupus treatment",
       intro:
-        "Lupus treatment is tailored to which organs are involved. The goal is to control inflammation, prevent organ damage, and minimise medication side effects.",
+        "Lupus treatment is tailored to which organs are involved. The goal is to control inflammation, prevent organ damage, and minimise medication side effects. In the UK this is almost always rheumatology-led, with GP blood monitoring shared once you are stable.",
       approaches: [
-        { name: "Hydroxychloroquine", description: "The cornerstone of long-term lupus treatment for almost everyone with SLE." },
-        { name: "Corticosteroids", description: "Short courses for flares, kept at the lowest effective dose." },
-        { name: "Immunosuppressants", description: "Methotrexate, mycophenolate, or azathioprine for more active disease." },
-        { name: "Biologic therapies", description: "Belimumab and other biologics for selected cases." },
-        { name: "Sun protection", description: "SPF 50+ daily — UV light is a major trigger for lupus flares." },
-        { name: "Specialist monitoring", description: "Regular blood and urine tests to detect organ involvement early." },
+        { name: "Hydroxychloroquine", description: "The cornerstone of long-term lupus treatment for almost everyone with SLE — it reduces flares and helps protect organs." },
+        { name: "Corticosteroids", description: "Short courses for flares, kept at the lowest effective dose because of bone, skin and glucose effects." },
+        { name: "Immunosuppressants", description: "Methotrexate, mycophenolate, or azathioprine for more active or organ-threatening disease." },
+        { name: "Biologic therapies", description: "Belimumab and other biologics for selected NHS cases that stay active despite standard drugs." },
+        { name: "Sun protection", description: "SPF 50+ daily — UV light is a major trigger for lupus flares, including on cloudy UK days." },
+        { name: "Specialist monitoring", description: "Regular blood and urine tests to detect organ involvement early, not only when you feel unwell." },
+      ],
+      extraSections: [
+        {
+          heading: "Hydroxychloroquine in everyday UK care",
+          body: "Most people stay on hydroxychloroquine long term. It is not a painkiller you take as required; stopping it is a common reason flares return. Eye screening is organised because rare retinal toxicity is the main long-term risk — attend those appointments even when you feel well. Tell every new prescriber you take it; some drugs interact.",
+        },
+        {
+          heading: "Steroids: useful, not a lifestyle",
+          body: "A short prednisolone course can shut down a flare while slower drugs take effect. Bone protection, blood-pressure and glucose checks, and a plan to taper matter more than the starting dose. If you need repeated courses, that is a signal to escalate disease-modifying treatment, not to live on 10 mg forever.",
+        },
+        {
+          heading: "Pregnancy and contraception conversations",
+          body: "Many people with SLE have healthy pregnancies when disease is quiet and medicines are reviewed in advance. Mycophenolate and some other immunosuppressants are not safe in pregnancy; hydroxychloroquine usually continues. Ask for a pre-pregnancy rheumatology and obstetric-medicine review rather than stopping tablets yourself.",
+        },
       ],
     },
     exercises: {
       headline: "Best exercises for lupus",
       intro:
-        "Regular gentle exercise reduces lupus fatigue, supports cardiovascular health — an important consideration in SLE — and protects joint and muscle function.",
+        "Regular gentle exercise reduces lupus fatigue, supports cardiovascular health — an important consideration in SLE — and protects joint and muscle function. It is not a cure, but it is one of the few treatments you can start while waiting for a rheumatology slot.",
       keyBenefits: [
         "Reduces lupus fatigue",
         "Supports cardiovascular health (lupus increases heart risk)",
@@ -516,11 +610,29 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Protects bone density during steroid treatment",
         "Improves mood and reduces flare-related anxiety",
       ],
+      extraSections: [
+        {
+          heading: "Safe movement during a lupus flare",
+          body: "On a high-inflammation day, swap walks for range-of-motion in a chair, gentle stretching, and breathing work. Hot, swollen joints should be moved through a comfortable arc, not loaded. Resume your usual walk or swim only when fevers settle and the joint is no longer red-hot. Post-exertional crashes that last more than a day mean the session was too long, not that exercise is 'bad for lupus'.",
+        },
+        {
+          heading: "UV, heat and where to train in the UK",
+          body: "Outdoor midday running in summer is a poor match for photosensitive SLE. Indoor swimming, early-morning walks, a shady park, or a cool gym are safer. Heat can worsen fatigue independently of UV. If you use a conservatory or exercise by a large window, apply SPF first — glass does not block all relevant UV.",
+        },
+        {
+          heading: "A weekly SLE-friendly pattern",
+          body: "Aim for most days, not heroic weekends. Two or three 10–20 minute walks, one water-based session, and two short strength circuits (sit-to-stand, wall press-ups, light bands) cover heart, bone and joint needs. Tai chi or yoga suits flare weeks. If you are on steroids, include some resistance work to offset muscle loss — light and consistent beats occasional heavy sessions.",
+        },
+        {
+          heading: "When to stop and call the team",
+          body: "Stop and seek advice for chest pain, unusual breathlessness, a swollen calf, or a headache unlike your usual lupus headaches. People with antiphospholipid syndrome need extra caution around contact sport and dehydration. Otherwise, delayed-onset muscle soreness is allowed; sharp joint pain the next morning is a cue to shorten the next session.",
+        },
+      ],
     },
     diet: {
       headline: "Diet for lupus",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports lupus management, protects heart and bone health, and helps offset the side effects of long-term steroid treatment.",
+        "A Mediterranean-style anti-inflammatory diet supports lupus management, protects heart and bone health, and helps offset the side effects of long-term steroid treatment. It will not replace hydroxychloroquine.",
       foodsToFavor: [
         "Oily fish for omega-3s",
         "Olive oil, nuts, and seeds",
@@ -533,6 +645,20 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Ultra-processed and high-sugar foods",
         "Excess alcohol",
         "Alfalfa sprouts — anecdotally linked to lupus flares",
+      ],
+      extraSections: [
+        {
+          heading: "Steroids, salt and the supermarket shop",
+          body: "Prednisolone makes the body hold salt and can raise blood pressure and blood sugar. That is why this page flags processed meat, crisps and ready meals — not because they 'cause lupus'. Cooking from fresh ingredients most days, flavouring with herbs instead of extra salt, and keeping sweet drinks for rare treats is the practical UK version of a lupus diet.",
+        },
+        {
+          heading: "Heart-healthy eating with SLE",
+          body: "SLE raises cardiovascular risk. Oily fish, extra-virgin olive oil, nuts and plenty of plants are the same pattern cardiology already recommends. Smoking cessation and blood-pressure checks sit beside the plate. If you have antiphospholipid syndrome and take warfarin, keep vitamin K-rich greens consistent week to week rather than bingeing kale then dropping it.",
+        },
+        {
+          heading: "Alfalfa, supplements and pharmacy questions",
+          body: "Alfalfa sprouts appear in lupus diet lists because of case reports of flares, not because they are a common UK staple. The more useful conversation is about supplements: high-dose vitamin E, unregulated 'immune boosters' and some herbal mixes can interact with immunosuppressants. Check with a pharmacist before adding turmeric capsules, echinacea or anything sold as an immune stimulant.",
+        },
       ],
     },
   },
@@ -784,7 +910,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     symptoms: {
       headline: "Reactive arthritis symptoms",
       intro:
-        "Reactive arthritis is joint inflammation triggered by an infection elsewhere in the body — usually a gut or urinary infection. Symptoms typically appear 2–4 weeks after the triggering infection.",
+        "Reactive arthritis is joint inflammation triggered by an infection elsewhere in the body — usually a gut or urinary infection. Symptoms typically appear 2–4 weeks after the triggering infection, which may already have settled, so people often do not connect the two.",
       commonSymptoms: [
         "Joint pain and swelling, often in the knees, ankles, or feet",
         "Lower back or buttock pain",
@@ -795,24 +921,48 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
       whenToSeeGP:
         "See your GP if you develop joint pain and swelling within a few weeks of a gut or urinary infection. Mention the recent infection — it's an important clue for diagnosis.",
+      extraSections: [
+        {
+          heading: "The infection-to-joint timeline",
+          body: "A typical UK story is a week of diarrhoea after travel or a takeaway, or a urinary infection, then a quiet fortnight, then a knee or ankle that swells almost overnight. The germ has usually gone; the immune system is still reacting. That is why antibiotics for the joint itself are often not the answer once the original infection has cleared. Write the dates down — rheumatology letters are easier when the timeline is clear.",
+        },
+        {
+          heading: "How this differs from septic arthritis",
+          body: "A single extremely hot joint with fever and inability to move it can be infection inside the joint — a same-day emergency. Reactive arthritis more often involves more than one joint, follows a recent gut or urinary illness, and the person is less systemically toxic. If you are unsure which you have, treat it as urgent. A GP or emergency department can rule out sepsis and crystal arthritis before labelling it reactive.",
+        },
+        {
+          heading: "Eyes, heels and the classic pattern",
+          body: "The old teaching triad — arthritis, urethritis, conjunctivitis — still appears, but many people have only two of the three. Heel pain and a swollen 'sausage' toe are as useful as a red eye. Lower back or buttock pain can look like a slipped disc. If you have recently had chlamydia or a gut infection, say so; sexual-health and stool history changes the blood tests a GP orders.",
+        },
+      ],
     },
     treatment: {
       headline: "Reactive arthritis treatment",
       intro:
         "Most cases of reactive arthritis resolve within 6 months. Treatment focuses on symptom control, managing the triggering infection if still present, and preventing joint damage in persistent cases.",
       approaches: [
-        { name: "NSAIDs", description: "First-line for joint pain and stiffness." },
-        { name: "Steroid joint injections", description: "Helpful for individually swollen joints." },
-        { name: "Antibiotics", description: "Used to treat the triggering infection if still active (not for the arthritis itself)." },
+        { name: "NSAIDs", description: "First-line for joint pain and stiffness while the reactive flare settles." },
+        { name: "Steroid joint injections", description: "Helpful for individually swollen knees or ankles when tablets are not enough." },
+        { name: "Antibiotics", description: "Used to treat the triggering infection if still active (not for the arthritis itself once the germ has gone)." },
         { name: "Sulfasalazine or methotrexate", description: "Considered for persistent disease lasting beyond 6 months." },
-        { name: "Physiotherapy", description: "Maintains range of motion and helps return to normal activity." },
+        { name: "Physiotherapy", description: "Maintains range of motion and helps return to work and walking." },
         { name: "Eye and skin review", description: "Ophthalmology and dermatology input if eyes, skin, or nails are involved." },
+      ],
+      extraSections: [
+        {
+          heading: "What 'most cases settle in six months' actually means",
+          body: "Settling is not always a straight line. People often have a sore heel or a stiff knee for weeks after the dramatic swelling has gone. Persistent disease beyond six months is the point UK rheumatology usually considers a DMARD. Until then, NSAIDs, an injection, and physio are the core — plus treating any still-active STI or gut pathogen so you are not re-triggering the immune response.",
+        },
+        {
+          heading: "Sexual health and partner treatment",
+          body: "If a urinary or genital infection was the trigger, partners may need testing even when you feel the joint is the only problem left. That conversation belongs with sexual-health services or your GP, not a search for stronger painkillers. It is ordinary NHS care, not a judgement.",
+        },
       ],
     },
     exercises: {
       headline: "Best exercises for reactive arthritis",
       intro:
-        "Gentle low-impact exercise during recovery helps restore joint mobility and prevents deconditioning while the underlying inflammation resolves.",
+        "Gentle low-impact exercise during recovery helps restore joint mobility and prevents deconditioning while the underlying inflammation resolves. Pushing a hot, swollen knee on a long hike usually prolongs the flare.",
       keyBenefits: [
         "Maintains joint range of motion during recovery",
         "Prevents deconditioning",
@@ -820,11 +970,21 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Improves mood and energy",
         "Helps with persistent enthesitis (heel and tendon pain)",
       ],
+      extraSections: [
+        {
+          heading: "The first fortnight of a swollen joint",
+          body: "Use the joint through a comfortable range several times a day — ankle circles, seated knee bends, gentle heel slides on a sheet. Ice after activity if the joint heats up. A walking stick in the opposite hand unloads a painful knee. Swimming or cycling with low resistance is preferable to pavement jogging until the swelling has clearly receded.",
+        },
+        {
+          heading: "Heel and Achilles care",
+          body: "Enthesitis hates sudden hills and barefoot walking on hard floors. Cushioned shoes, a short calf stretch after warmth (not first thing on a cold floor), and avoiding plyometrics until the insertion is quiet are the practical steps. If the heel stays sore after the knee has settled, ask physio about a targeted tendon-loading plan rather than resting it completely for months.",
+        },
+      ],
     },
     diet: {
       headline: "Diet for reactive arthritis",
       intro:
-        "A Mediterranean-style anti-inflammatory diet supports recovery and gut health — particularly important if the triggering infection was gastrointestinal.",
+        "A Mediterranean-style anti-inflammatory diet supports recovery and gut health — particularly important if the triggering infection was gastrointestinal. This is a recovery plate, not a detox.",
       foodsToFavor: [
         "Plenty of water for hydration during recovery",
         "Oily fish for omega-3s",
@@ -837,6 +997,20 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Added sugars",
         "Excess alcohol",
         "Anything that personally upsets your gut",
+      ],
+      extraSections: [
+        {
+          heading: "Eating after a gut-triggered flare",
+          body: "If diarrhoea started this episode, your gut may still be irritable for weeks. Small regular meals, adequate fluid, and a gradual return to fibre work better than a sudden high-fibre 'reset'. Yogurt with live cultures or kefir is a reasonable everyday choice if you tolerate dairy; it is not a prescription. Skip alcohol until the joints are quieter — it dehydrates and disrupts sleep, both of which make pain feel worse.",
+        },
+        {
+          heading: "NSAIDs, stomach lining and meal timing",
+          body: "Naproxen or ibuprofen for a swollen knee should be taken with food. If you have a history of ulcers, ask about a proton-pump inhibitor rather than taking NSAIDs on an empty stomach. Diet cannot replace that advice. People sometimes search for a reactive-arthritis superfood while taking ibuprofen three times a day without food — fix the tablet timing first.",
+        },
+        {
+          heading: "When 'gut health' needs a doctor, not a diet",
+          body: "Ongoing bloody diarrhoea, nocturnal stool, or unexplained weight loss after a 'food poisoning' story can be inflammatory bowel disease, not a finished infection. That is a GP and gastroenterology question. Do not stay on a highly restrictive elimination diet for months without a plan — it delays the right referral and thins out nutrition while you are trying to rebuild muscle.",
+        },
       ],
     },
   },

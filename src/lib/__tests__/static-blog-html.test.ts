@@ -185,5 +185,13 @@ describe("static blog HTML for Soft 404s", () => {
     expect(
       conditions["/conditions/hand-arthritis/exercises"]?.bodyHtml,
     ).toMatch(/grip|finger|range-of-motion/i);
+
+    expect(conditions["/conditions/lupus/exercises"]?.question).toMatch(/lupus/i);
+    expect(conditions["/conditions/lupus/exercises"]?.bodyHtml).toMatch(/UV|photosensit|swim/i);
+    expect(conditions["/conditions/lupus/symptoms"]?.bodyHtml).toMatch(/ANA|butterfly|kidney/i);
+    expect(conditions["/conditions/reactive-arthritis/diet"]?.bodyHtml).toMatch(/gut|kefir|NSAID/i);
+    expect(conditions["/conditions/reactive-arthritis/symptoms"]?.bodyHtml).toMatch(/septic|infection/i);
+    expect(conditions["/conditions/ankylosing-spondylitis/diet"]?.bodyHtml).toMatch(/bone|Mediterranean/i);
+    expect(conditions["/conditions/ankylosing-spondylitis/treatment"]?.bodyHtml).toMatch(/NSAID|biologic/i);
   });
 });
