@@ -254,10 +254,10 @@ const HipArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hip-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="ðŸ‘" title="Glutes" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
-            <EmojiCard emoji="ðŸš´" title="Cycle" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
-            <EmojiCard emoji="âš–ï¸" title="Weight" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
-            <EmojiCard emoji="ðŸ›ï¸" title="Sleep" description="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+            <EmojiCard emoji="🦵" title="Glutes" description="Daily glute and hip-abductor work to support the joint." />
+            <EmojiCard emoji="🚴" title="Cycle" description="Low-impact cycling or a static bike if walking is sore." />
+            <EmojiCard emoji="⚖️" title="Weight" description="Even a small weight loss lowers load through the hip." />
+            <EmojiCard emoji="🛏️" title="Sleep" description="A pillow between the knees can ease night pain." />
           </div>
         </motion.div>
 

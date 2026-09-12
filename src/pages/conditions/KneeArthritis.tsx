@@ -235,10 +235,10 @@ const KneeArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily knee-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🦵" title="Strength" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
-            <EmojiCard emoji="🚴" title="Cycle" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
-            <EmojiCard emoji="⚖️" title="Weight" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
-            <EmojiCard emoji="🧊" title="Ice" description="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+            <EmojiCard emoji="🦵" title="Strength" description="Straight-leg raises and wall sits — start small, build slowly." />
+            <EmojiCard emoji="🚴" title="Cycle" description="Cycling is easier on the knee than running or jumping." />
+            <EmojiCard emoji="⚖️" title="Weight" description="Losing 5% of body weight often eases knee load a lot." />
+            <EmojiCard emoji="🧊" title="Ice" description="Ten minutes after activity if the knee is warm or swollen." />
           </div>
         </motion.div>
 

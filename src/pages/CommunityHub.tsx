@@ -217,12 +217,12 @@ const CommunityHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Support Resources</h2>
             <p className="text-sm text-muted-foreground mb-8">Instant access to key areas of support.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🏋️" title="Exercise Hub" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
-              <EmojiCard emoji="🥗" title="Diet Hub" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
-              <EmojiCard emoji="💬" title="Help Chat" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
-              <EmojiCard emoji="📖" title="Blog Articles" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
-              <EmojiCard emoji="📋" title="Self-Help Tool" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
-              <EmojiCard emoji="💊" title="Supplements" description="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+              <EmojiCard emoji="🏋️" title="Exercise Hub" description="Knee, hand, chair and tai chi routines you can start at home." />
+              <EmojiCard emoji="🥗" title="Diet Hub" description="Anti-inflammatory and Mediterranean ideas for a real UK kitchen." />
+              <EmojiCard emoji="💬" title="Help Chat" description="Ask about pain, flares, diet, exercises or PIP — UK-safe, no diagnosis." />
+              <EmojiCard emoji="📖" title="Blog Articles" description="505 clinically reviewed guides — search by topic when you know what you need." />
+              <EmojiCard emoji="📋" title="Self-Help Tool" description="Tap a joint on the diagram for a short home exercise plan." />
+              <EmojiCard emoji="💊" title="Supplements" description="What the evidence actually says about turmeric, omega-3 and glucosamine." />
             </div>
           </div>
         </section>

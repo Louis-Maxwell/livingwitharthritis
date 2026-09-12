@@ -487,12 +487,12 @@ const ExerciseHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🔥" title="Warm Up" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-              <EmojiCard emoji="💧" title="Stay Hydrated" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-              <EmojiCard emoji="🧊" title="Ice After" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-              <EmojiCard emoji="📅" title="Be Consistent" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-              <EmojiCard emoji="🛑" title="Listen to Pain" description="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
+              <EmojiCard emoji="🔥" title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
+              <EmojiCard emoji="💧" title="Stay Hydrated" description="Sip water before and after — dehydration makes stiffness worse." />
+              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Keep effort around 4 out of 10. Next-day soreness means do less, not more." />
+              <EmojiCard emoji="🧊" title="Ice After" description="Ten minutes of ice on a warm, swollen joint, cloth barrier, after you finish." />
+              <EmojiCard emoji="📅" title="Be Consistent" description="A short daily session beats one long weekend burst that leaves you sore." />
+              <EmojiCard emoji="🛑" title="Listen to Pain" description="Sharp or worsening pain means stop. A mild ache that settles is usually fine." />
             </div>
           </div>
         </section>

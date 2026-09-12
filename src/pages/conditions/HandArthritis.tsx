@@ -244,10 +244,10 @@ const HandArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hand-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="✋" title="Move" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
-            <EmojiCard emoji="🧤" title="Splint" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
-            <EmojiCard emoji="♨️" title="Heat" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
-            <EmojiCard emoji="🛠️" title="Adapt" description="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+            <EmojiCard emoji="✋" title="Move" description="Finger bends and thumb touches — short sets, often." />
+            <EmojiCard emoji="🧤" title="Splint" description="A resting splint at night can ease morning stiffness." />
+            <EmojiCard emoji="♨️" title="Heat" description="Warm water for 5 minutes before you use your hands." />
+            <EmojiCard emoji="🛠️" title="Adapt" description="Jar openers, thick grips and electric gadgets save joints." />
           </div>
         </motion.div>
 

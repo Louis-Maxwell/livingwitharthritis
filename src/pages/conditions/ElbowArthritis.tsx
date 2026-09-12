@@ -238,10 +238,10 @@ const ElbowArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily elbow-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="ðŸ”" title="Mobility" description="Bend / straighten morning &amp; evening" />
-            <EmojiCard emoji="ðŸ¤" title="Grip" description="Soft-ball squeezes daily" />
-            <EmojiCard emoji="ðŸŽ’" title="Load" description="Backpack, not single-shoulder bag" />
-            <EmojiCard emoji="â™¨ï¸" title="Heat" description="10 min before exercise" />
+            <EmojiCard emoji="🔄" title="Mobility" description="Bend and straighten morning and evening." />
+            <EmojiCard emoji="✊" title="Grip" description="Soft-ball squeezes daily, stop if it spikes pain." />
+            <EmojiCard emoji="🎒" title="Load" description="Use a backpack, not a single-shoulder bag." />
+            <EmojiCard emoji="♨️" title="Heat" description="Ten minutes of heat before exercise." />
           </div>
         </motion.div>
 
