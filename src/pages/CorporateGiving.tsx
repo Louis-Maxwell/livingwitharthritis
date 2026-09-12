@@ -1,4 +1,4 @@
-import { submitViaMailto } from "@/lib/formApi";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -104,18 +104,19 @@ const CorporateGiving = () => {
 
     setIsSubmitting(true);
     try {
-      const result = submitViaMailto({
+      const result = await submitContactInquiry({
+        name: parsed.data.contact_name,
+        email: parsed.data.email,
+        phone: parsed.data.phone || undefined,
         subject: "Corporate giving enquiry",
-        body: [
-          "Name: " + parsed.data.contact_name,
-          "Email: " + parsed.data.email,
+        message: [
           parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
           "Type: " + parsed.data.inquiry_type,
-          parsed.data.phone ? "Phone: " + parsed.data.phone : "",
           parsed.data.message ? parsed.data.message : "",
         ].filter(Boolean).join("\n"),
       });
-      toast.message(result.error);
+      if (result.ok) toast.success(result.message);
+      else toast.message(result.message);
       setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
     } catch {
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);

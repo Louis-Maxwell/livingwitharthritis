@@ -2,6 +2,8 @@ import { memo, useState } from "react";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
+import { subscribeNewsletter } from "@/lib/backendSubmit";
+import { CONTACT_EMAILS } from "@/config/contact";
 
 interface EmailSignupFormProps {
   placeholder?: string;
@@ -28,6 +30,9 @@ const EmailSignupForm = memo(({
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [successCopy, setSuccessCopy] = useState(
+    "Thank you — you are on the list.",
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,19 +50,39 @@ const EmailSignupForm = memo(({
     setError(null);
 
     try {
-      window.location.href =
-        "mailto:info@livingwitharthritis.org.uk" +
-        "?subject=" + encodeURIComponent("Newsletter signup") +
-        "&body=" + encodeURIComponent("Please add this email to the newsletter list: " + addr);
-      trackNewsletterSignup();
-      trackEvent("email_signup", { sequence });
-      setSuccess(true);
-      setEmail("");
-      toast.success("Almost there — please send the email that opened. We do not store signups on this site yet.");
-      onSuccess?.();
-      setTimeout(() => setSuccess(false), 5000);
+      const result = await subscribeNewsletter({ email: addr, source: sequence });
+      if (result.ok) {
+        trackNewsletterSignup();
+        trackEvent("email_signup", { sequence, via: "supabase" });
+        setSuccessCopy(result.message);
+        setSuccess(true);
+        setEmail("");
+        toast.success(result.message);
+        onSuccess?.();
+        setTimeout(() => setSuccess(false), 8000);
+      } else if (result.via === "mailto") {
+        trackNewsletterSignup();
+        trackEvent("email_signup", { sequence, via: "mailto" });
+        setSuccessCopy(
+          "Almost there — please send the email that opened so we can add you.",
+        );
+        setSuccess(true);
+        setEmail("");
+        toast.message(result.message);
+        onSuccess?.();
+        setTimeout(() => setSuccess(false), 8000);
+      } else {
+        const msg =
+          result.message ||
+          `Sorry — that did not work. Please email ${CONTACT_EMAILS.info} or call 07760 512 084.`;
+        setError(msg);
+        toast.error(msg);
+      }
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Sorry — that did not work. Please try again or email info@livingwitharthritis.org.uk.";
+      const msg =
+        err instanceof Error
+          ? err.message
+          : `Sorry — that did not work. Please try again or email ${CONTACT_EMAILS.info}.`;
       setError(msg);
       toast.error(msg);
     } finally {
@@ -120,7 +145,7 @@ const EmailSignupForm = memo(({
           <div className="rounded-lg bg-emerald-500/10 border border-emerald-200 p-4 flex gap-3" role="status" aria-live="polite">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
             <div>
-              <p className="font-semibold text-emerald-900 text-sm">Thank you — you are on the list once you send that email.</p>
+              <p className="font-semibold text-emerald-900 text-sm">{successCopy}</p>
               <p className="text-xs text-emerald-800 mt-1">We will keep it kind and useful. No spam, and you can leave anytime.</p>
             </div>
           </div>
@@ -152,7 +177,7 @@ const EmailSignupForm = memo(({
                 {loading ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-                    Opening email…
+                    Saving…
                   </>
                 ) : (
                   buttonText
@@ -168,14 +193,13 @@ const EmailSignupForm = memo(({
             )}
 
             <p className="text-[11px] text-muted-foreground leading-relaxed">
-              Tick-free request only starts a confirmation email workflow. We send educational
-              guides (flares, exercise, benefits) from Living With Arthritis UK (charity 1218461).
-              Double-consent applies before a marketing list is created. Unsubscribe anytime.
-              See our{" "}
+              Educational emails from Living With Arthritis UK (charity 1218461).
+              Unsubscribe anytime. See our{" "}
               <a href="/privacy" className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
                 privacy policy
               </a>
-              . We do not store signups on this site yet — your mail client opens so you can confirm.
+              . If the form cannot reach our database, your email app opens as a fallback
+              to {CONTACT_EMAILS.info}.
             </p>
           </>
         )}

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Download, Dumbbell, CheckCircle } from "lucide-react";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
-import strengthIllustration from "@/assets/strength-illustration.jpg.asset.json";
 
 const allJoints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
 const jointLabels: Record<string, string> = { knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle" };
@@ -127,15 +126,9 @@ export default function ExercisePlanGenerator() {
     return (
       <div className="space-y-6">
         <div className="rounded-2xl overflow-hidden bg-accent flex items-center gap-4 p-4 sm:p-6">
-          <img
-            src={strengthIllustration.url}
-            alt="Illustration of a woman in purple workout gear holding dumbbells in front of a mirror"
-            width={400}
-            height={400}
-            loading="lazy"
-            decoding="async"
-            className="w-24 h-24 sm:w-32 sm:h-32 object-contain flex-shrink-0"
-          />
+          <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <Dumbbell className="w-10 h-10 sm:w-12 sm:h-12 text-primary" aria-hidden />
+          </div>
           <div>
             <h3 className="text-lg font-bold text-foreground">Build your personalised plan</h3>
             <p className="text-sm text-muted-foreground mt-1">Tell us about your joints, fitness level and goals — we'll generate a weekly routine.</p>

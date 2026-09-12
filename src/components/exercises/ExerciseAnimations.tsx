@@ -1,15 +1,22 @@
 import ExerciseVideo from "./ExerciseVideo";
 
-import NeckAsset from "../../../public/exercise-videos/exercise-neck.mp4.asset.json";
-import ShoulderAsset from "../../../public/exercise-videos/exercise-shoulder.mp4.asset.json";
-import ElbowAsset from "../../../public/exercise-videos/exercise-elbow.mp4.asset.json";
-import WristAsset from "../../../public/exercise-videos/exercise-wrist.mp4.asset.json";
-import HipAsset from "../../../public/exercise-videos/exercise-hip.mp4.asset.json";
-import KneeAsset from "../../../public/exercise-videos/exercise-knee.mp4.asset.json";
-import AnkleAsset from "../../../public/exercise-videos/exercise-ankle.mp4.asset.json";
-import SpineAsset from "../../../public/exercise-videos/exercise-spine.mp4.asset.json";
-import HandAsset from "../../../public/exercise-videos/exercise-hand.mp4.asset.json";
-import ChairAsset from "../../../public/exercise-videos/exercise-chair.mp4.asset.json";
+/**
+ * Static public paths only — do not import *.mp4.asset.json from /public.
+ * Actual .mp4 binaries are often absent from the GitHub repo; ExerciseVideo
+ * falls back to CinematicHumanoid / labelled placeholder on 404.
+ */
+const VIDEO = {
+  neck: "/exercise-videos/exercise-neck.mp4",
+  shoulder: "/exercise-videos/exercise-shoulder.mp4",
+  elbow: "/exercise-videos/exercise-elbow.mp4",
+  wrist: "/exercise-videos/exercise-wrist.mp4",
+  hip: "/exercise-videos/exercise-hip.mp4",
+  knee: "/exercise-videos/exercise-knee.mp4",
+  ankle: "/exercise-videos/exercise-ankle.mp4",
+  spine: "/exercise-videos/exercise-spine.mp4",
+  hand: "/exercise-videos/exercise-hand.mp4",
+  chair: "/exercise-videos/exercise-chair.mp4",
+} as const;
 
 interface AnimationProps {
   className?: string;
@@ -20,17 +27,17 @@ const make = (src: string, label: string) =>
     <ExerciseVideo src={src} label={label} className={className} />
   );
 
-export const NeckBends = make(NeckAsset.url, "Neck mobility");
-export const ShoulderPendulum = make(ShoulderAsset.url, "Shoulder pendulum");
-export const ElbowFlexion = make(ElbowAsset.url, "Elbow flexion");
-export const WristCircles = make(WristAsset.url, "Wrist circles");
-export const HipAbduction = make(HipAsset.url, "Hip abduction");
-export const KneeExtension = make(KneeAsset.url, "Knee extension");
-export const AnkleCircles = make(AnkleAsset.url, "Ankle circles");
-export const SpineCatCow = make(SpineAsset.url, "Spine cat-cow");
-export const HandFingerSpread = make(HandAsset.url, "Hand finger spread");
+export const NeckBends = make(VIDEO.neck, "Neck mobility");
+export const ShoulderPendulum = make(VIDEO.shoulder, "Shoulder pendulum");
+export const ElbowFlexion = make(VIDEO.elbow, "Elbow flexion");
+export const WristCircles = make(VIDEO.wrist, "Wrist circles");
+export const HipAbduction = make(VIDEO.hip, "Hip abduction");
+export const KneeExtension = make(VIDEO.knee, "Knee extension");
+export const AnkleCircles = make(VIDEO.ankle, "Ankle circles");
+export const SpineCatCow = make(VIDEO.spine, "Spine cat-cow");
+export const HandFingerSpread = make(VIDEO.hand, "Hand finger spread");
 export const HandExercise = HandFingerSpread;
-export const ChairMarch = make(ChairAsset.url, "Seated march");
+export const ChairMarch = make(VIDEO.chair, "Seated march");
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const EXERCISE_ANIMATIONS = {

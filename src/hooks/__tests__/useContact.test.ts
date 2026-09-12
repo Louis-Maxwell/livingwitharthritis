@@ -1,24 +1,22 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { renderHook, act } from "@testing-library/react";
-import { useContact } from "../useContact";
 import { toast } from "sonner";
 
 vi.mock("sonner", () => ({
   toast: { error: vi.fn(), success: vi.fn(), message: vi.fn() },
 }));
 
-const hrefs: string[] = [];
-Object.defineProperty(window, "location", {
-  configurable: true,
-  value: {
-    set href(v: string) {
-      hrefs.push(v);
-    },
-    get href() {
-      return hrefs.at(-1) ?? "";
-    },
-  },
-});
+vi.mock("@/lib/backendSubmit", () => ({
+  submitContactInquiry: vi.fn(async () => ({
+    ok: false,
+    via: "mailto",
+    mailtoOpened: true,
+    message: "Your email app should open with a draft. Please press Send there.",
+  })),
+}));
+
+import { useContact } from "../useContact";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 
 const valid = {
   name: "Jane Doe",
@@ -30,10 +28,9 @@ const valid = {
 describe("useContact", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    hrefs.length = 0;
   });
 
-  it("opens mailto and never toasts success", async () => {
+  it("falls back to mailto path and never toasts success when backend returns mailto", async () => {
     const { result } = renderHook(() => useContact());
     let response: { success: boolean };
     await act(async () => {
@@ -42,10 +39,10 @@ describe("useContact", () => {
     expect(response!.success).toBe(false);
     expect(toast.success).not.toHaveBeenCalled();
     expect(toast.message).toHaveBeenCalled();
-    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
+    expect(submitContactInquiry).toHaveBeenCalled();
   });
 
-  it("rejects invalid email without mailto", async () => {
+  it("rejects invalid email without calling backend", async () => {
     const { result } = renderHook(() => useContact());
     let response: { success: boolean; error?: string };
     await act(async () => {
@@ -53,6 +50,6 @@ describe("useContact", () => {
     });
     expect(response!.success).toBe(false);
     expect(response!.error).toBe("Invalid email");
-    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
+    expect(submitContactInquiry).not.toHaveBeenCalled();
   });
 });

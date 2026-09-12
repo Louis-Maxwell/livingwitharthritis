@@ -14,7 +14,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { sanitizeInput } from "@/lib/sanitize";
 import { CONTACT_EMAILS } from "@/config/contact";
-import { submitViaMailto } from "@/lib/formApi";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -54,16 +54,14 @@ export default function Partners() {
 
     setSubmitting(true);
     try {
-      const result = submitViaMailto({
+      const result = await submitContactInquiry({
+        name: form.name,
+        email: form.email,
         subject: `Partnership Enquiry: ${form.type}`,
-        body: `Organisation: ${form.organisation || "N/A"}
-Type: ${form.type}
-Name: ${form.name}
-Email: ${form.email}
-
-${form.message || ""}`,
+        message: `Organisation: ${form.organisation || "N/A"}\nType: ${form.type}\n\n${form.message || ""}`,
       });
-      toast.message(result.error);
+      if (result.ok) toast.success(result.message);
+      else toast.message(result.message);
       setForm({ name: "", email: "", organisation: "", type: "", message: "" });
     } catch {
       toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);

@@ -363,9 +363,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/about": withDefaults({
     question: "Who is Living With Arthritis UK?",
     answer:
-      "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461), based in Oswestry, Shropshire. We publish free UK arthritis guidance and are independent of Arthritis UK.",
+      "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461). We publish free UK arthritis guidance online and are independent of Arthritis UK.",
     faqs: [
-      { q: "Where is the charity based?", a: "Registered office: Oswestry Primary Care Centre, Thomas Savin Road, Oswestry, Shropshire SY11 1GA. We serve people across the UK online." },
+      { q: "Where is the charity based?", a: "We are a UK charity (England and Wales, no. 1218461) serving people across the United Kingdom online. A new registered office address will be published when confirmed — contact info@livingwitharthritis.org.uk or 07760 512 084." },
       { q: "What is the charity number?", a: "1218461 (England and Wales)." },
     ],
   }),

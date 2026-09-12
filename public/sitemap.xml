@@ -58,6 +58,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/about/editorial-claims-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/resources/flare-action-plan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/resources/pip-evidence-diary</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/resources/clinic-pack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/about/uk-arthritis-search-insights</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { trackContactSubmit } from "@/lib/analytics";
-import { submitViaMailto } from "@/lib/formApi";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
@@ -89,6 +89,7 @@ const ContactSection = memo(() => {
   const [errors, setErrors] = useState<FieldErr>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitVia, setSubmitVia] = useState<"supabase" | "mailto" | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const firstErrRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
 
@@ -110,15 +111,24 @@ const ContactSection = memo(() => {
     }
     setLoading(true);
     try {
-      const result = submitViaMailto({
+      const result = await submitContactInquiry({
+        name: form.name.trim(),
+        email: form.email.trim(),
         subject: form.subject,
-        body: `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`,
+        message: form.message.trim(),
       });
-      // Honest: mailto opened — not auto-delivered. Track intent only.
       trackContactSubmit({ topic: form.subject });
       trackContactFormSubmit(form.subject);
-      toast.message(result.error);
-      setSubmitted(true);
+      if (result.ok) {
+        toast.success(result.message);
+        setSubmitVia("supabase");
+        setSubmitted(true);
+      } else {
+        // Mailto fallback — not delivery confirmation
+        toast.message(result.message);
+        setSubmitVia("mailto");
+        setSubmitted(true);
+      }
     } finally {
       setLoading(false);
     }
@@ -195,15 +205,28 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Email draft ready — please press Send</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">
+                {submitVia === "supabase"
+                  ? "Message received"
+                  : "Email draft ready — please press Send"}
+              </h3>
               <p className="text-muted-foreground mb-6">
-                Your email app should have opened with a draft to{" "}
-                <strong>{CONTACT_EMAIL}</strong>. We only receive your message after you press
-                Send there — nothing was submitted automatically. A real person will reply within
-                two working days once it arrives.
+                {submitVia === "supabase" ? (
+                  <>
+                    Thank you — we have your enquiry. A real person will reply within two working
+                    days at <strong>{CONTACT_EMAIL}</strong>. For urgent help call {CONTACT_PHONE}.
+                  </>
+                ) : (
+                  <>
+                    Your email app should have opened with a draft to{" "}
+                    <strong>{CONTACT_EMAIL}</strong>. We only receive your message after you press
+                    Send there — nothing was submitted automatically. A real person will reply within
+                    two working days once it arrives.
+                  </>
+                )}
               </p>
               <button
-                onClick={() => { setForm(blank); setSubmitted(false); }}
+                onClick={() => { setForm(blank); setSubmitted(false); setSubmitVia(null); }}
                 type="button"
                 className="min-h-11 px-6 py-2.5 text-sm font-semibold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >

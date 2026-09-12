@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
-import { submitViaMailto } from "@/lib/formApi";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 interface ContactData {
@@ -30,7 +30,6 @@ export function useContact() {
     }
     attemptsRef.current.push(now);
 
-    // Honeypot: silent no-op for bots
     if (data.website && String(data.website).trim()) {
       return { success: false, error: "Rejected" };
     }
@@ -51,20 +50,22 @@ export function useContact() {
 
     setIsLoading(true);
     try {
-      const lines = [
-        `Name: ${sanitizedData.name}`,
-        `Email: ${sanitizedData.email}`,
-        sanitizedData.phone ? `Phone: ${sanitizedData.phone}` : "",
-        "",
-        sanitizedData.message,
-      ].filter(Boolean);
-      const result = submitViaMailto({
-        subject: sanitizedData.subject || "Website enquiry",
-        body: lines.join("\n"),
-      });
-      // Never toast success — mailto is not delivery confirmation.
-      toast.message(result.error);
-      return { success: false, error: result.error, mailtoOpened: true as const };
+      const result = await submitContactInquiry(sanitizedData);
+      if (result.ok) {
+        toast.success(result.message);
+        return { success: true as const, via: result.via };
+      }
+      // Mailto fallback — never toast success
+      toast.message(result.message);
+      return {
+        success: false as const,
+        error: result.message,
+        mailtoOpened: true as const,
+      };
+    } catch {
+      const msg = `Something went wrong. Please email ${CONTACT_EMAILS.info} or call 07760 512 084.`;
+      toast.error(msg);
+      return { success: false as const, error: msg };
     } finally {
       setIsLoading(false);
     }

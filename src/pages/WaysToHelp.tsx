@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { submitViaMailto } from "@/lib/formApi";
+import { submitContactInquiry } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -118,16 +118,17 @@ export default function WaysToHelp() {
 
     setSubmitting(true);
     try {
-      const result = submitViaMailto({
+      const result = await submitContactInquiry({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
         subject: "Volunteer enquiry",
-        body: [
-          "Name: " + formData.name.trim(),
-          "Email: " + formData.email.trim(),
+        message: [
           "Interest: " + formData.area_of_interest,
           formData.message.trim() || "",
         ].filter(Boolean).join("\n"),
       });
-      toast.message(result.error);
+      if (result.ok) toast.success(result.message);
+      else toast.message(result.message);
       setSubmitted(true);
     } catch {
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);

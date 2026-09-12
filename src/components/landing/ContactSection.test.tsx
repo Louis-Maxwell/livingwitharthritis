@@ -11,13 +11,12 @@ vi.mock("sonner", () => ({
 
 vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn() }));
 vi.mock("@/lib/ga-events", () => ({ trackContactFormSubmit: vi.fn() }));
-vi.mock("@/lib/formApi", () => ({
-  submitViaMailto: vi.fn(() => ({
+vi.mock("@/lib/backendSubmit", () => ({
+  submitContactInquiry: vi.fn(async () => ({
     ok: false,
-    code: "mailto_only",
-    mailtoSuggested: true,
+    via: "mailto",
     mailtoOpened: true,
-    error: "Your email app should open with a draft. Please press Send there.",
+    message: "Your email app should open with a draft. Please press Send there.",
   })),
 }));
 
@@ -94,15 +93,15 @@ describe("ContactSection submission feedback", () => {
   };
 
   it("shows honest mailto guidance and never claims auto-delivery success", async () => {
-    const { submitViaMailto } = await import("@/lib/formApi");
+    const { submitContactInquiry } = await import("@/lib/backendSubmit");
     renderSection();
     fillValid();
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
     expect(await screen.findByText(/email draft ready/i)).toBeInTheDocument();
-    expect(submitViaMailto).toHaveBeenCalledWith(
+    expect(submitContactInquiry).toHaveBeenCalledWith(
       expect.objectContaining({
         subject: "General enquiry",
-        body: expect.stringContaining("jane@example.com"),
+        email: "jane@example.com",
       }),
     );
     expect(screen.queryByText(/message received/i)).not.toBeInTheDocument();

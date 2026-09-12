@@ -28,7 +28,7 @@ import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import { EXERCISE_ANIMATIONS, type ExerciseAnimationKey } from "@/components/exercises/ExerciseAnimations";
+import SafeExerciseDemo from "@/components/exercises/SafeExerciseDemo";
 import AnswerBox from "@/components/seo/AnswerBox";
 
 const exerciseCategories = [
@@ -344,15 +344,10 @@ const ExerciseHub = () => {
                           </div>
                         ))}
                       </div>
-                      {EXERCISE_ANIMATIONS[cat.id as ExerciseAnimationKey] && (() => {
-                        const Anim = EXERCISE_ANIMATIONS[cat.id as ExerciseAnimationKey];
-                        return (
-                          <div>
-                            <Anim />
-                            <p className="text-[11px] text-muted-foreground text-center mt-1.5 italic">Animated demonstration</p>
-                          </div>
-                        );
-                      })()}
+                      <SafeExerciseDemo
+                        animKey={cat.id}
+                        caption="Animated demonstration"
+                      />
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
@@ -429,15 +424,10 @@ const ExerciseHub = () => {
                           </div>
                         ))}
                       </div>
-                      {EXERCISE_ANIMATIONS[cat.id as ExerciseAnimationKey] && (() => {
-                        const Anim = EXERCISE_ANIMATIONS[cat.id as ExerciseAnimationKey];
-                        return (
-                          <div>
-                            <Anim />
-                            <p className="text-[11px] text-muted-foreground text-center mt-1.5 italic">Animated demonstration</p>
-                          </div>
-                        );
-                      })()}
+                      <SafeExerciseDemo
+                        animKey={cat.id}
+                        caption="Animated demonstration"
+                      />
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">

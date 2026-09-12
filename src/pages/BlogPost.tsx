@@ -5,11 +5,12 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
-import { BookOpen, ChevronRight, Download } from "lucide-react";
+import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 import { useBlogArticle } from "@/hooks/useBlogArticles";
+import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
@@ -195,6 +196,7 @@ const BlogPost = () => {
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
   const readingTime = getReadingTime(htmlContent);
+  const viewCount = useBlogViews(slug);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
   const updatedDate = updatedAtRaw
@@ -421,6 +423,9 @@ const BlogPost = () => {
                 )}
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                 <span>{readingTime} min read</span>
+                {viewCount != null && viewCount > 0 ? (
+                  <span className="inline-flex items-center gap-1"><Eye className="w-3.5 h-3.5" aria-hidden />{viewCount.toLocaleString("en-GB")} views</span>
+                ) : null}
               </div>
 
 
