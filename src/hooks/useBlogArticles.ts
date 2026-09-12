@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
 import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 import {
+  getPublishedBlogList,
   getStaticBlogArticle,
   getStaticBlogArticles,
-  getStaticBlogList,
   mergePreferStatic,
   sortBlogList,
 } from "@/lib/staticBlogCatalog";
@@ -41,9 +41,7 @@ function asArticle(row: unknown): DBBlogArticle {
 }
 
 function snapshotList(): BlogListItem[] {
-  return sortBlogList(
-    mergePreferStatic(getStaticBlogList(), listPublishedArticles() as BlogListItem[]),
-  );
+  return getPublishedBlogList() as BlogListItem[];
 }
 
 /** Single article by slug from the checked-in snapshot. */

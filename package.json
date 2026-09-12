@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Living With Arthritis — frontend built with Vite, React, TypeScript, and TailwindCSS",
+  "description": "Living With Arthritis \u2014 frontend built with Vite, React, TypeScript, and TailwindCSS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Louis-Maxwell/livingwitharthritis.git"
@@ -49,7 +49,9 @@
     "indexnow": "INDEXNOW=1 node scripts/indexnow-ping.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "search:index": "node scripts/generate-search-index.mjs"
+    "search:index": "node scripts/generate-search-index.mjs",
+    "blog:html-gate": "node scripts/check-blog-html.mjs",
+    "test:blog-smoke": "playwright test e2e/blog-smoke.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

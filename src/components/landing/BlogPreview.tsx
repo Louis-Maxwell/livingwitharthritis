@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
-import { listPublishedArticles, type BlogListItem } from "@/data/staticBlog";
+import { getPublishedBlogList, type BlogListItem } from "@/lib/staticBlogCatalog";
 
 function estimateReadingTime(text: string | null | undefined): string {
   const words = (text ?? "").split(/\s+/).filter(Boolean).length;
@@ -13,7 +13,7 @@ function pickImage(a: BlogListItem): string {
   return safeCoverSrc(coverImage(a.category, a.title, a.slug).src);
 }
 
-const PREVIEW = listPublishedArticles().slice(0, 4);
+const PREVIEW = getPublishedBlogList().slice(0, 4);
 
 const BlogPreview = memo(() => {
   const articles = PREVIEW;

@@ -1,14 +1,14 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { TrendingUp } from "lucide-react";
-import { listPublishedArticles } from "@/data/staticBlog";
+import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
 
 interface PopularArticle {
   slug: string;
   title: string | null;
 }
 
-const STATIC_MOST_READ: PopularArticle[] = listPublishedArticles()
+const STATIC_MOST_READ: PopularArticle[] = getPublishedBlogList()
   .slice(0, 5)
   .map((a) => ({ slug: a.slug, title: a.title }));
 

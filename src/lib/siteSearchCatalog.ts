@@ -1,6 +1,6 @@
-import blogList from "@/data/blogList.json";
 import contentStats from "@/data/contentStats.generated.json";
 import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
+import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
 import {
   mapBlogCategoryToTopic,
   type SearchCatalogItem,
@@ -75,15 +75,7 @@ const HUB_PAGES: SearchCatalogItem[] = [
 /** Word counts precomputed at build time (scripts/generate-content-stats.mjs). */
 const WORD_BY_SLUG: Record<string, number> = contentStats.wordCounts;
 
-const BLOG_ITEMS: SearchCatalogItem[] = (
-  blogList as Array<{
-    slug: string;
-    title: string;
-    excerpt?: string;
-    category?: string;
-    keywords?: string | null;
-  }>
-).map((a) => ({
+const BLOG_ITEMS: SearchCatalogItem[] = getPublishedBlogList().map((a) => ({
   id: `blog-${a.slug}`,
   title: a.title,
   href: `/blog/${a.slug}`,

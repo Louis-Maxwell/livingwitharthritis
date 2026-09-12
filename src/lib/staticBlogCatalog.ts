@@ -1,5 +1,6 @@
 import frailtyBatch from "@/content/blog/frailty-batch.json";
 import phase2Batch from "@/content/blog/phase2-batch.json";
+import { listPublishedArticles } from "@/data/staticBlog";
 
 export interface StaticBlogArticle {
   slug: string;
@@ -35,6 +36,7 @@ export type BlogListItem = Pick<
   | "display_order"
   | "author"
   | "updated_at"
+  | "keywords"
 > & {
   tags?: string[] | null;
 };
@@ -69,6 +71,7 @@ export function getStaticBlogList(): BlogListItem[] {
     display_order: article.display_order,
     author: article.author,
     updated_at: article.updated_at ?? null,
+    keywords: article.keywords,
   }));
 }
 
@@ -92,4 +95,14 @@ export function sortBlogList<T extends { display_order?: number; date?: string }
     if (order !== 0) return order;
     return (b.date ?? "").localeCompare(a.date ?? "");
   });
+}
+
+/**
+ * Single published list for every UI surface: frailty + phase2 batches
+ * preferred over the legacy blogList snapshot when slugs overlap.
+ */
+export function getPublishedBlogList(): BlogListItem[] {
+  return sortBlogList(
+    mergePreferStatic(getStaticBlogList(), listPublishedArticles() as BlogListItem[]),
+  );
 }

@@ -194,4 +194,39 @@ describe("static blog HTML for Soft 404s", () => {
     expect(conditions["/conditions/ankylosing-spondylitis/diet"]?.bodyHtml).toMatch(/bone|Mediterranean/i);
     expect(conditions["/conditions/ankylosing-spondylitis/treatment"]?.bodyHtml).toMatch(/NSAID|biologic/i);
   });
+
+  it("rewriteHead produces article titles for a frailty slug and a legacy slug", () => {
+    const heads = JSON.parse(
+      readFileSync(resolve(process.cwd(), "scripts/blog-head-data.json"), "utf8"),
+    ) as Record<string, { title?: string; article?: { title?: string } }>;
+
+    const frailtySlug = "knee-osteoarthritis-frailty-staying-steady-home-uk";
+    const legacySlug = "vitamin-d-arthritis-uk";
+
+    for (const slug of [frailtySlug, legacySlug]) {
+      const pathKey = `/blog/${slug}`;
+      const head = heads[pathKey];
+      expect(head?.title, `${pathKey} missing head`).toBeTruthy();
+
+      const html = rewriteHead(TEMPLATE, pathKey, head as never);
+      const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      const title = (titleMatch?.[1] ?? "").replace(/&amp;/g, "&").trim();
+      expect(title.length).toBeGreaterThan(10);
+      expect(title).not.toMatch(/Living With Arthritis \| UK charity/i);
+      expect(title.toLowerCase()).toContain(
+        String(head.article?.title ?? head.title ?? "")
+          .replace(/\s*\|\s*Living With Arthritis.*$/i, "")
+          .slice(0, 24)
+          .toLowerCase(),
+      );
+      expect(html).toContain(
+        `rel="canonical" href="https://livingwitharthritis.org.uk/blog/${slug}"`,
+      );
+      // Minimal TEMPLATE has no og:title tag; inject-canonicals adds it in real builds.
+      // Assert the article title made it into <title> (share Soft-404 guard).
+      expect(html).toContain("<title>");
+      expect(html).not.toContain(HOME_SHELL_HEADING);
+    }
+  });
+
 });
