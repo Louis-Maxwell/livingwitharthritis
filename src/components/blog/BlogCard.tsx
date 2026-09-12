@@ -107,10 +107,10 @@ const BlogCard = ({
         </div>
         <div
           className={`flex flex-col flex-1 min-w-0 ${
-            isLead ? "p-5 md:p-7 md:w-[52%] md:justify-center" : isCompact ? "p-4 md:p-5" : "p-5 md:p-6"
+            isLead ? "p-4 md:p-6 md:w-[52%] md:justify-center" : isCompact ? "p-3.5 md:p-4" : "p-4 md:p-5"
           }`}
         >
-          <div className="flex flex-wrap items-center gap-2 mb-3">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
             <span className={CATEGORY_BADGE}>{post.category}</span>
             <time dateTime={post.date} className="text-xs sm:text-sm text-muted-foreground">
               {dateLabel}
@@ -129,23 +129,23 @@ const BlogCard = ({
           </h3>
           <p
             className={`text-muted-foreground leading-relaxed mb-4 flex-1 ${
-              isCompact ? "text-base line-clamp-2" : "text-base line-clamp-3"
+              isCompact ? "text-sm line-clamp-2" : "text-sm sm:text-base line-clamp-3"
             }`}
           >
             {post.excerpt}
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-3 border-t border-border/30 dark:border-border/50 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 border-t border-border/30 dark:border-border/50 text-sm text-muted-foreground">
             {post.author ? (
-              <span className="inline-flex items-center gap-1.5 min-w-0 min-h-11">
+              <span className="inline-flex items-center gap-1.5 min-w-0 min-h-9">
                 <User className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                 <span className="truncate">{post.author}</span>
               </span>
             ) : null}
-            <span className="inline-flex items-center gap-1.5 min-h-11">
+            <span className="inline-flex items-center gap-1.5 min-h-9">
               <Clock className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
               {readTime}
             </span>
-            <span className="ml-auto text-primary font-medium inline-flex min-h-11 items-center gap-1.5 group-hover:gap-2.5 transition-all">
+            <span className="ml-auto text-primary font-medium inline-flex min-h-9 items-center gap-1.5 group-hover:gap-2.5 transition-all">
               {isCompact ? "Continue" : "Read article"}{" "}
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </span>

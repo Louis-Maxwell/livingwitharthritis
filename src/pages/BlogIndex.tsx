@@ -351,6 +351,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <Header />
 
         <PageHero
+          compact
           gradient="from-primary/8 via-background to-primary/5"
           pattern="dots"
           badge={
@@ -379,7 +380,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         />
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8">
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-5">
             This arthritis blog is written for people in the United Kingdom who need plain-English help
             with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic below, or{" "}
             <Link to="/search" className="text-primary underline underline-offset-2">
@@ -402,7 +403,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             .
           </p>
 
-          <nav aria-label="Browse arthritis topics" className="mb-10">
+          <nav aria-label="Browse arthritis topics" className="mb-6">
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">
               Browse by topic
             </h2>

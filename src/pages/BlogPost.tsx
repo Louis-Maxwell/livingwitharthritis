@@ -301,6 +301,7 @@ const BlogPost = () => {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content="Living With Arthritis UK" />
         <meta property="og:image" content={coverAbsolute} />
+        <meta property="og:image:secure_url" content={coverAbsolute} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={article.title} />
@@ -390,7 +391,7 @@ const BlogPost = () => {
 
         <header className="border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
-            <nav aria-label="Breadcrumb" className="pt-6 pb-4 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
+            <nav aria-label="Breadcrumb" className="pt-4 pb-2 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
               <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
               <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
@@ -398,8 +399,8 @@ const BlogPost = () => {
               <span className="text-foreground/60 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
-            <div className="pb-10 md:pb-14">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-5">
+            <div className="pb-6 md:pb-8">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-3">
                 <span>
                   Published{" "}
                   <time dateTime={article.date} itemProp="datePublished" className="font-medium text-foreground/80">
@@ -430,15 +431,21 @@ const BlogPost = () => {
               </div>
 
 
-              <h1 itemProp="headline" className="font-display text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-6 break-words">
+              <h1 itemProp="headline" className="font-display text-[1.65rem] md:text-[2.1rem] lg:text-[2.35rem] font-extrabold text-foreground leading-[1.2] tracking-tight mb-3 break-words">
                 {article.title}
               </h1>
 
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-[640px] text-pretty">
+              <p className="text-base md:text-[1.05rem] text-muted-foreground leading-relaxed mb-4 max-w-[640px] text-pretty">
                 {metaDesc}
               </p>
 
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 flex-wrap">
+              {slug && (
+                <div className="no-print print:hidden mb-4">
+                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
+                </div>
+              )}
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 flex-wrap">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10 border-2 border-primary/15">
                     <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
@@ -468,39 +475,30 @@ const BlogPost = () => {
                 )}
               </div>
 
-              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-6 max-w-[640px]" />
+              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-3 max-w-[640px]" />
 
-              {slug && (
-                <div className="no-print print:hidden">
-                  <SocialShareButtons title={article.title} slug={slug} instance="header" />
-                </div>
-              )}
-
+              <figure className="mt-4 mb-0">
+                <img
+                  src={safeCoverSrc(cover.src)}
+                  alt={cover.alt}
+                  onError={onCoverImgError}
+                  width={1600}
+                  height={900}
+                  sizes="(min-width: 860px) 860px, 100vw"
+                  loading="eager"
+                  decoding="async"
+                  {...({ fetchpriority: "high" } as Record<string, string>)}
+                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[16/9]"
+                />
+                <figcaption className="text-xs text-muted-foreground/70 mt-1.5">
+                  {cover.credit}
+                </figcaption>
+              </figure>
             </div>
           </div>
         </header>
 
-        <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
-          <figure className="mt-6 md:mt-8 mb-2">
-            <img
-              src={safeCoverSrc(cover.src)}
-              alt={cover.alt}
-              onError={onCoverImgError}
-              width={1600}
-              height={900}
-              sizes="(min-width: 860px) 860px, 100vw"
-              loading="eager"
-              decoding="async"
-              {...({ fetchpriority: "high" } as Record<string, string>)}
-              className="w-full h-auto rounded-2xl shadow-sm object-cover aspect-[16/9]"
-            />
-            <figcaption className="text-xs text-muted-foreground/70 mt-2">
-              {cover.credit}
-            </figcaption>
-          </figure>
-        </div>
-
-        <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 md:py-14 max-w-[1100px]">
+        <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8 max-w-[1100px]">
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
           <div className="min-w-0 max-w-[860px]">
           {directAnswer && (
@@ -574,15 +572,15 @@ const BlogPost = () => {
             itemProp="articleBody"
             className="blog-prose prose prose-lg max-w-none text-foreground/90
               prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
-              prose-h2:text-[1.5rem] prose-h2:md:text-[1.75rem] prose-h2:mt-14 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/15
-              prose-h3:text-lg prose-h3:md:text-xl prose-h3:mt-10 prose-h3:mb-3
-              prose-p:leading-[1.9] prose-p:mb-6 prose-p:text-foreground/80
-              prose-li:leading-[1.85] prose-li:text-foreground/80 prose-li:mb-1
+              prose-h2:text-[1.4rem] prose-h2:md:text-[1.6rem] prose-h2:mt-8 prose-h2:mb-3 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/15
+              prose-h3:text-lg prose-h3:md:text-xl prose-h3:mt-6 prose-h3:mb-2
+              prose-p:leading-[1.75] prose-p:mb-4 prose-p:text-foreground/80
+              prose-li:leading-[1.7] prose-li:text-foreground/80 prose-li:mb-0.5
               prose-strong:text-foreground prose-strong:font-semibold
               prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-3 prose-a:decoration-primary/30 hover:prose-a:decoration-primary prose-a:transition-colors
               prose-blockquote:border-l-[3px] prose-blockquote:border-l-primary prose-blockquote:bg-primary/[0.03] prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/85 prose-blockquote:font-medium prose-blockquote:my-8
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
-              prose-ul:my-6 prose-ol:my-6
+              prose-ul:my-4 prose-ol:my-4
               first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
           >
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
@@ -691,10 +689,10 @@ const BlogPost = () => {
           </aside>
           </div>{/* end lg grid */}
 
-          <footer className="mt-14 pt-8 border-t border-border/20 max-w-[860px]">
+          <footer className="mt-10 pt-6 border-t border-border/20 max-w-[860px]">
             {slug && (
               <div className="no-print print:hidden">
-                <SocialShareButtons title={article.title} slug={slug} instance="footer" />
+                <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="footer" />
               </div>
             )}
             <Suspense fallback={null}>
