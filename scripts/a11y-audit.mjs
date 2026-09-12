@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const axePath = require.resolve("axe-core/axe.min.js");
+const axePath = require.resolve("axe-core");
 const axeSource = readFileSync(axePath, "utf8");
 const base = (process.env.A11Y_BASE_URL || "http://localhost:4173").replace(/\/$/, "");
 const routes = [
@@ -32,7 +32,7 @@ try {
       }
       await page.addScriptTag({ content: axeSource });
       const result = await page.evaluate(async () => {
-        // @ts-ignore injected axe global
+        // @ts-ignore axe is injected into the page for this audit.
         return window.axe.run(document, {
           runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag22aa"] },
         });
@@ -41,8 +41,6 @@ try {
         failures.push(`${route}: ${v.id} (${v.impact}) — ${v.help} [${v.nodes.length} node(s)]`);
       }
 
-      // Basic keyboard/focus smoke test: Tab must not leave the document and
-      // a skip link should be available on public pages.
       const skip = await page.locator('a[href="#main-content"], a[href="#main"]').count();
       if (skip === 0) failures.push(`${route}: no skip-to-content link detected`);
       await page.keyboard.press("Tab");
