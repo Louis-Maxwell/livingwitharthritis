@@ -47,6 +47,9 @@ jobs:
       - name: Build (prerendered)
         run: npm run build:prerender
 
+      - name: Content manifest integrity
+        run: node scripts/check-content-manifest.mjs
+
       - name: Prerender meta check
         run: npm run seo:prerender-meta -- --json
 
