@@ -20,6 +20,7 @@ import SkipToContent from "@/components/SkipToContent";
 import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
@@ -403,7 +404,7 @@ function AnimatedRoutes() {
         <Route path="/conditions/:condition/:subpage" element={<ConditionSubpagePage />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/symptom-checker" element={<SymptomChecker />} />
-        <Route path="/exercises" element={<ExerciseHub />} />
+        <Route path="/exercises" element={<ErrorBoundary><ExerciseHub /></ErrorBoundary>} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
         <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
         <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
