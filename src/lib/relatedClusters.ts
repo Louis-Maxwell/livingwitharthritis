@@ -197,6 +197,7 @@ export function getClustersForArticle(article: ArticleLike): string[] {
   if (!hay) return [];
   const hits: string[] = [];
   for (const c of CONTENT_CLUSTERS) {
+    if (!c?.triggers) continue;
     if (c.triggers.some((t) => hay.includes(t))) hits.push(c.id);
   }
   return hits;
