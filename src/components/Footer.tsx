@@ -11,11 +11,8 @@ const columns = [
     title: "Get Help",
     links: [
       { label: "Our Services", href: "/services" },
-      { label: "Virtual Physiotherapy", href: "/chat" },
       { label: "Exercise Hub", href: "/exercises" },
       { label: "Diet & Nutrition Hub", href: "/diet" },
-      { label: "Supplements Guide", href: "/supplements" },
-      { label: "Self Help Tool", href: "/self-help" },
       { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
       { label: "Flare Action Plan", href: "/resources/flare-action-plan" },
       { label: "PIP Evidence Diary", href: "/resources/pip-evidence-diary" },
@@ -30,35 +27,43 @@ const columns = [
       { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
       { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
       { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
+      { label: "Gout", href: "/conditions/gout" },
+      { label: "Ankylosing Spondylitis", href: "/conditions/ankylosing-spondylitis" },
+      { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
+      { label: "Knee Arthritis", href: "/conditions/knee-arthritis" },
+      { label: "Hip Arthritis", href: "/conditions/hip-arthritis" },
+      { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
+      { label: "Shoulder Arthritis", href: "/conditions/shoulder-arthritis" },
+      { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
+      { label: "Lupus", href: "/conditions/lupus" },
+    ],
+  },
+  {
+    title: "Guides & Articles",
+    links: [
       { label: "Blog & Research", href: "/blog" },
-      { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
-      { label: "Health Services Guide", href: "/guides/health-services" },
-      { label: "Diet & Nutrition Guide", href: "/guides/diet" },
-      { label: "Exercise Guide", href: "/guides/exercise" },
       { label: "Guides Hub", href: "/guides" },
-      { label: "Benefits & PIP Hub", href: "/benefits-pip" },
-      { label: "Search", href: "/search" },
+      { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
+      { label: "Exercise Guide", href: "/guides/exercise" },
+      { label: "Diet Guide", href: "/guides/diet" },
+      { label: "Health Services Guide", href: "/guides/health-services" },
+      { label: "Arthritis Pain Relief", href: "/guides/arthritis-pain-relief" },
       { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
-      { label: "Azathioprine Guide", href: "/guides/azathioprine-for-arthritis" },
+      { label: "Knee Replacement Surgery", href: "/guides/knee-replacement-surgery" },
+      { label: "Painkillers & NSAIDs", href: "/guides/painkillers-and-nsaids" },
+      { label: "Library", href: "/library" },
     ],
   },
   {
     title: "Organisation",
     links: [
       { label: "Our Mission", href: "/about" },
-      { label: "Trust & Credibility", href: "/trust" },
-      { label: "AI Transparency", href: "/about/ai-transparency" },
-      { label: "AI Answers & Tools", href: "/ai" },
-      { label: "Connect an AI Assistant", href: "/connect" },
       { label: "Clinical Sources", href: "/sources" },
+      { label: "Trust & Credibility", href: "/trust" },
       { label: "Editorial Standards", href: "/editorial-standards" },
-      { label: "Claims Policy", href: "/about/editorial-claims-policy" },
-      { label: "UK Search Insights", href: "/about/uk-arthritis-search-insights" },
       { label: "Governance", href: "/governance" },
-      
       { label: "Our Impact", href: "/impact" },
       { label: "Community Hub", href: "/community" },
-      { label: "Corporate Giving", href: "/corporate-giving" },
       { label: "Press & Media", href: "/press" },
       { label: "Partners", href: "/partners" },
       { label: "Sitemap", href: "/site-index" },
@@ -77,15 +82,12 @@ const columns = [
       { label: "Image Credits", href: "/credits" },
     ],
   },
-  // Removed - now using SocialLinks component
 ];
 
 const Footer = () => {
   return (
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
-      {/* Helpline strip — sits above the footer on every page */}
       <HelplineWidget />
-
       <FooterMostRead />
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
@@ -103,26 +105,15 @@ const Footer = () => {
                 {col.links.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith("http") ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
-                      >
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]">
                         {link.label}
                       </a>
                     ) : link.href.startsWith("#") ? (
-                      <a
-                        href={link.href}
-                        className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
-                      >
+                      <a href={link.href} className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]">
                         {link.label}
                       </a>
                     ) : (
-                      <Link
-                        to={link.href}
-                        className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]"
-                      >
+                      <Link to={link.href} className="text-foreground/70 hover:text-primary transition-colors duration-200 text-[13px]">
                         {link.label}
                       </Link>
                     )}
@@ -132,7 +123,6 @@ const Footer = () => {
             </div>
           ))}
 
-          {/* Social Media Section */}
           <div>
             <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">Connect</h3>
             <SocialLinks
@@ -151,12 +141,7 @@ const Footer = () => {
           <div className="text-[11px] text-muted-foreground tracking-wide">
             <p>
               © {new Date().getFullYear()} {CHARITY.legalName}™ ·{" "}
-              <a
-                href={CHARITY.registerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline-offset-2 hover:text-primary hover:underline transition-colors"
-              >
+              <a href={CHARITY.registerUrl} target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-primary hover:underline transition-colors">
                 Registered Charity in England &amp; Wales No. {CHARITY.number}
               </a>
             </p>
@@ -171,13 +156,8 @@ const Footer = () => {
             )}
             <p className="mt-1.5">Recently registered with the Charity Commission for England and Wales.</p>
           </div>
-          <a
-            href="https://maxwellhealth.co.uk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground font-bold text-xs tracking-wide hover:text-primary transition-colors"
-          >
-            Designed & Built by Maxwell Health
+          <a href="https://maxwellhealth.co.uk" target="_blank" rel="noopener noreferrer" className="text-foreground font-bold text-xs tracking-wide hover:text-primary transition-colors">
+            Designed &amp; Built by Maxwell Health
           </a>
         </div>
       </div>
