@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { buildGroupShareText } from '@/lib/groupShareText';
-import { SOCIAL_LINKS } from '@/config/social-media';
+
 
 interface SocialShareButtonsProps {
   title: string;
@@ -47,12 +47,12 @@ const SocialShareButtons = ({
     {
       label: 'Facebook',
       icon: Facebook,
-      href: SOCIAL_LINKS.facebook.url,
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     },
     {
       label: 'LinkedIn',
       icon: Linkedin,
-      href: SOCIAL_LINKS.linkedin.url,
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     },
     {
       label: 'Twitter',
@@ -62,7 +62,7 @@ const SocialShareButtons = ({
     {
       label: 'Email',
       icon: Mail,
-      href: SOCIAL_LINKS.email.url,
+      href: `mailto:?subject=${encodedTitle}&body=${encodedShare}`,
     },
   ];
 
