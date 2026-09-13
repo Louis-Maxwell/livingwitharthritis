@@ -20,7 +20,6 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
 
-
 const sectionIcons: Record<string, React.ElementType> = {
   "Our Story": BookOpen,
   "The Scale of Arthritis": TrendingUp,
@@ -62,11 +61,6 @@ type AboutSection = {
   content: string;
 };
 
-/**
- * FAQs shown visibly on this page (accordion below) — FAQPage JSON-LD is
- * emitted by FaqAccordion for exactly these visible questions, so the
- * structured data never claims content a reader cannot see.
- */
 const ABOUT_FAQS = [
   {
     question: "Who is Living With Arthritis UK?",
@@ -95,7 +89,6 @@ const ABOUT_FAQS = [
   },
 ];
 
-
 const impactStats = [
   { value: "2026", label: "Charity registered", icon: Shield, color: "text-primary" },
   { value: "1218461", label: "Charity number", icon: Award, color: "text-primary" },
@@ -119,7 +112,6 @@ const AboutUs = () => {
     queryFn: async () => [] as AboutSection[],
   });
 
-
   const { data: chapters = [] } = useQuery<JourneyChapter[]>({
     queryKey: ["journey_chapters"],
     queryFn: async () => [] as JourneyChapter[],
@@ -129,10 +121,10 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Living With Arthritis UK | Registered charity 1218461</title>
-        <meta name="description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
-        <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
+        <meta name="description" content="About Living With Arthritis UK, an independent registered charity in England and Wales (1218461) working to improve awareness and understanding of arthritis and frailty through free, evidence-based information and practical resources." />
+        <meta name="keywords" content="arthritis charity, arthritis awareness charity, frailty awareness, frailty prevention, falls prevention, healthy ageing, arthritis support, arthritis advocacy, arthritis research, arthritis UK charity, living with arthritis, musculoskeletal conditions" />
         <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta property="og:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta property="og:description" content="Living With Arthritis is an independent UK registered charity working on arthritis and frailty awareness, education, prevention and practical support." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -144,7 +136,7 @@ const AboutUs = () => {
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta name="twitter:description" content="Living With Arthritis is an independent UK registered charity working on arthritis and frailty awareness, education, prevention and practical support." />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -153,18 +145,25 @@ const AboutUs = () => {
           "name": `About ${CHARITY.legalName}`,
           "url": `${CHARITY.siteUrl}/about`,
           "inLanguage": "en-GB",
+          "description": CHARITY.mission,
           "mainEntity": {
             "@type": "NGO",
+            "@id": `${CHARITY.siteUrl}/#organization`,
             "name": CHARITY.legalName,
+            "alternateName": [CHARITY.shortName, "Living With Arthritis charity", "Living With Arthritis UK charity"],
+            "description": CHARITY.mission,
+            "mission": CHARITY.mission,
             "foundingDate": String(CHARITY.foundedYear),
             "url": CHARITY.siteUrl,
+            "identifier": { "@type": "PropertyValue", "propertyID": "GB-CHC", "value": CHARITY.number },
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
+            "knowsAbout": CHARITY.focusAreas,
           }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${CHARITY.siteUrl}/` },
             { "@type": "ListItem", "position": 2, "name": "About", "item": `${CHARITY.siteUrl}/about` }
           ]
@@ -208,20 +207,41 @@ const AboutUs = () => {
           <AeoEnhancement route="/about" />
         </div>
 
-        {/* Disambiguation line — who we are and who we are not */}
-        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-6 overflow-visible">
+        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-8 overflow-visible">
           <p className="text-center text-base lg:text-lg font-medium text-foreground leading-[1.65] py-1">
             Living With Arthritis is a registered charity in England and Wales
             (no.&nbsp;1218461), a UK national charity. We are independent of Arthritis UK.
           </p>
         </section>
 
-        {/* Our Story — founder narrative moved from landing page */}
+        {/* First-class mission section: a crawlable, human-readable explanation
+            of the organisation's charitable purpose and its arthritis/frailty focus. */}
+        <section id="arthritis-frailty" aria-labelledby="arthritis-frailty-heading" className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mb-14">
+          <div className="rounded-3xl border border-primary/20 bg-primary/5 p-7 md:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-3">Our charitable mission</p>
+            <h2 id="arthritis-frailty-heading" className="text-3xl md:text-4xl font-extrabold tracking-tight mb-5">
+              Arthritis and frailty awareness
+            </h2>
+            <p className="text-base md:text-lg text-foreground leading-relaxed mb-4">
+              Living With Arthritis is an independent UK registered charity working to improve awareness and understanding of arthritis and frailty. We provide free, evidence-based information and practical resources to help people stay informed, active, independent and supported.
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
+              Our work includes arthritis education, frailty awareness and prevention, falls prevention, healthy ageing, strength and muscle health, mobility and independence, bone health and practical self-management support. We recognise that arthritis and reduced mobility can interact with loss of strength, falls risk and frailty, while avoiding the assumption that everyone with arthritis is frail or that frailty is an inevitable part of ageing.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/guides/frailty-management-hub" className="text-sm font-bold text-primary hover:underline">Frailty management</Link>
+              <Link to="/guides/fall-prevention-older-adults" className="text-sm font-bold text-primary hover:underline">Falls prevention</Link>
+              <Link to="/guides/sarcopenia-muscle-loss" className="text-sm font-bold text-primary hover:underline">Strength and muscle health</Link>
+              <Link to="/conditions/osteoarthritis" className="text-sm font-bold text-primary hover:underline">Osteoarthritis</Link>
+              <Link to="/exercises" className="text-sm font-bold text-primary hover:underline">Exercise resources</Link>
+            </div>
+          </div>
+        </section>
+
         <Suspense fallback={<div className="py-16" />}>
           <FounderStoryBand />
         </Suspense>
 
-        {/* Team Section */}
         <section id="team" tabIndex={-1} className="py-14 lg:py-20 scroll-mt-24">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -277,7 +297,6 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Content Sections from DB */}
         <section className="py-14 lg:py-20 bg-background">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             {isLoading ? (
@@ -319,7 +338,6 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Timeline */}
         <section className="py-16 lg:py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-accent/30 via-background to-background pointer-events-none" />
           <div className="absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
@@ -344,7 +362,6 @@ const AboutUs = () => {
             </motion.div>
 
             <div className="relative">
-              {/* Crimson connector line */}
               <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent md:-translate-x-px" />
 
               {chapters.map((c, i) => {
@@ -359,7 +376,6 @@ const AboutUs = () => {
                     transition={{ delay: i * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     className={`relative flex items-start mb-12 last:mb-0 md:items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
                   >
-                    {/* Year badge on the line */}
                     <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20 top-0 md:top-1/2 md:-translate-y-1/2">
                       <div className={`relative ${isLatest ? "animate-pulse" : ""}`}>
                         <div className="absolute inset-0 rounded-full bg-primary/30 blur-md" />
@@ -369,7 +385,6 @@ const AboutUs = () => {
                       </div>
                     </div>
 
-                    {/* Card */}
                     <div className={`ml-24 md:ml-0 md:w-[calc(50%-3rem)] ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                       <div className="group relative bg-card border border-border/30 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-large hover:-translate-y-1 transition-all duration-500">
                         {isLatest && (
@@ -395,7 +410,6 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Registered Details + CTA */}
         <section className="py-14 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
@@ -478,15 +492,11 @@ const AboutUs = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               Frequently asked questions about the charity
             </h2>
-            <FaqAccordion
-              idPrefix="about-faq"
-              items={ABOUT_FAQS}
-            />
+            <FaqAccordion idPrefix="about-faq" items={ABOUT_FAQS} />
           </div>
         </section>
 
         <InternalLinks />
-
         <NextReadStrip currentPath="/about" />
         <Footer />
       </div>
