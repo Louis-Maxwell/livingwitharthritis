@@ -4,6 +4,7 @@ import path from "path";
 import fs from "node:fs";
 import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
@@ -53,6 +54,7 @@ export default defineConfig(({ mode }) => {
   },
   plugins: [
     react(),
+    mcpPlugin(),
     mode === "development" && componentTagger(),
     ENABLE_PRERENDER &&
       mode === "production" &&
