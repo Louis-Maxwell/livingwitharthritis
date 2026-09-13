@@ -1,8 +1,7 @@
 /**
- * Single source of truth for Living With Arthritis charity registration
- * details. Imported by Footer, About, Trust, Governance, Donate, JSON-LD
- * schema, and donation email templates so the number/address can never
- * drift between surfaces.
+ * Single source of truth for Living With Arthritis charity registration,
+ * mission and focus areas. Imported by site trust, charity and SEO surfaces
+ * so the organisation's identity stays consistent across the site.
  */
 export const CHARITY = {
   number: '1218461',
@@ -21,6 +20,20 @@ export const CHARITY = {
   siteUrl: 'https://livingwitharthritis.org.uk',
   websiteDomain: 'livingwitharthritis.org.uk',
   contactEmail: 'info@livingwitharthritis.org.uk',
+  mission:
+    'To improve awareness and understanding of arthritis and frailty and help people stay informed, active, independent and supported through evidence-based information and practical resources.',
+  focusAreas: [
+    'Arthritis awareness',
+    'Frailty awareness',
+    'Frailty prevention',
+    'Falls prevention',
+    'Healthy ageing',
+    'Mobility and independence',
+    'Strength and muscle health',
+    'Bone health',
+    'Evidence-based arthritis information',
+    'Practical self-management support',
+  ],
   address: {
     name: '',
     street: '',
@@ -63,4 +76,3 @@ export const charityFooterLine = (): string =>
 /** Page-title helper: `${label} | Living With Arthritis UK`. */
 export const pageTitle = (label: string): string =>
   `${label} | ${CHARITY.shortName}`;
-

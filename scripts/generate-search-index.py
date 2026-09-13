@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-"""Bake public/search-index.json for client-side search (no Worker API)."""
+"""Bake public/search-index.json for client-side search.
+
+The published-content manifest is the authoritative public URL allow-list;
+source-specific registries still provide rich titles/excerpts/keywords.
+"""
 import json, re, pathlib
 from datetime import datetime, timezone
 
 root = pathlib.Path(__file__).resolve().parent.parent
+manifest_path = root / "src/data/published-content-manifest.json"
+manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"items": []}
+published_paths = {item.get("path") for item in manifest.get("items", []) if item.get("published") is True}
 
 def count_words(html):
     if not html:
@@ -48,49 +55,43 @@ HUB = [
 blog_list = json.loads((root / "src/data/blogList.json").read_text())
 blog_articles = json.loads((root / "src/data/blogArticles.json").read_text())
 guide_ts = (root / "src/lib/guideRegistry.ts").read_text()
-guide_re = re.compile(
-    r'\{\s*path:\s*"([^"]+)"\s*,\s*title:\s*"([^"]+)"\s*,\s*description:\s*"([^"]+)"\s*,\s*cluster:\s*"([^"]+)"\s*,?\s*\}'
-)
+guide_re = re.compile(r'\{\s*path:\s*"([^"]+)"\s*,\s*title:\s*"([^"]+)"\s*,\s*description:\s*"([^"]+)"\s*,\s*cluster:\s*"([^"]+)"\s*,?\s*\}')
 guides = [{"path": m.group(1), "title": m.group(2), "description": m.group(3), "cluster": m.group(4)} for m in guide_re.finditer(guide_ts)]
 word_by_slug = {a["slug"]: count_words(a.get("content")) for a in blog_articles}
 
 blog_items = []
 for a in blog_list:
+    href = f"/blog/{a['slug']}"
+    if published_paths and href not in published_paths: continue
     kws = [a.get("category") or ""]
     if isinstance(a.get("keywords"), str):
         kws += [k.strip() for k in re.split(r"[,;]", a["keywords"]) if k.strip()]
     blog_items.append({
-        "id": f"blog-{a['slug']}",
-        "title": a["title"],
-        "href": f"/blog/{a['slug']}",
-        "excerpt": a.get("excerpt") or "",
-        "topic": map_topic(a.get("category")),
-        "wordCount": word_by_slug.get(a["slug"], 0),
-        "keywords": [k for k in kws if k],
+        "id": f"blog-{a['slug']}", "title": a["title"], "href": href,
+        "excerpt": a.get("excerpt") or "", "topic": map_topic(a.get("category")),
+        "wordCount": word_by_slug.get(a["slug"], 0), "keywords": [k for k in kws if k],
     })
 
-guide_items = [{
-    "id": f"guide-{g['path']}",
-    "title": g["title"],
-    "href": g["path"],
-    "excerpt": g["description"],
-    "topic": guide_topic(g["cluster"], g["path"]),
-    "wordCount": 1200,
-    "keywords": [g["cluster"], g["title"]],
-} for g in guides]
+guide_items = []
+for g in guides:
+    if published_paths and g["path"] not in published_paths: continue
+    guide_items.append({
+        "id": f"guide-{g['path']}", "title": g["title"], "href": g["path"],
+        "excerpt": g["description"], "topic": guide_topic(g["cluster"], g["path"]),
+        "wordCount": 1200, "keywords": [g["cluster"], g["title"]],
+    })
 
-seen = set()
-items = []
+seen = set(); items = []
 for item in HUB + guide_items + blog_items:
-    if item["href"] in seen:
-        continue
-    seen.add(item["href"])
-    items.append(item)
+    if published_paths and item["href"] not in published_paths: continue
+    if item["href"] in seen: continue
+    seen.add(item["href"]); items.append(item)
 
 out = {
     "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z",
-    "version": 1,
+    "version": 2,
+    "source": "src/data/published-content-manifest.json",
     "items": items,
 }
 (root / "public/search-index.json").write_text(json.dumps(out, separators=(",", ":")))
-print(f"[search-index] wrote {len(items)} items -> public/search-index.json")
+print(f"[search-index] wrote {len(items)} items from {len(published_paths)} manifest URLs -> public/search-index.json")

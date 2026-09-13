@@ -1,10 +1,4 @@
 # GitHub Actions concurrency + rate-limit hardening
-#
-# Drop this block near the top of `.github/workflows/ci.yml` (after `on:`,
-# before `jobs:`). It fixes the #1 real-world rate-limit problem for a
-# small charity repo: push, correct a typo, push again — old workflow
-# still running, new one queues, minutes and API budget wasted.
-
 name: CI
 
 on:
@@ -13,27 +7,17 @@ on:
   pull_request:
     branches: [main]
 
-# --- Rate-limit hardening ---------------------------------------------------
-# 1) Auto-cancel any older CI run on the same ref when a new push arrives.
-#    This is the single highest-impact fix: no more piled-up queue, no more
-#    doubled Dependabot/API calls, no wasted Actions minutes.
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
-# 2) Least-privilege token. GitHub rate-limits are per-token; a broadly-
-#    scoped token gets throttled harder in practice. `contents: read` is
-#    the minimum needed for typecheck + SEO audit builds.
 permissions:
   contents: read
-# ---------------------------------------------------------------------------
 
 jobs:
-  # NOTE: job id matches the currently-failing "CI / build-and-audit" check
-  # on GitHub so this file replaces it rather than running alongside it.
   build-and-audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
         with:
@@ -57,38 +41,23 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
-      # Alerts on Tailwind utilities that are ambiguous (e.g. duration-[1200ms])
-      # or that bypass the design tokens, before they reach a build.
       - name: CSS utility check
         run: npm run css:check -- --json
 
-      - name: Upload CSS utility report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: css-utility-report
-          path: .preflight-reports/css-utilities-*.json
-          retention-days: 7
-          if-no-files-found: ignore
+      - name: Security header regression check
+        run: node scripts/security-audit.mjs
 
-      # Prerendered build: this is the artefact that actually gets published,
-      # so it is what the meta/indexing checks below must audit.
       - name: Build (prerendered)
         run: npm run build:prerender
 
-      # Fails if any built page still ships the generic homepage
-      # title/description, or a noindex robots tag.
+      - name: Content manifest integrity
+        run: node scripts/check-content-manifest.mjs
+
       - name: Prerender meta check
         run: npm run seo:prerender-meta -- --json
 
-      - name: Upload prerender meta report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: prerender-meta-report
-          path: .preflight-reports/prerender-meta-*.json
-          retention-days: 7
-          if-no-files-found: ignore
+      - name: First-response HTML integrity
+        run: node scripts/audit-indexable-html.mjs
 
       - name: SEO schema check
         run: npm run seo:schema
@@ -96,30 +65,46 @@ jobs:
       - name: Redirect map check
         run: npm run seo:redirects
 
-      # ROOT CAUSE OF THE 20m HANG: the server was started with `&` and the
-      # step moved on after a blind `sleep 3` with no check that it was
-      # actually up, AND `npm run seo:audit` had no timeout — so a slow
-      # server start or a hung network call inside the audit would run
-      # until GitHub's own hang-detection eventually cancelled the job.
-      #
-      # Fix: poll for the server to actually respond before auditing, wrap
-      # the audit in `timeout 5m` so a hang fails fast and visibly, and
-      # always kill the server even if the audit step fails.
       - name: SEO audit (against local build)
         run: |
-          npx serve -s dist -p 4173 &
+          set -e
+          npx serve -s dist -p 4173 > /tmp/lwa-serve.log 2>&1 &
           SERVER_PID=$!
-          for i in $(seq 1 20); do
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then
               echo "Server ready after ${i}s"
               break
             fi
+            if [ "$i" = "30" ]; then
+              cat /tmp/lwa-serve.log || true
+              exit 1
+            fi
             sleep 1
           done
-          set +e
           timeout 5m npm run seo:audit
-          AUDIT_EXIT=$?
-          kill "$SERVER_PID" 2>/dev/null || true
-          exit $AUDIT_EXIT
-        env:
-          SITE_URL: http://localhost:4173
+
+      - name: WCAG 2.2 AA rendered audit
+        run: |
+          set -e
+          npx serve -s dist -p 4173 > /tmp/lwa-a11y-serve.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4173 > /dev/null; then break; fi
+            if [ "$i" = "30" ]; then cat /tmp/lwa-a11y-serve.log || true; exit 1; fi
+            sleep 1
+          done
+          A11Y_BASE_URL=http://localhost:4173 node scripts/a11y-audit.mjs
+
+      - name: Public template performance gate
+        run: node scripts/perf-lighthouse.mjs --no-build
+
+      - name: Upload SEO reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-preflight-reports
+          path: .preflight-reports/
+          retention-days: 14
+          if-no-files-found: ignore

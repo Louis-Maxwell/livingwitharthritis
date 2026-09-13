@@ -1,16 +1,19 @@
 /**
  * MissionStatementBand
- * Inspired by Wellcome Trust, Macmillan, and BHF — a quiet editorial band
- * that anchors the page with a single, plain-English mission sentence.
+ * A visible, plain-English statement of the charity's purpose. Keep this
+ * aligned with the canonical mission in config/charity.ts so search engines
+ * and people see the same organisation identity and focus.
  */
 
 import { memo } from "react";
+import { Link } from "react-router-dom";
+import { CHARITY } from "@/config/charity";
 
 const PILLARS = [
-  { kicker: "Pillar 01", label: "Clinically reviewed" },
-  { kicker: "Pillar 02", label: "Free, for everyone" },
-  { kicker: "Pillar 03", label: "Made in the UK" },
-  { kicker: "Pillar 04", label: "Kept alive by kind donors" },
+  { kicker: "Pillar 01", label: "Arthritis & frailty awareness" },
+  { kicker: "Pillar 02", label: "Free, evidence-based information" },
+  { kicker: "Pillar 03", label: "Mobility, strength & independence" },
+  { kicker: "Pillar 04", label: "Practical support for UK communities" },
 ] as const;
 
 const MissionStatementBand = memo(() => {
@@ -20,24 +23,44 @@ const MissionStatementBand = memo(() => {
       className="relative border-y border-foreground/10 bg-secondary/30"
     >
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-20 sm:py-24 lg:py-28">
-        {/* Kicker */}
         <p className="flex items-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-[0.32em] uppercase text-primary mb-8">
           <span className="w-8 h-px bg-primary" aria-hidden="true" />
           Why we&apos;re here
         </p>
 
-        {/* The single, plain-English sentence — the centrepiece */}
         <h2
           id="mission-statement"
           className="font-display text-[1.875rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.75rem] leading-[1.08] tracking-[-0.025em] text-foreground max-w-[1080px] text-balance"
         >
-          Arthritis can quietly take your movement, your sleep, your spark.
-          <span className="block text-muted-foreground mt-2 sm:mt-3">
-            We&apos;re here to help you get a little of it back &mdash; kindly, clearly, and free for everyone who needs it.
+          Living With Arthritis is a UK registered charity working to improve
+          awareness and understanding of arthritis and frailty.
+          <span className="block text-muted-foreground mt-3 sm:mt-4 text-[1.15rem] sm:text-[1.35rem] md:text-[1.6rem] lg:text-[1.85rem] leading-[1.35] tracking-normal font-sans">
+            We provide free, evidence-based information and practical resources
+            to help people stay informed, active, independent and supported.
           </span>
         </h2>
 
-        {/* Pillar strip */}
+        <p className="mt-7 max-w-3xl text-sm sm:text-base text-muted-foreground leading-relaxed">
+          {CHARITY.mission} This work includes arthritis education, frailty
+          awareness and prevention, falls prevention, healthy ageing, strength,
+          mobility and independence.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            to="/about#arthritis-frailty"
+            className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90 transition-opacity"
+          >
+            Arthritis &amp; frailty awareness
+          </Link>
+          <Link
+            to="/about"
+            className="inline-flex items-center rounded-full border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+          >
+            About the charity
+          </Link>
+        </div>
+
         <div className="mt-14 sm:mt-16 lg:mt-20 grid grid-cols-2 sm:grid-cols-4 border-t border-foreground/10">
           {PILLARS.map((p, i) => (
             <div

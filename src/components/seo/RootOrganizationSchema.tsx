@@ -2,20 +2,24 @@ import { useEffect } from "react";
 import { getSchemaOrgSameAs } from "@/config/social-media";
 
 /**
- * Sitewide MedicalOrganization JSON-LD with sameAs links.
- * Strengthens entity disambiguation for LLMs and search engines.
+ * Sitewide organisation JSON-LD with sameAs links.
+ * Strengthens entity disambiguation for search engines and knowledge systems.
  * Mounted once at root via App.tsx. Injected via useEffect (per project
- * memory — never via Helmet).
+ * convention — never via Helmet).
  */
 const BASE = "https://livingwitharthritis.org.uk";
 
 const PAYLOAD = {
   "@context": "https://schema.org",
-  "@type": "MedicalOrganization",
+  "@type": "NGO",
   "@id": `${BASE}/#organization`,
-  name: "Living With Arthritis UK",
+  name: "Living With Arthritis",
   legalName: "Living With Arthritis",
-  alternateName: ["Living With Arthritis UK", "Living With Arthritis charity"],
+  alternateName: [
+    "Living With Arthritis UK",
+    "Living With Arthritis charity",
+    "Living With Arthritis UK charity",
+  ],
   url: BASE,
   logo: {
     "@type": "ImageObject",
@@ -23,7 +27,6 @@ const PAYLOAD = {
     width: 512,
     height: 512,
   },
-  // Primary share/photo for platforms that misuse Organization.logo as a preview.
   image: {
     "@type": "ImageObject",
     url: `${BASE}/og/landing-share.png`,
@@ -44,7 +47,9 @@ const PAYLOAD = {
     url: `${BASE}/authors/maxwell`,
   },
   description:
-    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
+    "Living With Arthritis is an independent registered charity in England and Wales (charity no. 1218461) working to improve awareness, understanding and self-management of arthritis and frailty. We provide free, evidence-based health information, exercise, nutrition, support and practical resources for people across the United Kingdom.",
+  mission:
+    "To improve awareness and understanding of arthritis and frailty and help people stay informed, active, independent and supported through evidence-based information and practical resources.",
   email: "info@livingwitharthritis.org.uk",
   areaServed: [
     { "@type": "Country", name: "United Kingdom" },
@@ -53,14 +58,8 @@ const PAYLOAD = {
     { "@type": "AdministrativeArea", name: "Wales" },
     { "@type": "AdministrativeArea", name: "Northern Ireland" },
   ],
-  medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
-  identifier: {
-    "@type": "PropertyValue",
-    propertyID: "GB-CHC",
-    value: "1218461",
-    url: "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
-  },
   knowsAbout: [
+    "Arthritis",
     "Osteoarthritis",
     "Rheumatoid arthritis",
     "Psoriatic arthritis",
@@ -69,6 +68,17 @@ const PAYLOAD = {
     "Fibromyalgia",
     "Lupus",
     "Polymyalgia rheumatica",
+    "Arthritis awareness",
+    "Frailty",
+    "Frailty awareness",
+    "Frailty prevention",
+    "Falls prevention",
+    "Sarcopenia and muscle loss",
+    "Healthy ageing",
+    "Bone health and osteoporosis",
+    "Mobility and independence",
+    "Physical activity for older adults",
+    "Nutrition and healthy ageing",
     "Anti-inflammatory diet",
     "Mediterranean diet",
     "Joint exercises",
@@ -81,9 +91,12 @@ const PAYLOAD = {
     "Methotrexate side effects",
     "NICE osteoarthritis exercise",
   ],
-  // sameAs strengthens the entity graph for LLMs and search engines.
-  // Only include URLs that resolve to a real, publicly-visible profile
-  // owned by this charity. Generated from centralized social-media.ts config.
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "GB-CHC",
+    value: "1218461",
+    url: "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
+  },
   sameAs: [
     ...getSchemaOrgSameAs(),
     "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",

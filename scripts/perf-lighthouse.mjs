@@ -7,12 +7,9 @@
  * asserting LCP / CLS / TBT / performance score plus the resource budgets in
  * budget.json. Exits non-zero when a budget is breached, unless --report-only.
  *
- * Usage:
- *   node scripts/perf-lighthouse.mjs
- *   node scripts/perf-lighthouse.mjs --no-build
- *   node scripts/perf-lighthouse.mjs --report-only
- *   node scripts/perf-lighthouse.mjs --mobile-only | --desktop-only
- *   PERF_BASE_URL=http://localhost:8080 node scripts/perf-lighthouse.mjs --no-build --no-serve
+ * The route list intentionally represents page templates rather than every
+ * URL. This catches regressions in the highest-value public journeys without
+ * turning CI into a 500+ page browser crawl.
  */
 import { spawn, spawnSync } from "node:child_process";
 import { setTimeout as sleep } from "node:timers/promises";
@@ -28,9 +25,20 @@ const desktopOnly = has("--desktop-only");
 const PORT = process.env.PERF_PORT || "4173";
 const BASE = (process.env.PERF_BASE_URL || `http://localhost:${PORT}`).replace(/\/$/, "");
 
-// Routes audited on every run. Keep this list short — each entry costs
-// numberOfRuns × ~15s per form factor.
-const ROUTES = ["/", "/conditions/osteoarthritis", "/blog"];
+// Representative public templates. Keep these canonical, indexable journeys
+// stable: changing this list should be treated as a performance-test change.
+const ROUTES = [
+  "/",
+  "/conditions/osteoarthritis",
+  "/conditions/rheumatoid-arthritis",
+  "/guides/arthritis-pain-relief",
+  "/guides/newly-diagnosed",
+  "/blog",
+  "/library/lupus-symptoms",
+  "/faq/arthritis-pain-management",
+  "/community",
+  "/donate",
+];
 
 function run(cmd, args) {
   const r = spawnSync(cmd, args, { stdio: "inherit", shell: process.platform === "win32" });

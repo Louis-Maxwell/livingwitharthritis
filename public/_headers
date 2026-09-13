@@ -1,6 +1,4 @@
 # Long-term caching for hashed build assets (js/css get a content hash in Vite → safe to cache forever).
-# Fixes the "Serve static assets with an efficient cache policy" Lighthouse warning.
-
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -22,10 +20,6 @@
 /images/*
   Cache-Control: public, max-age=2592000
 
-# Canonical icon sources live in src/assets/icons/ and are emitted with a content
-# hash under /assets/* (immutable). The copies below are fallbacks for clients
-# that request the well-known paths without reading the HTML — update both in the
-# same change. They stay short-lived so a stale mark can't stick around.
 /favicon.svg
   Content-Type: image/svg+xml
   Cache-Control: public, max-age=3600, must-revalidate
@@ -49,11 +43,9 @@
 /icons/*
   Cache-Control: public, max-age=3600, must-revalidate
 
-# Lovable CDN-hosted assets are content-addressed (immutable UUID paths).
 /__l5e/assets-v1/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Sitemaps, robots and LLM feeds: revalidated daily by crawlers.
 /sitemap*.xml
   Cache-Control: public, max-age=86400
 /robots.txt
@@ -63,9 +55,6 @@
 /ai.txt
   Cache-Control: public, max-age=86400
 
-# HTML: browsers always revalidate so new deploys show immediately.
-# CDN may keep a short fresh copy (static hosts often override Cache-Control).
-# CSP matches index.html and adds frame-ancestors (HTTP header only; ignored in meta CSP).
 /*
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=600
@@ -76,4 +65,4 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
   X-Permitted-Cross-Domain-Policies: none
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com
