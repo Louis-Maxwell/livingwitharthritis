@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { buildGroupShareText } from '@/lib/groupShareText';
-import { SOCIAL_LINKS } from '@/config/social-media';
+
 
 interface SocialShareButtonsProps {
   title: string;
