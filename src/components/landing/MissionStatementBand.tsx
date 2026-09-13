@@ -48,7 +48,7 @@ const MissionStatementBand = memo(() => {
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
-            to="/arthritis-and-frailty-awareness"
+            to="/about#arthritis-frailty"
             className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90 transition-opacity"
           >
             Arthritis &amp; frailty awareness
