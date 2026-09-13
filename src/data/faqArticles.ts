@@ -64,7 +64,7 @@ export const faqArticles: FaqArticle[] = [
     title: 'Arthritis and Disability Benefits in the UK',
     question: 'What disability benefits can I get with arthritis in the UK?',
     quickAnswer:
-      'You may qualify for PIP (Adult Disability Payment in Scotland), ESA or Universal Credit — awards depend on how arthritis limits daily tasks and walking.',
+      'Arthritis can qualify you for PIP (Adult Disability Payment in Scotland), ESA, Universal Credit and a Blue Badge, based on daily tasks and how far you walk.',
 
     sections: [
       { heading: 'Personal Independence Payment (PIP): who can claim', content: "PIP is for people aged 16 up to State Pension age. It is not means-tested, is not affected by savings, and you can claim it whether you work or not. It is paid because of how arthritis affects you day to day, not because of your diagnosis or your scan results. To qualify you normally need to have had the difficulties for at least three months and expect them to continue for at least a further nine months. In Scotland, PIP has been replaced by Adult Disability Payment, which uses the same points-based tests but is administered by Social Security Scotland." },
