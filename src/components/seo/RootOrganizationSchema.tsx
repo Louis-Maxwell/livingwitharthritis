@@ -50,7 +50,6 @@ const PAYLOAD = {
     "Living With Arthritis is an independent registered charity in England and Wales (charity no. 1218461) working to improve awareness, understanding and self-management of arthritis and frailty. We provide free, evidence-based health information, exercise, nutrition, support and practical resources for people across the United Kingdom.",
   mission:
     "To improve awareness and understanding of arthritis and frailty and help people stay informed, active, independent and supported through evidence-based information and practical resources.",
-  nonprofitStatus: "NonprofitType",
   email: "info@livingwitharthritis.org.uk",
   areaServed: [
     { "@type": "Country", name: "United Kingdom" },
@@ -92,7 +91,6 @@ const PAYLOAD = {
     "Methotrexate side effects",
     "NICE osteoarthritis exercise",
   ],
-  medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
   identifier: {
     "@type": "PropertyValue",
     propertyID: "GB-CHC",
