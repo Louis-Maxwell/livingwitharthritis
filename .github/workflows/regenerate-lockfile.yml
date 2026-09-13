@@ -36,6 +36,11 @@ jobs:
       - name: Regenerate lockfile from package.json
         run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
 
+      # Apply safe, non-major npm audit remediations to the lockfile only.
+      # Never use --force: major dependency changes require a reviewed PR.
+      - name: Apply safe npm audit remediations
+        run: npm audit fix --package-lock-only --ignore-scripts --no-fund
+
       - name: Verify dependency audit
         run: npm audit --audit-level=high
 
