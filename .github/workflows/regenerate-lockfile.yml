@@ -1,45 +1,43 @@
-# Fixes the Dependabot vulnerability alerts at their root cause.
-#
-# WHY: This repo builds with Bun (bun.lockb), but Dependabot scans the old
-# committed package-lock.json — which is stale and pins vulnerable versions
-# (jspdf 2.5.1, vite 5.4.19, jsdom 20, vitest 3, esbuild 0.21, etc.) that
-# package.json has long since upgraded past. Regenerating the lockfile makes
-# Dependabot scan the versions you actually use, closing the bulk of the
-# alerts in one pass.
-#
-# HOW TO RUN: Actions tab → "Regenerate npm lockfile" → Run workflow.
-# It also runs automatically every Monday to stay in sync.
-
+# Keep the npm lockfile synchronized with package.json so GitHub Dependabot
+# audits the dependency tree that CI actually installs, rather than a stale tree.
+# This also closes stale historical alerts caused by an old package-lock.json.
 name: Regenerate npm lockfile
 
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+      - main
+      - architectural-seo-performance-hardening-2026-09
   schedule:
-    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+    - cron: "0 6 * * 1"
 
 permissions:
   contents: write
 
 concurrency:
-  group: lockfile-regen
+  group: lockfile-regen-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   regenerate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
 
-      # --package-lock-only: resolves the dependency tree and writes the
-      # lockfile WITHOUT installing node_modules — fast and side-effect free.
-      # --ignore-scripts: never run postinstall scripts in CI (supply-chain safety).
+      # Resolve from package.json and rewrite package-lock.json without
+      # executing lifecycle scripts. This is deliberately done before audit.
       - name: Regenerate lockfile from package.json
         run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Verify dependency audit
+        run: npm audit --audit-level=high
 
       - name: Commit and push if changed
         run: |
@@ -50,5 +48,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add package-lock.json
-          git commit -m "chore: regenerate package-lock.json to match package.json (closes stale Dependabot alerts)"
+          git commit -m "chore: sync npm lockfile and remediate dependency alerts"
           git push
