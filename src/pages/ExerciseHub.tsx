@@ -30,6 +30,9 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SafeExerciseDemo from "@/components/exercises/SafeExerciseDemo";
 import AnswerBox from "@/components/seo/AnswerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const exerciseCategories = [
   {
@@ -235,6 +238,7 @@ const ExerciseHub = () => {
       </PageHero>
 
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8" aria-label="Introduction">
+        <AeoEnhancement route="/exercises" />
         <p id="exercise-empathy-lead" className="speakable-intro text-muted-foreground text-base leading-relaxed max-w-3xl">
           Living with arthritis can make movement feel scary. These routines are gentle on purpose —
           free, plain-English, and designed so you can take one small step today without a gym or a lecture.
@@ -701,6 +705,10 @@ const ExerciseHub = () => {
       </main>
 
 
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <TopicClusterNav path="/exercises" />
+      </div>
       <InternalLinks />
       <NextReadStrip currentPath="/guides/exercise" />
       <Footer />

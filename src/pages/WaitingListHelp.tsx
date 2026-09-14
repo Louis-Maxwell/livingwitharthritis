@@ -7,6 +7,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Clock, Hospital, ArrowRight, Calculator, CheckCircle2, Phone, BookOpen } from "lucide-react";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -158,6 +160,10 @@ const WaitingListHelp = () => {
         </section>
       </main>
 
+      <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-10">
+        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <TopicClusterNav path="/arthritis-waiting-list-help" />
+      </div>
       <Footer />
     </>
   );

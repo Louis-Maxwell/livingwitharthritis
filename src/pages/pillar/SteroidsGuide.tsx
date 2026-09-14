@@ -6,6 +6,9 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -156,7 +159,7 @@ export default function SteroidsGuide() {
           { name: "Steroids for Arthritis" },
         ]}
         faqs={STEROID_FAQS}
-        lastReviewed="2026-06-01"
+        lastReviewed="2026-09-14"
         idPrefix="steroids-guide"
       />
       <Header />
@@ -167,6 +170,7 @@ export default function SteroidsGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/steroids-for-arthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Steroid injections and short courses of oral steroids are among the most widely used
             treatments for arthritis pain in the UK. They don't cure arthritis, but used
@@ -180,21 +184,25 @@ export default function SteroidsGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/health-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">â† Related Guide</p>
+                <p className="text-xs text-primary font-bold mb-1">← Related Guide</p>
                 <p className="font-bold text-foreground">Arthritis Services Guide</p>
               </Link>
               <Link to="/guides/azathioprine-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Medication Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Medication Guide →</p>
                 <p className="font-bold text-foreground">Azathioprine for Arthritis</p>
               </Link>
               <Link to="/guides/knee-replacement-surgery" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Next Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>
                 <p className="font-bold text-foreground">Knee Replacement Surgery</p>
               </Link>
             </div>
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <TopicClusterNav path="/guides/steroids-for-arthritis" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/steroids-for-arthritis" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

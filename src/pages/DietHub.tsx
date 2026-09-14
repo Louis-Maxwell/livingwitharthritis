@@ -23,6 +23,8 @@ import {
   MessageCircle, Download
 } from "lucide-react";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import {
   StatCounter,
   ProgressRing,
@@ -625,6 +627,10 @@ const DietHub = () => {
         </div>
       </section>
 
+      <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <TopicClusterNav path="/diet" />
+      </div>
       <InternalLinks />
 
       <Footer />

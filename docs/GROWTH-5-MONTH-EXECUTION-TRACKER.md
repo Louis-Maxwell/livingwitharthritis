@@ -22,6 +22,7 @@
 | Fundraising Regulator + Gift Aid pathway | **blocked-on-Louis** | Donate copy softened — do not claim Gift Aid live until HMRC/charity steps complete |
 | Topic cluster map + internal link rules | **done** | `src/data/topicClusters.ts` + `TopicClusterNav` on champions |
 | Upgrade SEO Champions 1–10 | **done** | Gold pass on existing URLs (no new doorway pages) |
+| Champions 11–15 gold pass (early M2) | **done** | Steroids, Exercise hub, Diet hub, Disability support, Waiting-list help — disclaimer + cluster nav + review date 2026-09-14 |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
 | Email welcome + PECR (brought forward from M2) | **done** | `docs/EMAIL-WELCOME-SERIES.md` + signup form PECR tighten |
@@ -57,11 +58,33 @@
 
 ---
 
+## Daily log — 14 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026); early pull of M2 digital foundations.
+
+### Shipped
+- SEO Champions **11–15** gold pass: `SteroidsGuide`, `ExerciseHub`, `DietHub`, `DisabilitySupport`, `WaitingListHelp` — `EducationalDisclaimerBox`, `TopicClusterNav`, AEO where missing, clinical review date **2026-09-14**
+- `docs/SOCIAL-CADENCE-SOPS.md` — FB/IG/LI weekly cadence + templates (M2 P0)
+- `docs/CLINICAL-REVIEW-CHECKLIST.md` — formal clinical gate for YMYL (M2 P0)
+
+### Still blocked on Louis
+- Year 0 GA4 (`G-ZLLSD3PXZ9`) + GSC exports into `docs/YEAR-0-ANALYTICS-BASELINE.md`
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per new SOP; clinical spot-check of treatment champions (esp. steroids)
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Champions **16–20** (fill with GSC when baselines land; otherwise next high-intent hubs)
+2. Research fund campaign creative draft (M2 P1)
+3. Internal-link / cluster density pass on remaining treatment spoke pages
+
 ## Months 2–5 (forward look — not started this kickoff)
 
 | Month | Window (approx) | Focus |
 |---|---|---|
-| M2 | Oct–Nov 2026 | Champions 11–30; outreach engine; social SOPs |
+| M2 | Oct–Nov 2026 | Champions 11–30; outreach engine; social SOPs — **11–15 + social/clinical docs started 14 Sep** |
 | M3 | Nov–Dec 2026 | Pillars gold; Ad Grants live if approved; community pilot |
 | M4 | Dec 2026–Jan 2027 | Content machine; HCP pack distribution; mid-size grants |
 | M5 | Jan–Feb 2027 | PR + NE outreach; care home/pharmacy pilots; CRO follow-up |

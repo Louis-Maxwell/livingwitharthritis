@@ -5,6 +5,8 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
 const FAQS = [
   { q: 'What is considered a disability in the UK?', a: 'Under the Equality Act 2010, a disability is a physical or mental impairment that has a substantial and long-term (12+ months) effect on your ability to do normal daily activities.' },
@@ -25,7 +27,7 @@ export default function DisabilitySupport() {
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      lastReviewed: '2026-06-22',
+      lastReviewed: '2026-09-14',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/disability-support',
     };
     const faq = {
@@ -58,13 +60,14 @@ export default function DisabilitySupport() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Disability Support: Accessibility, Equipment and Independence</h1>
+      <p className="speakable-intro text-lg text-muted-foreground mb-6 leading-relaxed">UK guide to disability support for people with arthritis — mobility, home adaptations, benefits (including PIP), Access to Work and assistive technology. Educational information only; start with an occupational therapy assessment for personalised advice.</p>
             <AeoEnhancement route="/guides/disability-support" />
 
-      <AnswerBox question="What disability support is available in the UK?" reviewed="2026-06-22">
+      <AnswerBox question="What disability support is available in the UK?" reviewed="2026-09-14">
         Disability support covers everything that helps someone live independently — mobility equipment, accessible home modifications, financial benefits, legal advice and assistive technology. In the UK that means wheelchairs and scooters, ramps and stairlifts, Personal Independence Payment, Access to Work grants, Disabled Facilities Grants, occupational therapy assessments and increasingly smart-home and communication technology. Starting with an occupational therapy assessment — through your GP or privately — is the most efficient way to access the right combination of equipment, modifications and funding for your situation.
       </AnswerBox>
 
-      <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+      <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="September 2026" />
 
       <section id="understanding" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">1. Understanding disability support needs</h2>
@@ -137,6 +140,9 @@ export default function DisabilitySupport() {
           <li><Link to="/guides/benefits-pip" className="text-primary underline">PIP &amp; benefits guide</Link></li>
         </ul>
       </section>
+
+      <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+      <TopicClusterNav path="/guides/disability-support" />
 
       <section id="faq" className="mb-12">
         <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
