@@ -16,6 +16,8 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_HIP } from "@/data/clinical/ukCitations";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
@@ -348,6 +350,7 @@ const HipArthritis = () => (
               Read our articles
             </Link>
           </div>
+          <ArticleCitations citations={CITATIONS_HIP} />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/hip-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />

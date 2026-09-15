@@ -8,6 +8,8 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_EXERCISE_OA_SAFETY } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
@@ -161,14 +163,14 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
                 to="/guides/exercise"
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
-                <p className="text-xs text-primary font-bold mb-1">Pillar guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Pillar guide →</p>
                 <p className="font-bold text-foreground">Best exercises for arthritis</p>
               </Link>
               <Link
                 to="/arthritis-flare-ups"
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
-                <p className="text-xs text-primary font-bold mb-1">Related â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Related →</p>
                 <p className="font-bold text-foreground">Managing arthritis flare-ups</p>
               </Link>
             </div>
@@ -176,6 +178,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         </div>
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_EXERCISE_OA_SAFETY} />
         <EducationalDisclaimerBox lastReviewed="2026-09-15" />
         <TopicClusterNav path="/guides/can-exercise-make-osteoarthritis-worse" />
       </div>

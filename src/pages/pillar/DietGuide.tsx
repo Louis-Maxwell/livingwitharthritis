@@ -245,11 +245,11 @@ export default function DietGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/exercise" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Next Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>
                 <p className="font-bold text-foreground">Exercise Guide for Arthritis</p>
               </Link>
               <Link to="/diet" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Interactive â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Interactive →</p>
                 <p className="font-bold text-foreground">Visit the Diet Hub</p>
               </Link>
             </div>

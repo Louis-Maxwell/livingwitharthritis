@@ -41,6 +41,8 @@ export const SUGGESTED_CHIPS: string[] = [
   "How do I manage a flare?",
   "Can I claim PIP?",
   "What is rheumatoid arthritis?",
+  "OA vs RA differences",
+  "Is exercise safe with arthritis?",
   "Gout flare tips",
   "Fatigue and pacing",
   "Who are you?",
@@ -246,8 +248,13 @@ Ask me about a joint, condition, diet, flares or PIP and I will answer with link
       "claim pip",
       "pip assessment",
       "mandatory reconsideration",
+      "how to claim pip",
+      "pip points",
+      "pip diary",
+      "pip evidence",
+      "pip descriptors",
     ],
-    synonyms: ["welfare", "disability support", "daily living component", "mobility component", "esa", "pip form"],
+    synonyms: ["welfare", "disability support", "daily living component", "mobility component", "esa", "pip form", "pip application", "pip questionnaire"],
     priority: 18,
     chips: ["Access to Work", "Work adjustments", "Contact us"],
     answer: `**PIP and arthritis benefits (UK) — orientation only**
@@ -256,15 +263,22 @@ Ask me about a joint, condition, diet, flares or PIP and I will answer with link
 
 **In broad terms:**
 - Two components: **daily living** and **mobility** (standard or enhanced rates after assessment).
-- Assessment focuses on how your condition affects **activities** (cooking, dressing, managing treatment, moving around) — not only diagnosis labels.
-- Keep a brief symptom/flare diary and examples of bad days; assessors look at reliability, safety, and needing help or aids.
+- You score **points** against activity descriptors (e.g. preparing food, washing, dressing, managing therapy, moving around). Diagnosis alone does not decide the award.
+- Assessors look at whether you can do activities **safely**, **repeatedly**, in a **reasonable time**, and to an **acceptable standard** — including on bad/flare days.
+- Keep a brief symptom/flare **diary** with real examples (how long tasks take, help needed, aids used). Our **/resources/pip-evidence-diary** template can help structure notes.
+
+**How people usually start a claim (check GOV.UK for current steps):**
+1. Start the claim process via GOV.UK / DWP (phone or online pathway as listed there)
+2. Complete the questionnaire with concrete daily-life examples
+3. Attend assessment if invited; take notes/aids list; consider a companion
+4. If refused, you can usually ask for a **mandatory reconsideration** within the time limit — Citizens Advice can help
 
 **Practical next steps:**
 - Read our plain-English hub: **/guides/benefits-pip**
-- Check current rules on GOV.UK
-- Citizens Advice or a local welfare-rights adviser can help with forms and mandatory reconsiderations
+- Check current rules and rates on **GOV.UK**
+- Citizens Advice or a local welfare-rights adviser for forms and reconsiderations
 
-We cannot assess your entitlement — rules change.`,
+We cannot assess your entitlement or predict points — rules change and every case differs.`,
     nextSteps: [
       "Read /guides/benefits-pip",
       "Gather examples of how arthritis affects daily tasks on bad days",
@@ -273,6 +287,7 @@ We cannot assess your entitlement — rules change.`,
     related: [
       { type: "guide", title: "Benefits & PIP guide", url: "/guides/benefits-pip", description: "UK PIP orientation for arthritis" },
       { type: "guide", title: "Benefits hub", url: "/benefits-pip" },
+      { type: "guide", title: "PIP evidence diary", url: "/resources/pip-evidence-diary", description: "Template for flare and daily-living notes" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
   },
@@ -882,6 +897,58 @@ Discomfort that settles quickly can be OK; sharp or prolonged pain means ease ba
       { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
     ],
   },
+
+  {
+    id: "exercise-safety",
+    keywords: [
+      "exercise safety",
+      "is exercise safe",
+      "safe to exercise",
+      "should i exercise with arthritis",
+      "exercise during flare",
+      "when to stop exercise",
+      "when should i stop exercising",
+      "stop exercising",
+      "stop exercise",
+      "exercise making pain worse",
+      "hurt after exercise",
+      "sharp pain when exercising",
+      "exercising with arthritis",
+    ],
+    synonyms: ["exercise red flags", "exercise rules", "can i exercise", "exercise harm", "stop exercising with arthritis"],
+    priority: 22,
+    chips: ["OA exercises", "Flare-day movement", "When to see a GP?"],
+    answer: `**Exercise safety with arthritis (UK educational guidance)**
+
+For most people with osteoarthritis and many with inflammatory arthritis, **appropriate** exercise is safe and helpful — NICE-style guidance puts movement ahead of long-term painkillers for OA. It should still be paced.
+
+**Usually OK**
+- Mild ache up to about **4/10** during/after that settles within ~24 hours
+- Gentle warm-up; build time and load gradually (roughly ≤10% week-to-week)
+- Prefer low-impact options (walk, cycle, swim, strength, tai chi)
+
+**Ease back / modify**
+- Pain that stays high overnight or swells the joint for >24–48 hours
+- During a flare: shorter sets, range-of-motion, water work — do not force through sharp pain
+
+**Stop and seek clinical advice**
+- **Sharp**, catching, locking, or sudden giving-way pain
+- New chest pain, severe breathlessness, dizziness, or collapse → **999** if severe
+- Hot, red, very swollen joint with fever → **NHS 111** / urgent care (possible infection)
+
+Start gently via **/exercises** and **/guides/can-exercise-make-osteoarthritis-worse**. Ask a physio/FCP/GP before a new programme if you have heart, balance, or unstable joint problems.`,
+    nextSteps: [
+      "Open /exercises for joint-specific routines",
+      "Read /guides/can-exercise-make-osteoarthritis-worse",
+      "Modify rather than stop completely on flare days",
+    ],
+    related: [
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Can exercise make OA worse?", url: "/guides/can-exercise-make-osteoarthritis-worse" },
+      { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+      { type: "guide", title: "Exercise guide", url: "/guides/exercise" },
+    ],
+  },
   {
     id: "exercise-general",
     keywords: [
@@ -945,10 +1012,53 @@ Only a clinician can diagnose RA. We do not prescribe. Learn more: **/conditions
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
   },
+
+  {
+    id: "oa-vs-ra",
+    keywords: [
+      "oa vs ra",
+      "oa versus ra",
+      "difference between oa and ra",
+      "osteoarthritis vs rheumatoid",
+      "osteoarthritis versus rheumatoid",
+      "osteoarthritis vs rheumatoid arthritis",
+      "osteoarthritis or rheumatoid",
+      "is it oa or ra",
+      "wear and tear or autoimmune",
+      "inflammatory or osteoarthritis",
+      "difference between osteoarthritis and rheumatoid",
+    ],
+    synonyms: ["oa or ra", "ra vs oa", "difference oa ra", "autoimmune or wear", "compare oa ra"],
+    requireAny: ["vs", "versus", "difference", " or ", "compare"],
+    priority: 28,
+    chips: ["What is OA?", "What is RA?", "When to see a GP?"],
+    answer: `**Osteoarthritis (OA) vs rheumatoid arthritis (RA) — education only**
+
+These are different conditions. Only a clinician can diagnose which (if either) you have.
+
+**Osteoarthritis (OA)** — most common form; joint-surface / cartilage wear with secondary inflammation. Often one or a few joints (knee, hip, hand, spine). Morning stiffness often **under ~30 minutes**. Care focus: movement, strength, weight management when relevant, topical gels, pacing (NICE NG226-style self-care).
+
+**Rheumatoid arthritis (RA)** — autoimmune inflammatory arthritis. Often symmetrical small joints (hands/feet). Morning stiffness often **over 30–60 minutes**, with fatigue and wider inflammation possible. Care focus: early rheumatology referral, DMARDs/biologics **only as prescribed**, plus physio and pacing.
+
+**See a GP soon** if morning stiffness is prolonged, joints are warm/swollen, or daily tasks are becoming hard — early inflammatory arthritis review can protect joints.
+
+Learn more: **/conditions/osteoarthritis**, **/conditions/rheumatoid-arthritis**. This chat does **not** diagnose.`,
+    nextSteps: [
+      "Compare hubs at /conditions/osteoarthritis and /conditions/rheumatoid-arthritis",
+      "Book GP if inflammatory features persist",
+      "Use /exercises for paced movement while you wait",
+    ],
+    related: [
+      { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
+      { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
+      { type: "guide", title: "Newly diagnosed", url: "/guides/newly-diagnosed" },
+      { type: "guide", title: "When to seek care", url: "/guides" },
+    ],
+  },
   {
     id: "oa-general",
     keywords: ["osteoarthritis", "what is oa", "wear and tear", "oa symptoms"],
-    synonyms: ["degenerative joint", "cartilage wear", "oa vs ra"],
+    synonyms: ["degenerative joint", "cartilage wear"],
     priority: 12,
     chips: ["OA exercises", "Knee OA", "Diet hub"],
     answer: `**Osteoarthritis (OA) — essentials**
@@ -1415,8 +1525,12 @@ Hub: **/supplements** · diet first: **/diet**.`,
       "red flag",
       "urgent care",
       "when to worry",
+      "when to seek care",
+      "should i go to hospital",
+      "nhs 111",
+      "emergency arthritis",
     ],
-    synonyms: ["need a doctor", "gp appointment", "call 111", "a&e arthritis", "should i go to a and e"],
+    synonyms: ["need a doctor", "gp appointment", "call 111", "a&e arthritis", "should i go to a and e", "seek help", "get checked"],
     priority: 12,
     chips: ["Flare tips", "Emergency signs", "Contact charity"],
     answer: `**When to see a doctor about joint pain**

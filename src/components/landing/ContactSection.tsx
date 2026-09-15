@@ -235,7 +235,7 @@ const ContactSection = memo(() => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="c-name" className="block text-sm font-semibold text-foreground mb-1.5">
-                    Your name <span className="text-destructive" aria-hidden="true">*</span>
+                    Your name <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> (required)</span>
                   </label>
                   <input
                     id="c-name" type="text" value={form.name} onChange={set("name")}
@@ -248,7 +248,7 @@ const ContactSection = memo(() => {
                 </div>
                 <div>
                   <label htmlFor="c-email" className="block text-sm font-semibold text-foreground mb-1.5">
-                    Email address <span className="text-destructive" aria-hidden="true">*</span>
+                    Email address <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> (required)</span>
                   </label>
                   <input
                     id="c-email" type="email" value={form.email} onChange={set("email")}
@@ -262,7 +262,7 @@ const ContactSection = memo(() => {
               </div>
               <div>
                 <label htmlFor="c-subject" className="block text-sm font-semibold text-foreground mb-1.5">
-                  Subject <span className="text-destructive" aria-hidden="true">*</span>
+                  Subject <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> (required)</span>
                 </label>
                 <select
                   id="c-subject" value={form.subject} onChange={set("subject")}
@@ -276,7 +276,7 @@ const ContactSection = memo(() => {
               </div>
               <div>
                 <label htmlFor="c-message" className="block text-sm font-semibold text-foreground mb-1.5">
-                  Your message <span className="text-destructive" aria-hidden="true">*</span>
+                  Your message <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> (required)</span>
                 </label>
                 <textarea
                   id="c-message" rows={5} value={form.message} onChange={set("message")}

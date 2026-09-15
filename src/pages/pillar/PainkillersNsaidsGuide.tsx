@@ -9,6 +9,8 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_PAINKILLERS_NSAIDS } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
@@ -180,15 +182,15 @@ export default function PainkillersNsaidsGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/steroids-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Related Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Related Guide →</p>
                 <p className="font-bold text-foreground">Steroids for Arthritis</p>
               </Link>
               <Link to="/guides/febuxostat-for-gout" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Medication Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Medication Guide →</p>
                 <p className="font-bold text-foreground">Febuxostat for Gout</p>
               </Link>
               <Link to="/guides/azathioprine-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Medication Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Medication Guide →</p>
                 <p className="font-bold text-foreground">Azathioprine for Arthritis</p>
               </Link>
             </div>
@@ -196,6 +198,7 @@ export default function PainkillersNsaidsGuide() {
         </div>
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_PAINKILLERS_NSAIDS} />
         <EducationalDisclaimerBox lastReviewed="2026-09-15" />
         <TopicClusterNav path="/guides/painkillers-and-nsaids" />
       </div>

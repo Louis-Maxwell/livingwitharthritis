@@ -1,6 +1,10 @@
 ﻿import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_FEBUXOSTAT } from "@/data/clinical/ukCitations";
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
@@ -15,7 +19,7 @@ const FEBUXOSTAT_FAQS = [
   { question: "How long does febuxostat take to work?", answer: "Febuxostat begins lowering uric acid within 24–48 hours, but it can take 3–6 months of consistent daily dosing to dissolve existing crystal deposits in the joints. Many people experience more frequent gout flares in the first 3–6 months as the crystals shift — this does not mean the medication has failed." },
   { question: "What are the side effects of febuxostat?", answer: "Common side effects include nausea, diarrhoea, headache, raised liver enzymes and a rash. More serious risks include cardiovascular events in people with existing heart disease, severe skin reactions (Stevens–Johnson syndrome) and liver injury. Tell your prescriber immediately about chest pain, breathlessness, jaundice or a spreading rash." },
   { question: "Is febuxostat better than allopurinol?", answer: "For most people, allopurinol is tried first because it is cheaper and has decades of safety data. Febuxostat is used when allopurinol is not tolerated, when uric acid targets cannot be reached on maximum allopurinol, or in people with reduced kidney function where allopurinol dosing is restricted. Febuxostat is at least as effective at lowering uric acid." },
-  { question: "What is the target uric acid level on febuxostat?", answer: "For most people the target is below 360 Âµmol/L (6 mg/dL). In severe gout with tophi or frequent flares, the target is lower — below 300 Âµmol/L (5 mg/dL) — to encourage faster crystal dissolution. Your prescriber will check blood levels at 2–4 weeks, then every 3–6 months." },
+  { question: "What is the target uric acid level on febuxostat?", answer: "For most people the target is below 360 µmol/L (6 mg/dL). In severe gout with tophi or frequent flares, the target is lower — below 300 µmol/L (5 mg/dL) — to encourage faster crystal dissolution. Your prescriber will check blood levels at 2–4 weeks, then every 3–6 months." },
   { question: "Do I need to take colchicine with febuxostat?", answer: "Yes — for the first 3–6 months. Starting any urate-lowering treatment can trigger gout flares as crystals begin to dissolve. A low daily dose of colchicine (or a low-dose NSAID if colchicine isn't suitable) is usually prescribed alongside febuxostat as 'flare prophylaxis' until uric acid is stable at target." },
   { question: "Can I drink alcohol on febuxostat?", answer: "Alcohol — especially beer and spirits — raises uric acid and provokes gout flares. Febuxostat will still work, but heavy drinking undermines the treatment and increases pressure on the liver. Moderate wine intake is the lowest-risk choice; staying within 14 UK units per week is sensible." },
 ];
@@ -28,7 +32,7 @@ const CONTENT = `
 
 <h2 id="how-it-works">How febuxostat works</h2>
 <p>Uric acid is a normal waste product made when the body breaks down purines — chemicals found in cells and in some foods. Most people clear it efficiently through the kidneys. In gout, either too much uric acid is produced, too little is excreted, or both.</p>
-<p>Febuxostat blocks the xanthine oxidase enzyme so the body produces less uric acid in the first place. Blood levels begin to fall within 24–48 hours, and most people reach the recommended target of below <strong>360 Âµmol/L (6 mg/dL)</strong> within 4–8 weeks of starting treatment.</p>
+<p>Febuxostat blocks the xanthine oxidase enzyme so the body produces less uric acid in the first place. Blood levels begin to fall within 24–48 hours, and most people reach the recommended target of below <strong>360 µmol/L (6 mg/dL)</strong> within 4–8 weeks of starting treatment.</p>
 <p>Once uric acid is below this threshold for long enough, the crystal deposits in the joints — and the larger lumps known as <strong>tophi</strong> under the skin — slowly dissolve. This is what protects against future attacks and reverses long-term joint damage.</p>
 
 <h2 id="who-its-for">Who febuxostat is for</h2>
@@ -95,7 +99,7 @@ const CONTENT = `
 <ul>
 <li>Febuxostat lowers uric acid by blocking xanthine oxidase, gradually dissolving crystal deposits in joints.</li>
 <li>It is used when allopurinol is not tolerated or not effective, and when kidney function limits allopurinol dosing.</li>
-<li>Target uric acid is below 360 Âµmol/L (300 Âµmol/L in severe gout with tophi).</li>
+<li>Target uric acid is below 360 µmol/L (300 µmol/L in severe gout with tophi).</li>
 <li>Take it every single day — including during a flare — and pair it with colchicine for the first 3–6 months.</li>
 <li>Watch for skin reactions, liver changes and cardiovascular risk in people with established heart disease.</li>
 <li>Diet, alcohol and weight management amplify the benefit but do not replace daily medication.</li>
@@ -130,7 +134,7 @@ export default function FebuxostatGoutGuide() {
           { name: "Febuxostat for Gout" },
         ]}
         faqs={FEBUXOSTAT_FAQS}
-        lastReviewed="2026-06-28"
+        lastReviewed="2026-09-15"
         idPrefix="febuxostat-guide"
       />
       <Header />
@@ -153,21 +157,26 @@ export default function FebuxostatGoutGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/painkillers-and-nsaids" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Related Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Related Guide →</p>
                 <p className="font-bold text-foreground">Painkillers &amp; NSAIDs for Arthritis</p>
               </Link>
               <Link to="/guides/steroids-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Medication Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Medication Guide →</p>
                 <p className="font-bold text-foreground">Steroids for Arthritis</p>
               </Link>
               <Link to="/diet/foods-to-avoid-with-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Diet â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Diet →</p>
                 <p className="font-bold text-foreground">Foods to Avoid with Arthritis</p>
               </Link>
             </div>
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_FEBUXOSTAT} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <TopicClusterNav path="/guides/febuxostat-for-gout" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/febuxostat-for-gout" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

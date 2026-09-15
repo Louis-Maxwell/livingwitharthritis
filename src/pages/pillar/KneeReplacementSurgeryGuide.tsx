@@ -223,11 +223,11 @@ export default function KneeReplacementSurgeryGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/conditions/knee-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Related â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Related →</p>
                 <p className="font-bold text-foreground">Knee Arthritis Guide</p>
               </Link>
               <Link to="/arthritis-waiting-list-help" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Practical â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Practical →</p>
                 <p className="font-bold text-foreground">Managing the Waiting List</p>
               </Link>
             </div>

@@ -60,7 +60,7 @@ export default function ResourceCentre() {
         path={PATH}
       />
       <Header />
-      <main id="main-content" role="main" tabIndex={-1}>
+      <main id="main-content" role="main" tabIndex={-1} className="outline-none">
         <PageHero
           badge="Resource Centre"
           title="Find guides, tools and downloads in one place"
@@ -83,10 +83,12 @@ export default function ResourceCentre() {
         </PageHero>
 
         <div className="container mx-auto max-w-5xl px-6 md:px-10 pb-16 space-y-10">
-          {GROUPS.map((group) => (
-            <section key={group.title} aria-labelledby={`rc-${group.title}`}>
+          {GROUPS.map((group) => {
+            const headingId = `rc-${group.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+            return (
+            <section key={group.title} aria-labelledby={headingId}>
               <h2
-                id={`rc-${group.title}`}
+                id={headingId}
                 className="font-display text-xl md:text-2xl font-bold text-foreground mb-4"
               >
                 {group.title}
@@ -104,7 +106,8 @@ export default function ResourceCentre() {
                 ))}
               </ul>
             </section>
-          ))}
+          );
+          })}
         </div>
       </main>
       <Footer />

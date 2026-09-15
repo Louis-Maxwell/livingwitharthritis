@@ -8,6 +8,8 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_SHOULDER } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
@@ -201,7 +203,7 @@ export default function ShoulderPainRelief() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  Condition â†’
+                  Condition →
                 </p>
                 <p className="font-bold text-foreground">Shoulder arthritis</p>
               </Link>
@@ -210,7 +212,7 @@ export default function ShoulderPainRelief() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  Pillar guide â†’
+                  Pillar guide →
                 </p>
                 <p className="font-bold text-foreground">
                   Best exercises for arthritis
@@ -220,7 +222,7 @@ export default function ShoulderPainRelief() {
                 to="/guides/arthritis-pain-relief"
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
-                <p className="text-xs text-primary font-bold mb-1">Related â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Related →</p>
                 <p className="font-bold text-foreground">
                   Arthritis pain relief options
                 </p>
@@ -230,7 +232,7 @@ export default function ShoulderPainRelief() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  Need tailored advice? â†’
+                  Need tailored advice? →
                 </p>
                 <p className="font-bold text-foreground">
                   Ask our help &amp; support team
@@ -241,6 +243,7 @@ export default function ShoulderPainRelief() {
         </div>
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_SHOULDER} />
         <EducationalDisclaimerBox lastReviewed="2026-09-15" />
         <TopicClusterNav path="/guides/shoulder-pain-relief" />
       </div>

@@ -112,9 +112,41 @@ describe("arthritisChatFallback (unified engine)", () => {
       "website-nav",
       "weather-cold",
       "morning-stiffness",
+      "oa-vs-ra",
+      "exercise-safety",
     ]) {
       expect(ids.has(id)).toBe(true);
     }
-    expect(TOPICS.length).toBeGreaterThanOrEqual(35);
+    expect(TOPICS.length).toBeGreaterThanOrEqual(37);
   });
+
+  it("matches OA vs RA comparison educationally", () => {
+    const m = getFallbackMatch("What is the difference between OA and RA?");
+    expect(m.topicId).toBe("oa-vs-ra");
+    const ans = getFallbackAnswer("osteoarthritis vs rheumatoid arthritis");
+    expect(ans).toMatch(/osteoarthritis/i);
+    expect(ans).toMatch(/rheumatoid/i);
+    expect(ans).toMatch(/does \*\*not\*\* diagnose|not diagnose|Only a clinician/i);
+    expect(ans).toMatch(/\/conditions\/osteoarthritis/);
+  });
+
+  it("covers exercise safety and when to seek care", () => {
+    const safety = getFallbackAnswer("Is exercise safe with arthritis if I have sharp pain?");
+    expect(safety).toMatch(/exercise/i);
+    expect(safety).toMatch(/999|NHS 111|ease back|sharp/i);
+    expect(getFallbackMatch("when should I stop exercising with arthritis").topicId).toMatch(
+      /exercise-safety|exercise/,
+    );
+
+    const care = getFallbackAnswer("When should I seek care for joint pain?");
+    expect(care).toMatch(/GP|NHS 111|999/i);
+  });
+
+  it("expands PIP basics with diary and points language", () => {
+    const pip = getFallbackAnswer("How do I claim PIP and what are the points?");
+    expect(pip).toMatch(/points|descriptors|daily living|mobility/i);
+    expect(pip).toMatch(/GOV\.UK|Citizens Advice|\/guides\/benefits-pip/i);
+    expect(pip).not.toMatch(/you will definitely get|guaranteed award/i);
+  });
+
 });

@@ -9,6 +9,8 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_HIP_EXERCISES } from "@/data/clinical/ukCitations";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
@@ -162,7 +164,7 @@ export default function HipExercisesForOsteoarthritis() {
           { name: "Hip exercises for osteoarthritis" },
         ]}
         faqs={FAQS}
-        lastReviewed="2026-07-01"
+        lastReviewed="2026-09-15"
         idPrefix="hip-oa-exercises"
       />
       <Header />
@@ -174,7 +176,8 @@ export default function HipExercisesForOsteoarthritis() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
-          <EducationalDisclaimerBox />
+          <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
+          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/guides/hip-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Hip osteoarthritis responds to targeted strength and mobility work.
@@ -209,7 +212,7 @@ export default function HipExercisesForOsteoarthritis() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  Pillar guide â†’
+                  Pillar guide →
                 </p>
                 <p className="font-bold text-foreground">
                   Best exercises for arthritis
@@ -220,7 +223,7 @@ export default function HipExercisesForOsteoarthritis() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  Related â†’
+                  Related →
                 </p>
                 <p className="font-bold text-foreground">
                   Can exercise make osteoarthritis worse?
@@ -231,7 +234,7 @@ export default function HipExercisesForOsteoarthritis() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  If surgery is on the horizon â†’
+                  If surgery is on the horizon →
                 </p>
                 <p className="font-bold text-foreground">
                   Joint replacement surgery guide
@@ -242,7 +245,7 @@ export default function HipExercisesForOsteoarthritis() {
                 className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 <p className="text-xs text-primary font-bold mb-1">
-                  Need tailored advice? â†’
+                  Need tailored advice? →
                 </p>
                 <p className="font-bold text-foreground">
                   Ask our help &amp; support team

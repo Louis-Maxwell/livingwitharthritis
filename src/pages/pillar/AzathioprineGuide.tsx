@@ -1,6 +1,10 @@
 ﻿import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_AZATHIOPRINE } from "@/data/clinical/ukCitations";
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
@@ -224,7 +228,7 @@ export default function AzathioprineGuide() {
           { name: "Azathioprine for Arthritis" },
         ]}
         faqs={AZA_FAQS}
-        lastReviewed="2026-06-25"
+        lastReviewed="2026-09-15"
         idPrefix="azathioprine-guide"
       />
       <Header />
@@ -252,22 +256,22 @@ export default function AzathioprineGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Related medication &amp; condition guides</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/steroids-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">â† Medication Guide</p>
+                <p className="text-xs text-primary font-bold mb-1">← Medication Guide</p>
                 <p className="font-bold text-foreground">Steroids for Arthritis</p>
                 <p className="text-sm text-muted-foreground mt-1">Injections, tablets, side effects and UK access.</p>
               </Link>
               <Link to="/conditions/rheumatoid-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Condition â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Condition →</p>
                 <p className="font-bold text-foreground">Rheumatoid Arthritis</p>
                 <p className="text-sm text-muted-foreground mt-1">Symptoms, DMARDs, biologics and lifestyle.</p>
               </Link>
               <Link to="/conditions/lupus" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Condition â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Condition →</p>
                 <p className="font-bold text-foreground">Lupus (SLE)</p>
                 <p className="text-sm text-muted-foreground mt-1">Why azathioprine is a first-line steroid-sparing option.</p>
               </Link>
               <Link to="/guides/health-services" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Access â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Access →</p>
                 <p className="font-bold text-foreground">UK Health Services Guide</p>
                 <p className="text-sm text-muted-foreground mt-1">Rheumatology, shared care and how to get seen.</p>
               </Link>
@@ -275,6 +279,11 @@ export default function AzathioprineGuide() {
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_AZATHIOPRINE} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <TopicClusterNav path="/guides/azathioprine-for-arthritis" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/azathioprine-for-arthritis" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

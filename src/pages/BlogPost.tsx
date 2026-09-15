@@ -167,7 +167,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main id="main-content" className="container mx-auto px-6 md:px-10 py-24 max-w-[860px]">
+        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-24 max-w-[860px] outline-none">
           <Skeleton className="h-8 w-3/4 mb-4" />
           <Skeleton className="h-4 w-1/2 mb-8" />
           <Skeleton className="h-64 w-full" />
@@ -490,7 +490,7 @@ const BlogPost = () => {
                   {...({ fetchpriority: "high" } as Record<string, string>)}
                   className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[16/9]"
                 />
-                <figcaption className="text-xs text-muted-foreground/70 mt-1.5">
+                <figcaption className="text-xs text-muted-foreground mt-1.5">
                   {cover.credit}
                 </figcaption>
               </figure>
@@ -498,7 +498,7 @@ const BlogPost = () => {
           </div>
         </header>
 
-        <main id="main-content" className="container mx-auto px-6 md:px-10 py-6 md:py-8 max-w-[1100px]">
+        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
           <div className="min-w-0 max-w-[860px]">
           {directAnswer && (

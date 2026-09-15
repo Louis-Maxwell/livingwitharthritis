@@ -215,6 +215,7 @@ const ExerciseHub = () => {
       </Helmet>
 
       <Header />
+      <main id="main-content" role="main" tabIndex={-1} className="outline-none">
       <PageBreadcrumb segments={[{ label: "Exercise Hub" }]} />
 
       <PageHero
@@ -268,7 +269,7 @@ const ExerciseHub = () => {
         </figure>
       </section>
 
-      <main id="main-content">
+      <div id="exercise-hub-body">
         <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
           <AnswerBox
             question="What are the best exercises for arthritis?"
@@ -702,13 +703,12 @@ const ExerciseHub = () => {
             </div>
           </section>
         </div>
-      </main>
-
-
+      </div>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
-        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
         <TopicClusterNav path="/exercises" />
       </div>
+      </main>
       <InternalLinks />
       <NextReadStrip currentPath="/guides/exercise" />
       <Footer />

@@ -8,6 +8,8 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_STEROIDS } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
@@ -159,7 +161,7 @@ export default function SteroidsGuide() {
           { name: "Steroids for Arthritis" },
         ]}
         faqs={STEROID_FAQS}
-        lastReviewed="2026-09-14"
+        lastReviewed="2026-09-15"
         idPrefix="steroids-guide"
       />
       <Header />
@@ -200,7 +202,7 @@ export default function SteroidsGuide() {
         </div>
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
-        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
         <TopicClusterNav path="/guides/steroids-for-arthritis" />
       </div>
       <GuideOnwardJourney currentPath="/guides/steroids-for-arthritis" />

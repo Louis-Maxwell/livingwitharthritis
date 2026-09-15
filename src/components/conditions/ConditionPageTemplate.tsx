@@ -44,7 +44,7 @@ export interface RelatedLink {
 }
 
 export interface ConditionPageData {
-  /** URL slug — e.g. "gout" â†’ /conditions/gout */
+  /** URL slug — e.g. "gout" → /conditions/gout */
   slug: string;
   /** Friendly name — "Gout" */
   name: string;

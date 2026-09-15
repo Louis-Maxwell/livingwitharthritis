@@ -197,11 +197,11 @@ export default function HealthServicesGuide() {
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/uk-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">â† Previous Guide</p>
+                <p className="text-xs text-primary font-bold mb-1">← Previous Guide</p>
                 <p className="font-bold text-foreground">Complete UK Arthritis Guide</p>
               </Link>
               <Link to="/guides/benefits-pip" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Next Guide â†’</p>
+                <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>
                 <p className="font-bold text-foreground">Benefits &amp; PIP Support</p>
               </Link>
             </div>

@@ -157,7 +157,7 @@ export default function Donate() {
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
     </Helmet>
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" role="main" tabIndex={-1} className="min-h-screen bg-background outline-none">
         {/* Hero — story first, then the ask */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-primary/5 border-b border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-4xl text-center">
