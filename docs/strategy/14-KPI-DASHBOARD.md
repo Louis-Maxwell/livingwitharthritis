@@ -1,6 +1,6 @@
 # 14 — KPI dashboard (no fake baselines)
 
-**Instruction:** Leave **Actual** cells blank until exports exist. Year 0 baseline = **not yet exported**.
+**Instruction:** Leave **Actual** cells blank until exports exist. Year 0 baseline = **LOCKED** `Y0-28d-2026-08-18` (15 Sep 2026). Fill **Actual** from ongoing exports vs B₁.
 
 **Sources:** GA4 `G-ZLLSD3PXZ9`, Google Search Console, Stripe/finance, ESP, clinical review log.
 

@@ -9,7 +9,7 @@
 
 ## Honest operating note
 
-**100 million sessions is not the operating target.** That figure is Scenario C moonshot modelling only (extraordinary distribution / media capital). Monthly KPIs use **Year 0 GA4/GSC baselines** (TBD until Louis exports). Board stage-gate at Month 6.
+**100 million sessions is not the operating target.** That figure is Scenario C moonshot modelling only (extraordinary distribution / media capital). Monthly KPIs use **Year 0 GA4/GSC baselines** (B₁ locked 15 Sep 2026 — `docs/YEAR-0-ANALYTICS-BASELINE.md`). Board stage-gate at Month 6.
 
 ---
 
@@ -17,7 +17,7 @@
 
 | Must-do | Status | Notes |
 |---|---|---|
-| Lock Year 0 GA4/GSC baseline export process | **blocked-on-Louis** | SOP shipped: `docs/YEAR-0-ANALYTICS-BASELINE.md` (property `G-ZLLSD3PXZ9`) |
+| Lock Year 0 GA4/GSC baseline export process | **done** | B₁ locked 15 Sep 2026 in `docs/YEAR-0-ANALYTICS-BASELINE.md` (888 sessions; 108 GSC clicks; `G-ZLLSD3PXZ9`) |
 | Content inventory SOT + remove unverifiable claims | **done** | `CONTENT_INVENTORY` live; public claims policy page shipped |
 | Fundraising Regulator + Gift Aid pathway | **blocked-on-Louis** | Donate copy softened — do not claim Gift Aid live until HMRC/charity steps complete |
 | Topic cluster map + internal link rules | **done** | `src/data/topicClusters.ts` + `TopicClusterNav` on champions |
@@ -50,8 +50,8 @@
 
 ## Louis action list (blocked until you act)
 
-1. **GA4 export** — property `G-ZLLSD3PXZ9`; fill table in `docs/YEAR-0-ANALYTICS-BASELINE.md`
-2. **GSC export** — Search Console performance for livingwitharthritis.org.uk (impressions/CTR/position; Top queries)
+1. ~~**GA4 export**~~ — **done** 15 Sep 2026 (`Y0-28d-2026-08-18`)
+2. ~~**GSC export**~~ — **done** 15 Sep 2026 (108 clicks / 8.73K impressions)
 3. **Fundraising Regulator** — complete pathway / badge eligibility actions
 4. **Gift Aid** — HMRC / charity Gift Aid registration; only then turn on live reclaim messaging
 5. **Google Ad Grants** — Google for Nonprofits + Ad Grants login/apply (see pack)
@@ -70,7 +70,7 @@
 - `docs/CLINICAL-REVIEW-CHECKLIST.md` — formal clinical gate for YMYL (M2 P0)
 
 ### Still blocked on Louis
-- Year 0 GA4 (`G-ZLLSD3PXZ9`) + GSC exports into `docs/YEAR-0-ANALYTICS-BASELINE.md`
+- ~~Year 0 GA4/GSC exports~~ — **done** 15 Sep 2026 (`Y0-28d-2026-08-18`)
 - Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
 - Google Ad Grants / Google for Nonprofits apply
 - First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
@@ -92,7 +92,7 @@
 - `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — Research fund campaign creative draft (M2 P1); ~£5k → £50k honest framing
 
 ### Still blocked on Louis
-- Year 0 GA4 (`G-ZLLSD3PXZ9`) + GSC exports into `docs/YEAR-0-ANALYTICS-BASELINE.md`
+- ~~Year 0 GA4/GSC exports~~ — **done** 15 Sep 2026 (`Y0-28d-2026-08-18`)
 - Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
 - Google Ad Grants / Google for Nonprofits apply
 - First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
@@ -115,3 +115,24 @@
 | M5 | Jan–Feb 2027 | PR + NE outreach; care home/pharmacy pilots; CRO follow-up |
 
 Update this tracker at each monthly close with honest A vs B traffic multiples from Year 0 — never invent figures.
+
+## Daily log — 15 Sep 2026 (evening) — Year 0 baseline locked
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026).
+
+### Shipped
+- Exported GA4 (`G-ZLLSD3PXZ9`, 18 Aug–14 Sep) + GSC (last 28d ≈ 17 Aug–13 Sep) and filled `docs/YEAR-0-ANALYTICS-BASELINE.md`
+- Baseline ID **B₁ = `Y0-28d-2026-08-18`**: 888 sessions, 212 engaged, 843 active users, 59 organic-search sessions; GSC 108 clicks / 8.73K impressions / 1.2% CTR / pos 27.2
+- Named conversion events in window: `donation_click` 6, `chat_start` 1; donate/lead/sign_up/purchase still 0
+- Raw files under `docs/exports/year0-2026-09-15/`
+- Conversion analytics doc updated: Year 0 no longer “not yet exported”
+
+### Unblocked
+- Conversion / A/B lift reporting vs B₁ (still no public marketing claims without Louis sign-off)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per SOP; clinical spot-check of treatment champions
+- Optional Scenario C moonshot media budget paper

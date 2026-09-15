@@ -1,7 +1,7 @@
 # 08 — SEO growth strategy
 
 **Measurement IDs:** GA4 `G-ZLLSD3PXZ9`; GSC property for `livingwitharthritis.org.uk`.  
-**Year 0 baseline:** **not yet exported** — fill `docs/YEAR-0-ANALYTICS-BASELINE.md` before claiming MoM multiples.
+**Year 0 baseline:** **LOCKED** `Y0-28d-2026-08-18` — see `docs/YEAR-0-ANALYTICS-BASELINE.md` before claiming MoM multiples.
 
 **Ambition framing:** **100,000 monthly organic visits/clicks** is an **aspirational Phase goal**, not a Year-1 commitment for a charity registered in mid-2026. Intermediate KPIs below matter more.
 

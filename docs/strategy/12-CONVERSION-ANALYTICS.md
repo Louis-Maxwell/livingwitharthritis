@@ -1,7 +1,7 @@
 # 12 — Conversion & analytics
 
 **GA4 property:** `G-ZLLSD3PXZ9` (sole measurement ID per `docs/GA4-CONVERSIONS.md`).  
-**Year 0 baseline:** **not yet exported** — complete `docs/YEAR-0-ANALYTICS-BASELINE.md` before reporting lift.
+**Year 0 baseline:** **LOCKED** as `Y0-28d-2026-08-18` (export 15 Sep 2026) — see `docs/YEAR-0-ANALYTICS-BASELINE.md` (888 sessions / 108 GSC clicks in last ~28d).
 
 ---
 

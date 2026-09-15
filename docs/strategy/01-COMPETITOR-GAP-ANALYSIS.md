@@ -3,7 +3,7 @@
 **Benchmarks reviewed (public homepages / nav patterns, Sep 2026):**  
 Arthritis Foundation (`arthritis.org`), Arthritis UK / Versus Arthritis (`versusarthritis.org` / arthritis-uk.org brand), Arthritis Action (`arthritisaction.org.uk`), NHS arthritis condition pages, Cleveland Clinic arthritis encyclopedia, Mayo Clinic arthritis content patterns (standard US academic encyclopedia model; live fetch intermittent).
 
-**LWA state:** New UK CIO 1218461; Vite/React/Lovable; ~505 articles; research fund £5k/£50k (public); local chatbot; symptom checker; Year 0 traffic **not yet exported**.
+**LWA state:** New UK CIO 1218461; Vite/React/Lovable; ~505 articles; research fund £5k/£50k (public); local chatbot; symptom checker; Year 0 traffic **LOCKED** (`Y0-28d-2026-08-18`).
 
 Scoring: **1 = weak / missing**, **5 = category-leading**. Scores are qualitative consulting judgements from public UX, not paid SEO tools.
 
