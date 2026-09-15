@@ -55,6 +55,55 @@ jobs:
           name: playwright-report
           path: playwright-report/
 
+
+  blog-smoke:
+    name: Blog smoke (Playwright, must pass)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PLAYWRIGHT_BASE_URL: http://localhost:4173
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: npm run build
+
+      - name: Serve build
+        run: |
+          npx --yes serve -s dist -l 4173 &
+          echo $! > /tmp/serve.pid
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4173 > /dev/null; then
+              echo "Preview server ready after ${i}s"
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Blog smoke (fail the workflow)
+        run: npm run test:blog-smoke
+        continue-on-error: false
+
+      - name: Stop preview server
+        if: always()
+        run: kill "$(cat /tmp/serve.pid)" 2>/dev/null || true
+
   security:
     name: Security Audit
     runs-on: ubuntu-latest
@@ -86,6 +135,10 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
       - name: Install dependencies
         run: npm ci

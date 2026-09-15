@@ -81,6 +81,9 @@ jobs:
       - name: Prerender meta check
         run: npm run seo:prerender-meta -- --json
 
+      - name: Blog HTML gate
+        run: npm run blog:html-gate
+
       - name: Upload prerender meta report
         if: always()
         uses: actions/upload-artifact@v4

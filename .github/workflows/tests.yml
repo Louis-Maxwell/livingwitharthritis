@@ -36,6 +36,7 @@ jobs:
   # serve step keeps CI ready for HTTP-level tests without another PR.
   deno:
     name: Deno (edge function tests)
+    if: false  # Supabase functions serve removed; keep vitest job only
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
