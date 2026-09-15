@@ -14,7 +14,7 @@ It is **not** yet a peer of Arthritis Foundation (US) or Arthritis UK (formerly 
 
 > Become a **credible UK digital leader** for practical, clinician-reviewed living-with-arthritis guidance — visibly independent, trustworthy, and growing on a staged KPI path — while the charity builds community, fundraising, and clinical governance capacity.
 
-**Year 0 traffic baseline is not yet exported.** Do not quote monthly sessions or organic users until Louis completes the GA4/GSC export in `docs/YEAR-0-ANALYTICS-BASELINE.md` (property `G-ZLLSD3PXZ9`).
+**Year 0 traffic baseline LOCKED** as `Y0-28d-2026-08-18` (export 15 Sep 2026): 888 sessions / 108 GSC clicks in last ~28d — see `docs/YEAR-0-ANALYTICS-BASELINE.md` (`G-ZLLSD3PXZ9`). Public marketing claims still need Louis sign-off.
 
 ### Strengths to protect
 

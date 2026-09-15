@@ -39,7 +39,7 @@
 ## Hard constraints (apply to all recommendations)
 
 - Do not invent visitor counts, donation totals, or patient testimonials.
-- Year 0 traffic baseline: **not yet exported** until Louis completes `docs/YEAR-0-ANALYTICS-BASELINE.md`.
+- Year 0 traffic baseline: **LOCKED** `Y0-28d-2026-08-18` (15 Sep 2026) in `docs/YEAR-0-ANALYTICS-BASELINE.md`.
 - Do not place the Oswestry registered address on the public site.
 - Clinical content remains educational, not diagnostic.
 - Competing with Arthritis Foundation (US) as an equal peer within 12 months is unrealistic; goal is **credible UK digital leader on a clear path**.

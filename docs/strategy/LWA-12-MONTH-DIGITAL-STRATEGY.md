@@ -8,7 +8,7 @@
 
 ## One-page diagnosis
 
-LWA is a **new** UK charity with an outsized educational site (~505 articles), practical UK pathway content, and improving engineering hygiene on **Vite/React/Lovable**. It cannot honestly claim peer parity with Arthritis Foundation (US) or Arthritis UK within 12 months. Success = **credible UK digital leader on a clear path**, with staged KPIs. **Year 0 traffic baseline not yet exported** (`G-ZLLSD3PXZ9`).
+LWA is a **new** UK charity with an outsized educational site (~505 articles), practical UK pathway content, and improving engineering hygiene on **Vite/React/Lovable**. It cannot honestly claim peer parity with Arthritis Foundation (US) or Arthritis UK within 12 months. Success = **credible UK digital leader on a clear path**, with staged KPIs. **Year 0 traffic baseline LOCKED** as `Y0-28d-2026-08-18` (`G-ZLLSD3PXZ9`; 888 sessions / 108 GSC clicks in last ~28d — see `docs/YEAR-0-ANALYTICS-BASELINE.md`).
 
 Research fund (public): **£5,000 of £50,000**.
 
