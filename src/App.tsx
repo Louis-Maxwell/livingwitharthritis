@@ -76,6 +76,8 @@ const EditorialClaimsPolicy = lazy(() => import("./pages/about/EditorialClaimsPo
 const FlareActionPlan = lazy(() => import("./pages/resources/FlareActionPlan"));
 const PipEvidenceDiary = lazy(() => import("./pages/resources/PipEvidenceDiary"));
 const ClinicPack = lazy(() => import("./pages/resources/ClinicPack"));
+const HealthcareProfessionals = lazy(() => import("./pages/HealthcareProfessionals"));
+const ResourceCentre = lazy(() => import("./pages/ResourceCentre"));
 const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
 const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
 const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
@@ -347,6 +349,8 @@ function AnimatedRoutes() {
         <Route path="/resources/flare-action-plan" element={<FlareActionPlan />} />
         <Route path="/resources/pip-evidence-diary" element={<PipEvidenceDiary />} />
         <Route path="/resources/clinic-pack" element={<ClinicPack />} />
+        <Route path="/healthcare-professionals" element={<HealthcareProfessionals />} />
+        <Route path="/resource-centre" element={<ResourceCentre />} />
         <Route path="/about/uk-arthritis-search-insights" element={<UkArthritisSearchInsights />} />
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />

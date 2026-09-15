@@ -151,6 +151,8 @@ const Header = () => {
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
         { label: "Buddy Programme", desc: "1-to-1 peer mentoring", icon: HandHeart, href: "/buddy", action: () => navigate("/buddy"), color: "text-primary bg-primary/10" },
         { label: "Guides Hub", desc: "PIP, exercise, diet & pain relief", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
+        { label: "Resource Centre", desc: "Guides, tools, PIP, exercise & chat", icon: BookOpen, href: "/resource-centre", action: () => navigate("/resource-centre"), color: "text-primary bg-primary/10" },
+        { label: "Healthcare Professionals", desc: "Clinic pack & shareable patient pages", icon: Stethoscope, href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals"), color: "text-primary bg-primary/10" },
         { label: "Search articles", desc: "Filter by topic and length", icon: Search, href: "/search", action: () => navigate("/search"), color: "text-primary bg-primary/10" },
         { label: "Blog & Library", desc: "100+ evidence-based articles", icon: BookOpen, href: "/blog", action: () => navigate("/blog"), color: "text-primary bg-primary/10" },
         { label: "Glossary A–Z", desc: "Plain-English arthritis terms", icon: BookOpen, href: "/glossary", action: () => navigate("/glossary"), color: "text-primary bg-primary/10" },
@@ -225,6 +227,8 @@ const Header = () => {
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
     { label: "Corporate Partnerships", icon: Globe, desc: "Formal partnership programme", href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships") },
+    { label: "Resource Centre", icon: BookOpen, desc: "Guides, tools, PIP, exercise & chat", href: "/resource-centre", action: () => navigate("/resource-centre") },
+    { label: "Healthcare Professionals", icon: Stethoscope, desc: "Clinic pack & shareable pages", href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals") },
     { label: "Resources", icon: BookOpen, desc: "Care pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
     { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];

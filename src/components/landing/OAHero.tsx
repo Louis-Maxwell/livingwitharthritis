@@ -1,9 +1,10 @@
 import { memo, type MouseEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowRight, Heart } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
 import { onCoverImgError } from "@/lib/articleImages";
+import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
 
 
 const scrollToStartHere = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -21,7 +22,6 @@ const HERO_SRCSET = "/openverse/hero-friends-400.webp 400w, /openverse/hero-frie
 const HERO_SIZES = "(min-width: 1024px) 320px, 220px";
 
 const OAHero = memo(() => {
-  const navigate = useNavigate();
   useReveal();
 
   return (
@@ -52,35 +52,34 @@ const OAHero = memo(() => {
 
 
             <div className="hero-item mt-5 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 min-w-0">
-              <button
-                type="button"
-                onClick={() => navigate("/conditions/osteoarthritis")}
+              <Link
+                to="/guides/newly-diagnosed"
+                onClick={() =>
+                  trackStartHereCard("Start your gentle plan", "/guides/newly-diagnosed")
+                }
                 className="btn-map btn-map-dark group w-full sm:w-auto justify-center min-h-11"
               >
                 <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
                 Start your gentle plan
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </button>
-              <a href="/donate" className="btn-map w-full sm:w-auto justify-center min-h-11" style={{ background: "white", color: "hsl(var(--foreground))" }}>
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+              <Link
+                to="/donate"
+                onClick={() => trackDonationClick({ source: "home_hero" })}
+                className="btn-map w-full sm:w-auto justify-center min-h-11"
+                style={{ background: "white", color: "hsl(var(--foreground))" }}
+              >
                 Donate — keep it free
-              </a>
+              </Link>
             </div>
             <p className="hero-item mt-3">
               <a
                 href="#start-here"
                 onClick={scrollToStartHere}
-                className="text-sm font-semibold underline underline-offset-4 hover:no-underline"
+                className="text-sm font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
               >
                 Find your starting point
               </a>
-            </p>
-
-            <p className="hero-item mt-3 text-xs">
-              Learn about our{" "}
-              <Link to="/editorial-standards" className="underline hover:no-underline font-medium">
-                medical review process and editorial standards
-              </Link>
-              .
             </p>
 
             <nav
@@ -88,11 +87,11 @@ const OAHero = memo(() => {
               className="hero-item mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"
             >
               <span className="font-semibold">Popular:</span>
-              <a href="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline">Knee exercises</a>
+              <Link to="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Knee exercises</Link>
               <span aria-hidden="true" className="opacity-50">·</span>
-              <a href="/diet" className="font-semibold underline underline-offset-4 hover:no-underline">Anti-inflammatory diet</a>
+              <Link to="/diet" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Anti-inflammatory diet</Link>
               <span aria-hidden="true" className="opacity-50">·</span>
-              <a href="/guides/arthritis-pain-relief" className="font-semibold underline underline-offset-4 hover:no-underline">Pain-relief tips</a>
+              <Link to="/guides/arthritis-pain-relief" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Pain-relief tips</Link>
             </nav>
           </div>
 

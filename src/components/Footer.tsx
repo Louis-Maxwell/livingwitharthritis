@@ -20,6 +20,8 @@ const columns = [
       { label: "Flare Action Plan", href: "/resources/flare-action-plan" },
       { label: "PIP Evidence Diary", href: "/resources/pip-evidence-diary" },
       { label: "Clinic Pack", href: "/resources/clinic-pack" },
+      { label: "Resource Centre", href: "/resource-centre" },
+      { label: "Healthcare Professionals", href: "/healthcare-professionals" },
       { label: "Contact Us", href: "/contact" },
       { label: "FAQ", href: "/faq" },
     ],

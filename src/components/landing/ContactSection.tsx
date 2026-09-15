@@ -14,6 +14,7 @@ import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/conta
 import { trackContactSubmit } from "@/lib/analytics";
 import { submitContactInquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
+import { trackEvent } from "@/lib/analytics";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
 const WHATSAPP_URL = `https://wa.me/44${CONTACT_PHONE_TEL.replace(/^0/, "")}`;
@@ -62,7 +63,7 @@ const channels: ChannelCard[] = [
     Icon: Mail,
     label: "Email us",
     value: CONTACT_EMAIL,
-    sub: "Reply within 2 working days",
+    sub: "Opens your email app — we reply in 2 working days",
     href: `mailto:${CONTACT_EMAIL}`,
   },
   {
@@ -147,8 +148,9 @@ const ContactSection = memo(() => {
             A real person will reply.
           </h2>
           <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Living with arthritis can feel lonely. When you write to us, a human reads it —
-            usually Louis or someone on our small UK team — and we aim to reply within
+            Living with arthritis can feel lonely. Messages open in your email app as a draft
+            to our inbox — nothing is stored on this website. When you press Send, a human reads it
+            (usually Louis or someone on our small UK team) and we aim to reply within
             two working days (Monday to Friday, 9am – 5pm).
           </p>
         </div>
@@ -186,6 +188,16 @@ const ContactSection = memo(() => {
                     href={href}
                     {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={cardClass}
+                    onClick={() => {
+                      if (href.startsWith("mailto:")) {
+                        trackEvent("mailto_click", { source: "contact_channel_card", topic: label });
+                        trackContactFormSubmit("mailto_channel");
+                      } else if (href.startsWith("tel:")) {
+                        trackEvent("tel_click", { source: "contact_channel_card" });
+                      } else if (external) {
+                        trackEvent("click_external_link", { source: "contact_channel_card", url: href });
+                      }
+                    }}
                   >
                     {inner}
                   </a>
@@ -305,7 +317,14 @@ const ContactSection = memo(() => {
 
               <p className="text-center text-xs text-muted-foreground">
                 This opens a draft in your email app, addressed to{" "}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]">{CONTACT_EMAIL}</a>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  onClick={() => {
+                    trackEvent("mailto_click", { source: "contact_form_footnote" });
+                    trackContactFormSubmit("mailto_footnote");
+                  }}
+                  className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]"
+                >{CONTACT_EMAIL}</a>
                 . Press Send there and we will reply within 2 working days.
               </p>
             </div>
