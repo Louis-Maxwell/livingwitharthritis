@@ -102,9 +102,32 @@ const AI_DATA = {
   ...readJson(AI_DATA_PATH),
 };
 
+const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
+const BLOG_SLUGS = new Set(
+  existsSync(BLOG_SLUGS_PATH) ? readJson(BLOG_SLUGS_PATH) : [],
+);
+
+const NOT_FOUND_HEAD = {
+  title: "Page not found | Living With Arthritis UK",
+  description:
+    "The page you are looking for could not be found. Search Living With Arthritis UK or pick a popular guide instead.",
+  question: "Page not found",
+  answer:
+    "This URL is not a published Living With Arthritis UK page. Use search or the guides hub to find clinically reviewed arthritis information.",
+  breadcrumb: "Page not found",
+  noindex: true,
+};
 
 function headDataFor(route, override) {
-  return override ?? AI_DATA[route] ?? deriveHeadData(route);
+  if (override) return override;
+  if (AI_DATA[route]) return AI_DATA[route];
+  // Soft-404: /blog/:slug not in the published catalog must not ship
+  // homepage OG or a fabricated article title.
+  const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
+  if (blogMatch && !BLOG_SLUGS.has(blogMatch[1])) {
+    return NOT_FOUND_HEAD;
+  }
+  return deriveHeadData(route);
 }
 
 
@@ -388,8 +411,9 @@ export function rewriteHead(html, route, dataOverride) {
     /<\/head>/i,
     `  <link rel="canonical" href="${url}" />\n</head>`,
   );
-  // App-only screens keep their unique head but must stay out of the index.
-  if (isNoindexRoute(route)) {
+  // App-only screens + soft-404 stubs keep unique heads but must stay out of the index.
+  const headMeta = headDataFor(route, dataOverride);
+  if (isNoindexRoute(route) || headMeta?.noindex) {
     out = out.replace(/[ \t]*<meta\s+name="robots"[^>]*>\s*\n?/gi, "");
     out = out.replace(
       /<\/head>/i,

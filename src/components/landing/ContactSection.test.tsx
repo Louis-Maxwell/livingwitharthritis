@@ -40,7 +40,7 @@ beforeEach(() => {
 describe("ContactSection validation", () => {
   it("shows inline errors when submitting an empty form", async () => {
     renderSection();
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    fireEvent.click(screen.getByRole("button", { name: /open mail app/i }));
 
     expect(await screen.findByText(/please enter your name/i)).toBeInTheDocument();
     expect(screen.getByText(/please enter a valid email/i)).toBeInTheDocument();
@@ -54,7 +54,7 @@ describe("ContactSection validation", () => {
     fill(/email address/i, "not-an-email");
     fill(/subject/i, "General enquiry");
     fill(/your message/i, "This message is definitely long enough to pass.");
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    fireEvent.click(screen.getByRole("button", { name: /open mail app/i }));
 
     expect(await screen.findByText(/please enter a valid email/i)).toBeInTheDocument();
   });
@@ -65,14 +65,14 @@ describe("ContactSection validation", () => {
     fill(/email address/i, "jane@example.com");
     fill(/subject/i, "General enquiry");
     fill(/your message/i, "too short");
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    fireEvent.click(screen.getByRole("button", { name: /open mail app/i }));
 
     expect(await screen.findByText(/at least 20 characters/i)).toBeInTheDocument();
   });
 
   it("clears an error once the user edits that field", async () => {
     renderSection();
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    fireEvent.click(screen.getByRole("button", { name: /open mail app/i }));
     expect(await screen.findByText(/please enter your name/i)).toBeInTheDocument();
 
     fill(/your name/i, "Jane");
@@ -96,7 +96,7 @@ describe("ContactSection submission feedback", () => {
     const { submitContactInquiry } = await import("@/lib/backendSubmit");
     renderSection();
     fillValid();
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    fireEvent.click(screen.getByRole("button", { name: /open mail app/i }));
     expect(await screen.findByText(/email draft ready/i)).toBeInTheDocument();
     expect(submitContactInquiry).toHaveBeenCalledWith(
       expect.objectContaining({

@@ -26,6 +26,7 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "arthritis-and-sleep-uk": "how-to-sleep-with-arthritis-uk",
   "glucosamine-vs-collagen-arthritis": "glucosamine-vs-collagen",
   "hand-arthritis-exercises-uk": "hand-exercises-for-arthritis",
+  "hand-exercises-arthritis": "hand-exercises-for-arthritis",
   "arthritis-and-mental-health": "arthritis-and-mental-health-uk",
   "arthritis-diet-myths-debunked": "arthritis-and-diet-myths-uk",
   "arthritis-fatigue-management": "arthritis-fatigue-management-uk",

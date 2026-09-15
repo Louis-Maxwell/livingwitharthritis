@@ -59,6 +59,9 @@ vi.mock("@/lib/articleImages", () => ({
     { src: "/images/c.webp", alt: "c", credit: "" },
   ],
   coverImage: () => ({ src: "/images/a.webp", alt: "a" }),
+  onCoverImgError: () => {},
+  safeCoverSrc: (src: string) => src,
+  DEFAULT_OG_PATH: "/og/landing-share.png",
 }));
 
 import { useBlogArticle } from "@/hooks/useBlogArticles";

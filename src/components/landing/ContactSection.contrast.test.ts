@@ -80,7 +80,7 @@ describe("ContactSection contrast (WCAG AA)", () => {
   // Verified against the confirmed red/white/black rebrand (2026-07-28):
   // #D60000 (--primary) on white gives 5.4:1, comfortably clearing 4.5:1 —
   // see src/index.css.
-  it("primary-foreground on primary (Send message button) meets AA (4.5:1)", () => {
+  it("primary-foreground on primary (Open Mail App button) meets AA (4.5:1)", () => {
     expect(contrast(rgb(TOKENS.primaryForeground), rgb(TOKENS.primary))).toBeGreaterThanOrEqual(AA_NORMAL);
   });
   it("destructive error text on white card meets AA (4.5:1)", () => {

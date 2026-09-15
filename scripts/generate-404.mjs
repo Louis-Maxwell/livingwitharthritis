@@ -101,17 +101,29 @@ for (const p of SPA_PREFIXES) {
   if (!hasOwnFile(p)) spaRules.add(`${p} /index.html 200`);
   spaRules.add(`${p}/* /index.html 200`);
 }
+// Soft-404 hardening: unknown values under these prefixes must NOT inherit
+// the homepage SPA shell (title/OG). Prerendered files still win as real
+// files on disk; only missing slugs hit 404.html.
+const HARD_404_PREFIXES = new Set([
+  '/blog',
+  '/arthritis-support',
+  '/authors',
+  '/reviewers',
+]);
+
 for (const p of routePaths) {
   if (p === '*' || p === '/') continue;
   if (p.includes(':')) {
-    // Parameterised routes (/library/:slug, /arthritis-support/:city, ...) can
-    // never have a rule per value here. Emit a wildcard SPA rewrite for the
-    // static prefix so real visits resolve instead of hitting the catch-all
-    // 404. Real prerendered files still win over rewrite rules, so pages that
-    // were prerendered keep their own unique head — only unprerendered values
-    // fall back to the SPA shell.
+    // Parameterised routes (/library/:slug, /blog/:slug, ...): either hard-404
+    // unknown values (blog/city) or SPA-rewrite for app screens that need it.
+    // Real prerendered files still win over rewrite rules.
     const prefix = p.slice(0, p.indexOf('/:'));
-    if (prefix) spaRules.add(`${prefix}/* /index.html 200`);
+    if (!prefix) continue;
+    if (HARD_404_PREFIXES.has(prefix)) {
+      spaRules.add(`${prefix}/* /404.html 404`);
+    } else {
+      spaRules.add(`${prefix}/* /index.html 200`);
+    }
     continue;
   }
   if (hasOwnFile(p)) continue;

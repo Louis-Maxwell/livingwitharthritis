@@ -3,8 +3,8 @@
  * AI identity validator.
  *
  * Asserts that the public AI/crawler guidance files carry the verified
- * charity identity (registration 1218461, Oswestry address, independence
- * from Arthritis UK, clinician HCPC PH128483) and that robots.txt keeps
+ * charity identity (registration 1218461, UK national / remote support,
+ * independence from Arthritis UK, clinician HCPC PH128483) and that robots.txt keeps
  * Bytespider explicitly disallowed.
  *
  * Matches the style of scripts/check-redirects.mjs — ESM, no deps,
@@ -67,7 +67,7 @@ if (robotsText) {
 }
 
 // --- llms.txt and ai.txt: required identity strings (case-insensitive) -
-const requiredStrings = ['1218461', 'Oswestry', 'independent of Arthritis UK', 'PH128483'];
+const requiredStrings = ['1218461', 'independent of Arthritis UK', 'PH128483'];
 for (const key of ['llms', 'ai']) {
   const text = contents[key];
   if (!text) continue; // missing-file failure already recorded

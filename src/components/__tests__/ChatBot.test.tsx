@@ -54,8 +54,8 @@ describe("ChatBot", () => {
     render(<ChatBot />);
     expect(screen.getByText("What is rheumatoid arthritis?")).toBeInTheDocument();
     expect(screen.getByText("Best anti-inflammatory foods?")).toBeInTheDocument();
-    expect(screen.getByText("Safe exercises for OA?")).toBeInTheDocument();
-    expect(screen.getByText("When should I see a doctor?")).toBeInTheDocument();
+    expect(screen.getByText("Safe exercises for knee pain?")).toBeInTheDocument();
+    expect(screen.getByText("Can I claim PIP with arthritis?")).toBeInTheDocument();
   });
 
   it("sends message on quick suggestion click", () => {
@@ -89,10 +89,10 @@ describe("ChatBot", () => {
     expect(screen.getByText("Online")).toBeInTheDocument();
   });
 
-  it("shows Typing status when loading", () => {
+  it("shows Searching guidance status when loading", () => {
     mockIsLoading = true;
     render(<ChatBot />);
-    expect(screen.getByText("Typing…")).toBeInTheDocument();
+    expect(screen.getByText("Searching guidance…")).toBeInTheDocument();
   });
 
   it("shows clear button when messages exist", () => {

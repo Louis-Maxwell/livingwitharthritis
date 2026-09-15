@@ -13,7 +13,8 @@
   "ignorePatterns": [
     "dist",
     ".eslintrc.json",
-    "node_modules"
+    "node_modules",
+    "supabase"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-refresh"],

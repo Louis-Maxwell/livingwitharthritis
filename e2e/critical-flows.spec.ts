@@ -50,24 +50,16 @@ test.describe("Critical User Flows", () => {
     await subjectField.fill("Test Subject");
     await messageField.fill("This is a test message for contact form submission.");
 
-    // Find and click the submit button
-    const submitButton = page.locator("button:has-text('Send'), button:has-text('Submit'), button[type='submit']").first();
+    // Mailto CTA — no server confirmation; opens email draft guidance
+    const submitButton = page.locator("button:has-text('Open Mail App'), button:has-text('Send'), button[type='submit']").first();
     await submitButton.click();
 
-    // Check for success message or redirect
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(1500);
 
-    // Verify success - either success message or form cleared
-    const successMsg = page.locator("text=/thank you|received|success|submitted/i").first();
-    const hasSuccess = await successMsg.isVisible().catch(() => false);
-
-    if (hasSuccess) {
-      await expect(successMsg).toBeVisible();
-    } else {
-      // If no success message, form should be cleared
-      const nameValue = await nameField.inputValue().catch(() => "");
-      expect(nameValue).toBe("");
-    }
+    // Must show honest mailto guidance — never claim auto-delivery / message received
+    const mailtoGuidance = page.locator("text=/email draft ready|email app|opens a draft|press send there/i").first();
+    await expect(mailtoGuidance).toBeVisible({ timeout: 10000 });
+    await expect(page.locator("text=/message received|thank you for your message/i")).toHaveCount(0);
   });
 
   test("Donation: Checkout flow initiation", async ({ page }) => {

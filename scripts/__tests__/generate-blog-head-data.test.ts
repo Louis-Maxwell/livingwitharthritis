@@ -40,9 +40,9 @@ describe("generate-blog-head-data title + ogImage", () => {
     );
   });
 
-  it("falls back to /og/home.png only when no cover and no image_url", () => {
+  it("falls back to /og/landing-share.png only when no cover and no image_url", () => {
     expect(resolveOgImage("missing-slug", null, {})).toBe(
-      "https://livingwitharthritis.org.uk/og/home.png",
+      "https://livingwitharthritis.org.uk/og/landing-share.png",
     );
   });
 });
