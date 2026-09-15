@@ -1,15 +1,67 @@
 name: Deploy to Lovable
 
+# CRITICAL: Deploy must not go green while CI is red.
+# Do NOT trigger on push — that allowed Lovable to ship while CI failed.
+# Deploy runs only after CI (and Lint & Test / Tests) succeed for the same SHA,
+# or via manual workflow_dispatch after the same SHA gate passes.
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["CI", "Lint & Test", "Tests"]
+    types: [completed]
   workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: deploy-lovable-main
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Skip entirely when a watched workflow failed/cancelled (keeps Deploy red/skipped, not green).
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.conclusion == 'success')
     steps:
+      - name: Resolve commit SHA
+        id: sha
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify CI, Lint & Test, and Tests succeeded for this SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          SHA="${{ steps.sha.outputs.sha }}"
+          REPO="${{ github.repository }}"
+          echo "Gate: requiring CI + Lint & Test + Tests success for $SHA"
+
+          # Latest completed run per required workflow name for this commit.
+          # Missing or non-success → exit 1 so Deploy cannot go green on failed CI.
+          for NAME in "CI" "Lint & Test" "Tests"; do
+            CONCLUSION=$(gh api \
+              "repos/${REPO}/actions/runs?head_sha=${SHA}&status=completed&per_page=100" \
+              --jq "[.workflow_runs[] | select(.name == \"${NAME}\")] | .[0].conclusion // empty")
+            if [ "$CONCLUSION" != "success" ]; then
+              echo "::error::Required workflow '${NAME}' for ${SHA} is not success (got: ${CONCLUSION:-missing/incomplete}). Refusing deploy."
+              exit 1
+            fi
+            echo "OK: ${NAME} = success"
+          done
+
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.sha.outputs.sha }}
 
       - name: Deploy to Lovable
         run: |
@@ -20,6 +72,6 @@ jobs:
 
       - name: Wait for deployment
         run: |
-          echo "Deployment triggered. Check Lovable dashboard for status."
+          echo "Deployment triggered for SHA ${{ steps.sha.outputs.sha }} after CI + Lint & Test + Tests success."
           echo "Preview URL: https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app"
           echo "Live URL: https://livingwitharthritis.lovable.app"
