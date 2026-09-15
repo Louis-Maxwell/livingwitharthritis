@@ -6,6 +6,9 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
@@ -153,7 +156,7 @@ export default function ShoulderPainRelief() {
           { name: "Shoulder pain relief" },
         ]}
         faqs={FAQS}
-        lastReviewed="2026-07-29"
+        lastReviewed="2026-09-15"
         idPrefix="shoulder-pain-relief"
       />
       <Header />
@@ -164,6 +167,7 @@ export default function ShoulderPainRelief() {
           badge="Clinical Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/shoulder-pain-relief" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Most shoulder pain comes from the rotator cuff, a stiffening joint
             capsule, or osteoarthritis — and in nearly every case, gentle
@@ -236,6 +240,10 @@ export default function ShoulderPainRelief() {
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <TopicClusterNav path="/guides/shoulder-pain-relief" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/shoulder-pain-relief" />
       <Suspense fallback={null}>
         <Footer />

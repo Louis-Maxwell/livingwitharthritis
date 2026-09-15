@@ -17,6 +17,9 @@ import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -127,6 +130,10 @@ const RheumatoidArthritis = () => (
       </PageHero>
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
         <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6" />
+        <AeoEnhancement route="/conditions/rheumatoid-arthritis" />
+        <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-6">
+          Rheumatoid arthritis (RA) is an autoimmune condition that causes joint inflammation, fatigue and stiffness — often starting in the hands, wrists or feet. This educational UK guide explains common symptoms, treatment pathways and self-management; it is not a diagnosis. See your GP promptly if you suspect inflammatory arthritis.
+        </p>
         <AnswerBox
           question="What is the best treatment for rheumatoid arthritis?"
           reviewed="2026-06-13"
@@ -382,6 +389,8 @@ const RheumatoidArthritis = () => (
               },
             ]}
           />
+          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+          <TopicClusterNav path="/conditions/rheumatoid-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/rheumatoid-arthritis" title="Explore related resources" />
         </div>
         <div className="max-w-6xl mx-auto px-6">

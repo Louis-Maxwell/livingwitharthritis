@@ -23,6 +23,8 @@
 | Topic cluster map + internal link rules | **done** | `src/data/topicClusters.ts` + `TopicClusterNav` on champions |
 | Upgrade SEO Champions 1–10 | **done** | Gold pass on existing URLs (no new doorway pages) |
 | Champions 11–15 gold pass (early M2) | **done** | Steroids, Exercise hub, Diet hub, Disability support, Waiting-list help — disclaimer + cluster nav + review date 2026-09-14 |
+| Champions 16–20 gold pass (interim) | **done** | Painkillers/NSAIDs, Shoulder pain relief, Hip arthritis, Rheumatoid arthritis, Can exercise make OA worse — disclaimer + cluster nav + review **2026-09-15**; interim until GSC re-prioritises |
+| Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
 | Email welcome + PECR (brought forward from M2) | **done** | `docs/EMAIL-WELCOME-SERIES.md` + signup form PECR tighten |
@@ -80,11 +82,34 @@
 2. Research fund campaign creative draft (M2 P1)
 3. Internal-link / cluster density pass on remaining treatment spoke pages
 
+## Daily log — 15 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026); early pull of M2 digital foundations.
+
+### Shipped
+- SEO Champions **16–20** gold pass (interim hubs while GSC baselines blocked): `PainkillersNsaidsGuide`, `ShoulderPainRelief`, `HipArthritis`, `RheumatoidArthritis`, `CanExerciseMakeOsteoarthritisWorse` — `EducationalDisclaimerBox`, `TopicClusterNav`, AEO where missing, clinical review date **2026-09-15**; speakable intros on hip/RA condition pages
+- Topic cluster map: `/conditions/rheumatoid-arthritis` added to **treatments** `supportingPaths`
+- `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — Research fund campaign creative draft (M2 P1); ~£5k → £50k honest framing
+
+### Still blocked on Louis
+- Year 0 GA4 (`G-ZLLSD3PXZ9`) + GSC exports into `docs/YEAR-0-ANALYTICS-BASELINE.md`
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per SOP; clinical spot-check of treatment champions (esp. steroids / NSAIDs / RA)
+- Optional Scenario C moonshot media budget paper
+- Approve research-fund creative before any live posts
+
+### Next 3 digital actions (GTM)
+1. Internal-link density pass on remaining treatment spoke pages (cluster nav + contextual links)
+2. Ad Grants follow-up docs / checklist if Louis has started Google for Nonprofits apply
+3. Champions **21–25** gold pass (or symptom-checker CRO if GSC still blocked)
+
 ## Months 2–5 (forward look — not started this kickoff)
 
 | Month | Window (approx) | Focus |
 |---|---|---|
-| M2 | Oct–Nov 2026 | Champions 11–30; outreach engine; social SOPs — **11–15 + social/clinical docs started 14 Sep** |
+| M2 | Oct–Nov 2026 | Champions 11–30; outreach engine; social SOPs — **11–20 + social/clinical + research-fund creative by 15 Sep** |
 | M3 | Nov–Dec 2026 | Pillars gold; Ad Grants live if approved; community pilot |
 | M4 | Dec 2026–Jan 2027 | Content machine; HCP pack distribution; mid-size grants |
 | M5 | Jan–Feb 2027 | PR + NE outreach; care home/pharmacy pilots; CRO follow-up |

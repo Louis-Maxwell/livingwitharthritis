@@ -6,6 +6,9 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -127,7 +130,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
           { name: "Can exercise make osteoarthritis worse?" },
         ]}
         faqs={FAQS}
-        lastReviewed="2026-06-01"
+        lastReviewed="2026-09-15"
         idPrefix="oa-exercise-myth"
       />
       <Header />
@@ -138,6 +141,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
           badge="Clinical Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/can-exercise-make-osteoarthritis-worse" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Exercise does not wear osteoarthritis joints out. UK NICE guidance
             (NG226) places structured movement <em>ahead of</em> medication as
@@ -171,6 +175,10 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <TopicClusterNav path="/guides/can-exercise-make-osteoarthritis-worse" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/can-exercise-make-osteoarthritis-worse" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

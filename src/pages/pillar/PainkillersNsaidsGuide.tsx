@@ -7,6 +7,9 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import AnswerBox from "@/components/seo/AnswerBox";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -143,7 +146,7 @@ export default function PainkillersNsaidsGuide() {
           { name: "Painkillers & NSAIDs" },
         ]}
         faqs={NSAID_FAQS}
-        lastReviewed="2026-06-28"
+        lastReviewed="2026-09-15"
         idPrefix="nsaids-guide"
       />
       <Header />
@@ -154,6 +157,13 @@ export default function PainkillersNsaidsGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/painkillers-and-nsaids" />
+          <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
+            Painkillers and NSAIDs are among the most used arthritis treatments in the UK.
+            This guide explains topical gels, oral NSAIDs, paracetamol and weak opioids —
+            what NICE recommends, what to avoid long-term, and when to ask for a review.
+            Educational information only; check with your GP or pharmacist before changing medicines.
+          </p>
           <AnswerBox question="What is the best painkiller for arthritis?" reviewed="2026-06-13">
             <p>
               There is no single "best" painkiller — it depends on which joints are affected
@@ -185,6 +195,10 @@ export default function PainkillersNsaidsGuide() {
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <TopicClusterNav path="/guides/painkillers-and-nsaids" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/painkillers-and-nsaids" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

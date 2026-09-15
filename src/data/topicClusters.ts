@@ -184,6 +184,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/guides/health-services",
       "/arthritis-waiting-list-help",
       "/supplements",
+      "/conditions/rheumatoid-arthritis",
     ],
     toolPath: "/guides/health-services",
     toolLabel: "NHS & health services guide",

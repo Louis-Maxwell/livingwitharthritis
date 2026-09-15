@@ -14,6 +14,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 
@@ -132,8 +134,8 @@ const HipArthritis = () => (
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/hip-arthritis" />
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder — from self-management through to hip replacement.
+            <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
+              Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This educational guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder — from self-management through to hip replacement. It is not a diagnosis; speak to your GP or physiotherapist for personalised advice.
             </p>
           </motion.div>
         </div>
@@ -346,6 +348,8 @@ const HipArthritis = () => (
               Read our articles
             </Link>
           </div>
+          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+          <TopicClusterNav path="/conditions/hip-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />
         </div>
       </main>
