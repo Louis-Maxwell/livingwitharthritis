@@ -33,6 +33,8 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
 const exerciseCategories = [
   {
@@ -705,7 +707,8 @@ const ExerciseHub = () => {
         </div>
       </div>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
-        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
         <TopicClusterNav path="/exercises" />
       </div>
       </main>

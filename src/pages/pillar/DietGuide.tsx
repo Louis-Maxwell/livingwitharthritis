@@ -11,11 +11,13 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_DIET } from "@/data/clinical/ukCitations";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
 const DIET_GUIDE_FAQS = [
-  { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. UK trials show it can reduce inflammatory markers like CRP by up to 20%." },
+  { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. NHS and Versus Arthritis guidance supports Mediterranean-style eating for general health; individual results vary." },
   { question: "What foods make arthritis worse?", answer: "Ultra-processed foods, sugary drinks, refined carbohydrates, processed meats, excessive red meat and high-omega-6 vegetable oils are linked to higher inflammation. For gout specifically, alcohol (especially beer) and high-purine foods like organ meats and shellfish can trigger flares." },
   { question: "Does turmeric really help arthritis?", answer: "Yes — clinical trials show 1,000 mg/day of standardised curcumin extract (taken with black pepper or as a phytosome formulation for absorption) can reduce knee osteoarthritis pain similarly to ibuprofen, with fewer side effects. Cooking turmeric is healthy but the active dose needs a concentrated supplement." },
   { question: "How much oily fish should I eat with arthritis?", answer: "At least 2 portions per week, with one being oily (salmon, mackerel, sardines, trout). If you don't eat fish, a daily algae-based or fish-oil supplement providing 2–4 g of combined EPA and DHA is the closest equivalent." },
@@ -25,7 +27,7 @@ const DIET_GUIDE_FAQS = [
 
 const CONTENT = `
 <h2 id="diet-and-arthritis">Why Diet Matters for Arthritis</h2>
-<p>The relationship between diet and arthritis is one of the most researched areas in rheumatology. While no single food can cure arthritis, mounting evidence demonstrates that what you eat can significantly influence <strong>inflammation levels, pain intensity, joint stiffness, disease activity</strong> and even the effectiveness of medications. A 2021 systematic review published in <em>Nutrients</em> found that dietary interventions — particularly the Mediterranean diet — can reduce pain scores by <strong>15–25%</strong> and lower inflammatory markers like C-reactive protein (CRP) by up to <strong>20%</strong>.</p>
+<p>The relationship between diet and arthritis is one of the most researched areas in rheumatology. While no single food can cure arthritis, mounting evidence demonstrates that what you eat can significantly influence <strong>inflammation levels, pain intensity, joint stiffness, disease activity</strong> and even the effectiveness of medications. Reviews of Mediterranean-style and anti-inflammatory dietary patterns (including work summarised for clinicians in journals such as <em>Nutrients</em>) suggest diet can support lower pain and inflammatory markers for some people — effects vary, and diet does not replace prescribed treatment.</p>
 <p>For people with osteoarthritis, diet also plays a critical role in <strong>weight management</strong>. Excess weight is the single most modifiable risk factor for OA: every 1 kg of body weight lost reduces the load on each knee by approximately <strong>4 kg</strong> with every step (Messier et al., 2013). For overweight individuals with knee OA, losing just <strong>5–10% of body weight</strong> can produce clinically meaningful reductions in pain and improvements in function.</p>
 
 <h2 id="mediterranean-diet">The Mediterranean Diet: The Gold Standard</h2>
@@ -210,7 +212,7 @@ export default function DietGuide() {
           { name: "Diet Guide" },
         ]}
         faqs={DIET_GUIDE_FAQS}
-        lastReviewed="2026-06-01"
+        lastReviewed="2026-09-16"
         idPrefix="diet-guide"
       />
       <Header />
@@ -225,7 +227,6 @@ export default function DietGuide() {
             Anti-inflammatory and Mediterranean-style eating for arthritis in the UK — what the evidence supports, without miracle-food claims.
           </p>
           <AeoEnhancement route="/guides/diet" />
-          <EducationalDisclaimerBox />
           <TopicClusterNav path="/guides/diet" />
           <AnswerBox
             question="What is the best diet for arthritis joint pain?"
@@ -233,10 +234,8 @@ export default function DietGuide() {
           >
             <p>
               The best diet for arthritis is the <strong>Mediterranean diet</strong> — rich in
-              vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses. UK trials
-              show it can reduce inflammatory markers by up to 20% and ease joint pain. For
-              osteoarthritis, losing 5–10% of body weight on this pattern often delivers the
-              largest pain relief of any non-drug treatment.
+              vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses. NHS and Versus Arthritis guidance supports a Mediterranean-style pattern for general health and joint-friendly eating. For
+              osteoarthritis, gradual weight loss where appropriate (often discussed as around 5–10% of body weight with a clinician) can ease load on weight-bearing joints — this is educational, not a personal target.
             </p>
           </AnswerBox>
           <TableOfContents html={html} />
@@ -257,7 +256,11 @@ export default function DietGuide() {
         </div>
       </main>
       
-<GuideOnwardJourney currentPath="/guides/diet" />
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_DIET} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      </div>
+      <GuideOnwardJourney currentPath="/guides/diet" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );

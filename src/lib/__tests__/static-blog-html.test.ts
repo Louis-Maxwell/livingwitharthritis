@@ -229,4 +229,39 @@ describe("static blog HTML for Soft 404s", () => {
     }
   });
 
+
+  it("unknown blog slug ships Page not found + noindex (never homepage OG)", () => {
+    const html = rewriteHead(TEMPLATE, "/blog/this-slug-is-not-published-xyz");
+    expect(html).toContain("Page not found | Living With Arthritis UK");
+    expect(html).toContain('content="noindex, follow"');
+    expect(html).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
+    expect(html).toContain(
+      'rel="canonical" href="https://livingwitharthritis.org.uk/blog/this-slug-is-not-published-xyz"',
+    );
+  });
+
+  it("thin city hubs and /uk paths ship Page not found + noindex (never homepage OG)", () => {
+    for (const route of [
+      "/arthritis-support/london",
+      "/arthritis-support/not-a-real-city-xyz",
+      "/arthritis-support/belfast/osteoarthritis",
+      "/uk/london/waiting-list-help",
+    ]) {
+      const html = rewriteHead(TEMPLATE, route);
+      expect(html, route).toContain("Page not found | Living With Arthritis UK");
+      expect(html, route).toContain('content="noindex, follow"');
+      expect(html, route).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
+      expect(html, route).not.toMatch(/Arthritis Support in London/i);
+    }
+  });
+
+  it("keeps city doorways out of the curated prerender list", () => {
+    expect(
+      PRERENDER_ROUTES.filter((route: string) =>
+        /^\/arthritis-support\/[^/]+/.test(route),
+      ),
+    ).toEqual([]);
+    expect(PRERENDER_ROUTES).toContain("/arthritis-support");
+  });
+
 });

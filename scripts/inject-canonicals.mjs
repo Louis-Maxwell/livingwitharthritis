@@ -120,15 +120,29 @@ const NOT_FOUND_HEAD = {
 
 function headDataFor(route, override) {
   if (override) return override;
-  if (AI_DATA[route]) return AI_DATA[route];
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
   if (blogMatch && !BLOG_SLUGS.has(blogMatch[1])) {
     return NOT_FOUND_HEAD;
   }
+  // Soft-404 / thin doorway: city hubs are template pages (unique one-liners
+  // only). Option (b): static HTML is noindex + Page not found — never
+  // homepage OG and never mass-prerendered thin doorways into the index.
+  const cityMatch = /^\/arthritis-support\/([^/]+)(?:\/([^/]+))?$/.exec(route);
+  if (cityMatch) {
+    return NOT_FOUND_HEAD;
+  }
+  // Legacy /uk/:city/:service matrix — thin; hosting hard-404s unknowns.
+  if (/^\/uk\//.test(route)) {
+    return NOT_FOUND_HEAD;
+  }
+  if (AI_DATA[route]) return AI_DATA[route];
   return deriveHeadData(route);
 }
+
+/** Exported for soft-404 unit tests. */
+export { headDataFor, NOT_FOUND_HEAD };
 
 
 // App-only screens: real 200 pages (the SPA needs them) but never indexable.

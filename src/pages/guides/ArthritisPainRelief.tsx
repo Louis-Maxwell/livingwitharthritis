@@ -9,6 +9,8 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_PAIN_RELIEF } from "@/data/clinical/ukCitations";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
@@ -197,7 +199,8 @@ const ArthritisPainRelief = () => (
         </div>
       </main>
       
-      <EducationalDisclaimerBox />
+      <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
       <TopicClusterNav path="/guides/arthritis-pain-relief" />
 <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />

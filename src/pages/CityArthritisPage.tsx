@@ -1,4 +1,5 @@
-﻿import { useParams, Navigate, Link } from "react-router-dom";
+﻿import { useParams, Link } from "react-router-dom";
+import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -25,7 +26,8 @@ const CityArthritisPage = () => {
   const { city } = useParams<{ city: string }>();
   const cityData = ukCities.find((c) => c.slug === city);
 
-  if (!cityData) return <Navigate to="/arthritis-support" replace />;
+  // Unknown city: real not-found (noindex) — do not soft-land on the index.
+  if (!cityData) return <NotFound />;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -78,6 +80,7 @@ const CityArthritisPage = () => {
       <Helmet>
         <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
         <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
+        <meta name="robots" content="noindex, follow" />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta property="og:description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:url" content={`${BASE}/arthritis-support/${cityData.slug}`} />

@@ -1,4 +1,4 @@
-# Week 1 ship notes (Phase 1 — homepage / trust / a11y / hubs / citations / chatbot)
+# Week 1 ship notes (Phase 1 — homepage / trust / a11y / hubs / citations / chatbot / soft-404)
 
 **Shipped in repo:** Vite/React homepage hierarchy, trust strip, quick pathways, tools band, HCP + Resource Centre aggregators, light mailto/donate analytics, a11y Sprint A (homepage + extended templates), clinical citation blocks on key Champions/medicines pages, expanded local chatbot KB.
 
@@ -70,6 +70,20 @@ Also fixed UTF-8 mojibake arrows (`â†’` → `→`) on several guide CTAs.
 
 - Shop remains in global nav (deprioritised on homepage only).
 - Research meter still shows £5,000 / £50,000 — confirm with Louis before changing.
+
+
+---
+
+## Follow-up ship (soft-404 + Champions citation pass)
+
+| Item | Status |
+|---|---|
+| Soft-404 city /uk / unknown blog | Done — thin `/arthritis-support/:city` (+ city×condition) and `/uk/*` static heads are **Page not found + noindex** (never homepage OG); unknown cities render `<NotFound />`; `generate-404` hard-404s `/uk/*`; city doorways stay **out of sitemap/prerender** (no mass thin city pages) |
+| Champions / medicines citations | Expanded `ukCitations.ts` (NHS/NICE/Versus Arthritis/GOV.UK/CSP). Wired `ArticleCitations` + `EducationalDisclaimerBox` + `lastReviewed=2026-09-16` on pain relief, diet hub + diet pillar, disability support, waiting-list, exercise hub + exercise pillar, PIP pillar, health services, knee replacement; fixed SteroidsGuide missing `ArticleCitations` JSX |
+| Light SEO | Champions near-miss redirects (`/pain-relief`, `/disability-support`, `/waiting-list`, `/diet-hub`, …) synced to `public/_redirects` |
+| Tests | Extended `static-blog-html` + `seo-build-safety` soft-404 cases |
+
+**Still not claiming:** Lighthouse 95, WCAG AA complete, or inventing city hub content.
 
 ## Still needs Louis
 

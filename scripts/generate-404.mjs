@@ -107,6 +107,7 @@ for (const p of SPA_PREFIXES) {
 const HARD_404_PREFIXES = new Set([
   '/blog',
   '/arthritis-support',
+  '/uk',
   '/authors',
   '/reviewers',
 ]);

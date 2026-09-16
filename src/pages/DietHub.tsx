@@ -26,6 +26,8 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import {
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_DIET } from "@/data/clinical/ukCitations";
   StatCounter,
   ProgressRing,
   HorizontalBar,
@@ -628,7 +630,8 @@ const DietHub = () => {
       </section>
 
       <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-8">
-        <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+        <ArticleCitations citations={CITATIONS_DIET} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
         <TopicClusterNav path="/diet" />
       </div>
       <InternalLinks />

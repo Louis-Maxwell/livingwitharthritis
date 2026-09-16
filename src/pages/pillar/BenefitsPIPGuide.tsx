@@ -12,6 +12,8 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -308,7 +310,6 @@ export default function BenefitsPIPGuide() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
-          <EducationalDisclaimerBox />
           <TopicClusterNav path="/guides/benefits-pip" />
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
             Personal Independence Payment (PIP) can help with extra costs when arthritis limits daily living or mobility in England and Wales — always check GOV.UK and get welfare advice for your own claim.
@@ -340,6 +341,10 @@ export default function BenefitsPIPGuide() {
         </div>
       </main>
       
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      </div>
 <GuideOnwardJourney currentPath="/guides/benefits-pip" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

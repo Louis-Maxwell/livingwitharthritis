@@ -9,6 +9,9 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -215,7 +218,7 @@ export default function ExerciseGuide() {
           { name: "Exercise Guide" },
         ]}
         faqs={EXERCISE_GUIDE_FAQS}
-        lastReviewed="2026-06-01"
+        lastReviewed="2026-09-16"
         idPrefix="exercise-guide"
       />
       <Header />
@@ -263,6 +266,10 @@ export default function ExerciseGuide() {
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      </div>
       <GuideOnwardJourney currentPath="/guides/exercise" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>

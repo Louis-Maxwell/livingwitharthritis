@@ -7,6 +7,9 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_KNEE_REPLACEMENT } from "@/data/clinical/ukCitations";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -200,7 +203,7 @@ export default function KneeReplacementSurgeryGuide() {
           { name: "Knee Replacement Surgery" },
         ]}
         faqs={KNEE_REPLACEMENT_FAQS}
-        lastReviewed="2026-06-01"
+        lastReviewed="2026-09-16"
         idPrefix="knee-replacement-guide"
       />
       <Header />
@@ -213,8 +216,8 @@ export default function KneeReplacementSurgeryGuide() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Knee replacement is one of the most successful operations performed in the UK, with
-            around 110,000 carried out each year. Most patients gain substantial pain relief and
-            improved mobility within a year. This guide explains who benefits, how to prepare,
+            one of the most commonly performed joint operations in the UK. Many patients gain substantial pain relief and
+            improved mobility over the following months — individual outcomes vary. This guide explains who benefits, how to prepare,
             what to expect in hospital, and what realistic recovery looks like week by week.
           </p>
           <TableOfContents html={html} />
@@ -234,7 +237,11 @@ export default function KneeReplacementSurgeryGuide() {
           </div>
         </div>
       </main>
-      <GuideOnwardJourney currentPath="/guides/knee-replacement-surgery" />
+            <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_KNEE_REPLACEMENT} />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      </div>
+<GuideOnwardJourney currentPath="/guides/knee-replacement-surgery" />
       <Suspense fallback={null}><Footer /></Suspense>
     </>
   );

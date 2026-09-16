@@ -7,6 +7,8 @@ import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
 
 const FAQS = [
   { q: 'What is considered a disability in the UK?', a: 'Under the Equality Act 2010, a disability is a physical or mental impairment that has a substantial and long-term (12+ months) effect on your ability to do normal daily activities.' },
@@ -27,7 +29,7 @@ export default function DisabilitySupport() {
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      lastReviewed: '2026-09-14',
+      lastReviewed: '2026-09-16',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/disability-support',
     };
     const faq = {
@@ -141,7 +143,8 @@ export default function DisabilitySupport() {
         </ul>
       </section>
 
-      <EducationalDisclaimerBox lastReviewed="2026-09-14" />
+      <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
       <TopicClusterNav path="/guides/disability-support" />
 
       <section id="faq" className="mb-12">

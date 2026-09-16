@@ -202,6 +202,7 @@ export default function SteroidsGuide() {
         </div>
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <ArticleCitations citations={CITATIONS_STEROIDS} />
         <EducationalDisclaimerBox lastReviewed="2026-09-15" />
         <TopicClusterNav path="/guides/steroids-for-arthritis" />
       </div>

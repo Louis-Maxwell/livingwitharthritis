@@ -100,6 +100,12 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/es/guides/wet-vs-dry-heat-therapy": "/guides/wet-vs-dry-heat-therapy",
   "/de/pets/pet-weight-and-joint-health": "/pets/pet-weight-and-joint-health",
   "/fr/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
+  "/pain-relief": "/guides/arthritis-pain-relief",
+  "/guides/pain-relief": "/guides/arthritis-pain-relief",
+  "/disability-support": "/guides/disability-support",
+  "/waiting-list": "/arthritis-waiting-list-help",
+  "/waiting-list-help": "/arthritis-waiting-list-help",
+  "/diet-hub": "/diet",
   "/de/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
 };
 

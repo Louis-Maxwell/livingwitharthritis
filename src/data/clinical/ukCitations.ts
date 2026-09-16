@@ -180,3 +180,113 @@ export const CITATIONS_FEBUXOSTAT: Citation[] = [
   NHS_GOUT,
   NHS_ALLOPURINOL,
 ];
+
+export const NHS_EAT_WELL: Citation = {
+  label: "Eat well",
+  url: "https://www.nhs.uk/live-well/eat-well/",
+  publisher: "NHS",
+};
+
+export const VERSUS_ARTHRITIS_DIET: Citation = {
+  label: "Diet and arthritis",
+  url: "https://versusarthritis.org/about-arthritis/managing-symptoms/diet/",
+  publisher: "Versus Arthritis",
+};
+
+export const GOV_UK_PIP: Citation = {
+  label: "Personal Independence Payment (PIP)",
+  url: "https://www.gov.uk/pip",
+  publisher: "GOV.UK",
+};
+
+export const GOV_UK_ACCESS_TO_WORK: Citation = {
+  label: "Access to Work",
+  url: "https://www.gov.uk/access-to-work",
+  publisher: "GOV.UK",
+};
+
+export const GOV_UK_EQUALITY_ACT: Citation = {
+  label: "Equality Act 2010: guidance",
+  url: "https://www.gov.uk/guidance/equality-act-2010-guidance",
+  publisher: "GOV.UK",
+};
+
+export const CSP_HOME: Citation = {
+  label: "Chartered Society of Physiotherapy",
+  url: "https://www.csp.org.uk/",
+  publisher: "CSP",
+};
+
+export const NHS_REFERRALS: Citation = {
+  label: "Referrals for specialist care",
+  url: "https://www.nhs.uk/nhs-services/hospitals/referrals-for-specialist-care/",
+  publisher: "NHS",
+};
+
+export const NHS_KNEE_REPLACEMENT: Citation = {
+  label: "Knee replacement",
+  url: "https://www.nhs.uk/conditions/knee-replacement/",
+  publisher: "NHS",
+};
+
+export const NHS_FIND_SERVICES: Citation = {
+  label: "Find NHS services near you",
+  url: "https://www.nhs.uk/nhs-services/",
+  publisher: "NHS",
+};
+
+/** Arthritis pain relief / pain science guide */
+export const CITATIONS_PAIN_RELIEF: Citation[] = [
+  VERSUS_ARTHRITIS_PAIN,
+  NICE_OA_NG226,
+  NHS_NSAIDS,
+  NHS_OSTEOARTHRITIS,
+];
+
+/** Diet hub + diet pillar */
+export const CITATIONS_DIET: Citation[] = [
+  VERSUS_ARTHRITIS_DIET,
+  NHS_EAT_WELL,
+  NICE_OA_NG226,
+  NHS_OSTEOARTHRITIS,
+];
+
+/** Disability support + PIP benefits */
+export const CITATIONS_DISABILITY_PIP: Citation[] = [
+  GOV_UK_PIP,
+  GOV_UK_ACCESS_TO_WORK,
+  GOV_UK_EQUALITY_ACT,
+  VERSUS_ARTHRITIS_OA,
+];
+
+/** Waiting-list help */
+export const CITATIONS_WAITING_LIST: Citation[] = [
+  NHS_REFERRALS,
+  NHS_FIND_SERVICES,
+  NICE_OA_NG226,
+  VERSUS_ARTHRITIS_OA,
+];
+
+/** Exercise hub + exercise pillar */
+export const CITATIONS_EXERCISE_HUB: Citation[] = [
+  NICE_OA_NG226,
+  VERSUS_ARTHRITIS_EXERCISE,
+  CMO_PHYSICAL_ACTIVITY,
+  CSP_HOME,
+];
+
+/** Health services / NHS pathway guide */
+export const CITATIONS_HEALTH_SERVICES: Citation[] = [
+  NHS_FIND_SERVICES,
+  NHS_REFERRALS,
+  CSP_HOME,
+  VERSUS_ARTHRITIS_OA,
+];
+
+/** Knee replacement surgery guide */
+export const CITATIONS_KNEE_REPLACEMENT: Citation[] = [
+  NHS_KNEE_REPLACEMENT,
+  NICE_OA_NG226,
+  NHS_OSTEOARTHRITIS,
+  VERSUS_ARTHRITIS_OA,
+];

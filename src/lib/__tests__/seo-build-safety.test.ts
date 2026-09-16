@@ -244,4 +244,16 @@ describe("SEO build safety", () => {
       isPrerenderDocumentReady(document, "/blog/anti-inflammatory-diet"),
     ).toBe(false);
   });
+
+  it("hard-404s unknown /uk and /arthritis-support paths (no homepage soft-404)", () => {
+    const generate404 = readFileSync(
+      resolve(process.cwd(), "scripts/generate-404.mjs"),
+      "utf8",
+    );
+    expect(generate404).toContain("'/uk'");
+    expect(generate404).toContain("'/arthritis-support'");
+    expect(generate404).toContain("'/blog'");
+    expect(generate404).toMatch(/HARD_404_PREFIXES[\s\S]*'\/uk'/);
+  });
+
 });

@@ -164,3 +164,11 @@
 /exercises/strength-training-for-hand /exercises/strength-training-for-hand-arthritis 301
 /exercises/strength-training-for-back /exercises/strength-training-for-back-arthritis 301
 /exercises/strength-training-for-ankle /exercises/strength-training-for-ankle-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/pain-relief /guides/arthritis-pain-relief 301
+/guides/pain-relief /guides/arthritis-pain-relief 301
+/disability-support /guides/disability-support 301
+/waiting-list /arthritis-waiting-list-help 301
+/waiting-list-help /arthritis-waiting-list-help 301
+/diet-hub /diet 301
