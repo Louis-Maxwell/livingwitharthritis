@@ -5,6 +5,7 @@ import { ArrowLeft, MessageCircle, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Chat = () => {
   return (
@@ -94,7 +95,9 @@ const Chat = () => {
         </div>
 
         <div className="container max-w-4xl mx-auto py-8 px-4">
-          <ChatBot />
+          <ErrorBoundary>
+            <ChatBot />
+          </ErrorBoundary>
         </div>
       </div>
     </>

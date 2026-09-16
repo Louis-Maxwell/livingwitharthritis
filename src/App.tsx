@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import SeoRedirectGate from "./components/SeoRedirectGate";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
 const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
@@ -273,6 +273,11 @@ const queryClient = new QueryClient({
   },
 });
 
+
+function withRouteBoundary(node: ReactNode) {
+  return <ErrorBoundary>{node}</ErrorBoundary>;
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -304,6 +309,7 @@ function AnimatedRoutes() {
 
 
   return (
+    <ErrorBoundary resetKey={location.pathname}>
     <SeoRedirectGate>
     <PageTransition key={location.pathname}>
       <Routes location={location}>
@@ -333,16 +339,16 @@ function AnimatedRoutes() {
         <Route path="/admin/content-refresh" element={<AdminContentRefresh />} />
         <Route path="/admin/backlinks" element={<AdminBacklinks />} />
         <Route path="/admin/chat-feedback" element={<AdminChatFeedback />} />
-        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog" element={withRouteBoundary(<BlogIndex />)} />
         <Route path="/library" element={<Library />} />
         <Route path="/guides" element={<GuidesHub />} />
         <Route path="/benefits-pip" element={<BenefitsPipHub />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library/:slug" element={<LibraryTopic />} />
-        <Route path="/blog-hub" element={<BlogHub />} />
-        <Route path="/blog/category/:category" element={<BlogCategory />} />
-        <Route path="/blog/knee-arthritis-exercises-uk" element={<KneeOsteoarthritisExercises />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/blog-hub" element={withRouteBoundary(<BlogHub />)} />
+        <Route path="/blog/category/:category" element={withRouteBoundary(<BlogCategory />)} />
+        <Route path="/blog/knee-arthritis-exercises-uk" element={withRouteBoundary(<KneeOsteoarthritisExercises />)} />
+        <Route path="/blog/:slug" element={withRouteBoundary(<BlogPost />)} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/about/ai-transparency" element={<AITransparency />} />
@@ -350,8 +356,8 @@ function AnimatedRoutes() {
         <Route path="/resources/flare-action-plan" element={<FlareActionPlan />} />
         <Route path="/resources/pip-evidence-diary" element={<PipEvidenceDiary />} />
         <Route path="/resources/clinic-pack" element={<ClinicPack />} />
-        <Route path="/healthcare-professionals" element={<HealthcareProfessionals />} />
-        <Route path="/resource-centre" element={<ResourceCentre />} />
+        <Route path="/healthcare-professionals" element={withRouteBoundary(<HealthcareProfessionals />)} />
+        <Route path="/resource-centre" element={withRouteBoundary(<ResourceCentre />)} />
         <Route path="/about/uk-arthritis-search-insights" element={<UkArthritisSearchInsights />} />
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />
@@ -360,7 +366,7 @@ function AnimatedRoutes() {
         <Route path="/ai" element={<AiHub />} />
         <Route path="/accessibility-for-ai" element={<AccessibilityForAi />} />
         <Route path="/editorial-standards" element={<EditorialStandards />} />
-        <Route path="/disclaimer" element={<MedicalDisclaimer />} />
+        <Route path="/disclaimer" element={withRouteBoundary(<MedicalDisclaimer />)} />
         <Route path="/seo-content-framework" element={<SeoContentFrameworkPage />} />
         <Route path="/authors" element={<AuthorsIndex variant="author" />} />
         <Route path="/reviewers" element={<AuthorsIndex variant="reviewer" />} />
@@ -410,7 +416,7 @@ function AnimatedRoutes() {
         <Route path="/conditions/:condition/:subpage" element={<ConditionSubpagePage />} />
         <Route path="/self-help" element={<SelfHelpTool />} />
         <Route path="/symptom-checker" element={<SymptomChecker />} />
-        <Route path="/exercises" element={<ErrorBoundary><ExerciseHub /></ErrorBoundary>} />
+        <Route path="/exercises" element={withRouteBoundary(<ExerciseHub />)} />
         <Route path="/exercises/tai-chi-for-balance" element={<TaiChiForBalance />} />
         <Route path="/exercises/tai-chi-for-arthritis" element={<TaiChiForArthritis />} />
         <Route path="/exercises/seated-tai-chi-for-arthritis" element={<SeatedTaiChiForArthritis />} />
@@ -450,7 +456,7 @@ function AnimatedRoutes() {
         <Route path="/terms" element={<TermsConditions />} />
         <Route path="/safeguarding" element={<Safeguarding />} />
         <Route path="/complaints" element={<Complaints />} />
-        <Route path="/donate" element={<Donate />} />
+        <Route path="/donate" element={withRouteBoundary(<Donate />)} />
         <Route path="/campaigns/exercise-circuit-500" element={<ExerciseCircuit500 />} />
         <Route path="/guides/uk-arthritis" element={<UKArthritisGuide />} />
         <Route path="/guides/health-services" element={<HealthServicesGuide />} />
@@ -536,6 +542,7 @@ function AnimatedRoutes() {
       </Routes>
     </PageTransition>
     </SeoRedirectGate>
+    </ErrorBoundary>
   );
 }
 
@@ -602,19 +609,23 @@ const App = () => {
                 <AppWithSync />
               </Suspense>
               <DeferredMount timeout={1200}>
-                <Suspense fallback={null}>
-                  <EngagementTracker />
-                  <CookieBanner />
-                  <MobileBottomNav />
-                  <MobileNextStepBar />
-                  <AccessibilityToolbar />
-                </Suspense>
+                <ErrorBoundary>
+                  <Suspense fallback={null}>
+                    <EngagementTracker />
+                    <CookieBanner />
+                    <MobileBottomNav />
+                    <MobileNextStepBar />
+                    <AccessibilityToolbar />
+                  </Suspense>
+                </ErrorBoundary>
               </DeferredMount>
               <DeferredMount timeout={4000}>
-                <Suspense fallback={null}>
-                  <ChatBotWidget />
-                  <DonationNotification />
-                </Suspense>
+                <ErrorBoundary>
+                  <Suspense fallback={null}>
+                    <ChatBotWidget />
+                    <DonationNotification />
+                  </Suspense>
+                </ErrorBoundary>
               </DeferredMount>
             </BrowserRouter>
           </TooltipProvider>

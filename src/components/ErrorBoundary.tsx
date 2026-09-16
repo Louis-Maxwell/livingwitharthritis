@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
+  /** Remount/reset when this value changes (typically location.pathname). */
+  resetKey?: string;
 }
 
 interface State {
@@ -22,7 +24,14 @@ class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, info: { componentStack: string }) {
+  componentDidCatch(_error: Error, _info: { componentStack: string }) {
+    // Intentionally quiet: Sentry (when consented) and the UI fallback cover this.
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.resetKey !== prevProps.resetKey && this.state.hasError) {
+      this.setState({ hasError: false, error: null });
+    }
   }
 
   handleRetry = () => {

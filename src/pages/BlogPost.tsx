@@ -4,6 +4,7 @@ import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
+import { DisclaimerStripShown } from "@/components/disclaimerChrome";
 import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
@@ -719,12 +720,14 @@ const BlogPost = () => {
           </footer>
         </main>
         {slug && (
+          <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
             <EducationalDisclaimerBox lastReviewed="2026-09-16" />
             {getClusterForPath(`/blog/${slug}`) && (
               <TopicClusterNav path={`/blog/${slug}`} />
             )}
           </div>
+          </DisclaimerStripShown>
         )}
         </article>
         <div className="no-print">

@@ -36,4 +36,12 @@ describe("validateStripeDonateUrl", () => {
   it("rejects invalid URLs", () => {
     expect(validateStripeDonateUrl("not a url").ok).toBe(false);
   });
+
+  it("rejects javascript and protocol-relative URLs", () => {
+    expect(validateStripeDonateUrl("javascript:alert(1)").ok).toBe(false);
+    expect(validateStripeDonateUrl("//checkout.stripe.com/c/pay/x").ok).toBe(false);
+    expect(validateStripeDonateUrl("https://checkout.stripe.com.evil.example/x").ok).toBe(
+      false,
+    );
+  });
 });

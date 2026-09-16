@@ -79,7 +79,7 @@ const AppCrashFallback = (
 // When index.html references chunk hashes that no longer exist on the CDN,
 // dynamic imports throw "Failed to fetch dynamically imported module".
 // We reload once (guarded by sessionStorage) to pick up the fresh manifest.
-const RELOAD_KEY = "lovable:chunk-reloaded-at";
+const RELOAD_KEY = "lwa:chunk-reloaded-at";
 const RELOAD_COOLDOWN_MS = 10_000; // allow another reload after 10s, scoped per URL
 const isChunkLoadError = (msg: string) =>
   /Failed to fetch dynamically imported module|Importing a module script failed|error loading dynamically imported module/i.test(

@@ -15,6 +15,7 @@ import SymptomQuiz from "@/components/tools/SymptomQuiz";
 import { SYMPTOM_FAQS } from "@/data/symptomChecker";
 import { Activity } from "lucide-react";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
+import { DisclaimerStripShown } from "@/components/disclaimerChrome";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
@@ -127,8 +128,10 @@ export default function SymptomChecker() {
           <div className="mb-8">
             <MedicalDisclaimerStrip variant="tool" />
           </div>
+          <DisclaimerStripShown>
           <EducationalDisclaimerBox lastReviewed="2026-09-16" />
           <TopicClusterNav path="/symptom-checker" />
+          </DisclaimerStripShown>
           <ArticleCitations citations={CITATIONS_SYMPTOM_CHECKER} />
 
           <section

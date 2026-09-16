@@ -108,3 +108,22 @@ Also fixed UTF-8 mojibake arrows (`â†’` → `→`) on several guide CTAs.
 
 Repo source of truth for HTTP security headers is `public/_headers` (aligned with `index.html` meta CSP and `.htaccess`). **Live Lovable may still strip `_headers`** until the host/CDN dashboard applies Content-Security-Policy + Permissions-Policy. Meta CSP in HTML helps browsers but is not a substitute for HTTP CSP/`frame-ancestors`. `'unsafe-eval'` removed from repo CSP; `'unsafe-inline'` remains for Vite/Lovable boot scripts and styles.
 
+
+## Engineering pass (2026-09-16)
+
+Quality pass on shipped Week 1 surfaces — not a new marketing layer. Champions 26–30 already on `origin/main`; this pass engineers on top.
+
+| Item | What changed |
+|---|---|
+| Route failure isolation | `ErrorBoundary` now resets on navigation (`resetKey`). High-traffic lazy routes (blog, donate, HCP, resource-centre, disclaimer, exercises) wrapped; chrome widgets (chatbot, cookie banner) isolated so a chunk failure cannot white-screen the app. ChatBot panel has its own boundary. |
+| Disclaimer duplication | Layout owns the first `MedicalDisclaimerStrip` (`GuideLayout`). Nested strips skip via `DisclaimerStripShown`. `EducationalDisclaimerBox` drops duplicate short copy when the strip is already on the page. |
+| Cluster nav 404s | `TopicClusterNav` filters hrefs against published blog/FAQ catalogs. Tests assert every cluster + `CONTENT_CLUSTERS.bestGuide` path exists in `App.tsx` or a catalog. |
+| BlogPost hooks | Contract test: hooks stay above loading/404 early returns. |
+| `CONTENT_CLUSTERS` | Hole-safe (`filter(Boolean)` + source `},,` test). Related-articles fallback no longer assumes `[0]` is defined. |
+| Duplicate React | Vite/Vitest resolve `react` / `react-dom` to a single `node_modules` copy (`dedupe` + alias). |
+| Stripe donate URL | Validator tests extended (javascript:, protocol-relative, lookalike host). |
+| inject-canonicals | Unknown blog still `noindex, follow`. Existing snapshots that skip a full rewrite still receive robots noindex when `headDataFor` says so. |
+| Sheffield doorway | Unchanged — `/arthritis-support/sheffield/rheumatoid-arthritis` 301s to `/conditions/rheumatoid-arthritis` (client + `_redirects`). |
+| Dead GSC stubs | Removed unused `gsc-indexing.ts`, `gsc-advanced.ts`, `bulk-indexing.ts`, `GSCDashboard.tsx` and the unused sitemap-generator import. Do not restore. |
+
+**Not claiming:** Lighthouse 95, WCAG AA complete, or new backends.

@@ -1,3 +1,6 @@
+/// <reference types="node" />
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   TOPIC_CLUSTERS,
@@ -5,6 +8,10 @@ import {
   getClusterForSlug,
   getPillarForSlug,
 } from "@/data/topicClusters";
+import { CONTENT_CLUSTERS } from "@/lib/relatedClusters";
+import blogSlugs from "@/data/blog-slugs.generated.json";
+import { faqArticles } from "@/data/faqArticles";
+
 
 describe("topicClusters", () => {
   it("defines exactly eight clusters from the 90-day plan", () => {
@@ -73,5 +80,53 @@ describe("topicClusters", () => {
         "/benefits-pip",
       ]),
     );
+  });
+
+  it("TopicClusterNav and CONTENT_CLUSTERS hrefs resolve against real routes", () => {
+    const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
+    const staticPaths = new Set<string>();
+    const patterns: string[] = [];
+    for (const match of app.matchAll(/path="([^"]+)"/g)) {
+      const path = match[1];
+      if (path.includes("*")) continue;
+      if (path.includes(":")) patterns.push(path);
+      else staticPaths.add(path);
+    }
+    const blogs = new Set(blogSlugs as string[]);
+    const faqs = new Set(faqArticles.map((a) => a.slug));
+
+    const matchesPattern = (pattern: string, path: string) => {
+      const re = new RegExp(
+        "^" +
+          pattern
+            .split("/")
+            .map((seg) => (seg.startsWith(":") ? "[^/]+" : seg.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")))
+            .join("/") +
+          "$",
+      );
+      return re.test(path);
+    };
+
+    const exists = (path: string) => {
+      if (staticPaths.has(path)) return true;
+      const blog = /^\/blog\/([^/]+)$/.exec(path);
+      if (blog) return blogs.has(blog[1]);
+      const faq = /^\/faq\/([^/]+)$/.exec(path);
+      if (faq) return faqs.has(faq[1]);
+      return patterns.some((pattern) => matchesPattern(pattern, path));
+    };
+
+    const missing: string[] = [];
+    for (const cluster of TOPIC_CLUSTERS) {
+      for (const path of [cluster.pillarPath, cluster.toolPath, ...cluster.supportingPaths]) {
+        if (!exists(path)) missing.push(`${cluster.id}: ${path}`);
+      }
+    }
+    for (const cluster of CONTENT_CLUSTERS.filter(Boolean)) {
+      if (!exists(cluster.bestGuide.to)) {
+        missing.push(`related ${cluster.id}: ${cluster.bestGuide.to}`);
+      }
+    }
+    expect(missing, missing.join("\n")).toEqual([]);
   });
 });

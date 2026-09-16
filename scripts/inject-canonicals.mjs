@@ -144,6 +144,15 @@ function headDataFor(route, override) {
 /** Exported for soft-404 unit tests. */
 export { headDataFor, NOT_FOUND_HEAD };
 
+export function applyNoindexMeta(html) {
+  let out = String(html).replace(/[ \t]*<meta\s+name=["']robots["'][^>]*>\s*\n?/gi, "");
+  return out.replace(
+    /<\/head>/i,
+    `  <meta name="robots" content="noindex, follow" />\n</head>`,
+  );
+}
+
+
 
 // App-only screens: real 200 pages (the SPA needs them) but never indexable.
 // They still get a unique static title/description so no URL on the domain
@@ -428,11 +437,7 @@ export function rewriteHead(html, route, dataOverride) {
   // App-only screens + soft-404 stubs keep unique heads but must stay out of the index.
   const headMeta = headDataFor(route, dataOverride);
   if (isNoindexRoute(route) || headMeta?.noindex) {
-    out = out.replace(/[ \t]*<meta\s+name="robots"[^>]*>\s*\n?/gi, "");
-    out = out.replace(
-      /<\/head>/i,
-      `  <meta name="robots" content="noindex, follow" />\n</head>`,
-    );
+    out = applyNoindexMeta(out);
   }
   // Also update twitter:url if present.
   out = out.replace(
@@ -478,12 +483,13 @@ function writeRouteFiles() {
       // Still refresh title / description / og:image from head-data so
       // social crawlers pick up cover images after blog-head-data regen.
       if (htmlHasFullArticle(existing, data)) {
-        if (data) {
-          const patched = patchShareMeta(existing, data);
-          if (patched !== existing) {
-            writeFileSync(file, patched);
-            headPatched++;
-          }
+        let patched = data ? patchShareMeta(existing, data) : existing;
+        if (isNoindexRoute(route) || data?.noindex) {
+          patched = applyNoindexMeta(patched);
+        }
+        if (patched !== existing) {
+          writeFileSync(file, patched);
+          headPatched++;
         }
         skipped++;
         continue;

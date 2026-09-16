@@ -5,7 +5,9 @@ import {
   MEDICAL_DISCLAIMER_PATH,
   MEDICAL_DISCLAIMER_SHORT,
   MEDICAL_DISCLAIMER_TOOL,
+  shouldRenderDisclaimerStrip,
 } from "@/lib/medicalDisclaimer";
+import { useDisclaimerStripShown } from "@/components/disclaimerChrome";
 
 export type MedicalDisclaimerVariant = "short" | "tool" | "chat";
 
@@ -26,12 +28,17 @@ const COPY: Record<MedicalDisclaimerVariant, string> = {
  * Compact YMYL strip for clinical pages, tools and chat.
  * Prefer EducationalDisclaimerBox (with review date) on champion articles;
  * use this strip for chrome / tools / chat.
+ * Nested instances under DisclaimerStripShown return null so the strip
+ * cannot duplicate 2–3 times on one page.
  */
 export default function MedicalDisclaimerStrip({
   variant = "short",
   className = "",
   hideFullLink = false,
 }: MedicalDisclaimerStripProps) {
+  const alreadyShown = useDisclaimerStripShown();
+  if (!shouldRenderDisclaimerStrip(alreadyShown)) return null;
+
   return (
     <aside
       className={`rounded-lg border border-amber-500/25 bg-amber-500/5 px-3 py-2.5 text-xs sm:text-sm leading-relaxed text-foreground/90 ${className}`}

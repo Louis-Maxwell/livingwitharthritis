@@ -2,6 +2,7 @@ import { lazy, Suspense, type ReactNode } from "react";
 import Header from "@/components/Header";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
+import { DisclaimerStripShown } from "@/components/disclaimerChrome";
 
 // Lazy Footer, matching Index.tsx, keeps the entry chunk small.
 const Footer = lazy(() => import("@/components/Footer"));
@@ -14,6 +15,7 @@ interface GuideLayoutProps {
 /**
  * Shared chrome for /guides/* pages: Header, medical disclaimer strip,
  * main content, onward-journey blocks, and Footer.
+ * Nested pages must not render a second MedicalDisclaimerStrip.
  */
 export default function GuideLayout({ children, currentPath }: GuideLayoutProps) {
   return (
@@ -22,13 +24,15 @@ export default function GuideLayout({ children, currentPath }: GuideLayoutProps)
       <div className="container mx-auto px-6 md:px-10 pt-4 max-w-5xl">
         <MedicalDisclaimerStrip variant="short" />
       </div>
-      <main id="main-content" className="flex-1">
-        {children}
-      </main>
-      <GuideOnwardJourney currentPath={currentPath} />
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <DisclaimerStripShown>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <GuideOnwardJourney currentPath={currentPath} />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </DisclaimerStripShown>
     </div>
   );
 }

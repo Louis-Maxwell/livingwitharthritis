@@ -80,4 +80,11 @@ describe("no removed backends in src/", () => {
       "edge-functions-preflight workflow should be deleted",
     ).toBe(false);
   });
+
+  it("does not keep deleted GSC client stubs", () => {
+    expect(pathExists("src/lib/gsc-indexing.ts")).toBe(false);
+    expect(pathExists("src/lib/gsc-advanced.ts")).toBe(false);
+    expect(pathExists("src/lib/bulk-indexing.ts")).toBe(false);
+    expect(pathExists("src/components/GSCDashboard.tsx")).toBe(false);
+  });
 });

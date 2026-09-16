@@ -68,3 +68,19 @@ export function isYmylPath(pathname: string): boolean {
 export function nhsEscalationLine(): string {
   return "Emergency: 999. Urgent non-emergency: NHS 111. Mental health crisis: Samaritans 116 123.";
 }
+
+
+/**
+ * Layout chrome owns the first YMYL strip. Nested pages must skip a second
+ * MedicalDisclaimerStrip — once in layout is enough.
+ */
+export function shouldRenderDisclaimerStrip(alreadyShownInLayout: boolean): boolean {
+  return !alreadyShownInLayout;
+}
+
+/** Educational box keeps review metadata; drop duplicate short copy when the strip is up. */
+export function educationalDisclaimerCopyMode(
+  layoutStripShown: boolean,
+): "full" | "review-only" {
+  return layoutStripShown ? "review-only" : "full";
+}

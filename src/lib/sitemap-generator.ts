@@ -3,7 +3,6 @@
  * Creates optimized sitemaps with priorities, frequencies, and last modified dates
  */
 
-import { ALL_SITE_PAGES } from './bulk-indexing';
 import blogSlugs from '../data/blog-slugs.generated.json';
 
 export interface SitemapPage {

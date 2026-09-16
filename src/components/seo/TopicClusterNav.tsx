@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getClusterForPath, type TopicCluster } from "@/data/topicClusters";
+import { isResolvableClusterHref } from "@/lib/clusterHref";
 
 interface TopicClusterNavProps {
   /** Current page path, e.g. /conditions/osteoarthritis */
@@ -7,13 +8,14 @@ interface TopicClusterNavProps {
   /** Optional explicit cluster override when path is not indexed. */
   cluster?: TopicCluster | null;
   className?: string;
-  /** Max sibling links to show (pillar + tool always shown). */
+  /** Max sibling links to show (pillar + tool always shown when they resolve). */
   maxSiblings?: number;
 }
 
 /**
  * Pillar + sibling + tool links from topicClusters.ts.
  * Safe to drop on champion pages; renders nothing if no cluster maps.
+ * Hrefs are filtered against real blog/FAQ catalogs so missing pages never ship.
  */
 export default function TopicClusterNav({
   path,
@@ -25,12 +27,19 @@ export default function TopicClusterNav({
   if (!cluster) return null;
 
   const siblings = cluster.supportingPaths
-    .filter((p) => p !== path && p !== cluster.pillarPath)
+    .filter((p) => p !== path && p !== cluster.pillarPath && isResolvableClusterHref(p))
     .slice(0, maxSiblings);
+
+  const pillarOk =
+    path !== cluster.pillarPath && isResolvableClusterHref(cluster.pillarPath);
+  const toolOk =
+    cluster.toolPath !== path && isResolvableClusterHref(cluster.toolPath);
+
+  if (!pillarOk && siblings.length === 0 && !toolOk) return null;
 
   const labelFor = (p: string) =>
     p
-      .replace(/^\/(guides|conditions|diet|exercises|pillar)\//, "")
+      .replace(/^\/(guides|conditions|diet|exercises|pillar|blog|faq)\//, "")
       .replace(/^\//, "")
       .split("-")
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -45,7 +54,7 @@ export default function TopicClusterNav({
         In this topic · {cluster.label}
       </p>
       <ul className="flex flex-wrap gap-2 text-sm">
-        {path !== cluster.pillarPath && (
+        {pillarOk && (
           <li>
             <Link
               to={cluster.pillarPath}
@@ -65,14 +74,16 @@ export default function TopicClusterNav({
             </Link>
           </li>
         ))}
-        <li>
-          <Link
-            to={cluster.toolPath}
-            className="inline-flex rounded-full border border-border bg-primary/10 px-3 py-1.5 font-medium text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          >
-            Tool: {cluster.toolLabel}
-          </Link>
-        </li>
+        {toolOk && (
+          <li>
+            <Link
+              to={cluster.toolPath}
+              className="inline-flex rounded-full border border-border bg-primary/10 px-3 py-1.5 font-medium text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              Tool: {cluster.toolLabel}
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

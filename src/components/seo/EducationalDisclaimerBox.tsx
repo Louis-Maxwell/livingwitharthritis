@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import {
   MEDICAL_DISCLAIMER_PATH,
   MEDICAL_DISCLAIMER_SHORT,
+  educationalDisclaimerCopyMode,
 } from "@/lib/medicalDisclaimer";
+import { useDisclaimerStripShown } from "@/components/disclaimerChrome";
 
 interface EducationalDisclaimerBoxProps {
   /** ISO date shown as last clinical review, default Sep 2026 Month 1 pass. */
@@ -14,6 +16,8 @@ interface EducationalDisclaimerBoxProps {
 
 /**
  * Short clinical-review + educational-not-diagnostic box for YMYL champions.
+ * When a layout MedicalDisclaimerStrip is already on the page, only the
+ * review line is shown — the short copy is not repeated.
  */
 export default function EducationalDisclaimerBox({
   lastReviewed = "2026-09-16",
@@ -25,6 +29,7 @@ export default function EducationalDisclaimerBox({
     month: "long",
     year: "numeric",
   });
+  const copyMode = educationalDisclaimerCopyMode(useDisclaimerStripShown());
 
   return (
     <aside
@@ -37,10 +42,28 @@ export default function EducationalDisclaimerBox({
           <p className="font-semibold text-foreground">
             Clinically reviewed · {reviewer} · {reviewedLabel}
           </p>
-          <p className="flex items-start gap-2">
-            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
-            <span>
-              {MEDICAL_DISCLAIMER_SHORT} See our{" "}
+          {copyMode === "full" ? (
+            <p className="flex items-start gap-2">
+              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
+              <span>
+                {MEDICAL_DISCLAIMER_SHORT} See our{" "}
+                <Link to={MEDICAL_DISCLAIMER_PATH} className="text-primary underline underline-offset-2">
+                  medical disclaimer
+                </Link>
+                ,{" "}
+                <Link to="/editorial-standards" className="text-primary underline underline-offset-2">
+                  editorial standards
+                </Link>{" "}
+                and{" "}
+                <Link to="/about/editorial-claims-policy" className="text-primary underline underline-offset-2">
+                  claims policy
+                </Link>
+                .
+              </span>
+            </p>
+          ) : (
+            <p>
+              See our{" "}
               <Link to={MEDICAL_DISCLAIMER_PATH} className="text-primary underline underline-offset-2">
                 medical disclaimer
               </Link>
@@ -53,8 +76,8 @@ export default function EducationalDisclaimerBox({
                 claims policy
               </Link>
               .
-            </span>
-          </p>
+            </p>
+          )}
         </div>
       </div>
     </aside>

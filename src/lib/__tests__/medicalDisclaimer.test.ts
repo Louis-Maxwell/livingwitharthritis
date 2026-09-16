@@ -2,8 +2,10 @@ import { describe, expect, it } from "vitest";
 import {
   MEDICAL_DISCLAIMER_SHORT,
   MEDICAL_DISCLAIMER_TOOL,
+  educationalDisclaimerCopyMode,
   isYmylPath,
   nhsEscalationLine,
+  shouldRenderDisclaimerStrip,
 } from "@/lib/medicalDisclaimer";
 
 describe("medicalDisclaimer helpers", () => {
@@ -29,5 +31,12 @@ describe("medicalDisclaimer helpers", () => {
   it("includes NHS escalation helpers", () => {
     expect(nhsEscalationLine()).toMatch(/999/);
     expect(nhsEscalationLine()).toMatch(/111/);
+  });
+
+  it("skips nested disclaimer strips once layout chrome has shown one", () => {
+    expect(shouldRenderDisclaimerStrip(false)).toBe(true);
+    expect(shouldRenderDisclaimerStrip(true)).toBe(false);
+    expect(educationalDisclaimerCopyMode(false)).toBe("full");
+    expect(educationalDisclaimerCopyMode(true)).toBe("review-only");
   });
 });

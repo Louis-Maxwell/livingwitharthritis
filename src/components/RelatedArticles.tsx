@@ -76,7 +76,8 @@ const RelatedArticles = memo(
 
     const bestGuide =
       (seedClusterIds.map((id) => getClusterById(id)).find(Boolean) ??
-        CONTENT_CLUSTERS[0])?.bestGuide;
+        CONTENT_CLUSTERS.find((c): c is NonNullable<typeof c> => Boolean(c)))
+        ?.bestGuide;
 
     const seoCluster: TopicCluster | null = useMemo(() => {
       const hay = [currentTitle, currentExcerpt, currentCategory, currentKeywords]

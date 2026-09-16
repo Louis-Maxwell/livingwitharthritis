@@ -190,6 +190,29 @@ describe("BlogPost Page", () => {
     expect(screen.getByText("Editorial content")).toBeInTheDocument();
   });
 
+  it("keeps hooks above early returns when loading then 404ing", () => {
+    (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      isSuccess: false,
+      isError: false,
+    });
+    const first = renderBlogPost("missing-article");
+    expect(screen.queryByText("Managing Arthritis Pain")).not.toBeInTheDocument();
+
+    (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: null,
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
+    });
+    first.unmount();
+    renderBlogPost("missing-article");
+    expect(
+      screen.getByRole("heading", { level: 1, name: /could not find that page/i }),
+    ).toBeInTheDocument();
+  });
+
   it("does not claim an unverified generic review or generic citations", async () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: {

@@ -105,6 +105,7 @@ describe("ChatBot", () => {
 
   it("shows disclaimer text", () => {
     render(<ChatBot />);
-    expect(screen.getByText(/consult your healthcare provider/i)).toBeInTheDocument();
+    expect(screen.getByText(/not a diagnosis/i)).toBeInTheDocument();
+    expect(screen.getByText(/NHS 111/i)).toBeInTheDocument();
   });
 });

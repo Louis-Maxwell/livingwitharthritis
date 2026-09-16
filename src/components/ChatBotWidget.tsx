@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from "react";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { X, MessageCircle } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -52,6 +53,7 @@ export default function ChatBotWidget() {
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="fixed bottom-[160px] lg:bottom-24 right-3 lg:right-8 z-50 w-[92vw] max-w-md h-[60vh] max-h-[520px] lg:h-[70vh] lg:max-h-[600px] rounded-2xl shadow-2xl overflow-hidden border border-border bg-background"
           >
+            <ErrorBoundary>
             <Suspense fallback={
               <div className="flex items-center justify-center h-full">
                 <div className="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent" />
@@ -59,6 +61,7 @@ export default function ChatBotWidget() {
             }>
               <ChatBot />
             </Suspense>
+            </ErrorBoundary>
           </motion.div>
         )}
       </AnimatePresence>
