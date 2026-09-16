@@ -141,9 +141,9 @@ function regionSlugs(): string[] {
 }
 
 // Unique /conditions/:slug/:subpage URLs that have written copy in
-// conditionSubpages.ts. Do not invent combinations for hub-only conditions
-// (hip-arthritis, elbow-arthritis, calcific-periarthritis) — those would be
-// empty templates.
+// conditionSubpages.ts. Do not invent combinations for remaining hub-only
+// conditions (for example calcific-periarthritis) — those would be empty
+// templates. Hip and elbow now have written subpages.
 function conditionSubpageSlugs(): string[] {
   const src = read("src/data/conditionSubpages.ts");
   const start = src.indexOf("export const conditionSubpages");
