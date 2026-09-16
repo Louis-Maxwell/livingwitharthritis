@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { trackDonationInitiate } from "@/lib/analytics";
 import { openMailto } from "@/lib/mailtoSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { validateStripeDonateUrl } from "@/lib/stripeDonateUrl";
 
 import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -53,11 +54,15 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
     try {
       const donateUrl = import.meta.env.VITE_STRIPE_DONATE_URL as string | undefined;
       trackDonationInitiate(amount);
-      if (donateUrl) {
+      const validated = validateStripeDonateUrl(donateUrl);
+      if (validated.ok) {
         onClose();
-        const url = new URL(donateUrl);
-        window.location.href = url.toString();
+        window.location.href = validated.url;
         return;
+      }
+      if (donateUrl && !validated.ok) {
+        // Misconfigured env — fail safe to mailto / in-app donate path (no open redirect).
+        console.warn("VITE_STRIPE_DONATE_URL rejected:", validated.reason);
       }
       openMailto({
         subject: `Donation of ${sym}${amount.toFixed(2)} (${getFundLabel()})`,

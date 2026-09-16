@@ -64,7 +64,7 @@ setUserProperties({ user_type: 'recently_diagnosed' });
   <meta name="google-site-verification" content="8tQzVt9eFqNcL0z_C5wK4XmJ6pRvSdL9pM2nO0aP1bQ" />
   ```
 
-- **Module**: `src/lib/gsc-integration.ts`
+- **Module**: `(removed — unused GSC postMessage listener; see gsc-advanced / gsc-indexing)`
 - **Dashboard**: https://search.google.com/search-console/welcome?resource_id=https://livingwitharthritis.org.uk/
 
 ### Features
@@ -86,7 +86,7 @@ import {
   trackIndexationStatus,
   trackCrawlError,
   trackMobileUsabilityIssue,
-} from '@/lib/gsc-integration';
+} from '@/lib/gsc-advanced';
 
 // Track when user lands from search
 trackGSCSearchQuery({
@@ -348,7 +348,7 @@ Check:
 ## Related Files
 
 - `src/lib/analytics.ts` - Main GA4 module (consolidated)
-- `src/lib/gsc-integration.ts` - GSC tracking
+- `(removed — unused GSC postMessage listener; see gsc-advanced / gsc-indexing)` - GSC tracking
 - `src/lib/conversion-tracking.ts` - Conversion funnels
 - `src/lib/analytics-monitor.ts` - Monitoring & debugging
 - `index.html` - GA4 & GSC configuration

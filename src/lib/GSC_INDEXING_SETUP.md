@@ -355,7 +355,7 @@ All GSC activities are tracked in GA4:
 ## Related Documentation
 
 - [Analytics Setup](./ANALYTICS_SETUP.md)
-- [GSC Integration](./gsc-integration.ts)
+- [GSC Integration](./gsc-advanced.ts)
 - [robots.txt](../../public/robots.txt)
 - [Sitemap](../../public/sitemap.xml)
 

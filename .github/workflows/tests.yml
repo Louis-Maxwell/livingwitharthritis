@@ -29,14 +29,10 @@ jobs:
       - name: Run Vitest
         run: bunx vitest run
 
-  # Deno tests for edge functions — the chat prompt-injection regression
-  # suite. Boots `supabase functions serve` in the background so tests can
-  # optionally hit the served function over HTTP; the current
-  # injection.test.ts imports pure logic directly, but wiring up the
-  # serve step keeps CI ready for HTTP-level tests without another PR.
+  # Deno / supabase edge-function job retired (static+mailto site; functions deleted).
   deno:
     name: Deno (edge function tests)
-    if: false  # Supabase functions serve removed; keep vitest job only
+    if: false  # Dormant; supabase/functions removed 2026-09-16
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

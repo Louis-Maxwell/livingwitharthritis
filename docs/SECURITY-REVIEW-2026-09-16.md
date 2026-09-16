@@ -182,3 +182,24 @@ rg -n --hidden -g '!node_modules' -g '!dist' -g '!.git' 'sk_live_|whsec_|service
 ```
 
 *Reviewer: grounded pass 2026-09-16. No secrets printed in this document.*
+
+---
+
+## Remediation status (2026-09-16 follow-up)
+
+| ID | Status | Notes |
+|----|--------|-------|
+| F1 Live HTTP CSP / Permissions-Policy | **Repo fixed; live host still pending** | `public/_headers`, `index.html` meta CSP, and `.htaccess` aligned (CSP without `'unsafe-eval'`, Permissions-Policy set, `frame-ancestors 'none'` / `X-Frame-Options: DENY`). **Live Lovable/Cloudflare may still serve only `frame-ancestors 'self'` and omit Permissions-Policy** until headers are applied in the host/CDN dashboard. |
+| F2 Tighten CSP | **Partially fixed in repo** | Removed `'unsafe-eval'`. `'unsafe-inline'` retained — required for consent/boot scripts and Vite/Lovable inline styles until nonces/hashes are feasible. |
+| F3 postMessage origin | **Fixed** | Deleted unused `src/lib/gsc-integration.ts` (no app call sites; CodeQL noise removed). |
+| F4 js-yaml (dev) | **Fixed** | `overrides.js-yaml` → `^4.3.2`. |
+| F5 Vitest / mocker | **Fixed** | Bumped `vitest` + `@vitest/coverage-v8` to `^5.0.1`. |
+| F6 Workflow permissions | **Fixed** | Added `permissions: contents: read` to `lint-and-test.yml` (edge-functions-preflight workflow removed with dormant functions). Deploy CI gate unchanged. |
+| F7 Dead `server.js` | **Fixed** | Deleted root `server.js`. |
+| F8 Dormant `supabase/functions` | **Fixed** | Deleted `supabase/` tree and edge-functions preflight workflow; removed leftover `src/integrations/supabase` stubs and `@supabase/supabase-js` dependency; disabled `mcpPlugin()` in `vite.config.ts` (it was regenerating `supabase/functions/mcp` on every build). **Did not restore** a working Supabase backend. Mailto forms kept. |
+| F10 Stripe donate URL | **Fixed** | `validateStripeDonateUrl` allowlists `checkout.stripe.com` / `buy.stripe.com` / `invoice.stripe.com` / `donate.stripe.com` before redirect; otherwise mailto fallback. |
+| F9 `/debug/schema` | Open (info) | Still noindex + sanitised; optional future prod gate. |
+| F14 HSTS preload on live | Pending host | Repo `_headers` already has longer max-age + preload. |
+
+**Still requires Lovable dashboard / host config for live:** full HTTP CSP matching `public/_headers`, Permissions-Policy, and HSTS preload alignment. Meta CSP in shipped HTML provides partial browser protection until then.
+

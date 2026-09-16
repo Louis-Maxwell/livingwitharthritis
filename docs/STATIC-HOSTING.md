@@ -55,3 +55,8 @@ blogs and create soft-404 inventory gaps. Always deploy from a fresh prebuild.
 4. Confirm `/about-us` resolves to `/about`.
 5. Soft-404 GSC validation may still fail while Lovable returns SPA 200 for junk
    URLs — keep stubs honest; see `docs/GSC-INDEXING-FIX.md`.
+
+## Security headers (`public/_headers`)
+
+Netlify-style `public/_headers` defines HSTS, CSP (no `'unsafe-eval'`; `'unsafe-inline'` kept for SPA boot), Permissions-Policy, and `X-Frame-Options: DENY`. **Lovable/Cloudflare live responses may ignore `_headers` until configured in the host dashboard** — treat the repo file as source of truth and mirror there when possible. See `docs/SECURITY-REVIEW-2026-09-16.md`.
+

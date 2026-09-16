@@ -33,7 +33,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       # --package-lock-only: resolves the dependency tree and writes the
       # lockfile WITHOUT installing node_modules — fast and side-effect free.

@@ -34,6 +34,15 @@ function walk(dir: string, out: string[] = []): string[] {
   return out;
 }
 
+function pathExists(rel: string): boolean {
+  try {
+    statSync(join(ROOT, rel));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 describe("no removed backends in src/", () => {
   it("does not import removed supabase/vercel/cloudflare packages", () => {
     const files = walk(SRC).filter(
@@ -58,5 +67,17 @@ describe("no removed backends in src/", () => {
     expect(() =>
       statSync(join(ROOT, "src", "integrations", "supabase", "client.ts")),
     ).toThrow();
+  });
+
+  it("does not keep dormant Express server.js or supabase/functions", () => {
+    expect(pathExists("server.js"), "server.js should be deleted").toBe(false);
+    expect(
+      pathExists("supabase/functions"),
+      "supabase/functions should be deleted",
+    ).toBe(false);
+    expect(
+      pathExists(".github/workflows/edge-functions-preflight.yml"),
+      "edge-functions-preflight workflow should be deleted",
+    ).toBe(false);
   });
 });

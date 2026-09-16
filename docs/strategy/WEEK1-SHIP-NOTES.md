@@ -102,3 +102,9 @@ Also fixed UTF-8 mojibake arrows (`â†’` → `→`) on several guide CTAs.
 - Full WCAG AA certificate claim
 - Invented metrics, testimonials, or Oswestry address
 - Restoring Resend or other mail backends
+
+
+## Security headers note (2026-09-16)
+
+Repo source of truth for HTTP security headers is `public/_headers` (aligned with `index.html` meta CSP and `.htaccess`). **Live Lovable may still strip `_headers`** until the host/CDN dashboard applies Content-Security-Policy + Permissions-Policy. Meta CSP in HTML helps browsers but is not a substitute for HTTP CSP/`frame-ancestors`. `'unsafe-eval'` removed from repo CSP; `'unsafe-inline'` remains for Vite/Lovable boot scripts and styles.
+

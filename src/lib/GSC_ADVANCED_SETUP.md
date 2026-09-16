@@ -421,7 +421,7 @@ console.log(metrics.insights)
 ## Related Documentation
 
 - [GSC Indexing Setup](./GSC_INDEXING_SETUP.md)
-- [GSC Integration](./gsc-integration.ts)
+- [GSC Integration](./gsc-advanced.ts)
 - [Analytics Setup](./ANALYTICS_SETUP.md)
 
 ## Support
