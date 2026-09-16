@@ -25,9 +25,9 @@ import {
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
-import {
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_DIET } from "@/data/clinical/ukCitations";
+import {
   StatCounter,
   ProgressRing,
   HorizontalBar,
