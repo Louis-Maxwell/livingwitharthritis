@@ -45,4 +45,12 @@ describe("rejected soft pages that still matter", () => {
     );
     expect(getLibraryTopicSeo("lupus-symptoms")?.extraSections?.length).toBeGreaterThan(3);
   });
+
+  it("keeps hip and elbow subpages thick enough to avoid homepage-shell soft 404s", () => {
+    const hipTreat = conditionSubpages["hip-arthritis"].treatment;
+    const elbowDiet = conditionSubpages["elbow-arthritis"].diet;
+    expect(hipTreat.extraSections?.some((s) => /NHS|NICE/i.test(s.body))).toBe(true);
+    expect(elbowDiet.extraSections?.length).toBeGreaterThan(1);
+    expect(conditionSubpages["elbow-arthritis"].symptoms.extraSections?.length).toBeGreaterThan(1);
+  });
 });

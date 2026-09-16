@@ -167,7 +167,7 @@ const HipArthritis = () => (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCounter value="3.2" suffix="M" label="UK adults with hip OA" icon={<Users className="w-6 h-6" />} color="emerald" />
             <StatCounter value="45" suffix="+" label="Typical age of onset" icon={<Timer className="w-6 h-6" />} color="sky" />
-            <StatCounter value="3" suffix="Ã—" label="Body weight through hip when walking" icon={<Scale className="w-6 h-6" />} color="amber" />
+            <StatCounter value="3" suffix="×" label="Body weight through hip when walking" icon={<Scale className="w-6 h-6" />} color="amber" />
             <StatCounter value="95" suffix="%" label="Hip replacements lasting 10+ yrs" icon={<TrendingUp className="w-6 h-6" />} color="violet" />
           </div>
         </div>
@@ -196,11 +196,11 @@ const HipArthritis = () => (
         <Section icon={Heart} title="What causes hip arthritis?">
           <ul>
             <li><strong>Age</strong> — most cases develop after 45</li>
-            <li><strong>Body weight</strong> — the hip carries 3Ã— body weight when walking and up to 5Ã— when climbing stairs</li>
+            <li><strong>Body weight</strong> — the hip carries 3× body weight when walking and up to 5× when climbing stairs</li>
             <li><strong>Previous hip injury</strong> — fractures, labral tears and dislocations multiply risk</li>
             <li><strong>Hip dysplasia or impingement (FAI)</strong> — abnormal joint shape concentrates load on a small area of cartilage</li>
             <li><strong>Occupation</strong> — heavy lifting, prolonged standing and farming</li>
-            <li><strong>Genetics</strong> — strong family history increases risk roughly 2Ã—</li>
+            <li><strong>Genetics</strong> — strong family history increases risk roughly 2×</li>
           </ul>
         </Section>
 

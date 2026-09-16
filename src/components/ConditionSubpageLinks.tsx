@@ -1,5 +1,17 @@
 import { Link } from "react-router-dom";
-import { subpageSlugs, subpageLabel, conditionSubpages } from "@/data/conditionSubpages";
+import {
+  subpageSlugs,
+  subpageLabel,
+  conditionSubpages,
+  type SubpageSlug,
+} from "@/data/conditionSubpages";
+
+/** Visitor-facing destinations when a subpage URL 301s to a fuller guide. */
+const SUBPAGE_HREF_OVERRIDES: Partial<
+  Record<string, Partial<Record<SubpageSlug, string>>>
+> = {
+  "hip-arthritis": { exercises: "/guides/hip-exercises-for-osteoarthritis" },
+};
 
 interface Props {
   conditionSlug: string;
@@ -26,7 +38,10 @@ export default function ConditionSubpageLinks({ conditionSlug, conditionName }: 
         {subpageSlugs.map((s) => (
           <Link
             key={s}
-            to={`/conditions/${conditionSlug}/${s}`}
+            to={
+              SUBPAGE_HREF_OVERRIDES[conditionSlug]?.[s] ??
+              `/conditions/${conditionSlug}/${s}`
+            }
             className="block p-4 rounded-xl border border-border hover:border-primary hover:bg-accent transition-colors"
           >
             <span className="block font-semibold text-foreground">{subpageLabel[s]}</span>

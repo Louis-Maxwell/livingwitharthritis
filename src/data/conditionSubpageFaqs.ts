@@ -1,6 +1,6 @@
 ﻿// Programmatic FAQ generator for /conditions/:condition/:subpage pages.
 // Produces 5 question-based long-tail keyword variations per page,
-// applied to all 13 conditions Ã— 4 sub-pages = 52 unique FAQ blocks.
+// applied to written condition sub-pages (generic fallback if a slug has no unique block).
 
 import type { SubpageSlug } from "./conditionSubpages";
 
@@ -178,6 +178,226 @@ const UNIQUE_SUBPAGE_FAQS: Record<
         question: "Why does AS diet advice mention bones?",
         answer:
           "Reduced mobility, inflammation and sometimes steroids raise osteoporosis risk. Calcium-rich foods or fortified alternatives, vitamin D in UK winter, and resistance exercise matter as much as 'anti-inflammatory' marketing.",
+      },
+    ],
+  },
+  "hip-arthritis": {
+    symptoms: [
+      {
+        question: "Where do you feel hip arthritis pain?",
+        answer:
+          "Most people feel a deep ache in the groin or front of the hip, sometimes travelling to the thigh or knee. Outer-hip pain is more often bursitis or a gluteal tendon problem. Difficulty with socks and shoes is a classic hip-joint clue.",
+      },
+      {
+        question: "How is hip osteoarthritis diagnosed in the UK?",
+        answer:
+          "A GP or first-contact physiotherapist can often diagnose hip OA from history and examination. Imaging is not always needed on day one. X-ray is the usual next step if night pain, limp or walking distance stay poor, or if surgery is being discussed.",
+      },
+      {
+        question: "Can hip arthritis pain come and go?",
+        answer:
+          "Yes. Many people have quieter days and flares after longer walks, hills, or sitting in a low chair. Morning stiffness that eases within about half an hour of moving is typical of osteoarthritis rather than inflammatory arthritis.",
+      },
+      {
+        question: "When should I see a GP about hip pain?",
+        answer:
+          "Book if groin or hip pain lasts more than a few weeks, wakes you at night, or cuts your walking distance. Seek same-day care if you cannot take weight after a fall, or if the hip is hot with fever.",
+      },
+      {
+        question: "Is hip pain the same as sciatica?",
+        answer:
+          "Not usually. Sciatica more often shoots below the knee with back clues. Hip OA is typically groin, stiffness after sitting, and trouble with socks. You can have both — tell the clinician which movement actually hurts.",
+      },
+    ],
+    treatment: [
+      {
+        question: "What is the first treatment for hip osteoarthritis on the NHS?",
+        answer:
+          "NICE-aligned care starts with exercise, weight support where needed, and simple pain relief — not an early hip replacement. Physiotherapy for glutes and hip abductors plus a low-impact cardio choice is core treatment for everyone.",
+      },
+      {
+        question: "Do I need a hip replacement?",
+        answer:
+          "Replacement is considered when sleep, walking and daily tasks stay badly limited after months of conservative care. It is a later conversation, not the default first appointment.",
+      },
+      {
+        question: "Does a walking stick help hip arthritis?",
+        answer:
+          "Yes for many people on longer walks. Use the stick in the opposite hand to the painful hip so it offloads that side. A pole can do the same job outdoors.",
+      },
+      {
+        question: "Are steroid injections a cure for hip OA?",
+        answer:
+          "No. An image-guided hip injection can settle a bad flare while you keep rehabilitating. Relief is temporary. Ask a clinician whether it fits your other health conditions.",
+      },
+      {
+        question: "Can I use ibuprofen gel on the hip?",
+        answer:
+          "Topical NSAIDs are first-line for some joints in NICE OA guidance. The hip sits deeper than a finger joint, so gel may help less than it does for a knee or hand. Oral NSAIDs, if appropriate, are short courses with food after a pharmacist or GP check.",
+      },
+    ],
+    exercises: [
+      {
+        question: "What are the best exercises for hip osteoarthritis?",
+        answer:
+          "Glute and hip-abductor strength plus swimming, cycling or pool walking. This site’s dedicated hip-exercise guide has a full step-by-step routine. Rest alone usually makes the hip stiffer.",
+      },
+      {
+        question: "Is walking good for hip arthritis?",
+        answer:
+          "Steady walking on even ground is useful for many people. Hills, long downhill stretches and deep loaded squats often flare groin pain. If walking aggravates you, switch to a bike or pool and keep the strength work.",
+      },
+      {
+        question: "What exercises should I avoid with a painful hip?",
+        answer:
+          "Skip deep loaded squats early, lunges that catch in the groin, and stretching into sharp pain. A pole in the opposite hand can offload a painful hip on walks.",
+      },
+      {
+        question: "How often should I exercise with hip OA?",
+        answer:
+          "Most days, in short blocks. Two or three strength sessions a week plus regular low-impact cardio is a realistic UK pattern. Benefits build over weeks, not after one gym visit.",
+      },
+      {
+        question: "Can I exercise before a hip replacement?",
+        answer:
+          "Yes — stronger glutes and better walking stamina usually help recovery. Keep the range comfortable and follow the plan your physiotherapy team gives you.",
+      },
+    ],
+    diet: [
+      {
+        question: "Is there a special diet for hip arthritis?",
+        answer:
+          "No. Weight control and a Mediterranean-style pattern matter because extra load on the hip shows up quickly in pain and walking distance. There is no hip-specific superfood.",
+      },
+      {
+        question: "Why does weight loss help hip pain?",
+        answer:
+          "Each extra kilogram is multiplied across the hip when you walk or climb stairs. A realistic reduction, if you have weight to lose, often helps day-to-day pain more than most supplement claims. Verify any percentage targets with your clinician or a dietitian.",
+      },
+      {
+        question: "What should I eat around hip exercises?",
+        answer:
+          "Protein at meals protects muscle while you strengthen. Drink water around sessions. Crash diets that strip muscle make the joint less supported.",
+      },
+      {
+        question: "Do glucosamine or collagen fix hip cartilage?",
+        answer:
+          "Evidence for rebuilding hip cartilage with supplements is weak. If you still want to try a product, ask a pharmacist about interactions. Food pattern and load on the joint come first.",
+      },
+      {
+        question: "Can I take pain tablets without food?",
+        answer:
+          "Ibuprofen or naproxen for a hip flare should be taken with food. Stomach, kidney or heart history needs a GP or pharmacist check. Diet does not replace that safety step.",
+      },
+    ],
+  },
+  "elbow-arthritis": {
+    symptoms: [
+      {
+        question: "What does elbow arthritis feel like?",
+        answer:
+          "A deep ache with stiffness, often worse when straightening or rotating the forearm. Catching or locking is more suggestive of joint surface or loose-body problems than simple tennis elbow.",
+      },
+      {
+        question: "Is elbow pain always arthritis?",
+        answer:
+          "No. Tennis elbow and golfer’s elbow (tendon overload) are more common in UK adults. True elbow osteoarthritis is less common and more often follows an old fracture or inflammatory arthritis.",
+      },
+      {
+        question: "When should I see a GP about elbow pain?",
+        answer:
+          "See a GP if pain and stiffness last more than a few weeks, locking is frequent, you cannot straighten the arm, or you have tingling in the ring and little fingers. Mention any old elbow fracture.",
+      },
+      {
+        question: "Can elbow arthritis lock the joint?",
+        answer:
+          "Yes. Catching, clicking or locking when you straighten the arm can mean the joint surfaces or loose fragments are getting in the way. Repeated locking is a reason to ask about physiotherapy and, if needed, imaging — not to force the arm straight.",
+      },
+      {
+        question: "Why does my grip feel weak?",
+        answer:
+          "Pain often makes you let go of jars and kettles. That is not automatically nerve damage. Numbness in the ring and little fingers is a separate ulnar-nerve clue and should be described to the GP.",
+      },
+    ],
+    treatment: [
+      {
+        question: "What is the best treatment for elbow arthritis in the UK?",
+        answer:
+          "Most people improve with activity changes, daily gentle movement, topical NSAID gel if suitable, and physiotherapy. Injections and surgery are for stubborn locking or disabling pain after that conservative care.",
+      },
+      {
+        question: "Should I rest a painful elbow completely?",
+        answer:
+          "Full rest usually stiffens the joint. Ease repetitive gripping, vibration tools and heavy lifting during a flare, but keep comfortable bend-and-straighten and forearm rotation.",
+      },
+      {
+        question: "Do steroid injections cure elbow arthritis?",
+        answer:
+          "No. They can settle a bad flare. Benefits are temporary. Discuss how often they are appropriate with a clinician, especially if you also have tennis elbow.",
+      },
+      {
+        question: "Is elbow replacement common?",
+        answer:
+          "It is used much less often than hip or knee replacement, and lifting limits afterwards are stricter. It is a specialist decision after conservative care has failed.",
+      },
+      {
+        question: "What helps at work with elbow arthritis?",
+        answer:
+          "Two-handed lifts, a backpack instead of a one-shoulder bag, paced DIY, and less vibration-tool time. Occupational health can look at tools if your job is manual.",
+      },
+    ],
+    exercises: [
+      {
+        question: "What are the best exercises for elbow arthritis?",
+        answer:
+          "Supported bend-and-straighten, palm-up and palm-down rotations, and light grip squeezes. Warm the elbow first if it is stiff. Stay inside a comfortable range.",
+      },
+      {
+        question: "Is it safe to exercise with elbow osteoarthritis?",
+        answer:
+          "Yes for most people, as long as you stop short of a sharp catch or lock. Heat before movement often reduces morning stiffness.",
+      },
+      {
+        question: "What exercises should I avoid with elbow arthritis?",
+        answer:
+          "Heavy curls, weighted extensions, and pushing through a lock during a flare. Return to load when warmth and catching settle.",
+      },
+      {
+        question: "How often should I move the elbow?",
+        answer:
+          "Short sessions most days beat a long painful workout. Two or three sets of gentle range, plus light grip work on non-flare days, is a realistic pattern.",
+      },
+      {
+        question: "Can exercise stop elbow arthritis getting worse?",
+        answer:
+          "Exercise will not regrow cartilage, but keeping range and forearm strength protects dressing, cooking and lifting better than rest. Pair it with activity changes at work.",
+      },
+    ],
+    diet: [
+      {
+        question: "Is there a diet that rebuilds elbow cartilage?",
+        answer:
+          "No. A Mediterranean-style pattern, enough protein for strength work, and a healthy weight support the plan. Ignore supplement stacks sold as cartilage repair unless a clinician recommended a specific product.",
+      },
+      {
+        question: "What should I eat for elbow rehab?",
+        answer:
+          "Protein across meals to support forearm and grip work, plus vegetables, pulses, wholegrains and oily fish most weeks. Drink water around exercise.",
+      },
+      {
+        question: "Should I take ibuprofen on an empty stomach for elbow pain?",
+        answer:
+          "No. Take oral NSAIDs with food if they are appropriate for you. Gel on the joint often comes first because the elbow is close to the skin.",
+      },
+      {
+        question: "Do omega-3 supplements help elbow arthritis?",
+        answer:
+          "Oily fish most weeks is the food-first option. High-dose capsules are a pharmacist conversation if you take other medicines. They will not unlock a catching elbow on their own.",
+      },
+      {
+        question: "Can alcohol make elbow pain worse?",
+        answer:
+          "Heavy drinking disrupts sleep and recovery. It is not a specific elbow poison, but poorer sleep makes pain feel worse the next day.",
       },
     ],
   },

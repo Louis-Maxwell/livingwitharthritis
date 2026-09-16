@@ -1343,6 +1343,41 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/hip-arthritis/symptoms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/hip-arthritis/treatment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/hip-arthritis/diet</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/elbow-arthritis/symptoms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/elbow-arthritis/treatment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/elbow-arthritis/exercises</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/elbow-arthritis/diet</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/faq/can-arthritis-cause-fatigue</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

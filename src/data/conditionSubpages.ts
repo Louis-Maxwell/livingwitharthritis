@@ -1030,6 +1030,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
       whenToSeeGP:
         "See your GP if groin pain has lasted more than a few weeks, wakes you at night, or is stopping you walking usual distances. Ask about physiotherapy and, if night pain or limp is severe, whether imaging is needed.",
+      extraSections: [
+        {
+          heading: "Groin pain is hip pain until proven otherwise",
+          body: "Hip osteoarthritis often shows up as groin or front-of-thigh ache, not a hand-on-the-outer-hip gesture. Outer-hip pain is more often bursitis or gluteal tendon irritation. Knee pain with a stiff hip can be referred from the hip — tell the GP if socks, shoes or getting out of a chair are the real problem, not the knee itself.",
+        },
+        {
+          heading: "What is not typical hip osteoarthritis",
+          body: "Sudden inability to take weight after a fall, a hot red hip with fever, or pain after cancer treatment needs urgent same-day assessment, not a wait-and-see arthritis plan. New numbness with back pain may be nerve root or spinal, not the hip joint. Those patterns belong in NHS urgent pathways.",
+        },
+      ],
     },
     treatment: {
       headline: "Hip arthritis treatment",
@@ -1043,6 +1053,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         { name: "Steroid injection", description: "Sometimes used for a severe flare while rehabilitation continues — not a permanent fix." },
         { name: "Hip replacement", description: "Considered when pain disturbs sleep, limits daily life, and 3–6 months of conservative care has not been enough." },
       ],
+      extraSections: [
+        {
+          heading: "NHS pathway in plain English",
+          body: "Most people start with a GP or first-contact physiotherapist. Core treatment is a supervised exercise plan and, where relevant, support with weight. If night pain, limp and walking distance stay poor after a proper conservative trial, you may be referred to an MSK or hip clinic to discuss imaging and, later, replacement. NICE does not treat replacement as a first visit.",
+        },
+        {
+          heading: "Walking aids and sleep",
+          body: "A stick in the opposite hand reduces load on the painful hip on longer walks. If night pain wakes you when you lie on that side, a pillow between the knees and not sleeping on the sore hip is a practical first step while you wait for physiotherapy. Persistent night pain after these changes is a reason to go back to the GP, not to search for a hip-replacement clinic on the first week of symptoms.",
+        },
+      ],
     },
     exercises: {
       headline: "Best exercises for hip arthritis",
@@ -1054,6 +1074,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Supports the muscles that stabilise a worn hip joint",
         "Low-impact options (pool, bike) keep fitness without heavy joint load",
         "Helps before and after any planned hip replacement",
+      ],
+      extraSections: [
+        {
+          heading: "Use the written hip routine",
+          body: "This site keeps a full eight-move hip osteoarthritis routine on the dedicated hip-exercise guide. Open that guide for the step-by-step set. This page is the short version: glutes, abductors, and a low-impact cardio choice you can repeat most weeks.",
+        },
+        {
+          heading: "What to skip during a flare",
+          body: "Deep loaded squats, long downhill walks, and stretching into sharp groin catch usually worsen a flare. Switch to pool walking or a bike, keep the range comfortable, and return to strength when night pain eases.",
+        },
       ],
     },
     diet: {
@@ -1101,6 +1131,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
       whenToSeeGP:
         "See your GP if elbow pain and stiffness last more than a few weeks, locking is frequent, or you cannot straighten the arm. Mention any old fracture or dislocation of that elbow.",
+      extraSections: [
+        {
+          heading: "Tennis elbow is not the same as elbow arthritis",
+          body: "Most UK elbow pain is tendon overload on the outside (tennis elbow) or inside (golfer's elbow). True elbow osteoarthritis is less common and more often follows an old fracture or sits inside rheumatoid or psoriatic disease. Outer-elbow pain with gripping and a painful handshake is often tendon, not worn cartilage. Catching, loss of straightening, and a deep joint ache after an old injury point more toward arthritis.",
+        },
+        {
+          heading: "Tingling in the ring and little fingers",
+          body: "Pins and needles in the ring and little fingers with elbow pain can be the ulnar nerve at the inner elbow, not 'just arthritis'. That pattern is worth a GP mention because early activity change and, if needed, nerve-focused care work better than waiting for the fingers to stay numb.",
+        },
+      ],
     },
     treatment: {
       headline: "Elbow arthritis treatment",
@@ -1114,6 +1154,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         { name: "Injection", description: "Steroid injection is occasional for a bad flare — discuss benefits and limits with a clinician." },
         { name: "Surgery", description: "Rarely needed; considered for severe arthritis or mechanical locking that blocks daily life." },
       ],
+      extraSections: [
+        {
+          heading: "NHS care without jumping to surgery",
+          body: "Start with a GP or physiotherapist: keep the elbow moving in a comfortable range, share loads between both hands, and use topical NSAID gel if it is suitable for you. Oral tablets are short courses with food, not an all-day habit. Injection and keyhole clean-up are later options when locking or pain still block dressing and cooking after a proper conservative trial.",
+        },
+        {
+          heading: "Work and hobbies",
+          body: "Vibration tools, heavy single-arm bags, and long screwdriver sessions are common flare triggers. A backpack, two-handed lifts, and paced DIY often help more than a new supplement. If your job is manual, occupational health or a workplace physio can look at tools and rest breaks — that is part of treatment, not a sideline.",
+        },
+      ],
     },
     exercises: {
       headline: "Best exercises for elbow arthritis",
@@ -1125,6 +1175,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Reduces morning stiffness with daily gentle work",
         "Supports recovery after a flare without total rest",
         "Pairs well with activity changes at work or hobbies",
+      ],
+      extraSections: [
+        {
+          heading: "A simple daily set",
+          body: "Supported bend-and-straighten, palm-up and palm-down rotations, and light grip squeezes (a soft ball) cover most daily function. Heat for a few minutes first if the joint is stiff. Stop short of a sharp catch or lock. If a move repeatedly locks the elbow, skip it and ask a physiotherapist rather than forcing end range.",
+        },
+        {
+          heading: "What to avoid in a flare",
+          body: "Heavy curls, weighted extensions, and pushing through a lock usually worsen swelling. Rest is relative: keep gentle range, drop load, and return to strength when warmth and catching settle.",
+        },
       ],
     },
     diet: {
@@ -1141,6 +1201,16 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Ultra-processed snacks that crowd out useful meals",
         "Excess alcohol",
         "Very high-dose supplement stacks marketed for 'cartilage repair' without evidence",
+      ],
+      extraSections: [
+        {
+          heading: "Protein around rehab, not miracle cartilage food",
+          body: "Forearm and grip work needs enough protein across the day. A Mediterranean-style pattern is the usual UK-aligned base. No single food rebuilds elbow cartilage. Skip supplement stacks sold as cartilage repair unless your GP or pharmacist has a reason for a specific product.",
+        },
+        {
+          heading: "Tablets and meals",
+          body: "If you use ibuprofen or naproxen for an elbow flare, take it with food. A history of ulcers, kidney or heart disease is a pharmacist or GP check, not a diet-forum question. Gel on the joint often comes first for elbow pain because the joint is close to the skin.",
+        },
       ],
     },
   },

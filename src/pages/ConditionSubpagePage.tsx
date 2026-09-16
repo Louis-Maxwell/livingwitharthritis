@@ -61,7 +61,7 @@ function subpageDescription(condName: string, subpage: SubpageSlug): string {
 
 /**
  * Programmatic SEO page: /conditions/:condition/:subpage
- * 13 conditions Ã— 4 sub-pages = 52 unique pages.
+ * Written keys in conditionSubpages.ts × 4 sub-pages (hip exercises 301s to a guide).
  */
 const ConditionSubpagePage = () => {
   const { condition, subpage } = useParams<{ condition: string; subpage: string }>();

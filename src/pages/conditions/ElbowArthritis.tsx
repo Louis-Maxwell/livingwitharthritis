@@ -15,6 +15,7 @@ import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
+import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/conditions/elbow-arthritis`;
@@ -211,7 +212,7 @@ const ElbowArthritis = () => (
           <p>The aim is to preserve bending, straightening and forearm rotation <em>without</em> overloading the joint. Stop short of sharp pain, and use heat for 10 minutes before starting.</p>
           <h3>Range of motion</h3>
           <ul>
-            <li><strong>Active elbow bends</strong> — sit with the arm supported on a table, slowly bend and straighten the elbow. 10 reps, 2–3Ã— a day.</li>
+            <li><strong>Active elbow bends</strong> — sit with the arm supported on a table, slowly bend and straighten the elbow. 10 reps, 2–3× a day.</li>
             <li><strong>Forearm rotations</strong> — elbow tucked at the side, turn the palm up then down. 10 each way.</li>
             <li><strong>Wall-supported triceps stretch</strong> — gently encourage the last few degrees of extension by placing the forearm flat on a wall.</li>
           </ul>
@@ -251,7 +252,7 @@ const ElbowArthritis = () => (
             <li>Daily mobility and grip routine (above)</li>
             <li>Activity modification — share heavy loads between both hands</li>
             <li>Heat before activity, ice for 10 minutes after a flare</li>
-            <li>Topical NSAID gel applied around the joint 3Ã— daily</li>
+            <li>Topical NSAID gel applied around the joint 3× daily</li>
           </ul>
           <h3>Medical treatments</h3>
           <ul>
@@ -288,6 +289,8 @@ const ElbowArthritis = () => (
           conditionName="Elbow arthritis"
           matchCategories={["Exercise", "Treatment"]}
         />
+
+        <ConditionSubpageLinks conditionSlug="elbow-arthritis" conditionName="Elbow Arthritis" />
 
         <ContextualLinks
           heading="Pair elbow care with the right resources"

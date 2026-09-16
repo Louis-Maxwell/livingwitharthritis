@@ -31,7 +31,8 @@ const JOINT_TYPES = [
 ] as const;
 // Programmatic /conditions/:condition/:subpage URLs — previously only linked
 // from their parent condition page, so they appeared as orphans in audits.
-// Mirrors the 13 conditions in src/data/conditionSubpages.ts (× 4 sub-pages = 52).
+// Mirrors written keys in src/data/conditionSubpages.ts. Hip exercises 301
+// to /guides/hip-exercises-for-osteoarthritis and are listed as that guide.
 const CONDITION_SUBPAGE_SLUGS = [
   ["osteoarthritis", "Osteoarthritis"],
   ["rheumatoid-arthritis", "Rheumatoid Arthritis"],
@@ -46,7 +47,12 @@ const CONDITION_SUBPAGE_SLUGS = [
   ["shoulder-arthritis", "Shoulder Arthritis"],
   ["polymyalgia-rheumatica", "Polymyalgia Rheumatica"],
   ["reactive-arthritis", "Reactive Arthritis"],
+  ["hip-arthritis", "Hip Arthritis"],
+  ["elbow-arthritis", "Elbow Arthritis"],
 ] as const;
+const SUBPAGE_SITEMAP_OVERRIDES: Record<string, string> = {
+  "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
+};
 const SUBPAGE_KINDS = [
   ["symptoms", "Symptoms"],
   ["treatment", "Treatment"],
@@ -63,10 +69,13 @@ const exerciseMatrixLinks: SitemapLink[] = EXERCISE_TYPES.flatMap(([exSlug, exLa
 
 const conditionSubpageLinks: SitemapLink[] = CONDITION_SUBPAGE_SLUGS.flatMap(
   ([condSlug, condLabel]) =>
-    SUBPAGE_KINDS.map(([subSlug, subLabel]) => ({
-      label: `${condLabel} – ${subLabel}`,
-      href: `/conditions/${condSlug}/${subSlug}`,
-    })),
+    SUBPAGE_KINDS.map(([subSlug, subLabel]) => {
+      const raw = `/conditions/${condSlug}/${subSlug}`;
+      return {
+        label: `${condLabel} – ${subLabel}`,
+        href: SUBPAGE_SITEMAP_OVERRIDES[raw] ?? raw,
+      };
+    }),
 );
 
 const cityLinks: SitemapLink[] = ukCities.map((c) => ({
