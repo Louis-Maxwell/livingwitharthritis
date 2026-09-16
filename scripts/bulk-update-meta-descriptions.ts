@@ -4,6 +4,6 @@
  */
 console.error(
   "[skip] scripts/bulk-update-meta-descriptions.ts: Supabase backend removed. " +
-    "Update meta descriptions in the local blog catalog/JSON instead. No @supabase import.",
+    "Update meta descriptions in the local blog catalog/JSON instead. Use the local catalog/JSON instead — no remote backend.",
 );
 process.exit(0);

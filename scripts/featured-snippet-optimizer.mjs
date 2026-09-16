@@ -5,6 +5,6 @@
  */
 console.error(
   "[skip] scripts/featured-snippet-optimizer.mjs: Supabase backend removed. " +
-    "Cannot fetch remote articles. No @supabase import.",
+    "Cannot fetch remote articles. Use the local catalog/JSON instead — no remote backend.",
 );
 process.exit(0);

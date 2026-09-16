@@ -40,7 +40,7 @@ function walk(dir: string, out: string[] = []): string[] {
     if (st.isDirectory()) {
       if (name === "node_modules" || name === "dist" || name === ".git") continue;
       walk(full, out);
-    } else if (/\.(ts|tsx|js|jsx|mjs|cjs|yml|yaml|json|html)$/.test(name)) {
+    } else if (/\.(ts|tsx|mts|js|jsx|mjs|cjs|yml|yaml|json|html)$/.test(name)) {
       out.push(full);
     }
   }

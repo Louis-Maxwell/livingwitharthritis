@@ -5,6 +5,6 @@
  */
 console.error(
   "[skip] scripts/generate-complete-sitemap.mjs: Supabase backend removed. " +
-    "Use `bun scripts/generate-sitemap.ts` instead. No @supabase import.",
+    "Use `bun scripts/generate-sitemap.ts` instead. Use the local catalog/JSON instead — no remote backend.",
 );
 process.exit(0);

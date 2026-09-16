@@ -6,6 +6,6 @@
  */
 console.error(
   "[skip] scripts/internal-linking-strategy.mjs: Supabase backend removed. " +
-    "This script no longer imports @supabase/supabase-js and cannot run without a DB.",
+    "This script needs a local content DB export; it does not call any remote backend.",
 );
 process.exit(0);
