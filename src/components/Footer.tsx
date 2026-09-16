@@ -51,7 +51,6 @@ const columns = [
       { label: "Trust & Credibility", href: "/trust" },
       { label: "AI Transparency", href: "/about/ai-transparency" },
       { label: "AI Answers & Tools", href: "/ai" },
-      { label: "Connect an AI Assistant", href: "/connect" },
       { label: "Clinical Sources", href: "/sources" },
       { label: "Editorial Standards", href: "/editorial-standards" },
       { label: "Claims Policy", href: "/about/editorial-claims-policy" },
