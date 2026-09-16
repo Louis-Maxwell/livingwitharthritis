@@ -128,7 +128,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Can exercise make osteoarthritis worse?" },
         ]}
         faqs={FAQS}

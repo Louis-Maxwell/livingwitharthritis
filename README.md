@@ -36,7 +36,7 @@ Admin, sign-in, comments, forum, appointments, CMS and article audio are paused.
 
 ## Identity checks
 
-npm run seo:ai-identity asserts charity 1218461, Oswestry, independent of Arthritis UK, PH128483, and Bytespider Disallow: / in public/robots.txt.
+npm run seo:ai-identity asserts charity 1218461, independence from Arthritis UK, clinician HCPC PH128483, and Bytespider Disallow: / in public/robots.txt. The Oswestry registered address is intentionally not published on the public site.
 
 ## License
 

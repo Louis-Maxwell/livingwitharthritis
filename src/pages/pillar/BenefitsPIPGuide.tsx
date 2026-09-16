@@ -249,7 +249,7 @@ export default function BenefitsPIPGuide() {
         medical={{ condition: "Arthritis" }}
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Benefits & PIP Guide" },
         ]}
         faqs={PIP_GUIDE_FAQS}

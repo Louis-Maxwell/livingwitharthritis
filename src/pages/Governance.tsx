@@ -119,13 +119,19 @@ Regulated by the Charity Commission for England and Wales.
           "@type": "WebPage",
           name: "Governance & Constitution",
           url: `${CHARITY.siteUrl}/governance`,
-          isPartOf: { "@type": "WebSite", name: CHARITY.legalName, url: CHARITY.siteUrl },
+          isPartOf: { "@id": `${CHARITY.siteUrl}/#website` },
           about: {
+            "@id": `${CHARITY.siteUrl}/#organization`,
             "@type": "NGO",
             name: CHARITY.legalName,
             foundingDate: String(CHARITY.foundedYear),
+            identifier: {
+              "@type": "PropertyValue",
+              propertyID: "GB-CHC",
+              value: CHARITY.number,
+              url: CHARITY.registerUrl,
+            },
             areaServed: { "@type": "Country", name: "United Kingdom" },
-            address: { "@type": "PostalAddress", addressCountry: "GB" },
           }
         })}</script>
       <meta name="twitter:card" content="summary_large_image" />

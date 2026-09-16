@@ -2,16 +2,20 @@ import { useEffect } from "react";
 import { getSchemaOrgSameAs } from "@/config/social-media";
 
 /**
- * Sitewide MedicalOrganization JSON-LD with sameAs links.
+ * Sitewide NGO + MedicalOrganization + WebSite JSON-LD.
  * Strengthens entity disambiguation for LLMs and search engines.
  * Mounted once at root via App.tsx. Injected via useEffect (per project
- * memory — never via Helmet).
+ * memory — never via Helmet). Static copies with the same script ids live
+ * in index.html for non-JS crawlers; this component refreshes those nodes
+ * instead of emitting a second Organization / WebSite block.
  */
 const BASE = "https://livingwitharthritis.org.uk";
+const REGISTER_URL =
+  "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0";
 
-const PAYLOAD = {
+export const ORGANIZATION_PAYLOAD = {
   "@context": "https://schema.org",
-  "@type": "MedicalOrganization",
+  "@type": ["MedicalOrganization", "NGO", "Organization"],
   "@id": `${BASE}/#organization`,
   name: "Living With Arthritis UK",
   legalName: "Living With Arthritis",
@@ -54,12 +58,29 @@ const PAYLOAD = {
     { "@type": "AdministrativeArea", name: "Northern Ireland" },
   ],
   medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
-  identifier: {
-    "@type": "PropertyValue",
-    propertyID: "GB-CHC",
-    value: "1218461",
-    url: "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
+  identifier: [
+    {
+      "@type": "PropertyValue",
+      propertyID: "GB-CHC",
+      value: "1218461",
+      url: REGISTER_URL,
+    },
+  ],
+  subjectOf: {
+    "@type": "CreativeWork",
+    name: "UK Charity Commission Register entry",
+    url: REGISTER_URL,
   },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+44-7760-512-084",
+      email: "info@livingwitharthritis.org.uk",
+      contactType: "customer support",
+      availableLanguage: ["English", "en-GB"],
+      areaServed: "GB",
+    },
+  ],
   knowsAbout: [
     "Osteoarthritis",
     "Rheumatoid arthritis",
@@ -86,43 +107,54 @@ const PAYLOAD = {
   // owned by this charity. Generated from centralized social-media.ts config.
   sameAs: [
     ...getSchemaOrgSameAs(),
-    "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
+    REGISTER_URL,
     "https://findthatcharity.uk/orgid/GB-CHC-1218461",
     "https://ngoexplorer.org/charity/1218461",
   ],
 };
 
-const WEBSITE_PAYLOAD = {
+export const WEBSITE_PAYLOAD = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${BASE}/#website`,
   name: "Living With Arthritis UK",
-  url: BASE,
+  url: `${BASE}/`,
   inLanguage: "en-GB",
+  description:
+    "Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.",
   publisher: { "@id": `${BASE}/#organization` },
   potentialAction: {
     "@type": "SearchAction",
-    target: `${BASE}/search?q={search_term_string}`,
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE}/search?q={search_term_string}`,
+    },
     "query-input": "required name=search_term_string",
   },
 };
 
+function upsertJsonLd(id: string, payload: unknown): HTMLScriptElement | null {
+  const existing = document.getElementById(id);
+  const json = JSON.stringify(payload);
+  if (existing instanceof HTMLScriptElement) {
+    existing.type = "application/ld+json";
+    existing.text = json;
+    return null;
+  }
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = id;
+  script.text = json;
+  document.head.appendChild(script);
+  return script;
+}
+
 export default function RootOrganizationSchema() {
   useEffect(() => {
-    const ids = [
-      { id: "root-organization-jsonld", payload: PAYLOAD },
-      { id: "root-website-jsonld", payload: WEBSITE_PAYLOAD },
-    ];
-    const created: HTMLScriptElement[] = [];
-    for (const { id, payload } of ids) {
-      document.getElementById(id)?.remove();
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = id;
-      script.text = JSON.stringify(payload);
-      document.head.appendChild(script);
-      created.push(script);
-    }
+    const created = [
+      upsertJsonLd("root-organization-jsonld", ORGANIZATION_PAYLOAD),
+      upsertJsonLd("root-website-jsonld", WEBSITE_PAYLOAD),
+    ].filter((node): node is HTMLScriptElement => Boolean(node));
     return () => {
       for (const script of created) script.remove();
     };

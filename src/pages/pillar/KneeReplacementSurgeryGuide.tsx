@@ -200,7 +200,7 @@ export default function KneeReplacementSurgeryGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Knee Replacement Surgery" },
         ]}
         faqs={KNEE_REPLACEMENT_FAQS}

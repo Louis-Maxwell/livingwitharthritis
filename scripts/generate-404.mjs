@@ -51,6 +51,8 @@ const html = `<!DOCTYPE html>
     <meta property="og:description" content="${DESCRIPTION}" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="${TITLE}" />
+    <meta name="twitter:description" content="${DESCRIPTION}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
 ${assetTags}

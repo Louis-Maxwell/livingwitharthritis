@@ -157,7 +157,7 @@ export default function SteroidsGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Steroids for Arthritis" },
         ]}
         faqs={STEROID_FAQS}

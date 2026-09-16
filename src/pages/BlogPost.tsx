@@ -315,10 +315,12 @@ const BlogPost = () => {
         <meta property="article:section" content={article.category || "Health"} />
         <meta property="article:tag" content="arthritis" />
 
+        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
         <meta name="twitter:image" content={coverAbsolute} />
+        <meta name="twitter:image:alt" content={article.title} />
         <meta name="geo.region" content="GB" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
