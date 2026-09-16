@@ -6,7 +6,7 @@ import { buildCharitySchema } from "@/lib/jsonLd";
 import {
   ORGANIZATION_PAYLOAD,
   WEBSITE_PAYLOAD,
-} from "@/components/seo/RootOrganizationSchema";
+} from "@/lib/rootOrganizationSchema";
 
 const indexHtml = readFileSync(resolve("index.html"), "utf8");
 const robots = readFileSync(resolve("public/robots.txt"), "utf8");
