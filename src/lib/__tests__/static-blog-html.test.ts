@@ -240,19 +240,32 @@ describe("static blog HTML for Soft 404s", () => {
     );
   });
 
-  it("thin city hubs and /uk paths ship Page not found + noindex (never homepage OG)", () => {
+  it("unknown city /uk paths ship Page not found + noindex (never homepage OG)", () => {
     for (const route of [
-      "/arthritis-support/london",
       "/arthritis-support/not-a-real-city-xyz",
-      "/arthritis-support/belfast/osteoarthritis",
       "/uk/london/waiting-list-help",
     ]) {
       const html = rewriteHead(TEMPLATE, route);
       expect(html, route).toContain("Page not found | Living With Arthritis UK");
       expect(html, route).toContain('content="noindex, follow"');
       expect(html, route).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
-      expect(html, route).not.toMatch(/Arthritis Support in London/i);
     }
+  });
+
+  it("known city hubs ship unique noindex heads (never homepage OG)", async () => {
+    const { buildCityHubHtml } = await import("../../../scripts/write-city-hub-html.mjs");
+    const html = buildCityHubHtml({
+      slug: "london",
+      name: "London",
+      region: "Greater London",
+      description: "Find arthritis support in London.",
+    });
+    expect(html).toContain("Arthritis Support in London");
+    expect(html).toContain('content="noindex, follow"');
+    expect(html).toContain('property="og:title" content="Arthritis Support in London"');
+    expect(html).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
+    expect(html).toContain('id="main-content"');
+    expect(html).toContain("not a diagnosis");
   });
 
   it("keeps city doorways out of the curated prerender list", () => {

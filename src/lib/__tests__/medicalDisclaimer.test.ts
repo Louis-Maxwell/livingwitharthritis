@@ -26,6 +26,8 @@ describe("medicalDisclaimer helpers", () => {
     expect(isYmylPath("/symptom-checker")).toBe(true);
     expect(isYmylPath("/chat")).toBe(true);
     expect(isYmylPath("/exercises/knee")).toBe(true);
+    expect(isYmylPath("/healthcare-professionals")).toBe(true);
+    expect(isYmylPath("/resource-centre")).toBe(true);
   });
 
   it("includes NHS escalation helpers", () => {

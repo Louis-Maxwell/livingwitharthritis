@@ -13,6 +13,7 @@ export interface AnalyticsEvent {
   sessionId: string;
   referrer?: string;
   timeOnPage?: number;
+  scrollDepth?: number;
 }
 
 export interface PageMetrics {
@@ -117,8 +118,7 @@ class AnalyticsTracker {
       sessionId: this.sessionId,
     };
 
-    // Store as custom property
-    (event as any).scrollDepth = scrollDepth;
+    event.scrollDepth = scrollDepth;
 
     this.events.push(event);
   }

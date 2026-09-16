@@ -33,7 +33,7 @@ for (const { name, viewport } of VIEWPORTS) {
     await page.goto(`${BASE_URL}/#contact`, { waitUntil: "networkidle" });
 
     // Wait for the section and its heading to be visible.
-    const heading = page.getByRole("heading", { name: /we.?re here to help/i });
+    const heading = page.getByRole("heading", { name: /a real person will reply/i });
     await expect(heading).toBeVisible();
 
     const section = page.locator("#contact");

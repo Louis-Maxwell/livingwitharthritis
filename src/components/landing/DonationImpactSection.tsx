@@ -95,7 +95,7 @@ const DonationImpactSection = () => {
               <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <p className="text-[10px] text-muted-foreground mt-5 tracking-[0.15em] uppercase">
-              Secure payment · Gift Aid adds 25p to every £1
+              Secure payment · Gift Aid coming after HMRC registration
             </p>
           </div>
         </div>

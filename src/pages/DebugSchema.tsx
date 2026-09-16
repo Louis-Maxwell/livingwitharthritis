@@ -44,7 +44,7 @@ function sanitizePath(raw: string | null): string {
   // Same-origin path only. Reject protocol-relative URLs, backslash tricks,
   // and any scheme such as javascript: or https:.
   if (!path.startsWith("/") || path.startsWith("//") || path.includes("\\")) return "/";
-  if (/[\s\u0000]/.test(path) || path.includes(":")) return "/";
+  if (/\s/.test(path) || path.includes("\0") || path.includes(":")) return "/";
   if (!/^\/[^?#]*(\?[^#]*)?$/.test(path)) return "/";
   return path;
 }

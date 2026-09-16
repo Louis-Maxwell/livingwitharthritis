@@ -38,6 +38,9 @@ export const YMYL_PATH_PREFIXES = [
   "/tools",
   "/pedometer",
   "/faq",
+  "/healthcare-professionals",
+  "/resource-centre",
+  "/arthritis-support",
 ] as const;
 
 const YMYL_EXACT = new Set([
@@ -54,6 +57,8 @@ const YMYL_EXACT = new Set([
   "/faq",
   "/disclaimer",
   "/editorial-standards",
+  "/healthcare-professionals",
+  "/resource-centre",
 ]);
 
 export function isYmylPath(pathname: string): boolean {

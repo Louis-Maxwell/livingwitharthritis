@@ -277,7 +277,7 @@ export default function WaysToHelp() {
                         <ul className="space-y-2 mb-6">
                           {[
                             "100% of donations go towards patient services",
-                            "Gift Aid increases your donation by 25%",
+                            "Gift Aid (+25%) after HMRC registration is live",
                             "One-off or monthly giving options available",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm text-foreground">

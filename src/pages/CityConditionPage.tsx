@@ -1,4 +1,5 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -39,8 +40,9 @@ const CityConditionPage = () => {
   const cityData = ukCities.find((c) => c.slug === city);
   const conditionData = arthritisConditions.find((c) => c.slug === condition);
 
+  // Prefer NotFound (noindex) over soft-landing on the hub for unknown combos.
   if (!cityData || !conditionData) {
-    return <Navigate to={cityData ? `/arthritis-support/${cityData.slug}` : "/arthritis-support"} replace />;
+    return <NotFound />;
   }
 
   const url = `${BASE}/arthritis-support/${cityData.slug}/${conditionData.slug}`;

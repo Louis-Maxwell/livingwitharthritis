@@ -56,8 +56,9 @@ const html = `<!DOCTYPE html>
 ${assetTags}
   </head>
   <body>
+    <a href="#main-content">Skip to main content</a>
     <div id="root">
-      <main style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:Inter,system-ui,sans-serif;">
+      <main id="main-content" role="main" tabindex="-1" style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:Inter,system-ui,sans-serif;">
         <h1>We couldn't find that page</h1>
         <p>The link may be broken, or the page may have moved.</p>
         <p><a href="/">Go to the homepage</a>, <a href="/search">search articles</a>, or <a href="/guides">browse guides</a>.</p>

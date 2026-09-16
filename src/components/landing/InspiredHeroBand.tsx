@@ -155,15 +155,13 @@ const InspiredHeroBand = memo(() => {
             {/* Gift Aid eligibility — shown before checkout */}
             <div
               role="note"
-              aria-label="Gift Aid eligibility"
+              aria-label="Gift Aid status"
               className="mb-3 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2.5 text-[12px] leading-relaxed text-foreground"
             >
               <span className="font-semibold text-primary">Gift Aid:</span>{" "}
-              UK taxpayers can boost this gift by <strong>25%</strong> at no extra cost
-              {!recurring && (
-                <> — that's an extra <strong>£{(finalAmount * 0.25).toFixed(2)}</strong> from HMRC</>
-              )}
-              . You'll be asked to confirm eligibility on the next screen.
+              HMRC Gift Aid registration for charity 1218461 is still in progress.
+              When it is live, eligible UK taxpayers will be able to add Gift Aid (+25%).
+              We will not reclaim Gift Aid until registration is complete.
             </div>
 
             <button
@@ -177,12 +175,12 @@ const InspiredHeroBand = memo(() => {
             </button>
 
             <p className="mt-3 text-[11px] text-muted-foreground text-center leading-relaxed">
-              Secure checkout · Gift Aid declaration on next step · Cancel anytime
+              Secure checkout · Gift Aid coming after HMRC registration · Cancel anytime
             </p>
             <p className="mt-1 text-[11px] text-muted-foreground text-center leading-relaxed">
               By continuing you agree to our{" "}
               <a href="/privacy" className="underline hover:text-primary">privacy policy</a>.
-              Gift Aid is optional and only applied if you confirm you're a UK taxpayer.
+              Gift Aid will only be offered after HMRC registration is live.
             </p>
           </div>
         </div>

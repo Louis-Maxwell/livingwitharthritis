@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageHero from "@/components/ui/PageHero";
 import { CHARITY } from "@/config/charity";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 
 const PATH = "/resource-centre";
 
@@ -61,6 +62,9 @@ export default function ResourceCentre() {
       />
       <Header />
       <main id="main-content" role="main" tabIndex={-1} className="outline-none">
+        <div className="container mx-auto max-w-5xl px-6 md:px-10 pt-4">
+          <MedicalDisclaimerStrip variant="short" />
+        </div>
         <PageHero
           badge="Resource Centre"
           title="Find guides, tools and downloads in one place"

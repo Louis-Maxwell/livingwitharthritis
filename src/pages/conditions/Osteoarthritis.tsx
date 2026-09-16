@@ -19,6 +19,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_OA } from "@/data/clinical/ukCitations";
@@ -177,6 +178,7 @@ const Osteoarthritis = () => (
       <WaveDivider color="hsl(var(--background))" />
 
       <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+        <div className="mb-6"><MedicalDisclaimerStrip variant="short" /></div>
 
         <Section icon={Activity} title="What Is Osteoarthritis?">
           <p>Osteoarthritis is a degenerative joint disease where the protective cartilage that cushions the ends of your bones gradually wears down over time. As cartilage deteriorates, bones begin to rub against each other, causing pain, swelling, stiffness, and reduced mobility.</p>

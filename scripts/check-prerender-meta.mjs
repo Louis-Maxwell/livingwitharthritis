@@ -120,6 +120,24 @@ function walkHtml(dir, out = []) {
   return out;
 }
 
+
+// App-only / utility screens are intentionally noindex in static HTML.
+const ALLOWED_NOINDEX_PREFIXES = [
+  '/.lovable',
+  '/account',
+  '/admin',
+  '/auth',
+  '/buddy',
+  '/callback',
+  '/checkout',
+  '/dashboard',
+  '/debug',
+  '/donation-result',
+  '/unsubscribe',
+];
+const isAllowedNoindex = (route) =>
+  ALLOWED_NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
+
 const rootIndex = join(DIST, 'index.html');
 const pages = walkHtml(DIST).filter((p) => p !== rootIndex);
 const redirectStubs = exactRedirectPathSet();
@@ -139,7 +157,7 @@ for (const file of pages) {
   if (redirectStubs.has(route)) continue;
 
   if (/<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
-    noindex.push(route);
+    if (!isAllowedNoindex(route)) noindex.push(route);
   }
   if (norm(titleOf(html)) === DEFAULT_TITLE) genericTitle.push(route);
   if (

@@ -24,7 +24,7 @@ test("Managing Arthritis dropdown scrolls to reveal every item", async ({ browse
   await page.goto(`${BASE_URL}/`, { waitUntil: "networkidle" });
 
   // 2. Open the dropdown.
-  await page.getByRole("button", { name: "Managing Arthritis" }).first().click();
+  await page.getByRole("link", { name: "Managing Arthritis" }).first().click();
 
   const menu = page.getByRole("menu", { name: /Managing Arthritis submenu/i });
   await expect(menu).toBeVisible();

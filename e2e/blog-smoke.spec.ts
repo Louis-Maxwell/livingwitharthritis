@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import frailtyBatch from "../src/content/blog/frailty-batch.json";
+import frailtyBatch from "../src/content/blog/frailty-batch.json" with { type: "json" };
 
 const FRAILTY_SLUG =
   (frailtyBatch as Array<{ slug?: string; is_published?: boolean }>).find(

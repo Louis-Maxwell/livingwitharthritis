@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageHero from "@/components/ui/PageHero";
 import { CHARITY } from "@/config/charity";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 
 const PATH = "/healthcare-professionals";
 
@@ -50,6 +51,9 @@ export default function HealthcareProfessionals() {
       />
       <Header />
       <main id="main-content" role="main" tabIndex={-1}>
+        <div className="container mx-auto max-w-4xl px-6 md:px-10 pt-4">
+          <MedicalDisclaimerStrip variant="short" />
+        </div>
         <PageHero
           badge="For healthcare professionals"
           title="Shareable patient resources for clinic and waiting rooms"

@@ -187,4 +187,11 @@ describe("isIndexableCityHubPath", () => {
     expect(resolveSeoRedirect("/search")).toBeNull();
   });
 
+
+  it("301s bare published blog slugs onto /blog/{slug}", () => {
+    expect(resolveSeoRedirect("/vitamin-d-arthritis-uk")).toBe(
+      "/blog/vitamin-d-arthritis-uk",
+    );
+  });
+
 });

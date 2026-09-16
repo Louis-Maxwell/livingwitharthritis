@@ -86,7 +86,7 @@ const ABOUT_FAQS = [
   {
     question: "Is everything on the site free?",
     answer:
-      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations and Gift Aid, alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders.",
+      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations (Gift Aid reclaim will start only after HMRC registration is live), alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders.",
   },
   {
     question: "Can I use your information instead of seeing a doctor?",

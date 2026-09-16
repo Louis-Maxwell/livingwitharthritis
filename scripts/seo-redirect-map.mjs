@@ -48,9 +48,24 @@ export const BLOG_SLUG_REDIRECTS = Object.fromEntries(
   parseQuotedPairs(blogSrc),
 );
 
-export const CITY_SLUGS = new Set(
-  [...citiesSrc.matchAll(/\{\s*slug:\s*"([^"]+)"/g)].map((m) => m[1]),
-);
+export const CITY_HUBS = [
+  ...citiesSrc.matchAll(
+    /\{\s*slug:\s*"([^"]+)",\s*name:\s*"([^"]+)",\s*region:\s*"([^"]+)",[\s\S]*?description:\s*"([^"]+)"/g,
+  ),
+].map((m) => ({ slug: m[1], name: m[2], region: m[3], description: m[4] }));
+
+export const CITY_SLUGS = new Set(CITY_HUBS.map((c) => c.slug));
+
+const CONDITION_SLUGS = [
+  ...read("src/data/arthritisConditions.ts").matchAll(/^\s*slug:\s*"([a-z0-9-]+)"/gm),
+].map((m) => m[1]);
+
+const UK_CITY_SERVICES = [
+  "rheumatology",
+  "waiting-list-help",
+  "physiotherapy",
+  "support-groups",
+];
 
 const EXERCISE_TYPES = new Set(
   parseQuotedList(
@@ -85,12 +100,35 @@ export function exactRedirects() {
     add(`/arthritis-support/${alias}`, `/arthritis-support/${city}`);
   }
 
+  // Finite city×condition and /uk/:city/:service stubs so Lovable SPA
+  // fallback cannot serve homepage OG on those GSC doorways.
+  for (const city of CITY_SLUGS) {
+    for (const condition of CONDITION_SLUGS) {
+      add(`/arthritis-support/${city}/${condition}`, `/arthritis-support/${city}`);
+    }
+    for (const service of UK_CITY_SERVICES) {
+      add(`/uk/${city}/${service}`, `/arthritis-support/${city}`);
+    }
+  }
+
   for (const lang of ["es", "fr", "de", "pt"]) add(`/${lang}/404`, "/");
 
   for (const type of EXERCISE_TYPES) {
     for (const joint of EXERCISE_JOINTS) {
       add(`/exercises/${type}-for-${joint}`, `/exercises/${type}-for-${joint}-arthritis`);
     }
+  }
+
+  // Bare /{blog-slug} soft-404s (missing /blog/ prefix) → canonical article.
+  try {
+    const blogSlugs = JSON.parse(read("src/data/blog-slugs.generated.json"));
+    if (Array.isArray(blogSlugs)) {
+      for (const slug of blogSlugs) {
+        if (typeof slug === "string" && slug.length > 2) add(`/${slug}`, `/blog/${slug}`);
+      }
+    }
+  } catch {
+    /* generated list may be absent on first bootstrap */
   }
 
   // App.tsx alias that is not in EXACT_SEO_REDIRECTS.

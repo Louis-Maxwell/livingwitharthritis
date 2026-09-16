@@ -32,6 +32,7 @@ import SafeExerciseDemo from "@/components/exercises/SafeExerciseDemo";
 import AnswerBox from "@/components/seo/AnswerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
@@ -218,6 +219,9 @@ const ExerciseHub = () => {
 
       <Header />
       <main id="main-content" role="main" tabIndex={-1} className="outline-none">
+      <div className="container mx-auto max-w-5xl px-6 md:px-10 pt-4">
+        <MedicalDisclaimerStrip variant="short" />
+      </div>
       <PageBreadcrumb segments={[{ label: "Exercise Hub" }]} />
 
       <PageHero

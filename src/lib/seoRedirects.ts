@@ -7,6 +7,7 @@
  * source of truth when the host honours it.
  */
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
+import blogSlugsGenerated from "@/data/blog-slugs.generated.json";
 import { ukCities } from "@/data/ukCities";
 import {
   TRANSLATED_BASE_PATHS,
@@ -15,6 +16,9 @@ import {
 } from "@/lib/translations";
 
 const CITY_SLUGS = new Set(ukCities.map((c) => c.slug));
+const PUBLISHED_BLOG_SLUGS = new Set(
+  (blogSlugsGenerated as string[]).filter((s) => typeof s === "string" && s.length > 2),
+);
 
 /** Closest live city hub for GSC soft-404 city URLs that were never real pages. */
 export const CITY_HUB_ALIASES: Record<string, string> = {
@@ -140,6 +144,12 @@ function resolveOnce(path: string): string | null {
     if (TRANSLATED_BASE_PATHS.includes(base)) return null;
     if (base === "/404") return "/";
     return base === path ? "/" : base;
+  }
+
+  // Bare /{published-slug} (missing /blog/) — common soft-404 share typo.
+  const bareBlog = path.match(/^\/([^/]+)$/);
+  if (bareBlog && PUBLISHED_BLOG_SLUGS.has(bareBlog[1])) {
+    return `/blog/${bareBlog[1]}`;
   }
 
   const blogMatch = path.match(/^\/blog\/([^/]+)$/);
