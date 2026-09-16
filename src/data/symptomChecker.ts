@@ -239,19 +239,29 @@ const JOINT_PATHS: Partial<Record<BodyAreaId, string>> = {
 
 export const NEXT_STEP_RESOURCES: ResourceLink[] = [
   {
+    label: "Osteoarthritis guide",
+    href: "/conditions/osteoarthritis",
+    description: "UK symptoms, NICE-aligned treatment and exercises — educational, not a diagnosis.",
+  },
+  {
     label: "Exercise hub",
     href: "/exercises",
     description: "Joint-friendly movement ideas for UK readers.",
   },
   {
-    label: "Diet for arthritis",
-    href: "/diet",
-    description: "Practical food patterns that support joint health.",
+    label: "PIP & disability benefits FAQ",
+    href: "/faq/arthritis-disability-benefits-uk",
+    description: "When arthritis may qualify for PIP and related UK benefits.",
   },
   {
-    label: "PIP & benefits",
+    label: "Benefits & PIP hub",
     href: "/benefits-pip",
     description: "UK Personal Independence Payment guidance.",
+  },
+  {
+    label: "Hip osteoarthritis exercises",
+    href: "/guides/hip-exercises-for-osteoarthritis",
+    description: "A NICE-aligned home routine for hip OA.",
   },
   {
     label: "Newly diagnosed guide",

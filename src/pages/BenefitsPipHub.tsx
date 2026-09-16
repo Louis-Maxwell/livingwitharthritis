@@ -6,6 +6,10 @@ import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
 
 const LINKS = [
   {
@@ -15,9 +19,29 @@ const LINKS = [
       "Eligibility, daily living and mobility points, how to claim, and what to prepare for the assessment.",
   },
   {
+    href: "/faq/arthritis-disability-benefits-uk",
+    title: "FAQ: arthritis disability benefits UK",
+    description: "Short answers on PIP, DLA and when arthritis may count as a disability.",
+  },
+  {
+    href: "/blog/pip-for-arthritis-uk",
+    title: "PIP for arthritis in the UK",
+    description: "How PIP is assessed for arthritis, evidence to keep, and where to get help.",
+  },
+  {
+    href: "/resources/pip-evidence-diary",
+    title: "Printable PIP evidence diary",
+    description: "A one-week activity diary to support a PIP discussion with an adviser.",
+  },
+  {
     href: "/guides/disability-support",
     title: "Disability support",
     description: "Aids, adaptations and rights when arthritis limits day-to-day life.",
+  },
+  {
+    href: "/arthritis-waiting-list-help",
+    title: "Waiting-list help",
+    description: "What to do while waiting for rheumatology, physio or surgery.",
   },
   {
     href: "/guides/work-with-arthritis",
@@ -28,11 +52,6 @@ const LINKS = [
     href: "/guides/insurance-coverage",
     title: "Treatment access & costs",
     description: "NHS pathways, private options, grants and related financial support.",
-  },
-  {
-    href: "/faq/arthritis-disability-benefits-uk",
-    title: "FAQ: arthritis disability benefits UK",
-    description: "Short answers on PIP, DLA and when arthritis may count as a disability.",
   },
   {
     href: "/search?topic=Finances+%26+Benefits",
@@ -109,6 +128,9 @@ const BenefitsPipHub = () => {
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed m-0">
             PIP is a UK working-age benefit that looks at how arthritis affects daily living and mobility, not just your diagnosis name — check GOV.UK for the latest rules.
           </p>
+          <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+          <TopicClusterNav path="/benefits-pip" />
+          <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <p>
               If getting dressed, cooking or walking to the shops feels harder than it should,

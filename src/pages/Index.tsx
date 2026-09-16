@@ -288,6 +288,13 @@ function HomePage() {
                 >
                   Healthcare professionals
                 </Link>
+                {" · "}
+                <Link
+                  to="/faq"
+                  className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                >
+                  FAQs (PIP, exercise, OA)
+                </Link>
               </p>
             </div>
           </section>

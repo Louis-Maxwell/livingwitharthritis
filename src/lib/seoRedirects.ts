@@ -79,6 +79,8 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/library/glucosamine": "/supplements/glucosamine",
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
+  // Thin GSC city doorway — send to the RA hub, do not promote city×condition pages.
+  "/arthritis-support/sheffield/rheumatoid-arthritis": "/conditions/rheumatoid-arthritis",
   // GSC soft-404 locale junk → English equivalent (exact stubs for Lovable SPA hosts).
   "/de/glossary/facet-joint-injection": "/glossary/facet-joint-injection",
   "/de/glossary/methotrexate": "/glossary/methotrexate",

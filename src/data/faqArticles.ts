@@ -80,7 +80,7 @@ export const faqArticles: FaqArticle[] = [
       { heading: 'If you are refused: mandatory reconsideration and appeal', content: "Most refused arthritis claims are overturned later in the process, so do not stop at the first decision. You have one month from the decision letter to ask for a mandatory reconsideration, and it is worth requesting the assessor's report first so you can answer it point by point. If the reconsideration fails, you have one month to appeal to an independent tribunal using form SSCS1. Attending the hearing in person or by video substantially improves the outcome, and Citizens Advice or a welfare rights adviser can represent you free of charge." },
       { heading: 'Where to check current rates', content: "PIP, ESA and Attendance Allowance rates change each April, so check the current figures on GOV.UK rather than relying on any figure quoted in an article. If you are unsure which benefits apply to your household, a free benefits calculator from Turn2us or entitledto will model your situation in a few minutes. If money worries are affecting your health or mood, talk to your GP as well — financial stress and pain feed each other." },
     ],
-    relatedArticles: ['arthritis-employment-rights-uk', 'returning-to-work-arthritis'],
+    relatedArticles: ['arthritis-employment-rights-uk', 'is-arthritis-a-disability', 'returning-to-work-arthritis'],
 
     category: 'Support & Benefits',
   },

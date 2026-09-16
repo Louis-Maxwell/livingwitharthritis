@@ -15,6 +15,10 @@ import SymptomQuiz from "@/components/tools/SymptomQuiz";
 import { SYMPTOM_FAQS } from "@/data/symptomChecker";
 import { Activity } from "lucide-react";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_SYMPTOM_CHECKER } from "@/data/clinical/ukCitations";
 
 const PAGE_URL = "https://livingwitharthritis.org.uk/symptom-checker";
 const TITLE = "Arthritis Symptom Checker (UK) — Educational Guide Finder";
@@ -123,6 +127,9 @@ export default function SymptomChecker() {
           <div className="mb-8">
             <MedicalDisclaimerStrip variant="tool" />
           </div>
+          <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+          <TopicClusterNav path="/symptom-checker" />
+          <ArticleCitations citations={CITATIONS_SYMPTOM_CHECKER} />
 
           <section
             aria-label="Symptom checker questionnaire"

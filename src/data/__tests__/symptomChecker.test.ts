@@ -3,6 +3,7 @@ import {
   emptyAnswers,
   getTriggeredRedFlags,
   highestRedFlagLevel,
+  NEXT_STEP_RESOURCES,
   progressPercent,
   rankEducationalGuides,
 } from "@/data/symptomChecker";
@@ -62,5 +63,15 @@ describe("symptomChecker educational ranking", () => {
     expect(progressPercent("intro")).toBe(0);
     expect(progressPercent("results")).toBe(100);
     expect(progressPercent("urgent")).toBe(100);
+  });
+
+  it("points next steps at real PIP FAQ, OA and exercise hubs — not a diagnosis", () => {
+    const hrefs = NEXT_STEP_RESOURCES.map((r) => r.href);
+    expect(hrefs).toContain("/faq/arthritis-disability-benefits-uk");
+    expect(hrefs).toContain("/conditions/osteoarthritis");
+    expect(hrefs).toContain("/exercises");
+    expect(hrefs).toContain("/guides/hip-exercises-for-osteoarthritis");
+    expect(hrefs).toContain("/benefits-pip");
+    expect(NEXT_STEP_RESOURCES.every((r) => r.href.startsWith("/"))).toBe(true);
   });
 });

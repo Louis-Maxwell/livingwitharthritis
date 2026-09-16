@@ -247,6 +247,21 @@ const AboutUs = () => {
                 </Link>
                 .
               </p>
+              <p className="text-sm text-muted-foreground max-w-lg mx-auto mt-3">
+                Looking for practical help? Start with the{" "}
+                <Link to="/conditions/osteoarthritis" className="text-primary underline hover:no-underline font-medium">
+                  osteoarthritis guide
+                </Link>
+                ,{" "}
+                <Link to="/exercises" className="text-primary underline hover:no-underline font-medium">
+                  exercise hub
+                </Link>
+                {" "}or the{" "}
+                <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline hover:no-underline font-medium">
+                  PIP benefits FAQ
+                </Link>
+                .
+              </p>
             </motion.div>
 
             <div className="grid sm:grid-cols-1 max-w-xl mx-auto gap-5">

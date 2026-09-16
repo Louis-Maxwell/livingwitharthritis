@@ -135,7 +135,17 @@ describe("resolveSeoRedirect", () => {
       "/exercises/neck-arthritis-exercises",
     );
   });
+
+  it("301s the thin Sheffield RA doorway onto the RA hub, not a city template", () => {
+    expect(
+      resolveSeoRedirect("/arthritis-support/sheffield/rheumatoid-arthritis"),
+    ).toBe("/conditions/rheumatoid-arthritis");
+    expect(
+      resolveSeoRedirect("/arthritis-support/london/osteoarthritis"),
+    ).toBe("/arthritis-support/london");
+  });
 });
+
 
 
   it("301s trailing-slash URLs onto the slashless path", () => {

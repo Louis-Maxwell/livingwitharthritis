@@ -667,9 +667,11 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
                     ? Dumbbell
                     : r.href.includes("diet")
                       ? Utensils
-                      : r.href.includes("benefits")
+                      : r.href.includes("benefits") || r.href.includes("pip") || r.href.includes("/faq/")
                         ? HandHeart
-                        : Stethoscope;
+                        : r.href.includes("osteoarthritis")
+                          ? BookOpen
+                          : Stethoscope;
                 return (
                   <Link
                     key={r.href}

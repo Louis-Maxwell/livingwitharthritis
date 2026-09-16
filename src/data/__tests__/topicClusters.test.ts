@@ -36,4 +36,42 @@ describe("topicClusters", () => {
     const diet = getClusterForSlug("mediterranean-diet-arthritis-uk");
     expect(diet?.id).toBe("diet");
   });
+
+  it("maps GSC champion and Champions 26–30 paths to the right clusters", () => {
+    expect(getClusterForPath("/blog/swimming-exercises-hip-osteoarthritis")?.id).toBe(
+      "osteoarthritis",
+    );
+    expect(getClusterForPath("/blog/best-supplement-for-knee-joint")?.id).toBe("diet");
+    expect(getClusterForPath("/faq/arthritis-disability-benefits-uk")?.id).toBe("pip");
+    expect(getClusterForPath("/blog/pip-for-arthritis-uk")?.id).toBe("pip");
+    expect(getClusterForPath("/benefits-pip")?.id).toBe("pip");
+    expect(getClusterForPath("/supplements")?.id).toBe("diet");
+    expect(getClusterForPath("/supplements/glucosamine")?.id).toBe("diet");
+    expect(getClusterForPath("/symptom-checker")?.id).toBe("symptoms");
+    expect(getClusterForPath("/faq")?.id).toBe("symptoms");
+    expect(getClusterForPath("/faq/what-is-osteoarthritis")?.id).toBe("osteoarthritis");
+    expect(getClusterForPath("/blog/omega-3-foods-for-joints")?.id).toBe("diet");
+    expect(getClusterForPath("/blog/anti-inflammatory-diet-rheumatoid-arthritis")?.id).toBe(
+      "diet",
+    );
+  });
+
+  it("surfaces GSC champion URLs in the first sibling slots", () => {
+    const oa = TOPIC_CLUSTERS.find((c) => c.id === "osteoarthritis");
+    expect(oa?.supportingPaths.slice(0, 4)).toEqual(
+      expect.arrayContaining([
+        "/guides/hip-exercises-for-osteoarthritis",
+        "/blog/swimming-exercises-hip-osteoarthritis",
+        "/faq/what-is-osteoarthritis",
+      ]),
+    );
+    const pip = TOPIC_CLUSTERS.find((c) => c.id === "pip");
+    expect(pip?.supportingPaths.slice(0, 4)).toEqual(
+      expect.arrayContaining([
+        "/faq/arthritis-disability-benefits-uk",
+        "/blog/pip-for-arthritis-uk",
+        "/benefits-pip",
+      ]),
+    );
+  });
 });

@@ -290,3 +290,32 @@ export const CITATIONS_KNEE_REPLACEMENT: Citation[] = [
   NHS_OSTEOARTHRITIS,
   VERSUS_ARTHRITIS_OA,
 ];
+
+/** Osteoarthritis condition hub */
+export const CITATIONS_OA: Citation[] = [
+  NICE_OA_NG226,
+  NHS_OSTEOARTHRITIS,
+  VERSUS_ARTHRITIS_OA,
+];
+
+/** Supplements caution (hub + glucosamine spoke) */
+export const CITATIONS_SUPPLEMENTS: Citation[] = [
+  NICE_OA_NG226,
+  NHS_OSTEOARTHRITIS,
+  VERSUS_ARTHRITIS_DIET,
+];
+
+/** Symptom checker educational tool */
+export const CITATIONS_SYMPTOM_CHECKER: Citation[] = [
+  NHS_OSTEOARTHRITIS,
+  NHS_RHEUMATOID,
+  NICE_OA_NG226,
+  GOV_UK_PIP,
+];
+
+/** FAQ hub (B₁ demand: PIP, OA, exercise) */
+export const CITATIONS_FAQ_HUB: Citation[] = [
+  GOV_UK_PIP,
+  NHS_OSTEOARTHRITIS,
+  VERSUS_ARTHRITIS_EXERCISE,
+];

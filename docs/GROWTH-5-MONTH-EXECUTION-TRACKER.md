@@ -25,6 +25,7 @@
 | Champions 11–15 gold pass (early M2) | **done** | Steroids, Exercise hub, Diet hub, Disability support, Waiting-list help — disclaimer + cluster nav + review date 2026-09-14 |
 | Champions 16–20 gold pass (interim) | **done** | Painkillers/NSAIDs, Shoulder pain relief, Hip arthritis, Rheumatoid arthritis, Can exercise make OA worse — disclaimer + cluster nav + review **2026-09-15**; interim until GSC re-prioritises |
 | Champions 21–25 + treatment spoke gold pass (GSC-driven) | **done** | FaqArticle + BlogPost disclaimer/cluster; GSC blog paths in topicClusters; Azathioprine, Febuxostat, Knee replacement, Health services, Exercise guides (+ Shoulder OA, Arthritis, Mental health, Foods to avoid) — review **2026-09-16** |
+| Champions 26–30 + PIP spoke gold pass (GSC-driven) | **done** | Benefits PIP hub, FAQ hub, symptom checker, supplements hub, glucosamine — disclaimer + cluster nav + citations + review **2026-09-16**; cluster density on GSC top-click blogs/FAQ/OA; Sheffield RA doorway redirects to RA hub |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -58,7 +59,8 @@
 5. **Google Ad Grants** — Google for Nonprofits + Ad Grants login/apply (see pack)
 6. **Outreach sends** — first wave from `docs/PARTNER-OUTREACH-50.md` (public contact routes only)
 7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
-8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs)
+8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, plus PIP copy, supplements caution and symptom-checker CTAs)
+9. **Lovable publish** — publish the latest GitHub `main` so cluster/CRO/gold-pass pages are live
 
 ---
 
@@ -130,6 +132,32 @@
 1. Internal-link / cluster density on remaining high-impression GSC URLs not yet gold-passed (e.g. `/conditions/osteoarthritis` hygiene, Sheffield support page if indexed)
 2. Symptom-checker / FAQ hub CRO pass using B₁ top queries
 3. Champions **26–30** from next GSC refresh (or PIP/benefits spoke density if impressions stay benefits-heavy)
+
+## Daily log — 16 Sep 2026 (afternoon) (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Cluster density + CRO from locked B₁. No new KPIs.
+
+### Shipped
+- **Cluster / internal-link density** on GSC top-click blog, FAQ and OA URLs: GSC champion paths moved to the front of `topicClusters` supportingPaths so `TopicClusterNav` surfaces swimming/hip OA, knee supplements, PIP FAQ/blog, omega-3 and RA diet; OA hub gains those real related links plus `CITATIONS_OA`
+- **Symptom-checker + FAQ hub CRO** from B₁ demand (PIP/benefits, swimming/hip OA, knee supplements, OA): stronger next-step CTAs to PIP FAQ, OA, exercise/hip OA (still educational-not-diagnostic); FAQ hub high-intent related guides (PIP blog, disability support, waiting-list); benefits FAQ extra related guides
+- **Champions 26–30 gold pass** (pages that lacked the 21–25 pattern): `/benefits-pip`, `/faq`, `/symptom-checker`, `/supplements`, `/supplements/glucosamine` — `EducationalDisclaimerBox` + `TopicClusterNav` + lastReviewed **2026-09-16** + real NHS/NICE/Versus Arthritis/GOV.UK citations; Louis Maxwell HCPC PH128483
+- **Thin Sheffield doorway**: `/arthritis-support/sheffield/rheumatoid-arthritis` exact 301 to `/conditions/rheumatoid-arthritis` (no new city pages; do not promote)
+- Homepage: small FAQ (PIP/exercise/OA) pointer. About: light OA / exercise / PIP FAQ links only
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (pack already has Louis click list)
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per SOP; approve research-fund creative before posts
+- Clinical spot-check of treatment champions (steroids / NSAIDs / azathioprine / febuxostat) **and** this afternoon’s PIP/supplements/symptom-checker wording
+- Optional Scenario C moonshot media budget paper
+- Optional: drop Year 0 raw GA4/GSC files into `docs/exports/year0-2026-09-15/`
+- **Lovable publish** of this GitHub main commit
+
+### Next 3 digital actions (GTM)
+1. Champions **31–35** from the next GSC refresh (do not invent new doorway cities)
+2. Louis: Regulator / Gift Aid / Ad Grants / outreach / social (still blocked-on-Louis)
+3. Clinical spot-check of Champions 26–30 (PIP copy + supplements caution + symptom-checker CTAs)
 
 ## Months 2–5 (forward look — not started this kickoff)
 

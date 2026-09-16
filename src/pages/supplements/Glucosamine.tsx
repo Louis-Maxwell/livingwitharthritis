@@ -7,6 +7,11 @@ import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import RelatedGuides from "@/components/faq/RelatedGuides";
+import { CITATIONS_SUPPLEMENTS } from "@/data/clinical/ukCitations";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements/glucosamine`;
@@ -356,6 +361,35 @@ export default function Glucosamine() {
             />
           </section>
 
+          <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+          <TopicClusterNav path="/supplements/glucosamine" />
+          <ArticleCitations citations={CITATIONS_SUPPLEMENTS} />
+          <RelatedGuides
+            title="Related educational guides"
+            headingId="glucosamine-related"
+            items={[
+              {
+                title: "Supplements hub — what the evidence says",
+                href: "/supplements",
+                description: "Glucosamine, turmeric, omega-3 and collagen in one caution-first UK hub.",
+              },
+              {
+                title: "Best supplement for knee joints?",
+                href: "/blog/best-supplement-for-knee-joint",
+                description: "Educational comparison for knee OA — not a product recommendation.",
+              },
+              {
+                title: "Osteoarthritis guide",
+                href: "/conditions/osteoarthritis",
+                description: "NICE-aligned treatment, exercise and diet for OA.",
+              },
+              {
+                title: "Omega-3 foods for joints",
+                href: "/blog/omega-3-foods-for-joints",
+                description: "Food sources of omega-3, with the evidence limits made clear.",
+              },
+            ]}
+          />
           <div className="p-8 rounded-2xl bg-accent border border-border/30">
             <h2 className="font-display text-xl font-bold text-foreground mb-3">
               Pair supplements with what really works

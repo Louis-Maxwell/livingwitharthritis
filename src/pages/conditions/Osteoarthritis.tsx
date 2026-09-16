@@ -20,6 +20,8 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_OA } from "@/data/clinical/ukCitations";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -352,15 +354,19 @@ const Osteoarthritis = () => (
             {
               title: "Diet & supplements",
               links: [
+                { label: "Anti-inflammatory diet for rheumatoid arthritis", to: "/blog/anti-inflammatory-diet-rheumatoid-arthritis" },
                 { label: "Anti-inflammatory diet for arthritis", to: "/blog/anti-inflammatory-diet" },
+                { label: "Omega-3 foods for joints", to: "/blog/omega-3-foods-for-joints" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                 { label: "Foods to avoid with arthritis", to: "/diet/foods-to-avoid-with-arthritis" },
+                { label: "Supplements caution — what the evidence says", to: "/supplements" },
                 { label: "Glucosamine, collagen, turmeric — what works", to: "/supplements/glucosamine" },
               ],
             },
             {
               title: "Exercise & movement",
               links: [
+                { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
                 { label: "Knee arthritis exercises", to: "/blog/knee-arthritis-exercises-uk" },
                 { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
                 { label: "Hand arthritis exercises", to: "/exercises" },
@@ -382,6 +388,8 @@ const Osteoarthritis = () => (
               title: "Flare-ups & support",
               links: [
                 { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
+                { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
+                { label: "Benefits & PIP hub", to: "/benefits-pip" },
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
                 { label: "Community & peer support", to: "/community" },
                 { label: "Browse the Advice Hub", to: "/blog-hub" },
@@ -419,7 +427,8 @@ const Osteoarthritis = () => (
             </Link>
           </div>
           
-      <EducationalDisclaimerBox />
+      <ArticleCitations citations={CITATIONS_OA} />
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
         </div>

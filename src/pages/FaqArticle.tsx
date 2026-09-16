@@ -13,6 +13,20 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
   'what-is-osteoarthritis': [
     { label: 'Osteoarthritis guide', href: '/conditions/osteoarthritis' },
     { label: 'Osteoarthritis library note', href: '/library/osteoarthritis' },
+    { label: 'Swimming exercises for hip osteoarthritis', href: '/blog/swimming-exercises-hip-osteoarthritis' },
+    { label: 'Hip exercises for osteoarthritis', href: '/guides/hip-exercises-for-osteoarthritis' },
+  ],
+  'best-exercises-arthritis': [
+    { label: 'Exercise hub', href: '/exercises' },
+    { label: 'Swimming exercises for hip osteoarthritis', href: '/blog/swimming-exercises-hip-osteoarthritis' },
+    { label: 'Hip exercises for osteoarthritis', href: '/guides/hip-exercises-for-osteoarthritis' },
+  ],
+  'arthritis-disability-benefits-uk': [
+    { label: 'PIP for arthritis in the UK (blog)', href: '/blog/pip-for-arthritis-uk' },
+    { label: 'Disability support guide', href: '/guides/disability-support' },
+    { label: 'Waiting-list help', href: '/arthritis-waiting-list-help' },
+    { label: 'Printable PIP evidence diary', href: '/resources/pip-evidence-diary' },
+    { label: 'Benefits & PIP hub', href: '/benefits-pip' },
   ],
   'what-is-rheumatoid-arthritis': [
     { label: 'Rheumatoid arthritis guide', href: '/conditions/rheumatoid-arthritis' },

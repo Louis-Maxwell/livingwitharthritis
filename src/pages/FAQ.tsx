@@ -5,6 +5,11 @@ import Header from "@/components/Header";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
 import { faqArticles } from "@/data/faqArticles";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import RelatedGuides from "@/components/faq/RelatedGuides";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_FAQ_HUB } from "@/data/clinical/ukCitations";
 
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -86,10 +91,51 @@ const FAQ = () => {
             <h2 id="faq-article-index" className="text-2xl md:text-3xl font-display font-bold mb-3">
               Full FAQ library
             </h2>
-            <p className="text-muted-foreground mb-10 max-w-2xl">
+            <p className="text-muted-foreground mb-6 max-w-2xl">
               Each question below is a standalone page with a longer answer. These are the
               URLs we want Google to index — not empty stubs.
             </p>
+            <RelatedGuides
+              title="Start with high-intent questions"
+              headingId="faq-high-intent"
+              items={[
+                {
+                  title: "What disability benefits can I get with arthritis?",
+                  href: "/faq/arthritis-disability-benefits-uk",
+                  description: "PIP, Adult Disability Payment, ESA and Blue Badge — based on daily tasks, not diagnosis.",
+                },
+                {
+                  title: "PIP for arthritis in the UK",
+                  href: "/blog/pip-for-arthritis-uk",
+                  description: "How PIP is assessed for arthritis, evidence and next steps.",
+                },
+                {
+                  title: "Disability support guide",
+                  href: "/guides/disability-support",
+                  description: "Aids, adaptations and rights when arthritis limits daily life.",
+                },
+                {
+                  title: "Help while waiting for rheumatology",
+                  href: "/arthritis-waiting-list-help",
+                  description: "What to do on an NHS waiting list — educational, not a queue-jump.",
+                },
+                {
+                  title: "What is osteoarthritis?",
+                  href: "/faq/what-is-osteoarthritis",
+                  description: "Plain-English OA overview with links to exercises and the condition hub.",
+                },
+                {
+                  title: "Best exercises for arthritis",
+                  href: "/faq/best-exercises-arthritis",
+                  description: "Low-impact movement, including swimming and hip OA routines.",
+                },
+              ]}
+            />
+            <div className="mb-10">
+              <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+              <TopicClusterNav path="/faq" />
+              <ArticleCitations citations={CITATIONS_FAQ_HUB} />
+            </div>
             {grouped.map(([category, articles]) => (
               <div key={category} className="mb-10">
                 <h3 className="text-lg font-semibold text-foreground mb-3">{category}</h3>

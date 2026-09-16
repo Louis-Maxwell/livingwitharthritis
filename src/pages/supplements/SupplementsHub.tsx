@@ -6,6 +6,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import PageSchema from "@/components/seo/PageSchema";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_SUPPLEMENTS } from "@/data/clinical/ukCitations";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements`;
@@ -136,7 +140,7 @@ export default function SupplementsHub() {
           { name: "Supplements" },
         ]}
         faqs={SUPPLEMENT_FAQS}
-        lastReviewed="2026-06-01"
+        lastReviewed="2026-09-16"
         idPrefix="supplements-hub"
       />
 
@@ -162,6 +166,9 @@ export default function SupplementsHub() {
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+          <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+          <TopicClusterNav path="/supplements" />
+          <ArticleCitations citations={CITATIONS_SUPPLEMENTS} />
           <div className="grid sm:grid-cols-2 gap-4">
             {SUPPLEMENTS.map((s) => (
               <Link
@@ -206,6 +213,18 @@ export default function SupplementsHub() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
               >
                 Exercise hub
+              </Link>
+              <Link
+                to="/blog/best-supplement-for-knee-joint"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
+              >
+                Knee joint supplements (educational)
+              </Link>
+              <Link
+                to="/conditions/osteoarthritis"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
+              >
+                Osteoarthritis guide
               </Link>
             </div>
           </div>
