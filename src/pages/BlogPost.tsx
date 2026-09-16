@@ -36,6 +36,9 @@ import { setLastRead } from "@/lib/lastReadArticle";
 import { getArticleImages, coverImage, onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/articleImages";
 import NotFound from "@/pages/NotFound";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import { getClusterForPath } from "@/data/topicClusters";
 
 const BlogComments = lazy(() => import("@/components/BlogComments"));
 const BlogHelpfulness = lazy(() => import("@/components/BlogHelpfulness"));
@@ -715,6 +718,14 @@ const BlogPost = () => {
             </Suspense>
           </footer>
         </main>
+        {slug && (
+          <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
+            <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+            {getClusterForPath(`/blog/${slug}`) && (
+              <TopicClusterNav path={`/blog/${slug}`} />
+            )}
+          </div>
+        )}
         </article>
         <div className="no-print">
           <Suspense fallback={null}>

@@ -70,7 +70,7 @@
 9. `/blog/omega-3-foods-for-joints` — 2, 425  
 10. `/blog/anti-inflammatory-diet-rheumatoid-arthritis` — 2, 178  
 
-Raw exports: `docs/exports/year0-2026-09-15/` (GA4 CSV + GSC Performance zip from 14 Sep).
+Raw exports: `docs/exports/year0-2026-09-15/` — **files pending** (Louis may add GA4 CSV + GSC Performance zip later); headline B₁ figures above are locked from the 15 Sep UI exports.
 
 **Baseline ID (B₁):** `Y0-28d-2026-08-18` — all Month N traffic multiples are vs this row — never vs Scenario C fantasy.
 

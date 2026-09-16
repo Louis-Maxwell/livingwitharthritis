@@ -12,6 +12,8 @@ import CrossLinkBanner from "@/components/CrossLinkBanner";
 import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -25,7 +27,7 @@ const jsonLd = {
   "url": URL,
   "inLanguage": "en-GB",
   "datePublished": "2025-06-01",
-  "dateModified": "2026-05-13",
+  "dateModified": "2026-09-16",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
   "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
   "about": {
@@ -303,6 +305,10 @@ const ShoulderArthritis = () => (
           <CrossLinkBanner preset="condition" exclude="/conditions/shoulder-arthritis" title="Explore related resources" />
         </div>
       </main>
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <TopicClusterNav path="/conditions/shoulder-arthritis" />
+      </div>
       <InternalLinks />
       <Footer />
     </div>

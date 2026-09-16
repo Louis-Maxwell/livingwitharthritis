@@ -5,6 +5,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { faqArticles } from '@/data/faqArticles';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
+import TopicClusterNav from '@/components/seo/TopicClusterNav';
+import { getClusterForPath } from '@/data/topicClusters';
 
 const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
   'what-is-osteoarthritis': [
@@ -110,6 +113,12 @@ export default function FaqArticle() {
           </section>
         ))}
       </div>
+
+
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      {getClusterForPath(`/faq/${article.slug}`) && (
+        <TopicClusterNav path={`/faq/${article.slug}`} />
+      )}
 
       {(article.relatedArticles.length > 0 || extraLinks.length > 0) && (
         <section className="bg-muted p-6 rounded-lg my-12">

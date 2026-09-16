@@ -4,6 +4,8 @@ import SeoHead from '@/components/SeoHead';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
+import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
+import TopicClusterNav from '@/components/seo/TopicClusterNav';
 
 /**
  * Pillar page — "Arthritis & Mental Health" complete guide. Full clinically reviewed guide (sections,
@@ -177,6 +179,9 @@ export default function ArthritisMentalHealth() {
         <h2 className="text-2xl font-bold mb-4">Frequently asked questions</h2>
         <FaqAccordion idPrefix="mental-health" items={faqs} />
       </section>
+
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <TopicClusterNav path="/arthritis-mental-health" />
 
       <aside className="bg-accent rounded-lg p-6 border-l-4 border-primary">
         <h2 className="font-bold text-lg mb-2">Need to talk to someone now?</h2>

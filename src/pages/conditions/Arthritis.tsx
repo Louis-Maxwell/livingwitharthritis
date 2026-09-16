@@ -5,6 +5,8 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import LastReviewed, { LAST_REVIEWED_ISO } from '@/components/LastReviewed';
+import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
+import TopicClusterNav from '@/components/seo/TopicClusterNav';
 
 const FAQS = [
   { q: 'What is arthritis?', a: 'Arthritis is an umbrella term for over 100 conditions that cause joint pain, stiffness and swelling. The most common forms in the UK are osteoarthritis (wear-related) and rheumatoid arthritis (inflammatory).' },
@@ -30,7 +32,7 @@ export default function Arthritis() {
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      lastReviewed: '2026-06-22',
+      lastReviewed: '2026-09-16',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/conditions/arthritis',
     };
     const faq = {
@@ -139,6 +141,9 @@ export default function Arthritis() {
           </div>
         ))}
       </section>
+
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <TopicClusterNav path="/conditions/arthritis" />
     </article>
   );
 }

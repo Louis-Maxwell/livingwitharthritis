@@ -9,7 +9,7 @@
 
 ## Honest operating note
 
-**100 million sessions is not the operating target.** That figure is Scenario C moonshot modelling only (extraordinary distribution / media capital). Monthly KPIs use **Year 0 GA4/GSC baselines** (B₁ locked 15 Sep 2026 — `docs/YEAR-0-ANALYTICS-BASELINE.md`). Board stage-gate at Month 6.
+**100 million sessions is not the operating target.** That figure is Scenario C moonshot modelling only (extraordinary distribution / media capital). Monthly KPIs use **Year 0 GA4/GSC baselines** (B₁ locked 15 Sep 2026 — see `docs/YEAR-0-ANALYTICS-BASELINE.md`). Board stage-gate at Month 6.
 
 ---
 
@@ -17,13 +17,14 @@
 
 | Must-do | Status | Notes |
 |---|---|---|
-| Lock Year 0 GA4/GSC baseline export process | **done** | B₁ locked 15 Sep 2026 in `docs/YEAR-0-ANALYTICS-BASELINE.md` (888 sessions; 108 GSC clicks; `G-ZLLSD3PXZ9`) |
+| Lock Year 0 GA4/GSC baseline export process | **done** (locked B₁) | B₁ `Y0-28d-2026-08-18` filled 15 Sep 2026: sessions 888 / organic 59 / GSC 108 clicks · 8.73K impr · CTR 1.2% · pos 27.2 — `docs/YEAR-0-ANALYTICS-BASELINE.md` (raw CSV folder pending) |
 | Content inventory SOT + remove unverifiable claims | **done** | `CONTENT_INVENTORY` live; public claims policy page shipped |
 | Fundraising Regulator + Gift Aid pathway | **blocked-on-Louis** | Donate copy softened — do not claim Gift Aid live until HMRC/charity steps complete |
 | Topic cluster map + internal link rules | **done** | `src/data/topicClusters.ts` + `TopicClusterNav` on champions |
 | Upgrade SEO Champions 1–10 | **done** | Gold pass on existing URLs (no new doorway pages) |
 | Champions 11–15 gold pass (early M2) | **done** | Steroids, Exercise hub, Diet hub, Disability support, Waiting-list help — disclaimer + cluster nav + review date 2026-09-14 |
 | Champions 16–20 gold pass (interim) | **done** | Painkillers/NSAIDs, Shoulder pain relief, Hip arthritis, Rheumatoid arthritis, Can exercise make OA worse — disclaimer + cluster nav + review **2026-09-15**; interim until GSC re-prioritises |
+| Champions 21–25 + treatment spoke gold pass (GSC-driven) | **done** | FaqArticle + BlogPost disclaimer/cluster; GSC blog paths in topicClusters; Azathioprine, Febuxostat, Knee replacement, Health services, Exercise guides (+ Shoulder OA, Arthritis, Mental health, Foods to avoid) — review **2026-09-16** |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -50,13 +51,14 @@
 
 ## Louis action list (blocked until you act)
 
-1. ~~**GA4 export**~~ — **done** 15 Sep 2026 (`Y0-28d-2026-08-18`)
-2. ~~**GSC export**~~ — **done** 15 Sep 2026 (108 clicks / 8.73K impressions)
+1. ~~**GA4 export**~~ — **done / locked B₁** (15 Sep 2026) — `docs/YEAR-0-ANALYTICS-BASELINE.md` (optional: drop raw CSVs into `docs/exports/year0-2026-09-15/` later)
+2. ~~**GSC export**~~ — **done / locked B₁** (same window; top pages drive Champions 21–25)
 3. **Fundraising Regulator** — complete pathway / badge eligibility actions
 4. **Gift Aid** — HMRC / charity Gift Aid registration; only then turn on live reclaim messaging
 5. **Google Ad Grants** — Google for Nonprofits + Ad Grants login/apply (see pack)
 6. **Outreach sends** — first wave from `docs/PARTNER-OUTREACH-50.md` (public contact routes only)
-7. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording
+7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
+8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs)
 
 ---
 
@@ -105,6 +107,30 @@
 2. Ad Grants follow-up docs / checklist if Louis has started Google for Nonprofits apply
 3. Champions **21–25** gold pass (or symptom-checker CRO if GSC still blocked)
 
+
+## Daily log — 16 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026).
+
+### Shipped
+- **Year 0 baseline B₁ committed** — `docs/YEAR-0-ANALYTICS-BASELINE.md` locked (sessions 888 / organic 59 / GSC 108 · 8.73K · CTR 1.2% · pos 27.2); raw export folder noted as pending
+- **Champions 21–25 (GSC-driven)** — `FaqArticle` + `BlogPost` get `EducationalDisclaimerBox` + `TopicClusterNav`; GSC top blog URLs mapped in `topicClusters` supportingPaths; `getClusterForPath` checks PATH_INDEX before blog-slug heuristic
+- **Treatment / condition spoke gold pass** — Azathioprine, Febuxostat, Knee replacement, Health services, Exercise guides (+ Shoulder arthritis, Arthritis overview, Mental health, Foods to avoid) — disclaimer + cluster nav + review date **2026-09-16**
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (pack already has Louis click list)
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per SOP; approve research-fund creative before posts
+- Clinical spot-check of treatment champions (steroids / NSAIDs / azathioprine / febuxostat)
+- Optional Scenario C moonshot media budget paper
+- Optional: drop Year 0 raw GA4/GSC files into `docs/exports/year0-2026-09-15/`
+
+### Next 3 digital actions (GTM)
+1. Internal-link / cluster density on remaining high-impression GSC URLs not yet gold-passed (e.g. `/conditions/osteoarthritis` hygiene, Sheffield support page if indexed)
+2. Symptom-checker / FAQ hub CRO pass using B₁ top queries
+3. Champions **26–30** from next GSC refresh (or PIP/benefits spoke density if impressions stay benefits-heavy)
+
 ## Months 2–5 (forward look — not started this kickoff)
 
 | Month | Window (approx) | Focus |
@@ -124,7 +150,7 @@ Update this tracker at each monthly close with honest A vs B traffic multiples f
 - Exported GA4 (`G-ZLLSD3PXZ9`, 18 Aug–14 Sep) + GSC (last 28d ≈ 17 Aug–13 Sep) and filled `docs/YEAR-0-ANALYTICS-BASELINE.md`
 - Baseline ID **B₁ = `Y0-28d-2026-08-18`**: 888 sessions, 212 engaged, 843 active users, 59 organic-search sessions; GSC 108 clicks / 8.73K impressions / 1.2% CTR / pos 27.2
 - Named conversion events in window: `donation_click` 6, `chat_start` 1; donate/lead/sign_up/purchase still 0
-- Raw files under `docs/exports/year0-2026-09-15/`
+- Raw export folder `docs/exports/year0-2026-09-15/` still pending (headline B₁ locked from UI exports)
 - Conversion analytics doc updated: Year 0 no longer “not yet exported”
 
 ### Unblocked

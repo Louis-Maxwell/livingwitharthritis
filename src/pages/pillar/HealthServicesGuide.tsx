@@ -8,6 +8,7 @@ import PageSchema from "@/components/seo/PageSchema";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_HEALTH_SERVICES } from "@/data/clinical/ukCitations";
 
@@ -214,6 +215,7 @@ export default function HealthServicesGuide() {
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_HEALTH_SERVICES} />
         <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <TopicClusterNav path="/guides/health-services" />
       </div>
       <GuideOnwardJourney currentPath="/guides/health-services" />
       <Suspense fallback={null}><Footer /></Suspense>

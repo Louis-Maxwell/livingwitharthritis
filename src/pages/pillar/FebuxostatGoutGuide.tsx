@@ -134,7 +134,7 @@ export default function FebuxostatGoutGuide() {
           { name: "Febuxostat for Gout" },
         ]}
         faqs={FEBUXOSTAT_FAQS}
-        lastReviewed="2026-09-15"
+        lastReviewed="2026-09-16"
         idPrefix="febuxostat-guide"
       />
       <Header />
@@ -174,7 +174,7 @@ export default function FebuxostatGoutGuide() {
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_FEBUXOSTAT} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
         <TopicClusterNav path="/guides/febuxostat-for-gout" />
       </div>
       <GuideOnwardJourney currentPath="/guides/febuxostat-for-gout" />

@@ -228,7 +228,7 @@ export default function AzathioprineGuide() {
           { name: "Azathioprine for Arthritis" },
         ]}
         faqs={AZA_FAQS}
-        lastReviewed="2026-09-15"
+        lastReviewed="2026-09-16"
         idPrefix="azathioprine-guide"
       />
       <Header />
@@ -281,7 +281,7 @@ export default function AzathioprineGuide() {
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_AZATHIOPRINE} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
         <TopicClusterNav path="/guides/azathioprine-for-arthritis" />
       </div>
       <GuideOnwardJourney currentPath="/guides/azathioprine-for-arthritis" />

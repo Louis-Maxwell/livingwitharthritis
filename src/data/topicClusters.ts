@@ -97,6 +97,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/exercises/neck-arthritis-exercises",
       "/guides/hip-exercises-for-osteoarthritis",
       "/pedometer",
+      "/blog/swimming-exercises-hip-osteoarthritis",
     ],
     toolPath: "/self-help",
     toolLabel: "Interactive joint diagram",
@@ -128,7 +129,10 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/supplements",
       "/supplements/turmeric",
       "/supplements/glucosamine",
-          ],
+      "/blog/omega-3-foods-for-joints",
+      "/blog/anti-inflammatory-diet-rheumatoid-arthritis",
+      "/blog/best-supplement-for-knee-joint",
+    ],
     toolPath: "/chat",
     toolLabel: "Ask about diet",
     triggers: [
@@ -240,6 +244,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/guides/work-with-arthritis",
       "/guides/insurance-coverage",
       "/faq/arthritis-disability-benefits-uk",
+      "/blog/pip-for-arthritis-uk",
     ],
     toolPath: "/benefits-pip",
     toolLabel: "Benefits & PIP hub",
@@ -289,14 +294,16 @@ export function getClusterForPath(pathname: string): TopicCluster | null {
   if (!pathname) return null;
   const path = pathname.split("?")[0].replace(/\/$/, "") || "/";
 
+  // Exact / supportingPaths matches first (incl. GSC champion blog URLs listed below).
+  for (const row of PATH_INDEX) {
+    if (path === row.path || path.startsWith(`${row.path}/`)) return row.cluster;
+  }
+
   if (path.startsWith("/blog/")) {
     const slug = path.slice("/blog/".length);
     return getClusterForSlug(slug);
   }
 
-  for (const row of PATH_INDEX) {
-    if (path === row.path || path.startsWith(`${row.path}/`)) return row.cluster;
-  }
   return null;
 }
 

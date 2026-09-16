@@ -21,6 +21,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AnswerBox from "@/components/seo/AnswerBox";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 
 const SITE = "https://livingwitharthritis.org.uk";
 const PATH = "/diet/foods-to-avoid-with-arthritis";
@@ -153,7 +155,7 @@ const medicalWebPageJsonLd = {
     "Evidence-based UK guide to foods that worsen arthritis inflammation, with practical alternatives.",
   url: URL,
   inLanguage: "en-GB",
-  lastReviewed: "2026-06-21",
+  lastReviewed: "2026-09-16",
   reviewedBy: {
     "@type": "Person",
     name: "Maxwell",
@@ -478,6 +480,10 @@ export default function FoodsToAvoidWithArthritis() {
         </div>
       </section>
 
+      <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <TopicClusterNav path="/diet/foods-to-avoid-with-arthritis" />
+      </div>
       <Footer />
     </div>
   );

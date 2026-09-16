@@ -7,9 +7,10 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
-import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
@@ -269,6 +270,7 @@ export default function ExerciseGuide() {
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
         <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <TopicClusterNav path="/guides/exercise" />
       </div>
       <GuideOnwardJourney currentPath="/guides/exercise" />
       <Suspense fallback={null}><Footer /></Suspense>
