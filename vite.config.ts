@@ -53,7 +53,7 @@ export default defineConfig(({ mode }) => {
   },
   plugins: [
     react(),
-    // mcpPlugin disabled: it regenerated dormant supabase/functions (CodeQL noise); site is static+mailto.
+    // Lovable MCP backend plugin stays disabled — site is static + mailto only.
     mode === "development" && componentTagger(),
     ENABLE_PRERENDER &&
       mode === "production" &&

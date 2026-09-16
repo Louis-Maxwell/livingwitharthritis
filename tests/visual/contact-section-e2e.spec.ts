@@ -13,10 +13,10 @@ test("Contact form shows email-send confirmation", async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 1800 } });
   const page = await context.newPage();
 
-  await page.goto(`${BASE_URL}/#contact`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/contact`, { waitUntil: "networkidle" });
   const section = page.locator("#contact");
   await section.scrollIntoViewIfNeeded();
-  await expect(page.getByRole("heading", { name: /we.?re here to help/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /a real person will reply/i })).toBeVisible();
 
   await page.getByLabel(/your name/i).fill("Playwright Tester");
   await page.getByLabel(/email address/i).fill("tester@example.com");

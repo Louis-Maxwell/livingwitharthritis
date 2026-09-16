@@ -29,43 +29,6 @@ jobs:
       - name: Run Vitest
         run: bunx vitest run
 
-  # Deno / supabase edge-function job retired (static+mailto site; functions deleted).
-  deno:
-    name: Deno (edge function tests)
-    if: false  # Dormant; supabase/functions removed 2026-09-16
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v1.x
-      - uses: supabase/setup-cli@v1
-        with:
-          version: latest
-      - name: Start supabase functions serve
-        run: |
-          # --no-verify-jwt lets tests call the function without a JWT.
-          # `SUPABASE_ACCESS_TOKEN` is unused for local `functions serve`.
-          nohup supabase functions serve chat --no-verify-jwt > /tmp/functions-serve.log 2>&1 &
-          echo $! > /tmp/functions-serve.pid
-          # Poll for readiness (functions serve binds to :54321 by default).
-          for i in $(seq 1 30); do
-            if curl -sf http://localhost:54321/functions/v1/chat -X OPTIONS > /dev/null 2>&1; then
-              echo "functions serve ready after ${i}s"
-              break
-            fi
-            sleep 1
-          done
-          # Non-fatal: log tail so a failed boot is visible in CI output.
-          tail -n 40 /tmp/functions-serve.log || true
-        continue-on-error: true
-      - name: Chat injection regression tests
-        run: deno test --allow-net --allow-env --allow-read supabase/functions/chat/injection.test.ts
-      - name: Stop supabase functions serve
-        if: always()
-        run: kill "$(cat /tmp/functions-serve.pid)" 2>/dev/null || true
-
   # Playwright — visual regression + E2E form flow. Runs against a locally
   # built + previewed copy of the app so the run is hermetic (no dev-server
   # HMR flake, no reliance on the deployed site).

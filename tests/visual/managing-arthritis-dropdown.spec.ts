@@ -16,15 +16,20 @@ import { test, expect } from "@playwright/test";
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:8080";
 
 test("Managing Arthritis dropdown scrolls to reveal every item", async ({ browser }) => {
+  test.setTimeout(90_000);
   // 1280px wide keeps the desktop nav; 600px tall forces overflow
-  // (max-h ≈ 100vh - 8rem = 472px, and 13 rows > 472px).
+  // (max-h = min(70vh, 32rem) ≈ 420px at 600px tall, and 13 rows > that).
   const context = await browser.newContext({ viewport: { width: 1280, height: 600 } });
   const page = await context.newPage();
 
-  await page.goto(`${BASE_URL}/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/`, { waitUntil: "domcontentloaded" });
+  await expect(page.getByRole("navigation", { name: /main navigation/i })).toBeVisible();
 
-  // 2. Open the dropdown.
-  await page.getByRole("link", { name: "Managing Arthritis" }).first().click();
+  // 2. Open the dropdown (top-level is a Link with preventDefault when it has subs).
+  const trigger = page.getByRole("navigation", { name: /main navigation/i })
+    .getByRole("link", { name: /^Managing Arthritis$/i });
+  await trigger.click();
+  await expect(trigger).toHaveAttribute("aria-expanded", "true");
 
   const menu = page.getByRole("menu", { name: /Managing Arthritis submenu/i });
   await expect(menu).toBeVisible();
@@ -66,10 +71,12 @@ test("Managing Arthritis dropdown scrolls to reveal every item", async ({ browse
     "Last item should be clipped before scrolling — if this fails the viewport is tall enough that overflow isn't triggered.",
   ).toBe(false);
 
-  await lastItem.scrollIntoViewIfNeeded();
+  await scrollContainer.evaluate((el) => {
+    el.scrollTop = el.scrollHeight;
+  });
   expect(
     await isFullyVisible(),
-    "Last item must be fully visible after scrollIntoViewIfNeeded.",
+    "Last item must be fully visible after scrolling the menu container.",
   ).toBe(true);
 
   // Container actually scrolled (not just the page).

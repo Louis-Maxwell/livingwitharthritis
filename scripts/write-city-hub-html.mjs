@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
- * Post-build: write a unique noindex document at each real city hub
+ * Post-build: write a unique indexable document at each real city hub
  * (`/arthritis-support/{slug}`) so Lovable's SPA fallback cannot serve
  * the homepage title/OG on those URLs.
  *
- * Thin doorway pages stay noindex (not in sitemap). Unknown cities are
- * not written — generate-404.mjs / host 404 owns junk slugs.
+ * Known city hubs are index,follow and listed in the sitemap. Unknown
+ * cities are not written — generate-404.mjs / host 404 owns junk slugs.
+ * City×condition URLs 301 to the city hub (see seo-redirect-map.mjs).
  */
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -37,9 +38,12 @@ function assetTagsFromIndex(indexHtml) {
 
 export function buildCityHubHtml(city, assetTags = "") {
   const title = `Arthritis Support in ${city.name} | Living With Arthritis UK`;
-  const description = city.description;
+  const description =
+    city.description ||
+    `Arthritis support information for people in ${city.name} from Living With Arthritis UK, a national UK charity.`;
   const path = `/arthritis-support/${city.slug}`;
   const abs = `${SITE}${path}`;
+  const regionBit = city.region ? ` (${escapeHtml(city.region)})` : "";
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -47,26 +51,37 @@ export function buildCityHubHtml(city, assetTags = "") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
-    <meta name="robots" content="noindex, follow" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${abs}" />
     <meta property="og:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${abs}" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Living With Arthritis UK" />
+    <meta property="og:locale" content="en_GB" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 ${assetTags}
   
   </head>
   <body>
-    <a href="#main-content">Skip to main content
+    <a href="#main-content">Skip to main content</a>
     <div id="root">
       <main id="main-content" role="main" tabindex="-1" style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:Inter,system-ui,sans-serif;">
         <h1>Arthritis Support in ${escapeHtml(city.name)}</h1>
         <p>${escapeHtml(description)}</p>
+        <p>Living With Arthritis is a <strong>UK national charity</strong> offering free educational guides for people in ${escapeHtml(city.name)}${regionBit} and across the country. We do not run a local clinic list on this page — use the hubs below for evidence-based information, then speak with your GP or rheumatology team about local care.</p>
+        <ul>
+          <li><a href="/exercises">Exercise hub</a> — joint-friendly movement guides</li>
+          <li><a href="/conditions/rheumatoid-arthritis">Rheumatoid arthritis</a></li>
+          <li><a href="/conditions/osteoarthritis">Osteoarthritis</a></li>
+          <li><a href="/benefits-pip">PIP &amp; benefits guidance</a></li>
+          <li><a href="/arthritis-support">All city support hubs</a></li>
+          <li><a href="/contact">Contact the charity</a></li>
+        </ul>
         <p role="note">${escapeHtml(DISCLAIMER)} <a href="/disclaimer">Full medical disclaimer</a>.</p>
-        <p><a href="/arthritis-support">All city support hubs</a> · <a href="/conditions/osteoarthritis">Osteoarthritis guide</a> · <a href="/exercises">Exercise hub</a></p>
       </main>
     </div>
   </body>
@@ -105,5 +120,5 @@ if (isDirectRun()) {
     process.exit(0);
   }
   const { written } = writeCityHubHtml();
-  console.log(`[city-hub-html] wrote ${written} unique noindex city hub documents under dist/`);
+  console.log(`[city-hub-html] wrote ${written} unique indexable city hub documents under dist/`);
 }

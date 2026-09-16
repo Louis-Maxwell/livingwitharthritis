@@ -17,7 +17,7 @@
  * This script re-reads the defaults straight out of index.html (so it can
  * never go stale), walks every built page, and reports both classes.
  *
- * noindex is a hard zero-tolerance failure.
+ * noindex on sitemap URLs is a hard failure (true 404 / app screens / redirect\n * stubs may keep noindex when they are not in the sitemap).
  * Generic title/description is gated against a recorded baseline in
  * scripts/prerender-meta-baseline.json so the gate locks in today's number
  * and fails only on regression — override with --max-generic=<n>.
@@ -135,12 +135,26 @@ const ALLOWED_NOINDEX_PREFIXES = [
   '/donation-result',
   '/unsubscribe',
 ];
-const isAllowedNoindex = (route) =>
+const isAllowedNoindexPrefix = (route) =>
   ALLOWED_NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
+
+function loadSitemapRoutes() {
+  const sitemapPath = join(ROOT, 'public', 'sitemap.xml');
+  if (!existsSync(sitemapPath)) return null;
+  const xml = readFileSync(sitemapPath, 'utf8');
+  const routes = new Set();
+  for (const m of xml.matchAll(/<loc>https?:\/\/[^/<]+([^<]*)<\/loc>/g)) {
+    let path = m[1] || '/';
+    if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+    routes.add(path || '/');
+  }
+  return routes;
+}
 
 const rootIndex = join(DIST, 'index.html');
 const pages = walkHtml(DIST).filter((p) => p !== rootIndex);
 const redirectStubs = exactRedirectPathSet();
+const sitemapRoutes = loadSitemapRoutes();
 
 const genericTitle = [];
 const genericDescription = [];
@@ -157,7 +171,19 @@ for (const file of pages) {
   if (redirectStubs.has(route)) continue;
 
   if (/<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
-    if (!isAllowedNoindex(route)) noindex.push(route);
+    // Soft-404 / not-found templates keep noindex — only fail when a sitemap
+    // URL (or any non-allowlisted route if sitemap missing) ships noindex.
+    const isNotFoundHead = /Page not found \| Living With Arthritis UK/i.test(
+      html,
+    );
+    const inSitemap = sitemapRoutes ? sitemapRoutes.has(route) : true;
+    if (
+      !isAllowedNoindexPrefix(route) &&
+      !isNotFoundHead &&
+      inSitemap
+    ) {
+      noindex.push(route);
+    }
   }
   if (norm(titleOf(html)) === DEFAULT_TITLE) genericTitle.push(route);
   if (

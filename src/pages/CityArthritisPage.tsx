@@ -80,7 +80,7 @@ const CityArthritisPage = () => {
       <Helmet>
         <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
         <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta property="og:description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:url" content={`${BASE}/arthritis-support/${cityData.slug}`} />

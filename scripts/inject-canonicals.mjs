@@ -36,7 +36,7 @@ import {
   htmlHasFullArticle,
   replaceSeoFallback,
 } from "./static-article-html.mjs";
-import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
+import { exactRedirectPathSet, CITY_HUBS, CITY_SLUGS } from "./seo-redirect-map.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
@@ -126,11 +126,25 @@ function headDataFor(route, override) {
   if (blogMatch && !BLOG_SLUGS.has(blogMatch[1])) {
     return NOT_FOUND_HEAD;
   }
-  // Soft-404 / thin doorway: city hubs are template pages (unique one-liners
-  // only). Option (b): static HTML is noindex + Page not found — never
-  // homepage OG and never mass-prerendered thin doorways into the index.
+  // Known city hubs: unique indexable heads (write-city-hub-html overwrites body).
+  // Nested city×condition / unknown cities: Page not found (never homepage OG).
   const cityMatch = /^\/arthritis-support\/([^/]+)(?:\/([^/]+))?$/.exec(route);
   if (cityMatch) {
+    const [, citySlug, nested] = cityMatch;
+    if (nested) return NOT_FOUND_HEAD;
+    if (CITY_SLUGS.has(citySlug)) {
+      const city = CITY_HUBS.find((c) => c.slug === citySlug);
+      if (city) {
+        return {
+          title: `Arthritis Support in ${city.name} | Living With Arthritis UK`,
+          description: city.description,
+          question: `Arthritis support in ${city.name}`,
+          answer: city.description,
+          breadcrumb: city.name,
+          noindex: false,
+        };
+      }
+    }
     return NOT_FOUND_HEAD;
   }
   // Legacy /uk/:city/:service matrix — thin; hosting hard-404s unknowns.

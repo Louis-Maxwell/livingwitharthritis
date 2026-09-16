@@ -155,7 +155,7 @@ describe("SEO build safety", () => {
     expect(sitemapSource).toContain("`/library/${slug}`");
   });
 
-  it("does not list thin combinatorial URLs on the HTML sitemap or city hubs", () => {
+  it("lists city hubs but not thin combinatorial city×condition URLs", () => {
     const htmlSitemap = readFileSync(
       resolve(process.cwd(), "src/pages/Sitemap.tsx"),
       "utf8",
@@ -185,7 +185,9 @@ describe("SEO build safety", () => {
     expect(xml).not.toContain("/blog/mindfulness-meditation-chronic-pain");
     expect(xml).toContain("/blog/mindfulness-chronic-pain-arthritis-guide");
     expect(xml).not.toMatch(/\/arthritis-support\/[^/<]+\/[^/<]+</);
-    expect(xml).not.toMatch(/\/arthritis-support\/[a-z0-9-]+</);
+    expect(xml).toContain("/arthritis-support/london</loc>");
+    expect(xml).toContain("/arthritis-support/birmingham</loc>");
+    expect(xml).not.toContain("/arthritis-support/oswestry");
     expect(xml).toContain("/arthritis-support</loc>");
     expect(xml).toContain("/library/fibromyalgia");
     expect(xml).toContain("/conditions/gout/symptoms");

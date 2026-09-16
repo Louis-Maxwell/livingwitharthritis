@@ -38,6 +38,7 @@ describe("conversion-tracking", () => {
       const sessionData = [
         { event: "page_view", value: 1 },
         { event: "page_view", value: 1 },
+        { event: "page_view", value: 1 },
         { event: "form_submit", value: 1 },
       ];
 

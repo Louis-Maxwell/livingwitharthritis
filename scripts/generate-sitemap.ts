@@ -386,8 +386,10 @@ async function main() {
 
   for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
   for (const id of productIds()) entries.push({ path: `/product/${id}` });
-  // City hubs (/arthritis-support/{city}) are thin doorway templates and are
-  // deliberately excluded from the sitemap (see EXCLUDE_FROM_SITEMAP below).
+  // City hubs (/arthritis-support/{city}) — unique national-charity landings.
+  for (const c of citySlugs()) {
+    entries.push({ path: `/arthritis-support/${c}`, priority: "0.6", changefreq: "monthly" });
+  }
   for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
 
   for (const s of exerciseJointSlugs()) entries.push({ path: `/exercises/${s}` });
@@ -443,9 +445,8 @@ async function main() {
   for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
     entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
 
-  // City support hubs (/arthritis-support/{city}) are thin doorway templates.
-  // Keep the /arthritis-support index (parsed from App.tsx) but never list
-  // per-city URLs — several also 301 (stockport, stirling, winchester, …).
+  // Alias city hubs (stockport, stirling, …) 301 away and are filtered via
+  // exactRedirectPathSet() below — only real ukCities slugs are listed above.
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
   entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
   for (const s of extractAll(/"slug":\s*"([^"]+)"/g, petsSrc))
@@ -470,10 +471,11 @@ async function main() {
     }
   }
 
-  // Final safety net: never ship empty locale stubs or city doorways.
+  // Final safety net: never ship empty locale stubs. Keep real city hubs.
+  // City×condition paths are never pushed into entries (they 301 to the hub).
   const EXCLUDE_FROM_SITEMAP = [
     /^\/(es|fr|de|pt)(\/|$)/,
-    /^\/arthritis-support\/[^/]+/,
+    /^\/arthritis-support\/[^/]+\/[^/]+/,
   ];
   const redirectSources = exactRedirectPathSet();
   const cleaned = entries.filter(
@@ -485,7 +487,7 @@ async function main() {
   const xml = build(cleaned);
   writeFileSync(resolve("public/sitemap.xml"), xml);
   console.log(
-    `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/doorway URLs) -> public/sitemap.xml`,
+    `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/redirect URLs) -> public/sitemap.xml`,
   );
 
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
@@ -509,8 +511,12 @@ async function main() {
   // only knew about a small hand-curated list plus blog posts. Excludes
   // /blog/* (already covered by blogSlugList above) to avoid duplicating a
   // large array across two generated files.
+  // City hubs get unique static HTML from write-city-hub-html.mjs — keep them
+  // out of the Chromium prerender list (faster CI; avoids duplicate work).
   const otherPaths = [...new Set(cleaned.map((e) => e.path))].filter(
-    (p) => !p.startsWith("/blog/") || p.startsWith("/blog/category/"),
+    (p) =>
+      (!p.startsWith("/blog/") || p.startsWith("/blog/category/")) &&
+      !/^\/arthritis-support\/[^/]+$/.test(p),
   );
   writeFileSync(
     resolve("src/data/prerender-routes.generated.json"),

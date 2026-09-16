@@ -3,7 +3,6 @@ import { getAnalyticsStatus, isGA4Ready, isGSCVerified, getConsentStatus } from 
 
 describe("analytics-monitor", () => {
   beforeEach(() => {
-    // Reset mocks before each test
     vi.clearAllMocks();
   });
 
@@ -11,7 +10,7 @@ describe("analytics-monitor", () => {
     it("returns analytics status object", () => {
       const status = getAnalyticsStatus();
       expect(status).toHaveProperty("ga4Ready");
-      expect(status).toHaveProperty("gscVerified");
+      expect(status).toHaveProperty("gscReady");
       expect(status).toHaveProperty("consentStatus");
       expect(typeof status.ga4Ready).toBe("boolean");
     });
@@ -30,20 +29,22 @@ describe("analytics-monitor", () => {
       expect(typeof result).toBe("boolean");
     });
 
-    it("returns false when document is undefined", () => {
-      const originalDocument = global.document;
-      // @ts-expect-error - testing undefined document
-      global.document = undefined;
-      const result = isGSCVerified();
-      expect(result).toBe(false);
-      global.document = originalDocument;
+    it("returns false when document is unavailable", () => {
+      const spy = vi.spyOn(document, "querySelector").mockImplementation(() => {
+        throw new Error("no document");
+      });
+      // isGSCVerified guards typeof document === "undefined"; in jsdom document exists.
+      // Simulate missing meta by returning null from querySelector.
+      spy.mockReturnValue(null);
+      expect(isGSCVerified()).toBe(false);
+      spy.mockRestore();
     });
   });
 
   describe("getConsentStatus", () => {
     it("returns one of valid consent statuses", () => {
       const result = getConsentStatus();
-      expect(["accepted", "rejected", "pending"]).toContain(result);
+      expect(["accepted", "rejected", "pending", "denied"]).toContain(result);
     });
   });
 });

@@ -30,7 +30,7 @@ for (const { name, viewport } of VIEWPORTS) {
     const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
     const page = await context.newPage();
 
-    await page.goto(`${BASE_URL}/#contact`, { waitUntil: "networkidle" });
+    await page.goto(`${BASE_URL}/contact`, { waitUntil: "networkidle" });
 
     // Wait for the section and its heading to be visible.
     const heading = page.getByRole("heading", { name: /a real person will reply/i });

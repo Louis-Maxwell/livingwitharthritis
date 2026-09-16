@@ -175,7 +175,7 @@ export function buildRedirectHtml(from, to) {
 `;
 }
 
-/** Exact + common pattern rules previously used by vercel.json (kept for tooling). */
+/** Exact + common pattern rules for static-host redirect adapters. */
 export function hostRedirectRules() {
   const exact = exactRedirects().map(({ from, to }) => ({
     source: from,
@@ -196,5 +196,3 @@ export function hostRedirectRules() {
   return [...exact, ...patterns.filter((r) => !seen.has(r.source))];
 }
 
-/** @deprecated removed Vercel adapter — use hostRedirectRules */
-export const vercelRedirects = hostRedirectRules;

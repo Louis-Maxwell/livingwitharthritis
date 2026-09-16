@@ -5,8 +5,7 @@
  * `npm run seo:redirects` fails if exact map entries are missing from _redirects.
  *
  * Pattern / splat rules stay hand-authored in public/_redirects.
- * Do not regenerate vercel.json — that host adapter was removed.
- */
+ *  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { exactRedirects } from "./seo-redirect-map.mjs";

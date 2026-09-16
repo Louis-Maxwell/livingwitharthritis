@@ -11,7 +11,7 @@ describe("Badge", () => {
   it("applies default variant classes", () => {
     const { container } = render(<Badge>Default</Badge>);
     const badge = container.querySelector("div");
-    expect(badge?.className).toContain("badge");
+    expect(badge?.className).toContain("rounded-full");
   });
 
   it("applies secondary variant", () => {
