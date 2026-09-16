@@ -93,8 +93,13 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+      # Validate JSON-LD from the prerendered dist/ HTML on disk.
+      # Do NOT hit localhost here: nothing is served yet (seo:audit starts
+      # serve later). DIST_DIR mode skips Puppeteer and finishes in seconds.
       - name: SEO schema check
         run: npm run seo:schema
+        env:
+          DIST_DIR: dist
 
       - name: Redirect map check
         run: npm run seo:redirects
@@ -126,3 +131,4 @@ jobs:
           exit $AUDIT_EXIT
         env:
           SITE_URL: http://localhost:4173
+          BASE_URL: http://localhost:4173

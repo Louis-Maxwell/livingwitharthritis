@@ -17,7 +17,7 @@ import { resolve } from "node:path";
 
 type Step = { name: string; cmd: string; required: boolean };
 
-const BASE_URL = process.env.BASE_URL ?? "http://localhost:8080";
+const BASE_URL = process.env.BASE_URL ?? process.env.SITE_URL ?? "http://localhost:8080";
 
 const steps: Step[] = [
   { name: "robots.txt exists", cmd: "test -f public/robots.txt", required: true },

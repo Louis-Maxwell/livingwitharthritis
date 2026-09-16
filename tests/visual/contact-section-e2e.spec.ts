@@ -2,7 +2,7 @@
  * End-to-end Playwright test for the Contact section form.
  *
  * The static site opens a mailto: draft instead of storing a submission.
- * Asserts that filling valid data shows the "Please send your email" screen.
+ * Asserts that filling valid data shows the honest "email draft ready" screen.
  */
 
 import { test, expect } from "@playwright/test";
@@ -25,9 +25,9 @@ test("Contact form shows email-send confirmation", async ({ browser }) => {
     "Hello, this is an end-to-end test message that is definitely longer than twenty characters.",
   );
 
-  await page.getByRole("button", { name: /send message/i }).click();
+  await page.getByRole("button", { name: /open mail app/i }).click();
 
-  await expect(page.getByRole("alert").getByText(/please send your email/i)).toBeVisible();
+  await expect(page.getByRole("alert").getByText(/email draft ready/i)).toBeVisible();
   await expect(page.getByRole("button", { name: /send another message/i })).toBeVisible();
 
   await context.close();

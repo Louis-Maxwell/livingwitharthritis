@@ -1,29 +1,45 @@
 /**
- * Visual regression check for the landing page Contact Section.
+ * Visual / layout check for the Contact section.
  *
- * Captures screenshots of the #contact anchor at mobile, tablet, and desktop
- * viewports so future edits can be diffed against a known-good baseline.
+ * Structural assertions (overflow, card geometry, heading) always run.
+ * Screenshot diffs only run when a committed baseline exists for this
+ * viewport — same pattern as layout-snapshots.spec.ts — so CI does not
+ * fail on a first-ever missing PNG.
  *
- * Prereqs (run once, locally):
- *   bun add -D @playwright/test
- *   bunx playwright install chromium
- *
- * Run against the local dev server (must be already running on :8080):
- *   bunx playwright test tests/visual/contact-section.spec.ts
- *
- * The first run writes baselines to tests/visual/__screenshots__/.
- * Subsequent runs fail if the rendered section drifts beyond the threshold.
+ * Generate baselines on Linux (matching CI):
+ *   PLAYWRIGHT_BASE_URL=http://localhost:4173 \
+ *     bunx playwright test --config=tests/visual/playwright.config.ts \
+ *     tests/visual/contact-section.spec.ts --update-snapshots
  */
 
-import { test, expect, devices } from "@playwright/test";
+import { existsSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { test, expect } from "@playwright/test";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:8080";
+
+const SNAPSHOT_DIR = join(
+  dirname(fileURLToPath(import.meta.url)),
+  "contact-section.spec.ts-snapshots",
+);
+const updatingSnapshots = process.argv.some((arg) => arg.includes("update-snapshots"));
 
 const VIEWPORTS = [
   { name: "mobile", viewport: { width: 375, height: 812 } },
   { name: "tablet", viewport: { width: 834, height: 1194 } },
   { name: "desktop", viewport: { width: 1440, height: 900 } },
 ] as const;
+
+function hasCommittedBaseline(name: string): boolean {
+  if (!existsSync(SNAPSHOT_DIR)) return false;
+  const candidates = [
+    `contact-${name}.png`,
+    `contact-${name}-chromium-linux.png`,
+    `contact-${name}-chromium-darwin.png`,
+  ];
+  return candidates.some((f) => existsSync(join(SNAPSHOT_DIR, f)));
+}
 
 for (const { name, viewport } of VIEWPORTS) {
   test(`Contact section renders cleanly on ${name}`, async ({ browser }) => {
@@ -32,17 +48,13 @@ for (const { name, viewport } of VIEWPORTS) {
 
     await page.goto(`${BASE_URL}/contact`, { waitUntil: "networkidle" });
 
-    // Wait for the section and its heading to be visible.
     const heading = page.getByRole("heading", { name: /a real person will reply/i });
     await expect(heading).toBeVisible();
 
     const section = page.locator("#contact");
     await section.scrollIntoViewIfNeeded();
-    // Give reveal animations time to settle.
     await page.waitForTimeout(400);
 
-    // Overflow assertion: the section must not scroll horizontally on any
-    // viewport (a common symptom of clipped/overlapping cards).
     const overflow = await section.evaluate((el) => ({
       scrollWidth: el.scrollWidth,
       clientWidth: el.clientWidth,
@@ -52,7 +64,6 @@ for (const { name, viewport } of VIEWPORTS) {
       `Section overflowed horizontally on ${name} (scrollWidth ${overflow.scrollWidth} > clientWidth ${overflow.clientWidth})`,
     ).toBeLessThanOrEqual(overflow.clientWidth + 1);
 
-    // Each of the 4 channel cards must render with a positive box size.
     const cards = section.locator("ul > li");
     await expect(cards).toHaveCount(4);
     for (let i = 0; i < 4; i++) {
@@ -62,12 +73,18 @@ for (const { name, viewport } of VIEWPORTS) {
       expect(box!.height).toBeGreaterThan(120);
     }
 
-    // Snapshot the section itself (not the whole page) so unrelated
-    // sections don't cause false diffs.
-    await expect(section).toHaveScreenshot(`contact-${name}.png`, {
-      maxDiffPixelRatio: 0.02,
-      animations: "disabled",
-    });
+    if (updatingSnapshots || hasCommittedBaseline(name)) {
+      await expect(section).toHaveScreenshot(`contact-${name}.png`, {
+        maxDiffPixelRatio: 0.02,
+        animations: "disabled",
+      });
+    } else {
+      test.info().annotations.push({
+        type: "note",
+        description:
+          "No committed contact-section baselines — structural checks only. Run with --update-snapshots on Linux to create them.",
+      });
+    }
 
     await context.close();
   });

@@ -44,6 +44,30 @@ export function buildCityHubHtml(city, assetTags = "") {
   const path = `/arthritis-support/${city.slug}`;
   const abs = `${SITE}${path}`;
   const regionBit = city.region ? ` (${escapeHtml(city.region)})` : "";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `Arthritis Support in ${city.name}`,
+    description,
+    url: abs,
+    isPartOf: { "@id": `${SITE}/#website` },
+    about: {
+      "@type": "Place",
+      name: city.name,
+      ...(city.region ? { containedInPlace: { "@type": "AdministrativeArea", name: city.region } } : {}),
+    },
+    publisher: { "@id": `${SITE}/#organization` },
+    inLanguage: "en-GB",
+  };
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Arthritis support", item: `${SITE}/arthritis-support` },
+      { "@type": "ListItem", position: 3, name: city.name, item: abs },
+    ],
+  };
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -62,6 +86,8 @@ export function buildCityHubHtml(city, assetTags = "") {
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
+    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+    <script type="application/ld+json">${JSON.stringify(breadcrumbs)}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 ${assetTags}
   
