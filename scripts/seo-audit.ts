@@ -31,8 +31,12 @@ const steps: Step[] = [
   { name: "check-canonicals", cmd: "node scripts/check-canonicals.mjs", required: false },
   { name: "check-social-meta", cmd: "node scripts/check-social-meta.mjs", required: false },
   {
+    // Prefer DIST_DIR (prerendered HTML on disk) — Puppeteer across ~1000
+    // routes exceeds CI's 5m audit timeout. BASE_URL kept for live previews.
     name: "validate-jsonld",
-    cmd: `BASE_URL=${BASE_URL} node scripts/validate-jsonld.mjs`,
+    cmd: process.env.DIST_DIR
+      ? `DIST_DIR=${process.env.DIST_DIR} node scripts/validate-jsonld.mjs`
+      : `BASE_URL=${BASE_URL} node scripts/validate-jsonld.mjs`,
     required: false,
   },
   { name: "aeo-sync", cmd: "node scripts/check-aeo-sync.mjs", required: true },
