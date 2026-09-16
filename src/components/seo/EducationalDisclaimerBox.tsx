@@ -1,5 +1,9 @@
 import { AlertCircle, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  MEDICAL_DISCLAIMER_PATH,
+  MEDICAL_DISCLAIMER_SHORT,
+} from "@/lib/medicalDisclaimer";
 
 interface EducationalDisclaimerBoxProps {
   /** ISO date shown as last clinical review, default Sep 2026 Month 1 pass. */
@@ -12,7 +16,7 @@ interface EducationalDisclaimerBoxProps {
  * Short clinical-review + educational-not-diagnostic box for YMYL champions.
  */
 export default function EducationalDisclaimerBox({
-  lastReviewed = "2026-09-11",
+  lastReviewed = "2026-09-16",
   reviewer = "Louis Maxwell, HCPC PH128483",
   className = "",
 }: EducationalDisclaimerBoxProps) {
@@ -36,10 +40,11 @@ export default function EducationalDisclaimerBox({
           <p className="flex items-start gap-2">
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />
             <span>
-              Educational information for people in the UK living with arthritis —{" "}
-              <strong>not a diagnosis or personal medical advice</strong>. Always check
-              medicines and exercises with your GP, pharmacist or rheumatology team.
-              See our{" "}
+              {MEDICAL_DISCLAIMER_SHORT} See our{" "}
+              <Link to={MEDICAL_DISCLAIMER_PATH} className="text-primary underline underline-offset-2">
+                medical disclaimer
+              </Link>
+              ,{" "}
               <Link to="/editorial-standards" className="text-primary underline underline-offset-2">
                 editorial standards
               </Link>{" "}

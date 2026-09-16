@@ -46,7 +46,7 @@ const PrivacyPolicy = () => (
         pattern="grid"
         badge={
           <Badge className="bg-muted text-muted-foreground border-0 text-xs font-bold px-3 py-1.5">
-            <Shield className="w-3 h-3 mr-1.5" /> Last updated: March 2026
+            <Shield className="w-3 h-3 mr-1.5" /> Last updated: September 2026
           </Badge>
         }
         title="Privacy Policy"
@@ -63,11 +63,11 @@ const PrivacyPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">2. Information We Collect</h2>
             <p>We may collect the following types of personal information:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
-              <li><strong>Contact details:</strong> Your name, email address and phone number when you fill in forms or book appointments.</li>
+              <li><strong>Contact details:</strong> Your name, email address and phone number when you email us (many site forms currently open your email client via mailto) or contact us by phone.</li>
               <li><strong>Health-related information:</strong> Details you voluntarily share about your arthritis condition when using our self-help tools or chatbot.</li>
               <li><strong>Usage data:</strong> Information about how you navigate our website, including pages visited, time spent and device information, collected through cookies and similar technologies.</li>
               <li><strong>Donation data:</strong> Payment information processed securely through our payment provider when you make a donation. We do not store full card details.</li>
-              <li><strong>Communication records:</strong> Content of messages you send us via contact forms or our virtual assistant.</li>
+              <li><strong>Communication records:</strong> Content of messages you send us by email, phone, or (if enabled) chat feedback tools. We do not currently operate a server-side form database on this website.</li>
             </ul>
           </section>
 
@@ -76,8 +76,8 @@ const PrivacyPolicy = () => (
             <p>We use your personal data to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Provide our services, including virtual physiotherapy guidance, self-help tools and online assistance.</li>
-              <li>Process appointment bookings and respond to enquiries.</li>
-              <li>Process and acknowledge donations, including Gift Aid claims where applicable.</li>
+              <li>Respond to enquiries you send us.</li>
+              <li>Process and acknowledge donations. Gift Aid reclaim will only apply after HMRC Gift Aid registration is live; we will update this policy when that happens.</li>
               <li>Improve our website, services and user experience through anonymised analytics.</li>
               <li>Comply with legal obligations and protect against fraud.</li>
             </ul>
@@ -88,7 +88,7 @@ const PrivacyPolicy = () => (
             <p>We process your data based on one or more of the following grounds:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li><strong>Consent:</strong> Where you have given clear consent for us to process your personal data for a specific purpose.</li>
-              <li><strong>Contract:</strong> Where processing is necessary to fulfil a service you have requested (e.g. booking an appointment).</li>
+              <li><strong>Contract:</strong> Where processing is necessary to fulfil a service you have requested (e.g. responding to a donation or enquiry).</li>
               <li><strong>Legitimate interests:</strong> Where we have a genuine reason to use your data and this does not override your rights (e.g. improving our services).</li>
               <li><strong>Legal obligation:</strong> Where we are required to process data by law.</li>
             </ul>
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => (
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Service providers who help us deliver our website and services (e.g. hosting, payment processing, email delivery), under strict data protection agreements.</li>
               <li>Regulatory or law enforcement bodies where required by law.</li>
-              <li>HMRC for Gift Aid processing where applicable.</li>
+              <li>HMRC for Gift Aid processing only once Gift Aid registration is live and a valid declaration exists.</li>
             </ul>
           </section>
 
@@ -139,7 +139,19 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">11. Contact Us</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">11. Current website processing model</h2>
+            <p>
+              As of September 2026 this website is primarily a static educational site. Many forms
+              hand off to email (mailto) rather than posting personal data to our servers. Analytics
+              (for example Google Analytics) load only with cookie consent where required. Donation
+              card details, if you use a payment link, are handled by the payment provider — we do
+              not store full card numbers. This summary is not a substitute for solicitor-reviewed
+              privacy wording; trustees should commission a formal review as processing expands.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">12. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy or our data practices, please contact:</p>
             <p className="mt-2">
               <strong>Living With Arthritis UK</strong><br />

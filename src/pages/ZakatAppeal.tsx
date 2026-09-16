@@ -75,7 +75,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Can I claim Gift Aid on my Zakat?",
-    a: "Yes. If you are a UK taxpayer, we can claim an extra 25p for every £1 you donate through Gift Aid at no extra cost to you. This means a £100 donation becomes £125 for our beneficiaries.",
+    a: "Not yet. HMRC Gift Aid registration for charity 1218461 is still in progress. When it is live, eligible UK taxpayers will be able to add Gift Aid (+25%). Until then we will not claim Gift Aid on donations.",
   },
   {
     q: "Can I set up a recurring payment?",
@@ -116,7 +116,7 @@ const ZakatAppeal = () => {
     <>
       <Helmet>
         <title>Palestine & Gaza Appeal | Zakat & Sadaqah | Living With Arthritis UK</title>
-        <meta name="description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza. Shariah-compliant, scholar-guided, Gift Aid +25%." />
+        <meta name="description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza. Shariah-compliant, scholar-guided. Gift Aid not yet live." />
         <meta property="og:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah for Rehabilitation" />
         <meta property="og:description" content="Thousands in Gaza are living with crushed joints and amputations. Your Zakat and Sadaqah fund the physiotherapy that helps them walk again." />
         <meta property="og:type" content="website" />
@@ -197,9 +197,9 @@ const ZakatAppeal = () => {
                 <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 flex gap-3 items-start">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <div>
-                    <h3 className="text-sm font-semibold text-foreground mb-1">Gift Aid — Boost Your Donation by 25%</h3>
+                    <h3 className="text-sm font-semibold text-foreground mb-1">Gift Aid — coming after HMRC registration</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      If you're a UK taxpayer, we can reclaim 25p for every £1 you give through Gift Aid — at no extra cost to you. A £100 donation becomes £125 for our beneficiaries.
+                      Gift Aid registration is in progress. We will not claim Gift Aid until HMRC registration is live. You can still give Zakat or Sadaqah today.
                     </p>
                   </div>
                 </div>

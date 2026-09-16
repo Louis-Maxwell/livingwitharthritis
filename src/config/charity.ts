@@ -21,6 +21,8 @@ export const CHARITY = {
   siteUrl: 'https://livingwitharthritis.org.uk',
   websiteDomain: 'livingwitharthritis.org.uk',
   contactEmail: 'info@livingwitharthritis.org.uk',
+  /** Flip to true only after HMRC Gift Aid registration is confirmed live. */
+  giftAidRegistered: false,
   address: {
     name: '',
     street: '',

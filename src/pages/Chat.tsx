@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, MessageCircle, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 
 const Chat = () => {
   return (
@@ -13,7 +14,7 @@ const Chat = () => {
         <meta name="description" content="Free arthritis help & support: chat on WhatsApp, call 07760 512 084, or ask our online help chat for guidance and information." />
         <meta name="keywords" content="arthritis chat UK, virtual physiotherapy, arthritis help, joint pain advice UK, arthritis support, arthritis questions" />
         <meta property="og:title" content="Arthritis Help & Support Chat | Living With Arthritis UK" />
-        <meta property="og:description" content="Get free, instant arthritis advice from our help chat. Ask about joint pain, exercises, diet, standard treatments and more." />
+        <meta property="og:description" content="Educational arthritis help chat for UK readers. Ask about joint pain, exercises, diet and support — not a diagnosis." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/chat" />
@@ -25,7 +26,7 @@ const Chat = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Help & Support – Free Arthritis Chat" />
-        <meta name="twitter:description" content="Get free, instant arthritis advice from our help chat." />
+        <meta name="twitter:description" content="Educational arthritis help chat — not a diagnosis. Seek NHS care when needed." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/chat" />
@@ -74,6 +75,9 @@ const Chat = () => {
               <p className="text-muted-foreground max-w-lg mx-auto">
                 Ask about arthritis management, exercises, diet and UK-specific support. Our team and resources are here for you.
               </p>
+              <div className="mt-6 max-w-xl mx-auto text-left">
+                <MedicalDisclaimerStrip variant="chat" />
+              </div>
               <div className="flex items-center gap-3 justify-center mt-4">
                 <Badge className="bg-background text-primary border-0 text-xs">
                   <Shield className="w-3 h-3 mr-1" />

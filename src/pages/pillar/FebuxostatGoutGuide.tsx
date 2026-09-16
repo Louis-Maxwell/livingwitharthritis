@@ -20,7 +20,7 @@ const FEBUXOSTAT_FAQS = [
   { question: "What are the side effects of febuxostat?", answer: "Common side effects include nausea, diarrhoea, headache, raised liver enzymes and a rash. More serious risks include cardiovascular events in people with existing heart disease, severe skin reactions (Stevens–Johnson syndrome) and liver injury. Tell your prescriber immediately about chest pain, breathlessness, jaundice or a spreading rash." },
   { question: "Is febuxostat better than allopurinol?", answer: "For most people, allopurinol is tried first because it is cheaper and has decades of safety data. Febuxostat is used when allopurinol is not tolerated, when uric acid targets cannot be reached on maximum allopurinol, or in people with reduced kidney function where allopurinol dosing is restricted. Febuxostat is at least as effective at lowering uric acid." },
   { question: "What is the target uric acid level on febuxostat?", answer: "For most people the target is below 360 µmol/L (6 mg/dL). In severe gout with tophi or frequent flares, the target is lower — below 300 µmol/L (5 mg/dL) — to encourage faster crystal dissolution. Your prescriber will check blood levels at 2–4 weeks, then every 3–6 months." },
-  { question: "Do I need to take colchicine with febuxostat?", answer: "Yes — for the first 3–6 months. Starting any urate-lowering treatment can trigger gout flares as crystals begin to dissolve. A low daily dose of colchicine (or a low-dose NSAID if colchicine isn't suitable) is usually prescribed alongside febuxostat as 'flare prophylaxis' until uric acid is stable at target." },
+  { question: "Do I need to take colchicine with febuxostat?", answer: "Often, yes — but only if your rheumatology team or GP prescribes it. Starting urate-lowering treatment can trigger flares as crystals dissolve. Clinicians commonly prescribe short-term flare prophylaxis (for example colchicine or an NSAID if suitable) for the early months. Do not start or stop prophylaxis yourself." },
   { question: "Can I drink alcohol on febuxostat?", answer: "Alcohol — especially beer and spirits — raises uric acid and provokes gout flares. Febuxostat will still work, but heavy drinking undermines the treatment and increases pressure on the liver. Moderate wine intake is the lowest-risk choice; staying within 14 UK units per week is sensible." },
 ];
 
@@ -46,9 +46,9 @@ const CONTENT = `
 <li>Your uric acid level remains above target despite maximum allopurinol</li>
 </ul>
 
-<h2 id="dose-and-monitoring">Dosing and monitoring</h2>
-<p>Febuxostat is usually started at <strong>80 mg once daily</strong>, taken with or without food at the same time each day. If uric acid is still above target after 2–4 weeks, the dose is increased to <strong>120 mg daily</strong>.</p>
-<p>Your prescriber will arrange:</p>
+<h2 id="dose-and-monitoring">How clinicians typically monitor febuxostat</h2>
+<p>UK labels and BNF summaries describe common starting strengths (often discussed as 80 mg once daily, sometimes increased toward 120 mg if uric acid remains above target). <strong>Your rheumatology team sets your dose</strong> — do not start, increase or stop febuxostat based on this educational page. Follow the SmPC / patient leaflet they give you.</p>
+<p>Your prescriber will usually arrange:</p>
 <ul>
 <li>A blood test for <strong>uric acid</strong> at 2–4 weeks, then every 3–6 months</li>
 <li>A blood test for <strong>liver function</strong> at 2 months and then yearly</li>

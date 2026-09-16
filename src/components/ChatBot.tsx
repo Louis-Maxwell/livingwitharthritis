@@ -484,7 +484,7 @@ export function ChatBot() {
         <div className="flex items-center justify-center gap-1 mt-1.5">
           <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
           <p className="text-[10px] text-muted-foreground">
-            Educational support only — always consult your healthcare provider
+            Educational only — not a diagnosis. GP / rheumatology for personal advice. 999 emergency · NHS 111 urgent
           </p>
         </div>
       </form>

@@ -37,17 +37,12 @@ function ExerciseCircuit500() {
           <Suspense fallback={<div className="h-96 bg-muted" />}>
             <CampaignBand
               title="Fund 500 Personalised Exercise Plans"
-              subtitle="Movement is medicine — help us reach people who need it most"
-              description="Every person living with arthritis deserves a personalised recovery plan. We're partnering with UK healthcare physiotherapists to create 500 free, tailored exercise programmes—one for each person. Each £100 funds one complete plan: assessment, exercises, progress tracking, and ongoing support. No paywalls. No waiting lists. Just evidence-based care for everyone."
+              subtitle="Help us grow free, clinician-reviewed exercise support"
+              description="Living With Arthritis UK aims to fund free educational exercise plans for people living with arthritis. Donations support content, tools and guidance reviewed by our clinical lead — not a promised private physio waiting-list bypass. Goal figures are fundraising targets; we only show a progress meter when totals are verified from donation records."
               goalGbp={50000}
-              raisedGbp={12500}
-              impactMetric={{
-                label: "Custom plans created",
-                value: "125 of 500",
-              }}
               beneficiaries={500}
-              urgency="high"
-              cta="Give £100 to fund one person's recovery"
+              urgency="none"
+              cta="Donate to support free exercise education"
             />
           </Suspense>
 

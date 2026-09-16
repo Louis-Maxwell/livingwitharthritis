@@ -72,6 +72,7 @@ const columns = [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Cookies Policy", href: "/cookies" },
       { label: "Terms & Conditions", href: "/terms" },
+      { label: "Medical Disclaimer", href: "/disclaimer" },
       { label: "Accessibility", href: "/accessibility" },
       { label: "Safeguarding Policy", href: "/safeguarding" },
       { label: "Complaints Procedure", href: "/complaints" },
@@ -172,6 +173,20 @@ const Footer = () => {
               </address>
             )}
             <p className="mt-1.5">Recently registered with the Charity Commission for England and Wales.</p>
+            <p className="mt-1.5">
+              Educational health information only —{" "}
+              <Link to="/disclaimer" className="underline-offset-2 hover:text-primary hover:underline transition-colors">
+                medical disclaimer
+              </Link>
+              {" · "}
+              <Link to="/complaints" className="underline-offset-2 hover:text-primary hover:underline transition-colors">
+                complaints
+              </Link>
+              {" · "}
+              <Link to="/contact" className="underline-offset-2 hover:text-primary hover:underline transition-colors">
+                contact
+              </Link>
+            </p>
           </div>
           <a
             href="https://maxwellhealth.co.uk"

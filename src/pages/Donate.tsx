@@ -138,11 +138,11 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to Living With Arthritis UK | Gift Aid CIO</title>
-        <meta name="description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
+        <title>Donate to Living With Arthritis UK | CIO 1218461</title>
+        <meta name="description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-      <meta property="og:title" content="Donate to Living With Arthritis UK | Gift Aid CIO" />
-      <meta property="og:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
+      <meta property="og:title" content="Donate to Living With Arthritis UK | CIO 1218461" />
+      <meta property="og:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
@@ -152,8 +152,8 @@ export default function Donate() {
       <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Living With Arthritis UK | Gift Aid CIO" />
-      <meta name="twitter:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid adds 25p for every £1 at no extra cost.`} />
+      <meta name="twitter:title" content="Donate to Living With Arthritis UK | CIO 1218461" />
+      <meta name="twitter:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
     </Helmet>
       <Header />
@@ -460,7 +460,7 @@ export default function Donate() {
           <div className="text-center">
             <div className="inline-flex flex-wrap items-center justify-center gap-2 px-5 py-3 rounded-full bg-background border border-primary/40">
               <span className="text-sm font-semibold text-primary">
-                🎁 A £100 donation becomes £125 with Gift Aid
+                Gift Aid (+25%) will be offered only after HMRC registration is live — not yet available
               </span>
             </div>
           </div>

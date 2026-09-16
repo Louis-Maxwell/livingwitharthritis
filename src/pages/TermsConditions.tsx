@@ -46,7 +46,7 @@ const TermsConditions = () => (
         pattern="grid"
         badge={
           <Badge className="bg-muted text-muted-foreground border-0 text-xs font-bold px-3 py-1.5">
-            <FileText className="w-3 h-3 mr-1.5" /> Last updated: March 2026
+            <FileText className="w-3 h-3 mr-1.5" /> Last updated: September 2026
           </Badge>
         }
         title="Terms & Conditions"
@@ -101,13 +101,17 @@ const TermsConditions = () => (
             <h2 className="text-2xl font-bold text-foreground">4. Health Information Disclaimer</h2>
             <p className="text-muted-foreground leading-relaxed">
               The information provided on this website is for general educational purposes only and does
-              not constitute medical advice. It is not intended to replace professional healthcare
-              guidance. Always consult a qualified healthcare provider before making decisions about
-              your health or treatment.
+              not constitute medical advice, diagnosis, or a treatment plan. It is not intended to replace
+              professional healthcare guidance. Always consult a qualified healthcare provider before
+              making decisions about your health or treatment. In an emergency call 999; for urgent
+              advice use NHS 111. See our{" "}
+              <a href="/disclaimer" className="text-primary underline">medical disclaimer</a>.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               We make every effort to ensure our content is accurate, evidence-based, and up to date,
               but we do not guarantee the completeness or reliability of any information on the site.
+              Using the site does not create a clinician–patient relationship with the charity or its
+              clinical lead unless separately agreed.
             </p>
           </section>
 
@@ -120,7 +124,7 @@ const TermsConditions = () => (
             </p>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
               <li>Donations are generally non-refundable. If you believe a donation was made in error, please contact us within 30 days at <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary underline">{CONTACT_EMAILS.info}</a>.</li>
-              <li>Gift Aid declarations are subject to HMRC rules. You must be a UK taxpayer for Gift Aid to apply.</li>
+              <li>Gift Aid declarations are subject to HMRC rules and are only collected once our HMRC Gift Aid registration is live. You must be a UK taxpayer for Gift Aid to apply.</li>
               <li>We are committed to transparent use of funds. See our <a href="/governance" className="text-primary underline">Governance</a> page for details.</li>
             </ul>
           </section>
@@ -128,7 +132,7 @@ const TermsConditions = () => (
           <section>
             <h2 className="text-2xl font-bold text-foreground">6. User-Generated Content</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Where you submit content to our website (e.g. forum posts, comments, or feedback),
+              Where you submit content to our website (e.g. feedback, comments, or email),
               you grant us a non-exclusive, royalty-free licence to use, reproduce, and display
               that content in connection with our charitable purposes.
             </p>

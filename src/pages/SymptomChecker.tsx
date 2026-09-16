@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/accordion";
 import SymptomQuiz from "@/components/tools/SymptomQuiz";
 import { SYMPTOM_FAQS } from "@/data/symptomChecker";
-import { Activity, ShieldAlert } from "lucide-react";
+import { Activity } from "lucide-react";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 
 const PAGE_URL = "https://livingwitharthritis.org.uk/symptom-checker";
 const TITLE = "Arthritis Symptom Checker (UK) — Educational Guide Finder";
@@ -119,16 +120,8 @@ export default function SymptomChecker() {
             </p>
           </aside>
 
-          <div
-            className="mb-8 rounded-xl border border-border bg-muted/20 p-4 flex gap-3 items-start"
-            role="note"
-          >
-            <ShieldAlert className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
-            <p className="text-sm sm:text-base text-foreground leading-relaxed">
-              <strong className="font-semibold">Medical disclaimer:</strong> Educational information only for a UK
-              audience. It is not personal clinical advice and must not delay seeking care. Speak to your GP about your
-              own symptoms.
-            </p>
+          <div className="mb-8">
+            <MedicalDisclaimerStrip variant="tool" />
           </div>
 
           <section

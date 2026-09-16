@@ -92,11 +92,11 @@ const CONTENT = `
 <p>If your TPMT activity is low, your specialist will start at a much lower dose or choose a different DMARD. If it is absent, azathioprine should not be used.</p>
 
 <h2 id="dosing">How azathioprine is taken</h2>
-<p>Azathioprine is taken as tablets (usually 25&nbsp;mg or 50&nbsp;mg). Typical starting doses are in the region of 1&nbsp;mg per kg of body weight per day, increased gradually to a target of 2–2.5&nbsp;mg/kg/day depending on the condition, blood results and TPMT status. Your rheumatology team will set your dose — never change it without specialist advice.</p>
+<p>Azathioprine is taken as tablets (common tablet strengths include 25&nbsp;mg and 50&nbsp;mg). Rheumatology teams individualise the dose using body weight, TPMT status, blood results and the condition being treated — often referring to BNF / BSR shared-care ranges. <strong>Your rheumatology team will set your dose</strong>; never change it without specialist advice, and do not calculate a dose from this page.</p>
 <p>Practical tips:</p>
 <ul>
 <li>Take with or just after food to reduce nausea</li>
-<li>Split the daily dose (morning and evening) if a single dose causes stomach upset</li>
+<li>Ask your team whether splitting the daily dose helps if a single dose causes stomach upset</li>
 <li>Take it at the same time each day so it's easy to remember</li>
 <li>Don't crush or break the tablets — wash your hands after handling</li>
 <li>Store at room temperature, away from children</li>

@@ -19,10 +19,10 @@ const Footer = lazy(() => import("@/components/Footer"));
 const DIET_GUIDE_FAQS = [
   { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. NHS and Versus Arthritis guidance supports Mediterranean-style eating for general health; individual results vary." },
   { question: "What foods make arthritis worse?", answer: "Ultra-processed foods, sugary drinks, refined carbohydrates, processed meats, excessive red meat and high-omega-6 vegetable oils are linked to higher inflammation. For gout specifically, alcohol (especially beer) and high-purine foods like organ meats and shellfish can trigger flares." },
-  { question: "Does turmeric really help arthritis?", answer: "Yes — clinical trials show 1,000 mg/day of standardised curcumin extract (taken with black pepper or as a phytosome formulation for absorption) can reduce knee osteoarthritis pain similarly to ibuprofen, with fewer side effects. Cooking turmeric is healthy but the active dose needs a concentrated supplement." },
+  { question: "Does turmeric really help arthritis?", answer: "Some clinical trials of standardised curcumin extracts suggest modest pain benefit for knee osteoarthritis for some people. Cooking turmeric is healthy, but study products differ from kitchen spice. Supplements can interact with medicines (including blood-thinners) — ask a pharmacist or your clinician before starting any high-dose curcumin product." },
   { question: "How much oily fish should I eat with arthritis?", answer: "At least 2 portions per week, with one being oily (salmon, mackerel, sardines, trout). If you don't eat fish, a daily algae-based or fish-oil supplement providing 2–4 g of combined EPA and DHA is the closest equivalent." },
   { question: "Can losing weight reduce arthritis pain?", answer: "Yes — for knee osteoarthritis, losing 5–10% of body weight produces clinically meaningful pain and function gains. Every 1 kg lost reduces knee load by about 4 kg with each step. Combined with exercise, weight loss is the most effective non-drug treatment for knee OA." },
-  { question: "Are supplements like glucosamine and collagen worth taking?", answer: "Evidence is mixed. Glucosamine sulphate (1,500 mg/day) has modest evidence for knee OA pain over 6+ months. Hydrolysed collagen peptides (10 g/day) show emerging benefit for joint comfort. Neither is a substitute for an anti-inflammatory diet, exercise and weight management." },
+  { question: "Are supplements like glucosamine and collagen worth taking?", answer: "Evidence is mixed and product quality varies. Some trials of glucosamine sulphate or hydrolysed collagen report modest joint comfort benefits; neither replaces diet, exercise, weight management or prescribed treatment. Discuss with a pharmacist if you take other medicines." },
 ];
 
 const CONTENT = `
@@ -68,7 +68,7 @@ const CONTENT = `
 <p>Key considerations:</p>
 <ul>
 <li>Curcumin has poor bioavailability on its own — pairing with <strong>black pepper (piperine)</strong> increases absorption by up to <strong>2,000%</strong></li>
-<li>Curcumin supplements (500–1,000 mg/day) are more practical than dietary turmeric for therapeutic doses</li>
+<li>Study curcumin products differ from cooking turmeric — ask a clinician or pharmacist before using concentrated supplements</li>
 <li>Some trials show curcumin provides comparable pain relief to diclofenac with fewer side effects</li>
 <li>Consult your doctor if taking blood thinners or diabetes medication, as curcumin may interact</li>
 </ul>

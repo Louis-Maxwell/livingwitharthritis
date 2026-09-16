@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import Footer from "@/components/Footer";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
@@ -499,6 +500,7 @@ const BlogPost = () => {
         </header>
 
         <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
+          <div className="mb-6 print:hidden"><MedicalDisclaimerStrip variant="short" /></div>
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
           <div className="min-w-0 max-w-[860px]">
           {directAnswer && (

@@ -1,6 +1,7 @@
 ﻿import { useParams, Navigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
+import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -348,10 +349,8 @@ const ConditionSubpagePage = () => {
 
         <SocialShareButtons title={title} slug={`conditions/${cond.slug}/${subpage}`} />
 
-        <div className="mt-8 text-xs text-muted-foreground bg-muted/40 rounded-xl p-4">
-          <strong>Medical disclaimer:</strong> This information is educational and does
-          not replace professional medical advice. Always consult your GP or specialist
-          for personalised guidance.
+        <div className="mt-8">
+          <MedicalDisclaimerStrip variant="short" />
         </div>
       </main>
 

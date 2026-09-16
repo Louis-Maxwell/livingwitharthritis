@@ -85,6 +85,11 @@ export default function EditorialStandards() {
               qualified healthcare professional and built on guideline-grade
               evidence. We also follow a clear eight-step SEO content framework
               so answers stay intent-led, readable, and useful for UK readers.
+              Content is educational — see our{" "}
+              <Link to="/disclaimer" className="text-primary underline underline-offset-2">
+                medical disclaimer
+              </Link>
+              .
             </p>
           </header>
 
