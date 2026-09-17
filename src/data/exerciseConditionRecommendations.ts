@@ -184,6 +184,28 @@ export const conditions: ConditionEntry[] = [
       "Most cases of reactive arthritis resolve within 6 months — pace yourself and build activity gradually as symptoms improve.",
     hasConditionPage: true,
   },
+  {
+    slug: "hip-arthritis",
+    name: "Hip Arthritis",
+    shortName: "Hip OA",
+    safeExercises: ["swimming", "cycling", "walking", "strength-training", "stretching"],
+    whyMovementHelps:
+      "Glute and hip-abductor strengthening plus low-impact cardio reduce groin and outer-hip pain more reliably than rest alone.",
+    modifications:
+      "Avoid deep loaded squats early. Use a bike or pool if walking flares the groin. A pole in the opposite hand can offload the painful hip.",
+    hasConditionPage: true,
+  },
+  {
+    slug: "elbow-arthritis",
+    name: "Elbow Arthritis",
+    shortName: "Elbow OA",
+    safeExercises: ["stretching", "strength-training", "yoga", "swimming", "cycling"],
+    whyMovementHelps:
+      "Gentle range-of-motion and forearm strengthening preserve elbow function for dressing, cooking and lifting without locking the joint.",
+    modifications:
+      "Skip heavy loaded curls during a flare. Warm the elbow before work and stop short of sharp catching pain.",
+    hasConditionPage: true,
+  },
 ];
 
 export const conditionBySlug = new Map(conditions.map((c) => [c.slug, c]));

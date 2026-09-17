@@ -1033,4 +1033,135 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       ],
     },
   },
+
+  "hip-arthritis": {
+    symptoms: {
+      headline: "Hip arthritis symptoms",
+      intro:
+        "Hip osteoarthritis usually starts as a deep ache in the groin or front of the hip, often mistaken for knee or thigh pain. Morning stiffness usually eases within about 30 minutes of moving.",
+      commonSymptoms: [
+        "Deep groin or front-of-hip ache that worsens with walking or standing from a chair",
+        "Stiffness after sitting or first thing in the morning",
+        "Pain putting on socks, shoes or clipping toenails",
+        "Outer-hip or buttock ache that can travel to the knee",
+        "A limp or shorter stride after longer walks",
+        "Night pain that wakes you when you roll onto the painful side",
+      ],
+      whenToSeeGP:
+        "See your GP if groin pain has lasted more than a few weeks, wakes you at night, or is stopping you walking usual distances. Ask about physiotherapy and, if night pain or limp is severe, whether imaging is needed.",
+    },
+    treatment: {
+      headline: "Hip arthritis treatment",
+      intro:
+        "UK first-line care for hip osteoarthritis is exercise, weight support where needed, and simple pain relief — not an early rush to replacement. Surgery is considered when sleep, walking and daily tasks stay badly limited after months of conservative care.",
+      approaches: [
+        { name: "Exercise and physiotherapy", description: "Glute and hip-abductor strength plus low-impact cardio are core NICE-aligned treatment for everyone with hip OA." },
+        { name: "Weight management", description: "The hip takes roughly three times body weight when walking, so even modest weight loss can cut load and pain." },
+        { name: "Pain relief", description: "Paracetamol, topical NSAIDs, and short courses of oral NSAIDs for flares if safe for you." },
+        { name: "Walking aids", description: "A stick in the opposite hand, or a pole, can offload a painful hip on longer walks." },
+        { name: "Steroid injection", description: "Sometimes used for a severe flare while rehabilitation continues — not a permanent fix." },
+        { name: "Hip replacement", description: "Considered when pain disturbs sleep, limits daily life, and 3–6 months of conservative care has not been enough." },
+      ],
+    },
+    exercises: {
+      headline: "Best exercises for hip arthritis",
+      intro:
+        "NICE lists exercise as a core treatment for hip osteoarthritis. Strength work for the glutes and hip abductors plus swimming, cycling or pool walking usually beats rest.",
+      keyBenefits: [
+        "Reduces groin and outer-hip pain with consistent practice",
+        "Improves ability to stand from a chair and climb stairs",
+        "Supports the muscles that stabilise a worn hip joint",
+        "Low-impact options (pool, bike) keep fitness without heavy joint load",
+        "Helps before and after any planned hip replacement",
+      ],
+    },
+    diet: {
+      headline: "Diet for hip arthritis",
+      intro:
+        "There is no special hip-arthritis diet, but weight control and an anti-inflammatory pattern matter because extra load on the hip shows up quickly in pain and walking distance.",
+      foodsToFavor: [
+        "A Mediterranean-style pattern: oily fish, vegetables, pulses, olive oil",
+        "Protein at each meal to protect muscle while you strengthen",
+        "High-fibre carbs that support steady weight loss if needed",
+        "Calcium-rich foods or fortified alternatives for bone health",
+        "Water through the day, especially around exercise",
+      ],
+      foodsToLimit: [
+        "Sugary drinks and ultra-processed snacks that make weight loss harder",
+        "Very large late-night meals if reflux worsens night pain",
+        "Crash diets that strip muscle you need for the hip",
+        "Excess alcohol, which disrupts sleep and recovery",
+      ],
+      extraSections: [
+        {
+          heading: "Why weight loss helps the hip specifically",
+          body: "Every extra kilogram is multiplied across the hip when you walk or climb stairs. A realistic 5% body-weight reduction often brings a clear drop in day-to-day pain for people with hip OA — more useful than most supplement claims.",
+        },
+        {
+          heading: "Food and NSAIDs",
+          body: "If you use ibuprofen or naproxen for hip flares, take it with food and follow UK safety advice if you have stomach, kidney or heart history. Diet cannot replace that check with a pharmacist or GP.",
+        },
+      ],
+    },
+  },
+
+  "elbow-arthritis": {
+    symptoms: {
+      headline: "Elbow arthritis symptoms",
+      intro:
+        "Elbow osteoarthritis is less common than hip or knee OA but causes a stiff, aching joint that catches when you straighten or rotate the forearm — often after prior injury or heavy manual work.",
+      commonSymptoms: [
+        "Deep ache around the elbow, worse with gripping or lifting",
+        "Stiffness, especially first thing or after rest",
+        "Catching, clicking or locking when straightening the arm",
+        "Pain turning a door handle, pouring a kettle, or using a screwdriver",
+        "Swelling or warmth after heavier use",
+        "Weak grip from pain rather than true nerve damage (though nerve symptoms need a separate check)",
+      ],
+      whenToSeeGP:
+        "See your GP if elbow pain and stiffness last more than a few weeks, locking is frequent, or you cannot straighten the arm. Mention any old fracture or dislocation of that elbow.",
+    },
+    treatment: {
+      headline: "Elbow arthritis treatment",
+      intro:
+        "Most elbow arthritis is managed with activity changes, gentle movement, and short-term pain relief. Injections or surgery are reserved for stubborn locking or disabling pain after conservative care.",
+      approaches: [
+        { name: "Activity modification", description: "Ease repetitive gripping, heavy lifting and vibration tools during flares." },
+        { name: "Physiotherapy", description: "Range-of-motion and forearm strengthening protect the joint without forcing end-range pain." },
+        { name: "Pain relief", description: "Topical NSAIDs first-line for many people; oral NSAIDs short-term if appropriate." },
+        { name: "Heat before movement", description: "Warm the elbow before exercise or morning tasks to reduce stiffness." },
+        { name: "Injection", description: "Steroid injection is occasional for a bad flare — discuss benefits and limits with a clinician." },
+        { name: "Surgery", description: "Rarely needed; considered for severe arthritis or mechanical locking that blocks daily life." },
+      ],
+    },
+    exercises: {
+      headline: "Best exercises for elbow arthritis",
+      intro:
+        "Keep the elbow moving through comfortable range and strengthen the forearm gradually. Avoid grinding into sharp catching pain.",
+      keyBenefits: [
+        "Maintains bend and straighten range for dressing and cooking",
+        "Improves grip strength for jars and kettles",
+        "Reduces morning stiffness with daily gentle work",
+        "Supports recovery after a flare without total rest",
+        "Pairs well with activity changes at work or hobbies",
+      ],
+    },
+    diet: {
+      headline: "Diet for elbow arthritis",
+      intro:
+        "Diet will not rebuild worn elbow cartilage, but steady weight control, protein for muscle, and an anti-inflammatory pattern support the whole-joint plan.",
+      foodsToFavor: [
+        "Oily fish or omega-3 sources most weeks",
+        "Lean protein to support forearm and upper-body strength work",
+        "Fruit, vegetables, pulses and wholegrains",
+        "Water around exercise sessions",
+      ],
+      foodsToLimit: [
+        "Ultra-processed snacks that crowd out useful meals",
+        "Excess alcohol",
+        "Very high-dose supplement stacks marketed for 'cartilage repair' without evidence",
+      ],
+    },
+  },
 };
+
