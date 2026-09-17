@@ -87,7 +87,7 @@ const OAHero = memo(() => {
               className="hero-item mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"
             >
               <span className="font-semibold">Popular:</span>
-              <Link to="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Knee exercises</Link>
+              <Link to="/guides/knee-exercises-for-osteoarthritis" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Knee exercises</Link>
               <span aria-hidden="true" className="opacity-50">·</span>
               <Link to="/diet" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Anti-inflammatory diet</Link>
               <span aria-hidden="true" className="opacity-50">·</span>
