@@ -11,12 +11,15 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import FaqAccordion from "@/components/faq/FaqAccordion";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_DIET } from "@/data/clinical/ukCitations";
 
 const Footer = lazy(() => import("@/components/Footer"));
 
 const DIET_GUIDE_FAQS = [
+  { question: "What is an anti-inflammatory diet for arthritis in the UK?", answer: "An anti-inflammatory diet for arthritis is essentially a Mediterranean-style pattern: plenty of vegetables, fruit, wholegrains, extra virgin olive oil, oily fish, nuts, pulses and herbs, with less ultra-processed food, sugary drinks and excess red or processed meat. NHS and UK charity guidance support this pattern for general health; it may help some people with joint symptoms but does not replace prescribed treatment." },
+  { question: "What is the best arthritis diet advice in the UK?", answer: "The strongest evidence points to a Mediterranean / anti-inflammatory pattern plus, for knee osteoarthritis, gradual weight loss where appropriate (often discussed as around 5–10% of body weight with a clinician). Focus on oily fish twice weekly, olive oil, colourful plants and limiting ultra-processed foods — not miracle single foods." },
   { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. NHS and Versus Arthritis guidance supports Mediterranean-style eating for general health; individual results vary." },
   { question: "What foods make arthritis worse?", answer: "Ultra-processed foods, sugary drinks, refined carbohydrates, processed meats, excessive red meat and high-omega-6 vegetable oils are linked to higher inflammation. For gout specifically, alcohol (especially beer) and high-purine foods like organ meats and shellfish can trigger flares." },
   { question: "Does turmeric really help arthritis?", answer: "Some clinical trials of standardised curcumin extracts suggest modest pain benefit for knee osteoarthritis for some people. Cooking turmeric is healthy, but study products differ from kitchen spice. Supplements can interact with medicines (including blood-thinners) — ask a pharmacist or your clinician before starting any high-dose curcumin product." },
@@ -182,11 +185,11 @@ export default function DietGuide() {
   return (
     <>
       <Helmet>
-        <title>Diet for arthritis UK: Mediterranean foods that help joints</title>
-        <meta name="description" content="Practical diet for arthritis in the UK: Mediterranean-style meals, foods that may worsen flares, omega-3 tips and weight management. Educational only." />
+        <title>Best arthritis diet advice UK | Anti-inflammatory Mediterranean guide</title>
+        <meta name="description" content="Best arthritis diet advice UK: anti-inflammatory Mediterranean eating, omega-3s, foods to limit, supplements evidence and a sample meal plan. Living With Arthritis charity 1218461." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-      <meta property="og:title" content="Anti-Inflammatory Diet for Arthritis UK – Mediterranean Diet, Foods &amp; Meal Plans" />
+      <meta property="og:title" content="Best arthritis diet advice UK – Anti-inflammatory Mediterranean diet" />
       <meta property="og:description" content="Evidence-based guide to the best diet for arthritis: Mediterranean diet, anti-inflammatory foods, omega-3s, turmeric, supplements, sample meal plans and weight management tips for UK patients." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/diet" />
@@ -196,13 +199,13 @@ export default function DietGuide() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Anti-Inflammatory Diet for Arthritis UK – Mediterranean Diet, Foods &amp; Meal Plans" />
+      <meta name="twitter:title" content="Best arthritis diet advice UK – Anti-inflammatory Mediterranean diet" />
       <meta name="twitter:description" content="Evidence-based guide to the best diet for arthritis: Mediterranean diet, anti-inflammatory foods, omega-3s, turmeric, supplements, sample meal plans and weight management tips for UK patients." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <PageSchema
         url="/guides/diet"
-        name="Anti-Inflammatory Diet for Arthritis (UK)"
+        name="Best arthritis diet advice UK | Anti-inflammatory Mediterranean"
         description="Evidence-based guide to the best diet for arthritis: Mediterranean eating, anti-inflammatory foods, omega-3s, turmeric and supplements."
         medical={{ condition: "Arthritis" }}
         speakableSelector=".speakable-intro"
@@ -218,13 +221,13 @@ export default function DietGuide() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
-          title="Diet &amp; Nutrition Guide for Arthritis"
-          subtitle="The evidence-based guide to eating for joint health — anti-inflammatory foods, Mediterranean meal plans, supplements and practical tips for UK shoppers."
+          title="Best arthritis diet advice UK: anti-inflammatory Mediterranean guide"
+          subtitle="Evidence-based anti-inflammatory and Mediterranean eating for arthritis in the UK — what helps, what to limit, omega-3s, supplements and a practical meal plan."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-6">
-            Anti-inflammatory and Mediterranean-style eating for arthritis in the UK — what the evidence supports, without miracle-food claims.
+            Best arthritis diet advice UK: an anti-inflammatory Mediterranean pattern — vegetables, oily fish, olive oil, wholegrains and pulses — is the best-evidenced approach. It may support joint comfort for some people but does not replace prescribed treatment.
           </p>
           <AeoEnhancement route="/guides/diet" />
           <TopicClusterNav path="/guides/diet" />
@@ -240,6 +243,14 @@ export default function DietGuide() {
           </AnswerBox>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <section id="diet-guide-faq" className="mt-16 pt-8 border-t border-border/30">
+            <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
+            <FaqAccordion
+              idPrefix="diet-guide-faq"
+              items={DIET_GUIDE_FAQS}
+              injectSchema={false}
+            />
+          </section>
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
