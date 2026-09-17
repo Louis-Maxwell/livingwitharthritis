@@ -182,8 +182,8 @@ export default function DietGuide() {
   return (
     <>
       <Helmet>
-        <title>Anti-inflammatory diet for arthritis (UK guide)</title>
-        <meta name="description" content="What to eat with arthritis in the UK: Mediterranean-style meals, foods that may worsen flares, omega-3, turmeric and weight-management tips." />
+        <title>Diet for arthritis UK: Mediterranean foods that help joints</title>
+        <meta name="description" content="Practical diet for arthritis in the UK: Mediterranean-style meals, foods that may worsen flares, omega-3 tips and weight management. Educational only." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Anti-Inflammatory Diet for Arthritis UK – Mediterranean Diet, Foods &amp; Meal Plans" />
@@ -212,7 +212,7 @@ export default function DietGuide() {
           { name: "Diet Guide" },
         ]}
         faqs={DIET_GUIDE_FAQS}
-        lastReviewed="2026-09-16"
+        lastReviewed="2026-09-17"
         idPrefix="diet-guide"
       />
       <Header />
@@ -258,7 +258,7 @@ export default function DietGuide() {
       
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_DIET} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-17" />
       </div>
       <GuideOnwardJourney currentPath="/guides/diet" />
       <Suspense fallback={null}><Footer /></Suspense>

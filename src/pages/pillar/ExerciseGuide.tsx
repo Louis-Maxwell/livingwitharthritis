@@ -189,8 +189,8 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Best arthritis exercises in the UK (NICE-aligned)</title>
-        <meta name="description" content="Evidence-based arthritis exercise guide: low-impact aerobic, strength, flexibility, water and chair routines for knee, hip, hand & shoulder." />
+        <title>Arthritis exercises UK: safe strength, walking and chair routines</title>
+        <meta name="description" content="Safe arthritis exercises for UK adults: low-impact cardio, strength, flexibility, water and chair routines for knee, hip, hand and shoulder. Educational — check with your clinician." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Best Exercises for Arthritis UK – Knee, Hip, Hand &amp; Chair Exercises Guide" />
@@ -219,7 +219,7 @@ export default function ExerciseGuide() {
           { name: "Exercise Guide" },
         ]}
         faqs={EXERCISE_GUIDE_FAQS}
-        lastReviewed="2026-09-16"
+        lastReviewed="2026-09-17"
         idPrefix="exercise-guide"
       />
       <Header />
@@ -269,7 +269,7 @@ export default function ExerciseGuide() {
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-17" />
         <TopicClusterNav path="/guides/exercise" />
       </div>
       <GuideOnwardJourney currentPath="/guides/exercise" />

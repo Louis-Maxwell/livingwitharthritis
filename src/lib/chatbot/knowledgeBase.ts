@@ -849,8 +849,12 @@ Modest weight loss, if relevant, often eases knee and hip load. Recipes and plan
       "weight loss",
       "lose weight",
       "foods to avoid",
+      "diets for arthritis",
+      "diet for osteoarthritis",
+      "diet for arthritis",
+      "nutritionist for arthritis",
     ],
-    synonyms: ["eating", "calories", "healthy eating", "what should i eat"],
+    synonyms: ["eating", "calories", "healthy eating", "what should i eat", "oa diet"],
     priority: 8,
     chips: ["Anti-inflammatory foods", "Gout diet notes", "Exercise hub"],
     answer: `**Eating well with arthritis**
@@ -1128,12 +1132,15 @@ We do not diagnose. Read **/conditions/psoriatic-arthritis**; self-care via **/e
     keywords: [
       "gout",
       "gout flare",
+      "gout treatment",
       "uric acid",
       "big toe pain",
       "gout attack",
       "gout diet",
       "allopurinol",
       "febuxostat",
+      "urate lowering",
+      "colchicine",
     ],
     synonyms: ["gouty", "high urate", "podagra", "gout crystal"],
     priority: 14,
@@ -1151,18 +1158,19 @@ Gout is caused by urate crystals in a joint — often a sudden, very painful, ho
 **Longer term**
 - Urate-lowering therapy (e.g. allopurinol or febuxostat) is a clinical decision — see **/guides/febuxostat-for-gout**
 - Limit excess alcohol, sugary drinks and very high-purine binge patterns; maintain a healthy weight
-- Condition page: **/conditions/gout** · diet ideas: **/diet**
+- Condition page: **/conditions/gout** · treatment overview: **/conditions/gout/treatment** · diet: **/diet**
 
 Fever with a hot joint can also be infection — use **NHS 111**/urgent care if unsure.`,
     nextSteps: [
-      "Read /conditions/gout",
+      "Read /conditions/gout/treatment",
       "Ask GP about prevention after repeated attacks",
-      "Review diet patterns on /diet",
+      "Review diet patterns on /guides/diet",
     ],
     related: [
+      { type: "condition", title: "Gout treatment", url: "/conditions/gout/treatment" },
       { type: "condition", title: "Gout", url: "/conditions/gout" },
       { type: "guide", title: "Febuxostat guide", url: "/guides/febuxostat-for-gout" },
-      { type: "guide", title: "Diet hub", url: "/diet" },
+      { type: "guide", title: "Diet pillar", url: "/guides/diet" },
     ],
   },
   {
@@ -1484,14 +1492,18 @@ We do not provide doses. Confirm everything with your clinical team.`,
       "glucosamine",
       "chondroitin",
       "collagen",
+      "glucosamine and collagen",
       "turmeric",
       "curcumin",
       "omega-3",
+      "omega 3 for joints",
       "fish oil",
       "vitamin d",
       "vit d",
+      "supplements for knee pain",
+      "best joint supplement",
     ],
-    synonyms: ["vitamins", "cod liver", "msm supplement"],
+    synonyms: ["vitamins", "cod liver", "msm supplement", "omega 3 joints"],
     priority: 10,
     chips: ["Diet hub", "Pain relief basics", "Ask a pharmacist"],
     answer: `**Supplements — evidence snapshot (not a shopping list prescription)**
@@ -1505,12 +1517,15 @@ No supplement reverses arthritis. A few may help symptoms modestly for some peop
 
 Always check interactions (blood thinners, diabetes meds, etc.) with a **pharmacist or GP**. Give any trial enough weeks before judging — and stop if you feel unwell.
 
-Hub: **/supplements** · diet first: **/diet**.`,
+Hub: **/supplements** · diet first: **/guides/diet**.
+
+Useful reads: **/blog/omega-3-foods-for-joints**, **/blog/best-supplement-for-knee-joint**, **/blog/glucosamine-vs-collagen** (educational comparisons — not product endorsements).`,
     nextSteps: ["Ask a pharmacist before combining supplements with medicines", "Prioritise diet and movement first"],
     related: [
       { type: "guide", title: "Supplements hub", url: "/supplements" },
-      { type: "guide", title: "Diet hub", url: "/diet" },
-      { type: "guide", title: "Guides", url: "/guides" },
+      { type: "article", title: "Omega-3 foods for joints", url: "/blog/omega-3-foods-for-joints" },
+      { type: "article", title: "Glucosamine vs collagen", url: "/blog/glucosamine-vs-collagen" },
+      { type: "guide", title: "Diet pillar", url: "/guides/diet" },
     ],
   },
   {

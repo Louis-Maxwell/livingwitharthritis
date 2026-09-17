@@ -31,7 +31,7 @@ const data: ConditionPageData = {
         respond to the same exercise and biologic treatments.
       </p>
     ),
-    reviewed: "2026-06-18",
+    reviewed: "2026-09-17",
   },
   whatIs: (
     <>

@@ -66,7 +66,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ArthritisPainRelief = () => (
   <>
     <Helmet>
-      <title>Arthritis Pain Relief: Evidence-Based UK Tips | LWA</title>
+      <title>Arthritis pain relief UK: movement, heat/cold and medicines</title>
       <meta name="description" content="Practical UK guide to arthritis pain relief — movement, heat & cold, topical NSAIDs, diet, sleep and when to see your GP. Written for everyday use." />
       <meta name="keywords" content="arthritis pain relief, arthritis pain relief tips, joint pain relief, how to relieve arthritis pain, arthritis pain management uk, arthritis flare relief, natural arthritis pain relief" />
       <meta property="og:title" content="Arthritis Pain Relief – Evidence-Based UK Tips" />
@@ -200,7 +200,7 @@ const ArthritisPainRelief = () => (
       </main>
       
       <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-17" />
       <TopicClusterNav path="/guides/arthritis-pain-relief" />
 <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />

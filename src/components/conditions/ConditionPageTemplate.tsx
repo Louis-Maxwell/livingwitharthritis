@@ -22,6 +22,8 @@ import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
 const InternalLinks = lazy(() => import("@/components/InternalLinks"));
@@ -413,6 +415,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               />
             </Suspense>
           </div>
+          <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+          <TopicClusterNav path={`/conditions/${data.slug}`} />
         </main>
         <Suspense fallback={null}>
           <InternalLinks />

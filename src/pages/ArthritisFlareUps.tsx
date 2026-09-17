@@ -562,7 +562,7 @@ export default function ArthritisFlareUps() {
           <strong>Medical disclaimer:</strong> This guide is for educational purposes only and does not replace professional medical advice. Content is aligned with publicly available national clinical and NICE guidance as of March 2026. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment plan. In an emergency, call 999.
         </p>
         
-      <EducationalDisclaimerBox />
+      <EducationalDisclaimerBox lastReviewed="2026-09-17" />
       <TopicClusterNav path="/arthritis-flare-ups" />
 <CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />
         <ContextualLinks

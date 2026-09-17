@@ -8,6 +8,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import NextReadStrip from "@/components/NextReadStrip";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import {
   conditionSubpages,
   subpageSlugs,
@@ -41,10 +43,10 @@ const subpageIcon: Record<SubpageSlug, typeof Activity> = {
 
 function subpageTitle(condName: string, subpage: SubpageSlug): string {
   const titleMap: Record<SubpageSlug, string> = {
-    symptoms: `${condName} Symptoms: Early Signs, Causes & UK Diagnosis Guide`,
-    treatment: `${condName} Treatment in the UK: UK healthcare Options, Medication & Self-Care`,
-    exercises: `Best Exercises for ${condName}: Safe UK Physio-Aligned Routines`,
-    diet: `Best Diet for ${condName}: Anti-Inflammatory Foods to Eat & Avoid (UK)`,
+    symptoms: `${condName} symptoms: early signs and when to see a GP (UK)`,
+    treatment: `${condName} treatment UK: NHS options, medicines and self-care`,
+    exercises: `Best exercises for ${condName}: safe UK physio-aligned routines`,
+    diet: `Diet for ${condName}: foods to favour and limit (UK guide)`,
   };
   return titleMap[subpage];
 }
@@ -52,10 +54,10 @@ function subpageTitle(condName: string, subpage: SubpageSlug): string {
 function subpageDescription(condName: string, subpage: SubpageSlug): string {
   const lcName = condName.toLowerCase();
   const descMap: Record<SubpageSlug, string> = {
-    symptoms: `Recognise the early signs of ${lcName}, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with UK healthcare and NICE.`,
-    treatment: `Evidence-based ${lcName} treatment in the UK — UK healthcare pathways, medication options, pain relief and self-management strategies that actually work.`,
-    exercises: `Safe, effective ${lcName} exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.`,
-    diet: `What to eat — and what to limit — with ${lcName}. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best evidence.`,
+    symptoms: `Recognise early ${lcName} signs, common flare symptoms, and when to see your GP. Educational UK guidance aligned with NHS and NICE themes — not a diagnosis.`,
+    treatment: `How ${lcName} is usually managed in the UK: NHS pathways, common medicine classes, pain relief and self-care. Educational only — your clinician decides treatment.`,
+    exercises: `Safe ${lcName} exercise ideas aligned with UK physiotherapy themes: what to try, what to ease off, and how to build a weekly routine. Check with your clinician if you are unsure.`,
+    diet: `What to favour and limit with ${lcName}. UK-focused anti-inflammatory eating ideas and evidence notes — not a personal meal prescription.`,
   };
   return descMap[subpage];
 }
@@ -325,17 +327,17 @@ const ConditionSubpagePage = () => {
         {/* Pillar CTAs */}
         <section className="mb-10 grid sm:grid-cols-2 gap-3">
           <Link
-            to="/exercises"
+            to="/guides/exercise"
             className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors"
           >
-            <span className="text-foreground font-medium">All arthritis exercises</span>
+            <span className="text-foreground font-medium">Arthritis exercise pillar guide</span>
             <ArrowRight className="w-4 h-4 text-primary" />
           </Link>
           <Link
-            to="/diet"
+            to="/guides/diet"
             className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors"
           >
-            <span className="text-foreground font-medium">Anti-inflammatory diet guide</span>
+            <span className="text-foreground font-medium">Anti-inflammatory diet pillar</span>
             <ArrowRight className="w-4 h-4 text-primary" />
           </Link>
           <Link
@@ -349,7 +351,9 @@ const ConditionSubpagePage = () => {
 
         <SocialShareButtons title={title} slug={`conditions/${cond.slug}/${subpage}`} />
 
-        <div className="mt-8">
+        <div className="mt-8 space-y-6">
+          <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+          <TopicClusterNav path={path} />
           <MedicalDisclaimerStrip variant="short" />
         </div>
       </main>

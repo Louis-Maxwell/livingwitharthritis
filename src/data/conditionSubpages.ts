@@ -261,14 +261,33 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
     treatment: {
       headline: "Gout treatment",
       intro:
-        "Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage.",
+        "Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage. This page is educational UK guidance only — not a prescription or diagnosis. Your GP, rheumatology team or pharmacist decides what is safe for you.",
       approaches: [
-        { name: "NSAIDs during attacks", description: "First-line for most people — start as soon as the attack begins." },
-        { name: "Colchicine", description: "Effective for acute attacks, particularly if NSAIDs aren't suitable." },
-        { name: "Short steroid course", description: "Used when NSAIDs and colchicine aren't appropriate." },
-        { name: "Allopurinol", description: "Long-term urate-lowering therapy — the cornerstone of preventing future attacks." },
-        { name: "Febuxostat", description: "Alternative urate-lowering option when allopurinol isn't tolerated." },
-        { name: "Lifestyle measures", description: "Weight management, reduced alcohol, and good hydration alongside medication." },
+        { name: "NSAIDs during attacks", description: "Often first-line for people who can take them — start early in an attack if your clinician has advised this class." },
+        { name: "Colchicine", description: "Used for acute attacks when NSAIDs are unsuitable; dosing and kidney checks are clinician decisions." },
+        { name: "Short steroid course", description: "Sometimes used when NSAIDs and colchicine are not appropriate." },
+        { name: "Allopurinol", description: "Long-term urate-lowering therapy — the usual cornerstone of preventing future attacks once the diagnosis is confirmed." },
+        { name: "Febuxostat", description: "Alternative urate-lowering option when allopurinol is not tolerated — see our Febuxostat guide." },
+        { name: "Lifestyle measures", description: "Weight management, alcohol moderation, hydration and a lower-purine pattern alongside medication — not instead of it." },
+      ],
+      extraSections: [
+        {
+          heading: "Acute attack vs long-term prevention",
+          body: "Treating the painful flare and preventing the next one are different jobs. Acute medicines calm the joint for days; urate-lowering therapy (usually allopurinol, sometimes febuxostat) is started or adjusted when attacks repeat or tophi appear. Do not stop long-term urate-lowering medicine during a flare unless your clinician tells you to — that is a common myth that can prolong attacks.\n\nIf a joint is suddenly hot, red and very swollen with fever or you feel severely unwell, seek urgent care (NHS 111 / A&E) because joint infection can look similar to gout.",
+        },
+        {
+          heading: "What UK pathways usually look like",
+          body: "A first suspected attack is often assessed in primary care, sometimes with joint fluid testing when the diagnosis is unclear. Repeated attacks usually trigger a conversation about long-term urate lowering and a target blood urate level. Rheumatology input is more likely when attacks are frequent, tophi are present, kidney disease complicates choices, or first-line medicines are not tolerated.\n\nFor medicine-specific reading see /guides/febuxostat-for-gout. For food patterns that support (not replace) treatment, see /conditions/gout/diet and /guides/diet.",
+        },
+        {
+          heading: "Self-care themes between appointments",
+          body: "Rest and elevate the joint in a flare; ice with a cloth barrier for short spells; ask a pharmacist which short-term pain options fit your other medicines. Between attacks, keep moving with non-impact exercise once the joint settles, stay hydrated unless advised otherwise, and cut binge alcohol and sugary drinks. Track attack dates — that diary helps your GP decide when prevention is worth starting.",
+          bullets: [
+            "Educational only — no doses or medicine starts from this page",
+            "Charity 1218461 · clinical authorship HCPC PH128483",
+            "Motion is Lotion still applies between gout attacks",
+          ],
+        },
       ],
     },
     exercises: {

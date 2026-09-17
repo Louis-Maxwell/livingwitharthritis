@@ -26,6 +26,7 @@
 | Champions 16–20 gold pass (interim) | **done** | Painkillers/NSAIDs, Shoulder pain relief, Hip arthritis, Rheumatoid arthritis, Can exercise make OA worse — disclaimer + cluster nav + review **2026-09-15**; interim until GSC re-prioritises |
 | Champions 21–25 + treatment spoke gold pass (GSC-driven) | **done** | FaqArticle + BlogPost disclaimer/cluster; GSC blog paths in topicClusters; Azathioprine, Febuxostat, Knee replacement, Health services, Exercise guides (+ Shoulder OA, Arthritis, Mental health, Foods to avoid) — review **2026-09-16** |
 | Champions 26–30 + PIP spoke gold pass (GSC-driven) | **done** | Benefits PIP hub, FAQ hub, symptom checker, supplements hub, glucosamine — disclaimer + cluster nav + citations + review **2026-09-16**; cluster density on GSC top-click blogs/FAQ/OA; Sheffield RA doorway redirects to RA hub |
+| Champions 31–35 GSC subpage + condition template gold pass | **done** | ConditionSubpagePage + ConditionPageTemplate disclaimer/cluster (covers `/conditions/gout/treatment`, AS, PsA diet); diet/exercise/pain pillar CTR titles; gout treatment depth; cluster + chatbot KB for B₁ intents — review **2026-09-17** |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -59,10 +60,35 @@
 5. **Google Ad Grants** — Google for Nonprofits + Ad Grants login/apply (see pack)
 6. **Outreach sends** — first wave from `docs/PARTNER-OUTREACH-50.md` (public contact routes only)
 7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
-8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, plus PIP copy, supplements caution and symptom-checker CTAs)
+8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, gout treatment, AS, PIP copy, supplements caution and symptom-checker CTAs)
 9. **Lovable publish** — publish the latest GitHub `main` so cluster/CRO/gold-pass pages are live
 
 ---
+
+## Daily log — 17 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Champions 31–35 from B₁ / recent GSC impressions (no new doorway cities).
+
+### Shipped
+- **Champions 31–35 (GSC-driven leverage):** gold-pass chrome on `ConditionSubpagePage` (all `/conditions/:condition/:subpage`, incl. `/conditions/gout/treatment` and `/conditions/psoriatic-arthritis/diet`) and `ConditionPageTemplate` (incl. `/conditions/ankylosing-spondylitis`) — `EducationalDisclaimerBox` + `TopicClusterNav` + review **2026-09-17**
+- **CTR / title hygiene** on high-impression zero-click pillars: `/guides/diet`, `/guides/exercise`, `/guides/arthritis-pain-relief`; flare guide dated review
+- **Gout treatment depth** in `conditionSubpages` (acute vs prevention, UK pathway themes, educational-not-prescribing)
+- **Cluster map:** gout treatment / gout / AS / rheumatologist FAQ / diet & exercise pillars fronted in `topicClusters`
+- **Chatbot KB:** gout treatment + diet/supplement GSC phrases; links to treatment subpage and omega-3 / glucosamine blogs
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per SOP; approve research-fund creative before posts
+- Clinical spot-check of Champions 26–35 (gout treatment, AS, diet/exercise pillars, PIP/supplements)
+- Optional Scenario C moonshot media budget paper
+- **Lovable publish** of latest GitHub `main` so gold-pass/CTR pages are live
+
+### Next 3 digital actions (GTM)
+1. Early M3 pillar polish: OA / PIP / exercise / pain cross-links from remaining high-impr library pages (`/library/*` thin URLs)
+2. Louis: Regulator / Gift Aid / Ad Grants / outreach / social (still blocked-on-Louis)
+3. Chatbot KB pass for “arthritis” head term + walking-shoes / turmeric blog internal links if GSC still shows 0-click impressions
 
 ## Daily log — 14 Sep 2026 (M1, weekday run)
 
