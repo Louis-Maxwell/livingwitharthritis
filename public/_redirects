@@ -5,6 +5,7 @@
 # at these paths so crawlers do not see the homepage.
 # Client fallback: src/lib/seoRedirects.ts + SeoRedirectGate.
 
+/guides/sarcopenia-muscle-control /guides/sarcopenia-muscle-loss 301
 # --- Known GSC hard 404 / soft 404 exact URLs ---
 /blog/mindfulness-meditation-chronic-pain /blog/mindfulness-chronic-pain-arthritis-guide 301
 /exercise-hub /exercises 301
