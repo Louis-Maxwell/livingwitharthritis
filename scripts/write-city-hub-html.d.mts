@@ -1,3 +1,2 @@
-export function writeCityHubHtml(...args: unknown[]): unknown;
-declare const _default: unknown;
-export default _default;
+export function buildCityHubHtml(city: unknown, assetTags?: string): string;
+export function writeCityHubHtml(distDir?: string): unknown;
