@@ -57,33 +57,10 @@ const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 
 function HomePage() {
   useEffect(() => {
-    const id = "ld-home-ngo";
-    const existing = document.getElementById(id);
-    if (existing) existing.remove();
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = id;
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalOrganization",
-      name: "Living With Arthritis UK",
-      url: SITE_URL,
-      description:
-        "An open-source osteoarthritis management plan — clinically reviewed, freely published, and made for everyone living with OA in the UK.",
-      areaServed: { "@type": "Country", name: "United Kingdom" },
-      knowsAbout: [
-        "Osteoarthritis",
-        "Rheumatoid arthritis",
-        "Gout",
-        "Fibromyalgia",
-        "Anti-inflammatory diet",
-        "Physiotherapy",
-        "Chronic pain management",
-      ],
-    });
-    document.head.appendChild(script);
-
+    // Organization / WebSite JSON-LD is emitted once by
+    // <RootOrganizationSchema /> (and the matching static scripts in
+    // index.html). A second MedicalOrganization here split the entity
+    // and omitted the charity number.
     const breadcrumbId = "ld-home-breadcrumb";
     document.getElementById(breadcrumbId)?.remove();
     const breadcrumbScript = document.createElement("script");
@@ -104,10 +81,7 @@ function HomePage() {
     document.head.appendChild(breadcrumbScript);
 
     return () => {
-      [id, breadcrumbId].forEach((scriptId) => {
-        const el = document.getElementById(scriptId);
-        if (el) el.remove();
-      });
+      document.getElementById(breadcrumbId)?.remove();
     };
   }, []);
 

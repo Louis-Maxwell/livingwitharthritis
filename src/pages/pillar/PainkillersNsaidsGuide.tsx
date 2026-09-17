@@ -144,7 +144,7 @@ export default function PainkillersNsaidsGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Painkillers & NSAIDs" },
         ]}
         faqs={NSAID_FAQS}

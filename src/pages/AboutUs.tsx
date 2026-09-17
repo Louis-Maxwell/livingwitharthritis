@@ -145,6 +145,7 @@ const AboutUs = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461" />
         <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
         <script type="application/ld+json">{JSON.stringify({
@@ -154,10 +155,17 @@ const AboutUs = () => {
           "url": `${CHARITY.siteUrl}/about`,
           "inLanguage": "en-GB",
           "mainEntity": {
+            "@id": `${CHARITY.siteUrl}/#organization`,
             "@type": "NGO",
             "name": CHARITY.legalName,
             "foundingDate": String(CHARITY.foundedYear),
             "url": CHARITY.siteUrl,
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "GB-CHC",
+              "value": CHARITY.number,
+              "url": CHARITY.registerUrl,
+            },
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
           }
         })}</script>

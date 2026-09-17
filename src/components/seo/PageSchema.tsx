@@ -127,12 +127,7 @@ export default function PageSchema({
         description,
         url: absUrl,
         inLanguage: "en-GB",
-        publisher: {
-          "@type": "Organization",
-          name: "Living With Arthritis UK",
-          url: BASE,
-          logo: { "@type": "ImageObject", url: `${BASE}/og/landing-share.png` },
-        },
+        publisher: { "@id": `${BASE}/#organization` },
         audience: {
           "@type": "MedicalAudience",
           audienceType: "Patient",

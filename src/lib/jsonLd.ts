@@ -15,18 +15,20 @@ const SITE_URL = CHARITY.siteUrl;
 export const buildCharitySchema = () => ({
   '@context': 'https://schema.org',
   '@type': ['NGO', 'Organization'],
-  '@id': `${SITE_URL}/#charity`,
+  // Same node as the sitewide Organization graph — do not mint a
+  // second @id (#charity) that splits the entity for answer engines.
+  '@id': `${SITE_URL}/#organization`,
   name: CHARITY.shortName,
   legalName: CHARITY.legalName,
   url: SITE_URL,
   logo: `${SITE_URL}/og/landing-share.png`,
-  taxID: CHARITY.number,
   foundingDate: CHARITY.registrationDate,
   identifier: [
     {
       '@type': 'PropertyValue',
-      propertyID: 'UK Charity Commission Registration',
+      propertyID: 'GB-CHC',
       value: CHARITY.number,
+      url: CHARITY.registerUrl,
     },
   ],
   ...(CHARITY.address.street && CHARITY.address.postalCode

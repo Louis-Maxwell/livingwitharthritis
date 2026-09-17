@@ -16,6 +16,7 @@ const files = {
   robots: 'public/robots.txt',
   llms: 'public/llms.txt',
   ai: 'public/ai.txt',
+  wellKnownAi: 'public/.well-known/ai.txt',
 };
 
 const failures = [];
@@ -66,9 +67,9 @@ if (robotsText) {
   }
 }
 
-// --- llms.txt and ai.txt: required identity strings (case-insensitive) -
+// --- llms.txt and both ai.txt surfaces: required identity strings ----
 const requiredStrings = ['1218461', 'independent of Arthritis UK', 'PH128483'];
-for (const key of ['llms', 'ai']) {
+for (const key of ['llms', 'ai', 'wellKnownAi']) {
   const text = contents[key];
   if (!text) continue; // missing-file failure already recorded
   const lower = text.toLowerCase();
@@ -84,4 +85,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log('✓ robots.txt, llms.txt and ai.txt identity checks passed (Bytespider Disallow: /).');
+console.log('✓ robots.txt, llms.txt, ai.txt and .well-known/ai.txt identity checks passed (Bytespider Disallow: /).');

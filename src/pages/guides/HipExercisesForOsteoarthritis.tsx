@@ -160,7 +160,7 @@ export default function HipExercisesForOsteoarthritis() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Hip exercises for osteoarthritis" },
         ]}
         faqs={FAQS}

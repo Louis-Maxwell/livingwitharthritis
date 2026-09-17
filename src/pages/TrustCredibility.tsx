@@ -46,8 +46,15 @@ const TrustCredibility = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NGO",
+    "@id": `${CHARITY.siteUrl}/#organization`,
     name: CHARITY.legalName,
     url: CHARITY.siteUrl,
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "GB-CHC",
+      value: CHARITY.number,
+      url: CHARITY.registerUrl,
+    },
     description: "UK registered charity providing free physiotherapy resources, anti-inflammatory diet plans, and community support for people living with arthritis.",
     areaServed: { "@type": "Country", name: "United Kingdom" },
     knowsAbout: ["Arthritis", "Physiotherapy", "Anti-inflammatory diet", "Osteoarthritis", "Rheumatoid arthritis"],

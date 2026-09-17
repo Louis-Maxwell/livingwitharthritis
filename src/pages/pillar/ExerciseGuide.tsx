@@ -215,7 +215,7 @@ export default function ExerciseGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Exercise Guide" },
         ]}
         faqs={EXERCISE_GUIDE_FAQS}

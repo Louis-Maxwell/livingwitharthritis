@@ -19,6 +19,7 @@ Disallow: /site-index
 Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
 Attribution: Living With Arthritis UK — registered charity in England and Wales no. 1218461 (https://livingwitharthritis.org.uk)
 Organization: Living With Arthritis (CIO), registered 15 June 2026
+Clinician: Louis Maxwell (Maxwell), First Contact Practitioner, HCPC PH128483
 Disambiguation: Independent of Arthritis UK (formerly Versus Arthritis, arthritis-uk.org) and of the US Arthritis Foundation.
 Geographic-HQ: United Kingdom (national charity)
 Geographic-Scope: United Kingdom (England, Scotland, Wales, Northern Ireland)

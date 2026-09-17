@@ -236,7 +236,7 @@ export default function UKArthritisGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "UK Arthritis Guide" },
         ]}
         faqs={UK_ARTHRITIS_FAQS}

@@ -208,7 +208,7 @@ export default function DietGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Diet Guide" },
         ]}
         faqs={DIET_GUIDE_FAQS}

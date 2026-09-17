@@ -31,11 +31,18 @@ const CityArthritisPage = () => {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    name: `Arthritis Support in ${cityData.name} | Living With Arthritis`,
+    "@type": "WebPage",
+    name: `Arthritis Support in ${cityData.name}`,
     description: cityData.description,
     url: `${BASE}/arthritis-support/${cityData.slug}`,
     inLanguage: "en-GB",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: {
+      "@type": "Place",
+      name: cityData.name,
+      containedInPlace: { "@type": "Country", name: "United Kingdom" },
+    },
+    publisher: { "@id": `${BASE}/#organization` },
     audience: {
       "@type": "MedicalAudience",
       audienceType: "Patient",
@@ -43,26 +50,9 @@ const CityArthritisPage = () => {
         "@type": "City",
         name: cityData.name,
         containedInPlace: { "@type": "Country", name: "United Kingdom" },
-        geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
       },
     },
     dateModified: LAST_REVIEWED_ISO,
-  };
-
-  const localBusinessLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    name: `Arthritis Support in ${cityData.name}`,
-    description: cityData.description,
-    url: `${BASE}/arthritis-support/${cityData.slug}`,
-    areaServed: {
-      "@type": "City",
-      name: cityData.name,
-      containedInPlace: { "@type": "Country", name: "United Kingdom" },
-      geo: { "@type": "GeoCoordinates", latitude: cityData.lat, longitude: cityData.lng },
-    },
-    medicalSpecialty: "Rheumatology",
-    serviceType: "Arthritis support and rheumatology guidance",
   };
 
   const faqLd = {
@@ -70,8 +60,8 @@ const CityArthritisPage = () => {
     "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: `Where can I get arthritis treatment in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `${cityData.name} patients are typically referred to ${cityData.localTrust} for rheumatology. Ask your GP for a referral.` } },
-      { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Waiting times in ${cityData.region} typically range from 14 to 22 weeks in 2026. Use our free Rheumatology Waiting Time Calculator for a regional estimate.` } },
-      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Yes — local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also offers a free online community.` } },
+      { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `NHS rheumatology waits vary by trust and change over time. Check ${cityData.localTrust}'s published waiting times and ask your GP surgery about cancellation lists.` } },
+      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also offers a free online community that people in ${cityData.name} can join from home.` } },
     ],
   };
 
@@ -100,8 +90,8 @@ const CityArthritisPage = () => {
         <meta name="twitter:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta name="twitter:description" content={cityData.description} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="twitter:image:alt" content={`Arthritis Support in ${cityData.name}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 
@@ -148,7 +138,7 @@ const CityArthritisPage = () => {
               <h2 className="text-xl font-semibold text-foreground">Rheumatology Services</h2>
             </div>
             <p className="text-muted-foreground mb-3">
-              Your local local health trust for rheumatology referrals in {cityData.name} is <strong>{cityData.localTrust}</strong>.
+              Your local health trust for rheumatology referrals in {cityData.name} is <strong>{cityData.localTrust}</strong>.
               Ask your GP for a referral if you're experiencing persistent joint pain, stiffness, or swelling.
             </p>
             <a

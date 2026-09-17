@@ -274,10 +274,30 @@ Disallow: /site-index
 
 User-agent: FacebookBot
 Allow: /
+Disallow: /admin/
+Disallow: /auth$
+Disallow: /donation-result
+Disallow: /unsubscribe
+Disallow: /newsletter/confirm
+Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
+Disallow: /site-index
 
 # Additional AI / answer-engine crawlers explicitly allowed.
 User-agent: Amazonbot
 Allow: /
+Disallow: /admin/
+Disallow: /auth$
+Disallow: /donation-result
+Disallow: /unsubscribe
+Disallow: /newsletter/confirm
+Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
+Disallow: /site-index
 
 User-agent: Applebot-Extended
 Allow: /
@@ -347,6 +367,16 @@ Disallow: /site-index
 # SEO tooling crawlers are allowed so the site can be audited.
 User-agent: SemrushBot
 Allow: /
+Disallow: /admin/
+Disallow: /auth$
+Disallow: /donation-result
+Disallow: /unsubscribe
+Disallow: /newsletter/confirm
+Disallow: /debug/
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
+Disallow: /site-index
 
 User-agent: SemrushBot-SA
 Allow: /

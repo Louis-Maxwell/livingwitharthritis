@@ -174,7 +174,7 @@ export default function HealthServicesGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Arthritis Services" },
         ]}
         faqs={HEALTH_SERVICES_FAQS}

@@ -130,7 +130,7 @@ export default function FebuxostatGoutGuide() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Febuxostat for Gout" },
         ]}
         faqs={FEBUXOSTAT_FAQS}

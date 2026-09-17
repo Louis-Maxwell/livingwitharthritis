@@ -62,18 +62,16 @@ const SearchPage = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/search" />
+        <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
+        <meta property="og:image:alt" content="Search Living With Arthritis UK guides" />
         <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Living With Arthritis UK",
-          url: "https://livingwitharthritis.org.uk",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://livingwitharthritis.org.uk/search?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
-        })}</script>
+        <meta name="twitter:title" content="Search Arthritis Guides & Articles | Living With Arthritis UK" />
+        <meta
+          name="twitter:description"
+          content="Filter blog posts and hub pages by topic and length to find practical UK arthritis answers."
+        />
+        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
+        <meta name="twitter:image:alt" content="Search Living With Arthritis UK guides" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />

@@ -154,7 +154,7 @@ export default function ShoulderPainRelief() {
         speakableSelector=".speakable-intro"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "Guides", item: "/blog-hub" },
+          { name: "Guides", item: "/guides" },
           { name: "Shoulder pain relief" },
         ]}
         faqs={FAQS}
