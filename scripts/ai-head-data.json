@@ -707,7 +707,7 @@
     "description": "UK guide to sarcopenia: why age-related muscle loss worsens arthritis, and how resistance training and protein intake can reverse it.",
     "question": "What is sarcopenia?",
     "answer": "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
-    "updatedAt": "2026-07-01",
+    "updatedAt": "2026-09-17",
     "sources": [
       {
         "name": "NHS: Arthritis overview",
@@ -717,7 +717,8 @@
         "name": "NICE NG226: Osteoarthritis in over 16s",
         "url": "https://www.nice.org.uk/guidance/ng226"
       }
-    ]
+    ],
+    "bodyHtml": "<h2>What is sarcopenia and why arthritis speeds it up</h2>\n<p>Sarcopenia is the progressive loss of muscle mass, strength and function that typically accelerates after age 60. Arthritis speeds it up because pain and stiffness reduce daily movement, so muscles around painful joints waste faster than in active peers. Weak muscles then load joints harder — a loop that worsens both problems.</p>\n<h2>Protein targets that support muscle</h2>\n<p>Many older adults in the UK eat too little protein across the day. A practical target is about 1.0–1.2 g of protein per kg of body weight daily, spread over meals, unless a clinician has set a different plan (for example kidney disease). Dairy, eggs, fish, lean meat, tofu and fortified drinks all count. Pair protein with resistance work — food alone rarely reverses sarcopenia.</p>\n<h2>Home checks that raise a flag</h2>\n<p>Simple signs include a slower usual walking pace, weaker grip, needing both hands to rise from a chair, or unintentional weight loss. These are not a diagnosis, but they are a reason to talk to your GP about strength, falls risk and whether a formal assessment or physiotherapy referral helps.</p>\n<h2>Strength training adapted for arthritis</h2>\n<p>Two to three short sessions a week of sit-to-stand, wall push-ups, resistance-band rows and heel raises usually beat long cardio alone for muscle. Stay below sharp joint pain; mild muscle ache the next day is normal. If a joint is hot and swollen, switch to gentle range-of-motion until the flare settles.</p>\n<h2>Supplements — what has evidence</h2>\n<p>Vitamin D (especially in UK winter), creatine and leucine-rich protein have the best support when combined with training. Supplements without strength work rarely rebuild muscle. Check with a pharmacist or GP before starting creatine or high-dose vitamin D if you take other medicines.</p>"
   },
   "/guides/bone-density-osteoporosis": {
     "title": "Improving Bone Density & Osteoporosis | UK Guide",
@@ -6476,5 +6477,35 @@
     "description": "Practical UK tips for methotrexate side effects, folic acid timing, alcohol questions, and when to contact your rheumatology team.",
     "question": "How do I manage methotrexate side effects?",
     "answer": "Follow your team’s dose and timing. Folic acid often reduces some side effects. Report fever, severe mouth ulcers, breathlessness or persistent vomiting promptly."
+  },
+  "/guides/sarcopenia-muscle-loss": {
+    "title": "Sarcopenia & Muscle Loss With Arthritis | UK Guide",
+    "description": "UK guide to sarcopenia: why age-related muscle loss worsens arthritis, and how resistance training and protein intake can reverse it.",
+    "question": "What is sarcopenia and how is it linked to arthritis?",
+    "answer": "Sarcopenia is age-related loss of muscle mass and strength. Arthritis speeds it up because pain reduces activity; resistance training plus enough protein can slow or reverse the decline.",
+    "updatedAt": "2026-09-17",
+    "sources": [
+      {
+        "name": "NHS: Arthritis overview",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NICE NG226: Osteoarthritis in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng226"
+      }
+    ],
+    "bodyHtml": "<h2>What is sarcopenia and why arthritis speeds it up</h2>\n<p>Sarcopenia is the progressive loss of muscle mass, strength and function that typically accelerates after age 60. Arthritis speeds it up because pain and stiffness reduce daily movement, so muscles around painful joints waste faster than in active peers. Weak muscles then load joints harder — a loop that worsens both problems.</p>\n<h2>Protein targets that support muscle</h2>\n<p>Many older adults in the UK eat too little protein across the day. A practical target is about 1.0–1.2 g of protein per kg of body weight daily, spread over meals, unless a clinician has set a different plan (for example kidney disease). Dairy, eggs, fish, lean meat, tofu and fortified drinks all count. Pair protein with resistance work — food alone rarely reverses sarcopenia.</p>\n<h2>Home checks that raise a flag</h2>\n<p>Simple signs include a slower usual walking pace, weaker grip, needing both hands to rise from a chair, or unintentional weight loss. These are not a diagnosis, but they are a reason to talk to your GP about strength, falls risk and whether a formal assessment or physiotherapy referral helps.</p>\n<h2>Strength training adapted for arthritis</h2>\n<p>Two to three short sessions a week of sit-to-stand, wall push-ups, resistance-band rows and heel raises usually beat long cardio alone for muscle. Stay below sharp joint pain; mild muscle ache the next day is normal. If a joint is hot and swollen, switch to gentle range-of-motion until the flare settles.</p>\n<h2>Supplements — what has evidence</h2>\n<p>Vitamin D (especially in UK winter), creatine and leucine-rich protein have the best support when combined with training. Supplements without strength work rarely rebuild muscle. Check with a pharmacist or GP before starting creatine or high-dose vitamin D if you take other medicines.</p>",
+    "breadcrumb": "Sarcopenia & muscle loss",
+    "about": "Sarcopenia"
+  },
+  "/faq/best-exercises-arthritis": {
+    "title": "Best Exercises for Arthritis | UK FAQ",
+    "description": "Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually. Practical UK guidance from Living With Arthritis.",
+    "question": "What are the best exercises for people with arthritis?",
+    "answer": "Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually.",
+    "updatedAt": "2026-09-17",
+    "bodyHtml": "<h2>What are the best exercises for people with arthritis?</h2>\n<p><strong>Quick answer:</strong> Low-impact cardio (walking, swimming, cycling), light strength training and daily flexibility work are the safest starting mix for most people with osteoarthritis or inflammatory arthritis. They reduce pain, protect joints and improve day-to-day function when progressed gradually.</p>\n<h2>Low-impact cardio</h2>\n<p>Aim for about 30 minutes of walking most days if tolerated, or swimming, water aerobics, cycling or an elliptical trainer. These raise heart rate without the jarring load of running. Build time before intensity.</p>\n<h2>Strength training</h2>\n<p>Strong muscles support arthritic joints. Use light weights, resistance bands or bodyweight (wall push-ups, sit-to-stands) two to three times a week. Start light and progress slowly. Stop for sharp joint pain; mild muscle fatigue is expected.</p>\n<h2>Flexibility and stretching</h2>\n<p>Gentle yoga, tai chi and daily stretches held 15–30 seconds reduce morning stiffness and keep range of motion. Avoid forcing a hot, swollen joint to end range.</p>\n<h2>Tips for safe exercise</h2>\n<p>Warm up for five minutes, ice after if a joint swells, plan rest days between harder sessions, and consider a physiotherapist for a first programme — especially after a flare or new diagnosis. This is general UK information, not personal medical advice.</p>",
+    "breadcrumb": "Best Exercises for Arthritis | UK FAQ",
+    "about": "Arthritis exercise"
   }
 }

@@ -67,7 +67,7 @@ export default function SarcopeniaMuscleControl() {
       </nav>
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Sarcopenia &amp; Arthritis: How to Prevent Muscle Loss</h1>
-            <AeoEnhancement route="/guides/sarcopenia-muscle-control" />
+            <AeoEnhancement route="/guides/sarcopenia-muscle-loss" />
 
       <AnswerBox question="What is sarcopenia and how is it linked to arthritis?" reviewed="2026-06-21">
         Sarcopenia is age-related loss of muscle mass and strength. Arthritis accelerates it because joint pain reduces activity and chronic inflammation breaks down muscle. Prevention combines 1.0–1.2 g/kg/day protein, twice-weekly resistance training, vitamin D, and treating pain so movement stays possible.

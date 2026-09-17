@@ -256,7 +256,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "Strength and balance training (tai chi, Otago programme) cuts falls by around 30%. Also: home hazard checks, medication review, eye tests every 2 years and vitamin D 10 mcg/day. Contact your GP or UK healthcare falls clinic if you've fallen twice in a year.",
   }),
-  "/guides/sarcopenia-muscle-control": withDefaults({
+  "/guides/sarcopenia-muscle-loss": withDefaults({
     question: "What is sarcopenia?",
     answer:
       "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
