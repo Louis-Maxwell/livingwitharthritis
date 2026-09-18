@@ -69,6 +69,30 @@ export async function submitContactInquiry(opts: {
   });
 }
 
+/** Volunteer applications — same mailto path, clearer subject for inbox triage. */
+export async function submitVolunteerEnquiry(opts: {
+  name: string;
+  email: string;
+  area_of_interest: string;
+  message?: string;
+}): Promise<BackendSubmitResult> {
+  const name = opts.name.trim().slice(0, 200);
+  const email = opts.email.trim().toLowerCase().slice(0, 320);
+  const interest = opts.area_of_interest.trim().slice(0, 200);
+  const message = (opts.message || "").trim().slice(0, 5000);
+
+  return mailtoFallback({
+    subject: `Volunteer enquiry: ${interest || "general"}`,
+    body: [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Interest: ${interest}`,
+      "",
+      message || "(No extra message)",
+    ].join("\n"),
+  });
+}
+
 export async function submitBlogComment(opts: {
   slug: string;
   author_name: string;

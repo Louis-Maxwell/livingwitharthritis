@@ -60,9 +60,12 @@ export default function Partners() {
         subject: `Partnership Enquiry: ${form.type}`,
         message: `Organisation: ${form.organisation || "N/A"}\nType: ${form.type}\n\n${form.message || ""}`,
       });
-      if (result.ok) toast.success(result.message);
-      else toast.message(result.message);
-      setForm({ name: "", email: "", organisation: "", type: "", message: "" });
+      if (result.via === "mailto") {
+        toast.message(result.message);
+        setForm({ name: "", email: "", organisation: "", type: "", message: "" });
+      } else {
+        toast.error(result.message);
+      }
     } catch {
       toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);
     } finally {

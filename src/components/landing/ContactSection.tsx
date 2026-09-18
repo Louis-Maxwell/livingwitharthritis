@@ -117,11 +117,15 @@ const ContactSection = memo(() => {
         subject: form.subject,
         message: form.message.trim(),
       });
-      trackContactSubmit({ topic: form.subject });
-      trackContactFormSubmit(form.subject);
-      // Mailto-only — not delivery confirmation
-      toast.message(result.message);
-      setSubmitted(true);
+      if (result.via === "mailto") {
+        trackContactSubmit({ topic: form.subject });
+        trackContactFormSubmit(form.subject);
+        // Mailto-only — not delivery confirmation
+        toast.message(result.message);
+        setSubmitted(true);
+      } else {
+        toast.error(result.message);
+      }
     } catch {
       toast.error(
         `Something went wrong. Please email ${CONTACT_EMAIL} or call ${CONTACT_PHONE}.`,

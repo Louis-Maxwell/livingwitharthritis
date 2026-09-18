@@ -115,9 +115,12 @@ const CorporateGiving = () => {
           parsed.data.message ? parsed.data.message : "",
         ].filter(Boolean).join("\n"),
       });
-      if (result.ok) toast.success(result.message);
-      else toast.message(result.message);
-      setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
+      if (result.via === "mailto") {
+        toast.message(result.message);
+        setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
+      } else {
+        toast.error(result.message);
+      }
     } catch {
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {

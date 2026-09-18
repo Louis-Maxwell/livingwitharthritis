@@ -17,6 +17,7 @@ import {
   subscribeNewsletter,
   submitContactInquiry,
   submitBlogComment,
+  submitVolunteerEnquiry,
 } from "../backendSubmit";
 
 describe("backendSubmit mailto-only", () => {
@@ -41,6 +42,20 @@ describe("backendSubmit mailto-only", () => {
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
+  });
+
+  it("opens mailto for volunteer enquiry with interest in subject", async () => {
+    const result = await submitVolunteerEnquiry({
+      name: "Jane",
+      email: "jane@example.com",
+      area_of_interest: "Helpline support",
+      message: "Evenings preferred.",
+    });
+    expect(result.ok).toBe(false);
+    expect(result.via).toBe("mailto");
+    const href = hrefs.find((h) => h.startsWith("mailto:")) ?? "";
+    expect(href).toContain(encodeURIComponent("Volunteer enquiry: Helpline support"));
+    expect(href).toContain(encodeURIComponent("Evenings preferred."));
   });
 
   it("opens mailto for blog comment", async () => {

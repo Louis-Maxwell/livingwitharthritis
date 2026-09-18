@@ -29,7 +29,6 @@ export interface PageMetrics {
 class AnalyticsTracker {
   private sessionId: string;
   private events: AnalyticsEvent[] = [];
-  private apiEndpoint = '/api/analytics/events';
   private batchSize = 10;
   private pageViewTime: number = Date.now();
 
@@ -137,11 +136,9 @@ class AnalyticsTracker {
   }
 
   /**
-   * Send events to backend
+   * Drop in-memory events. Static hosting has no analytics API — GA4 is separate.
    */
   private async flushEvents() {
-    // Static hosting: no /api/analytics/events — keep events in-memory only
-    // so the browser console does not 404. GA4 (if present) remains separate.
     if (this.events.length === 0) return;
     this.events = [];
   }

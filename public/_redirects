@@ -1029,3 +1029,8 @@
 /grief-and-loss-after-arthritis-diagnosis /blog/grief-and-loss-after-arthritis-diagnosis 301
 /psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments /blog/psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments 301
 /access-to-work-scheme-arthritis-guide /blog/access-to-work-scheme-arthritis-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
+/blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
+/knee-arthritis-exercises-uk /blog/knee-arthritis-exercises-uk 301

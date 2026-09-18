@@ -33,9 +33,13 @@ export default function BlogComments({ slug }: { slug: string }) {
         author_name: parsed.data.author_name,
         content: parsed.data.content,
       });
-      toast.message(result.message);
-      setName("");
-      setContent("");
+      if (result.via === "mailto") {
+        toast.message(result.message);
+        setName("");
+        setContent("");
+      } else {
+        toast.error(result.message);
+      }
     } catch {
       toast.error(
         `Something went wrong. Please email ${CONTACT_EMAILS.info} or call 07760 512 084.`,

@@ -13,7 +13,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { submitContactInquiry } from "@/lib/backendSubmit";
+import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
+import { trackContactFormSubmit } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 const Footer = lazy(() => import("@/components/Footer"));
@@ -118,18 +119,19 @@ export default function WaysToHelp() {
 
     setSubmitting(true);
     try {
-      const result = await submitContactInquiry({
+      const result = await submitVolunteerEnquiry({
         name: formData.name.trim(),
         email: formData.email.trim(),
-        subject: "Volunteer enquiry",
-        message: [
-          "Interest: " + formData.area_of_interest,
-          formData.message.trim() || "",
-        ].filter(Boolean).join("\n"),
+        area_of_interest: formData.area_of_interest,
+        message: formData.message.trim() || undefined,
       });
-      if (result.ok) toast.success(result.message);
-      else toast.message(result.message);
-      setSubmitted(true);
+      if (result.via === "mailto") {
+        trackContactFormSubmit("volunteer");
+        toast.message(result.message);
+        setSubmitted(true);
+      } else {
+        toast.error(result.message);
+      }
     } catch {
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
@@ -462,7 +464,7 @@ export default function WaysToHelp() {
                   ) : (
                     <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-2xl p-6 sm:p-8 shadow-lg shadow-primary/5 space-y-4">
                       <h3 className="text-lg font-bold text-foreground mb-1">Sign Up to Volunteer</h3>
-                      <p className="text-xs text-muted-foreground mb-4">Fill in the form below and we'll get back to you.</p>
+                      <p className="text-xs text-muted-foreground mb-4">Opens an email draft to our inbox — nothing is stored on this website until you press Send.</p>
 
                       {/* Name */}
                       <div>
@@ -541,20 +543,20 @@ export default function WaysToHelp() {
                         {submitting ? (
                           <div className="flex items-center gap-2">
                             <div className="w-4 h-4 border-2 border-background/30 border-t-white rounded-full animate-spin" />
-                            Submitting...
+                            Opening email…
                           </div>
                         ) : (
                           <>
                             <Send className="w-4 h-4 mr-2" />
-                            Submit Application
+                            Open email draft
                           </>
                         )}
                       </Button>
 
                       <p className="text-[10px] text-muted-foreground text-center leading-relaxed pt-1">
-                        By submitting, you agree to our{" "}
+                        By sending the draft, you agree to our{" "}
                         <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
-                        We'll only use your details to contact you about volunteering.
+                        We only use your details to reply about volunteering.
                       </p>
                     </form>
                   )}

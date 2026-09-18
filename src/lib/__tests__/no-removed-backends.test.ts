@@ -26,6 +26,14 @@ const FORBIDDEN_LIVE = [
   { label: ".vercel directory ref", re: /['"]\.vercel['"]/ },
   { label: "vercelRedirects export use", re: /\bvercelRedirects\b/ },
   { label: "mcpPlugin( invocation", re: /\bmcpPlugin\s*\(/ },
+  { label: "express Router API stub", re: /require\s*\(\s*['"]express['"]\s*\)/ },
+];
+
+const FORBIDDEN_PACKAGE_DEPS = [
+  "@supabase/supabase-js",
+  "@supabase/auth-js",
+  "wrangler",
+  "@cloudflare/workers-types",
 ];
 
 const SCAN_ROOTS = ["src", "scripts", "public", ".github"];
@@ -74,16 +82,32 @@ describe("no removed backends", () => {
   it("does not resurrect vercel.json, .vercel, or src/integrations/supabase", () => {
     expect(pathExists("vercel.json")).toBe(false);
     expect(pathExists(".vercel")).toBe(false);
+    expect(pathExists("src/integrations")).toBe(false);
     expect(pathExists("src/integrations/supabase")).toBe(false);
     expect(pathExists("src/integrations/supabase/client.ts")).toBe(false);
+    expect(pathExists("src/integrations/supabase/types.ts")).toBe(false);
   });
 
-  it("does not keep dormant Express server.js or supabase/functions", () => {
+  it("does not keep dormant Express server.js, src/api stubs, or supabase/", () => {
     expect(pathExists("server.js")).toBe(false);
+    expect(pathExists("src/api")).toBe(false);
+    expect(pathExists("src/api/routes/articles.js")).toBe(false);
     expect(pathExists("supabase")).toBe(false);
+    expect(pathExists("supabase/config.toml")).toBe(false);
     expect(pathExists("supabase/functions")).toBe(false);
     expect(pathExists(".github/workflows/edge-functions-preflight.yml")).toBe(false);
     expect(pathExists("database-optimizations.sql")).toBe(false);
+    expect(pathExists("scripts/meta-descriptions-update.sql")).toBe(false);
+  });
+
+  it("does not declare removed backend packages in package.json", () => {
+    const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as {
+      dependencies?: Record<string, string>;
+      devDependencies?: Record<string, string>;
+    };
+    const deps = { ...pkg.dependencies, ...pkg.devDependencies };
+    const hits = FORBIDDEN_PACKAGE_DEPS.filter((name) => name in deps);
+    expect(hits, hits.join(", ")).toEqual([]);
   });
 
   it("does not keep deleted GSC client stubs", () => {
