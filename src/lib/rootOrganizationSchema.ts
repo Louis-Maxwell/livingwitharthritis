@@ -30,6 +30,8 @@ export const ORGANIZATION_PAYLOAD = {
     width: 1200,
     height: 630,
   },
+  disambiguatingDescription:
+    "UK charity 1218461 providing free clinically reviewed arthritis guidance — not Arthritis UK / Versus Arthritis.",
   foundingDate: "2026-06-15",
   founder: {
     "@type": "Person",
@@ -97,6 +99,9 @@ export const ORGANIZATION_PAYLOAD = {
     "Rheumatology waiting lists UK",
     "Methotrexate side effects",
     "NICE osteoarthritis exercise",
+    "Knee exercises for osteoarthritis",
+    "Free arthritis resources UK",
+    "Newly diagnosed arthritis UK",
   ],
   // sameAs strengthens the entity graph for LLMs and search engines.
   // Only include URLs that resolve to a real, publicly-visible profile
@@ -117,7 +122,11 @@ export const WEBSITE_PAYLOAD = {
   url: `${BASE}/`,
   inLanguage: "en-GB",
   description:
-    "Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.",
+    "Free, clinically reviewed UK arthritis guidance from Living With Arthritis (registered charity 1218461) — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", ".speakable-intro"],
+  },
   publisher: { "@id": `${BASE}/#organization` },
   potentialAction: {
     "@type": "SearchAction",
