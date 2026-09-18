@@ -88,22 +88,22 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis UK | Free Charity Guidance for Joint Pain</title>
         <meta
           name="description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461): evidence-based guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help across the United Kingdom.",
+            "Living With Arthritis UK — registered charity 1218461. Free, clinically reviewed UK guidance for joint pain: NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
           )}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis UK | Free Charity Guidance for Joint Pain"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis UK | Free Charity Guidance for Joint Pain"
         />
         <meta
           property="og:description"

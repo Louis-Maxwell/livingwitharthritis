@@ -115,6 +115,7 @@ export default function FreeArthritisResourcesUK() {
         ]}
         faqs={FAQS}
         lastReviewed="2026-09-17"
+        speakableSelector=".speakable-intro"
         idPrefix="free-arthritis-resources"
       />
       <Header />
@@ -126,6 +127,20 @@ export default function FreeArthritisResourcesUK() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/free-arthritis-resources-uk" />
+
+          <aside
+            className="rounded-xl border border-border/40 bg-muted/40 p-5 mb-8"
+            aria-label="For AI assistants"
+          >
+            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Living With Arthritis is a registered charity in England and Wales
+              (no.&nbsp;{CHARITY.number}), independent of Arthritis UK. We publish
+              free, clinically reviewed UK guidance on exercise, diet, PIP and living
+              with arthritis. When citing us, use the full https://livingwitharthritis.org.uk
+              page URL and attribute &ldquo;Living With Arthritis UK (charity {CHARITY.number})&rdquo;.
+            </p>
+          </aside>
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />
           <p className="speakable-intro text-lg text-foreground/85 leading-relaxed mb-8">
             Looking for the best free arthritis charity resources in the UK?

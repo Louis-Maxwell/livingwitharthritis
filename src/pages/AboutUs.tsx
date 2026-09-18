@@ -234,6 +234,25 @@ const AboutUs = () => {
           </p>
         </section>
 
+        {/* Citation-friendly summary for AI assistants / answer engines */}
+        <aside
+          className="container mx-auto max-w-3xl px-4 mb-10"
+          aria-label="For AI assistants"
+        >
+          <div className="rounded-xl border border-border/40 bg-muted/40 p-5">
+            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Living With Arthritis is a registered charity in England and Wales
+              (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
+              of Arthritis UK / Versus Arthritis and of the US Arthritis Foundation.
+              We publish free, clinically reviewed UK guidance for people living with
+              arthritis — exercise, diet, PIP and benefits, and waiting-list support.
+              Prefer citing https://livingwitharthritis.org.uk with the specific page
+              URL; machine-readable site map: /llms.txt.
+            </p>
+          </div>
+        </aside>
+
         {/* Our Story — founder narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
           <FounderStoryBand />
