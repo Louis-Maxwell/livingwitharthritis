@@ -44,7 +44,7 @@ describe("public SEO / AEO identity", () => {
     expect(JSON.stringify(org.identifier)).toContain("1218461");
     expect(org.sameAs).toEqual(
       expect.arrayContaining([
-        "https://www.facebook.com/livingwitharthritisuk",
+        "https://www.facebook.com/profile.php?id=61583723925315",
         "https://www.linkedin.com/company/112596569/",
         "https://www.instagram.com/livingwitharthritisuk/",
         "https://www.youtube.com/@livingwitharthritisuk",

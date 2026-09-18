@@ -305,7 +305,7 @@ export default function CityPageOptimized({
               addressCountry: 'GB',
             },
             sameAs: [
-              'https://www.facebook.com/livingwitharthritisuk',
+              'https://www.facebook.com/profile.php?id=61583723925315',
               'https://twitter.com/livingwarthritis',
             ],
           })}

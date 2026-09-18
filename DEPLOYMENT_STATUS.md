@@ -66,7 +66,7 @@ All three major enhancements have been successfully committed, pushed, and deplo
 ### Configured Platforms:
 ```
 ✅ X/Twitter        → https://x.com/ArthritisOrg
-✅ Facebook         → https://www.facebook.com/livingwitharthritisuk
+✅ Facebook         → https://www.facebook.com/profile.php?id=61583723925315
 ✅ Instagram        → https://www.instagram.com/livingwitharthritisuk
 ✅ LinkedIn         → https://www.linkedin.com/company/112596569/
 ✅ YouTube          → https://www.youtube.com/@livingwitharthritisuk

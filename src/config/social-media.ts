@@ -25,6 +25,10 @@ export interface SocialLink {
   enabled: boolean;
 }
 
+/** Charity Facebook Page (numeric id — vanity URL is not owned). */
+export const FACEBOOK_PAGE_ID = '61583723925315';
+export const FACEBOOK_PAGE_URL = `https://www.facebook.com/profile.php?id=${FACEBOOK_PAGE_ID}`;
+
 /**
  * All social media profiles for Living With Arthritis
  * These should match actual, verified accounts
@@ -45,7 +49,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   facebook: {
     platform: 'facebook',
-    url: 'https://www.facebook.com/livingwitharthritisuk',
+    url: FACEBOOK_PAGE_URL,
     label: 'Facebook',
     displayName: 'Facebook',
     icon: 'Facebook',

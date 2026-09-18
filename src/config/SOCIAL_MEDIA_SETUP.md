@@ -73,7 +73,7 @@ import HeaderSocial from '@/components/HeaderSocial';
 | Platform | URL | Status | Tracking |
 |----------|-----|--------|----------|
 | X/Twitter | — | ❌ Disabled (wrong organisation) | — |
-| Facebook | https://www.facebook.com/livingwitharthritisuk | ✅ Enabled | ✅ Yes |
+| Facebook | https://www.facebook.com/profile.php?id=61583723925315 | ✅ Enabled | ✅ Yes |
 | Instagram | https://www.instagram.com/livingwitharthritisuk | ✅ Enabled | ✅ Yes |
 | LinkedIn | https://www.linkedin.com/company/112596569/ | ✅ Enabled | ✅ Yes |
 | YouTube | https://www.youtube.com/@livingwitharthritisuk | ✅ Enabled | ✅ Yes |
@@ -120,7 +120,7 @@ Social links automatically added to Organization schema:
   "@type": "MedicalOrganization",
   "sameAs": [
     "https://x.com/ArthritisOrg",
-    "https://www.facebook.com/livingwitharthritisuk",
+    "https://www.facebook.com/profile.php?id=61583723925315",
     // ... all enabled social profiles
   ]
 }
