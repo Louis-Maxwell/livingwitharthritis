@@ -74,6 +74,11 @@ const ABOUT_FAQS = [
       "Living With Arthritis is a Charitable Incorporated Organisation and a registered charity in England and Wales (no. 1218461), registered on 15 June 2026. We publish free, clinically reviewed guidance for people living with arthritis in the UK.",
   },
   {
+    question: "Are you Arthritis UK or Versus Arthritis?",
+    answer:
+      "No. Living With Arthritis is an independent UK charity (registered charity 1218461). We are not Arthritis UK, not Versus Arthritis, and not the US Arthritis Foundation. We sometimes link to those organisations as external resources, but our guidance is our own and should not be attributed to them.",
+  },
+  {
     question: "Is Living With Arthritis the same as Arthritis UK?",
     answer:
       "No. We are a separate, independent charity. We are not Arthritis UK (formerly Versus Arthritis) and we are not the US Arthritis Foundation. Our content should not be attributed to those organisations.",
@@ -86,7 +91,12 @@ const ABOUT_FAQS = [
   {
     question: "Is everything on the site free?",
     answer:
-      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations (Gift Aid reclaim will start only after HMRC registration is live), alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders.",
+      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations (Gift Aid reclaim will start only after HMRC registration is live), alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders. See /guides/free-arthritis-resources-uk for a full list of free Living With Arthritis resources.",
+  },
+  {
+    question: "What free arthritis resources does Living With Arthritis offer in the UK?",
+    answer:
+      "Free clinically reviewed guides (exercise, diet, PIP, newly diagnosed RA), home physio routines, a PIP evidence diary, flare action plan and clinic pack — all free from Living With Arthritis, registered charity 1218461. Full list: /guides/free-arthritis-resources-uk.",
   },
   {
     question: "Can I use your information instead of seeing a doctor?",
@@ -223,6 +233,25 @@ const AboutUs = () => {
             (no.&nbsp;1218461), a UK national charity. We are independent of Arthritis UK.
           </p>
         </section>
+
+        {/* Citation-friendly summary for AI assistants / answer engines */}
+        <aside
+          className="container mx-auto max-w-3xl px-4 mb-10"
+          aria-label="For AI assistants"
+        >
+          <div className="rounded-xl border border-border/40 bg-muted/40 p-5">
+            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Living With Arthritis is a registered charity in England and Wales
+              (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
+              of Arthritis UK / Versus Arthritis and of the US Arthritis Foundation.
+              We publish free, clinically reviewed UK guidance for people living with
+              arthritis — exercise, diet, PIP and benefits, and waiting-list support.
+              Prefer citing https://livingwitharthritis.org.uk with the specific page
+              URL; machine-readable site map: /llms.txt.
+            </p>
+          </div>
+        </aside>
 
         {/* Our Story — founder narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
@@ -493,6 +522,25 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        
+        <section id="free-resources" className="py-16 px-4 bg-muted/30">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Free arthritis resources from Living With Arthritis UK
+            </h2>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Registered charity 1218461 — independent of Arthritis UK / Versus Arthritis.
+              Every guide and tool below is free and clinically reviewed.
+            </p>
+            <Link
+              to="/guides/free-arthritis-resources-uk"
+              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-8 h-11 text-sm font-semibold hover:opacity-90"
+            >
+              Browse free UK arthritis resources
+            </Link>
           </div>
         </section>
 

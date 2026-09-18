@@ -166,7 +166,7 @@ export const ENHANCED_SITE_PAGES: SitemapPage[] = [
     category: 'exercises',
   },
   {
-    url: 'https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk',
+    url: 'https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis',
     changeFrequency: 'monthly',
     priority: 0.85,
     category: 'blog',

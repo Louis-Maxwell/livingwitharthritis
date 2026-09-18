@@ -189,6 +189,12 @@ export default function BenefitsPIPGuide() {
 
   const PIP_GUIDE_FAQS = [
     {
+      question: "How do I claim PIP for arthritis in the UK?",
+      answer:
+        "Call the PIP new claims line on 0800 917 2222 (or claim via GOV.UK where available), complete the 'How your disability affects you' (PIP2) form describing your worst days, attach GP/rheumatology evidence, attend the assessment, then wait for the decision. Keep a symptom diary — Living With Arthritis offers a free PIP evidence diary at /resources/pip-evidence-diary. This is educational guidance only; always check https://www.gov.uk/pip and get regulated welfare advice for your own claim.",
+    },
+
+    {
       question: "How much is PIP for arthritis in 2026/27?",
       answer:
         "From April 2026 (GOV.UK rates): Daily Living is £76.70/week (standard) or £114.60/week (enhanced); Mobility is £30.30/week (standard) or £80.00/week (enhanced). You can get either or both. The maximum (both enhanced) is £194.60/week, usually paid every 4 weeks. Rates are uprated each April — always check gov.uk/pip.",
@@ -244,8 +250,8 @@ export default function BenefitsPIPGuide() {
     <>
       <PageSchema
         url="/guides/benefits-pip"
-        name="UK Arthritis Benefits & PIP Guide"
-        description="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant."
+        name="How to claim PIP for arthritis UK"
+        description="How to claim PIP for arthritis in the UK: eligibility, claim steps, form tips, assessment and appeals — plus free Living With Arthritis tools."
         medical={{ condition: "Arthritis" }}
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -256,13 +262,13 @@ export default function BenefitsPIPGuide() {
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
-        <title>UK Arthritis Benefits & PIP Guide | Living With Arthritis</title>
-        <meta name="description" content="Guide to UK benefits for arthritis: PIP, Attendance Allowance, Blue Badge, Motability, workplace rights and Disabled Facilities Grant." />
+        <title>How to claim PIP for arthritis UK | Step-by-step guide | Living With Arthritis</title>
+        <meta name="description" content="How to claim PIP for arthritis in the UK: eligibility, PIP2 form tips, assessment prep, Mandatory Reconsideration and free diary tools. Living With Arthritis charity 1218461." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
-      <meta property="og:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />
+      <meta property="og:title" content="How to claim PIP for arthritis UK – Personal Independence Payment step-by-step" />
       <meta property="og:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/benefits-pip" />
@@ -272,7 +278,7 @@ export default function BenefitsPIPGuide() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Arthritis Benefits &amp; PIP Guide UK – Personal Independence Payment, Blue Badge &amp; More" />
+      <meta name="twitter:title" content="How to claim PIP for arthritis UK – Personal Independence Payment step-by-step" />
       <meta name="twitter:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <script type="application/ld+json">{JSON.stringify({
@@ -304,15 +310,15 @@ export default function BenefitsPIPGuide() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
-          title="Benefits &amp; PIP Support Guide"
-          subtitle="Everything you need to know about claiming disability benefits, PIP, Blue Badge, Motability and workplace rights when living with arthritis in the UK."
+          title="How to claim PIP for arthritis UK"
+          subtitle="Step-by-step Personal Independence Payment guidance for arthritis — eligibility, PIP2 form, assessment tips, appeals and free diary tools. Educational only; check GOV.UK for your claim."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
           <TopicClusterNav path="/guides/benefits-pip" />
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
-            Personal Independence Payment (PIP) can help with extra costs when arthritis limits daily living or mobility in England and Wales — always check GOV.UK and get welfare advice for your own claim.
+            How to claim PIP for arthritis in the UK: call 0800 917 2222 (or use GOV.UK), complete the PIP2 form for your worst days, attach clinical evidence, attend the assessment, then challenge refusals via Mandatory Reconsideration if needed. Always check https://www.gov.uk/pip and get welfare advice for your own claim — this page is educational only.
           </p>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />

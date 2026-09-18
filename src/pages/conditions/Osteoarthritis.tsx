@@ -369,7 +369,7 @@ const Osteoarthritis = () => (
               title: "Exercise & movement",
               links: [
                 { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
-                { label: "Knee arthritis exercises", to: "/blog/knee-arthritis-exercises-uk" },
+                { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
                 { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
                 { label: "Hand arthritis exercises", to: "/exercises" },
                 { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },

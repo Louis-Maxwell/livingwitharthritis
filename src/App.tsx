@@ -136,6 +136,8 @@ const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const ArthritisPainRelief = lazy(() => import("./pages/guides/ArthritisPainRelief"));
 const CanExerciseMakeOsteoarthritisWorse = lazy(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
 const HipExercisesForOsteoarthritis = lazy(() => import("./pages/guides/HipExercisesForOsteoarthritis"));
+const KneeExercisesForOsteoarthritis = lazy(() => import("./pages/guides/KneeExercisesForOsteoarthritis"));
+const FreeArthritisResourcesUK = lazy(() => import("./pages/guides/FreeArthritisResourcesUK"));
 const ShoulderPainRelief = lazy(() => import("./pages/guides/ShoulderPainRelief"));
 const SteroidsGuide = lazy(() => import("./pages/pillar/SteroidsGuide"));
 const AzathioprineGuide = lazy(() => import("./pages/pillar/AzathioprineGuide"));
@@ -346,7 +348,7 @@ function AnimatedRoutes() {
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={withRouteBoundary(<BlogHub />)} />
         <Route path="/blog/category/:category" element={withRouteBoundary(<BlogCategory />)} />
-        <Route path="/blog/knee-arthritis-exercises-uk" element={withRouteBoundary(<KneeOsteoarthritisExercises />)} />
+        <Route path="/blog/knee-arthritis-exercises-uk" element={<Navigate to="/guides/knee-exercises-for-osteoarthritis" replace />} />
         <Route path="/blog/:slug" element={withRouteBoundary(<BlogPost />)} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />
         <Route path="/about" element={<AboutUs />} />
@@ -463,6 +465,8 @@ function AnimatedRoutes() {
         <Route path="/guides/arthritis-pain-relief" element={<ArthritisPainRelief />} />
         <Route path="/guides/can-exercise-make-osteoarthritis-worse" element={<CanExerciseMakeOsteoarthritisWorse />} />
         <Route path="/guides/hip-exercises-for-osteoarthritis" element={<HipExercisesForOsteoarthritis />} />
+        <Route path="/guides/knee-exercises-for-osteoarthritis" element={<KneeExercisesForOsteoarthritis />} />
+        <Route path="/guides/free-arthritis-resources-uk" element={<FreeArthritisResourcesUK />} />
         <Route path="/guides/shoulder-pain-relief" element={<ShoulderPainRelief />} />
         <Route path="/guides/benefits-pip" element={<BenefitsPIPGuide />} />
         <Route path="/guides/knee-replacement-surgery" element={<KneeReplacementSurgeryGuide />} />

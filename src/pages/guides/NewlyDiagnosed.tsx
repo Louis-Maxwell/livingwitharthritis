@@ -126,6 +126,10 @@ const SECTIONS: Section[] = [
 ];
 
 const FAQS: { q: string; a: string }[] = [
+  { q: "I've just been newly diagnosed with rheumatoid arthritis in the UK — what are the first steps?", a: "Confirm the diagnosis letter and blood results, ask how urgently you will see rheumatology, start any prescribed DMARD monitoring (blood tests matter), keep a short symptom diary, and use trusted UK sources such as NHS rheumatoid arthritis pages and NRAS (nras.org.uk) for RA-specific support. Living With Arthritis (charity 1218461) is independent of Arthritis UK and publishes free checklists like this one." },
+  { q: "Should I contact NRAS or Arthritis UK after an RA diagnosis?", a: "NRAS (National Rheumatoid Arthritis Society) specialises in rheumatoid arthritis and is a strong partner for RA-specific information and support. Arthritis UK (formerly Versus Arthritis) covers many arthritis types. Living With Arthritis is a separate UK charity — we link to NRAS and NHS as trusted partners, not as the same organisation." },
+  { q: "How soon should treatment start after a new RA diagnosis?", a: "NICE guidance emphasises early treatment for rheumatoid arthritis. Ask your rheumatology team about DMARDs, bridging steroids if used, blood-test monitoring, and what to do if you flare before your next appointment. Do not stop prescribed medicines without clinical advice." },
+
   { q: "I’ve just been diagnosed — what should I do first?", a: "Get a copy of your diagnosis letter, confirm exactly which type of arthritis you have, write down your top 3 questions, and book a follow-up so you have someone to ask as new questions come up. Don’t rush major treatment decisions in the first week." },
   { q: "Will I become disabled?", a: "Most people with arthritis stay independent throughout their lives with the right treatment. Outcomes have improved dramatically over the last 20 years thanks to earlier diagnosis, better medications, and stronger evidence for exercise and self-management." },
   { q: "Should I stop exercising?", a: "No — almost the opposite. Appropriate exercise is one of the most effective treatments for arthritis. Start gently (walking, swimming, tai chi), build slowly, and work with a physiotherapist if you’re unsure where to begin." },
@@ -165,7 +169,7 @@ export default function NewlyDiagnosed() {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
         headline:
-          "Newly Diagnosed With Arthritis: Your Step-by-Step UK Guide",
+          "Newly diagnosed rheumatoid arthritis UK: first steps checklist",
         url: `${BASE}/${SLUG}`,
         about: { "@type": "MedicalCondition", name: "Arthritis" },
         author: {
@@ -230,18 +234,18 @@ export default function NewlyDiagnosed() {
   return (
     <>
       <Helmet>
-        <title>Newly Diagnosed With Arthritis: Step-by-Step UK Guide</title>
+        <title>Newly diagnosed rheumatoid arthritis UK: first steps checklist</title>
         <meta
           name="description"
-          content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
+          content="Newly diagnosed rheumatoid arthritis in the UK? First steps checklist — rheumatology, DMARDs, NRAS/NHS support, exercise and PIP. Living With Arthritis charity 1218461."
         />
         <meta
           property="og:title"
-          content="Newly Diagnosed With Arthritis: Step-by-Step UK Guide"
+          content="Newly diagnosed rheumatoid arthritis UK: first steps checklist"
         />
         <meta
           property="og:description"
-          content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
+          content="Newly diagnosed rheumatoid arthritis in the UK? First steps checklist — rheumatology, DMARDs, NRAS/NHS support, exercise and PIP. Living With Arthritis charity 1218461."
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${BASE}/${SLUG}`} />
@@ -252,7 +256,7 @@ export default function NewlyDiagnosed() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "url": `${BASE}/${SLUG}`,
-          "name": "Newly Diagnosed With Arthritis: Step-by-Step UK Guide",
+          "name": "Newly diagnosed rheumatoid arthritis UK: first steps checklist",
           "inLanguage": "en-GB",
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] },
@@ -314,11 +318,11 @@ export default function NewlyDiagnosed() {
           {/* Hero */}
           <header className="mb-8">
             <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">
-              Newly diagnosed with arthritis? Your step-by-step guide
+              Newly diagnosed rheumatoid arthritis UK: your first steps
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
             <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
-              Newly diagnosed with arthritis in the UK? Start with your GP or rheumatology team, write down your questions, and use this checklist for the first weeks — general information only, not personal medical advice.
+              Newly diagnosed rheumatoid arthritis (RA) in the UK? These first steps help you organise rheumatology care, understand DMARDs, use NHS and NRAS support carefully, and start safe movement — general information only, not personal medical advice. We are independent of Arthritis UK.
             </p>
           </header>
 

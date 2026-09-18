@@ -5,10 +5,9 @@
 export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "nhs-arthritis-exercises": "arthritis-exercises-uk-clinical",
   "nhs-rheumatology-waiting-times-uk": "rheumatology-waiting-times-uk",
-  // Knee-exercise content was split across three near-duplicate pages,
-  // splitting ranking signal for the same search intent. Consolidated onto
-  // /blog/knee-arthritis-exercises-uk (the canonical URL per SEO brief, with
-  // a named HCPC-credentialed reviewer and HowTo/FAQ schema).
+  // Knee-exercise content consolidated onto /guides/knee-exercises-for-osteoarthritis
+  // (App.tsx Navigate-redirects /blog/knee-arthritis-exercises-uk there). Legacy
+  // blog slugs still map here, then onward to the guide.
   "knee-osteoarthritis-exercises": "knee-arthritis-exercises-uk",
   "knee-exercises-arthritis": "knee-arthritis-exercises-uk",
   // Batch content-generation duplicated these 15 topics into near-identical
