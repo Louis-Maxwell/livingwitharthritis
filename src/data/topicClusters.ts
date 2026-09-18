@@ -36,6 +36,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/guides/arthritis-pain-relief",
     pillarTitle: "Arthritis pain relief guide",
     supportingPaths: [
+      "/library/fibromyalgia",
+      "/library/arthritis-symptoms",
       "/arthritis-flare-ups",
       "/guides/shoulder-pain-relief",
       "/guides/painkillers-and-nsaids",
@@ -62,10 +64,12 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/conditions/osteoarthritis",
     pillarTitle: "Osteoarthritis guide",
     supportingPaths: [
-      "/conditions/hip-arthritis",
       "/guides/hip-exercises-for-osteoarthritis",
       "/blog/swimming-exercises-hip-osteoarthritis",
       "/faq/what-is-osteoarthritis",
+      "/conditions/hip-arthritis",
+      "/library/osteoarthritis",
+      "/library/arthritis",
       "/conditions/knee-arthritis",
       "/conditions/hand-arthritis",
       "/conditions/shoulder-arthritis",
@@ -91,6 +95,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarTitle: "Exercise hub",
     supportingPaths: [
       "/guides/exercise",
+      "/blog/best-walking-shoes-arthritis-uk",
+      "/library/shoulder-exercises",
       "/blog/swimming-exercises-hip-osteoarthritis",
       "/guides/hip-exercises-for-osteoarthritis",
       "/faq/best-exercises-arthritis",
@@ -128,6 +134,9 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarTitle: "Diet hub",
     supportingPaths: [
       "/guides/diet",
+      "/blog/turmeric-for-arthritis",
+      "/library/turmeric",
+      "/supplements/turmeric",
       "/blog/best-supplement-for-knee-joint",
       "/blog/omega-3-foods-for-joints",
       "/blog/glucosamine-vs-collagen",
@@ -137,7 +146,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/supplements/glucosamine",
       "/diet/mediterranean-diet-for-arthritis",
       "/diet/foods-to-avoid-with-arthritis",
-      "/supplements/turmeric",
+      "/library/glucosamine",
     ],
     toolPath: "/chat",
     toolLabel: "Ask about diet",
@@ -254,6 +263,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/faq/arthritis-disability-benefits-uk",
       "/blog/pip-for-arthritis-uk",
       "/benefits-pip",
+      "/library/access-to-work",
       "/resources/pip-evidence-diary",
       "/guides/disability-support",
       "/arthritis-waiting-list-help",
@@ -307,6 +317,18 @@ export function getClusterById(id: TopicClusterId | string): TopicCluster | null
 export function getClusterForPath(pathname: string): TopicCluster | null {
   if (!pathname) return null;
   const path = pathname.split("?")[0].replace(/\/$/, "") || "/";
+
+  // Library topic pages: do not inherit the /library hub → symptoms prefix match.
+  // Prefer exact PATH_INDEX hits, then slug/trigger scoring.
+  const libraryTopic = path.match(/^\/library\/([^/]+)$/);
+  if (libraryTopic) {
+    for (const row of PATH_INDEX) {
+      if (path === row.path) return row.cluster;
+    }
+    const bySlug = getClusterForSlug(libraryTopic[1]);
+    if (bySlug) return bySlug;
+    return getClusterById("symptoms");
+  }
 
   // Exact / supportingPaths matches first (incl. GSC champion blog URLs listed below).
   for (const row of PATH_INDEX) {

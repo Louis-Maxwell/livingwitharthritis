@@ -29,8 +29,8 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     h1: "Fibromyalgia in the UK: widespread pain, fatigue and fibro fog",
     related: [
       { label: "Fibromyalgia condition guide", href: "/conditions/fibromyalgia" },
-      { label: "Fibromyalgia exercises", href: "/conditions/fibromyalgia/exercises" },
-      { label: "Why cold weather worsens pain", href: "/faq/arthritis-and-cold-weather" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Mental health and chronic pain", href: "/arthritis-mental-health" },
     ],
   },
@@ -41,9 +41,9 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     h1: "Osteoarthritis: the UK's most common joint condition",
     related: [
       { label: "Full osteoarthritis guide", href: "/conditions/osteoarthritis" },
-      { label: "OA symptoms and diagnosis", href: "/conditions/osteoarthritis/symptoms" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
       { label: "What is osteoarthritis? FAQ", href: "/faq/what-is-osteoarthritis" },
-      { label: "OA vs rheumatoid arthritis", href: "/faq/osteoarthritis-vs-rheumatoid-arthritis" },
     ],
   },
   amitriptyline: {
@@ -156,9 +156,9 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     h1: "Arthritis symptoms: what to notice before a diagnosis has a name",
     related: [
       { label: "Arthritis overview", href: "/library/arthritis" },
-      { label: "Osteoarthritis symptoms", href: "/conditions/osteoarthritis/symptoms" },
-      { label: "Rheumatoid arthritis symptoms", href: "/conditions/rheumatoid-arthritis/symptoms" },
-      { label: "What is osteoarthritis?", href: "/faq/what-is-osteoarthritis" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Benefits & PIP", href: "/benefits-pip" },
     ],
     extraSections: [
       {
@@ -197,7 +197,139 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       },
     ],
   },
+
+  turmeric: {
+    title: "Turmeric for arthritis UK: curcumin evidence and safety",
+    description:
+      "UK library note on turmeric and curcumin for joint pain — what trials suggest, why black pepper matters, and why supplements are not a cure. Educational only.",
+    h1: "Turmeric and curcumin for arthritis: a cautious UK overview",
+    related: [
+      { label: "Turmeric & curcumin supplement guide", href: "/supplements/turmeric" },
+      { label: "Turmeric for arthritis blog", href: "/blog/turmeric-for-arthritis" },
+      { label: "Diet pillar", href: "/guides/diet" },
+      { label: "Supplements hub", href: "/supplements" },
+    ],
+  },
+  "turmeric-benefits": {
+    title: "Turmeric benefits UK: joints, inflammation and limits",
+    description:
+      "What turmeric may and may not do for arthritis symptoms in the UK — modest evidence, interaction checks, and links to diet and supplement hubs.",
+    related: [
+      { label: "Turmeric library overview", href: "/library/turmeric" },
+      { label: "Turmeric supplement guide", href: "/supplements/turmeric" },
+      { label: "Anti-inflammatory diet", href: "/guides/diet" },
+      { label: "Glucosamine hub", href: "/supplements/glucosamine" },
+    ],
+  },
+  arthritis: {
+    title: "What is arthritis? UK library overview",
+    description:
+      "Plain-English UK overview of arthritis — OA, inflammatory types, shared symptoms, and where to go next for exercise, pain relief, diet and benefits.",
+    h1: "Arthritis explained: types, symptoms and next steps in the UK",
+    related: [
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Benefits & PIP", href: "/benefits-pip" },
+    ],
+  },
+  "access-to-work": {
+    title: "Access to Work UK: arthritis workplace support",
+    description:
+      "UK library note on Access to Work for people with arthritis — equipment, travel and support at work, plus PIP and disability support next steps.",
+    related: [
+      { label: "Benefits & PIP hub", href: "/benefits-pip" },
+      { label: "PIP guide", href: "/guides/benefits-pip" },
+      { label: "Disability support", href: "/guides/disability-support" },
+      { label: "Work with arthritis", href: "/guides/work-with-arthritis" },
+    ],
+  },
+  glucosamine: {
+    title: "Glucosamine UK: knee OA evidence and caution",
+    description:
+      "UK library overview of glucosamine for joint pain — mixed evidence for knee osteoarthritis, typical discussion points with a pharmacist, and diet-first alternatives.",
+    related: [
+      { label: "Glucosamine supplement guide", href: "/supplements/glucosamine" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Diet pillar", href: "/guides/diet" },
+      { label: "Supplements hub", href: "/supplements" },
+    ],
+  },
+  "knee-pain": {
+    title: "Knee pain UK: arthritis causes and self-care",
+    description:
+      "UK library guide to knee pain with arthritis — common patterns, when to see a GP, and links to OA, exercise and pain-relief pillars.",
+    related: [
+      { label: "Knee arthritis guide", href: "/conditions/knee-arthritis" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+    ],
+  },
+  naproxen: {
+    title: "Naproxen for arthritis UK: NSAID library note",
+    description:
+      "Educational UK overview of naproxen for joint pain — how NSAIDs fit alongside exercise and pain relief, plus safety checks with your pharmacist or GP.",
+    related: [
+      { label: "Painkillers & NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Diet pillar", href: "/guides/diet" },
+    ],
+  },
+  ibuprofen: {
+    title: "Ibuprofen for arthritis UK: when people use it",
+    description:
+      "UK library note on ibuprofen for joint pain — short-term symptom relief themes, stomach and kidney cautions, and non-drug pillars that matter more long-term.",
+    related: [
+      { label: "Painkillers & NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+    ],
+  },
 };
+
+export function getLibraryPillarRelated(
+  slug: string,
+  category?: string,
+): { label: string; href: string }[] {
+  const fromSeo = LIBRARY_TOPIC_SEO[slug]?.related;
+  if (fromSeo && fromSeo.length > 0) return fromSeo;
+
+  const pillars: { label: string; href: string }[] = [
+    { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+    { label: "Exercise for arthritis", href: "/guides/exercise" },
+    { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+    { label: "Diet pillar", href: "/guides/diet" },
+  ];
+
+  if (category === "Support" || slug.includes("pip") || slug.includes("access-to-work") || slug.includes("benefit")) {
+    return [
+      { label: "Benefits & PIP hub", href: "/benefits-pip" },
+      { label: "PIP guide", href: "/guides/benefits-pip" },
+      { label: "Disability support", href: "/guides/disability-support" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+    ];
+  }
+  if (category === "Supplement") {
+    return [
+      { label: "Diet pillar", href: "/guides/diet" },
+      { label: "Supplements hub", href: "/supplements" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+    ];
+  }
+  if (category === "Medication" || category === "Treatment") {
+    return [
+      { label: "Painkillers & NSAIDs", href: "/guides/painkillers-and-nsaids" },
+      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+    ];
+  }
+  return pillars;
+}
 
 export function getLibraryTopicSeo(slug: string): LibraryTopicSeo | undefined {
   return LIBRARY_TOPIC_SEO[slug];

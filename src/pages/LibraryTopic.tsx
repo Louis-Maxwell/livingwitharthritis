@@ -7,7 +7,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, AlertTriangle, ArrowRight } from "lucide-react";
 import { getHealthTopic, healthTopics } from "@/data/healthTopics";
-import { getLibraryTopicSeo } from "@/data/libraryTopicSeo";
+import { getLibraryTopicSeo, getLibraryPillarRelated } from "@/data/libraryTopicSeo";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -53,6 +55,8 @@ const LibraryTopic = () => {
   const related = healthTopics
     .filter((t) => t.category === topic.category && t.slug !== topic.slug)
     .slice(0, 6);
+  const pillarRelated = getLibraryPillarRelated(topic.slug, topic.category);
+  const path = `/library/${topic.slug}`;
   const title = seo?.title ?? `${topic.title} | Living With Arthritis UK`;
   const description =
     seo?.description ||
@@ -155,13 +159,13 @@ const LibraryTopic = () => {
             </aside>
           )}
 
-          {seo?.related && seo.related.length > 0 && (
+          {pillarRelated.length > 0 && (
             <section className="mt-16 pt-10 border-t border-border">
               <h2 className="font-serif text-2xl font-semibold mb-6">
                 Related guides
               </h2>
               <div className="grid sm:grid-cols-2 gap-3">
-                {seo.related.map((r) => (
+                {pillarRelated.map((r) => (
                   <Link
                     key={r.href}
                     to={r.href}
@@ -200,6 +204,11 @@ const LibraryTopic = () => {
               </div>
             </section>
           )}
+
+          <div className="mt-12 space-y-6">
+            <EducationalDisclaimerBox lastReviewed="2026-09-18" />
+            <TopicClusterNav path={path} />
+          </div>
 
           <div className="mt-12 text-center">
             <Button asChild>

@@ -1493,8 +1493,6 @@ We do not provide doses. Confirm everything with your clinical team.`,
       "chondroitin",
       "collagen",
       "glucosamine and collagen",
-      "turmeric",
-      "curcumin",
       "omega-3",
       "omega 3 for joints",
       "fish oil",
@@ -1523,6 +1521,7 @@ Useful reads: **/blog/omega-3-foods-for-joints**, **/blog/best-supplement-for-kn
     nextSteps: ["Ask a pharmacist before combining supplements with medicines", "Prioritise diet and movement first"],
     related: [
       { type: "guide", title: "Supplements hub", url: "/supplements" },
+      { type: "guide", title: "Turmeric & curcumin", url: "/supplements/turmeric" },
       { type: "article", title: "Omega-3 foods for joints", url: "/blog/omega-3-foods-for-joints" },
       { type: "article", title: "Glucosamine vs collagen", url: "/blog/glucosamine-vs-collagen" },
       { type: "guide", title: "Diet pillar", url: "/guides/diet" },
@@ -1639,32 +1638,129 @@ Track duration for your clinician. Movement hub: **/exercises**. Condition overv
       "what is arthritis",
       "types of arthritis",
       "symptoms of arthritis",
+      "arthritis meaning",
+      "do i have arthritis",
+      "living with arthritis",
+      "arthritis uk help",
+      "joint arthritis",
     ],
-    synonyms: ["joints hurt", "stiff joints", "arthritis help"],
-    priority: 5,
+    synonyms: ["joints hurt", "stiff joints", "arthritis help", "joint disease", "arthritic"],
+    priority: 8,
     chips: ["OA overview", "RA overview", "Exercise hub", "PIP benefits"],
-    answer: `**Arthritis — overview**
+    answer: `**Arthritis — overview (head term)**
 
-"Arthritis" covers 100+ conditions affecting joints. Most common in the UK: **osteoarthritis (OA)** and inflammatory types such as **rheumatoid arthritis (RA)**. Others include PsA, gout, AS/axial SpA, JIA and overlapping issues like fibromyalgia.
+"Arthritis" is an umbrella for 100+ conditions that affect joints. In the UK the most common are **osteoarthritis (OA)** and inflammatory types such as **rheumatoid arthritis (RA)**. Others include PsA, gout, AS/axial SpA, JIA, and overlapping issues like fibromyalgia.
 
 **Shared themes**
 - Pain, stiffness, swelling, reduced movement
 - Fatigue (especially inflammatory disease)
 - Flares and better days
 
-**Self-care pillars we emphasise**
-- Movement (*Motion is Lotion*) → **/exercises**
-- Anti-inflammatory eating → **/diet**
-- Flare plans → **/arthritis-flare-ups**
-- UK benefits orientation → **/guides/benefits-pip**
+**Where to start on this site**
+- Condition pillars → **/conditions/osteoarthritis**, **/conditions/arthritis**, **/library/arthritis**
+- Movement (*Motion is Lotion*) → **/guides/exercise** and **/exercises**
+- Pain relief (educational) → **/guides/arthritis-pain-relief**
+- Diet & supplements caution → **/guides/diet**, **/supplements**
+- UK benefits orientation → **/benefits-pip**
 
-We are Living With Arthritis, charity **1218461**, independent of Arthritis UK. We do not diagnose — see your GP for personal assessment.`,
-    nextSteps: ["Tell us the joint or topic you care about most", "Browse /about to meet the charity"],
+We are Living With Arthritis, charity **1218461**, independent of Versus Arthritis / Arthritis UK. Clinically reviewed themes are led by Louis Maxwell (HCPC **PH128483**). We do **not** diagnose — see your GP for personal assessment.`,
+    nextSteps: [
+      "Name the joint or type (OA, RA, gout…) for a more specific answer",
+      "Browse the health library at /library",
+      "Read /about to meet the charity",
+    ],
     related: [
-      { type: "exercise", title: "Exercise hub", url: "/exercises" },
-      { type: "guide", title: "Diet hub", url: "/diet" },
+      { type: "condition", title: "Osteoarthritis guide", url: "/conditions/osteoarthritis" },
+      { type: "guide", title: "Exercise for arthritis", url: "/guides/exercise" },
+      { type: "guide", title: "Arthritis pain relief", url: "/guides/arthritis-pain-relief" },
+      { type: "guide", title: "Benefits & PIP", url: "/benefits-pip" },
+      { type: "article", title: "Health library", url: "/library" },
       { type: "guide", title: "About us", url: "/about" },
-      { type: "article", title: "Blog", url: "/blog" },
+    ],
+  },
+  {
+    id: "turmeric-curcumin",
+    keywords: [
+      "turmeric",
+      "curcumin",
+      "turmeric for arthritis",
+      "turmeric supplement",
+      "is turmeric good for arthritis",
+      "curcumin for joints",
+      "turmeric capsules",
+    ],
+    synonyms: ["golden milk", "curcuma", "turmeric and black pepper", "piperine turmeric"],
+    requireAny: ["turmeric", "curcumin", "curcuma"],
+    priority: 14,
+    chips: ["Diet hub", "Supplements hub", "Glucosamine"],
+    answer: `**Turmeric / curcumin for arthritis (educational)**
+
+Turmeric (and its active compound **curcumin**) is widely searched for joint pain. Evidence is **modest** — some trials in knee osteoarthritis suggest symptom help at study doses of curcumin extract, especially with black pepper (**piperine**) for absorption. It is **not** a cure, does **not** reverse joint damage, and is not a substitute for prescribed treatment.
+
+**Practical cautions**
+- Cooking with turmeric powder alone rarely matches trial doses
+- Can interact with blood thinners and some medicines — ask a **pharmacist or GP**
+- Stop and seek advice if you feel unwell
+
+**Read next (real pages on this site)**
+- Supplement guide → **/supplements/turmeric**
+- Evidence blog → **/blog/turmeric-for-arthritis**
+- Library note → **/library/turmeric**
+- Diet first → **/guides/diet** · hub → **/supplements**`,
+    nextSteps: [
+      "Read /supplements/turmeric before buying anything",
+      "Check interactions with your pharmacist",
+      "Prioritise movement and diet pillars",
+    ],
+    related: [
+      { type: "guide", title: "Turmeric & curcumin guide", url: "/supplements/turmeric" },
+      { type: "article", title: "Turmeric for arthritis blog", url: "/blog/turmeric-for-arthritis" },
+      { type: "article", title: "Turmeric library note", url: "/library/turmeric" },
+      { type: "guide", title: "Diet pillar", url: "/guides/diet" },
+      { type: "guide", title: "Supplements hub", url: "/supplements" },
+    ],
+  },
+  {
+    id: "walking-shoes",
+    keywords: [
+      "walking shoes",
+      "best walking shoes",
+      "shoes for arthritis",
+      "trainers for arthritis",
+      "footwear for arthritis",
+      "best shoes for osteoarthritis",
+      "arthritis walking shoes",
+      "shoes for knee pain",
+    ],
+    synonyms: ["supportive shoes", "cushioned trainers", "orthotic shoes", "footwear knee oa"],
+    requireAny: ["shoe", "shoes", "trainer", "trainers", "footwear"],
+    priority: 13,
+    chips: ["Exercise hub", "OA overview", "Knee arthritis"],
+    answer: `**Walking shoes for arthritis (UK)**
+
+Supportive, cushioned walking shoes can make daily steps more comfortable with knee, hip or foot arthritis — but **shoe choice is personal** and this chat cannot prescribe a brand.
+
+**What often helps**
+- Wide toe box, secure fastening, cushioned midsole
+- Try shoes later in the day when feet are a little swollen
+- Combine with gradual walking and joint-friendly exercise — *Motion is Lotion*
+
+**Read next**
+- UK walking-shoes blog → **/blog/best-walking-shoes-arthritis-uk**
+- Exercise pillar → **/guides/exercise** · hub → **/exercises**
+- OA overview → **/conditions/osteoarthritis**
+
+If pain is sudden, hot/red with fever, or you cannot weight-bear, seek **NHS 111** / urgent care — not footwear advice.`,
+    nextSteps: [
+      "Read /blog/best-walking-shoes-arthritis-uk",
+      "Build a gentle walking plan via /guides/exercise",
+      "Ask podiatry or physio if foot shape or deformity is complex",
+    ],
+    related: [
+      { type: "article", title: "Best walking shoes for arthritis (UK)", url: "/blog/best-walking-shoes-arthritis-uk" },
+      { type: "guide", title: "Exercise for arthritis", url: "/guides/exercise" },
+      { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
     ],
   },
 ];

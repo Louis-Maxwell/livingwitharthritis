@@ -13,6 +13,8 @@ import {
   healthTopicCategories,
   type HealthTopicCategory,
 } from "@/data/healthTopics";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 
 const Library = () => {
   const [query, setQuery] = useState("");
@@ -50,18 +52,18 @@ const Library = () => {
   return (
     <>
       <Helmet>
-        <title>Health Library UK | Arthritis conditions & medicines</title>
+        <title>Arthritis Health Library UK | OA, PIP, exercise & pain guides</title>
         <meta
           name="description"
-          content="UK health library on arthritis, fibromyalgia, gout medicines and treatments. Search 65+ clinician-reviewed topics in plain English — free to read."
+          content="Free UK arthritis health library — osteoarthritis, fibromyalgia, turmeric, medicines and treatments. Clinician-reviewed plain-English topics with links to exercise, pain relief and PIP."
         />
-        <meta property="og:title" content="Health Library UK | Arthritis conditions & medicines" />
-        <meta property="og:description" content="UK health library on arthritis, fibromyalgia, gout medicines and treatments. Search 65+ clinician-reviewed topics in plain English — free to read." />
+        <meta property="og:title" content="Arthritis Health Library UK | OA, PIP, exercise & pain guides" />
+        <meta property="og:description" content="Free UK arthritis health library — osteoarthritis, fibromyalgia, turmeric, medicines and treatments. Clinician-reviewed plain-English topics with links to exercise, pain relief and PIP." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/library" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Health Library UK | Arthritis conditions & medicines" />
-        <meta name="twitter:description" content="UK health library on arthritis, fibromyalgia, gout medicines and treatments. Search 65+ clinician-reviewed topics in plain English — free to read." />
+        <meta name="twitter:title" content="Arthritis Health Library UK | OA, PIP, exercise & pain guides" />
+        <meta name="twitter:description" content="Free UK arthritis health library — osteoarthritis, fibromyalgia, turmeric, medicines and treatments. Clinician-reviewed plain-English topics with links to exercise, pain relief and PIP." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
@@ -173,6 +175,50 @@ const Library = () => {
               ))}
             </div>
           )}
+          <div className="mt-14 space-y-6 max-w-3xl">
+            <EducationalDisclaimerBox lastReviewed="2026-09-18" />
+            <TopicClusterNav path="/library" />
+            <nav
+              aria-label="Related arthritis pillars"
+              className="rounded-xl border border-border/50 bg-muted/20 p-5"
+            >
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                Start with these pillars
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2 text-sm">
+                <li>
+                  <Link className="text-primary hover:underline font-medium" to="/conditions/osteoarthritis">
+                    Osteoarthritis guide
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-primary hover:underline font-medium" to="/guides/exercise">
+                    Exercise for arthritis
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-primary hover:underline font-medium" to="/guides/arthritis-pain-relief">
+                    Arthritis pain relief
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-primary hover:underline font-medium" to="/benefits-pip">
+                    Benefits &amp; PIP
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-primary hover:underline font-medium" to="/guides/diet">
+                    Diet pillar
+                  </Link>
+                </li>
+                <li>
+                  <Link className="text-primary hover:underline font-medium" to="/library/turmeric">
+                    Turmeric library note
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </section>
       </main>
 

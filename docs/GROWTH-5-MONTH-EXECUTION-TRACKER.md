@@ -27,6 +27,7 @@
 | Champions 21–25 + treatment spoke gold pass (GSC-driven) | **done** | FaqArticle + BlogPost disclaimer/cluster; GSC blog paths in topicClusters; Azathioprine, Febuxostat, Knee replacement, Health services, Exercise guides (+ Shoulder OA, Arthritis, Mental health, Foods to avoid) — review **2026-09-16** |
 | Champions 26–30 + PIP spoke gold pass (GSC-driven) | **done** | Benefits PIP hub, FAQ hub, symptom checker, supplements hub, glucosamine — disclaimer + cluster nav + citations + review **2026-09-16**; cluster density on GSC top-click blogs/FAQ/OA; Sheffield RA doorway redirects to RA hub |
 | Champions 31–35 GSC subpage + condition template gold pass | **done** | ConditionSubpagePage + ConditionPageTemplate disclaimer/cluster (covers `/conditions/gout/treatment`, AS, PsA diet); diet/exercise/pain pillar CTR titles; gout treatment depth; cluster + chatbot KB for B₁ intents — review **2026-09-17** |
+| Champions 36–40 library hub + chatbot density gold pass | **done** | Library hub + LibraryTopic disclaimer/cluster + pillar cross-links (OA/PIP/exercise/pain/diet); library OA/fibro/turmeric/walking-shoes in topicClusters; chatbot KB for arthritis head term + turmeric + walking shoes — review **2026-09-18** |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -60,10 +61,35 @@
 5. **Google Ad Grants** — Google for Nonprofits + Ad Grants login/apply (see pack)
 6. **Outreach sends** — first wave from `docs/PARTNER-OUTREACH-50.md` (public contact routes only)
 7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
-8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, gout treatment, AS, PIP copy, supplements caution and symptom-checker CTAs)
+8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, gout treatment, AS, PIP copy, supplements/turmeric caution, library topics and symptom-checker CTAs)
 9. **Lovable publish** — publish the latest GitHub `main` so cluster/CRO/gold-pass pages are live
 
 ---
+
+## Daily log — 18 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Champions 36–40 from yesterday’s next-3 (library pillar polish + chatbot head-term density). No new doorway cities.
+
+### Shipped
+- **Champions 36–40 (library + chatbot):** gold-pass chrome on `Library` hub and `LibraryTopic` template (all `/library/:slug`) — `EducationalDisclaimerBox` + `TopicClusterNav` + clinical review **2026-09-18**
+- **Pillar cross-links** from thin library topics toward `/conditions/osteoarthritis`, `/guides/exercise`, `/guides/arthritis-pain-relief`, `/guides/diet`, `/benefits-pip` (SEO overlays + category defaults via `getLibraryPillarRelated`)
+- **Cluster map:** library OA/arthritis/fibromyalgia/turmeric/glucosamine/access-to-work + blog walking-shoes / turmeric fronted in `topicClusters`; `getClusterForPath` maps `/library/:slug` without inheriting hub→symptoms
+- **Library hub CTR title** polish (OA / PIP / exercise / pain framing)
+- **Chatbot KB:** stronger “arthritis” head-term intent; dedicated turmeric + walking-shoes topics with real internal links (`/supplements/turmeric`, `/blog/turmeric-for-arthritis`, `/library/turmeric`, `/blog/best-walking-shoes-arthritis-uk`)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
+- Live social posting per SOP; approve research-fund creative before posts
+- Clinical spot-check of Champions 26–40 (library/turmeric/PIP wording)
+- Optional Scenario C moonshot media budget paper
+- **Lovable publish** of latest GitHub `main` so gold-pass/library/chatbot pages are live
+
+### Next 3 digital actions (GTM)
+1. Cluster density / gold-pass on remaining high-impr GSC URLs not yet chrome’d (blog walking-shoes + turmeric pages themselves if still thin)
+2. Louis: Regulator / Gift Aid / Ad Grants / outreach / social (still blocked-on-Louis)
+3. Symptom-checker / FAQ hub CRO follow-up using next GSC refresh (no invented KPIs)
 
 ## Daily log — 17 Sep 2026 (M1, weekday run)
 
