@@ -1,0 +1,5306 @@
+{
+  "source": "Semrush",
+  "pulledAt": "2026-09-18T21:38:24+01:00",
+  "country": "uk",
+  "target": "livingwitharthritis.org.uk",
+  "status": "blocked_partial",
+  "requestedLimit": 1000,
+  "counts": {
+    "rankingKeywordsSemrush": 0,
+    "relatedKeywordsSemrushVerified": 15,
+    "gscQueriesIncluded": 556,
+    "totalSemrushVolumeRows": 15
+  },
+  "blockers": [
+    {
+      "system": "user-Semrush MCP",
+      "severity": "hard",
+      "summary": "execute_report / get_report_schema / discovery tools return data as unstructured content; Cursor MCP client rejects with: Tool has an output schema but did not return structured content.",
+      "validReportsConfirmedByServer": [
+        "phrase_related",
+        "phrase_fullsearch",
+        "phrase_questions",
+        "phrase_this",
+        "domain_ranks",
+        "domain_organic_organic"
+      ],
+      "unknownReports": [
+        "domain_organic",
+        "organic",
+        "organic_keywords",
+        "domainOrganic",
+        "keywords",
+        "url_organic",
+        "organic_organic"
+      ],
+      "paramNote": "export_columns must be string[] (not CSV string) or Semrush returns Go unmarshal error.",
+      "traceIdsSample": [
+        "01196afdc61de47e9ee8bac2f33ca1d6",
+        "7d21cb2266df950b7cb0022162b6457f",
+        "f250e8dad92e181596f47a0f16e6adae"
+      ],
+      "remediation": "Semrush MCP server must return structuredContent matching outputSchema, or Cursor must accept text content. Until then API units cannot be consumed productively from this agent. Top-up / plan: https://www.semrush.com/mcp-access"
+    },
+    {
+      "system": "Semrush web UI (prior session 2026-08-28)",
+      "severity": "hard",
+      "summary": "Free/expired plan (\"Restart your plan\"). Keyword Magic capped at ~10 visible rows; export paywalled (\"Get more with Pro plan\"); after 10 free KMT requests further reports blocked."
+    },
+    {
+      "system": "user-Ahrefs MCP (prior attempt same day)",
+      "severity": "hard",
+      "summary": "Insufficient plan on all data tools. User switched to Semrush alternative. This file is labeled Semrush only — never Ahrefs."
+    }
+  ],
+  "rankingKeywords": [],
+  "relatedKeywords": [
+    {
+      "keyword": "arthritis",
+      "volume": 74000,
+      "keywordDifficulty": 95,
+      "cpc": 0.44,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis",
+      "note": "UK KMT Broad Match top row"
+    },
+    {
+      "keyword": "rheumatoid arthritis",
+      "volume": 74000,
+      "keywordDifficulty": 87,
+      "cpc": 0.46,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "psoriatic arthritis",
+      "volume": 33100,
+      "keywordDifficulty": 74,
+      "cpc": 2.0,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "arthritis and arthritis",
+      "volume": 22200,
+      "keywordDifficulty": 66,
+      "cpc": 0.44,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "rheumatoid arthritis rheumatoid",
+      "volume": 22200,
+      "keywordDifficulty": 86,
+      "cpc": 0.46,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "osteoarthritis",
+      "volume": 90500,
+      "keywordDifficulty": 99,
+      "cpc": 0.26,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "osteoarthritis"
+    },
+    {
+      "keyword": "djd osteoarthritis",
+      "volume": 18100,
+      "keywordDifficulty": 71,
+      "cpc": 0.21,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "osteoarthritis"
+    },
+    {
+      "keyword": "osteoarthritis osteoarthritis",
+      "volume": 12100,
+      "keywordDifficulty": 71,
+      "cpc": 0.26,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "osteoarthritis"
+    },
+    {
+      "keyword": "osteoarthritis symptoms",
+      "volume": 8100,
+      "keywordDifficulty": 69,
+      "cpc": 0.0,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "osteoarthritis"
+    },
+    {
+      "keyword": "rheumatoid arthritis and rheumatoid arthritis",
+      "volume": 18100,
+      "keywordDifficulty": 59,
+      "cpc": 0.51,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "rheumatoid arthritis"
+    },
+    {
+      "keyword": "rheumatoid arthritis symptoms",
+      "volume": 14800,
+      "keywordDifficulty": 57,
+      "cpc": 0.5,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "rheumatoid arthritis"
+    },
+    {
+      "keyword": "versus arthritis",
+      "volume": 8100,
+      "position": 1,
+      "cpc": 2.77,
+      "intent": "navigational",
+      "metricSource": "semrush_public_website_overview",
+      "domainContext": "arthritis-uk.org",
+      "note": "Competitor organic keyword (Arthritis UK), UK database; included for volume reference only"
+    },
+    {
+      "keyword": "arthritis uk",
+      "volume": 6600,
+      "position": 1,
+      "cpc": 1.0,
+      "intent": "navigational",
+      "metricSource": "semrush_public_website_overview",
+      "domainContext": "arthritis-uk.org",
+      "note": "Competitor organic keyword (Arthritis UK), UK database; included for volume reference only"
+    },
+    {
+      "keyword": "naproxen",
+      "volume": 165000,
+      "position": 8,
+      "cpc": 0.79,
+      "intent": "informational",
+      "metricSource": "semrush_public_website_overview",
+      "domainContext": "arthritis-uk.org",
+      "note": "Competitor organic keyword (Arthritis UK), UK database; included for volume reference only"
+    },
+    {
+      "keyword": "glucosamine",
+      "volume": 27100,
+      "position": 2,
+      "cpc": 0.8,
+      "intent": "informational",
+      "metricSource": "semrush_public_website_overview",
+      "domainContext": "arthritis-uk.org",
+      "note": "Competitor organic keyword (Arthritis UK), UK database; included for volume reference only"
+    }
+  ],
+  "gscRankingQueries": [
+    {
+      "keyword": "arthritis",
+      "clicks": 0,
+      "impressions": 71,
+      "ctr": "0%",
+      "position": 75.85,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis",
+      "clicks": 1,
+      "impressions": 19,
+      "ctr": "5.26%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "livingwitharthritis.org.uk",
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": "0%",
+      "position": 31.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nutritionist for arthritis",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": "0%",
+      "position": 60.07,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis treatment",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": "0%",
+      "position": 68.69,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diets for arthritis",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": "0%",
+      "position": 57.08,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet for osteoarthritis",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": "0%",
+      "position": 73.42,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "living with arthritis",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": "0%",
+      "position": 12.8,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 for joints",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": "0%",
+      "position": 23.3,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis pain relief",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": "0%",
+      "position": 53.1,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 joints supplements",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": "0%",
+      "position": 25.11,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "supplements for knee pain",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": "0%",
+      "position": 27.56,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis pain",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": "0%",
+      "position": 67.22,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis remission diet",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": "0%",
+      "position": 68.44,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis care",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": "0%",
+      "position": 71.11,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis sheffield",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": "0%",
+      "position": 16.75,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best joint supplement for knees",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": "0%",
+      "position": 24.62,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout treatment",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": "0%",
+      "position": 71.88,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best omega 3 for joint pain",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": "0%",
+      "position": 18.57,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis support",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": "0%",
+      "position": 34.57,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine and collagen supplements",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": "0%",
+      "position": 39.14,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet for arthritis",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": "0%",
+      "position": 54.29,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best shoes for arthritis",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": "0%",
+      "position": 55.71,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "shoes for arthritis",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": "0%",
+      "position": 57.14,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 joint health",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 16.83,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 and joint health",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 20.83,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 for joint pain",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 21.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine with collagen",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 42.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine collagen production",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 43.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "collagen and glucosamine supplements",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 44.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "naproxen dose uk",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 46.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriasis and psoriatic arthritis diet",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 69.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is arthritis",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 72.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet to help arthritis",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout pain relief",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 76.17,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "early arthritis symptoms hands",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": "0%",
+      "position": 82.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best swimming stroke for hip arthritis",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 1.8,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best supplement for knee cartilage",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 18.8,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fish oil for arthritis",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 30.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis uk",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 33.4,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ibuprofen joint pain",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 38.8,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis support uk",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 51.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "private gout treatment",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 51.4,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis pain relief tips",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 53.4,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia diet",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 63.2,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout treatment woking",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 73.2,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "stiff joints with psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 87.8,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriasis association psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 93.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psa arthritis",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": "0%",
+      "position": 99.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "yes",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 4.75,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for arthritis uk",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 13.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how does arthritis affect the elderly people",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 14.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 for joint inflammation",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 19.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 for arthritis",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 21.75,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis care uk",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 25.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis society uk",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 35.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis charities",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 36.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet books for psoriasis and psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 36.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine collagen supplement",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 40.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for joints",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 43.75,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine collagen",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 45.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric and arthritis",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 48.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis pain relief shoes",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 61.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis diet",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 70.25,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout symptoms",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 79.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout treatments",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": "0%",
+      "position": 100.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 2.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "referral to rheumatology",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 3.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis treatment tongwynlais",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 12.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee joint tablets",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 14.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "chronic pain treatment uk",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 18.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee health supplements",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 18.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric gout",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 20.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee joint health supplements",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 20.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "supplements for knee cartilage",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 21.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "does omega 3 help with joint pain",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 25.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia uk",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 25.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for arthritis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 35.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis ibuprofen",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 36.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "does turmeric help arthritis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 36.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis canterbury",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 39.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric arthritis nhs",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 39.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis association",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 44.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "collagen glucosamine",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 45.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine and collagen",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 45.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis relief",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 46.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "sneakers for arthritis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 49.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hydroxychloroquine",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 50.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is axial spondyloarthritis the same as ankylosing spondylitis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 50.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis shoes",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 57.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "food and supplements for arthritis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 63.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis or ankylosing spondylitis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 64.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "tomatoes and arthritis nhs",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 64.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "inflammatory arthritis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pain relief for gout",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 74.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joint arthritis",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 75.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 81.67,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in hand",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": "0%",
+      "position": 95.33,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is swimming good for osteoarthritis of the hip",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knees",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "evidence based joint supplements",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 6.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis uk exercises",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 10.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "which is better for arthritis collagen or glucosamine",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 11.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric and gout",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 18.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best knee joint supplement",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 20.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis brentford",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 21.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 and joint inflammation",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 23.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "www.arthritis-uk.org",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 26.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "supplements for knees",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 29.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "frailty management",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 31.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 33.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthirits uk",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 34.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "collagen joints",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 38.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis northwood",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 44.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "collagen joint",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 50.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pain relief for joint pain",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 51.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best sneakers for arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fish oil for joints",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 53.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "collagen for pain",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 54.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ankylosing spondylitis or axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 55.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis charities in the uk",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best shoes for rheumatoid arthritis uk",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout medication uk",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 58.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ankylosing spondylitis and axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 59.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is naproxen for inflammation",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 60.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nr axspa symptoms",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 61.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis anti inflammatory diet",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 62.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diets for fibromyalgia",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 63.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "help with arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 63.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "anti inflammatory foods uk",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 64.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in pregnancy symptoms",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthitic pain",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet to help osteoarthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 70.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet for psoriasis arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in the uk",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 73.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis definition",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 75.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ankylosing spondylitis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis osteoporosis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "artheritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 76.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "cure for gout",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 76.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet good for arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 76.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymylagia",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 77.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis.",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 78.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis and diet",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 78.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis spa",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 79.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what causes pmr",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "acute inflammatory arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 81.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica symptoms in females",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 81.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "uric acid treatment",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 82.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout symptom",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 83.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 83.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamina o colageno",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 84.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "severe arthritis",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthris",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 85.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis symptoms hands",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 88.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "myalgia rheumatica",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 90.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for inflammation",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 90.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pmr polymyalgia",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 91.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "muscular rheumatism",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 93.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms of gout",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 93.5,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in hands",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": "0%",
+      "position": 99.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "disability benefits for arthritis",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": "100%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best water exercises for hip pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "brustschwimmen",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "e pode engravidar",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "francais",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glucosamine chondroitin dosage per day nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hip",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hips",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to lose weight with psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "i have osteoarthritis in my hip",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 1.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis guidelines",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "il nuoto fa bene?",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pentru genunchi",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pls recommend",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what about side stroke",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ισχίο",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "какви добавки да пия",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 2.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "can you prevent osteoarthritis from getting worse",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": "100%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "dosage guidelines",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "early oa",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "effects of osteoarthritis on the body",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ginger for osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "grade 2 3 osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "healthspan turmeric",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to deal with osteoarthritis pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to prevent osteoarthritis naturally",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is ginger good for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritic",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis flares",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis meaning",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis of spine",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis of the spine life expectancy",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "quelle marque choisir ?",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "reputable supplement brand",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "reverse arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "strongest turmeric supplement uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric essential oil",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for arthritis knee",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric paste for knees",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what helps osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "why do women get arthritis more than men",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "yes hip pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "στο γόνατο",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 3.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis flare ups",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 4.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to use turmeric for knee pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 4.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 4.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "افضل المكملات",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 4.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "لالام المفاصل",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 5.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "the best knee joint supplement",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 6.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joint supplement for knees",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 7.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "\"how does omega-3 help lower inflammation and support joint health?\" please \nprovide sources within the uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 8.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "\"paracetamol\" \"dogs\" -site:reddit.com -site:twitter.com -site:x.com \n-site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com \n-site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 8.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best treatments for axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 8.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long do osteoarthritis flare-ups last",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 8.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nhs rheumatoid arthritis diet mediterranean omega-3",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 9.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis uk fibromyalgia",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 10.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best diet for rheumatoid arthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 10.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best glucosamine for knee pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 10.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best knee joint supplements",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 10.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "glycine vs glucosamine",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 10.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best fish for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 11.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best knee cartilage repair supplements",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 11.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "can you recommend",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 11.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "living with arthritis pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 11.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "urgent rheumatology referral",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 11.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "sure",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 14.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "اى نوع افضل",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 14.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for osteoarthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 15.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "for osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 16.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how do i reduce inflammation in my body",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 17.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best omega-3 for joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 18.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best supplement for osteoarthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 19.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "vitamin b27",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 19.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis supplements uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 20.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis org",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 21.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best supplements for knees",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 22.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee cartilage regeneration supplements",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 22.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "supplements for painful knees",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 22.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "supplements for knee",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 23.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is omega 3 good for joint health",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 24.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joint supplements for knees",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 24.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "which omega 3 is best for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 24.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 and arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 26.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 fatty acids for joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 26.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "vitamine b27",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 26.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best glucosamine supplement for knees",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 27.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "amitriptyline for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 29.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "curcumin for osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 29.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fish oil and arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 29.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis for dummies",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 30.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hydrotherapy for arthritis essex",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 30.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "curcumin for arthritis reviews",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 31.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis turmeric",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 32.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hand exercise for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 32.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joel vs arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 33.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "tumeric arthritic knee treatments",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 33.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "exercises for arthritic hands",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 34.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric and pseudogout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 35.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for arthritis evidence",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 35.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hand exercises for arthritis nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 36.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis treatment cardiff",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 37.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for rheumatoid arthritis reviews",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 37.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis diet uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 38.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is turmeric powder good for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 39.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 39.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis society",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 40.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is amitriptyline an anti inflammatory",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 40.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee exercises arthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 40.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ledvärk engelska",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 40.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis pain management",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 41.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is fish oil good for joints",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 41.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "iviva arthritis pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 41.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ibuprofen for inflammation",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 42.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is turmeric good for joints",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 42.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "can turmeric help arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 43.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hand exercises for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 43.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "non radiographic axial spondyloarthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 43.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis today",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 44.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fm symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 44.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout arthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 44.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "uk gout association",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 44.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis forum",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 45.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fortigel vs glucosamine",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 45.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis foundation",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 46.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "food to avoid with arthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 46.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for pain relief",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 46.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritic pain relief",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 47.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "foods to avoid with arthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 47.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 47.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis research uk back pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 48.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is turmeric good for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 48.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric knee",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 48.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best diet for psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 49.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "anti inflammatory naproxen",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 50.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis policy",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 50.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "can you take naproxen for a headache",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 50.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hydroxychloroquine benefits",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 50.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "omega 3 artros",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 50.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 50.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatologist gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 51.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric powder for pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 51.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis foods to eat",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 52.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritisuk.org",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 52.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pain relief joints",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 52.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "anti inflammatory diet for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "artros engelska",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet for joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long can a rheumatoid flare last",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long does a flare up last with rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hydroxychloroquine drugs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is it safe to take ibuprofen every day for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "living with axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 53.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis ease pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 54.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best diet for psoriasis arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 54.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet and joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 54.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long does a rheumatoid arthritis flare last",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 54.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "painkillers for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 54.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "turmeric for pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 54.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best diet arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long can a rheumatoid arthritis flare last",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long does rheumatoid arthritis flare up last",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "inflammation diet uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "naproxen for muscle pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "signs and symptoms of juvenile idiopathic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "studies on turmeric and arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 55.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "active vs inactive ankylosing spondylitis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis and diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis shoe",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "foods and supplements for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nr-axspa",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "supplements for gout arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 56.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to calm a rheumatoid arthritis flare",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 57.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nr-axspa symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 57.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 57.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 58.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 58.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joint pain diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 58.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis blog",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 59.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis food",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 59.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet fibromyalgia",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 59.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla-b27 rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 59.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long can a rheumatoid arthritis flare up last",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 59.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia diet and exercise plan",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to help a rheumatoid arthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "i cured my psoriatic arthritis with diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is hla-b27 positive in rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nhs naproxen",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis in dogs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 60.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia nutrition",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 61.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to stop a rheumatoid arthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 61.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "migratory arthritis diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 61.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pain management arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 61.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla b27 rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 62.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "shoes good for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 62.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what helps a rheumatoid arthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 62.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what to do during a rheumatoid arthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 62.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis help",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 63.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "managing arthritis pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 63.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "autoimmune disease arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 64.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "elavil for pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 64.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is arthritis inflammation",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 64.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "non-radiographic axial spondyloarthritis nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 64.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "osteoarthritis and diet uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 64.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "tablets for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 64.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "active axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 65.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis pain control",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 65.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis patient diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 65.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pmr patient uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 65.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what to do for a rheumatoid arthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 65.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best painkiller for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 66.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia diet menu",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 66.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gochi arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 66.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how long can you take amitriptyline for nerve pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 66.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is inflammatory arthritis rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 66.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis diet and exercise",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 66.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ankylosing spondylitis axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 67.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis research",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 67.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis and ankylosing spondylitis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 67.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia foods",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 67.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout flare treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 67.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis flare",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis treatment nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hb27 gene",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to cure gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee joint hurt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nhs treatment for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid arthritis flare-up treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 68.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "b27 gene arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet for healthy joints",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to ease gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is rheumatoid arthritis inflammatory",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica patient uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "treatment of gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 69.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial psoriatic arthritis symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "define axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout solution",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla b27 diseases",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatology gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms of fibromyalgia",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms of psa arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "use of amitriptyline",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 70.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis inflammation medicine",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 71.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis london",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 71.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "fibromyalgia diet plan",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 71.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout control",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 71.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to get rid of gout pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 71.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ankylosingspondylitis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet for psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to remove gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to treat a flare up of rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "nhs gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polyarthralgia nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica life insurance",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis finger joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "relief from gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 72.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "anti inflammatory diet nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "can rheumatoid arthritis go away on its own",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout remedies",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "inflammation in the joints",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is rheumatoid arthritis a chronic illness",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "therapy for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 73.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritic pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial spondyloarthritis symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "cures for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla b27 reumatism",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid arthritis pain causes",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 74.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "anti inflammatory foods nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 75.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "b27 gene",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 75.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla b27 sygdomme",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 75.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid arthritis support",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 75.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is the best treatment for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 75.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis what",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "best gout treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "crippling arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout help",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how to treat gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia myalgia",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what does ra look like",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is axial spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 76.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthrities",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis is",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "axial.spondyloarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "curing gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "early signs of arthritis in fingers",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "of arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pmr symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica headache",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "treatment for gout symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 77.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis management",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 78.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "diet osteoarthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 78.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriasis and psoriatic arthritis symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 78.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "treatment for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 78.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "illness polymyalgia",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 79.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is rheumatoid arthritis a chronic condition",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 79.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "medication for rheumatoid arthritis treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 79.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "treatment for the gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 79.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arhritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis inflammation",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis types and treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout patient uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout symptom treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is naproxen prescription only uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is rheumatoid arthritis a degenerative joint disease",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 80.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "as illness",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 81.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "chronic inflammatory arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 81.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout rheumatology",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 81.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "aids for arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 82.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis information",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 82.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how common is arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 82.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis treatment uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 82.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "colageno o glucosamina",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 83.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "knee pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 83.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "naproxen tablets",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 83.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia means",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 83.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 83.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout remedy",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 84.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "men with arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 84.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms and treatment for gout",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 84.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms of arthritis in hands",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 84.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 84.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthopathy",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "chronic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "pain flare up",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid diagnosis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is arthritis what are its symptoms and its treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 85.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "aching hands and finger joints",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "acute arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in hands symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in shoulders relief of pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "does gout make you feel sick",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla-b27 gene symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "oseoarthritis support",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms of gout in thumb",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 86.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "human leukocyte antigen b27",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 87.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is turmeric gluten free",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 87.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia medical term",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 87.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumatoid arthritis inflammation",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 87.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "start of rheumatoid arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 87.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis symptoms hand",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout causes nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla-b27 positive symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "naproxen side effects",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia myalgia rheumatica",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "rheumato",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "symptoms of arthritis in fingers",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is active psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 88.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis patients diet",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 89.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "is turmeric gluten-free",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 89.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "temulawak bahasa inggris",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 89.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is psa arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 89.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "about arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 90.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis types and symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 90.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "how quickly does rheumatoid arthritis progress",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 90.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "shoulders joint pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 90.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what does arthritis feel like in hands",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 90.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "naproxen uk",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 91.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 91.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joint pain relief",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 92.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis joint swelling",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 92.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "polymyalgia rheumatica symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 93.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what causes arthritis in fingers",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 93.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in knuckles",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis knee pain",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthropathy",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "chronic arthritis treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "hla b27 positive symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "ra of hands",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "types of arthritis and symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 94.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis and inflammation",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 95.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis symptoms hands and fingers",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 95.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis joint",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 95.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriatic arthritis psa",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 95.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "what is gout nhs",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 95.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "aching hands",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 97.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis in the hand symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 97.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "psoriasis psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 97.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "b27 disease symptoms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 98.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "gout treatment in foot",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 98.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "private shoulder osteoarthritis treatment",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 98.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "joints affected by psoriatic arthritis",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 99.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    },
+    {
+      "keyword": "arthritis rheum",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": "0%",
+      "position": 100.0,
+      "source": "google_search_console",
+      "note": "Impressions/position from GSC — NOT Semrush search volume"
+    }
+  ],
+  "top10ByVolumeSample": [
+    {
+      "keyword": "naproxen",
+      "volume": 165000,
+      "position": 8,
+      "cpc": 0.79,
+      "intent": "informational",
+      "metricSource": "semrush_public_website_overview",
+      "domainContext": "arthritis-uk.org",
+      "note": "Competitor organic keyword (Arthritis UK), UK database; included for volume reference only"
+    },
+    {
+      "keyword": "osteoarthritis",
+      "volume": 90500,
+      "keywordDifficulty": 99,
+      "cpc": 0.26,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "osteoarthritis"
+    },
+    {
+      "keyword": "arthritis",
+      "volume": 74000,
+      "keywordDifficulty": 95,
+      "cpc": 0.44,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis",
+      "note": "UK KMT Broad Match top row"
+    },
+    {
+      "keyword": "rheumatoid arthritis",
+      "volume": 74000,
+      "keywordDifficulty": 87,
+      "cpc": 0.46,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "psoriatic arthritis",
+      "volume": 33100,
+      "keywordDifficulty": 74,
+      "cpc": 2.0,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "glucosamine",
+      "volume": 27100,
+      "position": 2,
+      "cpc": 0.8,
+      "intent": "informational",
+      "metricSource": "semrush_public_website_overview",
+      "domainContext": "arthritis-uk.org",
+      "note": "Competitor organic keyword (Arthritis UK), UK database; included for volume reference only"
+    },
+    {
+      "keyword": "arthritis and arthritis",
+      "volume": 22200,
+      "keywordDifficulty": 66,
+      "cpc": 0.44,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "rheumatoid arthritis rheumatoid",
+      "volume": 22200,
+      "keywordDifficulty": 86,
+      "cpc": 0.46,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "arthritis"
+    },
+    {
+      "keyword": "djd osteoarthritis",
+      "volume": 18100,
+      "keywordDifficulty": 71,
+      "cpc": 0.21,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "osteoarthritis"
+    },
+    {
+      "keyword": "rheumatoid arthritis and rheumatoid arthritis",
+      "volume": 18100,
+      "keywordDifficulty": 59,
+      "cpc": 0.51,
+      "intent": "informational",
+      "metricSource": "semrush_keyword_magic_uk",
+      "seed": "rheumatoid arthritis"
+    }
+  ],
+  "notes": [
+    "No Semrush volumes were invented. Rows without a verified Semrush volume were omitted from relatedKeywords.",
+    "rankingKeywords is empty: domain_organic_organic appeared valid via MCP but responses were discarded by the client; public LWA domain overview returned no keyword table without login.",
+    "Competitor (arthritis-uk.org) public overview rows are labeled domainContext=arthritis-uk.org and are NOT claimed as LWA rankings.",
+    "GSC queries provide real ranking evidence (impressions/position) but must not be treated as Semrush Nq volumes.",
+    "keywords-1000.ts programmatic seed list left intact so the admin keyword-strategy build stays green; this JSON is the Semrush metrics source of truth when unblocked."
+  ]
+}

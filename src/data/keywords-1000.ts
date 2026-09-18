@@ -8,6 +8,10 @@
  * It's expanded programmatically from seed matrices so the taxonomy stays
  * consistent — but the exported array is a plain, immutable list of 1000
  * entries.
+ *
+ * Semrush UK volumes / ranking metrics (real numbers only) live in
+ * `keywords-semrush-organic.json` + `keywords-semrush-organic.ts`.
+ * Label that file's source as Semrush — never Ahrefs. Do not invent volumes.
  */
 
 export type KeywordIntent =
@@ -41,6 +45,15 @@ export interface KeywordEntry {
   /** Best-fit landing page on the site. */
   targetPage: string;
   group: KeywordGroup;
+  /**
+   * Optional Semrush UK monthly search volume (Nq).
+   * Only set when verified from Semrush — never invent.
+   */
+  volume?: number;
+  /** Optional Semrush organic position when this domain ranks. */
+  position?: number;
+  /** Provenance when volume/position come from Semrush. */
+  metricsSource?: "Semrush";
 }
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
