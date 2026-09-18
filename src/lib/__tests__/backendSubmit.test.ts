@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 
 const hrefs: string[] = [];
 Object.defineProperty(window, "location", {
@@ -18,14 +18,46 @@ import {
   submitContactInquiry,
   submitBlogComment,
   submitVolunteerEnquiry,
+  NEWSLETTER_FORMSUBMIT_URL,
 } from "../backendSubmit";
 
-describe("backendSubmit mailto-only", () => {
+describe("backendSubmit newsletter + mailto", () => {
   beforeEach(() => {
     hrefs.length = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response(JSON.stringify({ success: true }), { status: 200 })),
+    );
   });
 
-  it("opens mailto for newsletter signup", async () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("posts newsletter signup to FormSubmit inbox endpoint", async () => {
+    const result = await subscribeNewsletter({
+      email: "jane@example.com",
+      source: "welcome-sequence",
+    });
+    expect(result.ok).toBe(true);
+    expect(result.via).toBe("formsubmit");
+    expect(fetch).toHaveBeenCalledWith(
+      NEWSLETTER_FORMSUBMIT_URL,
+      expect.objectContaining({ method: "POST" }),
+    );
+    const body = JSON.parse(
+      (fetch as unknown as ReturnType<typeof vi.fn>).mock.calls[0][1].body as string,
+    );
+    expect(body.email).toBe("jane@example.com");
+    expect(body._subject).toContain("Newsletter signup");
+    expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
+  });
+
+  it("falls back to mailto when FormSubmit fails", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response("error", { status: 500 })),
+    );
     const result = await subscribeNewsletter({ email: "jane@example.com" });
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");

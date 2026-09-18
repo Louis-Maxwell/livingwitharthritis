@@ -1,13 +1,23 @@
 /**
- * Mailto-only form helpers. No database backend — opens the visitor's email
- * client via submitViaMailto. Never invent success for undelivered mail.
+ * Form helpers without a database backend.
+ * Newsletter primary path: FormSubmit.co AJAX → charity inbox.
+ * Other forms: mailto draft via submitViaMailto.
+ * Never invent "saved to database" success.
  */
 import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 
 export type BackendSubmitResult =
+  | {
+      ok: true;
+      via: "formsubmit";
+      message: string;
+    }
   | { ok: false; via: "mailto"; message: string; mailtoOpened: true }
   | { ok: false; via: "none"; message: string };
+
+/** FormSubmit AJAX endpoint — first live submit emails an activation link to the inbox. */
+export const NEWSLETTER_FORMSUBMIT_URL = `https://formsubmit.co/ajax/${CONTACT_EMAILS.info}`;
 
 function mailtoFallback(opts: { subject: string; body: string }): BackendSubmitResult {
   try {
@@ -27,12 +37,53 @@ function mailtoFallback(opts: { subject: string; body: string }): BackendSubmitR
   }
 }
 
+/**
+ * Deliver a newsletter signup to the charity inbox via FormSubmit.co.
+ * On failure, opens a mailto draft (visitor must press Send).
+ */
 export async function subscribeNewsletter(opts: {
   email: string;
   source?: string;
 }): Promise<BackendSubmitResult> {
   const email = opts.email.trim().toLowerCase();
   const source = (opts.source || "website").slice(0, 80);
+
+  try {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 12000);
+    try {
+      const res = await fetch(NEWSLETTER_FORMSUBMIT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          _replyto: email,
+          _subject: `Newsletter signup (${source})`,
+          message: `Please add this address to the newsletter list.\nEmail: ${email}\nSource: ${source}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+        signal: controller.signal,
+      });
+
+      if (res.ok) {
+        return {
+          ok: true,
+          via: "formsubmit",
+          message:
+            `Thanks — we emailed ${CONTACT_EMAILS.info} with your address. ` +
+            "If this is the first signup through FormSubmit, Louis must click the one-time activation link in that inbox before further signups arrive.",
+        };
+      }
+    } finally {
+      window.clearTimeout(timer);
+    }
+  } catch {
+    // fall through to mailto
+  }
 
   return mailtoFallback({
     subject: "Newsletter signup",

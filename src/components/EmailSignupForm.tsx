@@ -31,7 +31,7 @@ const EmailSignupForm = memo(({
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successCopy, setSuccessCopy] = useState(
-    "Almost there — please send the email draft so we can add you.",
+    "Request received — we will add you when the charity confirms.",
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,7 +51,18 @@ const EmailSignupForm = memo(({
 
     try {
       const result = await subscribeNewsletter({ email: addr, source: sequence });
-      if (result.via === "mailto") {
+      if (result.ok && result.via === "formsubmit") {
+        trackNewsletterSignup();
+        trackEvent("email_signup", { sequence, via: "formsubmit" });
+        setSuccessCopy(
+          "Request emailed to the charity inbox — nothing is stored in a website database.",
+        );
+        setSuccess(true);
+        setEmail("");
+        toast.message(result.message);
+        onSuccess?.();
+        setTimeout(() => setSuccess(false), 10000);
+      } else if (result.via === "mailto") {
         trackNewsletterSignup();
         trackEvent("email_signup", { sequence, via: "mailto" });
         setSuccessCopy(
@@ -104,10 +115,10 @@ const EmailSignupForm = memo(({
           type="submit"
           disabled={loading || success || !email.trim()}
           className="min-h-11 min-w-11 px-5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 inline-flex items-center justify-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          aria-label={loading ? "Opening email draft" : success ? "Draft ready" : "Join newsletter"}
+          aria-label={loading ? "Sending request" : success ? "Request sent" : "Join newsletter"}
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
-          {success ? "Draft ready" : loading ? "Opening…" : "Join"}
+          {success ? "Sent" : loading ? "Sending…" : "Join"}
         </button>
         {error ? (
           <span id="email-signup-compact-err" className="sr-only" role="alert">
@@ -137,7 +148,7 @@ const EmailSignupForm = memo(({
             <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
             <div>
               <p className="font-semibold text-emerald-900 text-sm">{successCopy}</p>
-              <p className="text-xs text-emerald-800 mt-1">Nothing is stored on this website until you press Send in your email app.</p>
+              <p className="text-xs text-emerald-800 mt-1">We do not save signups in a website database. Delivery is by email to the charity inbox (or a draft if email delivery is unavailable).</p>
             </div>
           </div>
         ) : (
@@ -168,7 +179,7 @@ const EmailSignupForm = memo(({
                 {loading ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-                    Opening…
+                    Sending…
                   </>
                 ) : (
                   buttonText
@@ -189,7 +200,7 @@ const EmailSignupForm = memo(({
               <a href="/privacy" className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
                 privacy policy
               </a>
-              . Your email app opens a draft to {CONTACT_EMAILS.info} — please press Send so we can add you.
+              . We email {CONTACT_EMAILS.info} with your address (FormSubmit). If that fails, your email app opens a draft — please press Send.
             </p>
           </>
         )}

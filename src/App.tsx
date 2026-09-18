@@ -489,7 +489,9 @@ function AnimatedRoutes() {
         <Route path="/self-assessment" element={<SelfAssessment />} />
         <Route path="/buddy" element={<Buddy />} />
         <Route path="/buddy/match" element={<BuddyMatch />} />
-        <Route path="/debug/schema" element={<DebugSchema />} />
+        {import.meta.env.DEV ? (
+          <Route path="/debug/schema" element={<DebugSchema />} />
+        ) : null}
 
         {/* Phase 1 — 5-pillar IA stubs + Newly Diagnosed full guide */}
         <Route path="/guides/newly-diagnosed" element={<GuideLayout currentPath="/guides/newly-diagnosed"><NewlyDiagnosed /></GuideLayout>} />

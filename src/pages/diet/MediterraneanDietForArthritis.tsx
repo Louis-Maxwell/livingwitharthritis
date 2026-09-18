@@ -310,8 +310,8 @@ export default function MediterraneanDietForArthritis() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Mediterranean Diet for Arthritis"
-        description="A free 7-day Mediterranean eating plan for UK adults with arthritis. Shopping list, anti-inflammatory recipes and what to eat freely, weekly and rarely."
+        title="Mediterranean Diet for Arthritis: Does It Help?"
+        description="What the evidence shows about the Mediterranean diet and arthritis pain, plus a practical UK shopping list and a simple 7-day meal plan. Educational guidance, not a personal prescription."
         path="/diet/mediterranean-diet-for-arthritis"
         type="article"
         keywords="mediterranean diet for arthritis, anti inflammatory mediterranean diet UK, mediterranean meal plan arthritis, mediterranean diet recipes UK, anti inflammatory eating plan"
