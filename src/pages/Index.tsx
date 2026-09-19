@@ -20,7 +20,9 @@ import ViewportSection from "@/components/ViewportSection";
 // OAHero stays eager — required for LCP.
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
+import UKCoverageBand from "@/components/landing/UKCoverageBand";
 import HomeQuickPathways from "@/components/landing/HomeQuickPathways";
+import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from "@/lib/homeSeo";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
@@ -88,23 +90,15 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>{HOME_PAGE_TITLE}</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461): evidence-based guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help across the United Kingdom.",
-          )}
+          content={withVisitorSnippet(HOME_PAGE_DESCRIPTION)}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
-        <meta
-          property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
-        />
-        <meta
-          name="twitter:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
-        />
+        <meta property="og:title" content={HOME_PAGE_TITLE} />
+        <meta name="twitter:title" content={HOME_PAGE_TITLE} />
         <meta
           property="og:description"
           content={withVisitorSnippet(
@@ -143,6 +137,8 @@ function HomePage() {
 
           {/* 02 — Trust strip (P1-07), above the fold on mobile */}
           <HomeTrustStrip />
+
+          <UKCoverageBand />
 
           <div className="container mx-auto px-5 md:px-10 max-w-3xl">
             <AeoEnhancement route="/" />

@@ -119,6 +119,15 @@ export const WEBSITE_PAYLOAD = {
   description:
     "Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.",
   publisher: { "@id": `${BASE}/#organization` },
+  about: {
+    "@type": "Country",
+    name: "United Kingdom",
+    identifier: "GB",
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", ".speakable-intro"],
+  },
   potentialAction: {
     "@type": "SearchAction",
     target: {

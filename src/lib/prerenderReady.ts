@@ -1,5 +1,8 @@
-export const GENERIC_HOME_TITLE =
-  'Living With Arthritis | UK charity for arthritis and frailty support';
+import { HOME_PAGE_TITLE } from "@/lib/homeSeo";
+
+/** Same as index.html / Helmet home title. Subpage prerender waits until the
+ * document title is no longer this fallback. */
+export const GENERIC_HOME_TITLE = HOME_PAGE_TITLE;
 
 export function isPrerenderDocumentReady(
   document: Document,

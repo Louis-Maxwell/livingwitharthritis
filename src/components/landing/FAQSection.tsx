@@ -5,16 +5,19 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 
-const faqs = [
-  { q: "Is everything really free?", a: "Yes — every guide, exercise video, and bit of help we share is free for you, always. Kind donors and volunteers keep it that way." },
+const faqs: { q: string; a: string; href?: string; linkLabel?: string }[] = [
+  { q: "Is everything really free?", a: "Yes — every guide, exercise video, and bit of help we share is free for you, always. Kind donors and volunteers keep it that way.", href: "/donate", linkLabel: "Donate to keep it free" },
   { q: "Do I need a GP referral to use this?", a: "Not at all. You can start whenever you feel ready. We'd always gently encourage you to keep your GP or specialist in the loop too." },
-  { q: "What types of arthritis can you help with?", a: "We cover osteoarthritis, rheumatoid arthritis, and more than a hundred other forms — focusing on the everyday questions people in the UK ask us most." },
-  { q: "Can diet really make a difference?", a: "It can. Many people find that gentle, anti-inflammatory eating — the Mediterranean way — helps ease stiffness and pain over time. Small changes, kept up, add up." },
-  { q: "Is your help chat the same as seeing a doctor?", a: "No, and we'd never pretend it is. It can answer general questions based on trusted research, but please keep speaking to your GP or specialist for anything personal." },
-  { q: "What are the first signs of osteoarthritis?", a: "Usually a dull ache during or after moving, stiffness in the morning that eases within half an hour, swelling, or a feeling of grating. Knees, hips and hands are most often the first to complain." },
-  { q: "Can I claim PIP for arthritis in the UK?", a: "If arthritis is making daily life a real struggle, you may qualify for Personal Independence Payment (PIP). Citizens Advice or the DWP can walk you through the application kindly and free." },
+  { q: "What types of arthritis can you help with?", a: "We cover osteoarthritis, rheumatoid arthritis, and more than a hundred other forms — focusing on the everyday questions people in the UK ask us most.", href: "/conditions/arthritis", linkLabel: "Browse condition guides" },
+  { q: "Can diet really make a difference?", a: "It can. Many people find that gentle, anti-inflammatory eating — the Mediterranean way — helps ease stiffness and pain over time. Small changes, kept up, add up.", href: "/diet", linkLabel: "Read the diet guide" },
+  { q: "Is your help chat the same as seeing a doctor?", a: "No, and we'd never pretend it is. It can answer general questions based on trusted research, but please keep speaking to your GP or specialist for anything personal.", href: "/chat", linkLabel: "Open the help chat" },
+  { q: "What are the first signs of osteoarthritis?", a: "Usually a dull ache during or after moving, stiffness in the morning that eases within half an hour, swelling, or a feeling of grating. Knees, hips and hands are most often the first to complain.", href: "/conditions/osteoarthritis", linkLabel: "Read the osteoarthritis guide" },
+  { q: "Can I claim PIP for arthritis in the UK?", a: "PIP is assessed on how arthritis affects daily living and mobility, not on the diagnosis name. Scotland uses Adult Disability Payment instead of PIP. Citizens Advice can help with the form for free.", href: "/guides/benefits-pip", linkLabel: "PIP and benefits guide" },
+  { q: "Can I get a Blue Badge for arthritis?", a: "You may qualify if walking is substantially difficult. Local councils decide using national criteria. Our benefits guide explains how this sits alongside PIP and other support.", href: "/guides/benefits-pip", linkLabel: "Blue Badge and benefits" },
+  { q: "What can I do while waiting for rheumatology or physiotherapy?", a: "Keep moving gently, pace yourself, and ask your GP surgery to flag worsening symptoms. Some areas allow physiotherapy self-referral. Go back to your GP if pain, function or sleep get worse.", href: "/arthritis-waiting-list-help", linkLabel: "Waiting-list help" },
+  { q: "Does the Equality Act cover arthritis at work?", a: "Often yes, when arthritis has a substantial, long-term effect on day-to-day activities. That can mean reasonable adjustments and, in some cases, Access to Work funding.", href: "/blog/working-with-arthritis-uk-rights", linkLabel: "Work rights guide" },
   { q: "At what age does arthritis usually start?", a: "Osteoarthritis often shows up after 50, but rheumatoid arthritis can begin much younger — often between 30 and 50. Younger people can be affected too, especially after a joint injury." },
-  { q: "Does turmeric actually help with joint pain?", a: "There's good evidence that curcumin (the active part of turmeric) can ease pain for many people. Around 1,000 mg a day, taken with a little black pepper for absorption, is a common starting point. Always check with your GP if you take other medicines." },
+  { q: "Does turmeric actually help with joint pain?", a: "Some people find curcumin (from turmeric) helpful for joint pain, but it is not a substitute for prescribed treatment. Check with your GP or pharmacist if you take other medicines — especially blood thinners.", href: "/supplements/turmeric", linkLabel: "Turmeric guide" },
 ];
 
 const FAQSection = memo(() => {
@@ -30,7 +33,7 @@ const FAQSection = memo(() => {
           "name": faq.q,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": faq.a
+            "text": faq.href ? `${faq.a} ${faq.linkLabel}: https://livingwitharthritis.org.uk${faq.href}` : faq.a
           }
         }))
       })}</script>
@@ -48,7 +51,17 @@ const FAQSection = memo(() => {
         {faqs.map((faq, i) => (
           <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border/8 rounded-2xl px-8 data-[state=open]:shadow-lg transition-all duration-500 data-[state=open]:border-primary/6">
             <AccordionTrigger className="text-start text-[15px] font-semibold hover:no-underline py-7 tracking-tight">{faq.q}</AccordionTrigger>
-            <AccordionContent className="text-muted-foreground text-sm leading-[1.9] pb-7">{faq.a}</AccordionContent>
+            <AccordionContent className="text-muted-foreground text-sm leading-[1.9] pb-7">
+              {faq.a}
+              {faq.href && faq.linkLabel ? (
+                <>
+                  {" "}
+                  <Link to={faq.href} className="text-primary font-semibold underline underline-offset-2">
+                    {faq.linkLabel}
+                  </Link>
+                </>
+              ) : null}
+            </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
@@ -59,6 +72,8 @@ const FAQSection = memo(() => {
           { href: "/faq/what-is-rheumatoid-arthritis", label: "What is rheumatoid arthritis?" },
           { href: "/faq/arthritis-and-cold-weather", label: "Why does cold weather worsen arthritis?" },
           { href: "/faq/arthritis-disability-benefits-uk", label: "Can I claim PIP for arthritis?" },
+          { href: "/blog", label: "Read the arthritis blog" },
+          { href: "/donate", label: "Donate to keep guides free" },
         ].map((item) => (
           <Link
             key={item.href}

@@ -45,7 +45,7 @@ const OAHero = memo(() => {
               </span>
             </h1>
 
-            <p className="hero-item mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
+            <p className="hero-item speakable-intro mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
               Living with joint pain is exhausting — the stiff mornings, the cancelled plans,
               the feeling that nobody quite gets it. You are not alone.
             </p>
@@ -92,6 +92,10 @@ const OAHero = memo(() => {
               <Link to="/diet" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Anti-inflammatory diet</Link>
               <span aria-hidden="true" className="opacity-50">·</span>
               <Link to="/guides/arthritis-pain-relief" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Pain-relief tips</Link>
+              <span aria-hidden="true" className="opacity-50">·</span>
+              <Link to="/guides/benefits-pip" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">PIP and benefits</Link>
+              <span aria-hidden="true" className="opacity-50">·</span>
+              <Link to="/blog" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Blog</Link>
             </nav>
           </div>
 
