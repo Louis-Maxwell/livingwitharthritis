@@ -92,10 +92,10 @@ export const faqArticles: FaqArticle[] = [
     quickAnswer:
       'Low-impact exercises like walking, swimming, and gentle strength training are ideal. They reduce pain, improve mobility, and strengthen muscles around joints.',
     sections: [
-      { heading: 'Low-Impact Cardio', content: 'Walking (30 mins, 5 days/week), swimming, water aerobics, cycling, elliptical trainer. These get your heart rate up without stressing joints.' },
-      { heading: 'Strength Training', content: 'Strong muscles support joints. Use light weights, resistance bands, or bodyweight (push-ups against wall, squats). Do 2-3 times/week. Start light and progress gradually.' },
-      { heading: 'Flexibility & Stretching', content: 'Yoga (gentle classes), tai chi, daily stretching. Hold stretches 15-30 seconds. This reduces stiffness and improves range of motion.' },
-      { heading: 'Tips for Safe Exercise', content: 'Warm up 5 mins first, stop if sharp pain develops (mild discomfort OK), ice after if swollen, rest days between workouts, work with a physiotherapist initially.' },
+      { heading: 'Low-Impact Cardio', content: 'Walking for about 30 minutes most days if tolerated, or swimming, water aerobics, cycling or an elliptical trainer. These raise heart rate without the jarring load of running. Build time before intensity. On a flare day, shorten the session rather than stopping for weeks.' },
+      { heading: 'Strength Training', content: 'Strong muscles support arthritic joints. Use light weights, resistance bands, or bodyweight (wall push-ups, sit-to-stands) two to three times a week. Start light and progress slowly. Stop for sharp joint pain; mild muscle fatigue is expected. NICE-aligned UK care treats exercise as a core treatment for osteoarthritis, not an optional extra.' },
+      { heading: 'Flexibility & Stretching', content: 'Gentle yoga, tai chi and daily stretches held 15–30 seconds reduce morning stiffness and keep range of motion. Avoid forcing a hot, swollen joint to end range.' },
+      { heading: 'Tips for Safe Exercise', content: 'Warm up for five minutes, ice after if a joint swells, plan rest days between harder sessions, and consider NHS physiotherapy self-referral where it is available. Seek urgent help for a hot swollen joint with fever or a sudden inability to move a joint. This is general UK information, not personal medical advice.' },
     ],
     relatedArticles: ['arthritis-pain-management', 'can-arthritis-cause-fatigue'],
     category: 'Exercise & Movement',

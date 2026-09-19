@@ -257,9 +257,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       "Strength and balance training (tai chi, Otago programme) cuts falls by around 30%. Also: home hazard checks, medication review, eye tests every 2 years and vitamin D 10 mcg/day. Contact your GP or UK healthcare falls clinic if you've fallen twice in a year.",
   }),
   "/guides/sarcopenia-muscle-loss": withDefaults({
-    question: "What is sarcopenia?",
+    question: "What is sarcopenia and how is it linked to arthritis?",
     answer:
-      "Sarcopenia is age-related muscle loss that accelerates after 60 and worsens arthritis symptoms. Resistance training (2-3 sessions per week) plus 1.0-1.2 g protein/kg body weight/day reverses much of it, even in your 80s.",
+      "Sarcopenia is age-related loss of muscle mass and strength. Arthritis speeds it up because pain reduces activity; resistance training plus enough protein can slow or reverse the decline.",
   }),
   "/guides/bone-density-osteoporosis": withDefaults({
     question: "How do I improve bone density?",
@@ -403,6 +403,36 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     faqs: [
       { q: "What is Access to Work?", a: "A UK government grant that can help pay for workplace support if a disability or health condition affects your job." },
       { q: "Do I have to tell my employer?", a: "You are not forced to disclose, but sharing enough for reasonable adjustments is often needed for legal protection to apply in practice." },
+    ],
+  }),
+  "/blog": withDefaults({
+    question: "Where can I read UK arthritis guides on exercise, diet and PIP?",
+    answer:
+      "The Living With Arthritis blog collects clinically reviewed UK guides on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.",
+    faqs: [
+      { q: "Is this blog written for people in the UK?", a: "Yes. Guides use NHS, NICE, PIP and Adult Disability Payment language. Living With Arthritis UK is charity 1218461, independent of Arthritis UK." },
+      { q: "Where should I start if I am newly diagnosed?", a: "Open the newly diagnosed guide, then the exercise hub or diet hub. For money questions use Benefits & PIP. Search if you already know the topic." },
+      { q: "Do you give personal medical advice in the blog?", a: "No. Articles are general UK information. Use your GP, rheumatology team or NHS 111 for personal advice, and 999 in an emergency." },
+    ],
+  }),
+  "/arthritis-support": withDefaults({
+    question: "Where can I find arthritis support in my UK city?",
+    answer:
+      "Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.",
+    faqs: [
+      { q: "Do you run in-person clinics in every city?", a: "No. City pages explain local NHS context and point to national guides. Living With Arthritis UK is a national charity offering remote educational support, not a walk-in clinic in every town." },
+      { q: "What if my town is not listed?", a: "Use the nearest live city hub, or search. Some nearby names permanently redirect (for example Stockport to Manchester) so you are not left on a blank page." },
+      { q: "Is this the same as Arthritis UK?", a: "No. We are Living With Arthritis UK, charity 1218461, independent of Arthritis UK / Versus Arthritis." },
+    ],
+  }),
+  "/blog/category/exercise": withDefaults({
+    question: "Where can I find arthritis exercise articles?",
+    answer:
+      "This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.",
+    faqs: [
+      { q: "Is this the same as the exercise hub?", a: "No. This category lists blog articles. The exercise hub is the main movement home with joint-by-joint routines. Use both: hub for programmes, this list for longer reads." },
+      { q: "What should I do on a flare day?", a: "Shorten the session rather than stopping for weeks. Switch to range-of-motion or pool work if a joint is hot and swollen, and use the 24-hour rule before adding load." },
+      { q: "Are these NHS-aligned?", a: "They are written for UK readers and sit beside NICE-aligned exercise as a core osteoarthritis treatment. They are not a personal physiotherapy prescription." },
     ],
   }),
   "/blog/managing-methotrexate-side-effects-practical-tips": withDefaults({

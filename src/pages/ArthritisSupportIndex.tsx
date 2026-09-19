@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { ukCities } from "@/data/ukCities";
 import { MapPin, Search } from "lucide-react";
 import { useState } from "react";
@@ -63,6 +64,7 @@ const ArthritisSupportIndex = () => {
             , or{" "}
             <Link to="/blog" className="text-primary underline underline-offset-2">arthritis blog</Link>.
           </p>
+          <AeoEnhancement route="/arthritis-support" />
 
           {/* Search */}
           <div className="relative mb-8">

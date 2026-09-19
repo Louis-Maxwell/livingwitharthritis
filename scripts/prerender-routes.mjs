@@ -62,6 +62,7 @@ const CURATED = [
   // 404s during every prerender pass — 4,000+ hits in Evarist's traffic
   // data over the last week alone, all misattributed as real visits.
   "/blog",
+  "/blog/category/exercise",
   "/blog-hub",
   "/diet",
   "/diet/mediterranean-diet-for-arthritis",
