@@ -11,6 +11,9 @@ const PATHWAYS = [
   { label: "PsA", href: "/conditions/psoriatic-arthritis", full: "Psoriatic arthritis" },
   { label: "JIA", href: "/conditions/juvenile-arthritis", full: "Juvenile idiopathic arthritis" },
   { label: "AS", href: "/conditions/ankylosing-spondylitis", full: "Ankylosing spondylitis" },
+  { label: "PIP", href: "/guides/benefits-pip", full: "Benefits and PIP" },
+  { label: "Blog", href: "/blog" },
+  { label: "Donate", href: "/donate" },
 ] as const;
 
 export default function HomeQuickPathways() {
