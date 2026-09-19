@@ -39,10 +39,14 @@ function looksLikeSfntFont(buf: Uint8Array): boolean {
 
 async function ensureFont(name: "regular" | "bold"): Promise<Uint8Array | null> {
   const path = join(CACHE_DIR, `${name}.ttf`);
-  if (existsSync(path)) return new Uint8Array(await readFile(path));
+  // Prefer a previously vendored/local cache file (not written from HTTP in this process).
+  if (existsSync(path)) {
+    const local = new Uint8Array(await readFile(path));
+    if (looksLikeSfntFont(local)) return local;
+  }
   try {
-    await mkdir(CACHE_DIR, { recursive: true });
-    // Hardcoded CDN URLs only — never derive path from response.
+    // Hardcoded CDN URLs only. Keep bytes in memory for satori — never write
+    // the HTTP response to the filesystem (CodeQL js/http-to-file-access).
     const res = await fetch(FONT_URLS[name]);
     if (!res.ok) throw new Error(`font fetch ${res.status}`);
     const contentType = (res.headers.get("content-type") || "").toLowerCase();
@@ -53,8 +57,6 @@ async function ensureFont(name: "regular" | "bold"): Promise<Uint8Array | null> 
     if (!looksLikeSfntFont(buf)) {
       throw new Error("downloaded bytes are not a recognized SFNT font");
     }
-    // Write only after magic-byte validation; atomic rename avoids TOCTOU.
-    await writeFileAtomic(path, buf);
     return buf;
   } catch (err) {
     console.warn(`[og] font fetch failed (${name}):`, (err as Error).message);
