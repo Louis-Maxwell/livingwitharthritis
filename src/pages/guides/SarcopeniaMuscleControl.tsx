@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
-import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
@@ -69,15 +68,11 @@ export default function SarcopeniaMuscleControl() {
       <h1 className="text-4xl md:text-5xl font-bold mb-6">Sarcopenia &amp; Arthritis: How to Prevent Muscle Loss</h1>
             <AeoEnhancement route="/guides/sarcopenia-muscle-loss" />
 
-      <AnswerBox question="What is sarcopenia and how is it linked to arthritis?" reviewed="2026-06-21">
-        Sarcopenia is age-related loss of muscle mass and strength. Arthritis accelerates it because joint pain reduces activity and chronic inflammation breaks down muscle. Prevention combines 1.0–1.2 g/kg/day protein, twice-weekly resistance training, vitamin D, and treating pain so movement stays possible.
-      </AnswerBox>
-
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="what" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">1. What is sarcopenia and why arthritis speeds it up</h2>
-        <p className="leading-relaxed mb-4">Muscle mass declines about 1% per year from age 40, and strength declines faster — around 3% per year after 60. Arthritis multiplies this loss: pain limits movement, inflammatory cytokines (IL-6, TNF-Î±) drive muscle breakdown, and steroid medications worsen it further.</p>
+        <p className="leading-relaxed mb-4">Muscle mass declines about 1% per year from age 40, and strength declines faster — around 3% per year after 60. Arthritis multiplies this loss: pain limits movement, inflammatory cytokines (IL-6, TNF-alpha) drive muscle breakdown, and steroid medications worsen it further.</p>
         <p className="leading-relaxed">The result is a vicious cycle: weak muscles destabilise joints, joints hurt more, activity drops, muscles weaken further.</p>
       </section>
 

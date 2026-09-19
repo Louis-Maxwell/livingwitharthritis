@@ -31,6 +31,7 @@ import {
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
 import BlogCard from "@/components/blog/BlogCard";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
+import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { getBookmarks } from "@/lib/bookmarkedArticles";
 import { getLastRead, type LastReadArticle } from "@/lib/lastReadArticle";
 
@@ -403,6 +404,13 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             </Link>
             .
           </p>
+          <AeoEnhancement
+            route={
+              initialCategory
+                ? `/blog/category/${canonicalBlogCategoryKey(initialCategory) ?? initialCategory}`
+                : "/blog"
+            }
+          />
 
           <nav aria-label="Browse arthritis topics" className="mb-6">
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">

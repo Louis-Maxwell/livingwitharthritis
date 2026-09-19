@@ -16,6 +16,18 @@ Last updated: 2026-07-01
 Q: Who is Living With Arthritis UK?
 A: Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).
 
+## UK Arthritis Support Directory | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/arthritis-support
+Last updated: 2026-09-19
+Q: Where can I find arthritis support in my UK city?
+A: Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.
+Q: Do you run in-person clinics in every city?
+A: No. City pages explain local NHS context and point to national guides. Living With Arthritis UK is a national charity offering remote educational support, not a walk-in clinic in every town.
+Q: What if my town is not listed?
+A: Use the nearest live city hub, or search. Some nearby names permanently redirect (for example Stockport to Manchester) so you are not left on a blank page.
+Q: Is this the same as Arthritis UK?
+A: No. We are Living With Arthritis UK, charity 1218461, independent of Arthritis UK / Versus Arthritis.
+
 ## Arthritis Waiting List Help UK | Rheumatology & Physio
 URL: https://livingwitharthritis.org.uk/arthritis-waiting-list-help
 Last updated: 2026-07-01
@@ -36,9 +48,27 @@ A: Begin with our Benefits & PIP hub for a clear overview, then read the full PI
 
 ## Arthritis blog UK | Exercise, diet, PIP and pain guides
 URL: https://livingwitharthritis.org.uk/blog
-Last updated: 2026-07-01
+Last updated: 2026-09-19
 Q: Where can I read UK arthritis guides on exercise, diet and PIP?
 A: The Living With Arthritis blog collects clinically reviewed UK guides on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.
+Q: Is this blog written for people in the UK?
+A: Yes. Guides use NHS, NICE, PIP and Adult Disability Payment language. Living With Arthritis UK is charity 1218461, independent of Arthritis UK.
+Q: Where should I start if I am newly diagnosed?
+A: Open the newly diagnosed guide, then the exercise hub or diet hub. For money questions use Benefits & PIP. Search if you already know the topic.
+Q: Do you give personal medical advice in the blog?
+A: No. Articles are general UK information. Use your GP, rheumatology team or NHS 111 for personal advice, and 999 in an emergency.
+
+## Arthritis Exercise Articles & Guides | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/blog/category/exercise
+Last updated: 2026-09-19
+Q: Where can I find arthritis exercise articles?
+A: This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.
+Q: Is this the same as the exercise hub?
+A: No. This category lists blog articles. The exercise hub is the main movement home with joint-by-joint routines. Use both: hub for programmes, this list for longer reads.
+Q: What should I do on a flare day?
+A: Shorten the session rather than stopping for weeks. Switch to range-of-motion or pool work if a joint is hot and swollen, and use the 24-hour rule before adding load.
+Q: Are these NHS-aligned?
+A: They are written for UK readers and sit beside NICE-aligned exercise as a core osteoarthritis treatment. They are not a personal physiotherapy prescription.
 
 ## Methotrexate Side Effects UK | Practical Tips & Folic Acid
 URL: https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips
@@ -69,6 +99,20 @@ Q: What is the HLA-B27 test?
 A: A blood test that checks for the HLA-B27 gene, found in around 90% of UK people with AS. A positive test alone doesn't diagnose AS — it's used alongside symptoms and MRI scans.
 Q: Should I exercise if my back hurts?
 A: Yes — gentle, regular movement is the single most important treatment for AS. Pain that eases with activity is typical. A physiotherapist can build a safe, progressive programme.
+
+## Best Exercises for Ankylosing Spondylitis: Safe UK Physio-Aligned Routines | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis/exercises
+Last updated: 2026-09-19
+Q: What are the best exercises for ankylosing spondylitis?
+A: Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.
+Q: Is it safe to exercise with as?
+A: Yes — for most people with as, regular movement is one of the most effective self-management tools. Some short-term discomfort can be normal, but stop if you have sharp pain or sudden swelling and speak to a physiotherapist.
+Q: What exercises should I avoid with ankylosing spondylitis?
+A: Avoid high-impact activities that cause sharp joint pain, heavy loaded movements without proper preparation, and anything that triggers swelling lasting more than 24 hours. A physiotherapist can tailor a programme to your joints and goals.
+Q: How often should I exercise with as?
+A: Aim for short, regular sessions — most days of the week — rather than long, intense workouts. UK physiotherapy guidance suggests building up to around 150 minutes of moderate activity per week, split into manageable sessions.
+Q: Can exercise reduce ankylosing spondylitis pain?
+A: Yes — strong evidence shows that consistent exercise reduces pain, stiffness and fatigue in ankylosing spondylitis, while improving sleep, mood and overall function. Benefits usually appear within 6–8 weeks of regular practice.
 
 ## Elbow Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/elbow-arthritis
@@ -298,6 +342,12 @@ Last updated: 2026-07-01
 Q: What's the best diet for arthritis?
 A: A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.
 
+## Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis
+Last updated: 2026-07-01
+Q: Does the Mediterranean diet help arthritis?
+A: Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. This is educational nutrition guidance, not a personal diet prescription.
+
 ## Donate to Living With Arthritis UK | Gift Aid
 URL: https://livingwitharthritis.org.uk/donate
 Last updated: 2026-07-01
@@ -318,9 +368,13 @@ A: Combine aerobic (walking, swimming, cycling) with strength training 2-3 times
 
 ## Best Exercises for Arthritis | UK FAQ
 URL: https://livingwitharthritis.org.uk/faq/best-exercises-arthritis
-Last updated: 2026-09-17
+Last updated: 2026-09-19
 Q: What are the best exercises for people with arthritis?
 A: Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually.
+Q: Should I exercise during a flare?
+A: Usually yes, but shorter and gentler. Keep range-of-motion and avoid loading a hot, swollen joint. Restart your usual plan as the flare settles.
+Q: When should I see a physiotherapist?
+A: If pain limits walking, sleep or work after several weeks of paced activity, ask about NHS physiotherapy self-referral where it is available.
 
 ## Arthritis Glossary: 110+ UK Terms Explained
 URL: https://livingwitharthritis.org.uk/glossary
@@ -1326,7 +1380,7 @@ A: Sarcopenia is age-related muscle loss that accelerates after 60 and worsens a
 
 ## Sarcopenia & Muscle Loss With Arthritis | UK Guide
 URL: https://livingwitharthritis.org.uk/guides/sarcopenia-muscle-loss
-Last updated: 2026-09-17
+Last updated: 2026-09-19
 Q: What is sarcopenia and how is it linked to arthritis?
 A: Sarcopenia is age-related loss of muscle mass and strength. Arthritis speeds it up because pain reduces activity; resistance training plus enough protein can slow or reverse the decline.
 

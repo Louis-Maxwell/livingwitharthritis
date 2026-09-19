@@ -280,6 +280,30 @@ describe("static blog HTML for Soft 404s", () => {
       ),
     ).toEqual([]);
     expect(PRERENDER_ROUTES).toContain("/arthritis-support");
+    expect(PRERENDER_ROUTES).toContain("/blog/category/exercise");
+  });
+
+  it("keeps GSC soft-404 hubs thick in first-HTML head data", () => {
+    const wordCount = (html: string) =>
+      html
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&amp;/g, "&")
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean).length;
+
+    const ai = JSON.parse(
+      readFileSync(resolve(process.cwd(), "scripts/ai-head-data.json"), "utf8"),
+    ) as Record<string, { bodyHtml?: string; faqs?: unknown[] }>;
+
+    expect(wordCount(ai["/arthritis-support"]?.bodyHtml ?? "")).toBeGreaterThan(150);
+    expect(wordCount(ai["/blog/category/exercise"]?.bodyHtml ?? "")).toBeGreaterThan(120);
+    expect(wordCount(ai["/faq/best-exercises-arthritis"]?.bodyHtml ?? "")).toBeGreaterThan(180);
+    expect(wordCount(ai["/guides/sarcopenia-muscle-loss"]?.bodyHtml ?? "")).toBeGreaterThan(200);
+    expect(wordCount(ai["/blog"]?.bodyHtml ?? "")).toBeGreaterThan(120);
+    expect(wordCount(ai["/conditions/ankylosing-spondylitis/exercises"]?.bodyHtml ?? "")).toBeGreaterThan(220);
+    expect(ai["/conditions/ankylosing-spondylitis/exercises"]?.bodyHtml).toMatch(/uveitis/i);
+    expect(ai["/arthritis-support"]?.faqs?.length ?? 0).toBeGreaterThanOrEqual(3);
   });
 
 });

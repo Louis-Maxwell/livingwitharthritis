@@ -400,6 +400,10 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
           heading: "What to avoid with AS",
           body: "Avoid high-impact loading of a fused or very stiff spine, repeated loaded flexion (toes-to-floor 'good mornings', sit-up batteries), and contact sport until a physiotherapist has cleared you. Heavy overhead work can aggravate neck and thoracic joints. If a movement causes sharp pain rather than a stretch, stop that variation and keep the rest of the session.",
         },
+        {
+          heading: "Flares, uveitis and NHS physiotherapy",
+          body: "On a flare day, shorten the session rather than skipping the week — five minutes of breathing and gentle extension still counts. A red, painful, light-sensitive eye needs same-day ophthalmology for possible uveitis, not a wait-and-see approach. In many UK areas you can self-refer to NHS physiotherapy without a GP letter; ask for someone who knows axial spondyloarthritis. Pair this page with the main AS condition guide and the treatment subpage so exercise and medicine stay on the same plan. This is general UK information, not personal medical advice.",
+        },
       ],
     },
     diet: {

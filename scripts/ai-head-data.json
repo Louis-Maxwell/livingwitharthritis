@@ -27,7 +27,23 @@
     "question": "Where can I read UK arthritis guides on exercise, diet and PIP?",
     "answer": "The Living With Arthritis blog collects clinically reviewed UK guides on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.",
     "breadcrumb": "Blog",
-    "about": "Arthritis"
+    "about": "Arthritis",
+    "updatedAt": "2026-09-19",
+    "faqs": [
+      {
+        "q": "Is this blog written for people in the UK?",
+        "a": "Yes. Guides use NHS, NICE, PIP and Adult Disability Payment language. Living With Arthritis UK is charity 1218461, independent of Arthritis UK."
+      },
+      {
+        "q": "Where should I start if I am newly diagnosed?",
+        "a": "Open the newly diagnosed guide, then the exercise hub or diet hub. For money questions use Benefits & PIP. Search if you already know the topic."
+      },
+      {
+        "q": "Do you give personal medical advice in the blog?",
+        "a": "No. Articles are general UK information. Use your GP, rheumatology team or NHS 111 for personal advice, and 999 in an emergency."
+      }
+    ],
+    "bodyHtml": "<h2>UK arthritis blog: what you will find here</h2>\n<p>This blog is the article library for Living With Arthritis UK (charity 1218461). It is written for people in England, Scotland, Wales and Northern Ireland who need plain-English help with joint pain, flare-ups, exercise, diet, PIP and treatments — not miracle-cure lists.</p>\n<p>Browse by topic or search when you know the question. Featured starting points include knee exercises, turmeric and omega-3 evidence, Mediterranean eating, PIP applications and walking shoes. Category pages such as exercise articles sit beside the main exercise hub so Google and visitors land on real copy, not an empty shell.</p>\n<h2>How the library is organised</h2>\n<ul>\n<li>Exercise and physiotherapy-aligned movement</li>\n<li>Nutrition, supplements and what the evidence does not support</li>\n<li>Lifestyle, work rights and mental health</li>\n<li>Treatment explainers and flare-up care</li>\n<li>Benefits, PIP and waiting-list help</li>\n</ul>\n<p>Every published post is meant to stand alone for a crawler: unique title, self-referencing address, and enough first-screen HTML that it cannot be mistaken for the homepage. This page is general information, not a personal care plan.</p>"
   },
   "/conditions/osteoarthritis": {
     "title": "Osteoarthritis: Symptoms, Treatment & Exercises | UK",
@@ -6494,6 +6510,20 @@
     "question": "What are the best exercises for people with arthritis?",
     "answer": "Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually.",
     "updatedAt": "2026-09-19",
+    "faqs": [
+      {
+        "q": "What are the best exercises for people with arthritis?",
+        "a": "Low-impact walking, swimming and cycling plus light strength work two to three times a week, and daily flexibility. Progress gradually and stop for sharp joint pain."
+      },
+      {
+        "q": "Should I exercise during a flare?",
+        "a": "Usually yes, but shorter and gentler. Keep range-of-motion and avoid loading a hot, swollen joint. Restart your usual plan as the flare settles."
+      },
+      {
+        "q": "When should I see a physiotherapist?",
+        "a": "If pain limits walking, sleep or work after several weeks of paced activity, ask about NHS physiotherapy self-referral where it is available."
+      }
+    ],
     "bodyHtml": "<h2>What are the best exercises for people with arthritis?</h2>\n<p><strong>Quick answer:</strong> Low-impact cardio (walking, swimming, cycling), light strength training two to three times a week, and daily flexibility work are the safest starting mix for most people with osteoarthritis or inflammatory arthritis. They reduce pain, protect joints and improve day-to-day function when progressed gradually.</p>\n<h2>Low-impact cardio</h2>\n<p>Aim for about 30 minutes of walking most days if tolerated, or swimming, water aerobics, cycling or an elliptical trainer. These raise heart rate without the jarring load of running. Build time before intensity. On flare days, shorten the session rather than stopping for weeks.</p>\n<h2>Strength training</h2>\n<p>Strong muscles support arthritic joints. Use light weights, resistance bands or bodyweight (wall push-ups, sit-to-stands) two to three times a week. Start light and progress slowly. Stop for sharp joint pain; mild muscle fatigue is expected. NICE-aligned care treats exercise as a core treatment for osteoarthritis, not an optional extra.</p>\n<h2>Flexibility and stretching</h2>\n<p>Gentle yoga, tai chi and daily stretches held 15–30 seconds reduce morning stiffness and keep range of motion. Avoid forcing a hot, swollen joint to end range.</p>\n<h2>Tips for safe exercise in the UK</h2>\n<p>Warm up for five minutes, ice after if a joint swells, plan rest days between harder sessions, and consider NHS physiotherapy self-referral where available. This is general UK information, not personal medical advice. Seek urgent help for a hot swollen joint with fever or sudden inability to move a joint.</p>",
     "breadcrumb": "Best exercises for arthritis",
     "about": "Arthritis exercise"
@@ -6511,7 +6541,21 @@
     "question": "Where can I find arthritis support in my UK city?",
     "answer": "Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.",
     "updatedAt": "2026-09-19",
-    "bodyHtml": "<h2>Arthritis support across the UK</h2>\n<p>This directory helps people living with arthritis find rheumatology services, local support groups and city-level guidance across England, Scotland, Wales and Northern Ireland. Living With Arthritis UK (charity 1218461) lists live city hubs with NHS trust context, waiting-list help and links into condition, exercise and diet guides.</p>\n<p>Choose your city from the directory to see tailored information. Unknown city aliases such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub so Google and visitors are not left on empty shells.</p>\n<h2>What each city page covers</h2>\n<ul>\n<li>Local NHS / health-board context for rheumatology and MSK pathways</li>\n<li>Links to osteoarthritis, rheumatoid arthritis and related condition guides</li>\n<li>Routes into exercises, diet, benefits and the Help &amp; Support chat</li>\n<li>Waiting-list and self-referral pointers where relevant</li>\n</ul>\n<h2>Related hubs</h2>\n<p>If you need movement or food guidance first, start at the <a href=\"/exercises\">exercise hub</a>, <a href=\"/diet\">diet hub</a>, or <a href=\"/blog\">arthritis blog</a>. For national benefits questions, see <a href=\"/guides/benefits-pip\">Benefits &amp; PIP</a>.</p>",
+    "faqs": [
+      {
+        "q": "Do you run in-person clinics in every city?",
+        "a": "No. City pages explain local NHS context and point to national guides. Living With Arthritis UK is a national charity offering remote educational support, not a walk-in clinic in every town."
+      },
+      {
+        "q": "What if my town is not listed?",
+        "a": "Use the nearest live city hub, or search. Some nearby names permanently redirect (for example Stockport to Manchester) so you are not left on a blank page."
+      },
+      {
+        "q": "Is this the same as Arthritis UK?",
+        "a": "No. We are Living With Arthritis UK, charity 1218461, independent of Arthritis UK / Versus Arthritis."
+      }
+    ],
+    "bodyHtml": "<h2>Arthritis support across the UK</h2>\n<p>This directory helps people living with arthritis find rheumatology services, local support groups and city-level guidance across England, Scotland, Wales and Northern Ireland. Living With Arthritis UK (charity 1218461) lists live city hubs with NHS trust context, waiting-list help and links into condition, exercise and diet guides.</p>\n<p>Choose your city from the directory to see tailored information. Unknown city aliases such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub so Google and visitors are not left on empty shells.</p>\n<h2>What each city page covers</h2>\n<ul>\n<li>Local NHS / health-board context for rheumatology and MSK pathways</li>\n<li>Links to osteoarthritis, rheumatoid arthritis and related condition guides</li>\n<li>Routes into exercises, diet, benefits and the Help &amp; Support chat</li>\n<li>Waiting-list and self-referral pointers where relevant</li>\n</ul>\n<h2>Related hubs</h2>\n<p>If you need movement or food guidance first, start at the <a href=\"/exercises\">exercise hub</a>, <a href=\"/diet\">diet hub</a>, or <a href=\"/blog\">arthritis blog</a>. For national benefits questions, see <a href=\"/guides/benefits-pip\">Benefits &amp; PIP</a>.</p>\n<p>We do not replace your GP or rheumatology team. Use these pages to understand local pathways, then take questions to NHS services. Educational information only.</p>",
     "breadcrumb": "Arthritis support",
     "about": "UK arthritis support"
   },
@@ -6521,18 +6565,54 @@
     "question": "Where can I find arthritis exercise articles?",
     "answer": "This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.",
     "updatedAt": "2026-09-19",
-    "bodyHtml": "<h2>Arthritis exercise articles and guides</h2>\n<p>This category gathers evidence-based UK articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement. Pieces are written for people managing osteoarthritis, inflammatory arthritis and related pain, with practical pacing tips rather than one-size gym plans.</p>\n<p>Typical topics include walking and swimming programmes, chair and resistance-band work, what to do in a flare, and how exercise links to frailty and sarcopenia. Browse the listed posts below, or start at the main <a href=\"/exercises\">exercise hub</a> and <a href=\"/faq/best-exercises-arthritis\">best exercises FAQ</a>.</p>\n<h2>How to use these articles</h2>\n<ul>\n<li>Pick one routine you can keep for two weeks before adding load</li>\n<li>Use the 24-hour rule: if a joint is clearly worse the next day, trim the next session</li>\n<li>Combine movement with sleep, weight and medication plans from your NHS team</li>\n</ul>\n<p>Educational information only — not a substitute for physiotherapy or medical advice.</p>",
+    "faqs": [
+      {
+        "q": "Is this the same as the exercise hub?",
+        "a": "No. This category lists blog articles. The exercise hub is the main movement home with joint-by-joint routines. Use both: hub for programmes, this list for longer reads."
+      },
+      {
+        "q": "What should I do on a flare day?",
+        "a": "Shorten the session rather than stopping for weeks. Switch to range-of-motion or pool work if a joint is hot and swollen, and use the 24-hour rule before adding load."
+      },
+      {
+        "q": "Are these NHS-aligned?",
+        "a": "They are written for UK readers and sit beside NICE-aligned exercise as a core osteoarthritis treatment. They are not a personal physiotherapy prescription."
+      }
+    ],
+    "bodyHtml": "<h2>Arthritis exercise articles and guides</h2>\n<p>This category gathers evidence-based UK articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement. Pieces are written for people managing osteoarthritis, inflammatory arthritis and related pain, with practical pacing tips rather than one-size gym plans.</p>\n<p>Typical topics include walking and swimming programmes, chair and resistance-band work, what to do in a flare, and how exercise links to frailty and sarcopenia. Browse the listed posts below, or start at the main <a href=\"/exercises\">exercise hub</a> and <a href=\"/faq/best-exercises-arthritis\">best exercises FAQ</a>.</p>\n<h2>How to use these articles</h2>\n<ul>\n<li>Pick one routine you can keep for two weeks before adding load</li>\n<li>Use the 24-hour rule: if a joint is clearly worse the next day, trim the next session</li>\n<li>Combine movement with sleep, weight and medication plans from your NHS team</li>\n</ul>\n<p>If you want a single starting page rather than a list of articles, open the exercise hub first, then return here for longer reads. Educational information only — not a substitute for physiotherapy or medical advice.</p>",
     "breadcrumb": "Exercise articles",
     "about": "Arthritis exercise"
   },
   "/conditions/ankylosing-spondylitis/exercises": {
-    "title": "Best Exercises for Ankylosing Spondylitis | Living With Arthritis UK",
-    "description": "Safe UK physio-aligned exercises for ankylosing spondylitis: daily spinal mobility, swimming and pacing tips.",
+    "title": "Best Exercises for Ankylosing Spondylitis: Safe UK Physio-Aligned Routines | Living With Arthritis UK",
+    "description": "Safe, effective ankylosing spondylitis exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routine.",
     "question": "What are the best exercises for ankylosing spondylitis?",
     "answer": "Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.",
     "updatedAt": "2026-09-19",
-    "bodyHtml": "<h2>Best exercises for ankylosing spondylitis</h2>\n<p>Daily spinal mobility work is core treatment for ankylosing spondylitis (axial spondyloarthritis), not an optional extra. NASS and rheumatology teams encourage gentle extension, rotation and breathing drills most days, including quieter days when rest feels tempting.</p>\n<p>Combine mobility with low-impact cardio such as swimming or walking, and stop short of sharp inflammatory pain. If eyes become red and painful, seek urgent ophthalmology advice for possible uveitis. Pair this page with the main <a href=\"/conditions/ankylosing-spondylitis\">AS condition guide</a> and treatment subpage.</p>",
-    "breadcrumb": "AS exercises",
-    "about": "Ankylosing spondylitis"
+    "breadcrumb": "Best exercises for ankylosing spondylitis",
+    "about": "Ankylosing Spondylitis",
+    "bodyHtml": "<p>Daily exercise is the single most important self-management step in AS. It preserves spinal range of motion, maintains posture, and reduces stiffness — and is recommended by NASS as a daily routine, including on quieter days when it is tempting to skip.</p><h2>Key benefits</h2><ul><li>Preserves spinal mobility and prevents stiffening</li><li>Maintains posture and reduces deformity risk</li><li>Reduces morning stiffness</li><li>Supports chest expansion and breathing capacity</li><li>Improves sleep, mood, and overall wellbeing</li></ul><h2>A practical UK daily routine</h2><p>Ten to twenty minutes is enough if it is every day. A typical NASS-style session includes thoracic extension over a rolled towel, knee-to-chest and hip flexor stretches, standing side-bends, and a few deep breaths with hands on the ribs to remind the chest wall to move. Swimming (especially backstroke) and walking on even ground are the aerobic staples. Do the mobility block before sitting at a desk, not only in the evening when the spine has already seized.</p><h2>What to avoid with AS</h2><p>Avoid high-impact loading of a fused or very stiff spine, repeated loaded flexion (toes-to-floor 'good mornings', sit-up batteries), and contact sport until a physiotherapist has cleared you. Heavy overhead work can aggravate neck and thoracic joints. If a movement causes sharp pain rather than a stretch, stop that variation and keep the rest of the session.</p><h2>Flares, uveitis and NHS physiotherapy</h2><p>On a flare day, shorten the session rather than skipping the week — five minutes of breathing and gentle extension still counts. A red, painful, light-sensitive eye needs same-day ophthalmology for possible uveitis, not a wait-and-see approach. In many UK areas you can self-refer to NHS physiotherapy without a GP letter; ask for someone who knows axial spondyloarthritis. Pair this page with the main AS condition guide and the treatment subpage so exercise and medicine stay on the same plan. This is general UK information, not personal medical advice.</p>",
+    "faqs": [
+      {
+        "q": "What are the best exercises for ankylosing spondylitis?",
+        "a": "The best exercises for ankylosing spondylitis combine gentle range-of-motion work, strengthening of muscles around the affected joints, and low-impact aerobic activity such as walking, cycling or swimming. Start gradually and build up over several weeks."
+      },
+      {
+        "q": "Is it safe to exercise with as?",
+        "a": "Yes — for most people with as, regular movement is one of the most effective self-management tools. Some short-term discomfort can be normal, but stop if you have sharp pain or sudden swelling and speak to a physiotherapist."
+      },
+      {
+        "q": "What exercises should I avoid with ankylosing spondylitis?",
+        "a": "Avoid high-impact activities that cause sharp joint pain, heavy loaded movements without proper preparation, and anything that triggers swelling lasting more than 24 hours. A physiotherapist can tailor a programme to your joints and goals."
+      },
+      {
+        "q": "How often should I exercise with as?",
+        "a": "Aim for short, regular sessions — most days of the week — rather than long, intense workouts. UK physiotherapy guidance suggests building up to around 150 minutes of moderate activity per week, split into manageable sessions."
+      },
+      {
+        "q": "Can exercise reduce ankylosing spondylitis pain?",
+        "a": "Yes — strong evidence shows that consistent exercise reduces pain, stiffness and fatigue in ankylosing spondylitis, while improving sleep, mood and overall function. Benefits usually appear within 6–8 weeks of regular practice."
+      }
+    ]
   }
 }
