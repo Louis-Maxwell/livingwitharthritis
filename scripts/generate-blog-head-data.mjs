@@ -27,6 +27,7 @@
  * Lovable publish / production deploy is still required for live crawlers.
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { stripTags } from './lib/strip-tags.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -233,8 +234,8 @@ async function main() {
       const re = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
       let m;
       while ((m = re.exec(body)) !== null) {
-        const q = m[1].replace(/<[^>]*>/g, '').trim();
-        const a = m[2].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 500);
+        const q = stripTags(m[1]);
+        const a = stripTags(m[2]).slice(0, 500);
         if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
         if (pairs.length >= 6) break;
       }

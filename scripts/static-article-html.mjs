@@ -3,63 +3,49 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import { JSDOM } from "jsdom";
+import createDOMPurify from "dompurify";
 import {
   dedentIndentedHtmlForMarked,
   unwrapEscapedHtmlCodeBlocks,
 } from "../src/lib/articleHtmlCodeBlocks.mjs";
 
-const ALLOWED_ATTR = new Set([
-  "href",
-  "src",
-  "alt",
-  "title",
-  "class",
-  "id",
-  "rel",
-  "target",
-  "colspan",
-  "rowspan",
-  "width",
-  "height",
-  "loading",
-]);
+const { window } = new JSDOM("");
+const DOMPurify = createDOMPurify(window);
+
+const PURIFY_CONFIG = {
+  ALLOWED_TAGS: [
+    "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
+    "ul", "ol", "li", "blockquote", "a", "img", "table", "thead", "tbody",
+    "tr", "td", "th", "code", "pre", "hr", "span", "div", "section",
+    "article", "figure", "figcaption",
+  ],
+  ALLOWED_ATTR: [
+    "href", "target", "rel", "src", "alt", "title", "class", "id",
+    "colspan", "rowspan", "width", "height", "loading",
+  ],
+  // Explicit schemes only — closes incomplete-url-scheme-check (no data:/vbscript:).
+  ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|\/|#)/i,
+  FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form", "link", "meta", "base"],
+  FORBID_ATTR: ["style"],
+  KEEP_CONTENT: true,
+};
 
 export function stripToText(value) {
-  return String(value ?? "")
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
+  const raw = String(value ?? "").replace(/\\n/g, " ");
+  const dom = new JSDOM(`<body>${raw}</body>`);
+  for (const node of dom.window.document.querySelectorAll("script, style")) {
+    node.remove();
+  }
+  return (dom.window.document.body.textContent || "")
     .replace(/[#*_>`\[\]]/g, " ")
-    .replace(/\\n/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
 
+/** Sanitize staff-authored HTML via DOMPurify (not fragile multi-replace regex). */
 export function sanitizeStaticHtml(html) {
-  return String(html ?? "")
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
-    .replace(/javascript:/gi, "")
-    .replace(/<\/?([^>\s]+)([^>]*)>/g, (full, tag, attrs) => {
-      const closing = full.startsWith("</");
-      const name = String(tag).toLowerCase();
-      if (closing) return `</${name}>`;
-      const safeAttrs = [];
-      const attrRe = /([a-zA-Z_:][\w:.-]*)\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+))/g;
-      let match;
-      while ((match = attrRe.exec(attrs))) {
-        const attr = match[1].toLowerCase();
-        if (!ALLOWED_ATTR.has(attr)) continue;
-        const value = match[3] ?? match[4] ?? match[5] ?? "";
-        if (attr === "href" || attr === "src") {
-          const trimmed = String(value).trim();
-          if (!trimmed || /^(javascript|data):/i.test(trimmed)) continue;
-        }
-        safeAttrs.push(`${attr}="${String(value).replace(/"/g, "&quot;")}"`);
-      }
-      return safeAttrs.length ? `<${name} ${safeAttrs.join(" ")}>` : `<${name}>`;
-    });
+  return DOMPurify.sanitize(String(html ?? ""), PURIFY_CONFIG);
 }
 
 function looksLikeMarkdown(src) {

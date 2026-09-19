@@ -11,6 +11,7 @@
  *   bun scripts/seo-gap-fill.mjs --apply    # write files
  */
 import { readFileSync, writeFileSync } from 'node:fs';
+import { stripTags } from './lib/strip-tags.mjs';
 
 const APPLY = process.argv.includes('--apply');
 const LINKS_PER_ARTICLE = 4;
@@ -191,7 +192,7 @@ function withQuickAnswer(html, article) {
 function withTakeaways(html, article) {
   if (/id="key-takeaways"/i.test(html) || /Key takeaways/i.test(html)) return html;
   const points = (html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/g) || [])
-    .map((h) => h.replace(/<[^>]+>/g, '').trim())
+    .map((h) => stripTags(h))
     .filter((t) => t && !/continue reading|frequently asked|faq/i.test(t))
     .slice(0, 5);
   if (points.length < 3) return html;

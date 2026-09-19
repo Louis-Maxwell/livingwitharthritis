@@ -28,7 +28,6 @@
  */
 import {
   readFileSync,
-  writeFileSync,
   existsSync,
   readdirSync,
   statSync,
@@ -36,6 +35,8 @@ import {
 } from 'node:fs';
 import { join, resolve, relative, sep } from 'node:path';
 import { exactRedirectPathSet } from './seo-redirect-map.mjs';
+import { writeFileAtomicSync } from './lib/atomic-write.mjs';
+import { decodeBasicEntities } from './lib/strip-tags.mjs';
 
 const ROOT = resolve('.');
 const argv = process.argv.slice(2);
@@ -62,9 +63,7 @@ if (!existsSync(indexHtmlPath)) {
 const indexHtml = readFileSync(indexHtmlPath, 'utf8');
 
 const norm = (s) =>
-  String(s ?? '')
-    .replace(/&amp;/g, '&')
-    .replace(/&#38;/g, '&')
+  decodeBasicEntities(s)
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase();
@@ -224,7 +223,7 @@ const maxGeneric = override !== undefined ? Number(override) : baseline.maxGener
 
 if (updateBaseline) {
   mkdirSync(join(ROOT, 'scripts'), { recursive: true });
-  writeFileSync(
+  writeFileAtomicSync(
     BASELINE_FILE,
     JSON.stringify(
       {
@@ -282,7 +281,7 @@ if (asJson) {
   mkdirSync(REPORT_DIR, { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
   const out = join(REPORT_DIR, `prerender-meta-${stamp}.json`);
-  writeFileSync(
+  writeFileAtomicSync(
     out,
     JSON.stringify(
       {

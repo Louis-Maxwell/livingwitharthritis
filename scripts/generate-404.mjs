@@ -11,7 +11,8 @@
  * junk path), but its static head carries none of the homepage metadata.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import { writeFileAtomicSync } from './lib/atomic-write.mjs';
 import { resolve } from 'node:path';
 
 const DIST = resolve('dist');
@@ -73,7 +74,7 @@ ${assetTags}
 </html>
 `;
 
-writeFileSync(resolve(DIST, '404.html'), html, 'utf8');
+writeFileAtomicSync(resolve(DIST, '404.html'), html, 'utf8');
 console.log('[404] dist/404.html written (noindex, no homepage metadata)');
 
 /* ------------------------------------------------------------------------ *
@@ -146,5 +147,5 @@ const block = [
   '',
 ].join('\n');
 
-writeFileSync(redirectsPath, `${existing.trimEnd()}\n${block}`, 'utf8');
+writeFileAtomicSync(redirectsPath, `${existing.trimEnd()}\n${block}`, 'utf8');
 console.log(`[404] appended ${spaRules.size} SPA rules + catch-all 404 to dist/_redirects`);

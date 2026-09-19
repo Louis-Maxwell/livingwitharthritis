@@ -10,7 +10,8 @@
  *
  * Usage: bun scripts/apply-aeo.mjs
  */
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
+import { writeFileAtomic } from "./lib/atomic-write.mjs";
 import { existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 
@@ -88,7 +89,7 @@ for (const [route, relPath] of Object.entries(ROUTE_TO_FILE)) {
   const injection = `\n            <AeoEnhancement route="${route}" />`;
   src = src.slice(0, insertAt) + injection + src.slice(insertAt);
 
-  await writeFile(full, src);
+  await writeFileAtomic(full, src);
   touched++;
   console.log(`[aeo] enhanced ${route} -> ${relPath}`);
 }

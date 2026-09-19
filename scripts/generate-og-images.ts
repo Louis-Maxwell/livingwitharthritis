@@ -10,7 +10,8 @@
  *
  * Runs before Vite build via `prebuild`.
  */
-import { readdir, readFile, writeFile, mkdir, stat } from "node:fs/promises";
+import { readdir, readFile, mkdir, stat } from "node:fs/promises";
+import { writeFileAtomic } from "./lib/atomic-write.mjs";
 import { existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 import satori from "satori";
@@ -27,15 +28,33 @@ const FONT_URLS = {
   bold: "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.ttf",
 };
 
+function looksLikeSfntFont(buf: Uint8Array): boolean {
+  if (buf.length < 4) return false;
+  // TrueType 0x00010000, OpenType "OTTO", classic "true"/"typ1"
+  const b0 = buf[0], b1 = buf[1], b2 = buf[2], b3 = buf[3];
+  if (b0 === 0x00 && b1 === 0x01 && b2 === 0x00 && b3 === 0x00) return true;
+  const sig = String.fromCharCode(b0, b1, b2, b3);
+  return sig === "OTTO" || sig === "true" || sig === "typ1";
+}
+
 async function ensureFont(name: "regular" | "bold"): Promise<Uint8Array | null> {
   const path = join(CACHE_DIR, `${name}.ttf`);
   if (existsSync(path)) return new Uint8Array(await readFile(path));
   try {
     await mkdir(CACHE_DIR, { recursive: true });
+    // Hardcoded CDN URLs only — never derive path from response.
     const res = await fetch(FONT_URLS[name]);
     if (!res.ok) throw new Error(`font fetch ${res.status}`);
+    const contentType = (res.headers.get("content-type") || "").toLowerCase();
+    if (contentType && !/(font|octet-stream|sfnt|ttf)/.test(contentType)) {
+      throw new Error(`unexpected content-type ${contentType}`);
+    }
     const buf = new Uint8Array(await res.arrayBuffer());
-    await writeFile(path, buf);
+    if (!looksLikeSfntFont(buf)) {
+      throw new Error("downloaded bytes are not a recognized SFNT font");
+    }
+    // Write only after magic-byte validation; atomic rename avoids TOCTOU.
+    await writeFileAtomic(path, buf);
     return buf;
   } catch (err) {
     console.warn(`[og] font fetch failed (${name}):`, (err as Error).message);
@@ -237,7 +256,7 @@ async function main() {
       const png = new Resvg(svg, { fitTo: { mode: "width", value: 1200 } })
         .render()
         .asPng();
-      await writeFile(out, png);
+      await writeFileAtomic(out, png);
       created++;
     } catch (err) {
       console.warn(`[og] failed ${page.slug}:`, (err as Error).message);

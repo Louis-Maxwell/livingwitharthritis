@@ -1,11 +1,8 @@
 #!/usr/bin/env node
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  writeFileSync,
-} from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { decodeBasicEntities } from "./lib/strip-tags.mjs";
+import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 
 const DIST = resolve(process.argv[2] || "dist");
 const OUTPUT = resolve(
@@ -21,14 +18,7 @@ const paths = new Set(
 );
 
 const decode = (value = "") =>
-  value
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/\s+/g, " ")
-    .trim();
+  decodeBasicEntities(value).replace(/\s+/g, " ").trim();
 const textOf = (html, pattern) =>
   decode((html.match(pattern)?.[1] ?? "").replace(/<[^>]+>/g, " "));
 const tagAttribute = (html, tagPattern, attribute) => {
@@ -209,7 +199,7 @@ for (const line of redirectCsv.trim().split(/\r?\n/).slice(1)) {
 }
 
 mkdirSync(dirname(OUTPUT), { recursive: true });
-writeFileSync(
+writeFileAtomicSync(
   OUTPUT,
   [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n") +
     "\n",

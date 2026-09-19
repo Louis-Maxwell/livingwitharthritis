@@ -90,8 +90,7 @@ const CITIES = [
 // Helper
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-const conditionSlug = (c: string) =>
-  c.replace(/ /g, "-").replace("arthritis", "arthritis");
+const conditionSlug = (c: string) => c.replace(/ /g, "-");
 
 const pushed = new Set<string>();
 const out: KeywordEntry[] = [];

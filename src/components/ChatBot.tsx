@@ -24,15 +24,21 @@ const quickSuggestions = [
 
 const SESSION_KEY_STORAGE = "arthritis_chat_session_key_v1";
 
+function secureSessionId(): string {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  const bytes = new Uint8Array(16);
+  crypto.getRandomValues(bytes);
+  return `sess_${Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("")}`;
+}
+
 function getOrCreateSessionKey(): string {
   if (typeof window === "undefined") return "";
   try {
     let key = window.localStorage.getItem(SESSION_KEY_STORAGE);
     if (!key) {
-      key =
-        typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
-          ? crypto.randomUUID()
-          : `sess_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+      key = secureSessionId();
       window.localStorage.setItem(SESSION_KEY_STORAGE, key);
     }
     return key;

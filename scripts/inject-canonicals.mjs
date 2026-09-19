@@ -25,7 +25,8 @@
 // from ai/blog/condition head-data — so regenerating blog-head-data.json
 // and re-running this script refreshes crawler meta without a full vite build.
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
@@ -502,7 +503,7 @@ function writeRouteFiles() {
           patched = applyNoindexMeta(patched);
         }
         if (patched !== existing) {
-          writeFileSync(file, patched);
+          writeFileAtomicSync(file, patched);
           headPatched++;
         }
         skipped++;
@@ -511,7 +512,7 @@ function writeRouteFiles() {
       rebuilt++;
     }
     mkdirSync(dirname(file), { recursive: true });
-    writeFileSync(file, rewriteHead(template, route));
+    writeFileAtomicSync(file, rewriteHead(template, route));
     written++;
     if (data) enriched++;
   }
