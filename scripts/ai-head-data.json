@@ -6480,32 +6480,22 @@
   },
   "/guides/sarcopenia-muscle-loss": {
     "title": "Sarcopenia & Muscle Loss With Arthritis | UK Guide",
-    "description": "UK guide to sarcopenia: why age-related muscle loss worsens arthritis, and how resistance training and protein intake can reverse it.",
+    "description": "Evidence-based UK guide to sarcopenia for adults with arthritis: protein targets, strength training, supplements and home checks.",
     "question": "What is sarcopenia and how is it linked to arthritis?",
     "answer": "Sarcopenia is age-related loss of muscle mass and strength. Arthritis speeds it up because pain reduces activity; resistance training plus enough protein can slow or reverse the decline.",
-    "updatedAt": "2026-09-17",
-    "sources": [
-      {
-        "name": "NHS: Arthritis overview",
-        "url": "https://www.nhs.uk/conditions/arthritis/"
-      },
-      {
-        "name": "NICE NG226: Osteoarthritis in over 16s",
-        "url": "https://www.nice.org.uk/guidance/ng226"
-      }
-    ],
-    "bodyHtml": "<h2>What is sarcopenia and why arthritis speeds it up</h2>\n<p>Sarcopenia is the progressive loss of muscle mass, strength and function that typically accelerates after age 60. Arthritis speeds it up because pain and stiffness reduce daily movement, so muscles around painful joints waste faster than in active peers. Weak muscles then load joints harder — a loop that worsens both problems.</p>\n<h2>Protein targets that support muscle</h2>\n<p>Many older adults in the UK eat too little protein across the day. A practical target is about 1.0–1.2 g of protein per kg of body weight daily, spread over meals, unless a clinician has set a different plan (for example kidney disease). Dairy, eggs, fish, lean meat, tofu and fortified drinks all count. Pair protein with resistance work — food alone rarely reverses sarcopenia.</p>\n<h2>Home checks that raise a flag</h2>\n<p>Simple signs include a slower usual walking pace, weaker grip, needing both hands to rise from a chair, or unintentional weight loss. These are not a diagnosis, but they are a reason to talk to your GP about strength, falls risk and whether a formal assessment or physiotherapy referral helps.</p>\n<h2>Strength training adapted for arthritis</h2>\n<p>Two to three short sessions a week of sit-to-stand, wall push-ups, resistance-band rows and heel raises usually beat long cardio alone for muscle. Stay below sharp joint pain; mild muscle ache the next day is normal. If a joint is hot and swollen, switch to gentle range-of-motion until the flare settles.</p>\n<h2>Supplements — what has evidence</h2>\n<p>Vitamin D (especially in UK winter), creatine and leucine-rich protein have the best support when combined with training. Supplements without strength work rarely rebuild muscle. Check with a pharmacist or GP before starting creatine or high-dose vitamin D if you take other medicines.</p>",
+    "updatedAt": "2026-09-19",
+    "bodyHtml": "<h2>What is sarcopenia and why arthritis speeds it up</h2>\n<p>Sarcopenia is the progressive loss of muscle mass, strength and function that typically accelerates after age 60. Arthritis speeds it up because pain and stiffness cut daily movement, so muscles around painful joints waste faster than in active peers. Weaker muscles then load joints harder — a loop that worsens both problems and raises falls risk.</p>\n<p>In UK primary care, slower walking, weaker grip, needing both hands to rise from a chair, or unintentional weight loss are practical flags. They are not a diagnosis on their own, but they are a reason to ask your GP about strength, falls risk and physiotherapy.</p>\n<h2>Protein targets that support muscle</h2>\n<p>Many older adults eat too little protein across the day. A practical target for many people is about 1.0–1.2 g of protein per kg of body weight daily, spread over meals, unless a clinician has set a different plan (for example kidney disease). Dairy, eggs, fish, lean meat, tofu, pulses and fortified drinks all count. Pair protein with resistance work — food alone rarely reverses sarcopenia.</p>\n<h2>Strength training adapted for arthritis</h2>\n<p>Two to three short sessions a week of sit-to-stand, wall push-ups, resistance-band rows and heel raises usually beat long cardio alone for muscle. Stay below sharp joint pain; mild muscle ache the next day is normal. If a joint is hot and swollen, switch to gentle range-of-motion until the flare settles. Pool work and recumbent bikes help when weight-bearing hurts.</p>\n<h2>Supplements — what has evidence</h2>\n<p>Vitamin D (especially in UK winter), creatine and leucine-rich protein have the best support when combined with training. Supplements without strength work rarely rebuild muscle. Check with a pharmacist or GP before starting creatine or high-dose vitamin D if you take other medicines.</p>\n<h2>How this links to frailty and arthritis care</h2>\n<p>Sarcopenia sits next to frailty, falls prevention and osteoarthritis exercise programmes. See our frailty management guide and exercise hub for related UK pathways. This page is general information for people in the United Kingdom, not personal medical advice.</p>",
     "breadcrumb": "Sarcopenia & muscle loss",
     "about": "Sarcopenia"
   },
   "/faq/best-exercises-arthritis": {
     "title": "Best Exercises for Arthritis | UK FAQ",
-    "description": "Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually. Practical UK guidance from Living With Arthritis.",
+    "description": "Low-impact walking, swimming and gentle strength training for arthritis, with UK-safe tips for flares and progression.",
     "question": "What are the best exercises for people with arthritis?",
     "answer": "Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually.",
-    "updatedAt": "2026-09-17",
-    "bodyHtml": "<h2>What are the best exercises for people with arthritis?</h2>\n<p><strong>Quick answer:</strong> Low-impact cardio (walking, swimming, cycling), light strength training and daily flexibility work are the safest starting mix for most people with osteoarthritis or inflammatory arthritis. They reduce pain, protect joints and improve day-to-day function when progressed gradually.</p>\n<h2>Low-impact cardio</h2>\n<p>Aim for about 30 minutes of walking most days if tolerated, or swimming, water aerobics, cycling or an elliptical trainer. These raise heart rate without the jarring load of running. Build time before intensity.</p>\n<h2>Strength training</h2>\n<p>Strong muscles support arthritic joints. Use light weights, resistance bands or bodyweight (wall push-ups, sit-to-stands) two to three times a week. Start light and progress slowly. Stop for sharp joint pain; mild muscle fatigue is expected.</p>\n<h2>Flexibility and stretching</h2>\n<p>Gentle yoga, tai chi and daily stretches held 15–30 seconds reduce morning stiffness and keep range of motion. Avoid forcing a hot, swollen joint to end range.</p>\n<h2>Tips for safe exercise</h2>\n<p>Warm up for five minutes, ice after if a joint swells, plan rest days between harder sessions, and consider a physiotherapist for a first programme — especially after a flare or new diagnosis. This is general UK information, not personal medical advice.</p>",
-    "breadcrumb": "Best Exercises for Arthritis | UK FAQ",
+    "updatedAt": "2026-09-19",
+    "bodyHtml": "<h2>What are the best exercises for people with arthritis?</h2>\n<p><strong>Quick answer:</strong> Low-impact cardio (walking, swimming, cycling), light strength training two to three times a week, and daily flexibility work are the safest starting mix for most people with osteoarthritis or inflammatory arthritis. They reduce pain, protect joints and improve day-to-day function when progressed gradually.</p>\n<h2>Low-impact cardio</h2>\n<p>Aim for about 30 minutes of walking most days if tolerated, or swimming, water aerobics, cycling or an elliptical trainer. These raise heart rate without the jarring load of running. Build time before intensity. On flare days, shorten the session rather than stopping for weeks.</p>\n<h2>Strength training</h2>\n<p>Strong muscles support arthritic joints. Use light weights, resistance bands or bodyweight (wall push-ups, sit-to-stands) two to three times a week. Start light and progress slowly. Stop for sharp joint pain; mild muscle fatigue is expected. NICE-aligned care treats exercise as a core treatment for osteoarthritis, not an optional extra.</p>\n<h2>Flexibility and stretching</h2>\n<p>Gentle yoga, tai chi and daily stretches held 15–30 seconds reduce morning stiffness and keep range of motion. Avoid forcing a hot, swollen joint to end range.</p>\n<h2>Tips for safe exercise in the UK</h2>\n<p>Warm up for five minutes, ice after if a joint swells, plan rest days between harder sessions, and consider NHS physiotherapy self-referral where available. This is general UK information, not personal medical advice. Seek urgent help for a hot swollen joint with fever or sudden inability to move a joint.</p>",
+    "breadcrumb": "Best exercises for arthritis",
     "about": "Arthritis exercise"
   },
   "/diet/mediterranean-diet-for-arthritis": {
@@ -6514,5 +6504,35 @@
     "question": "Does the Mediterranean diet help arthritis?",
     "answer": "Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. This is educational nutrition guidance, not a personal diet prescription.",
     "breadcrumb": "Mediterranean diet for arthritis"
+  },
+  "/arthritis-support": {
+    "title": "UK Arthritis Support Directory | Living With Arthritis",
+    "description": "Find arthritis support, rheumatology services and local help in UK cities. Free directory of clinics, groups and physiotherapy routes.",
+    "question": "Where can I find arthritis support in my UK city?",
+    "answer": "Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.",
+    "updatedAt": "2026-09-19",
+    "bodyHtml": "<h2>Arthritis support across the UK</h2>\n<p>This directory helps people living with arthritis find rheumatology services, local support groups and city-level guidance across England, Scotland, Wales and Northern Ireland. Living With Arthritis UK (charity 1218461) lists live city hubs with NHS trust context, waiting-list help and links into condition, exercise and diet guides.</p>\n<p>Choose your city from the directory to see tailored information. Unknown city aliases such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub so Google and visitors are not left on empty shells.</p>\n<h2>What each city page covers</h2>\n<ul>\n<li>Local NHS / health-board context for rheumatology and MSK pathways</li>\n<li>Links to osteoarthritis, rheumatoid arthritis and related condition guides</li>\n<li>Routes into exercises, diet, benefits and the Help &amp; Support chat</li>\n<li>Waiting-list and self-referral pointers where relevant</li>\n</ul>\n<h2>Related hubs</h2>\n<p>If you need movement or food guidance first, start at the <a href=\"/exercises\">exercise hub</a>, <a href=\"/diet\">diet hub</a>, or <a href=\"/blog\">arthritis blog</a>. For national benefits questions, see <a href=\"/guides/benefits-pip\">Benefits &amp; PIP</a>.</p>",
+    "breadcrumb": "Arthritis support",
+    "about": "UK arthritis support"
+  },
+  "/blog/category/exercise": {
+    "title": "Arthritis Exercise Articles & Guides | Living With Arthritis UK",
+    "description": "Evidence-based articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement for UK patients.",
+    "question": "Where can I find arthritis exercise articles?",
+    "answer": "This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.",
+    "updatedAt": "2026-09-19",
+    "bodyHtml": "<h2>Arthritis exercise articles and guides</h2>\n<p>This category gathers evidence-based UK articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement. Pieces are written for people managing osteoarthritis, inflammatory arthritis and related pain, with practical pacing tips rather than one-size gym plans.</p>\n<p>Typical topics include walking and swimming programmes, chair and resistance-band work, what to do in a flare, and how exercise links to frailty and sarcopenia. Browse the listed posts below, or start at the main <a href=\"/exercises\">exercise hub</a> and <a href=\"/faq/best-exercises-arthritis\">best exercises FAQ</a>.</p>\n<h2>How to use these articles</h2>\n<ul>\n<li>Pick one routine you can keep for two weeks before adding load</li>\n<li>Use the 24-hour rule: if a joint is clearly worse the next day, trim the next session</li>\n<li>Combine movement with sleep, weight and medication plans from your NHS team</li>\n</ul>\n<p>Educational information only — not a substitute for physiotherapy or medical advice.</p>",
+    "breadcrumb": "Exercise articles",
+    "about": "Arthritis exercise"
+  },
+  "/conditions/ankylosing-spondylitis/exercises": {
+    "title": "Best Exercises for Ankylosing Spondylitis | Living With Arthritis UK",
+    "description": "Safe UK physio-aligned exercises for ankylosing spondylitis: daily spinal mobility, swimming and pacing tips.",
+    "question": "What are the best exercises for ankylosing spondylitis?",
+    "answer": "Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.",
+    "updatedAt": "2026-09-19",
+    "bodyHtml": "<h2>Best exercises for ankylosing spondylitis</h2>\n<p>Daily spinal mobility work is core treatment for ankylosing spondylitis (axial spondyloarthritis), not an optional extra. NASS and rheumatology teams encourage gentle extension, rotation and breathing drills most days, including quieter days when rest feels tempting.</p>\n<p>Combine mobility with low-impact cardio such as swimming or walking, and stop short of sharp inflammatory pain. If eyes become red and painful, seek urgent ophthalmology advice for possible uveitis. Pair this page with the main <a href=\"/conditions/ankylosing-spondylitis\">AS condition guide</a> and treatment subpage.</p>",
+    "breadcrumb": "AS exercises",
+    "about": "Ankylosing spondylitis"
   }
 }
