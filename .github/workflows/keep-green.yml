@@ -1,0 +1,56 @@
+# Fast integrity gate for main. Job name is the required-check context:
+# "Keep green (integrity)"
+#
+# Honest limit: this cannot guarantee the site never breaks. It fails closed
+# on known high-cost regressions (removed backends, catalog/SEO identity,
+# Facebook URL, lockfile truth, typecheck when clean).
+
+name: Keep green
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: keep-green-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  keep-green:
+    name: Keep green (integrity)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Require package-lock.json (npm ci truth)
+        run: node scripts/check-lockfile-ci.mjs
+
+      - name: Install (npm ci only)
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Integrity vitest slices
+        run: |
+          npx vitest run \
+            src/lib/__tests__/no-removed-backends.test.ts \
+            src/lib/__tests__/blog-catalog-integrity.test.ts \
+            src/lib/__tests__/seo-identity.test.ts \
+            src/lib/__tests__/seo-build-safety.test.ts \
+            src/lib/__tests__/host-redirects.test.ts \
+            src/lib/__tests__/seo-redirects.test.ts \
+            src/config/__tests__/social-media.test.ts

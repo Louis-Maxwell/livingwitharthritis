@@ -133,6 +133,7 @@ For every published slug:
 11. GitHub `ci-failed` on `main` wakes GTM. If the fail is catalog / prerender / BlogPost / share meta, Louis gets a short note the same day.
 12. Weekday sample of live blog URLs (not a full 505 crawl). Stay quiet if all sampled pages return 200 with the article title in the HTML.
 13. New article rule: never hand-edit only one of the generated files. Run the generate scripts, then commit the catalog + generated outputs together.
+14. **CI break alerts:** **Grok Bot** watches red CI on `main` (including `Keep green (integrity)` and blog-related required checks). Do **not** create or restore Dependabot for this. See `docs/CI-KEEP-GREEN.md`. Honest limit: keep-green cannot guarantee never-break.
 
 ---
 
