@@ -6,6 +6,7 @@
  */
 
 import fs from 'fs';
+import { writeFileAtomicSync } from './lib/atomic-write.mjs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -80,7 +81,7 @@ function walkDir(dir) {
       const modified = removeConsoleLogs(content);
 
       if (modified !== content) {
-        fs.writeFileSync(fullPath, modified, 'utf-8');
+        writeFileAtomicSync(fullPath, modified, 'utf-8');
         filesModified++;
         console.log(`✓ ${path.relative(srcDir, fullPath)}`);
       }

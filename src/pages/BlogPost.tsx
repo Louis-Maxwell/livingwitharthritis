@@ -10,6 +10,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import { stripHtml } from "@/lib/sanitize";
 
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 import { useBlogViews } from "@/hooks/useBlogViews";
@@ -74,7 +75,7 @@ function stripQuestionHeadings(html: string): string {
 function firstParagraphSummary(html: string): string {
   const m = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
   if (!m) return "";
-  const text = m[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const text = stripHtml(m[1]).replace(/\s+/g, " ").trim();
   if (text.length < 60) return "";
   // First 1–2 sentences, capped at ~280 chars
   const sentences = text.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
@@ -107,7 +108,7 @@ function markdownToHtml(md: string): string {
 }
 
 function getReadingTime(html: string) {
-  const text = html.replace(/<[^>]*>/g, " ");
+  const text = stripHtml(html);
   const words = text.trim().split(/\s+/).length;
   return Math.max(1, Math.ceil(words / 230));
 }
@@ -123,13 +124,9 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
   const headingRe = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
   let m: RegExpExecArray | null;
   while ((m = headingRe.exec(html)) !== null) {
-    const qRaw = m[1].replace(/<[^>]*>/g, "").trim();
+    const qRaw = stripHtml(m[1]).trim();
     if (!qRaw.endsWith("?")) continue;
-    const aRaw = m[2]
-      .replace(/<[^>]*>/g, " ")
-      .replace(/\s+/g, " ")
-      .trim()
-      .slice(0, 500);
+    const aRaw = stripHtml(m[2]).replace(/\s+/g, " ").trim().slice(0, 500);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
     }
@@ -355,7 +352,7 @@ const BlogPost = () => {
           "author": authorSchema,
           "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
           "mainEntityOfPage": { "@id": `${pageUrl}#webpage` },
-          "wordCount": htmlContent.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length,
+          "wordCount": stripHtml(htmlContent).trim().split(/\s+/).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
           "articleSection": article.category || "Health",

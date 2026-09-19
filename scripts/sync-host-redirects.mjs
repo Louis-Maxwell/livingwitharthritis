@@ -6,7 +6,8 @@
  *
  * Pattern / splat rules stay hand-authored in public/_redirects.
  *  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
+import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { resolve } from "node:path";
 import { exactRedirects } from "./seo-redirect-map.mjs";
 
@@ -55,7 +56,7 @@ export function writeHostRedirects() {
     "",
   ].join("\n");
   if (!body.endsWith("\n")) body += "\n";
-  writeFileSync(REDIRECTS_PATH, body + block);
+  writeFileAtomicSync(REDIRECTS_PATH, body + block);
   console.log(`[host-redirects] appended ${missing.length} exact rules to public/_redirects`);
 }
 

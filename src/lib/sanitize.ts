@@ -2,9 +2,16 @@
  * Input sanitization utilities to prevent XSS, injection attacks, and data corruption.
  */
 
-/** Strip HTML tags from a string */
+/** Strip HTML tags from a string (fixed-point; safe vs incomplete multi-char sanitization). */
 export function stripHtml(input: string): string {
-  return input.replace(/<[^>]*>/g, "");
+  let s = String(input ?? "");
+  let prev = "";
+  while (s !== prev) {
+    prev = s;
+    s = s.replace(/<\/?[a-zA-Z][^>]*>/g, "");
+  }
+  // Neutralize any leftover angle brackets so they cannot form tags later.
+  return s.replace(/[<>]/g, "");
 }
 
 /** Sanitize user input: trim, strip HTML, limit length, remove null bytes */

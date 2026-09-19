@@ -11,39 +11,63 @@
  * The individual scripts are unchanged — this one just orchestrates them,
  * captures pass/fail and writes a summary to .preflight-reports/seo-audit-report.md.
  */
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-type Step = { name: string; cmd: string; required: boolean };
+type Step = {
+  name: string;
+  file: string;
+  args: string[];
+  required: boolean;
+  env?: Record<string, string>;
+};
 
 const BASE_URL = process.env.BASE_URL ?? process.env.SITE_URL ?? "http://localhost:8080";
+// Allow only absolute http(s) localhost / known site hosts into child env.
+function sanitizeBaseUrl(raw: string): string {
+  try {
+    const u = new URL(raw);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return "http://localhost:8080";
+    return u.origin;
+  } catch {
+    return "http://localhost:8080";
+  }
+}
+const SAFE_BASE = sanitizeBaseUrl(BASE_URL);
+const SAFE_DIST =
+  process.env.DIST_DIR && /^[a-zA-Z0-9._/-]+$/.test(process.env.DIST_DIR)
+    ? process.env.DIST_DIR
+    : "";
 
 const steps: Step[] = [
-  { name: "robots.txt exists", cmd: "test -f public/robots.txt", required: true },
-  { name: "sitemap.xml exists", cmd: "test -f public/sitemap.xml", required: true },
+  { name: "robots.txt exists", file: "test", args: ["-f", "public/robots.txt"], required: true },
+  { name: "sitemap.xml exists", file: "test", args: ["-f", "public/sitemap.xml"], required: true },
   {
     name: "sitemap references site sitemap directive",
-    cmd: "grep -q 'Sitemap:' public/robots.txt",
+    file: "grep",
+    args: ["-q", "Sitemap:", "public/robots.txt"],
     required: true,
   },
-  { name: "audit-sitemap", cmd: "node scripts/audit-sitemap.mjs", required: true },
-  { name: "check-canonicals", cmd: "node scripts/check-canonicals.mjs", required: false },
-  { name: "check-social-meta", cmd: "node scripts/check-social-meta.mjs", required: false },
+  { name: "audit-sitemap", file: "node", args: ["scripts/audit-sitemap.mjs"], required: true },
+  { name: "check-canonicals", file: "node", args: ["scripts/check-canonicals.mjs"], required: false },
+  { name: "check-social-meta", file: "node", args: ["scripts/check-social-meta.mjs"], required: false },
   {
     // Prefer DIST_DIR (prerendered HTML on disk) — Puppeteer across ~1000
     // routes exceeds CI's 5m audit timeout. BASE_URL kept for live previews.
     name: "validate-jsonld",
-    cmd: process.env.DIST_DIR
-      ? `DIST_DIR=${process.env.DIST_DIR} node scripts/validate-jsonld.mjs`
-      : `BASE_URL=${BASE_URL} node scripts/validate-jsonld.mjs`,
+    file: "node",
+    args: ["scripts/validate-jsonld.mjs"],
     required: false,
+    env: SAFE_DIST
+      ? { DIST_DIR: SAFE_DIST }
+      : { BASE_URL: SAFE_BASE },
   },
   // Advisory until page-aeo / meta / admin heading debt is cleaned up.
-  { name: "aeo-sync", cmd: "node scripts/check-aeo-sync.mjs", required: false },
-  { name: "meta-lengths", cmd: "bun scripts/audit-meta-lengths.ts", required: false },
-  { name: "images", cmd: "bun scripts/audit-images.ts", required: true },
-  { name: "headings", cmd: "bun scripts/audit-headings.ts", required: false },
+  { name: "aeo-sync", file: "node", args: ["scripts/check-aeo-sync.mjs"], required: false },
+  { name: "meta-lengths", file: "bun", args: ["scripts/audit-meta-lengths.ts"], required: false },
+  { name: "images", file: "bun", args: ["scripts/audit-images.ts"], required: true },
+  { name: "headings", file: "bun", args: ["scripts/audit-headings.ts"], required: false },
 ];
 
 type Result = { name: string; ok: boolean; out: string };
@@ -51,9 +75,10 @@ const results: Result[] = [];
 
 for (const step of steps) {
   try {
-    const out = execSync(step.cmd, {
+    const out = execFileSync(step.file, step.args, {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],
+      env: { ...process.env, ...(step.env ?? {}) },
     });
     results.push({ name: step.name, ok: true, out });
     console.log(`[PASS] ${step.name}`);

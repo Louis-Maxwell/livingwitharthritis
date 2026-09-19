@@ -1,5 +1,6 @@
 import { memo, useMemo, useState, useEffect } from "react";
 import { List, ChevronDown } from "lucide-react";
+import { stripHtml } from "@/lib/sanitize";
 
 interface TocItem {
   id: string;
@@ -13,7 +14,7 @@ function extractHeadings(html: string): TocItem[] {
   let match;
   while ((match = regex.exec(html)) !== null) {
     const level = parseInt(match[1], 10);
-    const text = match[3].replace(/<[^>]*>/g, "").trim();
+    const text = stripHtml(match[3]).trim();
     const id =
       match[2] ||
       text
@@ -141,7 +142,7 @@ export function addHeadingIds(html: string): string {
     /<h([2-3])([^>]*)>(.*?)<\/h[2-3]>/gi,
     (match, level, attrs, content) => {
       if (/id="/.test(attrs)) return match;
-      const text = content.replace(/<[^>]*>/g, "").trim();
+      const text = stripHtml(content).trim();
       const id = text
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")

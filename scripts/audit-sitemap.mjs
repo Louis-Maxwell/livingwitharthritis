@@ -5,7 +5,8 @@
 // Usage: node scripts/audit-sitemap.mjs [fetch-base] [concurrency] [output-path]
 //                                       [canonical-base]
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 
 const BASE = process.argv[2] || "https://livingwitharthritis.org.uk";
 const CONCURRENCY = Number(process.argv[3]) || 16;
@@ -14,10 +15,30 @@ const CANONICAL_BASE =
   process.argv[5] || "https://livingwitharthritis.org.uk";
 const TIMEOUT_MS = 12_000;
 
+const ALLOWED_SITEMAP_HOSTS = new Set([
+  "livingwitharthritis.org.uk",
+  "www.livingwitharthritis.org.uk",
+]);
+
+function pathFromSitemapLoc(loc) {
+  try {
+    const u = new URL(loc);
+    if (u.protocol !== "https:" && u.protocol !== "http:") return null;
+    if (!ALLOWED_SITEMAP_HOSTS.has(u.hostname.toLowerCase())) return null;
+    const path = `${u.pathname}${u.search}` || "/";
+    if (!path.startsWith("/") || path.startsWith("//") || path.includes("\\")) return null;
+    return path;
+  } catch {
+    return null;
+  }
+}
+
 const xml = readFileSync("public/sitemap.xml", "utf8");
-const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
+  .map((m) => pathFromSitemapLoc(m[1]))
+  .filter(Boolean);
 const sourceIndex = readFileSync("index.html", "utf8");
-console.log(`[audit] ${urls.length} URLs vs ${BASE}`);
+console.log(`[audit] ${paths.length} URLs vs ${BASE}`);
 
 const textOf = (html, pattern) => {
   const value = html.match(pattern)?.[1] ?? "";
@@ -46,9 +67,18 @@ const NOT_FOUND_MARKERS = [
   "Oops! Page not found",
 ];
 
-async function checkOne(url) {
-  const path = url.replace(/^https?:\/\/[^/]+/, "");
-  const target = `${BASE}${path}`;
+async function checkOne(path) {
+  // Rebuild from trusted BASE + validated pathname (never fetch raw sitemap <loc>).
+  let target;
+  try {
+    const u = new URL(path, BASE.endsWith("/") ? BASE : BASE + "/");
+    if (u.origin !== new URL(BASE).origin) {
+      return { url: path, status: 0, reason: "blocked-host" };
+    }
+    target = u.href;
+  } catch {
+    return { url: path, status: 0, reason: "bad-path" };
+  }
   const ctl = AbortSignal.timeout(TIMEOUT_MS);
   try {
     const res = await fetch(target, {
@@ -107,14 +137,14 @@ async function checkOne(url) {
 
 const broken = [];
 let done = 0;
-const queue = urls.slice();
+const queue = paths.slice();
 const workers = Array.from({ length: CONCURRENCY }, async () => {
   while (queue.length) {
     const u = queue.shift();
     const r = await checkOne(u);
     done++;
     if (r) broken.push(r);
-    if (done % 50 === 0) console.log(`[audit] ${done}/${urls.length} (${broken.length} broken so far)`);
+    if (done % 50 === 0) console.log(`[audit] ${done}/${paths.length} (${broken.length} broken so far)`);
   }
 });
 await Promise.all(workers);
@@ -122,13 +152,13 @@ await Promise.all(workers);
 broken.sort((a, b) => a.url.localeCompare(b.url));
 const report = {
   base: BASE,
-  total: urls.length,
+  total: paths.length,
   broken: broken.length,
   ranAt: new Date().toISOString(),
   items: broken,
 };
-writeFileSync(OUTPUT, JSON.stringify(report, null, 2));
-console.log(`[audit] DONE. ${broken.length} broken of ${urls.length}. → ${OUTPUT}`);
+writeFileAtomicSync(OUTPUT, JSON.stringify(report, null, 2));
+console.log(`[audit] DONE. ${broken.length} broken of ${paths.length}. → ${OUTPUT}`);
 
 // Group summary
 const byReason = {};

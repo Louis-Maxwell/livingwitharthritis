@@ -38,22 +38,15 @@ function getNameField(data: any): string | null {
   return data.name || data.headline || data.url || null;
 }
 
-function sanitizePath(raw: string | null): string {
-  if (!raw) return "/";
-  const path = raw.trim();
-  // Same-origin path only. Reject protocol-relative URLs, backslash tricks,
-  // and any scheme such as javascript: or https:.
-  if (!path.startsWith("/") || path.startsWith("//") || path.includes("\\")) return "/";
-  if (/\s/.test(path) || path.includes("\0") || path.includes(":")) return "/";
-  if (!/^\/[^?#]*(\?[^#]*)?$/.test(path)) return "/";
-  return path;
-}
-
 export default function DebugSchema() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialPath = sanitizePath(searchParams.get("page"));
-  const [pagePath, setPagePath] = useState(initialPath);
-  const [inputValue, setInputValue] = useState(initialPath);
+  // Resolve ?page= against PRESETS by index only — never feed query-string text into iframe src.
+  const initialPreset = (() => {
+    const raw = searchParams.get("page");
+    const idx = PRESETS.findIndex((p) => p === raw);
+    return PRESETS[idx] ?? "/";
+  })();
+  const [pagePath, setPagePath] = useState(initialPreset);
 
   const [blocks, setBlocks] = useState<SchemaBlock[]>([]);
   const [loading, setLoading] = useState(false);
@@ -61,7 +54,11 @@ export default function DebugSchema() {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const iframeSrc = `${pagePath}${pagePath.includes("?") ? "&" : "?"}__debug_schema=1`;
+  // Same-origin absolute URL from a hardcoded preset path only (no DOM text → HTML sink).
+  const iframeSrc = new URL(
+    `${pagePath}${pagePath.includes("?") ? "&" : "?"}__debug_schema=1`,
+    typeof window !== "undefined" ? window.location.origin : "https://livingwitharthritis.org.uk",
+  ).href;
 
   const scanIframe = () => {
     setError(null);
@@ -107,12 +104,16 @@ export default function DebugSchema() {
   }, [pagePath]);
 
   const handleLoad = (path: string) => {
-    const safe = sanitizePath(path);
+    const safe = PRESETS.includes(path as (typeof PRESETS)[number]) ? path : "/";
     setPagePath(safe);
-    setInputValue(safe);
     setSearchParams({ page: safe });
     setExpanded({});
   };
+
+  // Production builds omit this route; second guard keeps the tool out of prod bundles' runtime.
+  if (!import.meta.env.DEV) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -153,21 +154,26 @@ export default function DebugSchema() {
               </Button>
             ))}
           </div>
-          <form
-            className="flex gap-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleLoad(sanitizePath(inputValue.startsWith("/") ? inputValue : `/${inputValue}`));
-            }}
-          >
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder="/some/route"
-              className="flex-1 px-3 py-2 rounded-md border border-border bg-background text-sm"
-            />
-            <Button type="submit">Load</Button>
+          <div className="flex gap-2 items-center flex-wrap">
+            <label className="text-sm text-muted-foreground" htmlFor="debug-schema-preset">
+              Route
+            </label>
+            <select
+              id="debug-schema-preset"
+              value={Math.max(0, PRESETS.indexOf(pagePath as (typeof PRESETS)[number]))}
+              onChange={(e) => {
+                const idx = Number(e.target.value);
+                // Index → hardcoded PRESETS entry (never DOM text as URL).
+                handleLoad(PRESETS[idx] ?? "/");
+              }}
+              className="flex-1 min-w-[12rem] px-3 py-2 rounded-md border border-border bg-background text-sm"
+            >
+              {PRESETS.map((p, i) => (
+                <option key={p} value={i}>
+                  {p}
+                </option>
+              ))}
+            </select>
             <Button
               type="button"
               variant="outline"
@@ -178,7 +184,7 @@ export default function DebugSchema() {
             >
               <RefreshCw className="h-4 w-4" />
             </Button>
-          </form>
+          </div>
         </Card>
 
         {/* Iframe preview */}

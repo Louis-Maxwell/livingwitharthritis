@@ -13,6 +13,7 @@
  *   BASE_URL=https://livingwitharthritis.org.uk node scripts/validate-jsonld.mjs
  */
 import fs from 'fs';
+import { writeFileAtomicSync } from './lib/atomic-write.mjs';
 import { execSync } from 'child_process';
 import { join, resolve } from 'path';
 import { tmpdir } from 'os';
@@ -20,7 +21,7 @@ import { tmpdir } from 'os';
 const DIST_DIR = process.env.DIST_DIR ? resolve(process.env.DIST_DIR) : '';
 const BASE_URL = (process.env.BASE_URL || process.env.SITE_URL || 'http://localhost:8080').replace(/\/$/, '');
 const PROD_HOST = 'https://livingwitharthritis.org.uk';
-const REPORT_DIR = process.env.JSONLD_REPORT_DIR || join(tmpdir(), 'livingwitharthritis-jsonld');
+const REPORT_DIR = process.env.JSONLD_REPORT_DIR || fs.mkdtempSync(join(tmpdir(), 'livingwitharthritis-jsonld-'));
 
 const routes = execSync("grep -oE '<loc>[^<]+</loc>' public/sitemap.xml | sed 's|</*loc>||g'", { encoding: 'utf8' })
   .trim().split('\n').map(u => u.replace(PROD_HOST, '') || '/');
@@ -176,7 +177,7 @@ if (DIST_DIR) {
 
 // Write reports
 fs.mkdirSync(REPORT_DIR, { recursive: true });
-fs.writeFileSync(join(REPORT_DIR, 'jsonld-report.json'), JSON.stringify(report, null, 2));
+writeFileAtomicSync(join(REPORT_DIR, 'jsonld-report.json'), JSON.stringify(report, null, 2));
 
 let md = `# JSON-LD Validation Report\n\nMode: ${modeLabel}\nRoutes scanned: ${report.length}\n\n`;
 const errs = report.filter(r => r.errors.length);
@@ -202,6 +203,6 @@ if (warns.length) {
 if (!errs.length && !warns.length) md += `All schemas pass parse + required-field checks.\n`;
 
 const markdownReport = join(REPORT_DIR, 'jsonld-report.md');
-fs.writeFileSync(markdownReport, md);
+writeFileAtomicSync(markdownReport, md);
 console.log(`\nReport: ${markdownReport} (${errs.length} err routes, ${warns.length} warn routes)`);
 process.exit(errs.length ? 1 : 0);

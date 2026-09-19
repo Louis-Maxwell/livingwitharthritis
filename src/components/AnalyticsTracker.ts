@@ -38,7 +38,13 @@ class AnalyticsTracker {
   }
 
   private generateSessionId(): string {
-    return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+      return `session_${crypto.randomUUID()}`;
+    }
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    const hex = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+    return `session_${Date.now()}_${hex}`;
   }
 
   private initializeTracking() {
