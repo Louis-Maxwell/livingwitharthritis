@@ -66,25 +66,40 @@ function removeConsoleLogs(content) {
 }
 
 function walkDir(dir) {
-  const files = fs.readdirSync(dir);
+  let entries;
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return;
+  }
 
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
+  for (const ent of entries) {
+    const fullPath = path.join(dir, ent.name);
 
-    if (stat.isDirectory()) {
-      if (!file.startsWith('.') && file !== 'node_modules') {
+    if (ent.isDirectory()) {
+      if (!ent.name.startsWith('.') && ent.name !== 'node_modules') {
         walkDir(fullPath);
       }
-    } else if (file.endsWith('.ts') || file.endsWith('.tsx')) {
-      const content = fs.readFileSync(fullPath, 'utf-8');
-      const modified = removeConsoleLogs(content);
+      continue;
+    }
 
-      if (modified !== content) {
-        writeFileAtomicSync(fullPath, modified, 'utf-8');
-        filesModified++;
-        console.log(`✓ ${path.relative(srcDir, fullPath)}`);
-      }
+    if (!ent.isFile() || !(ent.name.endsWith('.ts') || ent.name.endsWith('.tsx'))) {
+      continue;
+    }
+
+    let content;
+    try {
+      // Single open/read — no prior stat/exists check (avoids js/file-system-race).
+      content = fs.readFileSync(fullPath, 'utf-8');
+    } catch {
+      continue;
+    }
+    const modified = removeConsoleLogs(content);
+
+    if (modified !== content) {
+      writeFileAtomicSync(fullPath, modified, 'utf-8');
+      filesModified++;
+      console.log(`✓ ${path.relative(srcDir, fullPath)}`);
     }
   }
 }

@@ -55,3 +55,11 @@
 
 - Relevant Vitest suite run on this branch (see PR / CI Keep green)
 - Prefer code fixes over `gh api` dismissals; none dismissed in this pass
+
+
+## Follow-up (same day, residual after first main scan)
+
+| # | Rule | Path | Fix |
+|---|------|------|-----|
+| 52, 53 | `js/http-to-file-access` | `scripts/lib/atomic-write.mjs` ← `generate-og-images.ts` | Stop persisting HTTP font bytes; satori uses in-memory buffer only (local cache read still allowed). |
+| 43 | `js/file-system-race` | `scripts/remove-console-logs.mjs` | `readdirSync({ withFileTypes })` + try/catch `readFileSync` (no stat-then-read). |
