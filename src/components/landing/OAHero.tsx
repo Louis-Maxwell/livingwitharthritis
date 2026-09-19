@@ -45,7 +45,7 @@ const OAHero = memo(() => {
               </span>
             </h1>
 
-            <p className="hero-item mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
+            <p className="hero-item speakable-intro mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
               Living with joint pain is exhausting — the stiff mornings, the cancelled plans,
               the feeling that nobody quite gets it. You are not alone.
             </p>

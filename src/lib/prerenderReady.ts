@@ -1,5 +1,7 @@
-export const GENERIC_HOME_TITLE =
-  'Living With Arthritis | UK charity for arthritis and frailty support';
+import { HOME_PAGE_TITLE } from "@/lib/homeSeo";
+
+/** Title used on `/`. Other prerendered routes must not keep this title. */
+export const GENERIC_HOME_TITLE = HOME_PAGE_TITLE;
 
 export function isPrerenderDocumentReady(
   document: Document,

@@ -25,6 +25,16 @@ const withDefaults = (p: Omit<AeoPage, "reviewer" | "updatedAt"> & Partial<Pick<
 });
 
 export const PAGE_AEO: Record<string, AeoPage> = {
+  "/": withDefaults({
+    question: "What is Living With Arthritis UK?",
+    answer:
+      "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
+    faqs: [
+      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
+      { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
+      { q: "Who reviews your medical content?", a: "Clinical review is led by Louis Maxwell, First Contact Practitioner (HCPC PH128483), Chartered Society of Physiotherapy." },
+    ],
+  }),
   // â”€â”€ Conditions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   "/conditions/osteoarthritis": withDefaults({
     question: "What is osteoarthritis?",
@@ -350,16 +360,6 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   }),
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
-  "/": withDefaults({
-    question: "What is Living With Arthritis UK?",
-    answer:
-      "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
-    faqs: [
-      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
-      { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
-      { q: "Who reviews your medical content?", a: "Clinical review is led by Louis Maxwell, First Contact Practitioner (HCPC PH128483), Chartered Society of Physiotherapy." },
-    ],
-  }),
   "/about": withDefaults({
     question: "Who is Living With Arthritis UK?",
     answer:
