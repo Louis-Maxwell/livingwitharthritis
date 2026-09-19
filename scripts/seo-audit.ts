@@ -36,7 +36,7 @@ function sanitizeBaseUrl(raw: string): string {
 }
 const SAFE_BASE = sanitizeBaseUrl(BASE_URL);
 const SAFE_DIST =
-  process.env.DIST_DIR && /^[a-zA-Z0-9._\/-]+$/.test(process.env.DIST_DIR)
+  process.env.DIST_DIR && /^[a-zA-Z0-9._/-]+$/.test(process.env.DIST_DIR)
     ? process.env.DIST_DIR
     : "";
 

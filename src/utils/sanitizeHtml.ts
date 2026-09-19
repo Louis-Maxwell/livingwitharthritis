@@ -51,7 +51,7 @@ export function sanitizeHtml(rawHtml: string): string {
       "colspan", "rowspan", "controls", "width", "height",
       "loading", "srcset", "sizes", "aria-label", "aria-hidden",
     ],
-    ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|[^a-z]|[a-z+.\-]+(?:[^a-z+.:\-]|$))/i,
+    ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))/i,
     FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form", "link", "meta", "base"],
     FORBID_ATTR: ["style"],
     KEEP_CONTENT: true,
