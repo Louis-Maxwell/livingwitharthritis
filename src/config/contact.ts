@@ -12,8 +12,11 @@ export const CONTACT_EMAILS = {
   hello: "hello@livingwitharthritis.org.uk",
 } as const;
 
+/** National display form. International: +44 7760 512084 (E.164 +447760512084). */
 export const CONTACT_PHONE = "07760 512 084";
 export const CONTACT_PHONE_TEL = "07760512084";
+export const CONTACT_PHONE_INTL = "+44 7760 512084";
+export const CONTACT_PHONE_E164 = "+447760512084";
 
 /** Postal address intentionally omitted — new registered address pending. */
 export const CONTACT_ADDRESS = "";

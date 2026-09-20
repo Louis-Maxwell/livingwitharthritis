@@ -35,7 +35,7 @@ export default function HomeTrustStrip() {
                   rel="noopener noreferrer"
                   className="underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                 >
-                  Charity {CHARITY.number}
+                  Living With Arthritis UK (charity {CHARITY.number})
                 </a>
               </li>
               <li aria-hidden="true" className="text-muted-foreground">
