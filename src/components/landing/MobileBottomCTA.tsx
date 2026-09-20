@@ -17,7 +17,7 @@ const MobileBottomCTA = memo(() => {
     } catch {
       /* ignore */
     }
-    const onScroll = () => setHidden(window.scrollY < 400);
+    const onScroll = () => setHidden(window.scrollY < 160);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

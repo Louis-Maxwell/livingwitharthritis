@@ -7,6 +7,7 @@ import {
   ORGANIZATION_PAYLOAD,
   WEBSITE_PAYLOAD,
 } from "@/lib/rootOrganizationSchema";
+import { HOME_PAGE_TITLE } from "@/lib/homeSeo";
 
 const indexHtml = readFileSync(resolve("index.html"), "utf8");
 const robots = readFileSync(resolve("public/robots.txt"), "utf8");
@@ -24,6 +25,10 @@ function jsonLdFromIndex(id: string) {
 }
 
 describe("public SEO / AEO identity", () => {
+  it("keeps the homepage tab title identical in index.html and Helmet", () => {
+    expect(indexHtml).toContain(`<title>${HOME_PAGE_TITLE}</title>`);
+  });
+
   it("does not publish Oswestry coordinates or a street address", () => {
     expect(indexHtml).not.toMatch(/52\.8598/);
     expect(indexHtml).not.toMatch(/-3\.0538/);
@@ -61,6 +66,14 @@ describe("public SEO / AEO identity", () => {
     expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
     expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
     expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(site.about).toEqual({
+      "@type": "Country",
+      name: "United Kingdom",
+      identifier: "GB",
+    });
+    expect(site.speakable.cssSelector).toEqual(["h1", ".speakable-intro"]);
+    expect(WEBSITE_PAYLOAD.about).toEqual(site.about);
+    expect(WEBSITE_PAYLOAD.speakable).toEqual(site.speakable);
   });
 
   it("keeps Bytespider blocked and private paths disallowed for FacebookBot", () => {

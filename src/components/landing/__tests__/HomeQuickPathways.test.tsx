@@ -39,9 +39,8 @@ describe("HomeQuickPathways", () => {
       "/donate",
     );
 
-    expect(screen.getByRole("link", { name: /exercise hub/i })).toHaveAttribute(
-      "href",
-      "/exercises",
-    );
+    expect(
+      screen.getByRole("link", { name: /exercise hub/i }),
+    ).toHaveAttribute("href", "/exercises");
   });
 });

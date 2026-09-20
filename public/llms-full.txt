@@ -16,6 +16,12 @@ Last updated: 2026-07-01
 Q: Who is Living With Arthritis UK?
 A: Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).
 
+## UK Arthritis Support Directory | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/arthritis-support
+Last updated: 2026-09-19
+Q: Where can I find arthritis support in my UK city?
+A: Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.
+
 ## Arthritis Waiting List Help UK | Rheumatology & Physio
 URL: https://livingwitharthritis.org.uk/arthritis-waiting-list-help
 Last updated: 2026-07-01
@@ -39,6 +45,12 @@ URL: https://livingwitharthritis.org.uk/blog
 Last updated: 2026-07-01
 Q: Where can I read UK arthritis guides on exercise, diet and PIP?
 A: The Living With Arthritis blog collects clinically reviewed UK guides on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.
+
+## Arthritis Exercise Articles & Guides | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/blog/category/exercise
+Last updated: 2026-09-19
+Q: Where can I find arthritis exercise articles?
+A: This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.
 
 ## Methotrexate Side Effects UK | Practical Tips & Folic Acid
 URL: https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips
@@ -69,6 +81,12 @@ Q: What is the HLA-B27 test?
 A: A blood test that checks for the HLA-B27 gene, found in around 90% of UK people with AS. A positive test alone doesn't diagnose AS — it's used alongside symptoms and MRI scans.
 Q: Should I exercise if my back hurts?
 A: Yes — gentle, regular movement is the single most important treatment for AS. Pain that eases with activity is typical. A physiotherapist can build a safe, progressive programme.
+
+## Best Exercises for Ankylosing Spondylitis | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis/exercises
+Last updated: 2026-09-19
+Q: What are the best exercises for ankylosing spondylitis?
+A: Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.
 
 ## Elbow Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/elbow-arthritis
@@ -298,6 +316,12 @@ Last updated: 2026-07-01
 Q: What's the best diet for arthritis?
 A: A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.
 
+## Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis
+Last updated: 2026-07-01
+Q: Does the Mediterranean diet help arthritis?
+A: Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. This is educational nutrition guidance, not a personal diet prescription.
+
 ## Donate to Living With Arthritis UK | Gift Aid
 URL: https://livingwitharthritis.org.uk/donate
 Last updated: 2026-07-01
@@ -318,7 +342,7 @@ A: Combine aerobic (walking, swimming, cycling) with strength training 2-3 times
 
 ## Best Exercises for Arthritis | UK FAQ
 URL: https://livingwitharthritis.org.uk/faq/best-exercises-arthritis
-Last updated: 2026-09-17
+Last updated: 2026-09-19
 Q: What are the best exercises for people with arthritis?
 A: Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually.
 
@@ -1326,7 +1350,7 @@ A: Sarcopenia is age-related muscle loss that accelerates after 60 and worsens a
 
 ## Sarcopenia & Muscle Loss With Arthritis | UK Guide
 URL: https://livingwitharthritis.org.uk/guides/sarcopenia-muscle-loss
-Last updated: 2026-09-17
+Last updated: 2026-09-19
 Q: What is sarcopenia and how is it linked to arthritis?
 A: Sarcopenia is age-related loss of muscle mass and strength. Arthritis speeds it up because pain reduces activity; resistance training plus enough protein can slow or reverse the decline.
 

@@ -45,4 +45,4 @@ Keep the Page URL via `SOCIAL_LINKS` / `FACEBOOK_PAGE_URL`:
 ## Related
 
 - `docs/strategy/03-HOMEPAGE-REDESIGN.md` — section IA  
-- Homepage components: `OAHero`, `HomeTrustStrip`, `HomeQuickPathways`
+- Homepage components: `OAHero`, `HomeTrustStrip`, `UKCoverageBand`, `HomeQuickPathways`

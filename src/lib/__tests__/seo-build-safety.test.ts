@@ -247,6 +247,15 @@ describe("SEO build safety", () => {
     ).toBe(false);
   });
 
+  it("waits for the homepage tab title to match index.html", () => {
+    document.body.innerHTML = "<main><h1>You're not alone with joint pain</h1></main>";
+    document.title = "Wrong tab title";
+    expect(isPrerenderDocumentReady(document, "/")).toBe(false);
+
+    document.title = GENERIC_HOME_TITLE;
+    expect(isPrerenderDocumentReady(document, "/")).toBe(true);
+  });
+
   it("hard-404s unknown /uk and /arthritis-support paths (no homepage soft-404)", () => {
     const generate404 = readFileSync(
       resolve(process.cwd(), "scripts/generate-404.mjs"),
