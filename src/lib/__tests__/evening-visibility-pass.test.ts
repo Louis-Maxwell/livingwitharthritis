@@ -92,7 +92,7 @@ describe("evening visibility pass — unique heads", () => {
       expect(head, hub.path).toBeTruthy();
       expect(head!.title?.trim().length).toBeGreaterThan(30);
       expect(head!.description?.trim().length).toBeGreaterThan(80);
-      expect(head!.title).toMatch(new RegExp(hub.titleIncludes, "i"));
+      expect(head!.title?.toLowerCase().includes(hub.titleIncludes.toLowerCase())).toBe(true);
       expect(head!.title).not.toBe(homepageTitle);
       expect(head!.updatedAt).toBe("2026-09-20");
     });
@@ -126,10 +126,13 @@ describe("evening visibility pass — internal links + TopicClusterNav", () => {
 describe("evening visibility pass — crawl + AI discovery", () => {
   for (const hub of HUBS) {
     it(`sitemap lists ${hub.path} with 2026-09-20 lastmod`, () => {
-      const re = new RegExp(
-        `<loc>https://livingwitharthritis\\.org\\.uk${hub.path.replace(/\//g, "\\/")}</loc>\\s*<lastmod>2026-09-20</lastmod>`,
-      );
-      expect(sitemap).toMatch(re);
+      // Prefer indexOf over RegExp so CodeQL does not flag incomplete
+      // slash escaping when interpolating hub.path into a pattern.
+      const loc = `<loc>https://livingwitharthritis.org.uk${hub.path}</loc>`;
+      const i = sitemap.indexOf(loc);
+      expect(i, loc).toBeGreaterThanOrEqual(0);
+      const window = sitemap.slice(i, i + loc.length + 80);
+      expect(window.includes("<lastmod>2026-09-20</lastmod>")).toBe(true);
     });
   }
 
