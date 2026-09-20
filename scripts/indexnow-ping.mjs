@@ -22,6 +22,7 @@ const PATHS = [
   '/exercises',
   '/guides/exercise',
   '/guides/newly-diagnosed',
+  '/guides/arthritis-pain-relief',
   '/guides/hip-exercises-for-osteoarthritis',
   '/about',
   '/blog/working-with-arthritis-uk-rights',

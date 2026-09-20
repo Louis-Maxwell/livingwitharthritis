@@ -66,8 +66,8 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ArthritisPainRelief = () => (
   <>
     <Helmet>
-      <title>Arthritis pain relief UK: movement, heat/cold and medicines</title>
-      <meta name="description" content="Practical UK guide to arthritis pain relief — movement, heat & cold, topical NSAIDs, diet, sleep and when to see your GP. Written for everyday use." />
+      <title>Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)</title>
+      <meta name="description" content="In pain now? Practical UK arthritis pain relief: paced movement, heat/cold, topical NSAIDs, sleep and when to see your GP — then next steps for diet, exercise and PIP." />
       <meta name="keywords" content="arthritis pain relief, arthritis pain relief tips, joint pain relief, how to relieve arthritis pain, arthritis pain management uk, arthritis flare relief, natural arthritis pain relief" />
       <meta property="og:title" content="Arthritis Pain Relief – Evidence-Based UK Tips" />
       <meta property="og:description" content="Movement, heat & cold, topical NSAIDs, diet and sleep — the practical things that lower arthritis pain." />
@@ -97,12 +97,23 @@ const ArthritisPainRelief = () => (
             <Heart className="w-3 h-3" /> Practical guide
           </span>
           <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
-            Arthritis Pain Relief
+            Arthritis pain relief: start here when joints hurt
           </h1>
             <AeoEnhancement route="/guides/arthritis-pain-relief" />
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
-            More than 10 million people in the UK live with arthritis. Most days are manageable; some are not. This guide pulls together the everyday things that lower pain — the small habits, the right medicines, the moves that work — so you can build a kit that fits your life.
+            Need relief today? This UK guide gathers the everyday levers that usually help first — paced movement, heat or cold, topical NSAIDs, sleep and knowing when to see your GP — so you can act without scrolling endlessly.
           </p>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <Link to="/exercises" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
+              Next: try gentle exercises
+            </Link>
+            <Link to="/guides/newly-diagnosed" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/5 transition-colors">
+              Newly diagnosed?
+            </Link>
+            <Link to="/benefits-pip" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-semibold hover:bg-muted/40 transition-colors">
+              Money &amp; PIP help
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -199,8 +210,18 @@ const ArthritisPainRelief = () => (
         </div>
       </main>
       
+      <nav aria-label="Customer job pathways" className="container mx-auto px-6 md:px-10 max-w-3xl mb-10 rounded-xl border border-border/40 bg-muted/20 p-5">
+        <p className="text-sm font-semibold text-foreground m-0 mb-3">After pain relief, pick your next job</p>
+        <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
+          <li><Link to="/guides/exercise" className="text-primary underline underline-offset-2">Exercise guide</Link> — strengthen and pace safely</li>
+          <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link> — Mediterranean-style patterns</li>
+          <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
+          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> — when pain limits daily living</li>
+          <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link> — footwear that reduces load</li>
+        </ul>
+      </nav>
       <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-20" />
       <TopicClusterNav path="/guides/arthritis-pain-relief" />
 <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />

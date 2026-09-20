@@ -173,7 +173,7 @@ export default function NewlyDiagnosed() {
           name: "Maxwell",
           jobTitle: "HCPC-registered Physiotherapist (PH128483)",
         },
-        lastReviewed: "2026-06-25",
+        lastReviewed: "2026-09-20",
         reviewedBy: {
           "@type": "Person",
           name: "Maxwell",
@@ -230,18 +230,18 @@ export default function NewlyDiagnosed() {
   return (
     <>
       <Helmet>
-        <title>Newly Diagnosed With Arthritis: Step-by-Step UK Guide</title>
+        <title>Newly Diagnosed With Arthritis UK: First Steps Checklist</title>
         <meta
           name="description"
-          content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
+          content="Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP."
         />
         <meta
           property="og:title"
-          content="Newly Diagnosed With Arthritis: Step-by-Step UK Guide"
+          content="Newly Diagnosed With Arthritis UK: First Steps Checklist"
         />
         <meta
           property="og:description"
-          content="Newly diagnosed with arthritis? Step-by-step guide covering diagnosis, appointments, treatment options & resources. Expert-reviewed checklist."
+          content="Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP."
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${BASE}/${SLUG}`} />
@@ -314,11 +314,11 @@ export default function NewlyDiagnosed() {
           {/* Hero */}
           <header className="mb-8">
             <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">
-              Newly diagnosed with arthritis? Your step-by-step guide
+              Newly diagnosed? Your first UK arthritis checklist
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
             <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
-              Newly diagnosed with arthritis in the UK? Start with your GP or rheumatology team, write down your questions, and use this checklist for the first weeks — general information only, not personal medical advice.
+              Just diagnosed with arthritis? Start here: confirm the type, prepare your specialist visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice.
             </p>
           </header>
 
@@ -341,17 +341,36 @@ export default function NewlyDiagnosed() {
 
 
           <div className="flex flex-wrap gap-3 my-6 print:hidden">
+            <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
+              <Link to="/guides/arthritis-pain-relief">
+                Next: pain relief options
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/guides/exercise">
+                Start gentle exercise
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/benefits-pip">
+                Benefits &amp; PIP
+              </Link>
+            </Button>
             <Button onClick={handlePrint} variant="outline" className="gap-2">
               <Printer className="w-4 h-4" aria-hidden />
               Print this guide
             </Button>
-            <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
-              <Link to="/symptom-checker">
-                Try the symptom checker
-                <ArrowRight className="w-4 h-4" aria-hidden />
-              </Link>
-            </Button>
           </div>
+          <nav aria-label="Related customer jobs" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-4 print:hidden">
+            <p className="text-sm font-semibold text-foreground m-0 mb-2">Related help hubs</p>
+            <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
+              <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
+              <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
+              <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
+              <li><Link to="/blog/turmeric-for-arthritis" className="text-primary underline underline-offset-2">Turmeric evidence</Link></li>
+            </ul>
+          </nav>
 
           {/* Section nav (desktop) */}
           <nav
@@ -463,7 +482,7 @@ export default function NewlyDiagnosed() {
             />
           </section>
 
-          <EducationalDisclaimerBox />
+          <EducationalDisclaimerBox lastReviewed="2026-09-20" />
           <TopicClusterNav path="/guides/newly-diagnosed" />
 
           {/* Related */}
