@@ -69,7 +69,7 @@ const ArthritisPainRelief = () => (
       <title>Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)</title>
       <meta name="description" content="In pain now? Practical UK arthritis pain relief: paced movement, heat/cold, topical NSAIDs, sleep and when to see your GP — then next steps for diet, exercise and PIP." />
       <meta name="keywords" content="arthritis pain relief, arthritis pain relief tips, joint pain relief, how to relieve arthritis pain, arthritis pain management uk, arthritis flare relief, natural arthritis pain relief" />
-      <meta property="og:title" content="Arthritis Pain Relief – Evidence-Based UK Tips" />
+      <meta property="og:title" content="Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)" />
       <meta property="og:description" content="Movement, heat & cold, topical NSAIDs, diet and sleep — the practical things that lower arthritis pain." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
@@ -218,6 +218,8 @@ const ArthritisPainRelief = () => (
           <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
           <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> — when pain limits daily living</li>
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link> — footwear that reduces load</li>
+          <li><Link to="/supplements/turmeric" className="text-primary underline underline-offset-2">Turmeric / curcumin</Link> — evidence, dose and safety</li>
+          <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link> — anti-inflammatory eating pattern</li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />

@@ -54,3 +54,8 @@ On push/PR to `main`, Node **20**, `npm ci` only:
 ## Node version
 
 All Node-using workflows pin **`node-version: "20"`** (`ci.yml`, `lint-and-test.yml`, `tests.yml`, `lighthouse.yml`, `regenerate-lockfile.yml`, `keep-green.yml`). `deploy-to-lovable.yml` has no Node install step.
+
+## Code review bots
+- **Use Grok Bot** for review and CI break fixes.
+- **Do not use CodeRabbit AI.** `.coderabbit.yaml` disables auto-review; uninstall the CodeRabbit GitHub App from the repo so `coderabbitai[bot]` stops commenting.
+- **Do not use Dependabot PRs** (removed); Grok Bot owns dependency triage.
