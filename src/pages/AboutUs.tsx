@@ -129,10 +129,11 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Living With Arthritis UK | Registered charity 1218461</title>
-        <meta name="description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta name="description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta property="og:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta property="og:description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -144,7 +145,7 @@ const AboutUs = () => {
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta name="twitter:description" content="About Living With Arthritis UK: an independent CIO (charity 1218461) serving the UK, founded by Louis Maxwell after his own diagnosis. Free, clinician-reviewed UK arthritis support." />
+        <meta name="twitter:description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084." />
         <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
@@ -216,12 +217,65 @@ const AboutUs = () => {
           <AeoEnhancement route="/about" />
         </div>
 
-        {/* Disambiguation line — who we are and who we are not */}
-        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-6 overflow-visible">
-          <p className="text-center text-base lg:text-lg font-medium text-foreground leading-[1.65] py-1">
-            Living With Arthritis is a registered charity in England and Wales
-            (no.&nbsp;1218461), a UK national charity. We are independent of Arthritis UK.
-          </p>
+        {/* Entity block — legal name, number, CIO, independence, contact (no street) */}
+        <section
+          aria-labelledby="who-we-are-heading"
+          className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-3xl mt-2 mb-8"
+        >
+          <div className="rounded-2xl border border-border/40 bg-card p-6 md:p-8">
+            <h2
+              id="who-we-are-heading"
+              className="text-xl md:text-2xl font-extrabold text-foreground mb-3"
+            >
+              Who we are
+            </h2>
+            <p className="text-base text-foreground leading-relaxed">
+              <strong>Living With Arthritis UK (charity {CHARITY.number})</strong> is the
+              public name of <strong>{CHARITY.legalName}</strong>, a {CHARITY.type}{" "}
+              registered in {CHARITY.jurisdiction}. We publish free, clinically reviewed
+              guidance on exercise, diet, pain self-management and UK benefits for people
+              living with arthritis. We are independent of Arthritis UK.
+            </p>
+            <dl className="mt-4 grid gap-2 text-sm text-foreground/90">
+              <div className="flex flex-wrap gap-x-2">
+                <dt className="font-semibold">Legal name</dt>
+                <dd>{CHARITY.legalName}</dd>
+              </div>
+              <div className="flex flex-wrap gap-x-2">
+                <dt className="font-semibold">Charity number</dt>
+                <dd>
+                  <a
+                    href={CHARITY.registerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-primary"
+                  >
+                    {CHARITY.number}
+                  </a>{" "}
+                  (England and Wales)
+                </dd>
+              </div>
+              <div className="flex flex-wrap gap-x-2">
+                <dt className="font-semibold">Email</dt>
+                <dd>
+                  <a
+                    href={`mailto:${CHARITY.contactEmail}`}
+                    className="underline underline-offset-2 hover:text-primary"
+                  >
+                    {CHARITY.contactEmail}
+                  </a>
+                </dd>
+              </div>
+              <div className="flex flex-wrap gap-x-2">
+                <dt className="font-semibold">Phone</dt>
+                <dd>
+                  <a href="tel:+447760512084" className="underline underline-offset-2 hover:text-primary">
+                    07760 512 084
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
         </section>
 
         {/* Our Story — founder narrative moved from landing page */}

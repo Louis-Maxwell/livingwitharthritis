@@ -88,33 +88,37 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | You're Not Alone With Joint Pain</title>
+        <title>Living With Arthritis UK | Registered Charity 1218461</title>
         <meta
           name="description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461): evidence-based guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help across the United Kingdom.",
+            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help.",
           )}
+        />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | You're Not Alone With Joint Pain"
+          content="Living With Arthritis UK | Registered Charity 1218461"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis UK | You're Not Alone With Joint Pain"
+          content="Living With Arthritis UK | Registered Charity 1218461"
         />
         <meta
           property="og:description"
           content={withVisitorSnippet(
-            "Clinically reviewed arthritis guidance in plain English — free for everyone in the UK. Registered charity 1218461.",
+            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free clinically reviewed UK arthritis guidance. Registered charity 1218461.",
           )}
         />
         <meta
           name="twitter:description"
           content={withVisitorSnippet(
-            "Free UK arthritis exercises, diet guidance and support. No sign-up required. Registered charity 1218461.",
+            "Living With Arthritis UK (charity 1218461) — independent of Arthritis UK. Free UK arthritis exercises, diet guidance and support.",
           )}
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />

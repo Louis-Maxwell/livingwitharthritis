@@ -15,6 +15,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, Users, Heart } from 'lucide-react';
 import { useAnalytics } from '../components/AnalyticsTracker';
+import { getSchemaOrgSameAs } from '@/config/social-media';
 
 interface CityPageProps {
   citySlug: string;
@@ -304,10 +305,7 @@ export default function CityPageOptimized({
               addressRegion: region,
               addressCountry: 'GB',
             },
-            sameAs: [
-              'https://www.facebook.com/profile.php?id=61583723925315',
-              'https://twitter.com/livingwarthritis',
-            ],
+            sameAs: getSchemaOrgSameAs(),
           })}
         </script>
 

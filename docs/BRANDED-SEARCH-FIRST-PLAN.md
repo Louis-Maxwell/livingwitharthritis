@@ -24,15 +24,31 @@ Measure weekly in Google Search Console: query contains `living with arthritis` 
 
 ---
 
-## Phase 0 — Baseline (this week)
+## Phase 0 — Baseline (recorded 2026-09-20)
 
-1. In GSC, export last 28 days for query filter `living with arthritis`.
-2. Note position for: homepage, About, vs Arthritis UK / NHS.
-3. Bing Webmaster: same check.
-4. Incognito Google.uk search (UK) for exact phrase; screenshot top 10 (manual).
-5. Confirm live after Lovable publish: title, charity number, Organization JSON-LD, Charity Commission link.
+Honest open-web snapshot from this run (no GSC export; **Ahrefs GSC/SERP APIs unavailable — insufficient plan**). Fill the Day-0 scoreboard from Google Search Console after Louis shares a 28-day branded-query export.
 
-**Success:** We know current rank and who beats us.
+| Query | Intent | What already ranks | Implication |
+|-------|--------|--------------------|-------------|
+| `living with arthritis` | **Informational / medical** (how to live with the condition) | NHS, Arthritis UK / Versus Arthritis, other clinical publishers win open web search | Do **not** expect homepage #1 overnight. Own **brand intent** first; treat the bare phrase as a 3–12 month authority goal. |
+| `living with arthritis uk` | Brand / navigational | Our site and charity records compete with the larger brand | Title/OG must lead with the exact charity name so snippets and sitelinks attach to **us**. |
+| `living with arthritis charity` / `1218461` | Brand + entity | **Already surfaces the charity** via [Find that Charity (GB-CHC-1218461)](https://findthatcharity.uk/orgid/GB-CHC-1218461), the Charity Commission register, and `/about` | Entity graph is started. Keep `sameAs` and on-site facts identical so Google does not split us from Arthritis UK. |
+
+**On-site entity (live + this repo, 2026-09-20)**
+
+- Homepage and About already ship **Organization JSON-LD** with GB-CHC **1218461** (`#root-organization-jsonld` in `index.html`, refreshed by `src/lib/rootOrganizationSchema.ts` / `<RootOrganizationSchema />`).
+- `sameAs` must be **only** `getSchemaOrgSameAs()` from `src/config/social-media.ts` plus Charity Commission, Find that Charity, and NGO Explorer. No invented social URLs.
+- Confirmed owned profiles: Facebook `61583723925315`, Instagram `livingwitharthritisuk`, LinkedIn `112596569`, YouTube `@livingwitharthritisuk`.
+- Founder in schema: Louis Maxwell, HCPC **PH128483**.
+- **Oswestry registered address stays off the public site** (footer, schema, About, `llms.txt` / `ai.txt`). Charity Commission / Find that Charity may still list Oswestry East — that is a portal field for Louis, not copy we restore on the website. A 2026-09-20 web snapshot of live `/about` still mentioned Oswestry; that is a **stale publish**, not a reason to put the street back.
+
+**Still to do in GSC / Bing (Louis)** — see `docs/BRANDED-ENTITY-OFFSITE-CHECKLIST.md`.
+
+1. GSC: last 28 days for query contains `living with arthritis` (clicks, impressions, avg position for `/` and `/about`).
+2. Bing Webmaster: same check; verify property + submit sitemap if not already.
+3. After the next Lovable publish: URL Inspection for `/` and `/about`.
+
+**Success:** We know current rank and who beats us; Day-0 cells below are filled from GSC, not guessed.
 
 ---
 
@@ -148,15 +164,18 @@ Only after brand is stable:
 
 ---
 
-## 90-day scoreboard
+## 90-day scoreboard (Day 0 = 2026-09-20)
 
-| Metric | Day 0 | Day 30 | Day 90 |
-|--------|-------|--------|--------|
-| Avg position GSC: `living with arthritis charity` | _fill_ | ≤3 | 1–2 |
-| Avg position: `living with arthritis uk` | _fill_ | ≤5 | 1–3 |
-| Homepage sitelinks present | _fill_ | Yes | Yes |
-| Brand Ads needed? | Maybe | Review | Off if organic owns |
+GSC cells are placeholders until Louis exports Search Console. Ahrefs rank tracking was **not** available this run.
+
+| Metric | Day 0 (2026-09-20) | Day 30 | Day 90 |
+|--------|--------------------|--------|--------|
+| Avg position GSC: `living with arthritis` | _placeholder — informational SERP; medical sites win_ | Track only (not a brand-win KPI) | Track vs NHS / Arthritis UK |
+| Avg position GSC: `living with arthritis uk` | _placeholder_ | ≤5 | 1–3 |
+| Avg position GSC: `living with arthritis charity` | _placeholder — Find that Charity / About already visible in open web_ | ≤3 | 1–2 |
+| Homepage sitelinks present | _placeholder_ | Yes | Yes |
+| Brand Ads needed? | Out of scope this sprint | Review | Off if organic owns |
 
 ---
 
-*Created 2026-09-20 for Living With Arthritis UK. Legitimate SEO only.*
+*Phase 0 baseline recorded 2026-09-20 for Living With Arthritis UK. Consolidates PR #62. Legitimate SEO only. Off-site Louis actions: `docs/BRANDED-ENTITY-OFFSITE-CHECKLIST.md`.*
