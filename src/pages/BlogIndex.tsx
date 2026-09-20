@@ -272,6 +272,22 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
     setCurrentPage(1);
   };
 
+  const clearAllFilters = () => {
+    setSearchQuery("");
+    setActiveCategory("All");
+    setActiveTag(null);
+    setActiveAuthor(null);
+    setSortMode("newest");
+    setCurrentPage(1);
+  };
+
+  const hasActiveFilters =
+    activeCategory !== "All" ||
+    Boolean(searchQuery.trim()) ||
+    Boolean(activeTag) ||
+    Boolean(activeAuthor) ||
+    sortMode !== "newest";
+
   const showDiscovery =
     activeCategory === "All" &&
     !searchQuery.trim() &&
@@ -380,8 +396,8 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           }
         />
 
-        <div className="container mx-auto px-6 md:px-10 py-6 md:py-8">
-          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-5">
+        <div className="container mx-auto px-6 md:px-10 py-7 md:py-10">
+          <p className="text-muted-foreground text-base md:text-[1.05rem] leading-relaxed max-w-3xl mb-6">
             This arthritis blog is written for people in the United Kingdom who need plain-English help
             with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic below, or{" "}
             <Link to="/search" className="text-primary underline underline-offset-2">
@@ -404,7 +420,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             .
           </p>
 
-          <nav aria-label="Browse arthritis topics" className="mb-6">
+          <nav aria-label="Browse arthritis topics" className="mb-10">
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground mb-4">
               Browse by topic
             </h2>
@@ -564,8 +580,23 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           {/* Sticky compact filter bar (md+) — search + category + sort; no fake metrics */}
           <div
             id="blog-filters"
-            className="scroll-mt-24 mb-6 md:sticky md:top-16 md:z-30 md:-mx-2 md:px-2 md:py-3 md:rounded-2xl md:border md:border-border/40 md:bg-background/85 md:backdrop-blur-md dark:md:border-border/60 dark:md:bg-background/80"
+            className="scroll-mt-24 mb-8 md:sticky md:top-16 md:z-30 md:-mx-2 md:px-3 md:py-4 md:rounded-2xl md:border md:border-border/40 md:bg-background/90 md:backdrop-blur-md dark:md:border-border/60 dark:md:bg-background/85"
           >
+            <div className="flex items-baseline justify-between gap-3 mb-3">
+              <h2 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                Find an article
+              </h2>
+              {hasActiveFilters && (
+                <button
+                  type="button"
+                  onClick={clearAllFilters}
+                  className="text-xs font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded min-h-9 px-1"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
+
             <div className="relative max-w-xl mb-4 md:mb-3">
               <label htmlFor="blog-search" className="sr-only">
                 Search articles
@@ -604,7 +635,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <div
               role="group"
               aria-label="Filter by category"
-              className="flex flex-wrap gap-2 mb-3"
+              className="flex gap-2 mb-3 overflow-x-auto pb-1 -mx-1 px-1 snap-x snap-mandatory md:flex-wrap md:overflow-visible md:pb-0 md:mx-0 md:px-0 [scrollbar-width:thin]"
             >
               {categories.map((cat) => (
                 <button
@@ -612,9 +643,9 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                   type="button"
                   onClick={() => handleCategory(cat)}
                   aria-pressed={activeCategory === cat}
-                  className={`min-h-11 px-4 py-2.5 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                  className={`snap-start shrink-0 min-h-11 px-4 py-2.5 rounded-full text-xs font-bold tracking-wide border transition-all duration-200 cursor-pointer inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                     activeCategory === cat
-                      ? `${categoryColors[cat]} border-current shadow-sm scale-105`
+                      ? `${categoryColors[cat]} border-current shadow-sm`
                       : "bg-muted/30 text-muted-foreground border-border/40 hover:bg-muted/50 dark:border-border/55"
                   }`}
                 >
@@ -679,7 +710,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </div>
             )}
 
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-1 border-t border-border/30 dark:border-border/50">
               <p className="text-sm text-muted-foreground" aria-live="polite">
                 Showing {paginated.length} of {filtered.length} article
                 {filtered.length !== 1 ? "s" : ""}
@@ -758,14 +789,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </p>
               <button
                 type="button"
-                onClick={() => {
-                  setSearchQuery("");
-                  setActiveCategory("All");
-                  setActiveTag(null);
-                  setActiveAuthor(null);
-                  setSortMode("newest");
-                  setCurrentPage(1);
-                }}
+                onClick={clearAllFilters}
                 className="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Show all articles
@@ -774,7 +798,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           )}
 
           {!isLoading && filtered.length > 0 && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {paginated.map((post) => (
                 <BlogCard key={post.slug} post={post} />
               ))}

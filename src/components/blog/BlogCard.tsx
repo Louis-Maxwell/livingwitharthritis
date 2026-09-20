@@ -79,7 +79,7 @@ const BlogCard = ({
       <Link
         to={`/blog/${post.slug}`}
         className={`block focus-visible:outline-none flex-1 min-w-0 ${
-          isLead ? "md:flex md:flex-row md:min-h-[280px]" : "flex flex-col"
+          isLead ? "md:flex md:flex-row md:min-h-[280px]" : "flex flex-col h-full"
         }`}
         aria-label={`Read: ${title}`}
       >
@@ -107,17 +107,21 @@ const BlogCard = ({
         </div>
         <div
           className={`flex flex-col flex-1 min-w-0 ${
-            isLead ? "p-4 md:p-6 md:w-[52%] md:justify-center" : isCompact ? "p-3.5 md:p-4" : "p-4 md:p-5"
+            isLead
+              ? "p-5 md:p-7 md:w-[52%] md:justify-center"
+              : isCompact
+                ? "p-4 md:p-4"
+                : "p-5 md:p-6"
           }`}
         >
-          <div className="flex flex-wrap items-center gap-2 mb-2">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-2.5">
             <span className={CATEGORY_BADGE}>{post.category}</span>
             <time dateTime={post.date} className="text-xs sm:text-sm text-muted-foreground">
               {dateLabel}
             </time>
           </div>
           <h3
-            className={`font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-snug break-words mb-2 ${
+            className={`font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-snug break-words mb-2.5 ${
               isLead
                 ? "text-[1.35rem] md:text-2xl lg:text-[1.65rem]"
                 : featured
@@ -134,7 +138,7 @@ const BlogCard = ({
           >
             {post.excerpt}
           </p>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 border-t border-border/30 dark:border-border/50 text-sm text-muted-foreground">
+          <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-3 border-t border-border/30 dark:border-border/50 text-sm text-muted-foreground">
             {post.author ? (
               <span className="inline-flex items-center gap-1.5 min-w-0 min-h-9">
                 <User className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
@@ -154,8 +158,8 @@ const BlogCard = ({
       </Link>
       {!isCompact && (
         <div
-          className={`px-5 md:px-6 pb-4 ${
-            isLead ? "md:absolute md:bottom-4 md:right-6 md:px-0 md:pb-0" : "-mt-1"
+          className={`border-t border-border/25 dark:border-border/40 px-5 md:px-6 py-2.5 bg-muted/10 ${
+            isLead ? "md:absolute md:bottom-3 md:right-5 md:border-0 md:bg-transparent md:px-0 md:py-0" : ""
           }`}
         >
           <Link

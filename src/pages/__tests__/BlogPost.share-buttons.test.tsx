@@ -184,4 +184,29 @@ describe("BlogPost SocialShareButtons regression", () => {
       expect(input.selectionEnd).toBe(input.value.length);
     }
   });
+
+  it("shows Copied success state with aria-live after a successful Copy link", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText },
+    });
+
+    renderBlogPost("test-article");
+    const copyButtons = screen.getAllByRole("button", { name: "Copy link" });
+    expect(copyButtons).toHaveLength(2);
+
+    fireEvent.click(copyButtons[0]);
+    await vi.waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith(EXPECTED_URL);
+    });
+
+    await vi.waitFor(() => {
+      expect(screen.getAllByRole("button", { name: "Copied" }).length).toBeGreaterThanOrEqual(1);
+    });
+
+    const live = document.querySelectorAll('[aria-live="polite"]');
+    const liveTexts = [...live].map((el) => el.textContent?.trim()).filter(Boolean);
+    expect(liveTexts.some((t) => t === "Copied")).toBe(true);
+  });
 });
