@@ -28,6 +28,7 @@
 | Champions 26–30 + PIP spoke gold pass (GSC-driven) | **done** | Benefits PIP hub, FAQ hub, symptom checker, supplements hub, glucosamine — disclaimer + cluster nav + citations + review **2026-09-16**; cluster density on GSC top-click blogs/FAQ/OA; Sheffield RA doorway redirects to RA hub |
 | Champions 31–35 GSC subpage + condition template gold pass | **done** | ConditionSubpagePage + ConditionPageTemplate disclaimer/cluster (covers `/conditions/gout/treatment`, AS, PsA diet); diet/exercise/pain pillar CTR titles; gout treatment depth; cluster + chatbot KB for B₁ intents — review **2026-09-17** |
 | Champions 36–40 library hub + chatbot density gold pass | **done** | Library hub + LibraryTopic disclaimer/cluster + pillar cross-links (OA/PIP/exercise/pain/diet); library OA/fibro/turmeric/walking-shoes in topicClusters; chatbot KB for arthritis head term + turmeric + walking shoes — review **2026-09-18** |
+| Champions 41–42 blog shoes + turmeric + customer-job hubs | **done** | Gold-pass `/blog/best-walking-shoes-arthritis-uk` + `/blog/turmeric-for-arthritis` (unique meta, citations, customer-job links, review **2026-09-20**); polish pain-relief / newly-diagnosed / benefits-PIP above-fold CTAs |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -66,6 +67,30 @@
 
 ---
 
+## Daily log — 20 Sep 2026 (M1, weekend visibility sprint)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Champions 41–42 from 18 Sep next-3 (blog walking-shoes + turmeric gold-pass + customer-job hub polish). No new doorway cities. No invented traffic claims.
+
+### Shipped
+- **Blog gold-pass:** `/blog/best-walking-shoes-arthritis-uk` and `/blog/turmeric-for-arthritis` — unique title/meta/OG, Louis Maxwell HCPC review, real NHS/NICE/Versus Arthritis/GOV.UK citations, internal links to diet / exercise / pain relief / newly-diagnosed / PIP, `lastReviewed` via `updated_at` **2026-09-20**; removed duplicate filler and invented “Dr Anil Patel” line on turmeric
+- **Customer-job hubs:** above-fold clarity + next-step CTAs on `/guides/arthritis-pain-relief`, `/guides/newly-diagnosed`, `/benefits-pip` (review **2026-09-20**)
+- **Crawl/AI:** URLs already in sitemap; IndexNow list adds pain-relief; `llms.txt` / `ai.txt` preferred pages mention pain-relief + PIP hub; blog-head-data regenerated for share packaging
+- **Tests:** `src/lib/__tests__/visibility-sprint-shoes-turmeric.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts linking the two blogs + hubs
+- Clinical spot-check (turmeric safety / footwear advice)
+- **Lovable publish** of latest GitHub `main`
+- **GSC URL Inspection** on the gold-passed blog + hub URLs after publish
+- FormSubmit activate if newsletter still pending
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish + GSC inspect the sprint URLs + social posts with real links
+2. Symptom-checker / FAQ CRO using next GSC refresh (no invented KPIs)
+3. Partner outreach / Ad Grants (still blocked-on-Louis)
+
 ## Daily log — 18 Sep 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Champions 36–40 from yesterday’s next-3 (library pillar polish + chatbot head-term density). No new doorway cities.
@@ -87,7 +112,7 @@
 - **Lovable publish** of latest GitHub `main` so gold-pass/library/chatbot pages are live
 
 ### Next 3 digital actions (GTM)
-1. Cluster density / gold-pass on remaining high-impr GSC URLs not yet chrome’d (blog walking-shoes + turmeric pages themselves if still thin)
+1. ~~Cluster density / gold-pass on blog walking-shoes + turmeric~~ — **done 20 Sep** (Champions 41–42)
 2. Louis: Regulator / Gift Aid / Ad Grants / outreach / social (still blocked-on-Louis)
 3. Symptom-checker / FAQ hub CRO follow-up using next GSC refresh (no invented KPIs)
 

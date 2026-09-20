@@ -154,7 +154,7 @@
   {
     "slug": "best-foods-to-eat-for-arthritis",
     "title": "The Best Foods to Eat for Arthritis: Your Anti-Inflammatory Diet",
-    "excerpt": "Evidence-based foods that fight joint inflammation and support long-term arthritis management.",
+    "excerpt": "For arthritis management, aim for an anti-inflammatory diet rich in oily fish, extra-virgin olive oil, leafy green vegetables, berries, walnuts, and alliums…",
     "date": "2026-05-27",
     "category": "Nutrition",
     "image_url": "/openverse/nutrition-10-mysore-special-fruit-salad-with-ice-cream.webp",
@@ -211,7 +211,7 @@
   {
     "slug": "foods-to-avoid-with-arthritis",
     "title": "Foods to Avoid With Arthritis: A Complete UK Guide",
-    "excerpt": "Discover which foods trigger inflammation and joint pain — and what to eat instead.",
+    "excerpt": "For arthritis, the guide advises limiting ultra-processed foods, sugary drinks, refined carbohydrates, omega-6-rich vegetable oils and fried foods, alcohol…",
     "date": "2026-05-27",
     "category": "Nutrition",
     "image_url": "/openverse/cover-0436-mid-morning-salad-snack.webp",
@@ -743,7 +743,7 @@
   {
     "slug": "omega-3-foods-for-joints",
     "title": "Best Omega-3 Foods for Joint Health",
-    "excerpt": "Discover the top omega-3 rich foods that support joint health and reduce inflammation in arthritis.",
+    "excerpt": "Omega-3 fatty acids, found in oily fish like mackerel and salmon, help reduce joint inflammation by blocking inflammatory enzymes, reducing pro-inflammatory…",
     "date": "2026-03-08",
     "category": "Nutrition",
     "image_url": "/openverse/cover-0439-watermelon-mint-raspberry-salad.webp",
@@ -837,22 +837,23 @@
   },
   {
     "slug": "turmeric-for-arthritis",
-    "title": "Turmeric for Arthritis: Does It Really Work?",
-    "excerpt": "Explore the science behind turmeric and curcumin for arthritis pain relief. Evidence-based review of dosage, benefits and side effects.",
+    "title": "Turmeric for Arthritis: Evidence, Dose Context and UK Safety",
+    "excerpt": "Does turmeric help arthritis? What curcumin trials show, why absorption matters, safety with medicines, and how it fits UK diet and pain-care plans.",
     "date": "2026-03-08",
     "category": "Supplements",
     "image_url": "/openverse/cover-0438-spinach-salad.webp",
-    "meta_title": "Turmeric for Arthritis: Does It Really Work?",
-    "meta_description": "Explore the science behind turmeric and curcumin for arthritis pain relief. Evidence-based review of dosage, benefits and side effects. Evidence-based UK g...",
-    "keywords": null,
-    "author": "Living With Arthritis Editorial Team",
-    "author_credentials": "UK Patient Education Desk",
-    "reviewed_by": "Clinical Advisory Panel",
-    "reviewer_credentials": "HCPC-registered physiotherapy & rheumatology nursing input",
+    "meta_title": "Turmeric for Arthritis UK: Evidence, Safety & Realistic Use",
+    "meta_description": "Turmeric and curcumin for arthritis: what the evidence shows, absorption tips, medicine interactions and how it fits NHS/NICE care — educational UK guide.",
+    "keywords": "turmeric for arthritis, curcumin arthritis UK, turmeric dosage joints, turmeric and methotrexate, natural anti-inflammatory arthritis",
+    "author": "Louis Maxwell",
+    "author_credentials": "First Contact Practitioner, HCPC PH128483",
+    "reviewed_by": "Louis Maxwell",
+    "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
     "is_published": true,
     "display_order": 964,
-    "updated_at": "2026-09-05T11:02:30.682Z",
-    "direct_answer": "Curcumin, turmeric's active compound, has reasonable clinical evidence for arthritis. Around 1,000 mg/day for 8–12 weeks appears to reduce pain and stiffness by blocking the NF-κB and COX-2 inflammatory pathways. Absorption from plain turmeric is poor, so use a piperine, phytosome or liposomal formulation and take with food."
+    "updated_at": "2026-09-20T12:00:00.000Z",
+    "direct_answer": "Curcumin extracts have some evidence for osteoarthritis pain over 8–12 weeks when absorption is enhanced. Culinary turmeric is not the same as trial doses. It does not replace prescribed care — check interactions with your GP or pharmacist first.",
+    "last_reviewed": "2026-09-20"
   },
   {
     "slug": "yoga-for-arthritis",
@@ -913,22 +914,23 @@
   },
   {
     "slug": "best-walking-shoes-arthritis-uk",
-    "title": "Best Walking Shoes for Arthritis in the UK",
-    "excerpt": "Find the best walking shoes for arthritis in the UK. Expert guide to cushioning, arch support, and easy-fasten features for painful feet and joints.",
+    "title": "Best Walking Shoes for Arthritis in the UK (2026 Guide)",
+    "excerpt": "UK guide to walking shoes for arthritis: cushioning, wide fit, easy fastenings, NHS orthotics and when better footwear helps knees, hips and feet.",
     "date": "2026-03-03",
     "category": "Health",
     "image_url": "/openverse/cover-0351-walkers.webp",
-    "meta_title": "Best Walking Shoes for Arthritis UK – Comfort & Support",
-    "meta_description": "Find the best walking shoes for arthritis in the UK. Expert guide to cushioning, arch support, and easy-fasten features for painful feet and joints.",
-    "keywords": "best walking shoes arthritis UK, arthritis shoes UK, comfortable shoes for arthritis, walking shoes joint pain UK, arthritis footwear",
-    "author": "Living With Arthritis Editorial Team",
-    "author_credentials": "UK Patient Education Desk",
-    "reviewed_by": "Clinical Advisory Panel",
-    "reviewer_credentials": "HCPC-registered physiotherapy & rheumatology nursing input",
+    "meta_title": "Best Walking Shoes for Arthritis UK | Fit, Support & NHS Tips",
+    "meta_description": "Choose walking shoes for arthritis in the UK: cushioning, wide toe box, easy fastenings and NHS podiatry tips. Educational guide for painful feet, knees and hips.",
+    "keywords": "best walking shoes arthritis UK, arthritis shoes UK, comfortable shoes for arthritis, walking shoes joint pain UK, arthritis footwear, NHS orthotics shoes",
+    "author": "Louis Maxwell",
+    "author_credentials": "First Contact Practitioner, HCPC PH128483",
+    "reviewed_by": "Louis Maxwell",
+    "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
     "is_published": true,
     "display_order": 960,
-    "updated_at": "2026-09-05T11:02:30.683Z",
-    "direct_answer": "For arthritis, choose walking shoes with a cushioned midsole for impact absorption and good arch support for alignment. A wide toe box allows natural toe spread, and lightweight materials reduce effort. Look for non-slip soles for balance and easy fastenings like Velcro for stiff hands. A removable insole is useful for custom orthotics."
+    "updated_at": "2026-09-20T12:00:00.000Z",
+    "direct_answer": "For arthritis, choose walking shoes with a cushioned midsole, supportive midfoot, wide toe box and easy fastenings. A removable insole helps with orthotics. Get measured late in the day and ask about NHS podiatry if foot pain or deformity limits walking.",
+    "last_reviewed": "2026-09-20"
   },
   {
     "slug": "pip-for-arthritis-uk",
@@ -2067,8 +2069,9 @@
     "reviewer_credentials": "HCPC-registered physiotherapists, BDA-registered dietitians",
     "is_published": true,
     "display_order": 202,
-    "updated_at": "2026-09-05T11:02:30.690Z",
-    "direct_answer": "The guide says arthritis relief depends on identifying whether symptoms are inflammatory or degenerative, then using evidence-based basics: graded exercise, Mediterranean-style eating, weight management, heat or cold, and better sleep. It suggests small seven-day habit changes and tracking pain and function. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness."
+    "updated_at": "2026-09-20T12:00:00.000Z",
+    "direct_answer": "The guide says arthritis relief depends on identifying whether symptoms are inflammatory or degenerative, then using evidence-based basics: graded exercise, Mediterranean-style eating, weight management, heat or cold, and better sleep. It suggests small seven-day habit changes and tracking pain and function. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.",
+    "last_reviewed": "2026-09-20"
   },
   {
     "slug": "straight-leg-raises-knee-osteoarthritis",
@@ -2928,7 +2931,7 @@
   {
     "slug": "expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
     "title": "Expert Q&A: Should I Apply for PIP If My Arthritis Is Mild?",
-    "excerpt": "Eligibility is about impact on daily life, not diagnosis severity.",
+    "excerpt": "Eligibility for financial support like Personal Independence Payment (PIP) focuses on how your condition impacts daily life and mobility, not solely the…",
     "date": "2026-06-28",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0321-elderly-shanghai-woman-practices-tai-chi.webp",
@@ -2947,7 +2950,7 @@
   {
     "slug": "grants-for-adapting-your-home-with-arthritis",
     "title": "Grants for Adapting Your Home With Arthritis",
-    "excerpt": "Disabled Facilities Grants and local council schemes.",
+    "excerpt": "Grants for home adaptations can cover various needs, from minor adjustments like grab rails and ramps to larger works such as accessible showers…",
     "date": "2026-06-28",
     "category": "Finances & Benefits",
     "image_url": "/openverse/cover-0105-elderly-man-gives-a-v-for-victory-sign-on-the.webp",
@@ -2966,7 +2969,7 @@
   {
     "slug": "pip-for-arthritis-how-to-build-a-strong-application",
     "title": "PIP for Arthritis: How to Build a Strong Application",
-    "excerpt": "Daily living and mobility components explained.",
+    "excerpt": "The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It…",
     "date": "2026-06-28",
     "category": "Finances & Benefits",
     "image_url": "/openverse/cover-0475-20171027-ams-lsc-1150.webp",
@@ -2985,7 +2988,7 @@
   {
     "slug": "universal-credit-and-arthritis-limited-capability-for-work",
     "title": "Universal Credit and Arthritis: Limited Capability for Work",
-    "excerpt": "Work Capability Assessments — what to expect and how to prepare.",
+    "excerpt": "The post explains how people with arthritis can prepare for a Universal Credit Work Capability Assessment by giving an honest picture of symptoms, including…",
     "date": "2026-06-28",
     "category": "Finances & Benefits",
     "image_url": "/openverse/cover-0405-phoenix-az-45.webp",
@@ -3004,7 +3007,7 @@
   {
     "slug": "apprenticeships-and-arthritis-a-realistic-look",
     "title": "Apprenticeships and Arthritis: A Realistic Look",
-    "excerpt": "Manual trades, office routes and adjustments that work.",
+    "excerpt": "Apprenticeships with arthritis are achievable, often requiring a combined approach of appropriate medical treatment and practical workplace strategies. Open…",
     "date": "2026-06-27",
     "category": "Work & Career",
     "image_url": "/openverse/cover-0171-a-corner-of-chinatown.webp",
@@ -3023,7 +3026,7 @@
   {
     "slug": "exam-adjustments-for-students-with-arthritis",
     "title": "Exam Adjustments for Students With Arthritis",
-    "excerpt": "Extra time, rest breaks and laptop use — how to apply.",
+    "excerpt": "Exam adjustments for students with arthritis, such as extra time or rest breaks, help create a level playing field. Clinical trials show these adjustments…",
     "date": "2026-06-27",
     "category": "Work & Career",
     "image_url": "/openverse/cover-0399-confident-birds-feeding-from-hand.webp",
@@ -3042,7 +3045,7 @@
   {
     "slug": "expert-qa-choosing-a-career-friendly-to-arthritis",
     "title": "Expert Q&A: Choosing a Career-Friendly to Arthritis",
-    "excerpt": "Energy demands, posture and adaptability matter most.",
+    "excerpt": "Choosing a career with arthritis means considering energy demands, posture and adaptability rather than seeking one ideal job. The article recommends…",
     "date": "2026-06-27",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0327-an-elderly-person-using-a-cane-and-pulling-a-.webp",
@@ -3061,7 +3064,7 @@
   {
     "slug": "university-with-arthritis-disability-support-and-dsa",
     "title": "University With Arthritis: Disability Support and DSA",
-    "excerpt": "The Disabled Students' Allowance opens doors most students miss.",
+    "excerpt": "Disabled Students’ Allowance can help students with arthritis access tailored university support, including specialist equipment, non-medical helpers and…",
     "date": "2026-06-27",
     "category": "Work & Career",
     "image_url": "/openverse/cover-0460-20171027-ams-lsc-0065.webp",
@@ -3080,7 +3083,7 @@
   {
     "slug": "expert-qa-returning-to-work-after-a-bad-flare",
     "title": "Expert Q&A: Returning to Work After a Bad Flare",
-    "excerpt": "Phased returns, occupational health and your rights.",
+    "excerpt": "Returning to work after an arthritis flare requires a personalised, phased approach. Studies show that a gradual return, tailored to individual needs and…",
     "date": "2026-06-26",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0397-friendly-staff-of-the-kopi-luwak-centre-hope-.webp",
@@ -3099,7 +3102,7 @@
   {
     "slug": "reasonable-adjustments-that-actually-help",
     "title": "Reasonable Adjustments That Actually Help",
-    "excerpt": "From standing desks to flexible hours — what to ask for.",
+    "excerpt": "Reasonable adjustments for arthritis work best when tailored to your symptoms and job, combining ergonomic equipment, task changes, flexible hours or home…",
     "date": "2026-06-26",
     "category": "Work & Career",
     "image_url": "/openverse/cover-0120-olive-oil-seller.webp",
@@ -3118,7 +3121,7 @@
   {
     "slug": "should-you-tell-your-employer-about-your-arthritis",
     "title": "Should You Tell Your Employer About Your Arthritis?",
-    "excerpt": "Disclosure has pros and cons — a balanced framework.",
+    "excerpt": "The article says telling your employer about arthritis can help if done early and met with understanding, because supportive disclosure may improve job…",
     "date": "2026-06-26",
     "category": "Work & Career",
     "image_url": "/openverse/cover-0433-salad.webp",
@@ -3137,7 +3140,7 @@
   {
     "slug": "your-workplace-rights-with-arthritis-the-equality-act-2010",
     "title": "Your Workplace Rights With Arthritis: The Equality Act 2010",
-    "excerpt": "Reasonable adjustments are a legal entitlement, not a favour.",
+    "excerpt": "Arthritis can impact work performance due to its effects on physical tasks, concentration, and energy levels. Many individuals with arthritis work…",
     "date": "2026-06-26",
     "category": "Work & Career",
     "image_url": "/openverse/cover-0460-macrobiotic-food.webp",
@@ -3156,7 +3159,7 @@
   {
     "slug": "expert-qa-will-my-children-inherit-my-arthritis",
     "title": "Expert Q&A: Will My Children Inherit My Arthritis?",
-    "excerpt": "Genetics, risk and what really raises a child's odds.",
+    "excerpt": "Children do not usually inherit arthritis in a simple, direct way. Some types, including rheumatoid and psoriatic arthritis, have a genetic component, so a…",
     "date": "2026-06-25",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0299-good-morning-sf.webp",
@@ -3175,7 +3178,7 @@
   {
     "slug": "parenting-with-arthritis-hacks-for-babies-and-toddlers",
     "title": "Parenting With Arthritis: Hacks for Babies and Toddlers",
-    "excerpt": "Lifting techniques, equipment tips and energy-saving routines.",
+    "excerpt": "Parenting with arthritis benefits from a combined approach of medication, movement, and lifestyle changes, alongside personalised advice from a clinician…",
     "date": "2026-06-25",
     "category": "Family & Relationships",
     "image_url": "/openverse/cover-0479-navidad.webp",
@@ -3194,7 +3197,7 @@
   {
     "slug": "pregnancy-and-arthritis-what-uk-guidelines-recommend",
     "title": "Pregnancy and Arthritis: What UK Guidelines Recommend",
-    "excerpt": "Many DMARDs are unsafe in pregnancy — planning ahead is crucial.",
+    "excerpt": "Managing arthritis during pregnancy requires careful pre-conception planning due to many disease-modifying anti-rheumatic drugs (DMARDs) being unsafe. UK…",
     "date": "2026-06-25",
     "category": "Family & Relationships",
     "image_url": "/openverse/cover-0325-elderly-man-walks-along-foggy-park-path-with-.webp",
@@ -3213,7 +3216,7 @@
   {
     "slug": "school-run-survival-for-parents-with-arthritis",
     "title": "School-Run Survival for Parents With Arthritis",
-    "excerpt": "Mornings without flare-ups: a five-step plan.",
+    "excerpt": "Managing arthritis during the school run requires a multi-faceted approach. Consistent evidence suggests combining appropriate medication with lifestyle…",
     "date": "2026-06-25",
     "category": "Family & Relationships",
     "image_url": "/openverse/community-01-an-elderly-tibetan-women-holding-a-prayer-wheel-on.webp",
@@ -3232,7 +3235,7 @@
   {
     "slug": "expert-qa-how-to-ask-for-help-without-feeling-guilty",
     "title": "Expert Q&A: How to Ask for Help Without Feeling Guilty",
-    "excerpt": "Reframing assistance as a strength, not a weakness.",
+    "excerpt": "Asking for help with arthritis is framed as a strength and part of self-management, not a personal failing. The post advises personalised clinical input…",
     "date": "2026-06-24",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0198-dil-chora-hospital-dire-dawa-ethiopia-2010.webp",
@@ -3251,7 +3254,7 @@
   {
     "slug": "caregiver-burnout-in-arthritis-families-spot-it-early",
     "title": "Caregiver Burnout in Arthritis Families: Spot It Early",
-    "excerpt": "Resentment, exhaustion and isolation are warning signs.",
+    "excerpt": "Caregiver burnout in families supporting those with arthritis is marked by resentment, exhaustion, and isolation. Large-scale reviews show caregivers…",
     "date": "2026-06-24",
     "category": "Family & Relationships",
     "image_url": "/openverse/cover-0172-andes-in-bloom.webp",
@@ -3270,7 +3273,7 @@
   {
     "slug": "supporting-a-partner-with-arthritis-a-practical-handbook",
     "title": "Supporting a Partner With Arthritis: A Practical Handbook",
-    "excerpt": "Small daily acts that ease pain and protect relationships.",
+    "excerpt": "The post says partners can support someone with arthritis through small daily acts, open communication and practical help with joint-straining tasks. It…",
     "date": "2026-06-24",
     "category": "Family & Relationships",
     "image_url": "/openverse/cover-0344-bathing.webp",
@@ -3289,7 +3292,7 @@
   {
     "slug": "talking-to-children-about-your-arthritis",
     "title": "Talking to Children About Your Arthritis",
-    "excerpt": "Age-appropriate scripts that reassure without scaring.",
+    "excerpt": "The article advises honest, age-appropriate conversations with children about arthritis, giving simple reassurance to younger children and more detail to…",
     "date": "2026-06-24",
     "category": "Family & Relationships",
     "image_url": "/openverse/cover-0087-strolling.webp",
@@ -3308,7 +3311,7 @@
   {
     "slug": "shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix",
     "title": "Shoulder Arthroscopy and Arthritis: What It Can and Can't Fix",
-    "excerpt": "Useful for some impingement; less so for advanced arthritis.",
+    "excerpt": "Shoulder arthroscopy will not cure arthritis or reverse joint damage. Evidence shows short-term benefits for some impingement, but it is not significantly…",
     "date": "2026-06-23",
     "category": "Surgery & Recovery",
     "image_url": "/openverse/cover-0466-20171027-ams-lsc-0014.webp",
@@ -3327,7 +3330,7 @@
   {
     "slug": "joint-fusion-vs-replacement-how-surgeons-choose",
     "title": "Joint Fusion vs Replacement: How Surgeons Choose",
-    "excerpt": "The case for fusion in ankles, wrists and small joints.",
+    "excerpt": "Joint replacement is often preferred for large, weight-bearing joints like the hip and knee, aiming for improved function. Conversely, joint fusion is…",
     "date": "2026-06-23",
     "category": "Surgery & Recovery",
     "image_url": "/openverse/cover-0474-recipe-for-pumpkin-stuffed-with-everything-go.webp",
@@ -3346,7 +3349,7 @@
   {
     "slug": "knee-arthroscopy-for-osteoarthritis-helpful-or-hype",
     "title": "Knee Arthroscopy for Osteoarthritis: Helpful or Hype?",
-    "excerpt": "Modern evidence has narrowed its role considerably.",
+    "excerpt": "Knee arthroscopy for osteoarthritis is now rarely recommended. Evidence shows it offers little benefit over non-surgical treatments for most people with…",
     "date": "2026-06-23",
     "category": "Surgery & Recovery",
     "image_url": "/openverse/cover-0369-stages-of-life.webp",
@@ -3365,7 +3368,7 @@
   {
     "slug": "expert-qa-how-do-i-know-if-surgery-is-right-for-me",
     "title": "Expert Q&A: How Do I Know If Surgery Is Right for Me?",
-    "excerpt": "A patient-friendly decision framework.",
+    "excerpt": "Non-surgical treatments are the first line of defence for most people with arthritis, aiming to reduce pain and improve joint function. These often include…",
     "date": "2026-06-23",
     "category": "Expert Q&A",
     "image_url": "/openverse/arthritis-09-rheumatoid-arthritis-with-carpal-ankylosis-2017.webp",
@@ -3384,7 +3387,7 @@
   {
     "slug": "hip-replacement-recovery-week-by-week",
     "title": "Hip Replacement Recovery Week by Week",
-    "excerpt": "A realistic 12-week timeline most people follow.",
+    "excerpt": "After hip replacement, most people gradually reduce walking aid reliance over 2-6 weeks. Driving may resume around 6 weeks, depending on comfort and being…",
     "date": "2026-06-22",
     "category": "Surgery & Recovery",
     "image_url": "/openverse/wellness-08-pilates-reformer2.webp",
@@ -3403,7 +3406,7 @@
   {
     "slug": "expert-qa-is-it-too-soon-for-joint-replacement",
     "title": "Expert Q&A: Is It Too Soon for Joint Replacement?",
-    "excerpt": "Age, activity and pain all matter — but no number alone decides.",
+    "excerpt": "Determining if it's too soon for joint replacement depends on several factors, including pain levels, function, and overall health, rather than age alone…",
     "date": "2026-06-22",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0410-100328-f-7713a-031.webp",
@@ -3422,7 +3425,7 @@
   {
     "slug": "prehabilitation-how-pre-op-exercise-speeds-recovery",
     "title": "Prehabilitation: How Pre-Op Exercise Speeds Recovery",
-    "excerpt": "Patients who train before surgery often go home days earlier.",
+    "excerpt": "Prehabilitation involves exercising before surgery to improve recovery. Studies show that patients who engage in structured exercise programmes…",
     "date": "2026-06-22",
     "category": "Surgery & Recovery",
     "image_url": "/openverse/cover-0070-old-women-gathering-in-plaza-corredera-cordob.webp",
@@ -3441,7 +3444,7 @@
   {
     "slug": "total-knee-replacement-a-uk-patients-guide-for-2026",
     "title": "Total Knee Replacement: A UK Patient's Guide for 2026",
-    "excerpt": "From referral to recovery — what to expect at each stage.",
+    "excerpt": "For many, non-surgical methods effectively manage knee pain. Tailored exercise, weight management, and pain relief consistently delay or avoid surgery. A…",
     "date": "2026-06-22",
     "category": "Surgery & Recovery",
     "image_url": "/openverse/cover-0476-20171027-ams-lsc-1630.webp",
@@ -3460,7 +3463,7 @@
   {
     "slug": "clinical-trials-for-arthritis-how-to-find-and-join-one",
     "title": "Clinical Trials for Arthritis: How to Find and Join One",
-    "excerpt": "UK trial registries, eligibility and what to expect.",
+    "excerpt": "Clinical trials for arthritis offer access to innovative treatments and close medical monitoring. While some participants might receive a placebo, the…",
     "date": "2026-06-19",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0470-old-man-reading.webp",
@@ -3479,7 +3482,7 @@
   {
     "slug": "expert-qa-how-to-evaluate-a-clinical-trial-invitation",
     "title": "Expert Q&A: How to Evaluate a Clinical Trial Invitation",
-    "excerpt": "Questions to ask before signing the consent form.",
+    "excerpt": "Before joining a clinical trial, ask about its purpose, the treatments involved, and its duration. Inquire about expectations, potential risks and benefits…",
     "date": "2026-06-19",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0413-elderly-man-and-woman-with-canes-walking-down.webp",
@@ -3498,7 +3501,7 @@
   {
     "slug": "jak-inhibitors-the-next-wave-of-ra-treatment",
     "title": "JAK Inhibitors: The Next Wave of RA Treatment",
-    "excerpt": "Tofacitinib, baricitinib and upadacitinib explained for patients.",
+    "excerpt": "JAK inhibitors reduce rheumatoid arthritis symptoms like pain, swelling, and stiffness by blocking specific immune system pathways that cause inflammation…",
     "date": "2026-06-19",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0483-buffalo-wing-bento.webp",
@@ -3517,7 +3520,7 @@
   {
     "slug": "gene-therapy-and-arthritis-where-are-we-in-2026",
     "title": "Gene Therapy and Arthritis: Where Are We in 2026?",
-    "excerpt": "A measured look at experimental approaches.",
+    "excerpt": "Gene therapy for common forms of arthritis, such as osteoarthritis and rheumatoid arthritis, is not currently a standard treatment option in the UK…",
     "date": "2026-06-19",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0118-twigged-chesnut-road-1.webp",
@@ -3536,7 +3539,7 @@
   {
     "slug": "expert-qa-is-it-worth-paying-for-a-second-opinion",
     "title": "Expert Q&A: Is It Worth Paying for a Second Opinion?",
-    "excerpt": "When a second view genuinely helps — and when it doesn't.",
+    "excerpt": "A second opinion can be valuable, especially if a diagnosis is uncertain, treatment options are complex, or you feel unheard. While systematic reviews…",
     "date": "2026-06-18",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0155-broken-paving-park-view-road.webp",
@@ -3555,7 +3558,7 @@
   {
     "slug": "nhs-access-to-biologics-how-the-approval-pathway-works",
     "title": "NHS Access to Biologics: How the Approval Pathway Works",
-    "excerpt": "NICE criteria, DAS28 thresholds and the journey to your first injection.",
+    "excerpt": "Biologics for inflammatory arthritis are considered under UK guidance, usually when conventional DMARDs have not worked adequately, with DAS28 helping…",
     "date": "2026-06-18",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0402-tree-face.webp",
@@ -3574,7 +3577,7 @@
   {
     "slug": "prescription-costs-and-arthritis-nhs-prepayment-certificates",
     "title": "Prescription Costs and Arthritis: NHS Prepayment Certificate",
-    "excerpt": "If you take three or more prescriptions a month, you're probably overpaying.",
+    "excerpt": "A Prescription Prepayment Certificate (PPC) acts like a season ticket for your prescriptions, allowing you to pay a set upfront fee for three or twelve…",
     "date": "2026-06-18",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0104-beach-walk.webp",
@@ -3593,7 +3596,7 @@
   {
     "slug": "private-rheumatology-in-the-uk-when-its-worth-considering",
     "title": "Private Rheumatology in the UK: When It's Worth Considering",
-    "excerpt": "Speed, choice and cost — a frank look at going private.",
+    "excerpt": "The article says private rheumatology may offer faster specialist appointments and scans, but diagnosis can still require several visits and tests, and…",
     "date": "2026-06-18",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0137-this-is-us.webp",
@@ -3612,7 +3615,7 @@
   {
     "slug": "expert-qa-exercising-through-a-flare-up",
     "title": "Expert Q&A: Exercising Through a Flare-Up",
-    "excerpt": "When to push and when to rest.",
+    "excerpt": "During an arthritis flare-up, the article advises adapting rather than stopping exercise: keep gentle, regular, low-impact movement within comfort, track…",
     "date": "2026-06-17",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0376-senior-swimmer-3-months-later.webp",
@@ -3631,7 +3634,7 @@
   {
     "slug": "strength-training-on-biologics-is-it-safe",
     "title": "Strength Training on Biologics: Is It Safe?",
-    "excerpt": "Resistance work is not only safe — it's recommended.",
+    "excerpt": "Strength training is generally safe and recommended for people with arthritis, even those on biologics. Research shows it can improve muscle strength…",
     "date": "2026-06-17",
     "category": "Exercise Guides",
     "image_url": "/openverse/cover-0460-the-trentham-estate-west-midlands-ambulance-s.webp",
@@ -3650,7 +3653,7 @@
   {
     "slug": "walking-30-minutes-a-day-while-on-dmards-a-practical-plan",
     "title": "Walking 30 Minutes a Day While on DMARDs: A Practical Plan",
-    "excerpt": "Gentle aerobic activity boosts mood and joint health alongside treatment.",
+    "excerpt": "Walking daily with arthritis is generally safe and recommended, especially when gentle and progressive. Regular, moderate intensity exercise, including…",
     "date": "2026-06-17",
     "category": "Exercise Guides",
     "image_url": "/openverse/cover-0473-kale-salad.webp",
@@ -3669,7 +3672,7 @@
   {
     "slug": "why-exercise-makes-your-arthritis-medication-work-better",
     "title": "Why Exercise Makes Your Arthritis Medication Work Better",
-    "excerpt": "Strength training improves drug efficacy by reducing systemic inflammation.",
+    "excerpt": "Regular physical activity, including strength training, can make arthritis medication more effective by reducing pain, improving physical function, and…",
     "date": "2026-06-17",
     "category": "Exercise Guides",
     "image_url": "/openverse/cover-0380-the-dip-ii-la-baignade-ii.webp",
@@ -3688,7 +3691,7 @@
   {
     "slug": "expert-qa-why-did-my-arthritis-come-back",
     "title": "Expert Q&A: Why Did My Arthritis Come Back?",
-    "excerpt": "Flares after stopping treatment are common but treatable.",
+    "excerpt": "Arthritis can reappear after stopping treatment because many people experience improved symptoms, prompting them to reduce or stop medication. However…",
     "date": "2026-06-16",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0372-351ad46d-16e2-4427-997c-2b0e1957b0d7.webp",
@@ -3707,7 +3710,7 @@
   {
     "slug": "stopping-arthritis-medication-safely-a-step-by-step-guide",
     "title": "Stopping Arthritis Medication Safely: A Step-By-Step Guide",
-    "excerpt": "Remission feels great — but stopping too quickly risks a flare.",
+    "excerpt": "Stopping arthritis medication should always be a joint decision with your rheumatologist, even if you feel well. Abruptly stopping or significantly reducing…",
     "date": "2026-06-16",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0398-the-stars-aren-t-looking-too-good-for-this-ge.webp",
@@ -3726,7 +3729,7 @@
   {
     "slug": "tapering-biologics-what-the-latest-trials-show",
     "title": "Tapering Biologics: What the Latest Trials Show",
-    "excerpt": "Dose-reduction studies suggest many patients can step down safely.",
+    "excerpt": "For people with well-controlled inflammatory arthritis, reviews of randomised trials show that a gradual reduction in biologic medication dosage can be…",
     "date": "2026-06-16",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0373-very-nice-view-from-the-room-overlooking-riu.webp",
@@ -3745,7 +3748,7 @@
   {
     "slug": "what-sustained-remission-means-in-ra",
     "title": "What Sustained Remission Means in RA",
-    "excerpt": "Remission isn't cure. Understanding the difference changes how you plan.",
+    "excerpt": "Sustained remission in rheumatoid arthritis means stable minimal or no disease activity, not a cure. The article says it is a key treatment goal, often…",
     "date": "2026-06-16",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0193-dsc-0463.webp",
@@ -3764,7 +3767,7 @@
   {
     "slug": "biologic-side-effects-infections-injections-and-monitoring",
     "title": "Biologic Side Effects: Infections, Injections and Monitoring",
-    "excerpt": "What to watch for and when to call the rheumatology helpline.",
+    "excerpt": "If you have a fever, chills, or signs of significant infection like a persistent cough, call your GP or rheumatology nurse. Also seek advice for severe…",
     "date": "2026-06-15",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0302-roy-wilkins-park-td-2019-01-13-024-outdoor-fi.webp",
@@ -3783,7 +3786,7 @@
   {
     "slug": "expert-qa-how-to-talk-to-your-gp-about-medication-worries",
     "title": "Expert Q&A: How to Talk to Your GP About Medication Worries",
-    "excerpt": "Concerns are valid. A practical script for an honest conversation.",
+    "excerpt": "Open communication with your GP about medication is vital for long-term conditions like arthritis. Patients who feel heard about their concerns are more…",
     "date": "2026-06-15",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0301-yes-teacher-varanasi.webp",
@@ -3802,7 +3805,7 @@
   {
     "slug": "managing-methotrexate-side-effects-practical-tips",
     "title": "Managing Methotrexate Side Effects: Practical Tips",
-    "excerpt": "Nausea, fatigue and mouth ulcers are common — and largely manageable with simple tweaks.",
+    "excerpt": "Common methotrexate side effects like nausea, fatigue, and mouth ulcers are often manageable. Taking prescribed folic acid significantly reduces these. If…",
     "date": "2026-06-15",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0117-elderly-woman-walking-with-a-cane.webp",
@@ -3821,7 +3824,7 @@
   {
     "slug": "nsaid-stomach-protection-when-you-need-a-ppi",
     "title": "NSAID Stomach Protection: When You Need a PPI",
-    "excerpt": "Co-prescribed omeprazole isn't just routine — it prevents serious bleeds.",
+    "excerpt": "Combining a proton pump inhibitor (PPI) like omeprazole with non-steroidal anti-inflammatory drugs (NSAIDs) significantly reduces the risk of…",
     "date": "2026-06-15",
     "category": "Treatment Guides",
     "image_url": "/openverse/wellness-10-walker-frame.webp",
@@ -3840,7 +3843,7 @@
   {
     "slug": "expert-qa-are-steroid-tapers-always-necessary",
     "title": "Expert Q&A: Are Steroid Tapers Always Necessary?",
-    "excerpt": "Stopping steroids abruptly can backfire. Our clinical board explains safe tapering.",
+    "excerpt": "Stopping steroids abruptly, especially after long-term use, can cause withdrawal symptoms or a flare-up. Your body may not produce enough natural steroids…",
     "date": "2026-06-14",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0488-20171027-ams-lsc-0273.webp",
@@ -3859,7 +3862,7 @@
   {
     "slug": "nsaids-and-arthritis-benefits-risks-and-safer-use",
     "title": "NSAIDs and Arthritis: Benefits, Risks and Safer Use",
-    "excerpt": "Ibuprofen and naproxen ease pain but carry stomach and kidney risks. Use them smarter.",
+    "excerpt": "NSAIDs effectively reduce arthritis pain and stiffness, with benefits often appearing within hours to days, though responses vary. Use the lowest effective…",
     "date": "2026-06-14",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0168-elderly-woman-with-dog-in-stroller.webp",
@@ -3878,7 +3881,7 @@
   {
     "slug": "paracetamol-for-arthritis-pain-what-the-evidence-says",
     "title": "Paracetamol for Arthritis Pain: What the Evidence Says",
-    "excerpt": "Once a first-line option, paracetamol's role has narrowed. Here's where it still helps.",
+    "excerpt": "Current evidence suggests paracetamol alone provides limited benefit for many with arthritis pain, especially for long-term conditions like osteoarthritis…",
     "date": "2026-06-14",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0337-love-by-the-bridge.webp",
@@ -3954,7 +3957,7 @@
   {
     "slug": "expert-qa-should-you-start-dmards-at-diagnosis",
     "title": "Expert Q&A: Should You Start DMARDs at Diagnosis?",
-    "excerpt": "Rheumatologists increasingly favour early treatment. We explain why the window matters.",
+    "excerpt": "Starting disease-modifying anti-rheumatic drugs (DMARDs) early in inflammatory arthritis can slow disease progression, reduce joint damage, and improve…",
     "date": "2026-06-13",
     "category": "Expert Q&A",
     "image_url": "/openverse/cover-0485-20171027-ams-lsc-0317.webp",
@@ -3973,7 +3976,7 @@
   {
     "slug": "steroid-injections-vs-oral-steroids-when-each-makes-sense",
     "title": "Steroid Injections vs Oral Steroids: When Each Makes Sense",
-    "excerpt": "Targeted joint injections and short oral courses each have a role. We unpack the trade-offs.",
+    "excerpt": "Steroid injections typically alleviate pain and inflammation in specific joints for several weeks to months, often taking a few days to a week to become…",
     "date": "2026-06-13",
     "category": "Treatment Guides",
     "image_url": "/openverse/cover-0166-nordic-walking-groentenmarkt-gent.webp",
@@ -4106,7 +4109,7 @@
   {
     "slug": "medication-management-travel-arthritis",
     "title": "Travelling Abroad With Arthritis Medication: A UK Checklist",
-    "excerpt": "Prescription rules, controlled medication paperwork and time-zone dosing for biologics and DMARDs.",
+    "excerpt": "Prescription rules, controlled medication paperwork and time-zone dosing for biologics and DMARDs (Travelling Abroad With Arthritis Medication: A UK…",
     "date": "2026-06-11",
     "category": "Travel",
     "image_url": "/openverse/cover-0187-green-with-envy.webp",
@@ -4125,7 +4128,7 @@
   {
     "slug": "packing-list-arthritis-traveller",
     "title": "The Ultimate Packing List for an Arthritis Traveller",
-    "excerpt": "Heat patches, compression gloves, walking poles, TENS units: what experienced patients always pack.",
+    "excerpt": "Heat patches, compression gloves, walking poles, TENS units: what experienced patients always pack (The Ultimate Packing List for an Arthritis Traveller)…",
     "date": "2026-06-11",
     "category": "Travel",
     "image_url": "/openverse/cover-0425-hk-skd-hang-hau-wan-lung-road-po-hong-park-ju.webp",
@@ -4182,7 +4185,7 @@
   {
     "slug": "dating-with-arthritis-confidence",
     "title": "Dating With Arthritis: When and How to Tell a Partner",
-    "excerpt": "Disclosure timing, accessibility-friendly date ideas, and managing flare-up surprises with grace.",
+    "excerpt": "Disclosure timing, accessibility-friendly date ideas, and managing flare-up surprises with grace (Dating With Arthritis: When and How to Tell a Partner)…",
     "date": "2026-06-10",
     "category": "Social & Leisure",
     "image_url": "/openverse/cover-0484-seaweed-cucumber-sunomono.webp",

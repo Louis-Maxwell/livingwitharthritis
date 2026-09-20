@@ -238,6 +238,12 @@ const BlogPost = () => {
       )
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
+  const blogLastReviewed =
+    (typeof (article as { last_reviewed?: string }).last_reviewed === "string" &&
+      (article as { last_reviewed?: string }).last_reviewed) ||
+    (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw)
+      ? updatedAtRaw.slice(0, 10)
+      : "2026-09-16");
 
   const maxwellSchemaFields = {
     "identifier": "HCPC PH128483",
@@ -721,7 +727,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} />
             {getClusterForPath(`/blog/${slug}`) && (
               <TopicClusterNav path={`/blog/${slug}`} />
             )}

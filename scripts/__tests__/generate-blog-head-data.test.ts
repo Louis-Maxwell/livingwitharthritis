@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   buildPageTitle,
@@ -44,5 +46,17 @@ describe("generate-blog-head-data title + ogImage", () => {
     expect(resolveOgImage("missing-slug", null, {})).toBe(
       "https://livingwitharthritis.org.uk/og/landing-share.png",
     );
+  });
+});
+
+describe("generate-blog-head-data catalog preference", () => {
+  it("documents that blogArticles/static overwrite stale head nested articles", () => {
+    // Behavioral contract: loadRowsFromLocalJson seeds from prior head-data,
+    // then overwrites with blogArticles.json and src/content/blog/*.json.
+    // This keeps inject/prerender titles and Soft-404 bodies catalog-true.
+    const src = readFileSync(resolve("scripts/generate-blog-head-data.mjs"), "utf8");
+    expect(src).toMatch(/Catalog is source of truth/);
+    expect(src).toMatch(/blogArticles\.json/);
+    expect(src).toMatch(/loadLocalStaticArticles/);
   });
 });

@@ -193,23 +193,26 @@ function mergeLocalStatic(data, extractFaqs, coverMap) {
 }
 
 function loadRowsFromLocalJson() {
-  const rows = [];
+  // Catalog is source of truth. Seed from prior head-data only as a fallback
+  // for slugs not yet present in blogArticles / static batches, then overwrite
+  // with those catalogs so nested head copies cannot drift.
+  const map = new Map();
   if (existsSync(OUT)) {
     const data = JSON.parse(readFileSync(OUT, 'utf8'));
     for (const entry of Object.values(data)) {
-      if (entry?.article) rows.push(entry.article);
+      if (entry?.article?.slug) map.set(entry.article.slug, entry.article);
     }
   }
   const snap = resolve('src/data/blogArticles.json');
   if (existsSync(snap)) {
     const arr = JSON.parse(readFileSync(snap, 'utf8'));
-    if (Array.isArray(arr)) rows.push(...arr);
+    if (Array.isArray(arr)) {
+      for (const row of arr) {
+        if (row?.slug) map.set(row.slug, row);
+      }
+    }
   }
   for (const row of loadLocalStaticArticles()) {
-    rows.push(row);
-  }
-  const map = new Map();
-  for (const row of rows) {
     if (row?.slug) map.set(row.slug, row);
   }
   return [...map.values()];
