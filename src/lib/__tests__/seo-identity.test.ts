@@ -61,6 +61,13 @@ describe("public SEO / AEO identity", () => {
     expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
     expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
     expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(site.about).toEqual({ "@type": "Country", name: "United Kingdom" });
+    expect(site.areaServed).toEqual({ "@type": "Country", name: "United Kingdom" });
+    expect(site.speakable).toEqual({
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".speakable-intro"],
+    });
+    expect(site).toEqual(WEBSITE_PAYLOAD);
   });
 
   it("keeps Bytespider blocked and private paths disallowed for FacebookBot", () => {

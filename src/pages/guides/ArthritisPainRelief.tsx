@@ -23,11 +23,12 @@ const jsonLd = {
   "url": URL,
   "inLanguage": "en-GB",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-09-20",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
   "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
   "about": { "@type": "MedicalCondition", "name": "Arthritis" },
   "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] },
   "mainEntityOfPage": URL
 };
 

@@ -25,7 +25,7 @@ const withDefaults = (p: Omit<AeoPage, "reviewer" | "updatedAt"> & Partial<Pick<
 });
 
 export const PAGE_AEO: Record<string, AeoPage> = {
-  // â”€â”€ Conditions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // --- Conditions ---
   "/conditions/osteoarthritis": withDefaults({
     question: "What is osteoarthritis?",
     answer:

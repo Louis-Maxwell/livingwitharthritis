@@ -116,4 +116,14 @@ describe("visibility sprint: customer-job hub polish", () => {
     expect(pip).toContain("/guides/benefits-pip");
     expect(pip).toContain("Next step");
   });
+
+  it("pain relief schema is UK speakable and dated 20 Sep 2026", () => {
+    const pain = readFileSync(
+      resolve(process.cwd(), "src/pages/guides/ArthritisPainRelief.tsx"),
+      "utf8",
+    );
+    expect(pain).toContain('dateModified": "2026-09-20"');
+    expect(pain).toContain("SpeakableSpecification");
+    expect(pain).toContain(".speakable-intro");
+  });
 });
