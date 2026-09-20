@@ -69,7 +69,7 @@ const BenefitsPipHub = () => {
           name="description"
           content="Arthritis affecting dressing, cooking or walking? Start here for UK PIP and benefits: full guide, evidence diary, work rights and next-step links."
         />
-        <meta property="og:title" content="Benefits & PIP Hub | Living With Arthritis UK" />
+        <meta property="og:title" content="Benefits & PIP for Arthritis UK | Start Your Claim Prep" />
         <meta
           property="og:description"
           content="PIP looks at how arthritis affects daily living and mobility — start the full guide, then use the evidence diary and disability support links."
@@ -218,6 +218,13 @@ const BenefitsPipHub = () => {
                 <Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link>
                 {" · "}
                 <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link>
+              </li>
+              <li>
+                <Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link>
+                {" · "}
+                <Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link>
+                {" · "}
+                <Link to="/supplements/turmeric" className="text-primary underline underline-offset-2">Turmeric</Link>
               </li>
             </ul>
           </nav>

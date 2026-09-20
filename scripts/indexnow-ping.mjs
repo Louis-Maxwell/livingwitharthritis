@@ -49,6 +49,10 @@ const PATHS = [
   '/benefits-pip',
   '/search',
   '/donate',
+  '/diet/mediterranean-diet-for-arthritis',
+  '/supplements/turmeric',
+  '/blog/mediterranean-diet-shopping-list-arthritis',
+  '/blog/turmeric-curcumin-arthritis-evidence',
   '/blog',
 ];
 

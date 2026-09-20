@@ -77,6 +77,14 @@
 - **Crawl/AI:** URLs already in sitemap; IndexNow list adds pain-relief; `llms.txt` / `ai.txt` preferred pages mention pain-relief + PIP hub; blog-head-data regenerated for share packaging
 - **Tests:** `src/lib/__tests__/visibility-sprint-shoes-turmeric.test.ts`
 
+
+### Evening visibility pass (20 Sep 2026, Europe/London)
+- **Static head sync:** Helmet CTR titles for homepage, pain-relief, newly-diagnosed, benefits-PIP, Mediterranean diet and turmeric supplement now match `scripts/ai-head-data.json` (crawlers no longer see stale/homepage titles on those URLs). Added `/supplements/turmeric` curated head + visible FAQ pairs for AEO.
+- **Internal links:** Cross-links between customer-job hubs and walking-shoes / turmeric / Mediterranean spokes; `TopicClusterNav` on turmeric supplement.
+- **Crawl:** Sitemap `lastmod` 2026-09-20 on the hubs; IndexNow list + `llms.txt` / `ai.txt` / `.well-known` preferred cites refreshed. Robots still allows them. Soft-404: unknown slugs stay noindex; real hubs not noindex.
+- **Tests:** `src/lib/__tests__/evening-visibility-pass.test.ts` (+ existing seo-identity).
+- **Louis next:** Lovable publish of this `main` SHA, then GSC URL Inspection on the URL list in the PR.
+
 ### Still blocked on Louis
 - Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
 - Google Ad Grants / Google for Nonprofits apply

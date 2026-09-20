@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
+import TopicClusterNav from "@/components/seo/TopicClusterNav";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/supplements/turmeric`;
@@ -321,6 +322,19 @@ export default function Turmeric() {
               </Link>
             </div>
           </div>
+        
+          <nav aria-label="Related customer jobs" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-4">
+            <p className="text-sm font-semibold text-foreground m-0 mb-2">Related help hubs</p>
+            <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
+              <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
+              <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link></li>
+              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
+              <li><Link to="/blog/turmeric-for-arthritis" className="text-primary underline underline-offset-2">Turmeric evidence blog</Link></li>
+              <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes</Link></li>
+            </ul>
+          </nav>
+          <TopicClusterNav path="/supplements/turmeric" />
         </main>
         <Footer />
       </div>
