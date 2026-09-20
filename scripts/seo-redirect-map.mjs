@@ -153,22 +153,30 @@ export function buildRedirectHtml(from, to) {
   const abs = `${SITE}${dest}`;
   const safeDest = dest.replace(/</g, "");
   const jsDest = JSON.stringify(dest);
+  const fromPath = normalizePath(from);
+  // Lovable CDN ignores HTTP 301 files. These stubs must:
+  // 1) never look like empty homepage soft-404s
+  // 2) stay out of the index (noindex,nofollow)
+  // 3) point Google at the live destination via canonical + refresh
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This page has moved | Living With Arthritis UK</title>
-    <meta name="description" content="This URL has moved. You are being sent to the current page on Living With Arthritis UK." />
-    <meta name="robots" content="noindex, follow" />
+    <title>Moved permanently to ${abs} | Living With Arthritis UK</title>
+    <meta name="description" content="This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis UK." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
     <link rel="canonical" href="${abs}" />
     <meta http-equiv="refresh" content="0;url=${safeDest}" />
     <script>location.replace(${jsDest}+location.search+location.hash);</script>
   </head>
   <body>
     <main>
-      <h1>This page has moved</h1>
-      <p>Please continue at <a href="${safeDest}">${abs}</a>.</p>
+      <h1>This URL has permanently moved</h1>
+      <p>The page at <code>${fromPath}</code> is no longer published. Continue on the current page:</p>
+      <p><a href="${safeDest}">${abs}</a></p>
+      <p>Living With Arthritis UK (charity 1218461). If you followed an old bookmark or search result, update it to the link above.</p>
     </main>
   </body>
 </html>
