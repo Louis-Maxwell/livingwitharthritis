@@ -153,12 +153,19 @@ describe("public SEO / AEO identity", () => {
   });
 
   it("does not invent social sameAs URLs", () => {
-    expect(cityOptimized).not.toMatch(/twitter\.com\/livingwarthritis/i);
-    expect(cityOptimized).toMatch(/getSchemaOrgSameAs/);
-    expect(indexHtml).not.toMatch(/facebook\.com\/livingwitharthritis(?!uk)/i);
-    expect(JSON.stringify(ORGANIZATION_PAYLOAD.sameAs)).not.toMatch(
-      /twitter\.com|x\.com/,
+    expect(cityOptimized.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(
+      false,
     );
+    expect(cityOptimized.includes("getSchemaOrgSameAs")).toBe(true);
+    expect(indexHtml.toLowerCase().includes("facebook.com/livingwitharthritis")).toBe(
+      false,
+    );
+    const sameAsHosts = ORGANIZATION_PAYLOAD.sameAs.map((url) => {
+      const host = new URL(url).hostname;
+      return host.startsWith("www.") ? host.slice(4) : host;
+    });
+    expect(sameAsHosts.includes("twitter.com")).toBe(false);
+    expect(sameAsHosts.includes("x.com")).toBe(false);
   });
 
   it("keeps Bytespider blocked and private paths disallowed for FacebookBot", () => {
