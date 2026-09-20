@@ -26,6 +26,7 @@ import HomeQuickPathways from "@/components/landing/HomeQuickPathways";
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import { HOME_PAGE_TITLE } from "@/lib/homeSeo";
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
 const withVisitorSnippet = (rest: string) =>
@@ -88,7 +89,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | You're Not Alone With Joint Pain</title>
+        <title>{HOME_PAGE_TITLE}</title>
         <meta
           name="description"
           content={withVisitorSnippet(
@@ -99,11 +100,11 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | You're Not Alone With Joint Pain"
+          content={HOME_PAGE_TITLE}
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis UK | You're Not Alone With Joint Pain"
+          content={HOME_PAGE_TITLE}
         />
         <meta
           property="og:description"
