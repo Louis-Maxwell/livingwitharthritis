@@ -40,7 +40,7 @@ describe("host + client SEO redirects", () => {
       "/blog/mindfulness-meditation-chronic-pain",
       "/blog/mindfulness-chronic-pain-arthritis-guide",
     );
-    expect(html).toContain('content="noindex, follow"');
+    expect(html).toContain('content="noindex, nofollow"');
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/mindfulness-chronic-pain-arthritis-guide"',
     );
@@ -48,7 +48,7 @@ describe("host + client SEO redirects", () => {
       'http-equiv="refresh" content="0;url=/blog/mindfulness-chronic-pain-arthritis-guide"',
     );
     expect(html).toContain("location.replace");
-    expect(html).toContain("This page has moved");
+    expect(html).toContain("This URL has permanently moved");
     expect(html).not.toContain('id="static-article"');
     expect(html).not.toContain("Living With Arthritis | UK charity for joint pain support");
   });

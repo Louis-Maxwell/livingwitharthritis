@@ -1,0 +1,13 @@
+# CodeRabbit disabled — Louis wants Grok Bot for review, not CodeRabbit AI.
+# Uninstall the GitHub App as well: Settings → Integrations → GitHub Apps → CodeRabbit → Configure → Uninstall.
+language: en-US
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: false
+  review_status: false
+  auto_review:
+    enabled: false
+    drafts: false
+chat:
+  auto_reply: false

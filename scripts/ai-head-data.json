@@ -618,11 +618,11 @@
     ]
   },
   "/guides/newly-diagnosed": {
-    "title": "Newly Diagnosed With Arthritis? Start Here | UK",
-    "description": "Just diagnosed with arthritis? UK starter guide: rheumatology follow-up, gentle daily movement, symptom tracking and free physio triage.",
-    "question": "I've just been diagnosed with arthritis — what should I do?",
-    "answer": "Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.",
-    "updatedAt": "2026-07-01",
+    "title": "Newly Diagnosed With Arthritis UK: First Steps Checklist",
+    "description": "Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP.",
+    "question": "What should I do after an arthritis diagnosis?",
+    "answer": "Learn which type you have, keep gentle daily movement, write questions for your GP or rheumatology appointment, and track symptoms. Then explore pain relief, exercise, diet and benefits if daily living is limited. Educational guidance, not a diagnosis.",
+    "updatedAt": "2026-09-20",
     "sources": [
       {
         "name": "NHS: Arthritis overview",
@@ -632,14 +632,56 @@
         "name": "NICE NG226: Osteoarthritis in over 16s",
         "url": "https://www.nice.org.uk/guidance/ng226"
       }
+    ],
+    "faqs": [
+      {
+        "q": "Iâve just been diagnosed â what should I do first?",
+        "a": "Get a copy of your diagnosis letter, confirm exactly which type of arthritis you have, write down your top 3 questions, and book a follow-up so you have someone to ask as new questions come up. Donât rush major treatment decisions in the first week."
+      },
+      {
+        "q": "Will I become disabled?",
+        "a": "Most people with arthritis stay independent throughout their lives with the right treatment. Outcomes have improved dramatically over the last 20 years thanks to earlier diagnosis, better medications, and stronger evidence for exercise and self-management."
+      },
+      {
+        "q": "Should I stop exercising?",
+        "a": "No â almost the opposite. Appropriate exercise is one of the most effective treatments for arthritis. Start gently (walking, swimming, tai chi), build slowly, and work with a physiotherapist if youâre unsure where to begin."
+      },
+      {
+        "q": "Is arthritis hereditary?",
+        "a": "Genetics influences risk for several types of arthritis (especially rheumatoid and ankylosing spondylitis), but isnât the whole story. Lifestyle, weight, joint injuries and environment all play significant roles."
+      },
+      {
+        "q": "Can I still work?",
+        "a": "Yes â most people with arthritis continue working. You have legal protection under the Equality Act 2010, including the right to reasonable adjustments. See our work-and-arthritis guide for details."
+      },
+      {
+        "q": "Do I need to change my diet?",
+        "a": "A Mediterranean-style diet has the strongest evidence for arthritis â plenty of vegetables, oily fish, olive oil, nuts and whole grains, with less red meat and processed food. There is no single magic food, but the overall pattern matters."
+      },
+      {
+        "q": "What about supplements?",
+        "a": "Some supplements (omega-3, turmeric/curcumin, vitamin D if deficient) have modest evidence. Glucosamine and chondroitin have mixed results. Always tell your prescriber before starting â several interact with arthritis medications."
+      },
+      {
+        "q": "When should I call my team between appointments?",
+        "a": "Contact them for: a sudden severe flare; signs of infection (fever, redness, swelling); new neurological symptoms (weakness, numbness); concerning medication side effects; or major mental health distress. Donât wait if something feels wrong."
+      },
+      {
+        "q": "Can I claim any benefits?",
+        "a": "If arthritis significantly affects daily living or mobility, you may qualify for Personal Independence Payment (PIP). The claim is based on functional impact, not diagnosis. See our PIP guide for the step-by-step process."
+      },
+      {
+        "q": "How do I find other people with arthritis?",
+        "a": "Our free Connect Groups are facilitated peer communities â online and in-person, by condition or life stage. Sharing the experience with people who get it makes a real difference to wellbeing and outcomes."
+      }
     ]
   },
   "/guides/arthritis-pain-relief": {
-    "title": "Arthritis Pain Relief: What Works | UK Guide",
-    "description": "Evidence-based arthritis pain relief for UK patients: paracetamol, topical NSAID gels, heat and cold, exercise, injections and DMARDs.",
-    "question": "How do I relieve arthritis pain?",
-    "answer": "First-line pain relief includes paracetamol, topical NSAID gels and heat/cold packs. Exercise reduces pain more than most drugs long-term. If pain persists, your GP can consider oral NSAIDs, corticosteroid injections or, for inflammatory arthritis, DMARDs.",
-    "updatedAt": "2026-07-01",
+    "title": "Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)",
+    "description": "In pain now? Practical UK arthritis pain relief: paced movement, heat/cold, topical NSAIDs, sleep and when to see your GP — then next steps for diet, exercise and PIP.",
+    "question": "How do I relieve arthritis pain today?",
+    "answer": "Start with paced movement, heat or cold on the joint, and a topical NSAID gel if suitable. Protect sleep and see your GP if pain lasts more than six weeks, a joint is hot and swollen, or night pain wakes you. Educational guidance, not a diagnosis.",
+    "updatedAt": "2026-09-20",
     "sources": [
       {
         "name": "NHS: Arthritis overview",
@@ -6434,10 +6476,11 @@
     "breadcrumb": "Benefits and PIP guide"
   },
   "/": {
-    "title": "Living With Arthritis UK | Evidence-Based Health Guides",
+    "title": "Living With Arthritis UK | You're Not Alone With Joint Pain",
     "description": "Living With Arthritis UK (charity 1218461): evidence-based guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help across the United Kingdom.",
     "question": "What is Living With Arthritis UK?",
-    "answer": "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK."
+    "answer": "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
+    "updatedAt": "2026-09-20"
   },
   "/arthritis-waiting-list-help": {
     "title": "Arthritis Waiting List Help UK | Rheumatology & Physio",
@@ -6453,11 +6496,12 @@
     "breadcrumb": "Guides"
   },
   "/benefits-pip": {
-    "title": "Benefits & PIP Hub | Living With Arthritis UK",
-    "description": "UK hub for arthritis benefits and PIP: start with our full PIP guide, then explore disability support, work rights and related FAQs.",
-    "question": "Where should I start with PIP for arthritis?",
-    "answer": "Begin with our Benefits & PIP hub for a clear overview, then read the full PIP guide for eligibility, daily living and mobility points, and what to prepare for the assessment. Check GOV.UK for the latest official rules.",
-    "breadcrumb": "Benefits & PIP"
+    "title": "Benefits & PIP for Arthritis UK | Start Your Claim Prep",
+    "description": "Arthritis affecting dressing, cooking or walking? Start here for UK PIP and benefits: full guide, evidence diary, work rights and next-step links.",
+    "question": "Where do I start with PIP for arthritis?",
+    "answer": "PIP looks at how arthritis affects daily living and mobility, not only your diagnosis name. Start with our full PIP guide, keep an evidence diary, and use Citizens Advice or a welfare rights adviser for form help. Educational guidance, not benefits advice.",
+    "breadcrumb": "Benefits & PIP",
+    "updatedAt": "2026-09-20"
   },
   "/search": {
     "title": "Search Arthritis Guides & Articles | Living With Arthritis UK",
@@ -6502,8 +6546,35 @@
     "title": "Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis UK",
     "description": "What the evidence shows about the Mediterranean diet and arthritis pain, plus a practical UK shopping list and a simple 7-day meal plan. Educational guidance, not a personal prescription.",
     "question": "Does the Mediterranean diet help arthritis?",
-    "answer": "Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. This is educational nutrition guidance, not a personal diet prescription.",
-    "breadcrumb": "Mediterranean diet for arthritis"
+    "answer": "Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. Educational nutrition guidance, not a personal diet prescription.",
+    "breadcrumb": "Mediterranean diet for arthritis",
+    "updatedAt": "2026-09-20",
+    "faqs": [
+      {
+        "q": "Is the Mediterranean diet expensive on a UK budget?",
+        "a": "It doesn't have to be. The four cheapest staples â tinned chickpeas, tinned sardines, frozen berries and own-brand extra virgin olive oil â sit at the heart of the pattern. Lentils, oats, eggs and seasonal vegetables stretch a weekly food budget further than most processed alternatives."
+      },
+      {
+        "q": "Can I follow it as a vegetarian or vegan?",
+        "a": "Yes. Replace the oily fish with daily ground flaxseed, walnuts and chia seeds, and consider an algae-based EPA/DHA supplement (1â2 g a day). Pulses and tofu cover the protein side; the rest of the pattern stays identical."
+      },
+      {
+        "q": "What about alcohol?",
+        "a": "The traditional Mediterranean diet includes a small glass of red wine with food. Current UK guidance keeps total alcohol under 14 units a week, spread over several days, with alcohol-free days. If you have gout or take methotrexate, less is better â discuss with your GP."
+      },
+      {
+        "q": "Do I have to give up dairy?",
+        "a": "No. The Mediterranean diet keeps yoghurt and small amounts of cheese; both are linked with lower inflammation in most studies. Fermented dairy like live yoghurt and kefir also supports gut health, which itself influences arthritis."
+      },
+      {
+        "q": "Should I take supplements alongside the diet?",
+        "a": "If you eat oily fish twice a week, you usually don't need a fish-oil supplement. Vitamin D 10 mcg daily through autumn and winter is recommended for all UK adults. Curcumin (turmeric extract) and collagen have modest evidence â discuss with your GP, especially if you take blood thinners."
+      },
+      {
+        "q": "How long until I notice a difference?",
+        "a": "Energy and digestion often shift within 2 weeks. Joint pain and morning stiffness typically begin to ease at the 6â12 week mark, with the strongest evidence at 16 weeks of consistent eating combined with gentle daily movement."
+      }
+    ]
   },
   "/arthritis-support": {
     "title": "UK Arthritis Support Directory | Living With Arthritis",
@@ -6534,5 +6605,43 @@
     "bodyHtml": "<h2>Best exercises for ankylosing spondylitis</h2>\n<p>Daily spinal mobility work is core treatment for ankylosing spondylitis (axial spondyloarthritis), not an optional extra. NASS and rheumatology teams encourage gentle extension, rotation and breathing drills most days, including quieter days when rest feels tempting.</p>\n<p>Combine mobility with low-impact cardio such as swimming or walking, and stop short of sharp inflammatory pain. If eyes become red and painful, seek urgent ophthalmology advice for possible uveitis. Pair this page with the main <a href=\"/conditions/ankylosing-spondylitis\">AS condition guide</a> and treatment subpage.</p>",
     "breadcrumb": "AS exercises",
     "about": "Ankylosing spondylitis"
+  },
+  "/supplements/turmeric": {
+    "title": "Is Turmeric Good for Arthritis? UK Curcumin Guide | Living With Arthritis UK",
+    "description": "Honest UK guide to turmeric and curcumin for arthritis: the evidence, the right dose (around 1,000 mg/day), why black pepper matters for absorption, side effects and interactions.",
+    "question": "Is turmeric good for arthritis?",
+    "answer": "Trials of curcumin (around 1,000 mg/day for 8–12 weeks) show modest reductions in knee osteoarthritis pain for some people. Cooking with turmeric powder alone rarely matches trial doses. Check interactions with your GP or pharmacist. Educational guidance, not a prescription.",
+    "updatedAt": "2026-09-20",
+    "breadcrumb": "Turmeric",
+    "faqs": [
+      {
+        "q": "Is turmeric good for arthritis?",
+        "a": "Yes, modestly. Trials of curcumin (the active compound in turmeric) at around 1,000 mg/day for 8â12 weeks show meaningful reductions in knee osteoarthritis pain and stiffness, sometimes comparable to ibuprofen or diclofenac but with fewer stomach side effects."
+      },
+      {
+        "q": "How much turmeric or curcumin should I take?",
+        "a": "Clinical trials mostly use 500â1,000 mg of curcumin extract per day, usually split into two doses with food. Cooking with turmeric powder alone will not deliver that dose â supplements standardised to 95% curcuminoids are what the studies test."
+      },
+      {
+        "q": "Why is black pepper (piperine) added to turmeric supplements?",
+        "a": "Curcumin is poorly absorbed on its own. Adding piperine from black pepper increases its bioavailability by up to 2,000%. Most reputable UK curcumin supplements include piperine or use a formulation like Meriva or BCM-95 that boosts absorption in other ways."
+      },
+      {
+        "q": "How long does turmeric take to work for arthritis?",
+        "a": "Allow at least 8â12 weeks of daily use. If pain and stiffness have not improved by 3 months, stop â you are unlikely to be a responder."
+      },
+      {
+        "q": "What are the side effects of turmeric?",
+        "a": "Turmeric is generally well tolerated. The most common issues are mild indigestion, nausea or diarrhoea. Rare cases of liver injury have been reported at high doses, so stick to standard trial doses and stop if you feel unwell."
+      },
+      {
+        "q": "Who should avoid turmeric supplements?",
+        "a": "Talk to your GP before taking turmeric if you are pregnant, take blood thinners (warfarin, apixaban, aspirin), have gallstones or bile-duct problems, diabetes medication, or are due to have surgery within two weeks."
+      },
+      {
+        "q": "Turmeric vs ibuprofen for arthritis â which is better?",
+        "a": "For knee osteoarthritis, head-to-head trials show curcumin roughly matches ibuprofen or diclofenac for pain relief over 4â12 weeks, with fewer stomach and kidney side effects. It is slower to act. For short flares, NSAIDs still work faster."
+      }
+    ]
   }
 }
