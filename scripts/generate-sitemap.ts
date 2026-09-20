@@ -378,9 +378,20 @@ function build(entries: SitemapEntry[]): string {
 async function main() {
   const entries: SitemapEntry[] = [];
 
+  // High-intent hubs refreshed in the 20 Sep 2026 evening visibility pass.
+  const LASTMOD_BY_PATH: Record<string, string> = {
+    "/": "2026-09-20",
+    "/about": "2026-08-31",
+    "/guides/arthritis-pain-relief": "2026-09-20",
+    "/guides/newly-diagnosed": "2026-09-20",
+    "/benefits-pip": "2026-09-20",
+    "/guides/benefits-pip": "2026-09-20",
+    "/diet/mediterranean-diet-for-arthritis": "2026-09-20",
+    "/supplements/turmeric": "2026-09-20",
+  };
   for (const p of parseStaticRoutes()) {
     // lastmod only for pages with a known significant content change; others omit it.
-    const lastmod = p === "/" || p === "/about" ? "2026-08-31" : undefined;
+    const lastmod = LASTMOD_BY_PATH[p];
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
   }
 

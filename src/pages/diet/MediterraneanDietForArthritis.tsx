@@ -577,10 +577,12 @@ export default function MediterraneanDietForArthritis() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: "Diet Hub", desc: "All anti-inflammatory eating tools, calculators and recipes in one place.", to: "/diet" },
+              { title: "Pain relief", desc: "Practical UK pain-relief steps when joints hurt today.", to: "/guides/arthritis-pain-relief" },
+              { title: "Newly diagnosed", desc: "First-week checklist after an arthritis diagnosis.", to: "/guides/newly-diagnosed" },
+              { title: "Benefits & PIP", desc: "When pain or stiffness limits daily living or mobility.", to: "/benefits-pip" },
+              { title: "Turmeric / curcumin", desc: "Evidence, dose and safety for curcumin supplements.", to: "/supplements/turmeric" },
+              { title: "14-day meal plan", desc: "A fortnight Mediterranean plan with UK supermarket ingredients.", to: "/blog/mediterranean-diet-arthritis-14-day-plan" },
               { title: "Full Diet Guide", desc: "The pillar guide — Mediterranean diet, supplements, gut health and weight management.", to: "/guides/diet#mediterranean-diet" },
-              { title: "Anti-inflammatory smoothie", desc: "The 5-ingredient beet & berry smoothie used in the Day 6 plan.", to: "/guides/diet#anti-inflammatory-smoothie" },
-              { title: "Foods to avoid with arthritis", desc: "What to leave on the shelf — and the swaps that matter most.", to: "/guides/diet#foods-to-avoid" },
-              { title: "Rheumatoid arthritis diet", desc: "How the Mediterranean pattern adapts for inflammatory arthritis and DMARD users.", to: "/conditions/rheumatoid-arthritis" },
               { title: "Osteoarthritis diet", desc: "Pair eating with weight management — the highest-impact lever for OA pain.", to: "/conditions/osteoarthritis" },
             ].map((c) => (
               <Link key={c.to} to={c.to} className="group">
