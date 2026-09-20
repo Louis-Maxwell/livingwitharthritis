@@ -16,6 +16,7 @@ import FaqAccordion from "@/components/faq/FaqAccordion";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
+import { CONTACT_PHONE, CONTACT_PHONE_E164 } from "@/config/contact";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
 const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
@@ -269,8 +270,8 @@ const AboutUs = () => {
               <div className="flex flex-wrap gap-x-2">
                 <dt className="font-semibold">Phone</dt>
                 <dd>
-                  <a href="tel:+447760512084" className="underline underline-offset-2 hover:text-primary">
-                    07760 512 084
+                  <a href={`tel:${CONTACT_PHONE_E164}`} className="underline underline-offset-2 hover:text-primary">
+                    {CONTACT_PHONE}
                   </a>
                 </dd>
               </div>

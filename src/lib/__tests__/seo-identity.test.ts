@@ -2,7 +2,12 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
-import { getSchemaOrgSameAs } from "@/config/social-media";
+import {
+  CONTACT_EMAILS,
+  CONTACT_PHONE,
+  CONTACT_PHONE_E164,
+} from "@/config/contact";
+import { FACEBOOK_PAGE_ID, getSchemaOrgSameAs } from "@/config/social-media";
 import { buildCharitySchema } from "@/lib/jsonLd";
 import {
   ORGANIZATION_PAYLOAD,
@@ -46,6 +51,21 @@ function jsonLdFromIndex(id: string) {
 }
 
 describe("public SEO / AEO identity", () => {
+  it("locks canonical charity contact facts", () => {
+    expect(CHARITY.number).toBe("1218461");
+    expect(CHARITY.siteUrl).toBe("https://livingwitharthritis.org.uk");
+    expect(CHARITY.contactEmail).toBe("info@livingwitharthritis.org.uk");
+    expect(CONTACT_EMAILS.info).toBe("info@livingwitharthritis.org.uk");
+    expect(CONTACT_PHONE).toBe("07760 512 084");
+    expect(CONTACT_PHONE_E164).toBe("+447760512084");
+    expect(FACEBOOK_PAGE_ID).toBe("61583723925315");
+    expect(ORGANIZATION_PAYLOAD.founder.identifier.value).toBe("PH128483");
+    expect(ORGANIZATION_PAYLOAD.contactPoint[0].telephone.replace(/\D/g, "")).toBe(
+      "447760512084",
+    );
+    expect(ORGANIZATION_PAYLOAD.email).toBe("info@livingwitharthritis.org.uk");
+  });
+
   it("does not publish Oswestry coordinates or a street address", () => {
     expect(indexHtml).not.toMatch(/52\.8598/);
     expect(indexHtml).not.toMatch(/-3\.0538/);
@@ -126,6 +146,7 @@ describe("public SEO / AEO identity", () => {
     );
     expect(aboutUs).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);
     expect(aboutUs).toContain("info@livingwitharthritis.org.uk");
+    expect(aboutUs).toMatch(/CONTACT_PHONE/);
     expect(aboutUs).toContain("07760 512 084");
     expect(aboutUs).toMatch(/index,\s*follow/);
     expect(aboutUs).not.toMatch(/noindex/);
