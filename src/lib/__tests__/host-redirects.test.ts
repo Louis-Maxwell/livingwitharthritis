@@ -49,6 +49,11 @@ describe("host + client SEO redirects", () => {
     );
     expect(html).toContain("location.replace");
     expect(html).toContain("This URL has permanently moved");
+    expect(html).toContain('class="go"');
+    expect(html).toContain("min-height: 48px");
+    expect(html).toContain('content="GB"');
+    expect(html).toContain("England, Scotland, Wales and Northern Ireland");
+    expect(html).toContain("Charity 1218461");
     expect(html).not.toContain('id="static-article"');
     expect(html).not.toContain("Living With Arthritis | UK charity for joint pain support");
   });

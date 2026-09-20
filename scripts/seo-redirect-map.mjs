@@ -148,35 +148,110 @@ export function normalizePath(pathname) {
   return collapsed || "/";
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 export function buildRedirectHtml(from, to) {
   const dest = normalizePath(to);
   const abs = `${SITE}${dest}`;
   const safeDest = dest.replace(/</g, "");
   const jsDest = JSON.stringify(dest);
-  const fromPath = normalizePath(from);
+  const fromPath = escapeHtml(normalizePath(from));
+  const absSafe = escapeHtml(abs);
+  const destHref = escapeHtml(safeDest);
   // Lovable CDN ignores HTTP 301 files. These stubs must:
   // 1) never look like empty homepage soft-404s
   // 2) stay out of the index (noindex,nofollow)
   // 3) point Google at the live destination via canonical + refresh
+  // 4) still look like the charity if the jump is blocked (no JS, slow phone)
   return `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moved permanently to ${abs} | Living With Arthritis UK</title>
-    <meta name="description" content="This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis UK." />
+    <meta name="theme-color" content="#DC2626" />
+    <title>Moved permanently to ${absSafe} | Living With Arthritis UK</title>
+    <meta name="description" content="This URL (${fromPath}) has permanently moved to ${absSafe}. Use the destination page on Living With Arthritis UK." />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
-    <link rel="canonical" href="${abs}" />
-    <meta http-equiv="refresh" content="0;url=${safeDest}" />
+    <meta name="geo.region" content="GB" />
+    <meta name="geo.placename" content="United Kingdom" />
+    <link rel="canonical" href="${absSafe}" />
+    <meta http-equiv="refresh" content="0;url=${destHref}" />
     <script>location.replace(${jsDest}+location.search+location.hash);</script>
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Georgia, "Times New Roman", serif;
+        background: #FEF2F2;
+        color: #1F2937;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+      }
+      main {
+        width: 100%;
+        max-width: 40rem;
+        margin: auto;
+        padding: 1.5rem 1.25rem 2.5rem;
+      }
+      .brand {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #DC2626;
+        margin: 0 0 1rem;
+      }
+      h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+      p { margin: 0 0 1rem; line-height: 1.6; }
+      code {
+        font-size: 0.9em;
+        word-break: break-all;
+        background: #fff;
+        padding: 0.1em 0.35em;
+        border-radius: 0.25rem;
+      }
+      .go {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        min-width: 44px;
+        padding: 0.75rem 1.25rem;
+        background: #DC2626;
+        color: #fff;
+        text-decoration: none;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+        border-radius: 999px;
+      }
+      .go:focus-visible { outline: 3px solid #991B1B; outline-offset: 3px; }
+      .note { font-size: 0.9rem; color: #4B5563; }
+    </style>
   </head>
   <body>
     <main>
+      <p class="brand">Living With Arthritis UK · Charity 1218461</p>
       <h1>This URL has permanently moved</h1>
       <p>The page at <code>${fromPath}</code> is no longer published. Continue on the current page:</p>
-      <p><a href="${safeDest}">${abs}</a></p>
-      <p>Living With Arthritis UK (charity 1218461). If you followed an old bookmark or search result, update it to the link above.</p>
+      <p><a class="go" href="${destHref}">Open the current page</a></p>
+      <p class="note"><a href="${destHref}">${absSafe}</a></p>
+      <p class="note">If you followed an old bookmark or search result, update it to the link above. Guides cover England, Scotland, Wales and Northern Ireland.</p>
+      <noscript><p class="note">JavaScript is off, so use the button above.</p></noscript>
     </main>
   </body>
 </html>
