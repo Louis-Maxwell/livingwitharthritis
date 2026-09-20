@@ -1,10 +1,11 @@
 /**
- * Living With Arthritis UK — Homepage (Phase 1 Week-1)
+ * Living With Arthritis UK — Homepage (customer-first)
  *
- * Clearer hierarchy: hero (≤2 CTAs) → trust strip → starting point →
- * practical hubs → tools → medication → research → support → donate.
- * No invented testimonials or traffic numbers. Zakat/urgent appeals
- * deprioritised to a small link. Stay on Vite/React/Lovable stack.
+ * Obsessive customer focus: people living with arthritis in the UK + carers.
+ * Hierarchy: empathy hero (≤2 help CTAs) → trust strip → 4 job pathways →
+ * starting point → hubs → tools → medication → research → soft donate.
+ * Donate never louder than help. No invented testimonials/metrics.
+ * See docs/CUSTOMER-FIRST.md.
  */
 
 import { lazy, Suspense, useEffect } from "react";
@@ -48,7 +49,6 @@ const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
 const Footer = lazy(() => import("@/components/Footer"));
 const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
-const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
 const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
@@ -88,7 +88,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis UK | You're Not Alone With Joint Pain</title>
         <meta
           name="description"
           content={withVisitorSnippet(
@@ -99,11 +99,11 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis UK | You're Not Alone With Joint Pain"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis UK | You're Not Alone With Joint Pain"
         />
         <meta
           property="og:description"
@@ -373,7 +373,6 @@ function HomePage() {
         <DeferredMount>
           <Suspense fallback={null}>
             <BackToTopButton />
-            <StickyDonateBar />
             <MobileBottomCTA />
           </Suspense>
         </DeferredMount>

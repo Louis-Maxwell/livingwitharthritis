@@ -1,17 +1,12 @@
 import { memo, useEffect, useState } from "react";
-import { Heart, BookOpen, MapPin, X } from "lucide-react";
+import { HeartPulse, BookOpen, Wallet, X } from "lucide-react";
 import { trackMobileBottomCTA } from "@/lib/ga-events";
 
 const STORAGE_KEY = "lwa.mobileCta.dismissed";
 
 /**
- * Mobile-only dual CTA bar pinned to the viewport bottom.
- * Hidden when the user dismisses, or when the inline donate
- * widget is in view (to avoid double-CTA noise).
- *
- * Sits ABOVE StickyDonateBar via z-index when both want to render;
- * StickyDonateBar already hides once #donate-inline is visible, so
- * in practice they cooperate.
+ * Mobile-only help-first CTA bar pinned near the viewport bottom.
+ * Help pathways outrank donate (customer-first). Dismissible per session.
  */
 const MobileBottomCTA = memo(() => {
   const [hidden, setHidden] = useState(true);
@@ -42,7 +37,7 @@ const MobileBottomCTA = memo(() => {
   return (
     <div
       className="fixed inset-x-0 z-40 lg:hidden pointer-events-none"
-      style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem)" }}
+      style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 0.5rem)" }}
     >
       <div className="mx-3 mb-2 pointer-events-auto max-w-full">
         <div className="relative rounded-2xl bg-background border border-border shadow-2xl p-2 flex gap-2">
@@ -55,26 +50,26 @@ const MobileBottomCTA = memo(() => {
             <X className="w-3 h-3" aria-hidden="true" />
           </button>
           <a
-            href="#donate-inline"
-            onClick={() => trackMobileBottomCTA("donate")}
+            href="/guides/arthritis-pain-relief"
+            onClick={() => trackMobileBottomCTA("pain_relief")}
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-primary text-primary-foreground font-bold text-xs px-2"
           >
-            <Heart className="w-4 h-4" aria-hidden="true" /> Donate
+            <HeartPulse className="w-4 h-4" aria-hidden="true" /> Relief
           </a>
           <a
-            href="/conditions/osteoarthritis"
-            onClick={() => trackMobileBottomCTA("start_reading")}
+            href="/guides/newly-diagnosed"
+            onClick={() => trackMobileBottomCTA("newly_diagnosed")}
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-foreground text-background font-bold text-xs px-2"
           >
-            <BookOpen className="w-4 h-4" aria-hidden="true" /> Read
+            <BookOpen className="w-4 h-4" aria-hidden="true" /> New
           </a>
           <a
-            href="/arthritis-support"
-            onClick={() => trackMobileBottomCTA("start_reading")}
-            aria-label="Find local support"
+            href="/benefits-pip"
+            onClick={() => trackMobileBottomCTA("benefits")}
+            aria-label="Money and benefits including PIP"
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-card text-foreground border border-border font-bold text-xs px-2"
           >
-            <MapPin className="w-4 h-4" aria-hidden="true" /> Support
+            <Wallet className="w-4 h-4" aria-hidden="true" /> PIP
           </a>
         </div>
       </div>

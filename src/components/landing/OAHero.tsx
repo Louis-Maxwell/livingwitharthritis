@@ -1,6 +1,6 @@
 import { memo, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight, HeartPulse, BookOpen } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
 import { onCoverImgError } from "@/lib/articleImages";
@@ -37,46 +37,70 @@ const OAHero = memo(() => {
           <div className="hero-stagger min-w-0">
             <h1
               id="oa-hero"
-              className="hero-item text-balance break-words text-[clamp(1.65rem,3.6vw,2.85rem)] leading-[1.15] uppercase"
+              className="hero-item text-balance break-words text-[clamp(1.65rem,3.6vw,2.85rem)] leading-[1.15]"
             >
-              Living With Arthritis UK
-              <span className="mt-1.5 block text-[0.42em] sm:text-[0.38em] font-semibold tracking-[0.12em] normal-case">
-                Evidence-based health guides
+              You&apos;re not alone with joint pain
+              <span className="mt-1.5 block text-[0.42em] sm:text-[0.38em] font-semibold tracking-[0.08em] normal-case opacity-95">
+                Free UK guides for people living with arthritis — and the people who care for them
               </span>
             </h1>
 
             <p className="hero-item mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
-              Living with joint pain is exhausting — the stiff mornings, the cancelled plans,
-              the feeling that nobody quite gets it. You are not alone.
+              Stiff mornings, cancelled plans, the feeling that nobody quite gets it. Start with
+              what you need today. Educational information only — not a diagnosis or personal
+              medical advice.
             </p>
 
 
             <div className="hero-item mt-5 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 min-w-0">
               <Link
-                to="/guides/newly-diagnosed"
+                to="/guides/arthritis-pain-relief"
                 onClick={() =>
-                  trackStartHereCard("Start your gentle plan", "/guides/newly-diagnosed")
+                  trackStartHereCard("I'm in pain — need relief", "/guides/arthritis-pain-relief")
                 }
                 className="btn-map btn-map-dark group w-full sm:w-auto justify-center min-h-11"
               >
-                <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
-                Start your gentle plan
+                <HeartPulse className="w-4 h-4 mr-2" aria-hidden="true" />
+                I&apos;m in pain — need relief
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
               <Link
-                to="/donate"
-                onClick={() => trackDonationClick({ source: "home_hero" })}
+                to="/guides/newly-diagnosed"
+                onClick={() =>
+                  trackStartHereCard("Newly diagnosed", "/guides/newly-diagnosed")
+                }
                 className="btn-map w-full sm:w-auto justify-center min-h-11"
                 style={{ background: "white", color: "hsl(var(--foreground))" }}
               >
-                Donate — keep it free
+                <BookOpen className="w-4 h-4 mr-2" aria-hidden="true" />
+                Newly diagnosed
               </Link>
             </div>
-            <p className="hero-item mt-3">
+            <p className="hero-item mt-3 text-sm flex flex-wrap items-center gap-x-3 gap-y-1">
+              <Link
+                to="/benefits-pip"
+                onClick={() => trackStartHereCard("Money & benefits", "/benefits-pip")}
+                className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
+              >
+                Money &amp; benefits (PIP)
+              </Link>
+              <span aria-hidden="true" className="opacity-50">
+                ·
+              </span>
+              <Link
+                to="/donate"
+                onClick={() => trackDonationClick({ source: "home_hero_soft" })}
+                className="font-medium underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm opacity-90"
+              >
+                Donate / research fund
+              </Link>
+              <span aria-hidden="true" className="opacity-50">
+                ·
+              </span>
               <a
                 href="#start-here"
                 onClick={scrollToStartHere}
-                className="text-sm font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
+                className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
               >
                 Find your starting point
               </a>
@@ -87,11 +111,11 @@ const OAHero = memo(() => {
               className="hero-item mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm"
             >
               <span className="font-semibold">Popular:</span>
-              <Link to="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Knee exercises</Link>
+              <Link to="/exercises" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Exercises</Link>
+              <span aria-hidden="true" className="opacity-50">·</span>
+              <Link to="/conditions/knee-arthritis" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Knee arthritis</Link>
               <span aria-hidden="true" className="opacity-50">·</span>
               <Link to="/diet" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Anti-inflammatory diet</Link>
-              <span aria-hidden="true" className="opacity-50">·</span>
-              <Link to="/guides/arthritis-pain-relief" className="font-semibold underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm">Pain-relief tips</Link>
             </nav>
           </div>
 
