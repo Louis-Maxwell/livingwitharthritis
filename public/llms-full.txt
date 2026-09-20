@@ -6,7 +6,7 @@
 
 ## Living With Arthritis UK | Registered Charity 1218461
 URL: https://livingwitharthritis.org.uk/
-Last updated: 2026-07-01
+Last updated: 2026-09-20
 Q: What is Living With Arthritis UK?
 A: Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.
 
@@ -15,6 +15,12 @@ URL: https://livingwitharthritis.org.uk/about
 Last updated: 2026-07-01
 Q: Who is Living With Arthritis UK?
 A: Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).
+
+## UK Arthritis Support Directory | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/arthritis-support
+Last updated: 2026-09-19
+Q: Where can I find arthritis support in my UK city?
+A: Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.
 
 ## Arthritis Waiting List Help UK | Rheumatology & Physio
 URL: https://livingwitharthritis.org.uk/arthritis-waiting-list-help
@@ -28,17 +34,23 @@ Last updated: 2026-08-29
 Q: Who writes Living With Arthritis UK content?
 A: Living With Arthritis UK content is written by our editorial team and led clinically by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the HCPC (PH128483) and a CSP member. Every clinical page is reviewed against NHS and NICE guidance before publication.
 
-## Benefits & PIP Hub | Living With Arthritis UK
+## Benefits & PIP for Arthritis UK | Start Your Claim Prep
 URL: https://livingwitharthritis.org.uk/benefits-pip
-Last updated: 2026-07-01
-Q: Where should I start with PIP for arthritis?
-A: Begin with our Benefits & PIP hub for a clear overview, then read the full PIP guide for eligibility, daily living and mobility points, and what to prepare for the assessment. Check GOV.UK for the latest official rules.
+Last updated: 2026-09-20
+Q: Where do I start with PIP for arthritis?
+A: PIP looks at how arthritis affects daily living and mobility, not only your diagnosis name. Start with our full PIP guide, keep an evidence diary, and use Citizens Advice or a welfare rights adviser for form help. Educational guidance, not benefits advice.
 
 ## Arthritis blog UK | Exercise, diet, PIP and pain guides
 URL: https://livingwitharthritis.org.uk/blog
 Last updated: 2026-07-01
 Q: Where can I read UK arthritis guides on exercise, diet and PIP?
 A: The Living With Arthritis blog collects clinically reviewed UK guides on arthritis exercise, anti-inflammatory diet, PIP and benefits claims, treatments and managing flare-ups. Browse by topic hub or read the featured guides on knee exercises, turmeric, omega-3 and PIP applications.
+
+## Arthritis Exercise Articles & Guides | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/blog/category/exercise
+Last updated: 2026-09-19
+Q: Where can I find arthritis exercise articles?
+A: This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.
 
 ## Methotrexate Side Effects UK | Practical Tips & Folic Acid
 URL: https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips
@@ -69,6 +81,12 @@ Q: What is the HLA-B27 test?
 A: A blood test that checks for the HLA-B27 gene, found in around 90% of UK people with AS. A positive test alone doesn't diagnose AS — it's used alongside symptoms and MRI scans.
 Q: Should I exercise if my back hurts?
 A: Yes — gentle, regular movement is the single most important treatment for AS. Pain that eases with activity is typical. A physiotherapist can build a safe, progressive programme.
+
+## Best Exercises for Ankylosing Spondylitis | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis/exercises
+Last updated: 2026-09-19
+Q: What are the best exercises for ankylosing spondylitis?
+A: Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.
 
 ## Elbow Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/elbow-arthritis
@@ -298,6 +316,24 @@ Last updated: 2026-07-01
 Q: What's the best diet for arthritis?
 A: A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.
 
+## Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis
+Last updated: 2026-09-20
+Q: Does the Mediterranean diet help arthritis?
+A: Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. Educational nutrition guidance, not a personal diet prescription.
+Q: Is the Mediterranean diet expensive on a UK budget?
+A: It doesn't have to be. The four cheapest staples â tinned chickpeas, tinned sardines, frozen berries and own-brand extra virgin olive oil â sit at the heart of the pattern. Lentils, oats, eggs and seasonal vegetables stretch a weekly food budget further than most processed alternatives.
+Q: Can I follow it as a vegetarian or vegan?
+A: Yes. Replace the oily fish with daily ground flaxseed, walnuts and chia seeds, and consider an algae-based EPA/DHA supplement (1â2 g a day). Pulses and tofu cover the protein side; the rest of the pattern stays identical.
+Q: What about alcohol?
+A: The traditional Mediterranean diet includes a small glass of red wine with food. Current UK guidance keeps total alcohol under 14 units a week, spread over several days, with alcohol-free days. If you have gout or take methotrexate, less is better â discuss with your GP.
+Q: Do I have to give up dairy?
+A: No. The Mediterranean diet keeps yoghurt and small amounts of cheese; both are linked with lower inflammation in most studies. Fermented dairy like live yoghurt and kefir also supports gut health, which itself influences arthritis.
+Q: Should I take supplements alongside the diet?
+A: If you eat oily fish twice a week, you usually don't need a fish-oil supplement. Vitamin D 10 mcg daily through autumn and winter is recommended for all UK adults. Curcumin (turmeric extract) and collagen have modest evidence â discuss with your GP, especially if you take blood thinners.
+Q: How long until I notice a difference?
+A: Energy and digestion often shift within 2 weeks. Joint pain and morning stiffness typically begin to ease at the 6â12 week mark, with the strongest evidence at 16 weeks of consistent eating combined with gentle daily movement.
+
 ## Donate to Living With Arthritis UK | Gift Aid
 URL: https://livingwitharthritis.org.uk/donate
 Last updated: 2026-07-01
@@ -318,7 +354,7 @@ A: Combine aerobic (walking, swimming, cycling) with strength training 2-3 times
 
 ## Best Exercises for Arthritis | UK FAQ
 URL: https://livingwitharthritis.org.uk/faq/best-exercises-arthritis
-Last updated: 2026-09-17
+Last updated: 2026-09-19
 Q: What are the best exercises for people with arthritis?
 A: Low-impact walking, swimming and gentle strength training are ideal for most people with arthritis when progressed gradually.
 
@@ -994,11 +1030,11 @@ Last updated: 2026-07-01
 Q: Where can I find UK arthritis guides?
 A: The Living With Arthritis UK guides hub collects practical pages on PIP and benefits, exercise, diet, pain relief and NHS care. Each guide is written for people in the United Kingdom and reviewed against current clinical guidance.
 
-## Arthritis Pain Relief: What Works | UK Guide
+## Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)
 URL: https://livingwitharthritis.org.uk/guides/arthritis-pain-relief
-Last updated: 2026-07-01
-Q: How do I relieve arthritis pain?
-A: First-line pain relief includes paracetamol, topical NSAID gels and heat/cold packs. Exercise reduces pain more than most drugs long-term. If pain persists, your GP can consider oral NSAIDs, corticosteroid injections or, for inflammatory arthritis, DMARDs.
+Last updated: 2026-09-20
+Q: How do I relieve arthritis pain today?
+A: Start with paced movement, heat or cold on the joint, and a topical NSAID gel if suitable. Protect sleep and see your GP if pain lasts more than six weeks, a joint is hot and swollen, or night pain wakes you. Educational guidance, not a diagnosis.
 
 ## Arthritis vs Fibromyalgia | UK Comparison Guide
 URL: https://livingwitharthritis.org.uk/guides/arthritis-vs-fibromyalgia
@@ -1210,11 +1246,31 @@ Last updated: 2026-07-01
 Q: What is musculoskeletal health?
 A: Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.
 
-## Newly Diagnosed With Arthritis? Start Here | UK
+## Newly Diagnosed With Arthritis UK: First Steps Checklist
 URL: https://livingwitharthritis.org.uk/guides/newly-diagnosed
-Last updated: 2026-07-01
-Q: I've just been diagnosed with arthritis — what should I do?
-A: Book a rheumatology follow-up if not already arranged, start gentle daily movement, and read up on your specific type. NICE recommends beginning exercise and joint protection within weeks of diagnosis for best long-term outcomes. Track symptoms, ask your GP about pain relief options, and consider our free virtual physiotherapy triage.
+Last updated: 2026-09-20
+Q: What should I do after an arthritis diagnosis?
+A: Learn which type you have, keep gentle daily movement, write questions for your GP or rheumatology appointment, and track symptoms. Then explore pain relief, exercise, diet and benefits if daily living is limited. Educational guidance, not a diagnosis.
+Q: Iâve just been diagnosed â what should I do first?
+A: Get a copy of your diagnosis letter, confirm exactly which type of arthritis you have, write down your top 3 questions, and book a follow-up so you have someone to ask as new questions come up. Donât rush major treatment decisions in the first week.
+Q: Will I become disabled?
+A: Most people with arthritis stay independent throughout their lives with the right treatment. Outcomes have improved dramatically over the last 20 years thanks to earlier diagnosis, better medications, and stronger evidence for exercise and self-management.
+Q: Should I stop exercising?
+A: No â almost the opposite. Appropriate exercise is one of the most effective treatments for arthritis. Start gently (walking, swimming, tai chi), build slowly, and work with a physiotherapist if youâre unsure where to begin.
+Q: Is arthritis hereditary?
+A: Genetics influences risk for several types of arthritis (especially rheumatoid and ankylosing spondylitis), but isnât the whole story. Lifestyle, weight, joint injuries and environment all play significant roles.
+Q: Can I still work?
+A: Yes â most people with arthritis continue working. You have legal protection under the Equality Act 2010, including the right to reasonable adjustments. See our work-and-arthritis guide for details.
+Q: Do I need to change my diet?
+A: A Mediterranean-style diet has the strongest evidence for arthritis â plenty of vegetables, oily fish, olive oil, nuts and whole grains, with less red meat and processed food. There is no single magic food, but the overall pattern matters.
+Q: What about supplements?
+A: Some supplements (omega-3, turmeric/curcumin, vitamin D if deficient) have modest evidence. Glucosamine and chondroitin have mixed results. Always tell your prescriber before starting â several interact with arthritis medications.
+Q: When should I call my team between appointments?
+A: Contact them for: a sudden severe flare; signs of infection (fever, redness, swelling); new neurological symptoms (weakness, numbness); concerning medication side effects; or major mental health distress. Donât wait if something feels wrong.
+Q: Can I claim any benefits?
+A: If arthritis significantly affects daily living or mobility, you may qualify for Personal Independence Payment (PIP). The claim is based on functional impact, not diagnosis. See our PIP guide for the step-by-step process.
+Q: How do I find other people with arthritis?
+A: Our free Connect Groups are facilitated peer communities â online and in-person, by condition or life stage. Sharing the experience with people who get it makes a real difference to wellbeing and outcomes.
 
 ## NHS vs Private Rheumatology in the UK
 URL: https://livingwitharthritis.org.uk/guides/nhs-vs-private-rheumatology
@@ -1326,7 +1382,7 @@ A: Sarcopenia is age-related muscle loss that accelerates after 60 and worsens a
 
 ## Sarcopenia & Muscle Loss With Arthritis | UK Guide
 URL: https://livingwitharthritis.org.uk/guides/sarcopenia-muscle-loss
-Last updated: 2026-09-17
+Last updated: 2026-09-19
 Q: What is sarcopenia and how is it linked to arthritis?
 A: Sarcopenia is age-related loss of muscle mass and strength. Arthritis speeds it up because pain reduces activity; resistance training plus enough protein can slow or reverse the decline.
 
@@ -1449,6 +1505,24 @@ URL: https://livingwitharthritis.org.uk/search
 Last updated: 2026-07-01
 Q: How do I search Living With Arthritis UK?
 A: Use the site search page to filter blogs and hub pages by keyword, topic and approximate word count. Results update in your browser without needing an account.
+
+## Is Turmeric Good for Arthritis? UK Curcumin Guide | Living With Arthritis UK
+URL: https://livingwitharthritis.org.uk/supplements/turmeric
+Last updated: 2026-09-20
+Q: Is turmeric good for arthritis?
+A: Trials of curcumin (around 1,000 mg/day for 8–12 weeks) show modest reductions in knee osteoarthritis pain for some people. Cooking with turmeric powder alone rarely matches trial doses. Check interactions with your GP or pharmacist. Educational guidance, not a prescription.
+Q: How much turmeric or curcumin should I take?
+A: Clinical trials mostly use 500â1,000 mg of curcumin extract per day, usually split into two doses with food. Cooking with turmeric powder alone will not deliver that dose â supplements standardised to 95% curcuminoids are what the studies test.
+Q: Why is black pepper (piperine) added to turmeric supplements?
+A: Curcumin is poorly absorbed on its own. Adding piperine from black pepper increases its bioavailability by up to 2,000%. Most reputable UK curcumin supplements include piperine or use a formulation like Meriva or BCM-95 that boosts absorption in other ways.
+Q: How long does turmeric take to work for arthritis?
+A: Allow at least 8â12 weeks of daily use. If pain and stiffness have not improved by 3 months, stop â you are unlikely to be a responder.
+Q: What are the side effects of turmeric?
+A: Turmeric is generally well tolerated. The most common issues are mild indigestion, nausea or diarrhoea. Rare cases of liver injury have been reported at high doses, so stick to standard trial doses and stop if you feel unwell.
+Q: Who should avoid turmeric supplements?
+A: Talk to your GP before taking turmeric if you are pregnant, take blood thinners (warfarin, apixaban, aspirin), have gallstones or bile-duct problems, diabetes medication, or are due to have surgery within two weeks.
+Q: Turmeric vs ibuprofen for arthritis â which is better?
+A: For knee osteoarthritis, head-to-head trials show curcumin roughly matches ibuprofen or diclofenac for pain relief over 4â12 weeks, with fewer stomach and kidney side effects. It is slower to act. For short flares, NSAIDs still work faster.
 
 ## Free Arthritis Support Services Northern Ireland
 URL: https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland
@@ -1588,11 +1662,11 @@ Last updated: 2026-09-05
 Q: Shoulder Arthritis Exercises: A Complete UK Physiotherapy Guide
 A: Shoulder arthritis exercises can significantly reduce pain and improve movement, benefiting conditions like osteoarthritis, rheumatoid arthritis, or post-traumatic arthritis. Key exercises include pendulum swings, wall crawls, and behind-the-back reaches to improve range of motion. Gentle strengthening can be achieved with resistance band external rotations, shoulder blade squeezes, and wall press-ups. Always warm up, move gently, and stop if you experience sharp or worsening pain.
 
-## Best Walking Shoes for Arthritis in the UK
+## Best Walking Shoes for Arthritis in the UK (2026 Guide)
 URL: https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk
-Last updated: 2026-09-05
-Q: Best Walking Shoes for Arthritis in the UK
-A: For arthritis, choose walking shoes with a cushioned midsole for impact absorption and good arch support for alignment. A wide toe box allows natural toe spread, and lightweight materials reduce effort. Look for non-slip soles for balance and easy fastenings like Velcro for stiff hands. A removable insole is useful for custom orthotics.
+Last updated: 2026-09-20
+Q: Best Walking Shoes for Arthritis in the UK (2026 Guide)
+A: For arthritis, choose walking shoes with a cushioned midsole, supportive midfoot, wide toe box and easy fastenings. A removable insole helps with orthotics. Get measured late in the day and ask about NHS podiatry if foot pain or deformity limits walking.
 
 ## How to Get Arthritis Physiotherapy on the NHS Waiting List
 URL: https://livingwitharthritis.org.uk/blog/arthritis-physiotherapy-nhs-waiting-list
@@ -1678,11 +1752,11 @@ Last updated: 2026-09-05
 Q: Swimming for Arthritis: A Complete Guide
 A: Swimming is beneficial for arthritis as water's buoyancy supports up to 90% of body weight, reducing joint load and pain. Warm water, ideally 28–32°C, relaxes muscles and increases blood flow, while hydrostatic pressure can reduce joint swelling. Regular sessions, starting with 15–20 minutes and building to 30–45 minutes, two to three times weekly, can improve physical function and quality of life.
 
-## Turmeric for Arthritis: Does It Really Work?
+## Turmeric for Arthritis: Evidence, Dose Context and UK Safety
 URL: https://livingwitharthritis.org.uk/blog/turmeric-for-arthritis
-Last updated: 2026-09-05
-Q: Turmeric for Arthritis: Does It Really Work?
-A: Curcumin, turmeric's active compound, has reasonable clinical evidence for arthritis. Around 1,000 mg/day for 8–12 weeks appears to reduce pain and stiffness by blocking the NF-κB and COX-2 inflammatory pathways. Absorption from plain turmeric is poor, so use a piperine, phytosome or liposomal formulation and take with food.
+Last updated: 2026-09-20
+Q: Turmeric for Arthritis: Evidence, Dose Context and UK Safety
+A: Curcumin extracts have some evidence for osteoarthritis pain over 8–12 weeks when absorption is enhanced. Culinary turmeric is not the same as trial doses. It does not replace prescribed care — check interactions with your GP or pharmacist first.
 
 ## Clinical Trials for Arthritis: How to Find and Join One
 URL: https://livingwitharthritis.org.uk/blog/clinical-trials-for-arthritis-how-to-find-and-join-one
@@ -2342,7 +2416,7 @@ A: This guide says spinal arthritis pain can involve joints, ligaments, muscles 
 URL: https://livingwitharthritis.org.uk/blog/dating-with-arthritis-confidence
 Last updated: 2026-09-05
 Q: Dating With Arthritis: When and How to Tell a Partner
-A: Disclosure timing, accessibility-friendly date ideas, and managing flare-up surprises with grace.
+A: Disclosure timing, accessibility-friendly date ideas, and managing flare-up surprises with grace (Dating With Arthritis: When and How to Tell a Partner)…
 
 ## Depression and Arthritis: When to Ask for Help
 URL: https://livingwitharthritis.org.uk/blog/depression-arthritis-when-to-seek-help
@@ -2588,7 +2662,7 @@ A: Common methotrexate side effects like nausea, fatigue, and mouth ulcers are o
 URL: https://livingwitharthritis.org.uk/blog/medication-management-travel-arthritis
 Last updated: 2026-09-05
 Q: Travelling Abroad With Arthritis Medication: A UK Checklist
-A: Prescription rules, controlled medication paperwork and time-zone dosing for biologics and DMARDs.
+A: Prescription rules, controlled medication paperwork and time-zone dosing for biologics and DMARDs (Travelling Abroad With Arthritis Medication: A UK…
 
 ## Mindfulness for Arthritis: A 10-Minute Daily Practice
 URL: https://livingwitharthritis.org.uk/blog/mindfulness-arthritis-beginners
@@ -2648,7 +2722,7 @@ A: Pacing techniques involve understanding and managing arthritis pain through s
 URL: https://livingwitharthritis.org.uk/blog/packing-list-arthritis-traveller
 Last updated: 2026-09-05
 Q: The Ultimate Packing List for an Arthritis Traveller
-A: Heat patches, compression gloves, walking poles, TENS units: what experienced patients always pack.
+A: Heat patches, compression gloves, walking poles, TENS units: what experienced patients always pack (The Ultimate Packing List for an Arthritis Traveller)…
 
 ## Paracetamol for Arthritis Pain: What the Evidence Says
 URL: https://livingwitharthritis.org.uk/blog/paracetamol-for-arthritis-pain-what-the-evidence-says
@@ -2814,7 +2888,7 @@ A: For many, non-surgical methods effectively manage knee pain. Tailored exercis
 
 ## Turmeric and Curcumin: Evidence-Based Arthritis Relief
 URL: https://livingwitharthritis.org.uk/blog/turmeric-curcumin-arthritis-evidence
-Last updated: 2026-09-05
+Last updated: 2026-09-20
 Q: Turmeric and Curcumin: Evidence-Based Arthritis Relief
 A: The guide says arthritis relief depends on identifying whether symptoms are inflammatory or degenerative, then using evidence-based basics: graded exercise, Mediterranean-style eating, weight management, heat or cold, and better sleep. It suggests small seven-day habit changes and tracking pain and function. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
 

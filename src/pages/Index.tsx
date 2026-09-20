@@ -26,6 +26,7 @@ import HomeQuickPathways from "@/components/landing/HomeQuickPathways";
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import { HOME_PAGE_DESCRIPTION, HOME_PAGE_TITLE } from "@/lib/homeSeo";
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
 const withVisitorSnippet = (rest: string) =>
@@ -46,6 +47,7 @@ const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgres
 const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
 const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
 const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
+const UKCoverageBand = lazy(() => import("@/components/landing/UKCoverageBand"));
 const Footer = lazy(() => import("@/components/Footer"));
 const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
 const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
@@ -88,27 +90,21 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Registered Charity 1218461</title>
+        <title>{HOME_PAGE_TITLE}</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help.",
-          )}
+          content={withVisitorSnippet(HOME_PAGE_DESCRIPTION)}
         />
         <meta
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.placename" content="United Kingdom" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL + "/"} />
-        <meta
-          property="og:title"
-          content="Living With Arthritis UK | Registered Charity 1218461"
-        />
-        <meta
-          name="twitter:title"
-          content="Living With Arthritis UK | Registered Charity 1218461"
-        />
+        <meta property="og:title" content={HOME_PAGE_TITLE} />
+        <meta name="twitter:title" content={HOME_PAGE_TITLE} />
         <meta
           property="og:description"
           content={withVisitorSnippet(
@@ -147,6 +143,10 @@ function HomePage() {
 
           {/* 02 — Trust strip (P1-07), above the fold on mobile */}
           <HomeTrustStrip />
+
+          <Suspense fallback={<SectionFallback />}>
+            <UKCoverageBand />
+          </Suspense>
 
           <div className="container mx-auto px-5 md:px-10 max-w-3xl">
             <AeoEnhancement route="/" />
