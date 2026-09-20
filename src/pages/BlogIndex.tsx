@@ -350,6 +350,16 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               audienceType: "Patient",
               geographicArea: { "@type": "Country", name: "United Kingdom" },
             },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", ".speakable-intro"],
+            },
+            hasPart: TOPIC_HUBS.map((hub, i) => ({
+              "@type": "WebPage",
+              position: i + 1,
+              name: hub.label,
+              url: `https://livingwitharthritis.org.uk${hub.to}`,
+            })),
           })}
         </script>
         <script type="application/ld+json">
@@ -397,7 +407,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         />
 
         <div className="container mx-auto px-6 md:px-10 py-7 md:py-10">
-          <p className="text-muted-foreground text-base md:text-[1.05rem] leading-relaxed max-w-3xl mb-6">
+          <p className="speakable-intro text-muted-foreground text-base md:text-[1.05rem] leading-relaxed max-w-3xl mb-6">
             This arthritis blog is written for people in the United Kingdom who need plain-English help
             with joint pain, flare-ups, exercise, diet, PIP and treatments. Browse by topic below, or{" "}
             <Link to="/search" className="text-primary underline underline-offset-2">

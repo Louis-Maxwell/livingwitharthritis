@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Clock, Headphones, User } from "lucide-react";
+import { ArrowRight, Clock, Copy, Headphones, User } from "lucide-react";
+import { toast } from "sonner";
 import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
 import { displayTitle } from "@/lib/blogTitle";
+import { buildCanonicalBlogUrl } from "@/lib/blogShareUrl";
 
 export interface BlogCardPost {
   slug: string;
@@ -69,6 +72,23 @@ const BlogCard = ({
   const dateLabel = formatDate(post.date);
   const isLead = variant === "lead";
   const isCompact = variant === "compact";
+  const [copied, setCopied] = useState(false);
+  const shareUrl = buildCanonicalBlogUrl(post.slug);
+
+  const copyLink = async () => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+        toast.success("Link copied");
+        setCopied(true);
+        window.setTimeout(() => setCopied(false), 1800);
+        return;
+      }
+    } catch {
+      // fall through
+    }
+    toast.error("Could not copy");
+  };
 
   return (
     <article
@@ -158,7 +178,7 @@ const BlogCard = ({
       </Link>
       {!isCompact && (
         <div
-          className={`border-t border-border/25 dark:border-border/40 px-5 md:px-6 py-2.5 bg-muted/10 ${
+          className={`border-t border-border/25 dark:border-border/40 px-5 md:px-6 py-2.5 bg-muted/10 flex flex-wrap items-center gap-x-4 gap-y-1 ${
             isLead ? "md:absolute md:bottom-3 md:right-5 md:border-0 md:bg-transparent md:px-0 md:py-0" : ""
           }`}
         >
@@ -169,6 +189,15 @@ const BlogCard = ({
           >
             <Headphones className="w-3.5 h-3.5" aria-hidden="true" /> Listen
           </Link>
+          <button
+            type="button"
+            onClick={copyLink}
+            aria-label={copied ? "Copied" : `Copy link to ${title}`}
+            className="text-muted-foreground text-sm font-medium inline-flex min-h-11 items-center gap-1.5 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+          >
+            <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+            {copied ? "Copied" : "Copy link"}
+          </button>
         </div>
       )}
     </article>
