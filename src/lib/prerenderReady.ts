@@ -1,5 +1,5 @@
 export const GENERIC_HOME_TITLE =
-  'Living With Arthritis | UK charity for arthritis and frailty support';
+  "Living With Arthritis UK | Evidence-Based Health Guides";
 
 export function isPrerenderDocumentReady(
   document: Document,
