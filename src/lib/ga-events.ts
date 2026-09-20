@@ -61,7 +61,9 @@ export function trackSearch(query: string, results: number) {
   trackEvent("search", { search_term: query, results_found: results });
 }
 
-export function trackMobileBottomCTA(ctaType: "donate" | "start_reading") {
+export function trackMobileBottomCTA(
+  ctaType: "donate" | "start_reading" | "pain_relief" | "newly_diagnosed" | "benefits",
+) {
   trackEvent("mobile_cta_click", { cta_type: ctaType });
 }
 
