@@ -29,6 +29,7 @@
 | Champions 31–35 GSC subpage + condition template gold pass | **done** | ConditionSubpagePage + ConditionPageTemplate disclaimer/cluster (covers `/conditions/gout/treatment`, AS, PsA diet); diet/exercise/pain pillar CTR titles; gout treatment depth; cluster + chatbot KB for B₁ intents — review **2026-09-17** |
 | Champions 36–40 library hub + chatbot density gold pass | **done** | Library hub + LibraryTopic disclaimer/cluster + pillar cross-links (OA/PIP/exercise/pain/diet); library OA/fibro/turmeric/walking-shoes in topicClusters; chatbot KB for arthritis head term + turmeric + walking shoes — review **2026-09-18** |
 | Champions 41–42 blog shoes + turmeric + customer-job hubs | **done** | Gold-pass `/blog/best-walking-shoes-arthritis-uk` + `/blog/turmeric-for-arthritis` (unique meta, citations, customer-job links, review **2026-09-20**); polish pain-relief / newly-diagnosed / benefits-PIP above-fold CTAs |
+| Homepage Claude-only AEO/GEO lock | **done** | Matching home tab title, four-nation hero line, PIP in Start here, FAQ deep links, UK WebSite JSON-LD speakable. No Lovable credits. See `docs/CEO-AI-COST-CONTROL-PLAN.md` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
