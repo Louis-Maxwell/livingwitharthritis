@@ -217,10 +217,21 @@ const AboutUs = () => {
         </div>
 
         {/* Disambiguation line — who we are and who we are not */}
-        <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-6 overflow-visible">
-          <p className="text-center text-base lg:text-lg font-medium text-foreground leading-[1.65] py-1">
+        <section
+          aria-labelledby="who-we-are"
+          className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-5xl mt-2 mb-6 overflow-visible"
+        >
+          <h2
+            id="who-we-are"
+            className="text-center font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-3"
+          >
+            Who we are
+          </h2>
+          <p className="speakable-intro text-center text-base lg:text-lg font-medium text-foreground leading-[1.65] py-1">
             Living With Arthritis is a registered charity in England and Wales
             (no.&nbsp;1218461), a UK national charity. We are independent of Arthritis UK.
+            We publish free, clinically reviewed guidance for people living with
+            arthritis across the United Kingdom. Contact: info@livingwitharthritis.org.uk.
           </p>
         </section>
 

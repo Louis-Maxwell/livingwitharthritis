@@ -45,7 +45,7 @@ const OAHero = memo(() => {
               </span>
             </h1>
 
-            <p className="hero-item mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
+            <p className="speakable-intro hero-item mt-4 text-sm lg:text-[0.95rem] font-medium max-w-lg leading-relaxed">
               Stiff mornings, cancelled plans, the feeling that nobody quite gets it. Start with
               what you need today. Educational information only — not a diagnosis or personal
               medical advice.
