@@ -69,7 +69,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
         expect(html.includes(`href="${href}"`), `${slug} missing ${href}`).toBe(true);
       }
       // No invented DOI / fake academic theatre
-      expect(html).not.toMatch(/doi\.org\/10\./i);
+      expect(html.toLowerCase().includes("doi.org/10.")).toBe(false);
       expect(html).not.toMatch(/Dr\.\s+Anil\s+Patel/i);
 
       expect(getClusterForPath(`/blog/${slug}`)).toBeTruthy();
