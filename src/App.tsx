@@ -134,6 +134,7 @@ const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuid
 const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
 const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
 const ArthritisPainRelief = lazy(() => import("./pages/guides/ArthritisPainRelief"));
+const UnderstandingPain = lazy(() => import("./pages/guides/UnderstandingPain"));
 const CanExerciseMakeOsteoarthritisWorse = lazy(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
 const HipExercisesForOsteoarthritis = lazy(() => import("./pages/guides/HipExercisesForOsteoarthritis"));
 const ShoulderPainRelief = lazy(() => import("./pages/guides/ShoulderPainRelief"));
@@ -461,6 +462,7 @@ function AnimatedRoutes() {
         <Route path="/guides/diet" element={<DietGuide />} />
         <Route path="/guides/exercise" element={<ExerciseGuide />} />
         <Route path="/guides/arthritis-pain-relief" element={<ArthritisPainRelief />} />
+        <Route path="/guides/understanding-pain" element={<UnderstandingPain />} />
         <Route path="/guides/can-exercise-make-osteoarthritis-worse" element={<CanExerciseMakeOsteoarthritisWorse />} />
         <Route path="/guides/hip-exercises-for-osteoarthritis" element={<HipExercisesForOsteoarthritis />} />
         <Route path="/guides/shoulder-pain-relief" element={<ShoulderPainRelief />} />
