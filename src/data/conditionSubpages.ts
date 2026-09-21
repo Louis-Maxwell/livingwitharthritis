@@ -1162,7 +1162,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Very high-dose supplement stacks marketed for 'cartilage repair' without evidence",
       ],
     },
-  },,
+  },
 
   "foot-and-ankle-arthritis": {
     symptoms: {
