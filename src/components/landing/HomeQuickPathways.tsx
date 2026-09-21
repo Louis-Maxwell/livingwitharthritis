@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Activity, BookOpen, Wallet, Heart } from "lucide-react";
-import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
+import { trackStartHereCard } from "@/lib/ga-events";
 
 /**
  * Customer-first job pathways — visible within one screen under the hero.
@@ -106,13 +107,12 @@ export default function HomeQuickPathways() {
         <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground">
           <Heart className="h-4 w-4 text-muted-foreground/80" aria-hidden="true" />
           <span>If you can spare a moment:</span>
-          <Link
-            to="/donate"
-            onClick={() => trackDonationClick({ source: "home_pathways_soft" })}
+          <GoFundMeAnchor
+            source="home_pathways_soft"
             className="font-medium text-foreground/80 underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm min-h-11 inline-flex items-center"
           >
-            Donate / research fund
-          </Link>
+            Donate on GoFundMe
+          </GoFundMeAnchor>
           <span aria-hidden="true" className="opacity-40">
             ·
           </span>

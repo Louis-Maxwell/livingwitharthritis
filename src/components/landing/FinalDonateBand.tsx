@@ -4,6 +4,7 @@
  */
 import { useNavigate } from "react-router-dom";
 import { Heart, Repeat } from "lucide-react";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
 import { Button } from "@/components/ui/button";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { trackDonationClick } from "@/lib/ga-events";
@@ -45,12 +46,23 @@ const FinalDonateBand = () => {
 
         <RevealOnScroll
           delay={150}
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+          className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
         >
           <Button
+            asChild
             size="lg"
-            onClick={giveMonthly}
             className="h-[58px] px-10 rounded-full text-sm font-bold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 group"
+          >
+            <GoFundMeAnchor source="final_band_gofundme">
+              <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
+              Donate on GoFundMe
+            </GoFundMeAnchor>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={giveMonthly}
+            className="h-[58px] px-10 rounded-full text-sm font-bold tracking-wider bg-transparent text-background border-background/30 hover:bg-background hover:text-foreground"
           >
             <Repeat className="w-4 h-4 mr-2" aria-hidden="true" />
             Give monthly

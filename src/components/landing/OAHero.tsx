@@ -4,7 +4,8 @@ import { ArrowRight, HeartPulse, BookOpen } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import "@/components/HeroSection.css";
 import { onCoverImgError } from "@/lib/articleImages";
-import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
+import { trackStartHereCard } from "@/lib/ga-events";
 
 
 const scrollToStartHere = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -87,13 +88,12 @@ const OAHero = memo(() => {
               <span aria-hidden="true" className="opacity-50">
                 ·
               </span>
-              <Link
-                to="/donate"
-                onClick={() => trackDonationClick({ source: "home_hero_soft" })}
+              <GoFundMeAnchor
+                source="home_hero_soft"
                 className="font-medium underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm opacity-90"
               >
-                Donate / research fund
-              </Link>
+                Donate on GoFundMe
+              </GoFundMeAnchor>
               <span aria-hidden="true" className="opacity-50">
                 ·
               </span>

@@ -1,11 +1,12 @@
 import { memo, useEffect, useState } from "react";
 import { Heart } from "lucide-react";
-import { trackDonationClick } from "@/lib/ga-events";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
 
 /**
  * Sticky donate bar with live fundraising progress.
  * Shows on mobile (bottom) and desktop (bottom-right card) once the user
  * scrolls past the hero, and hides when the inline donate widget is in view.
+ * The pay control opens the shared GoFundMe campaign in a new tab.
  *
  * Real numbers (confirmed by charity): £5,000 raised of £50,000 goal
  * for the Arthritis Research Fund (10% complete).
@@ -41,15 +42,7 @@ const StickyDonateBar = memo(() => {
     };
   }, []);
 
-  const handleClick = () => {
-    trackDonationClick();
-    const target = document.getElementById("donate-inline");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      window.location.href = "/donate";
-    }
-  };
+  const payLabel = `Donate on GoFundMe (opens in a new tab). £${RAISED_GBP.toLocaleString()} raised of £${GOAL_GBP.toLocaleString()} for arthritis research`;
 
   return (
     <>
@@ -62,11 +55,10 @@ const StickyDonateBar = memo(() => {
         style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem)" }}
       >
         <div className="mx-3 mb-2 rounded-2xl bg-foreground text-background shadow-2xl border border-background/10 overflow-hidden max-w-full">
-          <button
-            type="button"
-            onClick={handleClick}
-            className="w-full text-left px-5 pt-3 pb-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11"
-            aria-label={`Donate now — £${RAISED_GBP.toLocaleString()} raised of £${GOAL_GBP.toLocaleString()} for arthritis research`}
+          <GoFundMeAnchor
+            source="sticky_research_fund"
+            ariaLabel={payLabel}
+            className="block w-full text-left px-5 pt-3 pb-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11"
           >
             <div className="flex items-center justify-between gap-3 mb-2">
               <span className="flex items-center gap-2 text-sm font-bold">
@@ -88,9 +80,9 @@ const StickyDonateBar = memo(() => {
               />
             </div>
             <div className="mt-1.5 text-[11px] text-background/70 font-medium">
-              £{RAISED_GBP.toLocaleString()} raised of £{GOAL_GBP.toLocaleString()} goal · Donate now
+              £{RAISED_GBP.toLocaleString()} raised of £{GOAL_GBP.toLocaleString()} goal · Donate on GoFundMe
             </div>
-          </button>
+          </GoFundMeAnchor>
         </div>
       </div>
 
@@ -138,13 +130,12 @@ const StickyDonateBar = memo(() => {
               </span>
               <span>of £{GOAL_GBP.toLocaleString()} ({PCT}%)</span>
             </div>
-            <button
-              type="button"
-              onClick={handleClick}
-              className="mt-4 w-full min-h-11 rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary/95 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            <GoFundMeAnchor
+              source="sticky_research_fund_desktop"
+              className="mt-4 inline-flex w-full min-h-11 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary/95 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
-              Donate now
-            </button>
+              Donate on GoFundMe
+            </GoFundMeAnchor>
           </div>
         </div>
       </div>

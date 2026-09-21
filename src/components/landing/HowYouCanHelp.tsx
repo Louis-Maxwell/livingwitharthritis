@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
 import { photoBreakCommunity, photoBreakActive, videoCtaExercise } from "@/data/images";
 
 /**
@@ -31,8 +32,8 @@ export default function HowYouCanHelp() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6">
           {/* Feature card */}
-          <Link
-            to="/donate"
+          <GoFundMeAnchor
+            source="home_how_you_can_help"
             className="group relative lg:col-span-7 block overflow-hidden min-h-[360px] md:min-h-[460px] focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/50"
           >
             <img
@@ -53,10 +54,10 @@ export default function HowYouCanHelp() {
                 keeps every guide, plan and helpline reply free for them.
               </p>
               <span className="mt-5 inline-flex items-center gap-2 self-start bg-primary text-primary-foreground px-5 py-3 font-bold uppercase tracking-[0.08em] text-sm">
-                Make a donation <ArrowRight className="w-4 h-4" />
+                Donate on GoFundMe <ArrowRight className="w-4 h-4" />
               </span>
             </div>
-          </Link>
+          </GoFundMeAnchor>
 
           {/* Side cards */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 md:gap-6">

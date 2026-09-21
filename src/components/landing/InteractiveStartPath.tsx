@@ -2,6 +2,8 @@ import { memo, useCallback, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, RotateCcw } from "lucide-react";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
+import { CHARITY } from "@/config/charity";
 import { trackEvent } from "@/lib/analytics";
 
 type JointId = "knee" | "hip" | "hands" | "back" | "neck" | "all-over";
@@ -143,9 +145,9 @@ const BENEFITS_LINKS: ResultLink[] = [
 
 const DONATE_LINKS: ResultLink[] = [
   {
-    href: "/donate",
-    label: "Donate",
-    sub: "Keep these guides free for people across the UK.",
+    href: CHARITY.gofundmeUrl,
+    label: "Donate on GoFundMe",
+    sub: "Click to pay and fund critical arthritis research.",
   },
   {
     href: "/ways-to-help",
@@ -392,7 +394,21 @@ const InteractiveStartPath = memo(() => {
                     "group flex items-start gap-3 min-h-11 w-full max-w-full rounded-xl border border-border/60 bg-background px-3.5 py-3 text-left hover:border-primary/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
                   return (
                     <li key={link.href} className="min-w-0">
-                      {link.href.startsWith("#") ? (
+                      {link.href === CHARITY.gofundmeUrl ? (
+                        <GoFundMeAnchor
+                          source="home_start_path"
+                          className={cls}
+                          onClick={() =>
+                            trackEvent("start_path_result", {
+                              joint,
+                              need,
+                              to: link.href,
+                            })
+                          }
+                        >
+                          {inner}
+                        </GoFundMeAnchor>
+                      ) : link.href.startsWith("#") ? (
                         <a href={link.href} className={cls}>
                           {inner}
                         </a>

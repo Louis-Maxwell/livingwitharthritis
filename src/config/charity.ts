@@ -21,6 +21,11 @@ export const CHARITY = {
   siteUrl: 'https://livingwitharthritis.org.uk',
   websiteDomain: 'livingwitharthritis.org.uk',
   contactEmail: 'info@livingwitharthritis.org.uk',
+  /**
+   * Public click-and-pay campaign. Homepage pay CTAs use this URL.
+   * The Stripe flow on /donate stays available alongside it.
+   */
+  gofundmeUrl: 'https://www.gofundme.com/f/help-fund-critical-arthritis-research',
   /** Flip to true only after HMRC Gift Aid registration is confirmed live. */
   giftAidRegistered: false,
   address: {
@@ -41,6 +46,9 @@ export const charityRegLine = (): string =>
 
 /** Alias — clearer intent when used as link text. */
 export const charityRegisterLinkText = charityRegLine;
+
+/** Accessible name for links that open the GoFundMe campaign in a new tab. */
+export const GOFUNDME_DONATE_LABEL = 'Donate on GoFundMe (opens in a new tab)';
 
 /** Typed shape of the charity record. */
 export type CharityInfo = typeof CHARITY;
