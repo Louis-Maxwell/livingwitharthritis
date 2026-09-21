@@ -108,7 +108,7 @@ export default function DisabilitySupport() {
           <li><Link to="/guides/benefits-pip" className="text-primary underline">Personal Independence Payment (PIP)</Link> — ages 16 to State Pension age</li>
           <li>Attendance Allowance — State Pension age and over</li>
           <li>Employment Support Allowance (ESA)</li>
-          <li>Access to Work — workplace adjustments and equipment</li>
+          <li><Link to="/library/access-to-work" className="text-primary underline">Access to Work</Link> — workplace adjustments and equipment</li>
           <li>Disabled Facilities Grants — local council funding for home adaptations</li>
           <li>Carer&apos;s Allowance — for unpaid carers</li>
         </ul>
@@ -140,6 +140,8 @@ export default function DisabilitySupport() {
           <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Fall prevention for older adults</Link></li>
           <li><Link to="/guides/musculoskeletal-health" className="text-primary underline">Musculoskeletal health</Link></li>
           <li><Link to="/guides/benefits-pip" className="text-primary underline">PIP &amp; benefits guide</Link></li>
+          <li><Link to="/library/access-to-work" className="text-primary underline">Access to Work</Link></li>
+          <li><Link to="/benefits-pip" className="text-primary underline">Benefits &amp; PIP hub</Link></li>
         </ul>
       </section>
 

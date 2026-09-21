@@ -44,6 +44,9 @@ const CONDITION_SUBPAGE_SLUGS = [
   ["knee-arthritis", "Knee Arthritis"],
   ["hand-arthritis", "Hand Arthritis"],
   ["shoulder-arthritis", "Shoulder Arthritis"],
+  ["foot-and-ankle-arthritis", "Foot & Ankle Arthritis"],
+  ["elbow-arthritis", "Elbow Arthritis"],
+  ["hip-arthritis", "Hip Arthritis"],
   ["polymyalgia-rheumatica", "Polymyalgia Rheumatica"],
   ["reactive-arthritis", "Reactive Arthritis"],
 ] as const;
@@ -128,6 +131,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
   { label: "Gout", href: "/conditions/gout" },
   { label: "Elbow Pain &amp; Arthritis", href: "/conditions/elbow-arthritis" },
+  { label: "Foot &amp; Ankle Arthritis", href: "/conditions/foot-and-ankle-arthritis" },
   { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
   { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
   { label: "Knee Arthritis", href: "/conditions/knee-arthritis" },
