@@ -8,6 +8,7 @@ import {
   CONTACT_PHONE_E164,
 } from "@/config/contact";
 import { FACEBOOK_PAGE_ID, getSchemaOrgSameAs } from "@/config/social-media";
+import { HOME_PAGE_TITLE } from "@/lib/homeSeo";
 import { buildCharitySchema } from "@/lib/jsonLd";
 import {
   ORGANIZATION_PAYLOAD,
@@ -126,13 +127,19 @@ describe("public SEO / AEO identity", () => {
     expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
     expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
     expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(JSON.stringify(site.about)).toContain("United Kingdom");
+    expect(site.speakable.cssSelector).toEqual(
+      expect.arrayContaining(["h1", ".speakable-intro"]),
+    );
+    expect(WEBSITE_PAYLOAD.speakable.cssSelector).toEqual(site.speakable.cssSelector);
   });
 
   it("uses brand-first homepage titles and a crawlable brand string", () => {
     expect(indexHtml).toContain(`<title>${HOME_TITLE}</title>`);
     expect(indexHtml).toContain(`content="${HOME_TITLE}"`);
-    expect(homepage).toContain(`<title>${HOME_TITLE}</title>`);
-    expect(homepage).toContain(HOME_TITLE);
+    expect(HOME_PAGE_TITLE).toBe(HOME_TITLE);
+    expect(homepage).toContain("{HOME_PAGE_TITLE}");
+    expect(homepage).toContain('from "@/lib/homeSeo"');
     expect(homepage).toMatch(/index,\s*follow/);
     expect(homepage).not.toMatch(/noindex/);
     expect(trustStrip).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);

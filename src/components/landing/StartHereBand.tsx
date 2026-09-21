@@ -1,11 +1,11 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { Stethoscope, MapPin, Dumbbell, ClipboardList, LifeBuoy } from "lucide-react";
+import { Stethoscope, MapPin, Dumbbell, ClipboardList, LifeBuoy, Landmark } from "lucide-react";
 import { trackStartHereCard } from "@/lib/ga-events";
 
 /**
  * Beginner journey entry-point band placed under the hero.
- * Five large tap targets (≥44px) — no quiz, no client state.
+ * Large tap targets (≥44px) — no quiz, no client state.
  */
 const cards = [
   {
@@ -38,6 +38,12 @@ const cards = [
     sub: "Jump straight to the plan",
     href: "/exercises",
   },
+  {
+    icon: Landmark,
+    label: "I need PIP or benefits help",
+    sub: "UK PIP, ADP and Blue Badge",
+    href: "/benefits-pip",
+  },
 ] as const;
 
 const StartHereBand = memo(() => {
@@ -54,7 +60,7 @@ const StartHereBand = memo(() => {
           Some days the pain is loud. Some days you just need one practical next step.
           Pick the path that fits today — no quiz required, no judgement.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {cards.map(({ icon: Icon, label, sub, href }) => {
             const inner = (
               <>
@@ -66,7 +72,7 @@ const StartHereBand = memo(() => {
               </>
             );
             const cls =
-              "block min-h-[88px] p-5 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+              "block min-h-[88px] p-5 rounded-xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary";
             const onClick = () => trackStartHereCard(label, href);
             return href.startsWith("#") ? (
               <a key={label} href={href} className={cls} onClick={onClick}>
