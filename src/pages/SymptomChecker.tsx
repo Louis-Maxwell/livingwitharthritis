@@ -129,7 +129,7 @@ export default function SymptomChecker() {
             <MedicalDisclaimerStrip variant="tool" />
           </div>
           <DisclaimerStripShown>
-          <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-21" />
           <TopicClusterNav path="/symptom-checker" />
           </DisclaimerStripShown>
           <ArticleCitations citations={CITATIONS_SYMPTOM_CHECKER} />

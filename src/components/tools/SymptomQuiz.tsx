@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Dumbbell,
   HandHeart,
+  Mail,
   MessageCircle,
   Phone,
   PhoneCall,
@@ -17,6 +18,7 @@ import {
   Utensils,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import EmailSignupForm from "@/components/EmailSignupForm";
 import { Progress } from "@/components/ui/progress";
 import {
   BODY_AREAS,
@@ -689,6 +691,28 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
               If symptoms last more than a few weeks, book a GP appointment. Take a short symptom diary (when it hurts,
               which joints, morning stiffness length, swelling, and what helps).
             </p>
+          </section>
+
+          <section
+            aria-labelledby="checker-email-heading"
+            className="rounded-2xl border border-primary/20 bg-primary/[0.04] p-5 sm:p-6"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2 inline-flex items-center gap-1.5">
+              <Mail className="w-3.5 h-3.5" aria-hidden="true" /> Optional email
+            </p>
+            <h3 id="checker-email-heading" className="font-display text-lg font-bold text-foreground mb-2">
+              Want a short guide series after this?
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">
+              Free PECR-consent emails on flare prep, GP visits and living well with arthritis.
+              Educational only — not a diagnosis or medical advice. Living With Arthritis UK
+              (charity 1218461).
+            </p>
+            <EmailSignupForm
+              sequence="symptom-checker"
+              buttonText="Request guides by email"
+              label="Email for practical arthritis guides"
+            />
           </section>
 
           <section aria-labelledby="soft-cta-heading" className="rounded-2xl border border-border/60 bg-muted/20 p-5">
