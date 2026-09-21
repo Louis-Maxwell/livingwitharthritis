@@ -55,6 +55,8 @@ const BLOG_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 // sitemap" (canonical mismatch). Alias route → canonical page:
 //   /conditions/elbow-pain              → /conditions/elbow-arthritis
 //   /conditions/axial-spondyloarthritis → /conditions/ankylosing-spondylitis
+//   /conditions/ankle-arthritis         → /conditions/foot-and-ankle-arthritis
+//   /conditions/foot-arthritis          → /conditions/foot-and-ankle-arthritis
 const STATIC_EXCLUDE = new Set([
   "*",
   "/auth",
@@ -77,6 +79,8 @@ const STATIC_EXCLUDE = new Set([
   "/conditions/elbow-pain",
   "/conditions/axial-spondyloarthritis",
   "/conditions/calcific-tendinitis",
+  "/conditions/ankle-arthritis",
+  "/conditions/foot-arthritis",
 ]);
 
 // Prefix-based exclusions for entire route trees that must never appear in
