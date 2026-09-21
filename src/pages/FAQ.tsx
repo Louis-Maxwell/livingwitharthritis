@@ -10,6 +10,7 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import RelatedGuides from "@/components/faq/RelatedGuides";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_FAQ_HUB } from "@/data/clinical/ukCitations";
+import EmailSignupForm from "@/components/EmailSignupForm";
 
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -80,7 +81,7 @@ const FAQ = () => {
         <PageHero
           badge="FAQ"
           title="Arthritis questions answered for people in the UK"
-          subtitle="Plain-English answers on symptoms, treatment, diet, exercise, PIP and cold-weather flares — written for patients, not search engines."
+          subtitle="Start with pain, a new diagnosis, benefits/PIP or the symptom checker — then browse the full library. Written for people with arthritis and carers, not search engines."
         />
         <Suspense fallback={<SkeletonSection />}>
           <FAQSection />
@@ -100,6 +101,21 @@ const FAQ = () => {
               headingId="faq-high-intent"
               items={[
                 {
+                  title: "Pain now — relief guide",
+                  href: "/guides/arthritis-pain-relief",
+                  description: "Practical UK steps for joint pain today, with links to flares and when to seek help.",
+                },
+                {
+                  title: "Newly diagnosed",
+                  href: "/guides/newly-diagnosed",
+                  description: "What to ask your GP, how to prepare, and where to start without overwhelm.",
+                },
+                {
+                  title: "Symptom checker (educational)",
+                  href: "/symptom-checker",
+                  description: "Organise symptoms and open the right guides — not a diagnosis.",
+                },
+                {
                   title: "What disability benefits can I get with arthritis?",
                   href: "/faq/arthritis-disability-benefits-uk",
                   description: "PIP, Adult Disability Payment, ESA and Blue Badge — based on daily tasks, not diagnosis.",
@@ -110,21 +126,6 @@ const FAQ = () => {
                   description: "How PIP is assessed for arthritis, evidence and next steps.",
                 },
                 {
-                  title: "Disability support guide",
-                  href: "/guides/disability-support",
-                  description: "Aids, adaptations and rights when arthritis limits daily life.",
-                },
-                {
-                  title: "Help while waiting for rheumatology",
-                  href: "/arthritis-waiting-list-help",
-                  description: "What to do on an NHS waiting list — educational, not a queue-jump.",
-                },
-                {
-                  title: "What is osteoarthritis?",
-                  href: "/faq/what-is-osteoarthritis",
-                  description: "Plain-English OA overview with links to exercises and the condition hub.",
-                },
-                {
                   title: "Best exercises for arthritis",
                   href: "/faq/best-exercises-arthritis",
                   description: "Low-impact movement, including swimming and hip OA routines.",
@@ -132,7 +133,7 @@ const FAQ = () => {
               ]}
             />
             <div className="mb-10">
-              <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+              <EducationalDisclaimerBox lastReviewed="2026-09-21" />
               <TopicClusterNav path="/faq" />
               <ArticleCitations citations={CITATIONS_FAQ_HUB} />
             </div>
@@ -153,6 +154,24 @@ const FAQ = () => {
                 </ul>
               </div>
             ))}
+            <aside
+              aria-label="Optional email updates"
+              className="mb-10 rounded-2xl border border-primary/20 bg-primary/[0.04] p-5 sm:p-6"
+            >
+              <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                Prefer answers by email?
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">
+                Free PECR-consent updates when we publish useful UK arthritis guides.
+                Educational only — not medical advice. Charity 1218461.
+              </p>
+              <EmailSignupForm
+                sequence="faq-hub"
+                buttonText="Request guides by email"
+                label="Email for practical arthritis FAQs"
+              />
+            </aside>
+
             <p className="text-sm text-muted-foreground">
               Looking for a condition overview instead? Start with{" "}
               <Link to="/conditions/osteoarthritis" className="text-primary hover:underline">

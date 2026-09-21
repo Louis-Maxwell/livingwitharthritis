@@ -67,6 +67,31 @@
 
 ---
 
+## Daily log — 21 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Next-3 from 20 Sep: symptom-checker / FAQ CRO (shippable without Louis). No new doorway cities. No invented traffic claims. No 100M visitor promises.
+
+### Shipped
+- **M1 conversion KPI — Checker→email CTA live:** post-results `EmailSignupForm` on `/symptom-checker` (`sequence="symptom-checker"`, PECR copy, charity 1218461, educational-not-diagnostic). Soft extras (chat / guides / donate) unchanged.
+- **FAQ hub CRO:** customer-job high-intent strip (pain now, newly diagnosed, symptom checker, PIP FAQ/blog, exercises); optional PECR email band (`sequence="faq-hub"`); hero subtitle reframed for patients/carers; clinical review **2026-09-21** on FAQ hub + symptom checker.
+- **Tests:** `src/lib/__tests__/checker-faq-email-cro.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts (incl. shoes/turmeric + hubs)
+- Clinical spot-check (checker email CTA wording + FAQ hub CTAs; prior turmeric/footwear)
+- **Lovable publish** of latest GitHub `main` (includes branded search + homepage title fix + this CRO)
+- **GSC URL Inspection** after publish (homepage, about, sprint blogs/hubs, `/symptom-checker`, `/faq`)
+- FormSubmit activate if newsletter still pending
+- Approve research-fund creative before campaign posts
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish + GSC inspect + first social posts with real links
+2. Early M3 pillar gold deepen (pain / OA / exercise / PIP) once publish confirms live HTML
+3. Partner outreach / Ad Grants / Regulator / Gift Aid (still blocked-on-Louis)
+
 ## Daily log — 20 Sep 2026 (M1, weekend visibility sprint)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Champions 41–42 from 18 Sep next-3 (blog walking-shoes + turmeric gold-pass + customer-job hub polish). No new doorway cities. No invented traffic claims.
