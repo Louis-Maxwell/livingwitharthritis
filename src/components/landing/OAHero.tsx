@@ -39,7 +39,7 @@ const OAHero = memo(() => {
               id="oa-hero"
               className="hero-item text-balance break-words text-[clamp(1.65rem,3.6vw,2.85rem)] leading-[1.15]"
             >
-              You&apos;re not alone with joint pain
+              Living With Arthritis UK — evidence-based health guides
               <span className="mt-1.5 block text-[0.42em] sm:text-[0.38em] font-semibold tracking-[0.08em] normal-case opacity-95">
                 Free UK guides for people living with arthritis — and the people who care for them
               </span>

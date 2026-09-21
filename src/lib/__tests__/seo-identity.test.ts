@@ -32,7 +32,7 @@ const cityOptimized = readFileSync(
 const schemaTs = readFileSync(resolve("src/lib/rootOrganizationSchema.ts"), "utf8");
 
 const BRAND_STRING = "Living With Arthritis UK (charity 1218461)";
-const HOME_TITLE = "Living With Arthritis UK | Registered Charity 1218461";
+const HOME_TITLE = "Living With Arthritis UK | Evidence-Based Health Guides";
 const OFFICIAL_SAME_AS = [
   ...getSchemaOrgSameAs(),
   "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
@@ -137,7 +137,7 @@ describe("public SEO / AEO identity", () => {
     expect(homepage).not.toMatch(/noindex/);
     expect(trustStrip).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);
     expect(indexHtml).toContain(BRAND_STRING);
-    expect(indexHtml).toMatch(/You're not alone with joint pain/i);
+    expect(indexHtml).toMatch(/Living With Arthritis UK — evidence-based health guides/i);
   });
 
   it("keeps About brand-first, indexable, and address-free", () => {
