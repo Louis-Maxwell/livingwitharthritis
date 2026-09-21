@@ -17,6 +17,12 @@ export const NICE_RA_NG100: Citation = {
   publisher: "NICE",
 };
 
+export const NICE_CHRONIC_PAIN_NG193: Citation = {
+  label: "Chronic pain (primary and secondary) in over 16s (NG193)",
+  url: "https://www.nice.org.uk/guidance/ng193",
+  publisher: "NICE",
+};
+
 export const NHS_OSTEOARTHRITIS: Citation = {
   label: "Osteoarthritis",
   url: "https://www.nhs.uk/conditions/osteoarthritis/",
@@ -26,6 +32,12 @@ export const NHS_OSTEOARTHRITIS: Citation = {
 export const NHS_RHEUMATOID: Citation = {
   label: "Rheumatoid arthritis",
   url: "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
+  publisher: "NHS",
+};
+
+export const NHS_FIBROMYALGIA: Citation = {
+  label: "Fibromyalgia",
+  url: "https://www.nhs.uk/conditions/fibromyalgia/",
   publisher: "NHS",
 };
 
@@ -241,6 +253,15 @@ export const CITATIONS_PAIN_RELIEF: Citation[] = [
   NICE_OA_NG226,
   NHS_NSAIDS,
   NHS_OSTEOARTHRITIS,
+];
+
+/** Understanding pain types guide */
+export const CITATIONS_UNDERSTANDING_PAIN: Citation[] = [
+  NICE_CHRONIC_PAIN_NG193,
+  NICE_OA_NG226,
+  NHS_FIBROMYALGIA,
+  NHS_OSTEOARTHRITIS,
+  VERSUS_ARTHRITIS_PAIN,
 ];
 
 /** Diet hub + diet pillar */

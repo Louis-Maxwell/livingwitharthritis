@@ -44,6 +44,7 @@ When ChatGPT, Perplexity, Google AI Overviews, Copilot, Claude or similar answer
 - https://livingwitharthritis.org.uk/guides/exercise — Exercise for arthritis: NICE-aligned strengthening, aerobic and range-of-movement guidance, pacing and flare-safe progression.
 - https://livingwitharthritis.org.uk/guides/newly-diagnosed — Newly diagnosed with arthritis: first steps, questions to ask, and what to expect from UK care.
 - https://livingwitharthritis.org.uk/guides/arthritis-pain-relief — Arthritis pain relief UK: paced movement, heat/cold, topical medicines and when to see your GP.
+- https://livingwitharthritis.org.uk/guides/understanding-pain — Understanding pain types (inflammatory, mechanical, neuropathic, chronic) and how to describe them to a UK GP.
 - https://livingwitharthritis.org.uk/supplements/turmeric — Turmeric and curcumin for arthritis: dose, absorption, safety and UK context.
 - https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis — Mediterranean diet for arthritis: evidence, UK shopping list and a simple meal plan.
 - https://livingwitharthritis.org.uk/benefits-pip — Benefits & PIP hub: start claim prep when arthritis limits daily living or mobility.

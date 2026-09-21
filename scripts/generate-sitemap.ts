@@ -383,6 +383,7 @@ async function main() {
     "/": "2026-09-20",
     "/about": "2026-08-31",
     "/guides/arthritis-pain-relief": "2026-09-20",
+    "/guides/understanding-pain": "2026-09-21",
     "/guides/newly-diagnosed": "2026-09-20",
     "/benefits-pip": "2026-09-20",
     "/guides/benefits-pip": "2026-09-20",

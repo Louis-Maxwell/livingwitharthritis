@@ -227,6 +227,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/guides/understanding-pain": withDefaults({
+    updatedAt: "2026-09-21",
     question: "What are the main types of pain?",
     answer:
       "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",

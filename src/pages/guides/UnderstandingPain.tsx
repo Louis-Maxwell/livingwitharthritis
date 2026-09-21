@@ -19,6 +19,8 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import ArticleCitations from "@/components/blog/ArticleCitations";
+import { CITATIONS_UNDERSTANDING_PAIN } from "@/data/clinical/ukCitations";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const PATH = "/guides/understanding-pain";
@@ -217,10 +219,16 @@ const UnderstandingPain = () => (
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:image" content={`${BASE}/og/landing-share.png`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Understanding Pain – UK Guide" />
       <meta name="twitter:description" content="Pain types explained in plain English, plus questions to take to your GP." />
+      <meta name="twitter:image" content={`${BASE}/og/landing-share.png`} />
       <meta name="geo.region" content="GB" />
+      <meta name="geo.placename" content="United Kingdom" />
+      <meta name="geo.country" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <link rel="canonical" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -246,8 +254,15 @@ const UnderstandingPain = () => (
             Understanding Pain
           </h1>
           <AeoEnhancement route={PATH} />
-          <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-8">
+          <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-4">
             Learn about pain, the main ways clinicians describe it, and how to explain what you feel so your GP or rheumatology team can help more accurately.
+          </p>
+          <p className="text-sm text-muted-foreground mb-8">
+            Written for people in England, Scotland, Wales and Northern Ireland. Start with your GP or NHS 111; we also list{" "}
+            <Link to="/arthritis-support" className="text-primary underline underline-offset-2">
+              city support pages
+            </Link>{" "}
+            if you want local signposting.
           </p>
           <PainSignalHero />
         </div>
@@ -259,10 +274,18 @@ const UnderstandingPain = () => (
             Pain is the nervous system’s alarm. It can warn that tissue is injured or under threat, or it can keep sounding after the original problem has settled. It may feel sharp, dull, burning, tingling, stabbing or deep and hard to place. It can sit in one joint or spread across the body — and two people with the same condition can rate the same day completely differently.
           </p>
           <p>
-            Unrelieved pain does more than hurt. It can shrink social life, disturb sleep, sap mood and make work or caring feel impossible. Surveys of adults with ongoing pain often find the back, hips, knees and feet are common sites, with knock-on limits on daily tasks and more days off work than peers without chronic pain.
+            Unrelieved pain does more than hurt. It can shrink social life, disturb sleep, sap mood and make work or caring feel impossible. Back, hip, knee and foot pain are among the sites people bring to UK GPs — and lasting pain can limit daily tasks and time at work.
           </p>
           <p>
-            Chronic pain is especially common later in life and has been linked with higher health risks, but it is not only an older person’s problem — a sizeable share of younger adults also live with long-term pain. Speaking to your GP matters: for many people, pain is a daily companion, and a clear description of yours is one of the best diagnostic clues you can give.
+            Pain lasting more than about three months is usually called chronic.{" "}
+            <a
+              href="https://www.nice.org.uk/guidance/ng193"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-2"
+            >
+              NICE guideline NG193
+            </a>{" "}
+            covers assessment of chronic pain in people aged 16 and over in the NHS. It is not only an older person’s problem. Speaking to your GP matters: a clear description of yours is one of the best diagnostic clues you can give.
           </p>
         </div>
 
@@ -349,7 +372,15 @@ const UnderstandingPain = () => (
 
         <Section icon={Sparkles} title="Fibromyalgia Pain">
           <p>
-            Fibromyalgia is a long-term condition of widespread pain and heightened sensitivity. There is no cure yet, but medicines and non-drug approaches can ease symptoms. It can affect anyone and is more often diagnosed in women and people over 40. It frequently coexists with rheumatoid arthritis, lupus, osteoarthritis or ankylosing spondylitis.
+            Fibromyalgia is a long-term condition of widespread pain and heightened sensitivity. There is no cure yet, but medicines and non-drug approaches can ease symptoms. The{" "}
+            <a
+              href="https://www.nhs.uk/conditions/fibromyalgia/"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-2"
+            >
+              NHS fibromyalgia overview
+            </a>{" "}
+            notes it is more common in women than men and can start at any age, often between 25 and 55. It can coexist with rheumatoid arthritis, lupus, osteoarthritis or ankylosing spondylitis.
           </p>
           <p>
             Widespread aching, burning, throbbing or stabbing pain — often in the limbs, trunk, head and buttocks — is central. Other features can include fatigue, poor sleep, stiffness, tenderness, limb tingling, concentration problems, sensory sensitivity, and gut symptoms such as bloating or constipation.
@@ -399,7 +430,7 @@ const UnderstandingPain = () => (
 
         <Section icon={Brain} title="Neuropathic Pain">
           <p>
-            Neuropathic pain comes from disease or damage in the nerves that carry touch, pressure and temperature. Roughly a quarter of people with chronic pain have a neuropathic component. Messages to the brain become distorted; the feeling is often less of a clean “cut” and more burning, tingling or electric.
+            Neuropathic pain comes from disease or damage in the nerves that carry touch, pressure and temperature. Messages to the brain become distorted; the feeling is often less of a clean “cut” and more burning, tingling or electric. Not everyone with long-term joint pain has a nerve component — say if burning, tingling or numbness is part of your picture.
           </p>
           <p>Frequent drivers include:</p>
           <ul>
@@ -500,9 +531,26 @@ const UnderstandingPain = () => (
               All guides
             </Link>
           </li>
+          <li>
+            <Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">
+              Osteoarthritis
+            </Link>{" "}
+            and{" "}
+            <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline underline-offset-2">
+              rheumatoid arthritis
+            </Link>{" "}
+            — condition pages
+          </li>
+          <li>
+            <Link to="/arthritis-support" className="text-primary underline underline-offset-2">
+              Arthritis support near you
+            </Link>{" "}
+            — UK city signposting
+          </li>
         </ul>
       </nav>
 
+      <ArticleCitations citations={CITATIONS_UNDERSTANDING_PAIN} />
       <EducationalDisclaimerBox lastReviewed="2026-09-21" />
       <TopicClusterNav path={PATH} />
       <GuideOnwardJourney currentPath={PATH} />

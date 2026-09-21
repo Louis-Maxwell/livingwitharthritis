@@ -693,6 +693,41 @@
       }
     ]
   },
+  "/guides/understanding-pain": {
+    "title": "Understanding Pain | Types, Causes & Talking to Your GP | UK",
+    "description": "Understanding pain for people with arthritis: inflammatory vs mechanical, focal vs systemic, bilateral, fibromyalgia, acute vs chronic, neuropathic pain, and questions to ask your doctor.",
+    "question": "What are the main types of pain?",
+    "answer": "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
+    "updatedAt": "2026-09-21",
+    "sources": [
+      {
+        "name": "NICE NG193: Chronic pain in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng193"
+      },
+      {
+        "name": "NHS: Fibromyalgia",
+        "url": "https://www.nhs.uk/conditions/fibromyalgia/"
+      },
+      {
+        "name": "NICE NG226: Osteoarthritis in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng226"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is inflammatory pain the same as arthritis?",
+        "a": "Not always — inflammatory pain can come from autoimmune arthritis and other causes. Mechanical pain is more linked to load, injury or wear. A clinical assessment sorts them out."
+      },
+      {
+        "q": "When is pain chronic?",
+        "a": "Pain lasting longer than about three months is usually called chronic. See your GP if pain persists, wakes you at night, or comes with hot swollen joints."
+      },
+      {
+        "q": "What is neuropathic pain?",
+        "a": "Nerve-related pain often burns, tingles or feels electric. Diabetes and some treatments can cause it. Ask your clinician about cause-specific options."
+      }
+    ]
+  },
   "/guides/hip-exercises-for-osteoarthritis": {
     "title": "Best Hip Exercises for Osteoarthritis | UK Guide",
     "description": "Evidence-based hip OA exercises: glute bridges, clamshells, hip abduction, wall squats and cycling — with NICE-aligned weekly targets.",
