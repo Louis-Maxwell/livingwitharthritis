@@ -489,6 +489,46 @@
       }
     ]
   },
+  "/conditions/foot-and-ankle-arthritis": {
+    "title": "Foot & Ankle Arthritis UK: Symptoms, Footwear & Exercises | LWA UK",
+    "description": "UK guide to foot and ankle arthritis: hallux rigidus, midfoot and ankle OA, rheumatoid feet, footwear, orthotics, exercises and when to see a GP.",
+    "about": "Foot and ankle arthritis",
+    "question": "What is foot and ankle arthritis?",
+    "answer": "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
+    "updatedAt": "2026-09-21",
+    "sources": [
+      {
+        "name": "NHS: Arthritis overview",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NICE NG226: Osteoarthritis in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng226"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What are the first signs of foot or ankle arthritis?",
+        "a": "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint."
+      },
+      {
+        "q": "What is the best footwear for foot arthritis?",
+        "a": "Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics."
+      },
+      {
+        "q": "What exercises help ankle arthritis?",
+        "a": "Daily ankle circles, alphabet tracing, towel scrunches, gentle calf raises and single-leg balance near a counter. Warm the foot first and stop short of sharp pain."
+      },
+      {
+        "q": "Can NHS podiatry help?",
+        "a": "Yes. Ask your GP for a podiatry referral, or self-refer where available. Podiatrists assess biomechanics and can prescribe custom orthotics."
+      },
+      {
+        "q": "When should I see a GP about foot or ankle pain?",
+        "a": "If pain lasts more than a few weeks, limits walking, comes with warm swelling or deformity, or follows an old fracture. Seek urgent care for a hot, red joint with fever."
+      }
+    ]
+  },
   "/conditions/juvenile-arthritis": {
     "title": "Juvenile Arthritis (JIA) in Children | UK Guide",
     "description": "UK guide to juvenile idiopathic arthritis: signs in children under 16, diagnosis, paediatric rheumatology care and DMARD treatment.",

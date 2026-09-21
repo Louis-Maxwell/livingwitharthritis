@@ -406,10 +406,10 @@
     "title": "Gout Treatment in the UK: UK healthcare Options, Medication & Self-Care | Living With Arthritis UK",
     "description": "Evidence-based gout treatment in the UK — UK healthcare pathways, medication options, pain relief and self-management strategies that actually work.",
     "question": "Gout treatment",
-    "answer": "Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage.",
+    "answer": "Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage. This page is educational UK guidance only — not a prescription or diagnosis. Your GP, rheumatology team or pharmacist decides what is safe for you.",
     "breadcrumb": "Gout treatment",
     "about": "Gout",
-    "bodyHtml": "<p>Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage.</p><h2>Treatment approaches</h2><h3>NSAIDs during attacks</h3><p>First-line for most people — start as soon as the attack begins.</p><h3>Colchicine</h3><p>Effective for acute attacks, particularly if NSAIDs aren't suitable.</p><h3>Short steroid course</h3><p>Used when NSAIDs and colchicine aren't appropriate.</p><h3>Allopurinol</h3><p>Long-term urate-lowering therapy — the cornerstone of preventing future attacks.</p><h3>Febuxostat</h3><p>Alternative urate-lowering option when allopurinol isn't tolerated.</p><h3>Lifestyle measures</h3><p>Weight management, reduced alcohol, and good hydration alongside medication.</p>",
+    "bodyHtml": "<p>Gout treatment has two parts: managing the acute attack, and lowering uric acid long term to prevent further attacks and joint damage. This page is educational UK guidance only — not a prescription or diagnosis. Your GP, rheumatology team or pharmacist decides what is safe for you.</p><h2>Treatment approaches</h2><h3>NSAIDs during attacks</h3><p>Often first-line for people who can take them — start early in an attack if your clinician has advised this class.</p><h3>Colchicine</h3><p>Used for acute attacks when NSAIDs are unsuitable; dosing and kidney checks are clinician decisions.</p><h3>Short steroid course</h3><p>Sometimes used when NSAIDs and colchicine are not appropriate.</p><h3>Allopurinol</h3><p>Long-term urate-lowering therapy — the usual cornerstone of preventing future attacks once the diagnosis is confirmed.</p><h3>Febuxostat</h3><p>Alternative urate-lowering option when allopurinol is not tolerated — see our Febuxostat guide.</p><h3>Lifestyle measures</h3><p>Weight management, alcohol moderation, hydration and a lower-purine pattern alongside medication — not instead of it.</p><h2>Acute attack vs long-term prevention</h2><p>Treating the painful flare and preventing the next one are different jobs. Acute medicines calm the joint for days; urate-lowering therapy (usually allopurinol, sometimes febuxostat) is started or adjusted when attacks repeat or tophi appear. Do not stop long-term urate-lowering medicine during a flare unless your clinician tells you to — that is a common myth that can prolong attacks.</p><p>If a joint is suddenly hot, red and very swollen with fever or you feel severely unwell, seek urgent care (NHS 111 / A&amp;E) because joint infection can look similar to gout.</p><h2>What UK pathways usually look like</h2><p>A first suspected attack is often assessed in primary care, sometimes with joint fluid testing when the diagnosis is unclear. Repeated attacks usually trigger a conversation about long-term urate lowering and a target blood urate level. Rheumatology input is more likely when attacks are frequent, tophi are present, kidney disease complicates choices, or first-line medicines are not tolerated.</p><p>For medicine-specific reading see /guides/febuxostat-for-gout. For food patterns that support (not replace) treatment, see /conditions/gout/diet and /guides/diet.</p><h2>Self-care themes between appointments</h2><p>Rest and elevate the joint in a flare; ice with a cloth barrier for short spells; ask a pharmacist which short-term pain options fit your other medicines. Between attacks, keep moving with non-impact exercise once the joint settles, stay hydrated unless advised otherwise, and cut binge alcohol and sugary drinks. Track attack dates — that diary helps your GP decide when prevention is worth starting.</p><ul><li>Educational only — no doses or medicine starts from this page</li><li>Charity 1218461 · clinical authorship HCPC PH128483</li><li>Motion is Lotion still applies between gout attacks</li></ul>",
     "faqs": [
       {
         "q": "What is the best treatment for gout in the UK?",
@@ -1856,6 +1856,130 @@
       {
         "q": "Is there a single food that triggers elbow arthritis flares?",
         "a": "No single food causes elbow arthritis, but ultra-processed foods, excess sugar, and (for gout in particular) high-purine foods and alcohol can worsen symptoms. Focus on overall pattern rather than individual \"miracle\" or \"forbidden\" foods."
+      }
+    ]
+  },
+  "/conditions/foot-and-ankle-arthritis/symptoms": {
+    "title": "Foot & Ankle Arthritis Symptoms: Early Signs, Causes & UK Diagnosis Guide | Living With Arthritis UK",
+    "description": "Recognise the early signs of foot & ankle arthritis, common flare-up symptoms, and when to see your GP. Plain-English UK guidance aligned with UK healthcare a",
+    "question": "Foot and ankle arthritis symptoms",
+    "answer": "Foot and ankle arthritis often shows up as pain with every step, morning stiffness and shoes that suddenly feel tight — from hallux rigidus (big toe) to post-traumatic ankle OA and rheumatoid foot involvement.",
+    "breadcrumb": "Foot and ankle arthritis symptoms",
+    "about": "Foot & Ankle Arthritis",
+    "bodyHtml": "<p>Foot and ankle arthritis often shows up as pain with every step, morning stiffness and shoes that suddenly feel tight — from hallux rigidus (big toe) to post-traumatic ankle OA and rheumatoid foot involvement.</p><h2>Common symptoms of foot &amp; ankle arthritis</h2><ul><li>Deep ache in the ankle or midfoot that builds with walking</li><li>Stiff big toe that blocks push-off (hallux rigidus)</li><li>Morning stiffness that eases after the first few steps</li><li>Swelling around the ankle, midfoot or ball of the foot</li><li>Bony bump on top of the big toe joint</li><li>Difficulty finding comfortable footwear</li></ul><h2>When to see your GP</h2><p>See your GP if foot or ankle pain lasts more than a few weeks, limits walking, or comes with warm swelling or deformity. Mention any old fracture or known inflammatory arthritis.</p>",
+    "faqs": [
+      {
+        "q": "What are the first signs of foot & ankle arthritis?",
+        "a": "The earliest signs of foot & ankle arthritis often include joint pain, stiffness — particularly in the morning or after rest — and reduced flexibility in the affected area. Symptoms typically develop gradually, so keep a short symptom diary and speak to your GP if pain persists for more than a few weeks."
+      },
+      {
+        "q": "How is foot & ankle arthritis diagnosed in the UK?",
+        "a": "In the UK, GPs diagnose foot & ankle arthritis from your symptoms, a clinical examination, and — where appropriate — blood tests, X-rays, ultrasound or MRI. For inflammatory types, your GP may refer you to UK healthcare rheumatology for specialist review under NICE guidance."
+      },
+      {
+        "q": "Can foot/ankle oa symptoms come and go?",
+        "a": "Yes. Many people with foot/ankle oa experience flares — periods of worse pain, swelling and stiffness — followed by quieter spells. Tracking your flares helps you and your GP spot triggers and adjust treatment."
+      },
+      {
+        "q": "When should I see a GP about foot & ankle arthritis symptoms?",
+        "a": "Book a GP appointment if joint pain has lasted more than a few weeks, is interfering with sleep or daily life, or is accompanied by swelling, warmth, locking or unexplained fatigue. Early assessment leads to better long-term outcomes."
+      },
+      {
+        "q": "Is foot & ankle arthritis the same as general arthritis pain?",
+        "a": "No — there are over 100 forms of arthritis, and foot & ankle arthritis has its own pattern of symptoms, affected joints and treatment pathway. Getting the right diagnosis matters because the most effective treatments differ between conditions."
+      }
+    ]
+  },
+  "/conditions/foot-and-ankle-arthritis/treatment": {
+    "title": "Foot & Ankle Arthritis Treatment in the UK: UK healthcare Options, Medication & Self-Care | Living With Arthritis U",
+    "description": "Evidence-based foot & ankle arthritis treatment in the UK — UK healthcare pathways, medication options, pain relief and self-management strategies that actual",
+    "question": "Foot and ankle arthritis treatment",
+    "answer": "Most people manage with footwear changes, orthotics, graded exercise and short-term pain relief. Injections or surgery are reserved for persistent pain after conservative care.",
+    "breadcrumb": "Foot and ankle arthritis treatment",
+    "about": "Foot & Ankle Arthritis",
+    "bodyHtml": "<p>Most people manage with footwear changes, orthotics, graded exercise and short-term pain relief. Injections or surgery are reserved for persistent pain after conservative care.</p><h2>Treatment approaches</h2><h3>Supportive footwear</h3><p>Wide toe box, cushioned or rocker sole, low heel and adjustable fastenings.</p><h3>Podiatry and orthotics</h3><p>Custom insoles redistribute pressure away from painful joints.</p><h3>Physiotherapy</h3><p>Ankle mobility, intrinsic foot strength and balance training.</p><h3>Pain relief</h3><p>Topical NSAIDs first-line for many; oral NSAIDs short-term if appropriate.</p><h3>Injection</h3><p>Occasional corticosteroid injection for a stubborn flare — discuss with a clinician.</p><h3>Surgery</h3><p>Fusion or replacement considered when pain or deformity still blocks daily walking after conservative care.</p>",
+    "faqs": [
+      {
+        "q": "What is the best treatment for foot & ankle arthritis in the UK?",
+        "a": "UK treatment for foot & ankle arthritis follows NICE guidance and usually combines self-management (exercise, weight control, pacing), pain relief, and — where needed — specialist medication or therapy. There is no single \"best\" option; the right plan depends on the type, severity and joints involved."
+      },
+      {
+        "q": "Can foot & ankle arthritis be cured?",
+        "a": "Most forms of foot/ankle oa cannot be cured, but they can be very effectively managed. With the right combination of exercise, medication, and lifestyle support, many people maintain a full and active life."
+      },
+      {
+        "q": "What painkillers help foot & ankle arthritis?",
+        "a": "Common options include paracetamol, topical or oral NSAIDs (such as ibuprofen) and, for inflammatory types, prescription medication such as DMARDs or biologics. Always take pain relief at the lowest effective dose and ask your GP or pharmacist about interactions."
+      },
+      {
+        "q": "Do I need a referral to see a rheumatologist for foot/ankle oa?",
+        "a": "Yes — in the UK, you'll usually need a referral from your GP to access UK healthcare rheumatology services. If your GP suspects an inflammatory arthritis, NICE recommends urgent referral so that treatment can start early."
+      },
+      {
+        "q": "Are there free UK healthcare resources for foot & ankle arthritis treatment?",
+        "a": "Yes. UK healthcare physiotherapy, occupational therapy, pain clinics and self-management programmes are available — many free at the point of use. Ask your GP or check the UK healthcare system website for services in your area."
+      }
+    ]
+  },
+  "/conditions/foot-and-ankle-arthritis/exercises": {
+    "title": "Best Exercises for Foot & Ankle Arthritis: Safe UK Physio-Aligned Routines | Living With Arthritis UK",
+    "description": "Safe, effective foot & ankle arthritis exercises aligned with UK physiotherapy guidance. Movements to try, exercises to avoid, and how to build a weekly routi",
+    "question": "Best exercises for foot and ankle arthritis",
+    "answer": "Keep the ankle and toes moving through a comfortable range and rebuild balance gradually. Pair with our dedicated ankle exercises page.",
+    "breadcrumb": "Best exercises for foot and ankle arthritis",
+    "about": "Foot & Ankle Arthritis",
+    "bodyHtml": "<p>Keep the ankle and toes moving through a comfortable range and rebuild balance gradually. Pair with our dedicated ankle exercises page.</p><h2>Key benefits</h2><ul><li>Maintains ankle bend and straighten range for walking</li><li>Strengthens calves and intrinsic foot muscles</li><li>Improves single-leg balance and confidence</li><li>Reduces morning stiffness with daily gentle work</li><li>Supports recovery after a flare without total rest</li></ul>",
+    "faqs": [
+      {
+        "q": "What are the best exercises for foot & ankle arthritis?",
+        "a": "The best exercises for foot & ankle arthritis combine gentle range-of-motion work, strengthening of muscles around the affected joints, and low-impact aerobic activity such as walking, cycling or swimming. Start gradually and build up over several weeks."
+      },
+      {
+        "q": "Is it safe to exercise with foot/ankle oa?",
+        "a": "Yes — for most people with foot/ankle oa, regular movement is one of the most effective self-management tools. Some short-term discomfort can be normal, but stop if you have sharp pain or sudden swelling and speak to a physiotherapist."
+      },
+      {
+        "q": "What exercises should I avoid with foot & ankle arthritis?",
+        "a": "Avoid high-impact activities that cause sharp joint pain, heavy loaded movements without proper preparation, and anything that triggers swelling lasting more than 24 hours. A physiotherapist can tailor a programme to your joints and goals."
+      },
+      {
+        "q": "How often should I exercise with foot/ankle oa?",
+        "a": "Aim for short, regular sessions — most days of the week — rather than long, intense workouts. UK physiotherapy guidance suggests building up to around 150 minutes of moderate activity per week, split into manageable sessions."
+      },
+      {
+        "q": "Can exercise reduce foot & ankle arthritis pain?",
+        "a": "Yes — strong evidence shows that consistent exercise reduces pain, stiffness and fatigue in foot & ankle arthritis, while improving sleep, mood and overall function. Benefits usually appear within 6–8 weeks of regular practice."
+      }
+    ]
+  },
+  "/conditions/foot-and-ankle-arthritis/diet": {
+    "title": "Best Diet for Foot & Ankle Arthritis: Anti-Inflammatory Foods to Eat & Avoid (UK) | Living With Arthritis UK",
+    "description": "What to eat — and what to limit — with foot & ankle arthritis. UK-aligned anti-inflammatory diet guidance, food triggers, and the supplements with the best ev",
+    "question": "Diet for foot and ankle arthritis",
+    "answer": "Diet will not rebuild worn ankle cartilage, but steady weight control and an anti-inflammatory pattern reduce load and systemic inflammation that aggravate foot pain.",
+    "breadcrumb": "Diet for foot and ankle arthritis",
+    "about": "Foot & Ankle Arthritis",
+    "bodyHtml": "<p>Diet will not rebuild worn ankle cartilage, but steady weight control and an anti-inflammatory pattern reduce load and systemic inflammation that aggravate foot pain.</p><h2>Foods to favour</h2><ul><li>Oily fish or omega-3 sources most weeks</li><li>Lean protein to support calf and foot strength work</li><li>Fruit, vegetables, pulses and wholegrains</li><li>Water around walking and exercise sessions</li></ul><h2>Foods to limit</h2><ul><li>Ultra-processed snacks that crowd out useful meals</li><li>Excess alcohol (especially if gout is in the picture)</li><li>Very high-dose 'cartilage repair' supplement stacks without evidence</li></ul>",
+    "faqs": [
+      {
+        "q": "What is the best diet for foot & ankle arthritis?",
+        "a": "A Mediterranean-style anti-inflammatory diet is the most evidence-backed eating pattern for foot & ankle arthritis. It emphasises vegetables, fruit, wholegrains, pulses, oily fish, olive oil, nuts and seeds, with limited ultra-processed food and sugar."
+      },
+      {
+        "q": "What foods should I avoid with foot/ankle oa?",
+        "a": "Limit ultra-processed foods, sugary drinks, excess alcohol, and large amounts of red or processed meat. Many people also notice individual triggers — a short food diary can help you spot them."
+      },
+      {
+        "q": "Can diet reduce foot & ankle arthritis inflammation?",
+        "a": "Yes — an anti-inflammatory eating pattern, combined with maintaining a healthy weight, has been shown to reduce joint pain and inflammatory markers in foot & ankle arthritis. Diet works best alongside exercise and any prescribed medication."
+      },
+      {
+        "q": "Do supplements help with foot/ankle oa?",
+        "a": "Evidence is mixed. Omega-3 fish oil, vitamin D (where deficient), and turmeric/curcumin have the most supportive research for foot/ankle oa. Speak to your GP or pharmacist before starting supplements, especially if you take other medication."
+      },
+      {
+        "q": "Is there a single food that triggers foot & ankle arthritis flares?",
+        "a": "No single food causes foot & ankle arthritis, but ultra-processed foods, excess sugar, and (for gout in particular) high-purine foods and alcohol can worsen symptoms. Focus on overall pattern rather than individual \"miracle\" or \"forbidden\" foods."
       }
     ]
   }

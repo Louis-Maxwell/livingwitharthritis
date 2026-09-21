@@ -177,7 +177,6 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "What is foot and ankle arthritis?",
     answer:
       "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
-  
     faqs: [
       { q: "What are the first signs of foot or ankle arthritis?", a: "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint." },
       { q: "What is the best footwear for foot arthritis?", a: "Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics." },

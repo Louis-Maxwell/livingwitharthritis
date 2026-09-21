@@ -85,7 +85,7 @@ const FootAndAnkleArthritis = () => (
   <>
     <Helmet>
       <title>Foot &amp; Ankle Arthritis UK: Symptoms, Footwear &amp; Exercises | LWA UK</title>
-      <meta name="description" content="UK guide to foot and ankle arthritis: hallux rigidus, midfoot and ankle OA, rheumatoid feet, supportive footwear, orthotics, gentle exercises and when to see a GP or podiatrist." />
+      <meta name="description" content="UK guide to foot and ankle arthritis: hallux rigidus, midfoot and ankle OA, rheumatoid feet, footwear, orthotics, exercises and when to see a GP." />
       <meta name="keywords" content="foot arthritis, ankle arthritis, hallux rigidus, big toe arthritis, midfoot arthritis, ankle osteoarthritis, rheumatoid foot, arthritis footwear UK, ankle exercises arthritis" />
       <meta property="og:title" content="Foot &amp; Ankle Arthritis – Symptoms, Footwear &amp; Exercises" />
       <meta property="og:description" content="Evidence-based UK guide to foot and ankle arthritis: footwear, orthotics, exercises and NHS pathways." />
