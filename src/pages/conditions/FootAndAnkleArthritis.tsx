@@ -84,10 +84,10 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const FootAndAnkleArthritis = () => (
   <>
     <Helmet>
-      <title>Foot &amp; Ankle Arthritis UK: Symptoms, Footwear &amp; Exercises | LWA UK</title>
+      <title>Foot & Ankle Arthritis UK: Symptoms, Footwear & Exercises | LWA UK</title>
       <meta name="description" content="UK guide to foot and ankle arthritis: hallux rigidus, midfoot and ankle OA, rheumatoid feet, supportive footwear, orthotics, gentle exercises and when to see a GP or podiatrist." />
       <meta name="keywords" content="foot arthritis, ankle arthritis, hallux rigidus, big toe arthritis, midfoot arthritis, ankle osteoarthritis, rheumatoid foot, arthritis footwear UK, ankle exercises arthritis" />
-      <meta property="og:title" content="Foot &amp; Ankle Arthritis – Symptoms, Footwear &amp; Exercises" />
+      <meta property="og:title" content="Foot & Ankle Arthritis – Symptoms, Footwear & Exercises" />
       <meta property="og:description" content="Evidence-based UK guide to foot and ankle arthritis: footwear, orthotics, exercises and NHS pathways." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
@@ -98,7 +98,7 @@ const FootAndAnkleArthritis = () => (
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content="Foot and ankle arthritis – symptoms, footwear and exercises guide" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Foot &amp; Ankle Arthritis – Symptoms &amp; Footwear" />
+      <meta name="twitter:title" content="Foot & Ankle Arthritis – Symptoms & Footwear" />
       <meta name="twitter:description" content="UK guide to foot and ankle arthritis: footwear, orthotics, exercises and when to see a GP." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
@@ -123,7 +123,7 @@ const FootAndAnkleArthritis = () => (
               <Footprints className="w-3 h-3" /> Joint-specific guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
-              Foot &amp; Ankle Arthritis
+              Foot & Ankle Arthritis
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
             <AeoEnhancement route="/conditions/foot-and-ankle-arthritis" />
@@ -151,7 +151,7 @@ const FootAndAnkleArthritis = () => (
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-          <p className="section-label text-primary mb-6">Foot &amp; ankle at a glance</p>
+          <p className="section-label text-primary mb-6">Foot & ankle at a glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCounter value="33" label="Joints in each foot" icon={<Users className="w-6 h-6" />} color="emerald" />
             <StatCounter value="50" suffix="+" label="Typical age for big-toe OA" icon={<Timer className="w-6 h-6" />} color="sky" />
@@ -291,7 +291,7 @@ const FootAndAnkleArthritis = () => (
           intro="Use these guides alongside footwear and exercise changes."
           groups={[
             {
-              title: "Exercises &amp; movement",
+              title: "Exercises & movement",
               links: [
                 { label: "Ankle arthritis exercises", to: "/exercises/ankle-arthritis-exercises" },
                 { label: "All exercise guides", to: "/exercises" },
@@ -300,7 +300,7 @@ const FootAndAnkleArthritis = () => (
               ],
             },
             {
-              title: "Diet &amp; daily life",
+              title: "Diet & daily life",
               links: [
                 { label: "Best diet for arthritis", to: "/diet" },
                 { label: "Pain relief guide", to: "/guides/arthritis-pain-relief" },
