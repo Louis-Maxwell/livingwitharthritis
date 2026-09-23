@@ -20,7 +20,7 @@ const SAMPLE: SearchCatalogItem[] = [
   {
     id: "2",
     title: "Knee exercises",
-    href: "/blog/knee-arthritis-exercises-uk",
+    href: "/guides/knee-exercises-for-osteoarthritis",
     excerpt: "Gentle strength work for painful knees.",
     topic: "Exercise",
     wordCount: 450,

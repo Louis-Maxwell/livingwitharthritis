@@ -41,13 +41,13 @@ const exerciseCategories = [
   {
     id: "knee",
     title: "Knee Exercises",
-    subtitle: "UK Physiotherapy Guide",
+    subtitle: "Free OA home routine",
     description: "Strengthen muscles around your knees to reduce pain and improve stability.",
     icon: Footprints,
     color: "from-primary/15 to-primary/10",
     iconColor: "text-primary bg-primary/10",
     borderColor: "border-primary/20 hover:border-primary/40",
-    href: "/blog/knee-arthritis-exercises-uk",
+    href: "/guides/knee-exercises-for-osteoarthritis",
     exercises: [
       "Straight leg raises – 3 sets of 10",
       "Wall sits – hold 15–30 seconds",
@@ -55,6 +55,24 @@ const exerciseCategories = [
       "Hamstring curls – 3 sets of 10",
     ],
     tip: "Start with 5 minutes daily, building to 20 minutes over 4 weeks.",
+  },
+  {
+    id: "hip",
+    title: "Hip Exercises",
+    subtitle: "Free OA home routine",
+    description: "Strengthen the glutes and deep hip stabilisers that protect a painful hip.",
+    icon: Activity,
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
+    href: "/guides/hip-exercises-for-osteoarthritis",
+    exercises: [
+      "Side-lying hip abduction – 3 sets of 10",
+      "Clamshells – 3 sets of 15",
+      "Glute bridges – 3 sets of 10",
+      "Sit-to-stand – 2 sets of 10",
+    ],
+    tip: "Keep movements small and controlled. Mild ache up to 4/10 that settles within 24 hours is fine.",
   },
   {
     id: "hand",
@@ -171,11 +189,11 @@ const ExerciseHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Exercises UK | Knee, Hand & Shoulder Routines</title>
+        <title>Free physiotherapy exercises for arthritis at home UK | Exercise Hub</title>
         <meta name="description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="keywords" content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
-        <meta property="og:title" content="Best Exercises for Arthritis UK – Complete Guide" />
+        <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub" />
         <meta property="og:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:type" content="website" />
@@ -187,7 +205,7 @@ const ExerciseHub = () => {
         <meta property="og:image:alt" content="Arthritis Exercises UK | Knee, Hand & Shoulder Routines" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Exercises for Arthritis UK – Complete Guide" />
+        <meta name="twitter:title" content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub" />
         <meta name="twitter:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
@@ -226,8 +244,8 @@ const ExerciseHub = () => {
 
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}
-        title={<>Best Exercises for <span className="text-primary">Arthritis</span> UK</>}
-        subtitle="Motion is lotion — but only at a pace your joints can trust. Clinically aligned home routines for knees, hands, shoulders and whole-body relief. Stop if it hurts; you are not alone in starting gently."
+        title={<>Free physiotherapy exercises for arthritis at <span className="text-primary">home</span> UK</>}
+        subtitle="Free NICE-aligned home physio routines for knees, hips, hands and more — from Living With Arthritis (charity 1218461). Start gently; stop if pain stays high overnight."
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
