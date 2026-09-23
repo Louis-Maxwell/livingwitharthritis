@@ -1034,3 +1034,12 @@
 /blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
 /blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
 /knee-arthritis-exercises-uk /blog/knee-arthritis-exercises-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/self-help-tool /self-help 301
+/sitemap /site-index 301
+/regions/england /arthritis-support 301
+/regions/northern-ireland /blog/free-arthritis-support-northern-ireland 301
+/finances /benefits-pip 301
+/lived-experiences /community 301
+/impact-stories /community 301
