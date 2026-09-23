@@ -143,6 +143,15 @@ export const CITATIONS_HIP_EXERCISES: Citation[] = [
   NHS_HIP_PAIN,
 ];
 
+/** Knee exercises for osteoarthritis */
+export const CITATIONS_KNEE_EXERCISES: Citation[] = [
+  NICE_OA_NG226,
+  VERSUS_ARTHRITIS_EXERCISE,
+  CMO_PHYSICAL_ACTIVITY,
+  NHS_OSTEOARTHRITIS,
+];
+
+
 export const NHS_AZATHIOPRINE: Citation = {
   label: "Azathioprine",
   url: "https://www.nhs.uk/medicines/azathioprine/",

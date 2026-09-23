@@ -79,6 +79,12 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     cluster: "msk",
   },
   {
+    path: "/guides/knee-exercises-for-osteoarthritis",
+    title: "Free knee exercises for osteoarthritis UK",
+    description: "NICE-aligned 8-move home routine for knee OA — warm-up, weekly plan, 4/10 pain rule and red flags.",
+    cluster: "msk",
+  },
+  {
     path: "/guides/shoulder-pain-relief",
     title: "Shoulder pain relief",
     description: "Causes, fast-relief measures and a staged mobility-then-strength shoulder routine.",
@@ -146,6 +152,12 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     path: "/guides/benefits-pip",
     title: "Benefits & PIP",
     description: "Personal Independence Payment for people with arthritis.",
+    cluster: "support",
+  },
+  {
+    path: "/guides/free-arthritis-resources-uk",
+    title: "Free arthritis resources UK",
+    description: "Free Living With Arthritis guides, home physio routines, PIP diary and flare tools — charity 1218461.",
     cluster: "support",
   },
   {
