@@ -124,6 +124,15 @@ describe("resolveSeoRedirect", () => {
 
   it("301s legacy alias paths onto their canonical English pages", () => {
     expect(resolveSeoRedirect("/about-us")).toBe("/about");
+    expect(resolveSeoRedirect("/self-help-tool")).toBe("/self-help");
+    expect(resolveSeoRedirect("/sitemap")).toBe("/site-index");
+    expect(resolveSeoRedirect("/regions/england")).toBe("/arthritis-support");
+    expect(resolveSeoRedirect("/regions/northern-ireland")).toBe(
+      "/blog/free-arthritis-support-northern-ireland",
+    );
+    expect(resolveSeoRedirect("/finances")).toBe("/benefits-pip");
+    expect(resolveSeoRedirect("/lived-experiences")).toBe("/community");
+    expect(resolveSeoRedirect("/impact-stories")).toBe("/community");
     expect(resolveSeoRedirect("/privacy-policy")).toBe("/privacy");
   });
 
