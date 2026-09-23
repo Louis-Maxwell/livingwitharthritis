@@ -129,7 +129,7 @@ function PainSignalHero() {
               animation: jointPulse 2s ease-in-out infinite;
             }
             @media (prefers-reduced-motion: reduce) {
-              .nerve-line, .glow-dot, .joint-core { animation: none !important; }
+              .nerve-line, .glow-dot, .glow-ring, .joint-core { animation: none !important; }
               .nerve-line { stroke-dasharray: none; opacity: 0.85; }
             }
           `}</style>
@@ -144,7 +144,7 @@ function PainSignalHero() {
           <path d="M320 150 L355 220" />
         </g>
         <circle className="joint-core" cx="285" cy="210" r="12" />
-        <circle className="glow-dot" cx="285" cy="210" r="22" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.5" />
+        <circle className="glow-ring" cx="285" cy="210" r="22" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.5" />
         <path className="nerve-line" d="M285 200 C260 160, 250 120, 300 70" />
         <path className="nerve-line" d="M285 200 C300 155, 310 110, 320 80" style={{ animationDelay: "0.4s" }} />
         <path className="nerve-line" d="M285 200 C320 165, 340 125, 335 75" style={{ animationDelay: "0.8s" }} />

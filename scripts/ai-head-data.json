@@ -6643,5 +6643,26 @@
         "a": "For knee osteoarthritis, head-to-head trials show curcumin roughly matches ibuprofen or diclofenac for pain relief over 4â12 weeks, with fewer stomach and kidney side effects. It is slower to act. For short flares, NSAIDs still work faster."
       }
     ]
+  },
+  "/guides/understanding-pain": {
+    "title": "Understanding Pain Types | Living With Arthritis UK",
+    "description": "Plain-English guide to inflammatory vs mechanical pain, focal vs systemic patterns, fibromyalgia-type pain, acute vs chronic, and neuropathic symptoms — for people with arthritis and carers in the UK.",
+    "question": "What are the main types of pain?",
+    "answer": "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
+    "updatedAt": "2026-09-21",
+    "sources": [
+      {
+        "name": "NHS: Living with pain",
+        "url": "https://www.nhs.uk/live-well/pain/"
+      },
+      {
+        "name": "NICE: Chronic pain (primary and secondary) in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng193"
+      },
+      {
+        "name": "Versus Arthritis: Pain",
+        "url": "https://versusarthritis.org/about-arthritis/managing-symptoms/pain/"
+      }
+    ]
   }
 }
