@@ -79,6 +79,7 @@ const CURATED = [
   "/conditions/fibromyalgia",
   "/conditions/lupus",
   "/conditions/knee-arthritis",
+  "/conditions/foot-and-ankle-arthritis",
   "/conditions/hand-arthritis",
   "/conditions/shoulder-arthritis",
   "/conditions/elbow-arthritis",

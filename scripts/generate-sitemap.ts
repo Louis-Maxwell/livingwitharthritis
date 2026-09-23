@@ -79,6 +79,10 @@ const STATIC_EXCLUDE = new Set([
   "/conditions/elbow-pain",
   "/conditions/axial-spondyloarthritis",
   "/conditions/calcific-tendinitis",
+  // Same hub as /conditions/foot-and-ankle-arthritis (canonical). Keep live for
+  // visitor typos; never advertise aliases in XML (crawl-budget / duplicate loc).
+  "/conditions/ankle-arthritis",
+  "/conditions/foot-arthritis",
   // Thin / utility shells — keep live, do not advertise in XML sitemap.
   // Visitor-job hubs (pain, conditions, benefits-PIP, Access to Work / disability
   // support, falls, exercises) stay included via App.tsx discovery.
