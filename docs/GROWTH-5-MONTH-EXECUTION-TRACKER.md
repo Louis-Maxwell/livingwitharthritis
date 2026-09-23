@@ -29,6 +29,7 @@
 | Champions 31–35 GSC subpage + condition template gold pass | **done** | ConditionSubpagePage + ConditionPageTemplate disclaimer/cluster (covers `/conditions/gout/treatment`, AS, PsA diet); diet/exercise/pain pillar CTR titles; gout treatment depth; cluster + chatbot KB for B₁ intents — review **2026-09-17** |
 | Champions 36–40 library hub + chatbot density gold pass | **done** | Library hub + LibraryTopic disclaimer/cluster + pillar cross-links (OA/PIP/exercise/pain/diet); library OA/fibro/turmeric/walking-shoes in topicClusters; chatbot KB for arthritis head term + turmeric + walking shoes — review **2026-09-18** |
 | Champions 41–42 blog shoes + turmeric + customer-job hubs | **done** | Gold-pass `/blog/best-walking-shoes-arthritis-uk` + `/blog/turmeric-for-arthritis` (unique meta, citations, customer-job links, review **2026-09-20**); polish pain-relief / newly-diagnosed / benefits-PIP above-fold CTAs |
+| Champions 43–44 GSC top blogs (swimming hip OA + knee supplements) | **done** | Gold-pass `/blog/swimming-exercises-hip-osteoarthritis` + `/blog/best-supplement-for-knee-joint` — disclaimer-grade citations + cluster/customer-job links + review **2026-09-23**; B₁ #1/#2 click URLs |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -64,6 +65,33 @@
 7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
 8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, gout treatment, AS, PIP copy, supplements/turmeric caution, library topics and symptom-checker CTAs)
 9. **Lovable publish** — publish the latest GitHub `main` so cluster/CRO/gold-pass pages are live
+
+---
+
+## Daily log — 23 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Morning growth routine had failed earlier today; resumed with shippable GSC blog gold-pass (no Louis blockers). Soft-404 alias PR #76 still open separately. No new doorway cities. No invented traffic claims.
+
+### Shipped
+- **Champions 43–44 (B₁ GSC top-click blogs):** gold-pass `/blog/swimming-exercises-hip-osteoarthritis` (#1 clicks) and `/blog/best-supplement-for-knee-joint` (#2 clicks) — unique CTR title/meta/OG, Louis Maxwell HCPC review **2026-09-23**, real NHS/NICE/Versus Arthritis citations, customer-job links (pain relief / newly diagnosed / PIP / diet), OA+exercise hubs on swimming, supplements hubs + honest “no rebuild” framing on knee supplements; removed invented clinician bylines risk; sitemap `lastmod` + `llms.txt` / `ai.txt` preferred cites refreshed
+- **Tests:** `src/lib/__tests__/gsc-blog-gold-pass-23-sep.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts (incl. swimming + knee-supplement blogs + prior hubs)
+- Clinical spot-check (aquatic exercise wording + supplement caution)
+- **Lovable publish** of latest GitHub `main` (includes Listen fix #75 + this gold-pass once merged)
+- **GSC URL Inspection** after publish (swimming + knee-supplement blogs, prior sprint URLs)
+- FormSubmit activate if newsletter still pending
+- Approve research-fund creative before campaign posts
+- Soft-404 alias PR #76 merge + Semrush re-crawl after publish (host 404/www-301 still need Hostinger/CF)
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Merge soft-404 PR #76 when CI green; Louis: Lovable publish + GSC inspect swimming/knee-supplement + social posts with real links
+2. Gold-pass next B₁ GSC blogs still thin: `/blog/pip-for-arthritis-uk`, `/blog/omega-3-foods-for-joints` (and anti-inflammatory RA diet if impressions hold)
+3. Early M3 pillar deepen (pain / OA / exercise / PIP cross-links + FAQ density) once publish confirms live HTML — still no Louis-only outreach/Ad Grants/Regulator
 
 ---
 
