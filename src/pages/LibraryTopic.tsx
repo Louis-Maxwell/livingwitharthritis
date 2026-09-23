@@ -19,7 +19,9 @@ const LibraryTopic = () => {
   useEffect(() => {
     if (!topic) return;
     const id = "library-topic-jsonld";
+    const faqId = "library-topic-faq-jsonld";
     document.getElementById(id)?.remove();
+    document.getElementById(faqId)?.remove();
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = id;
@@ -45,8 +47,24 @@ const LibraryTopic = () => {
       },
     });
     document.head.appendChild(script);
+    if (seo?.faqs && seo.faqs.length > 0) {
+      const faqScript = document.createElement("script");
+      faqScript.type = "application/ld+json";
+      faqScript.id = faqId;
+      faqScript.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: seo.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      });
+      document.head.appendChild(faqScript);
+    }
     return () => {
       document.getElementById(id)?.remove();
+      document.getElementById(faqId)?.remove();
     };
   }, [topic, seo]);
 
@@ -147,6 +165,23 @@ const LibraryTopic = () => {
               </section>
             ))}
           </div>
+
+
+          {seo?.faqs && seo.faqs.length > 0 && (
+            <section className="mt-16 pt-10 border-t border-border" aria-labelledby="library-faq-heading">
+              <h2 id="library-faq-heading" className="font-serif text-2xl font-semibold mb-6">
+                Frequently asked questions
+              </h2>
+              <div className="space-y-6">
+                {seo.faqs.map((f) => (
+                  <div key={f.q}>
+                    <h3 className="font-semibold mb-2">{f.q}</h3>
+                    <p className="leading-relaxed text-foreground/85">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {topic.disclaimer && (
             <aside className="mt-12 p-5 rounded-xl border border-primary/20 bg-primary/5 flex gap-3 text-sm">

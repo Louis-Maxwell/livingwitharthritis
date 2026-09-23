@@ -44,6 +44,12 @@ const LINKS = [
     description: "What to do while waiting for rheumatology, physio or surgery.",
   },
   {
+    href: "/library/access-to-work",
+    title: "Access to Work",
+    description:
+      "UK government grants for workplace equipment, travel and support when arthritis affects your job.",
+  },
+  {
     href: "/guides/work-with-arthritis",
     title: "Working with arthritis",
     description: "Reasonable adjustments, sick pay and protecting your role.",

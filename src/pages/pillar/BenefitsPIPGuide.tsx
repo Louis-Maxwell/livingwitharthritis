@@ -167,7 +167,7 @@ const CONTENT = `
 <li>Reserved parking close to the entrance</li>
 <li>Time off for medical appointments</li>
 </ul>
-<p><strong>Access to Work</strong> is a government scheme that can fund workplace adjustments costing more than what's reasonable for the employer — including specialist equipment, support workers and taxi fares. Apply through GOV.UK or call 0800 121 7479.</p>
+<p><strong>Access to Work</strong> is a government scheme that can fund workplace adjustments costing more than what's reasonable for the employer — including specialist equipment, support workers and taxi fares. Read our <a href="/library/access-to-work">Access to Work library guide</a>, apply through <a href="https://www.gov.uk/access-to-work" target="_blank" rel="noopener noreferrer">GOV.UK</a> or call 0800 121 7479.</p>
 
 <h2 id="where-to-get-help">Where to Get Free Help</h2>
 <ul>

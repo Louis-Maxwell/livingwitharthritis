@@ -121,11 +121,11 @@ export default function AnkleArthritisExercises() {
   return (
     <>
       <SeoHead
-        title="Ankle Arthritis Exercises (UK)"
-        description="Seven gentle ankle arthritis exercises to ease pain and stiffness — range of motion, strength and balance work for osteoarthritis, RA and gout."
+        title="Ankle Arthritis Exercises UK: 7 Gentle Moves at Home"
+        description="Seven gentle UK ankle arthritis exercises for OA, RA and post-injury stiffness — range of motion, strength and balance. Pair with our foot & ankle arthritis condition guide."
         path="/exercises/ankle-arthritis-exercises"
         type="article"
-        keywords="ankle arthritis exercises, ankle arthritis exercises UK, exercises for arthritic ankle, ankle stiffness exercises"
+        keywords="ankle arthritis exercises UK, exercises for arthritic ankle, ankle stiffness exercises, foot arthritis exercises"
       />
       <Header />
 
@@ -215,12 +215,12 @@ export default function AnkleArthritisExercises() {
             <h2 className="font-serif text-2xl font-semibold mb-6">Related guides</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
+                { to: "/conditions/foot-and-ankle-arthritis", label: "Foot & ankle arthritis guide" },
                 { to: "/conditions/osteoarthritis", label: "Osteoarthritis guide" },
                 { to: "/conditions/rheumatoid-arthritis", label: "Rheumatoid arthritis guide" },
                 { to: "/conditions/gout", label: "Gout guide" },
-                { to: "/exercises/swimming-for-ankle", label: "Swimming for the ankle" },
-                { to: "/exercises/tai-chi-for-ankle", label: "Tai chi for the ankle" },
-                { to: "/conditions/osteoarthritis", label: "About osteoarthritis" },
+                { to: "/guides/fall-prevention-older-adults", label: "Fall prevention" },
+                { to: "/exercises/tai-chi-for-balance", label: "Tai chi for balance" },
               ].map((r) => (
                 <Link
                   key={r.to}

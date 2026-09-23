@@ -206,6 +206,17 @@ export const conditions: ConditionEntry[] = [
       "Skip heavy loaded curls during a flare. Warm the elbow before work and stop short of sharp catching pain.",
     hasConditionPage: true,
   },
+  {
+    slug: "foot-and-ankle-arthritis",
+    name: "Foot & Ankle Arthritis",
+    shortName: "Foot/Ankle OA",
+    safeExercises: ["swimming", "cycling", "walking", "stretching", "tai-chi"],
+    whyMovementHelps:
+      "Gentle ankle mobility, intrinsic foot strengthening and balance work reduce stiffness, improve push-off and lower fall risk without high-impact loading.",
+    modifications:
+      "Warm the foot before exercise. Prefer supportive footwear over barefoot work during flares. Stop short of sharp big-toe or ankle pain.",
+    hasConditionPage: true,
+  },
 ];
 
 export const conditionBySlug = new Map(conditions.map((c) => [c.slug, c]));
