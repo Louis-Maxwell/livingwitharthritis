@@ -141,6 +141,9 @@ const ALL_LINKS: SitemapLink[] = [
   // Pillar guides
   { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
   { label: "Exercise Guide", href: "/guides/exercise" },
+  { label: "Knee Exercises for Osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
+  { label: "Hip Exercises for Osteoarthritis", href: "/guides/hip-exercises-for-osteoarthritis" },
+  { label: "Free Arthritis Resources UK", href: "/guides/free-arthritis-resources-uk" },
   { label: "Diet Guide", href: "/guides/diet" },
   { label: "Health Services Guide", href: "/guides/health-services" },
   { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
@@ -185,7 +188,7 @@ const ALL_LINKS: SitemapLink[] = [
 
   // Blog – Exercise articles
   { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
-  { label: "Knee Arthritis Exercises", href: "/blog/knee-arthritis-exercises-uk" },
+  { label: "Knee Exercises for Osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
   { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
   { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
