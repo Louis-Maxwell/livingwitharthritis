@@ -31,6 +31,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     related: [
       { label: "Fibromyalgia condition guide", href: "/conditions/fibromyalgia" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Mental health and chronic pain", href: "/arthritis-mental-health" },
     ],
@@ -44,6 +45,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Full osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "What is osteoarthritis? FAQ", href: "/faq/what-is-osteoarthritis" },
     ],
   },
@@ -159,6 +161,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Arthritis overview", href: "/library/arthritis" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Benefits & PIP", href: "/benefits-pip" },
     ],
     extraSections: [
@@ -231,6 +234,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Benefits & PIP", href: "/benefits-pip" },
     ],
   },
@@ -307,6 +311,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
     ],
   },
   naproxen: {
@@ -316,6 +321,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     related: [
       { label: "Painkillers & NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Diet pillar", href: "/guides/diet" },
     ],
@@ -327,6 +333,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     related: [
       { label: "Painkillers & NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
     ],
@@ -344,6 +351,7 @@ export function getLibraryPillarRelated(
     { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
     { label: "Exercise for arthritis", href: "/guides/exercise" },
     { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
     { label: "Diet pillar", href: "/guides/diet" },
   ];
 
@@ -361,12 +369,14 @@ export function getLibraryPillarRelated(
       { label: "Supplements hub", href: "/supplements" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
     ];
   }
   if (category === "Medication" || category === "Treatment") {
     return [
       { label: "Painkillers & NSAIDs", href: "/guides/painkillers-and-nsaids" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
     ];
