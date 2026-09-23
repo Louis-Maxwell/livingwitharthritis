@@ -182,6 +182,7 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
   const lastMarkRef = useRef({ t: 0, pos: 0 });
   const mp3UrlRef = useRef<string | null>(null);
   const usedSpeechRef = useRef(false);
+  const speakTimerRef = useRef<number | null>(null);
 
   const [hasSpeech, setHasSpeech] = useState(true);
   const [voicesReady, setVoicesReady] = useState(false);
@@ -211,6 +212,10 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
 
   const cancelSpeech = useCallback(() => {
     genRef.current += 1;
+    if (speakTimerRef.current != null) {
+      window.clearTimeout(speakTimerRef.current);
+      speakTimerRef.current = null;
+    }
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
@@ -236,51 +241,101 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
 
       const gen = ++genRef.current;
       pausedRef.current = false;
-      synth.cancel();
 
-      const utterance = new SpeechSynthesisUtterance(slice);
-      utterance.rate = speedRef.current;
-      utterance.pitch = 1;
-      utterance.volume = 1;
-      utterance.lang = 'en-GB';
-      const voice = pickVoice(voicesRef.current);
-      if (voice) {
-        utterance.voice = voice;
-        if (voice.lang) utterance.lang = voice.lang;
+      if (speakTimerRef.current != null) {
+        window.clearTimeout(speakTimerRef.current);
+        speakTimerRef.current = null;
       }
 
-      const dur = durationRef.current;
-      const startPos = narration.length > 0 ? (start / narration.length) * dur : 0;
-      lastMarkRef.current = { t: performance.now(), pos: startPos };
-      setCurrentTime(startPos);
+      // Chrome drops utterances spoken in the same turn as cancel().
+      const needsCancelGap = synth.speaking || synth.pending;
+      if (needsCancelGap) {
+        synth.cancel();
+      }
 
-      utterance.onboundary = (event) => {
+      const launch = (allowRetry: boolean) => {
         if (gen !== genRef.current) return;
-        const abs = start + (event.charIndex || 0);
-        charOffsetRef.current = abs;
-        const pos = narration.length > 0 ? (abs / narration.length) * dur : 0;
-        lastMarkRef.current = { t: performance.now(), pos };
-        if (!seekingRef.current) setCurrentTime(pos);
+
+        const utterance = new SpeechSynthesisUtterance(slice);
+        utterance.rate = speedRef.current;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        utterance.lang = 'en-GB';
+        const voice = pickVoice(voicesRef.current);
+        if (voice) {
+          utterance.voice = voice;
+          if (voice.lang) utterance.lang = voice.lang;
+        }
+
+        const dur = durationRef.current;
+        const startPos = narration.length > 0 ? (start / narration.length) * dur : 0;
+        lastMarkRef.current = { t: performance.now(), pos: startPos };
+        setCurrentTime(startPos);
+
+        utterance.onboundary = (event) => {
+          if (gen !== genRef.current) return;
+          const abs = start + (event.charIndex || 0);
+          charOffsetRef.current = abs;
+          const pos = narration.length > 0 ? (abs / narration.length) * dur : 0;
+          lastMarkRef.current = { t: performance.now(), pos };
+          if (!seekingRef.current) setCurrentTime(pos);
+        };
+
+        utterance.onend = () => {
+          if (gen !== genRef.current) return;
+          setIsPlaying(false);
+          isPlayingRef.current = false;
+          setCurrentTime(dur);
+          charOffsetRef.current = narration.length;
+        };
+
+        utterance.onerror = (event) => {
+          if (gen !== genRef.current) return;
+          // Chrome often fires "canceled" when cancel() races speak(); retry once.
+          if (event.error === 'canceled' || event.error === 'interrupted') {
+            if (allowRetry && !pausedRef.current) {
+              speakTimerRef.current = window.setTimeout(() => launch(false), 60);
+            }
+            return;
+          }
+          setIsPlaying(false);
+          isPlayingRef.current = false;
+        };
+
+        try {
+          synth.speak(utterance);
+        } catch {
+          if (allowRetry) {
+            speakTimerRef.current = window.setTimeout(() => launch(false), 60);
+            return;
+          }
+          setIsPlaying(false);
+          isPlayingRef.current = false;
+          return;
+        }
+
+        setIsPlaying(true);
+        isPlayingRef.current = true;
+
+        // Chrome can accept speak() then silently drop the utterance after cancel().
+        if (allowRetry) {
+          speakTimerRef.current = window.setTimeout(() => {
+            if (gen !== genRef.current || pausedRef.current) return;
+            if (!synth.speaking && !synth.pending && isPlayingRef.current) {
+              launch(false);
+            }
+          }, 120);
+        }
       };
 
-      utterance.onend = () => {
-        if (gen !== genRef.current) return;
-        setIsPlaying(false);
-        isPlayingRef.current = false;
-        setCurrentTime(dur);
-        charOffsetRef.current = narration.length;
-      };
-
-      utterance.onerror = (event) => {
-        if (event.error === 'interrupted' || event.error === 'canceled') return;
-        if (gen !== genRef.current) return;
-        setIsPlaying(false);
-        isPlayingRef.current = false;
-      };
-
-      synth.speak(utterance);
-      setIsPlaying(true);
-      isPlayingRef.current = true;
+      if (needsCancelGap) {
+        setIsPlaying(true);
+        isPlayingRef.current = true;
+        speakTimerRef.current = window.setTimeout(() => launch(true), 50);
+      } else {
+        // Same user-gesture turn — required for Safari / some Chromium builds.
+        launch(true);
+      }
     },
     [refreshNarration],
   );
@@ -330,9 +385,11 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
     const ctrl = new AbortController();
     const mp3Path = `/audio/${slug}.mp3`;
     const probeMp3 = () => {
-      fetch(mp3Path, { method: 'HEAD', cache: 'force-cache', signal: ctrl.signal })
+      fetch(mp3Path, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal })
         .then((res) => {
-          if (res.ok) {
+          const type = (res.headers.get('content-type') || '').toLowerCase();
+          // SPA hosts sometimes return 200 HTML for missing files — only trust real audio.
+          if (res.ok && type.includes('audio/')) {
             setMp3Url(mp3Path);
             mp3UrlRef.current = mp3Path;
           }
@@ -420,15 +477,28 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
     if (autoplayTriedRef.current) return;
     if (!voicesReady && !mp3Url) return;
     autoplayTriedRef.current = true;
+    const focusPlay = () => {
+      const btn = document.querySelector(
+        '#listen button[aria-label="Play article audio"]',
+      ) as HTMLButtonElement | null;
+      btn?.focus({ preventScroll: true });
+    };
     try {
       if (mp3Url && audioRef.current) {
         audioRef.current.playbackRate = speedRef.current;
-        void audioRef.current.play().catch(() => undefined);
+        void audioRef.current.play().then(undefined, () => focusPlay());
         return;
       }
-      if ('speechSynthesis' in window) speakFrom(0);
+      if ('speechSynthesis' in window) {
+        speakFrom(0);
+        // If the browser blocked speech autoplay, nudge focus to Play.
+        window.setTimeout(() => {
+          if (!isPlayingRef.current) focusPlay();
+        }, 200);
+      }
     } catch {
       // Autoplay without a gesture is often blocked — leave Play ready.
+      focusPlay();
     }
   }, [voicesReady, mp3Url, speakFrom]);
 
