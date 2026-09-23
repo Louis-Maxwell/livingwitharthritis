@@ -2,6 +2,14 @@
 // Runs via `predev` and `prebuild` hooks. Discovers static routes from
 // src/App.tsx and dynamic routes from data files and local JSON.
 //
+// Growth-lever policy (not SEO theatre):
+//   - List indexable visitor-job URLs Google should crawl.
+//   - Omit thin/utility shells (search UI, AI meta pages, product SKUs, etc.).
+//   - Emit <lastmod> only from real content dates (blog JSON, ai-head-data
+//     updatedAt, or literal dateModified/lastReviewed in page sources).
+//   - Do NOT invent today's date. Prefer omitting lastmod over faking it.
+//   - Omit <priority> and <changefreq> — Google ignores them.
+//
 // Run manually:  bun scripts/generate-sitemap.ts
 
 import { writeFileSync, readFileSync, readdirSync } from "node:fs";
@@ -17,15 +25,6 @@ const BASE_URL = "https://livingwitharthritis.org.uk";
 interface SitemapEntry {
   path: string;
   lastmod?: string;
-  changefreq?:
-    | "always"
-    | "hourly"
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never";
-  priority?: string;
 }
 
 interface BlogPostEntry {
@@ -66,6 +65,9 @@ const STATIC_EXCLUDE = new Set([
   "/admin/distribute",
   "/admin/rank-tracker",
   "/admin/content-refresh",
+  "/admin/backlinks",
+  "/admin/chat-feedback",
+  "/admin/keyword-strategy",
   "/donation-result",
   "/donation-result/success",
   "/unsubscribe",
@@ -77,6 +79,19 @@ const STATIC_EXCLUDE = new Set([
   "/conditions/elbow-pain",
   "/conditions/axial-spondyloarthritis",
   "/conditions/calcific-tendinitis",
+  // Thin / utility shells — keep live, do not advertise in XML sitemap.
+  // Visitor-job hubs (pain, conditions, benefits-PIP, Access to Work / disability
+  // support, falls, exercises) stay included via App.tsx discovery.
+  "/search",
+  "/seo-content-framework",
+  "/ai-citations",
+  "/ai-guidelines",
+  "/accessibility-for-ai",
+  "/ai",
+  "/credits",
+  "/gallery",
+  "/shop",
+  "/buddy",
 ]);
 
 // Prefix-based exclusions for entire route trees that must never appear in
@@ -91,8 +106,23 @@ const STATIC_EXCLUDE = new Set([
 //   /callback  — OAuth callback handlers
 const EXCLUDE_PREFIXES = ["/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback", "/.lovable"];
 
+function parseNavigateAliasPaths(): Set<string> {
+  // <Route path="/zakat" element={<Navigate to="/zakat-appeal" replace />} />
+  // and similar aliases must never appear in the sitemap (canonical ≠ loc).
+  const src = read("src/App.tsx");
+  const aliases = new Set<string>();
+  const re =
+    /<Route\s+path="([^"]+)"\s+element=\{\s*<Navigate\s+to="([^"]+)"/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(src)) !== null) {
+    if (!m[1].includes(":")) aliases.add(m[1]);
+  }
+  return aliases;
+}
+
 function parseStaticRoutes(): string[] {
   const src = read("src/App.tsx");
+  const aliases = parseNavigateAliasPaths();
   const re = /<Route\s+path="([^"]+)"/g;
   const paths = new Set<string>();
   let m: RegExpExecArray | null;
@@ -101,9 +131,85 @@ function parseStaticRoutes(): string[] {
     if (p.includes(":")) continue;
     if (EXCLUDE_PREFIXES.some((pre) => p === pre || p.startsWith(pre + "/"))) continue;
     if (STATIC_EXCLUDE.has(p)) continue;
+    if (aliases.has(p)) continue;
     paths.add(p);
   }
   return [...paths];
+}
+
+/** YYYY-MM-DD only — reject runtime `new Date()` stamps and junk. */
+function asIsoDate(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const d = value.trim().slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : undefined;
+}
+
+function maxIsoDate(...dates: Array<string | undefined>): string | undefined {
+  const ok = dates.filter((d): d is string => Boolean(d));
+  if (ok.length === 0) return undefined;
+  return ok.sort().at(-1);
+}
+
+/** Real content dates from scripts/ai-head-data.json (updatedAt). */
+function aiHeadLastmods(): Map<string, string> {
+  const out = new Map<string, string>();
+  try {
+    const data = JSON.parse(read("scripts/ai-head-data.json")) as Record<
+      string,
+      { updatedAt?: string }
+    >;
+    for (const [path, row] of Object.entries(data)) {
+      const d = asIsoDate(row?.updatedAt);
+      if (path.startsWith("/") && d) out.set(path, d);
+    }
+  } catch {
+    // Optional at bootstrap.
+  }
+  return out;
+}
+
+/**
+ * Literal dateModified / lastReviewed / datePublished in page sources.
+ * Skips `new Date()` (runtime "today" is not a real content date).
+ */
+function pageSourceLastmods(): Map<string, string> {
+  const out = new Map<string, string>();
+  const app = read("src/App.tsx");
+  // path -> relative import inside lazy(() => import("..."))
+  const routeFiles = new Map<string, string>();
+  const lazyRe =
+    /const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
+  const compToFile = new Map<string, string>();
+  let m: RegExpExecArray | null;
+  while ((m = lazyRe.exec(app)) !== null) {
+    compToFile.set(m[1], m[2].replace(/^\.\//, "src/"));
+  }
+  const routeRe =
+    /<Route\s+path="([^"]+)"\s+element=\{\s*(?:<GuideLayout[^>]*>)?\s*<(\w+)/g;
+  while ((m = routeRe.exec(app)) !== null) {
+    const file = compToFile.get(m[2]);
+    if (file && !m[1].includes(":")) routeFiles.set(m[1], file.endsWith(".tsx") || file.endsWith(".ts") || file.endsWith(".jsx") ? file : file + ".tsx");
+  }
+
+  const dateRe =
+    /\b(?:dateModified|lastReviewed|datePublished)\s*[:=]\s*["'](\d{4}-\d{2}-\d{2})["']/g;
+  for (const [route, file] of routeFiles) {
+    try {
+      const body = read(file);
+      if (/dateModified\s*:\s*new Date\(/.test(body)) {
+        // Still allow lastReviewed / datePublished literals from the same file.
+      }
+      const found: string[] = [];
+      let dm: RegExpExecArray | null;
+      const re = new RegExp(dateRe.source, "g");
+      while ((dm = re.exec(body)) !== null) found.push(dm[1]);
+      const best = maxIsoDate(...found);
+      if (best) out.set(route, best);
+    } catch {
+      // Missing file — skip.
+    }
+  }
+  return out;
 }
 
 // ---------- 2. DYNAMIC ROUTES (regex over data files) ----------
@@ -121,11 +227,8 @@ function dailyTipSlugs(): string[] {
   return extractAll(re, src);
 }
 
-function productIds(): string[] {
-  const src = read("src/data/affiliateProducts.ts");
-  const re = /^\s*id:\s*"([^"]+)"/gm;
-  return extractAll(re, src);
-}
+// productIds() intentionally removed from the sitemap assembly — /product/{id}
+// SKU shells (comp-1, ex-1, …) are thin affiliate templates, not visitor-job URLs.
 
 function citySlugs(): string[] {
   const src = read("src/data/ukCities.ts");
@@ -336,18 +439,6 @@ async function blogPosts(): Promise<BlogInventory> {
 }
 
 // ---------- 4. ASSEMBLE ----------
-function priorityFor(path: string): { priority: string; changefreq: SitemapEntry["changefreq"] } {
-  if (path === "/") return { priority: "1.0", changefreq: "weekly" };
-  if (path === "/donate" || path.startsWith("/conditions/")) {
-    return { priority: "0.9", changefreq: "monthly" };
-  }
-  if (path.startsWith("/blog/")) return { priority: "0.7", changefreq: "monthly" };
-  if (path.startsWith("/guides/") || path.startsWith("/exercises") || path.startsWith("/diet"))
-    return { priority: "0.7", changefreq: "monthly" };
-  if (path.startsWith("/arthritis-support/")) return { priority: "0.6", changefreq: "monthly" };
-  return { priority: "0.6", changefreq: "monthly" };
-}
-
 function build(entries: SitemapEntry[]): string {
   const seen = new Set<string>();
   const unique = entries.filter((e) => {
@@ -355,14 +446,12 @@ function build(entries: SitemapEntry[]): string {
     seen.add(e.path);
     return true;
   });
+  // loc + optional real lastmod only. Google ignores priority/changefreq.
   const urls = unique.map((e) => {
-    const meta = priorityFor(e.path);
     return [
       "  <url>",
       `    <loc>${BASE_URL}${e.path}</loc>`,
       ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
-      `    <changefreq>${e.changefreq ?? meta.changefreq}</changefreq>`,
-      `    <priority>${e.priority ?? meta.priority}</priority>`,
       "  </url>",
     ].join("\n");
   });
@@ -377,56 +466,76 @@ function build(entries: SitemapEntry[]): string {
 
 async function main() {
   const entries: SitemapEntry[] = [];
+  const aiDates = aiHeadLastmods();
+  const pageDates = pageSourceLastmods();
 
-  // High-intent hubs refreshed in the 20 Sep 2026 evening visibility pass.
-  const LASTMOD_BY_PATH: Record<string, string> = {
-    "/": "2026-09-20",
-    "/about": "2026-08-31",
-    "/guides/arthritis-pain-relief": "2026-09-20",
-    "/guides/newly-diagnosed": "2026-09-20",
-    "/benefits-pip": "2026-09-20",
-    "/guides/benefits-pip": "2026-09-20",
-    "/diet/mediterranean-diet-for-arthritis": "2026-09-20",
-    "/supplements/turmeric": "2026-09-20",
-  };
+  function lastmodFor(path: string, extra?: string): string | undefined {
+    return maxIsoDate(extra, aiDates.get(path), pageDates.get(path));
+  }
+
   for (const p of parseStaticRoutes()) {
-    // lastmod only for pages with a known significant content change; others omit it.
-    const lastmod = LASTMOD_BY_PATH[p];
+    const lastmod = lastmodFor(p);
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
   }
 
-  for (const slug of dailyTipSlugs()) entries.push({ path: `/daily-tips/${slug}` });
-  for (const id of productIds()) entries.push({ path: `/product/${id}` });
+  for (const slug of dailyTipSlugs()) {
+    const path = `/daily-tips/${slug}`;
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
+  // Affiliate /product/{id} SKU shells (comp-1, ex-1, …) are thin templates —
+  // keep the routes live for shop links, but do not spend crawl budget on them.
   // City hubs (/arthritis-support/{city}) — unique national-charity landings.
   for (const c of citySlugs()) {
-    entries.push({ path: `/arthritis-support/${c}`, priority: "0.6", changefreq: "monthly" });
+    const path = `/arthritis-support/${c}`;
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
   }
-  for (const r of regionSlugs()) entries.push({ path: `/regions/${r}` });
+  for (const r of regionSlugs()) {
+    const path = `/regions/${r}`;
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
 
-  for (const s of exerciseJointSlugs()) entries.push({ path: `/exercises/${s}` });
+  for (const s of exerciseJointSlugs()) {
+    const path = `/exercises/${s}`;
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
 
   // Condition sub-pages have unique written content (src/data/conditionSubpages.ts).
   // City×condition, city×service and exercise×condition matrices are thin
   // templates — they 301 to a hub and must not appear in the sitemap.
+  // Foot/ankle hub lands via App.tsx + conditionSubpages when PR #70 merges;
+  // do not invent that URL while the route is absent from this branch.
   const SUBPAGES = ["symptoms", "treatment", "exercises", "diet"];
   for (const c of conditionSubpageSlugs())
-    for (const s of SUBPAGES)
-      entries.push({ path: `/conditions/${c}/${s}`, priority: "0.8", changefreq: "monthly" });
+    for (const s of SUBPAGES) {
+      const path = `/conditions/${c}/${s}`;
+      const lastmod = lastmodFor(path);
+      entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+    }
 
-  // Unique FAQ + library articles. These 200 with written copy but were
+  // Unique FAQ + library articles. These ship with written copy but were
   // previously omitted because parseStaticRoutes() skips /faq/:slug and
   // /library/:slug. Do not add /expert/:slug or /stories/:slug — those
   // arrays are empty placeholders.
-  for (const slug of faqArticleSlugs())
-    entries.push({ path: `/faq/${slug}`, priority: "0.7", changefreq: "monthly" });
-  for (const slug of libraryTopicSlugs())
-    entries.push({ path: `/library/${slug}`, priority: "0.6", changefreq: "monthly" });
+  for (const slug of faqArticleSlugs()) {
+    const path = `/faq/${slug}`;
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
+  for (const slug of libraryTopicSlugs()) {
+    const path = `/library/${slug}`;
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
 
   const blogInventory = await blogPosts();
   const posts = blogInventory.posts;
   const cats = new Set<string>();
   for (const p of posts) {
-    entries.push({ path: `/blog/${p.slug}`, lastmod: p.lastmod });
+    entries.push({ path: `/blog/${p.slug}`, lastmod: asIsoDate(p.lastmod) });
     if (p.category) {
       const category = canonicalBlogCategoryKey(p.category);
       if (category) cats.add(category);
@@ -447,38 +556,41 @@ async function main() {
   const glossaryContentSrc = read("src/data/glossary-content.ts");
   const writtenTerms = new Set(extractAll(/^\s{2}"?([a-z0-9-]+)"?:\s*\{/gm, glossaryContentSrc));
   const glossarySrc = read("src/data/glossary-routes.generated.ts");
+  const push = (path: string, extraLastmod?: string) => {
+    const lastmod = lastmodFor(path, extraLastmod);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  };
+
   for (const p of extractAll(/"(\/glossary(?:\/[^"]+)?)"/g, glossarySrc)) {
     if (p !== "/glossary" && !writtenTerms.has(p.replace("/glossary/", ""))) continue;
-    entries.push({ path: p, priority: p === "/glossary" ? "0.7" : "0.6", changefreq: "monthly" });
+    push(p);
   }
 
   const comparisonSrc = read("src/data/comparison-routes.generated.ts");
-  for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc))
-    entries.push({ path: p, priority: "0.7", changefreq: "monthly" });
+  for (const p of extractAll(/"(\/guides\/[^"]+)"/g, comparisonSrc)) push(p);
 
   // Alias city hubs (stockport, stirling, …) 301 away and are filtered via
   // exactRedirectPathSet() below — only real ukCities slugs are listed above.
   const petsSrc = read("src/data/pets-arthritis.generated.ts");
-  entries.push({ path: "/pets", priority: "0.8", changefreq: "weekly" });
-  for (const s of extractAll(/"slug":\s*"([^"]+)"/g, petsSrc))
-    entries.push({ path: `/pets/${s}`, priority: "0.7", changefreq: "monthly" });
+  push("/pets");
+  for (const s of extractAll(/"slug":\s*"([^"]+)"/g, petsSrc)) push(`/pets/${s}`);
 
   // Trust & partnerships hubs.
-  entries.push({ path: "/trust", priority: "0.8", changefreq: "monthly" });
-  entries.push({ path: "/corporate-partnerships", priority: "0.7", changefreq: "monthly" });
+  push("/trust");
+  push("/corporate-partnerships");
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
-  entries.push({ path: "/authors", priority: "0.6", changefreq: "yearly" });
-  entries.push({ path: "/reviewers", priority: "0.6", changefreq: "yearly" });
+  push("/authors");
+  push("/reviewers");
   const authorsSrc = read("src/data/medical-authors.json");
   const authors = JSON.parse(authorsSrc) as Record<string, { slug: string; kind: "author" | "reviewer"; credential?: string }>;
   for (const rec of Object.values(authors)) {
     const prefix = rec.kind === "reviewer" ? "reviewers" : "authors";
-    entries.push({ path: `/${prefix}/${rec.slug}`, priority: "0.6", changefreq: "yearly" });
+    push(`/${prefix}/${rec.slug}`);
     // HCPC/GMC-registered authors also review content, so their /reviewers
     // bio URL is a real page and belongs in the sitemap.
     if (prefix === "authors" && /HCPC|GMC|NMC/i.test(rec.credential ?? "")) {
-      entries.push({ path: `/reviewers/${rec.slug}`, priority: "0.5", changefreq: "yearly" });
+      push(`/reviewers/${rec.slug}`);
     }
   }
 
@@ -500,6 +612,27 @@ async function main() {
   console.log(
     `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/redirect URLs) -> public/sitemap.xml`,
   );
+
+  // Honest single-child index (no fake locale sitemaps). lastmod = newest real URL date.
+  const newest = cleaned
+    .map((e) => e.lastmod)
+    .filter((d): d is string => Boolean(d))
+    .sort()
+    .at(-1);
+  const indexXml = [
+    `<?xml version="1.0" encoding="UTF-8"?>`,
+    `<!-- Locale sitemaps removed: /es, /fr, /de and /pt were empty stubs that`,
+    `     served the English page and were being indexed as duplicates. -->`,
+    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
+    `  <sitemap>`,
+    `    <loc>${BASE_URL}/sitemap.xml</loc>`,
+    ...(newest ? [`    <lastmod>${newest}</lastmod>`] : []),
+    `  </sitemap>`,
+    `</sitemapindex>`,
+    "",
+  ].join("\n");
+  writeFileSync(resolve("public/sitemap-index.xml"), indexXml);
+  console.log(`[sitemap] wrote public/sitemap-index.xml` + (newest ? ` (lastmod ${newest})` : ""));
 
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
