@@ -52,6 +52,13 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     cluster: "medication",
   },
 
+  {
+    path: "/guides/understanding-pain",
+    title: "Understanding pain",
+    description: "Pain types explained — inflammatory, mechanical, neuropathic and more — plus questions for your GP.",
+    cluster: "condition",
+  },
+
   // MSK / movement
   {
     path: "/guides/exercise",

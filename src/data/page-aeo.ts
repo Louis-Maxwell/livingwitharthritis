@@ -239,6 +239,16 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Where can I get PIP information?", a: "Start with our Benefits & PIP guide and evidence diary, then speak to Citizens Advice or a welfare-rights adviser. We provide education, not legal representation." },
     ],
   }),
+  "/guides/understanding-pain": withDefaults({
+    question: "What are the main types of pain?",
+    answer:
+      "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
+    faqs: [
+      { q: "Is inflammatory pain the same as arthritis?", a: "Not always — inflammatory pain can come from autoimmune arthritis and other causes. Mechanical pain is more linked to load, injury or wear. A clinical assessment sorts them out." },
+      { q: "When is pain chronic?", a: "Pain lasting longer than about three months is usually called chronic. See your GP if pain persists, wakes you at night, or comes with hot swollen joints." },
+      { q: "What is neuropathic pain?", a: "Nerve-related pain often burns, tingles or feels electric. Diabetes and some treatments can cause it. Ask your clinician about cause-specific options." },
+    ],
+  }),
   "/guides/arthritis-pain-relief": withDefaults({
     question: "How do I relieve arthritis pain?",
     answer:
