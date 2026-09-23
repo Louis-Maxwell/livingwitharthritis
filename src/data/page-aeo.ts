@@ -395,6 +395,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
   "/": withDefaults({
+    updatedAt: "2026-09-23",
     question: "What is Living With Arthritis UK?",
     answer:
       "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
