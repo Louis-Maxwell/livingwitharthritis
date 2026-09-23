@@ -136,6 +136,8 @@ const CURATED = [
   "/resource-centre",
   "/resources/clinic-pack",
   "/guides/newly-diagnosed",
+  "/guides/knee-exercises-for-osteoarthritis",
+  "/guides/free-arthritis-resources-uk",
   "/privacy",
   "/cookies",
   "/terms",
