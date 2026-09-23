@@ -42,6 +42,16 @@ const CONTENT = `
 <li><strong>Reduced fatigue</strong> — counterintuitively, regular exercise reduces the chronic fatigue associated with RA</li>
 </ul>
 
+
+<h2 id="joint-index">Joint exercise index (start here)</h2>
+<p>Jump to the free joint-specific home routines:</p>
+<ul>
+<li><strong><a href="/guides/knee-exercises-for-osteoarthritis">Free knee exercises for osteoarthritis UK</a></strong> — 8-move NICE-aligned routine</li>
+<li><strong><a href="/guides/hip-exercises-for-osteoarthritis">Hip exercises for osteoarthritis</a></strong> — 8-move physio-aligned routine</li>
+<li><strong><a href="/exercises">Exercise hub</a></strong> — interactive library by joint</li>
+<li><strong><a href="/guides/can-exercise-make-osteoarthritis-worse">Can exercise make osteoarthritis worse?</a></strong> — safety evidence</li>
+</ul>
+
 <h2 id="types-of-exercise">Types of Exercise for Arthritis</h2>
 <p>A balanced arthritis exercise programme should include <strong>three types</strong> of activity:</p>
 
@@ -61,6 +71,7 @@ const CONTENT = `
 <p><strong>Key exercises by joint:</strong></p>
 
 <h3>Knee exercises</h3>
+<p>Full free programme: <a href="/guides/knee-exercises-for-osteoarthritis">Free knee exercises for osteoarthritis UK</a>.</p>
 <ul>
 <li><strong>Straight-leg raises</strong> — lie on your back, keep one leg bent and slowly raise the other, hold 5 seconds. 3 sets of 10.</li>
 <li><strong>Wall squats</strong> — lean against a wall and slide down to a comfortable squat (30–45°), hold 10 seconds. 3 sets of 5–10.</li>
@@ -69,6 +80,7 @@ const CONTENT = `
 </ul>
 
 <h3>Hip exercises</h3>
+<p>Full free programme: <a href="/guides/hip-exercises-for-osteoarthritis">Hip exercises for osteoarthritis</a>.</p>
 <ul>
 <li><strong>Bridges</strong> — lie on your back with knees bent, lift hips toward the ceiling, hold 5 seconds. 3 sets of 10.</li>
 <li><strong>Clamshells</strong> — lie on your side with knees bent, keep feet together and open the top knee like a clamshell. 3 sets of 15.</li>
@@ -189,11 +201,11 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Arthritis exercises UK: safe strength, walking and chair routines</title>
-        <meta name="description" content="Safe arthritis exercises for UK adults: low-impact cardio, strength, flexibility, water and chair routines for knee, hip, hand and shoulder. Educational — check with your clinician." />
+        <title>Free physiotherapy exercises for arthritis at home UK | Living With Arthritis</title>
+        <meta name="description" content="Free physiotherapy exercises for arthritis at home in the UK: NICE-aligned knee, hip, hand and chair routines you can start today. Living With Arthritis charity 1218461." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-      <meta property="og:title" content="Best Exercises for Arthritis UK – Knee, Hip, Hand &amp; Chair Exercises Guide" />
+      <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Knee, Hip, Hand &amp; Chair" />
       <meta property="og:description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/exercise" />
@@ -203,14 +215,14 @@ export default function ExerciseGuide() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Best Exercises for Arthritis UK – Knee, Hip, Hand &amp; Chair Exercises Guide" />
+      <meta name="twitter:title" content="Free physiotherapy exercises for arthritis at home UK – Knee, Hip, Hand &amp; Chair" />
       <meta name="twitter:description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <PageSchema
         url="/guides/exercise"
-        name="Best Exercises for Arthritis (UK)"
-        description="Evidence-based exercise guide for arthritis: low-impact aerobic, strength, flexibility, water-based and chair exercises for every major joint."
+        name="Free physiotherapy exercises for arthritis at home UK"
+        description="Free physiotherapy exercises for arthritis at home in the UK — NICE-aligned routines for knee, hip, hand and chair, with a joint index to full guides."
         medical={{ condition: "Arthritis" }}
         speakableSelector=".speakable-intro"
         breadcrumbs={[
@@ -225,8 +237,8 @@ export default function ExerciseGuide() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
-          title="Exercise Guide for Arthritis"
-          subtitle="The definitive guide to exercising with arthritis — from gentle chair-based routines to progressive strength programmes, backed by clinical evidence."
+          title="Free physiotherapy exercises for arthritis at home UK"
+          subtitle="NICE-aligned home physio routines for knees, hips, hands and more — free from Living With Arthritis (charity 1218461). Start gently, progress safely."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">

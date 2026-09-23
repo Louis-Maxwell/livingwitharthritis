@@ -97,8 +97,7 @@
 # --- Blog slug consolidations (keep in sync with src/data/blogRedirects.ts) ---
 /blog/nhs-arthritis-exercises /blog/arthritis-exercises-uk-clinical 301
 /blog/nhs-rheumatology-waiting-times-uk /blog/rheumatology-waiting-times-uk 301
-/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
-/blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
+/blog/knee-arthritis-exercises-uk  /guides/knee-exercises-for-osteoarthritis  301
 /blog/food-supplements-for-joint-pain /blog/best-supplements-joint-pain 301
 /blog/arthritis-medication-uk /blog/arthritis-medication-guide 301
 /blog/arthritis-and-weight-management-uk /blog/weight-management-arthritis-evidence 301
@@ -697,7 +696,6 @@
 /arthritis-meal-planning-uk /blog/arthritis-meal-planning-uk 301
 /arthritis-pain-relief-natural /blog/arthritis-pain-relief-natural 301
 /back-arthritis-exercises-uk /blog/back-arthritis-exercises-uk 301
-/knee-arthritis-exercises-uk /blog/knee-arthritis-exercises-uk 301
 /occupational-therapy-arthritis-uk /blog/occupational-therapy-arthritis-uk 301
 /osteoarthritis-symptoms-uk /blog/osteoarthritis-symptoms-uk 301
 /hot-weather-arthritis-management /blog/hot-weather-arthritis-management 301

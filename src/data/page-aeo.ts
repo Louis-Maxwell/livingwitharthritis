@@ -259,6 +259,27 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Do I need a gym?", a: "No — bridges, clamshells and sit-to-stands can be done at home. A physiotherapist can tailor progression." },
     ],
   }),
+  "/guides/knee-exercises-for-osteoarthritis": withDefaults({
+    question: "What are the best free knee exercises for osteoarthritis in the UK?",
+    answer:
+      "NICE NG226 recommends structured exercise as first-line for knee osteoarthritis. A practical home routine includes quad sets, straight-leg raises, sit-to-stands, mini squats, step-ups, hamstring curls, calf raises and gentle range-of-motion — 2–3 sessions weekly with a 4/10 pain rule.",
+    faqs: [
+      { q: "How many reps should I do?", a: "Typically 2–3 sets of 8–12 reps, two to three times a week on non-consecutive days. Progress by about 10% per week." },
+      { q: "When should I stop?", a: "Stop if pain is sharp, catching, or stays above about 4/10 overnight. Mild ache that settles within 24 hours is usually fine." },
+      { q: "Can I start while waiting for NHS physio?", a: "Yes for most stable knee OA — begin gently at home and ask about MSK self-referral. Seek urgent care for red-flag symptoms." },
+    ],
+  }),
+  "/guides/free-arthritis-resources-uk": withDefaults({
+    question: "What free arthritis resources do UK charities offer?",
+    answer:
+      "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. Living With Arthritis is independent of Arthritis UK.",
+    faqs: [
+      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No — it is an independent UK charity (1218461), not Arthritis UK or Versus Arthritis." },
+      { q: "Are the exercise and PIP tools free?", a: "Yes. Guides, home physio routines, the PIP evidence diary and flare plan are free to use." },
+    ],
+  }),
+
+
   "/guides/can-exercise-make-osteoarthritis-worse": withDefaults({
     question: "Can exercise make osteoarthritis worse?",
     answer:
