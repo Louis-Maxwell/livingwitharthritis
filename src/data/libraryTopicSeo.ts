@@ -19,6 +19,7 @@ export interface LibraryTopicSeo {
   h1?: string;
   related?: { label: string; href: string }[];
   extraSections?: ExtraSection[];
+  faqs?: { q: string; a: string }[];
 }
 
 export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
@@ -238,14 +239,56 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     ],
   },
   "access-to-work": {
-    title: "Access to Work UK: arthritis workplace support",
+    title: "Access to Work UK for arthritis: grants, eligibility & how to apply",
     description:
-      "UK library note on Access to Work for people with arthritis — equipment, travel and support at work, plus PIP and disability support next steps.",
+      "What Access to Work can fund for people with arthritis in England, Scotland and Wales — equipment, travel, support workers — plus Equality Act adjustments, PIP links and how to apply on GOV.UK.",
+    h1: "Access to Work for arthritis: UK workplace support explained",
     related: [
       { label: "Benefits & PIP hub", href: "/benefits-pip" },
-      { label: "PIP guide", href: "/guides/benefits-pip" },
+      { label: "Full PIP & benefits guide", href: "/guides/benefits-pip" },
       { label: "Disability support", href: "/guides/disability-support" },
-      { label: "Work with arthritis", href: "/guides/work-with-arthritis" },
+      { label: "Working with arthritis (rights)", href: "/blog/working-with-arthritis-uk-rights" },
+    ],
+    faqs: [
+      {
+        q: "What is Access to Work?",
+        a: "Access to Work is a UK government grant that can help pay for practical support if a disability or long-term health condition — including arthritis — affects your job. It complements, rather than replaces, your employer's Equality Act duty to make reasonable adjustments.",
+      },
+      {
+        q: "Who can apply for Access to Work with arthritis?",
+        a: "You can usually apply if you are 16 or over, live and work in England, Scotland or Wales, are in paid work or about to start, and have a long-term condition such as rheumatoid arthritis, osteoarthritis or another musculoskeletal condition that affects how you do your job.",
+      },
+      {
+        q: "What can Access to Work pay for?",
+        a: "Common awards include specialist equipment or adaptations, changes to the working environment, travel to work if public transport is not manageable, a support worker or job coach, and some mental health support. Exact awards depend on individual assessment.",
+      },
+      {
+        q: "How do I apply for Access to Work?",
+        a: "Apply online via GOV.UK Access to Work or by phone. A workplace assessment may follow. You can apply before starting a new role or while already employed. Keep notes on flare days, tasks you struggle with, and equipment that already helps.",
+      },
+      {
+        q: "Does Access to Work replace reasonable adjustments?",
+        a: "No. Under the Equality Act 2010, employers must still consider reasonable adjustments such as flexible hours, extra breaks or modified duties. Access to Work is designed for support that goes beyond what is reasonable for the employer alone.",
+      },
+      {
+        q: "Can I claim PIP and Access to Work together?",
+        a: "Yes. PIP looks at daily living and mobility; Access to Work looks at workplace support. Many people use both. Start with our Benefits & PIP hub for claim prep, then use this page for workplace grants.",
+      },
+    ],
+    extraSections: [
+      {
+        heading: "Arthritis-specific workplace examples",
+        body: "People with arthritis often use Access to Work for sit-stand desks, ergonomic chairs, vertical mice, voice recognition software, parking closer to the entrance, or taxi fares during flares when public transport is not realistic. Self-employed people can also apply. Bring a short flare diary to any assessment so bad days are visible, not only good ones.",
+        bullets: [
+          "Dictation software when hand or wrist arthritis slows typing",
+          "Supportive seating and desk height for spinal or hip OA",
+          "Travel support when morning stiffness makes commuting unreliable",
+        ],
+      },
+      {
+        heading: "Next steps after you apply",
+        body: "While you wait for a decision, talk to your manager or HR about Equality Act reasonable adjustments, and ask occupational health for a workstation review if one is available. If benefits questions sit alongside work worries, use the PIP guide and evidence diary so you are not juggling blank forms alone.",
+      },
     ],
   },
   glucosamine: {

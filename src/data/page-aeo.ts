@@ -173,6 +173,19 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Can elbow arthritis be cured?", a: "Arthritis itself isn't cured, but most people manage symptoms well with exercise, activity modification, topical NSAIDs and occasional corticosteroid injections. Elbow replacement is reserved for severe pain or loss of function and gives good relief in around 85% of cases." },
     ],
   }),
+  "/conditions/foot-and-ankle-arthritis": withDefaults({
+    question: "What is foot and ankle arthritis?",
+    answer:
+      "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
+  
+    faqs: [
+      { q: "What are the first signs of foot or ankle arthritis?", a: "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint." },
+      { q: "What is the best footwear for foot arthritis?", a: "Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics." },
+      { q: "What exercises help ankle arthritis?", a: "Daily ankle circles, alphabet tracing, towel scrunches, gentle calf raises and single-leg balance near a counter. Warm the foot first and stop short of sharp pain." },
+      { q: "Can NHS podiatry help?", a: "Yes. Ask your GP for a podiatry referral, or self-refer where available. Podiatrists assess biomechanics and can prescribe custom orthotics." },
+      { q: "When should I see a GP about foot or ankle pain?", a: "If pain lasts more than a few weeks, limits walking, comes with warm swelling or deformity, or follows an old fracture. Seek urgent care for a hot, red joint with fever." },
+    ],
+  }),
   "/conditions/juvenile-arthritis": withDefaults({
     question: "What is juvenile arthritis?",
     answer:

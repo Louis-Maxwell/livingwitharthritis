@@ -32,22 +32,36 @@ export default function FallPreventionOlderAdults() {
     };
     const breadcrumb = buildBreadcrumb([
       { name: 'Home', path: '/' },
+      { name: 'Guides', path: '/guides' },
       { name: 'Fall Prevention', path: '/guides/fall-prevention-older-adults' },
     ]);
+    const howto = {
+      '@context': 'https://schema.org', '@type': 'HowTo',
+      name: 'Home safety checklist to reduce falls with arthritis',
+      description: 'Practical steps older adults with arthritis can take at home to lower fall risk. Educational only — ask a clinician for personalised advice.',
+      step: [
+        { '@type': 'HowToStep', name: 'Secure rugs and floors', text: 'Remove loose rugs or secure them with non-slip backing; clear clutter from walkways.' },
+        { '@type': 'HowToStep', name: 'Improve lighting', text: 'Fit bright lighting on stairs and night-lights between bed and bathroom.' },
+        { '@type': 'HowToStep', name: 'Add support where needed', text: 'Install grab rails by the toilet, shower and front door if assessment supports it.' },
+        { '@type': 'HowToStep', name: 'Choose supportive footwear', text: 'Wear well-fitting indoor shoes with grip — avoid floppy slippers.' },
+        { '@type': 'HowToStep', name: 'Keep items within reach', text: 'Store frequently used items between waist and shoulder height to avoid stretching or stooping.' },
+      ],
+    };
     const c1 = injectJsonLd('fall-prevention-article', article);
     const c2 = injectJsonLd('fall-prevention-faq', faq);
     const c3 = injectJsonLd('fall-prevention-breadcrumb', breadcrumb);
-    return () => { c1(); c2(); c3(); };
+    const c4 = injectJsonLd('fall-prevention-howto', howto);
+    return () => { c1(); c2(); c3(); c4(); };
   }, []);
 
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Fall Prevention with Arthritis"
-        description="Fall prevention for older adults: Balance training, home safety, strength exercises & medical assessment. Reduce injury risk significantly."
+        title="Fall Prevention for Older Adults with Arthritis (UK)"
+        description="UK fall prevention with arthritis: strength and balance training, home safety checklist, medication review and what to do after a fall. Educational guidance aligned with NHS themes."
         path="/guides/fall-prevention-older-adults"
         type="article"
-        keywords="fall prevention, falls older adults, balance training, otago exercise, arthritis falls, home safety older"
+        keywords="fall prevention UK, falls older adults arthritis, balance training arthritis, home safety falls, arthritis falls prevention, what to do after a fall"
       />
 
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground mb-4">
@@ -129,8 +143,11 @@ export default function FallPreventionOlderAdults() {
         <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management hub</Link></li>
+          <li><Link to="/guides/sarcopenia-muscle-loss" className="text-primary underline">Sarcopenia &amp; muscle loss</Link></li>
           <li><Link to="/guides/bone-density-osteoporosis" className="text-primary underline">Bone density &amp; osteoporosis</Link></li>
           <li><Link to="/exercises/tai-chi-for-balance" className="text-primary underline">Tai chi for balance</Link></li>
+          <li><Link to="/conditions/foot-and-ankle-arthritis" className="text-primary underline">Foot &amp; ankle arthritis</Link></li>
+          <li><Link to="/guides/disability-support" className="text-primary underline">Disability support</Link></li>
           <li><Link to="/living-with-arthritis" className="text-primary underline">Living with arthritis</Link></li>
         </ul>
       </section>

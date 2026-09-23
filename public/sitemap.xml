@@ -25,9 +25,6 @@
     <loc>https://livingwitharthritis.org.uk/blog-hub</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
   </url>
   <url>
@@ -125,6 +122,10 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/conditions/elbow-arthritis</loc>
     <lastmod>2026-07-01</lastmod>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis</loc>
+    <lastmod>2026-09-21</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica</loc>
@@ -325,6 +326,14 @@
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/hip-exercises-for-osteoarthritis</loc>
     <lastmod>2026-09-15</lastmod>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis</loc>
+    <lastmod>2026-09-17</lastmod>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/guides/free-arthritis-resources-uk</loc>
+    <lastmod>2026-09-17</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/shoulder-pain-relief</loc>
@@ -1001,6 +1010,18 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/conditions/elbow-arthritis/diet</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis/symptoms</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis/treatment</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis/exercises</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis/diet</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/faq/can-arthritis-cause-fatigue</loc>
@@ -1987,6 +2008,10 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/back-arthritis-exercises-uk</loc>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk</loc>
     <lastmod>2026-09-05</lastmod>
   </url>
   <url>
