@@ -68,6 +68,26 @@
 
 ---
 
+## Daily log — 23 Sep 2026 (evening polish) (M1)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026).
+
+### Shipped
+- **Sitemap crawl-budget (#78 merged):** visitor-job URLs kept; thin utility/SKU shells de-advertised; real `<lastmod>` only; JSON-LD audit no longer forces missing `/product/comp-1` prerender HTML
+- **Evening polish PR (this branch):** gold-pass next B₁ thin blogs `/blog/pip-for-arthritis-uk` + `/blog/omega-3-foods-for-joints` — unique meta, Louis Maxwell HCPC review **2026-09-23**, GOV.UK/NHS/NICE/Versus Arthritis citations, customer-job links (pain / newly diagnosed / PIP / diet + Access to Work on PIP; supplements hubs + food-first limits on omega-3); Vitest gate; homepage AEO `updatedAt`; mobile nav focus/`aria-controls`; Listen control ring contrast
+- Honest note: **rankings will not jump overnight** — GSC inspect + Semrush recrawl + Lovable publish still needed after merge
+
+### Still open / Louis
+- PR #70 foot/ankle + Access to Work + falls (updated on branch; merge when CI green)
+- PR #73 Understanding Pain (ai-head-data fix pushed; merge when CI green)
+- Host: www→apex 301, real HTTP 404 (SPA limitation)
+- GSC URL inspect / sitemap resubmit; Semrush recrawl; Lovable publish of main
+
+### Next 3 digital actions (GTM)
+1. Merge visitor-job hubs (#70) + Understanding Pain (#73) when checks clear
+2. Lovable publish + GSC inspect of gold-passed blogs
+3. Champions 45+ from next GSC refresh (no doorway cities)
+
 ## Daily log — 23 Sep 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Morning growth routine had failed earlier today; resumed with shippable GSC blog gold-pass (no Louis blockers). Soft-404 alias PR #76 still open separately. No new doorway cities. No invented traffic claims.
