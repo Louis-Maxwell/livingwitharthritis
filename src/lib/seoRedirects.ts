@@ -114,6 +114,14 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/waiting-list-help": "/arthritis-waiting-list-help",
   "/diet-hub": "/diet",
   "/de/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
+  // Semrush soft-404 / duplicate-homepage-title URLs (still live as SPA shell).
+  "/self-help-tool": "/self-help",
+  "/sitemap": "/site-index",
+  "/regions/england": "/arthritis-support",
+  "/regions/northern-ireland": "/blog/free-arthritis-support-northern-ireland",
+  "/finances": "/benefits-pip",
+  "/lived-experiences": "/community",
+  "/impact-stories": "/community",
 };
 
 function normalizePath(pathname: string): string {

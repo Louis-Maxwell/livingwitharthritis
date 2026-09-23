@@ -302,7 +302,7 @@ const KneeArthritis = () => (
               links: [
                 { label: "Managing flare-ups", to: "/arthritis-flare-ups" },
                 { label: "Help while waiting for care", to: "/arthritis-waiting-list-help" },
-                { label: "Self-help tool", to: "/self-help-tool" },
+                { label: "Self-help tool", to: "/self-help" },
               ],
             },
           ]}
