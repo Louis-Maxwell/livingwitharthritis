@@ -74,9 +74,9 @@ const CONDITION_BY_JOINT: Record<JointId, ResultLink> = {
 
 const EXERCISE_BY_JOINT: Record<JointId, ResultLink> = {
   knee: {
-    href: "/exercises/stretching-for-knee-arthritis",
-    label: "Gentle knee stretching",
-    sub: "Slow, joint-friendly stretches you can do at home.",
+    href: "/guides/knee-exercises-for-osteoarthritis",
+    label: "Free knee exercises for osteoarthritis",
+    sub: "NICE-aligned 8-move home routine for knee OA.",
   },
   hip: {
     href: "/guides/hip-exercises-for-osteoarthritis",

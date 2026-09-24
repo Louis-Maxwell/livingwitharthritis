@@ -22,8 +22,8 @@ const HELP_JOBS: HelpJob[] = [
     label: "I'm in pain / need relief now",
     sub: "Gentle exercises and pain-relief guidance",
     href: "/guides/arthritis-pain-relief",
-    secondaryHref: "/exercises",
-    secondaryLabel: "Exercise hub",
+    secondaryHref: "/guides/knee-exercises-for-osteoarthritis",
+    secondaryLabel: "Free knee exercises for osteoarthritis",
     icon: Activity,
   },
   {
@@ -133,6 +133,21 @@ export default function HomeQuickPathways() {
             className="font-medium text-foreground/80 underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm min-h-11 inline-flex items-center"
           >
             PsA
+          </Link>
+          <span aria-hidden="true" className="opacity-40">
+            ·
+          </span>
+          <Link
+            to="/guides/knee-exercises-for-osteoarthritis"
+            className="font-medium text-foreground/80 underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm min-h-11 inline-flex items-center"
+          >
+            Free knee exercises for osteoarthritis
+          </Link>
+          <Link
+            to="/guides/free-arthritis-resources-uk"
+            className="font-medium text-foreground/80 underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm min-h-11 inline-flex items-center"
+          >
+            Free arthritis resources UK
           </Link>
         </div>
       </div>

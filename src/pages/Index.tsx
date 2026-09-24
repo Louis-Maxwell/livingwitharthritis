@@ -261,6 +261,20 @@ function HomePage() {
                 </Link>
                 {" · "}
                 <Link
+                  to="/guides/knee-exercises-for-osteoarthritis"
+                  className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Free knee exercises for osteoarthritis
+                </Link>
+                {" · "}
+                <Link
+                  to="/guides/free-arthritis-resources-uk"
+                  className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                >
+                  Free arthritis resources UK
+                </Link>
+                {" · "}
+                <Link
                   to="/healthcare-professionals"
                   className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                 >

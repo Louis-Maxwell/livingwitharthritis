@@ -39,9 +39,16 @@ describe("HomeQuickPathways", () => {
       "/donate",
     );
 
-    expect(screen.getByRole("link", { name: /exercise hub/i })).toHaveAttribute(
-      "href",
-      "/exercises",
-    );
+    const kneeLinks = screen.getAllByRole("link", {
+      name: /free knee exercises for osteoarthritis/i,
+    });
+    expect(kneeLinks.length).toBeGreaterThanOrEqual(1);
+    for (const link of kneeLinks) {
+      expect(link).toHaveAttribute("href", "/guides/knee-exercises-for-osteoarthritis");
+    }
+
+    expect(
+      screen.getByRole("link", { name: /^free arthritis resources uk$/i }),
+    ).toHaveAttribute("href", "/guides/free-arthritis-resources-uk");
   });
 });

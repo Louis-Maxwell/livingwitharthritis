@@ -390,6 +390,7 @@ const Osteoarthritis = () => (
               title: "Flare-ups & support",
               links: [
                 { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
+                { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
                 { label: "Benefits & PIP hub", to: "/benefits-pip" },
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },

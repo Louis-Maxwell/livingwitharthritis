@@ -27,9 +27,9 @@ describe("InteractiveStartPath", () => {
     fireEvent.click(screen.getByRole("button", { name: "Knee" }));
     fireEvent.click(screen.getByRole("button", { name: "Gentle exercises" }));
 
-    expect(screen.getByRole("link", { name: /gentle knee stretching/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /free knee exercises for osteoarthritis/i })).toHaveAttribute(
       "href",
-      "/exercises/stretching-for-knee-arthritis",
+      "/guides/knee-exercises-for-osteoarthritis",
     );
     expect(screen.getByRole("link", { name: /home plan on this page/i })).toHaveAttribute(
       "href",
