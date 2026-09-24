@@ -287,6 +287,9 @@ We cannot assess your entitlement or predict points — rules change and every c
     related: [
       { type: "guide", title: "Benefits & PIP guide", url: "/guides/benefits-pip", description: "UK PIP orientation for arthritis" },
       { type: "guide", title: "Benefits hub", url: "/benefits-pip" },
+      { type: "article", title: "Arthritis disability benefits FAQ", url: "/faq/arthritis-disability-benefits-uk", description: "PIP, ESA, Blue Badge orientation" },
+      { type: "article", title: "PIP for arthritis UK (blog)", url: "/blog/pip-for-arthritis-uk" },
+      { type: "guide", title: "Access to Work", url: "/library/access-to-work" },
       { type: "guide", title: "PIP evidence diary", url: "/resources/pip-evidence-diary", description: "Template for flare and daily-living notes" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
@@ -831,10 +834,12 @@ A **Mediterranean-style** pattern has the strongest everyday evidence for joint-
 - Ultra-processed foods, sugary drinks, refined carbs
 - Fried / processed meats; excess alcohol
 
-Modest weight loss, if relevant, often eases knee and hip load. Recipes and plans: **/diet**.`,
+Modest weight loss, if relevant, often eases knee and hip load. Food patterns support care — they are **not a cure** for rheumatoid arthritis. Recipes and plans: **/diet**; RA-focused food-first guide: **/blog/anti-inflammatory-diet-rheumatoid-arthritis**.`,
     nextSteps: ["Shift one meal a day toward a Mediterranean plate", "Open /diet for UK-focused ideas"],
     related: [
       { type: "guide", title: "Diet hub", url: "/diet" },
+      { type: "article", title: "Anti-inflammatory diet for RA", url: "/blog/anti-inflammatory-diet-rheumatoid-arthritis", description: "Food-first RA plates — not a cure" },
+      { type: "article", title: "Omega-3 foods for joints", url: "/blog/omega-3-foods-for-joints" },
       { type: "guide", title: "Mediterranean diet", url: "/diet/mediterranean-diet-for-arthritis" },
       { type: "guide", title: "Foods to avoid", url: "/diet/foods-to-avoid-with-arthritis" },
     ],
