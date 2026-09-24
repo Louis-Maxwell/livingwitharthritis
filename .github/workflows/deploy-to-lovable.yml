@@ -4,6 +4,14 @@ name: Deploy to Lovable
 # Do NOT trigger on push — that allowed Lovable to ship while CI failed.
 # Deploy runs only after CI (and Lint & Test / Tests) succeed for the same SHA,
 # or via manual workflow_dispatch after the same SHA gate passes.
+#
+# RACE (do not "fix" by exiting 1 on missing): workflow_run fires when EACH of
+# CI / Lint & Test / Tests completes. The first to finish (often CI) used to make
+# Deploy fail immediately because the others were still running — false-red emails
+# even though the same SHA later deployed successfully. Gate below polls until all
+# three are success; hard-fails only on definitive failure/cancelled/timed_out;
+# soft-skips (job green, no deploy) if still incomplete after the wait window so a
+# later trigger can deploy without spamming failure notifications.
 on:
   workflow_run:
     workflows: ["CI", "Lint & Test", "Tests"]
@@ -38,32 +46,92 @@ jobs:
           fi
 
       - name: Verify CI, Lint & Test, and Tests succeeded for this SHA
+        id: gate
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           SHA="${{ steps.sha.outputs.sha }}"
           REPO="${{ github.repository }}"
-          echo "Gate: requiring CI + Lint & Test + Tests success for $SHA"
+          # ~15 minutes; peers often finish within a few minutes of each other.
+          MAX_WAIT_SEC=900
+          SLEEP_SEC=25
+          DEADLINE=$((SECONDS + MAX_WAIT_SEC))
 
-          # Latest completed run per required workflow name for this commit.
-          # Missing or non-success → exit 1 so Deploy cannot go green on failed CI.
-          for NAME in "CI" "Lint & Test" "Tests"; do
-            CONCLUSION=$(gh api \
-              "repos/${REPO}/actions/runs?head_sha=${SHA}&status=completed&per_page=100" \
-              --jq "[.workflow_runs[] | select(.name == \"${NAME}\")] | .[0].conclusion // empty")
-            if [ "$CONCLUSION" != "success" ]; then
-              echo "::error::Required workflow '${NAME}' for ${SHA} is not success (got: ${CONCLUSION:-missing/incomplete}). Refusing deploy."
+          echo "Gate: requiring CI + Lint & Test + Tests success for $SHA (poll up to ${MAX_WAIT_SEC}s)"
+
+          hard_fail_conclusions='failure cancelled timed_out'
+
+          while true; do
+            all_success=true
+            any_hard_fail=false
+            waiting_on=""
+
+            for NAME in "CI" "Lint & Test" "Tests"; do
+              # Latest run for this workflow name on this SHA (any status).
+              # shellcheck disable=SC2016
+              read -r STATUS CONCLUSION < <(gh api \
+                "repos/${REPO}/actions/runs?head_sha=${SHA}&per_page=100" \
+                --jq "[.workflow_runs[] | select(.name == \"${NAME}\")] | .[0] | \"\(.status // \"\") \(.conclusion // \"\")\"")
+
+              if [ -z "${STATUS}" ]; then
+                all_success=false
+                waiting_on="${waiting_on}${waiting_on:+, }${NAME}(missing)"
+                continue
+              fi
+
+              if [ "${STATUS}" != "completed" ]; then
+                all_success=false
+                waiting_on="${waiting_on}${waiting_on:+, }${NAME}(${STATUS})"
+                continue
+              fi
+
+              if [ "${CONCLUSION}" = "success" ]; then
+                echo "OK: ${NAME} = success"
+                continue
+              fi
+
+              case " ${hard_fail_conclusions} " in
+                *" ${CONCLUSION} "*)
+                  any_hard_fail=true
+                  echo "::error::Required workflow '${NAME}' for ${SHA} concluded '${CONCLUSION}'. Refusing deploy."
+                  ;;
+                *)
+                  # skipped / neutral / action_required / etc. — not success; do not deploy.
+                  any_hard_fail=true
+                  echo "::error::Required workflow '${NAME}' for ${SHA} is not success (got: ${CONCLUSION:-empty}). Refusing deploy."
+                  ;;
+              esac
+            done
+
+            if [ "${any_hard_fail}" = true ]; then
+              echo "deploy=false" >> "$GITHUB_OUTPUT"
               exit 1
             fi
-            echo "OK: ${NAME} = success"
+
+            if [ "${all_success}" = true ]; then
+              echo "All required workflows succeeded for ${SHA}."
+              echo "deploy=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            if [ "${SECONDS}" -ge "${DEADLINE}" ]; then
+              echo "::warning::Timed out after ${MAX_WAIT_SEC}s still waiting on: ${waiting_on}. Soft-skipping deploy (job succeeds, no deploy) so this is not a false-red email. A later successful workflow_run for this SHA will deploy when all three are green."
+              echo "deploy=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            echo "Waiting on: ${waiting_on} (retry in ${SLEEP_SEC}s; ~$((DEADLINE - SECONDS))s left)"
+            sleep "${SLEEP_SEC}"
           done
 
       - uses: actions/checkout@v4
+        if: steps.gate.outputs.deploy == 'true'
         with:
           ref: ${{ steps.sha.outputs.sha }}
 
       - name: Deploy to Lovable
+        if: steps.gate.outputs.deploy == 'true'
         run: |
           curl -X POST https://api.lovable.dev/api/projects/0b2fd6ca-4e21-4ac7-99fa-d741e996f45e/deploy \
             -H "Authorization: Bearer ${{ secrets.LOVABLE_API_TOKEN }}" \
@@ -71,7 +139,13 @@ jobs:
             -d '{"ref":"main"}'
 
       - name: Wait for deployment
+        if: steps.gate.outputs.deploy == 'true'
         run: |
           echo "Deployment triggered for SHA ${{ steps.sha.outputs.sha }} after CI + Lint & Test + Tests success."
           echo "Preview URL: https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app"
           echo "Live URL: https://livingwitharthritis.lovable.app"
+
+      - name: Soft-skipped (peers still running)
+        if: steps.gate.outputs.deploy != 'true'
+        run: |
+          echo "Deploy steps skipped — gate soft-skipped while waiting for peer workflows, or did not set deploy=true."
