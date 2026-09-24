@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { CHARITY } from "@/config/charity";
 import InteractiveStartPath from "../InteractiveStartPath";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -39,12 +40,15 @@ describe("InteractiveStartPath", () => {
     expect(screen.getAllByText(/this is general information/i).length).toBeGreaterThan(0);
   });
 
-  it("routes donate choices to the donate page without a diagnosis", () => {
+  it("routes donate choices to GoFundMe without a diagnosis", () => {
     renderPath();
     fireEvent.click(screen.getByRole("button", { name: "All over" }));
     fireEvent.click(screen.getByRole("button", { name: "Donate" }));
 
-    expect(screen.getByRole("link", { name: /^donate/i })).toHaveAttribute("href", "/donate");
+    const donate = screen.getByRole("link", { name: /donate on gofundme \(opens in a new tab\)/i });
+    expect(donate).toHaveAttribute("href", CHARITY.gofundmeUrl);
+    expect(donate).toHaveAttribute("target", "_blank");
+    expect(donate).toHaveAttribute("rel", "noopener noreferrer");
     expect(screen.queryByText(/you have/i)).not.toBeInTheDocument();
     expect(screen.getAllByText(/1218461/).length).toBeGreaterThan(0);
   });

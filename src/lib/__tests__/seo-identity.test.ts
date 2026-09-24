@@ -55,6 +55,9 @@ describe("public SEO / AEO identity", () => {
     expect(CHARITY.number).toBe("1218461");
     expect(CHARITY.siteUrl).toBe("https://livingwitharthritis.org.uk");
     expect(CHARITY.contactEmail).toBe("info@livingwitharthritis.org.uk");
+    expect(CHARITY.gofundmeUrl).toBe(
+      "https://www.gofundme.com/f/help-fund-critical-arthritis-research",
+    );
     expect(CONTACT_EMAILS.info).toBe("info@livingwitharthritis.org.uk");
     expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(CONTACT_PHONE_E164).toBe("+447760512084");

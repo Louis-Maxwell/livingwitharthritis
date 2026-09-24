@@ -3,25 +3,17 @@
  * Animated £5,000 / £50,000 bar with CountUp on enter.
  * Inspired by Red Cross / Save the Children appeal pages.
  */
-import { useNavigate } from "react-router-dom";
 import { Heart } from "lucide-react";
+import GoFundMeAnchor from "@/components/GoFundMeAnchor";
 import { Button } from "@/components/ui/button";
 import { CountUp } from "@/components/motion/CountUp";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
-import { trackDonationClick } from "@/lib/ga-events";
 
 const RAISED = 5000;
 const GOAL = 50000;
 const PCT = Math.round((RAISED / GOAL) * 100);
 
 const ImpactProgressBand = () => {
-  const navigate = useNavigate();
-
-  const handleDonate = () => {
-    trackDonationClick("impact_progress_band");
-    navigate("/donate");
-  };
-
   return (
     <section
       aria-labelledby="impact-progress-heading"
@@ -80,12 +72,14 @@ const ImpactProgressBand = () => {
 
         <RevealOnScroll delay={300} className="mt-10 flex justify-center">
           <Button
+            asChild
             size="lg"
-            onClick={handleDonate}
             className="h-[56px] px-10 rounded-full text-sm font-bold tracking-wider btn-primary-cta group"
           >
-            <Heart className="w-4 h-4 mr-2 fill-white/20" aria-hidden="true" />
-            Support this appeal
+            <GoFundMeAnchor source="impact_progress_band">
+              <Heart className="w-4 h-4 mr-2 fill-white/20" aria-hidden="true" />
+              Donate on GoFundMe
+            </GoFundMeAnchor>
           </Button>
         </RevealOnScroll>
       </div>

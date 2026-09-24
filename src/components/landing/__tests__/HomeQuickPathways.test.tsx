@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { CHARITY } from "@/config/charity";
 import HomeQuickPathways from "../HomeQuickPathways";
 
 vi.mock("@/lib/ga-events", () => ({
@@ -34,10 +35,10 @@ describe("HomeQuickPathways", () => {
       "/benefits-pip",
     );
 
-    expect(screen.getByRole("link", { name: /donate \/ research fund/i })).toHaveAttribute(
-      "href",
-      "/donate",
-    );
+    const donate = screen.getByRole("link", { name: /donate on gofundme \(opens in a new tab\)/i });
+    expect(donate).toHaveAttribute("href", CHARITY.gofundmeUrl);
+    expect(donate).toHaveAttribute("target", "_blank");
+    expect(donate).toHaveAttribute("rel", "noopener noreferrer");
 
     const kneeLinks = screen.getAllByRole("link", {
       name: /free knee exercises for osteoarthritis/i,
