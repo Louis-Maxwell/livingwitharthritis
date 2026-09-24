@@ -4,8 +4,9 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, AlertTriangle, ArrowRight } from "lucide-react";
+import { AlertTriangle, ArrowRight } from "lucide-react";
 import { getHealthTopic, healthTopics } from "@/data/healthTopics";
 import { getLibraryTopicSeo, getLibraryPillarRelated } from "@/data/libraryTopicSeo";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -99,14 +100,13 @@ const LibraryTopic = () => {
       <Header />
 
       <main id="main-content" className="min-h-screen bg-background text-foreground">
+        <PageBreadcrumb
+          segments={[
+            { label: "Library", href: "/library" },
+            { label: topic.title },
+          ]}
+        />
         <article className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-3xl py-16">
-          <Link
-            to="/library"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-8"
-          >
-            <ChevronLeft size={16} /> Back to Library
-          </Link>
-
           <Badge variant="secondary" className="mb-4">
             {topic.category}
           </Badge>

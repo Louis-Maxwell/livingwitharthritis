@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
+import GbpMapSection from "@/components/contact/GbpMapSection";
 
 const ContactSection = lazy(() => import("@/components/landing/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -60,6 +62,7 @@ const Contact = () => (
 
     <Header />
     <main id="main-content" role="main" tabIndex={-1}>
+      <PageBreadcrumb segments={[{ label: "Contact" }]} />
       <PageHero
         badge="Contact"
         title="Contact Living With Arthritis UK"
@@ -68,6 +71,7 @@ const Contact = () => (
       <Suspense fallback={<SkeletonSection />}>
         <ContactSection />
       </Suspense>
+      <GbpMapSection />
     </main>
     <Suspense fallback={<div className="h-80 bg-secondary" aria-hidden="true" />}>
       <Footer />
