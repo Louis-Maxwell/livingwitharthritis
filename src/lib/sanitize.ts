@@ -14,6 +14,47 @@ export function stripHtml(input: string): string {
   return s.replace(/[<>]/g, "");
 }
 
+/** Decode common HTML entities found in article/FAQ plain text. */
+function decodeBasicEntities(input: string): string {
+  return input
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => {
+      const code = Number(n);
+      return Number.isFinite(code) && code > 0 && code < 0x110000
+        ? String.fromCodePoint(code)
+        : _;
+    })
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => {
+      const code = parseInt(h, 16);
+      return Number.isFinite(code) && code > 0 && code < 0x110000
+        ? String.fromCodePoint(code)
+        : _;
+    });
+}
+
+/**
+ * Convert HTML to readable plain text for FAQ answers, reading-time, and
+ * schema. Inserts whitespace at block/br boundaries BEFORE stripping tags so
+ * `</p><p>` / `</li><li>` do not mash sentences (`hours.Try` → `hours. Try`).
+ * Prefer this over stripHtml whenever the result is shown or counted as prose.
+ */
+export function htmlToPlainText(input: string): string {
+  let s = String(input ?? "");
+  // Block / break boundaries → space (before tag removal collapses them).
+  s = s.replace(/<br\s*\/?>/gi, " ");
+  s = s.replace(/<\/(?:p|div|li|h[1-6]|blockquote|tr|td|th|section|article|figcaption|dt|dd)\s*>/gi, " ");
+  s = s.replace(/<(?:p|div|li|h[1-6]|blockquote|tr|td|th|section|article|figcaption|dt|dd)\b[^>]*>/gi, " ");
+  // Decode entities before stripHtml so encoded tags are removed and &nbsp; is space.
+  s = decodeBasicEntities(s);
+  s = stripHtml(s);
+  return s.replace(/\s+/g, " ").trim();
+}
+
 /** Sanitize user input: trim, strip HTML, limit length, remove null bytes */
 export function sanitizeInput(input: string, maxLength = 1000): string {
   return stripHtml(input)
