@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -120,6 +121,7 @@ const BenefitsPipHub = () => {
 
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground">
+        <PageBreadcrumb segments={[{ label: "Benefits & PIP" }]} />
         <PageHero
           badge={
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">

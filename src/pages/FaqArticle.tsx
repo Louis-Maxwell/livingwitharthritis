@@ -4,9 +4,10 @@ import SeoHead from '@/components/SeoHead';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { faqArticles } from '@/data/faqArticles';
-import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import { injectJsonLd } from '@/lib/jsonLd';
 import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
 import TopicClusterNav from '@/components/seo/TopicClusterNav';
+import PageBreadcrumb from '@/components/ui/PageBreadcrumb';
 import { getClusterForPath } from '@/data/topicClusters';
 
 const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
@@ -75,16 +76,10 @@ export default function FaqArticle() {
         })),
       ],
     };
-    const breadcrumb = buildBreadcrumb([
-      { name: 'Home', path: '/' },
-      { name: 'FAQ', path: '/faq' },
-      { name: article.title, path: `/faq/${article.slug}` },
-    ]);
+    // BreadcrumbList JSON-LD comes from <PageBreadcrumb> (id=breadcrumb-jsonld).
     const cleanup1 = injectJsonLd(`faq-jsonld-${article.slug}`, faq);
-    const cleanup2 = injectJsonLd(`faq-breadcrumb-${article.slug}`, breadcrumb);
     return () => {
       cleanup1();
-      cleanup2();
     };
   }, [article]);
 
@@ -97,6 +92,12 @@ export default function FaqArticle() {
   return (
     <>
     <Header />
+    <PageBreadcrumb
+      segments={[
+        { label: 'FAQ', href: '/faq' },
+        { label: article.title },
+      ]}
+    />
     <article className="max-w-3xl mx-auto py-12 px-4">
       <SeoHead
         title={article.seoTitle ?? article.question}
@@ -105,16 +106,6 @@ export default function FaqArticle() {
         type="article"
         keywords={`${article.title}, arthritis, ${article.category}`}
       />
-
-      <nav aria-label="Breadcrumb" className="text-sm mb-4">
-        <Link to="/" className="text-primary hover:underline">Home</Link>
-        <span className="mx-2 text-muted-foreground">/</span>
-        <Link to="/faq" className="text-primary hover:underline">
-          FAQ
-        </Link>
-        <span className="mx-2 text-muted-foreground">/</span>
-        <span className="text-muted-foreground">{article.title}</span>
-      </nav>
 
       <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.question}</h1>
 

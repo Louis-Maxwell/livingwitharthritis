@@ -69,6 +69,35 @@
 
 ---
 
+## Daily log — 24 Sep 2026 (evening) — Tony Jung checklist polish (M1)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Code-side gaps from Louis’s Tony Jung Video A/B checklists. No new city doorway pages. No Wordfence (Vite/React SPA). No invented traffic / Bing / GBP Place ID. No Lovable `send_message` for code. No Cursor CloudAgent.
+
+### Shipped (this PR)
+- **Breadcrumbs:** `PageBreadcrumb` (+ BreadcrumbList JSON-LD) on Contact, Guides hub, Benefits & PIP hub, LibraryTopic, FaqArticle (migrated off duplicate injectJsonLd breadcrumb). Confirmed already present: ConditionPageTemplate / ConditionSubpagePage, ExerciseHub, DietHub, SymptomChecker, Understanding Pain. BlogPost already had UI + BreadcrumbList — left as-is to avoid JSON-LD collision.
+- **Indexing docs:** `docs/seo/INDEXING-CHECKLIST.md` — submit sitemap, GSC inspect after Lovable publish, www→301 note, Bing empty-safe path, GBP map env, backups, SPA security headers (not Wordfence), city doorways explicitly **not** a growth lever.
+- **GBP map hook:** conditional `GbpMapSection` on Contact — iframe only when `VITE_GBP_MAPS_EMBED_URL` is an allowlisted Maps embed URL; otherwise UK contact + “Map goes live once Google Business Profile is verified”. areaServed GB; no street address / no Oswestry.
+- **Bing:** `VITE_BING_SITE_VERIFICATION` → `msvalidate.01` via `SeoDefaults` when set (no invented token / no BingSiteAuth.xml).
+- **CSP:** Maps hosts added to `frame-src` in `public/_headers`, `index.html`, `.htaccess` so the embed can load once Louis sets the env.
+- **Security:** confirmed repo `_headers` already has HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CSP `frame-ancestors` — documented; Cloudflare may still send a subset live.
+- **Tests:** `src/config/__tests__/gbpMaps.test.ts`, `src/components/contact/__tests__/GbpMapSection.test.tsx`, `src/lib/__tests__/tony-jung-checklist-24-sep.test.ts`
+- **Skipped on purpose:** new city doorway pages; Wordfence; thin new service spam pages; title churn on gold-passed hubs; invented GSC/Bing tokens.
+
+### Still blocked on Louis
+- Verify / optimize **Google Business Profile**; paste Maps embed URL into `VITE_GBP_MAPS_EMBED_URL` after verify
+- Bing Webmaster claim → set `VITE_BING_SITE_VERIFICATION`
+- **Lovable publish** of latest GitHub `main`
+- **GSC URL Inspection** after publish (Champions + any soft-404 fixes)
+- Host: **www→apex 301**, true HTTP 404 (SPA limitation)
+- Prior open: Fundraising Regulator, Gift Aid HMRC, Ad Grants, outreach/social, clinical spot-check
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish + GSC inspect + www 301 confirm
+2. Louis: GBP verify → embed URL env; Bing code → env
+3. Champions 47+ from next GSC refresh (no doorway cities)
+
+---
+
 ## Daily log — 24 Sep 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 23 Sep: Champions 45+ from GSC refresh — B₁ thin FAQ `/faq/arthritis-disability-benefits-uk` (#3 clicks) + `/blog/anti-inflammatory-diet-rheumatoid-arthritis` (#10). No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent.
