@@ -96,10 +96,10 @@ const dietSections = [
 ];
 
 const relatedTopics = [
+  { title: "RA anti-inflammatory diet", icon: Leaf, href: "/blog/anti-inflammatory-diet-rheumatoid-arthritis", desc: "Food-first Mediterranean plates — not a cure" },
+  { title: "Omega-3 foods for joints", icon: Fish, href: "/blog/omega-3-foods-for-joints", desc: "Oily fish, ALA limits and food-first habits" },
   { title: "Turmeric for Arthritis", icon: Sparkles, href: "/blog/turmeric-for-arthritis", desc: "Evidence, dosage and best supplements" },
-  { title: "Omega-3 & Fish Oil", icon: Fish, href: "/blog/arthritis-and-omega-3-fish-oil", desc: "Benefits, dosage and UK food sources" },
   { title: "Supplements Guide", icon: Heart, href: "/blog/arthritis-supplements-uk", desc: "Glucosamine, collagen and more" },
-  { title: "Meal Planning", icon: Utensils, href: "/blog/meal-planning-arthritis-uk", desc: "Weekly meal plans for joint health" },
 ];
 
 /**

@@ -8,6 +8,12 @@ export interface FaqSection {
   content: string;
 }
 
+export interface FaqCitation {
+  label: string;
+  url: string;
+  publisher?: string;
+}
+
 export interface FaqArticle {
   id: number;
   slug: string;
@@ -17,6 +23,14 @@ export interface FaqArticle {
   sections: FaqSection[];
   relatedArticles: string[];
   category: string;
+  /** Optional CTR title for <title>/OG (defaults to question). */
+  seoTitle?: string;
+  /** Optional meta description (defaults to quickAnswer slice). */
+  metaDescription?: string;
+  /** ISO date for EducationalDisclaimerBox clinical review. */
+  lastReviewed?: string;
+  /** Trusted GOV.UK / NHS / NICE / Versus Arthritis cites only. */
+  citations?: FaqCitation[];
 }
 
 export const faqArticles: FaqArticle[] = [
@@ -63,8 +77,35 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-disability-benefits-uk',
     title: 'Arthritis and Disability Benefits in the UK',
     question: 'What disability benefits can I get with arthritis in the UK?',
+    seoTitle:
+      'Arthritis Disability Benefits UK: PIP, ESA & Blue Badge FAQ',
+    metaDescription:
+      'UK FAQ on PIP, Adult Disability Payment, ESA, Universal Credit and Blue Badge when arthritis affects daily living or walking — educational orientation, not legal advice. Check GOV.UK.',
+    lastReviewed: '2026-09-24',
     quickAnswer:
-      'Arthritis can qualify you for PIP (Adult Disability Payment in Scotland), ESA, Universal Credit and a Blue Badge, based on daily tasks and how far you walk.',
+      'Arthritis can qualify you for PIP (Adult Disability Payment in Scotland), ESA or Universal Credit limited-capability elements, and a Blue Badge when daily living or walking is substantially affected — based on how tasks go, not the diagnosis name alone. This is educational orientation, not legal advice; confirm current rules on GOV.UK.',
+    citations: [
+      {
+        label: 'Personal Independence Payment (PIP)',
+        url: 'https://www.gov.uk/pip',
+        publisher: 'GOV.UK',
+      },
+      {
+        label: 'How to claim PIP',
+        url: 'https://www.gov.uk/pip/how-to-claim',
+        publisher: 'GOV.UK',
+      },
+      {
+        label: 'Adult Disability Payment (Scotland)',
+        url: 'https://www.mygov.scot/adult-disability-payment',
+        publisher: 'mygov.scot',
+      },
+      {
+        label: 'Blue Badge scheme',
+        url: 'https://www.gov.uk/apply-blue-badge',
+        publisher: 'GOV.UK',
+      },
+    ],
 
     sections: [
       { heading: 'Personal Independence Payment (PIP): who can claim', content: "PIP is for people aged 16 up to State Pension age. It is not means-tested, is not affected by savings, and you can claim it whether you work or not. It is paid because of how arthritis affects you day to day, not because of your diagnosis or your scan results. To qualify you normally need to have had the difficulties for at least three months and expect them to continue for at least a further nine months. In Scotland, PIP has been replaced by Adult Disability Payment, which uses the same points-based tests but is administered by Social Security Scotland." },
