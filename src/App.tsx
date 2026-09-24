@@ -54,6 +54,7 @@ const AdminContentRefresh = lazy(() => import("./pages/AdminContentRefresh"));
 const AdminBacklinks = lazy(() => import("./pages/AdminBacklinks"));
 const AdminChatFeedback = lazy(() => import("./pages/AdminChatFeedback"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
+const BlogArchive = lazy(() => import("./pages/BlogArchive"));
 const Library = lazy(() => import("./pages/Library"));
 const GuidesHub = lazy(() => import("./pages/GuidesHub"));
 const BenefitsPipHub = lazy(() => import("./pages/BenefitsPipHub"));
@@ -350,6 +351,7 @@ function AnimatedRoutes() {
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={withRouteBoundary(<BlogHub />)} />
         <Route path="/blog/category/:category" element={withRouteBoundary(<BlogCategory />)} />
+        <Route path="/blog/archive" element={withRouteBoundary(<BlogArchive />)} />
         <Route path="/blog/knee-arthritis-exercises-uk" element={<Navigate to="/guides/knee-exercises-for-osteoarthritis" replace />} />
         <Route path="/blog/:slug" element={withRouteBoundary(<BlogPost />)} />
         <Route path="/daily-tips/:slug" element={<DailyTipDetail />} />

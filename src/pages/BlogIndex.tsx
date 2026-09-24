@@ -84,6 +84,7 @@ const TOPIC_HUBS: { label: string; to: string; blurb: string }[] = [
   { label: "Benefits & PIP", to: "/benefits-pip", blurb: "Claims, evidence and appeals" },
   { label: "Treatments", to: "/blog/category/treatment", blurb: "Medication, physio and surgery" },
   { label: "Flare-ups", to: "/blog/arthritis-flare-up-what-to-do", blurb: "What to do when pain spikes" },
+  { label: "Full archive", to: "/blog/archive", blurb: "All guides by date and topic" },
 ];
 
 const categoryColors: Record<Category, string> = {
@@ -403,7 +404,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <Link to="/search" className="text-primary underline underline-offset-2">
               search
             </Link>{" "}
-            when you know what you need. Living With Arthritis UK (registered charity 1218461)
+            when you know what you need, or browse the{" "}
+            <Link to="/blog/archive" className="text-primary underline underline-offset-2">
+              full archive by date
+            </Link>
+            . Living With Arthritis UK (registered charity 1218461)
             publishes clinically reviewed guides — honest evidence, no invented miracle cures. Start
             with{" "}
             <Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">
