@@ -50,6 +50,7 @@ const CONTENT = `
 <li><strong><a href="/guides/hip-exercises-for-osteoarthritis">Hip exercises for osteoarthritis</a></strong> — 8-move physio-aligned routine</li>
 <li><strong><a href="/exercises">Exercise hub</a></strong> — interactive library by joint</li>
 <li><strong><a href="/guides/can-exercise-make-osteoarthritis-worse">Can exercise make osteoarthritis worse?</a></strong> — safety evidence</li>
+<li><strong><a href="/guides/free-arthritis-resources-uk">Free arthritis resources UK</a></strong> — guides, home physio and tools (charity 1218461)</li>
 </ul>
 
 <h2 id="types-of-exercise">Types of Exercise for Arthritis</h2>

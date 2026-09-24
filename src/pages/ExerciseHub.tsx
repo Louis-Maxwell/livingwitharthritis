@@ -676,9 +676,9 @@ const ExerciseHub = () => {
               {
                 title: "Joint-by-joint exercise",
                 links: [
-                  { label: "Knee arthritis exercises", to: "/exercises" },
+                  { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
                   { label: "Hand and wrist arthritis exercises", to: "/exercises" },
-                  { label: "Hip arthritis stretches", to: "/exercises" },
+                  { label: "Hip arthritis stretches", to: "/guides/hip-exercises-for-osteoarthritis" },
                   { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
                   { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
                 ],
@@ -699,6 +699,7 @@ const ExerciseHub = () => {
                   { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
                   { label: "Self-help joint tool", to: "/self-help" },
                   { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },
+                  { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 ],
               },
             ]}

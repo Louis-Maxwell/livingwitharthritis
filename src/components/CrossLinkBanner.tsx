@@ -82,12 +82,24 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     label: "Benefits & PIP Guide",
     description: "PIP eligibility, application process and disability support",
   },
+  "guide-knee-oa": {
+    to: "/guides/knee-exercises-for-osteoarthritis",
+    icon: Dumbbell,
+    label: "Free knee exercises for osteoarthritis",
+    description: "NICE-aligned 8-move home routine for knee OA",
+  },
+  "guide-free-resources": {
+    to: "/guides/free-arthritis-resources-uk",
+    icon: BookOpen,
+    label: "Free arthritis resources UK",
+    description: "Guides, home physio, PIP diary and flare tools",
+  },
 };
 
 /** Preset link groups by page context */
 const PRESETS: Record<string, string[]> = {
   "condition": ["exercises", "diet", "chat", "flareups"],
-  "exercise": ["diet", "osteoarthritis", "guide-exercise", "chat"],
+  "exercise": ["guide-knee-oa", "diet", "guide-free-resources", "osteoarthritis"],
   "diet": ["exercises", "osteoarthritis", "guide-diet", "chat"],
   "blog": ["exercises", "diet", "osteoarthritis", "chat"],
   "flareup": ["exercises", "diet", "guide-health-services", "chat"],

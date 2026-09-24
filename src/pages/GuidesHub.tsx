@@ -117,6 +117,41 @@ const GuidesHub = () => {
             <Link to="/editorial-standards" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">How we write</Link>
           </nav>
 
+          <section aria-labelledby="popular-guides-heading" className="rounded-2xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+            <h2 id="popular-guides-heading" className="text-lg font-semibold mb-1">
+              Popular guides
+            </h2>
+            <p className="text-sm text-muted-foreground mb-4 max-w-2xl">
+              Two free starting points most UK readers ask for — clinically reviewed, no sign-up.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link
+                to="/guides/knee-exercises-for-osteoarthritis"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Movement</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  Free knee exercises for osteoarthritis
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  NICE-aligned 8-move home routine for knee OA.
+                </p>
+              </Link>
+              <Link
+                to="/guides/free-arthritis-resources-uk"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Support</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  Free arthritis resources UK
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Guides, home physio, PIP diary and flare tools — charity 1218461.
+                </p>
+              </Link>
+            </div>
+          </section>
+
           {CLUSTER_ORDER.map((cluster) => {
             const guides = byCluster(cluster);
             if (!guides.length) return null;
