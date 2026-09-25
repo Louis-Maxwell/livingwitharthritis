@@ -7,7 +7,8 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { HOME_SHELL_HEADING } from './static-article-html.mjs';
+import { JSDOM } from 'jsdom';
+import { HOME_SHELL_HEADING, stripToText } from './static-article-html.mjs';
 
 const ROOT = resolve('.');
 const DIST = resolve(process.argv.find((a) => a.startsWith('--dist='))?.slice(7) ?? 'dist');
@@ -49,16 +50,11 @@ const MIN_STATIC_WORDS = 250;
 
 function staticArticleWords(html) {
   // Prefer the baked static article; fall back to the whole <body> when a
-  // full Puppeteer snapshot was kept instead.
-  const m =
-    /<article id="static-article"[\s\S]*?<\/article>/i.exec(html) ||
-    /<body[\s\S]*?<\/body>/i.exec(html);
-  if (!m) return 0;
-  const text = m[0]
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&[a-z#0-9]+;/gi, ' ');
-  return text.split(/\s+/).filter(Boolean).length;
+  // full Puppeteer snapshot was kept instead. Parsed with JSDOM, not regex.
+  const doc = new JSDOM(html).window.document;
+  const root = doc.querySelector('#static-article') || doc.body;
+  if (!root) return 0;
+  return stripToText(root.innerHTML).split(/\s+/).filter(Boolean).length;
 }
 
 for (const slug of slugs) {
