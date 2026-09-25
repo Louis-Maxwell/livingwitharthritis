@@ -1,0 +1,9 @@
+# Every change is reviewed by the repo owner (Grok Bot reviews on Louis's behalf).
+# Note: GitHub never lets a PR author approve their own PR, so do NOT turn on
+# "Require review from Code Owners" while Louis is the only collaborator, or
+# his own PRs can never merge.
+*                     @Louis-Maxwell
+/.github/             @Louis-Maxwell
+/package.json         @Louis-Maxwell
+/package-lock.json    @Louis-Maxwell
+/bun.lock             @Louis-Maxwell
