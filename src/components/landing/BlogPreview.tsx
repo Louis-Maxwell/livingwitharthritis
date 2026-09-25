@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
-import { getPublishedBlogList, type BlogListItem } from "@/lib/staticBlogCatalog";
+import { getPublishedBlogList, type BlogListItem } from "@/lib/blogCatalogIndex";
 
 function estimateReadingTime(text: string | null | undefined): string {
   const words = (text ?? "").split(/\s+/).filter(Boolean).length;

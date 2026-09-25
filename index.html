@@ -104,18 +104,27 @@
 
 
 
-    <!-- LCP hero image: served via OAHero's <img fetchpriority="high" loading="eager">
-         (see src/components/landing/OAHero.tsx). Responsive: phones pull the
-         400w variant (~31KB) instead of the full 800w file (~133KB). The
-         imagesrcset/imagesizes here must stay in sync with OAHero's srcset. -->
-    <link
-      rel="preload"
-      as="image"
-      href="/openverse/hero-friends-800.webp"
-      imagesrcset="/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w"
-      imagesizes="(min-width: 1024px) 560px, 100vw"
-      fetchpriority="high"
-    />
+    <!-- LCP hero image preload — HOMEPAGE ONLY. index.html is shared by every
+         route, so a static <link rel=preload> made all inner pages download
+         the homepage hero at high priority. The inline script adds the
+         preload only on "/". imagesrcset/imagesizes MUST match OAHero's
+         srcset/sizes (src/components/landing/OAHero.tsx) or phones fetch the
+         800w file instead of the ~14KB 400w variant. -->
+    <script>
+      (function () {
+        if (location.pathname !== "/") return;
+        var href = "/openverse/hero-friends-800.webp";
+        if (document.querySelector('link[rel="preload"][as="image"][href="' + href + '"]')) return;
+        var l = document.createElement("link");
+        l.rel = "preload";
+        l.as = "image";
+        l.href = href;
+        l.setAttribute("imagesrcset", "/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w");
+        l.setAttribute("imagesizes", "(min-width: 1024px) 320px, 220px");
+        l.setAttribute("fetchpriority", "high");
+        document.head.appendChild(l);
+      })();
+    </script>
     <!-- Inter (single family, variable weight 100-900), self-hosted from
          /public/fonts as a latin-subset woff2. One file covers every weight. -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/Inter.woff2" crossorigin />

@@ -40,3 +40,6 @@ dist-ssr
 # Cloudflare Wrangler local secrets
 .dev.vars
 .wrangler/
+
+# Build-time per-article blog JSON (scripts/generate-blog-catalog-index.mjs)
+src/data/generated/
