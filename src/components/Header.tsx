@@ -289,7 +289,11 @@ const Header = () => {
         {/* Site-wide update announcement banner — top of sticky header */}
         <SiteAnnouncementBanner />
         {/* Donation Quick Bar — top of sticky header */}
-        <Suspense fallback={<div className="bg-primary h-[52px]" />}>
+        {/* Placeholder reserves the bar's real (flex-wrapped) height per
+            viewport width so the lazy bar mounting doesn't shift the page
+            (was a fixed 52px → CLS ~0.12 on phones). See
+            .donation-quickbar-placeholder in index.css. */}
+        <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
           <DonationQuickBar />
         </Suspense>
 

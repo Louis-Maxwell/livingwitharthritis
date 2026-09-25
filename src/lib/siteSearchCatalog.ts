@@ -1,6 +1,6 @@
 import contentStats from "@/data/contentStats.generated.json";
 import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
-import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
+import { getPublishedBlogList } from "@/lib/blogCatalogIndex";
 import {
   mapBlogCategoryToTopic,
   type SearchCatalogItem,

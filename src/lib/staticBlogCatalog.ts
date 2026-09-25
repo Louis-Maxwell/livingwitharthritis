@@ -1,6 +1,21 @@
 import frailtyBatch from "@/content/blog/frailty-batch.json";
 import phase2Batch from "@/content/blog/phase2-batch.json";
 import { listPublishedArticles } from "@/data/staticBlog";
+import {
+  mergePreferStatic,
+  sortBlogList,
+  type BlogListItem,
+} from "@/lib/blogCatalogIndex";
+
+/**
+ * FULL blog corpus (article bodies, ~3 MB). Do NOT import this module
+ * statically from app/UI code: it puts a ~470 KB gzipped chunk on every page
+ * that uses it. UI surfaces use src/lib/blogCatalogIndex.ts (list fields) and
+ * loadBlogArticleBody() (one article per page). Kept for scripts/tests and as
+ * the dynamic-import fallback when per-article files are not generated.
+ */
+
+export { mergePreferStatic, sortBlogList, type BlogListItem };
 
 export interface StaticBlogArticle {
   slug: string;
@@ -23,23 +38,6 @@ export interface StaticBlogArticle {
   direct_answer?: string | null;
   citations?: { label: string; url: string; publisher?: string }[] | null;
 }
-
-export type BlogListItem = Pick<
-  StaticBlogArticle,
-  | "slug"
-  | "title"
-  | "meta_title"
-  | "excerpt"
-  | "date"
-  | "category"
-  | "image_url"
-  | "display_order"
-  | "author"
-  | "updated_at"
-  | "keywords"
-> & {
-  tags?: string[] | null;
-};
 
 const STATIC_ARTICLES: StaticBlogArticle[] = [
   ...(frailtyBatch as StaticBlogArticle[]),
@@ -73,28 +71,6 @@ export function getStaticBlogList(): BlogListItem[] {
     updated_at: article.updated_at ?? null,
     keywords: article.keywords,
   }));
-}
-
-export function mergePreferStatic<T extends { slug: string }>(
-  staticItems: T[],
-  remoteItems: T[] | null | undefined,
-): T[] {
-  const map = new Map<string, T>();
-  for (const item of remoteItems ?? []) {
-    if (item?.slug) map.set(item.slug, item);
-  }
-  for (const item of staticItems) {
-    map.set(item.slug, item);
-  }
-  return [...map.values()];
-}
-
-export function sortBlogList<T extends { display_order?: number; date?: string }>(items: T[]): T[] {
-  return [...items].sort((a, b) => {
-    const order = (b.display_order ?? 0) - (a.display_order ?? 0);
-    if (order !== 0) return order;
-    return (b.date ?? "").localeCompare(a.date ?? "");
-  });
 }
 
 /**

@@ -1,15 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
 import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
+// List fields only — article bodies are lazy-loaded per slug so list/related
+// widgets never pull the ~3 MB blog corpus (see src/lib/blogCatalogIndex.ts).
 import {
   getPublishedBlogList,
-  getStaticBlogArticle,
-  getStaticBlogArticles,
+  getStaticBlogList,
+  getStaticBlogListItem,
+  loadBlogArticleBody,
   mergePreferStatic,
   sortBlogList,
-} from "@/lib/staticBlogCatalog";
+} from "@/lib/blogCatalogIndex";
 import {
-  getPublishedArticle,
   listArticlesByCategory,
   listPublishedArticles,
   nextArticle,
@@ -54,10 +56,8 @@ export function useBlogArticle(slug: string | undefined) {
     queryKey: ["blog_article", slug],
     queryFn: async () => {
       if (!slug) return null;
-      const catalog = getStaticBlogArticle(slug);
-      if (catalog) return asArticle(catalog);
-      const snapshot = await getPublishedArticle(slug);
-      return snapshot ? asArticle(snapshot) : null;
+      const article = await loadBlogArticleBody(slug);
+      return article ? asArticle(article) : null;
     },
     enabled: !!slug,
     ...(initialData ? { initialData, initialDataUpdatedAt: Date.now() } : {}),
@@ -118,7 +118,7 @@ export function useNextArticle(currentSlug: string) {
     queryFn: async () => {
       const fromSnapshot = nextArticle(currentSlug);
       const list = snapshotList();
-      const current = list.find((a) => a.slug === currentSlug) ?? getStaticBlogArticle(currentSlug);
+      const current = list.find((a) => a.slug === currentSlug) ?? getStaticBlogListItem(currentSlug);
       if (!current) return fromSnapshot;
       const older = list
         .filter((a) => a.slug !== currentSlug && (a.date ?? "") < (current.date ?? ""))
@@ -166,7 +166,7 @@ export function useRelatedArticles(
       let sourceCategory: string | null = seedCategory ?? null;
 
       const staticCurrent =
-        getStaticBlogArticle(currentSlug) ??
+        getStaticBlogListItem(currentSlug) ??
         listPublishedArticles().find((a) => a.slug === currentSlug) ??
         null;
       if (currentSlug && (sourceClusters.length === 0 || !sourceCategory)) {
@@ -188,7 +188,7 @@ export function useRelatedArticles(
       }
 
       const staticPool: RelatedArticle[] = [
-        ...getStaticBlogArticles(),
+        ...getStaticBlogList(),
         ...listPublishedArticles(),
       ]
         .filter((a) => a.slug !== currentSlug)

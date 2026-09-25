@@ -1,16 +1,16 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { TrendingUp } from "lucide-react";
-import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
+// Build-time top 5 (scripts/generate-blog-catalog-index.mjs) — identical to
+// getPublishedBlogList().slice(0, 5) without shipping the blog corpus.
+import mostRead from "@/data/blogMostRead.generated.json";
 
 interface PopularArticle {
   slug: string;
   title: string | null;
 }
 
-const STATIC_MOST_READ: PopularArticle[] = getPublishedBlogList()
-  .slice(0, 5)
-  .map((a) => ({ slug: a.slug, title: a.title }));
+const STATIC_MOST_READ: PopularArticle[] = (mostRead as PopularArticle[]).slice(0, 5);
 
 const FooterMostRead = memo(() => {
   const data = STATIC_MOST_READ;

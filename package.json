@@ -14,9 +14,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "predev": "bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
+    "predev": "node scripts/generate-blog-catalog-index.mjs || true; bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
-    "prebuild": "node scripts/generate-search-index.mjs || true; bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && bun scripts/generate-library-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
+    "prebuild": "node scripts/generate-blog-catalog-index.mjs || true; node scripts/generate-search-index.mjs || true; bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && bun scripts/generate-library-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && node scripts/write-redirect-html.mjs && node scripts/write-city-hub-html.mjs && (node scripts/indexnow-ping.mjs || true)",
     "og:generate": "bun scripts/generate-og-images.ts",

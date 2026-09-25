@@ -1645,3 +1645,17 @@
   .article-callout--note { border-left-color: hsl(var(--muted-foreground)); background: hsl(var(--muted) / 0.5); }
   .article-callout--note .article-callout__label { color: hsl(var(--foreground)); }
 }
+
+/* Header DonationQuickBar placeholder (Header.tsx Suspense fallback).
+   The bar is flex-wrap, so its height depends on viewport width. Heights
+   measured on the live bar (Inter loaded) at 1px steps, 25 Sep 2026:
+   <303px 262 · 303–359 220 · 360–465 178 · 466–639 136 · 640–702 140 ·
+   703–1339 96 · ≥1340 52 (single row; 1340 leaves room for a desktop
+   scrollbar). Update these if DonationQuickBar's content changes. */
+.donation-quickbar-placeholder { height: 262px; }
+@media (min-width: 303px) { .donation-quickbar-placeholder { height: 220px; } }
+@media (min-width: 360px) { .donation-quickbar-placeholder { height: 178px; } }
+@media (min-width: 466px) { .donation-quickbar-placeholder { height: 136px; } }
+@media (min-width: 640px) { .donation-quickbar-placeholder { height: 140px; } }
+@media (min-width: 703px) { .donation-quickbar-placeholder { height: 96px; } }
+@media (min-width: 1340px) { .donation-quickbar-placeholder { height: 52px; } }
