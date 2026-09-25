@@ -1,10 +1,9 @@
 import { test, expect } from "@playwright/test";
-import frailtyBatch from "../src/content/blog/frailty-batch.json" with { type: "json" };
+import blogCatalog from "../src/content/blog/catalog.generated.json" with { type: "json" };
 
 const FRAILTY_SLUG =
-  (frailtyBatch as Array<{ slug?: string; is_published?: boolean }>).find(
-    (a) => a?.slug && a.is_published !== false,
-  )?.slug ?? "knee-osteoarthritis-frailty-staying-steady-home-uk";
+  (blogCatalog as Array<{ slug: string }>).find((a) => a.slug.includes("frailty"))?.slug ??
+  "knee-osteoarthritis-frailty-staying-steady-home-uk";
 
 const ROUTES = [
   "/blog",

@@ -12,10 +12,11 @@
 //
 // Run manually:  bun scripts/generate-sitemap.ts
 
-import { writeFileSync, readFileSync, readdirSync } from "node:fs";
+import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
+import { readBlogCatalog } from "./lib/blog-posts.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
@@ -312,29 +313,20 @@ function previousBlogLastmods(): Map<string, string> {
   return lastmods;
 }
 
+/** Every published guide from the single catalog (src/content/blog/posts → catalog.generated.json). */
 function staticCatalogBlogPosts(): BlogPostEntry[] {
-  const dir = resolve("src/content/blog");
-  const posts: BlogPostEntry[] = [];
   try {
-    for (const name of readdirSync(dir)) {
-      if (!name.endsWith(".json")) continue;
-      const raw = JSON.parse(read(`src/content/blog/${name}`)) as unknown;
-      const rows = Array.isArray(raw) ? raw : [raw];
-      for (const row of rows) {
-        const r = row as { slug?: string; updated_at?: string; date?: string; category?: string };
-        if (r.slug && BLOG_SLUG_PATTERN.test(r.slug)) {
-          posts.push({
-            slug: r.slug,
-            lastmod: String(r.updated_at || r.date || "").slice(0, 10) || undefined,
-            category: r.category,
-          });
-        }
-      }
-    }
+    return readBlogCatalog()
+      .filter((r) => r.slug && BLOG_SLUG_PATTERN.test(r.slug))
+      .map((r) => ({
+        slug: r.slug,
+        lastmod: String(r.updated_at || r.date || "").slice(0, 10) || undefined,
+        category: r.category,
+      }));
   } catch {
     // Catalog is optional at bootstrap.
+    return [];
   }
-  return posts;
 }
 
 function unionBlogPosts(primary: BlogPostEntry[], extra: BlogPostEntry[]): BlogPostEntry[] {
@@ -415,31 +407,12 @@ function checkedInBlogFallback(reason: string): BlogInventory {
 }
 
 async function blogPosts(): Promise<BlogInventory> {
-  const posts: BlogPostEntry[] = [];
-  try {
-    const data = JSON.parse(read("scripts/blog-head-data.json")) as Record<
-      string,
-      { article?: { slug?: string; updated_at?: string; date?: string; category?: string } }
-    >;
-    const redirects = blogRedirectSlugs();
-    for (const entry of Object.values(data)) {
-      const a = entry?.article;
-      if (a?.slug && BLOG_SLUG_PATTERN.test(a.slug) && !redirects.has(a.slug)) {
-        posts.push({
-          slug: a.slug,
-          lastmod: String(a.updated_at || a.date || "").slice(0, 10) || undefined,
-          category: a.category,
-        });
-      }
-    }
-  } catch {
-    return checkedInBlogFallback("local blog-head-data.json unavailable");
+  const redirects = blogRedirectSlugs();
+  const posts = staticCatalogBlogPosts().filter((p) => !redirects.has(p.slug));
+  if (posts.length === 0) {
+    return checkedInBlogFallback("blog catalog produced no posts");
   }
-  const union = unionBlogPosts(posts, staticCatalogBlogPosts());
-  if (union.length === 0) {
-    return checkedInBlogFallback("local JSON produced no blog posts");
-  }
-  return { posts: union, source: "local-json" };
+  return { posts, source: "local-json" };
 }
 
 // ---------- 4. ASSEMBLE ----------

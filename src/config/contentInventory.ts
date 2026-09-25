@@ -7,8 +7,8 @@ import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
 import { generateExerciseJointPages } from "@/data/exerciseJointMatrix";
 
 /**
- * Unique published blog posts across frailty-batch, phase2-batch and blogList.
- * Counted at build time by scripts/generate-content-stats.mjs so the browser
+ * Published guides in src/content/blog/posts/ (the single blog source).
+ * Counted at build time by scripts/generate-blog-catalog.ts so the browser
  * never downloads the multi-megabyte article catalogues just for a number.
  */
 export const BLOG_ARTICLE_COUNT = contentStats.blogArticleCount;

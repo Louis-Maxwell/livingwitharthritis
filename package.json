@@ -14,9 +14,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "predev": "node scripts/generate-blog-catalog-index.mjs || true; bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
+    "predev": "(bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs) || true; bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
-    "prebuild": "node scripts/generate-blog-catalog-index.mjs || true; node scripts/generate-search-index.mjs || true; bun scripts/generate-sitemap.ts && node scripts/generate-blog-head-data.mjs && bun scripts/generate-condition-head-data.ts && bun scripts/generate-library-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
+    "prebuild": "bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs && (node scripts/generate-search-index.mjs || true) && bun scripts/generate-sitemap.ts && bun scripts/generate-condition-head-data.ts && bun scripts/generate-library-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && node scripts/write-redirect-html.mjs && node scripts/write-city-hub-html.mjs && (node scripts/indexnow-ping.mjs || true)",
     "og:generate": "bun scripts/generate-og-images.ts",
@@ -53,6 +53,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "search:index": "node scripts/generate-search-index.mjs",
+    "blog:catalog": "bun scripts/generate-blog-catalog.ts",
+    "blog:check": "bun scripts/generate-blog-catalog.ts --check",
     "blog:html-gate": "node scripts/check-blog-html.mjs",
     "test:blog-smoke": "playwright test e2e/blog-smoke.spec.ts",
     "test:route-smoke": "playwright test e2e/route-smoke.spec.ts"
