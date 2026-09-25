@@ -124,7 +124,12 @@ function main() {
   let stale = 0;
   for (const [rel, body] of Object.entries(serializeArtifacts(artifacts))) {
     const file = resolve(rel);
-    const current = existsSync(file) ? readFileSync(file, "utf8") : "";
+    let current = "";
+    try {
+      current = readFileSync(file, "utf8");
+    } catch {
+      // missing file → treat as stale
+    }
     if (current === body) continue;
     stale++;
     if (check) console.error(`[blog-catalog] stale: ${rel} — run bun scripts/generate-blog-catalog.ts`);
