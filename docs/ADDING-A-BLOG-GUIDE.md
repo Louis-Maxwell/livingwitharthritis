@@ -63,13 +63,14 @@ search index are all generated from it during `npm run build` (and `npm run dev`
    npm run blog:catalog      # validates every guide, regenerates the listing index
    npm run build             # regenerates head data, slugs, sitemap, prerender list
    npx vitest run src/lib/__tests__/blog-catalog-integrity.test.ts
+   node scripts/sync-host-redirects.mjs   # adds the bare /<slug> → /blog/<slug> rule to public/_redirects
    ```
 
 3. **Commit** the new post file together with the regenerated files the build
    touched (`src/content/blog/catalog.generated.json`,
    `src/data/blog-cover-map.generated.json`, `src/data/contentStats.generated.json`,
    `scripts/blog-head-data.json`, `src/data/blog-slugs.generated.json`,
-   `public/sitemap.xml`, `public/llms-full.txt`), open a PR, merge when green.
+   `public/sitemap.xml`, `public/llms-full.txt`, `public/_redirects`), open a PR, merge when green.
 
 ## Editing, renaming or removing a guide
 
