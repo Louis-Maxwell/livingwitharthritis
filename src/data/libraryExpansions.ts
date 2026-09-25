@@ -77,6 +77,184 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
       { q: "Can I drink alcohol on hydroxychloroquine?", a: "There is no specific interaction, but keeping within UK low-risk drinking guidelines is sensible." },
     ],
   },
+  "shoulder-pain": {
+    title: "Shoulder pain: frozen shoulder, rotator cuff or arthritis?",
+    description:
+      "Painful shoulder when reaching or at night? Learn the common causes, self-help exercises, when injections help and when to see a GP or physio. Clear UK advice.",
+    h1: "Shoulder pain: frozen shoulder, rotator cuff or arthritis?",
+    related: [
+      { label: "Polymyalgia rheumatica", href: "/conditions/polymyalgia-rheumatica" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+      { label: "Steroid injections vs tablets", href: "/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense" },
+      { label: "Arthritis surgery options", href: "/treatments/surgery-options" },
+      { label: "Joint protection tips", href: "/blog/joint-protection-easier-everyday-tasks" },
+    ],
+    extraSections: [
+      {
+        heading: "Working out what is going on",
+        body: "The shoulder is the most mobile joint in the body, which makes it prone to problems. Where and when it hurts gives useful clues, although a proper assessment is the best way to know.",
+        bullets: [
+          "Pain on the outer upper arm when lifting your arm out to the side or overhead, often worse at night and lying on that side: commonly a rotator cuff problem, sometimes called subacromial pain.",
+          "Gradually increasing pain followed by marked stiffness, so you cannot reach behind your back or turn your arm outwards: often frozen shoulder, which is more common between 40 and 60 and in people with diabetes.",
+          "Deep ache and stiffness with grinding, usually over 60: may be shoulder osteoarthritis.",
+          "Pain on top of the shoulder where the collarbone meets the shoulder blade: may be the acromioclavicular (AC) joint.",
+          "Sudden severe pain and weakness after a fall or heavy lift: may be a tendon tear or dislocation, which needs prompt assessment.",
+          "Pain and stiffness in both shoulders and hips, worse in the morning, in someone over 50: may be polymyalgia rheumatica, which needs a GP review.",
+        ],
+      },
+      {
+        heading: "Pain that is not coming from the shoulder",
+        body: "Some pain felt in the shoulder comes from elsewhere. Neck problems can cause pain spreading over the shoulder and down the arm, often with tingling. Rarely, shoulder pain can be a sign of a heart, lung or abdominal problem. Call 999 if shoulder or arm pain comes with chest pain, breathlessness, sweating or feeling sick.",
+      },
+      {
+        heading: "Self-help that works for most people",
+        body: "Most shoulder pain improves over weeks to months. These steps help many people while it settles.",
+        bullets: [
+          "Keep the shoulder moving gently within comfort. Complete rest tends to make stiffness worse.",
+          "Modify, rather than stop, activities that provoke pain, such as repeated overhead reaching.",
+          "Try a heat pack or an ice pack wrapped in a towel for short periods, whichever eases it more.",
+          "Simple painkillers or anti-inflammatory gel may help you keep moving; check with a pharmacist.",
+          "At night, try lying on the other side with a pillow hugged in front of you to support the painful arm.",
+          "Start gentle exercises, such as pendulum swings, and progress to strengthening the muscles around the shoulder blade and rotator cuff as pain allows.",
+        ],
+      },
+      {
+        heading: "Physiotherapy and exercise",
+        body: "Most shoulder problems, including rotator cuff pain and osteoarthritis, improve with a structured exercise programme over several weeks to months. A physiotherapist can assess your shoulder, check your neck and posture, and tailor exercises. In many areas you can refer yourself to NHS physiotherapy or see a first contact practitioner at your GP surgery. Strengthening is usually the key part of recovery, and some discomfort during exercise is normal as long as it settles afterwards.",
+      },
+      {
+        heading: "Injections and other treatments",
+        body: "A steroid injection can reduce pain for some weeks, which can make it easier to do your exercises. It is most helpful in frozen shoulder and some rotator cuff problems. Injections are usually combined with exercise rather than used alone. For frozen shoulder, which can take a long time to resolve, other options include a procedure to stretch the joint capsule with fluid (hydrodilatation) or surgery. Surgery may also be considered for large tendon tears or severe osteoarthritis, including shoulder replacement. See our guide to arthritis surgery options.",
+      },
+      {
+        heading: "When to see a GP or get urgent help",
+        body: "See your GP or a physiotherapist if pain has not improved after a couple of weeks of self-help, stops you sleeping, or you cannot lift your arm. Go to A&E after an injury if your shoulder looks deformed, you cannot move your arm, or you have numbness in the arm. Get same-day advice if the shoulder is hot and swollen and you feel feverish or unwell, or if you have new pain and stiffness in both shoulders with a headache or jaw pain when chewing.",
+      },
+      REVIEW_NOTE,
+    ],
+    faqs: [
+      { q: "How long does frozen shoulder last?", a: "Frozen shoulder often goes through painful, stiff and recovery phases and can take many months, sometimes longer than a year, to settle. Treatment can ease pain and help movement in the meantime." },
+      { q: "Should I rest a painful shoulder?", a: "Short periods of rest from aggravating activities can help, but gentle movement is usually better than keeping it completely still, which can make stiffness worse." },
+      { q: "Can I self-refer to a physio for shoulder pain?", a: "In many parts of the UK you can refer yourself to NHS physiotherapy or musculoskeletal services. Check your local NHS website or ask at your GP practice." },
+      { q: "Do steroid injections cure shoulder pain?", a: "They can reduce pain for a period and make exercise easier, but they work best alongside a strengthening and mobility programme." },
+      { q: "Why is my shoulder pain worse at night?", a: "Lying on the shoulder compresses painful tissues, and there are fewer distractions at night. Supporting the arm with a pillow and adjusting your sleeping position often helps." },
+    ],
+  },
+  "plantar-fasciitis": {
+    title: "Heel pain in the morning? Plantar fasciitis self-help guide",
+    description:
+      "Sharp heel pain with your first steps? Learn why plantar fasciitis happens, stretches, footwear and insoles that help, and when injections or shockwave help.",
+    h1: "Heel pain in the morning? A plantar fasciitis self-help guide",
+    related: [
+      { label: "Foot and ankle arthritis", href: "/conditions/foot-and-ankle-arthritis" },
+      { label: "Psoriatic arthritis guide", href: "/conditions/psoriatic-arthritis" },
+      { label: "Walking with arthritis", href: "/blog/walking-30-minutes-a-day-while-on-dmards-a-practical-plan" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+    ],
+    extraSections: [
+      {
+        heading: "Why the first steps hurt most",
+        body: "The plantar fascia is a thick band of tissue running from the heel to the toes that supports the arch. When it is overloaded, it becomes irritated where it attaches to the heel bone. Overnight or after sitting, it tightens, so the first steps stretch it suddenly and cause that sharp, stabbing pain. It often eases as you walk, then builds up again after long periods on your feet.",
+      },
+      {
+        heading: "Self-help: what to try first",
+        body: "Most people improve with simple measures, although it can take several months. Being consistent matters more than any single treatment.",
+        bullets: [
+          "Wear supportive, cushioned shoes with a slightly raised heel, and avoid walking barefoot or in flat, thin-soled shoes, especially first thing.",
+          "Try off-the-shelf heel cups or arch-support insoles from a pharmacy or sports shop.",
+          "Stretch your calf and the sole of your foot several times a day, particularly before getting out of bed.",
+          "Roll the sole of your foot over a cold bottle or a massage ball for a few minutes.",
+          "Reduce high-impact activity, such as running or long walks on hard ground, for a while. Swap to cycling or swimming to stay active.",
+          "If you are carrying extra weight, losing some can reduce the load on your heels.",
+          "Simple painkillers or anti-inflammatory gel may help in the short term; ask your pharmacist.",
+        ],
+      },
+      {
+        heading: "Strengthening exercises",
+        body: "Once the worst pain settles, strengthening can help. Heel raises on a step, done slowly with a towel rolled under the toes, are commonly used to load the plantar fascia gradually. Calf and foot strengthening builds resilience. A physiotherapist or podiatrist can show you how to progress safely.",
+      },
+      {
+        heading: "Seeing a podiatrist or physiotherapist",
+        body: "If heel pain has not improved after a few weeks of self-help, a podiatrist or physiotherapist can assess your feet, walking pattern and footwear, and suggest insoles, taping or a tailored exercise plan. Night splints, which hold the foot in a gentle stretch overnight, help some people. Many areas allow self-referral to NHS musculoskeletal services.",
+      },
+      {
+        heading: "Injections and shockwave therapy",
+        body: "For stubborn heel pain lasting many months, other treatments may be considered. A steroid injection can reduce pain in the short term, but it carries risks such as thinning of the heel fat pad or, rarely, rupture of the fascia, so it is used with care. Extracorporeal shockwave therapy, where sound waves are directed at the heel, is available in some NHS and private clinics under NICE guidance for plantar fasciitis. Surgery is rarely needed.",
+      },
+      {
+        heading: "When heel pain may be something else",
+        body: "Heel pain can occasionally be linked to inflammatory arthritis, especially psoriatic arthritis and axial spondyloarthritis, where the tendon attachments become inflamed. Consider this if you also have back pain and stiffness, swollen joints, psoriasis or inflammatory bowel disease. See your GP if heel pain is present in both feet with no obvious cause, if the heel is hot and swollen, if you have numbness or tingling in the foot, or if pain started after an injury and you cannot put weight on the foot.",
+      },
+      REVIEW_NOTE,
+    ],
+    faqs: [
+      { q: "How long does plantar fasciitis take to heal?", a: "Most people improve within several months with self-help, although some cases take longer. Consistent stretching, supportive footwear and load management help recovery." },
+      { q: "Should I walk barefoot with plantar fasciitis?", a: "It is usually best to avoid walking barefoot, particularly on hard floors and first thing in the morning. Supportive shoes or slippers reduce strain on the heel." },
+      { q: "Do insoles help heel pain?", a: "Many people find off-the-shelf heel cups or arch supports helpful. A podiatrist can advise if custom insoles would help." },
+      { q: "Can I keep exercising with plantar fasciitis?", a: "Yes, but you may need to reduce high-impact activities for a while and swap to lower-impact options like cycling or swimming." },
+      { q: "Is heel pain a sign of arthritis?", a: "Usually it is plantar fasciitis, but heel pain can be part of psoriatic arthritis or axial spondyloarthritis. See your GP if you have other joint or back symptoms." },
+    ],
+  },
+  osteoporosis: {
+    title: "Osteoporosis: protecting your bones when you have arthritis",
+    description:
+      "Learn what osteoporosis is, who is at risk, DEXA scans, bone-protecting medicines, exercise and food that keep bones strong. Practical UK guidance for patients.",
+    h1: "Osteoporosis: protecting your bones when you have arthritis",
+    related: [
+      { label: "Bone protection on steroids", href: "/blog/bone-protection-steroids-arthritis-frailty-uk" },
+      { label: "Steroids for arthritis", href: "/guides/steroids-for-arthritis" },
+      { label: "Rheumatoid arthritis guide", href: "/conditions/rheumatoid-arthritis" },
+      { label: "Exercise for arthritis", href: "/guides/exercise" },
+      { label: "Vitamin D and arthritis", href: "/blog/vitamin-d-arthritis-uk" },
+    ],
+    extraSections: [
+      {
+        heading: "Osteoporosis and arthritis: why they are linked",
+        body: "Osteoporosis and osteoarthritis are different conditions, but people with arthritis can be at higher risk of osteoporosis. Inflammatory conditions such as rheumatoid arthritis, lupus and ankylosing spondylitis can weaken bones through ongoing inflammation. Steroid tablets, often used to control flares, are one of the most important medicine-related causes of bone loss. Pain and reduced mobility can also mean less weight-bearing activity, which bones need to stay strong.",
+      },
+      {
+        heading: "Assessing your fracture risk",
+        body: "Osteoporosis usually has no symptoms until a bone breaks, so assessment focuses on your risk. Your GP may use a risk calculator such as FRAX or QFracture, which takes into account your age, sex, weight, previous fractures, family history, smoking, alcohol, steroid use and conditions such as rheumatoid arthritis. Depending on the result, you may be offered a DEXA scan, a quick, painless scan that measures bone density, usually at the hip and spine. Ask your GP about a bone health check if you have had a fracture from a minor fall, take long-term steroids, or have inflammatory arthritis.",
+      },
+      {
+        heading: "Bone-protecting medicines",
+        body: "If your fracture risk is high, your GP or specialist may recommend a medicine to strengthen bones. The most common are bisphosphonates, such as alendronic acid, taken as a weekly tablet on an empty stomach with specific instructions, or given yearly as an infusion. Other options include denosumab injections and, for people at very high risk, medicines that help build new bone. Calcium and vitamin D supplements are often given alongside. Your team will explain the benefits and possible side effects, including rare jaw and thigh bone problems, and how long treatment should last. Always take these medicines exactly as advised, and do not stop denosumab without a plan, as bone loss can rebound quickly.",
+      },
+      {
+        heading: "Exercise for stronger bones",
+        body: "Bones respond to load. A mix of weight-bearing exercise, muscle strengthening and balance training helps keep bones strong and reduces falls.",
+        bullets: [
+          "Weight-bearing activity such as brisk walking, dancing or stair climbing, adapted to your joints.",
+          "Strength exercises at least twice a week, using body weight, resistance bands or weights.",
+          "Balance exercises such as tai chi or standing on one leg near support, to lower the risk of falls.",
+          "If you have had spinal fractures, ask a physiotherapist which movements to avoid, such as heavy forward bending with twisting.",
+        ],
+      },
+      {
+        heading: "Food, vitamin D and lifestyle",
+        body: "Everyday habits make a real difference to bone strength over time.",
+        bullets: [
+          "Eat calcium-rich foods such as dairy products, calcium-fortified plant milks, tinned fish with bones, tofu and green leafy vegetables.",
+          "Consider a daily vitamin D supplement in autumn and winter, as recommended for everyone in the UK, or all year if you rarely go outdoors.",
+          "Get enough protein to support muscles and bones.",
+          "Stop smoking and keep alcohol within UK low-risk guidelines.",
+          "Keep to a healthy weight; being underweight increases fracture risk.",
+        ],
+      },
+      {
+        heading: "Preventing falls",
+        body: "Most fractures happen after a fall, so reducing falls matters as much as bone strength. Remove trip hazards, improve lighting, use grab rails, wear well-fitting shoes, have your eyesight checked, and ask for a medicines review if any make you dizzy. Your GP can refer you to a falls prevention service if you have fallen or feel unsteady.",
+      },
+      REVIEW_NOTE,
+    ],
+    faqs: [
+      { q: "Is osteoporosis the same as osteoarthritis?", a: "No. Osteoporosis is thinning of the bones that makes them more likely to break. Osteoarthritis affects the joints. You can have both." },
+      { q: "Do steroids cause osteoporosis?", a: "Long-term steroid tablets are a common cause of bone loss. If you take them, ask your team about bone protection, which may include calcium, vitamin D and a bisphosphonate." },
+      { q: "What is a DEXA scan?", a: "A quick, painless scan that measures bone density, usually at the hip and spine. It helps assess fracture risk and guide treatment." },
+      { q: "Can exercise help osteoporosis?", a: "Yes. Weight-bearing, strengthening and balance exercises help keep bones strong and reduce falls. A physiotherapist can advise if you have had fractures." },
+      { q: "How long will I need bone medicine?", a: "It depends on your risk and the medicine. Bisphosphonates are often reviewed after several years. Do not stop denosumab without a plan from your team." },
+    ],
+  },
   "carpal-tunnel": {
     title: "Carpal tunnel syndrome: numb hands, night tingling, relief",
     description:

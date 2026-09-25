@@ -311,6 +311,9 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
   "sjogrens": LIBRARY_EXPANSIONS["sjogrens"],
   "vasculitis": LIBRARY_EXPANSIONS["vasculitis"],
   "hydroxychloroquine": LIBRARY_EXPANSIONS["hydroxychloroquine"],
+  "shoulder-pain": LIBRARY_EXPANSIONS["shoulder-pain"],
+  "plantar-fasciitis": LIBRARY_EXPANSIONS["plantar-fasciitis"],
+  "osteoporosis": LIBRARY_EXPANSIONS["osteoporosis"],
   naproxen: {
     title: "Naproxen for arthritis UK: NSAID library note",
     description:
