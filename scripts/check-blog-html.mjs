@@ -7,7 +7,8 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { HOME_SHELL_HEADING } from './static-article-html.mjs';
+import { JSDOM } from 'jsdom';
+import { HOME_SHELL_HEADING, stripToText } from './static-article-html.mjs';
 
 const ROOT = resolve('.');
 const DIST = resolve(process.argv.find((a) => a.startsWith('--dist='))?.slice(7) ?? 'dist');
@@ -39,6 +40,22 @@ const missing = [];
 const shell = [];
 const noOg = [];
 const noCanonical = [];
+const thinBody = [];
+
+// Minimum words the first HTML response must carry inside #static-article.
+// Every published guide is several hundred words; a static body below this
+// means the crawler sees a question/answer stub instead of the article
+// (the Sep 2026 head-data override bug served ~40 words for two guides).
+const MIN_STATIC_WORDS = 250;
+
+function staticArticleWords(html) {
+  // Prefer the baked static article; fall back to the whole <body> when a
+  // full Puppeteer snapshot was kept instead. Parsed with JSDOM, not regex.
+  const doc = new JSDOM(html).window.document;
+  const root = doc.querySelector('#static-article') || doc.body;
+  if (!root) return 0;
+  return stripToText(root.innerHTML).split(/\s+/).filter(Boolean).length;
+}
 
 for (const slug of slugs) {
   const file = join(DIST, 'blog', slug, 'index.html');
@@ -58,6 +75,9 @@ for (const slug of slugs) {
     || /<meta\s+content=["']([^"']+)["'][^>]*property=["']og:title["']/i.exec(html);
   if (!ogTitle || !ogTitle[1].trim()) noOg.push(slug);
 
+  const words = staticArticleWords(html);
+  if (words < MIN_STATIC_WORDS) thinBody.push(`${slug} (${words} words)`);
+
   const canonical = /rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(html)
     || /href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(html);
   const expected = `https://livingwitharthritis.org.uk/blog/${slug}`;
@@ -69,7 +89,11 @@ for (const slug of slugs) {
 }
 
 const fail =
-  missing.length > 0 || shell.length > 0 || noOg.length > 0 || noCanonical.length > 0;
+  missing.length > 0 ||
+  shell.length > 0 ||
+  noOg.length > 0 ||
+  noCanonical.length > 0 ||
+  thinBody.length > 0;
 
 if (fail) {
   console.error(`✗ blog:html-gate failed for ${slugs.length} published slugs`);
@@ -84,6 +108,11 @@ if (fail) {
   }
   if (noCanonical.length) {
     console.error(`  bad/missing canonical (${noCanonical.length}): ${noCanonical.slice(0, 5).join('; ')}`);
+  }
+  if (thinBody.length) {
+    console.error(
+      `  static body under ${MIN_STATIC_WORDS} words (${thinBody.length}): ${thinBody.slice(0, 8).join(', ')}`,
+    );
   }
   process.exit(1);
 }

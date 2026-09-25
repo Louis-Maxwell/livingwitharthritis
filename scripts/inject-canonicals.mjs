@@ -46,6 +46,7 @@ const AI_DATA_PATH = resolve("scripts/ai-head-data.json");
 const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 const CONDITION_DATA_PATH = resolve("scripts/condition-head-data.json");
 const LIBRARY_DATA_PATH = resolve("scripts/library-head-data.json");
+const HUB_GUIDE_DATA_PATH = resolve("scripts/hub-guide-head-data.json");
 
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
@@ -93,15 +94,47 @@ function authorHeadData() {
   return out;
 }
 
+/**
+ * Merge head-data layers PER ROUTE (later layers win field-by-field).
+ *
+ * Bug fixed here (Sep 2026): the layers used to be combined with a
+ * top-level object spread, so a curated ai-head-data.json entry for a
+ * blog route (title/description/question/answer only) replaced the whole
+ * generated blog entry — dropping `article`, `faqs`, `updatedAt` and
+ * `ogImage`. Those routes then shipped a ~40-word static fallback
+ * (question + answer) instead of the full article body. Merging per route
+ * keeps curated titles/answers while preserving the generated body.
+ */
+export function mergeHeadLayers(...layers) {
+  const out = {};
+  for (const layer of layers) {
+    if (!layer || typeof layer !== "object") continue;
+    for (const [route, entry] of Object.entries(layer)) {
+      if (!entry || typeof entry !== "object") continue;
+      const prev = out[route];
+      const merged = prev ? { ...prev } : {};
+      for (const [key, value] of Object.entries(entry)) {
+        // Never let an empty curated value wipe a generated one.
+        if (value === undefined || value === null || value === "") continue;
+        if (Array.isArray(value) && value.length === 0 && merged[key]) continue;
+        merged[key] = value;
+      }
+      out[route] = merged;
+    }
+  }
+  return out;
+}
+
 // Curated entries win over auto-generated blog/author entries; all of them
 // win over the slug-derived fallback applied in headDataFor().
-const AI_DATA = {
-  ...readJson(BLOG_DATA_PATH),
-  ...readJson(CONDITION_DATA_PATH),
-  ...readJson(LIBRARY_DATA_PATH),
-  ...authorHeadData(),
-  ...readJson(AI_DATA_PATH),
-};
+const AI_DATA = mergeHeadLayers(
+  readJson(BLOG_DATA_PATH),
+  readJson(CONDITION_DATA_PATH),
+  readJson(LIBRARY_DATA_PATH),
+  readJson(HUB_GUIDE_DATA_PATH),
+  authorHeadData(),
+  readJson(AI_DATA_PATH),
+);
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
 const BLOG_SLUGS = new Set(

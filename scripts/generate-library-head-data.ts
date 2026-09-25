@@ -54,6 +54,7 @@ export function buildLibraryHeadData() {
       breadcrumb: string;
       about: string;
       bodyHtml: string;
+      faqs?: { q: string; a: string }[];
     }
   > = {};
 
@@ -88,6 +89,7 @@ export function buildLibraryHeadData() {
       breadcrumb: topic.title,
       about: topic.title,
       bodyHtml,
+      ...(seo?.faqs && seo.faqs.length > 0 ? { faqs: seo.faqs } : {}),
     };
   }
   return data;
