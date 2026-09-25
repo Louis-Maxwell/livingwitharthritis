@@ -2662,6 +2662,12 @@ Last updated: 2026-09-05
 Q: Flying with Arthritis: A UK Airport Survival Guide
 A: Special assistance bookings, in-flight stretches and how to avoid post-flight flares. Heathrow, Gatwick and Manchester tips.
 
+## Food, Drink and Arthritis Medicines: What Not to Mix
+URL: https://livingwitharthritis.org.uk/blog/food-drink-and-arthritis-medicines-interactions
+Last updated: 2026-09-25
+Q: Food, Drink and Arthritis Medicines: What Not to Mix
+A: Some foods and drinks affect arthritis medicines. Alcohol can add to liver strain with methotrexate and leflunomide, and to stomach bleeding risk with anti-inflammatory painkillers. Grapefruit interacts with some medicines, such as colchicine. Dairy, calcium and antacids can block absorption of some tablets. Many tablets are gentler on the stomach with food. Check your leaflet and ask your pharmacist.
+
 ## Foods to Avoid With Arthritis: A Complete UK Guide
 URL: https://livingwitharthritis.org.uk/blog/foods-to-avoid-with-arthritis
 Last updated: 2026-09-05
@@ -2751,6 +2757,12 @@ URL: https://livingwitharthritis.org.uk/blog/geriatric-clinic-plus-arthritis-uk
 Last updated: 2026-09-05
 Q: Geriatric clinics that also take arthritis seriously (UK)
 A: UK home life shapes geriatric clinics that also take arthritis seriously as much as any clinic score — kettle, bathroom, stairs and night trips count. Together they can shrink a week faster than either alone. This UK guide looks at asking for joints to be on the problem list in a hospital setting, with practical steps, warning signs and England services. It is general information, not personal medical advice.
+
+## Giant Cell Arteritis: The Headache You Must Not Ignore
+URL: https://livingwitharthritis.org.uk/blog/giant-cell-arteritis-headache-warning-signs
+Last updated: 2026-09-25
+Q: Giant Cell Arteritis: The Headache You Must Not Ignore
+A: Giant cell arteritis (GCA) is inflammation of medium and large arteries, especially those in the head. It mainly affects people over 50 and can cause permanent sight loss if it is not treated quickly. A new headache, a tender scalp, jaw pain when chewing or any change in vision needs same-day medical help. Treatment with steroids usually starts straight away.
 
 ## Ginger Root: A Natural Anti-Inflammatory Food
 URL: https://livingwitharthritis.org.uk/blog/ginger-root-natural-anti-inflammatory
@@ -3195,6 +3207,12 @@ URL: https://livingwitharthritis.org.uk/blog/late-onset-ra-frailty-first-months-
 Last updated: 2026-09-05
 Q: Late-onset rheumatoid arthritis and frailty: the first months (UK)
 A: When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA in later life when energy and muscle are already low, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
+
+## Leflunomide for Arthritis: Blood Tests, Side Effects and Tips
+URL: https://livingwitharthritis.org.uk/blog/leflunomide-for-arthritis-blood-tests-side-effects
+Last updated: 2026-09-25
+Q: Leflunomide for Arthritis: Blood Tests, Side Effects and Tips
+A: Leflunomide is a disease-modifying anti-rheumatic drug (DMARD) used for rheumatoid and psoriatic arthritis. It usually takes one to three months to work. You will need regular blood tests plus blood pressure and weight checks. Common side effects include diarrhoea, feeling sick and hair thinning. Leflunomide stays in the body for a long time, so plan pregnancy carefully with your team. Never change your dose yourself.
 
 ## Libraries as a gentle outing with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/libraries-arthritis-frailty-getting-out-uk
@@ -3958,6 +3976,12 @@ Last updated: 2026-09-05
 Q: Second-hand equipment for arthritis and frailty: safety checks (UK)
 A: Families dealing with second-hand equipment for arthritis and frailty: safety checks usually notice skipped invitations and slower rooms before any clinic label. Here we focus on borrowed frames that might not fit you, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
 
+## Septic Arthritis: A Hot, Swollen Joint That Needs A&E
+URL: https://livingwitharthritis.org.uk/blog/septic-arthritis-hot-swollen-joint-emergency
+Last updated: 2026-09-25
+Q: Septic Arthritis: A Hot, Swollen Joint That Needs A&E
+A: Septic arthritis is an infection inside a joint, usually caused by bacteria. It typically causes one hot, swollen, very painful joint that is hard to move, often with a fever. It is a medical emergency because the infection can damage the joint within days and spread to the blood. Go to A&amp;E or call 999 if you think you might have it.
+
 ## Sex and Intimacy With Arthritis: Pain-Free Positions and Techniques
 URL: https://livingwitharthritis.org.uk/blog/sex-and-intimacy-with-arthritis
 Last updated: 2026-09-25
@@ -4174,6 +4198,12 @@ Last updated: 2026-09-05
 Q: Standing Desks and Arthritis: Pros, Cons and How to Use One 
 A: Quick answer: Standing desks can help — or hurt. The conditions where they work best and the right ratio of sitting to What the evidence says Standing.
 
+## Starting a New Arthritis Medicine: 10 Questions to Ask
+URL: https://livingwitharthritis.org.uk/blog/starting-a-new-arthritis-medicine-questions-to-ask
+Last updated: 2026-09-25
+Q: Starting a New Arthritis Medicine: 10 Questions to Ask
+A: Before starting a new arthritis medicine, ask what it is for, how and when to take it, how long it takes to work, what side effects to watch for, what monitoring you need, and what to do if you become ill. Ask about alcohol, other medicines, vaccines and pregnancy plans too. Write the answers down, and always follow your own team's advice rather than changing doses yourself.
+
 ## Static bikes for frail osteoarthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/static-bike-frail-osteoarthritis-uk
 Last updated: 2026-09-05
@@ -4221,6 +4251,12 @@ URL: https://livingwitharthritis.org.uk/blog/strength-training-on-biologics-is-i
 Last updated: 2026-09-05
 Q: Strength Training on Biologics: Is It Safe?
 A: Strength training is generally safe and recommended for people with arthritis, even those on biologics. Research shows it can improve muscle strength, reduce pain, and boost physical function. It's crucial to start slowly, focus on proper form, and listen to your body, stopping if you experience new or lasting joint pain. Always discuss your exercise plan with your clinician.
+
+## Sulfasalazine for Arthritis: What to Expect When Starting
+URL: https://livingwitharthritis.org.uk/blog/sulfasalazine-for-arthritis-what-to-expect
+Last updated: 2026-09-25
+Q: Sulfasalazine for Arthritis: What to Expect When Starting
+A: Sulfasalazine is a disease-modifying anti-rheumatic drug (DMARD) used for rheumatoid arthritis, psoriatic arthritis and some other inflammatory conditions. It calms the immune system slowly, so it can take around two to three months to make a real difference. You will need regular blood tests, especially at first. Common side effects include feeling sick, headaches and orange-coloured urine. Always follow your rheumatology team's dosing plan.
 
 ## How to Support a Friend Newly Diagnosed With Lupus
 URL: https://livingwitharthritis.org.uk/blog/support-friend-diagnosed-lupus
@@ -4431,6 +4467,12 @@ URL: https://livingwitharthritis.org.uk/blog/uti-confusion-arthritis-frailty-uk
 Last updated: 2026-09-05
 Q: UTIs, confusion and frailty in people with arthritis (UK)
 A: This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This guide covers a urine infection that unmasks frailty when arthritis with frailty affects several joints, with a focus on England and a home setting.
+
+## Vaccines When You Take DMARDs or Biologics: A UK Guide
+URL: https://livingwitharthritis.org.uk/blog/vaccines-on-dmards-and-biologics-uk-guide
+Last updated: 2026-09-25
+Q: Vaccines When You Take DMARDs or Biologics: A UK Guide
+A: If you take DMARDs, biologics, JAK inhibitors or steroids, most non-live vaccines, such as flu, COVID-19, pneumococcal and the non-live shingles vaccine, are safe and recommended because infections can hit harder. Live vaccines may need to be avoided or carefully timed. Ask your rheumatology team for advice before any vaccine, and never pause or change your arthritis medicines without their advice.
 
 ## Vision, falls and arthritis in frail adults (UK)
 URL: https://livingwitharthritis.org.uk/blog/vision-falls-arthritis-frailty-uk

@@ -310,6 +310,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
   "raynauds": LIBRARY_EXPANSIONS["raynauds"],
   "sjogrens": LIBRARY_EXPANSIONS["sjogrens"],
   "vasculitis": LIBRARY_EXPANSIONS["vasculitis"],
+  "hydroxychloroquine": LIBRARY_EXPANSIONS["hydroxychloroquine"],
   naproxen: {
     title: "Naproxen for arthritis UK: NSAID library note",
     description:

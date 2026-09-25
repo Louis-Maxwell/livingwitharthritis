@@ -11,6 +11,72 @@ const REVIEW_NOTE = {
 };
 
 export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
+  hydroxychloroquine: {
+    title: "Hydroxychloroquine: eye checks, side effects, what to expect",
+    description:
+      "Taking hydroxychloroquine for lupus or RA? How long it takes to work, common side effects, why yearly eye screening matters and tips for taking it well.",
+    h1: "Hydroxychloroquine: eye checks, side effects and what to expect",
+    related: [
+      { label: "Lupus guide", href: "/conditions/lupus" },
+      { label: "Rheumatoid arthritis guide", href: "/conditions/rheumatoid-arthritis" },
+      { label: "Sjögren's", href: "/library/sjogrens" },
+      { label: "Starting a new arthritis medicine", href: "/blog/starting-a-new-arthritis-medicine-questions-to-ask" },
+      { label: "Arthritis medicines explained", href: "/treatments/drug-guide" },
+    ],
+    extraSections: [
+      {
+        heading: "Who is prescribed hydroxychloroquine",
+        body: "Hydroxychloroquine is one of the most widely used medicines in rheumatology. It is a first-choice treatment for lupus, where it helps prevent flares and protects organs over the long term, and it is often continued even when lupus is quiet. In rheumatoid arthritis it is used for milder disease or combined with other DMARDs such as methotrexate and sulfasalazine. It is also used for Sjögren's, palindromic rheumatism and some skin conditions. It is considered only mildly immune-suppressing, which is one reason it is so commonly used.",
+      },
+      {
+        heading: "Taking it well",
+        body: "Hydroxychloroquine is a tablet taken once or twice a day. Your dose is worked out by your rheumatology team, partly based on your body weight, to keep the risk to your eyes low. Always take it as your team advises, and do not change the dose yourself.",
+        bullets: [
+          "Take it with food or a glass of milk if it upsets your stomach.",
+          "Leave a gap of several hours between hydroxychloroquine and indigestion remedies (antacids), which can reduce absorption.",
+          "Keep taking it even when you feel well; in lupus in particular, stopping can lead to flares.",
+          "If you miss a dose, check your leaflet or ask your pharmacist. Do not double up.",
+          "Keep tablets out of reach of children, as hydroxychloroquine is very dangerous in overdose.",
+        ],
+      },
+      {
+        heading: "How long it takes to work",
+        body: "Hydroxychloroquine works slowly. Some people notice an improvement in joint pain, rashes or tiredness after six to eight weeks, but it can take three to six months to reach its full effect. Your team may use other treatments to control symptoms in the meantime.",
+      },
+      {
+        heading: "Eye screening explained",
+        body: "Long-term use of hydroxychloroquine can, in a small number of people, damage the retina at the back of the eye. Early damage usually causes no symptoms, which is why screening matters: it can pick up changes before your sight is affected, so the medicine can be stopped.\n\nIn the UK, screening is usually done in a hospital eye department with special scans of the retina and a visual field test. Most people have a baseline check early on and then yearly screening once they have taken hydroxychloroquine for five years. Screening starts sooner, after one year, if you have extra risk factors, such as reduced kidney function, a higher dose relative to your weight, or taking tamoxifen. Ask your team whether you have been referred.\n\nA routine eye test at an optician is still worthwhile, but it does not replace hospital screening. Tell your team or an optometrist promptly if you notice difficulty reading, blurred or missing areas in your vision, or trouble seeing in dim light.",
+      },
+      {
+        heading: "Other side effects",
+        body: "Most people take hydroxychloroquine with few problems. Side effects that can occur include:",
+        bullets: [
+          "Feeling sick, indigestion, tummy pain or diarrhoea, which often settle with time or taking tablets with food.",
+          "Headaches.",
+          "Skin rashes, itching or, over the long term, darkening of the skin in patches.",
+          "Increased sensitivity to sunlight, so use sun protection.",
+          "Low blood sugar in some people, especially those with diabetes; know the signs, such as shaking, sweating and confusion.",
+          "Rarely, effects on mood, hearing, muscles or heart rhythm. Tell your team about palpitations or fainting, and get urgent help for chest pain.",
+        ],
+      },
+      {
+        heading: "Pregnancy, breastfeeding, vaccines and alcohol",
+        body: "Hydroxychloroquine is usually continued during pregnancy and breastfeeding, particularly in lupus, because stopping it can lead to flares. Always discuss pregnancy plans with your team. It does not usually rule out vaccines, including most live vaccines, but check if you take other immune-suppressing medicines as well. There is no specific interaction with alcohol, but keep within UK low-risk drinking guidelines.",
+      },
+      {
+        heading: "When to seek help",
+        body: "Contact your GP or rheumatology team the same day, or call NHS 111, if you have a widespread rash with fever or blistering, unexplained bruising, signs of low blood sugar that keep happening, or palpitations. Call 999 for chest pain, fainting or signs of a severe allergic reaction.",
+      },
+      REVIEW_NOTE,
+    ],
+    faqs: [
+      { q: "How long does hydroxychloroquine take to work?", a: "Some people notice benefits after six to eight weeks, but it can take three to six months to reach its full effect." },
+      { q: "Why do I need eye screening on hydroxychloroquine?", a: "Long-term use can rarely damage the retina without early symptoms. Screening picks up changes early so the medicine can be stopped before sight is affected." },
+      { q: "Can I take hydroxychloroquine during pregnancy?", a: "It is usually continued during pregnancy and breastfeeding, especially in lupus. Discuss your plans with your rheumatology team." },
+      { q: "Does hydroxychloroquine lower immunity?", a: "It is only mildly immune-suppressing compared with many other arthritis medicines, and most people can have routine vaccines. Check with your team if you take other medicines too." },
+      { q: "Can I drink alcohol on hydroxychloroquine?", a: "There is no specific interaction, but keeping within UK low-risk drinking guidelines is sensible." },
+    ],
+  },
   "carpal-tunnel": {
     title: "Carpal tunnel syndrome: numb hands, night tingling, relief",
     description:
