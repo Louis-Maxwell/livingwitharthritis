@@ -16,7 +16,7 @@
   "scripts": {
     "predev": "(bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs) || true; bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
-    "prebuild": "bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs && (node scripts/generate-search-index.mjs || true) && bun scripts/generate-sitemap.ts && bun scripts/generate-condition-head-data.ts && bun scripts/generate-library-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
+    "prebuild": "bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs && (node scripts/generate-search-index.mjs || true) && bun scripts/generate-sitemap.ts && bun scripts/generate-condition-head-data.ts && bun scripts/generate-library-head-data.ts && bun scripts/generate-hub-guide-head-data.ts && node scripts/generate-llms-full.mjs && bun scripts/generate-og-images.ts && bun run seo:blog-guards",
     "build": "vite build",
     "postbuild": "node scripts/inject-canonicals.mjs && node scripts/generate-404.mjs && node scripts/write-redirect-html.mjs && node scripts/write-city-hub-html.mjs && (node scripts/indexnow-ping.mjs || true)",
     "og:generate": "bun scripts/generate-og-images.ts",

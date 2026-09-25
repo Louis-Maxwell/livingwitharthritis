@@ -7,6 +7,8 @@
  * Google (e.g. "Understanding widespread chronic pain"), and when
  * inject-canonicals would otherwise bake a "Library — slug" stub.
  */
+import { LIBRARY_EXPANSIONS } from "./libraryExpansions";
+
 export interface ExtraSection {
   heading: string;
   body: string;
@@ -302,18 +304,12 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Supplements hub", href: "/supplements" },
     ],
   },
-  "knee-pain": {
-    title: "Knee pain UK: arthritis causes and self-care",
-    description:
-      "UK library guide to knee pain with arthritis — common patterns, when to see a GP, and links to OA, exercise and pain-relief pillars.",
-    related: [
-      { label: "Knee arthritis guide", href: "/conditions/knee-arthritis" },
-      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
-      { label: "Exercise for arthritis", href: "/guides/exercise" },
-      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
-      { label: "Understanding pain", href: "/guides/understanding-pain" },
-    ],
-  },
+  // Expanded overlays (Sep 2026) live in libraryExpansions.ts.
+  "carpal-tunnel": LIBRARY_EXPANSIONS["carpal-tunnel"],
+  "knee-pain": LIBRARY_EXPANSIONS["knee-pain"],
+  "raynauds": LIBRARY_EXPANSIONS["raynauds"],
+  "sjogrens": LIBRARY_EXPANSIONS["sjogrens"],
+  "vasculitis": LIBRARY_EXPANSIONS["vasculitis"],
   naproxen: {
     title: "Naproxen for arthritis UK: NSAID library note",
     description:

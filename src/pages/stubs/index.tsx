@@ -8,6 +8,12 @@
  * the route in `src/App.tsx` and append the URL to `public/sitemap.xml`.
  */
 import StubPage, { type StubPageFAQ } from "@/components/StubPage";
+import HubGuidePage from "@/components/HubGuidePage";
+import { drugGuide } from "@/data/hubGuides/drugGuide";
+import { surgeryOptions } from "@/data/hubGuides/surgeryOptions";
+import { complementaryTherapies } from "@/data/hubGuides/complementaryTherapies";
+import { workWithArthritis } from "@/data/hubGuides/workWithArthritis";
+import { travelWithArthritis } from "@/data/hubGuides/travelWithArthritis";
 
 const aboutCrumb = { label: "About Arthritis", href: "/conditions/arthritis" };
 const treatmentsCrumb = { label: "Treatments", href: "/supplements" };
@@ -26,83 +32,11 @@ const sharedRelated = [
 
 // â”€â”€â”€â”€â”€ Treatments â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-const DRUG_GUIDE_FAQS: StubPageFAQ[] = [
-  { q: "What medications are used for arthritis?", a: "Common classes include simple analgesics (paracetamol), NSAIDs (ibuprofen, naproxen), corticosteroids, DMARDs (methotrexate, sulfasalazine, leflunomide), immunosuppressants (azathioprine), and biologic therapies (anti-TNF). Choice depends on the type of arthritis and disease activity." },
-  { q: "Are NSAIDs safe to take long-term?", a: "NSAIDs can cause stomach, kidney and cardiovascular side effects when used for prolonged periods or at high doses. Use the lowest effective dose for the shortest time and review with your prescriber every 3–6 months." },
-  { q: "What is a DMARD?", a: "A disease-modifying anti-rheumatic drug suppresses the underlying inflammatory process in rheumatoid, psoriatic, and other inflammatory arthritides — slowing or stopping joint damage rather than only treating pain." },
-  { q: "How long do arthritis medications take to work?", a: "Paracetamol and NSAIDs work within hours. Steroid injections work within days. DMARDs and biologics typically take 6–12 weeks to reach full effect, which is why bridging therapy is often prescribed at the start." },
-  { q: "Can I take supplements alongside arthritis medication?", a: "Some supplements (turmeric, omega-3, glucosamine) are generally well tolerated, but several interact with blood thinners, NSAIDs or DMARDs. Always tell your prescriber and pharmacist about supplements before starting them." },
-  { q: "What if my medication isn't working?", a: "Speak to your rheumatology team — they may adjust the dose, swap to another agent in the same class, or step you up to a biologic. Don't stop suddenly without advice, especially with steroids or DMARDs." },
-];
+export const DrugGuideStub = () => <HubGuidePage guide={drugGuide} />;
 
-export const DrugGuideStub = () => (
-  <StubPage
-    slug="treatments/drug-guide"
-    title="Arthritis Medications: Plain-English Drug Guide"
-    description="What each arthritis medication does, how long it takes to work, common side effects, and what to ask your prescriber — covering NSAIDs, DMARDs and biologics."
-    answer="Arthritis treatment usually combines pain-relief medication (paracetamol, NSAIDs) with disease-modifying drugs (DMARDs, biologics) for inflammatory types. Most DMARDs take 6–12 weeks to reach full effect, so steroids are often used as a bridge. Always review medications with your prescriber every few months."
-    breadcrumbs={[home, treatmentsCrumb, { label: "Drug Guide", href: "/treatments/drug-guide" }]}
-    faqs={DRUG_GUIDE_FAQS}
-    relatedLinks={[
-      { label: "Steroids for arthritis", href: "/guides/steroids-for-arthritis" },
-      { label: "Azathioprine guide", href: "/guides/azathioprine-for-arthritis" },
-      { label: "Supplements hub", href: "/supplements" },
-      { label: "Complementary therapies", href: "/treatments/complementary-therapies" },
-    ]}
-  />
-);
+export const SurgeryStub = () => <HubGuidePage guide={surgeryOptions} />;
 
-const SURGERY_FAQS: StubPageFAQ[] = [
-  { q: "When is surgery considered for arthritis?", a: "Surgery is usually considered when joint pain is severe, mobility is significantly limited, and conservative treatment (medication, physiotherapy, weight management, injections) has failed to control symptoms over months or years." },
-  { q: "What types of arthritis surgery exist?", a: "The most common are total joint replacement (hip, knee, shoulder), partial joint replacement, osteotomy (re-aligning bone), arthroscopy (keyhole clean-up), joint fusion (arthrodesis) and synovectomy (removing inflamed lining)." },
-  { q: "How long does recovery take?", a: "Most people are walking with crutches within days of hip or knee replacement, drive at 6 weeks, and reach near-full function by 3–6 months. Full recovery and final outcome are typically judged at 12 months." },
-  { q: "How long do joint replacements last?", a: "Modern hip and knee replacements last 15–25 years for most patients, with around 80–90% still functioning well at 20 years. Younger and more active patients may need revision surgery later in life." },
-  { q: "What are the main risks of joint surgery?", a: "Infection (around 1%), blood clots, anaesthetic risks, nerve injury, persistent pain, dislocation (hip), implant loosening, and the small risk of needing further surgery. Your surgeon will quote your personal risk." },
-  { q: "What can I do before surgery to improve outcomes?", a: "Strengthen the muscles around the joint (\"prehab\"), reach a healthy weight, stop smoking, optimise diabetes and blood pressure, and address any dental or skin infections — all reduce complications and speed recovery." },
-];
-
-export const SurgeryStub = () => (
-  <StubPage
-    slug="treatments/surgery-options"
-    title="Arthritis Surgery: Joint Replacement & Alternatives"
-    description="Plain-English guide to surgery for arthritis — when it's considered, what to expect from hip and knee replacement, recovery times, risks, and how to prepare."
-    answer="Surgery for arthritis is usually considered after months of conservative treatment fail to control severe pain or disability. Joint replacement (most often hip or knee) is the most common operation and gives excellent results for the majority of people, with implants lasting 15–25 years."
-    breadcrumbs={[home, treatmentsCrumb, { label: "Surgery Options", href: "/treatments/surgery-options" }]}
-    faqs={SURGERY_FAQS}
-    relatedLinks={[
-      { label: "Knee replacement guide", href: "/guides/knee-replacement-surgery" },
-      { label: "Newly diagnosed guide", href: "/guides/newly-diagnosed" },
-      { label: "Pre-surgery exercises", href: "/exercises" },
-      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
-    ]}
-  />
-);
-
-const COMPLEMENTARY_FAQS: StubPageFAQ[] = [
-  { q: "Do complementary therapies work for arthritis?", a: "Evidence is strongest for acupuncture (knee OA), tai chi (knee OA, balance), yoga (general arthritis), and certain supplements (omega-3, turmeric/curcumin). They work best alongside — not instead of — conventional treatment." },
-  { q: "Is acupuncture worth trying?", a: "Multiple trials show modest short-term pain relief for knee osteoarthritis. A typical course is 6–10 sessions. Look for a practitioner registered with the British Acupuncture Council." },
-  { q: "What about CBD for arthritis pain?", a: "Evidence in humans is limited and inconsistent. If you try a CBD product, choose a UK-regulated isolate, start at the lowest dose, and tell your prescriber — CBD interacts with several arthritis medications." },
-  { q: "Is hydrotherapy useful?", a: "Yes — warm-water exercise reduces joint load and is one of the best-evidenced therapies for pain and function in OA and inflammatory arthritis. Many leisure centres offer arthritis-friendly classes." },
-  { q: "Can massage help?", a: "Massage can ease muscle tension around arthritic joints and improve sleep, though it doesn't change the underlying disease. Avoid deep pressure directly over actively inflamed joints." },
-  { q: "Are TENS machines effective?", a: "TENS provides short-term pain relief for some people, especially with knee OA. They're cheap, non-invasive, and worth a trial — but should sit alongside exercise and medication, not replace them." },
-];
-
-export const ComplementaryTherapiesStub = () => (
-  <StubPage
-    slug="treatments/complementary-therapies"
-    title="Complementary Therapies for Arthritis"
-    description="Evidence-based overview of acupuncture, tai chi, yoga, hydrotherapy, massage, TENS and supplements — what works, what's safe, and what to expect."
-    answer="Several complementary therapies have credible evidence for arthritis: acupuncture and tai chi for knee osteoarthritis, hydrotherapy for inflammatory arthritis, and omega-3 and turmeric supplements for symptom relief. They work best alongside — not instead of — medication and exercise."
-    breadcrumbs={[home, treatmentsCrumb, { label: "Complementary Therapies", href: "/treatments/complementary-therapies" }]}
-    faqs={COMPLEMENTARY_FAQS}
-    relatedLinks={[
-      { label: "Supplements hub", href: "/supplements" },
-      { label: "Tai chi for arthritis", href: "/exercises/tai-chi-for-arthritis" },
-      { label: "Exercise hub", href: "/exercises" },
-      { label: "Drug guide", href: "/treatments/drug-guide" },
-    ]}
-  />
-);
+export const ComplementaryTherapiesStub = () => <HubGuidePage guide={complementaryTherapies} />;
 
 // â”€â”€â”€â”€â”€ Managing Arthritis â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
@@ -132,57 +66,10 @@ export const InsuranceStub = () => (
   />
 );
 
-const WORK_FAQS: StubPageFAQ[] = [
-  { q: "Do I have to tell my employer I have arthritis?", a: "Legally, no — unless your condition affects safety-critical duties. Disclosing protects you under the Equality Act 2010 and opens the door to reasonable adjustments, but the choice and timing are yours." },
-  { q: "What reasonable adjustments can I ask for?", a: "Common adjustments include an ergonomic chair and keyboard, sit/stand desk, voice-recognition software, flexible hours, working-from-home days, parking close to the entrance, extra breaks, lighter physical duties, and a phased return after a flare." },
-  { q: "Can I claim Access to Work?", a: "Yes — Access to Work is a government scheme that pays for equipment, support workers, travel costs and mental health support if arthritis affects how you do your job. Apply online before starting a new role, or any time in your current job." },
-  { q: "What if my job is too physical?", a: "Talk to your occupational health team if your employer has one, or your GP. Vocational rehabilitation, retraining, or a job role review may all be options. Don't soldier on silently — early adjustments prevent long-term harm." },
-  { q: "Am I protected from being dismissed because of arthritis?", a: "If your arthritis substantially affects daily activities and is likely to last 12 months or more, you're protected as disabled under the Equality Act 2010. Employers must make reasonable adjustments and cannot dismiss you because of your condition." },
-  { q: "How do I manage a flare at work?", a: "Plan ahead: have a flare-day script with your manager, identify which tasks you can drop or delegate, keep medication and a heat/cold pack at your desk, and use any flex you have to start later on bad days." },
-];
+// Work and travel are full editorial guides now (src/data/hubGuides).
+export const WorkStub = () => <HubGuidePage guide={workWithArthritis} />;
 
-export const WorkStub = () => (
-  <StubPage
-    slug="guides/work-with-arthritis"
-    title="Working With Arthritis: Your Rights, Adjustments & Flare Plans"
-    description="Reasonable adjustments, Access to Work, your legal protections under the Equality Act, and practical strategies for managing arthritis in any job."
-    answer="UK workers with arthritis are protected under the Equality Act 2010 if the condition substantially affects daily activities for 12+ months. Employers must make reasonable adjustments — common ones include flexible hours, ergonomic equipment, and remote-working days. Access to Work funds equipment and support."
-    breadcrumbs={[home, guidesCrumb, { label: "Work & Career", href: "/guides/work-with-arthritis" }]}
-    faqs={WORK_FAQS}
-    relatedLinks={[
-      { label: "PIP & benefits", href: "/guides/benefits-pip" },
-      { label: "Flare-up management", href: "/arthritis-flare-ups" },
-      { label: "Mental health", href: "/arthritis-mental-health" },
-      { label: "Living with arthritis", href: "/living-with-arthritis" },
-    ]}
-  />
-);
-
-const TRAVEL_FAQS: StubPageFAQ[] = [
-  { q: "How do I plan a flight with arthritis?", a: "Choose an aisle seat for legroom, request mobility assistance at booking, pack medications in hand luggage with a copy of your prescription, set up alerts to walk/stretch every hour, and consider compression socks for long-haul flights." },
-  { q: "Will travel insurance cover my arthritis?", a: "Standard travel insurance often excludes pre-existing conditions unless declared. Specialist insurers cover arthritis at a higher premium; always declare your condition and medications when buying a policy to ensure claims are valid." },
-  { q: "Can I take my medication abroad?", a: "Yes — keep medication in original labelled packaging and carry a letter from your GP listing each drug. Some controlled medications (strong painkillers) need a personal licence for trips over 3 months. Check destination rules before travel." },
-  { q: "How do I manage pain on a long journey?", a: "Stand and stretch every 60–90 minutes, use a small lumbar cushion, pack a heat pad or hot-water bottle, take regular pain relief on schedule rather than waiting for pain, and use the airport's special-assistance service for transfers." },
-  { q: "Are warm climates better for arthritis?", a: "Many people report less pain in warm, dry weather, though research evidence is mixed. Cold, damp conditions can worsen stiffness for some. There's no single 'best' climate — try short trips before committing to a major move." },
-  { q: "Can I get a Blue Badge for travel?", a: "Yes — if arthritis severely affects walking, you may qualify for a Blue Badge that allows parking close to amenities. Apply through your local council; criteria include receiving certain PIP rates or a mobility assessment." },
-];
-
-export const TravelStub = () => (
-  <StubPage
-    slug="guides/travel-with-arthritis"
-    title="Travel Tips for People With Arthritis"
-    description="How to fly, drive and explore comfortably with arthritis — flight planning, travel insurance, taking medication abroad, in-journey pain control, and Blue Badge advice."
-    answer="Travelling with arthritis takes planning but isn't a barrier. Book aisle seats and mobility assistance, declare your condition for travel insurance, pack medication in hand luggage with a GP letter, and break up long journeys with movement every hour. A Blue Badge eases parking and access."
-    breadcrumbs={[home, guidesCrumb, { label: "Travel Tips", href: "/guides/travel-with-arthritis" }]}
-    faqs={TRAVEL_FAQS}
-    relatedLinks={[
-      { label: "Flare-up planning", href: "/arthritis-flare-ups" },
-      { label: "Pain relief", href: "/guides/arthritis-pain-relief" },
-      { label: "Living with arthritis", href: "/living-with-arthritis" },
-      { label: "Work & career", href: "/guides/work-with-arthritis" },
-    ]}
-  />
-);
+export const TravelStub = () => <HubGuidePage guide={travelWithArthritis} />;
 
 // â”€â”€â”€â”€â”€ Tools â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 

@@ -39,6 +39,27 @@ const missing = [];
 const shell = [];
 const noOg = [];
 const noCanonical = [];
+const thinBody = [];
+
+// Minimum words the first HTML response must carry inside #static-article.
+// Every published guide is several hundred words; a static body below this
+// means the crawler sees a question/answer stub instead of the article
+// (the Sep 2026 head-data override bug served ~40 words for two guides).
+const MIN_STATIC_WORDS = 250;
+
+function staticArticleWords(html) {
+  // Prefer the baked static article; fall back to the whole <body> when a
+  // full Puppeteer snapshot was kept instead.
+  const m =
+    /<article id="static-article"[\s\S]*?<\/article>/i.exec(html) ||
+    /<body[\s\S]*?<\/body>/i.exec(html);
+  if (!m) return 0;
+  const text = m[0]
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z#0-9]+;/gi, ' ');
+  return text.split(/\s+/).filter(Boolean).length;
+}
 
 for (const slug of slugs) {
   const file = join(DIST, 'blog', slug, 'index.html');
@@ -58,6 +79,9 @@ for (const slug of slugs) {
     || /<meta\s+content=["']([^"']+)["'][^>]*property=["']og:title["']/i.exec(html);
   if (!ogTitle || !ogTitle[1].trim()) noOg.push(slug);
 
+  const words = staticArticleWords(html);
+  if (words < MIN_STATIC_WORDS) thinBody.push(`${slug} (${words} words)`);
+
   const canonical = /rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(html)
     || /href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(html);
   const expected = `https://livingwitharthritis.org.uk/blog/${slug}`;
@@ -69,7 +93,11 @@ for (const slug of slugs) {
 }
 
 const fail =
-  missing.length > 0 || shell.length > 0 || noOg.length > 0 || noCanonical.length > 0;
+  missing.length > 0 ||
+  shell.length > 0 ||
+  noOg.length > 0 ||
+  noCanonical.length > 0 ||
+  thinBody.length > 0;
 
 if (fail) {
   console.error(`✗ blog:html-gate failed for ${slugs.length} published slugs`);
@@ -84,6 +112,11 @@ if (fail) {
   }
   if (noCanonical.length) {
     console.error(`  bad/missing canonical (${noCanonical.length}): ${noCanonical.slice(0, 5).join('; ')}`);
+  }
+  if (thinBody.length) {
+    console.error(
+      `  static body under ${MIN_STATIC_WORDS} words (${thinBody.length}): ${thinBody.slice(0, 8).join(', ')}`,
+    );
   }
   process.exit(1);
 }

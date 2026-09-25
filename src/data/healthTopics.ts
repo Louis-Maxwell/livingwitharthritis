@@ -1342,19 +1342,19 @@ export const healthTopics: HealthTopic[] = [
   },
   {
     "slug": "sjogrens",
-    "title": "SjÃ¶gren's Syndrome",
+    "title": "Sjögren's Syndrome",
     "subtitle": "Dryness, fatigue, and immune dysfunction",
     "category": "Condition",
     "keywords": [
-      "sjÃ¶gren's syndrome",
-      "what is sjÃ¶gren's syndrome?",
+      "sjögren's syndrome",
+      "what is sjögren's syndrome?",
       "symptoms",
       "treatment"
     ],
     "sections": [
       {
-        "heading": "What is SjÃ¶gren's Syndrome?",
-        "body": "SjÃ¶gren's syndrome is a chronic autoimmune condition in which the immune system attacks moisture-producing glands throughout the body — particularly the tear glands (lacrimal glands) and salivary glands. This leads to the hallmark symptoms of dry eyes and dry mouth. It can occur on its own (primary SjÃ¶gren's) or alongside other autoimmune conditions such as lupus or rheumatoid arthritis (secondary SjÃ¶gren's).\n\nSjÃ¶gren's syndrome is more common in women (nine times more than men) and typically develops after the age of 40.",
+        "heading": "What is Sjögren's Syndrome?",
+        "body": "Sjögren's syndrome is a chronic autoimmune condition in which the immune system attacks moisture-producing glands throughout the body — particularly the tear glands (lacrimal glands) and salivary glands. This leads to the hallmark symptoms of dry eyes and dry mouth. It can occur on its own (primary Sjögren's) or alongside other autoimmune conditions such as lupus or rheumatoid arthritis (secondary Sjögren's).\n\nSjögren's syndrome is more common in women (nine times more than men) and typically develops after the age of 40.",
         "bullets": []
       },
       {
@@ -1374,7 +1374,7 @@ export const healthTopics: HealthTopic[] = [
       },
       {
         "heading": "Treatment",
-        "body": "There is no cure for SjÃ¶gren's, but symptoms can be managed:",
+        "body": "There is no cure for Sjögren's, but symptoms can be managed:",
         "bullets": [
           "Eye drops and gels — artificial tears for dry eyes",
           "Saliva substitutes and stimulants for dry mouth",
@@ -1385,7 +1385,7 @@ export const healthTopics: HealthTopic[] = [
         ]
       }
     ],
-    "disclaimer": "Medical Disclaimer: See a rheumatologist if you suspect SjÃ¶gren's syndrome. Dry eyes and dry mouth should not be ignored."
+    "disclaimer": "Medical Disclaimer: See a rheumatologist if you suspect Sjögren's syndrome. Dry eyes and dry mouth should not be ignored."
   },
   {
     "slug": "tens-machine",
@@ -1465,9 +1465,9 @@ export const healthTopics: HealthTopic[] = [
         "bullets": [
           "Giant cell arteritis (GCA) — affects large arteries, especially the temporal artery; most common in older adults",
           "ANCA-associated vasculitis (AAV) — includes granulomatosis with polyangiitis (GPA) and microscopic polyangiitis (MPA)",
-          "IgA vasculitis (Henoch-SchÃ¶nlein purpura) — common in children",
+          "IgA vasculitis (Henoch-Schönlein purpura) — common in children",
           "Polyarteritis nodosa",
-          "BehÃ§et's disease",
+          "Behçet's disease",
           "Kawasaki disease — in children"
         ]
       },
@@ -1763,7 +1763,7 @@ export const healthTopics: HealthTopic[] = [
     "sections": [
       {
         "heading": "What is Hydroxychloroquine?",
-        "body": "Hydroxychloroquine (HCQ) is a medication originally developed to prevent and treat malaria. It is now widely used as a disease-modifying drug for autoimmune and rheumatic conditions, including lupus (SLE), rheumatoid arthritis, SjÃ¶gren's syndrome, and antiphospholipid syndrome (APS). Brand names include Plaquenil.",
+        "body": "Hydroxychloroquine (HCQ) is a medication originally developed to prevent and treat malaria. It is now widely used as a disease-modifying drug for autoimmune and rheumatic conditions, including lupus (SLE), rheumatoid arthritis, Sjögren's syndrome, and antiphospholipid syndrome (APS). Brand names include Plaquenil.",
         "bullets": []
       },
       {
