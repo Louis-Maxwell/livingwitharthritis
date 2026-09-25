@@ -26,13 +26,13 @@
  *   node scripts/generate-blog-head-data.mjs && node scripts/inject-canonicals.mjs
  * Lovable publish / production deploy is still required for live crawlers.
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const OUT = resolve('scripts/blog-head-data.json');
-const LOCAL_BLOG_DIR = resolve('src/content/blog');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
 const SITE = 'https://livingwitharthritis.org.uk';
 const BRAND = 'Living With Arthritis UK';
@@ -122,21 +122,14 @@ export function resolveOgImage(slug, imageUrl, coverMap = {}) {
   return DEFAULT_OG_IMAGE;
 }
 
+/**
+ * Every published guide from the single source of truth
+ * (src/content/blog/posts/<slug>.json). image_url is derived from `cover`.
+ */
 function loadLocalStaticArticles() {
-  const articles = [];
-  try {
-    for (const name of readdirSync(LOCAL_BLOG_DIR)) {
-      if (!name.endsWith('.json')) continue;
-      const raw = JSON.parse(readFileSync(resolve(LOCAL_BLOG_DIR, name), 'utf8'));
-      const rows = Array.isArray(raw) ? raw : [raw];
-      for (const row of rows) {
-        if (row?.slug && row?.title && row?.is_published !== false) articles.push(row);
-      }
-    }
-  } catch {
-    // Catalog is optional at bootstrap.
-  }
-  return articles;
+  return readPublishedBlogPosts()
+    .filter((row) => row?.slug && row?.title)
+    .map((row) => ({ ...row, image_url: row.cover ? `/openverse/${row.cover}` : null }));
 }
 
 function buildEntry(row, extractFaqs, coverMap) {
@@ -184,38 +177,10 @@ function buildEntry(row, extractFaqs, coverMap) {
   return entry;
 }
 
-function mergeLocalStatic(data, extractFaqs, coverMap) {
-  for (const row of loadLocalStaticArticles()) {
-    const entry = buildEntry(row, extractFaqs, coverMap);
-    if (entry) data[`/blog/${row.slug}`] = entry;
-  }
-  return data;
-}
-
 function loadRowsFromLocalJson() {
-  // Catalog is source of truth. Seed from prior head-data only as a fallback
-  // for slugs not yet present in blogArticles / static batches, then overwrite
-  // with those catalogs so nested head copies cannot drift.
-  const map = new Map();
-  if (existsSync(OUT)) {
-    const data = JSON.parse(readFileSync(OUT, 'utf8'));
-    for (const entry of Object.values(data)) {
-      if (entry?.article?.slug) map.set(entry.article.slug, entry.article);
-    }
-  }
-  const snap = resolve('src/data/blogArticles.json');
-  if (existsSync(snap)) {
-    const arr = JSON.parse(readFileSync(snap, 'utf8'));
-    if (Array.isArray(arr)) {
-      for (const row of arr) {
-        if (row?.slug) map.set(row.slug, row);
-      }
-    }
-  }
-  for (const row of loadLocalStaticArticles()) {
-    if (row?.slug) map.set(row.slug, row);
-  }
-  return [...map.values()];
+  // Catalog is source of truth: one entry per published guide file, nothing
+  // carried over from a previous run (so removed guides cannot linger).
+  return loadLocalStaticArticles();
 }
 
 async function main() {
@@ -268,7 +233,6 @@ async function main() {
     if (entry) data[`/blog/${row.slug}`] = entry;
   }
 
-  mergeLocalStatic(data, extractFaqs, coverMap);
   writeFileSync(OUT, `${JSON.stringify(data, null, 2)}\n`);
   const withContent = Object.values(data).filter((e) => e?.article?.content).length;
   const fromCover = Object.values(data).filter(

@@ -12,6 +12,7 @@ OUT = ROOT / "public/openverse"
 ATTR = OUT / "ATTRIBUTION.json"
 MAP = ROOT / "src/data/blog-cover-map.generated.json"
 SLUGS = ROOT / "src/data/blog-slugs.generated.json"
+POSTS = ROOT / "src/content/blog/posts"
 UA = "LivingWithArthritisUK/1.0 (https://livingwitharthritis.org.uk; info@livingwitharthritis.org.uk)"
 TOKEN = os.environ.get("OPENVERSE_TOKEN", "").strip() or None
 
@@ -333,6 +334,16 @@ def main():
   if missing:
     raise SystemExit(f"map references missing files: {len(missing)}")
   MAP.write_text(json.dumps(mapping, indent=2, sort_keys=True) + "\n")
+  # Covers live on each guide (src/content/blog/posts/<slug>.json → "cover");
+  # the map above is regenerated from them by scripts/generate-blog-catalog.ts.
+  for slug, fname in mapping.items():
+    post_path = POSTS / f"{slug}.json"
+    if not post_path.exists():
+      continue
+    post = json.loads(post_path.read_text())
+    if post.get("cover") != fname:
+      post["cover"] = fname
+      post_path.write_text(json.dumps(post, indent=2, ensure_ascii=False) + "\n")
   ATTR.write_text(json.dumps(attr, indent=2, sort_keys=True) + "\n")
   print("unique", len(set(mapping.values())), "slugs", len(mapping), flush=True)
 

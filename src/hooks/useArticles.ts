@@ -35,7 +35,7 @@ interface UsePetArticlesReturn {
 }
 
 /**
- * Articles are static (blogList / frailty-batch / phase2). The old /api/articles
+ * Articles are static (src/content/blog/posts via @/lib/blog/catalog). The old /api/articles
  * Worker is not deployed on GitHub-only static hosting — do not call it.
  */
 export const useArticles = (

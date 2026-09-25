@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { TrendingUp } from "lucide-react";
-// Build-time top 5 (scripts/generate-blog-catalog-index.mjs) — identical to
+// Build-time top 5 (scripts/generate-blog-catalog.ts) — identical to
 // getPublishedBlogList().slice(0, 5) without shipping the blog corpus.
 import mostRead from "@/data/blogMostRead.generated.json";
 

@@ -38,25 +38,19 @@
 
 **Why:** Owns SEO, builds domain authority, captures all traffic
 
-**Steps:**
+**Steps:** one edit — create `src/content/blog/posts/<slug>.json`.
+Full field list and checks: [`docs/ADDING-A-BLOG-GUIDE.md`](docs/ADDING-A-BLOG-GUIDE.md).
 ```
-1. Create file: src/pages/blog/ArticleTitle.tsx
-2. Write 2000+ words with:
-   ✓ SEO title (60 chars)
-   ✓ Meta description (160 chars)
-   ✓ H1 with keyword
-   ✓ 3-5 H2 sections
-   ✓ 8-10 FAQs
-   ✓ 3-5 internal links
-   ✓ Featured image (1200x630px)
-   ✓ Author: Louis Maxwell
-   ✓ Last reviewed date
-
-3. Run: npm run lint (no errors)
-4. Deploy to Lovable
-5. Submit to Google Search Console
+1. Create src/content/blog/posts/<slug>.json (copy an existing guide):
+   ✓ title + meta_title (≤60 chars) + meta_description (120–165 chars)
+   ✓ excerpt, category, cover (file in public/openverse/)
+   ✓ date, updated_at (+ last_reviewed after clinical review)
+   ✓ content: 2000+ words, H2 sections, FAQs as "…?" headings, internal links
+   ✓ author / reviewer: Louis Maxwell
+2. Run: npm run blog:catalog && npm run build (validates + regenerates)
+3. Open a PR, merge when CI is green (Lovable syncs from main)
+4. Submit to Google Search Console
 ```
-
 **Timing:** First, always. Wait 24 hours before syndication.
 
 **Traffic impact:** 200-500 visits per post (grows over 3-6 months as SEO compounds)

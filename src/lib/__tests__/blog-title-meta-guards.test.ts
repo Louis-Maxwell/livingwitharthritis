@@ -1,12 +1,6 @@
 import { describe, expect, it } from "vitest";
-import blogArticles from "@/data/blogArticles.json";
-import blogList from "@/data/blogList.json";
-import {
-  getPublishedBlogList,
-  getStaticBlogArticles,
-  mergePreferStatic,
-  type StaticBlogArticle,
-} from "@/lib/staticBlogCatalog";
+import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
+import { PUBLISHED_BLOG_POSTS } from "@/test/blogPosts";
 
 const CHARITY_ONLY =
   /^(Living With Arthritis(\s+UK)?(\s*[|\-–—:]\s*(Charity(\s*\d+)?)?)?)$/i;
@@ -20,13 +14,7 @@ type Row = {
 };
 
 function loadMerged(): Row[] {
-  const legacy = (blogArticles as Row[]).filter(
-    (r) => r?.slug && r.is_published !== false,
-  );
-  return mergePreferStatic(
-    getStaticBlogArticles() as StaticBlogArticle[],
-    legacy as StaticBlogArticle[],
-  ) as Row[];
+  return PUBLISHED_BLOG_POSTS as Row[];
 }
 
 describe("blog title / meta description guards", () => {
@@ -50,12 +38,6 @@ describe("blog title / meta description guards", () => {
     for (const row of merged) {
       if (!String(row.meta_description || "").trim()) {
         bad.push(`${row.slug}: empty meta_description`);
-      }
-    }
-    for (const row of blogList as Row[]) {
-      if (!row?.slug) continue;
-      if (!String(row.meta_description || "").trim()) {
-        bad.push(`blogList:${row.slug}: empty meta_description`);
       }
     }
     for (const row of list) {

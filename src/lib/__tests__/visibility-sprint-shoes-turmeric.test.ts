@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import blogArticles from "@/data/blogArticles.json";
+import { ALL_BLOG_POSTS as blogArticles } from "@/test/blogPosts";
 import { getClusterForPath } from "@/data/topicClusters";
 
 type Row = {

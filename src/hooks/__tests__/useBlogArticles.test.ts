@@ -8,7 +8,7 @@ import {
   useNextArticle,
   useRelatedArticles,
 } from "../useBlogArticles";
-import { listPublishedArticles } from "@/data/staticBlog";
+import { getBlogCatalog } from "@/lib/blog/catalog";
 
 function createWrapper() {
   const qc = new QueryClient({
@@ -28,7 +28,7 @@ describe("useBlogArticle", () => {
   });
 
   it("loads a published article by slug from local JSON", async () => {
-    const sample = listPublishedArticles()[0];
+    const sample = getBlogCatalog()[0];
     expect(sample?.slug).toBeTruthy();
     const { result } = renderHook(() => useBlogArticle(sample.slug), {
       wrapper: createWrapper(),

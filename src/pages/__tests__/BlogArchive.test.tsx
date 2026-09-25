@@ -49,7 +49,7 @@ vi.mock("@/hooks/useBlogArticles", () => ({
 vi.mock("@/components/Header", () => ({ default: () => <div data-testid="header" /> }));
 vi.mock("@/components/Footer", () => ({ default: () => <div data-testid="footer" /> }));
 vi.mock("@/components/ui/PageHero", () => ({
-  default: ({ title, subtitle }: { title: unknown; subtitle?: string }) => (
+  default: ({ title, subtitle }: { title: import("react").ReactNode; subtitle?: string }) => (
     <div data-testid="hero">
       <h1>{title}</h1>
       {subtitle ? <p>{subtitle}</p> : null}
