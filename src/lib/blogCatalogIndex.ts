@@ -80,10 +80,14 @@ export function getPublishedBlogList(): BlogListItem[] {
 // One lazily-loaded JSON chunk per article, generated at build time. Empty
 // when the generator has not run (unit tests, prerender builds) — then we
 // fall back to the full catalog so behaviour never changes.
-const ARTICLE_BODIES = import.meta.glob<{ default: StaticBlogArticle }>(
-  "/src/data/generated/blog-articles/*.json",
+// Held in a Map so a URL-derived slug can never resolve to an inherited
+// object property.
+const ARTICLE_BODIES = new Map(
+  Object.entries(
+    import.meta.glob<{ default: StaticBlogArticle }>("/src/data/generated/blog-articles/*.json"),
+  ),
 );
-const HAS_ARTICLE_BODIES = Object.keys(ARTICLE_BODIES).length > 0;
+const HAS_ARTICLE_BODIES = ARTICLE_BODIES.size > 0;
 
 /**
  * Full article (with `content`) for one slug: batch article first, then the
@@ -94,9 +98,10 @@ export async function loadBlogArticleBody(
 ): Promise<StaticBlogArticle | null> {
   if (!slug) return null;
   if (HAS_ARTICLE_BODIES) {
-    const loader =
-      ARTICLE_BODIES[`/src/data/generated/blog-articles/${encodeURIComponent(slug)}.json`];
-    if (!loader) return null;
+    const loader = ARTICLE_BODIES.get(
+      `/src/data/generated/blog-articles/${encodeURIComponent(slug)}.json`,
+    );
+    if (typeof loader !== "function") return null;
     const mod = await loader();
     return mod.default ?? null;
   }

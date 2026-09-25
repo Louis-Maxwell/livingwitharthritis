@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import indexRows from "@/data/blogCatalogIndex.generated.json";
@@ -46,9 +46,10 @@ describe("blog catalog index (performance split)", () => {
     const allowed = new Set(["lib/staticBlogCatalog.ts"]);
     const offenders: string[] = [];
     const walk = (dir: string) => {
-      for (const name of readdirSync(dir)) {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const name = entry.name;
         const abs = join(dir, name);
-        if (statSync(abs).isDirectory()) {
+        if (entry.isDirectory()) {
           if (name === "__tests__" || name === "generated" || name === "test") continue;
           walk(abs);
           continue;
