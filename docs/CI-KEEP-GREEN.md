@@ -53,7 +53,11 @@ On push/PR to `main`, Node **20**, `npm ci` only:
 
 ## Node version
 
-All Node-using workflows pin **`node-version: "20"`** (`ci.yml`, `lint-and-test.yml`, `tests.yml`, `lighthouse.yml`, `regenerate-lockfile.yml`, `keep-green.yml`). `deploy-to-lovable.yml` has no Node install step.
+Pinned in `.nvmrc` (`20`); every workflow uses `node-version-file: .nvmrc`, and `package.json` `engines` is `>=20`.
+
+## Deploy
+
+Nothing in GitHub Actions deploys the site. Louis publishes from Lovable. `publish-readiness.yml` ("Publish readiness (Lovable)") only reports whether a `main` commit passed every gate ("SAFE TO PUBLISH"). The old `deploy-to-lovable.yml` curl step (404, false green) was retired. See `docs/NEVER-BREAKS-PLAN.md`.
 
 ## Code review bots
 - **Use Grok Bot** for review and CI break fixes.

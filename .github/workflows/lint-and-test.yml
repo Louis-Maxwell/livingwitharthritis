@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install dependencies
@@ -38,7 +38,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install dependencies
@@ -71,7 +71,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - uses: oven-sh/setup-bun@v2
@@ -103,6 +103,10 @@ jobs:
         run: npm run test:blog-smoke
         continue-on-error: false
 
+      # Key routes on the built output: /, /blog, /blog/archive, /faq.
+      - name: Route smoke (fail the workflow)
+        run: npx playwright test e2e/route-smoke.spec.ts
+
       - name: Stop preview server
         if: always()
         run: kill "$(cat /tmp/serve.pid)" 2>/dev/null || true
@@ -116,7 +120,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install dependencies
@@ -136,7 +140,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - uses: oven-sh/setup-bun@v2

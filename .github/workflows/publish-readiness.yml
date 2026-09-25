@@ -1,0 +1,162 @@
+name: Publish readiness (Lovable)
+
+# HONEST SCOPE: this workflow does NOT deploy anything.
+#
+# The live site (livingwitharthritis.org.uk) is published by Louis clicking
+# Publish in Lovable (project 0b2fd6ca-4e21-4ac7-99fa-d741e996f45e), which syncs
+# from GitHub main. There is no public Lovable deploy REST endpoint: the old
+# "curl api.lovable.dev/.../deploy" step got HTTP 404 with an empty Bearer token
+# and stayed green because curl had no -f. That false green is retired.
+#
+# What this does: for each commit on main, wait until every gating workflow
+# (CI, Lint & Test, Tests, Keep green, CodeQL, Gitleaks) has succeeded for that
+# exact SHA, then write a clear "SAFE TO PUBLISH <sha>" summary. If any gate
+# failed, this job fails (red). If gates are still running after the wait window
+# it emits a visible warning and a "NOT VERIFIED" summary (no false "ready").
+#
+# RACE (do not "fix" by exiting 1 on missing): workflow_run fires when EACH
+# watched workflow completes, so the first trigger usually finds peers still
+# running. The gate polls; a later trigger for the same SHA completes the check.
+on:
+  workflow_run:
+    workflows: ["CI", "Lint & Test", "Tests", "Keep green", "CodeQL Security Scan", "Secret Scan (Gitleaks)"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: publish-readiness-${{ github.event.workflow_run.head_sha || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  readiness:
+    name: Publish readiness gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Skip when the triggering workflow did not succeed; a sibling trigger will
+    # still see that failure in the gate below and go red.
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.conclusion == 'success')
+    steps:
+      - name: Resolve commit SHA
+        id: sha
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify every gating workflow succeeded for this SHA
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          SHA="${{ steps.sha.outputs.sha }}"
+          REPO="${{ github.repository }}"
+          # ~15 minutes; peers often finish within a few minutes of each other.
+          MAX_WAIT_SEC=900
+          SLEEP_SEC=25
+          DEADLINE=$((SECONDS + MAX_WAIT_SEC))
+
+          echo "Gate: requiring CI, Lint & Test, Tests, Keep green, CodeQL, Gitleaks success for $SHA (poll up to ${MAX_WAIT_SEC}s)"
+
+          hard_fail_conclusions='failure cancelled timed_out'
+
+          while true; do
+            all_success=true
+            any_hard_fail=false
+            waiting_on=""
+
+            for NAME in "CI" "Lint & Test" "Tests" "Keep green" "CodeQL Security Scan" "Secret Scan (Gitleaks)"; do
+              # Latest run for this workflow name on this SHA (any status).
+              # shellcheck disable=SC2016
+              read -r STATUS CONCLUSION < <(gh api \
+                "repos/${REPO}/actions/runs?head_sha=${SHA}&per_page=100" \
+                --jq "[.workflow_runs[] | select(.name == \"${NAME}\")] | .[0] | \"\(.status // \"\") \(.conclusion // \"\")\"")
+
+              if [ -z "${STATUS}" ]; then
+                all_success=false
+                waiting_on="${waiting_on}${waiting_on:+, }${NAME}(missing)"
+                continue
+              fi
+
+              if [ "${STATUS}" != "completed" ]; then
+                all_success=false
+                waiting_on="${waiting_on}${waiting_on:+, }${NAME}(${STATUS})"
+                continue
+              fi
+
+              if [ "${CONCLUSION}" = "success" ]; then
+                echo "OK: ${NAME} = success"
+                continue
+              fi
+
+              case " ${hard_fail_conclusions} " in
+                *" ${CONCLUSION} "*)
+                  any_hard_fail=true
+                  echo "::error::Required workflow '${NAME}' for ${SHA} concluded '${CONCLUSION}'. Not safe to publish."
+                  ;;
+                *)
+                  # skipped / neutral / action_required / etc. — not success; not safe to publish.
+                  any_hard_fail=true
+                  echo "::error::Required workflow '${NAME}' for ${SHA} is not success (got: ${CONCLUSION:-empty}). Not safe to publish."
+                  ;;
+              esac
+            done
+
+            if [ "${any_hard_fail}" = true ]; then
+              echo "ready=false" >> "$GITHUB_OUTPUT"
+              exit 1
+            fi
+
+            if [ "${all_success}" = true ]; then
+              echo "All required workflows succeeded for ${SHA}."
+              echo "ready=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            if [ "${SECONDS}" -ge "${DEADLINE}" ]; then
+              echo "::warning::Timed out after ${MAX_WAIT_SEC}s still waiting on: ${waiting_on}. Marking NOT VERIFIED (no false red email, no false "ready"). A later workflow_run for this SHA will confirm."
+              echo "ready=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            echo "Waiting on: ${waiting_on} (retry in ${SLEEP_SEC}s; ~$((DEADLINE - SECONDS))s left)"
+            sleep "${SLEEP_SEC}"
+          done
+
+      - name: Safe to publish (summary)
+        if: steps.gate.outputs.ready == 'true'
+        run: |
+          SHA="${{ steps.sha.outputs.sha }}"
+          echo "::notice title=Safe to publish::All gates green for ${SHA}. Publish in Lovable when ready."
+          {
+            echo "## ✅ SAFE TO PUBLISH \`${SHA:0:7}\`"
+            echo
+            echo "CI, Lint & Test, Tests, Keep green, CodeQL and Gitleaks all succeeded for \`${SHA}\`."
+            echo
+            echo "This workflow does **not** deploy. To go live: open Lovable → project → confirm the latest"
+            echo "synced commit is \`${SHA:0:7}\` → **Publish** → **Update**."
+            echo
+            echo "- Preview: https://id-preview--0b2fd6ca-4e21-4ac7-99fa-d741e996f45e.lovable.app"
+            echo "- Live: https://livingwitharthritis.org.uk"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Not verified (peers still running)
+        if: steps.gate.outputs.ready != 'true'
+        run: |
+          SHA="${{ steps.sha.outputs.sha }}"
+          echo "::warning title=Not verified::Gates for ${SHA} were still running when this check timed out. Do NOT treat this run as publish-ready; a later run for the same SHA will confirm."
+          {
+            echo "## ⏳ NOT VERIFIED \`${SHA:0:7}\`"
+            echo
+            echo "Some gating workflows were still running. Wait for a run that says **SAFE TO PUBLISH**."
+          } >> "$GITHUB_STEP_SUMMARY"

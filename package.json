@@ -10,6 +10,9 @@
   },
   "author": "Louis-Maxwell",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "predev": "bun scripts/generate-sitemap.ts || true; node scripts/generate-llms-full.mjs || true",
     "dev": "vite",
@@ -51,7 +54,8 @@
     "test:watch": "vitest",
     "search:index": "node scripts/generate-search-index.mjs",
     "blog:html-gate": "node scripts/check-blog-html.mjs",
-    "test:blog-smoke": "playwright test e2e/blog-smoke.spec.ts"
+    "test:blog-smoke": "playwright test e2e/blog-smoke.spec.ts",
+    "test:route-smoke": "playwright test e2e/route-smoke.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
