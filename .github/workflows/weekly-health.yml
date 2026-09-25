@@ -1,0 +1,104 @@
+# Weekly health check (replaces "Regenerate npm lockfile").
+#
+# The old workflow pushed lockfile commits straight to main with
+# contents: write. main is protected (required checks, enforce admins), so any
+# real change would have been rejected, and bypassing checks is exactly what we
+# never want. This workflow is CHECK-ONLY: it fails loudly (GitHub emails
+# Louis) and a human/Grok Bot fixes it in a normal PR.
+#
+# Runs Mondays 06:00 UTC, on demand (Actions → Weekly health check → Run
+# workflow), and the lockfile job also runs on PRs that touch dependencies.
+
+name: Weekly health check
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+  pull_request:
+    branches: [main]
+    paths:
+      - package.json
+      - package-lock.json
+      - bun.lock
+      - .nvmrc
+      - .github/workflows/weekly-health.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-health-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lockfiles:
+    name: Lockfiles in sync with package.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # CI installs with `npm ci` (package-lock.json is the truth).
+      - name: package-lock.json matches package.json
+        run: |
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+          if ! git diff --exit-code --stat package-lock.json; then
+            echo "::error::package-lock.json is out of sync with package.json. Run 'npm install --package-lock-only' and commit it in a PR."
+            exit 1
+          fi
+
+      # Lovable / the Tests workflow use bun.lock, so it must not drift either.
+      - name: bun.lock matches package.json
+        run: bun install --frozen-lockfile --ignore-scripts
+
+      - name: npm audit (production deps, high+)
+        run: npm audit --omit=dev --audit-level=high
+
+  live-site:
+    name: Live site key routes
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Key routes return 200
+        run: |
+          set -u
+          BASE="https://livingwitharthritis.org.uk"
+          fail=0
+          for path in / /blog /blog/archive /faq /sitemap.xml /robots.txt; do
+            code=$(curl -sSL -o /dev/null -w '%{http_code}' --max-time 30 "${BASE}${path}" || echo 000)
+            echo "${path} -> ${code}"
+            if [ "${code}" != "200" ]; then
+              echo "::error::${BASE}${path} returned ${code}"
+              fail=1
+            fi
+          done
+          exit "${fail}"
+
+      - name: Homepage identity
+        run: |
+          title=$(curl -sSL --max-time 30 https://livingwitharthritis.org.uk/ | grep -o '<title>[^<]*' | head -1)
+          echo "Title: ${title}"
+          case "${title}" in
+            *"Living With Arthritis"*) echo "OK" ;;
+            *) echo "::error::Live homepage title no longer mentions Living With Arthritis"; exit 1 ;;
+          esac
+
+      - name: sitemap.xml looks like a sitemap
+        run: |
+          body=$(curl -sSL --max-time 30 https://livingwitharthritis.org.uk/sitemap.xml)
+          if printf '%s' "${body}" | grep -q -e '<urlset' -e '<sitemapindex'; then
+            echo "OK"
+          else
+            echo "::error::sitemap.xml is not a valid sitemap"
+            exit 1
+          fi
