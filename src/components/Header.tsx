@@ -393,7 +393,9 @@ const Header = () => {
           }`}
         >
           <div className="mx-auto px-6 md:px-10 max-w-[1400px]">
-            <div className="flex justify-between items-center h-[46px]">
+            {/* Desktop-only row: on phones it held nothing but a spacer and
+                left a 46px blank band above every page's first section. */}
+            <div className="hidden lg:flex justify-between items-center h-[46px]">
 
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
@@ -534,8 +536,6 @@ const Header = () => {
                 </Link>
               </nav>
 
-              {/* Mobile placeholder — keeps header height consistent on mobile */}
-              <div className="lg:hidden w-full" />
             </div>
           </div>
         </header>

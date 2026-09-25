@@ -118,8 +118,15 @@ function getStepConfig(pathname: string): StepConfig | null {
     };
   }
 
-  // Home & arthritis-support index
-  if (pathname === "/" || pathname === "/arthritis-support") {
+  // Home: no overlay. The homepage hero + visitor-job router already give
+  // one primary next step, and a card pinned over the hero on first paint
+  // hid the CTAs on phones (MobileBottomCTA takes over after scrolling).
+  if (pathname === "/") {
+    return null;
+  }
+
+  // Arthritis-support index
+  if (pathname === "/arthritis-support") {
     return {
       eyebrow: "Get started in 30 seconds",
       primary: { label: "Take the symptom quiz", href: "/self-help", Icon: ClipboardCheck },

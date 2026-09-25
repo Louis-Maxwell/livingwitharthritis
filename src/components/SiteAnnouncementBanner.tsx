@@ -9,25 +9,25 @@
  * Design: high-contrast brand-red band, subtle pulsing dot, slide/fade-in on
  * mount — "popping" enough to draw the eye without disrupting layout.
  */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { X, Sparkles } from "lucide-react";
 
 const DISMISS_KEY = "lwa_update_banner_dismissed";
 
 const SiteAnnouncementBanner = () => {
-  const [dismissed, setDismissed] = useState(true);
-
-  // Read localStorage only after mount to avoid SSR/first-paint flashes.
-  useEffect(() => {
+  // Read the dismissal flag synchronously on the first render. Showing the
+  // banner from a post-mount effect inserted it above <main> one frame after
+  // first paint — a ~150px layout shift on phones (Lighthouse CLS > 0.1 on
+  // every page). The app is client-rendered (createRoot), so there is no
+  // hydration mismatch to guard against.
+  const [dismissed, setDismissed] = useState(() => {
     try {
-      if (localStorage.getItem(DISMISS_KEY) !== "1") {
-        setDismissed(false);
-      }
+      return localStorage.getItem(DISMISS_KEY) === "1";
     } catch {
       // localStorage unavailable — show banner.
-      setDismissed(false);
+      return false;
     }
-  }, []);
+  });
 
   const handleDismiss = () => {
     setDismissed(true);
