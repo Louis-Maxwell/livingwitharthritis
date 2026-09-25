@@ -14,27 +14,34 @@ export function stripHtml(input: string): string {
   return s.replace(/[<>]/g, "");
 }
 
-/** Decode common HTML entities found in article/FAQ plain text. */
+const NAMED_ENTITIES: Record<string, string> = {
+  nbsp: " ",
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+};
+
+/**
+ * Decode common HTML entities found in article/FAQ plain text.
+ *
+ * Single pass: each entity is decoded exactly once, so `&amp;lt;` becomes the
+ * literal text `&lt;` and is never decoded a second time into `<`
+ * (CodeQL js/double-escaping). Unknown entities are left untouched.
+ */
 function decodeBasicEntities(input: string): string {
-  return input
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&amp;/gi, "&")
-    .replace(/&lt;/gi, "<")
-    .replace(/&gt;/gi, ">")
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => {
-      const code = Number(n);
+  return input.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, body: string) => {
+    if (body[0] === "#") {
+      const hex = body[1] === "x" || body[1] === "X";
+      const code = hex ? parseInt(body.slice(2), 16) : Number(body.slice(1));
       return Number.isFinite(code) && code > 0 && code < 0x110000
         ? String.fromCodePoint(code)
-        : _;
-    })
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => {
-      const code = parseInt(h, 16);
-      return Number.isFinite(code) && code > 0 && code < 0x110000
-        ? String.fromCodePoint(code)
-        : _;
-    });
+        : match;
+    }
+    const named = NAMED_ENTITIES[body.toLowerCase()];
+    return named ?? match;
+  });
 }
 
 /**
