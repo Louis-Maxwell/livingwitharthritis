@@ -1794,7 +1794,7 @@ export const healthTopics: HealthTopic[] = [
       },
       {
         "heading": "Eye Monitoring",
-        "body": "Regular eye examinations are important for people taking hydroxychloroquine long-term. NICE guidelines recommend a baseline eye test and then annual screening after five years of use to detect early signs of retinal toxicity.",
+        "body": "Regular eye examinations are important for people taking hydroxychloroquine long-term. UK guidance from the Royal College of Ophthalmologists recommends a baseline eye check early in treatment and then yearly screening after five years of use (sooner if you have extra risk factors) to detect early signs of retinal toxicity.",
         "bullets": []
       }
     ],
