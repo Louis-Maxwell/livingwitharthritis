@@ -36,7 +36,7 @@ See checklist below. Regenerate cover map, head data, then run seo:blog-guards.
 ## After batch import (dual pipeline)
 
 Blog posts currently live in two checked-in sources that merge at runtime:
-`src/data/blogList.json` / `blogArticles.json` (~238) and `src/content/blog/*-batch.json` (~267).
+`src/content/blog/posts/<slug>.json` (one file per guide; the dual `blogList.json` / `blogArticles.json` / `*-batch.json` catalogs were consolidated in September 2026).
 Do **not** merge the batches into one file unless you have a dedicated, tested import.
 
 After any batch import or list refresh:

@@ -41,6 +41,8 @@ import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import { getClusterForPath } from "@/data/topicClusters";
+import { getBlogMeta } from "@/lib/blog/catalog";
+import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
 const BlogComments = lazy(() => import("@/components/BlogComments"));
 const BlogHelpfulness = lazy(() => import("@/components/BlogHelpfulness"));
@@ -238,12 +240,14 @@ const BlogPost = () => {
       )
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
+  // Real review date only: explicit last_reviewed, else the catalog's
+  // derived value (updated_at), else the publish date. Never a hard-coded date.
   const blogLastReviewed =
     (typeof (article as { last_reviewed?: string }).last_reviewed === "string" &&
       (article as { last_reviewed?: string }).last_reviewed) ||
-    (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw)
-      ? updatedAtRaw.slice(0, 10)
-      : "2026-09-16");
+    getBlogMeta(slug)?.last_reviewed ||
+    (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw) ? updatedAtRaw.slice(0, 10) : article.date);
+  const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
     "identifier": "HCPC PH128483",
@@ -399,18 +403,33 @@ const BlogPost = () => {
         <article itemScope itemType="https://schema.org/MedicalWebPage">
 
 
-        <header className="border-b border-border/20">
-          <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
+        <header className="border-b border-border/30">
+          <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-[1100px]">
+          <div className="max-w-[760px]">
             <nav aria-label="Breadcrumb" className="pt-4 pb-2 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
               <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
               <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              <span className="text-foreground/60 truncate max-w-[200px]" aria-current="page">{article.title}</span>
+              <span className="text-foreground/70 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
             <div className="pb-6 md:pb-8">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-3">
+              {article.category && (
+                topicKey ? (
+                  <Link
+                    to={`/blog/category/${topicKey}`}
+                    className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary/15 no-print print:hidden"
+                  >
+                    {article.category}
+                  </Link>
+                ) : (
+                  <span className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary">
+                    {article.category}
+                  </span>
+                )
+              )}
+              <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-3">
                 <span>
                   Published{" "}
                   <time dateTime={article.date} itemProp="datePublished" className="font-medium text-foreground/80">
@@ -441,19 +460,13 @@ const BlogPost = () => {
               </div>
 
 
-              <h1 itemProp="headline" className="font-display text-[1.65rem] md:text-[2.1rem] lg:text-[2.35rem] font-extrabold text-foreground leading-[1.2] tracking-tight mb-3 break-words">
+              <h1 itemProp="headline" className="font-display text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-4 break-words text-balance">
                 {article.title}
               </h1>
 
-              <p className="text-base md:text-[1.05rem] text-muted-foreground leading-relaxed mb-4 max-w-[640px] text-pretty">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-5 max-w-[65ch] text-pretty">
                 {metaDesc}
               </p>
-
-              {slug && (
-                <div className="no-print print:hidden mb-4">
-                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
-                </div>
-              )}
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 flex-wrap">
                 <div className="flex items-center gap-3">
@@ -485,7 +498,13 @@ const BlogPost = () => {
                 )}
               </div>
 
-              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-3 max-w-[640px]" />
+              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-4 max-w-[640px]" />
+
+              {slug && (
+                <div className="no-print print:hidden mt-4">
+                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
+                </div>
+              )}
 
               <figure className="mt-4 mb-0">
                 <img
@@ -494,7 +513,7 @@ const BlogPost = () => {
                   onError={onCoverImgError}
                   width={1600}
                   height={900}
-                  sizes="(min-width: 860px) 860px, 100vw"
+                  sizes="(min-width: 800px) 760px, 100vw"
                   loading="eager"
                   decoding="async"
                   {...({ fetchpriority: "high" } as Record<string, string>)}
@@ -506,12 +525,13 @@ const BlogPost = () => {
               </figure>
             </div>
           </div>
+          </div>
         </header>
 
-        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
+        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-5 sm:px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
           <div className="mb-6 print:hidden"><MedicalDisclaimerStrip variant="short" /></div>
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
-          <div className="min-w-0 max-w-[860px]">
+          <div className="min-w-0 max-w-[760px]">
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
@@ -534,9 +554,6 @@ const BlogPost = () => {
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
-            {slug && (
-              <ArticleBookmarkButton slug={slug} title={article.title} className="lg:hidden" />
-            )}
             <Button
               variant="outline"
               size="sm"
@@ -581,18 +598,17 @@ const BlogPost = () => {
           <section
             aria-label="Article body"
             itemProp="articleBody"
-            className="blog-prose prose prose-lg max-w-none text-foreground/90
+            className="blog-prose prose prose-lg max-w-[68ch] text-foreground/90
               prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
               prose-h2:text-[1.4rem] prose-h2:md:text-[1.6rem] prose-h2:mt-8 prose-h2:mb-3 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/15
               prose-h3:text-lg prose-h3:md:text-xl prose-h3:mt-6 prose-h3:mb-2
-              prose-p:leading-[1.75] prose-p:mb-4 prose-p:text-foreground/80
-              prose-li:leading-[1.7] prose-li:text-foreground/80 prose-li:mb-0.5
+              prose-p:leading-[1.75] prose-p:mb-5 prose-p:text-foreground/85
+              prose-li:leading-[1.7] prose-li:text-foreground/85 prose-li:mb-1
               prose-strong:text-foreground prose-strong:font-semibold
               prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-3 prose-a:decoration-primary/30 hover:prose-a:decoration-primary prose-a:transition-colors
               prose-blockquote:border-l-[3px] prose-blockquote:border-l-primary prose-blockquote:bg-primary/[0.03] prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/85 prose-blockquote:font-medium prose-blockquote:my-8
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
-              prose-ul:my-4 prose-ol:my-4
-              first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
+              prose-ul:my-4 prose-ol:my-4"
           >
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
             {htmlAfterStrip && relatedImages[0] && (
@@ -700,7 +716,7 @@ const BlogPost = () => {
           </aside>
           </div>{/* end lg grid */}
 
-          <footer className="mt-10 pt-6 border-t border-border/20 max-w-[860px]">
+          <footer className="mt-10 pt-6 border-t border-border/30 max-w-[760px]">
             {slug && (
               <div className="no-print print:hidden">
                 <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="footer" />

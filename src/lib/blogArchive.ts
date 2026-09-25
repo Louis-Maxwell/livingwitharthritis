@@ -10,6 +10,7 @@ export type ArchiveListItem = {
   date: string;
   category: string;
   updated_at?: string | null;
+  reading_minutes?: number | null;
 };
 
 export type ArchiveMonthGroup = {

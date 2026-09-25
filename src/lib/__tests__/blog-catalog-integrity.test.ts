@@ -13,6 +13,7 @@ import blogSlugs from "@/data/blog-slugs.generated.json";
 import blogCoverMap from "@/data/blog-cover-map.generated.json";
 import contentStats from "@/data/contentStats.generated.json";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
+import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 import { blogMetaSchema, blogPostSchema, ISO_DATE_PATTERN } from "@/lib/blog/schema";
 import { getBlogCatalog, loadBlogPost } from "@/lib/blog/catalog";
 import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
@@ -83,6 +84,9 @@ describe("blog source of truth: src/content/blog/posts/*.json", () => {
       }
       if (row.last_reviewed < row.date) bad.push(`${row.slug}: last_reviewed before publish date`);
       if (!row.category.trim()) bad.push(`${row.slug}: category`);
+      else if (!canonicalBlogCategoryKey(row.category)) {
+        bad.push(`${row.slug}: category "${row.category}" has no topic in src/data/blogCategories.ts`);
+      }
       if (!row.cover) bad.push(`${row.slug}: cover`);
     }
     expect(bad, bad.slice(0, 15).join("\n")).toEqual([]);
