@@ -11,16 +11,25 @@ Obsessive customer focus is the **main** aim of livingwitharthritis.org.uk.
 
 Not donors-first. Not SEO-first. Not engineering vanity.
 
-## Four jobs (homepage, within one screen)
+## Visitor jobs (homepage router, directly under the hero)
 
-A visitor should be able to start these jobs without hunting:
+The hero has **one primary action** (pain relief — the most urgent job) and
+**one secondary action** (jump to the router). The router
+(`HomeJobRouter`) then gives one card per real job, each linking to an
+existing route or published post (guarded by
+`src/components/landing/__tests__/HomeJobRouter.test.tsx`):
 
-1. **I'm in pain / need relief now** → pain-relief guide or exercise hub  
-2. **Newly diagnosed / understand my condition** → newly-diagnosed guide or conditions  
-3. **Money & benefits (PIP etc.)** → benefits hub  
-4. **Soft secondary:** donate / research fund — never louder than the help pathways  
+1. **I'm in pain right now** → pain-relief guide, flare-up help
+2. **I've just been diagnosed** → newly-diagnosed checklist, condition guides
+3. **Exercises — Motion is Lotion** → exercise hub, knee routine, seated tai chi
+4. **Money, benefits & work** → benefits/PIP hub, Access to Work, work guide
+5. **I care for someone** → carer guides
+6. **Can I trust this?** → editorial standards, clinical reviewer, trust page
+7. **Talk to someone** → community, helpline, connect groups
+8. **I'd like to help** (last, never louder) → donate, GoFundMe research fund
 
-Hero: max **two** primary CTAs, both help pathways. Donate is a text link or below-fold band only.
+Donate lives in the header, the last router card and the closing bands —
+never as a hero button.
 
 ## Trust (always visible near the top)
 
@@ -45,4 +54,4 @@ Keep the Page URL via `SOCIAL_LINKS` / `FACEBOOK_PAGE_URL`:
 ## Related
 
 - `docs/strategy/03-HOMEPAGE-REDESIGN.md` — section IA  
-- Homepage components: `OAHero`, `HomeTrustStrip`, `HomeQuickPathways`
+- Homepage components: `OAHero`, `HomeTrustStrip`, `HomeJobRouter`
