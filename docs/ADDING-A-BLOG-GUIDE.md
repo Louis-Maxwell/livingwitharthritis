@@ -109,6 +109,34 @@ files with the regenerated files (as in step 3), open a PR, merge when green. Al
 remove the slug from `PENDING_SINCE_25_SEP` in
 `src/lib/__tests__/blog-review-status.test.tsx` if it is listed there.
 
+### Library topics (`/library/<slug>`)
+
+Library pages use the same idea, driven by `src/data/libraryReviewStatus.json`:
+
+```json
+{
+  "knee-pain": { "reviewStatus": "pending" },
+  "osteoporosis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-01" }
+}
+```
+
+A pending topic's review box says **"Pending clinical review by Louis Maxwell (HCPC PH128483)"**,
+its "About this page" note says it is pending, and neither the page nor its JSON-LD
+claims a completed review. Topics not listed show the default review date
+(`DEFAULT_LIBRARY_LAST_REVIEWED` in `src/data/libraryReview.ts`). Add a topic as
+`pending` whenever you add or substantially rewrite its content.
+
+Once Louis has reviewed a topic:
+
+```bash
+npm run library:mark-reviewed -- <slug> [<slug> ...]   # optional --date YYYY-MM-DD
+npm run build
+```
+
+Commit `src/data/libraryReviewStatus.json` and the regenerated
+`scripts/library-head-data.json`, and remove the slug from `PENDING_LIBRARY_TOPICS`
+in `src/pages/__tests__/LibraryTopic.review-status.test.tsx`.
+
 ## Editing, renaming or removing a guide
 
 - **Edit:** change the post file, bump `updated_at` (and `last_reviewed` after a

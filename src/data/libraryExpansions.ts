@@ -1,15 +1,12 @@
 /**
  * Expanded library overlays (Sep 2026 quick-wins batch). Merged into
- * LIBRARY_TOPIC_SEO in libraryTopicSeo.ts. Written by Louis Maxwell;
- * pending clinical review. Plain text only.
+ * LIBRARY_TOPIC_SEO in libraryTopicSeo.ts. Written by Louis Maxwell; review
+ * state per topic lives in libraryReviewStatus.json. Plain text only.
  */
 import type { LibraryTopicSeo } from "./libraryTopicSeo";
+import { libraryAboutNote } from "./libraryReview";
 
-const REVIEW_NOTE = {
-  heading: "About this page",
-  body: "Written by Louis Maxwell, First Contact Practitioner (HCPC PH128483), and pending clinical review. This is general information, not a diagnosis. Always follow the advice of your own GP, physiotherapist or rheumatology team. For emergencies call 999; for urgent advice use NHS 111.",
-};
-
+// "About this page" note is driven by src/data/libraryReviewStatus.json.
 export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
   hydroxychloroquine: {
     title: "Hydroxychloroquine: eye checks, side effects, what to expect",
@@ -67,7 +64,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "When to seek help",
         body: "Contact your GP or rheumatology team the same day, or call NHS 111, if you have a widespread rash with fever or blistering, unexplained bruising, signs of low blood sugar that keep happening, or palpitations. Call 999 for chest pain, fainting or signs of a severe allergic reaction.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("hydroxychloroquine"),
     ],
     faqs: [
       { q: "How long does hydroxychloroquine take to work?", a: "Some people notice benefits after six to eight weeks, but it can take three to six months to reach its full effect." },
@@ -130,7 +127,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "When to see a GP or get urgent help",
         body: "See your GP or a physiotherapist if pain has not improved after a couple of weeks of self-help, stops you sleeping, or you cannot lift your arm. Go to A&E after an injury if your shoulder looks deformed, you cannot move your arm, or you have numbness in the arm. Get same-day advice if the shoulder is hot and swollen and you feel feverish or unwell, or if you have new pain and stiffness in both shoulders with a headache or jaw pain when chewing.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("shoulder-pain"),
     ],
     faqs: [
       { q: "How long does frozen shoulder last?", a: "Frozen shoulder often goes through painful, stiff and recovery phases and can take many months, sometimes longer than a year, to settle. Treatment can ease pain and help movement in the meantime." },
@@ -185,7 +182,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "When heel pain may be something else",
         body: "Heel pain can occasionally be linked to inflammatory arthritis, especially psoriatic arthritis and axial spondyloarthritis, where the tendon attachments become inflamed. Consider this if you also have back pain and stiffness, swollen joints, psoriasis or inflammatory bowel disease. See your GP if heel pain is present in both feet with no obvious cause, if the heel is hot and swollen, if you have numbness or tingling in the foot, or if pain started after an injury and you cannot put weight on the foot.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("plantar-fasciitis"),
     ],
     faqs: [
       { q: "How long does plantar fasciitis take to heal?", a: "Most people improve within several months with self-help, although some cases take longer. Consistent stretching, supportive footwear and load management help recovery." },
@@ -245,7 +242,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "Preventing falls",
         body: "Most fractures happen after a fall, so reducing falls matters as much as bone strength. Remove trip hazards, improve lighting, use grab rails, wear well-fitting shoes, have your eyesight checked, and ask for a medicines review if any make you dizzy. Your GP can refer you to a falls prevention service if you have fallen or feel unsteady.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("osteoporosis"),
     ],
     faqs: [
       { q: "Is osteoporosis the same as osteoarthritis?", a: "No. Osteoporosis is thinning of the bones that makes them more likely to break. Osteoarthritis affects the joints. You can have both." },
@@ -299,7 +296,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "When to get help quickly",
         body: "Book a GP or physiotherapy appointment if symptoms are stopping you sleeping, are there most of the time, or you notice weakness or wasting at the base of your thumb. Seek urgent medical help if numbness or weakness comes on suddenly, affects your face, arm or leg as well as your hand, or follows a significant wrist injury, as these need checking straight away.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("carpal-tunnel"),
     ],
     faqs: [
       { q: "Will carpal tunnel syndrome go away on its own?", a: "Sometimes, particularly when it is linked to pregnancy or a short spell of heavy hand use. Many people improve with a night splint and activity changes. If symptoms persist or worsen, speak to your GP or physiotherapist." },
@@ -357,7 +354,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
           "See your GP soon if the knee keeps locking or giving way, or if several joints are swollen.",
         ],
       },
-      REVIEW_NOTE,
+      libraryAboutNote("knee-pain"),
     ],
     faqs: [
       { q: "Should I rest or exercise a painful knee?", a: "For most knee pain, gentle activity and strengthening help more than prolonged rest. Ease off the activity that aggravates it for a short time, keep moving in other ways, and build up gradually." },
@@ -412,7 +409,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "When to see a GP or get urgent help",
         body: "See your GP if Raynaud's starts after about age 30, affects only one side or a few fingers, is very painful, or comes with joint pain, rashes, tight skin, tiredness, dry eyes or mouth, or difficulty swallowing. Seek urgent medical advice the same day if a finger or toe develops a sore or ulcer, turns black, or stays white or blue and cold rather than recovering after warming.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("raynauds"),
     ],
     faqs: [
       { q: "Is Raynaud's serious?", a: "Primary Raynaud's is usually uncomfortable but not dangerous. Secondary Raynaud's can be linked to conditions that need specialist care, so new or severe symptoms should be checked by a GP." },
@@ -473,7 +470,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "When to seek medical advice",
         body: "Tell your GP or rheumatology team about new or worsening symptoms. See a doctor promptly if a gland in your cheek, jaw or neck stays swollen for weeks, if you notice a new lump, unexplained weight loss or night sweats, or if you have persistent numbness, breathlessness or a new rash. Most of these have simple explanations, but they should be checked.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("sjogrens"),
     ],
     faqs: [
       { q: "Is Sjögren's a type of arthritis?", a: "Sjögren's is an autoimmune condition that mainly affects moisture-producing glands, but it often causes joint pain and can occur alongside rheumatoid arthritis or lupus. Rheumatologists usually look after it." },
@@ -527,7 +524,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
         heading: "Living with vasculitis",
         body: "Many people reach remission, although vasculitis can come back, so ongoing follow-up matters. Learn the early signs of a relapse that apply to you and how to contact your specialist team. Keep your vaccinations up to date as advised, particularly if you take immunosuppressants. Stay as active as you can, as this helps with fatigue, mood and bone health after steroids. Tell every health professional you see about your diagnosis and medicines, and carry a steroid card if you have been given one.",
       },
-      REVIEW_NOTE,
+      libraryAboutNote("vasculitis"),
     ],
     faqs: [
       { q: "Is vasculitis a type of arthritis?", a: "Vasculitis is inflammation of blood vessels rather than joints, but it can cause joint pain, and it is usually managed by rheumatology teams alongside other specialists." },

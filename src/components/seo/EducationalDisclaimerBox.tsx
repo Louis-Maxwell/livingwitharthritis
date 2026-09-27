@@ -14,6 +14,8 @@ interface EducationalDisclaimerBoxProps {
   reviewer?: string;
   /** "pending" replaces the "Clinically reviewed" line with the pending byline. */
   reviewStatus?: BlogReviewStatus;
+  /** Line shown when pending (defaults to the blog byline). */
+  pendingText?: string;
   className?: string;
 }
 
@@ -26,6 +28,7 @@ export default function EducationalDisclaimerBox({
   lastReviewed = "2026-09-16",
   reviewer = "Louis Maxwell, HCPC PH128483",
   reviewStatus = "reviewed",
+  pendingText = PENDING_REVIEW_TEXT,
   className = "",
 }: EducationalDisclaimerBoxProps) {
   const reviewedLabel = new Date(lastReviewed).toLocaleDateString("en-GB", {
@@ -45,7 +48,7 @@ export default function EducationalDisclaimerBox({
         <div className="space-y-2">
           {reviewStatus === "pending" ? (
             <p className="font-semibold text-foreground" data-testid="review-status-pending">
-              {PENDING_REVIEW_TEXT}
+              {pendingText}
             </p>
           ) : (
             <p className="font-semibold text-foreground">
