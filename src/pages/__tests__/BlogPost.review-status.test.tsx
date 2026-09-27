@@ -48,6 +48,18 @@ vi.mock("@/components/TableOfContents", () => ({
   addHeadingIds: (html: string) => html,
 }));
 
+// A catalog-only pending flag (no guide is pending in the real catalog now).
+vi.mock("@/lib/blog/catalog", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/blog/catalog")>();
+  return {
+    ...actual,
+    getBlogMeta: (slug: string | undefined | null) =>
+      slug === "catalog-pending-fixture"
+        ? { ...actual.getBlogMeta("menopause-hrt-and-joint-pain")!, slug, reviewStatus: "pending" as const }
+        : actual.getBlogMeta(slug),
+  };
+});
+
 import { useBlogArticle } from "@/hooks/useBlogArticles";
 
 let BlogPostPage: React.ComponentType;
@@ -103,9 +115,15 @@ describe("BlogPost clinical review status", () => {
   });
 
   it("pending flag from the catalog applies even if the loaded article lacks it", async () => {
-    renderWith({ ...baseArticle, slug: "menopause-hrt-and-joint-pain" });
+    renderWith({ ...baseArticle, slug: "catalog-pending-fixture" });
     expect(screen.getAllByText(PENDING_REVIEW_TEXT).length).toBeGreaterThanOrEqual(1);
     expect(screen.queryByText(/Clinically reviewed/)).not.toBeInTheDocument();
+  });
+
+  it("guide flipped with blog:mark-reviewed shows 'Clinically reviewed'", async () => {
+    renderWith({ ...baseArticle, slug: "menopause-hrt-and-joint-pain" });
+    expect(screen.queryByText(PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
+    expect(screen.getByText(/Clinically reviewed · Louis Maxwell/)).toBeInTheDocument();
   });
 
   it("reviewed guide (default): unchanged 'Clinically reviewed' and reviewedBy", async () => {
