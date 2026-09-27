@@ -98,6 +98,14 @@ describe("no removed backends", () => {
     expect(pathExists(".github/workflows/edge-functions-preflight.yml")).toBe(false);
     expect(pathExists("database-optimizations.sql")).toBe(false);
     expect(pathExists("scripts/meta-descriptions-update.sql")).toBe(false);
+    expect(pathExists("deploy-performance-optimizations.sh")).toBe(false);
+    expect(pathExists("scripts/fix-long-page-titles.mjs")).toBe(false);
+  });
+
+  it("does not keep CodeRabbit or Cursor config (Grok Bot owns reviews)", () => {
+    for (const rel of [".coderabbit.yaml", ".coderabbit.yml", ".cursor", ".cursorrules", ".cursorignore", ".cursorindexingignore", ".vercelignore"]) {
+      expect(pathExists(rel), rel).toBe(false);
+    }
   });
 
   it("does not declare removed backend packages in package.json", () => {

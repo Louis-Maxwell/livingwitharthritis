@@ -61,5 +61,5 @@ Nothing in GitHub Actions deploys the site. Louis publishes from Lovable. `publi
 
 ## Code review bots
 - **Use Grok Bot** for review and CI break fixes.
-- **Do not use CodeRabbit AI.** `.coderabbit.yaml` disables auto-review; uninstall the CodeRabbit GitHub App from the repo so `coderabbitai[bot]` stops commenting.
+- **Do not use CodeRabbit AI.** `.coderabbit.yaml` was removed (Sep 2026); Grok Bot owns reviews. Uninstall the CodeRabbit GitHub App from the repo (Settings → Integrations → GitHub Apps) so `coderabbitai[bot]` stops commenting.
 - **Do not use Dependabot PRs** (removed); Grok Bot owns dependency triage.
