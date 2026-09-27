@@ -11,6 +11,12 @@ import { getHealthTopic, healthTopics } from "@/data/healthTopics";
 import { getLibraryTopicSeo, getLibraryPillarRelated } from "@/data/libraryTopicSeo";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import {
+  DEFAULT_LIBRARY_LAST_REVIEWED,
+  LIBRARY_PENDING_REVIEW_TEXT,
+  getLibraryLastReviewed,
+  getLibraryReviewStatus,
+} from "@/data/libraryReview";
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -241,7 +247,13 @@ const LibraryTopic = () => {
           )}
 
           <div className="mt-12 space-y-6">
-            <EducationalDisclaimerBox lastReviewed="2026-09-18" />
+            {/* Review state per topic: src/data/libraryReviewStatus.json.
+                Pending topics never show a completed-review line or date. */}
+            <EducationalDisclaimerBox
+              lastReviewed={getLibraryLastReviewed(topic.slug) ?? DEFAULT_LIBRARY_LAST_REVIEWED}
+              reviewStatus={getLibraryReviewStatus(topic.slug)}
+              pendingText={LIBRARY_PENDING_REVIEW_TEXT}
+            />
             <TopicClusterNav path={path} />
           </div>
 
