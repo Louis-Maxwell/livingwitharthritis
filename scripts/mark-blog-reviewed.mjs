@@ -12,7 +12,7 @@
  * Louis Maxwell" again and the JSON-LD may carry reviewedBy.
  * Run `npm run build` and commit the regenerated files, as for any edit.
  */
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { closeSync, ftruncateSync, openSync, readFileSync, writeSync } from "node:fs";
 import { resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 import { BLOG_POSTS_DIR } from "./lib/blog-posts.mjs";
@@ -40,20 +40,37 @@ if (slugs.length === 0) {
 
 let failed = false;
 for (const slug of slugs) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    console.error(`✗ ${slug}: not a valid guide slug`);
+    failed = true;
+    continue;
+  }
   const file = resolve(BLOG_POSTS_DIR, `${slug}.json`);
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !existsSync(file)) {
-    console.error(`✗ ${slug}: no guide at ${BLOG_POSTS_DIR}/${slug}.json`);
+  // Read and rewrite through one file descriptor (no exists-then-open race).
+  let fd;
+  try {
+    fd = openSync(file, "r+");
+  } catch (err) {
+    console.error(
+      err.code === "ENOENT"
+        ? `✗ ${slug}: no guide at ${BLOG_POSTS_DIR}/${slug}.json`
+        : `✗ ${slug}: ${err.message}`,
+    );
     failed = true;
     continue;
   }
   try {
-    const post = JSON.parse(readFileSync(file, "utf8"));
+    const post = JSON.parse(readFileSync(fd, "utf8"));
     const was = post.reviewStatus ?? "reviewed";
-    writeFileSync(file, serializePost(markPostReviewed(post, date)));
+    const out = Buffer.from(serializePost(markPostReviewed(post, date)), "utf8");
+    ftruncateSync(fd, 0);
+    writeSync(fd, out, 0, out.length, 0);
     console.log(`✓ ${slug}: ${was} → reviewed (last_reviewed ${date})`);
   } catch (err) {
     console.error(`✗ ${slug}: ${err.message}`);
     failed = true;
+  } finally {
+    closeSync(fd);
   }
 }
 
