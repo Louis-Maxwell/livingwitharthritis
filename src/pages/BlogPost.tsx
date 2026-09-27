@@ -42,6 +42,11 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogMeta } from "@/lib/blog/catalog";
+import {
+  PENDING_REVIEW_TEXT,
+  blogReviewSchemaFields,
+  resolveBlogReviewStatus,
+} from "@/lib/blog/review";
 import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
 const BlogComments = lazy(() => import("@/components/BlogComments"));
@@ -231,7 +236,15 @@ const BlogPost = () => {
     /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
+  // Guides awaiting clinical review (reviewStatus: "pending") never show or
+  // emit a completed review, whatever reviewed_by says.
+  const reviewStatus = resolveBlogReviewStatus(
+    article as { reviewStatus?: string | null },
+    getBlogMeta(slug),
+  );
+  const isPendingReview = reviewStatus === "pending";
   const hasVerifiedReviewer =
+    !isPendingReview &&
     reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
@@ -286,6 +299,7 @@ const BlogPost = () => {
         ...maxwellSchemaFields,
       }
     : null;
+  const reviewSchemaFields = blogReviewSchemaFields({ reviewStatus, reviewedBy: reviewedBySchema });
   const citationSchema = citations.map((citation) => ({
     "@type": "CreativeWork",
     "name": citation.label,
@@ -345,7 +359,7 @@ const BlogPost = () => {
           "mainEntity": { "@id": `${pageUrl}#article` },
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-          ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
+          ...reviewSchemaFields,
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
           ...(citationSchema.length ? { "citation": citationSchema } : {})
@@ -367,7 +381,7 @@ const BlogPost = () => {
           "isAccessibleForFree": true,
           "articleSection": article.category || "Health",
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
-          ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
+          ...reviewSchemaFields,
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
 
@@ -473,10 +487,19 @@ const BlogPost = () => {
                   <Avatar className="h-10 w-10 border-2 border-primary/15">
                     <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
                   </Avatar>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
-                    <p className="text-xs text-muted-foreground">{authorCreds}</p>
-                  </div>
+                  {isPendingReview ? (
+                    <p
+                      className="text-sm font-medium text-foreground leading-snug max-w-[46ch]"
+                      data-testid="blog-review-pending"
+                    >
+                      {PENDING_REVIEW_TEXT}
+                    </p>
+                  ) : (
+                    <div>
+                      <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
+                      <p className="text-xs text-muted-foreground">{authorCreds}</p>
+                    </div>
+                  )}
                 </div>
 
                 {hasVerifiedReviewer && (
@@ -550,6 +573,9 @@ const BlogPost = () => {
               <div className="text-[10px] mt-1">
                 Reviewed by {reviewerName}, {reviewerCreds}
               </div>
+            )}
+            {isPendingReview && (
+              <div className="text-[10px] mt-1">{PENDING_REVIEW_TEXT}</div>
             )}
           </div>
 
@@ -743,7 +769,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} />
+            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} reviewStatus={reviewStatus} />
             {getClusterForPath(`/blog/${slug}`) && (
               <TopicClusterNav path={`/blog/${slug}`} />
             )}

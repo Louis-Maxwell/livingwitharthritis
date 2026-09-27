@@ -54,6 +54,8 @@ export function toBlogMeta(post: BlogPost): BlogMeta {
   meta.image_url = `/openverse/${post.cover}`;
   meta.word_count = words;
   meta.reading_minutes = readingMinutes(words);
+  // Only pending guides carry the flag, so reviewed rows stay byte-identical.
+  if (post.reviewStatus === "pending") meta.reviewStatus = "pending";
   return meta as BlogMeta;
 }
 
