@@ -27,11 +27,12 @@ import {
 } from "../../../scripts/static-article-html.mjs";
 
 /**
- * Guides added in PRs #95, #96 and #97 (merged 25 Sep 2026) that Louis has not
- * clinically reviewed yet. (#94 only retitled meta fields on older guides.)
- * Remove a slug here when it is flipped with `npm run blog:mark-reviewed`.
+ * Guides added in PRs #95, #96 and #97 (merged 25 Sep 2026) that were pending
+ * clinical review and were flipped by Louis Maxwell with
+ * `npm run blog:mark-reviewed -- --date 2026-09-27 ...` on 27 Sep 2026.
+ * (#94 only retitled meta fields on older guides.)
  */
-const PENDING_SINCE_25_SEP = [
+const REVIEWED_27_SEP = [
   // #95
   "food-drink-and-arthritis-medicines-interactions",
   "giant-cell-arteritis-headache-warning-signs",
@@ -89,12 +90,19 @@ describe("blog reviewStatus schema", () => {
   });
 });
 
-describe("guides awaiting clinical review (PRs #95–#97)", () => {
-  it.each(PENDING_SINCE_25_SEP)("%s is pending in the post, catalog and head data", (slug) => {
-    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
-    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
-    expect(catalogRows.find((r) => r.slug === slug)?.reviewStatus).toBe("pending");
-    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).toBe("pending");
+describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
+  it.each(REVIEWED_27_SEP)("%s is reviewed in the post, catalog and head data", (slug) => {
+    expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
+    expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-27");
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
+    const row = catalogRows.find((r) => r.slug === slug) as { reviewStatus?: string; last_reviewed?: string };
+    expect(row?.reviewStatus).toBeUndefined();
+    expect(row?.last_reviewed).toBe("2026-09-27");
+    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
+  });
+
+  it("no blog guide is pending review", () => {
+    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug)).toEqual([]);
   });
 
   it("older guides are unchanged (still reviewed by default)", () => {
