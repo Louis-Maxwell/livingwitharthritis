@@ -10,11 +10,15 @@
  * browser bundle); the generator and Vitest use the schemas.
  */
 import { z } from "zod";
+import { BLOG_REVIEW_STATUSES } from "./review";
 
 export const BLOG_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 /** Full ISO timestamp or plain date. */
 const ISO_DATETIME_PATTERN = /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?)?$/;
+
+/** Clinical-review state — see ./review.ts (omitted = "reviewed"). */
+export const blogReviewStatusSchema = z.enum(BLOG_REVIEW_STATUSES);
 
 const nonEmpty = (label: string) => z.string().trim().min(1, `${label} is required`);
 const nullableText = z.string().nullable();
@@ -39,6 +43,8 @@ export const blogPostSchema = z
     updated_at: z.string().regex(ISO_DATETIME_PATTERN, "updated_at must be ISO 8601"),
     /** Explicit clinical-review date. When absent, `updated_at` is used. */
     last_reviewed: z.string().regex(ISO_DATE_PATTERN, "last_reviewed must be YYYY-MM-DD").optional(),
+    /** Optional; omitted means "reviewed" (see DEFAULT_BLOG_REVIEW_STATUS). */
+    reviewStatus: blogReviewStatusSchema.optional(),
     category: nonEmpty("category"),
     /** Unique cover file under public/openverse/ (1:1 per slug). */
     cover: z.string().regex(/^[\w.-]+\.(?:webp|jpe?g|png|avif)$/i, "cover must be a file name in public/openverse/"),
@@ -82,6 +88,8 @@ export const blogMetaSchema = blogPostSchema
     image_url: z.string().startsWith("/openverse/"),
     word_count: z.number().int().positive(),
     reading_minutes: z.number().int().positive(),
+    /** Only emitted when "pending" — absent means reviewed. */
+    reviewStatus: blogReviewStatusSchema.optional(),
   })
   .strict();
 

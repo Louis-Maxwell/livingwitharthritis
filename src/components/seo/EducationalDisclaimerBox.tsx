@@ -6,11 +6,14 @@ import {
   educationalDisclaimerCopyMode,
 } from "@/lib/medicalDisclaimer";
 import { useDisclaimerStripShown } from "@/components/disclaimerChrome";
+import { PENDING_REVIEW_TEXT, type BlogReviewStatus } from "@/lib/blog/review";
 
 interface EducationalDisclaimerBoxProps {
   /** ISO date shown as last clinical review, default Sep 2026 Month 1 pass. */
   lastReviewed?: string;
   reviewer?: string;
+  /** "pending" replaces the "Clinically reviewed" line with the pending byline. */
+  reviewStatus?: BlogReviewStatus;
   className?: string;
 }
 
@@ -22,6 +25,7 @@ interface EducationalDisclaimerBoxProps {
 export default function EducationalDisclaimerBox({
   lastReviewed = "2026-09-16",
   reviewer = "Louis Maxwell, HCPC PH128483",
+  reviewStatus = "reviewed",
   className = "",
 }: EducationalDisclaimerBoxProps) {
   const reviewedLabel = new Date(lastReviewed).toLocaleDateString("en-GB", {
@@ -39,9 +43,15 @@ export default function EducationalDisclaimerBox({
       <div className="flex items-start gap-3">
         <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
         <div className="space-y-2">
-          <p className="font-semibold text-foreground">
-            Clinically reviewed · {reviewer} · {reviewedLabel}
-          </p>
+          {reviewStatus === "pending" ? (
+            <p className="font-semibold text-foreground" data-testid="review-status-pending">
+              {PENDING_REVIEW_TEXT}
+            </p>
+          ) : (
+            <p className="font-semibold text-foreground">
+              Clinically reviewed · {reviewer} · {reviewedLabel}
+            </p>
+          )}
           {copyMode === "full" ? (
             <p className="flex items-start gap-2">
               <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />

@@ -75,6 +75,10 @@ export function escText(value) {
     .replace(/>/g, "&gt;");
 }
 
+/** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
+export const STATIC_PENDING_REVIEW_TEXT =
+  "Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)";
+
 export function buildStaticArticleInner(data) {
   const heading = data?.question || data?.title || "";
   const bodyHtml = data?.bodyHtml || renderArticleHtml(data?.article?.content);
@@ -88,10 +92,15 @@ export function buildStaticArticleInner(data) {
         .join("")}</section>`
     : "";
   const updated = data?.updatedAt ? `Last updated ${escText(data.updatedAt)}. ` : "";
+  // Keep in sync with PENDING_REVIEW_TEXT in src/lib/blog/review.ts.
+  const pending = data?.article?.reviewStatus === "pending"
+    ? `<p class="review-status-pending">${escText(STATIC_PENDING_REVIEW_TEXT)}</p>`
+    : "";
 
   return (
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
+    pending +
     answer +
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +

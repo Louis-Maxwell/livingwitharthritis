@@ -55,6 +55,7 @@
     "search:index": "node scripts/generate-search-index.mjs",
     "blog:catalog": "bun scripts/generate-blog-catalog.ts",
     "blog:check": "bun scripts/generate-blog-catalog.ts --check",
+    "blog:mark-reviewed": "node scripts/mark-blog-reviewed.mjs",
     "blog:html-gate": "node scripts/check-blog-html.mjs",
     "test:blog-smoke": "playwright test e2e/blog-smoke.spec.ts",
     "test:route-smoke": "playwright test e2e/route-smoke.spec.ts"
