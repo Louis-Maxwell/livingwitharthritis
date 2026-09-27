@@ -13,7 +13,7 @@ unknown paths (HTTP 200). Mitigations in this repo:
 1. `scripts/generate-404.mjs` — emits `dist/404.html` (noindex, unique title).
 2. `scripts/write-redirect-html.mjs` — static noindex + canonical + refresh stubs.
 3. `public/_redirects` — Netlify/static-compatible 301 + 404 rules when supported.
-4. `vercel.json` — optional host redirect map (`scripts/sync-host-redirects.mjs`).
+4. `scripts/sync-host-redirects.mjs` — keeps `public/_redirects` in sync with the redirect map.
 5. `SeoRedirectGate` — client Navigate + refresh when `_redirects` are ignored.
 
 Cloudflare Workers / `wrangler.jsonc` / `not_found_handling: "404-page"` were
