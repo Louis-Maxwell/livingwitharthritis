@@ -125,14 +125,18 @@ describe("evening visibility pass — internal links + TopicClusterNav", () => {
 
 describe("evening visibility pass — crawl + AI discovery", () => {
   for (const hub of HUBS) {
-    it(`sitemap lists ${hub.path} with 2026-09-20 lastmod`, () => {
+    it(`sitemap lists ${hub.path} with a real lastmod`, () => {
       // Prefer indexOf over RegExp so CodeQL does not flag incomplete
       // slash escaping when interpolating hub.path into a pattern.
+      // Pillar gold-passes may bump lastmod (e.g. Champions 47–48 → 2026-09-28).
       const loc = `<loc>https://livingwitharthritis.org.uk${hub.path}</loc>`;
       const i = sitemap.indexOf(loc);
       expect(i, loc).toBeGreaterThanOrEqual(0);
       const window = sitemap.slice(i, i + loc.length + 80);
-      expect(window.includes("<lastmod>2026-09-20</lastmod>")).toBe(true);
+      const hasLastmod =
+        window.includes("<lastmod>2026-09-20</lastmod>") ||
+        window.includes("<lastmod>2026-09-28</lastmod>");
+      expect(hasLastmod).toBe(true);
     });
   }
 

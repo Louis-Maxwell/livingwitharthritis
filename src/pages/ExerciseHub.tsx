@@ -131,6 +131,8 @@ const exerciseCategories = [
 ];
 
 const additionalActivities = [
+  { title: "Swimming for hip osteoarthritis", icon: Waves, href: "/blog/swimming-exercises-hip-osteoarthritis", desc: "Buoyancy-friendly pool drills and pacing for hip OA" },
+  { title: "Walking with arthritis", icon: Activity, href: "/blog/walking-with-arthritis-start-build-up-keep-going", desc: "Start, build up and keep going without boom-and-bust" },
   { title: "Swimming & Hydrotherapy", icon: Waves, href: "/blog/swimming-for-arthritis", desc: "Low-impact aquatic exercise for joint pain relief" },
   { title: "Yoga for Arthritis", icon: Activity, href: "/blog/yoga-for-arthritis-beginners", desc: "Gentle poses for flexibility and strength" },
   { title: "Cycling for Arthritis", icon: Bike, href: "/blog/cycling-with-arthritis", desc: "Joint-friendly cardio for knee and hip health" },
@@ -676,9 +678,11 @@ const ExerciseHub = () => {
               {
                 title: "Joint-by-joint exercise",
                 links: [
+                  { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
+                  { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going" },
                   { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
-                  { label: "Hand and wrist arthritis exercises", to: "/exercises" },
                   { label: "Hip arthritis stretches", to: "/guides/hip-exercises-for-osteoarthritis" },
+                  { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
                   { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
                   { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
                 ],
@@ -729,9 +733,19 @@ const ExerciseHub = () => {
           </section>
         </div>
       </div>
+
+      <nav aria-label="Customer job pathways for exercise" className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
+        <p className="text-sm font-semibold text-foreground m-0 mb-3">Popular next steps from the exercise hub</p>
+        <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip osteoarthritis</Link> — pool drills when land impact flares you</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — build a sustainable habit</li>
+          <li><Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee OA exercises</Link> · <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Hip OA exercises</Link></li>
+          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+        </ul>
+      </nav>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-28" />
         <TopicClusterNav path="/exercises" />
       </div>
       </main>

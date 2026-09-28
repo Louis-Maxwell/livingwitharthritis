@@ -356,9 +356,10 @@ const Osteoarthritis = () => (
             {
               title: "Diet & supplements",
               links: [
+                { label: "Best supplement for knee joints — honest evidence (no rebuild claim)", to: "/blog/best-supplement-for-knee-joint" },
+                { label: "Omega-3 foods for joints", to: "/blog/omega-3-foods-for-joints" },
                 { label: "Anti-inflammatory diet for rheumatoid arthritis", to: "/blog/anti-inflammatory-diet-rheumatoid-arthritis" },
                 { label: "Anti-inflammatory diet for arthritis", to: "/blog/anti-inflammatory-diet" },
-                { label: "Omega-3 foods for joints", to: "/blog/omega-3-foods-for-joints" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                 { label: "Foods to avoid with arthritis", to: "/diet/foods-to-avoid-with-arthritis" },
                 { label: "Supplements caution — what the evidence says", to: "/supplements" },
@@ -368,12 +369,14 @@ const Osteoarthritis = () => (
             {
               title: "Exercise & movement",
               links: [
+                { label: "Exercise hub — start here", to: "/exercises" },
                 { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
+                { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going" },
+                { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
                 { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
                 { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
-                { label: "Hand arthritis exercises", to: "/exercises" },
                 { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },
-                { label: "Cycling with arthritis", to: "/blog/arthritis-and-cycling-uk" },
+                { label: "Cycling with arthritis", to: "/blog/cycling-with-arthritis" },
                 { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
               ],
             },
@@ -389,11 +392,13 @@ const Osteoarthritis = () => (
             {
               title: "Flare-ups & support",
               links: [
+                { label: "Arthritis pain relief — when joints hurt now", to: "/guides/arthritis-pain-relief" },
+                { label: "Joint protection — easier everyday tasks", to: "/blog/joint-protection-easier-everyday-tasks" },
                 { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
-                { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
                 { label: "Benefits & PIP hub", to: "/benefits-pip" },
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
+                { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 { label: "Community & peer support", to: "/community" },
                 { label: "Browse the Advice Hub", to: "/blog-hub" },
                 { label: "Osteoarthritis library note", to: "/library/osteoarthritis" },
@@ -430,8 +435,22 @@ const Osteoarthritis = () => (
             </Link>
           </div>
           
+
+      <nav aria-label="Customer job pathways for osteoarthritis" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
+        <p className="text-sm font-semibold text-foreground m-0 mb-3">What do you need next?</p>
+        <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
+          <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief hub</Link> — paced movement, heat/cold and medicines overview</li>
+          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — joint-friendly routines (*Motion is Lotion*)</li>
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — buoyancy-friendly drills</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
+          <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes (UK)</Link> — footwear that reduces load</li>
+          <li><Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline underline-offset-2">Knee supplements</Link> — honest evidence; no joint-rebuild claims</li>
+          <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link> — easier everyday tasks</li>
+          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+        </ul>
+      </nav>
       <ArticleCitations citations={CITATIONS_OA} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-28" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
         </div>

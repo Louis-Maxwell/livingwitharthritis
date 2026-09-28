@@ -127,7 +127,7 @@ const ArthritisPainRelief = () => (
             <li><strong>Tai chi</strong> — reduces pain and improves balance; see our <Link to="/exercises/tai-chi-for-arthritis" className="text-primary underline">tai chi guide</Link></li>
             <li><strong>Range-of-motion work</strong> — bend and straighten each painful joint through its full pain-free range, twice a day</li>
           </ul>
-          <p>For joint-specific routines, browse the <Link to="/exercises" className="text-primary underline">exercise hub</Link>.</p>
+          <p>For joint-specific routines, browse the <Link to="/exercises" className="text-primary underline">exercise hub</Link>. Many people with hip or knee OA start with <Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline">swimming / pool drills</Link> or our <Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline">walking with arthritis</Link> guide. See also the <Link to="/conditions/osteoarthritis" className="text-primary underline">osteoarthritis hub</Link>.</p>
         </Section>
 
         <Section icon={ThermometerSun} title="2. Use heat and cold — match it to the joint">
@@ -213,17 +213,19 @@ const ArthritisPainRelief = () => (
       <nav aria-label="Customer job pathways" className="container mx-auto px-6 md:px-10 max-w-3xl mb-10 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">After pain relief, pick your next job</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
-          <li><Link to="/guides/exercise" className="text-primary underline underline-offset-2">Exercise guide</Link> — strengthen and pace safely</li>
-          <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link> — Mediterranean-style patterns</li>
-          <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
-          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> — when pain limits daily living</li>
+          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — strengthen and pace safely</li>
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — low-impact pool drills</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link> — footwear that reduces load</li>
+          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> — symptoms, management and next steps</li>
+          <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link> · <Link to="/blog/omega-3-foods-for-joints" className="text-primary underline underline-offset-2">Omega-3 foods</Link> · <Link to="/blog/anti-inflammatory-diet-rheumatoid-arthritis" className="text-primary underline underline-offset-2">RA anti-inflammatory diet</Link></li>
+          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
           <li><Link to="/supplements/turmeric" className="text-primary underline underline-offset-2">Turmeric / curcumin</Link> — evidence, dose and safety</li>
-          <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link> — anti-inflammatory eating pattern</li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-20" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-28" />
       <TopicClusterNav path="/guides/arthritis-pain-relief" />
 <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />
