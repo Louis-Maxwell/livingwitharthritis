@@ -61,6 +61,12 @@ const JOINT_EXERCISE_HUB: Record<string, string> = {
 };
 
 export const EXACT_SEO_REDIRECTS: Record<string, string> = {
+  // Paused placeholder pages removed 2026-09 (shop never launched, buddy
+  // matching and podcast not running). 301 to the closest live page.
+  "/shop": "/supplements",
+  "/buddy": "/community/connect-groups",
+  "/buddy/match": "/community/connect-groups",
+  "/podcasts": "/community",
   "/exercise-hub": "/exercises",
   "/conditions": "/conditions/arthritis",
   "/about-us": "/about",
@@ -146,6 +152,9 @@ function resolveOnce(path: string): string | null {
 
   // Locale 404s must not stay as crawlable URLs.
   if (/^\/(es|fr|de|pt)\/404$/.test(path)) return "/";
+
+  // Shop never launched; old product links land on the supplements hub.
+  if (/^\/product\/[^/]+$/.test(path)) return "/supplements";
 
   const lang = detectLangFromPath(path);
   if (lang !== "en") {

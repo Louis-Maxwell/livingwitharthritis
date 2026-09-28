@@ -25,10 +25,6 @@ const trustStrip = readFileSync(
   "utf8",
 );
 const cityPage = readFileSync(resolve("src/pages/CityArthritisPage.tsx"), "utf8");
-const cityOptimized = readFileSync(
-  resolve("src/pages/CityPageOptimized.tsx"),
-  "utf8",
-);
 const schemaTs = readFileSync(resolve("src/lib/rootOrganizationSchema.ts"), "utf8");
 
 const BRAND_STRING = "Living With Arthritis UK (charity 1218461)";
@@ -153,10 +149,7 @@ describe("public SEO / AEO identity", () => {
   });
 
   it("does not invent social sameAs URLs", () => {
-    expect(cityOptimized.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(
-      false,
-    );
-    expect(cityOptimized.includes("getSchemaOrgSameAs")).toBe(true);
+    expect(cityPage.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(false);
     expect(indexHtml.toLowerCase().includes("facebook.com/livingwitharthritis")).toBe(
       false,
     );

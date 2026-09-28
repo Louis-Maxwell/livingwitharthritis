@@ -44,7 +44,6 @@ const CURATED = [
   // only AFTER JavaScript executes — a non-JS-executing crawler never
   // sees it. This needs a hosting-level fix (proper 404 status for
   // unmatched routes), not a prerender-list fix. See conversation notes.
-  "/buddy",
   "/contact",
   "/credits",
   "/faq",

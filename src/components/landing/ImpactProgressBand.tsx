@@ -1,26 +1,19 @@
 /**
- * ImpactProgressBand — charity-style fundraising progress.
- * Animated £5,000 / £50,000 bar with CountUp on enter.
- * Inspired by Red Cross / Save the Children appeal pages.
+ * ImpactProgressBand — Arthritis Research Fund appeal.
+ *
+ * Deliberately shows NO hard-coded "raised" total or progress meter: a static
+ * number goes stale the moment someone donates. The live total lives on the
+ * GoFundMe page, so we link there instead of repeating a figure.
  */
 import { useNavigate } from "react-router-dom";
-import { Heart } from "lucide-react";
+import { ExternalLink, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CountUp } from "@/components/motion/CountUp";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { trackDonationClick } from "@/lib/ga-events";
-
-const RAISED = 5000;
-const GOAL = 50000;
-const PCT = Math.round((RAISED / GOAL) * 100);
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 const ImpactProgressBand = () => {
   const navigate = useNavigate();
-
-  const handleDonate = () => {
-    trackDonationClick("impact_progress_band");
-    navigate("/donate");
-  };
 
   return (
     <section
@@ -36,56 +29,43 @@ const ImpactProgressBand = () => {
             id="impact-progress-heading"
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.02em] leading-[1.05] text-foreground mb-6"
           >
-            Help us reach our £50,000 research goal.
+            Help us fund arthritis research.
           </h2>
           <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Every pound funds clinically-reviewed guides, plain-English writing,
+            Every pound funds clinically reviewed guides, plain-English writing
             and free resources for everyone in the UK living with arthritis.
+            You can see the live total and every update on our GoFundMe page.
           </p>
         </RevealOnScroll>
 
-        <RevealOnScroll delay={150} className="mt-12">
-          {/* Progress meter */}
-          <div className="relative h-4 w-full overflow-hidden rounded-full bg-secondary">
-            <div
-              role="progressbar"
-              aria-valuenow={PCT}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label={`£${RAISED.toLocaleString()} raised of £${GOAL.toLocaleString()} goal`}
-              className="h-full bg-primary rounded-full transition-[width] [transition-duration:2000ms] ease-out"
-              style={{ width: `${PCT}%` }}
-            />
-          </div>
-
-          <div className="mt-6 grid grid-cols-2 gap-6">
-            <div className="text-left">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-1">
-                Raised
-              </p>
-              <p className="font-display text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
-                <CountUp end={RAISED} prefix="£" />
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-1">
-                Goal
-              </p>
-              <p className="font-display text-3xl lg:text-4xl font-bold text-foreground/70 tracking-tight">
-                £{GOAL.toLocaleString()}
-              </p>
-            </div>
-          </div>
-        </RevealOnScroll>
-
-        <RevealOnScroll delay={300} className="mt-10 flex justify-center">
+        <RevealOnScroll delay={150} className="mt-10 flex flex-wrap justify-center gap-3">
           <Button
+            asChild
             size="lg"
-            onClick={handleDonate}
             className="h-[56px] px-10 rounded-full text-sm font-bold tracking-wider btn-primary-cta group"
           >
-            <Heart className="w-4 h-4 mr-2 fill-white/20" aria-hidden="true" />
-            Support this appeal
+            <a
+              href={GOFUNDME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackDonationClick("impact_progress_band_gofundme")}
+            >
+              <Heart className="w-4 h-4 mr-2 fill-white/20" aria-hidden="true" />
+              Donate on GoFundMe
+              <ExternalLink className="w-4 h-4 ml-2" aria-hidden="true" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => {
+              trackDonationClick("impact_progress_band");
+              navigate("/donate");
+            }}
+            className="h-[56px] px-8 rounded-full text-sm font-bold tracking-wider"
+          >
+            Other ways to give
           </Button>
         </RevealOnScroll>
       </div>

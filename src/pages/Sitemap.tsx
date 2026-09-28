@@ -119,7 +119,6 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Self-Assessment", href: "/self-assessment" },
   { label: "Self-Help Tool", href: "/self-help" },
   { label: "Services", href: "/services" },
-  { label: "Shop", href: "/shop" },
   { label: "Terms & Conditions", href: "/terms" },
   { label: "Trust & Credibility", href: "/trust" },
   { label: "Ways to Help", href: "/ways-to-help" },

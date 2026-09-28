@@ -15,7 +15,7 @@ type StepConfig = {
 };
 
 // Hidden on these paths to avoid clutter on transactional/admin flows
-const HIDDEN_PREFIXES = ["/auth", "/admin", "/donation-result", "/unsubscribe", "/chat"];
+const HIDDEN_PREFIXES = ["/donation-result", "/unsubscribe", "/chat"];
 
 const titleCase = (s: string) =>
   s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());

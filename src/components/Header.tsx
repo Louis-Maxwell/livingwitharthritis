@@ -1,14 +1,13 @@
 ﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
 
 
-const _CartDrawer = lazyWithRetry(() => import("@/components/CartDrawer"));
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
@@ -148,9 +147,7 @@ const Header = () => {
         { label: "Connect Groups", desc: "Free peer-support communities", icon: HandHeart, href: "/community/connect-groups", action: () => navigate("/community/connect-groups"), color: "text-primary bg-primary/10" },
         { label: "Helpline & Support", desc: "Real people, 2-day response", icon: MessageCircle, href: "/helpline", action: () => navigate("/helpline"), color: "text-primary bg-primary/10" },
         { label: "Events & Webinars", desc: "Free monthly online events", icon: Globe, href: "/events", action: () => navigate("/events"), color: "text-primary bg-primary/10" },
-        { label: "Podcasts", desc: "Coming soon — UK arthritis podcast", icon: Newspaper, href: "/podcasts", action: () => navigate("/podcasts"), color: "text-primary bg-primary/10" },
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
-        { label: "Buddy Programme", desc: "1-to-1 peer mentoring", icon: HandHeart, href: "/buddy", action: () => navigate("/buddy"), color: "text-primary bg-primary/10" },
         { label: "Guides Hub", desc: "PIP, exercise, diet & pain relief", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
         { label: "Resource Centre", desc: "Guides, tools, PIP, exercise & chat", icon: BookOpen, href: "/resource-centre", action: () => navigate("/resource-centre"), color: "text-primary bg-primary/10" },
         { label: "Healthcare Professionals", desc: "Clinic pack & shareable patient pages", icon: Stethoscope, href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals"), color: "text-primary bg-primary/10" },
@@ -187,7 +184,6 @@ const Header = () => {
       ],
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -231,7 +227,6 @@ const Header = () => {
     { label: "Resource Centre", icon: BookOpen, desc: "Guides, tools, PIP, exercise & chat", href: "/resource-centre", action: () => navigate("/resource-centre") },
     { label: "Healthcare Professionals", icon: Stethoscope, desc: "Clinic pack & shareable pages", href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals") },
     { label: "Resources", icon: BookOpen, desc: "Care pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
   // Lock page scroll and trap focus inside the mobile nav while open

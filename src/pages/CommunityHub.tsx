@@ -16,7 +16,6 @@ import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
   Heart, Star, Globe, BookOpen, HandHeart, Download
 } from "lucide-react";
-import PeerSupportForum from "@/components/PeerSupportForum";
 import {
   StatCounter,
   HorizontalBar,
@@ -247,9 +246,6 @@ const CommunityHub = () => {
         </section>
 
         <WaveDivider color="hsl(var(--background))" />
-
-        {/* Peer Support Forum */}
-        <PeerSupportForum />
 
         {/* Community features */}
         <section id="community-features" className="py-12 lg:py-16 bg-tint-violet">
