@@ -134,7 +134,7 @@ const SelfAssessment = () => {
 
                 <div className="pt-4 flex gap-3">
                   <Button variant="outline" onClick={() => setResult(null)}>Re-take assessment</Button>
-                  <Button asChild><Link to="/buddy">Get a buddy</Link></Button>
+                  <Button asChild><Link to="/community/connect-groups">Find peer support</Link></Button>
                 </div>
               </CardContent>
             </Card>

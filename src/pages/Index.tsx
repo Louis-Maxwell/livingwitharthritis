@@ -165,7 +165,7 @@ function HomePage() {
             </ViewportSection>
           </div>
 
-          {/* 07 — Research fund (accurate £5k / £50k only) + donate */}
+          {/* 07 — Research fund appeal (live total on GoFundMe, no static meter) + donate */}
           <ViewportSection fallback={<SectionFallback />}>
             <ImpactProgressBand />
             <FinalDonateBand />

@@ -9,7 +9,6 @@ import { Suspense, useEffect, type ReactNode } from "react";
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
 const Sonner = lazyWithRetry(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
 import { PageTransition } from "@/components/ui/PageTransition";
-import { useCartSync } from "@/hooks/useCartSync";
 import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
 import { useScrollDepth } from "@/hooks/useScrollDepth";
 import { HelmetProvider } from "react-helmet-async";
@@ -35,25 +34,11 @@ const CookieBanner = lazyWithRetry(() => import("./components/landing/CookieBann
 const AccessibilityToolbar = lazyWithRetry(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazyWithRetry(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazyWithRetry(() => import("./components/MobileNextStepBar"));
-const DonationNotification = lazyWithRetry(() => import("./components/DonationNotification"));
 const EngagementTracker = lazyWithRetry(() => import("./components/EngagementTracker"));
 
 
 // Lazy load pages for code splitting
 const Chat = lazyWithRetry(() => import("./pages/Chat"));
-const Auth = lazyWithRetry(() => import("./pages/Auth"));
-const OAuthConsent = lazyWithRetry(() => import("./pages/OAuthConsent"));
-const AdminDashboard = lazyWithRetry(() => import("./pages/AdminDashboard"));
-const AdminAppointments = lazyWithRetry(() => import("./pages/AdminAppointments"));
-const AdminPsiDashboard = lazyWithRetry(() => import("./pages/AdminPsiDashboard"));
-const AdminEmails = lazyWithRetry(() => import("./pages/AdminEmails"));
-const AdminSeoHealth = lazyWithRetry(() => import("./pages/AdminSeoHealth"));
-const AdminDistribute = lazyWithRetry(() => import("./pages/AdminDistribute"));
-const AdminRankTracker = lazyWithRetry(() => import("./pages/AdminRankTracker"));
-const AdminKeywordStrategy = lazyWithRetry(() => import("./pages/AdminKeywordStrategy"));
-const AdminContentRefresh = lazyWithRetry(() => import("./pages/AdminContentRefresh"));
-const AdminBacklinks = lazyWithRetry(() => import("./pages/AdminBacklinks"));
-const AdminChatFeedback = lazyWithRetry(() => import("./pages/AdminChatFeedback"));
 const BlogIndex = lazyWithRetry(() => import("./pages/BlogIndex"));
 const BlogArchive = lazyWithRetry(() => import("./pages/BlogArchive"));
 const Library = lazyWithRetry(() => import("./pages/Library"));
@@ -114,8 +99,6 @@ const AccessibilityPage = lazyWithRetry(() => import("./pages/Accessibility"));
 const ArthritisFlareUps = lazyWithRetry(() => import("./pages/ArthritisFlareUps"));
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
-const Shop = lazyWithRetry(() => import("./pages/Shop"));
-const ProductDetail = lazyWithRetry(() => import("./pages/ProductDetail"));
 const ArthritisSupportIndex = lazyWithRetry(() => import("./pages/ArthritisSupportIndex"));
 const CityArthritisPage = lazyWithRetry(() => import("./pages/CityArthritisPage"));
 const CityConditionPage = lazyWithRetry(() => import("./pages/CityConditionPage"));
@@ -175,8 +158,6 @@ const ConditionSubpagePage = lazyWithRetry(() => import("./pages/ConditionSubpag
 const CityServicePage = lazyWithRetry(() => import("./pages/CityServicePage"));
 const Pedometer = lazyWithRetry(() => import("./pages/Pedometer"));
 const SelfAssessment = lazyWithRetry(() => import("./pages/SelfAssessment"));
-const Buddy = lazyWithRetry(() => import("./pages/Buddy"));
-const BuddyMatch = lazyWithRetry(() => import("./pages/BuddyMatch"));
 const DebugSchema = lazyWithRetry(() => import("./pages/DebugSchema"));
 const EditorialStandards = lazyWithRetry(() => import("./pages/EditorialStandards"));
 const MedicalDisclaimer = lazyWithRetry(() => import("./pages/MedicalDisclaimer"));
@@ -239,9 +220,6 @@ const ConnectGroupsStub = lazyWithRetry(() =>
 );
 const EventsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.EventsStub })),
-);
-const PodcastsStub = lazyWithRetry(() =>
-  import("./pages/stubs").then((m) => ({ default: m.PodcastsStub })),
 );
 const HelplineStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.HelplineStub })),
@@ -331,19 +309,6 @@ function AnimatedRoutes() {
         <Route path="/de/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
         <Route path="/pt/conditions/osteoarthritis" element={<LocalizedOsteoarthritis />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/appointments" element={<AdminAppointments />} />
-        <Route path="/admin/psi" element={<AdminPsiDashboard />} />
-        <Route path="/admin/emails" element={<AdminEmails />} />
-        <Route path="/admin/seo-health" element={<AdminSeoHealth />} />
-        <Route path="/admin/distribute" element={<AdminDistribute />} />
-        <Route path="/admin/rank-tracker" element={<AdminRankTracker />} />
-        <Route path="/admin/keyword-strategy" element={<AdminKeywordStrategy />} />
-        <Route path="/admin/content-refresh" element={<AdminContentRefresh />} />
-        <Route path="/admin/backlinks" element={<AdminBacklinks />} />
-        <Route path="/admin/chat-feedback" element={<AdminChatFeedback />} />
         <Route path="/blog" element={withRouteBoundary(<BlogIndex />)} />
         <Route path="/library" element={<Library />} />
         <Route path="/guides" element={<GuidesHub />} />
@@ -444,8 +409,6 @@ function AnimatedRoutes() {
         <Route path="/accessibility" element={<AccessibilityPage />} />
         
         <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/product/:handle" element={<ProductDetail />} />
         <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
         <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
         <Route path="/arthritis-support/:city/:condition" element={<CityConditionPage />} />
@@ -500,8 +463,6 @@ function AnimatedRoutes() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/self-assessment" element={<SelfAssessment />} />
-        <Route path="/buddy" element={<Buddy />} />
-        <Route path="/buddy/match" element={<BuddyMatch />} />
         {import.meta.env.DEV ? (
           <Route path="/debug/schema" element={<DebugSchema />} />
         ) : null}
@@ -517,7 +478,6 @@ function AnimatedRoutes() {
         <Route path="/tools/find-specialist" element={<FindSpecialistStub />} />
         <Route path="/community/connect-groups" element={<ConnectGroupsStub />} />
         <Route path="/events" element={<EventsStub />} />
-        <Route path="/podcasts" element={<PodcastsStub />} />
         <Route path="/helpline" element={<HelplineStub />} />
         <Route path="/volunteer" element={<VolunteerStub />} />
         <Route path="/advocacy" element={<AdvocacyStub />} />
@@ -560,7 +520,6 @@ function AnimatedRoutes() {
 }
 
 function AppWithSync() {
-  useCartSync();
   useLinkPrefetch();
   useScrollDepth();
   const location = useLocation();
@@ -636,7 +595,6 @@ const App = () => {
                 <ErrorBoundary>
                   <Suspense fallback={null}>
                     <ChatBotWidget />
-                    <DonationNotification />
                   </Suspense>
                 </ErrorBoundary>
               </DeferredMount>

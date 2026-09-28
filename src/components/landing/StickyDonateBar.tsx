@@ -1,18 +1,16 @@
 import { memo, useEffect, useState } from "react";
 import { Heart } from "lucide-react";
 import { trackDonationClick } from "@/lib/ga-events";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 /**
- * Sticky donate bar with live fundraising progress.
+ * Sticky donate bar for the Arthritis Research Fund appeal.
  * Shows on mobile (bottom) and desktop (bottom-right card) once the user
  * scrolls past the hero, and hides when the inline donate widget is in view.
  *
- * Real numbers (confirmed by charity): £5,000 raised of £50,000 goal
- * for the Arthritis Research Fund (10% complete).
+ * No hard-coded "raised" total or progress meter: a static figure goes stale
+ * as soon as someone donates. The live total is on the GoFundMe page.
  */
-const RAISED_GBP = 5000;
-const GOAL_GBP = 50000;
-const PCT = Math.round((RAISED_GBP / GOAL_GBP) * 100);
 
 const StickyDonateBar = memo(() => {
   const [visible, setVisible] = useState(false);
@@ -66,30 +64,14 @@ const StickyDonateBar = memo(() => {
             type="button"
             onClick={handleClick}
             className="w-full text-left px-5 pt-3 pb-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11"
-            aria-label={`Donate now — £${RAISED_GBP.toLocaleString()} raised of £${GOAL_GBP.toLocaleString()} for arthritis research`}
           >
-            <div className="flex items-center justify-between gap-3 mb-2">
-              <span className="flex items-center gap-2 text-sm font-bold">
-                <Heart className="w-4 h-4 fill-primary text-primary" aria-hidden="true" />
-                Help fund arthritis research
-              </span>
-              <span className="text-xs font-semibold text-background/70">{PCT}%</span>
-            </div>
-            <div
-              className="h-1.5 w-full rounded-full bg-background/15 overflow-hidden"
-              role="progressbar"
-              aria-valuenow={RAISED_GBP}
-              aria-valuemin={0}
-              aria-valuemax={GOAL_GBP}
-            >
-              <div
-                className="h-full bg-primary rounded-full transition-all"
-                style={{ width: `${PCT}%` }}
-              />
-            </div>
-            <div className="mt-1.5 text-[11px] text-background/70 font-medium">
-              £{RAISED_GBP.toLocaleString()} raised of £{GOAL_GBP.toLocaleString()} goal · Donate now
-            </div>
+            <span className="flex items-center gap-2 text-sm font-bold">
+              <Heart className="w-4 h-4 fill-primary text-primary" aria-hidden="true" />
+              Help fund arthritis research
+            </span>
+            <span className="mt-1 block text-xs text-background/80 font-medium">
+              Donate now to support free arthritis help and research
+            </span>
           </button>
         </div>
       </div>
@@ -120,24 +102,15 @@ const StickyDonateBar = memo(() => {
             <p className="text-sm font-semibold text-foreground leading-snug mb-3">
               Help us fund critical arthritis research
             </p>
-            <div
-              className="h-2 w-full rounded-full bg-muted overflow-hidden"
-              role="progressbar"
-              aria-valuenow={RAISED_GBP}
-              aria-valuemin={0}
-              aria-valuemax={GOAL_GBP}
+            <a
+              href={GOFUNDME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-primary underline underline-offset-2"
             >
-              <div
-                className="h-full bg-primary rounded-full transition-all"
-                style={{ width: `${PCT}%` }}
-              />
-            </div>
-            <div className="mt-2 flex items-baseline justify-between text-xs text-foreground/70 font-medium">
-              <span>
-                <strong className="text-foreground">£{RAISED_GBP.toLocaleString()}</strong> raised
-              </span>
-              <span>of £{GOAL_GBP.toLocaleString()} ({PCT}%)</span>
-            </div>
+              See the live total on GoFundMe
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
             <button
               type="button"
               onClick={handleClick}
