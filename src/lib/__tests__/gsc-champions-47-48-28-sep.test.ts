@@ -105,7 +105,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
     for (const href of PIP_LINKS) {
       expect(pip.includes(`"${href}"`) || pip.includes(`href: "${href}"`), `PIP missing ${href}`).toBe(true);
     }
-    expect(pip).toMatch(/GOV\.UK|gov\.uk/);
+    expect(pip.toLowerCase()).toContain("gov.uk");
     expect(pip).not.toMatch(/Oswestry/i);
     expect(getClusterForPath("/benefits-pip")?.id).toBe("pip");
   });
