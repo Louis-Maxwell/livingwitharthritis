@@ -155,6 +155,9 @@ function buildEntry(row, extractFaqs, coverMap) {
       date: row.date,
       category: row.category,
       image_url: row.image_url ?? null,
+      // Cover file name, so the article page can show its cover without
+      // downloading the slug → cover map for every guide.
+      cover: row.cover ?? null,
       meta_title: row.meta_title ?? null,
       meta_description: row.meta_description ?? null,
       keywords: row.keywords ?? null,

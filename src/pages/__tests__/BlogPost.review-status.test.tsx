@@ -26,6 +26,7 @@ const baseArticle = {
   display_order: 1,
 };
 
+vi.mock("@/hooks/useBlogArticle", () => ({ useBlogArticle: vi.fn() }));
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
   useRelatedArticles: vi.fn(() => ({ data: [] })),
@@ -49,18 +50,24 @@ vi.mock("@/components/TableOfContents", () => ({
 }));
 
 // A catalog-only pending flag (no guide is pending in the real catalog now).
-vi.mock("@/lib/blog/catalog", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@/lib/blog/catalog")>();
+vi.mock("@/lib/blog/reviewIndex", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/blog/reviewIndex")>();
   return {
     ...actual,
-    getBlogMeta: (slug: string | undefined | null) =>
+    getBlogReviewMeta: (slug: string | undefined | null) =>
       slug === "catalog-pending-fixture"
-        ? { ...actual.getBlogMeta("menopause-hrt-and-joint-pain")!, slug, reviewStatus: "pending" as const }
-        : actual.getBlogMeta(slug),
+        ? { ...actual.getBlogReviewMeta("menopause-hrt-and-joint-pain")!, reviewStatus: "pending" as const }
+        : actual.getBlogReviewMeta(slug),
   };
 });
 
-import { useBlogArticle } from "@/hooks/useBlogArticles";
+import { useBlogArticle } from "@/hooks/useBlogArticle";
+import { loadMarkdownParser } from "@/lib/markdownParser";
+
+// Fixtures are markdown; load the on-demand parser up front so renders are synchronous.
+beforeAll(async () => {
+  await loadMarkdownParser();
+});
 
 let BlogPostPage: React.ComponentType;
 beforeAll(async () => {

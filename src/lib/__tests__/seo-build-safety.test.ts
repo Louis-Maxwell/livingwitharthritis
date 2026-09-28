@@ -130,7 +130,7 @@ describe("SEO build safety", () => {
 
   it("does not auto-prefix the current path into empty locale stubs", () => {
     const source = readFileSync(
-      resolve(process.cwd(), "src/components/LanguageSwitcher.tsx"),
+      resolve(process.cwd(), "src/components/LanguageSwitcherMenu.tsx"),
       "utf8",
     );
     expect(source).toContain("TRANSLATED_BASE_PATHS");

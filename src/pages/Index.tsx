@@ -26,7 +26,6 @@ import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
-import AeoEnhancement from "@/components/seo/AeoEnhancement";
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
 const withVisitorSnippet = (rest: string) =>
@@ -34,6 +33,8 @@ const withVisitorSnippet = (rest: string) =>
 
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
+// Below the fold; its page-aeo dataset (~47 KB) stays out of the entry bundle.
+const AeoEnhancement = lazyWithRetry(() => import("@/components/seo/AeoEnhancement"));
 const JointExerciseSection = lazyWithRetry(() => import("@/components/JointExerciseSection"));
 const HomeToolsBand = lazyWithRetry(() => import("@/components/landing/HomeToolsBand"));
 const HomeZakatLink = lazyWithRetry(() => import("@/components/landing/HomeZakatLink"));
@@ -154,7 +155,9 @@ function HomePage() {
 
           {/* 05 — Answer-first summary + FAQ (single FAQPage JSON-LD) */}
           <div className="container mx-auto px-5 md:px-10 max-w-3xl py-6">
-            <AeoEnhancement route="/" />
+            <Suspense fallback={null}>
+              <AeoEnhancement route="/" />
+            </Suspense>
           </div>
 
           {/* 06 — Conditions (target of "/#conditions" breadcrumbs) + latest */}

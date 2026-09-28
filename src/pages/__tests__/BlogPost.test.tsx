@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { beforeAll, describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -24,6 +24,15 @@ const mockArticle = {
   display_order: 1,
 };
 
+// Below-the-fold sections are viewport-gated in the app; render them
+// straight away here so the test can assert on them.
+vi.mock("@/components/ViewportSection", async () => {
+  const { Suspense } = await import("react");
+  return {
+    default: ({ children }: { children: React.ReactNode }) => <Suspense fallback={null}>{children}</Suspense>,
+  };
+});
+vi.mock("@/hooks/useBlogArticle", () => ({ useBlogArticle: vi.fn() }));
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
   useRelatedArticles: vi.fn(() => ({ data: [] })),
@@ -46,7 +55,13 @@ vi.mock("@/components/TableOfContents", () => ({
   addHeadingIds: (html: string) => html,
 }));
 
-import { useBlogArticle } from "@/hooks/useBlogArticles";
+import { useBlogArticle } from "@/hooks/useBlogArticle";
+import { loadMarkdownParser } from "@/lib/markdownParser";
+
+// Fixtures are markdown; load the on-demand parser up front so renders are synchronous.
+beforeAll(async () => {
+  await loadMarkdownParser();
+});
 
 function renderBlogPost(slug: string) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });

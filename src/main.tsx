@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
-import { initWebVitals } from "./lib/web-vitals.ts";
+import { afterPageLoad } from "./lib/afterPageLoad";
 import { installChunkRecovery, removeStaleServiceWorkers } from "./lib/chunkRecovery.ts";
 import "./index.css";
 
@@ -52,8 +52,11 @@ removeStaleServiceWorkers();
 initializeSentry();
 window.addEventListener("cookie-consent-accepted", initializeSentry);
 
-// Initialize Core Web Vitals tracking (captures LCP, FCP, CLS, INP, TTFB)
-initWebVitals();
+// Core Web Vitals (LCP, FCP, CLS, INP, TTFB). Loaded after first paint; the
+// library uses buffered PerformanceObservers so early entries are not lost.
+afterPageLoad(() => {
+  import("./lib/web-vitals.ts").then((m) => m.initWebVitals()).catch(() => {});
+}, 5000);
 
 
 const AppCrashFallback = (

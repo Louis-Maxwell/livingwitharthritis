@@ -9,6 +9,7 @@
  *         src/data/blog-cover-map.generated.json   — slug → cover file (articleImages.ts)
  *         src/data/contentStats.generated.json     — honest count + word counts
  *         src/data/blogMostRead.generated.json     — footer "Most read" top 5 (tiny, no catalog import)
+ *         src/data/blogReviewIndex.generated.json  — slug → review date + pending slugs (article page, no catalog import)
  *
  * Runs automatically in `predev` / `prebuild`. Downstream generators
  * (blog head data, sitemap/slug list, prerender routes, llms, search index)
@@ -37,12 +38,14 @@ import {
 export const COVER_MAP_PATH = "src/data/blog-cover-map.generated.json";
 export const CONTENT_STATS_PATH = "src/data/contentStats.generated.json";
 export const MOST_READ_PATH = "src/data/blogMostRead.generated.json";
+export const REVIEW_INDEX_PATH = "src/data/blogReviewIndex.generated.json";
 
 export interface BlogCatalogArtifacts {
   catalog: BlogMeta[];
   coverMap: Record<string, string>;
   contentStats: { blogArticleCount: number; wordCounts: Record<string, number> };
   mostRead: { slug: string; title: string }[];
+  reviewIndex: { lastReviewed: Record<string, string>; pending: string[] };
   errors: string[];
 }
 
@@ -102,6 +105,12 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     coverMap,
     contentStats: { blogArticleCount: published.length, wordCounts },
     mostRead: catalog.slice(0, 5).map((row) => ({ slug: row.slug, title: row.title })),
+    reviewIndex: {
+      lastReviewed: Object.fromEntries(
+        [...catalog].sort((a, b) => a.slug.localeCompare(b.slug)).map((row) => [row.slug, row.last_reviewed]),
+      ),
+      pending: catalog.filter((row) => row.reviewStatus === "pending").map((row) => row.slug).sort(),
+    },
     errors,
   };
 }
@@ -112,6 +121,7 @@ export function serializeArtifacts(a: BlogCatalogArtifacts): Record<string, stri
     [COVER_MAP_PATH]: `${JSON.stringify(a.coverMap, null, 2)}\n`,
     [CONTENT_STATS_PATH]: `${JSON.stringify(a.contentStats, null, 2)}\n`,
     [MOST_READ_PATH]: `${JSON.stringify(a.mostRead, null, 2)}\n`,
+    [REVIEW_INDEX_PATH]: `${JSON.stringify(a.reviewIndex, null, 1)}\n`,
   };
 }
 
