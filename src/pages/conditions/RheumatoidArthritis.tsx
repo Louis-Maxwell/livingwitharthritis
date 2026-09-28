@@ -380,7 +380,7 @@ const RheumatoidArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/tools/waiting-time-calculator",
+                to: "/tools/waiting-time",
                 eyebrow: "Free tool",
                 title: "rheumatology waiting time",
                 description: "Early RA referral matters — estimate your local 2026 wait and act fast.",

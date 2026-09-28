@@ -184,13 +184,13 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Omega-3 & Fish Oil for Arthritis", href: "/blog/arthritis-and-omega-3-fish-oil" },
   { label: "Anti-Inflammatory Herbs & Spices", href: "/blog/anti-inflammatory-herbs-spices-arthritis" },
   { label: "Gut Health & Arthritis", href: "/blog/gut-health-arthritis-connection" },
-  { label: "Meal Planning for Arthritis", href: "/blog/meal-planning-arthritis-uk" },
+  { label: "Meal Planning for Arthritis", href: "/blog/arthritis-meal-planning-uk" },
   { label: "Arthritis & Weight Loss UK", href: "/blog/arthritis-and-weight-loss-uk" },
-  { label: "Arthritis Supplements UK", href: "/blog/arthritis-supplements-uk" },
+  { label: "Arthritis Supplements UK", href: "/blog/best-supplements-arthritis-uk" },
   { label: "Arthritis Medication UK", href: "/blog/arthritis-medication-guide" },
 
   // Blog – Exercise articles
-  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
+  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises-uk-clinical" },
   { label: "Knee Exercises for Osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
   { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
@@ -209,11 +209,11 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Arthritis at Work UK", href: "/blog/arthritis-and-work-uk" },
   { label: "Arthritis Flare-Up Guide", href: "/blog/arthritis-flare-up-what-to-do" },
   { label: "Osteoarthritis Symptoms UK", href: "/blog/osteoarthritis-symptoms-uk" },
-  { label: "Natural Pain Relief for Arthritis", href: "/blog/natural-pain-relief-arthritis-uk" },
-  { label: "Gardening with Arthritis", href: "/blog/gardening-with-arthritis-uk" },
+  { label: "Natural Pain Relief for Arthritis", href: "/blog/arthritis-pain-relief-natural" },
+  { label: "Gardening with Arthritis", href: "/blog/arthritis-and-gardening-uk" },
   { label: "TENS Machines for Arthritis", href: "/blog/tens-machines-arthritis-uk" },
   { label: "Spinal Arthritis & Back Pain", href: "/blog/spinal-arthritis-back-pain-uk" },
-  { label: "Mindfulness for Chronic Pain", href: "/blog/mindfulness-for-chronic-pain-uk" },
+  { label: "Mindfulness for Chronic Pain", href: "/blog/mindfulness-chronic-pain-arthritis-guide" },
   { label: "Travelling with Arthritis", href: "/blog/travelling-with-arthritis-uk" },
 
   // Daily tips

@@ -164,12 +164,8 @@ export default function StubPage({
             />
           </section>
 
-          {/* "More coming soon" + Related */}
+          {/* Related */}
           <section className="mt-12 border-t border-border pt-8">
-            <p className="text-sm text-muted-foreground italic mb-6">
-              We’re expanding this guide. Bookmark this page or subscribe to
-              our updates for new sections as they’re published.
-            </p>
 
             {relatedLinks.length > 0 && (
               <>

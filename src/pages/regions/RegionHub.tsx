@@ -156,7 +156,7 @@ const RegionHub = () => {
 
       <Header />
 
-      <PageBreadcrumb segments={[{ label: "Regions", href: "/regions" }, { label: r.name }]} />
+      <PageBreadcrumb segments={[{ label: "Arthritis support near you", href: "/arthritis-support" }, { label: r.name }]} />
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
         <div className="flex items-center gap-2 text-primary mb-3">

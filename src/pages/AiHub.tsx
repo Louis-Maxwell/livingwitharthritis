@@ -31,7 +31,7 @@ const sections = [
       { to: "/guides/newly-diagnosed", label: "Newly diagnosed" },
       { to: "/blog/knee-osteoarthritis-exercises", label: "Knee OA exercises" },
       { to: "/diet/foods-to-avoid-with-arthritis", label: "Foods to avoid" },
-      { to: "/guides/pain-management", label: "Pain management" },
+      { to: "/guides/arthritis-pain-relief", label: "Pain management" },
       { to: "/arthritis-flare-ups", label: "Flare-up management" },
       { to: "/guides/benefits-pip", label: "Benefits & PIP" },
     ],

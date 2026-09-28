@@ -341,7 +341,7 @@ const PsoriaticArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/tools/waiting-time-calculator",
+                to: "/tools/waiting-time",
                 eyebrow: "Free tool",
                 title: "rheumatology waiting time",
                 description: "PsA needs early specialist input — estimate your local 2026 wait now.",

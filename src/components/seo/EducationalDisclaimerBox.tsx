@@ -5,7 +5,7 @@ import {
   MEDICAL_DISCLAIMER_SHORT,
   educationalDisclaimerCopyMode,
 } from "@/lib/medicalDisclaimer";
-import { useDisclaimerStripShown } from "@/components/disclaimerChrome";
+import { useDisclaimerStripShown } from "@/components/disclaimerContext";
 import { PENDING_REVIEW_TEXT, type BlogReviewStatus } from "@/lib/blog/review";
 
 interface EducationalDisclaimerBoxProps {

@@ -25,9 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # --max-warnings 0: warnings fail the job too.
       - name: Run ESLint
         run: npm run lint
-        continue-on-error: false
 
   test-e2e:
     name: E2E Tests (Playwright)
@@ -44,12 +44,31 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
+
+      # The suite used to run against a dev server that was never started and
+      # was marked continue-on-error, so it could not fail. It now runs every
+      # spec in e2e/ against the built site and fails the job on any failure.
+      - name: Build
+        run: npm run build
+
+      - name: Serve build
+        run: |
+          npx --yes serve -s dist -l 4173 &
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4173 > /dev/null; then break; fi
+            sleep 1
+          done
 
       - name: Run E2E tests
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:4173
         run: npm run test:e2e
-        continue-on-error: true
 
       - name: Upload test results
         if: always()
@@ -128,9 +147,7 @@ jobs:
         run: npm ci
 
       - name: Run npm audit
-        run: npm audit --audit-level=moderate || true
-        # Note: `|| true` allows the workflow to continue even if audit finds issues
-        # Remove this if you want to enforce zero vulnerabilities
+        run: npm audit --audit-level=moderate
 
   build:
     name: Build Check
