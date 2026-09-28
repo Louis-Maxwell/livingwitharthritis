@@ -89,7 +89,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
 });
 
 describe("visibility sprint: customer-job hub polish", () => {
-  it("pain relief, newly diagnosed and PIP hubs carry 2026-09-20 review + next-step CTAs", () => {
+  it("pain relief, newly diagnosed and PIP hubs carry current review + next-step CTAs", () => {
     const pain = readFileSync(
       resolve(process.cwd(), "src/pages/guides/ArthritisPainRelief.tsx"),
       "utf8",
@@ -103,7 +103,8 @@ describe("visibility sprint: customer-job hub polish", () => {
       "utf8",
     );
 
-    expect(pain).toContain('lastReviewed="2026-09-20"');
+    // Pain + PIP deepened Champions 47–48 (28 Sep); newly diagnosed still 20 Sep sprint.
+    expect(pain).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pain).toContain("/guides/newly-diagnosed");
     expect(pain).toContain("/benefits-pip");
     expect(pain).toMatch(/pain relief/i);
@@ -112,7 +113,7 @@ describe("visibility sprint: customer-job hub polish", () => {
     expect(newly).toContain("/guides/arthritis-pain-relief");
     expect(newly).toContain("/benefits-pip");
 
-    expect(pip).toContain('lastReviewed="2026-09-20"');
+    expect(pip).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pip).toContain("/guides/benefits-pip");
     expect(pip).toContain("Next step");
   });

@@ -31,6 +31,7 @@
 | Champions 41–42 blog shoes + turmeric + customer-job hubs | **done** | Gold-pass `/blog/best-walking-shoes-arthritis-uk` + `/blog/turmeric-for-arthritis` (unique meta, citations, customer-job links, review **2026-09-20**); polish pain-relief / newly-diagnosed / benefits-PIP above-fold CTAs |
 | Champions 43–44 GSC top blogs (swimming hip OA + knee supplements) | **done** | Gold-pass `/blog/swimming-exercises-hip-osteoarthritis` + `/blog/best-supplement-for-knee-joint` — disclaimer-grade citations + cluster/customer-job links + review **2026-09-23**; B₁ #1/#2 click URLs |
 | Champions 45–46 GSC FAQ + RA diet gold-pass | **done** | Gold-pass `/faq/arthritis-disability-benefits-uk` (B₁ #3 clicks) + `/blog/anti-inflammatory-diet-rheumatoid-arthritis` (B₁ #10) — CTR meta, Louis Maxwell HCPC review **2026-09-24**, GOV.UK/NHS/NICE/Versus Arthritis cites, Access to Work + customer-job links, food-first/not-a-cure framing |
+| Champions 47–48 / early M3 pillar deepen (pain / OA / exercise / PIP) | **done** | Pillar lastReviewed **2026-09-28**; denser customer-job cross-links to gold-passed B₁ blogs/FAQ + walking / joint-protection / sick-pay / carers blogs; topicClusters + chatbot KB refresh; Vitest `gsc-champions-47-48-28-sep.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -66,6 +67,39 @@
 7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
 8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, gout treatment, AS, PIP copy, supplements/turmeric caution, library topics and symptom-checker CTAs)
 9. **Lovable publish** — publish the latest GitHub `main` so cluster/CRO/gold-pass pages are live
+
+---
+
+## Daily log — 28 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 24 Sep: Champions 47+ + early M3 pillar deepen (pain / OA / exercise / PIP cross-linking gold-passed FAQ/blog). CEO M3 must-do pulled early: 4 pillars to gold standard. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).
+
+### Shipped
+- **OA pillar deepen** (`/conditions/osteoarthritis`): `lastReviewed` **2026-09-28**; customer-job nav + denser ContextualLinks → pain hub, exercise hub, swimming hip OA, walking-with-arthritis, walking shoes, knee supplements (honest no-rebuild framing), joint-protection, benefits-PIP hub + disability benefits FAQ; NHS/NICE cites retained
+- **Pain pillar deepen** (`/guides/arthritis-pain-relief`): `lastReviewed` **2026-09-28**; strengthened links to swimming / walking / OA hub / exercise hub / PIP FAQ+hub / omega-3 + RA diet
+- **Exercise pillar deepen** (`/exercises`): `lastReviewed` **2026-09-28**; swimming hip OA + walking-with-arthritis surfaced in additionalActivities, ContextualLinks and customer-job strip
+- **PIP pillar deepen** (`/benefits-pip`): `lastReviewed` **2026-09-28**; Access to Work blog + sick-pay/fit-notes + Carer's Allowance blogs (published URLs); Gift Aid / money claims stay honest
+- **`topicClusters.ts`**: fronted walking / joint-protection / gold-pass B₁ paths in OA / exercises / pain / PIP `supportingPaths` (without stealing PIP/diet ownership of FAQ/omega-3)
+- Light **chatbot KB** related-link refresh (oa-general, oa-exercise, pain, pip-benefits, access-to-work)
+- Optional: sitemap `lastmod` **2026-09-28** on the four pillar URLs + sitemap-index
+- **Tests:** `src/lib/__tests__/gsc-champions-47-48-28-sep.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts
+- Clinical spot-check (pillar deepen wording + PIP/work/carer blogs)
+- **Lovable publish** of latest GitHub `main`
+- **GSC URL Inspection** after publish (four pillars + prior Champions gold-pass URLs)
+- FormSubmit activate if newsletter still pending
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/conditions/osteoarthritis`, `/guides/arthritis-pain-relief`, `/exercises`, `/benefits-pip` (and prior Champions)
+2. Champions 49+ from next GSC refresh / remaining thin high-impression URLs (no doorway cities)
+3. Continue M3 pillar spoke density once live HTML confirms — outreach / Ad Grants / Regulator still blocked-on-Louis
 
 ---
 

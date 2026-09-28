@@ -51,6 +51,21 @@ const LINKS = [
       "UK government grants for workplace equipment, travel and support when arthritis affects your job.",
   },
   {
+    href: "/blog/access-to-work-scheme-arthritis-guide",
+    title: "Access to Work scheme guide",
+    description: "How the Access to Work scheme can help people with arthritis stay in or return to work.",
+  },
+  {
+    href: "/blog/sick-pay-fit-notes-time-off-work-arthritis",
+    title: "Sick pay, fit notes and time off",
+    description: "Statutory sick pay, fit notes and talking to your employer about arthritis time off.",
+  },
+  {
+    href: "/blog/carers-allowance-help-if-you-care-for-someone",
+    title: "Carer's Allowance",
+    description: "Help if you care for someone with arthritis — eligibility orientation (check GOV.UK).",
+  },
+  {
     href: "/guides/work-with-arthritis",
     title: "Working with arthritis",
     description: "Reasonable adjustments, sick pay and protecting your role.",
@@ -156,7 +171,7 @@ const BenefitsPipHub = () => {
               Still in pain?
             </Link>
           </div>
-          <EducationalDisclaimerBox lastReviewed="2026-09-20" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-28" />
           <TopicClusterNav path="/benefits-pip" />
           <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
           <div className="prose prose-neutral dark:prose-invert max-w-none">
