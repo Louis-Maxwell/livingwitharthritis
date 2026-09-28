@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { afterPageLoad } from "@/lib/afterPageLoad";
 
 const SITE = "https://livingwitharthritis.org.uk";
 
@@ -39,16 +40,22 @@ export default function SeoRedirectGate({ children }: { children: ReactNode }) {
       setDest(resolver(pathname));
       return;
     }
-    loadResolver()
-      .then((resolve) => {
-        if (!cancelled) setDest(resolve(pathname));
-      })
-      .catch(() => {
-        // Redirect tables unavailable (offline / chunk error): the host-level
-        // 301s and static redirect stubs still cover crawlers.
-      });
+    // First visit: fetch the tables once the page has loaded. Retired URLs
+    // are already answered by the host 301s / static redirect stubs, so this
+    // client check is a fallback and should not compete with the page.
+    const cancelLoad = afterPageLoad(() => {
+      loadResolver()
+        .then((resolve) => {
+          if (!cancelled) setDest(resolve(pathname));
+        })
+        .catch(() => {
+          // Redirect tables unavailable (offline / chunk error): the host-level
+          // 301s and static redirect stubs still cover crawlers.
+        });
+    }, 1500);
     return () => {
       cancelled = true;
+      cancelLoad();
     };
   }, [pathname]);
 
