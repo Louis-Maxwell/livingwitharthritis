@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -93,6 +93,12 @@ const ContactSection = memo(() => {
   const [submitted, setSubmitted] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const firstErrRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
+  // Bumped on each failed submit; focus moves after React has rendered the
+  // error state (the ref only points at the first invalid field after commit).
+  const [errorAttempt, setErrorAttempt] = useState(0);
+  useEffect(() => {
+    if (errorAttempt > 0) firstErrRef.current?.focus();
+  }, [errorAttempt]);
 
   const set =
     (k: keyof ContactForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -104,7 +110,7 @@ const ContactSection = memo(() => {
     const errs = validateContact(form);
     if (Object.keys(errs).length) {
       setErrors(errs);
-      firstErrRef.current?.focus();
+      setErrorAttempt((n) => n + 1);
       return;
     }
     if (honeypot.trim()) {

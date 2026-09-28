@@ -1,6 +1,6 @@
 import { trackDonationClick } from "@/lib/ga-events";
 
-export const GAZA_IMPACT_TIERS = [
+const GAZA_IMPACT_TIERS = [
   { amount: 25, impact: "Funds three guided physiotherapy sessions for a survivor" },
   { amount: 50, impact: "Funds a pain-management consultation and a personalised exercise plan" },
   { amount: 100, impact: "Funds a week of rehabilitation for someone recovering from war injuries" },

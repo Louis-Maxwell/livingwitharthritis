@@ -29,4 +29,12 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "arthritis-and-mental-health": "arthritis-and-mental-health-uk",
   "arthritis-diet-myths-debunked": "arthritis-and-diet-myths-uk",
   "arthritis-fatigue-management": "arthritis-fatigue-management-uk",
+  // Slugs that SiteSearch, the HTML sitemap and hub pages linked to but that
+  // never existed as guides; mapped to the closest real guide.
+  "arthritis-exercises": "arthritis-exercises-uk-clinical",
+  "arthritis-supplements-uk": "best-supplements-arthritis-uk",
+  "gardening-with-arthritis-uk": "arthritis-and-gardening-uk",
+  "meal-planning-arthritis-uk": "arthritis-meal-planning-uk",
+  "mindfulness-for-chronic-pain-uk": "mindfulness-chronic-pain-arthritis-guide",
+  "natural-pain-relief-arthritis-uk": "arthritis-pain-relief-natural",
 };

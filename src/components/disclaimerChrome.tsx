@@ -1,10 +1,5 @@
-import { createContext, useContext, type ReactNode } from "react";
-
-/**
- * Set by layout chrome after the first MedicalDisclaimerStrip.
- * Nested strips return null; EducationalDisclaimerBox drops duplicate short copy.
- */
-const DisclaimerStripShownContext = createContext(false);
+import type { ReactNode } from "react";
+import { DisclaimerStripShownContext } from "@/components/disclaimerContext";
 
 export function DisclaimerStripShown({ children }: { children: ReactNode }) {
   return (
@@ -12,8 +7,4 @@ export function DisclaimerStripShown({ children }: { children: ReactNode }) {
       {children}
     </DisclaimerStripShownContext.Provider>
   );
-}
-
-export function useDisclaimerStripShown(): boolean {
-  return useContext(DisclaimerStripShownContext);
 }

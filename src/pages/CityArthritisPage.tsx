@@ -247,7 +247,7 @@ const CityArthritisPage = () => {
             subheading="Most-read next steps from people in your area."
             items={[
               {
-                to: "/tools/waiting-time-calculator",
+                to: "/tools/waiting-time",
                 eyebrow: "Free tool",
                 title: `${cityData.region} rheumatology waiting time`,
                 description: `Estimate current rheumatology waiting times for ${cityData.name} and plan ahead.`,

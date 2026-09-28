@@ -54,8 +54,11 @@ jobs:
       - name: Install
         run: npm ci --prefer-offline --no-audit --no-fund
 
+      # The root tsconfig.json has "files": [] (project references only), so a
+      # bare `tsc --noEmit` checked nothing. Check both real projects; this also
+      # fails on missing or misspelled imports.
       - name: Typecheck
-        run: npx tsc --noEmit
+        run: npm run typecheck
 
       # Alerts on Tailwind utilities that are ambiguous (e.g. duration-[1200ms])
       # or that bypass the design tokens, before they reach a build.
@@ -83,6 +86,11 @@ jobs:
 
       - name: Blog HTML gate
         run: npm run blog:html-gate
+
+      # Every internal link in the built HTML, sitemap, React source and guide
+      # content must resolve to a route, a built page or a redirect.
+      - name: Internal link check
+        run: npm run links:check
 
       - name: Upload prerender meta report
         if: always()

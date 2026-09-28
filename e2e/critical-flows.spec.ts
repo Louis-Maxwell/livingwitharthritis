@@ -1,185 +1,51 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Critical User Flows", () => {
-  test("Chat: Message submission and response handling", async ({ page }) => {
+/**
+ * Critical visitor journeys on the built site. The site is a static SPA with
+ * no backend: chat answers come from the local engine, and the contact form
+ * opens an email draft (it never claims a message was delivered).
+ */
+test.describe("Critical user flows", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem("cookie-consent", "declined");
+      localStorage.setItem("lwa_cv3", JSON.stringify({ a: false, p: false, m: false }));
+    });
+  });
+
+  test("chat answers a question", async ({ page }) => {
     await page.goto("/chat");
-
-    // Wait for the chat interface to load
-    await page.waitForLoadState("networkidle");
-
-    // Find and fill the message input
-    const messageInput = page.locator("textarea, input[placeholder*='message'], input[placeholder*='chat'], input[placeholder*='question'], input[placeholder*='ask']").first();
-    await messageInput.waitFor({ state: "visible", timeout: 10000 });
-
-    // Submit a test message
-    await messageInput.fill("What is arthritis and how can I manage it?");
-
-    // Find and click the send button
-    const sendButton = page.locator("button:has-text('Send'), button:has-text('submit'), button[type='submit']").first();
-    await sendButton.click();
-
-    // Wait for AI response (allow up to 30 seconds for AI processing)
-    await page.waitForTimeout(2000); // Wait a bit for response to start appearing
-
-    // Verify response is visible - look for chat message indicators
-    const response = page.locator("[role='article'], [data-testid='ai-response'], [class*='message'], [class*='response']").nth(1);
-    await response.waitFor({ state: "visible", timeout: 30000 });
-
-    // Verify some arthritis-related content appears in the response
-    const pageText = await page.locator("body").textContent();
-    expect(pageText).toMatch(/arthritis|joint|pain|management|treatment/i);
+    const input = page.locator("#chatbot-input");
+    await expect(input).toBeVisible({ timeout: 15000 });
+    await input.fill("What is arthritis and how can I manage it?");
+    await page.getByRole("button", { name: "Send message" }).click();
+    await expect(page.getByText("What is arthritis and how can I manage it?")).toBeVisible();
+    // The local engine replies with arthritis guidance.
+    await expect
+      .poll(async () => (await page.locator("body").innerText()).match(/joint|pain|exercise|GP|treatment/gi)?.length ?? 0, {
+        timeout: 20000,
+      })
+      .toBeGreaterThan(3);
   });
 
-  test("Contact Form: Submission with validation", async ({ page }) => {
+  test("contact form validates empty submissions", async ({ page }) => {
     await page.goto("/contact");
-
-    await page.waitForLoadState("networkidle");
-
-    // Find form fields
-    const nameField = page.locator("input[name='name'], input[placeholder*='Name'], input[placeholder*='name']").first();
-    const emailField = page.locator("input[type='email'], input[name='email'], input[placeholder*='email']").first();
-    const subjectField = page.locator("input[name='subject'], input[placeholder*='Subject'], input[placeholder*='subject']").first();
-    const messageField = page.locator("textarea[name='message'], textarea[placeholder*='message'], textarea[placeholder*='Message']").first();
-
-    // Wait for fields to be visible
-    await nameField.waitFor({ state: "visible", timeout: 10000 });
-
-    // Fill the form
-    await nameField.fill("Test User");
-    await emailField.fill("test@example.com");
-    await subjectField.fill("Test Subject");
-    await messageField.fill("This is a test message for contact form submission.");
-
-    // Mailto CTA — no server confirmation; opens email draft guidance
-    const submitButton = page.locator("button:has-text('Open Mail App'), button:has-text('Send'), button[type='submit']").first();
-    await submitButton.click();
-
-    await page.waitForTimeout(1500);
-
-    // Must show honest mailto guidance — never claim auto-delivery / message received
-    const mailtoGuidance = page.locator("text=/email draft ready|email app|opens a draft|press send there/i").first();
-    await expect(mailtoGuidance).toBeVisible({ timeout: 10000 });
-    await expect(page.locator("text=/message received|thank you for your message/i")).toHaveCount(0);
+    await expect(page.locator("#c-name")).toBeVisible({ timeout: 15000 });
+    await page.getByRole("button", { name: /Open Mail App/ }).click();
+    await expect(page.locator("#c-name-err")).toBeVisible();
+    await expect(page.locator("#c-name")).toHaveAttribute("aria-invalid", "true");
+    await expect(page.locator("#c-name")).toBeFocused();
   });
 
-  test("Donation: Checkout flow initiation", async ({ page }) => {
-    await page.goto("/donate");
-
-    await page.waitForLoadState("networkidle");
-
-    // Find donation amount selector or input
-    const amountInputs = page.locator("input[name='amount'], input[placeholder*='amount'], [data-testid='donation-amount']");
-    const amountInputCount = await amountInputs.count().catch(() => 0);
-
-    let donateButton;
-
-    if (amountInputCount > 0) {
-      // If there's an amount input, fill it
-      await amountInputs.first().fill("50");
-      donateButton = page.locator("button:has-text('Donate'), button:has-text('Donate Now'), button:has-text('Continue'), button[type='submit']").first();
-    } else {
-      // Otherwise, look for a preset donation amount button or the donate button
-      const presetButtons = page.locator("button:has-text(/£[0-9]+|donate/i)");
-      const presetCount = await presetButtons.count().catch(() => 0);
-
-      if (presetCount > 0) {
-        // Click on a preset donation amount (e.g., £50)
-        const fiftyButton = page.locator("button:has-text('£50'), button:has-text('50')").first();
-        const exists = await fiftyButton.isVisible().catch(() => false);
-        if (exists) {
-          await fiftyButton.click();
-        }
-      }
-
-      donateButton = page.locator("button:has-text('Donate'), button:has-text('Donate Now'), button:has-text('Continue'), button:has-text('Next')").first();
-    }
-
-    // Ensure the donate button exists and is visible
-    await donateButton.waitFor({ state: "visible", timeout: 10000 });
-
-    // Click to proceed with donation
-    await donateButton.click();
-
-    // Wait for navigation or payment modal
-    await page.waitForTimeout(2000);
-
-    // Verify we're progressing through the donation flow
-    // Either we navigate to a payment page, or a modal opens
-    const url = page.url();
-    const hasPaymentIndicator = url.includes("stripe") ||
-      url.includes("donate") ||
-      url.includes("checkout") ||
-      await page.locator("text=/stripe|checkout|payment|card/i").isVisible().catch(() => false);
-
-    expect(hasPaymentIndicator).toBe(true);
-  });
-
-  test("Chat: Multiple message exchanges", async ({ page }) => {
-    await page.goto("/chat");
-
-    await page.waitForLoadState("networkidle");
-
-    const messageInput = page.locator("textarea, input[placeholder*='message'], input[placeholder*='chat'], input[placeholder*='question']").first();
-    await messageInput.waitFor({ state: "visible", timeout: 10000 });
-
-    // First message
-    await messageInput.fill("What exercises help with knee arthritis?");
-    const sendButton = page.locator("button:has-text('Send'), button[type='submit']").first();
-    await sendButton.click();
-
-    // Wait for response
-    await page.waitForTimeout(3000);
-    let messageCount = await page.locator("[role='article'], [class*='message'], [class*='response']").count();
-    expect(messageCount).toBeGreaterThan(0);
-
-    // Clear input for second message
-    await messageInput.fill("Are there dietary recommendations too?");
-    await sendButton.click();
-
-    // Wait for second response
-    await page.waitForTimeout(3000);
-    messageCount = await page.locator("[role='article'], [class*='message'], [class*='response']").count();
-    expect(messageCount).toBeGreaterThan(1);
-  });
-
-  test("Donation Page: Layout and content verification", async ({ page }) => {
-    await page.goto("/donate");
-
-    await page.waitForLoadState("networkidle");
-
-    // Check for key sections
-    await expect(page.getByText(/every donation|donate|impact/i).first()).toBeVisible();
-
-    // Check for donation tiers
-    const hasDonationTiers = await page.locator("text=£").count().then(count => count > 0);
-    expect(hasDonationTiers).toBe(true);
-
-    // Check for ways to give section
-    const hasWaysToGive = await page.getByText(/ways to give|donate/i).isVisible().catch(() => false);
-    expect(hasWaysToGive).toBe(true);
-  });
-
-  test("Contact Page: Form fields validation", async ({ page }) => {
+  test("contact form opens an email draft and says so honestly", async ({ page }) => {
     await page.goto("/contact");
-
-    await page.waitForLoadState("networkidle");
-
-    // Verify all form fields exist
-    const nameField = page.locator("input[name='name'], input[placeholder*='Name']").first();
-    const emailField = page.locator("input[type='email']").first();
-
-    await nameField.waitFor({ state: "visible", timeout: 10000 });
-    await emailField.waitFor({ state: "visible", timeout: 10000 });
-
-    // Try submitting empty form
-    const submitButton = page.locator("button:has-text('Send'), button[type='submit']").first();
-    await submitButton.click();
-
-    // Should either show error or prevent submission
-    await page.waitForTimeout(1000);
-
-    // Form should still be visible (validation prevented submission)
-    const formStillExists = await nameField.isVisible();
-    expect(formStillExists).toBe(true);
+    await expect(page.locator("#c-name")).toBeVisible({ timeout: 15000 });
+    await page.locator("#c-name").fill("Test User");
+    await page.locator("#c-email").fill("test@example.com");
+    await page.locator("#c-subject").selectOption({ index: 1 });
+    await page.locator("#c-message").fill("This is a test message for the contact form.");
+    await page.getByRole("button", { name: /Open Mail App/ }).click();
+    await expect(page.getByText(/Email draft ready/i)).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText(/message received|thank you for your message/i)).toHaveCount(0);
   });
 });

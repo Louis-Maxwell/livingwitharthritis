@@ -51,6 +51,8 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
     }
   };
 
+  const fundLabel = getFundLabel();
+
   const handleCheckout = useCallback(async () => {
     setIsLoading(true);
     setError(null);
@@ -70,9 +72,9 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         donateUrl ? `Stripe donate link rejected: ${validated.reason}` : "Stripe donate link not configured",
       );
       openMailto({
-        subject: `Donation of ${sym}${amount.toFixed(2)} (${getFundLabel()})`,
+        subject: `Donation of ${sym}${amount.toFixed(2)} (${fundLabel})`,
         body: [
-          `I would like to donate ${sym}${amount.toFixed(2)} to ${getFundLabel()}.`,
+          `I would like to donate ${sym}${amount.toFixed(2)} to ${fundLabel}.`,
           recurring ? "This would be a monthly gift." : "This would be a one-off gift.",
           giftAid ? "I would like Gift Aid applied." : "",
           "",
@@ -92,7 +94,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
     } finally {
       setIsLoading(false);
     }
-  }, [amount, currency, fundType, giftAid, recurring, onClose]);
+  }, [amount, sym, fundLabel, giftAid, recurring, onClose]);
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
