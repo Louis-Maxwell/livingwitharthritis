@@ -1,5 +1,5 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { Suspense, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { htmlToPlainText } from "@/lib/sanitize";
 
-import { useBlogArticle } from "@/hooks/useBlogArticles";
+import { useBlogArticle } from "@/hooks/useBlogArticle";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -23,8 +23,9 @@ import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
+import ViewportSection from "@/components/ViewportSection";
+import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
 import { Skeleton } from "@/components/ui/skeleton";
-import { marked } from "marked";
 import {
   dedentIndentedHtmlForMarked,
   unwrapEscapedHtmlCodeBlocks,
@@ -36,13 +37,13 @@ import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { setLastRead } from "@/lib/lastReadArticle";
-import { getArticleImages, coverImage, onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/articleImages";
+import { coverFromFile, pickArticleImages } from "@/lib/articleImagePicks";
+import { onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/coverFallback";
 import NotFound from "@/pages/NotFound";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
-import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import { getClusterForPath } from "@/data/topicClusters";
-import { getBlogMeta } from "@/lib/blog/catalog";
+import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import {
   PENDING_REVIEW_TEXT,
   blogReviewSchemaFields,
@@ -50,6 +51,9 @@ import {
 } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
+// Below-the-fold article furniture loads as the reader scrolls towards it
+// (ViewportSection), so the first paint only pays for the article itself.
+const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
 const BlogHelpfulness = lazyWithRetry(() => import("@/components/BlogHelpfulness"));
 const RelatedArticles = lazyWithRetry(() => import("@/components/RelatedArticles"));
@@ -97,21 +101,55 @@ function looksLikeMarkdown(src: string): boolean {
   return /(?:^|\n)#{1,6}\s+\S/.test(src) || /(?:^|\n)(?:[-*+]|\d+\.)\s+\S/.test(src);
 }
 
-function markdownToHtml(md: string): string {
+function prepareArticleSource(md: string): string {
   // Database may store literal \n instead of real newlines
   const normalized = md.replace(/\\n/g, "\n");
-  const trimmed = normalized.trim();
   // Already-stored escaped HTML inside <pre><code> (legacy marked bug) → real HTML.
-  const unwrapped = unwrapEscapedHtmlCodeBlocks(trimmed);
+  return unwrapEscapedHtmlCodeBlocks(normalized.trim());
+}
+
+/** Pure HTML (no leftover markdown) can be sanitized without the parser. */
+function needsMarkdownParser(md: string | undefined | null): boolean {
+  if (!md) return false;
+  const unwrapped = prepareArticleSource(md);
+  return !(unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped));
+}
+
+/** True once the markdown parser is available (immediately when not needed). */
+function useMarkdownParserReady(needed: boolean): boolean {
+  const [ready, setReady] = useState(() => !needed || getMarkdownParser() !== null);
+  useEffect(() => {
+    if (!needed || getMarkdownParser()) {
+      setReady(true);
+      return;
+    }
+    let cancelled = false;
+    setReady(false);
+    // On a failed download, show the guide sanitised as-is rather than a
+    // skeleton that never resolves.
+    const done = () => {
+      if (!cancelled) setReady(true);
+    };
+    loadMarkdownParser().then(done, done);
+    return () => {
+      cancelled = true;
+    };
+  }, [needed]);
+  return ready;
+}
+
+function markdownToHtml(md: string): string {
+  const unwrapped = prepareArticleSource(md);
   // Pure HTML (no leftover markdown) — sanitize only.
   // Mixed HTML + markdown (common after quick-answer blocks) must go through marked,
   // otherwise headings/lists stay as literal text and KeyTakeaways scrape related-links.
-  if (unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)) {
+  const markdownParser = getMarkdownParser();
+  if ((unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)) || !markdownParser) {
     return sanitizeHtml(unwrapped);
   }
   // Dedent indented HTML so marked never fences block tags as <pre><code>.
   const forMarked = dedentIndentedHtmlForMarked(unwrapped);
-  const rawHtml = marked.parse(forMarked, { async: false }) as string;
+  const rawHtml = markdownParser(forMarked);
   return sanitizeHtml(unwrapEscapedHtmlCodeBlocks(rawHtml));
 }
 
@@ -149,6 +187,7 @@ const BlogPost = () => {
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
   // Hooks must run on every render — never after the loading/404 early returns.
   const viewCount = useBlogViews(redirectTo ? undefined : slug);
+  const markdownReady = useMarkdownParserReady(needsMarkdownParser(article?.content));
 
   // Persist last-read immediately for "Continue reading" on /blog.
   useEffect(() => {
@@ -173,7 +212,7 @@ const BlogPost = () => {
   }
 
 
-  if (isLoading) {
+  if (isLoading || (article && !markdownReady)) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -200,9 +239,11 @@ const BlogPost = () => {
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
-  const cover = coverImage(article.category, article.title, slug || article.title);
+  // The loaded guide carries its own cover file (the same value the listing
+  // cover map is generated from), so the article page never needs that map.
+  const cover = coverFromFile(article.cover);
   // Topic-matched body figures only (may be empty). Hero always uses unique cover.
-  const relatedImages = getArticleImages(article.category, article.title, slug || article.title, article.keywords).slice(1);
+  const relatedImages = pickArticleImages(cover, article.category, article.title, slug || article.title, article.keywords).slice(1);
   const coverAbsolute = cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
@@ -241,7 +282,7 @@ const BlogPost = () => {
   // emit a completed review, whatever reviewed_by says.
   const reviewStatus = resolveBlogReviewStatus(
     article as { reviewStatus?: string | null },
-    getBlogMeta(slug),
+    getBlogReviewMeta(slug),
   );
   const isPendingReview = reviewStatus === "pending";
   const hasVerifiedReviewer =
@@ -259,7 +300,7 @@ const BlogPost = () => {
   const blogLastReviewed =
     (typeof (article as { last_reviewed?: string }).last_reviewed === "string" &&
       (article as { last_reviewed?: string }).last_reviewed) ||
-    getBlogMeta(slug)?.last_reviewed ||
+    getBlogReviewMeta(slug)?.last_reviewed ||
     (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw) ? updatedAtRaw.slice(0, 10) : article.date);
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
@@ -609,7 +650,7 @@ const BlogPost = () => {
           </div>
 
           {slug && (
-            <Suspense fallback={null}>
+            <ViewportSection>
               <InlineRelatedStrip
                 currentSlug={slug}
                 currentCategory={article.category}
@@ -619,7 +660,7 @@ const BlogPost = () => {
                 heading="Keep reading — related articles"
                 limit={2}
               />
-            </Suspense>
+            </ViewportSection>
           )}
 
           <section
@@ -655,14 +696,14 @@ const BlogPost = () => {
               </figure>
             )}
             {slug && htmlAfterStrip && (
-              <Suspense fallback={null}>
+              <ViewportSection>
                 <MidArticleNextSteps
                   currentSlug={slug}
                   category={article.category}
                   title={article.title}
                   keywords={article.keywords ?? undefined}
                 />
-              </Suspense>
+              </ViewportSection>
             )}
             {htmlAfterStrip && (
               <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
@@ -686,7 +727,7 @@ const BlogPost = () => {
             )}
           </section>
 
-          <Suspense fallback={null}>
+          <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
             <ArticleFaqSection faqs={faqs} />
             {slug && (
@@ -700,7 +741,7 @@ const BlogPost = () => {
             )}
             <ArticleClosingCTA title={article.title} category={article.category} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
-          </Suspense>
+          </ViewportSection>
 
           {/* Print footer: only visible when saving to PDF / printing */}
           <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
@@ -716,14 +757,14 @@ const BlogPost = () => {
 
 
 
-          <Suspense fallback={null}>
+          <ViewportSection>
             <ArticleCitations citations={citations} />
-          </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={null}>
+          <ViewportSection>
             {slug && <FeedbackPoll slug={slug} title={article.title} />}
             <HealthToolsCTA />
-          </Suspense>
+          </ViewportSection>
 
           </div>{/* end article column */}
 
@@ -749,7 +790,7 @@ const BlogPost = () => {
                 <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="footer" />
               </div>
             )}
-            <Suspense fallback={null}>
+            <ViewportSection>
               {slug && <BlogHelpfulness slug={slug} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
               {slug && (
@@ -764,7 +805,7 @@ const BlogPost = () => {
                 />
               )}
               {slug && <BlogComments slug={slug} />}
-            </Suspense>
+            </ViewportSection>
           </footer>
         </main>
         {slug && (
@@ -772,14 +813,16 @@ const BlogPost = () => {
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
             <EducationalDisclaimerBox lastReviewed={blogLastReviewed} reviewStatus={reviewStatus} />
             {getClusterForPath(`/blog/${slug}`) && (
-              <TopicClusterNav path={`/blog/${slug}`} />
+              <ViewportSection>
+                <TopicClusterNav path={`/blog/${slug}`} />
+              </ViewportSection>
             )}
           </div>
           </DisclaimerStripShown>
         )}
         </article>
         <div className="no-print">
-          <Suspense fallback={null}>
+          <ViewportSection>
             {slug && <ContinueReadingBar currentSlug={slug} />}
             <InternalLinks
               tags={[
@@ -796,7 +839,7 @@ const BlogPost = () => {
               count={4}
             />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
-          </Suspense>
+          </ViewportSection>
           <Footer />
         </div>
 

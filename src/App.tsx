@@ -1,6 +1,4 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import SeoRedirectGate from "./components/SeoRedirectGate";
@@ -8,6 +6,9 @@ import { Suspense, useEffect, type ReactNode } from "react";
 
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
 const Sonner = lazyWithRetry(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
+// Radix toast viewport: also deferred. use-toast keeps queued toasts in memory,
+// so anything fired before it mounts still appears.
+const Toaster = lazyWithRetry(() => import("@/components/ui/toaster").then(m => ({ default: m.Toaster })));
 import { PageTransition } from "@/components/ui/PageTransition";
 import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
 import { useScrollDepth } from "@/hooks/useScrollDepth";
@@ -568,10 +569,9 @@ const App = () => {
     <HelmetProvider>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
         <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
             <DeferredMount timeout={2000}>
               <Suspense fallback={null}>
+                <Toaster />
                 <Sonner />
               </Suspense>
             </DeferredMount>
@@ -599,7 +599,6 @@ const App = () => {
                 </ErrorBoundary>
               </DeferredMount>
             </BrowserRouter>
-          </TooltipProvider>
         </QueryClientProvider>
       </ThemeProvider>
     </HelmetProvider>

@@ -31,12 +31,15 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
   return (
     <div
       className="fixed right-4 left-4 sm:left-auto z-[100] sm:max-w-sm max-w-full"
-      style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem + 0.5rem)" }}
+      // Sits just above the mobile bottom nav as a compact sheet, so it no
+      // longer covers the page title on phones. It is above the help button
+      // (z-50) while visible: one prompt at a time.
+      style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 0.5rem)" }}
       role="region"
       aria-label="Cookie consent"
     >
       <div className="bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl overflow-hidden">
-        <div className="p-5">
+        <div className="p-4 sm:p-5">
           <div className="flex items-start gap-3">
             <Lock className="w-6 h-6 text-primary mt-0.5 shrink-0" aria-hidden="true" />
             <div>
@@ -73,7 +76,7 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
             </div>
           )}
 
-          <div className="mt-5 flex flex-col sm:flex-row gap-2">
+          <div className="mt-3 sm:mt-5 flex flex-wrap gap-2">
             {!open ? (
               <>
                 <button

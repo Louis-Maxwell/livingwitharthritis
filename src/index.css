@@ -755,9 +755,12 @@
   .page-enter {
     animation: pageEnter 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
+  /* Slide only, never fade from opacity 0: browsers skip fully transparent
+     paints when timing Largest Contentful Paint, so a fade-in made the page
+     title invisible to LCP and pushed it back to whatever painted last. */
   @keyframes pageEnter {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { transform: translateY(12px); }
+    to { transform: translateY(0); }
   }
 
   /* ─── Hover lift for interactive cards ─── */
@@ -1164,13 +1167,12 @@
   animation: pageEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Slide only (no opacity fade) — see the note on the first pageEnter. */
 @keyframes pageEnter {
   from {
-    opacity: 0;
     transform: translateY(8px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -1647,15 +1649,13 @@
 }
 
 /* Header DonationQuickBar placeholder (Header.tsx Suspense fallback).
-   The bar is flex-wrap, so its height depends on viewport width. Heights
-   measured on the live bar (Inter loaded) at 1px steps, 25 Sep 2026:
-   <303px 262 · 303–359 220 · 360–465 178 · 466–639 136 · 640–702 140 ·
-   703–1339 96 · ≥1340 52 (single row; 1340 leaves room for a desktop
-   scrollbar). Update these if DonationQuickBar's content changes. */
-.donation-quickbar-placeholder { height: 262px; }
-@media (min-width: 303px) { .donation-quickbar-placeholder { height: 220px; } }
-@media (min-width: 360px) { .donation-quickbar-placeholder { height: 178px; } }
-@media (min-width: 466px) { .donation-quickbar-placeholder { height: 136px; } }
+   Below 640px the bar is a single compact row (Donate + Zakat) that expands
+   on request. From 640px it is flex-wrap, so its height depends on viewport
+   width. Heights measured on the live bar (Inter loaded) at 1px steps:
+   <640 52 · 640–702 140 · 703–1339 96 · ≥1340 52 (single row; 1340 leaves
+   room for a desktop scrollbar). Update these if DonationQuickBar's content
+   changes. */
+.donation-quickbar-placeholder { height: 52px; }
 @media (min-width: 640px) { .donation-quickbar-placeholder { height: 140px; } }
 @media (min-width: 703px) { .donation-quickbar-placeholder { height: 96px; } }
 @media (min-width: 1340px) { .donation-quickbar-placeholder { height: 52px; } }

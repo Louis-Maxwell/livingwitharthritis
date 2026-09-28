@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ChangeEvent, type KeyboardEvent, type PointerEvent } from 'react';
+import { afterPageLoad } from "@/lib/afterPageLoad";
 import { Headphones, Pause, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -396,22 +397,13 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
         })
         .catch(() => undefined);
     };
-    // Defer optional MP3 probe so it does not contend with article LCP.
-    let idleId = 0;
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    if (typeof w.requestIdleCallback === 'function') {
-      idleId = w.requestIdleCallback(probeMp3, { timeout: 2000 });
-    } else {
-      idleId = window.setTimeout(probeMp3, 1200);
-    }
+    // Defer the optional MP3 probe until after the page has loaded so it
+    // never contends with the article itself.
+    const cancelProbe = afterPageLoad(probeMp3, 2000);
 
     return () => {
       window.cancelAnimationFrame(raf);
-      if (typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(idleId);
-      else window.clearTimeout(idleId);
+      cancelProbe();
       ctrl.abort();
       cleanupVoices();
       cancelSpeech();

@@ -36,6 +36,12 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
+  // Mount the drawer on first open, then keep it mounted so its close
+  // animation can play.
+  const [resourceDrawerMounted, setResourceDrawerMounted] = useState(false);
+  useEffect(() => {
+    if (resourceDrawerOpen) setResourceDrawerMounted(true);
+  }, [resourceDrawerOpen]);
   
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -658,7 +664,7 @@ const Header = () => {
         </>
       )}
 
-      <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>
+      {resourceDrawerMounted && <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>}
     </>
   );
 };

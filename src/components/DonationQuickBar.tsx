@@ -1,15 +1,12 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import StripeDonationModal from "@/components/StripeDonationModal";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link } from "react-router-dom";
+
+// The payment modal (and its animation library) is fetched only when a
+// supporter actually starts a donation.
+const StripeDonationModal = lazyWithRetry(() => import("@/components/StripeDonationModal"));
 
 const PRESETS = [50, 150, 200, 500];
 
@@ -27,6 +24,9 @@ const DonationQuickBar = () => {
   const [selectedPreset, setSelectedPreset] = useState<number | null>(50);
   const [fund, setFund] = useState("research");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // On phones the full bar used to fill a third of the first screen above
+  // every page; it now starts as one row and opens on request.
+  const [mobileExpanded, setMobileExpanded] = useState(false);
 
   const activeAmount = amount ? parseFloat(amount) : selectedPreset ?? 0;
 
@@ -43,7 +43,29 @@ const DonationQuickBar = () => {
     <>
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-3 sm:px-4 py-2">
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          {!mobileExpanded && (
+            <div className="flex items-center justify-center gap-2 sm:hidden">
+              <button
+                type="button"
+                onClick={() => setMobileExpanded(true)}
+                aria-expanded={false}
+                aria-controls="donation-quick-bar-options"
+                className="h-9 inline-flex items-center px-4 rounded-full bg-background text-primary text-sm font-extrabold tracking-[0.1em]"
+              >
+                DONATE
+              </button>
+              <Link
+                to="/zakat-appeal"
+                className="h-9 inline-flex items-center px-4 rounded-full text-sm font-extrabold tracking-[0.1em] text-primary-foreground hover:bg-background/10 transition-colors"
+              >
+                ZAKAT APPEAL
+              </Link>
+            </div>
+          )}
+          <div
+            id="donation-quick-bar-options"
+            className={`${mobileExpanded ? "flex" : "hidden sm:flex"} flex-wrap items-center justify-center gap-1.5 sm:gap-2`}
+          >
             {/* Frequency pill toggle */}
             <div className="flex items-center bg-background/15 rounded-full p-0.5 h-9">
               {(["one-time", "monthly"] as const).map((f) => (
@@ -109,21 +131,20 @@ const DonationQuickBar = () => {
             })}
 
             {/* Fund select */}
-            <Select value={fund} onValueChange={setFund}>
-              <SelectTrigger
-                aria-label="Choose appeal"
-                className="h-9 bg-background/15 text-primary-foreground border-0 rounded-full text-xs font-semibold w-[120px] sm:w-[160px] px-3 sm:px-4 focus:ring-0 focus:ring-offset-0 [&>svg]:opacity-80"
-              >
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {FUND_OPTIONS.map((opt) => (
-                  <SelectItem key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {/* Native select: accessible by default and avoids shipping the
+                Radix Select bundle in the site-wide header. */}
+            <select
+              value={fund}
+              onChange={(e) => setFund(e.target.value)}
+              aria-label="Choose appeal"
+              className="h-9 bg-background/15 text-primary-foreground border-0 rounded-full text-xs font-semibold w-[120px] sm:w-[160px] px-3 sm:px-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-background cursor-pointer [&>option]:text-foreground [&>option]:bg-background"
+            >
+              {FUND_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
 
             {/* DONATE */}
             <Button
@@ -145,13 +166,17 @@ const DonationQuickBar = () => {
         </div>
       </div>
 
-      <StripeDonationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        amount={activeAmount}
-        currency="GBP"
-        fundType={fund}
-      />
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <StripeDonationModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            amount={activeAmount}
+            currency="GBP"
+            fundType={fund}
+          />
+        </Suspense>
+      )}
     </>
   );
 };

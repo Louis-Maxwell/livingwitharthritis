@@ -15,6 +15,7 @@ import { canonicalBlogCategoryKey, blogCategoryAliases } from "@/data/blogCatego
 import type { BlogCitation, BlogMeta, BlogPost } from "./schema";
 
 export type { BlogCitation, BlogMeta, BlogPost } from "./schema";
+export { loadBlogPost } from "./postLoader";
 
 /** Listing row. `tags` is optional and currently unused by the data. */
 export type BlogListItem = BlogMeta & { tags?: string[] | null };
@@ -22,11 +23,6 @@ export type BlogListItem = BlogMeta & { tags?: string[] | null };
 const CATALOG: readonly BlogListItem[] = catalogJson as BlogListItem[];
 const BY_SLUG = new Map(CATALOG.map((row) => [row.slug, row]));
 
-const POST_LOADERS = import.meta.glob<BlogPost>("/src/content/blog/posts/*.json", {
-  import: "default",
-});
-
-/** Every published guide, ordered by display_order desc then newest date. */
 export function getBlogCatalog(): BlogListItem[] {
   return CATALOG as BlogListItem[];
 }
@@ -37,15 +33,6 @@ export function getBlogMeta(slug: string | undefined | null): BlogListItem | und
 
 export function hasBlogPost(slug: string | undefined | null): boolean {
   return !!slug && BY_SLUG.has(slug);
-}
-
-/** Lazy-load one full guide (body, citations, credentials). */
-export async function loadBlogPost(slug: string | undefined | null): Promise<BlogPost | null> {
-  if (!slug || !BY_SLUG.has(slug)) return null;
-  const loader = POST_LOADERS[`/src/content/blog/posts/${slug}.json`];
-  if (!loader) return null;
-  const post = await loader();
-  return post && post.is_published ? post : null;
 }
 
 export function sortBlogList<T extends { display_order?: number; date?: string }>(items: T[]): T[] {

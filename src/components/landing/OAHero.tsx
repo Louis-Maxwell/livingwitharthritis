@@ -1,7 +1,7 @@
 import { memo, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, HeartPulse } from "lucide-react";
-import { onCoverImgError } from "@/lib/articleImages";
+import { onCoverImgError } from "@/lib/coverFallback";
 import { trackStartHereCard } from "@/lib/ga-events";
 
 /**

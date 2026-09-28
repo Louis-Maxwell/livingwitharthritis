@@ -1,11 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
-import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 import {
   expandCategoryAliases,
   getBlogCatalog,
   getBlogMeta,
-  loadBlogPost,
   nextBlogPost,
   type BlogPost,
 } from "@/lib/blog/catalog";
@@ -15,19 +13,7 @@ export type { BlogCitation as BlogArticleCitation, BlogListItem } from "@/lib/bl
 /** Full guide record (kept under its historic name for existing callers). */
 export type DBBlogArticle = BlogPost;
 
-/** Single article by slug — body is lazy-loaded from its own chunk. */
-export function useBlogArticle(slug: string | undefined) {
-  const initialData =
-    typeof document === "undefined"
-      ? null
-      : readEmbeddedBlogArticle<DBBlogArticle>(document, slug);
-  return useQuery({
-    queryKey: ["blog_article", slug],
-    queryFn: async () => (slug ? loadBlogPost(slug) : null),
-    enabled: !!slug,
-    ...(initialData ? { initialData, initialDataUpdatedAt: Date.now() } : {}),
-  });
-}
+export { useBlogArticle } from "./useBlogArticle";
 
 /** All published articles (metadata only), ordered by display_order then date. */
 export function useBlogArticlesList() {

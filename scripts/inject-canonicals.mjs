@@ -53,6 +53,36 @@ const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 const readJson = (path) =>
   existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
 
+// Vite build manifest (build.manifest in vite.config.ts). Used to preload a
+// route's own chunk from its static HTML so it downloads alongside the entry
+// bundle instead of only after the entry has run.
+const VITE_MANIFEST = readJson(join(DIST, ".vite", "manifest.json"));
+const BLOG_POST_ENTRY = "src/pages/BlogPost.tsx";
+
+/** The chunk for `entry` plus its static imports, as /assets/... URLs. */
+export function chunkPreloadUrls(manifest, entry) {
+  const seen = new Set();
+  const urls = [];
+  const visit = (key) => {
+    if (seen.has(key)) return;
+    seen.add(key);
+    const chunk = manifest[key];
+    if (!chunk?.file) return;
+    urls.push(`/${chunk.file}`);
+    for (const dep of chunk.imports ?? []) visit(dep);
+  };
+  visit(entry);
+  return urls;
+}
+
+/** Adds modulepreload links for `urls` that the HTML does not already load. */
+export function addModulePreloads(html, urls) {
+  const missing = urls.filter((url) => !html.includes(`"${url}"`));
+  if (missing.length === 0) return html;
+  const links = missing.map((url) => `<link rel="modulepreload" crossorigin href="${url}">`).join("\n    ");
+  return html.replace(/<\/head>/i, `    ${links}\n</head>`);
+}
+
 // Author/reviewer bio pages: real named heads built from the same reviewed
 // records the React page renders, so E-E-A-T signals survive without JS.
 function authorHeadData() {
@@ -461,7 +491,10 @@ function enrichHead(html, route, url, override) {
   out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
     visible: false,
   });
-  if (d.article) out = embedArticleJson(out, d.article);
+  if (d.article) {
+    out = embedArticleJson(out, d.article);
+    out = addModulePreloads(out, chunkPreloadUrls(VITE_MANIFEST, BLOG_POST_ENTRY));
+  }
 
   return out;
 }
