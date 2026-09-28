@@ -1,56 +1,17 @@
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
-import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import { afterPageLoad } from "./lib/afterPageLoad";
+import { installErrorReporting } from "./lib/errorReporting";
 import { installChunkRecovery, removeStaleServiceWorkers } from "./lib/chunkRecovery.ts";
 import "./index.css";
 
-// Initialize Sentry (incl. session replay) only after explicit analytics consent
-const hasAnalyticsConsent = () => {
-  try {
-    if (localStorage.getItem("cookie-consent") === "accepted") return true;
-    const raw = localStorage.getItem("lwa_cv3");
-    if (!raw) return false;
-    return JSON.parse(raw).a === true;
-  } catch {
-    return false;
-  }
-};
-
-let sentryInitialized = false;
-
-const initializeSentry = () => {
-  if (sentryInitialized) return;
-  if (!hasAnalyticsConsent()) return;
-  if (!import.meta.env.VITE_SENTRY_DSN) {
-    return;
-  }
-  sentryInitialized = true;
-
-  Sentry.init({
-    dsn: import.meta.env.VITE_SENTRY_DSN,
-    environment: import.meta.env.MODE,
-    tracesSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
-    integrations: [
-      Sentry.replayIntegration({
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
-    replaysSessionSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
-    replaysOnErrorSampleRate: 1.0,
-    allowUrls: [/^https?:\/\/(www\.)?livingwitharthritis\.org\.uk(?:\/|$)/],
-  });
-};
-
+// Error reporting first, so failures during start-up are captured too.
 // Stale-deploy recovery must be installed before any lazy chunk is requested.
+installErrorReporting();
 installChunkRecovery();
 removeStaleServiceWorkers();
-
-initializeSentry();
-window.addEventListener("cookie-consent-accepted", initializeSentry);
 
 // Core Web Vitals (LCP, FCP, CLS, INP, TTFB). Loaded after first paint; the
 // library uses buffered PerformanceObservers so early entries are not lost.

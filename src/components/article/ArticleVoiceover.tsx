@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ChangeEvent, type KeyboardEvent, type PointerEvent } from 'react';
-import { afterPageLoad } from "@/lib/afterPageLoad";
+import { articleAudioUrl } from "@/data/articleAudio";
 import { Headphones, Pause, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -166,7 +166,7 @@ function resolveNarration(textProp?: string): string {
 /**
  * In-browser "Listen to this article" player.
  * Speaks immediately via the Web Speech API (no network request).
- * Falls back to a static `/audio/{slug}.mp3` when that file exists.
+ * Uses a recorded `/audio/{slug}.mp3` instead for guides in the audio registry.
  */
 export default function ArticleVoiceover({ slug, className, text }: ArticleVoiceoverProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -341,7 +341,7 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
     [refreshNarration],
   );
 
-  // Warm voices, probe optional static mp3, estimate duration from the article DOM.
+  // Warm voices, pick a recorded narration if one exists, estimate duration from the article DOM.
   useEffect(() => {
     usedSpeechRef.current = false;
     pausedRef.current = false;
@@ -383,28 +383,16 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
       refreshNarration();
     });
 
-    const ctrl = new AbortController();
-    const mp3Path = `/audio/${slug}.mp3`;
-    const probeMp3 = () => {
-      fetch(mp3Path, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal })
-        .then((res) => {
-          const type = (res.headers.get('content-type') || '').toLowerCase();
-          // SPA hosts sometimes return 200 HTML for missing files — only trust real audio.
-          if (res.ok && type.includes('audio/')) {
-            setMp3Url(mp3Path);
-            mp3UrlRef.current = mp3Path;
-          }
-        })
-        .catch(() => undefined);
-    };
-    // Defer the optional MP3 probe until after the page has loaded so it
-    // never contends with the article itself.
-    const cancelProbe = afterPageLoad(probeMp3, 2000);
+    // Recorded narration only for guides listed in the audio registry
+    // (no network probe).
+    const recording = articleAudioUrl(slug);
+    if (recording) {
+      setMp3Url(recording);
+      mp3UrlRef.current = recording;
+    }
 
     return () => {
       window.cancelAnimationFrame(raf);
-      cancelProbe();
-      ctrl.abort();
       cleanupVoices();
       cancelSpeech();
     };

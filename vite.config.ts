@@ -6,7 +6,6 @@ import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
-import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
 // Prerender is ON by default for production builds so crawlers (Googlebot's
@@ -109,15 +108,6 @@ export default defineConfig(({ mode }) => {
         template: "treemap",
       }),
 
-    mode === "production" &&
-      sentryVitePlugin({
-        org: process.env.SENTRY_ORG,
-        project: process.env.SENTRY_PROJECT,
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-        sourcemaps: {
-          assets: ["./dist/**"],
-        },
-      }),
   ].filter(Boolean),
   resolve: {
     alias: {

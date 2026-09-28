@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -133,7 +134,8 @@ export default function WaysToHelp() {
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("volunteer", error instanceof Error ? error.message : "submit failed");
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
       setSubmitting(false);

@@ -15,6 +15,7 @@ import { trackContactSubmit } from "@/lib/analytics";
 import { submitContactInquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 import { trackEvent } from "@/lib/analytics";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
 const WHATSAPP_URL = `https://wa.me/44${CONTACT_PHONE_TEL.replace(/^0/, "")}`;
@@ -126,7 +127,8 @@ const ContactSection = memo(() => {
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("contact_section", error instanceof Error ? error.message : "submit failed");
       toast.error(
         `Something went wrong. Please email ${CONTACT_EMAIL} or call ${CONTACT_PHONE}.`,
       );

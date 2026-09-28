@@ -10,6 +10,7 @@ import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { motion, AnimatePresence } from "framer-motion";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 interface StripeDonationModalProps {
   isOpen: boolean;
@@ -60,10 +61,12 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         window.location.href = validated.url;
         return;
       }
-      if (donateUrl && !validated.ok) {
-        // Misconfigured env — fail safe to mailto / in-app donate path (no open redirect).
-        console.warn("VITE_STRIPE_DONATE_URL rejected:", validated.reason);
-      }
+      // No usable card-payment link: the donor is sent to an email draft
+      // instead, so record it where the charity will see it.
+      reportFormFailure(
+        "donation_checkout",
+        donateUrl ? `Stripe donate link rejected: ${validated.reason}` : "Stripe donate link not configured",
+      );
       openMailto({
         subject: `Donation of ${sym}${amount.toFixed(2)} (${getFundLabel()})`,
         body: [
@@ -80,6 +83,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         "Card payments are temporarily unavailable. We've opened an email so our team can send you a secure payment link — thank you for your support.",
       );
     } catch (err) {
+      reportFormFailure("donation_checkout", err instanceof Error ? err.message : "submit failed");
       const msg = err instanceof Error ? err.message : "Failed to create checkout";
       setError(msg);
       toast.error(msg);

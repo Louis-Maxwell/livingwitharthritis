@@ -22,7 +22,7 @@ function footer(doc: jsPDF) {
   const h = doc.internal.pageSize.getHeight();
   doc.setFontSize(8);
   doc.setTextColor(160, 160, 160);
-  doc.text("Living With Arthritis UK  •  livingwitharthritis.lovable.app  •  Free resource — not medical advice", 15, h - 8);
+  doc.text("Living With Arthritis UK  •  livingwitharthritis.org.uk  •  Free resource — not medical advice", 15, h - 8);
   doc.setTextColor(GRAY.r, GRAY.g, GRAY.b);
 }
 
