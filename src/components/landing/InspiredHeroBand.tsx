@@ -1,8 +1,9 @@
-import { memo, useState, lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { memo, useState, Suspense } from "react";
 import { Heart, RefreshCw } from "lucide-react";
 import { fullWidthSizes, portraitHeroWomenOutdoors, portraitHeroWomenOutdoorsSrcSet } from "@/data/images";
 
-const StripeDonationModal = lazy(() => import("@/components/StripeDonationModal"));
+const StripeDonationModal = lazyWithRetry(() => import("@/components/StripeDonationModal"));
 
 const PRESET_AMOUNTS = [25, 55, 100, 300, 500];
 

@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -12,7 +13,7 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_HEALTH_SERVICES } from "@/data/clinical/ukCitations";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const HEALTH_SERVICES_FAQS = [
   { question: "How do I get a rheumatology referral in the UK?", answer: "Book a GP appointment and describe your joint symptoms, including pattern, duration and morning stiffness. The GP can refer you to rheumatology. Suspected inflammatory arthritis (e.g. swollen small joints with morning stiffness over 30 minutes) should trigger an urgent referral to be seen within 3 weeks." },

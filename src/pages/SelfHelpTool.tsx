@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,8 +12,8 @@ import { HeartPulse, Target, Zap, Shield, Heart } from "lucide-react";
 import ClinicalReviewBadge from "@/components/ai/ClinicalReviewBadge";
 import AnswerBox from "@/components/seo/AnswerBox";
 
-const VirtualPhysioSection = lazy(() => import("@/components/VirtualPhysioSection"));
-const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
+const VirtualPhysioSection = lazyWithRetry(() => import("@/components/VirtualPhysioSection"));
+const JointExerciseSection = lazyWithRetry(() => import("@/components/JointExerciseSection"));
 
 const SectionLoader = () => (
   <div className="py-8 flex items-center justify-center">

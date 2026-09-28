@@ -1,7 +1,8 @@
-import { memo, useState, lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { memo, useState, Suspense } from "react";
 import { Heart } from "lucide-react";
 
-const StripeDonationModal = lazy(() => import("@/components/StripeDonationModal"));
+const StripeDonationModal = lazyWithRetry(() => import("@/components/StripeDonationModal"));
 
 interface QuickDonateButtonProps {
   amount: number;

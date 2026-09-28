@@ -9,7 +9,8 @@
  * See docs/CUSTOMER-FIRST.md.
  */
 
-import { lazy, Suspense, useEffect } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
@@ -33,17 +34,17 @@ const withVisitorSnippet = (rest: string) =>
 
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
-const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-const HomeToolsBand = lazy(() => import("@/components/landing/HomeToolsBand"));
-const HomeZakatLink = lazy(() => import("@/components/landing/HomeZakatLink"));
-const ConditionPillBand = lazy(() => import("@/components/landing/ConditionPillBand"));
-const LatestGrid = lazy(() => import("@/components/landing/LatestGrid"));
-const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
-const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
-const Footer = lazy(() => import("@/components/Footer"));
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
-const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
-const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
+const JointExerciseSection = lazyWithRetry(() => import("@/components/JointExerciseSection"));
+const HomeToolsBand = lazyWithRetry(() => import("@/components/landing/HomeToolsBand"));
+const HomeZakatLink = lazyWithRetry(() => import("@/components/landing/HomeZakatLink"));
+const ConditionPillBand = lazyWithRetry(() => import("@/components/landing/ConditionPillBand"));
+const LatestGrid = lazyWithRetry(() => import("@/components/landing/LatestGrid"));
+const ImpactProgressBand = lazyWithRetry(() => import("@/components/landing/ImpactProgressBand"));
+const FinalDonateBand = lazyWithRetry(() => import("@/components/landing/FinalDonateBand"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
+const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
+const BackToTopButton = lazyWithRetry(() => import("@/components/landing/BackToTopButton"));
+const MobileBottomCTA = lazyWithRetry(() => import("@/components/landing/MobileBottomCTA"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 

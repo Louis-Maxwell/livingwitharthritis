@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -17,8 +18,8 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const Footer = lazy(() => import("@/components/Footer"));
-const InternalLinks = lazy(() => import("@/components/InternalLinks"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
+const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
 
 interface HubLink {
   label: string;

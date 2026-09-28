@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
@@ -19,7 +20,7 @@ import { CHARITY } from "@/config/charity";
 import { CONTACT_PHONE, CONTACT_PHONE_E164 } from "@/config/contact";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 
-const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
+const FounderStoryBand = lazyWithRetry(() => import("@/components/landing/FounderStoryBand"));
 
 
 const sectionIcons: Record<string, React.ElementType> = {

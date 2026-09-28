@@ -1,4 +1,5 @@
-﻿import { lazy, Suspense, type ReactNode, type ElementType } from "react";
+﻿import { Suspense, type ReactNode, type ElementType } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
@@ -26,11 +27,11 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 
 // Below-the-fold — lazy to reduce initial route chunk + speed up LCP
-const InternalLinks = lazy(() => import("@/components/InternalLinks"));
-const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
-const ContextualLinks = lazy(() => import("@/components/ContextualLinks"));
-const ConditionSubpageLinks = lazy(() => import("@/components/ConditionSubpageLinks"));
-const ConditionBlogStrip = lazy(() => import("@/components/ConditionBlogStrip"));
+const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
+const CrossLinkBanner = lazyWithRetry(() => import("@/components/CrossLinkBanner"));
+const ContextualLinks = lazyWithRetry(() => import("@/components/ContextualLinks"));
+const ConditionSubpageLinks = lazyWithRetry(() => import("@/components/ConditionSubpageLinks"));
+const ConditionBlogStrip = lazyWithRetry(() => import("@/components/ConditionBlogStrip"));
 
 const BASE = "https://livingwitharthritis.org.uk";
 

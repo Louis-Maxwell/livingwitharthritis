@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -8,7 +9,7 @@ import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const UK_ARTHRITIS_FAQS = [
   { question: "How many people in the UK have arthritis?", answer: "Around 10 million people in the UK live with arthritis — roughly 1 in 6 adults. Osteoarthritis is by far the most common type, affecting more than 8.75 million people, followed by rheumatoid arthritis (around 400,000) and psoriatic arthritis (around 146,000)." },

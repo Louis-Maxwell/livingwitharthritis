@@ -1,12 +1,13 @@
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import SeoRedirectGate from "./components/SeoRedirectGate";
-import { lazy, Suspense, useEffect, type ReactNode } from "react";
+import { Suspense, useEffect, type ReactNode } from "react";
 
 // Defer Sonner toaster — it triggers layout reads on mount that cause forced reflow
-const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
+const Sonner = lazyWithRetry(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
 import { PageTransition } from "@/components/ui/PageTransition";
 import { useCartSync } from "@/hooks/useCartSync";
 import { useLinkPrefetch } from "@/hooks/useLinkPrefetch";
@@ -26,238 +27,238 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 // shipping it in the main bundle removes a Suspense round-trip on first paint.
 import Index from "./pages/Index";
 import GuideLayout from "./components/layouts/GuideLayout";
-const LocalizedHome = lazy(() => import("./pages/LocalizedHome"));
-const LocalizedOsteoarthritis = lazy(() => import("./pages/LocalizedOsteoarthritis"));
+const LocalizedHome = lazyWithRetry(() => import("./pages/LocalizedHome"));
+const LocalizedOsteoarthritis = lazyWithRetry(() => import("./pages/LocalizedOsteoarthritis"));
 
-const ChatBotWidget = lazy(() => import("./components/ChatBotWidget"));
-const CookieBanner = lazy(() => import("./components/landing/CookieBanner"));
-const AccessibilityToolbar = lazy(() => import("./components/AccessibilityToolbar"));
-const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
-const MobileNextStepBar = lazy(() => import("./components/MobileNextStepBar"));
-const DonationNotification = lazy(() => import("./components/DonationNotification"));
-const EngagementTracker = lazy(() => import("./components/EngagementTracker"));
+const ChatBotWidget = lazyWithRetry(() => import("./components/ChatBotWidget"));
+const CookieBanner = lazyWithRetry(() => import("./components/landing/CookieBanner"));
+const AccessibilityToolbar = lazyWithRetry(() => import("./components/AccessibilityToolbar"));
+const MobileBottomNav = lazyWithRetry(() => import("./components/MobileBottomNav"));
+const MobileNextStepBar = lazyWithRetry(() => import("./components/MobileNextStepBar"));
+const DonationNotification = lazyWithRetry(() => import("./components/DonationNotification"));
+const EngagementTracker = lazyWithRetry(() => import("./components/EngagementTracker"));
 
 
 // Lazy load pages for code splitting
-const Chat = lazy(() => import("./pages/Chat"));
-const Auth = lazy(() => import("./pages/Auth"));
-const OAuthConsent = lazy(() => import("./pages/OAuthConsent"));
-const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
-const AdminAppointments = lazy(() => import("./pages/AdminAppointments"));
-const AdminPsiDashboard = lazy(() => import("./pages/AdminPsiDashboard"));
-const AdminEmails = lazy(() => import("./pages/AdminEmails"));
-const AdminSeoHealth = lazy(() => import("./pages/AdminSeoHealth"));
-const AdminDistribute = lazy(() => import("./pages/AdminDistribute"));
-const AdminRankTracker = lazy(() => import("./pages/AdminRankTracker"));
-const AdminKeywordStrategy = lazy(() => import("./pages/AdminKeywordStrategy"));
-const AdminContentRefresh = lazy(() => import("./pages/AdminContentRefresh"));
-const AdminBacklinks = lazy(() => import("./pages/AdminBacklinks"));
-const AdminChatFeedback = lazy(() => import("./pages/AdminChatFeedback"));
-const BlogIndex = lazy(() => import("./pages/BlogIndex"));
-const BlogArchive = lazy(() => import("./pages/BlogArchive"));
-const Library = lazy(() => import("./pages/Library"));
-const GuidesHub = lazy(() => import("./pages/GuidesHub"));
-const BenefitsPipHub = lazy(() => import("./pages/BenefitsPipHub"));
-const SearchPage = lazy(() => import("./pages/SearchPage"));
-const LibraryTopic = lazy(() => import("./pages/LibraryTopic"));
-const BlogHub = lazy(() => import("./pages/BlogHub"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const Sitemap = lazy(() => import("./pages/Sitemap"));
-const DailyTipDetail = lazy(() => import("./pages/DailyTipDetail"));
-const AboutUs = lazy(() => import("./pages/AboutUs"));
-const AITransparency = lazy(() => import("./pages/about/AITransparency"));
-const UkArthritisSearchInsights = lazy(() => import("./pages/about/UkArthritisSearchInsights"));
-const Sources = lazy(() => import("./pages/about/Sources"));
-const AICitations = lazy(() => import("./pages/about/AICitations"));
-const AIGuidelines = lazy(() => import("./pages/about/AIGuidelines"));
-const AiHub = lazy(() => import("./pages/AiHub"));
-const AccessibilityForAi = lazy(() => import("./pages/about/AccessibilityForAi"));
-const EditorialClaimsPolicy = lazy(() => import("./pages/about/EditorialClaimsPolicy"));
-const FlareActionPlan = lazy(() => import("./pages/resources/FlareActionPlan"));
-const PipEvidenceDiary = lazy(() => import("./pages/resources/PipEvidenceDiary"));
-const ClinicPack = lazy(() => import("./pages/resources/ClinicPack"));
-const HealthcareProfessionals = lazy(() => import("./pages/HealthcareProfessionals"));
-const ResourceCentre = lazy(() => import("./pages/ResourceCentre"));
-const Osteoarthritis = lazy(() => import("./pages/conditions/Osteoarthritis"));
-const RheumatoidArthritis = lazy(() => import("./pages/conditions/RheumatoidArthritis"));
-const PsoriaticArthritis = lazy(() => import("./pages/conditions/PsoriaticArthritis"));
-const Gout = lazy(() => import("./pages/conditions/Gout"));
-const AnkylosingSpondylitis = lazy(() => import("./pages/conditions/AnkylosingSpondylitis"));
-const JuvenileArthritis = lazy(() => import("./pages/conditions/JuvenileArthritis"));
-const Fibromyalgia = lazy(() => import("./pages/conditions/Fibromyalgia"));
-const Lupus = lazy(() => import("./pages/conditions/Lupus"));
-const KneeArthritis = lazy(() => import("./pages/conditions/KneeArthritis"));
-const HipArthritis = lazy(() => import("./pages/conditions/HipArthritis"));
-const HandArthritis = lazy(() => import("./pages/conditions/HandArthritis"));
-const ShoulderArthritis = lazy(() => import("./pages/conditions/ShoulderArthritis"));
-const ElbowArthritis = lazy(() => import("./pages/conditions/ElbowArthritis"));
-const FootAndAnkleArthritis = lazy(() => import("./pages/conditions/FootAndAnkleArthritis"));
-const PolymyalgiaRheumatica = lazy(() => import("./pages/conditions/PolymyalgiaRheumatica"));
-const ReactiveArthritis = lazy(() => import("./pages/conditions/ReactiveArthritis"));
-const CalcificPeriarthritis = lazy(() => import("./pages/conditions/CalcificPeriarthritis"));
-const SelfHelpTool = lazy(() => import("./pages/SelfHelpTool"));
-const SymptomChecker = lazy(() => import("./pages/SymptomChecker"));
-const ZakatAppeal = lazy(() => import("./pages/ZakatAppeal"));
-const ExerciseHub = lazy(() => import("./pages/ExerciseHub"));
-const DietHub = lazy(() => import("./pages/DietHub"));
-const MediterraneanDietForArthritis = lazy(() => import("./pages/diet/MediterraneanDietForArthritis"));
-const FoodsToAvoidWithArthritis = lazy(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
-const KneeOsteoarthritisExercises = lazy(() => import("./pages/blog/KneeOsteoarthritisExercises"));
-const DoesCrackingKnucklesCauseArthritis = lazy(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
-const TrustCredibility = lazy(() => import("./pages/TrustCredibility"));
-const CommunityHub = lazy(() => import("./pages/CommunityHub"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const CookiesPolicy = lazy(() => import("./pages/CookiesPolicy"));
-const AccessibilityPage = lazy(() => import("./pages/Accessibility"));
+const Chat = lazyWithRetry(() => import("./pages/Chat"));
+const Auth = lazyWithRetry(() => import("./pages/Auth"));
+const OAuthConsent = lazyWithRetry(() => import("./pages/OAuthConsent"));
+const AdminDashboard = lazyWithRetry(() => import("./pages/AdminDashboard"));
+const AdminAppointments = lazyWithRetry(() => import("./pages/AdminAppointments"));
+const AdminPsiDashboard = lazyWithRetry(() => import("./pages/AdminPsiDashboard"));
+const AdminEmails = lazyWithRetry(() => import("./pages/AdminEmails"));
+const AdminSeoHealth = lazyWithRetry(() => import("./pages/AdminSeoHealth"));
+const AdminDistribute = lazyWithRetry(() => import("./pages/AdminDistribute"));
+const AdminRankTracker = lazyWithRetry(() => import("./pages/AdminRankTracker"));
+const AdminKeywordStrategy = lazyWithRetry(() => import("./pages/AdminKeywordStrategy"));
+const AdminContentRefresh = lazyWithRetry(() => import("./pages/AdminContentRefresh"));
+const AdminBacklinks = lazyWithRetry(() => import("./pages/AdminBacklinks"));
+const AdminChatFeedback = lazyWithRetry(() => import("./pages/AdminChatFeedback"));
+const BlogIndex = lazyWithRetry(() => import("./pages/BlogIndex"));
+const BlogArchive = lazyWithRetry(() => import("./pages/BlogArchive"));
+const Library = lazyWithRetry(() => import("./pages/Library"));
+const GuidesHub = lazyWithRetry(() => import("./pages/GuidesHub"));
+const BenefitsPipHub = lazyWithRetry(() => import("./pages/BenefitsPipHub"));
+const SearchPage = lazyWithRetry(() => import("./pages/SearchPage"));
+const LibraryTopic = lazyWithRetry(() => import("./pages/LibraryTopic"));
+const BlogHub = lazyWithRetry(() => import("./pages/BlogHub"));
+const BlogPost = lazyWithRetry(() => import("./pages/BlogPost"));
+const Sitemap = lazyWithRetry(() => import("./pages/Sitemap"));
+const DailyTipDetail = lazyWithRetry(() => import("./pages/DailyTipDetail"));
+const AboutUs = lazyWithRetry(() => import("./pages/AboutUs"));
+const AITransparency = lazyWithRetry(() => import("./pages/about/AITransparency"));
+const UkArthritisSearchInsights = lazyWithRetry(() => import("./pages/about/UkArthritisSearchInsights"));
+const Sources = lazyWithRetry(() => import("./pages/about/Sources"));
+const AICitations = lazyWithRetry(() => import("./pages/about/AICitations"));
+const AIGuidelines = lazyWithRetry(() => import("./pages/about/AIGuidelines"));
+const AiHub = lazyWithRetry(() => import("./pages/AiHub"));
+const AccessibilityForAi = lazyWithRetry(() => import("./pages/about/AccessibilityForAi"));
+const EditorialClaimsPolicy = lazyWithRetry(() => import("./pages/about/EditorialClaimsPolicy"));
+const FlareActionPlan = lazyWithRetry(() => import("./pages/resources/FlareActionPlan"));
+const PipEvidenceDiary = lazyWithRetry(() => import("./pages/resources/PipEvidenceDiary"));
+const ClinicPack = lazyWithRetry(() => import("./pages/resources/ClinicPack"));
+const HealthcareProfessionals = lazyWithRetry(() => import("./pages/HealthcareProfessionals"));
+const ResourceCentre = lazyWithRetry(() => import("./pages/ResourceCentre"));
+const Osteoarthritis = lazyWithRetry(() => import("./pages/conditions/Osteoarthritis"));
+const RheumatoidArthritis = lazyWithRetry(() => import("./pages/conditions/RheumatoidArthritis"));
+const PsoriaticArthritis = lazyWithRetry(() => import("./pages/conditions/PsoriaticArthritis"));
+const Gout = lazyWithRetry(() => import("./pages/conditions/Gout"));
+const AnkylosingSpondylitis = lazyWithRetry(() => import("./pages/conditions/AnkylosingSpondylitis"));
+const JuvenileArthritis = lazyWithRetry(() => import("./pages/conditions/JuvenileArthritis"));
+const Fibromyalgia = lazyWithRetry(() => import("./pages/conditions/Fibromyalgia"));
+const Lupus = lazyWithRetry(() => import("./pages/conditions/Lupus"));
+const KneeArthritis = lazyWithRetry(() => import("./pages/conditions/KneeArthritis"));
+const HipArthritis = lazyWithRetry(() => import("./pages/conditions/HipArthritis"));
+const HandArthritis = lazyWithRetry(() => import("./pages/conditions/HandArthritis"));
+const ShoulderArthritis = lazyWithRetry(() => import("./pages/conditions/ShoulderArthritis"));
+const ElbowArthritis = lazyWithRetry(() => import("./pages/conditions/ElbowArthritis"));
+const FootAndAnkleArthritis = lazyWithRetry(() => import("./pages/conditions/FootAndAnkleArthritis"));
+const PolymyalgiaRheumatica = lazyWithRetry(() => import("./pages/conditions/PolymyalgiaRheumatica"));
+const ReactiveArthritis = lazyWithRetry(() => import("./pages/conditions/ReactiveArthritis"));
+const CalcificPeriarthritis = lazyWithRetry(() => import("./pages/conditions/CalcificPeriarthritis"));
+const SelfHelpTool = lazyWithRetry(() => import("./pages/SelfHelpTool"));
+const SymptomChecker = lazyWithRetry(() => import("./pages/SymptomChecker"));
+const ZakatAppeal = lazyWithRetry(() => import("./pages/ZakatAppeal"));
+const ExerciseHub = lazyWithRetry(() => import("./pages/ExerciseHub"));
+const DietHub = lazyWithRetry(() => import("./pages/DietHub"));
+const MediterraneanDietForArthritis = lazyWithRetry(() => import("./pages/diet/MediterraneanDietForArthritis"));
+const FoodsToAvoidWithArthritis = lazyWithRetry(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
+const KneeOsteoarthritisExercises = lazyWithRetry(() => import("./pages/blog/KneeOsteoarthritisExercises"));
+const DoesCrackingKnucklesCauseArthritis = lazyWithRetry(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
+const TrustCredibility = lazyWithRetry(() => import("./pages/TrustCredibility"));
+const CommunityHub = lazyWithRetry(() => import("./pages/CommunityHub"));
+const PrivacyPolicy = lazyWithRetry(() => import("./pages/PrivacyPolicy"));
+const CookiesPolicy = lazyWithRetry(() => import("./pages/CookiesPolicy"));
+const AccessibilityPage = lazyWithRetry(() => import("./pages/Accessibility"));
 
-const ArthritisFlareUps = lazy(() => import("./pages/ArthritisFlareUps"));
-const BlogCategory = lazy(() => import("./pages/BlogCategory"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const Shop = lazy(() => import("./pages/Shop"));
-const ProductDetail = lazy(() => import("./pages/ProductDetail"));
-const ArthritisSupportIndex = lazy(() => import("./pages/ArthritisSupportIndex"));
-const CityArthritisPage = lazy(() => import("./pages/CityArthritisPage"));
-const CityConditionPage = lazy(() => import("./pages/CityConditionPage"));
-const ExerciseJointPage = lazy(() => import("./pages/ExerciseJointPage"));
-const CorporateGiving = lazy(() => import("./pages/CorporateGiving"));
-const DonationSuccess = lazy(() => import("./pages/DonationSuccess"));
-const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
-const Governance = lazy(() => import("./pages/Governance"));
+const ArthritisFlareUps = lazyWithRetry(() => import("./pages/ArthritisFlareUps"));
+const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"));
+const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
+const Shop = lazyWithRetry(() => import("./pages/Shop"));
+const ProductDetail = lazyWithRetry(() => import("./pages/ProductDetail"));
+const ArthritisSupportIndex = lazyWithRetry(() => import("./pages/ArthritisSupportIndex"));
+const CityArthritisPage = lazyWithRetry(() => import("./pages/CityArthritisPage"));
+const CityConditionPage = lazyWithRetry(() => import("./pages/CityConditionPage"));
+const ExerciseJointPage = lazyWithRetry(() => import("./pages/ExerciseJointPage"));
+const CorporateGiving = lazyWithRetry(() => import("./pages/CorporateGiving"));
+const DonationSuccess = lazyWithRetry(() => import("./pages/DonationSuccess"));
+const Unsubscribe = lazyWithRetry(() => import("./pages/Unsubscribe"));
+const Governance = lazyWithRetry(() => import("./pages/Governance"));
 
-const ImpactStories = lazy(() => import("./pages/ImpactStories"));
-const WaysToHelp = lazy(() => import("./pages/WaysToHelp"));
-const TermsConditions = lazy(() => import("./pages/TermsConditions"));
-const Safeguarding = lazy(() => import("./pages/Safeguarding"));
-const Complaints = lazy(() => import("./pages/Complaints"));
-const Donate = lazy(() => import("./pages/Donate"));
-const ExerciseCircuit500 = lazy(() => import("./pages/campaigns/ExerciseCircuit500"));
-const UKArthritisGuide = lazy(() => import("./pages/pillar/UKArthritisGuide"));
-const HealthServicesGuide = lazy(() => import("./pages/pillar/HealthServicesGuide"));
-const DietGuide = lazy(() => import("./pages/pillar/DietGuide"));
-const ExerciseGuide = lazy(() => import("./pages/pillar/ExerciseGuide"));
-const ArthritisPainRelief = lazy(() => import("./pages/guides/ArthritisPainRelief"));
-const UnderstandingPain = lazy(() => import("./pages/guides/UnderstandingPain"));
-const CanExerciseMakeOsteoarthritisWorse = lazy(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
-const HipExercisesForOsteoarthritis = lazy(() => import("./pages/guides/HipExercisesForOsteoarthritis"));
-const KneeExercisesForOsteoarthritis = lazy(() => import("./pages/guides/KneeExercisesForOsteoarthritis"));
-const FreeArthritisResourcesUK = lazy(() => import("./pages/guides/FreeArthritisResourcesUK"));
-const ShoulderPainRelief = lazy(() => import("./pages/guides/ShoulderPainRelief"));
-const SteroidsGuide = lazy(() => import("./pages/pillar/SteroidsGuide"));
-const AzathioprineGuide = lazy(() => import("./pages/pillar/AzathioprineGuide"));
-const FebuxostatGoutGuide = lazy(() => import("./pages/pillar/FebuxostatGoutGuide"));
-const PainkillersNsaidsGuide = lazy(() => import("./pages/pillar/PainkillersNsaidsGuide"));
-const BenefitsPIPGuide = lazy(() => import("./pages/pillar/BenefitsPIPGuide"));
-const KneeReplacementSurgeryGuide = lazy(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
-const Press = lazy(() => import("./pages/Press"));
-const Partners = lazy(() => import("./pages/Partners"));
-const LivedExperiences = lazy(() => import("./pages/LivedExperiences"));
-const ExpertArticles = lazy(() => import("./pages/ExpertArticles"));
-const ResourceDirectory = lazy(() => import("./pages/ResourceDirectory"));
-const HealthTools = lazy(() => import("./pages/HealthTools"));
-const Services = lazy(() => import("./pages/Services"));
-const FAQ = lazy(() => import("./pages/FAQ"));
+const ImpactStories = lazyWithRetry(() => import("./pages/ImpactStories"));
+const WaysToHelp = lazyWithRetry(() => import("./pages/WaysToHelp"));
+const TermsConditions = lazyWithRetry(() => import("./pages/TermsConditions"));
+const Safeguarding = lazyWithRetry(() => import("./pages/Safeguarding"));
+const Complaints = lazyWithRetry(() => import("./pages/Complaints"));
+const Donate = lazyWithRetry(() => import("./pages/Donate"));
+const ExerciseCircuit500 = lazyWithRetry(() => import("./pages/campaigns/ExerciseCircuit500"));
+const UKArthritisGuide = lazyWithRetry(() => import("./pages/pillar/UKArthritisGuide"));
+const HealthServicesGuide = lazyWithRetry(() => import("./pages/pillar/HealthServicesGuide"));
+const DietGuide = lazyWithRetry(() => import("./pages/pillar/DietGuide"));
+const ExerciseGuide = lazyWithRetry(() => import("./pages/pillar/ExerciseGuide"));
+const ArthritisPainRelief = lazyWithRetry(() => import("./pages/guides/ArthritisPainRelief"));
+const UnderstandingPain = lazyWithRetry(() => import("./pages/guides/UnderstandingPain"));
+const CanExerciseMakeOsteoarthritisWorse = lazyWithRetry(() => import("./pages/guides/CanExerciseMakeOsteoarthritisWorse"));
+const HipExercisesForOsteoarthritis = lazyWithRetry(() => import("./pages/guides/HipExercisesForOsteoarthritis"));
+const KneeExercisesForOsteoarthritis = lazyWithRetry(() => import("./pages/guides/KneeExercisesForOsteoarthritis"));
+const FreeArthritisResourcesUK = lazyWithRetry(() => import("./pages/guides/FreeArthritisResourcesUK"));
+const ShoulderPainRelief = lazyWithRetry(() => import("./pages/guides/ShoulderPainRelief"));
+const SteroidsGuide = lazyWithRetry(() => import("./pages/pillar/SteroidsGuide"));
+const AzathioprineGuide = lazyWithRetry(() => import("./pages/pillar/AzathioprineGuide"));
+const FebuxostatGoutGuide = lazyWithRetry(() => import("./pages/pillar/FebuxostatGoutGuide"));
+const PainkillersNsaidsGuide = lazyWithRetry(() => import("./pages/pillar/PainkillersNsaidsGuide"));
+const BenefitsPIPGuide = lazyWithRetry(() => import("./pages/pillar/BenefitsPIPGuide"));
+const KneeReplacementSurgeryGuide = lazyWithRetry(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
+const Press = lazyWithRetry(() => import("./pages/Press"));
+const Partners = lazyWithRetry(() => import("./pages/Partners"));
+const LivedExperiences = lazyWithRetry(() => import("./pages/LivedExperiences"));
+const ExpertArticles = lazyWithRetry(() => import("./pages/ExpertArticles"));
+const ResourceDirectory = lazyWithRetry(() => import("./pages/ResourceDirectory"));
+const HealthTools = lazyWithRetry(() => import("./pages/HealthTools"));
+const Services = lazyWithRetry(() => import("./pages/Services"));
+const FAQ = lazyWithRetry(() => import("./pages/FAQ"));
 
-const Contact = lazy(() => import("./pages/Contact"));
-const RegionHub = lazy(() => import("./pages/regions/RegionHub"));
-const WaitingListHelp = lazy(() => import("./pages/WaitingListHelp"));
-const WaitingTimeCalculator = lazy(() => import("./pages/tools/WaitingTimeCalculator"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Credits = lazy(() => import("./pages/Credits"));
-const TaiChiForBalance = lazy(() => import("./pages/exercises/TaiChiForBalance"));
-const TaiChiForArthritis = lazy(() => import("./pages/exercises/TaiChiForArthritis"));
-const SeatedTaiChiForArthritis = lazy(() => import("./pages/exercises/SeatedTaiChiForArthritis"));
-const TaiChiForBeginners = lazy(() => import("./pages/exercises/TaiChiForBeginners"));
-const AnkleArthritisExercises = lazy(() => import("./pages/exercises/AnkleArthritisExercises"));
-const NeckArthritisExercises = lazy(() => import("./pages/exercises/NeckArthritisExercises"));
-const ExerciseConditionPage = lazy(() => import("./pages/ExerciseConditionPage"));
-const ConditionSubpagePage = lazy(() => import("./pages/ConditionSubpagePage"));
-const CityServicePage = lazy(() => import("./pages/CityServicePage"));
-const Pedometer = lazy(() => import("./pages/Pedometer"));
-const SelfAssessment = lazy(() => import("./pages/SelfAssessment"));
-const Buddy = lazy(() => import("./pages/Buddy"));
-const BuddyMatch = lazy(() => import("./pages/BuddyMatch"));
-const DebugSchema = lazy(() => import("./pages/DebugSchema"));
-const EditorialStandards = lazy(() => import("./pages/EditorialStandards"));
-const MedicalDisclaimer = lazy(() => import("./pages/MedicalDisclaimer"));
-const SeoContentFrameworkPage = lazy(() => import("./pages/SeoContentFrameworkPage"));
-const AuthorProfile = lazy(() => import("./pages/AuthorProfile"));
-const AuthorsIndex = lazy(() => import("./pages/AuthorsIndex"));
-const SupplementsHub = lazy(() => import("./pages/supplements/SupplementsHub"));
-const Glucosamine = lazy(() => import("./pages/supplements/Glucosamine"));
-const Msm = lazy(() => import("./pages/supplements/Msm"));
-const Turmeric = lazy(() => import("./pages/supplements/Turmeric"));
-const Collagen = lazy(() => import("./pages/supplements/Collagen"));
-const CollagenAlternatives = lazy(
+const Contact = lazyWithRetry(() => import("./pages/Contact"));
+const RegionHub = lazyWithRetry(() => import("./pages/regions/RegionHub"));
+const WaitingListHelp = lazyWithRetry(() => import("./pages/WaitingListHelp"));
+const WaitingTimeCalculator = lazyWithRetry(() => import("./pages/tools/WaitingTimeCalculator"));
+const Gallery = lazyWithRetry(() => import("./pages/Gallery"));
+const Credits = lazyWithRetry(() => import("./pages/Credits"));
+const TaiChiForBalance = lazyWithRetry(() => import("./pages/exercises/TaiChiForBalance"));
+const TaiChiForArthritis = lazyWithRetry(() => import("./pages/exercises/TaiChiForArthritis"));
+const SeatedTaiChiForArthritis = lazyWithRetry(() => import("./pages/exercises/SeatedTaiChiForArthritis"));
+const TaiChiForBeginners = lazyWithRetry(() => import("./pages/exercises/TaiChiForBeginners"));
+const AnkleArthritisExercises = lazyWithRetry(() => import("./pages/exercises/AnkleArthritisExercises"));
+const NeckArthritisExercises = lazyWithRetry(() => import("./pages/exercises/NeckArthritisExercises"));
+const ExerciseConditionPage = lazyWithRetry(() => import("./pages/ExerciseConditionPage"));
+const ConditionSubpagePage = lazyWithRetry(() => import("./pages/ConditionSubpagePage"));
+const CityServicePage = lazyWithRetry(() => import("./pages/CityServicePage"));
+const Pedometer = lazyWithRetry(() => import("./pages/Pedometer"));
+const SelfAssessment = lazyWithRetry(() => import("./pages/SelfAssessment"));
+const Buddy = lazyWithRetry(() => import("./pages/Buddy"));
+const BuddyMatch = lazyWithRetry(() => import("./pages/BuddyMatch"));
+const DebugSchema = lazyWithRetry(() => import("./pages/DebugSchema"));
+const EditorialStandards = lazyWithRetry(() => import("./pages/EditorialStandards"));
+const MedicalDisclaimer = lazyWithRetry(() => import("./pages/MedicalDisclaimer"));
+const SeoContentFrameworkPage = lazyWithRetry(() => import("./pages/SeoContentFrameworkPage"));
+const AuthorProfile = lazyWithRetry(() => import("./pages/AuthorProfile"));
+const AuthorsIndex = lazyWithRetry(() => import("./pages/AuthorsIndex"));
+const SupplementsHub = lazyWithRetry(() => import("./pages/supplements/SupplementsHub"));
+const Glucosamine = lazyWithRetry(() => import("./pages/supplements/Glucosamine"));
+const Msm = lazyWithRetry(() => import("./pages/supplements/Msm"));
+const Turmeric = lazyWithRetry(() => import("./pages/supplements/Turmeric"));
+const Collagen = lazyWithRetry(() => import("./pages/supplements/Collagen"));
+const CollagenAlternatives = lazyWithRetry(
   () => import("./pages/supplements/CollagenAlternatives"),
 );
-const LivingWithArthritis = lazy(() => import("./pages/LivingWithArthritis"));
-const ArthritisMentalHealth = lazy(() => import("./pages/ArthritisMentalHealth"));
-const FaqArticle = lazy(() => import("./pages/FaqArticle"));
-const ExpertArticle = lazy(() => import("./pages/ExpertArticle"));
-const PatientStory = lazy(() => import("./pages/PatientStory"));
-const FrailtyManagementHub = lazy(() => import("./pages/guides/FrailtyManagementHub"));
-const SarcopeniaMuscleControl = lazy(() => import("./pages/guides/SarcopeniaMuscleControl"));
-const PreventativeMSKHealth = lazy(() => import("./pages/guides/PreventativeMSKHealth"));
-const BoneDensityOsteoporosis = lazy(() => import("./pages/guides/BoneDensityOsteoporosis"));
-const FallPreventionOlderAdults = lazy(() => import("./pages/guides/FallPreventionOlderAdults"));
-const Arthritis = lazy(() => import("./pages/conditions/Arthritis"));
-const MusculoskeletalHealth = lazy(() => import("./pages/guides/MusculoskeletalHealth"));
-const DisabilitySupport = lazy(() => import("./pages/guides/DisabilitySupport"));
-const PetsHub = lazy(() => import("./pages/PetsHub"));
-const PetArticle = lazy(() => import("./pages/PetArticle"));
-const CorporatePartnerships = lazy(() => import("./pages/CorporatePartnerships"));
-const Glossary = lazy(() => import("./pages/Glossary"));
-const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
-const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
+const LivingWithArthritis = lazyWithRetry(() => import("./pages/LivingWithArthritis"));
+const ArthritisMentalHealth = lazyWithRetry(() => import("./pages/ArthritisMentalHealth"));
+const FaqArticle = lazyWithRetry(() => import("./pages/FaqArticle"));
+const ExpertArticle = lazyWithRetry(() => import("./pages/ExpertArticle"));
+const PatientStory = lazyWithRetry(() => import("./pages/PatientStory"));
+const FrailtyManagementHub = lazyWithRetry(() => import("./pages/guides/FrailtyManagementHub"));
+const SarcopeniaMuscleControl = lazyWithRetry(() => import("./pages/guides/SarcopeniaMuscleControl"));
+const PreventativeMSKHealth = lazyWithRetry(() => import("./pages/guides/PreventativeMSKHealth"));
+const BoneDensityOsteoporosis = lazyWithRetry(() => import("./pages/guides/BoneDensityOsteoporosis"));
+const FallPreventionOlderAdults = lazyWithRetry(() => import("./pages/guides/FallPreventionOlderAdults"));
+const Arthritis = lazyWithRetry(() => import("./pages/conditions/Arthritis"));
+const MusculoskeletalHealth = lazyWithRetry(() => import("./pages/guides/MusculoskeletalHealth"));
+const DisabilitySupport = lazyWithRetry(() => import("./pages/guides/DisabilitySupport"));
+const PetsHub = lazyWithRetry(() => import("./pages/PetsHub"));
+const PetArticle = lazyWithRetry(() => import("./pages/PetArticle"));
+const CorporatePartnerships = lazyWithRetry(() => import("./pages/CorporatePartnerships"));
+const Glossary = lazyWithRetry(() => import("./pages/Glossary"));
+const GlossaryTerm = lazyWithRetry(() => import("./pages/GlossaryTerm"));
+const ComparisonPage = lazyWithRetry(() => import("./pages/ComparisonPage"));
 
 // Phase 1 / Phase 3 — IA stubs + Newly Diagnosed full guide
-const NewlyDiagnosed = lazy(() => import("./pages/guides/NewlyDiagnosed"));
-const DrugGuideStub = lazy(() =>
+const NewlyDiagnosed = lazyWithRetry(() => import("./pages/guides/NewlyDiagnosed"));
+const DrugGuideStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.DrugGuideStub })),
 );
-const SurgeryStub = lazy(() =>
+const SurgeryStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.SurgeryStub })),
 );
-const ComplementaryTherapiesStub = lazy(() =>
+const ComplementaryTherapiesStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.ComplementaryTherapiesStub })),
 );
-const InsuranceStub = lazy(() =>
+const InsuranceStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.InsuranceStub })),
 );
-const WorkStub = lazy(() =>
+const WorkStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.WorkStub })),
 );
-const TravelStub = lazy(() =>
+const TravelStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.TravelStub })),
 );
-const FindSpecialistStub = lazy(() =>
+const FindSpecialistStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.FindSpecialistStub })),
 );
-const ConnectGroupsStub = lazy(() =>
+const ConnectGroupsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.ConnectGroupsStub })),
 );
-const EventsStub = lazy(() =>
+const EventsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.EventsStub })),
 );
-const PodcastsStub = lazy(() =>
+const PodcastsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.PodcastsStub })),
 );
-const HelplineStub = lazy(() =>
+const HelplineStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.HelplineStub })),
 );
-const VolunteerStub = lazy(() =>
+const VolunteerStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.VolunteerStub })),
 );
-const AdvocacyStub = lazy(() =>
+const AdvocacyStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.AdvocacyStub })),
 );
-const ResearchStub = lazy(() =>
+const ResearchStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.ResearchStub })),
 );
-const ClinicalTrialsStub = lazy(() =>
+const ClinicalTrialsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.ClinicalTrialsStub })),
 );
-const GrantsStub = lazy(() =>
+const GrantsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.GrantsStub })),
 );
 // No visible loader — Suspense falls back to null so the previous page

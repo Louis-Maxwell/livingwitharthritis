@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -12,7 +13,7 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_KNEE_REPLACEMENT } from "@/data/clinical/ukCitations";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const KNEE_REPLACEMENT_FAQS = [
   { question: "When should I consider knee replacement surgery?", answer: "Knee replacement is usually considered when severe osteoarthritis or rheumatoid arthritis causes daily pain that disturbs sleep, limits walking under 30 minutes, and has not responded to at least 3–6 months of non-surgical treatment (weight loss, physiotherapy, painkillers, steroid injections). NICE guidance (NG226) recommends referral when symptoms substantially affect quality of life." },

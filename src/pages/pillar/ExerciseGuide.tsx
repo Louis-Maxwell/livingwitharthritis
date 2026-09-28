@@ -1,7 +1,8 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -15,7 +16,7 @@ import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const EXERCISE_GUIDE_FAQS = [
   { question: "What is the best exercise for arthritis?", answer: "Low-impact aerobic activity (walking, swimming, cycling), strength training and a flexibility practice such as tai chi or yoga. UK NICE guidelines (NG226) put exercise ahead of medication for osteoarthritis. The single best exercise is the one you'll actually do 3–5 times per week." },

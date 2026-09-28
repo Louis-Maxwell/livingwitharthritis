@@ -1,11 +1,12 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
 
-const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const Footer = lazy(() => import("@/components/Footer"));
+const ServicesGrid = lazyWithRetry(() => import("@/components/ServicesGrid"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const Services = () => (
   <>

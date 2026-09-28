@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AlertTriangle, Phone, ShieldAlert } from "lucide-react";
@@ -7,7 +8,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { CHARITY } from "@/config/charity";
 import { nhsEscalationLine } from "@/lib/medicalDisclaimer";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const URL = `${CHARITY.siteUrl}/disclaimer`;
 

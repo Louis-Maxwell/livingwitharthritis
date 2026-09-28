@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
@@ -49,21 +50,21 @@ import {
 } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
-const BlogComments = lazy(() => import("@/components/BlogComments"));
-const BlogHelpfulness = lazy(() => import("@/components/BlogHelpfulness"));
-const RelatedArticles = lazy(() => import("@/components/RelatedArticles"));
-const ContinueReadingBar = lazy(() => import("@/components/ContinueReadingBar"));
-const HealthToolsCTA = lazy(() => import("@/components/HealthToolsCTA"));
-const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
-const InternalLinks = lazy(() => import("@/components/InternalLinks"));
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
-const FeedbackPoll = lazy(() => import("@/components/article/FeedbackPoll"));
-const InlineRelatedStrip = lazy(() => import("@/components/article/InlineRelatedStrip"));
-const ArticleFaqSection = lazy(() => import("@/components/article/ArticleFaqSection"));
-const ArticleClosingCTA = lazy(() => import("@/components/article/ArticleClosingCTA"));
-const MidArticleNextSteps = lazy(() => import("@/components/article/MidArticleNextSteps"));
-const EndNextArticleCard = lazy(() => import("@/components/article/EndNextArticleCard"));
-const ArticleCitations = lazy(() => import("@/components/blog/ArticleCitations"));
+const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
+const BlogHelpfulness = lazyWithRetry(() => import("@/components/BlogHelpfulness"));
+const RelatedArticles = lazyWithRetry(() => import("@/components/RelatedArticles"));
+const ContinueReadingBar = lazyWithRetry(() => import("@/components/ContinueReadingBar"));
+const HealthToolsCTA = lazyWithRetry(() => import("@/components/HealthToolsCTA"));
+const CrossLinkBanner = lazyWithRetry(() => import("@/components/CrossLinkBanner"));
+const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
+const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
+const FeedbackPoll = lazyWithRetry(() => import("@/components/article/FeedbackPoll"));
+const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/InlineRelatedStrip"));
+const ArticleFaqSection = lazyWithRetry(() => import("@/components/article/ArticleFaqSection"));
+const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
+const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
+const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
+const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
 
 
 /**

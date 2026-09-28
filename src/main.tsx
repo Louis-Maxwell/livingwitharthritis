@@ -4,6 +4,7 @@ import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import { initWebVitals } from "./lib/web-vitals.ts";
+import { installChunkRecovery, removeStaleServiceWorkers } from "./lib/chunkRecovery.ts";
 import "./index.css";
 
 // Initialize Sentry (incl. session replay) only after explicit analytics consent
@@ -44,6 +45,10 @@ const initializeSentry = () => {
   });
 };
 
+// Stale-deploy recovery must be installed before any lazy chunk is requested.
+installChunkRecovery();
+removeStaleServiceWorkers();
+
 initializeSentry();
 window.addEventListener("cookie-consent-accepted", initializeSentry);
 
@@ -65,51 +70,24 @@ const AppCrashFallback = (
         </a>{" "}
         can help.
       </p>
-      <a
-        href="/"
-        className="inline-block px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
-      >
-        Go to homepage
-      </a>
+      <div className="flex flex-wrap gap-3 justify-center">
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="inline-block px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+        >
+          Reload page
+        </button>
+        <a
+          href="/"
+          className="inline-block px-5 py-2.5 rounded-xl border border-border text-foreground font-semibold hover:bg-muted transition-colors"
+        >
+          Go to homepage
+        </a>
+      </div>
     </div>
   </div>
 );
-
-// Auto-recover from stale code-split chunks after a new deploy.
-// When index.html references chunk hashes that no longer exist on the CDN,
-// dynamic imports throw "Failed to fetch dynamically imported module".
-// We reload once (guarded by sessionStorage) to pick up the fresh manifest.
-const RELOAD_KEY = "lwa:chunk-reloaded-at";
-const RELOAD_COOLDOWN_MS = 10_000; // allow another reload after 10s, scoped per URL
-const isChunkLoadError = (msg: string) =>
-  /Failed to fetch dynamically imported module|Importing a module script failed|error loading dynamically imported module/i.test(
-    msg,
-  );
-
-const tryReload = (msg: string) => {
-  if (!isChunkLoadError(msg)) return;
-  try {
-    const key = `${RELOAD_KEY}:${window.location.pathname}`;
-    const last = Number(sessionStorage.getItem(key) || 0);
-    if (Date.now() - last < RELOAD_COOLDOWN_MS) return;
-    sessionStorage.setItem(key, String(Date.now()));
-  } catch {
-    // sessionStorage may be unavailable; reload anyway
-  }
-  window.location.reload();
-};
-
-window.addEventListener("error", (e) => tryReload(e.message || ""));
-window.addEventListener("unhandledrejection", (e) => {
-  const reason: unknown = e.reason;
-  const message =
-    typeof reason === "string"
-      ? reason
-      : reason instanceof Error
-        ? reason.message
-        : "";
-  tryReload(message);
-});
 
 createRoot(document.getElementById("root")!).render(
   <ErrorBoundary fallback={AppCrashFallback}>

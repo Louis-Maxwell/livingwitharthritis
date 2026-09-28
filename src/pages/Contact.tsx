@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import SkeletonSection from "@/components/landing/SkeletonSection";
@@ -6,8 +7,8 @@ import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import GbpMapSection from "@/components/contact/GbpMapSection";
 
-const ContactSection = lazy(() => import("@/components/landing/ContactSection"));
-const Footer = lazy(() => import("@/components/Footer"));
+const ContactSection = lazyWithRetry(() => import("@/components/landing/ContactSection"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const Contact = () => (
   <>
