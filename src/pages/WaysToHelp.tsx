@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import { lazy, Suspense, useState } from "react";
+import { Suspense, useState } from "react";
 import {
   Heart, Users, Trophy, Building2, ScrollText, ArrowRight,
   HandHeart, Send, CheckCircle2, Quote, MapPin, Clock,
@@ -17,7 +18,7 @@ import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const WAYS = [
   {

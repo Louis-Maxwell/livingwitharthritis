@@ -1,4 +1,5 @@
-﻿import { useState, useEffect, useRef, useCallback, lazy, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -7,10 +8,10 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
 
 
-const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
-const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
-const SiteSearch = lazy(() => import("@/components/SiteSearch"));
-const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
+const _CartDrawer = lazyWithRetry(() => import("@/components/CartDrawer"));
+const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
+const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
+const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
 import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
 
 

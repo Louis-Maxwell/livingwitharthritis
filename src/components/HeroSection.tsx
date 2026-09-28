@@ -1,7 +1,8 @@
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { ArrowRight, MessageCircle, Heart, Shield, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { memo, lazy, Suspense, useEffect, useRef, useState } from "react";
+import { memo, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import {
   observeHeadlineClipping,
@@ -19,7 +20,7 @@ const HERO_JPG_1600 = "/images/hero-walking-group-1600.webp";
 import "./HeroSection.css";
 
 // 3D canvas is desktop-only — heavy on mobile GPU and never visible there anyway
-const Hero3DBackground = lazy(() => import("@/components/landing/Hero3DBackground"));
+const Hero3DBackground = lazyWithRetry(() => import("@/components/landing/Hero3DBackground"));
 
 const STATS = [
   { target: 1, suffix: " in 6", label: "UK adults affected", compact: false },

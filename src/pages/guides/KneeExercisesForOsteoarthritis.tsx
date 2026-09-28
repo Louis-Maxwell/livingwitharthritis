@@ -1,5 +1,6 @@
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
@@ -14,7 +15,7 @@ import { CITATIONS_KNEE_EXERCISES } from "@/data/clinical/ukCitations";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const FAQS = [
   {

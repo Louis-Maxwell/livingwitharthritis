@@ -1,5 +1,6 @@
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
@@ -10,7 +11,7 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { CHARITY } from "@/config/charity";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const FAQS = [
   {

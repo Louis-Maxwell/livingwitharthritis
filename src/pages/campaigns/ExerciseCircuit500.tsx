@@ -1,12 +1,13 @@
 ﻿import { Helmet } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-const CampaignBand = lazy(() => import("@/components/landing/CampaignBand"));
-const StickyDonateBar = lazy(() => import("@/components/landing/StickyDonateBar"));
-const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
+const CampaignBand = lazyWithRetry(() => import("@/components/landing/CampaignBand"));
+const StickyDonateBar = lazyWithRetry(() => import("@/components/landing/StickyDonateBar"));
+const BackToTopButton = lazyWithRetry(() => import("@/components/landing/BackToTopButton"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 

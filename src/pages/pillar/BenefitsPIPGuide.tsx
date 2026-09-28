@@ -1,7 +1,8 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import PageSchema from "@/components/seo/PageSchema";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -15,7 +16,7 @@ import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const CONTENT = `
 <h2 id="introduction">Benefits and Financial Support for Arthritis in the UK</h2>

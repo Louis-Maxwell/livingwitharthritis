@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link, useLocation, Navigate } from "react-router-dom";
-import { lazy, Suspense, useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { ChevronLeft, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
@@ -8,7 +9,7 @@ import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { getComparisonArticle, COMPARISON_META_DESCRIPTIONS } from "@/data/comparison-content";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const LAST_REVIEWED_ISO = "2026-07-11";
 const LAST_REVIEWED_LABEL = new Date(LAST_REVIEWED_ISO).toLocaleDateString("en-GB", {

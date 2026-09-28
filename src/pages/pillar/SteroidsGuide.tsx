@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -13,7 +14,7 @@ import { CITATIONS_STEROIDS } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const STEROID_FAQS = [
   { question: "What is a steroid injection for arthritis?", answer: "A steroid (corticosteroid) injection delivers a small dose of synthetic cortisone directly into an inflamed joint or the soft tissue around it. The medication dampens the inflammation that causes pain, swelling and stiffness — typically giving relief that lasts a few weeks to several months. Common drugs used include methylprednisolone, triamcinolone and hydrocortisone." },

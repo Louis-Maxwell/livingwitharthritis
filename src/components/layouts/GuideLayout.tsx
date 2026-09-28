@@ -1,11 +1,12 @@
-import { lazy, Suspense, type ReactNode } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, type ReactNode } from "react";
 import Header from "@/components/Header";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import { DisclaimerStripShown } from "@/components/disclaimerChrome";
 
 // Lazy Footer, matching Index.tsx, keeps the entry chunk small.
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 interface GuideLayoutProps {
   children: ReactNode;

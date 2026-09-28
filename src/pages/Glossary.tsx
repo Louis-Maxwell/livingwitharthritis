@@ -1,14 +1,15 @@
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
-import { lazy, Suspense, useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { BookOpen, Search } from "lucide-react";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
 import { GLOSSARY_ROUTES } from "@/data/glossary-routes.generated";
 import { GLOSSARY_CONTENT } from "@/data/glossary-content";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const prettify = (slug: string) =>
   slug

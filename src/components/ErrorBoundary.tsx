@@ -1,6 +1,7 @@
 import { Component, type ReactNode } from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { isChunkLoadError, reloadOnce } from "@/lib/chunkRecovery";
 
 interface Props {
   children: ReactNode;
@@ -24,8 +25,11 @@ class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(_error: Error, _info: { componentStack: string }) {
-    // Intentionally quiet: Sentry (when consented) and the UI fallback cover this.
+  componentDidCatch(error: Error, _info: { componentStack: string }) {
+    // A missing chunk after a deploy is fixed by fetching the new index.html.
+    // reloadOnce() is guarded, so a persistent failure falls through to the
+    // fallback UI below instead of looping.
+    if (isChunkLoadError(error)) reloadOnce();
   }
 
   componentDidUpdate(prevProps: Props) {

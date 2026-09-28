@@ -27,3 +27,33 @@ test.describe("Route smoke (must fail CI)", () => {
     });
   }
 });
+
+/**
+ * Stale-deploy recovery: simulate a chunk that vanished after a publish (first
+ * request 404s, as it would with an old index.html) and assert the page
+ * recovers with one reload instead of going blank.
+ */
+test("recovers from a missing lazy route chunk after a deploy", async ({ page }) => {
+  // Fail the first document's attempts (initial import + in-page retries) so
+  // the one-time recovery reload is exercised, then serve normally.
+  let failures = 0;
+  let reloaded = false;
+  page.on("request", (request) => {
+    if (request.isNavigationRequest() && new URL(request.url()).searchParams.has("_r")) reloaded = true;
+  });
+  await page.route(/\/assets\/FAQ-[\w-]+\.js$/, async (route) => {
+    if (!reloaded) {
+      failures += 1;
+      await route.fulfill({ status: 404, contentType: "text/html", body: "<!doctype html><title>404</title>" });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/faq", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("h1").first()).toBeVisible({ timeout: 20000 });
+  expect(failures).toBeGreaterThan(0);
+  expect(reloaded).toBe(true);
+  // Cache-busting param from the recovery reload is stripped again.
+  await expect.poll(() => new URL(page.url()).searchParams.has("_r")).toBe(false);
+});

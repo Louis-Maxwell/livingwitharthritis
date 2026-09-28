@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -14,7 +15,7 @@ import { CITATIONS_PAINKILLERS_NSAIDS } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const NSAID_FAQS = [
   { question: "What is the best painkiller for arthritis?", answer: "There is no single 'best' painkiller — the right choice depends on the type of arthritis, the joints involved, your other health conditions and what else you take. NICE guidance (NG226) recommends topical NSAID gels (such as diclofenac or ibuprofen) as the first-line painkiller for knee and hand osteoarthritis, with oral NSAIDs added at the lowest effective dose if topical treatment isn't enough. Paracetamol is now considered a weak option for osteoarthritis but is still useful for short-term, mild pain." },

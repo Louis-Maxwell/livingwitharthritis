@@ -67,12 +67,15 @@
   Cache-Control: public, max-age=86400
 
 # HTML: browsers always revalidate so new deploys show immediately.
-# CDN may keep a short fresh copy (static hosts often override Cache-Control).
+# The CDN may keep a fresh copy for 60s but must NOT serve stale HTML after
+# that: stale HTML references hashed chunks that a new publish has deleted,
+# which is what produced blank screens after updates (see
+# src/lib/chunkRecovery.ts for the client-side recovery).
 # CSP matches index.html and adds frame-ancestors (HTTP header only; ignored in meta CSP).
 /*
-  Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=600
-  Cloudflare-CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=600
+  Cache-Control: no-cache
+  CDN-Cache-Control: public, s-maxage=60
+  Cloudflare-CDN-Cache-Control: public, s-maxage=60
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY

@@ -8,6 +8,31 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com https://www.google.com https://www.google.co.uk https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com" />
     <!-- CSP: 'unsafe-eval' removed (Vite prod build does not need it). 'unsafe-inline' remains for boot/consent scripts and Vite/Lovable inline styles. HTTP headers in public/_headers are the source of truth; Lovable may still strip them until host applies. -->
 
+    <!-- Stale-deploy boot guard. If this HTML was served from a cache after a
+         new publish, its hashed /assets/* entry files no longer exist and the
+         page would stay blank. Resource errors do not bubble, so listen in the
+         capture phase and reload ONCE with a cache-busting param (same key and
+         param as src/lib/chunkRecovery.ts, which strips the param on boot). -->
+    <script>
+      (function () {
+        var KEY = 'lwa:stale-reload-at', WINDOW_MS = 300000;
+        window.addEventListener('error', function (e) {
+          var t = e && e.target;
+          if (!t || (t.tagName !== 'SCRIPT' && t.tagName !== 'LINK')) return;
+          var url = t.src || t.href || '';
+          if (url.indexOf('/assets/') === -1) return;
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < WINDOW_MS) return;
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch (err) { return; /* no storage = no loop guard, so never auto-reload */ }
+          var u = new URL(location.href);
+          u.searchParams.set('_r', Date.now().toString(36));
+          location.replace(u.toString());
+        }, true);
+      })();
+    </script>
+
     <!-- Analytics are consent-gated: nothing loads until the visitor has
          explicitly accepted analytics cookies in the site cookie banner.
          See the loader further down in <head>. -->

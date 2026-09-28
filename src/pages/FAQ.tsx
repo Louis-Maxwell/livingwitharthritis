@@ -1,4 +1,5 @@
-import { lazy, Suspense, useMemo } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -12,8 +13,8 @@ import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_FAQ_HUB } from "@/data/clinical/ukCitations";
 import EmailSignupForm from "@/components/EmailSignupForm";
 
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const Footer = lazy(() => import("@/components/Footer"));
+const FAQSection = lazyWithRetry(() => import("@/components/landing/FAQSection"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const SITE = "https://livingwitharthritis.org.uk";
 

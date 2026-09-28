@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
@@ -6,7 +7,7 @@ import { Accessibility, Eye, Ear, Keyboard, Monitor, Globe, MessageSquare, Check
 import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const STATIC_FEATURES = [
   { icon: Eye, title: "High Contrast & Colour", desc: "All text and interactive elements meet WCAG 2.1 AA contrast ratios (minimum 4.5:1 for body text, 3:1 for large text). Our colour palette is tested for the three most common types of colour-blindness." },

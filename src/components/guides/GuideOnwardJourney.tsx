@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import RelatedGuidesBlock from "./RelatedGuidesBlock";
 
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
+const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
 
 interface GuideOnwardJourneyProps {
   currentPath: string;

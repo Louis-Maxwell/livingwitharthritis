@@ -1,11 +1,12 @@
-import { useState, lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { useState, Suspense } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { X, MessageCircle } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 // Only load ChatBot (and its react-markdown dependency) when user opens the widget
-const ChatBot = lazy(() => import("@/components/ChatBot").then(m => ({ default: m.ChatBot })));
+const ChatBot = lazyWithRetry(() => import("@/components/ChatBot").then(m => ({ default: m.ChatBot })));
 
 export default function ChatBotWidget() {
   const [open, setOpen] = useState(false);

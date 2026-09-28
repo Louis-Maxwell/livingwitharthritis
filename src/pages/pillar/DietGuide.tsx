@@ -1,7 +1,8 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -15,7 +16,7 @@ import FaqAccordion from "@/components/faq/FaqAccordion";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_DIET } from "@/data/clinical/ukCitations";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const DIET_GUIDE_FAQS = [
   { question: "What is an anti-inflammatory diet for arthritis in the UK?", answer: "An anti-inflammatory diet for arthritis is essentially a Mediterranean-style pattern: plenty of vegetables, fruit, wholegrains, extra virgin olive oil, oily fish, nuts, pulses and herbs, with less ultra-processed food, sugary drinks and excess red or processed meat. NHS and UK charity guidance support this pattern for general health; it may help some people with joint symptoms but does not replace prescribed treatment." },
