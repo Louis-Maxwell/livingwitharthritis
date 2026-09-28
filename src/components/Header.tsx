@@ -12,6 +12,7 @@ const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceL
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
 import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
+import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 
 
 type SubItem = {
@@ -39,6 +40,7 @@ const Header = () => {
   // Mount the drawer on first open, then keep it mounted so its close
   // animation can play.
   const [resourceDrawerMounted, setResourceDrawerMounted] = useState(false);
+  useExclusiveOverlay("mobile-menu", mobileMenuOpen, () => setMobileMenuOpen(false));
   useEffect(() => {
     if (resourceDrawerOpen) setResourceDrawerMounted(true);
   }, [resourceDrawerOpen]);

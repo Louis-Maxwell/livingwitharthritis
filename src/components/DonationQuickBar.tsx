@@ -84,15 +84,10 @@ const DonationQuickBar = () => {
               ))}
             </div>
 
-            {/* Currency */}
-            <div className="flex items-center bg-background/15 rounded-full h-9 pl-3 pr-1 gap-2">
-              <span className="text-xs font-bold tracking-wide">GB</span>
-              <div className="flex items-center bg-foreground/25 rounded-full h-7 px-2.5 gap-1">
-                <span className="text-xs font-bold">GBP</span>
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden>
-                  <path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                </svg>
-              </div>
+            {/* Currency: donations are taken in pounds only, so this is a label,
+                not a control (it previously showed a dropdown chevron that did nothing). */}
+            <div className="flex items-center bg-background/15 rounded-full h-9 px-3">
+              <span className="text-xs font-bold tracking-wide">£ GBP</span>
             </div>
 
             {/* Amount input */}

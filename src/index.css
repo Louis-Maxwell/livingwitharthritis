@@ -17,6 +17,7 @@
     --popover-foreground: 0 0% 0%;
 
     --primary: 0 100% 42%;              /* #D60000 brand primary red — 5.4:1 on white, passes WCAG AA */
+    --primary-text: 0 100% 36%;         /* #B80000 red for text — 6.8:1 on white, 5.3:1 on primary-tinted chips (bg-primary/10–15) */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 100% 35%;            /* #B30000 brand secondary red — 7.2:1 on white */
@@ -110,6 +111,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
     --primary: 0 100% 42%;
+    --primary-text: 0 100% 36%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 100% 35%;
     --secondary-foreground: 0 0% 100%;
@@ -179,8 +181,10 @@
     word-wrap: break-word;
   }
 
-  p { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; color: hsl(var(--foreground)); }
+  p { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; }
   li { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; }
+  /* Links inside running text must not rely on colour alone (WCAG 1.4.1). */
+  p a:not([role="button"]) { text-decoration-line: underline; text-underline-offset: 0.15em; }
   small, .text-small { font-size: 1rem; line-height: 1.6; }
   .lead { font-size: 1.25rem; line-height: 1.6; color: hsl(var(--foreground)); }
 
@@ -1104,6 +1108,7 @@
   --popover: 0 0% 5%;
   --popover-foreground: 0 0% 100%;
   --primary: 350 90% 55%;
+  --primary-text: 350 90% 55%;
   --primary-foreground: 0 0% 0%;
   --secondary: 350 90% 55%;
   --secondary-foreground: 0 0% 0%;

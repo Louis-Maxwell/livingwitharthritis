@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { Badge } from "@/components/ui/badge";
 import {
   Sheet,
@@ -109,6 +110,7 @@ interface ResourceLibraryDrawerProps {
 }
 
 const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawerProps) => {
+  useExclusiveOverlay("resource-library", open, () => onOpenChange(false));
   const [expandedCats, setExpandedCats] = useState<Set<string>>(new Set(["Public Health & Medical"]));
   const [searchQuery, setSearchQuery] = useState("");
 
