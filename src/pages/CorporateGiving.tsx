@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { Building2, Heart, Users, Award, Handshake, CheckCircle, ArrowRight, Shield, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const inquirySchema = z.object({
   contact_name: z.string().trim().min(1, "Name is required").max(100),
@@ -121,7 +122,8 @@ const CorporateGiving = () => {
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("corporate_giving", error instanceof Error ? error.message : "submit failed");
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
       setIsSubmitting(false);

@@ -15,6 +15,7 @@ import { z } from "zod";
 import { sanitizeInput } from "@/lib/sanitize";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { submitContactInquiry } from "@/lib/backendSubmit";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -66,7 +67,8 @@ export default function Partners() {
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("partners", error instanceof Error ? error.message : "submit failed");
       toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);
     } finally {
       setSubmitting(false);

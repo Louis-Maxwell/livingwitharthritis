@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com https://www.google.com https://www.google.co.uk https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com" />
-    <!-- CSP: 'unsafe-eval' removed (Vite prod build does not need it). 'unsafe-inline' remains for boot/consent scripts and Vite/Lovable inline styles. HTTP headers in public/_headers are the source of truth; Lovable may still strip them until host applies. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.g.doubleclick.net https://www.google.com; frame-src 'self' https://www.google.com https://www.google.co.uk https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <!-- CSP: this meta tag is the policy that actually applies. Lovable's host
+         ignores public/_headers (checked 28 Sep 2026: the live response only
+         carries "frame-ancestors 'self'"), so keep the two in sync; the header
+         copy adds frame-ancestors, which a meta tag cannot set. Allowlist = only
+         what the site uses: GA4 + Evarist (after consent), FormSubmit (newsletter),
+         Google Maps embed (contact). Stripe is a redirect to Checkout, so it needs
+         no entry. 'unsafe-inline' remains for the boot/consent scripts. -->
 
     <!-- Stale-deploy boot guard. If this HTML was served from a cache after a
          new publish, its hashed /assets/* entry files no longer exist and the

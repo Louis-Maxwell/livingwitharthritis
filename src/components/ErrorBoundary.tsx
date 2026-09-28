@@ -1,4 +1,5 @@
 import { Component, type ReactNode } from "react";
+import { reportError } from "@/lib/errorReporting";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { isChunkLoadError, reloadOnce } from "@/lib/chunkRecovery";
@@ -29,7 +30,9 @@ class ErrorBoundary extends Component<Props, State> {
     // A missing chunk after a deploy is fixed by fetching the new index.html.
     // reloadOnce() is guarded, so a persistent failure falls through to the
     // fallback UI below instead of looping.
-    if (isChunkLoadError(error)) reloadOnce();
+    const chunkError = isChunkLoadError(error);
+    reportError(chunkError ? "chunk_load" : "react_render", error, { fatal: true });
+    if (chunkError) reloadOnce();
   }
 
   componentDidUpdate(prevProps: Props) {

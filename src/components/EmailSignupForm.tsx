@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
 import { subscribeNewsletter } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 interface EmailSignupFormProps {
   placeholder?: string;
@@ -81,6 +82,7 @@ const EmailSignupForm = memo(({
         toast.error(msg);
       }
     } catch (err) {
+      reportFormFailure("newsletter_form", err instanceof Error ? err.message : "submit failed");
       const msg =
         err instanceof Error
           ? err.message

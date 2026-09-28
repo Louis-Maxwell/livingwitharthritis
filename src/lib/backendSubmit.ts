@@ -6,6 +6,7 @@
  */
 import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 export type BackendSubmitResult =
   | {
@@ -28,7 +29,8 @@ function mailtoFallback(opts: { subject: string; body: string }): BackendSubmitR
       mailtoOpened: true,
       message: result.error,
     };
-  } catch {
+  } catch (error) {
+    reportFormFailure("mailto", error instanceof Error ? error.message : "mailto draft could not open");
     return {
       ok: false,
       via: "none",
@@ -73,15 +75,16 @@ export async function subscribeNewsletter(opts: {
         return {
           ok: true,
           via: "formsubmit",
-          message:
-            `Thanks — we emailed ${CONTACT_EMAILS.info} with your address. ` +
-            "If this is the first signup through FormSubmit, Louis must click the one-time activation link in that inbox before further signups arrive.",
+          message: "Thanks, we have your email address and will add you to our newsletter.",
         };
       }
+      reportFormFailure("newsletter", `FormSubmit HTTP ${res.status}`);
     } finally {
       window.clearTimeout(timer);
     }
-  } catch {
+  } catch (error) {
+    const timedOut = error instanceof DOMException && error.name === "AbortError";
+    reportFormFailure("newsletter", timedOut ? "FormSubmit timed out" : "FormSubmit network error");
     // fall through to mailto
   }
 

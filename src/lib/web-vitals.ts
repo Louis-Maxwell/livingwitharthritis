@@ -1,5 +1,4 @@
 import { onCLS, onFCP, onLCP, onINP, onTTFB } from 'web-vitals';
-import * as Sentry from '@sentry/react';
 
 export interface CoreWebVitalsMetrics {
   cls?: number; // Cumulative Layout Shift
@@ -11,24 +10,6 @@ export interface CoreWebVitalsMetrics {
 }
 
 const metrics: CoreWebVitalsMetrics = {};
-
-// Send metrics to Sentry for monitoring
-const sendToSentry = (name: string, value: number, unit: string = 'ms') => {
-  if (!Sentry.getClient()) return; // Sentry not initialized
-
-  Sentry.captureMessage(`Core Web Vital: ${name}`, {
-    level: 'info',
-    contexts: {
-      metrics: {
-        [name]: {
-          value,
-          unit,
-          rating: getRating(name, value),
-        },
-      },
-    },
-  });
-};
 
 // Send to Google Analytics if configured
 const sendToGoogleAnalytics = (name: string, value: number) => {
@@ -69,35 +50,30 @@ export const initWebVitals = () => {
   // Largest Contentful Paint
   onLCP((metric) => {
     metrics.lcp = metric.value;
-    sendToSentry('LCP', metric.value);
     sendToGoogleAnalytics('page_view_lcp', metric.value);
   });
 
   // First Contentful Paint
   onFCP((metric) => {
     metrics.fcp = metric.value;
-    sendToSentry('FCP', metric.value);
     sendToGoogleAnalytics('page_view_fcp', metric.value);
   });
 
   // Cumulative Layout Shift
   onCLS((metric) => {
     metrics.cls = metric.value;
-    sendToSentry('CLS', metric.value);
     sendToGoogleAnalytics('page_view_cls', metric.value * 1000); // Convert to 0-1000 scale
   });
 
   // Interaction to Next Paint (replaces the deprecated FID metric)
   onINP((metric) => {
     metrics.inp = metric.value;
-    sendToSentry('INP', metric.value);
     sendToGoogleAnalytics('page_view_inp', metric.value);
   });
 
   // Time to First Byte
   onTTFB((metric) => {
     metrics.ttfb = metric.value;
-    sendToSentry('TTFB', metric.value);
     sendToGoogleAnalytics('page_view_ttfb', metric.value);
   });
 
