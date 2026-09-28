@@ -1,6 +1,7 @@
 import { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Lock } from "lucide-react";
+import { useAnyOverlayOpen } from "@/hooks/useExclusiveOverlay";
 
 interface CookieBannerProps {
   onAnalyticsChange?: (enabled: boolean) => void;
@@ -26,7 +27,11 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
   };
 
 
-  if (!show) return null;
+  // Step aside while a dialog, drawer or panel is open so the banner never
+  // floats above a modal backdrop; it comes back when the popup closes.
+  const overlayOpen = useAnyOverlayOpen();
+
+  if (!show || overlayOpen) return null;
 
   return (
     <div

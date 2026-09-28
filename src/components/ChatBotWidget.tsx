@@ -1,5 +1,6 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { useState, Suspense } from "react";
+import { useRef, useState, Suspense } from "react";
+import { useEscapeToClose, useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { X, MessageCircle } from "lucide-react";
 
@@ -8,13 +9,19 @@ const ChatBot = lazyWithRetry(() => import("@/components/ChatBot").then(m => ({ 
 
 export default function ChatBotWidget() {
   const [open, setOpen] = useState(false);
+  const launcherRef = useRef<HTMLButtonElement>(null);
+  const close = () => setOpen(false);
+  useExclusiveOverlay("help-chat", open, close);
+  useEscapeToClose(open, close, launcherRef);
 
   return (
     <>
       {/* Floating button */}
       <button
+        ref={launcherRef}
         type="button"
         onClick={() => setOpen((v) => !v)}
+        aria-controls="help-chat-panel"
         aria-label={open ? "Close help" : "Open help"}
         aria-expanded={open}
         className="fixed bottom-[88px] right-4 z-50 h-16 w-16 rounded-full bg-background text-primary shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8 border-2 border-primary/20 group"
@@ -38,6 +45,9 @@ export default function ChatBotWidget() {
       {/* Chat panel – only loads ChatBot code when opened */}
       {open && (
         <div
+          id="help-chat-panel"
+          role="region"
+          aria-label="Help chat"
           className="fixed bottom-[160px] lg:bottom-24 right-3 lg:right-8 z-50 w-[92vw] max-w-md h-[60vh] max-h-[520px] lg:h-[70vh] lg:max-h-[600px] rounded-2xl shadow-2xl overflow-hidden border border-border bg-background motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-8 motion-safe:duration-200"
         >
           <ErrorBoundary>

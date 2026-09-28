@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { motion, AnimatePresence } from "framer-motion";
 import { reportFormFailure } from "@/lib/errorReporting";
+import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 
 interface StripeDonationModalProps {
   isOpen: boolean;
@@ -25,6 +26,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [giftAid, setGiftAid] = useState(false);
+  useExclusiveOverlay("donation", isOpen, onClose);
 
   const getCurrencySymbol = () => {
     switch (currency) {

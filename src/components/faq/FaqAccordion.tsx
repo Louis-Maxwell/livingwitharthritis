@@ -54,9 +54,11 @@ export default function FaqAccordion({
 
   useEffect(() => {
     const openFromHash = () => {
-      const hash = window.location.hash.slice(1);
+      const hash = decodeURIComponent(window.location.hash.slice(1));
       if (!hash) return;
-      const trigger = document.getElementById(`${idPrefix}-trigger-${hash}`);
+      // Direct links point at the item id (`${idPrefix}-${slug}`); bare slugs are accepted too.
+      const slug = hash.startsWith(`${idPrefix}-`) ? hash.slice(idPrefix.length + 1) : hash;
+      const trigger = document.getElementById(`${idPrefix}-trigger-${slug}`);
       if (!trigger) return;
       if (trigger.getAttribute("aria-expanded") !== "true") trigger.click();
       // Wait a frame so the accordion has expanded before measuring position.
@@ -87,20 +89,20 @@ export default function FaqAccordion({
               id={triggerId}
               className="text-left font-display text-base md:text-lg font-semibold text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
             >
-              <span className="flex items-center gap-2 pr-2">
-                {item.question}
-                <a
-                  href={`#${anchorId}`}
-                  onClick={(e) => e.stopPropagation()}
-                  aria-label={`Direct link to: ${item.question}`}
-                  className="text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded shrink-0"
-                >
-                  <Link2 className="w-3.5 h-3.5" aria-hidden="true" />
-                </a>
-              </span>
+              <span className="pr-2">{item.question}</span>
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground leading-relaxed">
               {item.answer}
+              {/* The direct link lives in the answer, not the trigger: a link inside
+                  a <button> is a nested interactive control (WCAG 4.1.2). */}
+              <a
+                href={`#${anchorId}`}
+                aria-label={`Direct link to: ${item.question}`}
+                className="mt-3 flex w-fit min-h-6 items-center gap-1.5 rounded text-sm text-muted-foreground underline-offset-2 hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Link2 className="h-4 w-4" aria-hidden="true" />
+                Link to this answer
+              </a>
             </AccordionContent>
           </AccordionItem>
         );
