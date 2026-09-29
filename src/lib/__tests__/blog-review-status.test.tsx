@@ -52,7 +52,6 @@ const REVIEWED_27_SEP = [
   "menopause-hrt-and-joint-pain",
   "running-with-arthritis-knees-and-hips",
   "sick-pay-fit-notes-time-off-work-arthritis",
-  "walking-with-arthritis-start-build-up-keep-going",
   "weight-loss-injections-arthritis-wegovy-mounjaro",
   "your-arthritis-care-team-who-does-what",
 ];
@@ -105,12 +104,32 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug)).toEqual([]);
   });
 
-  it("older guides are unchanged (still reviewed by default)", () => {
-    for (const slug of ["access-to-work-scheme-arthritis-guide", "arthritis-fatigue-explained"]) {
-      expect(bySlug.get(slug)?.reviewStatus).toBeUndefined();
-      expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
-      expect(catalogRows.find((r) => r.slug === slug)).not.toHaveProperty("reviewStatus");
-    }
+  it("guides without an explicit reviewStatus still resolve as reviewed by default", () => {
+    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeUndefined();
+    expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("reviewed");
+    expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).not.toHaveProperty(
+      "reviewStatus",
+    );
+  });
+
+  it("Access to Work blog is clinically reviewed on 29 Sep 2026 (Champions 51)", () => {
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("reviewed");
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBe("2026-09-29");
+    expect(resolveBlogReviewStatus(bySlug.get("access-to-work-scheme-arthritis-guide"))).toBe(
+      "reviewed",
+    );
+  });
+
+  it("walking-with-arthritis remains reviewed (date may advance after Champions 52)", () => {
+    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.reviewStatus).toBe(
+      "reviewed",
+    );
+    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.last_reviewed).toBe(
+      "2026-09-29",
+    );
+    expect(
+      resolveBlogReviewStatus(bySlug.get("walking-with-arthritis-start-build-up-keep-going")),
+    ).toBe("reviewed");
   });
 
   it("catalog and head data only flag guides whose post file is pending", () => {

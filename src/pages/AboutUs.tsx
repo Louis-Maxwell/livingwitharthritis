@@ -19,6 +19,7 @@ import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 import { CONTACT_PHONE, CONTACT_PHONE_E164 } from "@/config/contact";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
 const FounderStoryBand = lazyWithRetry(() => import("@/components/landing/FounderStoryBand"));
 
@@ -140,12 +141,12 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Living With Arthritis UK | Registered charity 1218461</title>
-        <meta name="description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <title>About Living With Arthritis UK | Registered charity 1218461 · Free guides</title>
+        <meta name="description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
-        <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta property="og:description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461 · Free guides" />
+        <meta property="og:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -156,8 +157,8 @@ const AboutUs = () => {
         <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta name="twitter:description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084." />
+        <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461 · Free guides" />
+        <meta name="twitter:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
@@ -227,6 +228,37 @@ const AboutUs = () => {
 
         <div className="container mx-auto max-w-3xl px-4 -mt-4 mb-8">
           <AeoEnhancement route="/about" />
+        </div>
+
+        {/* Customer-job next steps — trust page CRO, not vanity stats */}
+        <nav
+          aria-label="Start with what you need"
+          className="container mx-auto max-w-3xl px-4 mb-8"
+        >
+          <div className="rounded-xl border border-border/40 bg-muted/20 p-5">
+            <p className="text-sm font-semibold text-foreground m-0 mb-2">
+              Start with what you need today
+            </p>
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              We are a young UK charity (1218461). Our job is practical help for people living with
+              arthritis and carers — not org vanity. Pick a job below; every guide is free and
+              educational, not a diagnosis.
+            </p>
+            <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
+              <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link></li>
+              <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
+              <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
+              <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
+              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+              <li><Link to="/symptom-checker" className="text-primary underline underline-offset-2">Symptom checker</Link></li>
+              <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div className="container mx-auto max-w-3xl px-4 mb-6">
+          <EducationalDisclaimerBox lastReviewed="2026-09-29" />
         </div>
 
         {/* Entity block — legal name, number, CIO, independence, contact (no street) */}

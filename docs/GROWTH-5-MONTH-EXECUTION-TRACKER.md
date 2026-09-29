@@ -32,6 +32,7 @@
 | Champions 43–44 GSC top blogs (swimming hip OA + knee supplements) | **done** | Gold-pass `/blog/swimming-exercises-hip-osteoarthritis` + `/blog/best-supplement-for-knee-joint` — disclaimer-grade citations + cluster/customer-job links + review **2026-09-23**; B₁ #1/#2 click URLs |
 | Champions 45–46 GSC FAQ + RA diet gold-pass | **done** | Gold-pass `/faq/arthritis-disability-benefits-uk` (B₁ #3 clicks) + `/blog/anti-inflammatory-diet-rheumatoid-arthritis` (B₁ #10) — CTR meta, Louis Maxwell HCPC review **2026-09-24**, GOV.UK/NHS/NICE/Versus Arthritis cites, Access to Work + customer-job links, food-first/not-a-cure framing |
 | Champions 47–48 / early M3 pillar deepen (pain / OA / exercise / PIP) | **done** | Pillar lastReviewed **2026-09-28**; denser customer-job cross-links to gold-passed B₁ blogs/FAQ + walking / joint-protection / sick-pay / carers blogs; topicClusters + chatbot KB refresh; Vitest `gsc-champions-47-48-28-sep.test.ts` |
+| Champions 49–52 about + newly-diagnosed + Access to Work + walking | **done** | Gold-pass `/about` (B₁ trust CRO), `/guides/newly-diagnosed`, `/blog/access-to-work-scheme-arthritis-guide`, `/blog/walking-with-arthritis-start-build-up-keep-going` — review **2026-09-29**, CTR meta, NHS/NICE/GOV.UK/Versus Arthritis cites, dense customer-job links; symptoms cluster + chatbot KB; Vitest `gsc-champions-49-52-29-sep.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -67,6 +68,39 @@
 7. **Social posting** — live posts per `docs/SOCIAL-CADENCE-SOPS.md` (and approve research-fund creative first)
 8. **Clinical sign-off** — spot-check Month 1 champion disclaimer dates / treatment wording (esp. steroids / NSAIDs / DMARDs, gout treatment, AS, PIP copy, supplements/turmeric caution, library topics and symptom-checker CTAs)
 9. **Lovable publish** — publish the latest GitHub `main` so cluster/CRO/gold-pass pages are live
+
+---
+
+## Daily log — 29 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 28 Sep: Champions 49+ from remaining thin high-impression / customer-job URLs; continue M3 pillar spoke density. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).
+
+### Shipped
+- **Champion 49 — `/about`:** CTR title/meta for customer-job trust (not vanity); `EducationalDisclaimerBox` **2026-09-29**; above-fold “Start with what you need today” links → newly diagnosed / pain / OA / exercise / PIP / disability FAQ / symptom checker / diet; Gift Aid honesty retained; no private address
+- **Champion 50 — `/guides/newly-diagnosed`:** `lastReviewed` **2026-09-29**; denser customer-job hubs (OA, disability FAQ, Access to Work, walking, swimming hip OA, joint protection, symptom checker); visible NHS / NICE NG226 / NG100 / Versus Arthritis cites; TopicClusterNav retained; next-step grid refreshed
+- **Champion 51 — `/blog/access-to-work-scheme-arthritis-guide`:** clinical review **2026-09-29** (Louis Maxwell HCPC PH128483); CTR `meta_title`; GOV.UK Access to Work / Equality Act / reasonable adjustments / PIP citations; customer-job internal links (PIP hub/FAQ, sick-pay, carers, newly diagnosed, pain, library Access to Work)
+- **Champion 52 — `/blog/walking-with-arthritis-start-build-up-keep-going`:** review **2026-09-29**; denser links → exercise hub / swimming hip OA / walking shoes / OA / pain / newly diagnosed / joint protection / PIP
+- **`topicClusters.ts` (symptoms):** fronted OA / pain / exercise / walking / joint-protection spokes without stealing PIP ownership of Access to Work / disability FAQ
+- Light **chatbot KB** refresh: newly-diagnosed intent now links `/guides/newly-diagnosed` + pain / PIP / Access to Work
+- Sitemap `lastmod` **2026-09-29** on the four URLs + sitemap-index; llms.txt / ai.txt Access to Work blog cite
+- **Tests:** `src/lib/__tests__/gsc-champions-49-52-29-sep.test.ts` (6 passing locally)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts (no new Facebook posts / ads without asking)
+- Clinical spot-check (about CRO + newly-diagnosed + Access to Work / walking blogs)
+- **Lovable publish** of latest GitHub `main`
+- **GSC URL Inspection** after publish (four Champions 49–52 URLs + prior pillars)
+- FormSubmit activate if newsletter still pending
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/about`, `/guides/newly-diagnosed`, `/blog/access-to-work-scheme-arthritis-guide`, `/blog/walking-with-arthritis-start-build-up-keep-going`
+2. Champions 53+ from next GSC refresh / remaining thin high-intent spokes (sick-pay / carers / joint-protection polish if still thin; no doorway cities)
+3. Continue M3 pillar spoke density once live HTML confirms — outreach / Ad Grants / Regulator still blocked-on-Louis
 
 ---
 

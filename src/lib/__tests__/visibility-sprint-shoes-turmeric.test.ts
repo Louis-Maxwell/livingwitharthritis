@@ -103,13 +103,13 @@ describe("visibility sprint: customer-job hub polish", () => {
       "utf8",
     );
 
-    // Pain + PIP deepened Champions 47–48 (28 Sep); newly diagnosed still 20 Sep sprint.
+    // Pain + PIP deepened Champions 47–48 (28 Sep); newly diagnosed Champions 50 (29 Sep) or 20 Sep sprint.
     expect(pain).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pain).toContain("/guides/newly-diagnosed");
     expect(pain).toContain("/benefits-pip");
     expect(pain).toMatch(/pain relief/i);
 
-    expect(newly).toContain('lastReviewed="2026-09-20"');
+    expect(newly).toMatch(/lastReviewed="2026-09-(20|29)"/);
     expect(newly).toContain("/guides/arthritis-pain-relief");
     expect(newly).toContain("/benefits-pip");
 

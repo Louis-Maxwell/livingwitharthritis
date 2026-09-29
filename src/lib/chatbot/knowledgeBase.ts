@@ -423,7 +423,11 @@ We are Living With Arthritis (charity **1218461**), independent of Arthritis UK 
       "Write questions for your next GP/rheumatology visit",
     ],
     related: [
+      { type: "guide", title: "Newly diagnosed checklist", url: "/guides/newly-diagnosed" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
+      { type: "guide", title: "Benefits & PIP", url: "/benefits-pip" },
+      { type: "article", title: "Access to Work scheme", url: "/blog/access-to-work-scheme-arthritis-guide" },
       { type: "guide", title: "Diet hub", url: "/diet" },
       { type: "guide", title: "Flare-up guide", url: "/arthritis-flare-ups" },
       { type: "guide", title: "About us", url: "/about" },

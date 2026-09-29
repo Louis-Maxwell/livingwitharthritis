@@ -622,7 +622,7 @@
     "description": "Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP.",
     "question": "What should I do after an arthritis diagnosis?",
     "answer": "Learn which type you have, keep gentle daily movement, write questions for your GP or rheumatology appointment, and track symptoms. Then explore pain relief, exercise, diet and benefits if daily living is limited. Educational guidance, not a diagnosis.",
-    "updatedAt": "2026-09-20",
+    "updatedAt": "2026-09-29",
     "sources": [
       {
         "name": "NHS: Arthritis overview",
@@ -6506,8 +6506,8 @@
     "updatedAt": "2026-08-29"
   },
   "/about": {
-    "title": "About Living With Arthritis UK | Registered charity 1218461",
-    "description": "Living With Arthritis is an independent UK charity (no. 1218461) publishing free, clinically reviewed arthritis guidance. Who we are, how we are funded and who reviews our content.",
+    "title": "About Living With Arthritis UK | Registered charity 1218461 · Free guides",
+    "description": "Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK.",
     "question": "Who is Living With Arthritis UK?",
     "answer": "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).",
     "breadcrumb": "About us"
