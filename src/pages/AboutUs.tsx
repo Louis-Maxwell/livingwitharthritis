@@ -141,12 +141,12 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Living With Arthritis UK | Free Guides for People With Arthritis</title>
-        <meta name="description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Independent of Arthritis UK." />
+        <title>About Living With Arthritis UK | Registered charity 1218461 · Free guides</title>
+        <meta name="description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
-        <meta property="og:title" content="About Living With Arthritis UK | Free Guides for People With Arthritis" />
-        <meta property="og:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Independent of Arthritis UK." />
+        <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461 · Free guides" />
+        <meta property="og:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -157,8 +157,8 @@ const AboutUs = () => {
         <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Living With Arthritis UK | Free Guides for People With Arthritis" />
-        <meta name="twitter:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Independent of Arthritis UK." />
+        <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461 · Free guides" />
+        <meta name="twitter:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />

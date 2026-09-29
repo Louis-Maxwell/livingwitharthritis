@@ -86,7 +86,7 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
 
   it("About page has review 2026-09-29, customer-job CRO links, no private address", () => {
     expect(about).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
-    expect(about).toMatch(/Free Guides for People With Arthritis/);
+    expect(about).toMatch(/Registered charity 1218461 · Free guides/);
     for (const href of ABOUT_LINKS) {
       expect(
         about.includes(`to="${href}"`) || about.includes(`"${href}"`),

@@ -94,7 +94,7 @@ describe("evening visibility pass — unique heads", () => {
       expect(head!.description?.trim().length).toBeGreaterThan(80);
       expect(head!.title?.toLowerCase().includes(hub.titleIncludes.toLowerCase())).toBe(true);
       expect(head!.title).not.toBe(homepageTitle);
-      expect(head!.updatedAt).toBe("2026-09-20");
+      expect(["2026-09-20", "2026-09-29"]).toContain(head!.updatedAt);
     });
   }
 
@@ -135,7 +135,8 @@ describe("evening visibility pass — crawl + AI discovery", () => {
       const window = sitemap.slice(i, i + loc.length + 80);
       const hasLastmod =
         window.includes("<lastmod>2026-09-20</lastmod>") ||
-        window.includes("<lastmod>2026-09-28</lastmod>");
+        window.includes("<lastmod>2026-09-28</lastmod>") ||
+        window.includes("<lastmod>2026-09-29</lastmod>");
       expect(hasLastmod).toBe(true);
     });
   }

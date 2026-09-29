@@ -378,6 +378,8 @@ export default function NewlyDiagnosed() {
               <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
               <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
               <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
+              <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
+              <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes</Link></li>
               <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link></li>
               <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming hip OA</Link></li>
               <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link></li>
