@@ -174,14 +174,14 @@ export default function NewlyDiagnosed() {
         about: { "@type": "MedicalCondition", name: "Arthritis" },
         author: {
           "@type": "Person",
-          name: "Maxwell",
-          jobTitle: "HCPC-registered Physiotherapist (PH128483)",
+          name: "Louis Maxwell",
+          jobTitle: "HCPC-registered First Contact Practitioner (PH128483)",
         },
-        lastReviewed: "2026-09-20",
+        lastReviewed: "2026-09-29",
         reviewedBy: {
           "@type": "Person",
-          name: "Maxwell",
-          jobTitle: "HCPC-registered Physiotherapist",
+          name: "Louis Maxwell",
+          jobTitle: "HCPC-registered First Contact Practitioner (PH128483)",
         },
       },
       // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
@@ -371,14 +371,52 @@ export default function NewlyDiagnosed() {
             <p className="text-sm font-semibold text-foreground m-0 mb-2">Related help hubs</p>
             <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
               <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
+              <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
               <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+              <li><Link to="/blog/access-to-work-scheme-arthritis-guide" className="text-primary underline underline-offset-2">Access to Work</Link></li>
               <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
               <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
               <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
-              <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes</Link></li>
-              <li><Link to="/blog/turmeric-for-arthritis" className="text-primary underline underline-offset-2">Turmeric evidence</Link></li>
+              <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link></li>
+              <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming hip OA</Link></li>
+              <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link></li>
+              <li><Link to="/symptom-checker" className="text-primary underline underline-offset-2">Symptom checker</Link></li>
             </ul>
           </nav>
+
+          <aside
+            aria-label="Trusted UK sources"
+            className="mb-8 rounded-xl border border-border/40 bg-card p-4 text-sm text-muted-foreground leading-relaxed print:hidden"
+          >
+            <p className="font-semibold text-foreground m-0 mb-2">Trusted UK sources</p>
+            <ul className="m-0 pl-5 space-y-1">
+              <li>
+                <a href="https://www.nhs.uk/conditions/arthritis/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  NHS: Arthritis
+                </a>{" "}
+                — condition overview and when to get help
+              </li>
+              <li>
+                <a href="https://www.nice.org.uk/guidance/ng226" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  NICE NG226
+                </a>{" "}
+                — osteoarthritis in over 16s
+              </li>
+              <li>
+                <a href="https://www.nice.org.uk/guidance/ng100" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  NICE NG100
+                </a>{" "}
+                — rheumatoid arthritis in adults
+              </li>
+              <li>
+                <a href="https://versusarthritis.org/about-arthritis/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  Versus Arthritis
+                </a>{" "}
+                — living with arthritis (external; we are independent)
+              </li>
+            </ul>
+          </aside>
 
           {/* Section nav (desktop) */}
           <nav
@@ -490,7 +528,7 @@ export default function NewlyDiagnosed() {
             />
           </section>
 
-          <EducationalDisclaimerBox lastReviewed="2026-09-20" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-29" />
           <TopicClusterNav path="/guides/newly-diagnosed" />
 
           {/* Related */}
@@ -501,10 +539,12 @@ export default function NewlyDiagnosed() {
             <ul className="grid sm:grid-cols-2 gap-3">
               {[
                 { label: "Symptom checker", href: "/symptom-checker" },
-                { label: "Find a specialist", href: "/tools/find-specialist" },
                 { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
-                { label: "Connect groups", href: "/community/connect-groups" },
-                { label: "Drug guide", href: "/treatments/drug-guide" },
+                { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+                { label: "Exercise hub", href: "/exercises" },
+                { label: "Benefits & PIP", href: "/benefits-pip" },
+                { label: "Access to Work", href: "/blog/access-to-work-scheme-arthritis-guide" },
+                { label: "Find a specialist", href: "/tools/find-specialist" },
                 { label: "Living with arthritis", href: "/living-with-arthritis" },
               ].map((l) => (
                 <li key={l.href}>
