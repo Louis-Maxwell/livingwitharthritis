@@ -33,6 +33,7 @@
 | Champions 45–46 GSC FAQ + RA diet gold-pass | **done** | Gold-pass `/faq/arthritis-disability-benefits-uk` (B₁ #3 clicks) + `/blog/anti-inflammatory-diet-rheumatoid-arthritis` (B₁ #10) — CTR meta, Louis Maxwell HCPC review **2026-09-24**, GOV.UK/NHS/NICE/Versus Arthritis cites, Access to Work + customer-job links, food-first/not-a-cure framing |
 | Champions 47–48 / early M3 pillar deepen (pain / OA / exercise / PIP) | **done** | Pillar lastReviewed **2026-09-28**; denser customer-job cross-links to gold-passed B₁ blogs/FAQ + walking / joint-protection / sick-pay / carers blogs; topicClusters + chatbot KB refresh; Vitest `gsc-champions-47-48-28-sep.test.ts` |
 | Champions 49–52 about + newly-diagnosed + Access to Work + walking | **done** | Gold-pass `/about` (B₁ trust CRO), `/guides/newly-diagnosed`, `/blog/access-to-work-scheme-arthritis-guide`, `/blog/walking-with-arthritis-start-build-up-keep-going` — review **2026-09-29**, CTR meta, NHS/NICE/GOV.UK/Versus Arthritis cites, dense customer-job links; symptoms cluster + chatbot KB; Vitest `gsc-champions-49-52-29-sep.test.ts` |
+| Champions 53–55 sick-pay + carers + joint-protection | **done** | Gold-pass `/blog/sick-pay-fit-notes-time-off-work-arthritis`, `/blog/carers-allowance-help-if-you-care-for-someone`, `/blog/joint-protection-easier-everyday-tasks` — CTR meta, Louis Maxwell HCPC review **2026-09-30**, GOV.UK/NHS/NICE/Versus Arthritis cites, dense customer-job links; pip/OA/pain cluster fronting + chatbot KB; Vitest `gsc-champions-53-55-30-sep.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -71,6 +72,39 @@
 
 ---
 
+## Daily log — 30 Sep 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 29 Sep: Champions 53+ (sick-pay / carers / joint-protection polish); continue M3 pillar spoke density once live. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).
+
+### Shipped
+- **Champion 53 — `/blog/sick-pay-fit-notes-time-off-work-arthritis`:** clinical review **2026-09-30** (Louis Maxwell HCPC PH128483); CTR `meta_title`/`meta_description`; GOV.UK SSP / sick leave / Equality Act / PIP citations; denser customer-job links (Access to Work, PIP hub/FAQ/blog, carers, newly diagnosed, pain, work guide); charity 1218461 education line
+- **Champion 54 — `/blog/carers-allowance-help-if-you-care-for-someone`:** review **2026-09-30**; CTR meta; GOV.UK Carer's Allowance / NHS carer's assessments / PIP cites; denser links → PIP hub/FAQ, carers assessment, sick-pay, Access to Work, newly diagnosed, pain
+- **Champion 55 — `/blog/joint-protection-easier-everyday-tasks`:** review **2026-09-30**; CTR meta; NHS OT / NICE NG226 / Versus Arthritis cites; denser links → OA hub, pain, exercise hub, walking, swimming hip OA, pacing, newly diagnosed, PIP
+- **`topicClusters.ts`:** pip cluster fronts sick-pay + carers (+ Access to Work); osteoarthritis + pain front joint-protection (without stealing PIP ownership of work/benefits spokes)
+- Light **chatbot KB** refresh: access-to-work related links + sick-pay/carers keywords; oa-general → joint-protection
+- Sitemap `lastmod` **2026-09-30** on the three URLs + sitemap-index; llms.txt / ai.txt preferred cites + SSP/carers Q&A lines
+- Catalog meta/`last_reviewed` synced for the three slugs
+- **Tests:** `src/lib/__tests__/gsc-champions-53-55-30-sep.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts (no new Facebook posts / ads without asking)
+- Clinical spot-check (sick-pay / carers / joint-protection blogs)
+- **Lovable publish** of latest GitHub `main`
+- **GSC URL Inspection** after publish (three Champions 53–55 URLs + prior Champions/pillars)
+- FormSubmit activate if newsletter still pending
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+- Optional Scenario C moonshot media budget paper
+- NHS intros / partner outreach still Louis-only
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/blog/sick-pay-fit-notes-time-off-work-arthritis`, `/blog/carers-allowance-help-if-you-care-for-someone`, `/blog/joint-protection-easier-everyday-tasks`
+2. Champions 56+ from next GSC refresh / remaining thin high-intent spokes (e.g. carers-assessment polish if still thin; no doorway cities)
+3. Continue M3 pillar spoke density once live HTML confirms — outreach / Ad Grants / Regulator still blocked-on-Louis
+
+---
 ## Daily log — 29 Sep 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 28 Sep: Champions 49+ from remaining thin high-impression / customer-job URLs; continue M3 pillar spoke density. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).

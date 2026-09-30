@@ -43,15 +43,12 @@ const REVIEWED_27_SEP = [
   "vaccines-on-dmards-and-biologics-uk-guide",
   // #96
   "how-arthritis-is-diagnosed-tests-scans-results",
-  "joint-protection-easier-everyday-tasks",
   "palindromic-rheumatism-joint-attacks-come-and-go",
   "pseudogout-cppd-sudden-hot-swollen-joints",
   // #97
   "arthritis-and-your-heart-lowering-risk",
-  "carers-allowance-help-if-you-care-for-someone",
   "menopause-hrt-and-joint-pain",
   "running-with-arthritis-knees-and-hips",
-  "sick-pay-fit-notes-time-off-work-arthritis",
   "weight-loss-injections-arthritis-wegovy-mounjaro",
   "your-arthritis-care-team-who-does-what",
 ];
@@ -131,6 +128,21 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
       resolveBlogReviewStatus(bySlug.get("walking-with-arthritis-start-build-up-keep-going")),
     ).toBe("reviewed");
   });
+
+
+  it.each([
+    "sick-pay-fit-notes-time-off-work-arthritis",
+    "carers-allowance-help-if-you-care-for-someone",
+    "joint-protection-easier-everyday-tasks",
+  ])("%s is clinically reviewed on 30 Sep 2026 (Champions 53–55)", (slug) => {
+    expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
+    expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-30");
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
+    const row = catalogRows.find((r) => r.slug === slug) as { last_reviewed?: string };
+    expect(row?.last_reviewed).toBe("2026-09-30");
+    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
+  });
+
 
   it("catalog and head data only flag guides whose post file is pending", () => {
     const pendingPosts = posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort();
