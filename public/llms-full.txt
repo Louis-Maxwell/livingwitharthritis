@@ -10,7 +10,7 @@ Last updated: 2026-09-20
 Q: What is Living With Arthritis UK?
 A: Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.
 
-## About Living With Arthritis UK | Registered charity 1218461
+## About Living With Arthritis UK | Registered charity 1218461 · Free guides
 URL: https://livingwitharthritis.org.uk/about
 Last updated: 2026-07-01
 Q: Who is Living With Arthritis UK?
@@ -1270,7 +1270,7 @@ A: Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons an
 
 ## Newly Diagnosed With Arthritis UK: First Steps Checklist
 URL: https://livingwitharthritis.org.uk/guides/newly-diagnosed
-Last updated: 2026-09-20
+Last updated: 2026-09-29
 Q: What should I do after an arthritis diagnosis?
 A: Learn which type you have, keep gentle daily movement, write questions for your GP or rheumatology appointment, and track symptoms. Then explore pain relief, exercise, diet and benefits if daily living is limited. Educational guidance, not a diagnosis.
 Q: Iâve just been diagnosed â what should I do first?
@@ -1554,7 +1554,7 @@ A: For knee osteoarthritis, head-to-head trials show curcumin roughly matches ib
 
 ## Access to Work Scheme: A Complete UK Guide for People With Arthritis
 URL: https://livingwitharthritis.org.uk/blog/access-to-work-scheme-arthritis-guide
-Last updated: 2026-09-25
+Last updated: 2026-09-29
 Q: Access to Work Scheme: A Complete UK Guide for People With Arthritis
 A: The Access to Work scheme is a UK government grant that pays for practical support to help you start work, stay in work, or move into self-employment if you have a physical or mental health condition like arthritis. The support can cover specialist equipment, travel costs, and support workers, tailored to your specific needs.
 
@@ -1740,7 +1740,7 @@ A: For arthritis sufferers, even a small amount of weight loss can significantly
 
 ## Managing Arthritis at Work in the UK: Your Rights, Adjustments
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-01
 Q: Managing Arthritis at Work in the UK: Your Rights, Adjustments
 A: In the UK, arthritis is considered a disability under the Equality Act 2010 if it significantly affects daily activities for at least 12 months. This protects employees from discrimination and obliges employers to make 'reasonable adjustments', such as providing ergonomic equipment, flexible working hours, or modifying tasks. The Access to Work scheme also offers grants for workplace adjustments.
 
@@ -2094,15 +2094,15 @@ A: Living With Arthritis covers carer burnout when arthritis and frailty fill th
 
 ## Carer's Allowance and Other Help If You Care for Someone
 URL: https://livingwitharthritis.org.uk/blog/carers-allowance-help-if-you-care-for-someone
-Last updated: 2026-09-25
+Last updated: 2026-09-30
 Q: Carer's Allowance and Other Help If You Care for Someone
 A: If you spend at least 35 hours a week caring for someone who gets certain disability benefits, you may be able to claim Carer's Allowance (Carer Support Payment in Scotland). There is an earnings limit and rules about education and other benefits. You can also ask your local council for a free carer's assessment, and you may be entitled to Carer's Credit, unpaid carer's leave and flexible working.
 
-## Carer's assessments when arthritis and frailty share a home (UK)
+## Carer's Assessments When You Care for Someone With Arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/carers-assessment-arthritis-frailty-uk
-Last updated: 2026-09-05
-Q: Carer's assessments when arthritis and frailty share a home (UK)
-A: Families dealing with carer's assessments when arthritis and frailty share a home usually notice skipped invitations and slower rooms before any clinic label. This guide covers support for the person who helps you stand, wash and eat when arthritis with frailty affects several joints, with a focus on Scotland and a home setting.
+Last updated: 2026-10-01
+Q: Carer's Assessments When You Care for Someone With Arthritis (UK)
+A: If you look after someone with arthritis, you can ask your local council (or Health and Social Care Trust in Northern Ireland) for a free carer's assessment. It looks at how caring affects your health, work and daily life, and what support could help — regardless of your income or how many hours you care. The person you care for can also have a needs assessment.
 
 ## How carers can help with arthritis and frailty without taking over (UK)
 URL: https://livingwitharthritis.org.uk/blog/carers-how-to-help-without-taking-over-uk
@@ -2424,7 +2424,7 @@ A: Motion is lotion in a care home is often short corridors and chair practice, 
 
 ## Energy Management and Pacing: Daily Planning for Arthritis Fatigue
 URL: https://livingwitharthritis.org.uk/blog/energy-management-and-pacing-arthritis
-Last updated: 2026-09-25
+Last updated: 2026-10-01
 Q: Energy Management and Pacing: Daily Planning for Arthritis Fatigue
 A: Pacing arthritis is a practical approach to managing your activity levels to prevent severe fatigue and worsened joint pain. It involves breaking tasks into smaller steps, alternating heavy and light activities, and resting before you feel exhausted. Effective energy management helps you maintain a steadier routine without triggering painful flares.
 
@@ -3132,7 +3132,7 @@ A: Joint replacement is often preferred for large, weight-bearing joints like th
 
 ## Joint Protection: Easier Ways to Do Everyday Tasks
 URL: https://livingwitharthritis.org.uk/blog/joint-protection-easier-everyday-tasks
-Last updated: 2026-09-25
+Last updated: 2026-09-30
 Q: Joint Protection: Easier Ways to Do Everyday Tasks
 A: Joint protection is a set of simple habits that reduce strain on painful joints during daily life. Examples include using larger, stronger joints instead of small ones, spreading loads, avoiding tight or prolonged grips, pacing activities, and using gadgets such as jar openers and long-handled tools. It works best alongside regular exercise, not instead of it. An occupational therapist can tailor advice to you.
 
@@ -4104,7 +4104,7 @@ A: Inflammatory arthritis typically worsens with rest and improves with gentle m
 
 ## Sick Pay, Fit Notes and Time Off Work With Arthritis
 URL: https://livingwitharthritis.org.uk/blog/sick-pay-fit-notes-time-off-work-arthritis
-Last updated: 2026-09-25
+Last updated: 2026-09-30
 Q: Sick Pay, Fit Notes and Time Off Work With Arthritis
 A: If arthritis keeps you off work, you may be entitled to Statutory Sick Pay (SSP) from your employer, and some employers pay more. Since April 2026, SSP is paid from the first day of sickness and there is no minimum earnings requirement. You can self-certify for the first seven days, then you need a fit note. If your arthritis counts as a disability, your employer must consider reasonable adjustments and treat disability-related absence fairly.
 
@@ -4584,7 +4584,7 @@ A: A frailty-aware note on walking stick versus frame: arthritis, wrists and fra
 
 ## Walking With Arthritis: How to Start, Build Up and Keep Going
 URL: https://livingwitharthritis.org.uk/blog/walking-with-arthritis-start-build-up-keep-going
-Last updated: 2026-09-25
+Last updated: 2026-09-29
 Q: Walking With Arthritis: How to Start, Build Up and Keep Going
 A: Walking is safe and helpful for most people with arthritis. It strengthens muscles, keeps joints moving, and helps weight, heart health, sleep and mood. Start with short walks at a comfortable pace, build up gradually, and use the 24-hour rule: some discomfort is fine if it settles by the next day. Supportive shoes, a walking pole and flat routes can make it easier.
 
