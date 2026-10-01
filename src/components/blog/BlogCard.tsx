@@ -2,7 +2,14 @@ import { Link } from "react-router-dom";
 import { Clock, Headphones } from "lucide-react";
 import { coverImage, onCoverImgError, safeCoverSrc } from "@/lib/articleImages";
 import { displayTitle } from "@/lib/blogTitle";
-import { formatBlogDate, readTimeLabel } from "@/lib/blog/topics";
+import { BLOG_TOPIC_LABELS, formatBlogDate, readTimeLabel } from "@/lib/blog/topics";
+import { canonicalBlogCategoryKey } from "@/data/blogCategories";
+
+/** Show one of the 8 clean topics instead of legacy sub-labels. */
+const topicLabel = (category: string): string => {
+  const key = canonicalBlogCategoryKey(category);
+  return key ? BLOG_TOPIC_LABELS[key] : category;
+};
 
 export interface BlogCardPost {
   slug: string;
@@ -99,7 +106,7 @@ const BlogCard = ({
             isLead ? "p-5 md:p-8 md:justify-center" : isCompact ? "p-4" : "p-5"
           }`}
         >
-          <span className={`${TOPIC_CHIP} mb-3 self-start`}>{post.category}</span>
+          <span className={`${TOPIC_CHIP} mb-3 self-start`}>{topicLabel(post.category)}</span>
           <Heading
             className={`font-display font-semibold leading-snug text-foreground transition-colors group-hover:text-primary break-words ${
               isLead
