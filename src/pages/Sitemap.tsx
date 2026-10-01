@@ -167,9 +167,6 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Arthritis Waiting List Help", href: "/arthritis-waiting-list-help" },
   { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
 
-  // Buddy
-  { label: "Buddy Programme", href: "/buddy" },
-  { label: "Buddy Match", href: "/buddy/match" },
 
   // Regional hubs
   { label: "North West Region", href: "/regions/north-west" },

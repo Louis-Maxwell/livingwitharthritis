@@ -120,7 +120,7 @@ export const ConnectGroupsStub = () => (
     faqs={CONNECT_GROUPS_FAQS}
     relatedLinks={[
       { label: "Community hub", href: "/community" },
-      { label: "Buddy programme", href: "/buddy" },
+      { label: "Events & webinars", href: "/events" },
       { label: "Patient stories", href: "/stories" },
       { label: "Helpline & support", href: "/helpline" },
     ]}
@@ -147,7 +147,7 @@ export const EventsStub = () => (
     relatedLinks={[
       { label: "Connect groups", href: "/community/connect-groups" },
       { label: "Patient stories", href: "/stories" },
-      { label: "Podcasts", href: "/podcasts" },
+      { label: "Expert articles", href: "/expert-articles" },
       { label: "Community hub", href: "/community" },
     ]}
   />
