@@ -38,6 +38,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     supportingPaths: [
       "/blog/walking-with-arthritis-start-build-up-keep-going",
       "/blog/joint-protection-easier-everyday-tasks",
+      "/blog/energy-management-and-pacing-arthritis",
       "/blog/best-walking-shoes-arthritis-uk",
       "/library/fibromyalgia",
       "/library/arthritis-symptoms",
@@ -250,6 +251,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarTitle: "Flare-up guide",
     supportingPaths: [
       "/guides/arthritis-pain-relief",
+      "/blog/energy-management-and-pacing-arthritis",
       "/arthritis-mental-health",
       "/exercises",
       "/diet",
@@ -278,6 +280,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/benefits-pip",
       "/blog/sick-pay-fit-notes-time-off-work-arthritis",
       "/blog/carers-allowance-help-if-you-care-for-someone",
+      "/blog/carers-assessment-arthritis-frailty-uk",
+      "/blog/arthritis-and-work-uk",
       "/blog/access-to-work-scheme-arthritis-guide",
       "/library/access-to-work",
       "/resources/pip-evidence-diary",
@@ -296,6 +300,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "blue badge",
       "attendance allowance",
       "access to work",
+      "carer's assessment",
+      "carers assessment",
       "dla",
       "motability",
       "welfare",
