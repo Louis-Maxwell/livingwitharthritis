@@ -34,6 +34,8 @@ import {
   type BlogMeta,
   type BlogPost,
 } from "../src/lib/blog/schema";
+import { canonicalBlogCategoryKey } from "../src/data/blogCategories";
+import { BLOG_TOPIC_LABELS } from "../src/lib/blog/topics";
 
 export const COVER_MAP_PATH = "src/data/blog-cover-map.generated.json";
 export const CONTENT_STATS_PATH = "src/data/contentStats.generated.json";
@@ -52,6 +54,9 @@ export interface BlogCatalogArtifacts {
 export function toBlogMeta(post: BlogPost): BlogMeta {
   const meta = {} as Record<string, unknown>;
   for (const key of BLOG_META_FIELDS) meta[key] = post[key];
+  // Listings use the 8 canonical topic labels so cards and filters agree.
+  const topicKey = canonicalBlogCategoryKey(post.category);
+  if (topicKey) meta.category = BLOG_TOPIC_LABELS[topicKey];
   const words = countWords(post.content);
   meta.last_reviewed = post.last_reviewed ?? post.updated_at.slice(0, 10);
   meta.image_url = `/openverse/${post.cover}`;
