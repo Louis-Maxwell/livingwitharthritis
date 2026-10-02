@@ -64,9 +64,43 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
 
     setIsLoading(true);
     setError(null);
+    trackDonationInitiate(amount);
+
+    // Preferred path: secure card checkout inside this window
+    // (cards, Apple Pay, Google Pay).
+    if (isStripeConfigured()) {
+      try {
+        const { data, error: fnError } = await supabase.functions.invoke(
+          'create-donation-checkout',
+          {
+            body: {
+              amount,
+              currency: (currency || 'GBP').toUpperCase(),
+              fundType,
+              recurring,
+              giftAid,
+              returnUrl: `${window.location.origin}/donation-success?session_id={CHECKOUT_SESSION_ID}`,
+              environment: getStripeEnvironment(),
+            },
+          },
+        );
+        if (fnError || !data?.clientSecret) {
+          throw new Error(fnError?.message || 'No checkout session');
+        }
+        markFormSubmitted('donation');
+        setClientSecret(data.clientSecret as string);
+        setIsLoading(false);
+        return;
+      } catch (err) {
+        reportFormFailure(
+          'donation_checkout',
+          err instanceof Error ? err.message : 'checkout failed',
+        );
+      }
+    }
+
     try {
       const donateUrl = import.meta.env.VITE_STRIPE_DONATE_URL as string | undefined;
-      trackDonationInitiate(amount);
       const validated = validateStripeDonateUrl(donateUrl);
       if (validated.ok) {
         markFormSubmitted("donation");
@@ -74,12 +108,6 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         window.location.href = validated.url;
         return;
       }
-      // No usable card-payment link: the donor is sent to an email draft
-      // instead, so record it where the charity will see it.
-      reportFormFailure(
-        "donation_checkout",
-        donateUrl ? `Stripe donate link rejected: ${validated.reason}` : "Stripe donate link not configured",
-      );
       openMailto({
         subject: `Donation of ${sym}${amount.toFixed(2)} (${fundLabel})`,
         body: [
@@ -87,24 +115,52 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
           recurring ? "This would be a monthly gift." : "This would be a one-off gift.",
           giftAid ? "I would like Gift Aid applied." : "",
           "",
-          `Please send a Stripe or PayPal payment link to this address.`,
+          `Please send a secure payment link to this address.`,
         ].filter(Boolean).join("\n"),
         email: CONTACT_EMAILS.info,
       });
       markFormSubmitted("donation");
       onClose();
       toast.success(
-        "Card payments are temporarily unavailable. We've opened an email so our team can send you a secure payment link — thank you for your support.",
+        "We couldn't open card payment just now. We've opened an email so our team can send you a secure payment link — thank you for your support.",
       );
     } catch (err) {
       reportFormFailure("donation_checkout", err instanceof Error ? err.message : "submit failed");
-      const msg = err instanceof Error ? err.message : "Failed to create checkout";
+      const msg = "Sorry, we couldn't start your donation. Please try again.";
       setError(msg);
       toast.error(msg);
     } finally {
       setIsLoading(false);
     }
-  }, [amount, sym, fundLabel, giftAid, recurring, onClose]);
+  }, [amount, currency, fundType, sym, fundLabel, giftAid, recurring, onClose]);
+
+  const checkoutOptions = useMemo(
+    () => (clientSecret ? { fetchClientSecret: () => Promise.resolve(clientSecret) } : null),
+    [clientSecret],
+  );
+
+  if (clientSecret && checkoutOptions) {
+    return (
+      <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
+        <DialogContent className="w-[calc(100%-1.5rem)] max-w-[calc(100vw-1.5rem)] sm:max-w-xl p-0 gap-0 rounded-2xl overflow-y-auto max-h-[92vh]">
+          <DialogHeader className="px-6 pt-6 pb-3">
+            <DialogTitle className="text-lg font-bold text-foreground">
+              {recurring ? 'Monthly donation' : 'Your donation'}: {sym}{amount.toFixed(2)}
+            </DialogTitle>
+            <DialogDescription className="text-sm text-foreground">
+              {fundLabel} · Pay by card, Apple Pay or Google Pay
+            </DialogDescription>
+          </DialogHeader>
+          <PaymentTestModeBanner />
+          <div className="px-2 pb-4 bg-background">
+            <EmbeddedCheckoutProvider stripe={getStripe()} options={checkoutOptions}>
+              <EmbeddedCheckout />
+            </EmbeddedCheckoutProvider>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
