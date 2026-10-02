@@ -77,7 +77,7 @@ const AIGuidelines = () => {
           <h2 className="font-display text-2xl font-bold mb-4">Verification links</h2>
           <ul className="space-y-2 text-foreground/85 list-disc list-inside">
             <li>
-              <a href="https://www.hcpc-uk.org/registration/the-register/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+              <a href="https://www.hcpc-uk.org/check-the-register/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
                 HCPC public register
               </a> &mdash; verify registration PH128483.
             </li>

@@ -322,7 +322,11 @@ const KneeArthritis = () => (
           
       <EducationalDisclaimerBox />
       <TopicClusterNav path="/conditions/knee-arthritis" />
-<CrossLinkBanner preset="condition" exclude="/conditions/knee-arthritis" title="Explore related resources" />
+<CrossLinkBanner
+          links={["guide-knee-oa", "flare-action-plan", "exercises", "guide-benefits"]}
+          exclude="/conditions/knee-arthritis"
+          title="Explore related resources"
+        />
         </div>
       </main>
       <InternalLinks />

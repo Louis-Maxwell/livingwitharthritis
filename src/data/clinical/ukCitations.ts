@@ -73,13 +73,13 @@ export const VERSUS_ARTHRITIS_RA: Citation = {
 
 export const VERSUS_ARTHRITIS_EXERCISE: Citation = {
   label: "Exercise and arthritis",
-  url: "https://versusarthritis.org/about-arthritis/managing-symptoms/exercise/",
+  url: "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/",
   publisher: "Versus Arthritis",
 };
 
 export const VERSUS_ARTHRITIS_PAIN: Citation = {
   label: "Pain and arthritis",
-  url: "https://versusarthritis.org/about-arthritis/managing-symptoms/pain/",
+  url: "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/",
   publisher: "Versus Arthritis",
 };
 

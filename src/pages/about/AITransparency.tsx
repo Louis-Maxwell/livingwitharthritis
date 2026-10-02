@@ -68,7 +68,7 @@ const AITransparency = () => {
           </ul>
           <p className="mt-4">
             <a
-              href="https://www.hcpc-uk.org/registration/the-register/"
+              href="https://www.hcpc-uk.org/check-the-register/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary underline underline-offset-2 hover:opacity-80"

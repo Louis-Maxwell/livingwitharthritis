@@ -39,7 +39,7 @@ const sections = [
 ];
 
 const externalLinks = [
-  { href: "https://www.hcpc-uk.org/registration/the-register/", label: "HCPC Register (verify PH128483)" },
+  { href: "https://www.hcpc-uk.org/check-the-register/", label: "HCPC Register (verify PH128483)" },
   { href: "https://www.csp.org.uk/", label: "Chartered Society of Physiotherapy" },
   { href: "https://www.nice.org.uk/", label: "NICE Guidelines" },
   { href: "https://www.cochrane.org/", label: "Cochrane Reviews" },
