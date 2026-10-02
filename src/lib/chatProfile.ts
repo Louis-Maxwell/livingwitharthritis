@@ -1,7 +1,8 @@
 /**
- * Per-user chatbot profile stored in localStorage.
- * Prepended to the system prompt via the /chat edge function to enable
- * personalised responses. All fields are optional.
+ * Optional chatbot profile (condition, age band, joints). Health details,
+ * so they live in sessionStorage for this tab only and are never written
+ * to localStorage. A copy left by older builds is deleted on read.
+ * All fields are optional.
  */
 
 const STORAGE_KEY = "arthritis_chat_profile_v1";
@@ -51,10 +52,19 @@ export const SEVERITY_LEVELS = [
   "Severe",
 ] as const;
 
+function dropLegacyLocalCopy(): void {
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    /* private mode */
+  }
+}
+
 export function loadChatProfile(): ChatProfile {
   if (typeof window === "undefined") return {};
+  dropLegacyLocalCopy();
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return {};
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object") return {};
@@ -74,7 +84,8 @@ export function loadChatProfile(): ChatProfile {
 export function saveChatProfile(profile: ChatProfile): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+    dropLegacyLocalCopy();
+    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
   } catch {
     /* quota or private mode — ignore */
   }
@@ -83,7 +94,8 @@ export function saveChatProfile(profile: ChatProfile): void {
 export function clearChatProfile(): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.removeItem(STORAGE_KEY);
+    dropLegacyLocalCopy();
+    window.sessionStorage.removeItem(STORAGE_KEY);
   } catch {
     /* ignore */
   }
