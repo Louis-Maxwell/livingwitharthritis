@@ -33,6 +33,7 @@ const validData = {
 describe("useAppointment", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    window.localStorage.clear();
     hrefs.length = 0;
   });
 

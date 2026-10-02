@@ -110,6 +110,7 @@ const CorporateGiving = () => {
         email: parsed.data.email,
         phone: parsed.data.phone || undefined,
         subject: "Corporate giving enquiry",
+        formId: "corporate-giving",
         message: [
           parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
           "Type: " + parsed.data.inquiry_type,
@@ -119,6 +120,8 @@ const CorporateGiving = () => {
       if (result.via === "mailto") {
         toast.message(result.message);
         setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }

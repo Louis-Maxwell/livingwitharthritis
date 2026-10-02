@@ -7,6 +7,11 @@
 import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { reportFormFailure } from "@/lib/errorReporting";
+import {
+  checkFormRateLimit,
+  formRateLimitMessage,
+  markFormSubmitted,
+} from "@/lib/formRateLimit";
 
 export type BackendSubmitResult =
   | {
@@ -15,14 +20,28 @@ export type BackendSubmitResult =
       message: string;
     }
   | { ok: false; via: "mailto"; message: string; mailtoOpened: true }
+  | { ok: false; via: "throttled"; message: string; retryAfterMs: number }
   | { ok: false; via: "none"; message: string };
 
 /** FormSubmit AJAX endpoint — first live submit emails an activation link to the inbox. */
 export const NEWSLETTER_FORMSUBMIT_URL = `https://formsubmit.co/ajax/${CONTACT_EMAILS.info}`;
 
-function mailtoFallback(opts: { subject: string; body: string }): BackendSubmitResult {
+function throttled(formId: string): BackendSubmitResult | null {
+  const result = checkFormRateLimit(formId);
+  return result.allowed
+    ? null
+    : {
+        ok: false,
+        via: "throttled",
+        retryAfterMs: result.retryAfterMs,
+        message: formRateLimitMessage(result.retryAfterMs),
+      };
+}
+
+function mailtoFallback(opts: { formId: string; subject: string; body: string }): BackendSubmitResult {
   try {
     const result = submitViaMailto(opts);
+    markFormSubmitted(opts.formId);
     return {
       ok: false,
       via: "mailto",
@@ -49,6 +68,8 @@ export async function subscribeNewsletter(opts: {
 }): Promise<BackendSubmitResult> {
   const email = opts.email.trim().toLowerCase();
   const source = (opts.source || "website").slice(0, 80);
+  const limited = throttled("newsletter");
+  if (limited) return limited;
 
   try {
     const controller = new AbortController();
@@ -72,6 +93,7 @@ export async function subscribeNewsletter(opts: {
       });
 
       if (res.ok) {
+        markFormSubmitted("newsletter");
         return {
           ok: true,
           via: "formsubmit",
@@ -89,6 +111,7 @@ export async function subscribeNewsletter(opts: {
   }
 
   return mailtoFallback({
+    formId: "newsletter",
     subject: "Newsletter signup",
     body: `Please add this email to the newsletter list: ${email}\nSource: ${source}`,
   });
@@ -100,7 +123,11 @@ export async function submitContactInquiry(opts: {
   phone?: string;
   subject: string;
   message: string;
+  formId?: string;
 }): Promise<BackendSubmitResult> {
+  const limited = throttled(opts.formId || "contact");
+  if (limited) return limited;
+
   const row = {
     name: opts.name.trim().slice(0, 200),
     email: opts.email.trim().toLowerCase().slice(0, 320),
@@ -118,6 +145,7 @@ export async function submitContactInquiry(opts: {
   ].filter(Boolean);
 
   return mailtoFallback({
+    formId: opts.formId || "contact",
     subject: row.subject,
     body: lines.join("\n"),
   });
@@ -130,12 +158,16 @@ export async function submitVolunteerEnquiry(opts: {
   area_of_interest: string;
   message?: string;
 }): Promise<BackendSubmitResult> {
+  const limited = throttled("volunteer");
+  if (limited) return limited;
+
   const name = opts.name.trim().slice(0, 200);
   const email = opts.email.trim().toLowerCase().slice(0, 320);
   const interest = opts.area_of_interest.trim().slice(0, 200);
   const message = (opts.message || "").trim().slice(0, 5000);
 
   return mailtoFallback({
+    formId: "volunteer",
     subject: `Volunteer enquiry: ${interest || "general"}`,
     body: [
       `Name: ${name}`,
@@ -152,6 +184,9 @@ export async function submitBlogComment(opts: {
   author_name: string;
   content: string;
 }): Promise<BackendSubmitResult> {
+  const limited = throttled("blog-comment");
+  if (limited) return limited;
+
   const row = {
     slug: opts.slug.trim().slice(0, 200),
     author_name: opts.author_name.trim().slice(0, 100),
@@ -159,6 +194,7 @@ export async function submitBlogComment(opts: {
   };
 
   return mailtoFallback({
+    formId: "blog-comment",
     subject: `Comment on ${row.slug}`,
     body: `${row.author_name} wrote:\n\n${row.content}`,
   });

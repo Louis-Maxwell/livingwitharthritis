@@ -1,6 +1,7 @@
 # Living With Arthritis UK — robots.txt
 # Reference: https://www.robotstxt.org/robotstxt.html
 # /chat (Help & Support) is public and indexable. /auth and /admin*
+# AI assistants: https://livingwitharthritis.org.uk/llms.txt
 # are private and noindex'd via SeoHead as belt-and-braces.
 #
 # /site-index added below to match public/.well-known/ai.txt and the
@@ -571,7 +572,11 @@ User-agent: HaoSouSpider
 Disallow: /
 
 User-agent: *
+# AI-readable summaries are intentionally public; keep private utility routes below blocked.
 Allow: /
+Allow: /llms.txt
+Allow: /.well-known/llms.txt
+Allow: /.well-known/ai.txt
 Allow: /authors/
 Allow: /reviewers/
 Disallow: /admin/

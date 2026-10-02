@@ -93,7 +93,7 @@ const CONTENT = `
 <li><strong>Mention pain</strong> — describe the type, intensity and impact of pain on each activity</li>
 <li><strong>Note time taken</strong> — if a task takes you twice as long as someone without arthritis, this counts</li>
 <li><strong>List all aids and adaptations</strong> — jar openers, perching stools, grab rails, orthotics, walking sticks, wheelchairs</li>
-<li><strong>Keep a pain diary</strong> — a 2-week diary showing daily symptom levels strengthens your claim significantly</li>
+<li><strong>Keep a pain diary</strong> — a <a href="/resources/pip-evidence-diary">printable PIP evidence diary</a> can help you record daily symptoms and prepare for a claim</li>
 <li><strong>Get help completing the form</strong> — Citizens Advice, Arthritis UK and local welfare rights services offer free support</li>
 </ul>
 

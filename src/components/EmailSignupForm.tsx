@@ -74,6 +74,9 @@ const EmailSignupForm = memo(({
         toast.message(result.message);
         onSuccess?.();
         setTimeout(() => setSuccess(false), 8000);
+      } else if (result.via === "throttled") {
+        setError(null);
+        toast.message(result.message);
       } else {
         const msg =
           result.message ||

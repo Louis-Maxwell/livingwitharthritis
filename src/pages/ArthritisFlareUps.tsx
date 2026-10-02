@@ -588,6 +588,13 @@ export default function ArthritisFlareUps() {
               ],
             },
             {
+              title: "Money and practical support",
+              links: [
+                { label: "Benefits & PIP guide", to: "/guides/benefits-pip" },
+                { label: "Printable PIP evidence diary", to: "/resources/pip-evidence-diary" },
+              ],
+            },
+            {
               title: "Conditions linked to flares",
               links: [
                 { label: "Rheumatoid arthritis flares", to: "/conditions/rheumatoid-arthritis" },

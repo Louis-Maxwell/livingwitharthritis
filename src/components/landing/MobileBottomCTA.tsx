@@ -64,7 +64,7 @@ const MobileBottomCTA = memo(() => {
             <BookOpen className="w-4 h-4" aria-hidden="true" /> New
           </a>
           <a
-            href="/benefits-pip"
+            href="/guides/benefits-pip"
             onClick={() => trackMobileBottomCTA("benefits")}
             aria-label="Money and benefits including PIP"
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-card text-foreground border border-border font-bold text-xs px-2"
