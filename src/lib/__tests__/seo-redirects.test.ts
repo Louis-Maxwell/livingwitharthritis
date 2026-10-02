@@ -134,6 +134,8 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/lived-experiences")).toBe("/community");
     expect(resolveSeoRedirect("/impact-stories")).toBe("/community");
     expect(resolveSeoRedirect("/privacy-policy")).toBe("/privacy");
+    expect(resolveSeoRedirect("/medical-disclaimer")).toBe("/disclaimer");
+    expect(resolveSeoRedirect("/claims-policy")).toBe("/about/editorial-claims-policy");
   });
 
   it("301s exercise×condition templates to a real joint/condition page", () => {

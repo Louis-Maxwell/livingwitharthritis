@@ -139,12 +139,12 @@ const ArthritisPainRelief = () => (
         </Section>
 
         <Section icon={Pill} title="3. Get the right medicines">
-          <p>UK NICE guidance for osteoarthritis now recommends:</p>
+          <p>For knee and hand osteoarthritis, NICE guidance recommends trying a topical NSAID gel first. Paracetamol is not routinely offered as first-line treatment and may be considered only infrequently when other options are unsuitable.</p>
           <ul>
             <li><strong>Topical NSAID gel first</strong> — ibuprofen or diclofenac, applied 3× a day to the painful joint. Fewer side effects than tablets.</li>
             <li><strong>Oral NSAIDs</strong> — short courses with food, at the lowest effective dose. Always check with your pharmacist if you take blood thinners, have asthma, or have stomach problems.</li>
             <li><strong>Paracetamol</strong> — useful as an add-on, less effective on its own than once thought.</li>
-            <li><strong>Capsaicin cream</strong> — derived from chilli; effective for hand and knee osteoarthritis with patient persistence (it can sting at first).</li>
+            <li><strong>Capsaicin cream</strong> — derived from chilli; NICE evidence supports a possible benefit for knee osteoarthritis, but it can sting at first and is not a routine first-line option.</li>
             <li><strong>Corticosteroid injections</strong> — your GP can refer for these for a single severely painful joint.</li>
           </ul>
           <p>If you take regular painkillers more than 2–3 times a week, book a GP review.</p>
@@ -163,7 +163,7 @@ const ArthritisPainRelief = () => (
         </Section>
 
         <Section icon={Moon} title="5. Protect your sleep">
-          <p>Poor sleep amplifies pain by up to 40% in chronic-pain studies. Pain disturbs sleep, and broken sleep magnifies pain — breaking the loop matters.</p>
+          <p>Poor or disrupted sleep can increase pain sensitivity. Pain disturbs sleep, and broken sleep can magnify pain — breaking the loop matters.</p>
           <ul>
             <li>Same bed-time and wake-time, 7 days a week</li>
             <li>Bedroom cool, dark, screen-free for the last 30 minutes</li>

@@ -22,7 +22,7 @@ const EXERCISE_GUIDE_FAQS = [
   { question: "What is the best exercise for arthritis?", answer: "Low-impact aerobic activity (walking, swimming, cycling), strength training and a flexibility practice such as tai chi or yoga. UK NICE guidelines (NG226) put exercise ahead of medication for osteoarthritis. The single best exercise is the one you'll actually do 3–5 times per week." },
   { question: "Should I exercise if my joints hurt?", answer: "Yes — moderate joint pain (up to about 4/10) during arthritis exercise is normal and safe, provided the pain settles within 24 hours. Stop and reduce intensity if pain stays high overnight, joints swell, or you experience sharp catching pain." },
   { question: "How much exercise should someone with arthritis do per week?", answer: "Aim for 150 minutes of moderate aerobic activity per week (e.g. five 30-minute walks), plus 2 sessions of muscle-strengthening work, in line with UK Chief Medical Officer guidelines. Break it into 10-minute blocks if needed — short, frequent sessions count." },
-  { question: "Is walking good for arthritis?", answer: "Yes. Walking is one of the most strongly evidenced exercises for knee and hip osteoarthritis. Start with 10–15 minutes on flat ground and build up. Supportive footwear and walking poles can reduce knee load by up to 25%." },
+  { question: "Is walking good for arthritis?", answer: "Yes. Walking is one of the most strongly evidenced exercises for knee and hip osteoarthritis. Start with 10–15 minutes on flat ground and build up. Supportive footwear and walking poles may improve comfort and confidence for some people." },
   { question: "Is swimming better than the gym for arthritis?", answer: "Swimming and water-based exercise remove weight-bearing stress, making them excellent during flares or for severe joint disease. Gym-based strength training, however, is essential for protecting joints long-term — most people benefit from a combination." },
   { question: "Can I do strength training with rheumatoid arthritis?", answer: "Yes — and you should. Progressive resistance training is safe and beneficial in stable RA, helping counter the muscle loss that comes with inflammation and steroid use. Avoid heavy loads during an acute flare and resume gradually once it settles." },
 ];
@@ -60,7 +60,7 @@ const CONTENT = `
 <h3 id="aerobic-exercise">1. Aerobic (Cardiovascular) Exercise</h3>
 <p>Low-impact aerobic exercise improves cardiovascular fitness, helps manage weight, reduces inflammation and boosts mood. The health service recommends at least <strong>150 minutes of moderate-intensity activity per week</strong> (or 75 minutes of vigorous activity). For people with arthritis, suitable options include:</p>
 <ul>
-<li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) reduces knee load by up to 30%</li>
+<li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) may improve comfort and confidence for some people, but evidence on its effect on knee loading is mixed.</li>
 <li><strong>Swimming and water aerobics</strong> — buoyancy reduces joint load by up to 90%, making it ideal for painful joints. Many the public health service and local authority pools offer arthritis-specific sessions</li>
 <li><strong>Cycling</strong> — stationary or outdoor; very low joint impact. Excellent for knee OA</li>
 <li><strong>Elliptical trainer</strong> — smooth, controlled movement without impact</li>

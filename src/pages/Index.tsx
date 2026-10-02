@@ -88,7 +88,7 @@ function HomePage() {
         <meta
           name="description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help.",
+            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free UK guides for joint pain, with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help.",
           )}
         />
         <meta
@@ -108,7 +108,7 @@ function HomePage() {
         <meta
           property="og:description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free clinically reviewed UK arthritis guidance. Registered charity 1218461.",
+            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free UK arthritis guidance with clinical-review status shown on each page. Registered charity 1218461.",
           )}
         />
         <meta
