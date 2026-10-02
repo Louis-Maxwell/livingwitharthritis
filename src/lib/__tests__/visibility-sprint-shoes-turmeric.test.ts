@@ -111,10 +111,12 @@ describe("visibility sprint: customer-job hub polish", () => {
 
     expect(newly).toMatch(/lastReviewed="2026-09-(20|29)"/);
     expect(newly).toContain("/guides/arthritis-pain-relief");
-    expect(newly).toContain("/benefits-pip");
+    expect(newly).toContain("/guides/benefits-pip");
+    expect(newly).toContain("/resources/pip-evidence-diary");
 
     expect(pip).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pip).toContain("/guides/benefits-pip");
-    expect(pip).toContain("Next step");
+    expect(pip).toContain("How to claim PIP for arthritis UK");
+    expect(pip).toContain('rel="canonical"');
   });
 });

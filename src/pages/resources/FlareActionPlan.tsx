@@ -91,19 +91,35 @@ export default function FlareActionPlan() {
           </div>
         </section>
 
-        <p className="mb-4 text-sm text-foreground/80">
-          Full guide:{" "}
-          <Link to={`/arthritis-flare-ups${PRINT_UTM}`} className="text-primary underline underline-offset-2">
-            Arthritis flare-ups
-          </Link>
-          {" · "}
-          Pain:{" "}
-          <Link
-            to={`/guides/arthritis-pain-relief${PRINT_UTM}`}
-            className="text-primary underline underline-offset-2"
-          >
-            Pain relief guide
-          </Link>
+        <nav aria-label="Related flare help" className="mb-4 rounded-xl border border-border/50 bg-muted/20 p-4 text-sm text-foreground/80">
+          <p className="font-semibold text-foreground m-0 mb-2">Related help</p>
+          <ul className="m-0 list-disc space-y-1 pl-5">
+            <li>
+              <Link to={`/arthritis-flare-ups${PRINT_UTM}`} className="text-primary underline underline-offset-2">
+                Arthritis flare-ups guide
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={`/guides/arthritis-pain-relief${PRINT_UTM}`}
+                className="text-primary underline underline-offset-2"
+              >
+                Arthritis pain relief
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={`/guides/knee-exercises-for-osteoarthritis${PRINT_UTM}`}
+                className="text-primary underline underline-offset-2"
+              >
+                Knee exercises for osteoarthritis
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <p className="mb-4 rounded-lg border border-border/40 bg-card px-4 py-3 text-sm text-foreground/85">
+          {CHARITY.shortName} is a UK registered charity ({CHARITY.number}). This printable plan is
+          clinically reviewed educational information — not a personal treatment plan.
         </p>
         <p className="text-xs text-muted-foreground">
           {CHARITY.shortName} · Charity {CHARITY.number} · {CONTACT_PHONE} · {CONTACT_EMAILS.info}

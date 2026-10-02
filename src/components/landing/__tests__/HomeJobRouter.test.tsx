@@ -87,6 +87,19 @@ describe("HomeJobRouter", () => {
     expect(broken).toEqual([]);
   });
 
+
+  it("puts the flare action plan first under the pain job", () => {
+    const pain = VISITOR_JOBS.find((j) => j.id === "pain");
+    expect(pain?.more[0]?.href).toBe("/resources/flare-action-plan");
+    expect(pain?.more.map((m) => m.href)).toContain("/blog/arthritis-flare-up-what-to-do");
+  });
+
+  it("routes money job to the PIP guide and diary", () => {
+    const money = VISITOR_JOBS.find((j) => j.id === "money");
+    expect(money?.href).toBe("/guides/benefits-pip");
+    expect(money?.more.map((m) => m.href)).toContain("/resources/pip-evidence-diary");
+  });
+
   it("never links to city doorway pages", () => {
     renderRouter();
     const section = screen.getByRole("region", { name: /what do you need today/i });

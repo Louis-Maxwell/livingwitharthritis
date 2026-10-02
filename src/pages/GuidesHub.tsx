@@ -106,15 +106,15 @@ const GuidesHub = () => {
               arthritis blog
             </Link>
             , or jump to the{" "}
-            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">
-              Benefits &amp; PIP hub
+            <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
+              Benefits &amp; PIP guide
             </Link>
             . You are not alone in figuring this out.
           </p>
           <nav aria-label="Related hubs" className="flex flex-wrap gap-2 text-sm">
             <Link to="/exercises" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Exercise hub</Link>
             <Link to="/diet" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Diet hub</Link>
-            <Link to="/benefits-pip" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Benefits &amp; PIP</Link>
+            <Link to="/guides/benefits-pip" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Benefits &amp; PIP</Link>
             <Link to="/blog" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Blog</Link>
             <Link to="/editorial-standards" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">How we write</Link>
           </nav>
@@ -124,7 +124,7 @@ const GuidesHub = () => {
               Popular guides
             </h2>
             <p className="text-sm text-muted-foreground mb-4 max-w-2xl">
-              Two free starting points most UK readers ask for — clinically reviewed, no sign-up.
+              Free starting points most UK readers ask for — clinically reviewed, no sign-up.
             </p>
             <div className="grid gap-3 sm:grid-cols-2">
               <Link
@@ -149,6 +149,30 @@ const GuidesHub = () => {
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   Guides, home physio, PIP diary and flare tools — charity 1218461.
+                </p>
+              </Link>
+              <Link
+                to="/guides/benefits-pip"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Money</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  How to claim PIP for arthritis UK
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Eligibility, PIP2 form tips, assessment and appeals.
+                </p>
+              </Link>
+              <Link
+                to="/resources/pip-evidence-diary"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Tool</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  Printable PIP evidence diary
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  One-week checklist to support a PIP discussion with an adviser.
                 </p>
               </Link>
             </div>

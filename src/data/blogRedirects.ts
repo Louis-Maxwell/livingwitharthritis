@@ -5,9 +5,9 @@
 export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "nhs-arthritis-exercises": "arthritis-exercises-uk-clinical",
   "nhs-rheumatology-waiting-times-uk": "rheumatology-waiting-times-uk",
-  // Knee-exercise content consolidated onto /guides/knee-exercises-for-osteoarthritis
-  // (App.tsx Navigate-redirects /blog/knee-arthritis-exercises-uk there). Legacy
-  // blog slugs still map here, then onward to the guide.
+  // Knee-exercise content consolidated onto /guides/knee-exercises-for-osteoarthritis.
+  // Legacy blog slugs still resolve via BlogPost; HTTP/_redirects + EXACT_SEO_REDIRECTS
+  // send users directly to the guide (no soft intermediate hop).
   "knee-osteoarthritis-exercises": "knee-arthritis-exercises-uk",
   "knee-exercises-arthritis": "knee-arthritis-exercises-uk",
   // Batch content-generation duplicated these 15 topics into near-identical

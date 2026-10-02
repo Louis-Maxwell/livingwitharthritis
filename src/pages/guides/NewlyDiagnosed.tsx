@@ -358,8 +358,13 @@ export default function NewlyDiagnosed() {
               </Link>
             </Button>
             <Button asChild variant="outline" className="gap-2">
-              <Link to="/benefits-pip">
-                Benefits &amp; PIP
+              <Link to="/guides/benefits-pip">
+                How to claim PIP
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/resources/pip-evidence-diary">
+                PIP evidence diary
               </Link>
             </Button>
             <Button onClick={handlePrint} variant="outline" className="gap-2">
@@ -372,7 +377,9 @@ export default function NewlyDiagnosed() {
             <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
               <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
               <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
-              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">How to claim PIP</Link></li>
+              <li><Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
+              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link></li>
               <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
               <li><Link to="/blog/access-to-work-scheme-arthritis-guide" className="text-primary underline underline-offset-2">Access to Work</Link></li>
               <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
@@ -544,7 +551,9 @@ export default function NewlyDiagnosed() {
                 { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
                 { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
                 { label: "Exercise hub", href: "/exercises" },
-                { label: "Benefits & PIP", href: "/benefits-pip" },
+                { label: "How to claim PIP", href: "/guides/benefits-pip" },
+                { label: "PIP evidence diary", href: "/resources/pip-evidence-diary" },
+                { label: "Benefits & PIP hub", href: "/benefits-pip" },
                 { label: "Access to Work", href: "/blog/access-to-work-scheme-arthritis-guide" },
                 { label: "Find a specialist", href: "/tools/find-specialist" },
                 { label: "Living with arthritis", href: "/living-with-arthritis" },

@@ -27,8 +27,8 @@ export default function PipEvidenceDiary() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="PIP evidence diary checklist (printable)"
-        description="Printable UK PIP evidence diary for arthritis: daily activity prompts to support a Personal Independence Payment claim. Educational, not legal advice."
+        title="UK PIP evidence diary for arthritis (printable checklist)"
+        description="Printable UK PIP evidence diary for arthritis: one-week daily living and mobility prompts to support a Personal Independence Payment claim. Educational, not legal advice."
         path={PATH}
       />
       <Header />
@@ -92,17 +92,34 @@ export default function PipEvidenceDiary() {
           </table>
         </div>
 
-        <p className="mb-4 text-sm text-foreground/80">
-          Full guide:{" "}
-          <Link to={`/guides/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
-            Benefits &amp; PIP guide
-          </Link>
-          {" · "}
-          Hub:{" "}
-          <Link to={`/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
-            Benefits &amp; PIP hub
-          </Link>
-        </p>
+        <nav aria-label="Related PIP help" className="mb-4 rounded-xl border border-border/50 bg-muted/20 p-4 text-sm text-foreground/80 print:hidden">
+          <p className="font-semibold text-foreground m-0 mb-2">Next steps</p>
+          <ul className="m-0 list-disc space-y-1 pl-5">
+            <li>
+              <Link to={`/guides/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
+                How to claim PIP for arthritis UK
+              </Link>
+              {" — "}full guide (eligibility, PIP2, appeals)
+            </li>
+            <li>
+              <a
+                href="https://www.gov.uk/pip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                GOV.UK Personal Independence Payment
+              </a>
+              {" — "}official rules and claim routes
+            </li>
+            <li>
+              <Link to={`/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
+                Benefits &amp; PIP hub
+              </Link>
+              {" — "}related finances and work links
+            </li>
+          </ul>
+        </nav>
         <p className="text-xs text-muted-foreground">
           {CHARITY.shortName} · Charity {CHARITY.number} · {CONTACT_PHONE} · {CONTACT_EMAILS.info}
           <span className="print-only">

@@ -91,6 +91,7 @@ const BenefitsPipHub = () => {
           name="description"
           content="Arthritis affecting dressing, cooking or walking? Start here for UK PIP and benefits: full guide, evidence diary, work rights and next-step links."
         />
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
         <meta property="og:title" content="Benefits & PIP for Arthritis UK | Start Your Claim Prep" />
         <meta
           property="og:description"
@@ -151,25 +152,33 @@ const BenefitsPipHub = () => {
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed m-0">
             PIP is a UK working-age benefit that looks at how arthritis affects daily living and mobility, not just your diagnosis name — check GOV.UK for the latest rules.
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/guides/benefits-pip"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
-            >
-              Next step: full PIP guide <ArrowRight size={14} aria-hidden="true" />
-            </Link>
-            <Link
-              to="/resources/pip-evidence-diary"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/5"
-            >
-              Printable evidence diary
-            </Link>
-            <Link
-              to="/guides/arthritis-pain-relief"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-semibold hover:bg-muted/40"
-            >
-              Still in pain?
-            </Link>
+          <div className="rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 space-y-3">
+            <p className="text-sm font-semibold text-foreground m-0">
+              Clearest answer for &ldquo;How to claim PIP for arthritis UK&rdquo;
+            </p>
+            <p className="text-sm text-muted-foreground m-0">
+              Use the full step-by-step guide for eligibility, the PIP2 form and appeals — then print the evidence diary to record your worst days.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/guides/benefits-pip"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+              >
+                How to claim PIP for arthritis UK <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+              <Link
+                to="/resources/pip-evidence-diary"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/5"
+              >
+                Printable PIP evidence diary
+              </Link>
+              <Link
+                to="/guides/arthritis-pain-relief"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-semibold hover:bg-muted/40"
+              >
+                Still in pain?
+              </Link>
+            </div>
           </div>
           <EducationalDisclaimerBox lastReviewed="2026-09-28" />
           <TopicClusterNav path="/benefits-pip" />
