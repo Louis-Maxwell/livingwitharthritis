@@ -26,6 +26,8 @@ const ALLOWED_HOSTS = [
   "www.nhs.uk",
   "www.nice.org.uk",
   "versusarthritis.org",
+  "www.arthritis-uk.org",
+  "arthritis-uk.org",
   "www.gov.uk",
   "www.mygov.scot",
   "mygov.scot",

@@ -31,8 +31,8 @@ const resourceCategories = [
     icon: Stethoscope,
     color: "icon-circle-sky",
     items: [
-      { name: "Arthritis Overview", url: "https://www.gov.uk/browse/health-and-social-care", type: "Guide", desc: "Comprehensive public health guide covering symptoms, diagnosis and treatment" },
-      { name: "Find Health Services Near You", url: "https://www.gov.uk/browse/health-and-social-care", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
+      { name: "Arthritis Overview", url: "https://www.nhs.uk/nhs-services/", type: "Guide", desc: "Comprehensive public health guide covering symptoms, diagnosis and treatment" },
+      { name: "Find Health Services Near You", url: "https://www.nhs.uk/nhs-services/", type: "Tool", desc: "Locate physiotherapy, rheumatology and pain clinics in your area" },
       { name: "NICE Osteoarthritis Guidelines", url: "https://www.nice.org.uk/guidance/cg177", type: "Guideline", desc: "Evidence-based clinical recommendations for managing OA" },
       { name: "NICE Rheumatoid Arthritis", url: "https://www.nice.org.uk/guidance/ng100", type: "Guideline", desc: "Best-practice pathways for RA diagnosis and treatment" },
     ],

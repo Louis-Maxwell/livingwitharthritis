@@ -213,7 +213,8 @@ const ArthritisPainRelief = () => (
       <nav aria-label="Customer job pathways" className="container mx-auto px-6 md:px-10 max-w-3xl mb-10 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">After pain relief, pick your next job</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
-          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — strengthen and pace safely</li>
+          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — strengthen and pace safely · <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee exercises for osteoarthritis</Link></li>
+          <li><Link to="/resources/flare-action-plan" className="text-primary underline underline-offset-2">Flare action plan</Link> — printable checklist for the first hours of a flare</li>
           <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — low-impact pool drills</li>
           <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link> — footwear that reduces load</li>

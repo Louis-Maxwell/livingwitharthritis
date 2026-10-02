@@ -289,7 +289,7 @@ const CityServicePage = () => {
         <div className="mt-8 text-xs text-muted-foreground bg-muted/40 rounded-xl p-4">
           <strong>Note:</strong> Local service availability and waiting times change frequently.
           Always confirm details with your GP or local provider before acting on this information.
-          See <a href="https://www.gov.uk/health" target="_blank" rel="noopener noreferrer" className="underline">gov.uk/health</a> for current public-healthcare guidance.
+          See <a href="https://www.nhs.uk/" target="_blank" rel="noopener noreferrer" className="underline">nhs.uk</a> for current public-healthcare guidance.
         </div>
       </main>
 

@@ -184,7 +184,7 @@ const CONTENT = `
 <ul>
 <li><strong>Versus Arthritis</strong> — <a href="https://www.versusarthritis.org" target="_blank" rel="noopener noreferrer">versusarthritis.org</a> — helpline: 0800 5200 520</li>
 <li><strong>NRAS</strong> — <a href="https://nras.org.uk" target="_blank" rel="noopener noreferrer">nras.org.uk</a> — helpline: 0800 298 7650</li>
-<li><strong>Health and social care (UK Government)</strong> — <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/browse/health-and-social-care</a></li>
+<li><strong>Health and social care (UK Government)</strong> — <a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a></li>
 <li><strong>Arthritis Action</strong> — <a href="https://www.arthritisaction.org.uk" target="_blank" rel="noopener noreferrer">arthritisaction.org.uk</a></li>
 <li><strong>Citizens Advice</strong> — help with benefits and PIP</li>
 <li><strong>Living With Arthritis</strong> — free virtual physio, diet plans and community support</li>

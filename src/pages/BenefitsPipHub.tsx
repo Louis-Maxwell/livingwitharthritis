@@ -250,6 +250,8 @@ const BenefitsPipHub = () => {
                 <Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link>
                 {" · "}
                 <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link>
+                {" · "}
+                <Link to="/resources/flare-action-plan" className="text-primary underline underline-offset-2">Flare action plan</Link>
               </li>
               <li>
                 <Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link>

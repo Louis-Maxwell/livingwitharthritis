@@ -155,14 +155,11 @@ function maxIsoDate(...dates: Array<string | undefined>): string | undefined {
   return ok.sort().at(-1);
 }
 
-/** Real content dates from scripts/ai-head-data.json (updatedAt). */
-function aiHeadLastmods(): Map<string, string> {
+/** Real content dates from a head-data JSON file (`updatedAt` only). */
+function headDataLastmods(file: string): Map<string, string> {
   const out = new Map<string, string>();
   try {
-    const data = JSON.parse(read("scripts/ai-head-data.json")) as Record<
-      string,
-      { updatedAt?: string }
-    >;
+    const data = JSON.parse(read(file)) as Record<string, { updatedAt?: string }>;
     for (const [path, row] of Object.entries(data)) {
       const d = asIsoDate(row?.updatedAt);
       if (path.startsWith("/") && d) out.set(path, d);
@@ -171,6 +168,11 @@ function aiHeadLastmods(): Map<string, string> {
     // Optional at bootstrap.
   }
   return out;
+}
+
+/** Real content dates from scripts/ai-head-data.json (updatedAt). */
+function aiHeadLastmods(): Map<string, string> {
+  return headDataLastmods("scripts/ai-head-data.json");
 }
 
 /**
@@ -444,10 +446,27 @@ function build(entries: SitemapEntry[]): string {
 async function main() {
   const entries: SitemapEntry[] = [];
   const aiDates = aiHeadLastmods();
+  // Hub guides store updatedAt in a separate file. Same rule: real dates only.
+  const hubDates = headDataLastmods("scripts/hub-guide-head-data.json");
   const pageDates = pageSourceLastmods();
+  // Keep dates already published in sitemap.xml. A fresh run must not drop a
+  // real lastmod just because this pass did not re-discover its source.
+  const priorDates = new Map<string, string>();
+  try {
+    const priorXml = read("public/sitemap.xml");
+    for (const block of priorXml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+      const loc = block[1].match(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/);
+      const last = block[1].match(/<lastmod>([^<]+)<\/lastmod>/);
+      const path = loc ? (loc[1] || "/") : "";
+      const date = asIsoDate(last?.[1]);
+      if (path && date) priorDates.set(path, date);
+    }
+  } catch {
+    // First run, or sitemap not written yet.
+  }
 
   function lastmodFor(path: string, extra?: string): string | undefined {
-    return maxIsoDate(extra, aiDates.get(path), pageDates.get(path));
+    return maxIsoDate(extra, aiDates.get(path), hubDates.get(path), pageDates.get(path), priorDates.get(path));
   }
 
   for (const p of parseStaticRoutes()) {
@@ -511,15 +530,35 @@ async function main() {
   const blogInventory = await blogPosts();
   const posts = blogInventory.posts;
   const cats = new Set<string>();
+  const catLastmod = new Map<string, string>();
+  let newestPost: string | undefined;
   for (const p of posts) {
-    entries.push({ path: `/blog/${p.slug}`, lastmod: asIsoDate(p.lastmod) });
+    const postDate = asIsoDate(p.lastmod);
+    entries.push({ path: `/blog/${p.slug}`, lastmod: postDate });
+    newestPost = maxIsoDate(newestPost, postDate);
     if (p.category) {
       const category = canonicalBlogCategoryKey(p.category);
-      if (category) cats.add(category);
+      if (category) {
+        cats.add(category);
+        const prev = catLastmod.get(category);
+        const next = maxIsoDate(prev, postDate);
+        if (next) catLastmod.set(category, next);
+      }
     }
   }
+  // Category indexes change when a post in that category changes. Use the
+  // newest real post date (or a head-data updatedAt), never "today".
   for (const cat of cats) {
-    entries.push({ path: `/blog/category/${cat}` });
+    const path = `/blog/category/${cat}`;
+    const lastmod = lastmodFor(path, catLastmod.get(cat));
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
+  // Blog index and archive list those same posts.
+  if (newestPost) {
+    for (const path of ["/blog", "/blog/archive"]) {
+      const entry = entries.find((e) => e.path === path);
+      if (entry) entry.lastmod = maxIsoDate(entry.lastmod, newestPost);
+    }
   }
   if (blogInventory.source === "checked-in-fallback") {
     for (const path of previousBlogCategoryPaths()) entries.push({ path });

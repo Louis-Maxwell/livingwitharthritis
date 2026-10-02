@@ -201,7 +201,7 @@ export default function Glucosamine() {
               </li>
               <li>
                 <a
-                  href="https://www.nhs.uk/medicines/warfarin/taking-warfarin-with-other-medicines-and-herbal-supplements/"
+                  href="https://www.nhs.uk/medicines/warfarin/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline"
