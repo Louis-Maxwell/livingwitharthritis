@@ -234,7 +234,7 @@ export default function CollagenAlternatives() {
               <p>
                 Curcumin blocks inflammatory pathways including NF-κB and COX-2. Trials of
                 around <strong>1,000 mg/day</strong> report pain and function improvements in
-                knee osteoarthritis comparable to ibuprofen, with fewer stomach problems.
+                knee osteoarthritis in some small trials. Evidence is limited, and curcumin is not an equivalent alternative to NSAIDs.
                 Absorption is poor on its own, so look for piperine (black pepper extract) or
                 a phospholipid formulation. Plant-based, so it fits every restricted diet.{' '}
                 <Link to="/supplements/turmeric" className="text-primary underline">

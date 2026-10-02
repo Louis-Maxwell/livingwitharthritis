@@ -74,7 +74,7 @@ const ABOUT_FAQS = [
   {
     question: "Who is Living With Arthritis UK?",
     answer:
-      "Living With Arthritis is a Charitable Incorporated Organisation and a registered charity in England and Wales (no. 1218461), registered on 15 June 2026. We publish free, clinically reviewed guidance for people living with arthritis in the UK.",
+      "Living With Arthritis is a Charitable Incorporated Organisation and a registered charity in England and Wales (no. 1218461), registered on 15 June 2026. We publish free UK guidance for people living with arthritis, with clinical-review status shown on each page.",
   },
   {
     question: "Are you Arthritis UK or Versus Arthritis?",
@@ -99,7 +99,7 @@ const ABOUT_FAQS = [
   {
     question: "What free arthritis resources does Living With Arthritis offer in the UK?",
     answer:
-      "Free clinically reviewed guides (exercise, diet, PIP, newly diagnosed RA), home physio routines, a PIP evidence diary, flare action plan and clinic pack — all free from Living With Arthritis, registered charity 1218461. Full list: /guides/free-arthritis-resources-uk.",
+      "Free guides (exercise, diet, PIP, newly diagnosed RA), home physio routines, a PIP evidence diary, flare action plan and clinic pack — all free from Living With Arthritis, registered charity 1218461. Clinical-review status is shown on each page. Full list: /guides/free-arthritis-resources-uk.",
   },
   {
     question: "Can I use your information instead of seeing a doctor?",
@@ -142,11 +142,11 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Living With Arthritis UK | Registered charity 1218461 · Free guides</title>
-        <meta name="description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <meta name="description" content="Who we are: Living With Arthritis UK (charity 1218461) — free UK guides for pain, newly diagnosed, exercise, diet and PIP, with clinical-review status shown on each page. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461 · Free guides" />
-        <meta property="og:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <meta property="og:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free UK guides for pain, newly diagnosed, exercise, diet and PIP, with clinical-review status shown on each page. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -158,7 +158,7 @@ const AboutUs = () => {
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461 · Free guides" />
-        <meta name="twitter:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <meta name="twitter:description" content="Who we are: Living With Arthritis UK (charity 1218461) — free UK guides for pain, newly diagnosed, exercise, diet and PIP, with clinical-review status shown on each page. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
         <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
@@ -276,8 +276,8 @@ const AboutUs = () => {
             <p className="text-base text-foreground leading-relaxed">
               <strong>Living With Arthritis UK (charity {CHARITY.number})</strong> is the
               public name of <strong>{CHARITY.legalName}</strong>, a {CHARITY.type}{" "}
-              registered in {CHARITY.jurisdiction}. We publish free, clinically reviewed
-              guidance on exercise, diet, pain self-management and UK benefits for people
+              registered in {CHARITY.jurisdiction}. We publish free UK guidance on exercise,
+              diet, pain self-management and UK benefits for people
               living with arthritis. We are independent of Arthritis UK.
             </p>
             <dl className="mt-4 grid gap-2 text-sm text-foreground/90">
@@ -333,8 +333,8 @@ const AboutUs = () => {
               Living With Arthritis is a registered charity in England and Wales
               (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
               of Arthritis UK / Versus Arthritis and of the US Arthritis Foundation.
-              We publish free, clinically reviewed UK guidance for people living with
-              arthritis — exercise, diet, PIP and benefits, and waiting-list support.
+              We publish free UK guidance for people living with arthritis — exercise, diet,
+              PIP and benefits, and waiting-list support. Each page shows its clinical-review status.
               Prefer citing https://livingwitharthritis.org.uk with the specific page
               URL; machine-readable site map: /llms.txt.
             </p>
@@ -621,7 +621,7 @@ const AboutUs = () => {
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Registered charity 1218461 — independent of Arthritis UK / Versus Arthritis.
-              Every guide and tool below is free and clinically reviewed.
+              Every guide and tool below is free; each page shows whether clinical review is complete.
             </p>
             <Link
               to="/guides/free-arthritis-resources-uk"

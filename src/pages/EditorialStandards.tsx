@@ -81,10 +81,11 @@ export default function EditorialStandards() {
               Our editorial standards
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Every health page on Living With Arthritis UK is reviewed by a
-              qualified healthcare professional and built on guideline-grade
-              evidence. We also follow a clear eight-step SEO content framework
-              so answers stay intent-led, readable, and useful for UK readers.
+              Pages carrying a clinically reviewed badge have been reviewed by a
+              qualified healthcare professional and are built on guideline-grade
+              evidence. Pages still awaiting review are labelled “Pending
+              clinical review”. We also follow a clear eight-step SEO content
+              framework so answers stay intent-led, readable, and useful for UK readers.
               Content is educational — see our{" "}
               <Link to="/disclaimer" className="text-primary underline underline-offset-2">
                 medical disclaimer
@@ -95,8 +96,10 @@ export default function EditorialStandards() {
 
           <Section icon={UserCheck} title="Medical review process">
             <p>
-              All health content is reviewed by a qualified clinician before
-              publication and re-checked when guidance changes.
+              Clinically reviewed pages are reviewed by a qualified clinician
+              before publication and re-checked when guidance changes. New or
+              expanding pages remain clearly marked as pending until that review
+              is complete.
             </p>
             <ul>
               <li>

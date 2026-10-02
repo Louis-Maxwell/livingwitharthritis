@@ -18,7 +18,7 @@ const META_DESC =
 const FAQS = [
   {
     q: "Is turmeric good for arthritis?",
-    a: "Yes, modestly. Trials of curcumin (the active compound in turmeric) at around 1,000 mg/day for 8–12 weeks show meaningful reductions in knee osteoarthritis pain and stiffness, sometimes comparable to ibuprofen or diclofenac but with fewer stomach side effects.",
+    a: "Possibly, modestly. Small trials of curcumin (the active compound in turmeric) suggest reductions in knee osteoarthritis pain and stiffness over 8–12 weeks, but evidence is limited and it has not been shown to be an equivalent alternative to NSAIDs.",
   },
   {
     q: "How much turmeric or curcumin should I take?",

@@ -504,6 +504,8 @@ function AnimatedRoutes() {
         {([
           ["/about-us", "/about"],
           ["/trust-credibility", "/trust"],
+          ["/medical-disclaimer", "/disclaimer"],
+          ["/claims-policy", "/about/editorial-claims-policy"],
           ["/privacy-policy", "/privacy"],
           ["/cookies-policy", "/cookies"],
           ["/terms-conditions", "/terms"],

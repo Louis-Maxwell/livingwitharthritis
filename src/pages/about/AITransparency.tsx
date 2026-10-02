@@ -83,7 +83,7 @@ const AITransparency = () => {
             Our review process
           </h2>
           <ul className="space-y-3 text-foreground/85 list-disc list-inside">
-            <li>Every page is clinically reviewed by Maxwell before publication.</li>
+            <li>Pages carrying a clinical-review badge have been reviewed by Maxwell; pages awaiting review are labelled clearly.</li>
             <li>
               Content is evidence-based, drawing on NICE guidelines, Cochrane
               reviews, and peer-reviewed research.

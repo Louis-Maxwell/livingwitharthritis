@@ -111,7 +111,7 @@ Start slowly and progress gradually. Some discomfort during exercise is normal, 
     keyPoints: [
       "The Mediterranean diet has the strongest evidence base for reducing inflammatory markers (CRP, IL-6) in arthritis patients",
       "Omega-3 fatty acids (EPA/DHA) at doses of 2-3g/day can reduce RA morning stiffness and tender joint count",
-      "Curcumin (turmeric extract) at 1000mg/day shows moderate evidence for OA pain relief — comparable to ibuprofen in some trials",
+      "Curcumin (turmeric extract) has limited evidence for modest short-term OA pain relief; it is not an equivalent alternative to NSAIDs",
       "No supplement has been proven to slow structural joint damage or reverse arthritis",
       "Weight management is the single most impactful dietary intervention for knee and hip OA",
     ],

@@ -31,7 +31,7 @@ export const ORGANIZATION_PAYLOAD = {
     height: 630,
   },
   disambiguatingDescription:
-    "UK charity 1218461 providing free clinically reviewed arthritis guidance — not Arthritis UK / Versus Arthritis.",
+    "UK charity 1218461 providing free arthritis guidance, with clinical-review status shown on each page — not Arthritis UK / Versus Arthritis.",
   foundingDate: "2026-06-15",
   founder: {
     "@type": "Person",
@@ -122,7 +122,7 @@ export const WEBSITE_PAYLOAD = {
   url: `${BASE}/`,
   inLanguage: "en-GB",
   description:
-    "Free, clinically reviewed UK arthritis guidance from Living With Arthritis (registered charity 1218461) — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
+    "Free UK arthritis guidance from Living With Arthritis (registered charity 1218461), with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["h1", ".speakable-intro"],
