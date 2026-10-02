@@ -94,6 +94,18 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     label: "Free arthritis resources UK",
     description: "Guides, home physio, PIP diary and flare tools",
   },
+  "flare-action-plan": {
+    to: "/resources/flare-action-plan",
+    icon: Stethoscope,
+    label: "Flare action plan",
+    description: "Printable checklist for the first hours of a flare",
+  },
+  "pip-evidence-diary": {
+    to: "/resources/pip-evidence-diary",
+    icon: BookOpen,
+    label: "PIP evidence diary",
+    description: "Printable one-week diary for PIP claim prep",
+  },
 };
 
 /** Preset link groups by page context */
@@ -102,7 +114,7 @@ const PRESETS: Record<string, string[]> = {
   "exercise": ["guide-knee-oa", "diet", "guide-free-resources", "osteoarthritis"],
   "diet": ["exercises", "osteoarthritis", "guide-diet", "chat"],
   "blog": ["exercises", "diet", "osteoarthritis", "chat"],
-  "flareup": ["exercises", "diet", "guide-health-services", "chat"],
+  "flareup": ["flare-action-plan", "exercises", "guide-benefits", "guide-health-services"],
   "guide": ["exercises", "diet", "blog", "chat"],
 };
 

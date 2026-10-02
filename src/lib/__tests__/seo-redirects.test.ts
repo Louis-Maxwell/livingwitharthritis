@@ -140,7 +140,7 @@ describe("resolveSeoRedirect", () => {
 
   it("301s exercise×condition templates to a real joint/condition page", () => {
     expect(resolveSeoRedirect("/exercises/knee/for/osteoarthritis")).toBe(
-      "/conditions/knee-arthritis",
+      "/guides/knee-exercises-for-osteoarthritis",
     );
     expect(resolveSeoRedirect("/exercises/neck/for/rheumatoid-arthritis")).toBe(
       "/exercises/neck-arthritis-exercises",
@@ -178,6 +178,25 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/fr/glossary/nice")).toBe("/glossary/nice");
     expect(resolveSeoRedirect("/de/glossary/facet-joint-injection")).toBe(
       "/glossary/facet-joint-injection",
+    );
+  });
+
+
+  it("301s knee exercise variants directly onto the citable knee guide", () => {
+    expect(resolveSeoRedirect("/exercises/knee")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/blog/knee-arthritis-exercises-uk")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/blog/knee-osteoarthritis-exercises")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/blog/knee-exercises-arthritis")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/knee-arthritis-exercises-uk")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
     );
   });
 

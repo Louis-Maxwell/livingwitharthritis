@@ -53,7 +53,7 @@ const EXERCISE_JOINTS = new Set([
 const JOINT_EXERCISE_HUB: Record<string, string> = {
   neck: "/exercises/neck-arthritis-exercises",
   ankle: "/exercises/ankle-arthritis-exercises",
-  knee: "/conditions/knee-arthritis",
+  knee: "/guides/knee-exercises-for-osteoarthritis",
   hip: "/conditions/hip-arthritis",
   shoulder: "/conditions/shoulder-arthritis",
   hand: "/conditions/hand-arthritis",
@@ -92,6 +92,10 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
   "/exercises/knee": "/guides/knee-exercises-for-osteoarthritis",
+  "/blog/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
+  "/blog/knee-osteoarthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
+  "/blog/knee-exercises-arthritis": "/guides/knee-exercises-for-osteoarthritis",
+  "/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
   "/guides/sarcopenia-muscle-control": "/guides/sarcopenia-muscle-loss",
   // Thin GSC city doorway — send to the RA hub, do not promote city×condition pages.
   "/arthritis-support/sheffield/rheumatoid-arthritis": "/conditions/rheumatoid-arthritis",

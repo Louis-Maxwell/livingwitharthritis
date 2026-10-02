@@ -36,8 +36,8 @@ export const VISITOR_JOBS: VisitorJob[] = [
     href: "/guides/arthritis-pain-relief",
     icon: HeartPulse,
     more: [
-      { label: "Flare-up: what to do", href: "/blog/arthritis-flare-up-what-to-do" },
       { label: "Flare action plan", href: "/resources/flare-action-plan" },
+      { label: "Flare-up: what to do", href: "/blog/arthritis-flare-up-what-to-do" },
     ],
   },
   {

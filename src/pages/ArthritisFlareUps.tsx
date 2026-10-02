@@ -214,6 +214,18 @@ export default function ArthritisFlareUps() {
         <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-6">
           An arthritis flare-up is a spell of worse pain, stiffness or swelling than your usual day. Rest the sore joint, use ice or heat as it feels comfortable, and contact a GP or NHS 111 if it is not settling — this page is general UK information, not personal medical advice.
         </p>
+        <div className="mb-8 rounded-2xl border border-primary/25 bg-primary/5 p-5 print:hidden">
+          <p className="text-sm font-semibold text-foreground m-0 mb-2">Need a short checklist right now?</p>
+          <p className="text-sm text-muted-foreground m-0 mb-3">
+            Download or print our one-page flare action plan — pace, heat/cold, medicines you already have, and when to seek help.
+          </p>
+          <Link
+            to="/resources/flare-action-plan"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+          >
+            Open the flare action plan <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+        </div>
         <AnswerBox
           question="How do you stop an arthritis flare-up fast?"
           reviewed="2026-06-13"

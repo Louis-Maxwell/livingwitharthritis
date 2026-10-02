@@ -238,7 +238,7 @@ export default function BenefitsPIPGuide() {
     {
       question: "How should I describe arthritis flares on the PIP form?",
       answer:
-        "Describe your worst days and how often they happen, not only good days. Cover morning stiffness, pain, fatigue, extra time needed, aids you use, and what you cannot do safely or repeatedly (for example gripping a kettle or walking on a flare day). A short symptom diary helps.",
+        "Describe your worst days and how often they happen, not only good days. Cover morning stiffness, pain, fatigue, extra time needed, aids you use, and what you cannot do safely or repeatedly (for example gripping a kettle or walking on a flare day). A short symptom diary helps — use our free printable PIP evidence diary at /resources/pip-evidence-diary.",
     },
     {
       question: "What if I live in Scotland — is PIP different?",
@@ -321,6 +321,18 @@ export default function BenefitsPIPGuide() {
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
             How to claim PIP for arthritis in the UK: call 0800 917 2222 (or use GOV.UK), complete the PIP2 form for your worst days, attach clinical evidence, attend the assessment, then challenge refusals via Mandatory Reconsideration if needed. Always check https://www.gov.uk/pip and get welfare advice for your own claim — this page is educational only.
           </p>
+          <div className="mb-10 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 print:hidden">
+            <p className="text-sm font-semibold text-foreground m-0 mb-2">Free tool: printable PIP evidence diary</p>
+            <p className="text-sm text-muted-foreground m-0 mb-4">
+              Record a typical week of daily living and mobility before you fill the PIP2 form — then bring the notes to an adviser.
+            </p>
+            <Link
+              to="/resources/pip-evidence-diary"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+            >
+              Open the PIP evidence diary
+            </Link>
+          </div>
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
           <section id="benefits-pip-faq" className="mt-16 pt-8 border-t border-border/30">

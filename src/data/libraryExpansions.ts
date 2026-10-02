@@ -313,7 +313,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
     h1: "Knee pain: common causes and what you can do about it",
     related: [
       { label: "Knee arthritis guide", href: "/conditions/knee-arthritis" },
-      { label: "Knee exercises for arthritis", href: "/blog/knee-arthritis-exercises-uk" },
+      { label: "Knee exercises for osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
       { label: "Morning knee stiffness", href: "/blog/morning-knee-stiffness-30-minutes" },
       { label: "Knee supports", href: "/library/knee-support" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
