@@ -1,4 +1,8 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
+import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
+import { supabase } from "@/integrations/supabase/client";
+import { getStripe, getStripeEnvironment, isStripeConfigured } from "@/lib/stripe";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { trackDonationInitiate } from "@/lib/analytics";
@@ -27,7 +31,12 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [giftAid, setGiftAid] = useState(false);
-  useExclusiveOverlay("donation", isOpen, onClose);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const handleClose = useCallback(() => {
+    setClientSecret(null);
+    onClose();
+  }, [onClose]);
+  useExclusiveOverlay("donation", isOpen, handleClose);
 
   const getCurrencySymbol = () => {
     switch (currency) {

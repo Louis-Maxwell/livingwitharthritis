@@ -46,7 +46,7 @@ describe("Content-Security-Policy", () => {
   });
 
   it("does not allow unused vendors, eval or plugins", () => {
-    expect(metaCsp).not.toMatch(/unsafe-eval|stripe|paypal|resend|lovable/i);
+    expect(metaCsp).not.toMatch(/unsafe-eval|paypal|resend|lovable/i);
     expect(meta.get("object-src")).toEqual(["'none'"]);
   });
 });
