@@ -35,6 +35,7 @@
 | Champions 49–52 about + newly-diagnosed + Access to Work + walking | **done** | Gold-pass `/about` (B₁ trust CRO), `/guides/newly-diagnosed`, `/blog/access-to-work-scheme-arthritis-guide`, `/blog/walking-with-arthritis-start-build-up-keep-going` — review **2026-09-29**, CTR meta, NHS/NICE/GOV.UK/Versus Arthritis cites, dense customer-job links; symptoms cluster + chatbot KB; Vitest `gsc-champions-49-52-29-sep.test.ts` |
 | Champions 53–55 sick-pay + carers + joint-protection | **done** | Gold-pass `/blog/sick-pay-fit-notes-time-off-work-arthritis`, `/blog/carers-allowance-help-if-you-care-for-someone`, `/blog/joint-protection-easier-everyday-tasks` — CTR meta, Louis Maxwell HCPC review **2026-09-30**, GOV.UK/NHS/NICE/Versus Arthritis cites, dense customer-job links; pip/OA/pain cluster fronting + chatbot KB; Vitest `gsc-champions-53-55-30-sep.test.ts` |
 | Champions 56–58 carers-assessment + pacing + work | **done** | Gold-pass `/blog/carers-assessment-arthritis-frailty-uk`, `/blog/energy-management-and-pacing-arthritis`, `/blog/arthritis-and-work-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-01**, NHS/GOV.UK/NICE/Arthritis UK/Acas cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-56-58-01-oct.test.ts` |
+| Champions 59–61 attendance-allowance + flare-up + fatigue | **done** | Gold-pass `/blog/attendance-allowance-arthritis-frailty-uk`, `/blog/arthritis-flare-up-what-to-do`, `/blog/arthritis-fatigue-management-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-02**, GOV.UK/NHS/NICE/Arthritis UK cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-59-61-02-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -73,6 +74,39 @@
 
 ---
 
+## Daily log — 2 Oct 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 1 Oct: Champions 59+ (attendance-allowance / flare-up / fatigue polish if still thin); continue M3 pillar spoke density once live. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).
+
+### Shipped
+- **Champion 59 — `/blog/attendance-allowance-arthritis-frailty-uk`:** rewritten for UK-wide Attendance Allowance jobs (not Wales frailty template); clinical review **2026-10-02** (Louis Maxwell HCPC PH128483); CTR `meta_title`/`meta_description`; GOV.UK Attendance Allowance + eligibility + PIP + NHS OA / NICE NG226 cites; dense customer-job links (PIP hub/FAQ/blog, Carer's Allowance, carer's assessment, evidence diary, newly diagnosed, pain, joint protection); charity 1218461 education line
+- **Champion 60 — `/blog/arthritis-flare-up-what-to-do`:** review **2026-10-02**; CTR meta; Arthritis UK flare-ups / NHS RA + OA / NICE NG226 / NHS sleep cites; denser links → flare guide, flare action plan, pain, pacing, joint protection, exercises, walking, newly diagnosed, PIP
+- **Champion 61 — `/blog/arthritis-fatigue-management-uk`:** review **2026-10-02**; CTR meta; Arthritis UK fatigue / NHS sleep / NICE NG226 / NHS OT / NHS RA cites; denser links → pacing, pain, exercises, flares, joint protection, newly diagnosed, Access to Work, PIP
+- **`topicClusters.ts`:** pip fronts attendance-allowance; pain + flare-ups front flare-up + fatigue (without stealing PIP ownership of benefits spokes)
+- Light **chatbot KB** refresh: benefits/access-to-work related + flare + fatigue → three gold-pass URLs; attendance allowance keyword
+- Sitemap `lastmod` **2026-10-02** on the three URLs + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog meta/`last_reviewed` synced for the three slugs
+- **Tests:** `src/lib/__tests__/gsc-champions-59-61-02-oct.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; live social posts (no new Facebook posts / ads without asking)
+- Clinical spot-check (attendance-allowance / flare-up / fatigue blogs)
+- **Lovable publish** of latest GitHub `main`
+- **GSC URL Inspection** after publish (three Champions 59–61 URLs + prior Champions/pillars)
+- FormSubmit activate if newsletter still pending
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+- Optional Scenario C moonshot media budget paper
+- NHS intros / partner outreach still Louis-only
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/blog/attendance-allowance-arthritis-frailty-uk`, `/blog/arthritis-flare-up-what-to-do`, `/blog/arthritis-fatigue-management-uk`
+2. Champions 62+ from next GSC refresh / remaining thin high-intent spokes (e.g. night-pain / sleep / mental-health polish if still thin; no doorway cities)
+3. Continue M3 pillar spoke density once live HTML confirms — outreach / Ad Grants / Regulator still blocked-on-Louis
+
+---
 ## Daily log — 1 Oct 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 30 Sep: Champions 56+ (carers-assessment polish if still thin); continue M3 pillar spoke density once live. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).
