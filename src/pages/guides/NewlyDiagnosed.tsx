@@ -379,6 +379,7 @@ export default function NewlyDiagnosed() {
               <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
               <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">How to claim PIP</Link></li>
               <li><Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
+              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link></li>
               <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
               <li><Link to="/blog/access-to-work-scheme-arthritis-guide" className="text-primary underline underline-offset-2">Access to Work</Link></li>
               <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
@@ -552,6 +553,7 @@ export default function NewlyDiagnosed() {
                 { label: "Exercise hub", href: "/exercises" },
                 { label: "How to claim PIP", href: "/guides/benefits-pip" },
                 { label: "PIP evidence diary", href: "/resources/pip-evidence-diary" },
+                { label: "Benefits & PIP hub", href: "/benefits-pip" },
                 { label: "Access to Work", href: "/blog/access-to-work-scheme-arthritis-guide" },
                 { label: "Find a specialist", href: "/tools/find-specialist" },
                 { label: "Living with arthritis", href: "/living-with-arthritis" },

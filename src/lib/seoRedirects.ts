@@ -92,7 +92,9 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
   "/exercises/knee": "/guides/knee-exercises-for-osteoarthritis",
-  "/blog/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
+  // Published slug kept out of EXACT so prerender/catalog integrity still list it;
+  // App.tsx Navigate + public/_redirects 301 to the guide. Legacy variants below
+  // hop directly to the guide (no soft intermediate).
   "/blog/knee-osteoarthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
   "/blog/knee-exercises-arthritis": "/guides/knee-exercises-for-osteoarthritis",
   "/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
