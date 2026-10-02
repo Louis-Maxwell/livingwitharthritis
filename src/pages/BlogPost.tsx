@@ -287,7 +287,8 @@ const BlogPost = () => {
   const isPendingReview = reviewStatus === "pending";
   const hasVerifiedReviewer =
     !isPendingReview &&
-    reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
+    /^(louis\s+)?maxwell$/i.test(reviewerName.trim()) &&
+    /\bPH128483\b/.test(reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
