@@ -24,6 +24,7 @@ import {
 describe("backendSubmit newsletter + mailto", () => {
   beforeEach(() => {
     hrefs.length = 0;
+    window.localStorage.clear();
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => new Response(JSON.stringify({ success: true }), { status: 200 })),
@@ -51,6 +52,14 @@ describe("backendSubmit newsletter + mailto", () => {
     expect(body.email).toBe("jane@example.com");
     expect(body._subject).toContain("Newsletter signup");
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
+  });
+
+  it("throttles repeated successful newsletter submissions for 60 seconds", async () => {
+    await subscribeNewsletter({ email: "jane@example.com" });
+    const result = await subscribeNewsletter({ email: "other@example.com" });
+    expect(result.via).toBe("throttled");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(hrefs).toHaveLength(0);
   });
 
   it("falls back to mailto when FormSubmit fails", async () => {

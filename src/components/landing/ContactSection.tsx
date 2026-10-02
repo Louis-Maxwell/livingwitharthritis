@@ -130,6 +130,9 @@ const ContactSection = memo(() => {
         // Mailto-only — not delivery confirmation
         toast.message(result.message);
         setSubmitted(true);
+      } else if (result.via === "throttled") {
+        setErrors({});
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }

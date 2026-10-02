@@ -740,7 +740,7 @@ const ExerciseHub = () => {
           <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip osteoarthritis</Link> — pool drills when land impact flares you</li>
           <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — build a sustainable habit</li>
           <li><Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee OA exercises</Link> · <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Hip OA exercises</Link></li>
-          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> · <Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
         </ul>
       </nav>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">

@@ -66,9 +66,10 @@ export const VISITOR_JOBS: VisitorJob[] = [
     id: "money",
     title: "Money, benefits & work",
     desc: "PIP claims and appeals, Access to Work and your rights at work.",
-    href: "/benefits-pip",
+    href: "/guides/benefits-pip",
     icon: Wallet,
     more: [
+      { label: "PIP evidence diary", href: "/resources/pip-evidence-diary" },
       { label: "Access to Work", href: "/library/access-to-work" },
       { label: "Working with arthritis", href: "/guides/work-with-arthritis" },
     ],

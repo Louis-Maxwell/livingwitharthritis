@@ -130,6 +130,8 @@ export default function WaysToHelp() {
         trackContactFormSubmit("volunteer");
         toast.message(result.message);
         setSubmitted(true);
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }

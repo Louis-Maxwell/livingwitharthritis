@@ -38,6 +38,8 @@ export default function BlogComments({ slug }: { slug: string }) {
         toast.message(result.message);
         setName("");
         setContent("");
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }

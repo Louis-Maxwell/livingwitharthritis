@@ -5,6 +5,7 @@ import { trackDonationInitiate } from "@/lib/analytics";
 import { openMailto } from "@/lib/mailtoSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { validateStripeDonateUrl } from "@/lib/stripeDonateUrl";
+import { checkFormRateLimit, formRateLimitMessage, markFormSubmitted } from "@/lib/formRateLimit";
 
 import { Loader2, Heart, CreditCard, ShieldCheck, Gift, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -54,6 +55,13 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
   const fundLabel = getFundLabel();
 
   const handleCheckout = useCallback(async () => {
+    const rateLimit = checkFormRateLimit("donation");
+    if (!rateLimit.allowed) {
+      setError(null);
+      toast.message(formRateLimitMessage(rateLimit.retryAfterMs));
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
     try {
@@ -61,6 +69,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
       trackDonationInitiate(amount);
       const validated = validateStripeDonateUrl(donateUrl);
       if (validated.ok) {
+        markFormSubmitted("donation");
         onClose();
         window.location.href = validated.url;
         return;
@@ -82,6 +91,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
         ].filter(Boolean).join("\n"),
         email: CONTACT_EMAILS.info,
       });
+      markFormSubmitted("donation");
       onClose();
       toast.success(
         "Card payments are temporarily unavailable. We've opened an email so our team can send you a secure payment link — thank you for your support.",

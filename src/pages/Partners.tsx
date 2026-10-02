@@ -59,11 +59,14 @@ export default function Partners() {
         name: form.name,
         email: form.email,
         subject: `Partnership Enquiry: ${form.type}`,
+        formId: "partners",
         message: `Organisation: ${form.organisation || "N/A"}\nType: ${form.type}\n\n${form.message || ""}`,
       });
       if (result.via === "mailto") {
         toast.message(result.message);
         setForm({ name: "", email: "", organisation: "", type: "", message: "" });
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }

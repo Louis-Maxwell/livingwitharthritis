@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
 import { submitViaMailto } from "@/lib/formApi";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { checkFormRateLimit, formRateLimitMessage, markFormSubmitted } from "@/lib/formRateLimit";
 
 interface AppointmentData {
   name: string;
@@ -42,6 +43,12 @@ export function useAppointment() {
       return { success: false, error: "Invalid email" };
     }
 
+    const rateLimit = checkFormRateLimit("appointment");
+    if (!rateLimit.allowed) {
+      toast.message(formRateLimitMessage(rateLimit.retryAfterMs));
+      return { success: false, error: "Rate limited" };
+    }
+
     const sanitizedData = {
       ...data,
       name: sanitizeInput(data.name, 100),
@@ -64,6 +71,7 @@ export function useAppointment() {
         .filter(Boolean)
         .join("\n");
       const result = submitViaMailto({ subject: "Appointment request", body });
+      markFormSubmitted("appointment");
       toast.message(
         result.error ||
           `Please email ${CONTACT_EMAILS.info} to request an appointment.`,
