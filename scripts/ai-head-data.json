@@ -6722,5 +6722,19 @@
         "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/"
       }
     ]
+  },
+  "/buddy": {
+    "title": "Arthritis Buddy Programme: Peer Support | Living With Arthritis UK",
+    "description": "Get paired with someone who understands life with arthritis. Register your interest in our free UK buddy programme, to find a buddy or to become one.",
+    "question": "What is the arthritis buddy programme?",
+    "answer": "A free peer-support scheme pairing people new to arthritis with someone who has lived with it for longer. We are gathering interest now by email.",
+    "breadcrumb": "Buddy Programme"
+  },
+  "/podcasts": {
+    "title": "Arthritis Podcast & Audio Guides | Living With Arthritis UK",
+    "description": "Listen to our arthritis guides read aloud today, and find out about our planned UK podcast on everyday life with arthritis. Suggest a topic by email.",
+    "question": "Does Living With Arthritis have a podcast?",
+    "answer": "Not yet. Many of our guides have a Listen button that reads them aloud, and you can email us to suggest podcast topics.",
+    "breadcrumb": "Podcasts"
   }
 }
