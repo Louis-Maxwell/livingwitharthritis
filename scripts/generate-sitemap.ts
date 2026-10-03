@@ -96,7 +96,6 @@ const STATIC_EXCLUDE = new Set([
   "/credits",
   "/gallery",
   "/shop",
-  "/buddy",
 ]);
 
 // Prefix-based exclusions for entire route trees that must never appear in
