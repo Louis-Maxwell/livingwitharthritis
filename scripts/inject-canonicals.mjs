@@ -528,6 +528,13 @@ export function rewriteHead(html, route, dataOverride) {
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url, dataOverride);
+  // Articles and guides are shared as articles, not as the homepage website.
+  if (/^\/(blog|guides|faq|expert-articles)\/[^/]+/.test(route)) {
+    out = out.replace(
+      /<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/i,
+      '<meta property="og:type" content="article" />',
+    );
+  }
   return out;
 }
 
