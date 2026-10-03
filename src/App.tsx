@@ -219,6 +219,12 @@ const FindSpecialistStub = lazyWithRetry(() =>
 const ConnectGroupsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.ConnectGroupsStub })),
 );
+const PodcastsStub = lazyWithRetry(() =>
+  import("./pages/stubs").then((m) => ({ default: m.PodcastsStub })),
+);
+const BuddyStub = lazyWithRetry(() =>
+  import("./pages/stubs").then((m) => ({ default: m.BuddyStub })),
+);
 const EventsStub = lazyWithRetry(() =>
   import("./pages/stubs").then((m) => ({ default: m.EventsStub })),
 );
@@ -479,6 +485,8 @@ function AnimatedRoutes() {
         <Route path="/tools/find-specialist" element={<FindSpecialistStub />} />
         <Route path="/community/connect-groups" element={<ConnectGroupsStub />} />
         <Route path="/events" element={<EventsStub />} />
+        <Route path="/podcasts" element={<PodcastsStub />} />
+        <Route path="/buddy" element={<BuddyStub />} />
         <Route path="/helpline" element={<HelplineStub />} />
         <Route path="/volunteer" element={<VolunteerStub />} />
         <Route path="/advocacy" element={<AdvocacyStub />} />

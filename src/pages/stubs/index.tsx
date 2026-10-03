@@ -154,27 +154,79 @@ export const EventsStub = () => (
 );
 
 const PODCAST_FAQS: StubPageFAQ[] = [
-  { q: "When does the podcast launch?", a: "Our first season is in production now, with episodes scheduled to start releasing soon. Subscribe to our updates to be notified when episode one drops." },
-  { q: "What will the podcast cover?", a: "Episode topics include living with newly-diagnosed arthritis, pain management approaches that work, navigating medication choices, work and family with chronic illness, and conversations with leading UK rheumatologists and researchers." },
-  { q: "Who are the hosts?", a: "Episodes are hosted by Maxwell, a HCPC-registered physiotherapist (PH128483), alongside rotating guest experts and people sharing their own arthritis experiences." },
-  { q: "Where will it be available?", a: "Spotify, Apple Podcasts, Google Podcasts, and as a direct stream from this page. Full transcripts will be published alongside every episode for accessibility." },
-  { q: "Can I suggest a topic?", a: "Yes — we'd love to hear what you want covered. Email suggestions through our contact form and we'll add them to the editorial calendar." },
-  { q: "Will there be a video version?", a: "Yes, video episodes will be published on our YouTube channel with closed captions for those who prefer to watch rather than listen." },
+  { q: "Is the podcast running yet?", a: "Not yet. We have not released any episodes, and we will not list dates until recording is confirmed. Email us if you would like to hear when episode one is ready." },
+  { q: "Can I listen to your guides now?", a: "Yes. Many of our blog guides have a Listen button that reads the article aloud, so you can take in the information without reading the screen." },
+  { q: "What topics would it cover?", a: "We plan to focus on everyday questions: what to expect after diagnosis, staying active with sore joints, pacing and fatigue, food and weight, and work and benefits. Tell us what you would find most useful." },
+  { q: "Will there be transcripts?", a: "Yes. Every episode we publish will come with a full written transcript, so it is accessible to people who are deaf or hard of hearing, or who prefer to read." },
+  { q: "Is it medical advice?", a: "No. Like the rest of our site, any episode would be general education only. Always speak to your GP, pharmacist or physiotherapist about your own treatment." },
+  { q: "How do I suggest a topic?", a: `Email ${"info@livingwitharthritis.org.uk"} with the subject "Podcast idea". We read every message.` },
 ];
 
 export const PodcastsStub = () => (
   <StubPage
     slug="podcasts"
-    title="The Living With Arthritis Podcast"
-    description="A new UK podcast on living well with arthritis — practical advice, expert interviews and real-life stories, hosted by a HCPC-registered physiotherapist."
-    answer="Our podcast launches soon, with episodes on managing newly-diagnosed arthritis, medication choices, pain relief, work, family life, and interviews with leading UK rheumatologists. Subscribe to be notified when episode one releases."
+    title="Arthritis Podcast & Audio Guides | Living With Arthritis"
+    description="Listen to our arthritis guides read aloud today, and find out about our planned UK podcast on everyday life with arthritis. Suggest a topic by email."
+    answer="Our podcast is not running yet. In the meantime, many of our guides have a Listen button that reads them aloud. If you would like to hear when the first episode is ready, or want to suggest a topic, email info@livingwitharthritis.org.uk."
     breadcrumbs={[home, communityCrumb, { label: "Podcasts", href: "/podcasts" }]}
+    intro={
+      <div className="space-y-4 text-foreground">
+        <h2 className="text-xl font-semibold">Listen now: guides read aloud</h2>
+        <p>Open any guide in our <a className="underline" href="/blog">article library</a> and look for the Listen button near the top. It reads the article to you, which can help on days when your hands or eyes are tired.</p>
+        <h2 className="text-xl font-semibold">Good places to start</h2>
+        <ul className="list-disc pl-6 space-y-1">
+          <li><a className="underline" href="/conditions/arthritis">What arthritis is and the main types</a></li>
+          <li><a className="underline" href="/exercises">Gentle exercises for sore joints</a></li>
+          <li><a className="underline" href="/diet">Eating well with arthritis</a></li>
+          <li><a className="underline" href="/arthritis-waiting-list-help">Help while you wait for treatment</a></li>
+        </ul>
+      </div>
+    }
     faqs={PODCAST_FAQS}
     relatedLinks={[
       { label: "Events & webinars", href: "/events" },
       { label: "Patient stories", href: "/stories" },
       { label: "Expert articles", href: "/expert-articles" },
       { label: "Connect groups", href: "/community/connect-groups" },
+    ]}
+  />
+);
+
+const BUDDY_FAQS: StubPageFAQ[] = [
+  { q: "What is the buddy programme?", a: "It pairs someone who is new to arthritis, or going through a hard patch, with another person who has lived with the condition for longer. A buddy offers a listening ear and practical everyday tips from their own experience." },
+  { q: "Is it running now?", a: "We are gathering interest before we start matching people. Email us to put your name down, either to get a buddy or to become one, and we will contact you when matching opens." },
+  { q: "Will my buddy give medical advice?", a: "No. Buddies share their own experience only. Questions about medicines, scans or treatment should always go to your GP, pharmacist, physiotherapist or rheumatology team." },
+  { q: "How will people be matched?", a: "We plan to match by condition, age group and what you would like help with, such as staying in work, coping with flares or getting started with exercise." },
+  { q: "How will you keep people safe?", a: "Before matching opens we will publish clear guidelines on boundaries, privacy and how to raise a concern. Nobody will be asked to share contact details until they are comfortable." },
+  { q: "Does it cost anything?", a: "No. The programme will be free for everyone." },
+];
+
+export const BuddyStub = () => (
+  <StubPage
+    slug="buddy"
+    title="Arthritis Buddy Programme: Peer Support | Living With Arthritis"
+    description="Get paired with someone who understands life with arthritis. Register your interest in our free UK buddy programme, to find a buddy or to become one."
+    answer="Our buddy programme will pair people who are new to arthritis with someone who has lived with it for longer, for friendly peer support. It is free. We are gathering interest now: email info@livingwitharthritis.org.uk to find a buddy or to volunteer as one."
+    breadcrumbs={[home, communityCrumb, { label: "Buddy Programme", href: "/buddy" }]}
+    intro={
+      <div className="space-y-4 text-foreground">
+        <h2 className="text-xl font-semibold">How to register your interest</h2>
+        <ol className="list-decimal pl-6 space-y-1">
+          <li>Email <a className="underline" href="mailto:info@livingwitharthritis.org.uk?subject=Buddy%20programme">info@livingwitharthritis.org.uk</a> with the subject "Buddy programme".</li>
+          <li>Tell us whether you would like a buddy or would like to be one.</li>
+          <li>Mention your type of arthritis and what kind of support would help most.</li>
+        </ol>
+        <p>We will reply to confirm we have your details and contact you when matching opens.</p>
+        <h2 className="text-xl font-semibold">Need support today?</h2>
+        <p>Our <a className="underline" href="/community/connect-groups">connect groups</a> and <a className="underline" href="/helpline">helpline page</a> list ways to get support right now.</p>
+      </div>
+    }
+    faqs={BUDDY_FAQS}
+    relatedLinks={[
+      { label: "Connect groups", href: "/community/connect-groups" },
+      { label: "Patient stories", href: "/stories" },
+      { label: "Helpline & support", href: "/helpline" },
+      { label: "Community hub", href: "/community" },
     ]}
   />
 );

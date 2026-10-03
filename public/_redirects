@@ -1072,9 +1072,7 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /shop /supplements 301
-/buddy /community/connect-groups 301
-/buddy/match /community/connect-groups 301
-/podcasts /community 301
+/buddy/match /buddy 301
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /blog/arthritis-exercises /blog/arthritis-exercises-uk-clinical 301
