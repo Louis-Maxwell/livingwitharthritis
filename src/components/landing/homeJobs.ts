@@ -59,6 +59,8 @@ export const VISITOR_JOBS: VisitorJob[] = [
     icon: Dumbbell,
     more: [
       { label: "Knee exercises for osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
+      { label: "Swimming exercises for hip osteoarthritis", href: "/blog/swimming-exercises-hip-osteoarthritis" },
+      { label: "Knee joint supplements", href: "/blog/best-supplement-for-knee-joint" },
       { label: "Seated tai chi", href: "/exercises/seated-tai-chi-for-arthritis" },
     ],
   },
@@ -70,6 +72,7 @@ export const VISITOR_JOBS: VisitorJob[] = [
     icon: Wallet,
     more: [
       { label: "PIP evidence diary", href: "/resources/pip-evidence-diary" },
+      { label: "Is arthritis a disability? PIP FAQ", href: "/faq/arthritis-disability-benefits-uk" },
       { label: "Access to Work", href: "/library/access-to-work" },
       { label: "Working with arthritis", href: "/guides/work-with-arthritis" },
     ],
