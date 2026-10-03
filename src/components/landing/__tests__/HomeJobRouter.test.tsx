@@ -7,6 +7,7 @@ import HomeJobRouter from "../HomeJobRouter";
 import { GOFUNDME_URL, MORE_TOPICS, VISITOR_JOBS } from "../homeJobs";
 import blogSlugs from "@/data/blog-slugs.generated.json";
 import authors from "@/data/medical-authors.json";
+import { faqArticles } from "@/data/faqArticles";
 
 vi.mock("@/lib/ga-events", () => ({
   trackStartHereCard: vi.fn(),
@@ -36,6 +37,8 @@ function resolves(href: string): boolean {
   if (author) return Object.prototype.hasOwnProperty.call(authors, author[1]);
   const lib = href.match(/^\/library\/([^/]+)$/);
   if (lib) return librarySlugs.has(lib[1]);
+  const faq = href.match(/^\/faq\/([^/]+)$/);
+  if (faq) return faqArticles.some((article) => article.slug === faq[1]);
   return false;
 }
 
