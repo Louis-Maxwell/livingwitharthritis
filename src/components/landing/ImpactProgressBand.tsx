@@ -5,7 +5,6 @@
  * number goes stale the moment someone donates. The live total lives on the
  * GoFundMe page, so we link there instead of repeating a figure.
  */
-import { useNavigate } from "react-router-dom";
 import { ExternalLink, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
@@ -13,8 +12,6 @@ import { trackDonationClick } from "@/lib/ga-events";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 const ImpactProgressBand = () => {
-  const navigate = useNavigate();
-
   return (
     <section
       aria-labelledby="impact-progress-heading"
@@ -61,15 +58,20 @@ const ImpactProgressBand = () => {
               </a>
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
-              onClick={() => {
-                trackDonationClick("impact_progress_band");
-                navigate("/donate");
-              }}
               className="h-[56px] px-8 rounded-full text-sm font-bold tracking-wider"
             >
-              Other ways to give
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackDonationClick("impact_progress_band")}
+              >
+                Give on GoFundMe
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </Button>
           </div>
         </RevealOnScroll>

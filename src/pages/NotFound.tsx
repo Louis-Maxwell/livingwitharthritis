@@ -30,7 +30,7 @@ const QUICK_LINKS = [
   { to: "/blog", label: "Blog", icon: Search },
   { to: "/library", label: "Article library", icon: Map },
   { to: "/exercises", label: "Exercises", icon: ArrowRight },
-  { to: "/donate", label: "Donate", icon: ArrowRight },
+  { to: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", label: "Donate", icon: ArrowRight },
   { to: "/contact", label: "Report a broken link", icon: Mail },
 ];
 
@@ -133,6 +133,18 @@ const NotFound = () => {
           <ul className="mt-4 flex flex-wrap gap-3">
             {QUICK_LINKS.map(({ to, label, icon: Icon }) => (
               <li key={to}>
+                {to.startsWith("http") ? (
+                <a
+                  href={to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  {label}
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+                ) : (
                 <Link
                   to={to}
                   className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
@@ -140,6 +152,7 @@ const NotFound = () => {
                   <Icon className="h-4 w-4" aria-hidden="true" />
                   {label}
                 </Link>
+                )}
               </li>
             ))}
           </ul>

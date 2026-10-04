@@ -104,7 +104,7 @@ function getStepConfig(pathname: string): StepConfig | null {
   if (pathname.startsWith("/donate") || pathname === "/zakat-appeal" || pathname === "/ways-to-help") {
     return {
       eyebrow: "Support our mission",
-      primary: { label: "Donate now", href: "/donate", Icon: HeartHandshake },
+      primary: { label: "Donate now", href: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", Icon: HeartHandshake },
       secondary: { label: "Other ways to help", href: "/ways-to-help", Icon: Sparkles },
     };
   }
@@ -200,6 +200,18 @@ const MobileNextStepBar = memo(() => {
             </button>
           </div>
           <div className="flex items-stretch gap-2 px-2 pb-2 pt-1.5">
+            {primary.href.startsWith("http") ? (
+            <a
+              href={primary.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-[2] min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold px-3 active:scale-[0.98] transition"
+            >
+              <primary.Icon className="w-4 h-4" />
+              <span className="truncate">{primary.label}</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            ) : (
             <button
               type="button"
               onClick={() => navigate(primary.href)}
@@ -209,6 +221,7 @@ const MobileNextStepBar = memo(() => {
               <span className="truncate">{primary.label}</span>
               <ArrowRight className="w-3.5 h-3.5 opacity-80" />
             </button>
+            )}
             {secondary && (
               <button
                 type="button"

@@ -1,4 +1,5 @@
 import { trackDonationClick } from "@/lib/ga-events";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 const GAZA_IMPACT_TIERS = [
   { amount: 25, impact: "Funds three guided physiotherapy sessions for a survivor" },
@@ -9,12 +10,8 @@ const GAZA_IMPACT_TIERS = [
   { amount: 1000, impact: "Funds a three-month rehabilitation and recovery programme" },
 ];
 
-interface GazaImpactTiersProps {
-  onSelect: (amount: number) => void;
-}
-
 /** Impact tiers expressed as concrete rehabilitation outcomes. */
-export default function GazaImpactTiers({ onSelect }: GazaImpactTiersProps) {
+export default function GazaImpactTiers() {
   return (
     <section className="py-14 bg-muted/30">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -28,16 +25,18 @@ export default function GazaImpactTiers({ onSelect }: GazaImpactTiersProps) {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {GAZA_IMPACT_TIERS.map((tier) => (
-            <button
+            <a
               key={tier.amount}
+              href={GOFUNDME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => {
                 trackDonationClick({
                   source: `gaza_tier_${tier.amount}`,
                   amount: tier.amount,
                 });
-                onSelect(tier.amount);
               }}
-              className="text-left bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+              className="block text-left bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
             >
               <p className="font-display font-bold text-2xl text-primary">
                 £{tier.amount.toLocaleString()}
@@ -45,7 +44,8 @@ export default function GazaImpactTiers({ onSelect }: GazaImpactTiersProps) {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 {tier.impact}
               </p>
-            </button>
+              <span className="sr-only">Donate on GoFundMe (opens in a new tab)</span>
+            </a>
           ))}
         </div>
       </div>

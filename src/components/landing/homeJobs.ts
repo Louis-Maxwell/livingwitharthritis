@@ -25,6 +25,8 @@ export type VisitorJob = {
   desc: string;
   href: string;
   icon: LucideIcon;
+  /** Opens in a new tab. Not an in-app route. */
+  external?: boolean;
   more: JobLink[];
 };
 
@@ -114,7 +116,8 @@ export const VISITOR_JOBS: VisitorJob[] = [
     id: "donate",
     title: "I'd like to help",
     desc: "Donations keep every guide free and help fund arthritis research.",
-    href: "/donate",
+    href: GOFUNDME_URL,
+    external: true,
     icon: Heart,
     more: [
       { label: "Research fund on GoFundMe", href: GOFUNDME_URL, external: true },

@@ -226,7 +226,7 @@ export const VolunteerStub = () => (
     faqs={VOLUNTEER_FAQS}
     relatedLinks={[
       { label: "Ways to help", href: "/ways-to-help" },
-      { label: "Donate", href: "/donate" },
+      { label: "Donate", href: "https://www.gofundme.com/f/help-fund-critical-arthritis-research" },
       { label: "Connect groups", href: "/community/connect-groups" },
       { label: "Contact us", href: "/contact" },
     ]}

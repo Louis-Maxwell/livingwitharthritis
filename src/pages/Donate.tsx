@@ -5,10 +5,10 @@ import { Helmet } from "react-helmet-async";
 import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase, RefreshCw, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { gazaAppealHero } from "@/data/images";
 import { trackDonationClick } from "@/lib/ga-events";
-import StripeDonationModal from "@/components/StripeDonationModal";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd, type FAQItem } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
@@ -48,7 +48,8 @@ const WAYS_TO_GIVE = [
     title: "One-Off Donation",
     desc: "A one-off gift that keeps free arthritis support in reach for someone who needs it today",
     action: "Give once",
-    href: "/donate#give",
+    href: GOFUNDME_URL,
+    external: true,
     color: "text-primary bg-primary/10",
   },
   {
@@ -56,7 +57,8 @@ const WAYS_TO_GIVE = [
     title: "Zakat & Sadaqah",
     desc: "Give your Zakat or Sadaqah to our Palestine & Gaza rehabilitation appeal",
     action: "Give Zakat",
-    href: "/zakat-appeal",
+    href: GOFUNDME_URL,
+    external: true,
     color: "text-primary bg-primary/10",
   },
 
@@ -109,7 +111,7 @@ const DONATE_FAQS: FAQItem[] = [
   {
     question: "Should I donate here or through the Zakat appeal?",
     answer:
-      "Use this page for a general donation that funds our free UK arthritis support. To give Zakat or Sadaqah, use the Palestine & Gaza rehabilitation appeal at /zakat-appeal.",
+      "Gifts, including Zakat and Sadaqah, are taken on our GoFundMe campaign. This page does not take card payments.",
   },
 ];
 
@@ -119,7 +121,6 @@ export default function Donate() {
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [selectedAmount, setSelectedAmount] = useState<number>(50);
   const [customAmount, setCustomAmount] = useState<string>("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const customNum = Number(customAmount);
   const isCustomValid =
@@ -131,9 +132,6 @@ export default function Donate() {
   const canDonate = activeAmount >= MIN_AMOUNT && activeAmount <= MAX_AMOUNT;
   const isMonthly = frequency === "monthly";
 
-  const scrollToGive = () => {
-    document.getElementById("give")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <>
@@ -174,14 +172,12 @@ export default function Donate() {
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.
             </p>
-            <Button
-              size="lg"
-              onClick={scrollToGive}
-              className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group"
-            >
-              <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
-              Donate Now
-              <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+            <Button asChild size="lg" className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group">
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+                <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
+                Donate Now
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </Button>
           </div>
         </section>
@@ -211,13 +207,16 @@ export default function Donate() {
                 people living with crushed joints and amputations in Gaza.
                 Shariah-compliant and scholar-guided.
               </p>
-              <Link
-                to="/zakat-appeal"
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackDonationClick({ source: "donate_page_gaza_card" })}
                 className="mt-6 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-bold hover:bg-primary/90 transition-colors"
               >
                 Give to the appeal <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </div>
           </div>
         </section>
@@ -319,25 +318,21 @@ export default function Donate() {
               </div>
             )}
 
-            <Button
-              size="lg"
-              disabled={!canDonate}
-              onClick={() => setIsModalOpen(true)}
-              className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group"
-            >
-              <Heart className="w-5 h-5 mr-2 fill-current/20" />
-              {isMonthly ? `Give £${activeAmount || 0} / month` : `Donate £${activeAmount || 0}`}
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5" />
+            <Button asChild size="lg" className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group">
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form" })}>
+                <Heart className="w-5 h-5 mr-2 fill-current/20" />
+                Donate on GoFundMe
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </Button>
 
             <p className="text-[11px] text-muted-foreground text-center mt-4">
-              Secured by Stripe · 256-bit encryption{isMonthly ? " · Cancel anytime" : ""} · Gift Aid registration in progress
+              The amount is chosen on GoFundMe. This page does not take card payments.
             </p>
           </div>
           <p className="text-xs text-muted-foreground text-center mt-6 max-w-xl mx-auto leading-relaxed">
             Living With Arthritis is a registered charity in England and Wales (no. {CHARITY.number}).
-            Card fees are taken by Stripe. What we receive funds free UK arthritis support and,
-            if you choose the Zakat appeal, rehabilitation for people living with war injuries.
+            Gifts are taken on our GoFundMe campaign and fund free UK arthritis support.
           </p>
         </section>
 
@@ -371,15 +366,24 @@ export default function Donate() {
                     </div>
                     <h3 className="font-semibold text-foreground mb-1">{way.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">{way.desc}</p>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => navigate(way.href)}
-                      className="rounded-full text-xs font-semibold"
-                    >
-                      {way.action}
-                      <ArrowRight className="w-3 h-3 ml-1.5" />
-                    </Button>
+                    {way.external ? (
+                      <Button asChild variant="outline" size="sm" className="rounded-full text-xs font-semibold">
+                        <a href={way.href} target="_blank" rel="noopener noreferrer">
+                          {way.action}
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => navigate(way.href)}
+                        className="rounded-full text-xs font-semibold"
+                      >
+                        {way.action}
+                        <ArrowRight className="w-3 h-3 ml-1.5" />
+                      </Button>
+                    )}
                   </div>
                 );
               })}
@@ -471,14 +475,6 @@ export default function Donate() {
         </section>
       </main>
       <Footer />
-      <StripeDonationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        amount={activeAmount}
-        currency="GBP"
-        fundType="general"
-        recurring={isMonthly}
-      />
     </>
   );
 }

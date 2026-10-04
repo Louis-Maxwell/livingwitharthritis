@@ -774,12 +774,15 @@ const BlogPost = () => {
               {slug && (
                 <ArticleBookmarkButton slug={slug} title={article.title} className="w-full" />
               )}
-              <Link
-                to="/donate"
+              <a
+                href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-center text-xs font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded min-h-11 leading-[2.75rem]"
               >
                 Soft support · Donate
-              </Link>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </div>
           </aside>
           </div>{/* end lg grid */}

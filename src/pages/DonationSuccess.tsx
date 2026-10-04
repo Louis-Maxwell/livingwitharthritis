@@ -112,7 +112,7 @@ const DonationSuccess = () => {
                   </Link>
                 </Button>
                 <Button asChild className="rounded-full btn-primary-cta">
-                  <Link to="/#donate">Try Again</Link>
+                  <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">Try Again<span className="sr-only"> (opens in a new tab)</span></a>
                 </Button>
               </div>
             </>

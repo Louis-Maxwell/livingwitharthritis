@@ -15,7 +15,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
-import StripeDonationModal from "@/components/StripeDonationModal";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { gazaAppealHero, gazaRehabStory } from "@/data/images";
 import ZakatCalculator from "@/components/ZakatCalculator";
 import GazaImpactTiers from "@/components/appeal/GazaImpactTiers";
@@ -87,29 +87,11 @@ const FAQ_ITEMS = [
 const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isRecurring, setIsRecurring] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const activeAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
   const description = customAmount
     ? "Your generous contribution will make a meaningful difference"
     : AMOUNT_DESCRIPTIONS[selectedAmount] || "";
-
-  const handleDonate = () => {
-    if (activeAmount > 0) {
-      setIsRecurring(false);
-      setIsModalOpen(true);
-    }
-  };
-
-  /** Select an amount from a tier or giving card and open the payment modal. */
-  const handleGive = (amount: number, source?: string) => {
-    setCustomAmount("");
-    setSelectedAmount(amount);
-    setIsRecurring(source === "sadaqah-jariyah");
-    setIsModalOpen(true);
-  };
 
 
   return (
@@ -277,24 +259,21 @@ const ZakatAppeal = () => {
                   </div>
 
                   {/* Donate button */}
-                  <Button
-                    onClick={() => {
-                      trackDonationClick({
-                        source: "gaza_appeal_form",
-                        amount: activeAmount,
-                      });
-                      handleDonate();
-                    }}
-                    disabled={activeAmount <= 0}
-                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
-                  >
-                    <Heart className="mr-2 h-5 w-5" />
-                    Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
+                  <Button asChild className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <a
+                      href={GOFUNDME_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackDonationClick({ source: "gaza_appeal_form" })}
+                    >
+                      <Heart className="mr-2 h-5 w-5" />
+                      Donate on GoFundMe
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
                   </Button>
 
-
                   <p className="text-[11px] text-muted-foreground text-center">
-                    Secure payment via Stripe. Your data is protected.
+                    The amount is chosen on GoFundMe. This page does not take card payments.
                   </p>
                 </div>
               </div>
@@ -303,7 +282,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Impact tiers */}
-        <GazaImpactTiers onSelect={handleGive} />
+        <GazaImpactTiers />
 
         {/* Empathy story block */}
         <section className="py-14 bg-background">
@@ -338,7 +317,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Islamic giving: Zakat, Sadaqah, Sadaqah Jariyah */}
-        <IslamicGivingCards onGive={(amount, source) => handleGive(amount, source)} />
+        <IslamicGivingCards />
 
         {/* Zakat Calculator */}
         <ZakatCalculator />
@@ -411,14 +390,6 @@ const ZakatAppeal = () => {
       <NextReadStrip currentPath="/zakat-appeal" />
       <Footer />
 
-      <StripeDonationModal
-        isOpen={isModalOpen}
-        onClose={() => { setIsModalOpen(false); setIsRecurring(false); }}
-        amount={activeAmount}
-        currency="GBP"
-        fundType="zakat"
-        recurring={isRecurring}
-      />
     </>
   );
 };

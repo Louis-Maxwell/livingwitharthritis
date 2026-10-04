@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { reportFormFailure } from "@/lib/errorReporting";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -27,7 +28,7 @@ const WAYS = [
     description: "Your gift directly funds physiotherapy sessions, exercise programmes and community support for people living with arthritis across the UK.",
     impact: "£10 funds a virtual physio session",
     cta: "Donate Now",
-    href: "/donate",
+    href: GOFUNDME_URL,
     gradient: "from-primary to-secondary",
     bgLight: "bg-primary/5",
     iconColor: "text-primary",
@@ -199,13 +200,12 @@ export default function WaysToHelp() {
                 </p>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button
-                    onClick={() => navigate("/donate")}
-                    size="lg"
-                    className="rounded-full bg-background text-primary hover:bg-background/90 font-bold shadow-lg shadow-primary/10 h-12 px-8"
-                  >
-                    <Heart className="w-4 h-4 mr-2" />
-                    Donate Now
+                  <Button asChild size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 font-bold shadow-lg shadow-primary/10 h-12 px-8">
+                    <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+                      <Heart className="w-4 h-4 mr-2" />
+                      Donate Now
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
                   </Button>
                   <Button
                     onClick={() => document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" })}
@@ -293,13 +293,11 @@ export default function WaysToHelp() {
                           ))}
                         </ul>
                         <div>
-                          <Button
-                            onClick={() => navigate(way.href)}
-                            size="lg"
-                            className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md"
-                          >
-                            {way.cta}
-                            <ArrowRight className="w-4 h-4 ml-2" />
+                          <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md">
+                            <a href={way.href} target="_blank" rel="noopener noreferrer">
+                              {way.cta}
+                              <span className="sr-only"> (opens in a new tab)</span>
+                            </a>
                           </Button>
                         </div>
                       </div>
@@ -579,13 +577,12 @@ export default function WaysToHelp() {
                 Join thousands of supporters across the UK who are helping people with arthritis live better, more active lives.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Button
-                  onClick={() => navigate("/donate")}
-                  size="lg"
-                  className="rounded-full bg-background text-primary hover:bg-background/90 font-bold h-12 px-8 shadow-lg"
-                >
-                  <Heart className="w-4 h-4 mr-2" />
-                  Donate Now
+                <Button asChild size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 font-bold h-12 px-8 shadow-lg">
+                  <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+                    <Heart className="w-4 h-4 mr-2" />
+                    Donate Now
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
                 </Button>
                 <Button
                   onClick={() => navigate("/about")}

@@ -13,6 +13,7 @@ const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
 import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 
 type SubItem = {
@@ -170,7 +171,7 @@ const Header = () => {
       href: "/ways-to-help",
       action: () => navigate("/ways-to-help"),
       subs: [
-        { label: "Donate", desc: "Power free arthritis support", icon: Heart, href: "/donate", action: () => navigate("/donate"), color: "text-primary bg-primary/10" },
+        { label: "Donate", desc: "Power free arthritis support", icon: Heart, href: GOFUNDME_URL, color: "text-primary bg-primary/10" },
         { label: "Volunteer", desc: "Flexible UK roles around lived experience", icon: HandHeart, href: "/volunteer", action: () => navigate("/volunteer"), color: "text-primary bg-primary/10" },
         { label: "Advocacy", desc: "Share your story, shape research", icon: ShieldCheck, href: "/advocacy", action: () => navigate("/advocacy"), color: "text-primary bg-primary/10" },
         { label: "Corporate Giving", desc: "Partner with us as an organisation", icon: Globe, href: "/corporate-giving", action: () => navigate("/corporate-giving"), color: "text-primary bg-primary/10" },
@@ -353,15 +354,17 @@ const Header = () => {
               >
                 <Search size={18} aria-hidden="true" />
               </Button>
-              <Button
-                size="sm"
-                onClick={() => navigate("/donate")}
-                className="h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
               >
                 <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
                 <span className="hidden sm:inline">Donate Now</span>
                 <span className="sm:hidden">Donate</span>
-              </Button>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
 
               <Button
                 variant="ghost"
@@ -485,6 +488,36 @@ const Header = () => {
                           <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
                           {link.subs.map((sub, idx) => {
                             const Icon = sub.icon;
+                            const itemClass = `w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent/60 transition-all duration-150 cursor-pointer group/item ${idx > 0 ? "mt-0.5" : ""}`;
+                            const itemBody = (
+                              <>
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
+                                  <Icon className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
+                                  <span className="block text-[11px] text-muted-foreground leading-snug">{sub.desc}</span>
+                                </div>
+                                <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover/item:opacity-100 group-hover/item:text-primary transition-all duration-150 group-hover/item:translate-x-0.5 rtl:rotate-180 rtl:group-hover/item:-translate-x-0.5" />
+                              </>
+                            );
+                            if (sub.href.startsWith("http")) {
+                              return (
+                                <a
+                                  key={sub.label}
+                                  href={sub.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => setActiveDropdown(null)}
+                                  tabIndex={open ? 0 : -1}
+                                  className={itemClass}
+                                  role="menuitem"
+                                >
+                                  {itemBody}
+                                  <span className="sr-only"> (opens in a new tab)</span>
+                                </a>
+                              );
+                            }
                             return (
                               <Link
                                 key={sub.label}
@@ -501,7 +534,7 @@ const Header = () => {
                                   }
                                 }}
                                 tabIndex={open ? 0 : -1}
-                                className={`w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent/60 transition-all duration-150 cursor-pointer group/item ${idx > 0 ? "mt-0.5" : ""}`}
+                                className={itemClass}
                                 role="menuitem"
                               >
                                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
@@ -523,13 +556,16 @@ const Header = () => {
                 })}
 
                 {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
-                <Link
-                  to="/zakat-appeal"
+                <a
+                  href={GOFUNDME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
                   Donate Now
-                </Link>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
 
                 {/* Ways to Help — demoted to a quiet text link to avoid competing with primary Donate CTA */}
                 <Link

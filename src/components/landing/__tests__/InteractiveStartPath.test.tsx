@@ -39,12 +39,15 @@ describe("InteractiveStartPath", () => {
     expect(screen.getAllByText(/this is general information/i).length).toBeGreaterThan(0);
   });
 
-  it("routes donate choices to the donate page without a diagnosis", () => {
+  it("routes donate choices to GoFundMe without a diagnosis", () => {
     renderPath();
     fireEvent.click(screen.getByRole("button", { name: "All over" }));
     fireEvent.click(screen.getByRole("button", { name: "Donate" }));
 
-    expect(screen.getByRole("link", { name: /^donate/i })).toHaveAttribute("href", "/donate");
+    const donate = screen.getByRole("link", { name: /^donate/i });
+    expect(donate).toHaveAttribute("href", "https://www.gofundme.com/f/help-fund-critical-arthritis-research");
+    expect(donate).toHaveAttribute("target", "_blank");
+    expect(donate.getAttribute("rel")).toMatch(/noopener/);
     expect(screen.queryByText(/you have/i)).not.toBeInTheDocument();
     expect(screen.getAllByText(/1218461/).length).toBeGreaterThan(0);
   });

@@ -2,24 +2,13 @@
  * FinalDonateBand — closing black panel with dual donation CTAs.
  * Inspired by british-red-cross + save-the-children footer appeal bands.
  */
-import { useNavigate } from "react-router-dom";
 import { Heart, Repeat } from "lucide-react";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { Button } from "@/components/ui/button";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { trackDonationClick } from "@/lib/ga-events";
 
 const FinalDonateBand = () => {
-  const navigate = useNavigate();
-
-  const giveOnce = () => {
-    trackDonationClick("final_band_once");
-    navigate("/donate?type=once");
-  };
-  const giveMonthly = () => {
-    trackDonationClick("final_band_monthly");
-    navigate("/donate?type=monthly");
-  };
-
   return (
     <section
       aria-labelledby="final-donate-heading"
@@ -48,21 +37,37 @@ const FinalDonateBand = () => {
           className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button
+            asChild
             size="lg"
-            onClick={giveMonthly}
             className="h-[58px] px-10 rounded-full text-sm font-bold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 group"
           >
-            <Repeat className="w-4 h-4 mr-2" aria-hidden="true" />
-            Give monthly
+            <a
+              href={GOFUNDME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackDonationClick("final_band_monthly")}
+            >
+              <Repeat className="w-4 h-4 mr-2" aria-hidden="true" />
+              Give monthly
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </Button>
           <Button
+            asChild
             size="lg"
             variant="outline"
-            onClick={giveOnce}
             className="h-[58px] px-10 rounded-full text-sm font-bold tracking-wider bg-transparent text-background border-background/30 hover:bg-background hover:text-foreground"
           >
-            <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
-            Give once
+            <a
+              href={GOFUNDME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackDonationClick("final_band_once")}
+            >
+              <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
+              Give once
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </Button>
         </RevealOnScroll>
 
@@ -70,7 +75,7 @@ const FinalDonateBand = () => {
           delay={300}
           className="mt-10 text-center text-[11px] uppercase tracking-[0.22em] text-background/85"
         >
-          Gift Aid coming soon · Secure card payment · UK charity
+          Opens our GoFundMe campaign · UK charity
         </RevealOnScroll>
       </div>
     </section>

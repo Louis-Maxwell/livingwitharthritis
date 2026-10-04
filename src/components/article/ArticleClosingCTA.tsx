@@ -111,12 +111,15 @@ const ArticleClosingCTA = ({ title }: Props) => {
         >
           Diet hub
         </Link>
-        <Link
-          to="/donate"
+        <a
+          href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border border-border/50 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Soft support · Donate
-        </Link>
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
         <Link
           to="/contact"
           className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 min-h-[44px] text-sm font-semibold text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

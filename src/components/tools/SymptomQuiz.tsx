@@ -722,16 +722,22 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               {SOFT_CTAS.map((c) => (
                 <Button key={c.href} asChild variant="outline" className="min-h-11 justify-start gap-2">
-                  <Link to={c.href}>
-                    {c.href === "/chat" ? (
-                      <MessageCircle className="w-4 h-4" aria-hidden />
-                    ) : c.href === "/donate" ? (
+                  {c.href.startsWith("http") ? (
+                    <a href={c.href} target="_blank" rel="noopener noreferrer">
                       <HandHeart className="w-4 h-4" aria-hidden />
-                    ) : (
-                      <BookOpen className="w-4 h-4" aria-hidden />
-                    )}
-                    {c.label}
-                  </Link>
+                      {c.label}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    <Link to={c.href}>
+                      {c.href === "/chat" ? (
+                        <MessageCircle className="w-4 h-4" aria-hidden />
+                      ) : (
+                        <BookOpen className="w-4 h-4" aria-hidden />
+                      )}
+                      {c.label}
+                    </Link>
+                  )}
                 </Button>
               ))}
             </div>

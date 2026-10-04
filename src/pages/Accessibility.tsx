@@ -124,7 +124,7 @@ const Accessibility_Page = () => {
             <section>
               <h2 className="text-xl font-bold text-foreground mt-8 mb-3">Known Limitations</h2>
               <ul className="list-disc pl-6 space-y-2 mt-3">
-                <li>Some third-party embedded content (e.g. payment forms via Stripe) may have accessibility limitations outside our direct control.</li>
+                <li>Some third-party pages we link to, including the GoFundMe campaign, may have accessibility limitations outside our direct control.</li>
                 <li>Older blog images may have generic alt text — we are progressively improving these.</li>
                 <li>Complex interactive charts may not be fully accessible to all screen readers — text alternatives are provided.</li>
               </ul>

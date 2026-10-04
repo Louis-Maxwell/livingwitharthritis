@@ -52,7 +52,7 @@ const SITE_PAGES: SitePage[] = [  { path: "/conditions/osteoarthritis", title: "
   { path: "/guides/exercise", title: "Exercise Guide", description: "Evidence-based exercise guide for arthritis: low-impact routines, swimming, yoga and strength training.", icon: Dumbbell, tags: ["guide", "exercise", "physio", "movement"] },
   { path: "/arthritis-waiting-list-help", title: "Waiting List Help", description: "What to do while waiting for rheumatology, physiotherapy or joint replacement in the UK.", icon: Stethoscope, tags: ["guide", "waiting", "rheumatology", "NHS", "UK"] },
   { path: "/blog/working-with-arthritis-uk-rights", title: "Work Rights & Access to Work", description: "Equality Act, reasonable adjustments and Access to Work for arthritis in the UK.", icon: ShieldCheck, tags: ["work", "Equality Act", "Access to Work", "PIP", "benefits"] },
-  { path: "/donate", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
+  { path: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
   { path: "/chat", title: "Help Chat", description: "Free personalised arthritis assistant — ask about symptoms, exercises, diet and health services.", icon: Activity, tags: ["chat", "support", "help"] },
   { path: "/self-help", title: "Self-help tool", description: "Interactive joint diagram and practical self-management starting points for UK readers.", icon: Activity, tags: ["exercise", "self-help", "pain", "tool"] },
   { path: "/symptom-checker", title: "Symptom checker", description: "A careful UK starting point for common arthritis symptoms — not a diagnosis; see a GP when unsure.", icon: Stethoscope, tags: ["symptom", "symptoms", "tool", "guide"] },
@@ -174,6 +174,29 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: i * 0.08, duration: 0.35 }}
               >
+                {page.path.startsWith("http") ? (
+                <a
+                  href={page.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col h-full rounded-xl border border-border/60 bg-card p-5 hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
+                      {page.title}
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1 line-clamp-3">
+                    {page.description}
+                  </p>
+                  <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all mt-auto">
+                    Read {page.title} <ArrowRight className="w-3 h-3" />
+                  </span>
+                </a>
+                ) : (
                 <Link
                   to={page.path}
                   className="group flex flex-col h-full rounded-xl border border-border/60 bg-card p-5 hover:shadow-lg hover:border-primary/30 transition-all duration-300"
@@ -193,6 +216,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                     Read {page.title} <ArrowRight className="w-3 h-3" />
                   </span>
                 </Link>
+                )}
               </motion.div>
             );
           })}

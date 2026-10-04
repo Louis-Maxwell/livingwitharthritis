@@ -1,12 +1,8 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Link } from "react-router-dom";
-
-// The payment modal (and its animation library) is fetched only when a
-// supporter actually starts a donation.
-const StripeDonationModal = lazyWithRetry(() => import("@/components/StripeDonationModal"));
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 const PRESETS = [50, 150, 200, 500];
 
@@ -23,20 +19,13 @@ const DonationQuickBar = () => {
   const [amount, setAmount] = useState<string>("");
   const [selectedPreset, setSelectedPreset] = useState<number | null>(50);
   const [fund, setFund] = useState("research");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   // On phones the full bar used to fill a third of the first screen above
   // every page; it now starts as one row and opens on request.
   const [mobileExpanded, setMobileExpanded] = useState(false);
 
-  const activeAmount = amount ? parseFloat(amount) : selectedPreset ?? 0;
-
   const handlePreset = (val: number) => {
     setSelectedPreset(val);
     setAmount("");
-  };
-
-  const handleDonate = () => {
-    if (activeAmount > 0) setIsModalOpen(true);
   };
 
   return (
@@ -45,15 +34,15 @@ const DonationQuickBar = () => {
         <div className="container mx-auto px-3 sm:px-4 py-2">
           {!mobileExpanded && (
             <div className="flex items-center justify-center gap-2 sm:hidden">
-              <button
-                type="button"
-                onClick={() => setMobileExpanded(true)}
-                aria-expanded={false}
-                aria-controls="donation-quick-bar-options"
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-9 inline-flex items-center px-4 rounded-full bg-background text-primary text-sm font-extrabold tracking-[0.1em]"
               >
                 DONATE
-              </button>
+                <span className="sr-only"> on GoFundMe (opens in a new tab)</span>
+              </a>
               <Link
                 to="/zakat-appeal"
                 className="h-9 inline-flex items-center px-4 rounded-full text-sm font-extrabold tracking-[0.1em] text-primary-foreground hover:bg-background/10 transition-colors"
@@ -143,11 +132,13 @@ const DonationQuickBar = () => {
 
             {/* DONATE */}
             <Button
-              onClick={handleDonate}
-              disabled={activeAmount <= 0}
+              asChild
               className="h-9 bg-transparent hover:bg-background/10 text-primary-foreground font-extrabold tracking-[0.15em] rounded-full px-5 text-sm shadow-none border-0"
             >
-              DONATE
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+                DONATE
+                <span className="sr-only"> on GoFundMe (opens in a new tab)</span>
+              </a>
             </Button>
 
             {/* Zakat Appeal */}
@@ -161,17 +152,6 @@ const DonationQuickBar = () => {
         </div>
       </div>
 
-      {isModalOpen && (
-        <Suspense fallback={null}>
-          <StripeDonationModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            amount={activeAmount}
-            currency="GBP"
-            fundType={fund}
-          />
-        </Suspense>
-      )}
     </>
   );
 };
