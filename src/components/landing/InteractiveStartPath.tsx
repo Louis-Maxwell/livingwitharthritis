@@ -1,5 +1,6 @@
 import { memo, useCallback, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, RotateCcw } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
@@ -143,7 +144,7 @@ const BENEFITS_LINKS: ResultLink[] = [
 
 const DONATE_LINKS: ResultLink[] = [
   {
-    href: "/donate",
+    href: GOFUNDME_URL,
     label: "Donate",
     sub: "Keep these guides free for people across the UK.",
   },
@@ -392,9 +393,25 @@ const InteractiveStartPath = memo(() => {
                     "group flex items-start gap-3 min-h-11 w-full max-w-full rounded-xl border border-border/60 bg-background px-3.5 py-3 text-left hover:border-primary/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
                   return (
                     <li key={link.href} className="min-w-0">
-                      {link.href.startsWith("#") ? (
-                        <a href={link.href} className={cls}>
+                      {link.href.startsWith("#") || link.href.startsWith("http") ? (
+                        <a
+                          href={link.href}
+                          className={cls}
+                          {...(link.href.startsWith("http")
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
+                          onClick={() =>
+                            trackEvent("start_path_result", {
+                              joint,
+                              need,
+                              to: link.href,
+                            })
+                          }
+                        >
                           {inner}
+                          {link.href.startsWith("http") && (
+                            <span className="sr-only"> (opens in a new tab)</span>
+                          )}
                         </a>
                       ) : (
                         <Link

@@ -559,12 +559,13 @@ const AboutUs = () => {
                   Every donation, share, and volunteer hour brings us closer to a world where arthritis no longer limits anyone's potential.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link to="/donate">
-                    <Button className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
+                  <Button asChild className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
+                    <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">
                       <Heart className="w-4 h-4 mr-2" />
                       Donate Now
-                    </Button>
-                  </Link>
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </Button>
                   <Link to="/">
                     <Button variant="outline" className="rounded-full px-8 h-11 text-sm font-medium border-border/30">
                       Explore Resources

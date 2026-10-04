@@ -251,11 +251,12 @@ const ImpactStories = () => {
               Every donation helps us reach more people living with arthritis across the UK with free, evidence-based support.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link to="/donate">
-                <Button className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
+              <Button asChild className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
+                <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">
                   <Heart className="w-4 h-4 mr-2" /> Donate Now
-                </Button>
-              </Link>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </Button>
               <Link to="/governance">
                 <Button variant="outline" className="rounded-full px-6 h-10 text-sm font-medium">
                   <Shield className="w-4 h-4 mr-2" /> Our Governance

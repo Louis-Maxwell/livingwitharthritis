@@ -353,7 +353,7 @@ const CommunityHub = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" className="min-h-[44px]">
-                <Link to="/zakat-appeal">Donate Now <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">Donate Now <ArrowRight className="w-4 h-4 ml-2" /><span className="sr-only"> (opens in a new tab)</span></a>
               </Button>
               <Button asChild variant="outline" size="lg" className="min-h-[44px]">
                 <Link to="/chat">Start a Chat</Link>
@@ -389,7 +389,7 @@ const CommunityHub = () => {
               {
                 title: "Take action",
                 links: [
-                  { label: "Donate to arthritis charity", to: "/donate" },
+                  { label: "Donate to arthritis charity", to: "https://www.gofundme.com/f/help-fund-critical-arthritis-research" },
                   { label: "Volunteer for our charity", to: "/ways-to-help" },
                   { label: "Fundraising ideas", to: "/ways-to-help" },
                   { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },

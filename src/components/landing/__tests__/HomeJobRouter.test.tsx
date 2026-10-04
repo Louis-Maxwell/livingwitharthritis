@@ -83,7 +83,10 @@ describe("HomeJobRouter", () => {
 
   it("only links to real routes, published posts or library topics", () => {
     const internal = [
-      ...VISITOR_JOBS.flatMap((j) => [j.href, ...j.more.filter((m) => !m.external).map((m) => m.href)]),
+      ...VISITOR_JOBS.flatMap((j) => [
+        ...(j.external ? [] : [j.href]),
+        ...j.more.filter((m) => !m.external).map((m) => m.href),
+      ]),
       ...MORE_TOPICS.map((t) => t.href),
     ];
     const broken = internal.filter((href) => !resolves(href));

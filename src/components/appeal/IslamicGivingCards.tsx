@@ -1,10 +1,6 @@
 import { Moon, HandHeart, Sprout } from "lucide-react";
 import { trackDonationClick } from "@/lib/ga-events";
-
-interface IslamicGivingCardsProps {
-  /** Called with a suggested amount when a card CTA is used. */
-  onGive: (amount: number, source: string) => void;
-}
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 const GIVING_TYPES = [
   {
@@ -37,7 +33,7 @@ const GIVING_TYPES = [
 ];
 
 /** Three-card Islamic giving strip explaining Zakat, Sadaqah and Sadaqah Jariyah. */
-export default function IslamicGivingCards({ onGive }: IslamicGivingCardsProps) {
+export default function IslamicGivingCards() {
   return (
     <section id="zakat" className="py-14 bg-background scroll-mt-24">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -64,18 +60,21 @@ export default function IslamicGivingCards({ onGive }: IslamicGivingCardsProps) 
               <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                 {type.body}
               </p>
-              <button
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   trackDonationClick({
                     source: `gaza_${type.id}_card`,
                     amount: type.amount,
                   });
-                  onGive(type.amount, type.id);
                 }}
                 className="mt-5 inline-flex items-center justify-center h-11 bg-primary text-primary-foreground font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors"
               >
                 {type.cta}
-              </button>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </div>
           ))}
         </div>

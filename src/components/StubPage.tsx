@@ -175,6 +175,18 @@ export default function StubPage({
                 <ul role="list" className="grid sm:grid-cols-2 gap-3 list-none p-0 m-0">
                   {relatedLinks.map((l) => (
                     <li key={l.href} className="flex list-none">
+                      {l.href.startsWith("http") ? (
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex flex-1 items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group"
+                        >
+                          <span className="font-medium text-foreground">{l.label}</span>
+                          <ArrowRight className="w-4 h-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      ) : (
                       <Link
                         to={l.href}
                         className="flex flex-1 items-center justify-between gap-2 p-4 border border-border rounded-lg bg-card hover:border-primary hover:bg-accent/20 transition-colors group"
@@ -182,6 +194,7 @@ export default function StubPage({
                         <span className="font-medium text-foreground">{l.label}</span>
                         <ArrowRight className="w-4 h-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
                       </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

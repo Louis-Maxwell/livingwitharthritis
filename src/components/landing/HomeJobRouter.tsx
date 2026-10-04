@@ -51,6 +51,31 @@ export default function HomeJobRouter() {
                   isDonate ? "border-border/60 bg-muted/40" : "border-border/60 bg-card"
                 }`}
               >
+                {job.external ? (
+                <a
+                  href={job.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => track(job, { label: job.title, href: job.href })}
+                  className={`group grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 sm:flex sm:flex-col sm:gap-2 rounded-lg ${focusRing}`}
+                >
+                  <span
+                    className="row-span-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary"
+                    aria-hidden="true"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
+                    {job.title}
+                    <ArrowRight
+                      className="ml-1 inline h-4 w-4 align-[-2px] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+                      aria-hidden="true"
+                    />
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{job.desc}</p>
+                  {job.external && <span className="sr-only"> (opens in a new tab)</span>}
+                </a>
+                ) : (
                 <Link
                   to={job.href}
                   onClick={() => track(job, { label: job.title, href: job.href })}
@@ -71,6 +96,7 @@ export default function HomeJobRouter() {
                   </h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{job.desc}</p>
                 </Link>
+                )}
                 <ul
                   className="mt-3 flex flex-wrap gap-x-4 border-t border-border/50 pt-1 sm:flex-col sm:gap-x-0"
                   aria-label={`More on: ${job.title}`}

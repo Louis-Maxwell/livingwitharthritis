@@ -78,15 +78,14 @@ const CookiesPolicy = () => (
             <p>We use analytics cookies to understand how visitors interact with our website. This helps us improve our content, navigation and overall experience. The information collected is aggregated and anonymous. We do not use this data to identify individual visitors.</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Payment Cookies</h3>
-            <p>When you make a donation, our payment provider (Stripe) may set cookies to process the transaction securely. These cookies are necessary for the payment process and are subject to Stripe's own privacy and cookie policies.</p>
+            <p>Donations open our GoFundMe campaign in a new tab. GoFundMe may set its own cookies on that site. We do not take card payments on this website.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">3. Third-Party Cookies</h2>
             <p>Some cookies on our site are set by third-party services that appear on our pages. We do not control these cookies. The third parties we work with include:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li><strong>Stripe:</strong> For secure donation payment processing.</li>
-              <li><strong>Google Fonts:</strong> For typography delivery (no tracking cookies set).</li>
+                            <li><strong>Google Fonts:</strong> For typography delivery (no tracking cookies set).</li>
             </ul>
           </section>
 

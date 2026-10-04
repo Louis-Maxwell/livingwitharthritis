@@ -46,12 +46,15 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             <p className="text-sm text-foreground/85 leading-relaxed mb-3">
               If our guides help, a gift keeps them free for UK readers.
             </p>
-            <Link
-              to="/donate"
+            <a
+              href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-primary/30 px-4 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               Donate
-            </Link>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
         </div>
       </aside>
@@ -88,13 +91,16 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             We are independent of Arthritis UK. Motion is lotion — and honest guides stay free when
             readers who can, chip in.
           </p>
-          <Link
-            to="/donate"
+          <a
+            href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <Heart className="w-4 h-4" aria-hidden="true" />
-            Visit donate page
-          </Link>
+            Donate on GoFundMe
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </div>
       </div>
     </aside>

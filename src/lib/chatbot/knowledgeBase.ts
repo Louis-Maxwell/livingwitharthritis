@@ -156,7 +156,7 @@ Ask about exercises, diet, flares, PIP, or browse **/about**.`,
     related: [
       { type: "guide", title: "About us", url: "/about", description: "Charity 1218461 · independent of Arthritis UK" },
       { type: "guide", title: "Contact", url: "/contact", description: "Email or WhatsApp the team" },
-      { type: "guide", title: "Donate", url: "/donate", description: "Support free UK arthritis guidance" },
+      { type: "guide", title: "Donate", url: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", description: "Support free UK arthritis guidance" },
     ],
   },
   {
@@ -186,13 +186,13 @@ We are a small independent UK charity (**1218461**). Donations and Gift Aid help
 - Phone / WhatsApp: **07760 512 084**
 - Web forms: **/contact**
 
-**Donate:** **/donate**
+**Donate:** https://www.gofundme.com/f/help-fund-critical-arthritis-research
 
 We cannot provide emergency medical care by phone — for urgent symptoms use **NHS 111** or **999**.`,
     nextSteps: ["Open the contact page", "Consider a one-off or monthly donation"],
     related: [
       { type: "guide", title: "Contact", url: "/contact" },
-      { type: "guide", title: "Donate", url: "/donate" },
+      { type: "guide", title: "Donate", url: "https://www.gofundme.com/f/help-fund-critical-arthritis-research" },
       { type: "guide", title: "About us", url: "/about" },
     ],
   },
@@ -224,7 +224,7 @@ Useful hubs on Living With Arthritis:
 - **Benefits & PIP:** **/guides/benefits-pip** and **/benefits-pip**
 - **Flares:** **/arthritis-flare-ups**
 - **Mental health:** **/arthritis-mental-health**
-- **About / contact / donate:** **/about**, **/contact**, **/donate**
+- **About / contact / donate:** **/about**, **/contact**, https://www.gofundme.com/f/help-fund-critical-arthritis-research
 
 Ask me about a joint, condition, diet, flares or PIP and I will answer with links.`,
     nextSteps: ["Open /exercises or /diet", "Browse /blog for recent articles"],
