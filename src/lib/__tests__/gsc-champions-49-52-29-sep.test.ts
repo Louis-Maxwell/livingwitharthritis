@@ -103,10 +103,26 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     expect(newly).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
     expect(newly).toContain(`lastReviewed: "${REVIEW}"`);
     expect(newly).toContain('<TopicClusterNav path="/guides/newly-diagnosed" />');
-    expect(newly).toMatch(/nhs\.uk\/conditions\/arthritis/i);
-    expect(newly).toMatch(/nice\.org\.uk\/guidance\/ng226/i);
-    expect(newly).toMatch(/nice\.org\.uk\/guidance\/ng100/i);
-    expect(newly).toMatch(/versusarthritis\.org/i);
+    expect(
+      [...newly.matchAll(/https?:\/\/[^\s"'<>]+/gi)].some((match) =>
+        /^https:\/\/(?:[a-z0-9-]+\.)*nhs\.uk\/conditions\/arthritis(?:\/|$)/i.test(match[0]),
+      ),
+    ).toBe(true);
+    expect(
+      [...newly.matchAll(/https?:\/\/[^\s"'<>]+/gi)].some((match) =>
+        /^https:\/\/(?:[a-z0-9-]+\.)*nice\.org\.uk\/guidance\/ng226(?:\/|$)/i.test(match[0]),
+      ),
+    ).toBe(true);
+    expect(
+      [...newly.matchAll(/https?:\/\/[^\s"'<>]+/gi)].some((match) =>
+        /^https:\/\/(?:[a-z0-9-]+\.)*nice\.org\.uk\/guidance\/ng100(?:\/|$)/i.test(match[0]),
+      ),
+    ).toBe(true);
+    expect(
+      [...newly.matchAll(/https?:\/\/[^\s"'<>]+/gi)].some((match) =>
+        /^https:\/\/(?:[a-z0-9-]+\.)*versusarthritis\.org(?:\/|$)/i.test(match[0]),
+      ),
+    ).toBe(true);
     for (const href of NEWLY_LINKS) {
       expect(
         newly.includes(`to="${href}"`) || newly.includes(`"${href}"`),
@@ -136,7 +152,11 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
         true,
       );
     }
-    expect(accessJson.content).toMatch(/gov\.uk\/access-to-work/);
+    expect(
+      [...accessJson.content.matchAll(/https?:\/\/[^\s"'<>]+/gi)].some((match) =>
+        /^https:\/\/(?:[a-z0-9-]+\.)*gov\.uk\/access-to-work(?:\/|$)/.test(match[0]),
+      ),
+    ).toBe(true);
     expect(access).not.toMatch(/Oswestry/i);
   });
 

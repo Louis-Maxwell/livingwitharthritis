@@ -138,7 +138,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
         "https://www.nice.org.uk/guidance/ng226",
       ]),
     );
-    expect(urls.some((u) => /versusarthritis\.org/i.test(u))).toBe(true);
+    expect(urls.some((u) => /^https:\/\/(?:[a-z0-9-]+\.)*versusarthritis\.org(?:\/|$)/i.test(u))).toBe(true);
     for (const href of JOINT_LINKS) {
       expect(jointJson.content.includes(`href="${href}"`), `Joint protection missing ${href}`).toBe(
         true,
