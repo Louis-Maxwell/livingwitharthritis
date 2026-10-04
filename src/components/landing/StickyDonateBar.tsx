@@ -111,13 +111,16 @@ const StickyDonateBar = memo(() => {
               See the live total on GoFundMe
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
-            <button
-              type="button"
-              onClick={handleClick}
-              className="mt-4 w-full min-h-11 rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary/95 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            <a
+              href={GOFUNDME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackDonationClick()}
+              className="mt-4 inline-flex w-full min-h-11 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-sm tracking-wide shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary/95 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               Donate now
-            </button>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
         </div>
       </div>
