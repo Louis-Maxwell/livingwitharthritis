@@ -135,32 +135,15 @@
 
 
 
-    <!-- LCP hero image preload — HOMEPAGE ONLY. index.html is shared by every
-         route, so a static <link rel=preload> made all inner pages download
-         the homepage hero at high priority. The inline script adds the
-         preload only on "/". imagesrcset/imagesizes MUST match OAHero's
-         srcset/sizes (src/components/landing/OAHero.tsx) or phones fetch the
-         800w file instead of the ~14KB 400w variant. -->
-    <script>
-      (function () {
-        if (location.pathname !== "/") return;
-        var href = "/openverse/hero-friends-800.webp";
-        if (document.querySelector('link[rel="preload"][as="image"][href="' + href + '"]')) return;
-        var l = document.createElement("link");
-        l.rel = "preload";
-        l.as = "image";
-        l.href = href;
-        l.setAttribute("imagesrcset", "/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w");
-        l.setAttribute("imagesizes", "(min-width: 1024px) 300px, (min-width: 640px) 240px, 160px");
-        l.setAttribute("fetchpriority", "high");
-        document.head.appendChild(l);
-      })();
-    </script>
-    <!-- Inter (single family, variable weight 100-900), self-hosted from
-         /public/fonts as a latin-subset woff2. One file covers every weight. -->
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/Inter.woff2" crossorigin />
+    <!-- No early hero-image preload. Measured 4 Oct 2026 (Lighthouse mobile,
+         simulated slow 4G): the homepage LCP element is the hero paragraph,
+         not the photo. A high-priority preload of the photo started before
+         the entry scripts and shared their bandwidth. OAHero still loads the
+         picture with the responsive srcset once React paints.
+         INTER_FONT_PRELOAD is replaced at build time with a low-priority
+         preload of the hashed /assets/*.woff2 (see vite.config.ts). -->
+    <!-- INTER_FONT_PRELOAD -->
     <style>
-      @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/Inter.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
       /* Keep crawler HTML in the document but never paint it for JS visitors.
          Blog/condition inject used to set this block visible, which flashed a
          wall of unstyled article text before React replaced #root. */
@@ -244,6 +227,88 @@
 
   <body style="background:#ffffff;">
     <div id="root">
+      <!--
+        Homepage-only first paint. The live page is client-rendered, and on
+        4 Oct 2026 the mobile LCP element (the hero paragraph) did not exist
+        until the entry scripts had downloaded and run — about three quarters
+        of LCP was render delay. This shell uses the same classes as Header /
+        OAHero so the paragraph can paint with the stylesheet, before JS.
+        It stays hidden on every other route (this file is the shell for all
+        of them) and createRoot() removes it when React commits. Copy here
+        must match OAHero.tsx — see src/components/landing/__tests__/bootHero.test.ts.
+      -->
+      <div id="boot-hero" hidden>
+        <div id="boot-banner" class="w-full bg-primary text-primary-foreground border-b border-primary-foreground/20">
+          <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center gap-2 py-2 relative">
+            <p class="text-xs sm:text-sm font-medium text-center pr-6 sm:pr-0">
+              We're currently updating this website — please bear with us while
+              we make improvements. You may notice changes as you browse.
+            </p>
+          </div>
+        </div>
+        <div class="bg-primary donation-quickbar-placeholder" aria-hidden="true"></div>
+        <div class="bg-background border-b border-border/15">
+          <div class="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
+            <a href="/" class="group cursor-pointer select-none shrink-0" aria-label="Living With Arthritis — Go to homepage">
+              <span class="flex flex-col items-start leading-none">
+                <span class="inline-flex items-center gap-3">
+                  <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-7 sm:h-8 md:h-10 w-auto shrink-0" aria-hidden="true" focusable="false">
+                    <g stroke="hsl(var(--primary))" stroke-width="30" stroke-linecap="round" fill="none">
+                      <path d="M256 200 Q176 128 92 64" />
+                      <path d="M256 200 Q336 128 420 64" />
+                      <path d="M256 172 L256 308" />
+                      <path d="M256 308 Q206 388 168 460" />
+                      <path d="M256 308 Q306 388 344 460" />
+                    </g>
+                    <circle cx="256" cy="124" r="44" fill="hsl(var(--primary))" />
+                  </svg>
+                  <span class="font-sans font-extrabold uppercase tracking-[-0.01em] leading-none text-primary text-[15px] sm:text-xl md:text-2xl">Living With Arthritis</span>
+                </span>
+                <span class="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">Motion is Lotion</span>
+              </span>
+            </a>
+            <div class="flex items-center gap-1.5 lg:hidden min-w-0">
+              <a href="/donate" class="inline-flex items-center h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary text-primary-foreground">Donate</a>
+              <span class="inline-flex h-11 w-11" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:block bg-background border-b border-border/20 h-[46px]" aria-hidden="true"></div>
+        <main id="boot-main">
+          <section class="band-red relative w-full max-w-full overflow-hidden">
+            <div class="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-7 sm:py-9 lg:py-12">
+              <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] gap-6 lg:gap-12 items-center w-full">
+                <div class="min-w-0">
+                  <h1 class="text-balance break-words leading-[1.12]">
+                    <span class="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] opacity-95">Living With Arthritis UK — evidence-based health guides</span>
+                    <span class="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">Free, physio-reviewed help for people living with arthritis — and those who care for them</span>
+                  </h1>
+                  <p class="mt-3 sm:mt-4 text-base lg:text-lg font-medium max-w-xl leading-relaxed">Stiff mornings, cancelled plans, the feeling that nobody quite gets it. Find practical help with pain, exercise, benefits and everyday life — written for UK readers.</p>
+                  <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3 min-w-0">
+                    <a href="/guides/arthritis-pain-relief" class="btn-map w-full sm:w-auto justify-center min-h-12 shadow-md" style="background:white;color:hsl(var(--foreground))">I'm in pain — help now</a>
+                    <a href="#find-help" class="btn-map w-full sm:w-auto justify-center min-h-12 border-2 border-white/90 bg-transparent text-white">Find help for my situation</a>
+                  </div>
+                  <p class="mt-4 text-sm opacity-95 max-w-xl">Educational information only — not a diagnosis or personal medical advice. If you are worried about sudden or severe symptoms, contact your GP or NHS 111.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      <script>
+        (function () {
+          if (location.pathname !== "/") return;
+          var shell = document.getElementById("boot-hero");
+          if (!shell) return;
+          try {
+            if (localStorage.getItem("lwa_update_banner_dismissed") === "1") {
+              var banner = document.getElementById("boot-banner");
+              if (banner) banner.remove();
+            }
+          } catch (e) {}
+          shell.hidden = false;
+        })();
+      </script>
       <!--
         Static SEO fallback. React's createRoot().render() replaces these
         children on hydration, so real users never see this. Non-JS

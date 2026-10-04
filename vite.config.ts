@@ -44,6 +44,40 @@ if (!ENABLE_PRERENDER) {
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
 
+
+// The self-hosted Inter file is imported from CSS so Vite content-hashes it
+// under /assets/*, which is the only path the live host actually caches
+// (public/_headers is ignored; /fonts/*.woff2 is re-downloaded every visit).
+// Preload stays low priority: the homepage LCP is text that appears only
+// after the entry scripts run, and a high-priority 48KB font was sharing
+// that bandwidth.
+function preloadInterFont() {
+  return {
+    name: "preload-inter-font",
+    transformIndexHtml: {
+      order: "post" as const,
+      handler(
+        html: string,
+        ctx: { bundle?: Record<string, { fileName?: string; type?: string }> },
+      ) {
+        const bundle = ctx.bundle;
+        if (!bundle) return html;
+        const font = Object.values(bundle).find(
+          (item) =>
+            item.type === "asset" &&
+            typeof item.fileName === "string" &&
+            item.fileName.includes("Inter") &&
+            item.fileName.endsWith(".woff2"),
+        );
+        if (!font?.fileName) return html;
+        const tag =
+          `<link rel="preload" as="font" type="font/woff2" href="/${font.fileName}" crossorigin fetchpriority="low" />`;
+        return html.replace("<!-- INTER_FONT_PRELOAD -->", tag);
+      },
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   return ({
   server: {
@@ -107,6 +141,7 @@ export default defineConfig(({ mode }) => {
         brotliSize: true,
         template: "treemap",
       }),
+    preloadInterFont(),
 
   ].filter(Boolean),
   resolve: {

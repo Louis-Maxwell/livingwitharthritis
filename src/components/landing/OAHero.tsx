@@ -27,10 +27,14 @@ const scrollToRouter = (event: MouseEvent<HTMLAnchorElement>) => {
   heading?.focus({ preventScroll: true });
 };
 
-// Hero photo, compressed locally to WebP at 400/800 square variants so the
-// LCP element stays tiny on mobile (~14KB at 400w). Preloaded in index.html.
-const HERO_IMG = "/openverse/hero-friends-800.webp";
-const HERO_SRCSET = "/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w";
+// Hero photo, compressed locally to WebP at 400/800 square variants.
+// Imported so the production URLs are content-hashed under /assets/* (the
+// live host caches those; /openverse/* is not). Not preloaded from index.html:
+// on mobile the LCP element is the paragraph below, not this image.
+import hero800 from "../../../public/openverse/hero-friends-800.webp";
+import hero400 from "../../../public/openverse/hero-friends-400.webp";
+const HERO_IMG = hero800;
+const HERO_SRCSET = `${hero400} 400w, ${hero800} 800w`;
 const HERO_SIZES = "(min-width: 1024px) 300px, (min-width: 640px) 240px, 160px";
 
 const OAHero = memo(() => (
@@ -90,8 +94,7 @@ const OAHero = memo(() => (
         </div>
 
         {/* Octagon image — MAP signature shape. Sits after the copy on mobile
-            (small) so the CTAs stay above the fold. `sizes` must stay in sync
-            with the <link rel="preload" imagesizes> in index.html. */}
+            (small) so the CTAs stay above the fold. */}
         <div className="relative aspect-square w-full max-w-[160px] sm:max-w-[240px] lg:max-w-[300px] mx-auto lg:mx-0 lg:justify-self-end min-w-0">
           <img
             src={HERO_IMG}
