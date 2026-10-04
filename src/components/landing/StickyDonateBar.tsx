@@ -39,16 +39,6 @@ const StickyDonateBar = memo(() => {
     };
   }, []);
 
-  const handleClick = () => {
-    trackDonationClick();
-    const target = document.getElementById("donate-inline");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      window.location.href = "/donate";
-    }
-  };
-
   return (
     <>
       {/* Mobile — bottom bar */}
@@ -60,10 +50,12 @@ const StickyDonateBar = memo(() => {
         style={{ bottom: "calc(var(--mobile-bottom-nav, 68px) + env(safe-area-inset-bottom, 0px) + 5.75rem)" }}
       >
         <div className="mx-3 mb-2 rounded-2xl bg-foreground text-background shadow-2xl border border-background/10 overflow-hidden max-w-full">
-          <button
-            type="button"
-            onClick={handleClick}
-            className="w-full text-left px-5 pt-3 pb-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11"
+          <a
+            href={GOFUNDME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackDonationClick()}
+            className="block w-full text-left px-5 pt-3 pb-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-11"
           >
             <span className="flex items-center gap-2 text-sm font-bold">
               <Heart className="w-4 h-4 fill-primary text-primary" aria-hidden="true" />
@@ -71,8 +63,9 @@ const StickyDonateBar = memo(() => {
             </span>
             <span className="mt-1 block text-xs text-background/80 font-medium">
               Donate now to support free arthritis help and research
+              <span className="sr-only"> (opens in a new tab)</span>
             </span>
-          </button>
+          </a>
         </div>
       </div>
 
