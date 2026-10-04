@@ -123,7 +123,7 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
         "https://www.nhs.uk/tests-and-treatments/occupational-therapy/",
       ]),
     );
-    expect(urls.some((u) => /arthritis-uk\.org/i.test(u))).toBe(true);
+    expect(urls.some((u) => /^https:\/\/(?:[a-z0-9-]+\.)*arthritis-uk\.org(?:\/|$)/i.test(u))).toBe(true);
     for (const href of PACING_LINKS) {
       expect(pacingJson.content.includes(`href="${href}"`), `Pacing missing ${href}`).toBe(true);
     }
