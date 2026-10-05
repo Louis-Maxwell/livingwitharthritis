@@ -36,6 +36,7 @@
 | Champions 53–55 sick-pay + carers + joint-protection | **done** | Gold-pass `/blog/sick-pay-fit-notes-time-off-work-arthritis`, `/blog/carers-allowance-help-if-you-care-for-someone`, `/blog/joint-protection-easier-everyday-tasks` — CTR meta, Louis Maxwell HCPC review **2026-09-30**, GOV.UK/NHS/NICE/Versus Arthritis cites, dense customer-job links; pip/OA/pain cluster fronting + chatbot KB; Vitest `gsc-champions-53-55-30-sep.test.ts` |
 | Champions 56–58 carers-assessment + pacing + work | **done** | Gold-pass `/blog/carers-assessment-arthritis-frailty-uk`, `/blog/energy-management-and-pacing-arthritis`, `/blog/arthritis-and-work-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-01**, NHS/GOV.UK/NICE/Arthritis UK/Acas cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-56-58-01-oct.test.ts` |
 | Champions 59–61 attendance-allowance + flare-up + fatigue | **done** | Gold-pass `/blog/attendance-allowance-arthritis-frailty-uk`, `/blog/arthritis-flare-up-what-to-do`, `/blog/arthritis-fatigue-management-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-02**, GOV.UK/NHS/NICE/Arthritis UK cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-59-61-02-oct.test.ts` |
+| Champions 62–64 sleep + mental health + cold weather | **done** | Gold-pass `/blog/how-to-sleep-with-arthritis-uk`, `/blog/arthritis-and-mental-health-uk`, `/blog/cold-weather-arthritis-uk-winter` — full rewrites replacing template copy and unverifiable stats ("80%", "2-3 times", "25% less pain"); CTR meta, Louis Maxwell HCPC review **2026-10-05**, NHS/NICE/GOV.UK/Samaritans cites, crisis routes on mental health, dense customer-job links; pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-62-64-05-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -74,6 +75,36 @@
 
 ---
 
+## Daily log — 5 Oct 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026; M2 starts ~12 Oct). Tracker next-3 from 2 Oct: Champions 62+ on remaining thin high-intent spokes (night pain / sleep / mental health). Added cold-weather because October is when winter-pain searches start. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 62 — `/blog/how-to-sleep-with-arthritis-uk`:** full rewrite (removed unsourced "80% of people" claim and duplicated template blocks); review **2026-10-05** (Louis Maxwell HCPC PH128483); CTR meta; NHS insomnia / how to get to sleep / sleep apnoea + NICE NG226 cites; settle-pain-before-bed, pillows by joint, 3am waking, CBT-I-before-tablets; dense links → pain relief, fatigue, pacing, flare guide + action plan, exercises, walking, mental health, newly diagnosed, PIP
+- **Champion 63 — `/blog/arthritis-and-mental-health-uk`:** full rewrite (removed unsourced "2-3 times more likely" claim); review **2026-10-05**; CTR meta; crisis callout (999 / Samaritans 116 123 / NHS 111); NHS Talking Therapies (England self-referral; devolved nations via GP) / NHS depression + GAD / NICE CG91 / Samaritans cites; dense links → mental health hub, sleep, fatigue, pacing, flare action plan, carer's assessment, work, PIP
+- **Champion 64 — `/blog/cold-weather-arthritis-uk-winter`:** full rewrite (removed unsourced "25% less pain interference" and generic template); review **2026-10-05**; CTR meta; honest "research is mixed" framing; NHS keep warm keep well / vitamin D / older-adult activity / Raynaud's + GOV.UK Winter Fuel + Cold Weather Payment cites; links → pain relief, exercises, walking, winter activity, flare guide, sleep, Attendance Allowance, PIP
+- **`topicClusters.ts`:** pain fronts sleep + cold weather; flare-ups fronts mental-health blog + sleep
+- **Chatbot KB:** sleep / mental-health / heat-cold `related` now point at the three gold-pass URLs; sleep + winter/cold-weather keywords
+- Sitemap `lastmod` **2026-10-05** on the three URLs + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / review index regenerated
+- **Tests:** `src/lib/__tests__/gsc-champions-62-64-05-oct.test.ts` (full Vitest suite green: 99 files / 551 tests)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; NHS intros; live social posts (no new Facebook posts / ads without asking)
+- Clinical spot-check (sleep / mental health / cold-weather blogs — esp. CBT-I, Talking Therapies routes, vitamin D wording)
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/blog/how-to-sleep-with-arthritis-uk`, `/blog/arthritis-and-mental-health-uk`, `/blog/cold-weather-arthritis-uk-winter`
+2. Month 1 close-out (~9 Oct): summarise M1 must-dos vs plan and set M2 priorities (winter-season spokes, donate/GoFundMe CRO, HCP pack distribution prep)
+3. Champions 65+ on remaining thin seasonal / high-intent spokes (e.g. staying active in winter, best sleep positions, depression-when-to-seek-help) — consolidate overlapping sleep posts toward the gold-pass URL rather than adding new pages
+
+---
 ## Daily log — 2 Oct 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026). Tracker next-3 from 1 Oct: Champions 59+ (attendance-allowance / flare-up / fatigue polish if still thin); continue M3 pillar spoke density once live. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent. `OsteoarthritisHub.tsx` fake stats left untouched (not routed).
