@@ -136,11 +136,11 @@ const CONTENT = `
 <li><strong>Request a care plan</strong> — if you have a long-term condition, you're entitled to an annual review and personalised care plan</li>
 <li><strong>Know your rights</strong> — the public health service Constitution gives you the right to treatment within 18 weeks of referral</li>
 <li><strong>Consider Patient Advice and Liaison Service (PALS)</strong> — if you're unhappy with your care</li>
-<li><strong>Join a support group</strong> — many local health trusts partner with Versus Arthritis to run hospital-based support groups</li>
+<li><strong>Join a support group</strong> — many local health trusts partner with Arthritis UK (formerly Versus Arthritis) to run hospital-based support groups</li>
 </ul>
 
 <h2 id="sources-public-health">Sources &amp; Disclaimer</h2>
-<p>Information sourced from the public health service Digital, NICE guidelines (NG100, NG226, CG177, CG79), the National Joint Registry Annual Report 2024, England's health service workforce data, and Versus Arthritis. This guide is for educational purposes and does not constitute medical advice. Always consult your healthcare team for personalised guidance.</p>
+<p>Information sourced from the public health service Digital, NICE guidelines (NG100, NG226, CG177, CG79), the National Joint Registry Annual Report 2024, England's health service workforce data, and Arthritis UK (formerly Versus Arthritis). This guide is for educational purposes and does not constitute medical advice. Always consult your healthcare team for personalised guidance.</p>
 `;
 
 export default function HealthServicesGuide() {
@@ -157,7 +157,7 @@ export default function HealthServicesGuide() {
       <meta property="og:description" content="Complete guide to arthritis services: GP referrals, first contact physiotherapists, rheumatology clinics, pain management, joint replacement surgery and mental health support across the UK." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/health-services" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />

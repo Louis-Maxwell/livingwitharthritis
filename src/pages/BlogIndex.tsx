@@ -285,7 +285,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/blog" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -311,7 +311,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             inLanguage: "en-GB",
             isPartOf: {
               "@type": "WebSite",
-              name: "Living With Arthritis UK",
+              name: "Living With Arthritis",
               url: "https://livingwitharthritis.org.uk",
             },
             about: { "@type": "MedicalCondition", name: "Arthritis" },
@@ -377,7 +377,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <Link to="/blog/archive" className="text-primary underline underline-offset-2">
               full archive by date
             </Link>
-            . Living With Arthritis UK (registered charity 1218461)
+            . Living With Arthritis (registered charity 1218461)
             publishes clinically reviewed guides — honest evidence, no invented miracle cures. Start
             with{" "}
             <Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">

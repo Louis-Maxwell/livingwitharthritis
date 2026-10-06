@@ -34,7 +34,7 @@ const HealthToolsCTA = memo(() => (
           Free tools to keep you moving
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed">
-          Jump from this article into a quiz, diet guide or exercise plan — all free from Living With Arthritis UK.
+          Jump from this article into a quiz, diet guide or exercise plan — all free from Living With Arthritis.
         </p>
       </div>
     </div>

@@ -35,9 +35,9 @@ const assetTags = [
   .map((m) => `    ${m[0]}`)
   .join('\n');
 
-const TITLE = 'Page not found | Living With Arthritis UK';
+const TITLE = 'Page not found | Living With Arthritis';
 const DESCRIPTION =
-  'The page you are looking for could not be found. Search Living With Arthritis UK or pick a popular guide instead.';
+  'The page you are looking for could not be found. Search Living With Arthritis or pick a popular guide instead.';
 
 const html = `<!DOCTYPE html>
 <html lang="en-GB">

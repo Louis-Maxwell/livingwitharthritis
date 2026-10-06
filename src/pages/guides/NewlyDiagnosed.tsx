@@ -169,7 +169,7 @@ export default function NewlyDiagnosed() {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
         headline:
-          "Newly diagnosed rheumatoid arthritis UK: first steps checklist",
+          "Newly diagnosed with rheumatoid arthritis: UK first steps checklist",
         url: `${BASE}/${SLUG}`,
         about: { "@type": "MedicalCondition", name: "Arthritis" },
         author: {
@@ -234,14 +234,14 @@ export default function NewlyDiagnosed() {
   return (
     <>
       <Helmet>
-        <title>Newly Diagnosed With Arthritis UK: First Steps Checklist</title>
+        <title>Newly Diagnosed With Arthritis: UK First Steps Checklist</title>
         <meta
           name="description"
           content="Newly diagnosed with arthritis or rheumatoid arthritis in the UK? Clear first steps: GP questions, rheumatology prep, treatment basics, then pain relief, exercise, diet and PIP. Living With Arthritis charity 1218461."
         />
         <meta
           property="og:title"
-          content="Newly Diagnosed With Arthritis UK: First Steps Checklist"
+          content="Newly Diagnosed With Arthritis: UK First Steps Checklist"
         />
         <meta
           property="og:description"
@@ -256,7 +256,7 @@ export default function NewlyDiagnosed() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "url": `${BASE}/${SLUG}`,
-          "name": "Newly diagnosed rheumatoid arthritis UK: first steps checklist",
+          "name": "Newly diagnosed with rheumatoid arthritis: UK first steps checklist",
           "inLanguage": "en-GB",
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] },
@@ -322,7 +322,7 @@ export default function NewlyDiagnosed() {
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
             <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
-              Just diagnosed with arthritis or rheumatoid arthritis (RA) in the UK? Start here: confirm the type, prepare your rheumatology visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice. We are Living With Arthritis UK (charity 1218461), independent of Arthritis UK.
+              Just diagnosed with arthritis or rheumatoid arthritis (RA) in the UK? Start here: confirm the type, prepare your rheumatology visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice. We are Living With Arthritis (charity 1218461), independent of Arthritis UK.
 
             </p>
           </header>
@@ -419,8 +419,8 @@ export default function NewlyDiagnosed() {
                 — rheumatoid arthritis in adults
               </li>
               <li>
-                <a href="https://versusarthritis.org/about-arthritis/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
-                  Versus Arthritis
+                <a href="https://www.arthritis-uk.org/information-and-support/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  Arthritis UK (formerly Versus Arthritis)
                 </a>{" "}
                 — living with arthritis (external; we are independent)
               </li>

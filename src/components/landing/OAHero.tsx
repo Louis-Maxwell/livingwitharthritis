@@ -44,7 +44,7 @@ const OAHero = memo(() => (
         <div className="min-w-0">
           <h1 id="oa-hero" className="text-balance break-words leading-[1.12]">
             <span className="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] opacity-95">
-              Living With Arthritis UK — evidence-based health guides
+              Living With Arthritis — evidence-based health guides
             </span>
             <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
               Free, physio-reviewed help for people living with arthritis — and those who care
@@ -100,7 +100,7 @@ const OAHero = memo(() => (
             src={HERO_IMG}
             srcSet={HERO_SRCSET}
             sizes={HERO_SIZES}
-            alt="Two smiling young women outdoors together — representing the community Living With Arthritis UK supports."
+            alt="Two smiling young women outdoors together — representing the community Living With Arthritis supports."
             width={800}
             height={800}
             {...({ fetchpriority: "high" } as Record<string, string>)}

@@ -1,4 +1,4 @@
-# Living With Arthritis UK — robots.txt
+# Living With Arthritis — robots.txt
 # Reference: https://www.robotstxt.org/robotstxt.html
 # /chat (Help & Support) is public and indexable. /auth and /admin*
 # AI assistants: https://livingwitharthritis.org.uk/llms.txt

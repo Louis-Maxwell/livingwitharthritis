@@ -13,20 +13,20 @@ describe("seoMeta", () => {
         { route: "/arthritis-support/cardiff/osteoarthritis" },
       );
 
-      expect(bristol).toBe("Osteoarthritis Support in Bristol | Living With Arthritis UK");
-      expect(cardiff).toBe("Osteoarthritis Support in Cardiff | Living With Arthritis UK");
+      expect(bristol).toBe("Osteoarthritis Support in Bristol | Living With Arthritis");
+      expect(cardiff).toBe("Osteoarthritis Support in Cardiff | Living With Arthritis");
       expect(bristol).not.toBe(cardiff);
       expect(bristol.length).toBeLessThanOrEqual(60);
     });
 
     it("includes site suffix when includeSiteName is true", () => {
       const result = enforceTitle("Home", { includeSiteName: true });
-      expect(result).toContain("Living With Arthritis UK");
+      expect(result).toContain("Living With Arthritis");
     });
 
     it("excludes site suffix when includeSiteName is false", () => {
       const result = enforceTitle("Home", { includeSiteName: false });
-      expect(result).not.toContain("Living With Arthritis UK");
+      expect(result).not.toContain("Living With Arthritis");
     });
 
     it("handles empty title gracefully", () => {

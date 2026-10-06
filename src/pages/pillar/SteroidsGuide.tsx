@@ -141,7 +141,7 @@ export default function SteroidsGuide() {
         <meta property="og:title" content="Steroids for Arthritis – Injections, Tablets, Side Effects &amp; UK Access Guide" />
         <meta property="og:description" content="Plain-English guide to steroid injections and tablets for arthritis: how they work, what to expect, side effects, how often you can have them and how to access them on the public health service." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/steroids-for-arthritis" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

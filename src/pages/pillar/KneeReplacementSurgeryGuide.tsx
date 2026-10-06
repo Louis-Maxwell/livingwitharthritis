@@ -184,7 +184,7 @@ export default function KneeReplacementSurgeryGuide() {
         <meta property="og:title" content="Knee Replacement Surgery UK – Patient Guide, Recovery &amp; Public Waits" />
         <meta property="og:description" content="Comprehensive UK patient guide to knee replacement surgery: decision-making, prehab, hospital stay, week-by-week recovery, exercises, risks and how to manage UK waiting lists." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/knee-replacement-surgery" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

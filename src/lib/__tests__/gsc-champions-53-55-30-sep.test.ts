@@ -87,7 +87,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     expect(sickJson.last_reviewed).toBe(REVIEW);
     expect(sickJson.reviewStatus).toBe("reviewed");
     expect(sickJson.reviewed_by).toBe("Louis Maxwell");
-    expect(sickJson.meta_title).toMatch(/Sick Pay & Fit Notes for Arthritis UK/i);
+    expect(sickJson.meta_title).toMatch(/Sick Pay & Fit Notes for Arthritis: .*\(UK\)/i);
     const urls = (sickJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
       expect.arrayContaining([
@@ -130,7 +130,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     expect(jointJson.last_reviewed).toBe(REVIEW);
     expect(jointJson.reviewStatus).toBe("reviewed");
     expect(jointJson.reviewed_by).toBe("Louis Maxwell");
-    expect(jointJson.meta_title).toMatch(/Joint Protection for Arthritis UK/i);
+    expect(jointJson.meta_title).toMatch(/Joint Protection for Arthritis: .*\(UK\)/i);
     const urls = (jointJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
       expect.arrayContaining([
@@ -138,7 +138,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
         "https://www.nice.org.uk/guidance/ng226",
       ]),
     );
-    expect(urls.some((u) => /^https:\/\/(?:[a-z0-9-]+\.)*versusarthritis\.org(?:\/|$)/i.test(u))).toBe(true);
+    expect(urls.some((u) => /^https:\/\/(?:[a-z0-9-]+\.)*arthritis-uk\.org(?:\/|$)/i.test(u))).toBe(true);
     for (const href of JOINT_LINKS) {
       expect(jointJson.content.includes(`href="${href}"`), `Joint protection missing ${href}`).toBe(
         true,

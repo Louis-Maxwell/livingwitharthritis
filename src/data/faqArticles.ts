@@ -29,7 +29,7 @@ export interface FaqArticle {
   metaDescription?: string;
   /** ISO date for EducationalDisclaimerBox clinical review. */
   lastReviewed?: string;
-  /** Trusted GOV.UK / NHS / NICE / Versus Arthritis cites only. */
+  /** Trusted GOV.UK / NHS / NICE / Arthritis UK (formerly Versus Arthritis) cites only. */
   citations?: FaqCitation[];
 }
 
@@ -330,9 +330,9 @@ export const faqArticles: FaqArticle[] = [
     title: 'Arthritis Support Groups in the UK',
     question: 'Where can I find arthritis support groups in the UK?',
     quickAnswer:
-      'Versus Arthritis runs local groups, online communities, and telephone support. Local hospital rheumatology services also run groups.',
+      'Arthritis UK (formerly Versus Arthritis) runs local groups, online communities, and telephone support. Local hospital rheumatology services also run groups.',
     sections: [
-      { heading: 'National Charity Support', content: 'Versus Arthritis runs local support groups (face-to-face), online communities, helplines, magazine subscriptions, educational webinars. Free to join.' },
+      { heading: 'National Charity Support', content: 'Arthritis UK (formerly Versus Arthritis) runs local support groups (face-to-face), online communities, helplines, magazine subscriptions, educational webinars. Free to join.' },
       { heading: 'Online Communities', content: "Facebook groups (search 'arthritis UK' for moderated groups), Reddit r/arthritis, patient forums, condition-specific communities (RA, OA, JA)." },
       { heading: 'UK healthcare & Hospital Services', content: 'Many rheumatology services run patient support groups, patient education sessions, physiotherapy classes, nurse telephone lines.' },
       { heading: 'Benefits of Support Groups', content: 'Connect with others who understand, share coping strategies, reduce isolation, learn about treatments, emotional support, practical tips.' },

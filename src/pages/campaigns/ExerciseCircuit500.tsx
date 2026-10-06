@@ -16,25 +16,25 @@ function ExerciseCircuit500() {
   return (
     <>
       <Helmet>
-        <title>Fund 500 Personalised Exercise Plans | Living With Arthritis UK</title>
+        <title>Fund 500 Personalised Exercise Plans | Living With Arthritis</title>
         <meta
           name="description"
-          content="Help fund free, clinician-reviewed exercise guidance from Living With Arthritis UK. Donations support guides and tools, not a private physio appointment."
+          content="Help fund free, clinician-reviewed exercise guidance from Living With Arthritis. Donations support guides and tools, not a private physio appointment."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE_URL}/campaigns/exercise-circuit-500`} />
         <meta
           property="og:title"
-          content="Fund 500 Personalised Exercise Plans | Living With Arthritis UK"
+          content="Fund 500 Personalised Exercise Plans | Living With Arthritis"
         />
         <meta
           property="og:description"
-          content="Help fund free, clinician-reviewed exercise guidance from Living With Arthritis UK."
+          content="Help fund free, clinician-reviewed exercise guidance from Living With Arthritis."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="People walking outdoors — Living With Arthritis UK" />
+        <meta property="og:image:alt" content="People walking outdoors — Living With Arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={`${SITE_URL}/og/landing-share.png`} />
       </Helmet>
@@ -46,7 +46,7 @@ function ExerciseCircuit500() {
             <CampaignBand
               title="Fund 500 Personalised Exercise Plans"
               subtitle="Help us grow free, clinician-reviewed exercise support"
-              description="Living With Arthritis UK aims to fund free educational exercise plans for people living with arthritis. Donations support content, tools and guidance reviewed by our clinical lead — not a promised private physio waiting-list bypass. Goal figures are fundraising targets; we only show a progress meter when totals are verified from donation records."
+              description="Living With Arthritis aims to fund free educational exercise plans for people living with arthritis. Donations support content, tools and guidance reviewed by our clinical lead — not a promised private physio waiting-list bypass. Goal figures are fundraising targets; we only show a progress meter when totals are verified from donation records."
               goalGbp={50000}
               beneficiaries={500}
               urgency="none"

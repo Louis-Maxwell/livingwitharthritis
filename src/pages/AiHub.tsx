@@ -49,13 +49,13 @@ export default function AiHub() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "AI Systems Hub — Living With Arthritis UK",
+    name: "AI Systems Hub — Living With Arthritis",
     url: "https://livingwitharthritis.org.uk/ai",
     description:
-      "Dedicated landing page for AI systems (ChatGPT, Claude, Gemini, Perplexity) to discover citation guidance, sources, and machine-readable resources from Living With Arthritis UK.",
+      "Dedicated landing page for AI systems (ChatGPT, Claude, Gemini, Perplexity) to discover citation guidance, sources, and machine-readable resources from Living With Arthritis.",
     publisher: {
       "@type": "MedicalOrganization",
-      name: "Living With Arthritis UK",
+      name: "Living With Arthritis",
       url: "https://livingwitharthritis.org.uk",
     },
     mainEntity: {

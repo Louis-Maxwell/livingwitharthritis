@@ -34,19 +34,19 @@ export default function SelfHelpTool() {
       fallback={<div className="p-12 text-center text-destructive">Something went wrong. Please refresh.</div>}
     >
       <Helmet>
-        <title>Self Help Tool | Living With Arthritis UK</title>
+        <title>Self Help Tool | Living With Arthritis</title>
         <meta name="description" content="Interactive self-help tool for arthritis joint exercises. Click on any joint to discover targeted exercises for pain relief and mobility." />
         <meta name="keywords" content="arthritis exercises UK, joint exercise diagram, self help arthritis, physiotherapy exercises, knee exercises arthritis, hip exercises arthritis" />
-        <meta property="og:title" content="Self Help Tool – Joint Exercise Diagram | Living With Arthritis UK" />
+        <meta property="og:title" content="Self Help Tool – Joint Exercise Diagram | Living With Arthritis" />
         <meta property="og:description" content="Interactive self-help tool for arthritis joint exercises. Click on any joint to discover targeted exercises." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/self-help" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Self-Help Tool | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Self-Help Tool | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Self Help Tool – Joint Exercise Diagram" />

@@ -38,7 +38,7 @@ export default function ClinicPack() {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Clinic pack for HCPs (waiting-room one-pager)"
-        description="Free printable clinic pack from Living With Arthritis UK: waiting-room QR links to exercises, flares, PIP and newly diagnosed guides. Charity 1218461."
+        description="Free printable clinic pack from Living With Arthritis: waiting-room QR links to exercises, flares, PIP and newly diagnosed guides. Charity 1218461."
         path={PATH}
       />
       <Header />
@@ -61,7 +61,7 @@ export default function ClinicPack() {
             For clinics · Waiting room
           </p>
           <h1 className="font-display mt-2 text-3xl font-extrabold text-foreground md:text-4xl">
-            Living With Arthritis UK — free patient resources
+            Living With Arthritis — free patient resources
           </h1>
           <p className="mt-3 text-base leading-relaxed text-foreground/85">
             Practical, plain-English UK guides for people living with arthritis. Educational only —

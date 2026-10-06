@@ -66,7 +66,7 @@ Prepare a short note covering your diagnosis, the tasks that are hardest, and th
 
 const WORK_HEAD = {
   title:
-    "Arthritis at Work UK – Rights, Adjustments & Practical Tips | Living With Arthritis UK",
+    "Arthritis at Work UK – Rights, Adjustments & Practical Tips | Living With Arthritis",
   description: "Managing arthritis while working in the UK.",
   question: "Arthritis at Work UK – Rights, Adjustments & Practical Tips",
   answer: WORK_ARTICLE.direct_answer,
@@ -100,7 +100,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
 
     expect(html).toContain(
-      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips | Living With Arthritis UK</title>",
+      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips | Living With Arthritis</title>",
     );
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',
@@ -232,7 +232,7 @@ describe("static blog HTML for Soft 404s", () => {
 
   it("unknown blog slug ships Page not found + noindex (never homepage OG)", () => {
     const html = rewriteHead(TEMPLATE, "/blog/this-slug-is-not-published-xyz");
-    expect(html).toContain("Page not found | Living With Arthritis UK");
+    expect(html).toContain("Page not found | Living With Arthritis");
     expect(html).toContain('content="noindex, follow"');
     expect(html).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
     expect(html).toContain(
@@ -246,7 +246,7 @@ describe("static blog HTML for Soft 404s", () => {
       "/uk/london/waiting-list-help",
     ]) {
       const html = rewriteHead(TEMPLATE, route);
-      expect(html, route).toContain("Page not found | Living With Arthritis UK");
+      expect(html, route).toContain("Page not found | Living With Arthritis");
       expect(html, route).toContain('content="noindex, follow"');
       expect(html, route).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
     }

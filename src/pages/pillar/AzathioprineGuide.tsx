@@ -208,7 +208,7 @@ export default function AzathioprineGuide() {
         <meta property="og:title" content="Azathioprine for Arthritis: UK Guide" />
         <meta property="og:description" content="How azathioprine works in lupus, vasculitis and inflammatory arthritis — TPMT testing, dosing, side effects, monitoring and interactions." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/azathioprine-for-arthritis" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

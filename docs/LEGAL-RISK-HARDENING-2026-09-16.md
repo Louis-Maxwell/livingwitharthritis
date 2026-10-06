@@ -1,4 +1,4 @@
-# Legal-risk hardening memo — Living With Arthritis UK
+# Legal-risk hardening memo — Living With Arthritis
 
 **Date:** 16 September 2026 (Europe/London)  
 **Charity:** Living With Arthritis — CIO, Charity Commission **1218461**  
@@ -148,4 +148,4 @@ Ranked — **these are not optional “nice to haves” if lawsuit resilience is
 
 ---
 
-*Prepared for Living With Arthritis UK internal use — 16 September 2026.*
+*Prepared for Living With Arthritis internal use — 16 September 2026.*

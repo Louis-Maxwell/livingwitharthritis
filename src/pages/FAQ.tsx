@@ -62,12 +62,12 @@ const FAQ = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/faq`} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content={`${SITE}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Frequently Asked Questions | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Frequently Asked Questions | Living With Arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
         <meta

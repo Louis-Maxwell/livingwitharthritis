@@ -61,7 +61,7 @@ const CityArthritisPage = () => {
     mainEntity: [
       { "@type": "Question", name: `Where can I get arthritis treatment in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `${cityData.name} patients are typically referred to ${cityData.localTrust} for rheumatology. Ask your GP for a referral.` } },
       { "@type": "Question", name: `How long is the rheumatology waiting list in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `NHS rheumatology waits vary by trust and change over time. Check ${cityData.localTrust}'s published waiting times and ask your GP surgery about cancellation lists.` } },
-      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also offers a free online community that people in ${cityData.name} can join from home.` } },
+      { "@type": "Question", name: `Are there free arthritis support groups in ${cityData.name}?`, acceptedAnswer: { "@type": "Answer", text: `Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also offers a free online community that people in ${cityData.name} can join from home.` } },
     ],
   };
 
@@ -80,7 +80,7 @@ const CityArthritisPage = () => {
         <meta name="geo.position" content={`${cityData.lat};${cityData.lng}`} />
         <meta name="ICBM" content={`${cityData.lat}, ${cityData.lng}`} />
         <meta name="keywords" content={`arthritis ${cityData.name}, rheumatology ${cityData.name}, arthritis support ${cityData.name}, ${cityData.localTrust} rheumatology, arthritis help ${cityData.region}`} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
@@ -116,7 +116,7 @@ const CityArthritisPage = () => {
             <AeoEnhancement
               route={`/arthritis-support/${cityData.slug}`}
               question={`Where can I get arthritis support in ${cityData.name}?`}
-              answer={`In ${cityData.name} (${cityData.region}), UK healthcare rheumatology referrals are typically made via ${cityData.localTrust}. Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis UK also runs a free online community and exercise programme accessible from anywhere.`}
+              answer={`In ${cityData.name} (${cityData.region}), UK healthcare rheumatology referrals are typically made via ${cityData.localTrust}. Local resources include ${cityData.localResources.slice(0, 2).join(" and ")}. Living With Arthritis also runs a free online community and exercise programme accessible from anywhere.`}
               updatedAt={LAST_REVIEWED_ISO}
             />
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.description}</p>

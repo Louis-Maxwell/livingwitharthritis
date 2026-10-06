@@ -18,12 +18,12 @@ export default function EditorialStandards() {
     const ld = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      name: "Editorial Standards — Living With Arthritis UK",
+      name: "Editorial Standards — Living With Arthritis",
       url: URL,
       inLanguage: "en-GB",
       publisher: {
         "@type": "Organization",
-        name: "Living With Arthritis UK",
+        name: "Living With Arthritis",
         url: BASE,
       },
       mainEntity: {
@@ -53,9 +53,9 @@ export default function EditorialStandards() {
         <title>Editorial & Medical Review Standards | Living With Arthritis</title>
         <meta
           name="description"
-          content="How Living With Arthritis UK reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
+          content="How Living With Arthritis reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
         />
-        <meta property="og:title" content="Editorial Standards | Living With Arthritis UK" />
+        <meta property="og:title" content="Editorial Standards | Living With Arthritis" />
         <meta
           property="og:description"
           content="Our medical review process, evidence standards and reviewer credentials."
@@ -148,7 +148,7 @@ export default function EditorialStandards() {
 
           <Section icon={Scale} title="Conflict of interest">
             <p>
-              Living With Arthritis UK is independent and not sponsored by
+              Living With Arthritis is independent and not sponsored by
               pharmaceutical companies or medical device manufacturers. We do
               not accept payment for editorial coverage. Affiliate links, where
               used, are disclosed on the page.

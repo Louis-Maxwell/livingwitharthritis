@@ -49,7 +49,7 @@ const cases: Array<{
   {
     name: "Depression",
     slug: "depression-arthritis-when-to-seek-help",
-    title: /Depression and Arthritis UK/i,
+    title: /Depression and Arthritis: .*\(UK\)/i,
     cites: [
       "https://www.nhs.uk/mental-health/conditions/depression-in-adults/overview/",
       "https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/",
@@ -71,7 +71,7 @@ const cases: Array<{
   {
     name: "Flu jab",
     slug: "flu-jab-arthritis-frailty-uk",
-    title: /Flu Jab and Arthritis UK/i,
+    title: /Flu Jab and Arthritis: .*\(UK\)/i,
     cites: [
       "https://www.nhs.uk/vaccinations/flu-vaccine/",
       "https://www.nhs.uk/conditions/flu/",

@@ -63,7 +63,6 @@ Should you bid on "living with arthritis"? **NO — here's why:**
 
 - You'll own it organically in 4-8 weeks for FREE
 - Better ad targets: "arthritis exercises" (1200+ searches, high intent)
-- Competitor keywords: "arthritis uk", "patient.info" (steal traffic)
 - Smart ad calendar (months 1-5+)
 - ROI comparison: Brand bids (-£288) vs. high-intent bids (+£72)
 

@@ -133,7 +133,7 @@ export default function PainkillersNsaidsGuide() {
         <meta property="og:title" content="Painkillers & NSAIDs for Arthritis – UK Guide to Safer Pain Relief" />
         <meta property="og:description" content="Topical gels, oral NSAIDs, paracetamol and opioids for arthritis — what works, what to avoid, when to ask for a review." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/painkillers-and-nsaids" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>

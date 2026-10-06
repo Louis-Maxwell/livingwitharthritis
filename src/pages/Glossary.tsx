@@ -62,7 +62,7 @@ export default function Glossary() {
           inLanguage: "en-GB",
           publisher: {
             "@type": "Organization",
-            name: "Living With Arthritis UK",
+            name: "Living With Arthritis",
             url: "https://livingwitharthritis.org.uk",
           },
           hasDefinedTerm: terms.map((t) => {

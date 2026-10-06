@@ -83,7 +83,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ElbowArthritis = () => (
   <>
     <Helmet>
-      <title>Elbow Arthritis in the UK: Causes & Exercises | LWA UK</title>
+      <title>Elbow Arthritis in the UK: Causes & Exercises | Living With Arthritis</title>
       <meta name="description" content="UK guide to elbow pain and arthritis: causes of elbow joint pain, tennis and golfer's elbow, osteoarthritis, the best gentle exercises and when to see a GP." />
       <meta name="keywords" content="elbow pain, elbow joint pain, elbow arthritis, elbow osteoarthritis, tennis elbow, golfer's elbow, elbow pain causes, elbow exercises, elbow pain uk, painful elbow" />
       <meta property="og:title" content="Elbow Pain & Arthritis – Causes, Exercises & UK Treatment" />
@@ -91,7 +91,7 @@ const ElbowArthritis = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />

@@ -119,7 +119,7 @@ export default function FebuxostatGoutGuide() {
         <meta property="og:title" content="Febuxostat for Gout – UK Guide to Dose, Side Effects & Monitoring" />
         <meta property="og:description" content="How febuxostat lowers uric acid and prevents gout attacks — dosing, monitoring, side effects, and how it compares with allopurinol." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/febuxostat-for-gout" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>

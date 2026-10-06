@@ -17,7 +17,7 @@ const sections: { title: string; id: string; items: SrcLink[] }[] = [
       { id: "nice-oa", label: "NICE — Osteoarthritis: care and management (NG226)", url: "https://www.nice.org.uk/guidance/ng226" },
       { label: "NICE — Rheumatoid arthritis in adults: management (NG100)", url: "https://www.nice.org.uk/guidance/ng100" },
       { label: "Royal College of Physicians — Rheumatology clinical guidance", url: "https://www.rcp.ac.uk/" },
-      { label: "Versus Arthritis — patient resources", url: "https://www.versusarthritis.org/" },
+      { label: "Arthritis UK (formerly Versus Arthritis) — patient resources", url: "https://www.arthritis-uk.org/" },
       { label: "Arthritis Society Canada — exercise & lifestyle", url: "https://arthritis.ca/" },
       { label: "Chartered Society of Physiotherapy (CSP) — practice standards", url: "https://www.csp.org.uk/" },
     ],
@@ -34,7 +34,7 @@ const sections: { title: string; id: string; items: SrcLink[] }[] = [
     title: "Condition-Specific Sources",
     id: "conditions",
     items: [
-      { label: "Osteoarthritis — NICE NG226, Versus Arthritis", url: "https://www.nice.org.uk/guidance/ng226" },
+      { label: "Osteoarthritis — NICE NG226, Arthritis UK (formerly Versus Arthritis)", url: "https://www.nice.org.uk/guidance/ng226" },
       { label: "Rheumatoid Arthritis — British Society for Rheumatology guidelines", url: "https://www.rheumatology.org.uk/practice-quality/guidelines" },
       { label: "Frailty — British Geriatrics Society", url: "https://www.bgs.org.uk/" },
       { label: "Musculoskeletal — CSP guidelines", url: "https://www.csp.org.uk/" },
@@ -58,7 +58,7 @@ const Sources = () => {
       "@type": "Article",
       headline: "Clinical Sources & Evidence",
       description:
-        "Clinical guidelines, peer-reviewed research and authoritative bodies used to inform content across Living With Arthritis UK.",
+        "Clinical guidelines, peer-reviewed research and authoritative bodies used to inform content across Living With Arthritis.",
       author: {
         "@type": "Person",
         name: "Maxwell",
@@ -97,7 +97,7 @@ const Sources = () => {
           </h1>
           <p className="text-lg text-foreground/75 leading-relaxed">
             This page lists the clinical sources, guidelines, and evidence used
-            across Living With Arthritis UK.
+            across Living With Arthritis.
           </p>
         </header>
 

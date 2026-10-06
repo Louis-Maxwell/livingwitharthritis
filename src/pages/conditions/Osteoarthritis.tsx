@@ -99,7 +99,7 @@ const Osteoarthritis = () => (
       <meta property="og:url" content={`${BASE}/conditions/osteoarthritis`} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -184,7 +184,7 @@ const Osteoarthritis = () => (
           <p>Osteoarthritis is a degenerative joint disease where the protective cartilage that cushions the ends of your bones gradually wears down over time. As cartilage deteriorates, bones begin to rub against each other, causing pain, swelling, stiffness, and reduced mobility.</p>
           <p>Unlike inflammatory types of arthritis, OA is primarily a mechanical condition — though inflammation does play a role, particularly during flare-ups. It most commonly affects the <strong>knees, hips, hands, and spine</strong>, but can occur in any joint.</p>
           <h3>How Common Is Osteoarthritis in the UK?</h3>
-          <p>According to Versus Arthritis, approximately <strong>8.75 million people</strong> in the UK have sought treatment for osteoarthritis. It is the single most common cause of disability among older adults in England and Wales, and its prevalence is rising due to an ageing population and increasing obesity rates.</p>
+          <p>Around <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for osteoarthritis (Arthritis Research UK, now Arthritis UK, 2013; cited by <a href="https://cks.nice.org.uk/topics/osteoarthritis/background-information/prevalence/" target="_blank" rel="noopener noreferrer">NICE CKS</a>). It is the single most common cause of disability among older adults in England and Wales, and its prevalence is rising due to an ageing population and increasing obesity rates.</p>
         </Section>
 
         <Section icon={ThermometerSun} title="What are the symptoms of osteoarthritis?">

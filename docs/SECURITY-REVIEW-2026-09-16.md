@@ -1,4 +1,4 @@
-# Security review — Living With Arthritis UK
+# Security review — Living With Arthritis
 
 **Date:** 16 September 2026 (Europe/London)  
 **Repo:** `Louis-Maxwell/livingwitharthritis` (`/workspace/livingwitharthritis`)  

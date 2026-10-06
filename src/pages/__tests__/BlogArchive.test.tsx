@@ -20,7 +20,7 @@ const SAMPLE_POSTS = [
   {
     slug: "turmeric-for-arthritis",
     title: "Turmeric for Arthritis: Evidence and UK Safety",
-    meta_title: "Turmeric for Arthritis UK: Evidence & Safety",
+    meta_title: "Turmeric for Arthritis: Evidence & Safety (UK)",
     excerpt: "What the evidence shows for turmeric and curcumin in arthritis, plus UK safety notes.",
     date: "2026-05-20",
     category: "Supplements",

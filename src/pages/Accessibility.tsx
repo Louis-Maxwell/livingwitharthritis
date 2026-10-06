@@ -28,9 +28,9 @@ const Accessibility_Page = () => {
   return (
     <>
       <Helmet>
-        <title>Accessibility Statement | Living With Arthritis UK</title>
+        <title>Accessibility Statement | Living With Arthritis</title>
         <meta name="description" content="Our WCAG 2.1 AA accessibility statement — making arthritis support usable for everyone, including people with visual, hearing, motor and cognitive needs." />
-        <meta property="og:title" content="Accessibility Statement | Living With Arthritis UK" />
+        <meta property="og:title" content="Accessibility Statement | Living With Arthritis" />
         <meta property="og:description" content="Our commitment to web accessibility — WCAG 2.1 AA standards, screen reader support, keyboard navigation and more." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/accessibility" />
@@ -40,19 +40,19 @@ const Accessibility_Page = () => {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Accessibility Statement",
-          "description": "Accessibility statement for Living With Arthritis UK — committed to WCAG 2.1 AA compliance.",
+          "description": "Accessibility statement for Living With Arthritis — committed to WCAG 2.1 AA compliance.",
           "url": "https://livingwitharthritis.org.uk/accessibility",
           "inLanguage": "en-GB",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Accessibility Statement – WCAG 2.1 AA | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Accessibility statement for Living With Arthritis UK. We are committed to WCAG 2.1 AA compliance, ensuring our arthritis support resources are usable by everyone including people with disabilities." />
+      <meta name="twitter:title" content="Accessibility Statement – WCAG 2.1 AA | Living With Arthritis" />
+      <meta name="twitter:description" content="Accessibility statement for Living With Arthritis. We are committed to WCAG 2.1 AA compliance, ensuring our arthritis support resources are usable by everyone including people with disabilities." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Accessibility Statement | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Accessibility Statement | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">
@@ -72,7 +72,7 @@ const Accessibility_Page = () => {
           {/* Intro */}
           <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed mb-12">
             <p>
-              Living With Arthritis UK is committed to ensuring digital accessibility for all users, including people with visual, hearing, motor and cognitive impairments. We continuously work to improve the user experience for everyone and apply the relevant accessibility standards.
+              Living With Arthritis is committed to ensuring digital accessibility for all users, including people with visual, hearing, motor and cognitive impairments. We continuously work to improve the user experience for everyone and apply the relevant accessibility standards.
             </p>
             <p>
               This website aims to conform to <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>. These guidelines explain how to make web content more accessible to people with a wide range of disabilities.

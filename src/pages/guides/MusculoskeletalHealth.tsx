@@ -28,7 +28,7 @@ export default function MusculoskeletalHealth() {
       headline: 'Musculoskeletal Health: Back, Neck and Repetitive Strain',
       description: 'UK guide to musculoskeletal health — acute vs chronic conditions, physiotherapy, workplace ergonomics and home strategies. Reviewed by HCPC physio.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
       lastReviewed: '2026-06-22',

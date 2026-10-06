@@ -346,4 +346,4 @@ All files include detailed comments and documentation.
 
 Generated: 2026-09-05  
 By: Claude Haiku 4.5  
-For: Living With Arthritis UK
+For: Living With Arthritis

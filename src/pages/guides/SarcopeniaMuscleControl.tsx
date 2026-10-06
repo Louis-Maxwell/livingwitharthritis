@@ -22,7 +22,7 @@ export default function SarcopeniaMuscleControl() {
       headline: 'Sarcopenia & Arthritis: How to Prevent Muscle Loss',
       description: 'Evidence-based guide to sarcopenia for adults with arthritis. Protein, strength training, supplements and home tests.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-21', dateModified: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/sarcopenia-muscle-loss',
     };

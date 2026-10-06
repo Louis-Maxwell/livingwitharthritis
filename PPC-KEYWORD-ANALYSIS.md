@@ -88,20 +88,6 @@ Option B: Bid on "arthritis exercises" + "arthritis support group"
 - PLUS: You won't rank organically for these as quickly
 ```
 
-### Tier 2: Competitor Brand Keywords (if budget allows)
-
-| Keyword | Why It Matters | CPC | Clicks for £200 |
-|---------|----------------|-----|-----------------|
-| arthritis uk | Steal their traffic | £0.15 | 1333 |
-| patient info arthritis | Steal their traffic | £0.10 | 2000 |
-| NHS arthritis support | High intent | £0.20 | 1000 |
-
-**Why this works:**
-- User searches "arthritis uk"
-- Your ad appears: "Try Living With Arthritis — free peer support"
-- They click → discover you
-- Cost: £0.10-0.20 per click (very cheap)
-
 ---
 
 ## Recommended Ad Strategy (£500/month budget)
@@ -112,8 +98,7 @@ Option B: Bid on "arthritis exercises" + "arthritis support group"
 
 £200 → Arthritis exercises (1000 clicks @ £0.20 avg)
 £150 → Arthritis support group (600 clicks @ £0.25)
-£100 → Free arthritis help (400 clicks @ £0.25)
-£50 → "Arthritis UK" competitor bids (250 clicks @ £0.20)
+£150 → Free arthritis help (600 clicks @ £0.25)
 ```
 
 **Why not "living with arthritis"?**
@@ -172,7 +157,7 @@ ROI: +£72 profit (72 conversions × £5 - £288 spend)
 ## When TO Bid on "Living With Arthritis"
 
 **DO bid if:**
-1. ❌ You're in a competitive market where Arthritis UK is outbidding you (not yet)
+1. ❌ Another advertiser is bidding on your own brand name (not yet)
 2. ✅ You want to accelerate organic ranking while building authority (next 4-8 weeks)
 3. ✅ You have excess budget and want to maximize immediate traffic (£2000+/month)
 
@@ -189,7 +174,6 @@ ROI: +£72 profit (72 conversions × £5 - £288 spend)
 ```
 £500/month on:
 - High-intent keywords (exercises, support, help)
-- Competitor keywords (arthritis uk, patient info)
 - NOT branded (you'll own it organically soon)
 ```
 
@@ -220,9 +204,9 @@ ROI: +£72 profit (72 conversions × £5 - £288 spend)
 | Will it help? | Yes, but inefficient | Organic ranking is coming in 4 weeks for free |
 | Cost? | £200-300/month | Better spent on "arthritis exercises" (10x ROI) |
 | Timeline? | Bid for 8-12 weeks max | Stop once you rank #1 organically |
-| Alternative? | Bid on competitor brands | "arthritis uk", "patient info" (steal traffic) |
+| Alternative? | Bid on high-intent topic keywords | "arthritis exercises", "arthritis support group" |
 
-**TL;DR:** Your £500 ad budget is better spent on "arthritis exercises" and competitor keywords. "Living with arthritis" will rank #1 organically in 4-8 weeks for free. Don't pay for branded traffic you'll own anyway.
+**TL;DR:** Your £500 ad budget is better spent on high-intent topic keywords such as "arthritis exercises". "Living with arthritis" will rank #1 organically in 4-8 weeks for free. Don't pay for branded traffic you'll own anyway.
 
 ---
 
@@ -230,8 +214,7 @@ ROI: +£72 profit (72 conversions × £5 - £288 spend)
 
 1. ✅ Implement BRANDED-SEARCH-RECOVERY.md (free, organic ranking)
 2. ✅ Start Google Ads on "arthritis exercises" (high intent)
-3. ✅ Bid on competitor keywords (steal traffic)
-4. ⏸️ SKIP branded "living with arthritis" bidding (for now)
-5. ✅ Re-evaluate in 8 weeks (might rank #1 by then)
+3. ⏸️ SKIP branded "living with arthritis" bidding (for now)
+4. ✅ Re-evaluate in 8 weeks (might rank #1 by then)
 
 **Save the brand bidding budget. Use it to dominate high-intent keywords instead.**

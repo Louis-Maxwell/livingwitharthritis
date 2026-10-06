@@ -201,7 +201,7 @@ describe("BlogPost Page", () => {
     });
 
     renderBlogPost("test-article");
-    expect(screen.getByText("Living With Arthritis UK Editorial Team")).toBeInTheDocument();
+    expect(screen.getByText("Living With Arthritis Editorial Team")).toBeInTheDocument();
     expect(screen.getByText("Editorial content")).toBeInTheDocument();
   });
 

@@ -45,7 +45,7 @@ const LibraryTopic = () => {
       about: { "@type": "MedicalCondition", name: topic.title },
       publisher: {
         "@type": "Organization",
-        name: "Living With Arthritis UK",
+        name: "Living With Arthritis",
       },
       isPartOf: {
         "@type": "CollectionPage",
@@ -82,11 +82,11 @@ const LibraryTopic = () => {
     .slice(0, 6);
   const pillarRelated = getLibraryPillarRelated(topic.slug, topic.category);
   const path = `/library/${topic.slug}`;
-  const title = seo?.title ?? `${topic.title} | Living With Arthritis UK`;
+  const title = seo?.title ?? `${topic.title} | Living With Arthritis`;
   const description =
     seo?.description ||
     topic.subtitle ||
-    `${topic.title} — plain-English information from Living With Arthritis UK.`;
+    `${topic.title} — plain-English information from Living With Arthritis.`;
   const heading = seo?.h1 ?? topic.title;
 
   return (

@@ -50,12 +50,12 @@ const SearchPage = () => {
   return (
     <>
       <Helmet>
-        <title>Search Arthritis Guides & Articles | Living With Arthritis UK</title>
+        <title>Search Arthritis Guides & Articles | Living With Arthritis</title>
         <meta
           name="description"
-          content="Search Living With Arthritis UK guides and blog articles. Filter by topic and word count to find answers without endless scrolling."
+          content="Search Living With Arthritis guides and blog articles. Filter by topic and word count to find answers without endless scrolling."
         />
-        <meta property="og:title" content="Search Arthritis Guides & Articles | Living With Arthritis UK" />
+        <meta property="og:title" content="Search Arthritis Guides & Articles | Living With Arthritis" />
         <meta
           property="og:description"
           content="Filter blog posts and hub pages by topic and length to find practical UK arthritis answers."
@@ -63,15 +63,15 @@ const SearchPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/search" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
-        <meta property="og:image:alt" content="Search Living With Arthritis UK guides" />
+        <meta property="og:image:alt" content="Search Living With Arthritis guides" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Search Arthritis Guides & Articles | Living With Arthritis UK" />
+        <meta name="twitter:title" content="Search Arthritis Guides & Articles | Living With Arthritis" />
         <meta
           name="twitter:description"
           content="Filter blog posts and hub pages by topic and length to find practical UK arthritis answers."
         />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
-        <meta name="twitter:image:alt" content="Search Living With Arthritis UK guides" />
+        <meta name="twitter:image:alt" content="Search Living With Arthritis guides" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />

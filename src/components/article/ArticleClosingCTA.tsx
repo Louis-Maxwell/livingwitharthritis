@@ -42,7 +42,7 @@ const ACTIONS = [
   {
     to: "/contact",
     label: "Contact us",
-    blurb: "Reach the Living With Arthritis UK team",
+    blurb: "Reach the Living With Arthritis team",
     Icon: Mail,
   },
 ] as const;
@@ -65,7 +65,7 @@ const ArticleClosingCTA = ({ title }: Props) => {
       </div>
       <p className="text-foreground/85 leading-relaxed mb-5 max-w-2xl">
         You are not alone. If reading <em>{title}</em> raised questions about
-        your symptoms, Living With Arthritis UK offers free guides, exercises,
+        your symptoms, Living With Arthritis offers free guides, exercises,
         diet advice and a help chat — plus a real team you can contact.
       </p>
 

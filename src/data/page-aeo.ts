@@ -284,7 +284,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. Living With Arthritis is independent of Arthritis UK.",
     faqs: [
-      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No — it is an independent UK charity (1218461), not Arthritis UK or Versus Arthritis." },
+      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No — it is an independent UK charity (1218461), not Arthritis UK (formerly Versus Arthritis)." },
       { q: "Are the exercise and PIP tools free?", a: "Yes. Guides, home physio routines, the PIP evidence diary and flare plan are free to use." },
     ],
   }),
@@ -313,7 +313,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/disability-support": withDefaults({
     question: "What UK disability support is available for arthritis?",
     answer:
-      "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Versus Arthritis helpline (0800 5200 520) guide applications.",
+      "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Arthritis UK (formerly Versus Arthritis) helpline (0800 5200 520) guide applications.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
@@ -349,7 +349,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     faqs: [
       { q: "What evidence helps a PIP arthritis claim?", a: "A daily diary of activities, medication lists, clinic letters, and notes on aids or help from others. Our printable PIP evidence diary can help you structure this." },
       { q: "Is osteoarthritis enough for PIP?", a: "PIP looks at functional impact, not the label. Some people with OA qualify; others do not. Advice services can map your difficulties to descriptors." },
-      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis UK provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
+      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
     ],
   }),
   "/guides/diet": withDefaults({
@@ -396,9 +396,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
   "/": withDefaults({
     updatedAt: "2026-09-23",
-    question: "What is Living With Arthritis UK?",
+    question: "What is Living With Arthritis?",
     answer:
-      "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
+      "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
     faqs: [
       { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
       { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
@@ -406,7 +406,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/about": withDefaults({
-    question: "Who is Living With Arthritis UK?",
+    question: "Who is Living With Arthritis?",
     answer:
       "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461). We publish free UK arthritis guidance online and are independent of Arthritis UK.",
     faqs: [

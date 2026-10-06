@@ -77,7 +77,7 @@ export default function ComparisonPage() {
       { "@type": "MedicalTherapy", name: b },
     ],
     audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
-    publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis UK" },
+    publisher: { "@type": "MedicalOrganization", name: "Living With Arthritis" },
     dateModified: LAST_REVIEWED_ISO,
   };
 

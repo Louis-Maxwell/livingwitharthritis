@@ -25,7 +25,7 @@ cannot blank cards, not a license to bypass the map.
 
 1. Soft 404 / wrong title for crawlers — static HTML missing or still the homepage shell while the SPA worked.
 2. Wrong share card image — ogImage missing leads to homepage /og/home.png while the UI showed the Openverse cover.
-3. Mid-phrase title clip — e.g. Supporting a Partner With | Living With Arthritis UK.
+3. Mid-phrase title clip — e.g. Supporting a Partner With | Living With Arthritis.
 4. Dual pipeline drift — content image_url null while cover map had files (UI OK via coverImage, fragile if someone reads image_url).
 5. Competing agent rewrites — edits that break OptimizedImage / cover pipelines. Prefer map + generators + guards over bulk blog body edits.
 

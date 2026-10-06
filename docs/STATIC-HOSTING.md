@@ -1,6 +1,6 @@
 # Static hosting & hard 404s (Lovable-first)
 
-Living With Arthritis UK is a prerendered Vite SPA. Every indexable route should
+Living With Arthritis is a prerendered Vite SPA. Every indexable route should
 emit its own file under `dist/` with a unique `<title>`, `<h1>` and
 self-referencing canonical. Soft 404s happen when the host answers unknown paths
 with `index.html` and HTTP 200 (homepage tags leak onto junk URLs).

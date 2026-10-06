@@ -167,7 +167,7 @@ const ExerciseHub = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    name: "Best Exercises for Arthritis UK – Complete Guide",
+    name: "Best Exercises for Arthritis – Complete UK Guide",
     description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. clinically aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
     url: "https://livingwitharthritis.org.uk/exercises",
     inLanguage: "en-GB",
@@ -200,7 +200,7 @@ const ExerciseHub = () => {
         <meta property="og:url" content="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -290,7 +290,7 @@ const ExerciseHub = () => {
             <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
               &ldquo;Motion is lotion. Every stretch, every step, every breath — medicine.&rdquo;
             </p>
-            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground font-medium tracking-wider uppercase">Living With Arthritis UK · Exercise Hub</figcaption>
+            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground font-medium tracking-wider uppercase">Living With Arthritis · Exercise Hub</figcaption>
           </blockquote>
         </figure>
       </section>
@@ -318,7 +318,7 @@ const ExerciseHub = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCounter value="40" suffix="%" label="Pain reduction with regular exercise" icon={<TrendingUp className="w-6 h-6" />} color="emerald" />
               <StatCounter value="30" suffix=" min" label="Daily target for best results" icon={<Timer className="w-6 h-6" />} color="sky" />
-              <StatCounter value="8.75" suffix="M" label="People with OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
+              <StatCounter value="8.75" suffix="M" label="Aged 45+ treated for OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
               <StatCounter value="4" label="Joint-specific routines below" icon={<Target className="w-6 h-6" />} color="violet" />
             </div>
           </div>

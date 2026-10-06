@@ -90,7 +90,7 @@ async function collectPages(): Promise<OgPage[]> {
   await readDirPages(join(ROOT, "src", "pages", "guides"), "Guides");
 
   // Homepage / hubs
-  pages.push({ slug: "home", title: "Living With Arthritis UK", category: "UK Charity" });
+  pages.push({ slug: "home", title: "Living With Arthritis", category: "UK Charity" });
   pages.push({ slug: "diet-hub", title: "Diet & Nutrition Hub", category: "Guides" });
   pages.push({ slug: "exercise-hub", title: "Exercise Hub", category: "Guides" });
   pages.push({ slug: "blog", title: "Arthritis Blog", category: "Articles" });
@@ -198,7 +198,7 @@ function template(page: OgPage): unknown {
                 type: "div",
                 props: {
                   style: { fontSize: "28px", fontWeight: 700, color: "#111111" },
-                  children: "Living With Arthritis UK",
+                  children: "Living With Arthritis",
                 },
               },
               {

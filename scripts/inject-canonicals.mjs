@@ -103,15 +103,15 @@ function authorHeadData() {
           ? `Medical reviewer profile`
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
-        title: `${record.name}, ${record.title} — ${label} | Living With Arthritis UK`.slice(0, 115),
+        title: `${record.name}, ${record.title} — ${label} | Living With Arthritis`.slice(0, 115),
         description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
           .replace(/\s+/g, " ")
           .slice(0, 158),
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
-            ? `${record.name} medically reviews Living With Arthritis UK content as a ${record.title}${credential ? ` (${credential})` : ""}, checking each guide for clinical accuracy before publication.`
-            : `${record.name} writes Living With Arthritis UK guides as a ${record.title}${credential ? ` (${credential})` : ""}, drawing on day-to-day UK musculoskeletal practice.`,
+            ? `${record.name} medically reviews Living With Arthritis content as a ${record.title}${credential ? ` (${credential})` : ""}, checking each guide for clinical accuracy before publication.`
+            : `${record.name} writes Living With Arthritis guides as a ${record.title}${credential ? ` (${credential})` : ""}, drawing on day-to-day UK musculoskeletal practice.`,
           bio,
         ]
           .filter(Boolean)
@@ -172,12 +172,12 @@ const BLOG_SLUGS = new Set(
 );
 
 const NOT_FOUND_HEAD = {
-  title: "Page not found | Living With Arthritis UK",
+  title: "Page not found | Living With Arthritis",
   description:
-    "The page you are looking for could not be found. Search Living With Arthritis UK or pick a popular guide instead.",
+    "The page you are looking for could not be found. Search Living With Arthritis or pick a popular guide instead.",
   question: "Page not found",
   answer:
-    "This URL is not a published Living With Arthritis UK page. Use search or the guides hub to find clinically reviewed arthritis information.",
+    "This URL is not a published Living With Arthritis page. Use search or the guides hub to find clinically reviewed arthritis information.",
   breadcrumb: "Page not found",
   noindex: true,
 };
@@ -200,7 +200,7 @@ function headDataFor(route, override) {
       const city = CITY_HUBS.find((c) => c.slug === citySlug);
       if (city) {
         return {
-          title: `Arthritis Support in ${city.name} | Living With Arthritis UK`,
+          title: `Arthritis Support in ${city.name} | Living With Arthritis`,
           description: city.description,
           question: `Arthritis support in ${city.name}`,
           answer: city.description,

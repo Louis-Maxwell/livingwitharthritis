@@ -378,7 +378,7 @@ export const LIBRARY_EXPANSIONS: Record<string, LibraryTopicSeo> = {
     extraSections: [
       {
         heading: "What happens during an attack",
-        body: "In Raynaud's, small blood vessels in the fingers and toes overreact to cold or stress and narrow sharply. The skin often turns white, then blue as oxygen drops, then red as blood rushes back. Fingers can feel numb, painful, tingly or throb as they warm up. Attacks can last from a few minutes to much longer. Toes, ears, nose and nipples can also be affected.",
+        body: "In Raynaud's, small blood vessels in the fingers and toes overreact to cold or stress and narrow sharply. The skin often turns white, then blue as oxygen drops, then red as blood rushes back. Fingers can feel numb, painful, tingly or throb as they warm up. Attacks can last from a few minutes to much longer. It can involve the toes too, and less often the ears, nose or nipples.",
       },
       {
         heading: "Primary and secondary Raynaud's",

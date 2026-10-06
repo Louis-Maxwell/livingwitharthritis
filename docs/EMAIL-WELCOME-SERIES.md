@@ -2,7 +2,7 @@
 
 **Lawful basis:** Consent (UK PECR + UK GDPR). Soft opt-in does **not** apply to our fundraising/nurture content — use **double consent** (tick + confirmation email) before marketing sends.
 
-**From:** Living With Arthritis UK `<info@livingwitharthritis.org.uk>`  
+**From:** Living With Arthritis `<info@livingwitharthritis.org.uk>`  
 **Unsubscribe:** Every email must include a one-click unsubscribe + postal/charity identity line (charity 1218461). Phone/email only — no Oswestry address.
 
 ---
@@ -10,9 +10,9 @@
 ## Double-consent language (signup + confirm)
 
 **Signup (on-site):**  
-“Tick to receive free educational emails from Living With Arthritis UK (charity 1218461): flare tips, exercise and benefits guides. You can unsubscribe anytime. We will email you a confirmation link before adding you to the list.”
+“Tick to receive free educational emails from Living With Arthritis (charity 1218461): flare tips, exercise and benefits guides. You can unsubscribe anytime. We will email you a confirmation link before adding you to the list.”
 
-**Confirmation email subject:** Confirm your Living With Arthritis UK emails  
+**Confirmation email subject:** Confirm your Living With Arthritis emails  
 
 **Body:**  
 Thanks for your interest. Click **Confirm subscription** to receive our welcome series. If you did not request this, ignore this email — you will not be added.

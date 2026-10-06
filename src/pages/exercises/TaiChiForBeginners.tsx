@@ -72,7 +72,7 @@ const courseJsonLd = {
   "@type": "Course",
   name: "Tai Chi for Beginners — Your First 7 Days",
   description: "A free 7-day at-home introduction to tai chi for UK beginners. Gentle on arthritic joints, ~10 minutes per day, no equipment.",
-  provider: { "@type": "Organization", name: "Living With Arthritis UK", sameAs: SITE },
+  provider: { "@type": "Organization", name: "Living With Arthritis", sameAs: SITE },
   educationalLevel: "Beginner",
   inLanguage: "en-GB",
   hasCourseInstance: {

@@ -122,7 +122,7 @@ describe("host + client SEO redirects", () => {
   </body>
 </html>`;
     const html = rewriteHead(template, "/blog/mindfulness-chronic-pain-arthritis-guide", {
-      title: "Mindfulness for Chronic Arthritis Pain: A Practical Guide | Living With Arthritis UK",
+      title: "Mindfulness for Chronic Arthritis Pain: A Practical Guide | Living With Arthritis",
       description: "Mindfulness-Based Stress Reduction can reduce arthritis pain.",
       question: "Mindfulness for Chronic Arthritis Pain: A Practical Guide",
       answer: "Mindfulness changes your relationship with pain.",

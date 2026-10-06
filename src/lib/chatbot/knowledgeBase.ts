@@ -288,7 +288,7 @@ We cannot assess your entitlement or predict points — rules change and every c
       { type: "guide", title: "Benefits & PIP guide", url: "/guides/benefits-pip", description: "UK PIP orientation for arthritis" },
       { type: "guide", title: "Benefits hub", url: "/benefits-pip" },
       { type: "article", title: "Arthritis disability benefits FAQ", url: "/faq/arthritis-disability-benefits-uk", description: "PIP, ESA, Blue Badge orientation" },
-      { type: "article", title: "PIP for arthritis UK (blog)", url: "/blog/pip-for-arthritis-uk" },
+      { type: "article", title: "PIP for arthritis (UK blog)", url: "/blog/pip-for-arthritis-uk" },
       { type: "guide", title: "Access to Work", url: "/library/access-to-work" },
       { type: "article", title: "Access to Work scheme guide", url: "/blog/access-to-work-scheme-arthritis-guide" },
       { type: "article", title: "Sick pay & fit notes", url: "/blog/sick-pay-fit-notes-time-off-work-arthritis" },
@@ -598,7 +598,7 @@ Pair with pacing (**/exercises**) and flare plans (**/arthritis-flare-ups**).`,
       "Ask GP about sleep apnoea or medication timing if nights are severe",
     ],
     related: [
-      { type: "article", title: "How to sleep with arthritis UK", url: "/blog/how-to-sleep-with-arthritis-uk" },
+      { type: "article", title: "How to sleep with arthritis (UK)", url: "/blog/how-to-sleep-with-arthritis-uk" },
       { type: "article", title: "Arthritis fatigue UK guide", url: "/blog/arthritis-fatigue-management-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
@@ -647,7 +647,7 @@ We are Living With Arthritis (charity **1218461**) — educational support only.
       { type: "guide", title: "Arthritis & mental health", url: "/arthritis-mental-health" },
       { type: "article", title: "Arthritis & mental health UK guide", url: "/blog/arthritis-and-mental-health-uk" },
       { type: "article", title: "Depression and arthritis: when to ask for help", url: "/blog/depression-arthritis-when-to-seek-help" },
-      { type: "article", title: "How to sleep with arthritis UK", url: "/blog/how-to-sleep-with-arthritis-uk" },
+      { type: "article", title: "How to sleep with arthritis (UK)", url: "/blog/how-to-sleep-with-arthritis-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
@@ -1469,7 +1469,7 @@ We do not provide doses or personal regimens.`,
       "Use your rheumatology advice line for medicine queries",
     ],
     related: [
-      { type: "article", title: "Flu jab and arthritis UK", url: "/blog/flu-jab-arthritis-frailty-uk" },
+      { type: "article", title: "Flu jab and arthritis (UK)", url: "/blog/flu-jab-arthritis-frailty-uk" },
       { type: "article", title: "Vaccines on DMARDs and biologics", url: "/blog/vaccines-on-dmards-and-biologics-uk-guide" },
       { type: "guide", title: "Azathioprine guide", url: "/guides/azathioprine-for-arthritis" },
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
@@ -1657,7 +1657,7 @@ Weather does not replace medical review if symptoms suddenly change. See **/arth
     related: [
       { type: "article", title: "Cold weather & arthritis UK", url: "/blog/cold-weather-arthritis-uk-winter" },
       { type: "article", title: "Staying active in winter", url: "/blog/staying-active-arthritis-winter-uk" },
-      { type: "article", title: "Flu jab and arthritis UK", url: "/blog/flu-jab-arthritis-frailty-uk" },
+      { type: "article", title: "Flu jab and arthritis (UK)", url: "/blog/flu-jab-arthritis-frailty-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
@@ -1726,7 +1726,7 @@ Track duration for your clinician. Movement hub: **/exercises**. Condition overv
 - Diet & supplements caution → **/guides/diet**, **/supplements**
 - UK benefits orientation → **/benefits-pip**
 
-We are Living With Arthritis, charity **1218461**, independent of Versus Arthritis / Arthritis UK. Clinically reviewed themes are led by Louis Maxwell (HCPC **PH128483**). We do **not** diagnose — see your GP for personal assessment.`,
+We are Living With Arthritis, charity **1218461**, independent of Arthritis UK (formerly Versus Arthritis). Clinically reviewed themes are led by Louis Maxwell (HCPC **PH128483**). We do **not** diagnose — see your GP for personal assessment.`,
     nextSteps: [
       "Name the joint or type (OA, RA, gout…) for a more specific answer",
       "Browse the health library at /library",

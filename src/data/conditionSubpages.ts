@@ -56,7 +56,7 @@ export interface ConditionSubpages {
   diet: DietContent;
 }
 
-// UK-aligned, plain-English content. Sources: NHS, NICE, Versus Arthritis,
+// UK-aligned, plain-English content. Sources: NHS, NICE, Arthritis UK (formerly Versus Arthritis),
 // NRAS, NASS, Lupus UK, PMRGCAuk, FMA UK clinical summaries (2024–2025).
 export const conditionSubpages: Record<string, ConditionSubpages> = {
   osteoarthritis: {
@@ -250,7 +250,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       commonSymptoms: [
         "Sudden onset of severe joint pain, often overnight or in the early morning",
         "Hot, red, swollen joint — most commonly the base of the big toe",
-        "Skin over the joint may look shiny and peel as the attack settles",
+        "Once the attack eases, the skin over the joint can turn itchy and flaky",
         "Even bedsheet pressure can feel unbearable during an attack",
         "Attacks typically last 5–10 days and resolve fully between flares",
         "Long-standing gout can cause visible lumps called tophi",

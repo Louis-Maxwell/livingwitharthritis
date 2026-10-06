@@ -94,7 +94,7 @@ export default function ArthritisMentalHealth() {
         jobTitle: 'First Contact Practitioner',
         identifier: 'HCPC PH128483',
       },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-19',
       dateModified: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: `https://livingwitharthritis.org.uk${pillar.route}`,

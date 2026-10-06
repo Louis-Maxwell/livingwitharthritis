@@ -3124,7 +3124,7 @@ export const healthTopics: HealthTopic[] = [
     "sections": [
       {
         "heading": "Understanding Bone Structure and Loss",
-        "body": "Bone is a living tissue that is constantly being renewed. Old bone is removed by cells called osteoclasts and new bone is formed by osteoblasts. In youth, bone is formed faster than it is broken down, reaching peak bone mass in the late 20s. After 35, bone density naturally starts to decline. In osteoporosis, bone is broken down faster than it is replaced, leaving bones weak and fragile.",
+        "body": "Your skeleton is remodelled throughout life: osteoclast cells clear away worn bone, and osteoblast cells lay down fresh bone to replace it. In youth, bone is formed faster than it is broken down, reaching peak bone mass in the late 20s. After 35, bone density naturally starts to decline. In osteoporosis, bone is broken down faster than it is replaced, leaving bones weak and fragile.",
         "bullets": []
       },
       {

@@ -200,7 +200,7 @@ const EmailSignupForm = memo(({
             )}
 
             <p className="text-[11px] text-muted-foreground leading-relaxed">
-              Educational emails from Living With Arthritis UK (charity 1218461).
+              Educational emails from Living With Arthritis (charity 1218461).
               Unsubscribe anytime. See our{" "}
               <a href="/privacy" className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
                 privacy policy

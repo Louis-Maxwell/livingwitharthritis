@@ -25,7 +25,7 @@ export default function LivingWithArthritis() {
       },
       publisher: {
         '@type': 'MedicalOrganization',
-        name: 'Living With Arthritis UK',
+        name: 'Living With Arthritis',
       },
       datePublished: '2026-06-18',
       dateModified: new Date().toISOString().slice(0, 10),
@@ -44,7 +44,7 @@ export default function LivingWithArthritis() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Living With Arthritis: UK Guide"
-        description="Living with arthritis UK: Complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
+        description="Living with arthritis in the UK: complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
         path="/living-with-arthritis"
         type="article"
         keywords="living with arthritis, arthritis management, arthritis guide UK"

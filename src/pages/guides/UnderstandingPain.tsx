@@ -208,7 +208,7 @@ const UnderstandingPain = () => (
         name="keywords"
         content="understanding pain, types of pain, inflammatory pain, mechanical pain, neuropathic pain, fibromyalgia pain, chronic pain uk, arthritis pain explained"
       />
-      <meta property="og:title" content="Understanding Pain | Living With Arthritis UK" />
+      <meta property="og:title" content="Understanding Pain | Living With Arthritis" />
       <meta
         property="og:description"
         content="A clear UK guide to pain types and how to describe them to your GP — written for people living with arthritis and joint conditions."
@@ -216,7 +216,7 @@ const UnderstandingPain = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Understanding Pain – UK Guide" />
       <meta name="twitter:description" content="Pain types explained in plain English, plus questions to take to your GP." />

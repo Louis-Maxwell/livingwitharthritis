@@ -1,4 +1,4 @@
-# Living With Arthritis UK — 12-month digital strategy (rollup)
+# Living With Arthritis — 12-month digital strategy (rollup)
 
 **Charity 1218461 · Louis Maxwell, HCPC PH128483**  
 **15 September 2026 (Europe/London)**  

@@ -224,7 +224,7 @@ Response:
       "date": "2026-07-25",
       "category": "exercise",
       "keyword": "knee pain exercises",
-      "author": "Living With Arthritis UK",
+      "author": "Living With Arthritis",
       "reviewed_by": "Dr. Jane Smith"
     }
   ],
@@ -659,4 +659,4 @@ This implementation provides a **scalable, accessible, and user-friendly** expan
 
 *Document Version: 1.0*  
 *Last Updated: July 25, 2026*  
-*Prepared for: Living With Arthritis UK*
+*Prepared for: Living With Arthritis*

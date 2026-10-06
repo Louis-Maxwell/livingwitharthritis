@@ -74,7 +74,7 @@ Sunday: Story reminder + link to blog
 
 ---
 
-#### **2.2 Facebook** — Living With Arthritis UK (10k followers)
+#### **2.2 Facebook** — Living With Arthritis (10k followers)
 **Goal:** Older demographic (40-75) = prime arthritis audience
 
 **Content strategy:**
@@ -134,7 +134,7 @@ Every Monday: "Arthritis Tip Monday"
 
 **Strategy:**
 - Publish **full blog post** on Medium (word-for-word copy)
-- Add at top: "Originally published on Living With Arthritis UK → [link to your blog]"
+- Add at top: "Originally published on Living With Arthritis → [link to your blog]"
 - Medium readers click through to your site
 - Medium also brings direct traffic
 

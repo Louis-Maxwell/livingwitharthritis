@@ -180,7 +180,7 @@ you can do at home. It takes 10 minutes and requires no equipment.
 Questions? Reply to this email — Louis reads every message.
 
 Cheers,
-Living With Arthritis UK
+Living With Arthritis
 ```
 
 **Traffic impact:** 20-30% open rate × subscribers = 100-500 visits per post (Month 2+)
@@ -196,7 +196,7 @@ Living With Arthritis UK
 2. Wait 24 hours after publishing on your blog
 3. Paste full blog post into Medium editor
 4. Add at the top:
-   "Originally published on Living With Arthritis UK →
+   "Originally published on Living With Arthritis →
    https://livingwitharthritis.org.uk/blog/[slug]"
 5. In settings:
    - Set "Canonical URL" = your blog URL

@@ -268,19 +268,19 @@ const Sitemap = () => {
   return (
     <>
       <Helmet>
-        <title>Site Index (A–Z) | Living With Arthritis UK</title>
+        <title>Site Index (A–Z) | Living With Arthritis</title>
         <meta name="robots" content="noindex, follow" />
         <meta
           name="description"
-          content="A–Z index of every page on Living With Arthritis UK — condition guides, exercises, daily tips, regional support and more, listed alphabetically."
+          content="A–Z index of every page on Living With Arthritis — condition guides, exercises, daily tips, regional support and more, listed alphabetically."
         />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis UK" />
-        <meta property="og:description" content="Every page on Living With Arthritis UK, listed alphabetically." />
+        <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis" />
+        <meta property="og:description" content="Every page on Living With Arthritis, listed alphabetically." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/site-index" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
       </Helmet>
 
@@ -295,7 +295,7 @@ const Sitemap = () => {
             A–Z Index
           </h1>
           <p className="text-muted-foreground max-w-2xl mb-10">
-            Every page on Living With Arthritis UK, listed alphabetically. Use the
+            Every page on Living With Arthritis, listed alphabetically. Use the
             letters below to jump to a section, or browse the full list.
           </p>
 

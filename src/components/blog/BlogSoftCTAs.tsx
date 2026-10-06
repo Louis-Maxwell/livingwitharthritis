@@ -28,7 +28,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
               Practical arthritis updates
             </h2>
             <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-              Free guides when we publish something useful — no spam. Living With Arthritis UK
+              Free guides when we publish something useful — no spam. Living With Arthritis
               (charity 1218461).
             </p>
             <EmailSignupForm
@@ -75,7 +75,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             Get arthritis guides in your inbox
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-md">
-            Evidence-based tips on exercise, diet and flare-ups from Living With Arthritis UK —
+            Evidence-based tips on exercise, diet and flare-ups from Living With Arthritis —
             registered charity 1218461. Unsubscribe anytime.
           </p>
           <EmailSignupForm sequence="blog-banner" buttonText="Get free guides" />
@@ -88,8 +88,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             Keep this advice free
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-            We are independent of Arthritis UK. Motion is lotion — and honest guides stay free when
-            readers who can, chip in.
+            Motion is lotion — and honest guides stay free when readers who can, chip in.
           </p>
           <a
             href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"

@@ -21,7 +21,7 @@ const spokespeople = [
   {
     name: "Operations Director",
     role: "Founder & Operations Director",
-    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Founded Living With Arthritis UK to bridge the gap between health service waiting lists and accessible patient support.",
+    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Founded Living With Arthritis to bridge the gap between health service waiting lists and accessible patient support.",
   },
   {
     name: "Clinical Lead",
@@ -34,21 +34,21 @@ export default function Press() {
   return (
     <>
       <Helmet>
-        <title>Press & Media Kit | Living With Arthritis UK</title>
-        <meta name="description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
-      <meta property="og:title" content="Press & Media Kit | Living With Arthritis UK" />
-      <meta property="og:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
+        <title>Press & Media Kit | Living With Arthritis</title>
+        <meta name="description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis — a free physiotherapy and arthritis support charity." />
+      <meta property="og:title" content="Press & Media Kit | Living With Arthritis" />
+      <meta property="og:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis — a free physiotherapy and arthritis support charity." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/press" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Press | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Press | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Press & Media Kit | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis UK — a free physiotherapy and arthritis support charity." />
+      <meta name="twitter:title" content="Press & Media Kit | Living With Arthritis" />
+      <meta name="twitter:description" content="Press resources, key facts, expert spokespeople and brand assets for Living With Arthritis — a free physiotherapy and arthritis support charity." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <Header />
@@ -62,7 +62,7 @@ export default function Press() {
               </span>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Press & Media Kit</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Everything journalists, bloggers and partners need to write about Living With Arthritis UK — key facts, expert contacts, downloadable resources and brand guidelines.
+                Everything journalists, bloggers and partners need to write about Living With Arthritis — key facts, expert contacts, downloadable resources and brand guidelines.
               </p>
             </motion.div>
           </div>
@@ -91,7 +91,7 @@ export default function Press() {
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-4">About the Charity</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Living With Arthritis UK is a registered health charity dedicated to making expert physiotherapy, evidence-based diet plans and self-management tools freely accessible to the 10 million+ people living with arthritis across the United Kingdom.
+              Living With Arthritis is a registered health charity dedicated to making expert physiotherapy, evidence-based diet plans and self-management tools freely accessible to the 10 million+ people living with arthritis across the United Kingdom.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Our services are delivered by HCPC-registered physiotherapists and aligned with current national clinical and NICE clinical guidelines. We believe no one should face arthritis alone, and no one should have to wait months on a public health list for basic support.
@@ -143,7 +143,7 @@ export default function Press() {
               <div>
                 <h3 className="font-semibold mb-2 text-foreground">Usage Rules</h3>
                 <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
-                  <li>Always refer to us as "Living With Arthritis UK"</li>
+                  <li>Always refer to us as "Living With Arthritis"</li>
                   <li>Do not crop, rotate or distort the logo</li>
                   <li>Maintain minimum clear space around the logo</li>
                   <li>Link back to livingwitharthritis.org.uk where possible</li>

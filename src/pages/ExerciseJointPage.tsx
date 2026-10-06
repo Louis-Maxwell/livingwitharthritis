@@ -71,7 +71,7 @@ const ExerciseJointPage = () => {
         <meta property="og:url" content={`${BASE}/exercises/${page.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />

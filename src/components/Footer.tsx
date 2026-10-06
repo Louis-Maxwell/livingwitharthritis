@@ -38,7 +38,7 @@ const columns = [
       { label: "Diet & Nutrition Guide", href: "/guides/diet" },
       { label: "Exercise Guide", href: "/guides/exercise" },
       { label: "Guides Hub", href: "/guides" },
-      { label: "How to claim PIP for arthritis UK", href: "/guides/benefits-pip" },
+      { label: "How to claim PIP for arthritis in the UK", href: "/guides/benefits-pip" },
       { label: "Search", href: "/search" },
       { label: "Benefits & PIP hub", href: "/benefits-pip" },
       { label: "Azathioprine Guide", href: "/guides/azathioprine-for-arthritis" },
@@ -172,6 +172,9 @@ const Footer = () => {
               </address>
             )}
             <p className="mt-1.5">Recently registered with the Charity Commission for England and Wales.</p>
+            <p className="mt-1.5">
+              {CHARITY.shortName} is an independent charity, not affiliated with Arthritis UK.
+            </p>
             <p className="mt-1.5">
               Educational health information only —{" "}
               <Link to="/disclaimer" className="underline-offset-2 hover:text-primary hover:underline transition-colors">

@@ -138,7 +138,7 @@ const BlogHub = () => {
         "Long-tail arthritis guides organised by topic — diet, exercises, flare-ups and treatment. Written for UK patients.",
       url: `${SITE}/blog-hub`,
       inLanguage: "en-GB",
-      isPartOf: { "@type": "WebSite", name: "Living With Arthritis UK", url: SITE },
+      isPartOf: { "@type": "WebSite", name: "Living With Arthritis", url: SITE },
       about: { "@type": "MedicalCondition", name: "Arthritis" },
     };
 
@@ -205,7 +205,7 @@ const BlogHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Advice Hub | Living With Arthritis UK</title>
+        <title>Arthritis Advice Hub | Living With Arthritis</title>
         <meta
           name="description"
           content="Arthritis blog: Expert articles on pain relief, exercise, nutrition, mental health & living well. Evidence-based guidance for arthritis management."

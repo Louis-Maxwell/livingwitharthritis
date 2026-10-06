@@ -21,7 +21,7 @@ export default function EditorialClaimsPolicy() {
         path: PATH,
         name: "Editorial claims policy",
         description:
-          "How Living With Arthritis UK states public facts: inventory-backed counts only, educational not diagnostic, no invented visitor statistics.",
+          "How Living With Arthritis states public facts: inventory-backed counts only, educational not diagnostic, no invented visitor statistics.",
         lastReviewed: "2026-09-11",
         specialty: "Physiotherapy",
       }),
@@ -44,7 +44,7 @@ export default function EditorialClaimsPolicy() {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Editorial claims policy"
-        description="How Living With Arthritis UK publishes counts and claims: inventory-backed facts only, educational not diagnostic, no fake visitor stats."
+        description="How Living With Arthritis publishes counts and claims: inventory-backed facts only, educational not diagnostic, no fake visitor stats."
         path={PATH}
       />
       <Header />

@@ -29,7 +29,7 @@ const postMatchesCategory = postMatchesTopic;
 
 const TITLE = "Arthritis blog archive UK — browse by date and topic";
 const DESCRIPTION =
-  "Full archive of Living With Arthritis UK guides: browse every published article by year, month and topic — exercise, diet, PIP, treatments and more.";
+  "Full archive of Living With Arthritis guides: browse every published article by year, month and topic — exercise, diet, PIP, treatments and more.";
 
 /**
  * Chronological archive of every published blog guide.
@@ -68,7 +68,7 @@ const BlogArchive = () => {
     inLanguage: "en-GB",
     isPartOf: {
       "@type": "WebSite",
-      name: "Living With Arthritis UK",
+      name: "Living With Arthritis",
       url: SITE,
     },
     about: { "@type": "MedicalCondition", name: "Arthritis" },
@@ -120,7 +120,7 @@ const BlogArchive = () => {
               Blog archive: <span className="text-primary">browse by date and topic</span>
             </>
           }
-          subtitle="Every published Living With Arthritis UK guide in one place — dated, filterable by topic, and ready to open. Charity 1218461."
+          subtitle="Every published Living With Arthritis guide in one place — dated, filterable by topic, and ready to open. Charity 1218461."
         />
 
         <div className="container mx-auto max-w-4xl px-5 sm:px-6 md:px-10 py-8 md:py-12">

@@ -22,7 +22,7 @@ export default function FallPreventionOlderAdults() {
       headline: 'Fall Prevention for Older Adults with Arthritis',
       description: 'Evidence-based fall prevention for older adults with arthritis. Balance training, strength, home safety and immediate response after a fall.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-21', dateModified: '2026-08-22',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults',
     };

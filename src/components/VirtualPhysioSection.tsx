@@ -19,7 +19,7 @@ const imageMap: Record<string, string> = {
 
 const sourceLabels = [
   "NICE & Cochrane Review",
-  "Versus Arthritis UK Data",
+  "Versus Arthritis (now Arthritis UK) data",
   "Journal of the American Board of Family Medicine",
   "NICE Clinical Guidelines",
 ];

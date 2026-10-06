@@ -12,7 +12,7 @@ import { sanitizeHtml } from "@/utils/sanitizeHtml";
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const UK_ARTHRITIS_FAQS = [
-  { question: "How many people in the UK have arthritis?", answer: "Around 10 million people in the UK live with arthritis — roughly 1 in 6 adults. Osteoarthritis is by far the most common type, affecting more than 8.75 million people, followed by rheumatoid arthritis (around 400,000) and psoriatic arthritis (around 146,000)." },
+  { question: "How many people in the UK have arthritis?", answer: "Around 10 million people in the UK live with arthritis — roughly 1 in 6 adults. Osteoarthritis is by far the most common type: around 8.75 million people aged 45 and over in the UK have sought treatment for it (Arthritis Research UK, now Arthritis UK, 2013; cited by NICE CKS). It is followed by rheumatoid arthritis (around 400,000) and psoriatic arthritis (around 146,000)." },
   { question: "What is the most common type of arthritis in the UK?", answer: "Osteoarthritis is the most common type, accounting for the large majority of cases. It is sometimes called 'wear and tear' arthritis and most often affects the knees, hips, hands and spine." },
   { question: "Is arthritis a disability in the UK?", answer: "Arthritis is recognised as a disability under the Equality Act 2010 when it has a substantial, long-term effect on day-to-day activities. Many people with arthritis qualify for reasonable workplace adjustments and may be eligible for Personal Independence Payment (PIP)." },
   { question: "Can arthritis be cured?", answer: "There is no cure for most forms of arthritis, but symptoms can be managed effectively with a combination of exercise, weight management, anti-inflammatory diet, physiotherapy and — for inflammatory types — disease-modifying medications that can put the condition into remission." },
@@ -23,7 +23,7 @@ const UK_ARTHRITIS_FAQS = [
 const CONTENT = `
 <h2 id="what-is-arthritis">What Is Arthritis?</h2>
 <p>Arthritis is not one disease. It is an umbrella term for <strong>more than 100 conditions</strong>. They all cause pain, swelling and stiffness in or around the joints.</p>
-<p>In the UK, about <strong>10 million people</strong> live with arthritis (Versus Arthritis, 2024). It is one of the most common long-term health conditions in the country. It affects people of all ages and backgrounds. It is more common in women and in people over 45.</p>
+<p>In the UK, about <strong>10 million people</strong> live with arthritis (Versus Arthritis, now Arthritis UK, 2024). It is one of the most common long-term health conditions in the country. It affects people of all ages and backgrounds. It is more common in women and in people over 45.</p>
 
 <h3 id="main-types-quick">The Main Types at a Glance</h3>
 <ul>
@@ -37,16 +37,16 @@ const CONTENT = `
 
 <h2 id="how-common-is-arthritis-uk">How Common Is Arthritis in the UK?</h2>
 <p>Arthritis affects about <strong>1 in 6 adults</strong> in the UK. That is roughly 10 million people. It is the top cause of pain and disability in the country.</p>
-<p>Each year, more than <strong>8.75 million people</strong> see a GP about osteoarthritis (NICE, 2022). Rheumatoid arthritis affects around <strong>400,000 people</strong>. Psoriatic arthritis affects around <strong>146,000</strong>.</p>
+<p>Around <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for osteoarthritis (Arthritis Research UK, now Arthritis UK, 2013; cited by <a href="https://cks.nice.org.uk/topics/osteoarthritis/background-information/prevalence/" target="_blank" rel="noopener noreferrer">NICE CKS</a>). Rheumatoid arthritis affects around <strong>400,000 people</strong>. Psoriatic arthritis affects around <strong>146,000</strong>.</p>
 
 <h3 id="economic-impact">The Cost to the UK</h3>
 <p>The numbers are huge. Arthritis and bone or joint problems make up <strong>30% of all GP visits</strong> in England. They are the biggest cause of time off work.</p>
-<p>The total cost to the UK is about <strong>£12.6 billion a year</strong> in lost work, sick days and care (Versus Arthritis, 2024). Even so, arthritis gets far less research funding than cancer or heart disease.</p>
+<p>The total cost to the UK is about <strong>£12.6 billion a year</strong> in lost work, sick days and care (Versus Arthritis, now Arthritis UK, 2024). Even so, arthritis gets far less research funding than cancer or heart disease.</p>
 <p>Cases are rising. The UK is ageing. More people are living with obesity and sitting more. By 2030, over <strong>12 million</strong> people in the UK are expected to have arthritis.</p>
 
 <h2 id="types-of-arthritis">Types of Arthritis Explained</h2>
 <h3 id="osteoarthritis">Osteoarthritis (OA)</h3>
-<p>Osteoarthritis is the most common type. It affects over <strong>8.75 million people</strong> in the UK. It is often called the "wear and tear" type. The cartilage cushioning the joints breaks down over time.</p>
+<p>Osteoarthritis is the most common type. Around <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for it (Arthritis Research UK, now Arthritis UK, 2013; cited by NICE CKS). It is often called the "wear and tear" type. The cartilage cushioning the joints breaks down over time.</p>
 <p>As cartilage thins, bones start to rub. This causes pain, swelling and stiffness. The joints hit hardest are the <strong>knees, hips, hands, spine and feet</strong>.</p>
 
 <h4 id="oa-risk-factors">Who is at risk</h4>
@@ -160,14 +160,14 @@ const CONTENT = `
 <ul>
 <li><strong>UK healthcare Talking Therapies (IAPT)</strong> — free talking therapy and CBT. Self-referral is available.</li>
 <li><strong>Pain management programmes</strong> — group programmes mixing physio, psychology and OT.</li>
-<li><strong>Versus Arthritis helpline</strong> — 0800 5200 520 (free, weekdays).</li>
+<li><strong>Arthritis UK (formerly Versus Arthritis) helpline</strong> — 0800 5200 520 (free, weekdays).</li>
 <li><strong>Mind</strong> — 0300 123 3393 for general mental health support.</li>
 </ul>
 
 <h2 id="arthritis-in-younger-people">Arthritis in Younger People</h2>
 <p>Many people think arthritis only affects older adults. That is a myth.</p>
 <p>About <strong>15,000 children</strong> in the UK have juvenile idiopathic arthritis. Many adults in their 20s and 30s also develop types like RA, PsA or ankylosing spondylitis.</p>
-<p>Young people with arthritis face extra challenges. These can include study, work, relationships and family planning. Charities like <strong>Versus Arthritis</strong> and <strong>NRAS</strong> offer tailored support.</p>
+<p>Young people with arthritis face extra challenges. These can include study, work, relationships and family planning. Charities like <strong>Arthritis UK (formerly Versus Arthritis)</strong> and <strong>NRAS</strong> offer tailored support.</p>
 
 <h2 id="research-and-future-treatments">Research and Future Treatments</h2>
 <p>UK arthritis research is moving fast. Key areas include:</p>
@@ -178,11 +178,11 @@ const CONTENT = `
 <li><strong>New biologics</strong> — drugs that target inflammation more precisely</li>
 <li><strong>The gut microbiome</strong> — how gut bacteria affect autoimmune arthritis</li>
 </ul>
-<p>Main UK funders include <strong>Versus Arthritis</strong> (over £9 million a year), the <strong>NIHR</strong> and the <strong>Medical Research Council</strong>. Clinical trials are open via the NIHR Clinical Research Network.</p>
+<p>Main UK funders include <strong>Arthritis UK (formerly Versus Arthritis)</strong> (over £9 million a year), the <strong>NIHR</strong> and the <strong>Medical Research Council</strong>. Clinical trials are open via the NIHR Clinical Research Network.</p>
 
 <h2 id="key-uk-resources">Key UK Resources</h2>
 <ul>
-<li><strong>Versus Arthritis</strong> — <a href="https://www.versusarthritis.org" target="_blank" rel="noopener noreferrer">versusarthritis.org</a> — helpline: 0800 5200 520</li>
+<li><strong>Arthritis UK (formerly Versus Arthritis)</strong> — <a href="https://www.arthritis-uk.org" target="_blank" rel="noopener noreferrer">arthritis-uk.org</a> — helpline: 0800 5200 520</li>
 <li><strong>NRAS</strong> — <a href="https://nras.org.uk" target="_blank" rel="noopener noreferrer">nras.org.uk</a> — helpline: 0800 298 7650</li>
 <li><strong>Health and social care (UK Government)</strong> — <a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a></li>
 <li><strong>Arthritis Action</strong> — <a href="https://www.arthritisaction.org.uk" target="_blank" rel="noopener noreferrer">arthritisaction.org.uk</a></li>
@@ -191,7 +191,7 @@ const CONTENT = `
 </ul>
 
 <h2 id="sources-disclaimer">Sources &amp; Disclaimer</h2>
-<p>This guide draws on public data from the UK health service, NICE guidelines (NG100, NG226, CG79), Versus Arthritis and NRAS. It also uses peer-reviewed research from <em>The Lancet</em>, <em>Annals of the Rheumatic Diseases</em> and the <em>BMJ</em>. Figures are the most recent available as of 2024.</p>
+<p>This guide draws on public data from the UK health service, NICE guidelines (NG100, NG226, CG79), Arthritis UK (formerly Versus Arthritis) and NRAS. It also uses peer-reviewed research from <em>The Lancet</em>, <em>Annals of the Rheumatic Diseases</em> and the <em>BMJ</em>. Figures are the most recent available as of 2024.</p>
 <p>This page is for information only. It is not medical advice. Always speak to your GP or rheumatologist about your own care.</p>
 `;
 
@@ -219,7 +219,7 @@ export default function UKArthritisGuide() {
       <meta property="og:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/uk-arthritis" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />

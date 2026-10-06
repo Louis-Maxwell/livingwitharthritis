@@ -27,8 +27,8 @@ const trustStrip = readFileSync(
 const cityPage = readFileSync(resolve("src/pages/CityArthritisPage.tsx"), "utf8");
 const schemaTs = readFileSync(resolve("src/lib/rootOrganizationSchema.ts"), "utf8");
 
-const BRAND_STRING = "Living With Arthritis UK (charity 1218461)";
-const HOME_TITLE = "Living With Arthritis UK | Evidence-Based Health Guides";
+const BRAND_STRING = "Living With Arthritis (charity 1218461)";
+const HOME_TITLE = "Living With Arthritis | Evidence-Based Health Guides";
 const OFFICIAL_SAME_AS = [
   ...getSchemaOrgSameAs(),
   "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
@@ -87,12 +87,12 @@ describe("public SEO / AEO identity", () => {
       expect.arrayContaining(["NGO", "Organization", "MedicalOrganization"]),
     );
     expect(JSON.stringify(org.identifier)).toContain("1218461");
-    expect(org.name).toBe("Living With Arthritis UK");
+    expect(org.name).toBe("Living With Arthritis");
     expect(org.legalName).toBe("Living With Arthritis");
     expect(org.alternateName).toEqual(
       expect.arrayContaining([
-        "Living With Arthritis UK",
         "Living With Arthritis charity",
+        "Living With Arthritis (charity 1218461)",
       ]),
     );
     expect(org.founder.name).toBe("Louis Maxwell");
@@ -131,16 +131,16 @@ describe("public SEO / AEO identity", () => {
     expect(homepage).toContain(HOME_TITLE);
     expect(homepage).toMatch(/index,\s*follow/);
     expect(homepage).not.toMatch(/noindex/);
-    expect(trustStrip).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);
+    expect(trustStrip).toMatch(/Living With Arthritis \(charity \{CHARITY\.number\}\)/);
     expect(indexHtml).toContain(BRAND_STRING);
-    expect(indexHtml).toMatch(/Living With Arthritis UK — evidence-based health guides/i);
+    expect(indexHtml).toMatch(/Living With Arthritis — evidence-based health guides/i);
   });
 
   it("keeps About brand-first, indexable, and address-free", () => {
     expect(aboutUs).toContain(
-      "About Living With Arthritis UK | Registered charity 1218461",
+      "About Living With Arthritis | Registered charity 1218461",
     );
-    expect(aboutUs).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);
+    expect(aboutUs).toMatch(/Living With Arthritis \(charity \{CHARITY\.number\}\)/);
     expect(aboutUs).toContain("info@livingwitharthritis.org.uk");
     expect(aboutUs).toMatch(/CONTACT_PHONE/);
     expect(aboutUs).toContain("07760 512 084");
@@ -173,8 +173,8 @@ describe("public SEO / AEO identity", () => {
     expect(wellKnownAi).toMatch(/1218461/);
     expect(wellKnownAi).toMatch(/Independent of Arthritis UK/);
     expect(wellKnownAi).toMatch(/PH128483/);
-    expect(wellKnownAi).toContain("Living With Arthritis UK (charity 1218461)");
-    expect(llms).toContain("Living With Arthritis UK (charity 1218461)");
+    expect(wellKnownAi).toContain("Living With Arthritis (charity 1218461)");
+    expect(llms).toContain("Living With Arthritis (charity 1218461)");
   });
 
   it("does not mark city hubs as a MedicalBusiness", () => {
