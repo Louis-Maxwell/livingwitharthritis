@@ -31,3 +31,13 @@ test and fresh full audit must pass in GitHub Actions, which can access npm.
 Bun lockfile synchronization and the existing build/browser CI are required
 before merge. The earlier outstanding status describes the initial review,
 not a claim that this patch has been validated or deployed.
+
+## Verified dependency results
+On commit bbfc88a034beebc8e3ce479ea4e9ceeebdc2af2a:
+https://github.com/Louis-Maxwell/livingwitharthritis/actions/runs/37393438771
+- npm ci --ignore-scripts succeeded.
+- All 20 installed security regression tests passed.
+- npm audit --audit-level=moderate reported "found 0 vulnerabilities".
+- Bun generated the updated lockfile, now committed.
+The permanent workflow verifies frozen installation and the patched resolution
+under both npm and Bun; it no longer generates lockfiles as part of validation.
