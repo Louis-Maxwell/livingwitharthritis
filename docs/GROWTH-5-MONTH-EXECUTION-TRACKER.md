@@ -37,6 +37,7 @@
 | Champions 56–58 carers-assessment + pacing + work | **done** | Gold-pass `/blog/carers-assessment-arthritis-frailty-uk`, `/blog/energy-management-and-pacing-arthritis`, `/blog/arthritis-and-work-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-01**, NHS/GOV.UK/NICE/Arthritis UK/Acas cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-56-58-01-oct.test.ts` |
 | Champions 59–61 attendance-allowance + flare-up + fatigue | **done** | Gold-pass `/blog/attendance-allowance-arthritis-frailty-uk`, `/blog/arthritis-flare-up-what-to-do`, `/blog/arthritis-fatigue-management-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-02**, GOV.UK/NHS/NICE/Arthritis UK cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-59-61-02-oct.test.ts` |
 | Champions 62–64 sleep + mental health + cold weather | **done** | Gold-pass `/blog/how-to-sleep-with-arthritis-uk`, `/blog/arthritis-and-mental-health-uk`, `/blog/cold-weather-arthritis-uk-winter` — full rewrites replacing template copy and unverifiable stats ("80%", "2-3 times", "25% less pain"); CTR meta, Louis Maxwell HCPC review **2026-10-05**, NHS/NICE/GOV.UK/Samaritans cites, crisis routes on mental health, dense customer-job links; pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-62-64-05-oct.test.ts` |
+| Champions 65–67 winter activity + depression + flu jab | **done** | Gold-pass `/blog/staying-active-arthritis-winter-uk`, `/blog/depression-arthritis-when-to-seek-help`, `/blog/flu-jab-arthritis-frailty-uk` — full rewrites removing unsourced stats ("20–30%", "up to 90%", "1 in 3", "25% less pain") and broken frailty template copy; CTR meta, Louis Maxwell HCPC review **2026-10-06**, NHS/NICE/UKHSA/Samaritans cites, crisis routes on depression, flu-jab eligibility from NHS page (England; devolved nations signposted); exercises/flare/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-65-67-06-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -75,6 +76,36 @@
 
 ---
 
+## Daily log — 6 Oct 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026; M2 starts ~12 Oct). Tracker next-3 from 5 Oct: Champions 65+ on thin seasonal / high-intent spokes (staying active in winter, depression-when-to-seek-help). Swapped best-sleep-positions for the flu jab because October is flu-jab booking season and the old page was broken template copy; sleep positions stays as a consolidation candidate toward the gold-pass sleep URL. No new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 65 — `/blog/staying-active-arthritis-winter-uk`:** full rewrite (removed "20–30% drop", "up to 90%" buoyancy claim, outdated Public Health England reference, product prices and a direct answer that was about vitamin D); review **2026-10-06** (Louis Maxwell HCPC PH128483); CTR meta; NHS activity guidelines (older adults + 19–64) / sitting exercises / falls / keep warm / vitamin D + NICE NG226 cites; links → exercise hub, seated tai chi, knee/hip exercise guides, swimming hip OA, walking + shoes, falls prevention, pacing, flare guide, cold weather, sleep, mental health, pain relief, newly diagnosed
+- **Champion 66 — `/blog/depression-arthritis-when-to-seek-help`:** full rewrite (removed "up to 1 in 3" and "25% less pain interference" claims plus generic template); review **2026-10-06**; crisis callout (999 / NHS 111 mental health option / Samaritans 116 123 / Shout 85258); NHS depression + Talking Therapies (England self-referral; devolved nations via GP) + urgent mental health help / NICE CG91 + NG222 cites; links → mental health hub + guide, sleep, pacing, fatigue, flare action plan, exercises, PIP, carer's assessment, newly diagnosed
+- **Champion 67 — `/blog/flu-jab-arthritis-frailty-uk`:** full rewrite of broken frailty template ("If you live in a GP surgery…") into a flu-season customer job; eligibility mirrors the NHS flu vaccine page (65+, weakened immunity incl. steroid tablets, carers / Carer's Allowance, household contacts); non-live adult jab on DMARDs/biologics; never stop medicines without advice; other vaccines signposted without hard-coding yearly eligibility; NHS flu / flu vaccine / pneumococcal / COVID-19 / shingles + UKHSA Green Book cites; links → vaccines on DMARDs guide, biologics infection guide, RA hub, DMARDs explainer, Carer's Allowance + carer's assessment, cold weather, winter activity, flare guide
+- **`topicClusters.ts`:** exercises fronts winter activity; flare-ups fronts depression; treatments fronts flu jab + vaccines-on-DMARDs guide
+- **Chatbot KB:** mental-health, exercise-general, DMARDs and weather-cold `related` link the three gold-pass URLs; keywords for talking therapies, winter exercise, flu jab / flu vaccine
+- Sitemap `lastmod` **2026-10-06** on the three URLs + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / review index regenerated
+- **Tests:** `src/lib/__tests__/gsc-champions-65-67-06-oct.test.ts` (full Vitest suite green: 100 files / 559 tests; blog guards + typecheck clean)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; NHS intros; live social posts (no new Facebook posts / ads without asking)
+- Clinical spot-check (winter activity / depression / flu jab — esp. flu eligibility wording, medicine-timing advice, Talking Therapies routes)
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+- Optional Scenario C moonshot media budget paper
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/blog/staying-active-arthritis-winter-uk`, `/blog/depression-arthritis-when-to-seek-help`, `/blog/flu-jab-arthritis-frailty-uk`
+2. Month 1 close-out (~9 Oct): M1 must-dos vs plan, set M2 priorities (first 15 outreaches need Louis; winter spokes; donate/GoFundMe CRO; HCP pack distribution prep)
+3. Champions 68+: remaining broken frailty-template winter spokes (`covid-winter-arthritis-frailty-uk`, `winter-arthritis-frailty-cold-houses-uk`; about 70 posts still carry the same template lines such as "If you live in a GP surgery" / "several joints prefer" — triage by GSC impressions) and consolidate overlapping sleep posts (`best-sleep-positions-joint-pain`, `sleep-quality-arthritis-pain`) toward the gold-pass sleep URL
+
+---
 ## Daily log — 5 Oct 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026; M2 starts ~12 Oct). Tracker next-3 from 2 Oct: Champions 62+ on remaining thin high-intent spokes (night pain / sleep / mental health). Added cold-weather because October is when winter-pain searches start. No new doorway cities. No invented traffic claims. No Lovable credits / CloudAgent.
