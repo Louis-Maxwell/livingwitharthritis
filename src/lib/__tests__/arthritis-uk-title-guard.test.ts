@@ -52,15 +52,17 @@ function checkName(problems: Problem[], file: string, field: string, raw: unknow
   }
 }
 
+/** Plain text for matching only (never rendered): drop tags and decode common entities. */
 function decodeEntities(s: string): string {
   return s
-    .replace(/<[^>]+>/g, "")
-    .replace(/&amp;/g, "&")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/[<>]/g, " ")
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&nbsp;/g, " ")
     .replace(/&ndash;/g, "–")
-    .replace(/&mdash;/g, "—");
+    .replace(/&mdash;/g, "—")
+    .replace(/&amp;/g, "&"); // last, so "&amp;quot;" is not double-decoded
 }
 
 function format(problems: Problem[]): string {
