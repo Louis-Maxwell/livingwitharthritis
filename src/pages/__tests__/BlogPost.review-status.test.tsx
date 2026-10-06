@@ -49,7 +49,7 @@ vi.mock("@/components/TableOfContents", () => ({
   addHeadingIds: (html: string) => html,
 }));
 
-// A catalog-only pending flag (no guide is pending in the real catalog now).
+// A catalog-only pending flag (fixture slug, independent of the real pending guides).
 vi.mock("@/lib/blog/reviewIndex", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/blog/reviewIndex")>();
   return {

@@ -2580,8 +2580,9 @@
   "display_order": 4866,
   "last_reviewed": "2026-10-06",
   "image_url": "/openverse/cover-0162-ben-the-greyhound.webp",
-  "word_count": 1017,
-  "reading_minutes": 6
+  "word_count": 1014,
+  "reading_minutes": 6,
+  "reviewStatus": "pending"
  },
  {
   "slug": "shingles-vaccine-arthritis-frailty-uk",
@@ -4943,8 +4944,9 @@
   "display_order": 989,
   "last_reviewed": "2026-10-05",
   "image_url": "/openverse/cover-0483-20171027-ams-lsc-0164.webp",
-  "word_count": 765,
-  "reading_minutes": 4
+  "word_count": 762,
+  "reading_minutes": 4,
+  "reviewStatus": "pending"
  },
  {
   "slug": "aquatic-therapy-arthritis-guide",
@@ -4977,8 +4979,9 @@
   "display_order": 987,
   "last_reviewed": "2026-10-05",
   "image_url": "/openverse/wellness-07-cane-walker-cane-hybrid-walker.webp",
-  "word_count": 949,
-  "reading_minutes": 5
+  "word_count": 946,
+  "reading_minutes": 5,
+  "reviewStatus": "pending"
  },
  {
   "slug": "anti-inflammatory-smoothie-recipes",
@@ -5810,8 +5813,9 @@
   "display_order": 924,
   "last_reviewed": "2026-10-06",
   "image_url": "/openverse/cover-0434-salad.webp",
-  "word_count": 1018,
-  "reading_minutes": 6
+  "word_count": 1015,
+  "reading_minutes": 6,
+  "reviewStatus": "pending"
  },
  {
   "slug": "tens-machines-arthritis-uk",
@@ -8649,8 +8653,9 @@
   "display_order": 0,
   "last_reviewed": "2026-10-05",
   "image_url": "/openverse/cover-0190-barriers-are-down.webp",
-  "word_count": 841,
-  "reading_minutes": 5
+  "word_count": 838,
+  "reading_minutes": 5,
+  "reviewStatus": "pending"
  },
  {
   "slug": "hot-weather-arthritis-management",
@@ -8870,8 +8875,9 @@
   "display_order": 0,
   "last_reviewed": "2026-10-06",
   "image_url": "/openverse/cover-0133-xoka3965bs.webp",
-  "word_count": 899,
-  "reading_minutes": 5
+  "word_count": 896,
+  "reading_minutes": 5,
+  "reviewStatus": "pending"
  },
  {
   "slug": "mindfulness-arthritis-beginners",
