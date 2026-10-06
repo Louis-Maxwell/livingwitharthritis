@@ -17,3 +17,17 @@ The log reports all braces versions affected and no fix available. These finding
 
 ## Validation and scope
 Targeted email validation executed locally using Node's TypeScript support. Full installation/build and npm audit could not be executed locally because direct network access to GitHub/npm is unavailable in this environment. Existing GitHub CI will validate the pull request. GitHub security-alert administration and credential rotation were not available through the connector. No production deployment or history rewrite was performed.
+
+## Dependency patch follow-up
+The six high findings share GHSA-vfj7-8cjw-p6xm in braces. Instead of an untested
+Tailwind 4 styling migration, the PR now vendors a private MIT-licensed fork
+of braces 3.0.3 with a fixed nesting cap in parsing (braces and parentheses)
+and independent guards in the recursive AST walkers. Both package managers
+must resolve braces to this fork. Upstream remains unpatched; the local
+fork requires maintenance and should be replaced when a maintained fix exists.
+
+20 local regression/compatibility tests passed. The installed-dependency
+test and fresh full audit must pass in GitHub Actions, which can access npm.
+Bun lockfile synchronization and the existing build/browser CI are required
+before merge. The earlier outstanding status describes the initial review,
+not a claim that this patch has been validated or deployed.

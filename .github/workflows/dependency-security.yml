@@ -1,0 +1,43 @@
+name: Dependency security regression
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install exact npm dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test installed patch and recursion regression
+        run: npm run test:dependency-security
+      - name: Audit every dependency
+        run: npm audit --audit-level=moderate
+      - name: Generate Bun lockfile for the dependency change
+        run: bun install --lockfile-only --ignore-scripts
+      - name: Export candidate lockfiles
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-candidate-lockfiles
+          path: |
+            package-lock.json
+            bun.lock
+          retention-days: 1
