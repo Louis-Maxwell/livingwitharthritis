@@ -25,9 +25,9 @@ const FAQS = [
       "Yes. Every guide, exercise routine and printable tool on this site is free to use. We are funded by donations and healthcare partnerships; clinical content stays editorially independent.",
   },
   {
-    question: "Are you the same as Arthritis UK or Versus Arthritis?",
+    question: "Are you the same as Arthritis UK (formerly Versus Arthritis)?",
     answer:
-      "No. Living With Arthritis is an independent UK charity (1218461). We are not Arthritis UK, Versus Arthritis, or the US Arthritis Foundation.",
+      "No. Living With Arthritis is an independent UK charity (1218461). We are not Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation.",
   },
 ];
 
@@ -58,7 +58,7 @@ const RESOURCES = [
     blurb: "Anti-inflammatory Mediterranean eating guide.",
   },
   {
-    title: "How to claim PIP for arthritis UK",
+    title: "How to claim PIP for arthritis in the UK",
     href: "/guides/benefits-pip",
     blurb: "Step-by-step PIP claim guidance with GOV.UK links.",
   },
@@ -73,7 +73,7 @@ const RESOURCES = [
     blurb: "Printable plan for managing flares at home.",
   },
   {
-    title: "Newly diagnosed rheumatoid arthritis UK",
+    title: "Newly diagnosed rheumatoid arthritis (UK)",
     href: "/guides/newly-diagnosed",
     blurb: "First-steps checklist after an RA diagnosis.",
   },
@@ -103,7 +103,7 @@ export default function FreeArthritisResourcesUK() {
           property="og:url"
           content={`${CHARITY.siteUrl}/guides/free-arthritis-resources-uk`}
         />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
       </Helmet>
       <PageSchema
         url="/guides/free-arthritis-resources-uk"
@@ -123,7 +123,7 @@ export default function FreeArthritisResourcesUK() {
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Free arthritis resources UK"
-          subtitle={`Clinically reviewed guides and printable tools from Living With Arthritis — registered charity ${CHARITY.number}. Independent of Arthritis UK / Versus Arthritis.`}
+          subtitle={`Clinically reviewed guides and printable tools from Living With Arthritis — registered charity ${CHARITY.number}. Independent of Arthritis UK (formerly Versus Arthritis).`}
           badge="Charity Resources"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
@@ -139,7 +139,7 @@ export default function FreeArthritisResourcesUK() {
               (no.&nbsp;{CHARITY.number}), independent of Arthritis UK. We publish
               free, clinically reviewed UK guidance on exercise, diet, PIP and living
               with arthritis. When citing us, use the full https://livingwitharthritis.org.uk
-              page URL and attribute &ldquo;Living With Arthritis UK (charity {CHARITY.number})&rdquo;.
+              page URL and attribute &ldquo;Living With Arthritis (charity {CHARITY.number})&rdquo;.
             </p>
           </aside>
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />

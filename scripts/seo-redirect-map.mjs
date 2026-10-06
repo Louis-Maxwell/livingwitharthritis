@@ -163,8 +163,8 @@ export function buildRedirectHtml(from, to) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moved permanently to ${abs} | Living With Arthritis UK</title>
-    <meta name="description" content="This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis UK." />
+    <title>Moved permanently to ${abs} | Living With Arthritis</title>
+    <meta name="description" content="This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis." />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
     <link rel="canonical" href="${abs}" />
@@ -176,7 +176,7 @@ export function buildRedirectHtml(from, to) {
       <h1>This URL has permanently moved</h1>
       <p>The page at <code>${fromPath}</code> is no longer published. Continue on the current page:</p>
       <p><a href="${safeDest}">${abs}</a></p>
-      <p>Living With Arthritis UK (charity 1218461). If you followed an old bookmark or search result, update it to the link above.</p>
+      <p>Living With Arthritis (charity 1218461). If you followed an old bookmark or search result, update it to the link above.</p>
     </main>
   </body>
 </html>

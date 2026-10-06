@@ -114,7 +114,7 @@ export default function SupplementsHub() {
   return (
     <>
       <Helmet>
-        <title>{`${META_TITLE} | Living With Arthritis UK`}</title>
+        <title>{`${META_TITLE} | Living With Arthritis`}</title>
         <meta name="description" content={META_DESC} />
         <meta
           name="keywords"
@@ -127,7 +127,7 @@ export default function SupplementsHub() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL} />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
       </Helmet>
 
       <PageSchema

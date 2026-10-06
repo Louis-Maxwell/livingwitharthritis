@@ -22,7 +22,7 @@ export default function FrailtyManagementHub() {
       headline: 'Frailty & Arthritis: A Complete Management Hub',
       description: 'Evidence-based guide to preventing and reversing frailty in adults with arthritis. Strength, nutrition, mood, cognition and social pillars.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-21', dateModified: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/frailty-management-hub',
     };

@@ -354,7 +354,7 @@ export function coverFromFile(file: string | null | undefined): ArticleImage {
   return {
     src: LOCAL_COVER_FALLBACK,
     alt: "People walking together",
-    credit: "Living With Arthritis UK",
+    credit: "Living With Arthritis",
   };
 }
 

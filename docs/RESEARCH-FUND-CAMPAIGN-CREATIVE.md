@@ -1,6 +1,6 @@
 # Research Fund campaign creative — draft (M2 P1)
 
-**Charity:** Living With Arthritis UK · 1218461  
+**Charity:** Living With Arthritis · 1218461  
 **Tagline:** Motion is Lotion  
 **Status:** Draft for Louis / trustee / comms approval — **do not post live until approved**  
 **Date:** 15 Sep 2026  
@@ -41,13 +41,13 @@ Do **not** invent reach, follower, or visitor metrics. Report only from GA4 / na
 ### A — Motion is Lotion
 
 **Headline:** Motion is Lotion — help us fund better arthritis evidence.  
-**Body:** Living With Arthritis UK is a young charity (1218461) building practical guides and future research support for people with joint pain. Our research fund sits at about £5,000 on the way to £50,000. Every gift moves the dial — honestly, without hype.  
+**Body:** Living With Arthritis is a young charity (1218461) building practical guides and future research support for people with joint pain. Our research fund sits at about £5,000 on the way to £50,000. Every gift moves the dial — honestly, without hype.  
 **CTA:** Donate → `/donate`
 
 ### B — Founder FCP angle
 
 **Headline:** Built by a First Contact Practitioner. Funded by people who care.  
-**Body:** Founder Louis Maxwell (HCPC PH128483, First Contact Practitioner) started Living With Arthritis UK so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
+**Body:** Founder Louis Maxwell (HCPC PH128483, First Contact Practitioner) started Living With Arthritis so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
 **CTA:** Donate → `/donate`
 
 ### C — Honest small-charity
@@ -65,7 +65,7 @@ Do **not** invent reach, follower, or visitor metrics. Report only from GA4 / na
 ### E — HCP peer share (LinkedIn)
 
 **Headline:** Clinicians: share a small UK arthritis charity that’s educational, not diagnostic.  
-**Body:** Living With Arthritis UK (charity 1218461) publishes UK-facing guides reviewed in an FCP context. We’re growing a research fund (~£5k → £50k). If it helps your patients, share it — or support the fund. Independent of Versus Arthritis.  
+**Body:** Living With Arthritis (charity 1218461) publishes UK-facing guides reviewed in an FCP context. We’re growing a research fund (~£5k → £50k). If it helps your patients, share it — or support the fund. Independent of Versus Arthritis.  
 **CTA:** Donate or `/resources/clinic-pack`
 
 ---
@@ -98,7 +98,7 @@ Use the SOP template: Hook → Value → Clinical honesty → CTA + UTM → Iden
 2. **Value:** ~£5,000 toward £50,000; educational guides; Motion is Lotion.  
 3. **Honesty:** Educational information — not a diagnosis. Check with your GP / physio / rheumatology team.  
 4. **CTA:** Link `/donate` + UTM (`utm_content=fb-milestone`).  
-5. **Identity:** Living With Arthritis UK · charity 1218461 · Motion is Lotion  
+5. **Identity:** Living With Arthritis · charity 1218461 · Motion is Lotion  
 
 ### Instagram (caption + carousel idea)
 

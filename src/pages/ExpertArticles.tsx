@@ -222,7 +222,7 @@ export default function ExpertArticles() {
           "url": "https://livingwitharthritis.org.uk/expert-articles",
           "inLanguage": "en-GB",
           "description": "Clinician-written, evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists.",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
           "hasPart": articles ? undefined : undefined
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -237,23 +237,23 @@ export default function ExpertArticles() {
               "author": { "@type": "Organization", "name": a.author },
               "datePublished": a.date,
               "description": a.summary,
-              "publisher": { "@type": "Organization", "name": "Living With Arthritis UK" }
+              "publisher": { "@type": "Organization", "name": "Living With Arthritis" }
             }
           }))
         })}</script>
         <meta name="description" content="Evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists." />
-      <meta property="og:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
+      <meta property="og:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis" />
       <meta property="og:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/expert-articles" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Expert Articles | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Expert Articles | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis UK" />
+      <meta name="twitter:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis" />
       <meta name="twitter:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>

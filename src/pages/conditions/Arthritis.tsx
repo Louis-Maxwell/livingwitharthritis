@@ -29,7 +29,7 @@ export default function Arthritis() {
       headline: 'Arthritis: Understanding Joint Pain and Treatment Options',
       description: 'Comprehensive UK guide to arthritis — symptoms, diagnosis, treatment options, and what patients commonly look for at each stage of their journey.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
       lastReviewed: '2026-09-16',

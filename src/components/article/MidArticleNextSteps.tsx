@@ -74,7 +74,7 @@ const MidArticleNextSteps = memo(
           While you read
         </p>
         <p className="text-sm text-muted-foreground mb-4">
-          Practical next steps from Living With Arthritis UK — no pop-ups, just useful links.
+          Practical next steps from Living With Arthritis — no pop-ups, just useful links.
         </p>
         <div className="grid sm:grid-cols-3 gap-3">
           {steps.map((step) => {

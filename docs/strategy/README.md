@@ -1,4 +1,4 @@
-# Living With Arthritis UK — 12-month digital strategy pack
+# Living With Arthritis — 12-month digital strategy pack
 
 **Organisation:** Living With Arthritis (Charity Commission England & Wales **1218461**)  
 **Founder / clinical lead:** Louis Maxwell, HCPC **PH128483**, CSP member, First Contact Practitioner  

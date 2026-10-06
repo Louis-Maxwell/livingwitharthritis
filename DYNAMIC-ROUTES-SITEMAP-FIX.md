@@ -109,7 +109,7 @@ This creates:
 Each city page should have:
 
 ```html
-<title>Arthritis Support in [City] | Living With Arthritis UK</title>
+<title>Arthritis Support in [City] | Living With Arthritis</title>
 <meta name="description" content="Find arthritis support, services, and resources in [City]. NHS-approved guidance for managing arthritis locally.">
 <script type="application/ld+json">
 {

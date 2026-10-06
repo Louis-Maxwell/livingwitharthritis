@@ -1,4 +1,4 @@
-# 🎯 Living With Arthritis UK - Comprehensive Site Audit Report
+# 🎯 Living With Arthritis - Comprehensive Site Audit Report
 
 **Date:** September 5, 2026  
 **Domain:** livingwitharthritis.org.uk  

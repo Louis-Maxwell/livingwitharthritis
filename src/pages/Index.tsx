@@ -1,5 +1,5 @@
 /**
- * Living With Arthritis UK — Homepage (customer-first)
+ * Living With Arthritis — Homepage (customer-first)
  *
  * Obsessive customer focus: people living with arthritis in the UK + carers.
  * Hierarchy: hero (one primary + one secondary action) → trust strip (real
@@ -84,11 +84,11 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis | Evidence-Based Health Guides</title>
         <meta
           name="description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free UK guides for joint pain, with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help.",
+            "Free UK arthritis guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help, with clinical-review status shown on each page. Living With Arthritis, charity 1218461.",
           )}
         />
         <meta
@@ -99,22 +99,22 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis | Evidence-Based Health Guides"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis | Evidence-Based Health Guides"
         />
         <meta
           property="og:description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free UK arthritis guidance with clinical-review status shown on each page. Registered charity 1218461.",
+            "Free UK arthritis guidance on exercise, diet, pain and PIP, with clinical-review status shown on each page. Living With Arthritis, registered charity 1218461.",
           )}
         />
         <meta
           name="twitter:description"
           content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) — independent of Arthritis UK. Free UK arthritis exercises, diet guidance and support.",
+            "Free UK arthritis exercises, diet guidance and support from Living With Arthritis (charity 1218461).",
           )}
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
@@ -123,13 +123,13 @@ function HomePage() {
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="People walking together — Living With Arthritis UK free joint-pain support"
+          content="People walking together — Living With Arthritis free joint-pain support"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta
           name="twitter:image:alt"
-          content="People walking together — Living With Arthritis UK free joint-pain support"
+          content="People walking together — Living With Arthritis free joint-pain support"
         />
       </Helmet>
 

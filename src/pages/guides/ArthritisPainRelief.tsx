@@ -74,7 +74,7 @@ const ArthritisPainRelief = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis Pain Relief – UK Guide" />
       <meta name="twitter:description" content="Practical, evidence-based tips that lower arthritis pain day to day." />

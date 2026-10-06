@@ -35,7 +35,7 @@ import { fileURLToPath } from 'node:url';
 const OUT = resolve('scripts/blog-head-data.json');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
 const SITE = 'https://livingwitharthritis.org.uk';
-const BRAND = 'Living With Arthritis UK';
+const BRAND = 'Living With Arthritis';
 const DEFAULT_OG_IMAGE = `${SITE}/og/landing-share.png`;
 
 export function clipText(text, max) {

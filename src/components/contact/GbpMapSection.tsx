@@ -34,7 +34,7 @@ export default function GbpMapSection({ embedUrl: override }: GbpMapSectionProps
           Where we serve
         </h2>
         <p className="text-muted-foreground text-sm md:text-base mb-6 max-w-2xl leading-relaxed">
-          Living With Arthritis UK (charity {CHARITY.number}) supports people
+          Living With Arthritis (charity {CHARITY.number}) supports people
           across Great Britain online and by phone/email. We do not publish a
           public street address while a registered correspondence address is
           pending.
@@ -69,7 +69,7 @@ export default function GbpMapSection({ embedUrl: override }: GbpMapSectionProps
             style={{ aspectRatio: "16 / 9" }}
           >
             <iframe
-              title="Living With Arthritis UK on Google Maps"
+              title="Living With Arthritis on Google Maps"
               src={embedUrl}
               width={800}
               height={450}

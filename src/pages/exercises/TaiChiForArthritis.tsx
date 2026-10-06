@@ -45,7 +45,7 @@ const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; bri
 const ukResources = [
   { name: "Tai Chi Union for Great Britain", url: "https://taichiunion.com/", desc: "UK governing body — searchable directory of accredited instructors." },
   { name: "Tai Chi for Health Institute (UK chapters)", url: "https://taichiforhealthinstitute.org/", desc: "Sun-style 'Tai Chi for Arthritis' programme — the form most often referenced in NICE-aligned trials." },
-  { name: "Versus Arthritis — Exercise advice", url: "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/", desc: "Free UK charity guidance on safe arthritis exercise, including tai chi." },
+  { name: "Arthritis UK (formerly Versus Arthritis) — Exercise advice", url: "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/", desc: "Free UK charity guidance on safe arthritis exercise, including tai chi." },
   { name: "UK healthcare — Tai chi", url: "https://www.nhs.uk/live-well/exercise/guide-to-tai-chi/", desc: "UK healthcare overview, cautions and how to find a class on the UK healthcare system Live Well site." },
 ];
 
@@ -68,7 +68,7 @@ const jsonLd = {
   name: "Tai Chi for Arthritis: A UK Guide",
   about: { "@type": "MedicalCondition", name: "Arthritis" },
   audience: { "@type": "PeopleAudience", geographicArea: { "@type": "Country", name: "United Kingdom" } },
-  publisher: { "@type": "Organization", name: "Living With Arthritis UK" },
+  publisher: { "@type": "Organization", name: "Living With Arthritis" },
 };
 
 const SITE = "https://livingwitharthritis.org.uk";
@@ -132,7 +132,7 @@ export default function TaiChiForArthritis() {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Tai Chi for Arthritis (UK Guide)"
-        description="UK guide to tai chi for arthritis. NICE-recommended, evidence-based routines for knee, hip, hand and back pain — plus free UK healthcare and Versus Arthritis resources."
+        description="UK guide to tai chi for arthritis. NICE-recommended, evidence-based routines for knee, hip, hand and back pain — plus free UK healthcare and Arthritis UK (formerly Versus Arthritis) resources."
         path="/exercises/tai-chi-for-arthritis"
         type="article"
         keywords="tai chi for arthritis, tai chi arthritis UK, NICE tai chi osteoarthritis, tai chi knee arthritis, tai chi hip arthritis, seated tai chi arthritis"

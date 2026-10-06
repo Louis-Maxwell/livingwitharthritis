@@ -1,8 +1,8 @@
 {
   "/donate": {
-    "title": "Donate to Living With Arthritis UK | Gift Aid",
-    "description": "Give to Living With Arthritis UK: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.",
-    "question": "How do I donate to Living With Arthritis UK?",
+    "title": "Donate to Living With Arthritis | Gift Aid",
+    "description": "Give to Living With Arthritis: your donation funds free arthritis exercises, diet guides and UK support. Gift Aid adds 25p for every £1 at no extra cost.",
+    "question": "How do I donate to Living With Arthritis?",
     "answer": "Give a one-off or monthly donation on this page to fund free UK arthritis exercises, diet guides and support. UK taxpayers can add Gift Aid. Living With Arthritis is a registered charity in England and Wales, no. 1218461 — a UK national charity providing remote UK support, independent of Arthritis UK. To give Zakat or Sadaqah, use the Palestine and Gaza rehabilitation appeal.",
     "breadcrumb": "Donate",
     "about": "Charitable donations",
@@ -618,7 +618,7 @@
     ]
   },
   "/guides/newly-diagnosed": {
-    "title": "Newly Diagnosed With Arthritis UK: First Steps Checklist",
+    "title": "Newly Diagnosed With Arthritis: UK First Steps Checklist",
     "description": "Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP.",
     "question": "What should I do after an arthritis diagnosis?",
     "answer": "Learn which type you have, keep gentle daily movement, write questions for your GP or rheumatology appointment, and track symptoms. Then explore pain relief, exercise, diet and benefits if daily living is limited. Educational guidance, not a diagnosis.",
@@ -760,7 +760,7 @@
     "faqs": [
       {
         "q": "Is Living With Arthritis the same as Arthritis UK?",
-        "a": "No — it is an independent UK charity (1218461), not Arthritis UK or Versus Arthritis."
+        "a": "No — it is an independent UK charity (1218461), not Arthritis UK (formerly Versus Arthritis)."
       },
       {
         "q": "Are the exercise and PIP tools free?",
@@ -841,7 +841,7 @@
     "title": "UK Disability Support for Arthritis | Guide",
     "description": "UK disability support for arthritis: PIP, Blue Badge, Access to Work grants, workplace adjustments and where to get application help.",
     "question": "What UK disability support is available for arthritis?",
-    "answer": "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Versus Arthritis helpline (0800 5200 520) guide applications.",
+    "answer": "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Arthritis UK (formerly Versus Arthritis) helpline (0800 5200 520) guide applications.",
     "updatedAt": "2026-07-01",
     "sources": [
       {
@@ -945,7 +945,7 @@
     "about": "Arthritis support in London",
     "breadcrumb": "Arthritis support in London",
     "question": "Where can I find arthritis support in London?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in London and the surrounding area. If you live in London and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, London is served by London Rheumatology, NHS trusts across all boroughs, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in London and the surrounding area. If you live in London and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, London is served by London Rheumatology, NHS trusts across all boroughs, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -954,7 +954,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in London?",
-        "a": "London usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'London strength and balance class' or 'London tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "London usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'London strength and balance class' or 'London tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in London?",
@@ -982,7 +982,7 @@
     "about": "Arthritis support in Birmingham",
     "breadcrumb": "Arthritis support in Birmingham",
     "question": "Where can I find arthritis support in Birmingham?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Birmingham and the surrounding area. If you live in Birmingham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Birmingham is served by University Hospitals Birmingham (Queen Elizabeth), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Birmingham and the surrounding area. If you live in Birmingham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Birmingham is served by University Hospitals Birmingham (Queen Elizabeth), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -991,7 +991,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Birmingham?",
-        "a": "Birmingham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Birmingham strength and balance class' or 'Birmingham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Birmingham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Birmingham strength and balance class' or 'Birmingham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Birmingham?",
@@ -1019,7 +1019,7 @@
     "about": "Arthritis support in Manchester",
     "breadcrumb": "Arthritis support in Manchester",
     "question": "Where can I find arthritis support in Manchester?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Manchester and the surrounding area. If you live in Manchester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Manchester is served by Manchester University NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Manchester and the surrounding area. If you live in Manchester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Manchester is served by Manchester University NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1028,7 +1028,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Manchester?",
-        "a": "Manchester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Manchester strength and balance class' or 'Manchester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Manchester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Manchester strength and balance class' or 'Manchester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Manchester?",
@@ -1056,7 +1056,7 @@
     "about": "Arthritis support in Leeds",
     "breadcrumb": "Arthritis support in Leeds",
     "question": "Where can I find arthritis support in Leeds?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Leeds and the surrounding area. If you live in Leeds and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Leeds is served by Leeds Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Leeds and the surrounding area. If you live in Leeds and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Leeds is served by Leeds Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1065,7 +1065,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Leeds?",
-        "a": "Leeds usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Leeds strength and balance class' or 'Leeds tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Leeds usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Leeds strength and balance class' or 'Leeds tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Leeds?",
@@ -1093,7 +1093,7 @@
     "about": "Arthritis support in Glasgow",
     "breadcrumb": "Arthritis support in Glasgow",
     "question": "Where can I find arthritis support in Glasgow?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Glasgow and the surrounding area. If you live in Glasgow and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Glasgow is served by NHS Greater Glasgow and Clyde, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Glasgow and the surrounding area. If you live in Glasgow and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Glasgow is served by NHS Greater Glasgow and Clyde, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1102,7 +1102,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Glasgow?",
-        "a": "Glasgow usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Glasgow strength and balance class' or 'Glasgow tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Glasgow usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Glasgow strength and balance class' or 'Glasgow tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Glasgow?",
@@ -1130,7 +1130,7 @@
     "about": "Arthritis support in Liverpool",
     "breadcrumb": "Arthritis support in Liverpool",
     "question": "Where can I find arthritis support in Liverpool?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Liverpool and the surrounding area. If you live in Liverpool and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Liverpool is served by Liverpool University Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Liverpool and the surrounding area. If you live in Liverpool and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Liverpool is served by Liverpool University Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1139,7 +1139,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Liverpool?",
-        "a": "Liverpool usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Liverpool strength and balance class' or 'Liverpool tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Liverpool usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Liverpool strength and balance class' or 'Liverpool tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Liverpool?",
@@ -1167,7 +1167,7 @@
     "about": "Arthritis support in Bristol",
     "breadcrumb": "Arthritis support in Bristol",
     "question": "Where can I find arthritis support in Bristol?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Bristol and the surrounding area. If you live in Bristol and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bristol is served by North Bristol NHS Trust (Southmead), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Bristol and the surrounding area. If you live in Bristol and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bristol is served by North Bristol NHS Trust (Southmead), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1176,7 +1176,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Bristol?",
-        "a": "Bristol usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Bristol strength and balance class' or 'Bristol tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Bristol usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Bristol strength and balance class' or 'Bristol tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Bristol?",
@@ -1204,7 +1204,7 @@
     "about": "Arthritis support in Sheffield",
     "breadcrumb": "Arthritis support in Sheffield",
     "question": "Where can I find arthritis support in Sheffield?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Sheffield and the surrounding area. If you live in Sheffield and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Sheffield is served by Sheffield Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Sheffield and the surrounding area. If you live in Sheffield and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Sheffield is served by Sheffield Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1213,7 +1213,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Sheffield?",
-        "a": "Sheffield usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Sheffield strength and balance class' or 'Sheffield tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Sheffield usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Sheffield strength and balance class' or 'Sheffield tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Sheffield?",
@@ -1241,7 +1241,7 @@
     "about": "Arthritis support in Edinburgh",
     "breadcrumb": "Arthritis support in Edinburgh",
     "question": "Where can I find arthritis support in Edinburgh?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Edinburgh and the surrounding area. If you live in Edinburgh and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Edinburgh is served by NHS Lothian, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Edinburgh and the surrounding area. If you live in Edinburgh and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Edinburgh is served by NHS Lothian, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1250,7 +1250,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Edinburgh?",
-        "a": "Edinburgh usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Edinburgh strength and balance class' or 'Edinburgh tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Edinburgh usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Edinburgh strength and balance class' or 'Edinburgh tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Edinburgh?",
@@ -1278,7 +1278,7 @@
     "about": "Arthritis support in Cardiff",
     "breadcrumb": "Arthritis support in Cardiff",
     "question": "Where can I find arthritis support in Cardiff?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Cardiff and the surrounding area. If you live in Cardiff and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Cardiff is served by Cardiff and Vale University Health Board, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Cardiff and the surrounding area. If you live in Cardiff and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Cardiff is served by Cardiff and Vale University Health Board, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1287,7 +1287,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Cardiff?",
-        "a": "Cardiff usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Cardiff strength and balance class' or 'Cardiff tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Cardiff usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Cardiff strength and balance class' or 'Cardiff tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Cardiff?",
@@ -1315,7 +1315,7 @@
     "about": "Arthritis support in Newcastle upon Tyne",
     "breadcrumb": "Arthritis support in Newcastle upon Tyne",
     "question": "Where can I find arthritis support in Newcastle upon Tyne?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Newcastle upon Tyne and the surrounding area. If you live in Newcastle upon Tyne and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Newcastle upon Tyne is served by Newcastle Hospitals NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Newcastle upon Tyne and the surrounding area. If you live in Newcastle upon Tyne and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Newcastle upon Tyne is served by Newcastle Hospitals NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1324,7 +1324,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Newcastle upon Tyne?",
-        "a": "Newcastle upon Tyne usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Newcastle upon Tyne strength and balance class' or 'Newcastle upon Tyne tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Newcastle upon Tyne usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Newcastle upon Tyne strength and balance class' or 'Newcastle upon Tyne tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Newcastle upon Tyne?",
@@ -1352,7 +1352,7 @@
     "about": "Arthritis support in Nottingham",
     "breadcrumb": "Arthritis support in Nottingham",
     "question": "Where can I find arthritis support in Nottingham?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Nottingham and the surrounding area. If you live in Nottingham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Nottingham is served by Nottingham University Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Nottingham and the surrounding area. If you live in Nottingham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Nottingham is served by Nottingham University Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1361,7 +1361,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Nottingham?",
-        "a": "Nottingham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Nottingham strength and balance class' or 'Nottingham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Nottingham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Nottingham strength and balance class' or 'Nottingham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Nottingham?",
@@ -1389,7 +1389,7 @@
     "about": "Arthritis support in Belfast",
     "breadcrumb": "Arthritis support in Belfast",
     "question": "Where can I find arthritis support in Belfast?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Belfast and the surrounding area. If you live in Belfast and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Belfast is served by Belfast Health and Social Care Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Belfast and the surrounding area. If you live in Belfast and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Belfast is served by Belfast Health and Social Care Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1398,7 +1398,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Belfast?",
-        "a": "Belfast usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Belfast strength and balance class' or 'Belfast tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Belfast usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Belfast strength and balance class' or 'Belfast tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Belfast?",
@@ -1426,7 +1426,7 @@
     "about": "Arthritis support in Leicester",
     "breadcrumb": "Arthritis support in Leicester",
     "question": "Where can I find arthritis support in Leicester?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Leicester and the surrounding area. If you live in Leicester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Leicester is served by University Hospitals of Leicester NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Leicester and the surrounding area. If you live in Leicester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Leicester is served by University Hospitals of Leicester NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1435,7 +1435,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Leicester?",
-        "a": "Leicester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Leicester strength and balance class' or 'Leicester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Leicester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Leicester strength and balance class' or 'Leicester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Leicester?",
@@ -1463,7 +1463,7 @@
     "about": "Arthritis support in Southampton",
     "breadcrumb": "Arthritis support in Southampton",
     "question": "Where can I find arthritis support in Southampton?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Southampton and the surrounding area. If you live in Southampton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Southampton is served by University Hospital Southampton NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Southampton and the surrounding area. If you live in Southampton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Southampton is served by University Hospital Southampton NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1472,7 +1472,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Southampton?",
-        "a": "Southampton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Southampton strength and balance class' or 'Southampton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Southampton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Southampton strength and balance class' or 'Southampton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Southampton?",
@@ -1500,7 +1500,7 @@
     "about": "Arthritis support in Portsmouth",
     "breadcrumb": "Arthritis support in Portsmouth",
     "question": "Where can I find arthritis support in Portsmouth?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Portsmouth and the surrounding area. If you live in Portsmouth and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Portsmouth is served by Portsmouth Hospitals University NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Portsmouth and the surrounding area. If you live in Portsmouth and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Portsmouth is served by Portsmouth Hospitals University NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1509,7 +1509,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Portsmouth?",
-        "a": "Portsmouth usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Portsmouth strength and balance class' or 'Portsmouth tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Portsmouth usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Portsmouth strength and balance class' or 'Portsmouth tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Portsmouth?",
@@ -1537,7 +1537,7 @@
     "about": "Arthritis support in Brighton",
     "breadcrumb": "Arthritis support in Brighton",
     "question": "Where can I find arthritis support in Brighton?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Brighton and the surrounding area. If you live in Brighton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Brighton is served by University Hospitals Sussex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Brighton and the surrounding area. If you live in Brighton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Brighton is served by University Hospitals Sussex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1546,7 +1546,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Brighton?",
-        "a": "Brighton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Brighton strength and balance class' or 'Brighton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Brighton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Brighton strength and balance class' or 'Brighton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Brighton?",
@@ -1574,7 +1574,7 @@
     "about": "Arthritis support in Coventry",
     "breadcrumb": "Arthritis support in Coventry",
     "question": "Where can I find arthritis support in Coventry?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Coventry and the surrounding area. If you live in Coventry and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Coventry is served by University Hospitals Coventry and Warwickshire, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Coventry and the surrounding area. If you live in Coventry and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Coventry is served by University Hospitals Coventry and Warwickshire, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1583,7 +1583,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Coventry?",
-        "a": "Coventry usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Coventry strength and balance class' or 'Coventry tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Coventry usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Coventry strength and balance class' or 'Coventry tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Coventry?",
@@ -1611,7 +1611,7 @@
     "about": "Arthritis support in Hull",
     "breadcrumb": "Arthritis support in Hull",
     "question": "Where can I find arthritis support in Hull?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Hull and the surrounding area. If you live in Hull and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Hull is served by Hull University Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Hull and the surrounding area. If you live in Hull and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Hull is served by Hull University Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1620,7 +1620,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Hull?",
-        "a": "Hull usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Hull strength and balance class' or 'Hull tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Hull usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Hull strength and balance class' or 'Hull tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Hull?",
@@ -1648,7 +1648,7 @@
     "about": "Arthritis support in Plymouth",
     "breadcrumb": "Arthritis support in Plymouth",
     "question": "Where can I find arthritis support in Plymouth?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Plymouth and the surrounding area. If you live in Plymouth and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Plymouth is served by University Hospitals Plymouth NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Plymouth and the surrounding area. If you live in Plymouth and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Plymouth is served by University Hospitals Plymouth NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1657,7 +1657,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Plymouth?",
-        "a": "Plymouth usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Plymouth strength and balance class' or 'Plymouth tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Plymouth usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Plymouth strength and balance class' or 'Plymouth tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Plymouth?",
@@ -1685,7 +1685,7 @@
     "about": "Arthritis support in Stoke-on-Trent",
     "breadcrumb": "Arthritis support in Stoke-on-Trent",
     "question": "Where can I find arthritis support in Stoke-on-Trent?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Stoke-on-Trent and the surrounding area. If you live in Stoke-on-Trent and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Stoke-on-Trent is served by University Hospitals of North Midlands NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Stoke-on-Trent and the surrounding area. If you live in Stoke-on-Trent and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Stoke-on-Trent is served by University Hospitals of North Midlands NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1694,7 +1694,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Stoke-on-Trent?",
-        "a": "Stoke-on-Trent usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Stoke-on-Trent strength and balance class' or 'Stoke-on-Trent tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Stoke-on-Trent usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Stoke-on-Trent strength and balance class' or 'Stoke-on-Trent tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Stoke-on-Trent?",
@@ -1722,7 +1722,7 @@
     "about": "Arthritis support in Wolverhampton",
     "breadcrumb": "Arthritis support in Wolverhampton",
     "question": "Where can I find arthritis support in Wolverhampton?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Wolverhampton and the surrounding area. If you live in Wolverhampton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Wolverhampton is served by Royal Wolverhampton NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Wolverhampton and the surrounding area. If you live in Wolverhampton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Wolverhampton is served by Royal Wolverhampton NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1731,7 +1731,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Wolverhampton?",
-        "a": "Wolverhampton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Wolverhampton strength and balance class' or 'Wolverhampton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Wolverhampton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Wolverhampton strength and balance class' or 'Wolverhampton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Wolverhampton?",
@@ -1759,7 +1759,7 @@
     "about": "Arthritis support in Derby",
     "breadcrumb": "Arthritis support in Derby",
     "question": "Where can I find arthritis support in Derby?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Derby and the surrounding area. If you live in Derby and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Derby is served by University Hospitals of Derby and Burton NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Derby and the surrounding area. If you live in Derby and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Derby is served by University Hospitals of Derby and Burton NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1768,7 +1768,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Derby?",
-        "a": "Derby usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Derby strength and balance class' or 'Derby tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Derby usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Derby strength and balance class' or 'Derby tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Derby?",
@@ -1796,7 +1796,7 @@
     "about": "Arthritis support in Swansea",
     "breadcrumb": "Arthritis support in Swansea",
     "question": "Where can I find arthritis support in Swansea?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Swansea and the surrounding area. If you live in Swansea and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Swansea is served by Swansea Bay University Health Board, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Swansea and the surrounding area. If you live in Swansea and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Swansea is served by Swansea Bay University Health Board, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1805,7 +1805,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Swansea?",
-        "a": "Swansea usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Swansea strength and balance class' or 'Swansea tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Swansea usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Swansea strength and balance class' or 'Swansea tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Swansea?",
@@ -1833,7 +1833,7 @@
     "about": "Arthritis support in Sunderland",
     "breadcrumb": "Arthritis support in Sunderland",
     "question": "Where can I find arthritis support in Sunderland?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Sunderland and the surrounding area. If you live in Sunderland and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Sunderland is served by South Tyneside and Sunderland NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Sunderland and the surrounding area. If you live in Sunderland and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Sunderland is served by South Tyneside and Sunderland NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1842,7 +1842,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Sunderland?",
-        "a": "Sunderland usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Sunderland strength and balance class' or 'Sunderland tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Sunderland usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Sunderland strength and balance class' or 'Sunderland tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Sunderland?",
@@ -1870,7 +1870,7 @@
     "about": "Arthritis support in Oxford",
     "breadcrumb": "Arthritis support in Oxford",
     "question": "Where can I find arthritis support in Oxford?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Oxford and the surrounding area. If you live in Oxford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Oxford is served by Oxford University Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Oxford and the surrounding area. If you live in Oxford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Oxford is served by Oxford University Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1879,7 +1879,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Oxford?",
-        "a": "Oxford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Oxford strength and balance class' or 'Oxford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Oxford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Oxford strength and balance class' or 'Oxford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Oxford?",
@@ -1907,7 +1907,7 @@
     "about": "Arthritis support in Cambridge",
     "breadcrumb": "Arthritis support in Cambridge",
     "question": "Where can I find arthritis support in Cambridge?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Cambridge and the surrounding area. If you live in Cambridge and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Cambridge is served by Cambridge University Hospitals NHS Trust (Addenbrooke's), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Cambridge and the surrounding area. If you live in Cambridge and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Cambridge is served by Cambridge University Hospitals NHS Trust (Addenbrooke's), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1916,7 +1916,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Cambridge?",
-        "a": "Cambridge usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Cambridge strength and balance class' or 'Cambridge tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Cambridge usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Cambridge strength and balance class' or 'Cambridge tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Cambridge?",
@@ -1944,7 +1944,7 @@
     "about": "Arthritis support in York",
     "breadcrumb": "Arthritis support in York",
     "question": "Where can I find arthritis support in York?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in York and the surrounding area. If you live in York and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, York is served by York and Scarborough Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in York and the surrounding area. If you live in York and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, York is served by York and Scarborough Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1953,7 +1953,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in York?",
-        "a": "York usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'York strength and balance class' or 'York tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "York usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'York strength and balance class' or 'York tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in York?",
@@ -1981,7 +1981,7 @@
     "about": "Arthritis support in Oswestry",
     "breadcrumb": "Arthritis support in Oswestry",
     "question": "Where can I find arthritis support in Oswestry?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Oswestry and the surrounding area. If you live in Oswestry and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Oswestry is served by Robert Jones and Agnes Hunt Orthopaedic Hospital (national centre), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Oswestry and the surrounding area. If you live in Oswestry and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Oswestry is served by Robert Jones and Agnes Hunt Orthopaedic Hospital (national centre), which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -1990,7 +1990,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Oswestry?",
-        "a": "Oswestry usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Oswestry strength and balance class' or 'Oswestry tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Oswestry usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Oswestry strength and balance class' or 'Oswestry tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Oswestry?",
@@ -2018,7 +2018,7 @@
     "about": "Arthritis support in Shrewsbury",
     "breadcrumb": "Arthritis support in Shrewsbury",
     "question": "Where can I find arthritis support in Shrewsbury?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Shrewsbury and the surrounding area. If you live in Shrewsbury and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Shrewsbury is served by Shrewsbury and Telford Hospital NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Shrewsbury and the surrounding area. If you live in Shrewsbury and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Shrewsbury is served by Shrewsbury and Telford Hospital NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2027,7 +2027,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Shrewsbury?",
-        "a": "Shrewsbury usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Shrewsbury strength and balance class' or 'Shrewsbury tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Shrewsbury usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Shrewsbury strength and balance class' or 'Shrewsbury tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Shrewsbury?",
@@ -2055,7 +2055,7 @@
     "about": "Arthritis support in Reading",
     "breadcrumb": "Arthritis support in Reading",
     "question": "Where can I find arthritis support in Reading?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Reading and the surrounding area. If you live in Reading and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Reading is served by Royal Berkshire NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Reading and the surrounding area. If you live in Reading and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Reading is served by Royal Berkshire NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2064,7 +2064,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Reading?",
-        "a": "Reading usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Reading strength and balance class' or 'Reading tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Reading usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Reading strength and balance class' or 'Reading tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Reading?",
@@ -2092,7 +2092,7 @@
     "about": "Arthritis support in Milton Keynes",
     "breadcrumb": "Arthritis support in Milton Keynes",
     "question": "Where can I find arthritis support in Milton Keynes?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Milton Keynes and the surrounding area. If you live in Milton Keynes and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Milton Keynes is served by Milton Keynes University Hospital, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Milton Keynes and the surrounding area. If you live in Milton Keynes and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Milton Keynes is served by Milton Keynes University Hospital, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2101,7 +2101,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Milton Keynes?",
-        "a": "Milton Keynes usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Milton Keynes strength and balance class' or 'Milton Keynes tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Milton Keynes usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Milton Keynes strength and balance class' or 'Milton Keynes tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Milton Keynes?",
@@ -2129,7 +2129,7 @@
     "about": "Arthritis support in Aberdeen",
     "breadcrumb": "Arthritis support in Aberdeen",
     "question": "Where can I find arthritis support in Aberdeen?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Aberdeen and the surrounding area. If you live in Aberdeen and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Aberdeen is served by NHS Grampian, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Aberdeen and the surrounding area. If you live in Aberdeen and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Aberdeen is served by NHS Grampian, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2138,7 +2138,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Aberdeen?",
-        "a": "Aberdeen usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Aberdeen strength and balance class' or 'Aberdeen tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Aberdeen usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Aberdeen strength and balance class' or 'Aberdeen tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Aberdeen?",
@@ -2166,7 +2166,7 @@
     "about": "Arthritis support in Dundee",
     "breadcrumb": "Arthritis support in Dundee",
     "question": "Where can I find arthritis support in Dundee?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Dundee and the surrounding area. If you live in Dundee and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Dundee is served by NHS Tayside, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Dundee and the surrounding area. If you live in Dundee and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Dundee is served by NHS Tayside, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2175,7 +2175,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Dundee?",
-        "a": "Dundee usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Dundee strength and balance class' or 'Dundee tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Dundee usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Dundee strength and balance class' or 'Dundee tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Dundee?",
@@ -2203,7 +2203,7 @@
     "about": "Arthritis support in Norwich",
     "breadcrumb": "Arthritis support in Norwich",
     "question": "Where can I find arthritis support in Norwich?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Norwich and the surrounding area. If you live in Norwich and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Norwich is served by Norfolk and Norwich University Hospitals, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Norwich and the surrounding area. If you live in Norwich and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Norwich is served by Norfolk and Norwich University Hospitals, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2212,7 +2212,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Norwich?",
-        "a": "Norwich usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Norwich strength and balance class' or 'Norwich tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Norwich usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Norwich strength and balance class' or 'Norwich tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Norwich?",
@@ -2240,7 +2240,7 @@
     "about": "Arthritis support in Exeter",
     "breadcrumb": "Arthritis support in Exeter",
     "question": "Where can I find arthritis support in Exeter?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Exeter and the surrounding area. If you live in Exeter and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Exeter is served by Royal Devon University Healthcare NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Exeter and the surrounding area. If you live in Exeter and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Exeter is served by Royal Devon University Healthcare NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2249,7 +2249,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Exeter?",
-        "a": "Exeter usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Exeter strength and balance class' or 'Exeter tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Exeter usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Exeter strength and balance class' or 'Exeter tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Exeter?",
@@ -2277,7 +2277,7 @@
     "about": "Arthritis support in Bournemouth",
     "breadcrumb": "Arthritis support in Bournemouth",
     "question": "Where can I find arthritis support in Bournemouth?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Bournemouth and the surrounding area. If you live in Bournemouth and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bournemouth is served by University Hospitals Dorset NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Bournemouth and the surrounding area. If you live in Bournemouth and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bournemouth is served by University Hospitals Dorset NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2286,7 +2286,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Bournemouth?",
-        "a": "Bournemouth usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Bournemouth strength and balance class' or 'Bournemouth tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Bournemouth usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Bournemouth strength and balance class' or 'Bournemouth tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Bournemouth?",
@@ -2314,7 +2314,7 @@
     "about": "Arthritis support in Bradford",
     "breadcrumb": "Arthritis support in Bradford",
     "question": "Where can I find arthritis support in Bradford?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Bradford and the surrounding area. If you live in Bradford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bradford is served by Bradford Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Bradford and the surrounding area. If you live in Bradford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bradford is served by Bradford Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2323,7 +2323,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Bradford?",
-        "a": "Bradford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Bradford strength and balance class' or 'Bradford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Bradford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Bradford strength and balance class' or 'Bradford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Bradford?",
@@ -2351,7 +2351,7 @@
     "about": "Arthritis support in Bolton",
     "breadcrumb": "Arthritis support in Bolton",
     "question": "Where can I find arthritis support in Bolton?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Bolton and the surrounding area. If you live in Bolton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bolton is served by Bolton NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Bolton and the surrounding area. If you live in Bolton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bolton is served by Bolton NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2360,7 +2360,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Bolton?",
-        "a": "Bolton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Bolton strength and balance class' or 'Bolton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Bolton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Bolton strength and balance class' or 'Bolton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Bolton?",
@@ -2388,7 +2388,7 @@
     "about": "Arthritis support in Stockport",
     "breadcrumb": "Arthritis support in Stockport",
     "question": "Where can I find arthritis support in Stockport?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Stockport and the surrounding area. If you live in Stockport and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Stockport is served by Stockport NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Stockport and the surrounding area. If you live in Stockport and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Stockport is served by Stockport NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2397,7 +2397,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Stockport?",
-        "a": "Stockport usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Stockport strength and balance class' or 'Stockport tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Stockport usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Stockport strength and balance class' or 'Stockport tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Stockport?",
@@ -2425,7 +2425,7 @@
     "about": "Arthritis support in Preston",
     "breadcrumb": "Arthritis support in Preston",
     "question": "Where can I find arthritis support in Preston?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Preston and the surrounding area. If you live in Preston and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Preston is served by Lancashire Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Preston and the surrounding area. If you live in Preston and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Preston is served by Lancashire Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2434,7 +2434,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Preston?",
-        "a": "Preston usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Preston strength and balance class' or 'Preston tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Preston usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Preston strength and balance class' or 'Preston tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Preston?",
@@ -2462,7 +2462,7 @@
     "about": "Arthritis support in Blackpool",
     "breadcrumb": "Arthritis support in Blackpool",
     "question": "Where can I find arthritis support in Blackpool?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Blackpool and the surrounding area. If you live in Blackpool and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Blackpool is served by Blackpool Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Blackpool and the surrounding area. If you live in Blackpool and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Blackpool is served by Blackpool Teaching Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2471,7 +2471,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Blackpool?",
-        "a": "Blackpool usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Blackpool strength and balance class' or 'Blackpool tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Blackpool usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Blackpool strength and balance class' or 'Blackpool tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Blackpool?",
@@ -2499,7 +2499,7 @@
     "about": "Arthritis support in Blackburn",
     "breadcrumb": "Arthritis support in Blackburn",
     "question": "Where can I find arthritis support in Blackburn?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Blackburn and the surrounding area. If you live in Blackburn and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Blackburn is served by East Lancashire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Blackburn and the surrounding area. If you live in Blackburn and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Blackburn is served by East Lancashire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2508,7 +2508,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Blackburn?",
-        "a": "Blackburn usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Blackburn strength and balance class' or 'Blackburn tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Blackburn usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Blackburn strength and balance class' or 'Blackburn tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Blackburn?",
@@ -2536,7 +2536,7 @@
     "about": "Arthritis support in Lincoln",
     "breadcrumb": "Arthritis support in Lincoln",
     "question": "Where can I find arthritis support in Lincoln?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Lincoln and the surrounding area. If you live in Lincoln and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Lincoln is served by United Lincolnshire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Lincoln and the surrounding area. If you live in Lincoln and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Lincoln is served by United Lincolnshire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2545,7 +2545,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Lincoln?",
-        "a": "Lincoln usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Lincoln strength and balance class' or 'Lincoln tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Lincoln usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Lincoln strength and balance class' or 'Lincoln tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Lincoln?",
@@ -2573,7 +2573,7 @@
     "about": "Arthritis support in Peterborough",
     "breadcrumb": "Arthritis support in Peterborough",
     "question": "Where can I find arthritis support in Peterborough?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Peterborough and the surrounding area. If you live in Peterborough and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Peterborough is served by North West Anglia NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Peterborough and the surrounding area. If you live in Peterborough and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Peterborough is served by North West Anglia NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2582,7 +2582,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Peterborough?",
-        "a": "Peterborough usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Peterborough strength and balance class' or 'Peterborough tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Peterborough usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Peterborough strength and balance class' or 'Peterborough tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Peterborough?",
@@ -2610,7 +2610,7 @@
     "about": "Arthritis support in Northampton",
     "breadcrumb": "Arthritis support in Northampton",
     "question": "Where can I find arthritis support in Northampton?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Northampton and the surrounding area. If you live in Northampton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Northampton is served by Northampton General Hospital NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Northampton and the surrounding area. If you live in Northampton and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Northampton is served by Northampton General Hospital NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2619,7 +2619,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Northampton?",
-        "a": "Northampton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Northampton strength and balance class' or 'Northampton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Northampton usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Northampton strength and balance class' or 'Northampton tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Northampton?",
@@ -2647,7 +2647,7 @@
     "about": "Arthritis support in Ipswich",
     "breadcrumb": "Arthritis support in Ipswich",
     "question": "Where can I find arthritis support in Ipswich?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Ipswich and the surrounding area. If you live in Ipswich and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Ipswich is served by East Suffolk and North Essex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Ipswich and the surrounding area. If you live in Ipswich and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Ipswich is served by East Suffolk and North Essex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2656,7 +2656,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Ipswich?",
-        "a": "Ipswich usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Ipswich strength and balance class' or 'Ipswich tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Ipswich usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Ipswich strength and balance class' or 'Ipswich tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Ipswich?",
@@ -2684,7 +2684,7 @@
     "about": "Arthritis support in Colchester",
     "breadcrumb": "Arthritis support in Colchester",
     "question": "Where can I find arthritis support in Colchester?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Colchester and the surrounding area. If you live in Colchester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Colchester is served by East Suffolk and North Essex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Colchester and the surrounding area. If you live in Colchester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Colchester is served by East Suffolk and North Essex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2693,7 +2693,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Colchester?",
-        "a": "Colchester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Colchester strength and balance class' or 'Colchester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Colchester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Colchester strength and balance class' or 'Colchester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Colchester?",
@@ -2721,7 +2721,7 @@
     "about": "Arthritis support in Southend-on-Sea",
     "breadcrumb": "Arthritis support in Southend-on-Sea",
     "question": "Where can I find arthritis support in Southend-on-Sea?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Southend-on-Sea and the surrounding area. If you live in Southend-on-Sea and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Southend-on-Sea is served by Mid and South Essex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Southend-on-Sea and the surrounding area. If you live in Southend-on-Sea and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Southend-on-Sea is served by Mid and South Essex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2730,7 +2730,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Southend-on-Sea?",
-        "a": "Southend-on-Sea usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Southend-on-Sea strength and balance class' or 'Southend-on-Sea tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Southend-on-Sea usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Southend-on-Sea strength and balance class' or 'Southend-on-Sea tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Southend-on-Sea?",
@@ -2758,7 +2758,7 @@
     "about": "Arthritis support in Bedford",
     "breadcrumb": "Arthritis support in Bedford",
     "question": "Where can I find arthritis support in Bedford?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Bedford and the surrounding area. If you live in Bedford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bedford is served by Bedfordshire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Bedford and the surrounding area. If you live in Bedford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bedford is served by Bedfordshire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2767,7 +2767,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Bedford?",
-        "a": "Bedford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Bedford strength and balance class' or 'Bedford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Bedford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Bedford strength and balance class' or 'Bedford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Bedford?",
@@ -2795,7 +2795,7 @@
     "about": "Arthritis support in Swindon",
     "breadcrumb": "Arthritis support in Swindon",
     "question": "Where can I find arthritis support in Swindon?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Swindon and the surrounding area. If you live in Swindon and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Swindon is served by Great Western Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Swindon and the surrounding area. If you live in Swindon and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Swindon is served by Great Western Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2804,7 +2804,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Swindon?",
-        "a": "Swindon usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Swindon strength and balance class' or 'Swindon tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Swindon usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Swindon strength and balance class' or 'Swindon tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Swindon?",
@@ -2832,7 +2832,7 @@
     "about": "Arthritis support in Cheltenham",
     "breadcrumb": "Arthritis support in Cheltenham",
     "question": "Where can I find arthritis support in Cheltenham?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Cheltenham and the surrounding area. If you live in Cheltenham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Cheltenham is served by Gloucestershire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Cheltenham and the surrounding area. If you live in Cheltenham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Cheltenham is served by Gloucestershire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2841,7 +2841,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Cheltenham?",
-        "a": "Cheltenham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Cheltenham strength and balance class' or 'Cheltenham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Cheltenham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Cheltenham strength and balance class' or 'Cheltenham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Cheltenham?",
@@ -2869,7 +2869,7 @@
     "about": "Arthritis support in Worcester",
     "breadcrumb": "Arthritis support in Worcester",
     "question": "Where can I find arthritis support in Worcester?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Worcester and the surrounding area. If you live in Worcester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Worcester is served by Worcestershire Acute Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Worcester and the surrounding area. If you live in Worcester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Worcester is served by Worcestershire Acute Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2878,7 +2878,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Worcester?",
-        "a": "Worcester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Worcester strength and balance class' or 'Worcester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Worcester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Worcester strength and balance class' or 'Worcester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Worcester?",
@@ -2906,7 +2906,7 @@
     "about": "Arthritis support in Bath",
     "breadcrumb": "Arthritis support in Bath",
     "question": "Where can I find arthritis support in Bath?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Bath and the surrounding area. If you live in Bath and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bath is served by Royal United Hospitals Bath NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Bath and the surrounding area. If you live in Bath and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Bath is served by Royal United Hospitals Bath NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2915,7 +2915,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Bath?",
-        "a": "Bath usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Bath strength and balance class' or 'Bath tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Bath usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Bath strength and balance class' or 'Bath tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Bath?",
@@ -2943,7 +2943,7 @@
     "about": "Arthritis support in Winchester",
     "breadcrumb": "Arthritis support in Winchester",
     "question": "Where can I find arthritis support in Winchester?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Winchester and the surrounding area. If you live in Winchester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Winchester is served by Hampshire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Winchester and the surrounding area. If you live in Winchester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Winchester is served by Hampshire Hospitals NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2952,7 +2952,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Winchester?",
-        "a": "Winchester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Winchester strength and balance class' or 'Winchester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Winchester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Winchester strength and balance class' or 'Winchester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Winchester?",
@@ -2980,7 +2980,7 @@
     "about": "Arthritis support in Chichester",
     "breadcrumb": "Arthritis support in Chichester",
     "question": "Where can I find arthritis support in Chichester?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Chichester and the surrounding area. If you live in Chichester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Chichester is served by University Hospitals Sussex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Chichester and the surrounding area. If you live in Chichester and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Chichester is served by University Hospitals Sussex NHS Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -2989,7 +2989,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Chichester?",
-        "a": "Chichester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Chichester strength and balance class' or 'Chichester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Chichester usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Chichester strength and balance class' or 'Chichester tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Chichester?",
@@ -3017,7 +3017,7 @@
     "about": "Arthritis support in Guildford",
     "breadcrumb": "Arthritis support in Guildford",
     "question": "Where can I find arthritis support in Guildford?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Guildford and the surrounding area. If you live in Guildford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Guildford is served by Royal Surrey NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Guildford and the surrounding area. If you live in Guildford and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Guildford is served by Royal Surrey NHS Foundation Trust, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -3026,7 +3026,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Guildford?",
-        "a": "Guildford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Guildford strength and balance class' or 'Guildford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Guildford usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Guildford strength and balance class' or 'Guildford tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Guildford?",
@@ -3054,7 +3054,7 @@
     "about": "Arthritis support in Stirling",
     "breadcrumb": "Arthritis support in Stirling",
     "question": "Where can I find arthritis support in Stirling?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Stirling and the surrounding area. If you live in Stirling and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Stirling is served by NHS Forth Valley, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Stirling and the surrounding area. If you live in Stirling and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Stirling is served by NHS Forth Valley, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -3063,7 +3063,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Stirling?",
-        "a": "Stirling usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Stirling strength and balance class' or 'Stirling tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Stirling usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Stirling strength and balance class' or 'Stirling tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Stirling?",
@@ -3091,7 +3091,7 @@
     "about": "Arthritis support in Inverness",
     "breadcrumb": "Arthritis support in Inverness",
     "question": "Where can I find arthritis support in Inverness?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Inverness and the surrounding area. If you live in Inverness and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Inverness is served by NHS Highland, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Inverness and the surrounding area. If you live in Inverness and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Inverness is served by NHS Highland, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -3100,7 +3100,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Inverness?",
-        "a": "Inverness usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Inverness strength and balance class' or 'Inverness tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Inverness usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Inverness strength and balance class' or 'Inverness tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Inverness?",
@@ -3128,7 +3128,7 @@
     "about": "Arthritis support in Wrexham",
     "breadcrumb": "Arthritis support in Wrexham",
     "question": "Where can I find arthritis support in Wrexham?",
-    "answer": "Living With Arthritis UK is a national charity supporting people with arthritis across the UK, including those in Wrexham and the surrounding area. If you live in Wrexham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Wrexham is served by Betsi Cadwaladr University Health Board, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
+    "answer": "Living With Arthritis is a national charity supporting people with arthritis across the UK, including those in Wrexham and the surrounding area. If you live in Wrexham and are managing joint pain, our free, NICE-aligned guides on exercise, anti-inflammatory diet, pain relief and NHS self-referral routes are available online. For local NHS care, Wrexham is served by Betsi Cadwaladr University Health Board, which provides rheumatology and musculoskeletal (MSK) services — you can usually access physiotherapy through NHS self-referral without a GP appointment.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -3137,7 +3137,7 @@
       },
       {
         "q": "Are there free arthritis exercise classes in Wrexham?",
-        "a": "Wrexham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Versus Arthritis groups. Search 'Wrexham strength and balance class' or 'Wrexham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
+        "a": "Wrexham usually has options through NHS falls-prevention programmes, local council leisure schemes, Age UK, and Arthritis UK (formerly Versus Arthritis) groups. Search 'Wrexham strength and balance class' or 'Wrexham tai chi for arthritis' — your GP practice or local library often maintain lists. Our online Tai Chi hub is free and joint-friendly if travelling is difficult."
       },
       {
         "q": "How do I claim PIP for arthritis if I live in Wrexham?",
@@ -6223,7 +6223,7 @@
     "title": "Arthritis Glossary: 110+ UK Terms Explained",
     "description": "Free UK glossary of arthritis, MSK and rheumatology terms — DMARDs, biologics, ESR, CRP, DAS28 and more, in plain English.",
     "question": "What arthritis and rheumatology terms should I know?",
-    "answer": "Living With Arthritis UK's plain-English glossary covers 110+ terms across rheumatology, musculoskeletal medicine, treatment, imaging, benefits and self-management — from DMARDs and biologics through DAS28, HLA-B27, sarcopenia and frailty. Every term is medically reviewed and linked to related conditions and guides so you can quickly understand your diagnosis, appointment letters or research articles.",
+    "answer": "Living With Arthritis's plain-English glossary covers 110+ terms across rheumatology, musculoskeletal medicine, treatment, imaging, benefits and self-management — from DMARDs and biologics through DAS28, HLA-B27, sarcopenia and frailty. Every term is medically reviewed and linked to related conditions and guides so you can quickly understand your diagnosis, appointment letters or research articles.",
     "updatedAt": "2026-07-04"
   },
   "/pets/arthritis-in-dogs": {
@@ -6291,7 +6291,7 @@
     ]
   },
   "/pets/arthritis-in-horses": {
-    "title": "Arthritis in Horses: Managing Joints for a Longer Ridden Life | Living With Arthritis UK",
+    "title": "Arthritis in Horses: Managing Joints for a Longer Ridden Life | Living With Arthritis",
     "description": "Degenerative joint disease is the leading cause of early retirement in UK horses. Early management — footcare, surfaces, warm-up and vet support — keeps hors...",
     "breadcrumb": "Arthritis in Horses: Managing Joints for a Longer Ridden Life",
     "question": "Can an arthritic horse still be ridden?",
@@ -6407,7 +6407,7 @@
     ]
   },
   "/pets/home-adaptations-for-arthritic-pets": {
-    "title": "Home Adaptations for Arthritic Pets: 15 Cheap Changes That Work | Living With Arthritis UK",
+    "title": "Home Adaptations for Arthritic Pets: 15 Cheap Changes That Work | Living With Arthritis",
     "description": "Ramps, rugs, raised bowls and warm beds — small changes around the home dramatically reduce daily joint strain for arthritic dogs and cats.",
     "breadcrumb": "Home Adaptations for Arthritic Pets: 15 Cheap Changes That Work",
     "question": "What single change helps most?",
@@ -6466,7 +6466,7 @@
     "title": "Pets & Arthritis Hub: Dogs, Cats, Horses, Llamas",
     "description": "Free UK guides to arthritis in dogs, cats, horses, llamas and alpacas — signs, vet treatments, weight, exercise and home adaptations.",
     "question": "Can pets get arthritis?",
-    "answer": "Yes — arthritis is extremely common in pets. Around 80% of dogs over 8 and up to 90% of cats over 12 show arthritic changes, and it's the leading cause of early retirement in UK horses. Living With Arthritis UK's pet hub covers signs, veterinary treatments (including Librela for dogs and Solensia for cats), weight management, joint-friendly exercise and home adaptations for dogs, cats, horses, llamas and alpacas. One rule above all: never give pets human painkillers — paracetamol and ibuprofen are toxic to dogs and cats.",
+    "answer": "Yes — arthritis is extremely common in pets. Around 80% of dogs over 8 and up to 90% of cats over 12 show arthritic changes, and it's the leading cause of early retirement in UK horses. Living With Arthritis's pet hub covers signs, veterinary treatments (including Librela for dogs and Solensia for cats), weight management, joint-friendly exercise and home adaptations for dogs, cats, horses, llamas and alpacas. One rule above all: never give pets human painkillers — paracetamol and ibuprofen are toxic to dogs and cats.",
     "updatedAt": "2026-07-04",
     "faqs": [
       {
@@ -6490,25 +6490,25 @@
     ]
   },
   "/authors": {
-    "title": "Authors and editorial team | Living With Arthritis UK",
-    "description": "Who writes Living With Arthritis UK guides, led by Louis Maxwell, First Contact Practitioner (HCPC PH128483). Registered charity 1218461.",
-    "question": "Who writes Living With Arthritis UK content?",
-    "answer": "Living With Arthritis UK content is written by our editorial team and led clinically by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the HCPC (PH128483) and a CSP member. Every clinical page is reviewed against NHS and NICE guidance before publication.",
+    "title": "Authors and editorial team | Living With Arthritis",
+    "description": "Who writes Living With Arthritis guides, led by Louis Maxwell, First Contact Practitioner (HCPC PH128483). Registered charity 1218461.",
+    "question": "Who writes Living With Arthritis content?",
+    "answer": "Living With Arthritis content is written by our editorial team and led clinically by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the HCPC (PH128483) and a CSP member. Every clinical page is reviewed against NHS and NICE guidance before publication.",
     "breadcrumb": "Authors",
     "updatedAt": "2026-08-29"
   },
   "/reviewers": {
-    "title": "Medical reviewers | Living With Arthritis UK",
+    "title": "Medical reviewers | Living With Arthritis",
     "description": "The registered clinicians who review our arthritis guides, including Louis Maxwell, First Contact Practitioner (HCPC PH128483). Registered charity 1218461.",
-    "question": "Who medically reviews Living With Arthritis UK content?",
+    "question": "Who medically reviews Living With Arthritis content?",
     "answer": "Our clinical content is reviewed by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the Health and Care Professions Council (HCPC PH128483) and a member of the Chartered Society of Physiotherapy. Reviews check each page against current NHS and NICE guidance.",
     "breadcrumb": "Medical reviewers",
     "updatedAt": "2026-08-29"
   },
   "/about": {
-    "title": "About Living With Arthritis UK | Registered charity 1218461 · Free guides",
-    "description": "Who we are: Living With Arthritis UK (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK.",
-    "question": "Who is Living With Arthritis UK?",
+    "title": "About Living With Arthritis | Registered charity 1218461 · Free guides",
+    "description": "Who we are: Living With Arthritis (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK.",
+    "question": "Who is Living With Arthritis?",
     "answer": "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).",
     "breadcrumb": "About us"
   },
@@ -6534,10 +6534,10 @@
     "breadcrumb": "Benefits and PIP guide"
   },
   "/": {
-    "title": "Living With Arthritis UK | Evidence-Based Health Guides",
-    "description": "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help.",
-    "question": "What is Living With Arthritis UK?",
-    "answer": "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
+    "title": "Living With Arthritis | Evidence-Based Health Guides",
+    "description": "Free, clinically reviewed UK arthritis guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help. Living With Arthritis is an independent charity (no. 1218461).",
+    "question": "What is Living With Arthritis?",
+    "answer": "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
     "updatedAt": "2026-09-20"
   },
   "/arthritis-waiting-list-help": {
@@ -6547,14 +6547,14 @@
     "answer": "Keep gently active, ask about physiotherapy self-referral in your area, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary by NHS trust."
   },
   "/guides": {
-    "title": "Arthritis Guides Hub | Living With Arthritis UK",
+    "title": "Arthritis Guides Hub | Living With Arthritis",
     "description": "Browse clinician-written UK arthritis guides: PIP and benefits, exercise, diet, pain relief, newly diagnosed steps, and navigating NHS care.",
     "question": "Where can I find UK arthritis guides?",
-    "answer": "The Living With Arthritis UK guides hub collects practical pages on PIP and benefits, exercise, diet, pain relief and NHS care. Each guide is written for people in the United Kingdom and reviewed against current clinical guidance.",
+    "answer": "The Living With Arthritis guides hub collects practical pages on PIP and benefits, exercise, diet, pain relief and NHS care. Each guide is written for people in the United Kingdom and reviewed against current clinical guidance.",
     "breadcrumb": "Guides"
   },
   "/benefits-pip": {
-    "title": "Benefits & PIP for Arthritis UK | Start Your Claim Prep",
+    "title": "Benefits & PIP for Arthritis (UK) | Start Your Claim Prep",
     "description": "Arthritis affecting dressing, cooking or walking? Start here for UK PIP and benefits: full guide, evidence diary, work rights and next-step links.",
     "question": "Where do I start with PIP for arthritis?",
     "answer": "PIP looks at how arthritis affects daily living and mobility, not only your diagnosis name. Start with our full PIP guide, keep an evidence diary, and use Citizens Advice or a welfare rights adviser for form help. Educational guidance, not benefits advice.",
@@ -6562,14 +6562,14 @@
     "updatedAt": "2026-09-20"
   },
   "/search": {
-    "title": "Search Arthritis Guides & Articles | Living With Arthritis UK",
-    "description": "Search Living With Arthritis UK blogs and hubs. Filter by topic and article length to find PIP, exercise, diet and condition guidance.",
-    "question": "How do I search Living With Arthritis UK?",
+    "title": "Search Arthritis Guides & Articles | Living With Arthritis",
+    "description": "Search Living With Arthritis blogs and hubs. Filter by topic and article length to find PIP, exercise, diet and condition guidance.",
+    "question": "How do I search Living With Arthritis?",
     "answer": "Use the site search page to filter blogs and hub pages by keyword, topic and approximate word count. Results update in your browser without needing an account.",
     "breadcrumb": "Search"
   },
   "/blog/working-with-arthritis-uk-rights": {
-    "title": "Working with Arthritis UK Rights | Equality Act & Access to Work",
+    "title": "Working with Arthritis: UK Rights | Equality Act & Access to Work",
     "description": "UK workplace rights for arthritis: Equality Act reasonable adjustments, Access to Work grants, and practical steps to talk to your employer.",
     "question": "What workplace rights do people with arthritis have in the UK?",
     "answer": "Arthritis can count as a disability under the Equality Act 2010 when effects are substantial and long-term, which can trigger reasonable adjustments. Access to Work may fund equipment or support. Speak to your employer or Acas for next steps."
@@ -6601,7 +6601,7 @@
     "about": "Arthritis exercise"
   },
   "/diet/mediterranean-diet-for-arthritis": {
-    "title": "Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis UK",
+    "title": "Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis",
     "description": "What the evidence shows about the Mediterranean diet and arthritis pain, plus a practical UK shopping list and a simple 7-day meal plan. Educational guidance, not a personal prescription.",
     "question": "Does the Mediterranean diet help arthritis?",
     "answer": "Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. Educational nutrition guidance, not a personal diet prescription.",
@@ -6638,14 +6638,14 @@
     "title": "UK Arthritis Support Directory | Living With Arthritis",
     "description": "Find arthritis support, rheumatology services and local help in UK cities. Free directory of clinics, groups and physiotherapy routes.",
     "question": "Where can I find arthritis support in my UK city?",
-    "answer": "Use the Living With Arthritis UK city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.",
+    "answer": "Use the Living With Arthritis city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.",
     "updatedAt": "2026-09-19",
-    "bodyHtml": "<h2>Arthritis support across the UK</h2>\n<p>This directory helps people living with arthritis find rheumatology services, local support groups and city-level guidance across England, Scotland, Wales and Northern Ireland. Living With Arthritis UK (charity 1218461) lists live city hubs with NHS trust context, waiting-list help and links into condition, exercise and diet guides.</p>\n<p>Choose your city from the directory to see tailored information. Unknown city aliases such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub so Google and visitors are not left on empty shells.</p>\n<h2>What each city page covers</h2>\n<ul>\n<li>Local NHS / health-board context for rheumatology and MSK pathways</li>\n<li>Links to osteoarthritis, rheumatoid arthritis and related condition guides</li>\n<li>Routes into exercises, diet, benefits and the Help &amp; Support chat</li>\n<li>Waiting-list and self-referral pointers where relevant</li>\n</ul>\n<h2>Related hubs</h2>\n<p>If you need movement or food guidance first, start at the <a href=\"/exercises\">exercise hub</a>, <a href=\"/diet\">diet hub</a>, or <a href=\"/blog\">arthritis blog</a>. For national benefits questions, see <a href=\"/guides/benefits-pip\">Benefits &amp; PIP</a>.</p>",
+    "bodyHtml": "<h2>Arthritis support across the UK</h2>\n<p>This directory helps people living with arthritis find rheumatology services, local support groups and city-level guidance across England, Scotland, Wales and Northern Ireland. Living With Arthritis (charity 1218461) lists live city hubs with NHS trust context, waiting-list help and links into condition, exercise and diet guides.</p>\n<p>Choose your city from the directory to see tailored information. Unknown city aliases such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub so Google and visitors are not left on empty shells.</p>\n<h2>What each city page covers</h2>\n<ul>\n<li>Local NHS / health-board context for rheumatology and MSK pathways</li>\n<li>Links to osteoarthritis, rheumatoid arthritis and related condition guides</li>\n<li>Routes into exercises, diet, benefits and the Help &amp; Support chat</li>\n<li>Waiting-list and self-referral pointers where relevant</li>\n</ul>\n<h2>Related hubs</h2>\n<p>If you need movement or food guidance first, start at the <a href=\"/exercises\">exercise hub</a>, <a href=\"/diet\">diet hub</a>, or <a href=\"/blog\">arthritis blog</a>. For national benefits questions, see <a href=\"/guides/benefits-pip\">Benefits &amp; PIP</a>.</p>",
     "breadcrumb": "Arthritis support",
     "about": "UK arthritis support"
   },
   "/blog/category/exercise": {
-    "title": "Arthritis Exercise Articles & Guides | Living With Arthritis UK",
+    "title": "Arthritis Exercise Articles & Guides | Living With Arthritis",
     "description": "Evidence-based articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement for UK patients.",
     "question": "Where can I find arthritis exercise articles?",
     "answer": "This blog category collects UK guides on safe arthritis exercise, from walking and swimming to strength and flare pacing.",
@@ -6655,7 +6655,7 @@
     "about": "Arthritis exercise"
   },
   "/conditions/ankylosing-spondylitis/exercises": {
-    "title": "Best Exercises for Ankylosing Spondylitis | Living With Arthritis UK",
+    "title": "Best Exercises for Ankylosing Spondylitis | Living With Arthritis",
     "description": "Safe UK physio-aligned exercises for ankylosing spondylitis: daily spinal mobility, swimming and pacing tips.",
     "question": "What are the best exercises for ankylosing spondylitis?",
     "answer": "Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.",
@@ -6665,7 +6665,7 @@
     "about": "Ankylosing spondylitis"
   },
   "/supplements/turmeric": {
-    "title": "Is Turmeric Good for Arthritis? UK Curcumin Guide | Living With Arthritis UK",
+    "title": "Is Turmeric Good for Arthritis? UK Curcumin Guide | Living With Arthritis",
     "description": "Honest UK guide to turmeric and curcumin for arthritis: the evidence, the right dose (around 1,000 mg/day), why black pepper matters for absorption, side effects and interactions.",
     "question": "Is turmeric good for arthritis?",
     "answer": "Trials of curcumin (around 1,000 mg/day for 8–12 weeks) show modest reductions in knee osteoarthritis pain for some people. Cooking with turmeric powder alone rarely matches trial doses. Check interactions with your GP or pharmacist. Educational guidance, not a prescription.",
@@ -6703,7 +6703,7 @@
     ]
   },
   "/guides/understanding-pain": {
-    "title": "Understanding Pain Types | Living With Arthritis UK",
+    "title": "Understanding Pain Types | Living With Arthritis",
     "description": "Plain-English guide to inflammatory vs mechanical pain, focal vs systemic patterns, fibromyalgia-type pain, acute vs chronic, and neuropathic symptoms — for people with arthritis and carers in the UK.",
     "question": "What are the main types of pain?",
     "answer": "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
@@ -6718,7 +6718,7 @@
         "url": "https://www.nice.org.uk/guidance/ng193"
       },
       {
-        "name": "Versus Arthritis: Pain",
+        "name": "Arthritis UK (formerly Versus Arthritis): Pain",
         "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/"
       }
     ]

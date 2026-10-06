@@ -21,7 +21,7 @@ const Footer = lazyWithRetry(() => import("@/components/Footer"));
 const DIET_GUIDE_FAQS = [
   { question: "What is an anti-inflammatory diet for arthritis in the UK?", answer: "An anti-inflammatory diet for arthritis is essentially a Mediterranean-style pattern: plenty of vegetables, fruit, wholegrains, extra virgin olive oil, oily fish, nuts, pulses and herbs, with less ultra-processed food, sugary drinks and excess red or processed meat. NHS and UK charity guidance support this pattern for general health; it may help some people with joint symptoms but does not replace prescribed treatment." },
   { question: "What is the best arthritis diet advice in the UK?", answer: "The strongest evidence points to a Mediterranean / anti-inflammatory pattern plus, for knee osteoarthritis, gradual weight loss where appropriate (often discussed as around 5–10% of body weight with a clinician). Focus on oily fish twice weekly, olive oil, colourful plants and limiting ultra-processed foods — not miracle single foods." },
-  { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. NHS and Versus Arthritis guidance supports Mediterranean-style eating for general health; individual results vary." },
+  { question: "What is the best diet for arthritis in the UK?", answer: "The Mediterranean diet has the strongest evidence base for arthritis. It is rich in vegetables, fruits, wholegrains, olive oil, oily fish, nuts and pulses, and limits red meat, sugar and processed food. NHS and Arthritis UK (formerly Versus Arthritis) guidance supports Mediterranean-style eating for general health; individual results vary." },
   { question: "What foods make arthritis worse?", answer: "Ultra-processed foods, sugary drinks, refined carbohydrates, processed meats, excessive red meat and high-omega-6 vegetable oils are linked to higher inflammation. For gout specifically, alcohol (especially beer) and high-purine foods like organ meats and shellfish can trigger flares." },
   { question: "Does turmeric really help arthritis?", answer: "Some clinical trials of standardised curcumin extracts suggest modest pain benefit for knee osteoarthritis for some people. Cooking turmeric is healthy, but study products differ from kitchen spice. Supplements can interact with medicines (including blood-thinners) — ask a pharmacist or your clinician before starting any high-dose curcumin product." },
   { question: "How much oily fish should I eat with arthritis?", answer: "At least 2 portions per week, with one being oily (salmon, mackerel, sardines, trout). If you don't eat fish, a daily algae-based or fish-oil supplement providing 2–4 g of combined EPA and DHA is the closest equivalent." },
@@ -194,7 +194,7 @@ export default function DietGuide() {
       <meta property="og:description" content="Evidence-based guide to the best diet for arthritis: Mediterranean diet, anti-inflammatory foods, omega-3s, turmeric, supplements, sample meal plans and weight management tips for UK patients." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/diet" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
@@ -238,7 +238,7 @@ export default function DietGuide() {
           >
             <p>
               The best diet for arthritis is the <strong>Mediterranean diet</strong> — rich in
-              vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses. NHS and Versus Arthritis guidance supports a Mediterranean-style pattern for general health and joint-friendly eating. For
+              vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses. NHS and Arthritis UK (formerly Versus Arthritis) guidance supports a Mediterranean-style pattern for general health and joint-friendly eating. For
               osteoarthritis, gradual weight loss where appropriate (often discussed as around 5–10% of body weight with a clinician) can ease load on weight-bearing joints — this is educational, not a personal target.
             </p>
           </AnswerBox>

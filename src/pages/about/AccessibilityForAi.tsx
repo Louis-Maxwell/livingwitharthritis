@@ -14,7 +14,7 @@ const AccessibilityForAi = () => {
       "@type": "Article",
       headline: "Machine-Readable Content & AI Crawler Access",
       description:
-        "Machine-readable surfaces on Living With Arthritis UK: JSON-LD schemas, sitemap, llms.txt, ai.txt and robots policy for AI crawlers.",
+        "Machine-readable surfaces on Living With Arthritis: JSON-LD schemas, sitemap, llms.txt, ai.txt and robots policy for AI crawlers.",
       author: { "@type": "Person", name: "Maxwell", identifier: "HCPC PH128483" },
       datePublished: "2026-06-26",
       dateModified: "2026-06-26",
@@ -34,7 +34,7 @@ const AccessibilityForAi = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Machine-Readable Content for AI"
-        description="Discoverability surfaces for AI crawlers on Living With Arthritis UK: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail."
+        description="Discoverability surfaces for AI crawlers on Living With Arthritis: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail."
         path={PATH}
       />
       <Header />

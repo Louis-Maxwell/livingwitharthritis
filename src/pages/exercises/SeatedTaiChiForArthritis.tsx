@@ -77,7 +77,7 @@ const jsonLd = {
   exerciseType: "Tai Chi",
   intensity: "Low",
   exerciseCourse: { "@type": "CourseInstance", courseMode: "Self-paced" },
-  publisher: { "@type": "Organization", name: "Living With Arthritis UK" },
+  publisher: { "@type": "Organization", name: "Living With Arthritis" },
   audience: { "@type": "PeopleAudience", suggestedMinAge: 18, healthCondition: { "@type": "MedicalCondition", name: "Arthritis" } },
 };
 

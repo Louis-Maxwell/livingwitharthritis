@@ -37,10 +37,10 @@ function assetTagsFromIndex(indexHtml) {
 }
 
 export function buildCityHubHtml(city, assetTags = "") {
-  const title = `Arthritis Support in ${city.name} | Living With Arthritis UK`;
+  const title = `Arthritis Support in ${city.name} | Living With Arthritis`;
   const description =
     city.description ||
-    `Arthritis support information for people in ${city.name} from Living With Arthritis UK, a national UK charity.`;
+    `Arthritis support information for people in ${city.name} from Living With Arthritis, a national UK charity.`;
   const path = `/arthritis-support/${city.slug}`;
   const abs = `${SITE}${path}`;
   const regionBit = city.region ? ` (${escapeHtml(city.region)})` : "";
@@ -81,7 +81,7 @@ export function buildCityHubHtml(city, assetTags = "") {
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${abs}" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Living With Arthritis UK" />
+    <meta property="og:site_name" content="Living With Arthritis" />
     <meta property="og:locale" content="en_GB" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />

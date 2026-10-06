@@ -84,7 +84,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const FootAndAnkleArthritis = () => (
   <>
     <Helmet>
-      <title>Foot & Ankle Arthritis UK: Symptoms, Footwear & Exercises | LWA UK</title>
+      <title>Foot & Ankle Arthritis: Symptoms, Footwear & Exercises (UK)</title>
       <meta name="description" content="UK guide to foot and ankle arthritis: hallux rigidus, midfoot and ankle OA, rheumatoid feet, supportive footwear, orthotics, gentle exercises and when to see a GP or podiatrist." />
       <meta name="keywords" content="foot arthritis, ankle arthritis, hallux rigidus, big toe arthritis, midfoot arthritis, ankle osteoarthritis, rheumatoid foot, arthritis footwear UK, ankle exercises arthritis" />
       <meta property="og:title" content="Foot & Ankle Arthritis – Symptoms, Footwear & Exercises" />
@@ -92,7 +92,7 @@ const FootAndAnkleArthritis = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />

@@ -10,7 +10,7 @@
  * violates the limits so authors see the issue in the console.
  */
 
-const SITE_SUFFIX = " | Living With Arthritis UK";
+const SITE_SUFFIX = " | Living With Arthritis";
 const SHORT_SITE_SUFFIX = " | LWA";
 const MAX_TITLE = 60;
 const MAX_DESC = 160;

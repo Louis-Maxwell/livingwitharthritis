@@ -81,7 +81,7 @@ const HUBS = [
 
 describe("evening visibility pass — unique heads", () => {
   it("homepage head is customer-first and not a 100M claim", () => {
-    expect(homepageTitle).toMatch(/Living With Arthritis UK/i);
+    expect(homepageTitle).toMatch(/Living With Arthritis/i);
     expect(homepageTitle).not.toMatch(/100\s*million|100M/i);
     expect(ai["/"]?.description ?? "").not.toMatch(/100\s*million|100M/i);
   });

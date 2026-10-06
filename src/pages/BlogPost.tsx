@@ -264,7 +264,7 @@ const BlogPost = () => {
     `/blog/${slug}`,
   );
   const pageUrl = `https://livingwitharthritis.org.uk/blog/${slug}`;
-  const authorName = article.author || "Living With Arthritis UK Editorial Team";
+  const authorName = article.author || "Living With Arthritis Editorial Team";
   const rawAuthorCreds = article.author_credentials || "Editorial content";
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
     ? "Editorial content"
@@ -367,7 +367,7 @@ const BlogPost = () => {
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content={coverAbsolute} />
         <meta property="og:image:secure_url" content={coverAbsolute} />
         <meta property="og:image:width" content="1200" />
@@ -608,7 +608,7 @@ const BlogPost = () => {
           {/* Print header: only visible when saving to PDF / printing */}
           <div className="print-only mb-6 pb-4 border-b border-black">
             <div className="flex items-center justify-between text-xs">
-              <strong>Living With Arthritis UK</strong>
+              <strong>Living With Arthritis</strong>
               <span>livingwitharthritis.org.uk</span>
             </div>
             {hasVerifiedReviewer && (
@@ -749,7 +749,7 @@ const BlogPost = () => {
               Source: https://livingwitharthritis.org.uk/blog/{slug}
             </p>
             <p>
-              © Living With Arthritis UK. For personal and informational use only.
+              © Living With Arthritis. For personal and informational use only.
               This article is not a substitute for professional medical advice —
               always consult your GP or a qualified clinician.
             </p>

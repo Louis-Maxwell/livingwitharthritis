@@ -1,5 +1,5 @@
 # Traffic Diversion Strategy
-## How to Capture Arthritis Search Traffic to Living With Arthritis UK
+## How to Capture Arthritis Search Traffic to Living With Arthritis
 
 **Goal:** Become the #1 destination for UK arthritis information, support, and resources.
 
@@ -87,29 +87,6 @@ Link in bio → [specific page, not just homepage]"
 
 ---
 
-### 1.4 Recapture Competitor Traffic (Arthritis UK, Patient.info)
-**Goal:** When people search competitor names, show up as alternative
-
-**Setup:**
-1. Create landing page: `/vs-arthritis-uk`
-   - Compare your model vs. large charities
-   - Highlight: free, peer-led, physiotherapy-focused
-   - CTA: "Join our community" or "Book free chat"
-
-2. Create landing page: `/vs-patient-info`
-   - Emphasize: peer support they don't have
-   - Highlight: founder is HCPC physio (they use generic writers)
-   - CTA: "Get personalized support"
-
-3. Bid on competitor keywords in Google Ads (if budget allows)
-   - Arthritis UK ads
-   - Patient.info ads
-   - NHS conditions pages
-
-**Expected gain:** 1000-2000 visits/month (if doing ads)
-
----
-
 ## **TIER 2: Authority Building (Weeks 4-12) — Owned Traffic**
 
 ### 2.1 Content Marketing Blitz
@@ -142,7 +119,7 @@ Link in bio → [specific page, not just homepage]"
 - Internal links (3-5 per post)
 - FAQ section (8-10 Q&As)
 - Video or infographic
-- 2000+ words (compete with Arthritis UK)
+- Depth that fully answers the question (often 1500-2000+ words)
 
 **Expected gain:** 5000-10000 visits/month by week 12
 
@@ -295,23 +272,21 @@ Best,
 ## **TIER 4: Performance Marketing (Optional, If Budget) — Paid Traffic**
 
 ### 4.1 Google Ads (Search)
-**Strategy:** Bid on competitor keywords + high-intent terms
+**Strategy:** Bid on high-intent topic terms only (no bidding on other charities' brand names)
 
 **Keywords to target:**
 - `arthritis support` (£0.50-1.00/click) → broad
 - `arthritis exercises` (£0.30-0.60/click) → high intent
 - `rheumatoid arthritis uk` (£0.40-0.80/click) → specific
 - `arthritis physio` (£0.20-0.50/click) → very high intent
-- Brand keywords (Arthritis UK competitors) (£0.10-0.30/click) → cheap
 
 **Budget allocation:**
 - If you have £500/month: Focus on high-intent only (exercises, physio, support)
-- If you have £2000/month: Add competitor keywords
+- If you have £2000/month: Add more condition-specific and long-tail keywords
 - If you have £5000+/month: Scale across all keywords
 
 **Expected ROI:** 
 - High-intent keywords: 10-15% donation conversion
-- Competitor keywords: 3-5% sign-ups
 - Total: £1 spend → £2-3 value (if optimized well)
 
 ---
@@ -381,7 +356,6 @@ After 12 months:
 - [ ] Send email to 5 potential backlink partners
 
 ### Week 2-4:
-- [ ] Create `/vs-arthritis-uk` disambiguation page
 - [ ] Refresh 10 existing top pages (CTR optimization)
 - [ ] Build email opt-in forms (3-5 strategic placements)
 - [ ] Start 1 Google Ads campaign (high-intent keywords only)
@@ -396,7 +370,7 @@ After 12 months:
 - [ ] Content blitz (12 new posts across topics)
 - [ ] Launch email newsletter (weekly sends)
 - [ ] Pitch for media appearances
-- [ ] Expand Google Ads to competitor keywords
+- [ ] Expand Google Ads to more long-tail topic keywords
 
 ### Month 4+:
 - [ ] Scale what's working

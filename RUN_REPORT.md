@@ -15,7 +15,7 @@
 - **SSL/TLS:** Valid ✅
 
 ### **Test 2: Page Content**
-- **Page Title:** "Living With Arthritis UK | Evidence-Based Health Guides" ✅
+- **Page Title:** "Living With Arthritis | Evidence-Based Health Guides" ✅
 - **Navigation:** Present with multiple menu items ✅
 - **Main Content Area:** Visible and loaded ✅
 - **Headings:** 3 found ✅

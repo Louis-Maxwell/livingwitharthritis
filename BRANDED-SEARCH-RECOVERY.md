@@ -26,11 +26,11 @@
 **Action:** Add these tags to homepage `<Helmet>`:
 
 ```jsx
-<title>Living With Arthritis UK – Free Arthritis Support & Physiotherapy</title>
+<title>Living With Arthritis – Free Arthritis Support & Physiotherapy</title>
 <meta name="description" content="Living With Arthritis is an independent UK charity (1218461) offering free virtual physiotherapy, NICE-aligned exercises, and peer support for arthritis. Separate from Arthritis UK." />
-<meta property="og:title" content="Living With Arthritis UK – Independent Arthritis Charity" />
-<meta property="og:description" content="Living With Arthritis UK: free virtual physio, exercises, nutrition advice, and community support for arthritis. Independent charity, HCPC-registered First Contact Practitioner." />
-<meta name="twitter:title" content="Living With Arthritis UK | Independent Arthritis Charity" />
+<meta property="og:title" content="Living With Arthritis – Independent Arthritis Charity" />
+<meta property="og:description" content="Living With Arthritis: free virtual physio, exercises, nutrition advice, and community support for arthritis. Independent charity, HCPC-registered First Contact Practitioner." />
+<meta name="twitter:title" content="Living With Arthritis | Independent Arthritis Charity" />
 <meta name="twitter:description" content="Free arthritis support, physiotherapy & exercises from an independent UK charity. Separate from Arthritis UK." />
 ```
 
@@ -112,7 +112,7 @@ These sameAs links help Google's entity resolution distinguish you from Arthriti
 
 **Action:** Add Living With Arthritis to:
 - **Google Business Profile** (set up if not already)
-  - Name: "Living With Arthritis UK"
+  - Name: "Living With Arthritis"
   - Category: "Charity"
   - Address: Your registered charity address
   - Phone: info@livingwitharthritis.org.uk
@@ -127,7 +127,7 @@ These sameAs links help Google's entity resolution distinguish you from Arthriti
   - TripAdvisor (Attractions/Places)
   - Trustpilot
 
-**Format:** Always use "Living With Arthritis UK" (not variations)
+**Format:** Always use "Living With Arthritis" (not variations)
 
 ### 2.3 Inbound Link Building
 **Action:** Reach out to:
@@ -164,11 +164,11 @@ Both organizations support people with arthritis, but through different models.
 This page ranks for ["living with arthritis" not arthritis uk] searches and clarifies the distinction.
 
 ### 3.2 Homepage H1 Optimization
-**Current:** Check if H1 clearly says "Living With Arthritis UK"
+**Current:** Check if H1 clearly says "Living With Arthritis"
 
 **Action:** Homepage H1 should be:
 ```html
-<h1>Living With Arthritis UK – Free Virtual Physiotherapy & Arthritis Support</h1>
+<h1>Living With Arthritis – Free Virtual Physiotherapy & Arthritis Support</h1>
 ```
 
 (Not just "Arthritis Support" — include your name in the hero.)

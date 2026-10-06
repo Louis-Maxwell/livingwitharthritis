@@ -147,21 +147,21 @@ export default function WaysToHelp() {
   return (
     <>
       <Helmet>
-        <title>Ways to Help | Living With Arthritis UK</title>
+        <title>Ways to Help | Living With Arthritis</title>
         <meta name="description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
-      <meta property="og:title" content="Ways to Help | Living With Arthritis UK" />
+      <meta property="og:title" content="Ways to Help | Living With Arthritis" />
       <meta property="og:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/ways-to-help" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Ways To Help | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Ways To Help | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Ways to Help | Living With Arthritis UK" />
+      <meta name="twitter:title" content="Ways to Help | Living With Arthritis" />
       <meta name="twitter:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>

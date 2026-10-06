@@ -63,7 +63,7 @@ const cases: Array<{
   {
     name: "Sleep",
     slug: "how-to-sleep-with-arthritis-uk",
-    title: /How to Sleep with Arthritis UK/i,
+    title: /How to Sleep with Arthritis: .*\(UK\)/i,
     cites: [
       "https://www.nhs.uk/conditions/insomnia/",
       "https://www.nhs.uk/conditions/sleep-apnoea/",
@@ -85,7 +85,7 @@ const cases: Array<{
   {
     name: "Cold weather",
     slug: "cold-weather-arthritis-uk-winter",
-    title: /Cold Weather Arthritis UK/i,
+    title: /Cold Weather Arthritis: .*\(UK\)/i,
     cites: [
       "https://www.nhs.uk/live-well/seasonal-health/keep-warm-keep-well/",
       "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/",

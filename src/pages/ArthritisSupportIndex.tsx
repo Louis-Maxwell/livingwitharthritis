@@ -36,7 +36,7 @@ const ArthritisSupportIndex = () => {
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Arthritis Support Index | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Arthritis Support Index | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -52,7 +52,7 @@ const ArthritisSupportIndex = () => {
             Find rheumatology services, local support groups, and arthritis resources in your city.
             Select your city below to see tailored information. This directory covers England,
             Scotland, Wales and Northern Ireland with links to NHS trusts, waiting-list help and
-            condition guides from Living With Arthritis UK (charity 1218461). Unknown city aliases
+            condition guides from Living With Arthritis (charity 1218461). Unknown city aliases
             such as Stockport, Stirling or Winchester permanently redirect to the nearest live hub.
           </p>
           <p className="text-base text-muted-foreground mb-8 max-w-3xl">

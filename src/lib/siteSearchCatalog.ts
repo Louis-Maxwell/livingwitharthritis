@@ -27,7 +27,7 @@ const HUB_PAGES: SearchCatalogItem[] = [
   },
   {
     id: "hub-about",
-    title: "About Living With Arthritis UK",
+    title: "About Living With Arthritis",
     href: "/about",
     excerpt: "Who we are, our mission, and how we produce clinician-reviewed guidance.",
     topic: "Guides & hubs",

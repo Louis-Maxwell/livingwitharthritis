@@ -75,7 +75,7 @@ const TrustCredibility = () => {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Trust & Credibility | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Trust & Credibility | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
       <meta name="twitter:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />

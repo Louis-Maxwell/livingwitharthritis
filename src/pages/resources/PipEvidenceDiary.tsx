@@ -97,7 +97,7 @@ export default function PipEvidenceDiary() {
           <ul className="m-0 list-disc space-y-1 pl-5">
             <li>
               <Link to={`/guides/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
-                How to claim PIP for arthritis UK
+                How to claim PIP for arthritis in the UK
               </Link>
               {" — "}full guide (eligibility, PIP2, appeals)
             </li>

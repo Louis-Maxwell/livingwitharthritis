@@ -25,7 +25,7 @@ export default function PreventativeMSKHealth() {
       headline: 'Preventative MSK Health: Stop Arthritis Before It Spreads',
       description: 'How adults aged 40–60 can prevent arthritis progression. Early signs, posture, load management, and when to seek a physio.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-21', dateModified: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/preventative-msk-health',
     };

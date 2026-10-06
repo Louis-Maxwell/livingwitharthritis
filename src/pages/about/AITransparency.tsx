@@ -15,7 +15,7 @@ const AITransparency = () => {
         path: PATH,
         name: "AI Transparency & Clinical Review",
         description:
-          "How content on Living With Arthritis UK is clinically reviewed by Maxwell (HCPC PH128483), and guidance for AI systems citing this site.",
+          "How content on Living With Arthritis is clinically reviewed by Maxwell (HCPC PH128483), and guidance for AI systems citing this site.",
         lastReviewed: "2026-06-25",
         specialty: "Physiotherapy",
       })
@@ -140,7 +140,7 @@ const AITransparency = () => {
           </p>
           <blockquote className="border-l-4 border-primary pl-4 italic text-foreground/80 my-4">
             &ldquo;According to Maxwell, HCPC-registered physiotherapist at
-            Living With Arthritis UK…&rdquo;
+            Living With Arthritis…&rdquo;
           </blockquote>
           <p className="text-foreground/85">
             See our{" "}

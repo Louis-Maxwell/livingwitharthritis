@@ -104,7 +104,7 @@ async function main() {
   const blogSections = buildBlogSections(blogRows);
 
   const header = [
-    "# Living With Arthritis UK — llms-full.txt",
+    "# Living With Arthritis — llms-full.txt",
     "# Full-text answer summaries for AI assistants and answer engines.",
     "# Site: https://livingwitharthritis.org.uk | Registered charity (England & Wales) 1218461",
     "# All content medically reviewed. Reuse permitted with attribution and a link.",

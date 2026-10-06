@@ -31,7 +31,7 @@ Phase 2 focuses on optimizing the site for search engines, answer engines (AI), 
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Living With Arthritis UK",
+  "name": "Living With Arthritis",
   "areaServed": "GB",
   "geo": {
     "@type": "Place",

@@ -26,7 +26,7 @@ Customer-first, charity **1218461**. No invented traffic claims. No Oswestry str
 
 ## Google Business Profile map
 
-1. Verify GBP for Living With Arthritis UK (area served **GB** only; no fake street address).
+1. Verify GBP for Living With Arthritis (area served **GB** only; no fake street address).
 2. Copy the Maps **embed** URL (`https://www.google.com/maps/embed?...`).
 3. Set `VITE_GBP_MAPS_EMBED_URL` and redeploy. Contact shows the iframe only when set; otherwise the placeholder: “Map goes live once Google Business Profile is verified”.
 

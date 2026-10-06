@@ -251,7 +251,7 @@ export default function BenefitsPIPGuide() {
     <>
       <PageSchema
         url="/guides/benefits-pip"
-        name="How to claim PIP for arthritis UK"
+        name="How to claim PIP for arthritis in the UK"
         description="How to claim PIP for arthritis in the UK: eligibility, claim steps, form tips, assessment and appeals — plus free Living With Arthritis tools."
         medical={{ condition: "Arthritis" }}
         breadcrumbs={[
@@ -263,23 +263,23 @@ export default function BenefitsPIPGuide() {
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
-        <title>How to claim PIP for arthritis UK | Step-by-step guide | Living With Arthritis</title>
+        <title>How to claim PIP for arthritis in the UK | Step-by-step guide | Living With Arthritis</title>
         <meta name="description" content="How to claim PIP for arthritis in the UK: eligibility, PIP2 form tips, assessment prep, Mandatory Reconsideration and free diary tools. Living With Arthritis charity 1218461." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
-      <meta property="og:title" content="How to claim PIP for arthritis UK – Personal Independence Payment step-by-step" />
+      <meta property="og:title" content="How to claim PIP for arthritis in the UK – Personal Independence Payment step-by-step" />
       <meta property="og:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/benefits-pip" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="How to claim PIP for arthritis UK – Personal Independence Payment step-by-step" />
+      <meta name="twitter:title" content="How to claim PIP for arthritis in the UK – Personal Independence Payment step-by-step" />
       <meta name="twitter:description" content="Complete guide to UK benefits for arthritis: PIP (Personal Independence Payment), Attendance Allowance, Blue Badge, Motability, workplace rights, Disabled Facilities Grant and where to get free help." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <script type="application/ld+json">{JSON.stringify({
@@ -291,7 +291,7 @@ export default function BenefitsPIPGuide() {
         "inLanguage": "en-GB",
         "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
         "about": { "@type": "MedicalCondition", "name": "Arthritis" },
-        "publisher": { "@type": "Organization", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+        "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -311,7 +311,7 @@ export default function BenefitsPIPGuide() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
-          title="How to claim PIP for arthritis UK"
+          title="How to claim PIP for arthritis in the UK"
           subtitle="Step-by-step Personal Independence Payment guidance for arthritis — eligibility, PIP2 form, assessment tips, appeals and free diary tools. Educational only; check GOV.UK for your claim."
           badge="Pillar Guide"
         />

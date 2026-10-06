@@ -37,7 +37,7 @@ const TermsConditions = () => (
         <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Terms & Conditions | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Terms & Conditions | Living With Arthritis" />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
     <div className="min-h-screen bg-background">
@@ -88,7 +88,7 @@ const TermsConditions = () => (
             <h2 className="text-2xl font-bold text-foreground">3. Intellectual Property</h2>
             <p className="text-muted-foreground leading-relaxed">
               All content on this website — including text, graphics, logos, images, and software — is
-              the property of Living With Arthritis UK or its content suppliers and is protected by
+              the property of Living With Arthritis or its content suppliers and is protected by
               UK and international copyright laws. You may not reproduce, distribute, or create
               derivative works without our prior written permission.
             </p>
@@ -155,7 +155,7 @@ const TermsConditions = () => (
           <section>
             <h2 className="text-2xl font-bold text-foreground">8. Limitation of Liability</h2>
             <p className="text-muted-foreground leading-relaxed">
-              To the fullest extent permitted by law, Living With Arthritis UK excludes all liability
+              To the fullest extent permitted by law, Living With Arthritis excludes all liability
               for any loss or damage arising from your use of, or inability to use, this website.
               This includes, without limitation, indirect or consequential loss, loss of data, or
               loss of profits.

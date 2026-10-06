@@ -136,10 +136,10 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to Living With Arthritis UK | CIO 1218461</title>
+        <title>Donate to Living With Arthritis | CIO 1218461</title>
         <meta name="description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
-      <meta property="og:title" content="Donate to Living With Arthritis UK | CIO 1218461" />
+      <meta property="og:title" content="Donate to Living With Arthritis | CIO 1218461" />
       <meta property="og:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
@@ -148,9 +148,9 @@ export default function Donate() {
       <meta property="og:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Donate | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Donate | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Donate to Living With Arthritis UK | CIO 1218461" />
+      <meta name="twitter:title" content="Donate to Living With Arthritis | CIO 1218461" />
       <meta name="twitter:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
     </Helmet>

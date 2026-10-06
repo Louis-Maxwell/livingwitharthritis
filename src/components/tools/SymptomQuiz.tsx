@@ -705,7 +705,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">
               Free PECR-consent emails on flare prep, GP visits and living well with arthritis.
-              Educational only — not a diagnosis or medical advice. Living With Arthritis UK
+              Educational only — not a diagnosis or medical advice. Living With Arthritis
               (charity 1218461).
             </p>
             <EmailSignupForm

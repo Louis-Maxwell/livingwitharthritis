@@ -1,6 +1,6 @@
 # Living With Arthritis
 
-Vite + React + TypeScript charity site for Living With Arthritis UK, built with Vite and hosted on Lovable (static front-end).
+Vite + React + TypeScript charity site for Living With Arthritis, built with Vite and hosted on Lovable (static front-end).
 
 Live URL: https://livingwitharthritis.org.uk
 

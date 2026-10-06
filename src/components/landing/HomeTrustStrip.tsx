@@ -27,7 +27,7 @@ export default function HomeTrustStrip() {
                 rel="noopener noreferrer"
                 className={linkCls}
               >
-                Living With Arthritis UK (charity {CHARITY.number})
+                Living With Arthritis (charity {CHARITY.number})
                 <span className="sr-only"> (opens the Charity Commission register in a new tab)</span>
               </a>
               {" "}— registered in England and Wales

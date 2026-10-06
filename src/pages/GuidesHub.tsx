@@ -40,12 +40,12 @@ const GuidesHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Guides Hub | Living With Arthritis UK</title>
+        <title>Arthritis Guides Hub | Living With Arthritis</title>
         <meta
           name="description"
           content="Browse clinician-written UK arthritis guides: PIP and benefits, exercise, diet, pain relief, newly diagnosed steps, and navigating NHS care."
         />
-        <meta property="og:title" content="Arthritis Guides Hub | Living With Arthritis UK" />
+        <meta property="og:title" content="Arthritis Guides Hub | Living With Arthritis" />
         <meta
           property="og:description"
           content="Browse clinician-written UK arthritis guides covering benefits, movement, diet, medication and support."
@@ -61,7 +61,7 @@ const GuidesHub = () => {
           inLanguage: "en-GB",
           isPartOf: {
             "@type": "WebSite",
-            name: "Living With Arthritis UK",
+            name: "Living With Arthritis",
             url: "https://livingwitharthritis.org.uk",
           },
         })}</script>
@@ -157,7 +157,7 @@ const GuidesHub = () => {
               >
                 <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Money</p>
                 <p className="font-semibold text-foreground group-hover:text-primary">
-                  How to claim PIP for arthritis UK
+                  How to claim PIP for arthritis in the UK
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   Eligibility, PIP2 form tips, assessment and appeals.

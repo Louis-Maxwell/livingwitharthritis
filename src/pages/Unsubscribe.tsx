@@ -30,7 +30,7 @@ const Unsubscribe = () => {
     <div className="min-h-screen bg-background px-4 py-16">
       <SeoHead
         title="Unsubscribe from Emails"
-        description="Manage your email preferences for Living With Arthritis UK communications."
+        description="Manage your email preferences for Living With Arthritis communications."
         path="/unsubscribe"
         noindex
       />
@@ -144,7 +144,7 @@ const Unsubscribe = () => {
             </li>
           </ul>
           <p className="text-xs text-muted-foreground border-t border-border/60 pt-4">
-            Living With Arthritis UK is a not-for-profit information
+            Living With Arthritis is a not-for-profit information
             service. We send a small number of emails each month — never
             advertising, never shared with third parties, and never sold.
           </p>

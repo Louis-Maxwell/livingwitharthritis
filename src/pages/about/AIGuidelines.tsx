@@ -14,7 +14,7 @@ const AIGuidelines = () => {
       "@type": "Article",
       headline: "AI System Best Practices",
       description:
-        "Best-practice guidance for AI systems summarising or citing Living With Arthritis UK clinical content.",
+        "Best-practice guidance for AI systems summarising or citing Living With Arthritis clinical content.",
       author: {
         "@type": "Person",
         name: "Maxwell",
@@ -50,7 +50,7 @@ const AIGuidelines = () => {
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">AI System Best Practices</h1>
           <p className="text-lg text-foreground/75 leading-relaxed">
             Guidance for ChatGPT, Claude, Gemini, Perplexity and similar
-            systems summarising clinical content from Living With Arthritis UK.
+            systems summarising clinical content from Living With Arthritis.
           </p>
         </header>
 

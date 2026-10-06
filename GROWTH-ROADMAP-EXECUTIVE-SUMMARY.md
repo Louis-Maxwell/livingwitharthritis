@@ -40,7 +40,7 @@
 - **PPC Strategy** — Smart ad spending
   - DON'T bid on "living with arthritis" (you'll own it free in 4 weeks)
   - DO bid on "arthritis exercises", "arthritis support" (high intent, owned opportunity)
-  - DO bid on competitor keywords "arthritis uk", "patient info" (steal traffic)
+  - DON'T bid on other charities' or publishers' brand names
 
 ---
 
@@ -81,10 +81,6 @@
 - [ ] Publish 12 more blog posts (3/week content blitz)
   - Cover symptoms, diagnosis, treatment, lifestyle, mental health
 - [ ] Set up email list and opt-in forms (target: 1000 subscribers)
-- [ ] Bid on competitor keywords in Google Ads
-  - "Arthritis UK" alternatives
-  - "Patient.info arthritis"
-  - Budget: £100/month
 
 **Expected gain:** +5000-8000 visits, 500+ email subscribers
 
@@ -207,7 +203,6 @@ All documents on GitHub:
 3. **PPC-KEYWORD-ANALYSIS.md** — Smart ad spending
    - Why NOT to bid on "living with arthritis"
    - Better keywords to bid on
-   - Competitor keyword strategy
    - Ad calendar (months 1-5+)
 
 4. **Scripts** (run with npm):
@@ -227,7 +222,7 @@ All documents on GitHub:
 1. **Pull latest from GitHub** into Lovable
 2. **Run:** `npm run fix:branded-search` — generates FAQPage + disambiguation page
 3. **Update homepage:**
-   - Title: "Living With Arthritis UK – Free Arthritis Support & Physiotherapy"
+   - Title: "Living With Arthritis – Free Arthritis Support & Physiotherapy"
    - Add "independent" keyword to og:title
    - Import + add `<FAQPageSchema />` component
 4. **Deploy to Lovable**

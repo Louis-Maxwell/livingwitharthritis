@@ -22,7 +22,7 @@ export default function MedicalDisclaimer() {
         <title>Medical Disclaimer | {CHARITY.shortName}</title>
         <meta
           name="description"
-          content="Educational medical disclaimer for Living With Arthritis UK: not a diagnosis, not personal advice. Seek NHS care when needed."
+          content="Educational medical disclaimer for Living With Arthritis: not a diagnosis, not personal advice. Seek NHS care when needed."
         />
         <meta property="og:title" content={`Medical Disclaimer | ${CHARITY.shortName}`} />
         <meta property="og:url" content={URL} />
@@ -44,7 +44,7 @@ export default function MedicalDisclaimer() {
               Medical disclaimer
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Living With Arthritis UK ({CHARITY.type}, Charity Commission number{" "}
+              Living With Arthritis ({CHARITY.type}, Charity Commission number{" "}
               {CHARITY.number}) publishes educational information about arthritis for a UK
               audience. This page explains the limits of that information.
             </p>

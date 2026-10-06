@@ -1,6 +1,6 @@
 # Blog section enhancement (September 2026)
 
-Living With Arthritis UK — registered charity **1218461**. Clinical reviewer: Maxwell, HCPC **PH128483**. Motto: **Motion is Lotion**. Independent of Arthritis UK. GitHub-only delivery.
+Living With Arthritis — registered charity **1218461**. Clinical reviewer: Maxwell, HCPC **PH128483**. Motto: **Motion is Lotion**. Independent of Arthritis UK. GitHub-only delivery.
 
 ## Weaknesses found
 

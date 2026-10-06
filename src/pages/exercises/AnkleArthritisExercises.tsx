@@ -10,7 +10,7 @@ import { CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 /**
  * Ankle Arthritis Exercises — UK guide.
  * Targets "ankle arthritis exercises" (UK SV ~90/mo) — a content gap
- * vs versusarthritis.org flagged by the SEO scanner.
+ * vs arthritis-uk.org flagged by the SEO scanner.
  */
 const exercises = [
   {

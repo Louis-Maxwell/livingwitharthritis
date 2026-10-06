@@ -149,7 +149,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         // own BreadcrumbList JSON-LD from the same segments.
       />
       <Helmet>
-        <title>{`${data.metaTitle} | Living With Arthritis UK`}</title>
+        <title>{`${data.metaTitle} | Living With Arthritis`}</title>
         <meta name="description" content={data.metaDescription} />
         <meta name="keywords" content={data.keywords} />
         
@@ -160,7 +160,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         <meta property="og:type" content="article" />
         <meta property="og:url" content={url} />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

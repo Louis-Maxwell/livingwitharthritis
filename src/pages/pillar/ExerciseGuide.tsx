@@ -134,7 +134,7 @@ const CONTENT = `
 <li><strong>Resistance</strong> — water provides natural resistance for strengthening without weights</li>
 <li><strong>Pain relief</strong> — hydrostatic pressure reduces swelling</li>
 </ul>
-<p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Versus Arthritis</strong> maintain directories of arthritis-friendly swimming sessions.</p>
+<p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Arthritis UK (formerly Versus Arthritis)</strong> maintain directories of arthritis-friendly swimming sessions.</p>
 
 <h2 id="exercise-during-flares">Exercising During Flare-Ups</h2>
 <p>A common question is whether to exercise during a flare-up. The answer is: <strong>yes, but modify</strong>. During active flares:</p>
@@ -187,7 +187,7 @@ const CONTENT = `
 <h2 id="uk-resources-exercise">UK Exercise Resources</h2>
 <ul>
 <li><strong>Living With Arthritis</strong> — <a href="/exercises">free exercise programmes</a> for every major joint</li>
-<li><strong>Versus Arthritis</strong> — exercise guides and video library at <a href="https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">versusarthritis.org</a></li>
+<li><strong>Arthritis UK (formerly Versus Arthritis)</strong> — exercise guides and video library at <a href="https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">arthritis-uk.org</a></li>
 <li><strong>UK Health Fitness Studio</strong> — free exercise videos at <a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a></li>
 <li><strong>Chartered Society of Physiotherapy</strong> — find a physiotherapist at <a href="https://www.csp.org.uk" target="_blank" rel="noopener noreferrer">csp.org.uk</a></li>
 <li><strong>We Are Undefeatable</strong> — campaign supporting people with long-term conditions to be active</li>
@@ -211,7 +211,7 @@ export default function ExerciseGuide() {
       <meta property="og:description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/exercise" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />

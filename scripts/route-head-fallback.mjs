@@ -79,10 +79,10 @@ export function deriveHeadData(route) {
   if (segments.length === 0) {
     const meta = LANG_LABELS[lang];
     return {
-      title: `Living With Arthritis UK — ${meta.label}`,
-      description: `Guías sobre la artritis / arthrite / Arthritis ${meta.suffix} de Living With Arthritis UK, una organización benéfica registrada (nº 1218461).`.slice(0, 158),
-      question: `Living With Arthritis UK — ${meta.label}`,
-      answer: `This is the ${meta.label} entry point for Living With Arthritis UK. Our clinically reviewed arthritis guides are published ${meta.suffix}.`,
+      title: `Living With Arthritis — ${meta.label}`,
+      description: `Guías sobre la artritis / arthrite / Arthritis ${meta.suffix} de Living With Arthritis, una organización benéfica registrada (nº 1218461).`.slice(0, 158),
+      question: `Living With Arthritis — ${meta.label}`,
+      answer: `This is the ${meta.label} entry point for Living With Arthritis. Our clinically reviewed arthritis guides are published ${meta.suffix}.`,
       breadcrumb: meta.label,
     };
   }
@@ -93,7 +93,7 @@ export function deriveHeadData(route) {
 
   const base = parent && parent !== last ? `${parent} — ${last.toLowerCase()}` : last;
   const subject = lang ? `${base} (${LANG_LABELS[lang].label})` : base;
-  const heading = `${subject} | Living With Arthritis UK`;
+  const heading = `${subject} | Living With Arthritis`;
 
   const description = [
     `${subject}.`,
@@ -115,7 +115,7 @@ export function deriveHeadData(route) {
   ].join(' ');
 
   return {
-    title: heading.length > 115 ? `${subject.slice(0, 90)} | Living With Arthritis UK` : heading,
+    title: heading.length > 115 ? `${subject.slice(0, 90)} | Living With Arthritis` : heading,
     description: description.slice(0, 158),
     question: subject,
     answer,

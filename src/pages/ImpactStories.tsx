@@ -72,32 +72,32 @@ const ImpactStories = () => {
   return (
     <>
       <Helmet>
-        <title>Patient Stories & Impact | Living With Arthritis UK</title>
+        <title>Patient Stories & Impact | Living With Arthritis</title>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Impact & Patient Stories",
           "url": "https://livingwitharthritis.org.uk/impact",
           "inLanguage": "en-GB",
-          "description": "Situations Living With Arthritis UK writes about. Not a count of people supported.",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+          "description": "Situations Living With Arthritis writes about. Not a count of people supported.",
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
-        <meta name="description" content="Situations Living With Arthritis UK writes about. Charity 1218461. We do not publish unverified support totals." />
+        <meta name="description" content="Situations Living With Arthritis writes about. Charity 1218461. We do not publish unverified support totals." />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
-      <meta property="og:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
-      <meta property="og:description" content="Situations Living With Arthritis UK writes about. Young independent charity 1218461. Not audited outcomes." />
+      <meta property="og:title" content="Our Impact & Patient Stories | Living With Arthritis Charity" />
+      <meta property="og:description" content="Situations Living With Arthritis writes about. Young independent charity 1218461. Not audited outcomes." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/impact" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Impact Stories | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Impact Stories | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Our Impact & Patient Stories | Living With Arthritis UK Charity" />
-      <meta name="twitter:description" content="Situations Living With Arthritis UK writes about. Young independent charity 1218461. Not audited outcomes." />
+      <meta name="twitter:title" content="Our Impact & Patient Stories | Living With Arthritis Charity" />
+      <meta name="twitter:description" content="Situations Living With Arthritis writes about. Young independent charity 1218461. Not audited outcomes." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 

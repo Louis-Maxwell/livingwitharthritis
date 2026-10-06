@@ -34,8 +34,8 @@ type HeadEntry = {
 
 const HOMEPAGE_SHELL_TITLES = new Set([
   "Living With Arthritis",
-  "Living With Arthritis UK",
-  "Living With Arthritis | Living With Arthritis UK",
+  "Living With Arthritis",
+  "Living With Arthritis | Living With Arthritis",
 ]);
 
 const root = process.cwd();

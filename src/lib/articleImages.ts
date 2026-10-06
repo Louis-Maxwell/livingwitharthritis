@@ -68,6 +68,6 @@ export function coverImage(
   return {
     src: LOCAL_COVER_FALLBACK,
     alt: "People walking together",
-    credit: "Living With Arthritis UK",
+    credit: "Living With Arthritis",
   };
 }

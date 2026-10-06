@@ -13,9 +13,9 @@ export const ORGANIZATION_PAYLOAD = {
   "@context": "https://schema.org",
   "@type": ["MedicalOrganization", "NGO", "Organization"],
   "@id": `${BASE}/#organization`,
-  name: "Living With Arthritis UK",
+  name: "Living With Arthritis",
   legalName: "Living With Arthritis",
-  alternateName: ["Living With Arthritis UK", "Living With Arthritis charity"],
+  alternateName: ["Living With Arthritis charity", "Living With Arthritis (charity 1218461)"],
   url: BASE,
   logo: {
     "@type": "ImageObject",
@@ -31,7 +31,7 @@ export const ORGANIZATION_PAYLOAD = {
     height: 630,
   },
   disambiguatingDescription:
-    "UK charity 1218461 providing free arthritis guidance, with clinical-review status shown on each page — not Arthritis UK / Versus Arthritis.",
+    "UK charity 1218461 providing free arthritis guidance, with clinical-review status shown on each page — not Arthritis UK (formerly Versus Arthritis).",
   foundingDate: "2026-06-15",
   founder: {
     "@type": "Person",
@@ -118,7 +118,7 @@ export const WEBSITE_PAYLOAD = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${BASE}/#website`,
-  name: "Living With Arthritis UK",
+  name: "Living With Arthritis",
   url: `${BASE}/`,
   inLanguage: "en-GB",
   description:

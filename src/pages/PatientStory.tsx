@@ -20,7 +20,7 @@ export default function PatientStory() {
       headline: story.title,
       description: story.summary,
       datePublished: story.publishDate,
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
     };
     return injectJsonLd(`patient-${story.slug}`, payload);
   }, [story]);

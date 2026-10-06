@@ -82,7 +82,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ShoulderArthritis = () => (
   <>
     <Helmet>
-      <title>Shoulder Arthritis: Symptoms & Exercises | LWA UK</title>
+      <title>Shoulder Arthritis: Symptoms & Exercises | Living With Arthritis</title>
       <meta name="description" content="UK guide to shoulder arthritis: glenohumeral & AC joint OA, rotator cuff arthropathy, symptoms, treatment and exercises." />
       <meta name="keywords" content="shoulder arthritis, shoulder osteoarthritis, glenohumeral arthritis, AC joint arthritis, rotator cuff arthropathy, shoulder pain, shoulder exercises arthritis, shoulder replacement, reverse shoulder replacement" />
       <meta property="og:title" content="Shoulder Arthritis – Symptoms, Exercises & Treatment" />
@@ -90,7 +90,7 @@ const ShoulderArthritis = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />

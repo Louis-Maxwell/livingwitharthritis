@@ -137,12 +137,12 @@ const articleJsonLd = {
   dateModified: "2026-06-21",
   author: {
     "@type": "Organization",
-    name: "Living With Arthritis UK Clinical Team",
+    name: "Living With Arthritis Clinical Team",
     url: SITE,
   },
   publisher: {
     "@type": "Organization",
-    name: "Living With Arthritis UK",
+    name: "Living With Arthritis",
     url: SITE,
   },
 };

@@ -1,10 +1,10 @@
-# Living With Arthritis UK — Board Paper
+# Living With Arthritis — Board Paper
 # Three-Year Transformation Strategy (2026–2029)
 
 | Field | Detail |
 |---|---|
 | **Document type** | Board strategy paper |
-| **Organisation** | Living With Arthritis UK (registered charity no. **1218461**, registered 15 June 2026) |
+| **Organisation** | Living With Arthritis (registered charity no. **1218461**, registered 15 June 2026) |
 | **Website** | [livingwitharthritis.org.uk](https://livingwitharthritis.org.uk) |
 | **Tagline** | Motion is Lotion |
 | **Founder / clinical lead** | Louis Maxwell — First Contact Practitioner, HCPC PH128483, Chartered Society of Physiotherapy (CSP) member |
@@ -20,7 +20,7 @@
 
 ## 1. Purpose of this paper
 
-This paper asks the board to approve a credible, patient-centred three-year transformation strategy for Living With Arthritis UK. It translates early digital and clinical strengths into a sequenced programme of **services, fundraising, governance, and advocacy** appropriate to a young registered charity.
+This paper asks the board to approve a credible, patient-centred three-year transformation strategy for Living With Arthritis. It translates early digital and clinical strengths into a sequenced programme of **services, fundraising, governance, and advocacy** appropriate to a young registered charity.
 
 It is deliberately ambitious but **not inflated**. Where visitor, member, or helpline baselines are unknown, KPIs are framed as **“baseline TBD — establish Year 0”** with relative ambition targets. It does **not** recommend publishing the Oswestry registered address on the public website. UK regulatory awareness (Charity Commission, Fundraising Regulator, PECR/GDPR, MHRA-safe educational claims) is built into every workstream.
 
@@ -30,7 +30,7 @@ It is deliberately ambitious but **not inflated**. Where visitor, member, or hel
 
 ## 2. Vision 2029
 
-By end of Year 3 (2029), Living With Arthritis UK is recognised in the UK as a **trusted, clinician-led, digitally excellent patient advocacy charity** for people living with arthritis and related MSK conditions — known for practical self-management (“Motion is Lotion”), transparent governance, and honest educational content that complements (never confuses) NHS pathways and larger peers such as Versus Arthritis.
+By end of Year 3 (2029), Living With Arthritis is recognised in the UK as a **trusted, clinician-led, digitally excellent patient advocacy charity** for people living with arthritis and related MSK conditions — known for practical self-management (“Motion is Lotion”), transparent governance, and honest educational content that complements (never confuses) NHS pathways and larger peers such as Versus Arthritis.
 
 “Europe leadership” is an **aspirational Year 3+ framing**, not a Year 1 claim. Primary focus remains England/UK nations first.
 
@@ -487,7 +487,7 @@ Do **not** invent visitor or member counts as current baselines.
 
 **KPIs.** Reach, branded search (GSC), donate spikes, share of voice qualitative vs peers.
 
-**Risk.** Brand confusion with larger charities — always “Living With Arthritis UK / charity 1218461 / independent”.
+**Risk.** Brand confusion with larger charities — always “Living With Arthritis / charity 1218461 / independent”.
 
 **Priority:** **P2 Medium**
 
@@ -723,7 +723,7 @@ Critical path: **governance/claims → fundable → income → staffed support/h
 
 ## 11. Success definition: “UK leading patient advocacy arthritis charity”
 
-**By 2029, success means** Living With Arthritis UK is among the UK’s most **trusted clinician-led digital destinations** for practical arthritis self-management and patient voice — measured by:
+**By 2029, success means** Living With Arthritis is among the UK’s most **trusted clinician-led digital destinations** for practical arthritis self-management and patient voice — measured by:
 
 - Verified governance & Fundraising Regulator alignment  
 - High-quality educational reach (organic + owned) with **honest metrics**  
@@ -772,7 +772,7 @@ This strategy **extends** and does **not contradict** the 90-day visibility plan
 
 ## 14. Board resolution (draft)
 
-*The Board approves the Three-Year Transformation Strategy (2026–2029) as the guiding framework for Living With Arthritis UK, authorises the Year 1 Foundations envelope within the Conservative/Growth range selected at the meeting, and instructs the executive to return quarterly KPI packs using Year 0 baselines and the Top 10 decisions log.*
+*The Board approves the Three-Year Transformation Strategy (2026–2029) as the guiding framework for Living With Arthritis, authorises the Year 1 Foundations envelope within the Conservative/Growth range selected at the meeting, and instructs the executive to return quarterly KPI packs using Year 0 baselines and the Top 10 decisions log.*
 
 ---
 

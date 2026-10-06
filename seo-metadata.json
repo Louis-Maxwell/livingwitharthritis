@@ -2,19 +2,19 @@
   "version": "1.0.0",
   "generated": "2026-07-31",
   "site": "livingwitharthritis.org.uk",
-  "brandName": "Living With Arthritis UK",
+  "brandName": "Living With Arthritis",
   "defaultOgImage": "/og-default.png",
   "routes": {
     "/": {
-      "title": "Living With Arthritis UK — Free Exercises, Diet & Support",
+      "title": "Living With Arthritis — Free Exercises, Diet & Support",
       "description": "Free, expert-reviewed guides on managing arthritis: exercises, diet, pain relief and UK benefits. A non-profit founded by someone living with it."
     },
     "/about-us": {
-      "title": "About Living With Arthritis UK | Our Story & Mission",
+      "title": "About Living With Arthritis | Our Story & Mission",
       "description": "How a 2020 osteoarthritis diagnosis with no management plan led to a UK non-profit providing free arthritis guidance. Meet our team and our mission."
     },
     "/accessibility": {
-      "title": "Accessibility Statement | Living With Arthritis UK",
+      "title": "Accessibility Statement | Living With Arthritis",
       "description": "Our commitment to WCAG 2.1 AA accessibility, the standards we meet, known issues we are fixing, and how to report an accessibility problem to us."
     },
     "/arthritis-support": {
@@ -22,7 +22,7 @@
       "description": "Practical arthritis support in the UK: peer groups, NHS services, helplines, benefits advice and free guides. Find the help that fits your situation."
     },
     "/blog": {
-      "title": "Arthritis Articles & Guides | Living With Arthritis UK",
+      "title": "Arthritis Articles & Guides | Living With Arthritis",
       "description": "Expert-reviewed articles on arthritis exercises, diet, pain management and daily living. Written for people managing arthritis, not for clinicians."
     },
     "/buddy": {
@@ -34,23 +34,23 @@
       "description": "Join our arthritis community: local peer support groups, online spaces and shared experiences from people managing arthritis across the UK."
     },
     "/complaints": {
-      "title": "Complaints Procedure | Living With Arthritis UK",
-      "description": "How to make a complaint about Living With Arthritis UK, what happens next, our response timescales, and how to escalate if you are not satisfied."
+      "title": "Complaints Procedure | Living With Arthritis",
+      "description": "How to make a complaint about Living With Arthritis, what happens next, our response timescales, and how to escalate if you are not satisfied."
     },
     "/contact": {
-      "title": "Contact Us | Living With Arthritis UK Non-Profit",
-      "description": "Get in touch with Living With Arthritis UK. Questions about our guides, partnership enquiries, media requests and accessibility feedback."
+      "title": "Contact Us | Living With Arthritis Non-Profit",
+      "description": "Get in touch with Living With Arthritis. Questions about our guides, partnership enquiries, media requests and accessibility feedback."
     },
     "/cookies-policy": {
-      "title": "Cookies Policy | Living With Arthritis UK",
+      "title": "Cookies Policy | Living With Arthritis",
       "description": "Which cookies we use, what they do, how long they last, and how to control or refuse them. Written in plain English, without the legal padding."
     },
     "/corporate-giving": {
       "title": "Corporate Giving & Partnerships | Arthritis Non-Profit",
-      "description": "Partner with Living With Arthritis UK. Corporate donations, matched giving, sponsorship of community events and employee wellbeing programmes."
+      "description": "Partner with Living With Arthritis. Corporate donations, matched giving, sponsorship of community events and employee wellbeing programmes."
     },
     "/credits": {
-      "title": "Credits & Acknowledgements | Living With Arthritis UK",
+      "title": "Credits & Acknowledgements | Living With Arthritis",
       "description": "The clinicians, volunteers, contributors and organisations who make our free arthritis resources possible. With thanks from all of us."
     },
     "/diet-hub": {
@@ -62,7 +62,7 @@
       "description": "What the evidence shows about the Mediterranean diet and arthritis pain, plus a practical UK shopping list and a simple 7-day meal plan. Educational guidance, not a personal prescription."
     },
     "/donate": {
-      "title": "Donate to Living With Arthritis UK | Keep It Free",
+      "title": "Donate to Living With Arthritis | Keep It Free",
       "description": "Your donation keeps our arthritis guides free for everyone. See exactly where the money goes, and give once or monthly from as little as £3."
     },
     "/exercise-hub": {
@@ -94,7 +94,7 @@
       "description": "Where our funding comes from, what we spend it on, and our published accounts. Full transparency on how a small arthritis non-profit operates."
     },
     "/governance": {
-      "title": "Governance & Trustees | Living With Arthritis UK",
+      "title": "Governance & Trustees | Living With Arthritis",
       "description": "Our trustees, governance structure, community advisory board, and the policies that hold us accountable to the people we serve."
     },
     "/guides/benefits-pip": {
@@ -130,7 +130,7 @@
       "description": "First-person accounts of living with arthritis in the UK: diagnosis, work, relationships, bad days, and what people wish they had known sooner."
     },
     "/privacy-policy": {
-      "title": "Privacy Policy | Living With Arthritis UK",
+      "title": "Privacy Policy | Living With Arthritis",
       "description": "What data we collect, why, how long we keep it, who we share it with, and your GDPR rights. Written in plain English, not legal jargon."
     },
     "/regions/england": {
@@ -150,7 +150,7 @@
       "description": "Arthritis support in Wales: NHS Wales rheumatology services, local peer groups, and Welsh-specific benefits and social care guidance."
     },
     "/safeguarding": {
-      "title": "Safeguarding Policy | Living With Arthritis UK",
+      "title": "Safeguarding Policy | Living With Arthritis",
       "description": "How we protect vulnerable adults and children across our events, peer groups and online spaces, and how to raise a safeguarding concern."
     },
     "/self-help-tool": {
@@ -158,11 +158,11 @@
       "description": "Answer a few questions and get a personalised arthritis management plan covering exercise, diet, pain relief, and what to ask your GP."
     },
     "/sitemap": {
-      "title": "Site Map: Every Page on Living With Arthritis UK",
-      "description": "Browse every guide, article and resource on Living With Arthritis UK, organised by topic. The full index of our free arthritis content."
+      "title": "Site Map: Every Page on Living With Arthritis",
+      "description": "Browse every guide, article and resource on Living With Arthritis, organised by topic. The full index of our free arthritis content."
     },
     "/terms-conditions": {
-      "title": "Terms & Conditions | Living With Arthritis UK",
+      "title": "Terms & Conditions | Living With Arthritis",
       "description": "The terms for using our website and resources, including our medical disclaimer, copyright, and limits of liability. In plain English."
     },
     "/trust-credibility": {
@@ -174,7 +174,7 @@
       "description": "Support free arthritis guidance in the UK. Donate, volunteer at community events, fundraise, or share our resources with someone who needs them."
     },
     "/zakat": {
-      "title": "Zakat-Eligible Giving | Living With Arthritis UK",
+      "title": "Zakat-Eligible Giving | Living With Arthritis",
       "description": "How your Zakat supports free arthritis care for those in need, how we keep Zakat funds separate, and our full eligibility statement."
     },
     "/blog/knee-arthritis-exercises-uk": {
@@ -187,8 +187,8 @@
     }
   },
   "fallback": {
-    "titleTemplate": "%s | Living With Arthritis UK",
-    "title": "Living With Arthritis UK — Free Arthritis Guides & Support",
+    "titleTemplate": "%s | Living With Arthritis",
+    "title": "Living With Arthritis — Free Arthritis Guides & Support",
     "description": "Free, expert-reviewed arthritis guidance from a UK non-profit: exercises, diet, pain management, NHS navigation and benefits advice."
   },
   "redirects": [

@@ -26,7 +26,7 @@ export default function DisabilitySupport() {
       headline: 'Disability Support: Accessibility, Equipment and Independence',
       description: 'UK guide to disability support — mobility solutions, home accessibility, benefits, legal services and assistive technology. Reviewed by HCPC physio.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
       reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
       lastReviewed: '2026-09-16',

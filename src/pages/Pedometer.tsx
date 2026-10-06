@@ -35,12 +35,12 @@ export default function Pedometer() {
   return (
     <>
       <Helmet>
-        <title>Free Step Counter & Pedometer | Living With Arthritis UK</title>
+        <title>Free Step Counter & Pedometer | Living With Arthritis</title>
         <meta
           name="description"
           content="Free pedometer for arthritis: track steps, distance, calories and streaks. Built to support gentle low-impact walking for joint health."
         />
-        <meta property="og:title" content="Free Step Counter & Pedometer | Living With Arthritis UK" />
+        <meta property="og:title" content="Free Step Counter & Pedometer | Living With Arthritis" />
         <meta
           property="og:description"
           content="Free pedometer for arthritis: track steps, distance, calories and streaks."
@@ -50,7 +50,7 @@ export default function Pedometer() {
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Pedometer | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Pedometer | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       </Helmet>
 

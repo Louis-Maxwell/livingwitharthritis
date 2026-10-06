@@ -52,7 +52,7 @@ function checkHomepageMeta() {
   })
 
   console.log('\n  📝 Recommended updates:')
-  console.log(`     1. Update <title>: "Living With Arthritis UK – Free Arthritis Support & Physiotherapy"`)
+  console.log(`     1. Update <title>: "Living With Arthritis – Free Arthritis Support & Physiotherapy"`)
   console.log(`     2. Add og:title with "Independent" keyword`)
   console.log(`     3. Add charity registration (1218461) to description`)
   console.log(`     4. Add FAQPage schema (see template below)`)
@@ -240,7 +240,7 @@ export default function NotArthritisUk() {
             <thead>
               <tr className="bg-gray-100">
                 <th className="border border-gray-300 p-4">Aspect</th>
-                <th className="border border-gray-300 p-4">Living With Arthritis UK</th>
+                <th className="border border-gray-300 p-4">Living With Arthritis</th>
                 <th className="border border-gray-300 p-4">Arthritis UK</th>
               </tr>
             </thead>

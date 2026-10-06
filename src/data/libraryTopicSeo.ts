@@ -205,7 +205,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
   },
 
   turmeric: {
-    title: "Turmeric for arthritis UK: curcumin evidence and safety",
+    title: "Turmeric for arthritis: curcumin evidence and safety (UK)",
     description:
       "UK library note on turmeric and curcumin for joint pain — what trials suggest, why black pepper matters, and why supplements are not a cure. Educational only.",
     h1: "Turmeric and curcumin for arthritis: a cautious UK overview",
@@ -315,7 +315,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
   "plantar-fasciitis": LIBRARY_EXPANSIONS["plantar-fasciitis"],
   "osteoporosis": LIBRARY_EXPANSIONS["osteoporosis"],
   naproxen: {
-    title: "Naproxen for arthritis UK: NSAID library note",
+    title: "Naproxen for arthritis: UK NSAID library note",
     description:
       "Educational UK overview of naproxen for joint pain — how NSAIDs fit alongside exercise and pain relief, plus safety checks with your pharmacist or GP.",
     related: [
@@ -327,7 +327,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     ],
   },
   ibuprofen: {
-    title: "Ibuprofen for arthritis UK: when people use it",
+    title: "Ibuprofen for arthritis: when people use it (UK)",
     description:
       "UK library note on ibuprofen for joint pain — short-term symptom relief themes, stomach and kidney cautions, and non-drug pillars that matter more long-term.",
     related: [

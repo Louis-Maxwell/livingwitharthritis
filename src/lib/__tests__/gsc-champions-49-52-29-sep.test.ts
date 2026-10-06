@@ -120,7 +120,7 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     ).toBe(true);
     expect(
       [...newly.matchAll(/https?:\/\/[^\s"'<>]+/gi)].some((match) =>
-        /^https:\/\/(?:[a-z0-9-]+\.)*versusarthritis\.org(?:\/|$)/i.test(match[0]),
+        /^https:\/\/(?:[a-z0-9-]+\.)*arthritis-uk\.org(?:\/|$)/i.test(match[0]),
       ),
     ).toBe(true);
     for (const href of NEWLY_LINKS) {
@@ -137,7 +137,7 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     expect(accessJson.last_reviewed).toBe(REVIEW);
     expect(accessJson.reviewStatus).toBe("reviewed");
     expect(accessJson.reviewed_by).toBe("Louis Maxwell");
-    expect(accessJson.meta_title).toMatch(/Access to Work for Arthritis UK/i);
+    expect(accessJson.meta_title).toMatch(/Access to Work for Arthritis: .*\(UK\)/i);
     const urls = (accessJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
       expect.arrayContaining([

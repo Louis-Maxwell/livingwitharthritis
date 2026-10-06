@@ -44,7 +44,7 @@ export default function LivedExperiences() {
   return (
     <>
       <Helmet>
-        <title>Living with arthritis — situations we write for | Living With Arthritis UK</title>
+        <title>Living with arthritis — situations we write for | Living With Arthritis</title>
         <meta
           name="description"
           content="Guides for common UK arthritis situations. Not named patients, not a membership total, and not audited outcomes. Charity 1218461, registered 15 June 2026."
@@ -56,18 +56,18 @@ export default function LivedExperiences() {
           "description": "Illustrative arthritis situations, not patient biographies or a count of people supported.",
           "url": "https://livingwitharthritis.org.uk/stories",
         })}</script>
-        <meta property="og:title" content="Situations we write about | Living With Arthritis UK" />
+        <meta property="og:title" content="Situations we write about | Living With Arthritis" />
         <meta property="og:description" content="Guides for common UK arthritis situations. Not named patients and not audited outcomes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/stories" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Living with arthritis | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Living with arthritis | Living With Arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Situations we write about | Living With Arthritis UK" />
+        <meta name="twitter:title" content="Situations we write about | Living With Arthritis" />
         <meta name="twitter:description" content="Guides for common UK arthritis situations. Not named patients and not audited outcomes." />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       </Helmet>

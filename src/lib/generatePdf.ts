@@ -22,7 +22,7 @@ function footer(doc: jsPDF) {
   const h = doc.internal.pageSize.getHeight();
   doc.setFontSize(8);
   doc.setTextColor(160, 160, 160);
-  doc.text("Living With Arthritis UK  •  livingwitharthritis.org.uk  •  Free resource — not medical advice", 15, h - 8);
+  doc.text("Living With Arthritis  •  livingwitharthritis.org.uk  •  Free resource — not medical advice", 15, h - 8);
   doc.setTextColor(GRAY.r, GRAY.g, GRAY.b);
 }
 
@@ -475,7 +475,7 @@ export function generateProgressTrackerPdf() {
 /* ─── NEW: Arthritis Fact Sheet ─── */
 export function generateArthritisFactSheet() {
   const doc = new jsPDF();
-  header(doc, "UK Arthritis Fact Sheet", "Key statistics and impact data — Living With Arthritis UK");
+  header(doc, "UK Arthritis Fact Sheet", "Key statistics and impact data — Living With Arthritis");
 
   let y = 50;
   y = paragraph(doc, y, "This fact sheet summarises the prevalence, economic impact and key statistics around arthritis in the United Kingdom. Ideal for journalists, researchers, healthcare professionals and resource pages.");
@@ -483,7 +483,7 @@ export function generateArthritisFactSheet() {
   y = sectionTitle(doc, y, "Prevalence");
   y = bulletList(doc, y, [
     "Over 10 million people in the UK live with arthritis or a related musculoskeletal condition.",
-    "Osteoarthritis is the most common form, affecting approximately 8.75 million people.",
+    "Osteoarthritis is the most common form: around 8.75 million people aged 45+ in the UK have sought treatment for it (Arthritis Research UK, 2013; cited by NICE CKS).",
     "Rheumatoid arthritis affects around 400,000 adults in the UK.",
     "1 in 6 people in the UK have arthritis — it is the leading cause of pain and disability.",
     "Arthritis affects people of all ages, including over 15,000 children (juvenile idiopathic arthritis).",
@@ -514,7 +514,7 @@ export function generateArthritisFactSheet() {
   ]);
 
   y += 4;
-  y = paragraph(doc, y, "Sources: NICE, Versus Arthritis, World Health Organization, Public Health England. For educational use — not medical advice.", 8);
+  y = paragraph(doc, y, "Sources: NICE, Arthritis UK (formerly Versus Arthritis), World Health Organization, Public Health England. For educational use — not medical advice.", 8);
 
   footer(doc);
   doc.save("UK_Arthritis_Fact_Sheet_LWA.pdf");

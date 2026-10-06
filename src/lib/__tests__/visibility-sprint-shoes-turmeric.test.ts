@@ -24,7 +24,6 @@ const SLUGS = [
 const ALLOWED_HOSTS = [
   "www.nhs.uk",
   "www.nice.org.uk",
-  "versusarthritis.org",
   "www.arthritis-uk.org",
   "arthritis-uk.org",
   "www.gov.uk",
@@ -118,7 +117,7 @@ describe("visibility sprint: customer-job hub polish", () => {
 
     expect(pip).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pip).toContain("/guides/benefits-pip");
-    expect(pip).toContain("How to claim PIP for arthritis UK");
+    expect(pip).toContain("How to claim PIP for arthritis in the UK");
     expect(pip).toContain('rel="canonical"');
   });
 });

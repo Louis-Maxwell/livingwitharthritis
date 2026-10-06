@@ -26,7 +26,7 @@ Focus on four building blocks:
 • Hydration — water helps joints move more comfortably
 • Rest — consistent sleep and pacing reduce next-day flares
 
-At home, favour ergonomic tools (larger-handled cutlery, jar openers, perching stools) and plan tasks in short bursts. On tougher days, scale activity rather than stopping altogether — Versus Arthritis and NHS advice both emphasise staying as active as you safely can.
+At home, favour ergonomic tools (larger-handled cutlery, jar openers, perching stools) and plan tasks in short bursts. On tougher days, scale activity rather than stopping altogether — Arthritis UK (formerly Versus Arthritis) and NHS advice both emphasise staying as active as you safely can.
 
 These habits will not replace prescribed treatment, but they make daily life more manageable alongside your care team.`,
   tipsOverview: `Everyday tips work best when they are short, realistic and easy to repeat. Use them as a menu, not a checklist to finish in one day.
@@ -108,7 +108,7 @@ Prep a few options when you have energy so they are ready on tougher days.`,
     metaTitle: "20-Minute Daily Walk for Arthritis: Simple Pain Relief Routine",
     desc: "A steady 20-minute walk can ease stiffness, lift mood and support joint health — start gently.",
     image: tipWalk,
-    detail: `A daily 20-minute walk is one of the simplest ways to keep joints moving, support heart health and lift mood. NHS and Versus Arthritis guidance both encourage regular, low-impact activity for arthritis.
+    detail: `A daily 20-minute walk is one of the simplest ways to keep joints moving, support heart health and lift mood. NHS and Arthritis UK (formerly Versus Arthritis) guidance both encourage regular, low-impact activity for arthritis.
 
 Keep the pace comfortable — you should still be able to talk. Choose flat routes when joints are sore; parks and quiet streets often feel easier than busy pavements.
 

@@ -15,7 +15,7 @@ export const arthritisConditions: ArthritisCondition[] = [
     slug: "osteoarthritis",
     name: "Osteoarthritis",
     shortName: "OA",
-    ukPrevalence: "Around 8.5 million adults in the UK live with osteoarthritis (Versus Arthritis).",
+    ukPrevalence: "Around 8.5 million adults in the UK live with osteoarthritis (Arthritis UK (formerly Versus Arthritis)).",
     description:
       "Osteoarthritis is the most common form of arthritis in the UK. It develops gradually as protective cartilage in joints wears down, most often affecting the knees, hips, hands, and spine.",
     commonSymptoms: [

@@ -127,7 +127,7 @@ const CONTENT = `
 <p>Pick two of the eight exercises above and do them today — even one set is enough to start. Add the rest over the coming fortnight. Track how the knee feels the morning after each session. Within three to six weeks you should notice easier stairs, less morning stiffness and more confidence rising from a chair.</p>
 
 <h2 id="sources">Sources &amp; disclaimer</h2>
-<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s, 2022), NHS osteoarthritis guidance, UK Chief Medical Officers' Physical Activity Guidelines and Versus Arthritis / Arthritis UK exercise information. For educational use only and not a substitute for personalised advice from a physiotherapist or GP, particularly in severe or unstable joint disease.</p>
+<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s, 2022), NHS osteoarthritis guidance, UK Chief Medical Officers' Physical Activity Guidelines and Arthritis UK (formerly Versus Arthritis) exercise information. For educational use only and not a substitute for personalised advice from a physiotherapist or GP, particularly in severe or unstable joint disease.</p>
 `;
 
 export default function KneeExercisesForOsteoarthritis() {
@@ -147,7 +147,7 @@ export default function KneeExercisesForOsteoarthritis() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
