@@ -164,6 +164,8 @@ const AI_DATA = mergeHeadLayers(
   readJson(HUB_GUIDE_DATA_PATH),
   authorHeadData(),
   readJson(AI_DATA_PATH),
+  readJson(resolve("scripts/editorial-head-data.json")),
+  readJson(resolve("src/data/seoPriorityPages.json")),
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -187,7 +189,7 @@ function headDataFor(route, override) {
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
-  if (blogMatch && !BLOG_SLUGS.has(blogMatch[1])) {
+  if (blogMatch && blogMatch[1] !== "archive" && !BLOG_SLUGS.has(blogMatch[1])) {
     return NOT_FOUND_HEAD;
   }
   // Known city hubs: unique indexable heads (write-city-hub-html overwrites body).
@@ -215,7 +217,13 @@ function headDataFor(route, override) {
   if (/^\/uk\//.test(route)) {
     return NOT_FOUND_HEAD;
   }
-  if (AI_DATA[route]) return AI_DATA[route];
+  if (route === "/site-index" || route === "/blog/archive") {
+    const index = readJson(resolve("src/data/public-page-index.generated.json"));
+    const pages = route === "/blog/archive" ? index.filter(p => /^\/blog\/[^/]+$/.test(p.path) && p.path !== route) : index;
+    return { title: route === "/blog/archive" ? "Arthritis Article Archive | Living With Arthritis" : "Site Index | Living With Arthritis", description: "Browse all public guides, articles and resources from Living With Arthritis.", question: route === "/blog/archive" ? "Arthritis article archive" : "Site index", pageType: "CollectionPage", noindex: route === "/site-index",
+      bodyHtml: `<p>Browse our public pages or <a href="/guides">explore guides by topic</a>.</p><ul>${pages.map(p => `<li><a href="${escAttr(p.path)}">${escText(p.title)}</a></li>`).join("")}</ul>` };
+  }
+  if (AI_DATA[route]) return { ...deriveHeadData(route), ...AI_DATA[route] };
   return deriveHeadData(route);
 }
 
@@ -367,7 +375,7 @@ function buildJsonLd(route, url, d) {
   //    Organization/WebSite nodes already present in the static head.
   graphs.push({
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": d.pageType ?? (/^(?:\/conditions|\/library|\/guides|\/blog|\/faq|\/exercises|\/diet)(?:\/|$)/.test(route) ? "MedicalWebPage" : "WebPage"),
     "@id": `${url}#webpage`,
     url,
     name: d.title,
@@ -384,6 +392,14 @@ function buildJsonLd(route, url, d) {
       : undefined,
   });
 
+  if (d.article?.slug && d.article.date && d.article.author && d.ogImage) {
+    graphs.push({ "@context": "https://schema.org", "@type": "BlogPosting", "@id": `${url}#article`,
+      headline: d.article.title, description: d.description, mainEntityOfPage: { "@id": `${url}#webpage` },
+      datePublished: d.article.date, dateModified: d.article.updated_at,
+      author: { "@type": "Person", name: d.article.author },
+      publisher: { "@id": `${BASE}/#organization` }, image: d.ogImage });
+  }
+
   // 2) BreadcrumbList — Home → current page (always-valid two-level trail).
   graphs.push({
     "@context": "https://schema.org",
@@ -395,9 +411,7 @@ function buildJsonLd(route, url, d) {
     ],
   });
 
-  // 3) FAQPage — the primary Q&A plus any configured FAQs. This is the
-  //    highest-value block for answer engines: it hands them a quotable,
-  //    attributed question/answer pair per page.
+  // 3) FAQPage describes visible FAQs only; Google FAQ rich results are retired.
   // FAQPage is emitted ONLY when the page also renders the same visible
   // Q&A copy (d.faqs drives the visible FAQ section below), per Google's
   // structured-data policy. A lone question/answer pair is expressed as the
@@ -428,7 +442,7 @@ function enrichHead(html, route, url, override) {
   const d = headDataFor(route, override);
   if (!d) return html;
 
-  let out = html;
+  let out = route === "/" ? html.replace('id="boot-hero" hidden', 'id="boot-hero"') : html.replace(/<div id="boot-hero"[^>]*>[\s\S]*?<\/main>\s*<\/div>/i, "");
 
   if (d.title) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
@@ -488,8 +502,8 @@ function enrichHead(html, route, url, override) {
 
   // Keep unique article HTML for crawlers, but clip it so JS visitors never
   // see a wall of unstyled text before React paints the designed page.
-  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
-    visible: false,
+  out = replaceSeoFallback(out, `${route === "/" ? buildStaticArticleInner(d).replace(/<h1>([\s\S]*?)<\/h1>/, "<h2>$1</h2>") : buildStaticArticleInner(d)}${sourcesHtml}`, {
+    visible: true,
   });
   if (d.article) {
     out = embedArticleJson(out, d.article);

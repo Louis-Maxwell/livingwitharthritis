@@ -127,9 +127,9 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
-  it("only the six automated Champions 62–67 rewrites are pending review", () => {
+  it("automated medical rewrites and the corrected PIP guide remain pending review", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_67].sort(),
+      [...PENDING_CHAMPIONS_62_67, "pip-for-arthritis-uk"].sort(),
     );
   });
 

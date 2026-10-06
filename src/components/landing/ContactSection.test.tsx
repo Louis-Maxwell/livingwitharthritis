@@ -9,7 +9,7 @@ vi.mock("sonner", () => ({
   toast: { success: vi.fn(), error: vi.fn(), message: vi.fn() },
 }));
 
-vi.mock("@/lib/analytics", () => ({ trackContactSubmit: vi.fn() }));
+vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 vi.mock("@/lib/ga-events", () => ({ trackContactFormSubmit: vi.fn() }));
 vi.mock("@/lib/backendSubmit", () => ({
   submitContactInquiry: vi.fn(async () => ({

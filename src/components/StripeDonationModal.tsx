@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { trackDonationInitiate } from "@/lib/analytics";
+import { trackDonationClick } from "@/lib/ga-events";
 import { Heart, ExternalLink, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
@@ -74,7 +74,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
-                trackDonationInitiate(amount);
+                trackDonationClick({ source: "donation_modal" });
                 onClose();
               }}
             >

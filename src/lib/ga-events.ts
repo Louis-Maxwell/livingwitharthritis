@@ -8,7 +8,7 @@
  *   - file_download
  *   - scroll_80        (fired once per page once a visitor passes 80% depth)
  */
-import { trackEvent } from "@/lib/analytics";
+import { trackSearch as trackPrivateSearch, trackContactSubmit, trackEvent } from "@/lib/analytics";
 
 /* ---------- Conversion events (call these from UI) ---------- */
 
@@ -21,19 +21,14 @@ export function trackDonationClick(
   const opts = typeof sourceOrOpts === "string" ? { source: sourceOrOpts } : sourceOrOpts;
   trackEvent("donation_click", {
     source: opts.source ?? "donate_page",
-    amount: opts.amount ?? 0,
-    currency: opts.currency ?? "GBP",
-    method: opts.method ?? "stripe",
+    provider: "gofundme",
+    method: "external_handoff",
   });
 }
 
 /** Fired after the /contact form successfully submits. */
 export function trackContactFormSubmit(topic?: string) {
-  trackEvent("contact_form_submit", {
-    topic: topic ?? "general",
-    value: 1,
-    currency: "GBP",
-  });
+  trackContactSubmit({ topic });
 }
 
 /** Fired when a user clicks a downloadable asset (PDF, guide, etc.). */
@@ -58,7 +53,7 @@ export function trackFileDownload(opts: {
 /* ---------- Existing helpers (kept for other call-sites) ---------- */
 
 export function trackSearch(query: string, results: number) {
-  trackEvent("search", { search_term: query, results_found: results });
+  trackPrivateSearch(query, results);
 }
 
 export function trackMobileBottomCTA(

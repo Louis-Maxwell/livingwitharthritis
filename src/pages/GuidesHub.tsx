@@ -1,3 +1,4 @@
+import PillarDirectory from "@/components/seo/PillarDirectory";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -212,7 +213,7 @@ const GuidesHub = () => {
             );
           })}
         </section>
-      </main>
+      <PillarDirectory /></main>
       <InternalLinks />
       <Footer />
     </>

@@ -84,6 +84,12 @@ jobs:
       - name: Prerender meta check
         run: npm run seo:prerender-meta -- --json
 
+      - name: Sitemap quality regression
+        run: npm run seo:sitemap-quality
+
+      - name: Built canonical and accessibility inventory
+        run: npm run seo:release-audit
+
       - name: Blog HTML gate
         run: npm run blog:html-gate
 

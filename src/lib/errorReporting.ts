@@ -1,3 +1,4 @@
+import { hasAnalyticsConsent } from "./analyticsPrivacy";
 /**
  * Error reporting: the one module that sends error telemetry.
  *
@@ -68,9 +69,9 @@ function describe(error: unknown): string {
 
 function sendToProvider(report: ErrorReport): void {
   const gtag = (window as Window & { gtag?: Gtag }).gtag;
-  if (typeof gtag !== "function") return;
+  if (typeof gtag !== "function" || !hasAnalyticsConsent()) return;
   gtag("event", "exception", {
-    description: report.description.slice(0, GA4_VALUE_LIMIT),
+    description: report.kind, // raw exception text may contain sensitive user input
     fatal: report.fatal,
     error_kind: report.kind,
     error_source: (report.source ?? "").slice(0, GA4_VALUE_LIMIT),

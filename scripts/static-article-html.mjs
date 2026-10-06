@@ -105,6 +105,7 @@ export function buildStaticArticleInner(data) {
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
+    `<nav aria-label="Browse public resources"><a href="/guides">Guides by topic</a> · <a href="/site-index">All public pages</a></nav>` +
     `</article>`
   );
 }

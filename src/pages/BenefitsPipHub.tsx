@@ -157,7 +157,7 @@ const BenefitsPipHub = () => {
               Clearest answer for &ldquo;How to claim PIP for arthritis in the UK&rdquo;
             </p>
             <p className="text-sm text-muted-foreground m-0">
-              Use the full step-by-step guide for eligibility, the PIP2 form and appeals — then print the evidence diary to record your worst days.
+              Use the full step-by-step guide for eligibility, the PIP2 form and appeals — then print the evidence diary to record better and worse days and how often difficulties occur.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

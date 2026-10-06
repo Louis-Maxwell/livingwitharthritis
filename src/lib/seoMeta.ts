@@ -1,3 +1,6 @@
+import priorityPages from "@/data/seoPriorityPages.json";
+const priorityMetadata: Record<string, { title: string; description: string }> = priorityPages;
+
 /**
  * Meta title & description length enforcement.
  *
@@ -40,7 +43,7 @@ export function enforceTitle(
   opts: EnforceTitleOptions = {},
 ): string {
   const { includeSiteName = true, route } = opts;
-  const title = (rawTitle ?? "").trim();
+  const title = (priorityMetadata[route ?? ""]?.title ?? rawTitle ?? "").trim();
 
   if (!includeSiteName) {
     if (title.length <= MAX_TITLE) return title;
@@ -70,7 +73,7 @@ export function enforceDescription(
   rawDesc: string,
   route?: string,
 ): string {
-  const desc = (rawDesc ?? "").trim().replace(/\s+/g, " ");
+  const desc = (priorityMetadata[route ?? ""]?.description ?? rawDesc ?? "").trim().replace(/\s+/g, " ");
   if (desc.length > MAX_DESC) {
     if (isDev) warnLength("description", desc.length, MAX_DESC, route, desc);
     return truncateOnWord(desc, MAX_DESC);

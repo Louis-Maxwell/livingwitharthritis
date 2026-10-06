@@ -1,3 +1,4 @@
+import { trackEvent } from "@/lib/analytics";
 import { useEffect, useRef, useState, ReactNode } from "react";
 import { Sparkles, VideoOff } from "lucide-react";
 import {
@@ -33,6 +34,9 @@ export const ExerciseVideoModal = ({
   const [open, setOpen] = useState(false);
   const [failed, setFailed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const milestones = useRef(new Set<number>());
+  const started = useRef(false);
+  const videoId = src.split("/").pop()?.split(/[?#]/)[0] || "exercise-video";
 
   useEffect(() => {
     setFailed(false);
@@ -43,6 +47,8 @@ export const ExerciseVideoModal = ({
     if (!video) return;
     if (open) {
       video.currentTime = 0;
+      milestones.current.clear();
+      started.current = false;
       void video.play().catch(() => {});
     } else {
       video.pause();
@@ -82,6 +88,16 @@ export const ExerciseVideoModal = ({
               playsInline
               preload="none"
               className="w-full h-auto max-h-[70vh] object-contain bg-primary"
+              aria-label={`${title} demonstration`}
+              onPlay={() => { if (!started.current) { started.current = true; trackEvent("video_start", { video_id: videoId, provider: "html5" }); } }}
+              onTimeUpdate={event => {
+                const video = event.currentTarget;
+                if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+                for (const percent of [25, 50, 75]) if (video.currentTime / video.duration * 100 >= percent && !milestones.current.has(percent)) {
+                  milestones.current.add(percent); trackEvent("video_progress", { video_id: videoId, percent });
+                }
+              }}
+              onEnded={() => trackEvent("video_complete", { video_id: videoId })}
               onError={() => setFailed(true)}
             />
           )}

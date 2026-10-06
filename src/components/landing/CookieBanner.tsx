@@ -21,9 +21,7 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
     localStorage.setItem("cookie-consent", vals.a ? "accepted" : "declined");
     onAnalyticsChange?.(vals.a);
     setShow(false);
-    if (vals.a) {
-      window.dispatchEvent(new Event("cookie-consent-accepted"));
-    }
+    window.dispatchEvent(new Event(vals.a ? "cookie-consent-accepted" : "cookie-consent-declined"));
   };
 
 

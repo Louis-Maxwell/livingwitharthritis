@@ -16,6 +16,8 @@ describe("errorReporting", () => {
   let gtag: GtagMock;
 
   beforeEach(() => {
+    localStorage.clear();
+    localStorage.setItem("cookie-consent", "accepted");
     resetErrorReportingForTests();
     gtag = vi.fn<(...args: unknown[]) => void>();
     setGtag(gtag);
@@ -28,7 +30,7 @@ describe("errorReporting", () => {
   it("sends a GA4 exception event with kind, source and page", () => {
     reportFormFailure("newsletter", "FormSubmit HTTP 500");
     expect(gtag).toHaveBeenCalledWith("event", "exception", {
-      description: "FormSubmit HTTP 500",
+      description: "form_submit_failed",
       fatal: false,
       error_kind: "form_submit_failed",
       error_source: "newsletter",
@@ -72,7 +74,7 @@ describe("errorReporting", () => {
     await window.fetch("/audio/guide.mp3", { method: "HEAD" });
     expect(gtag).toHaveBeenCalledTimes(1);
     expect((gtag.mock.calls[0][2] as { description: string }).description).toBe(
-      "HTTP 503 POST formsubmit.co/ajax/x",
+      "fetch_failed",
     );
 
     window.fetch = originalFetch;

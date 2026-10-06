@@ -1,3 +1,4 @@
+import { trackSearch } from "@/lib/analytics";
 import { useMemo, useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -46,6 +47,12 @@ const SearchPage = () => {
     () => filterSearchCatalog(catalog, { query, topic, wordCount }),
     [catalog, query, topic, wordCount],
   );
+
+  useEffect(() => {
+    if (!query.trim()) return;
+    const timer = window.setTimeout(() => trackSearch("", results.length), 700);
+    return () => window.clearTimeout(timer);
+  }, [query, topic, wordCount, results.length]);
 
   return (
     <>

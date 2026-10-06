@@ -1,11 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSearchParams, useLocation, Link } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, Heart, ArrowLeft, Home } from "lucide-react";
-import { trackDonationComplete } from "@/lib/analytics";
 
 const DonationSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -17,33 +16,12 @@ const DonationSuccess = () => {
   // The query param is still checked for any in-flight Stripe sessions
   // created before this path existed.
   const isSuccess = status === "success" || location.pathname === "/donation-result/success";
-  const tracked = useRef(false);
 
   useEffect(() => {
     if (isSuccess) {
       document.title = "Thank You! | Living With Arthritis";
     }
   }, [isSuccess]);
-
-  useEffect(() => {
-    if (!isSuccess || tracked.current) return;
-    tracked.current = true;
-    const sessionId =
-      searchParams.get("session_id") ||
-      searchParams.get("transaction_id") ||
-      `donation_${Date.now()}`;
-    const amountRaw = searchParams.get("amount");
-    const amount = amountRaw && Number.isFinite(Number(amountRaw)) ? Number(amountRaw) : 0;
-    const donationType =
-      searchParams.get("interval") === "monthly" || searchParams.get("type") === "monthly"
-        ? "monthly"
-        : "one-time";
-    trackDonationComplete({
-      transactionId: sessionId,
-      amount,
-      donationType,
-    });
-  }, [isSuccess, searchParams]);
 
   return (
     <>
@@ -65,7 +43,7 @@ const DonationSuccess = () => {
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold text-foreground">Thank You!</h1>
                 <p className="text-lg text-muted-foreground">
-                  Your generous donation has been received. Every contribution helps us support people living with arthritis across the UK.
+                  Thank you for supporting Living With Arthritis. Check your payment provider’s receipt to confirm whether your donation completed.
                 </p>
               </div>
 
@@ -75,7 +53,7 @@ const DonationSuccess = () => {
                   <p className="font-semibold text-foreground">Your impact matters</p>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  88p of every £1 goes directly to patient care and research. If you provided an email at checkout, a receipt from Stripe will arrive shortly.
+                  This page cannot verify a payment. Your payment provider confirms the amount, status and receipt.
                 </p>
               </div>
 
@@ -98,9 +76,9 @@ const DonationSuccess = () => {
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold text-foreground">Donation Cancelled</h2>
+                <h1 className="text-3xl font-bold text-foreground">Donation status</h1>
                 <p className="text-lg text-muted-foreground">
-                  No worries — your payment was not processed. You can try again anytime, or explore other ways to support our work.
+                  You returned from the donation journey. Check your payment provider before retrying if you are unsure whether a payment completed.
                 </p>
               </div>
 

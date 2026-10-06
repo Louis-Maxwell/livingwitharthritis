@@ -123,14 +123,10 @@ export default defineConfig(({ mode }) => {
           inject: { prerender: true },
           injectProperty: "__PRERENDER_INJECTED__",
         },
-        // Defence 3: strip any noindex/nofollow robots meta that still made
-        // it into the snapshot. Shipping one on every prerendered page would
-        // de-index the whole site.
+        // Keep intentional route noindex directives. The prerender UA/marker
+        // prevent bot detection from adding a false directive before rendering.
         postProcess(renderedRoute: { html: string; route: string }) {
-          renderedRoute.html = renderedRoute.html.replace(
-            /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex[^"']*["'][^>]*>/gi,
-            "",
-          );
+          if (!renderedRoute.html.includes("</head>")) throw new Error(`Incomplete HTML: ${renderedRoute.route}`);
         },
       }),
 

@@ -1,4 +1,5 @@
-import { onCLS, onFCP, onLCP, onINP, onTTFB } from 'web-vitals';
+import { hasAnalyticsConsent, sanitiseAnalyticsParams } from "./analyticsPrivacy";
+export { initWebVitals, getWebVitals, getThresholds, type CoreWebVitalsMetrics } from "./web-vitals";
 
 type GtagFn = (command: "event" | "config" | "set" | "js", ...args: unknown[]) => void;
 
@@ -33,14 +34,15 @@ export const trackEvent = (
   params: Record<string, unknown> = {},
 ): void => {
   try {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
+    const safeParams = sanitiseAnalyticsParams(params);
     if (import.meta.env.DEV) {
-      console.debug('[GA4]', name, params);
+      console.debug('[GA4]', name, safeParams);
     }
     if (typeof window.gtag === "function") {
-      window.gtag("event", name, params);
+      window.gtag("event", name, safeParams);
     } else if (Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({ event: name, ...params });
+      window.dataLayer.push({ event: name, ...safeParams });
     }
   } catch {
     /* analytics must never break UX */
@@ -49,9 +51,9 @@ export const trackEvent = (
 
 // Set user properties for segmentation
 export const setUserProperties = (properties: EventParams): void => {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent() || typeof window.gtag !== "function") return;
   try {
-    window.gtag("set", properties);
+    window.gtag("set", "user_properties", sanitiseAnalyticsParams(properties));
   } catch {
     /* silently fail */
   }
@@ -59,24 +61,14 @@ export const setUserProperties = (properties: EventParams): void => {
 
 // ============ Conversion Events ============
 
-export const trackContactSubmit = (opts: { topic?: string } = {}): void => {
-  const params = {
-    method: "contact_form",
-    topic: opts.topic ?? "general",
-    value: 1,
-    currency: "GBP",
-  };
-  trackEvent("contact_form_submit", params);
-  trackEvent("generate_lead", { ...params, method: "contact" });
+/** Call only after an enquiry endpoint confirms acceptance, never after opening mailto. */
+export const trackContactSubmit = (_opts: { topic?: string } = {}): void => {
+  trackEvent("generate_lead", { method: "contact_form", lead_type: "contact", form_id: "contact" });
 };
 
+/** Reserved for actual email-platform confirmation; inbox delivery is newsletter_submit. */
 export const trackNewsletterSignup = (): void => {
-  trackEvent("newsletter_signup", {
-    event_category: "conversion",
-    value: 0,
-  });
-  trackEvent("sign_up", { method: "newsletter" });
-  trackEvent("generate_lead", { method: "newsletter", value: 1, currency: "GBP" });
+  trackEvent("newsletter_signup", { method: "confirmed_subscription", form_id: "newsletter" });
 };
 
 export const trackBuddySchemeSignup = (): void => {
@@ -115,12 +107,8 @@ export const trackDonationComplete = (opts: {
   amount: number;
   donationType?: "one-time" | "monthly";
 }): void => {
-  trackEvent("donate", {
-    transaction_id: opts.transactionId,
-    value: opts.amount,
-    currency: "GBP",
-    donation_type: opts.donationType ?? "one-time",
-  });
+  // This helper is reserved for trusted payment confirmation, not URL parameters.
+  if (!opts.transactionId.trim() || !Number.isFinite(opts.amount) || opts.amount <= 0) return;
   trackEvent("purchase", {
     transaction_id: opts.transactionId,
     value: opts.amount,
@@ -180,12 +168,9 @@ export const trackButtonClick = (buttonName: string, buttonLocation?: string): v
   });
 };
 
-export const trackSearch = (searchTerm: string, resultCount?: number): void => {
-  trackEvent("search", {
-    search_term: searchTerm,
-    search_result_count: resultCount,
-    event_category: "engagement",
-  });
+export const trackSearch = (_searchTerm: string, resultCount = 0): void => {
+  trackEvent("view_search_results", { results_count: resultCount, result_bucket: resultCount === 0 ? "none" : resultCount <= 10 ? "1-10" : "11-plus" });
+  if (resultCount === 0) trackEvent("search_no_results", { result_bucket: "none" });
 };
 
 export const trackFormInteraction = (formId: string, fieldName: string): void => {
@@ -282,105 +267,6 @@ export const trackAppError = (
     event_category: "error",
   });
 };
-
-// ============ Performance & Web Vitals ============
-
-export interface CoreWebVitalsMetrics {
-  cls?: number;
-  fcp?: number;
-  inp?: number;
-  lcp?: number;
-  ttfb?: number;
-}
-
-const metricsCache: CoreWebVitalsMetrics = {};
-
-const getRating = (metric: string, value: number): string => {
-  const thresholds: Record<string, [number, number]> = {
-    cls: [0.1, 0.25],
-    fcp: [1800, 3000],
-    inp: [200, 500],
-    lcp: [2500, 4000],
-    ttfb: [800, 1800],
-  };
-
-  if (!(metric in thresholds)) return "unknown";
-  const [good, poor] = thresholds[metric];
-  if (value <= good) return "good";
-  if (value <= poor) return "needs-improvement";
-  return "poor";
-};
-
-export const initWebVitals = (): CoreWebVitalsMetrics => {
-  if (typeof window === "undefined") return metricsCache;
-
-  onLCP((metric) => {
-    metricsCache.lcp = metric.value;
-    trackEvent("page_view_lcp", {
-      value: Math.round(metric.value),
-      event_category: "Web Vitals",
-      rating: getRating("lcp", metric.value),
-    });
-  });
-
-  onFCP((metric) => {
-    metricsCache.fcp = metric.value;
-    trackEvent("page_view_fcp", {
-      value: Math.round(metric.value),
-      event_category: "Web Vitals",
-      rating: getRating("fcp", metric.value),
-    });
-  });
-
-  onCLS((metric) => {
-    metricsCache.cls = metric.value;
-    trackEvent("page_view_cls", {
-      value: Math.round(metric.value * 1000),
-      event_category: "Web Vitals",
-      rating: getRating("cls", metric.value),
-    });
-  });
-
-  onINP((metric) => {
-    metricsCache.inp = metric.value;
-    trackEvent("page_view_inp", {
-      value: Math.round(metric.value),
-      event_category: "Web Vitals",
-      rating: getRating("inp", metric.value),
-    });
-  });
-
-  onTTFB((metric) => {
-    metricsCache.ttfb = metric.value;
-    trackEvent("page_view_ttfb", {
-      value: Math.round(metric.value),
-      event_category: "Web Vitals",
-      rating: getRating("ttfb", metric.value),
-    });
-  });
-
-  if (import.meta.env.MODE === "development") {
-    console.table({
-      "LCP (s)": `${(metricsCache.lcp || 0) / 1000}s`,
-      "FCP (s)": `${(metricsCache.fcp || 0) / 1000}s`,
-      CLS: metricsCache.cls || "pending",
-      "INP (ms)": metricsCache.inp || "pending",
-      "TTFB (ms)": metricsCache.ttfb || "pending",
-    });
-  }
-
-  return metricsCache;
-};
-
-export const getWebVitals = (): CoreWebVitalsMetrics => metricsCache;
-
-export const getThresholds = () => ({
-  LCP: { good: 2500, poor: 4000, unit: "ms" },
-  FCP: { good: 1800, poor: 3000, unit: "ms" },
-  CLS: { good: 0.1, poor: 0.25, unit: "score" },
-  INP: { good: 200, poor: 500, unit: "ms" },
-  TTFB: { good: 800, poor: 1800, unit: "ms" },
-});
 
 // ============ Debug Helpers ============
 

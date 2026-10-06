@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase, RefreshCw, Calendar } from "lucide-react";
+import { Heart, ArrowRight, Globe, HandHeart, Users, Building2, Gift, Landmark, Receipt, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { gazaAppealHero } from "@/data/images";
 import { trackDonationClick } from "@/lib/ga-events";
@@ -14,9 +13,6 @@ import { buildCharitySchema, injectJsonLd, type FAQItem } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
-const PRESET_AMOUNTS = [50, 150, 200, 500];
-const MIN_AMOUNT = 1;
-const MAX_AMOUNT = 100000;
 
 
 const DONATION_OPTIONS = [
@@ -118,20 +114,6 @@ const DONATE_FAQS: FAQItem[] = [
 export default function Donate() {
   useEffect(() => injectJsonLd("ld-charity-donate", buildCharitySchema()), []);
   const navigate = useNavigate();
-  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
-  const [selectedAmount, setSelectedAmount] = useState<number>(50);
-  const [customAmount, setCustomAmount] = useState<string>("");
-
-  const customNum = Number(customAmount);
-  const isCustomValid =
-    customAmount !== "" &&
-    Number.isFinite(customNum) &&
-    customNum >= MIN_AMOUNT &&
-    customNum <= MAX_AMOUNT;
-  const activeAmount = customAmount !== "" ? (isCustomValid ? customNum : 0) : selectedAmount;
-  const canDonate = activeAmount >= MIN_AMOUNT && activeAmount <= MAX_AMOUNT;
-  const isMonthly = frequency === "monthly";
-
 
   return (
     <>
@@ -227,109 +209,14 @@ export default function Donate() {
         <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
           <h2 className="text-2xl font-bold text-foreground text-center mb-3">Choose what you can give</h2>
           <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">
-            One-time or monthly. UK taxpayers may add Gift Aid once our HMRC Gift Aid registration is complete — we will confirm on the form when reclaim is live.
+            Continue to our GoFundMe campaign to choose an amount and see the giving options available there.
+            Payment details and receipts are handled by GoFundMe.
           </p>
-
-          <div className="bg-card rounded-2xl border border-border/40 p-4 sm:p-8 shadow-sm max-w-full overflow-x-hidden">
-            {/* Frequency toggle */}
-            <div
-              role="radiogroup"
-              aria-label="Donation frequency"
-              className="grid grid-cols-2 gap-1 p-1 bg-muted/50 rounded-full mb-6"
-            >
-              {(["one-time", "monthly"] as const).map((f) => {
-                const active = frequency === f;
-                const Icon = f === "monthly" ? RefreshCw : Heart;
-                return (
-                  <button
-                    key={f}
-                    role="radio"
-                    aria-checked={active}
-                    onClick={() => setFrequency(f)}
-                    className={`inline-flex items-center justify-center gap-2 min-h-11 h-12 rounded-full text-sm font-semibold transition-all ${
-                      active
-                        ? "bg-background text-foreground shadow-sm"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {f === "one-time" ? "One-time" : "Monthly"}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Amount picker */}
-            <label className="block text-xs font-bold text-muted-foreground tracking-wider uppercase mb-3">
-              Amount {isMonthly && <span className="text-primary">(per month)</span>}
-            </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
-              {PRESET_AMOUNTS.map((amt) => {
-                const active = customAmount === "" && selectedAmount === amt;
-                return (
-                  <button
-                    key={amt}
-                    aria-pressed={active}
-                    onClick={() => {
-                      setSelectedAmount(amt);
-                      setCustomAmount("");
-                    }}
-                    className={`min-h-12 h-14 rounded-xl border-2 text-base font-bold transition-all ${
-                      active
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border bg-background text-foreground hover:border-primary/40"
-                    }`}
-                  >
-                    £{amt}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Custom amount */}
-            <div className="relative mb-4">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold">£</span>
-              <Input
-                type="number"
-                inputMode="decimal"
-                min={MIN_AMOUNT}
-                max={MAX_AMOUNT}
-                placeholder="Other amount"
-                value={customAmount}
-                onChange={(e) => setCustomAmount(e.target.value)}
-                className="pl-9 h-12 rounded-xl"
-                aria-label="Custom donation amount in pounds"
-              />
-            </div>
-
-            {customAmount !== "" && !isCustomValid && (
-              <p className="text-xs text-destructive mb-3" role="alert">
-                Please enter an amount between £{MIN_AMOUNT} and £{MAX_AMOUNT.toLocaleString()}.
-              </p>
-            )}
-
-            {isMonthly && canDonate && (
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4 px-1">
-                <Calendar className="w-4 h-4 text-primary" />
-                <span>
-                  £{activeAmount.toLocaleString()} / month ·{" "}
-                  <strong className="text-foreground">£{(activeAmount * 12).toLocaleString()}</strong> over a year
-                </span>
-              </div>
-            )}
-
-            <Button asChild size="lg" className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form" })}>
-                <Heart className="w-5 h-5 mr-2 fill-current/20" />
-                Donate on GoFundMe
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
-
-            <p className="text-[11px] text-muted-foreground text-center mt-4">
-              The amount is chosen on GoFundMe. This page does not take card payments.
-            </p>
-          </div>
+          <Button asChild size="lg" className="btn-primary-cta w-full min-h-14 rounded-full text-base font-bold">
+            <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form" })}>
+              Donate on GoFundMe<span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </Button>
           <p className="text-xs text-muted-foreground text-center mt-6 max-w-xl mx-auto leading-relaxed">
             Living With Arthritis is a registered charity in England and Wales (no. {CHARITY.number}).
             Gifts are taken on our GoFundMe campaign and fund free UK arthritis support.

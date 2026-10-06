@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Osteoarthritis",
+    "path": "/conditions/osteoarthritis"
+  },
+  {
+    "title": "Rheumatoid arthritis",
+    "path": "/conditions/rheumatoid-arthritis"
+  },
+  {
+    "title": "Exercise with arthritis",
+    "path": "/guides/exercise"
+  },
+  {
+    "title": "Strength training",
+    "path": "/blog/strength-training-arthritis-beginners"
+  },
+  {
+    "title": "Understanding joint pain",
+    "path": "/guides/understanding-pain"
+  },
+  {
+    "title": "Joint health and risk reduction",
+    "path": "/guides/can-exercise-make-osteoarthritis-worse"
+  },
+  {
+    "title": "Healthy living",
+    "path": "/arthritis-flare-ups"
+  },
+  {
+    "title": "Weight management and nutrition",
+    "path": "/guides/diet"
+  },
+  {
+    "title": "Mobility and independence",
+    "path": "/guides/disability-support"
+  },
+  {
+    "title": "Pain management",
+    "path": "/guides/arthritis-pain-relief"
+  }
+]

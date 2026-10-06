@@ -1,4 +1,5 @@
-﻿import { useParams, Navigate, Link } from "react-router-dom";
+import { subpageTitle, subpageDescription } from "@/data/conditionSubpageSeo";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
@@ -41,27 +42,6 @@ const subpageIcon: Record<SubpageSlug, typeof Activity> = {
   diet: Apple,
 };
 
-function subpageTitle(condName: string, subpage: SubpageSlug): string {
-  const titleMap: Record<SubpageSlug, string> = {
-    symptoms: `${condName} symptoms: early signs and when to see a GP (UK)`,
-    treatment: `${condName} treatment UK: NHS options, medicines and self-care`,
-    exercises: `Best exercises for ${condName}: safe UK physio-aligned routines`,
-    diet: `Diet for ${condName}: foods to favour and limit (UK guide)`,
-  };
-  return titleMap[subpage];
-}
-
-function subpageDescription(condName: string, subpage: SubpageSlug): string {
-  const lcName = condName.toLowerCase();
-  const descMap: Record<SubpageSlug, string> = {
-    symptoms: `Recognise early ${lcName} signs, common flare symptoms, and when to see your GP. Educational UK guidance aligned with NHS and NICE themes — not a diagnosis.`,
-    treatment: `How ${lcName} is usually managed in the UK: NHS pathways, common medicine classes, pain relief and self-care. Educational only — your clinician decides treatment.`,
-    exercises: `Safe ${lcName} exercise ideas aligned with UK physiotherapy themes: what to try, what to ease off, and how to build a weekly routine. Check with your clinician if you are unsure.`,
-    diet: `What to favour and limit with ${lcName}. UK-focused anti-inflammatory eating ideas and evidence notes — not a personal meal prescription.`,
-  };
-  return descMap[subpage];
-}
-
 /**
  * Programmatic SEO page: /conditions/:condition/:subpage
  * 13 conditions Ã— 4 sub-pages = 52 unique pages.
@@ -102,7 +82,8 @@ const ConditionSubpagePage = () => {
         audienceType: "Patient",
         geographicArea: { "@type": "Country", name: "United Kingdom" },
       },
-      dateModified: new Date().toISOString().slice(0, 10),
+      "@id": `${url}#webpage`,
+      publisher: { "@id": `${BASE}/#organization` },
     };
     // BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it.
     // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.

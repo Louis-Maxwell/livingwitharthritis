@@ -92,12 +92,15 @@ export async function subscribeNewsletter(opts: {
         signal: controller.signal,
       });
 
-      if (res.ok) {
+      const payload: unknown = res.ok ? await res.json().catch(() => null) : null;
+      const accepted = payload && typeof payload === "object" && "success" in payload &&
+        (payload.success === true || payload.success === "true");
+      if (res.ok && accepted) {
         markFormSubmitted("newsletter");
         return {
           ok: true,
           via: "formsubmit",
-          message: "Thanks, we have your email address and will add you to our newsletter.",
+          message: "Your newsletter request was accepted for delivery to the charity inbox. Subscription is confirmed separately.",
         };
       }
       reportFormFailure("newsletter", `FormSubmit HTTP ${res.status}`);

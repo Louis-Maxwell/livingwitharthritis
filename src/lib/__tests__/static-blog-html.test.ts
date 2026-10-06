@@ -133,15 +133,15 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).not.toContain(HOME_SHELL_HEADING);
   });
 
-  it("keeps unique article HTML in rewriteHead without painting it", () => {
+  it("keeps the unique article readable in rewriteHead before JavaScript loads", () => {
     const html = rewriteHead(
       TEMPLATE,
       "/blog/arthritis-and-work-uk",
       WORK_HEAD,
     );
     expect(html).toContain("Equality Act 2010");
-    expect(html).toContain("clip:rect(0 0 0 0)");
-    expect(html).toContain('aria-hidden="true"');
+    expect(html).not.toContain("clip:rect(0 0 0 0)");
+    expect(html).not.toContain('aria-hidden="true"');
   });
 
   it("reads an embedded article only when the slug matches", () => {

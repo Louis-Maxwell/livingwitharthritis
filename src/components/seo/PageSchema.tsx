@@ -122,7 +122,8 @@ export default function PageSchema({
     if (name && description) {
       const medicalPage: Record<string, unknown> = {
         "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
+        "@type": medical ? "MedicalWebPage" : "WebPage",
+        "@id": `${absUrl}#webpage`,
         name,
         description,
         url: absUrl,
