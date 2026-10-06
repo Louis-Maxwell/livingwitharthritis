@@ -61,4 +61,3 @@ Use rolling 28-day and 90-day comparisons, with matched countries/devices/query 
 | Engagement | Existing many timers/clicks | Meaningful resource/video/onward-task use and returning readers |
 | AI visibility | 6.72K rounded impressions, 236 pages | Accurate cited priority sources and trend in dedicated report; no conflation with clicks |
 | Accessibility | Sampled observations only | Critical journeys pass keyboard/screen-reader tests and tracked issues resolved |
-

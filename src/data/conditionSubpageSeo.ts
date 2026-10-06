@@ -20,4 +20,3 @@ export function subpageDescription(condName: string, subpage: SubpageSlug): stri
   };
   return descMap[subpage];
 }
-
