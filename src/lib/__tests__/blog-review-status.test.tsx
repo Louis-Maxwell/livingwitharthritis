@@ -61,6 +61,36 @@ const headData = JSON.parse(
   readFileSync(resolve(process.cwd(), "scripts/blog-head-data.json"), "utf8"),
 ) as Record<string, { article?: { reviewStatus?: string } }>;
 
+/**
+ * Guides rewritten by automated PRs #124 (5 Oct 2026) and #126 (6 Oct 2026),
+ * which wrongly marked them reviewed by Louis Maxwell. They are pending until
+ * he reviews them (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_CHAMPIONS_62_67 = [
+  // #124
+  "how-to-sleep-with-arthritis-uk",
+  "arthritis-and-mental-health-uk",
+  "cold-weather-arthritis-uk-winter",
+  // #126
+  "staying-active-arthritis-winter-uk",
+  "depression-arthritis-when-to-seek-help",
+  "flu-jab-arthritis-frailty-uk",
+];
+
+describe("Champions 62–67 guides awaiting clinical review", () => {
+  it.each(PENDING_CHAMPIONS_62_67)("%s is pending in the post, catalog, review index and head data", (slug) => {
+    const post = bySlug.get(slug)!;
+    expect(post.reviewStatus).toBe("pending");
+    expect(post.last_reviewed).toBeUndefined();
+    expect(post.reviewed_by).toBeNull();
+    expect(post.reviewer_credentials).toBeNull();
+    expect(String(post.content)).not.toMatch(/Reviewed by/i);
+    expect(resolveBlogReviewStatus(post)).toBe("pending");
+    expect(catalogRows.find((r) => r.slug === slug)?.reviewStatus).toBe("pending");
+    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).toBe("pending");
+  });
+});
+
 describe("blog reviewStatus schema", () => {
   const base = bySlug.get("menopause-hrt-and-joint-pain")!;
 
@@ -97,8 +127,10 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
-  it("no blog guide is pending review", () => {
-    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug)).toEqual([]);
+  it("only the six automated Champions 62–67 rewrites are pending review", () => {
+    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
+      [...PENDING_CHAMPIONS_62_67].sort(),
+    );
   });
 
   it("guides without an explicit reviewStatus still resolve as reviewed by default", () => {

@@ -4,12 +4,11 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 
-const REVIEW = "2026-10-06";
-
 type Post = {
   last_reviewed?: string;
   reviewStatus?: string;
-  reviewed_by?: string;
+  reviewed_by?: string | null;
+  reviewer_credentials?: string | null;
   meta_title?: string;
   meta_description?: string;
   citations?: Array<{ url: string }>;
@@ -93,12 +92,17 @@ const cases: Array<{
 
 describe("GSC Champions 65–67 (6 Oct): winter activity + depression + flu jab", () => {
   for (const c of cases) {
-    it(`${c.name} blog is clinically reviewed ${REVIEW} with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} blog is pending clinical review (no reviewer or review date claimed) with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      expect(json.last_reviewed).toBe(REVIEW);
-      expect(json.reviewStatus).toBe("reviewed");
-      expect(json.reviewed_by).toBe("Louis Maxwell");
+      // Not yet clinically reviewed by Louis Maxwell: pending, with no reviewer
+      // name or review date claimed anywhere in the post.
+      expect(json.reviewStatus).toBe("pending");
+      expect(json.last_reviewed).toBeUndefined();
+      expect(json.reviewed_by).toBeNull();
+      expect(json.reviewer_credentials).toBeNull();
+      expect(json.content).not.toMatch(/Reviewed by/i);
+      expect(json.content).toMatch(/Pending clinical review\./);
       expect(json.meta_title).toMatch(c.title);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);
       expect((json.meta_description || "").length).toBeLessThanOrEqual(155);
@@ -108,7 +112,6 @@ describe("GSC Champions 65–67 (6 Oct): winter activity + depression + flu jab"
         expect(json.content.includes(`href="${href}"`), `${c.name} missing ${href}`).toBe(true);
       }
       expect(json.content).toMatch(/1218461/);
-      expect(json.content).toMatch(/HCPC PH128483/);
       expect(raw).not.toMatch(/Oswestry/i);
       expect(raw).not.toMatch(/George Dingley|Crewe CW1/i);
     });
