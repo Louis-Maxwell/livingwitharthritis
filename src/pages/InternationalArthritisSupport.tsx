@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import SeoHead from "@/components/SeoHead";
 import data from "@/data/international-arthritis-support.json";
 
@@ -8,7 +11,10 @@ function ResourceLink({ url, name }: { url: string; name: string }) {
 
 export default function InternationalArthritisSupport() {
   return (
-    <main className="container mx-auto max-w-4xl px-6 py-12 space-y-8">
+    <>
+    <Header />
+    <PageBreadcrumb segments={[{ label: "International arthritis support" }]} />
+    <main id="main-content" className="container mx-auto max-w-4xl px-6 py-12 space-y-8">
       <SeoHead title={data.title} description={data.description} path={data.path} includeSiteName={false} />
       <h1 className="text-3xl font-bold">{data.heading}</h1>
       <p className="leading-relaxed">{data.intro}</p>
@@ -39,5 +45,7 @@ export default function InternationalArthritisSupport() {
         <p className="text-sm text-muted-foreground">Resource directory updated <time dateTime={data.updatedAt}>7 October 2026</time>. External organisations manage their own services and information.</p>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }
