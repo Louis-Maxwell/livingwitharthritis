@@ -14,7 +14,7 @@ const server=http.createServer((req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base=`http://127.0.0.1:${server.address().port}`;
-const browser=await puppeteer.launch({executablePath:process.env.SEO_CHROMIUM_PATH || puppeteer.executablePath(),headless:true,args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage']});
+const browser=await puppeteer.launch({executablePath:process.env.SEO_CHROMIUM_PATH || await puppeteer.executablePath(),headless:true,args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage']});
 const routes=['/','/guides/benefits-pip','/conditions/knee-arthritis/diet','/blog/pip-for-arthritis-uk','/contact','/donate','/site-index'];
 const report=[];
 try {
@@ -33,5 +33,6 @@ try {
   }await page.close();
  }
  fs.mkdirSync(path.join(root,'docs/seo'),{recursive:true});fs.writeFileSync(path.join(root,'docs/seo/browser-audit.generated.json'),JSON.stringify({scope:'Local built Chromium + axe; not live/field data or full manual accessibility certification',report},null,2)+'\n');
+ if (report.some(x => x.violations.length || x.errors.length || x.h1.length !== 1 || x.canonicals.length !== 1 || x.width > x.viewport)) process.exitCode = 1;
  console.log(JSON.stringify(report.map(x=>({route:x.route,width:x.width,h1:x.h1.length,canonicals:x.canonicals.length,overflow:x.width<x.viewport?0:x.width-x.viewport,violations:x.violations,errors:x.errors})),null,2));
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

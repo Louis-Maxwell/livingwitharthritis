@@ -68,7 +68,7 @@
   "best-exercises-osteoarthritis-knee-pain-home": "2026-09-05",
   "best-foods-to-eat-for-arthritis": "2026-09-05",
   "best-plantar-fasciitis-shoes-women-uk": "2026-09-05",
-  "best-sleep-positions-joint-pain": "2026-09-05",
+  "best-sleep-positions-joint-pain": "2026-10-07",
   "best-supplement-for-knee-joint": "2026-09-23",
   "best-supplements-arthritis-uk": "2026-09-05",
   "best-supplements-joint-pain": "2026-09-05",
@@ -120,7 +120,7 @@
   "cooking-with-hand-oa-frailty-uk": "2026-09-05",
   "copd-arthritis-frailty-breathlessness-uk": "2026-09-05",
   "core-strengthening-spinal-arthritis": "2026-09-05",
-  "covid-winter-arthritis-frailty-uk": "2026-09-05",
+  "covid-winter-arthritis-frailty-uk": "2026-10-07",
   "cppd-pseudogout-frailty-sudden-hot-joint-uk": "2026-09-05",
   "cycling-with-arthritis": "2026-09-05",
   "dating-with-arthritis-confidence": "2026-09-05",
@@ -514,7 +514,7 @@
   "wheelchair-for-distance-arthritis-frailty-uk": "2026-09-05",
   "why-exercise-makes-your-arthritis-medication-work-better": "2026-09-05",
   "widowhood-meals-arthritis-frailty-uk": "2026-09-05",
-  "winter-arthritis-frailty-cold-houses-uk": "2026-09-05",
+  "winter-arthritis-frailty-cold-houses-uk": "2026-10-07",
   "working-with-arthritis-uk-rights": "2026-09-05",
   "wound-care-reaching-arthritis-frailty-uk": "2026-09-05",
   "wrist-hand-oa-frailty-self-care-uk": "2026-09-05",
@@ -527,11 +527,14 @@
  },
  "pending": [
   "arthritis-and-mental-health-uk",
+  "best-sleep-positions-joint-pain",
   "cold-weather-arthritis-uk-winter",
+  "covid-winter-arthritis-frailty-uk",
   "depression-arthritis-when-to-seek-help",
   "flu-jab-arthritis-frailty-uk",
   "how-to-sleep-with-arthritis-uk",
   "pip-for-arthritis-uk",
-  "staying-active-arthritis-winter-uk"
+  "staying-active-arthritis-winter-uk",
+  "winter-arthritis-frailty-cold-houses-uk"
  ]
 }

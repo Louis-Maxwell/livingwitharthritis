@@ -2067,7 +2067,7 @@
     },
     {
       "path": "/blog/archive",
-      "words": 4570,
+      "words": 4574,
       "h1": "Arthritis article archive",
       "types": [
         [
@@ -2916,8 +2916,8 @@
     },
     {
       "path": "/blog/best-sleep-positions-joint-pain",
-      "words": 1077,
-      "h1": "The Best Sleep Positions for Joint Pain (UK Guide)",
+      "words": 891,
+      "h1": "Best Sleep Positions for Joint Pain: Knees, Hips (UK)",
       "types": [
         [
           "MedicalOrganization",
@@ -2927,7 +2927,8 @@
         "WebSite",
         "MedicalWebPage",
         "BlogPosting",
-        "BreadcrumbList"
+        "BreadcrumbList",
+        "FAQPage"
       ],
       "thinCandidate": false
     },
@@ -3969,8 +3970,8 @@
     },
     {
       "path": "/blog/covid-winter-arthritis-frailty-uk",
-      "words": 1439,
-      "h1": "Winter viruses, arthritis medicines and frailty (UK)",
+      "words": 1319,
+      "h1": "Winter Viruses and Arthritis Medicines: Stay Safe (UK)",
       "types": [
         [
           "MedicalOrganization",
@@ -10962,8 +10963,8 @@
     },
     {
       "path": "/blog/winter-arthritis-frailty-cold-houses-uk",
-      "words": 1421,
-      "h1": "Winter, cold houses, arthritis and frailty (UK)",
+      "words": 1073,
+      "h1": "Cold Home and Arthritis: Keep Warm and Keep Moving (UK)",
       "types": [
         [
           "MedicalOrganization",
@@ -17766,7 +17767,7 @@
     },
     {
       "path": "/site-index",
-      "words": 7017,
+      "words": 7021,
       "h1": "Site index",
       "types": [
         [

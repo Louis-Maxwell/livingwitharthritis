@@ -154,6 +154,14 @@ const EngagementTracker = () => {
     };
 
     const handleClick = (e: MouseEvent) => {
+      const link = (e.target as Element | null)?.closest?.("a[href]");
+      const href = link?.getAttribute("href") ?? "";
+      // Never send a contact address, phone number, subject or message to GA4.
+      if (/^mailto:/i.test(href) && !link?.hasAttribute("data-social-share")) {
+        trackEvent("email_click", { page_path: path, placement: "contact_link" });
+      } else if (/^tel:/i.test(href)) {
+        trackEvent("phone_click", { page_path: path, placement: "contact_link" });
+      }
       const s = stateRef.current;
       if (s.clickedFired) return;
       const target = (e.target as HTMLElement | null)?.closest?.("a,button,[role='button']");

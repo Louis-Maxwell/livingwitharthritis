@@ -44,7 +44,7 @@ const SiteAnnouncementBanner = () => {
     <div
       role="status"
       aria-live="polite"
-      className="w-full bg-primary text-primary-foreground animate-fade-in-up border-b border-primary-foreground/20"
+      className="w-full bg-primary text-primary-foreground border-b border-primary-foreground/20"
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center gap-2 py-2 relative">
         <Sparkles

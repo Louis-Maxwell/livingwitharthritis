@@ -16,12 +16,12 @@ The audit and implementation cover all 45 workstreams. This branch is reviewable
 
 ## Validation evidence
 
-- Unit suite: 102 files, 577 tests passed; TypeScript and lint passed.
+- Unit suite: 104 files, 589 tests passed; TypeScript and lint passed.
 - Production build and built internal-link audit passed.
 - Built inventory: 1,004 URLs, zero indexing/metadata/H1 errors, zero graph orphan/unreachable candidates. Graph coverage does not prove Google has indexed each URL.
 - 238 pages fall below a heuristic 120-word threshold; these are review candidates, not confirmed soft 404s. See built-audit.generated.json.
 - Chromium/axe: seven routes at mobile and desktop widths, no serious/critical violations or page errors. Automated results do not replace manual accessibility review.
-- Structured data is validated by scripts/validate-jsonld.mjs; see release validation logs before deployment.
+- Structured data: zero errors and warnings across 1,004 routes. See scripts/validate-jsonld.mjs.
 
 ## Account and business dependencies
 
@@ -30,7 +30,7 @@ The audit and implementation cover all 45 workstreams. This branch is reviewable
 3. Welfare and clinical reviewers must approve changed guidance and high-visibility medication/supplement pages. Do not mass-publish the brief backlog or invent reviewer credentials.
 4. Choose/provide a real newsletter provider and confirmation API. Current FormSubmit/mailto is not a confirmed subscription service. Contact acceptance and provider integration need backend access.
 5. Donation income must be reconciled with verified GoFundMe reporting; browser handoffs cannot verify a completed donation.
-6. GA4 account changes prepared: remove key-event status from donation_click, begin_checkout and chat_start; retain newsletter_signup/generate_lead/purchase only for genuine confirmed outcomes. Verify GSC link and create private-data-free reports after account-specific confirmation.
+6. GA4 account changes prepared: primary outcomes newsletter_signup/generate_lead/purchase require genuine confirmation. The 7 October plan requests donation_click, file_download, video_complete, email_click, phone_click and social_share as secondary key events, reported separately from subscribers and income. begin_checkout requires a genuine checkout and chat_start remains engagement. Verify GSC link and create private-data-free reports after account configuration review.
 7. Live mobile Lighthouse/interaction profiling and sufficient field samples are needed before claiming Core Web Vitals improvement. No-data status remains unknown.
 8. Original videos/tools, member interviews, verified impact claims, genuine reviewer profiles, UK keyword volumes, partner references and monthly AI monitoring require the named owners and continuing delivery.
 

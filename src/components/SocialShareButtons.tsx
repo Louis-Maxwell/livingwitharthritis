@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import {
   Twitter,
   Facebook,
@@ -72,6 +73,7 @@ const SocialShareButtons = ({
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(value);
         toast.success(kind === "group" ? "Copied for groups" : "Link copied");
+        trackEvent("social_share", { method: kind === "group" ? "copy_group_text" : "copy_link", content_type: "article", content_id: slug });
         setCopied(kind);
         window.setTimeout(() => setCopied(null), 1800);
         return;
@@ -93,6 +95,7 @@ const SocialShareButtons = ({
     if (!navigator.share) return;
     try {
       await navigator.share({ title, text: shareText, url });
+      trackEvent("social_share", { method: "native_share", content_type: "article", content_id: slug });
     } catch {
       // cancelled
     }
@@ -205,7 +208,7 @@ const SocialShareButtons = ({
               asChild
               className="h-11 w-11 min-h-11 min-w-11 p-0 rounded-full border-border/40 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all"
             >
-              <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${label}`}>
+              <a href={href} target="_blank" rel="noopener noreferrer" data-social-share onClick={() => trackEvent("social_share", { method: label.toLowerCase(), content_type: "article", content_id: slug, action: "open_share_dialog" })} aria-label={`Share on ${label}`}>
                 <Icon className="w-4 h-4" aria-hidden="true" />
               </a>
             </Button>
