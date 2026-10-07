@@ -50,7 +50,7 @@ const StripeDonationModal = ({
   useExclusiveOverlay("donation", isOpen, handleClose);
 
   const sym = SYMBOLS[currency] ?? "£";
-  const fundLabel = FUND_LABELS[fundType] ?? "General Donation";
+  const fundLabel = FUND_LABELS[fundType] ?? "General Fund";
   const isZakat = fundType === "zakat";
   const canPayByCard = isStripeConfigured();
 
