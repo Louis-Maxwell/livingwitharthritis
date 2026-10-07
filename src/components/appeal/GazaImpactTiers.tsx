@@ -1,5 +1,4 @@
 import { trackDonationClick } from "@/lib/ga-events";
-import { ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 
 const GAZA_IMPACT_TIERS = [
   { amount: 25, impact: "Funds three guided physiotherapy sessions for a survivor" },
@@ -11,7 +10,7 @@ const GAZA_IMPACT_TIERS = [
 ];
 
 /** Impact tiers expressed as concrete rehabilitation outcomes. */
-export default function GazaImpactTiers() {
+export default function GazaImpactTiers({ onGive }: { onGive: (amount: number) => void }) {
   return (
     <section className="py-14 bg-muted/30">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -25,16 +24,17 @@ export default function GazaImpactTiers() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {GAZA_IMPACT_TIERS.map((tier) => (
-            <a
+            <button
+              type="button"
               key={tier.amount}
-              href={ZAKAT_GIVE_URL}
               onClick={() => {
                 trackDonationClick({
                   source: `gaza_tier_${tier.amount}`,
                   amount: tier.amount,
                 });
+                onGive(tier.amount);
               }}
-              className="block text-left bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+              className="block w-full text-left bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
             >
               <p className="font-display font-bold text-2xl text-primary">
                 £{tier.amount.toLocaleString()}
@@ -42,8 +42,8 @@ export default function GazaImpactTiers() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 {tier.impact}
               </p>
-              <span className="sr-only">Email us to give to the Gaza appeal</span>
-            </a>
+              <span className="sr-only">Donate £{tier.amount} to the Gaza appeal</span>
+            </button>
           ))}
         </div>
       </div>

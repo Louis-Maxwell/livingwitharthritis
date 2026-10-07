@@ -17,6 +17,7 @@ import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import { ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 import { gazaAppealHero, gazaRehabStory } from "@/data/images";
+import StripeDonationModal from "@/components/StripeDonationModal";
 import ZakatCalculator from "@/components/ZakatCalculator";
 import GazaImpactTiers from "@/components/appeal/GazaImpactTiers";
 import IslamicGivingCards from "@/components/appeal/IslamicGivingCards";
@@ -88,6 +89,11 @@ const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [gift, setGift] = useState<{ amount: number; recurring: boolean } | null>(null);
+  const customNum = Number(customAmount);
+  const activeAmount = customAmount
+    ? (Number.isFinite(customNum) && customNum >= 1 && customNum <= 10000 ? customNum : 0)
+    : selectedAmount;
 
   const description = customAmount
     ? "Your generous contribution will make a meaningful difference"
@@ -260,18 +266,21 @@ const ZakatAppeal = () => {
 
                   {/* Donate button */}
                   <Button asChild className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all">
-                    <a
-                      href={ZAKAT_GIVE_URL}
-                      onClick={() => trackDonationClick({ source: "gaza_appeal_form" })}
+                    <button
+                      type="button"
+                      disabled={!activeAmount}
+                      onClick={() => {
+                        trackDonationClick({ source: "gaza_appeal_form", amount: activeAmount });
+                        setGift({ amount: activeAmount, recurring: false });
+                      }}
                     >
                       <Heart className="mr-2 h-5 w-5" />
-                      Email us to give
-                      <span className="sr-only"> (opens your email app)</span>
-                    </a>
+                      {`Donate £${activeAmount || ""} to the appeal`}
+                    </button>
                   </Button>
 
                   <p className="text-[11px] text-muted-foreground text-center">
-                    We will reply with a secure way to pay that goes only to this appeal. This page does not take card payments.
+                    Every gift here goes only to the Palestine &amp; Gaza appeal. Prefer to arrange it by email? <a href={ZAKAT_GIVE_URL} className="underline">Email us</a>.
                   </p>
                 </div>
               </div>
@@ -280,7 +289,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Impact tiers */}
-        <GazaImpactTiers />
+        <GazaImpactTiers onGive={(amount) => setGift({ amount, recurring: false })} />
 
         {/* Empathy story block */}
         <section className="py-14 bg-background">
@@ -315,7 +324,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Islamic giving: Zakat, Sadaqah, Sadaqah Jariyah */}
-        <IslamicGivingCards />
+        <IslamicGivingCards onGive={(amount, recurring) => setGift({ amount, recurring })} />
 
         {/* Zakat Calculator */}
         <ZakatCalculator />
@@ -386,6 +395,14 @@ const ZakatAppeal = () => {
       </main>
 
       <NextReadStrip currentPath="/zakat-appeal" />
+      <StripeDonationModal
+        isOpen={gift !== null}
+        onClose={() => setGift(null)}
+        amount={gift?.amount ?? 0}
+        currency="GBP"
+        fundType="zakat"
+        recurring={gift?.recurring ?? false}
+      />
       <Footer />
 
     </>

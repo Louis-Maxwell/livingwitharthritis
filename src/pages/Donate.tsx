@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { gazaAppealHero } from "@/data/images";
 import { trackDonationClick } from "@/lib/ga-events";
 import { GOFUNDME_URL, ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
+import StripeDonationModal from "@/components/StripeDonationModal";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd, type FAQItem } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
@@ -131,6 +132,7 @@ export default function Donate() {
   const activeAmount = customAmount !== "" ? (isCustomValid ? customNum : 0) : selectedAmount;
   const canDonate = activeAmount >= MIN_AMOUNT && activeAmount <= MAX_AMOUNT;
   const isMonthly = frequency === "monthly";
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
 
   return (
@@ -173,10 +175,9 @@ export default function Donate() {
               Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.
             </p>
             <Button asChild size="lg" className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+              <a href="#give">
                 <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
                 Donate Now
-                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </Button>
           </div>
@@ -316,21 +317,37 @@ export default function Donate() {
               </div>
             )}
 
-            <Button asChild size="lg" className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form" })}>
-                <Heart className="w-5 h-5 mr-2 fill-current/20" />
-                Donate on GoFundMe
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
+            <Button
+              size="lg"
+              disabled={!canDonate}
+              onClick={() => {
+                trackDonationClick({ source: "donate_page_form", amount: activeAmount });
+                setIsModalOpen(true);
+              }}
+              className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group"
+            >
+              <Heart className="w-5 h-5 mr-2 fill-current/20" />
+              {`Donate £${activeAmount}${isMonthly ? " / month" : ""}`}
             </Button>
 
             <p className="text-[11px] text-muted-foreground text-center mt-4">
-              The amount is chosen on GoFundMe. This page does not take card payments.
+              Pay securely by card, Apple Pay or Google Pay. Prefer GoFundMe?{" "}
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" className="underline">
+                Give there instead<span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </p>
+            <StripeDonationModal
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              amount={activeAmount}
+              currency="GBP"
+              fundType="general"
+              recurring={isMonthly}
+            />
           </div>
           <p className="text-xs text-muted-foreground text-center mt-6 max-w-xl mx-auto leading-relaxed">
             Living With Arthritis is a registered charity in England and Wales (no. {CHARITY.number}).
-            Gifts are taken on our GoFundMe campaign and fund free UK arthritis support.
+            Your gift funds free UK arthritis support.
           </p>
         </section>
 
