@@ -1,6 +1,6 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Heart } from "lucide-react";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import StripeDonationModal from "@/components/StripeDonationModal";
 
 interface QuickDonateButtonProps {
   amount: number;
@@ -33,13 +33,14 @@ const QuickDonateButton = memo(({
     outline: "border border-border bg-background text-foreground hover:bg-muted",
   };
 
+  const [isOpen, setIsOpen] = useState(false);
   const buttonLabel = label || `Donate £${amount}${recurring ? "/mo" : ""}`;
 
   return (
-    <a
-      href={GOFUNDME_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+    <>
+    <button
+      type="button"
+      onClick={() => setIsOpen(true)}
       className={`
         inline-flex items-center justify-center gap-2 rounded-full font-semibold
         transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
@@ -48,11 +49,19 @@ const QuickDonateButton = memo(({
         ${fullWidth ? "w-full" : ""}
         ${className}
       `}
-      aria-label={`${buttonLabel} (opens in a new tab)`}
     >
       <Heart className="w-4 h-4 fill-current" aria-hidden="true" />
       {buttonLabel}
-    </a>
+    </button>
+    <StripeDonationModal
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      amount={amount}
+      currency="GBP"
+      fundType="general"
+      recurring={recurring}
+    />
+    </>
   );
 });
 
