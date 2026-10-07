@@ -64,6 +64,14 @@ const DemoUnavailable = ({ label, className }: { label?: string; className?: str
 export const ExerciseVideo = ({ src, poster, label, className, hideDisclaimer }: ExerciseVideoProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(() => typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(media.matches);
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   const [inView, setInView] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -111,7 +119,9 @@ export const ExerciseVideo = ({ src, poster, label, className, hideDisclaimer }:
           ref={videoRef}
           src={src}
           poster={poster}
-          autoPlay
+          autoPlay={!reducedMotion}
+          controls
+          aria-label={label ? `${label} demonstration` : "Exercise demonstration"}
           loop
           muted
           playsInline
@@ -126,7 +136,7 @@ export const ExerciseVideo = ({ src, poster, label, className, hideDisclaimer }:
       )}
 
       {!hideDisclaimer && (
-        <div className="absolute bottom-2 left-2 right-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-background/85 backdrop-blur-sm border border-border/40 text-[10px] leading-tight text-muted-foreground">
+        <div className="absolute top-2 left-2 right-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-background/85 backdrop-blur-sm border border-border/40 text-[10px] leading-tight text-muted-foreground">
           <Sparkles className="w-3 h-3 text-primary shrink-0" aria-hidden />
           <span><strong className="text-foreground">Illustrative demonstration</strong> — illustrative only, not medical guidance.</span>
         </div>

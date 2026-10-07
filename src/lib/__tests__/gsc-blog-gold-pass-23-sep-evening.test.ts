@@ -50,10 +50,13 @@ describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foo
       expect(row!.meta_title?.trim().length).toBeGreaterThan(40);
       expect(row!.meta_description?.trim().length).toBeGreaterThan(110);
       expect(row!.meta_description).not.toMatch(/\.\.\.$/);
-      expect(row!.updated_at?.startsWith("2026-09-23")).toBe(true);
+      expect(row!.updated_at?.slice(0, 10)).toBe(slug === "pip-for-arthritis-uk" ? "2026-10-06" : "2026-09-23");
       expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
       expect(row!.author).toMatch(/Louis Maxwell/i);
-      expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
+      if (slug === "pip-for-arthritis-uk") {
+        expect(row!.reviewed_by).toBe("");
+        expect(row!.direct_answer).not.toMatch(/worst typical days/i);
+      } else expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
 
       const cites = row!.citations ?? [];
       expect(cites.length).toBeGreaterThanOrEqual(3);
@@ -80,7 +83,7 @@ describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foo
       const head = heads[`/blog/${slug}`];
       expect(head?.title?.trim().length).toBeGreaterThan(30);
       expect(head?.description?.trim().length).toBeGreaterThan(80);
-      expect(head?.updatedAt).toBe("2026-09-23");
+      expect(head?.updatedAt).toBe(slug === "pip-for-arthritis-uk" ? "2026-10-06" : "2026-09-23");
     });
   }
 

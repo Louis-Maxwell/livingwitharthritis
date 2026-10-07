@@ -6,20 +6,22 @@ import { trackDonationComplete, trackNewsletterSignup } from "@/lib/analytics";
 describe("GA4 conversion events", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
+    localStorage.clear();
+    localStorage.setItem("cookie-consent", "accepted");
     window.gtag = vi.fn() as typeof window.gtag;
   });
 
-  it("fires sign_up and generate_lead on newsletter signup", () => {
+  it("fires one confirmed newsletter_signup without duplicate lead conversions", () => {
     trackNewsletterSignup();
     const names = vi.mocked(window.gtag as (...args: unknown[]) => void).mock.calls.map(
       (c) => c[1],
     );
-    expect(names).toContain("sign_up");
-    expect(names).toContain("generate_lead");
+    expect(names).not.toContain("sign_up");
+    expect(names).not.toContain("generate_lead");
     expect(names).toContain("newsletter_signup");
   });
 
-  it("fires donate and purchase on donation complete", () => {
+  it("fires one purchase for a trusted confirmed donation", () => {
     trackDonationComplete({
       transactionId: "txn_test",
       amount: 50,
@@ -28,7 +30,7 @@ describe("GA4 conversion events", () => {
     const names = vi.mocked(window.gtag as (...args: unknown[]) => void).mock.calls.map(
       (c) => c[1],
     );
-    expect(names).toContain("donate");
+    expect(names).not.toContain("donate");
     expect(names).toContain("purchase");
   });
 });

@@ -58,7 +58,7 @@ export default function PipEvidenceDiary() {
         <section className="mb-8 rounded-xl border border-border/50 bg-muted/20 p-5 text-sm leading-relaxed text-foreground/85">
           <h2 className="font-display mb-2 text-lg font-bold">How to use this</h2>
           <ul className="list-disc space-y-1 pl-5">
-            <li>Fill one column per day for a typical week, including bad days.</li>
+            <li>Record better and worse days and how often each occurs; a week is an example, not the full assessment period.</li>
             <li>Note aids, time taken, pain, and whether you need help or rest.</li>
             <li>Keep copies of clinic letters and prescription lists with this diary.</li>
             <li>Citizens Advice or a welfare-rights adviser can help interpret PIP descriptors.</li>

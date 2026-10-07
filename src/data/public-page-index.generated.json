@@ -1,0 +1,4018 @@
+[
+  {
+    "path": "/",
+    "title": "What is Living With Arthritis?"
+  },
+  {
+    "path": "/about",
+    "title": "Who is Living With Arthritis?"
+  },
+  {
+    "path": "/about/ai-transparency",
+    "title": "about · ai transparency"
+  },
+  {
+    "path": "/about/editorial-claims-policy",
+    "title": "about · editorial claims policy"
+  },
+  {
+    "path": "/about/uk-arthritis-search-insights",
+    "title": "about · uk arthritis search insights"
+  },
+  {
+    "path": "/accessibility",
+    "title": "accessibility"
+  },
+  {
+    "path": "/advocacy",
+    "title": "advocacy"
+  },
+  {
+    "path": "/arthritis-flare-ups",
+    "title": "arthritis flare ups"
+  },
+  {
+    "path": "/arthritis-mental-health",
+    "title": "arthritis mental health"
+  },
+  {
+    "path": "/arthritis-support",
+    "title": "Where can I find arthritis support in my UK city?"
+  },
+  {
+    "path": "/arthritis-support/aberdeen",
+    "title": "Where can I find arthritis support in Aberdeen?"
+  },
+  {
+    "path": "/arthritis-support/bath",
+    "title": "Where can I find arthritis support in Bath?"
+  },
+  {
+    "path": "/arthritis-support/belfast",
+    "title": "Where can I find arthritis support in Belfast?"
+  },
+  {
+    "path": "/arthritis-support/birmingham",
+    "title": "Where can I find arthritis support in Birmingham?"
+  },
+  {
+    "path": "/arthritis-support/blackpool",
+    "title": "Where can I find arthritis support in Blackpool?"
+  },
+  {
+    "path": "/arthritis-support/bournemouth",
+    "title": "Where can I find arthritis support in Bournemouth?"
+  },
+  {
+    "path": "/arthritis-support/brighton",
+    "title": "Where can I find arthritis support in Brighton?"
+  },
+  {
+    "path": "/arthritis-support/bristol",
+    "title": "Where can I find arthritis support in Bristol?"
+  },
+  {
+    "path": "/arthritis-support/cambridge",
+    "title": "Where can I find arthritis support in Cambridge?"
+  },
+  {
+    "path": "/arthritis-support/cardiff",
+    "title": "Where can I find arthritis support in Cardiff?"
+  },
+  {
+    "path": "/arthritis-support/cheltenham",
+    "title": "Where can I find arthritis support in Cheltenham?"
+  },
+  {
+    "path": "/arthritis-support/coventry",
+    "title": "Where can I find arthritis support in Coventry?"
+  },
+  {
+    "path": "/arthritis-support/derby",
+    "title": "Where can I find arthritis support in Derby?"
+  },
+  {
+    "path": "/arthritis-support/doncaster",
+    "title": "arthritis support · doncaster"
+  },
+  {
+    "path": "/arthritis-support/dundee",
+    "title": "Where can I find arthritis support in Dundee?"
+  },
+  {
+    "path": "/arthritis-support/edinburgh",
+    "title": "Where can I find arthritis support in Edinburgh?"
+  },
+  {
+    "path": "/arthritis-support/exeter",
+    "title": "Where can I find arthritis support in Exeter?"
+  },
+  {
+    "path": "/arthritis-support/glasgow",
+    "title": "Where can I find arthritis support in Glasgow?"
+  },
+  {
+    "path": "/arthritis-support/gloucester",
+    "title": "arthritis support · gloucester"
+  },
+  {
+    "path": "/arthritis-support/hull",
+    "title": "Where can I find arthritis support in Hull?"
+  },
+  {
+    "path": "/arthritis-support/ipswich",
+    "title": "Where can I find arthritis support in Ipswich?"
+  },
+  {
+    "path": "/arthritis-support/leeds",
+    "title": "Where can I find arthritis support in Leeds?"
+  },
+  {
+    "path": "/arthritis-support/leicester",
+    "title": "Where can I find arthritis support in Leicester?"
+  },
+  {
+    "path": "/arthritis-support/lincoln",
+    "title": "Where can I find arthritis support in Lincoln?"
+  },
+  {
+    "path": "/arthritis-support/liverpool",
+    "title": "Where can I find arthritis support in Liverpool?"
+  },
+  {
+    "path": "/arthritis-support/london",
+    "title": "Where can I find arthritis support in London?"
+  },
+  {
+    "path": "/arthritis-support/luton",
+    "title": "arthritis support · luton"
+  },
+  {
+    "path": "/arthritis-support/manchester",
+    "title": "Where can I find arthritis support in Manchester?"
+  },
+  {
+    "path": "/arthritis-support/middlesbrough",
+    "title": "arthritis support · middlesbrough"
+  },
+  {
+    "path": "/arthritis-support/newcastle",
+    "title": "Where can I find arthritis support in Newcastle upon Tyne?"
+  },
+  {
+    "path": "/arthritis-support/norwich",
+    "title": "Where can I find arthritis support in Norwich?"
+  },
+  {
+    "path": "/arthritis-support/nottingham",
+    "title": "Where can I find arthritis support in Nottingham?"
+  },
+  {
+    "path": "/arthritis-support/oxford",
+    "title": "Where can I find arthritis support in Oxford?"
+  },
+  {
+    "path": "/arthritis-support/peterborough",
+    "title": "Where can I find arthritis support in Peterborough?"
+  },
+  {
+    "path": "/arthritis-support/plymouth",
+    "title": "Where can I find arthritis support in Plymouth?"
+  },
+  {
+    "path": "/arthritis-support/portsmouth",
+    "title": "Where can I find arthritis support in Portsmouth?"
+  },
+  {
+    "path": "/arthritis-support/preston",
+    "title": "Where can I find arthritis support in Preston?"
+  },
+  {
+    "path": "/arthritis-support/reading",
+    "title": "Where can I find arthritis support in Reading?"
+  },
+  {
+    "path": "/arthritis-support/sheffield",
+    "title": "Where can I find arthritis support in Sheffield?"
+  },
+  {
+    "path": "/arthritis-support/slough",
+    "title": "arthritis support · slough"
+  },
+  {
+    "path": "/arthritis-support/southampton",
+    "title": "Where can I find arthritis support in Southampton?"
+  },
+  {
+    "path": "/arthritis-support/stoke-on-trent",
+    "title": "Where can I find arthritis support in Stoke-on-Trent?"
+  },
+  {
+    "path": "/arthritis-support/sunderland",
+    "title": "Where can I find arthritis support in Sunderland?"
+  },
+  {
+    "path": "/arthritis-support/swansea",
+    "title": "Where can I find arthritis support in Swansea?"
+  },
+  {
+    "path": "/arthritis-support/wakefield",
+    "title": "arthritis support · wakefield"
+  },
+  {
+    "path": "/arthritis-support/warrington",
+    "title": "arthritis support · warrington"
+  },
+  {
+    "path": "/arthritis-support/wigan",
+    "title": "arthritis support · wigan"
+  },
+  {
+    "path": "/arthritis-support/wolverhampton",
+    "title": "Where can I find arthritis support in Wolverhampton?"
+  },
+  {
+    "path": "/arthritis-support/worcester",
+    "title": "Where can I find arthritis support in Worcester?"
+  },
+  {
+    "path": "/arthritis-support/york",
+    "title": "Where can I find arthritis support in York?"
+  },
+  {
+    "path": "/arthritis-waiting-list-help",
+    "title": "What can I do while waiting for a rheumatology appointment?"
+  },
+  {
+    "path": "/authors",
+    "title": "Who writes Living With Arthritis content?"
+  },
+  {
+    "path": "/authors/maxwell",
+    "title": "authors · maxwell"
+  },
+  {
+    "path": "/benefits-pip",
+    "title": "Where do I start with PIP for arthritis?"
+  },
+  {
+    "path": "/blog",
+    "title": "Where can I read UK arthritis guides on exercise, diet and PIP?"
+  },
+  {
+    "path": "/blog-hub",
+    "title": "blog hub"
+  },
+  {
+    "path": "/blog/access-to-work-scheme-arthritis-guide",
+    "title": "Access to Work for Arthritis: Equipment, Travel & Help (UK)"
+  },
+  {
+    "path": "/blog/activity-diary-arthritis-frailty-uk",
+    "title": "A simple activity diary for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/adult-children-as-caregivers-arthritis",
+    "title": "Adult Children as Carers: Arthritis Family Roles"
+  },
+  {
+    "path": "/blog/advance-care-planning-arthritis-frailty-uk",
+    "title": "Advance care planning if arthritis and frailty are both progressing…"
+  },
+  {
+    "path": "/blog/alcohol-arthritis-uk-guidance",
+    "title": "Alcohol and Arthritis: What the UK Evidence Says"
+  },
+  {
+    "path": "/blog/allotment-identity-arthritis-frailty-uk",
+    "title": "Allotments, identity and frailty if arthritis takes the digging (UK)"
+  },
+  {
+    "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
+    "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/anti-inflammatory-diet",
+    "title": "Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints"
+  },
+  {
+    "path": "/blog/anti-inflammatory-diet-rheumatoid-arthritis",
+    "title": "Anti-Inflammatory Diet for Rheumatoid Arthritis: Foods to Eat"
+  },
+  {
+    "path": "/blog/anti-inflammatory-herbs-spices-arthritis",
+    "title": "Anti-Inflammatory Herbs & Spices for Arthritis (UK Guide)"
+  },
+  {
+    "path": "/blog/anti-inflammatory-shopping-list-uk",
+    "title": "An Anti-Inflammatory Shopping List for UK Supermarkets"
+  },
+  {
+    "path": "/blog/anti-inflammatory-smoothie-recipes",
+    "title": "Anti-Inflammatory Smoothie Recipes for Joint Pain"
+  },
+  {
+    "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
+    "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
+  },
+  {
+    "path": "/blog/anxiety-about-falling-arthritis-uk",
+    "title": "Anxiety about falling when you live with arthritis (UK)"
+  },
+  {
+    "path": "/blog/anxiety-and-arthritis-management",
+    "title": "Anxiety and Arthritis: Why It Happens and How to Manage It"
+  },
+  {
+    "path": "/blog/anxiety-arthritis-uk-guide",
+    "title": "Managing Anxiety When You Have Arthritis: A UK Guide"
+  },
+  {
+    "path": "/blog/appeal-rejected-pip-arthritis",
+    "title": "How to Appeal a Rejected PIP Claim for Arthritis"
+  },
+  {
+    "path": "/blog/appetite-loss-arthritis-frailty-uk",
+    "title": "Appetite loss, arthritis pain and frailty (UK)"
+  },
+  {
+    "path": "/blog/apprenticeships-and-arthritis-a-realistic-look",
+    "title": "Apprenticeships and Arthritis: A Realistic Look"
+  },
+  {
+    "path": "/blog/aquatic-therapy-arthritis-guide",
+    "title": "Aquatic Therapy for Arthritis: More Than Just Swimming"
+  },
+  {
+    "path": "/blog/archive",
+    "title": "blog · archive"
+  },
+  {
+    "path": "/blog/arthritis-and-alcohol-uk",
+    "title": "Arthritis & Alcohol UK – Safe Limits & Interactions"
+  },
+  {
+    "path": "/blog/arthritis-and-cycling-uk",
+    "title": "Cycling for Arthritis: Benefits, Tips and Getting Started (UK)"
+  },
+  {
+    "path": "/blog/arthritis-and-diet-myths-uk",
+    "title": "Arthritis Diet Myths UK – 10 Common Myths Debunked"
+  },
+  {
+    "path": "/blog/arthritis-and-gardening-uk",
+    "title": "Gardening with Arthritis – Tools & Adapted Techniques (UK)"
+  },
+  {
+    "path": "/blog/arthritis-and-mental-health-uk",
+    "title": "Arthritis & Mental Health UK: Low Mood, Anxiety & Help"
+  },
+  {
+    "path": "/blog/arthritis-and-omega-3-fish-oil",
+    "title": "Omega-3 and Fish Oil for Arthritis: A Complete Evidence-Based Guide"
+  },
+  {
+    "path": "/blog/arthritis-and-pets-uk",
+    "title": "Arthritis & Pets UK – Benefits, Challenges & Practical Tips"
+  },
+  {
+    "path": "/blog/arthritis-and-pregnancy-uk",
+    "title": "Arthritis & Pregnancy UK – Medication Safety & Planning"
+  },
+  {
+    "path": "/blog/arthritis-and-sleep-problems",
+    "title": "Arthritis and Sleep Problems: How to Get Better Rest with Joint Pain"
+  },
+  {
+    "path": "/blog/arthritis-and-travel-uk",
+    "title": "Travelling with Arthritis – UK Planning Tips & Accessibility"
+  },
+  {
+    "path": "/blog/arthritis-and-weight-loss-uk",
+    "title": "Arthritis & Weight Loss UK – Ease Joint Pain"
+  },
+  {
+    "path": "/blog/arthritis-and-work-uk",
+    "title": "Managing Arthritis at Work in the UK: Your Rights, Adjustments"
+  },
+  {
+    "path": "/blog/arthritis-and-your-heart-lowering-risk",
+    "title": "Arthritis and Your Heart: Lowering Your Heart Disease Risk"
+  },
+  {
+    "path": "/blog/arthritis-exercises-uk-clinical",
+    "title": "Arthritis Exercises – Best Low-Impact Workouts UK"
+  },
+  {
+    "path": "/blog/arthritis-fatigue-explained",
+    "title": "Arthritis Fatigue Explained: Why It Happens and What Helps"
+  },
+  {
+    "path": "/blog/arthritis-fatigue-management-uk",
+    "title": "Arthritis Fatigue UK: Causes, Pacing & When to See a GP"
+  },
+  {
+    "path": "/blog/arthritis-flare-management",
+    "title": "Arthritis Flare-Ups — How to Recognise, Manage, and Recover"
+  },
+  {
+    "path": "/blog/arthritis-flare-up-what-to-do",
+    "title": "Arthritis Flare-Up UK: What to Do in the First 72 Hours"
+  },
+  {
+    "path": "/blog/arthritis-friendly-recipes-uk",
+    "title": "Anti-Inflammatory Recipes: Easy UK Meals for Joint Health"
+  },
+  {
+    "path": "/blog/arthritis-in-older-adults",
+    "title": "Arthritis in Older Adults: What Changes and What Helps (UK Guide)"
+  },
+  {
+    "path": "/blog/arthritis-in-young-adults",
+    "title": "Arthritis in Young Adults: Recognising It Early (UK Guide)"
+  },
+  {
+    "path": "/blog/arthritis-in-young-people-uk",
+    "title": "Arthritis in Young People UK – Types, Symptoms & Support"
+  },
+  {
+    "path": "/blog/arthritis-meal-planning-uk",
+    "title": "Arthritis Meal Planning UK: Weekly Menus for Joint Health"
+  },
+  {
+    "path": "/blog/arthritis-medication-guide",
+    "title": "Arthritis Medication — What Works, What to Expect"
+  },
+  {
+    "path": "/blog/arthritis-medications-and-sexual-function",
+    "title": "How Arthritis Medications Affect Sexual Function: DMARDs, Biologics and NSAIDs"
+  },
+  {
+    "path": "/blog/arthritis-pain-management",
+    "title": "Arthritis Pain Management — A Kind, Practical Guide"
+  },
+  {
+    "path": "/blog/arthritis-pain-relief-natural",
+    "title": "Natural Pain Relief for Arthritis: Evidence-Based Home Remedies"
+  },
+  {
+    "path": "/blog/arthritis-physiotherapy-nhs-waiting-list",
+    "title": "How to Get Arthritis Physiotherapy on the NHS Waiting List"
+  },
+  {
+    "path": "/blog/arthritis-relationships-honest-conversations",
+    "title": "Arthritis and Relationships: Honest Conversations That Help"
+  },
+  {
+    "path": "/blog/arthritis-support-groups-glasgow",
+    "title": "Arthritis Support Groups Near Me Glasgow"
+  },
+  {
+    "path": "/blog/arthritis-support-groups-manchester",
+    "title": "Free Arthritis Support Groups Near Me Manchester"
+  },
+  {
+    "path": "/blog/arthritis-support-groups-scotland",
+    "title": "Arthritis Support Groups Near Me Scotland"
+  },
+  {
+    "path": "/blog/arthritis-support-groups-wales",
+    "title": "Arthritis Support Groups Near Me Wales"
+  },
+  {
+    "path": "/blog/arthritis-treatment-hub",
+    "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
+  },
+  {
+    "path": "/blog/assistive-devices-arthritis-uk",
+    "title": "Assistive Devices for Arthritis – Best Aids UK Guide"
+  },
+  {
+    "path": "/blog/attendance-allowance-arthritis-frailty-uk",
+    "title": "Attendance Allowance for Arthritis: Care Needs After State Pension Age"
+  },
+  {
+    "path": "/blog/back-arthritis-exercises-uk",
+    "title": "Best Back Exercises for Arthritis – Spondylosis & RA (UK)"
+  },
+  {
+    "path": "/blog/balance-painful-feet-frailty-arthritis-uk",
+    "title": "Balance practice with painful arthritic feet (UK)"
+  },
+  {
+    "path": "/blog/bed-exercises-hospital-arthritis-frailty-uk",
+    "title": "Bed exercises during a hospital stay with arthritis (UK)"
+  },
+  {
+    "path": "/blog/bed-lever-arthritis-frailty-uk",
+    "title": "Bed levers and arthritis: turning without hauling on a partner (UK)"
+  },
+  {
+    "path": "/blog/bedtime-routine-arthritis-relief",
+    "title": "A Bedtime Routine Designed for Arthritis Sufferers"
+  },
+  {
+    "path": "/blog/befriending-arthritis-frailty-uk",
+    "title": "Befriending services when arthritis and frailty isolate you (UK)"
+  },
+  {
+    "path": "/blog/bereavement-arthritis-frailty-living-alone-uk",
+    "title": "Bereavement, living alone, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/berries-antioxidants-inflammation",
+    "title": "Berries and Antioxidants: Food Medicine for Inflammation"
+  },
+  {
+    "path": "/blog/best-diet-for-joint-pain-uk",
+    "title": "Best Diet for Joint Pain UK – Anti-Inflammatory Foods"
+  },
+  {
+    "path": "/blog/best-exercises-osteoarthritis-knee-pain-home",
+    "title": "Best Exercises for Osteoarthritis Knee Pain at Home"
+  },
+  {
+    "path": "/blog/best-foods-to-eat-for-arthritis",
+    "title": "The Best Foods to Eat for Arthritis: Your Anti-Inflammatory Diet"
+  },
+  {
+    "path": "/blog/best-plantar-fasciitis-shoes-women-uk",
+    "title": "Best Plantar Fasciitis Shoes for Women (UK, 2026)"
+  },
+  {
+    "path": "/blog/best-sleep-positions-joint-pain",
+    "title": "Best Sleep Positions for Joint Pain: Knees, Hips (UK)"
+  },
+  {
+    "path": "/blog/best-supplement-for-knee-joint",
+    "title": "Best joint supplement for knees? A careful comparison"
+  },
+  {
+    "path": "/blog/best-supplements-arthritis-uk",
+    "title": "Best Supplements for Arthritis – Evidence-Based UK Guide"
+  },
+  {
+    "path": "/blog/best-supplements-joint-pain",
+    "title": "Best Supplements for Joint Pain: What Actually Works"
+  },
+  {
+    "path": "/blog/best-walking-shoes-arthritis-uk",
+    "title": "Best Walking Shoes for Arthritis | Fit, Support & NHS Tips"
+  },
+  {
+    "path": "/blog/big-toe-osteoarthritis-frailty-shoes-balance-uk",
+    "title": "Big-toe osteoarthritis and frailty: shoes, push-off and balance (UK)"
+  },
+  {
+    "path": "/blog/biologic-side-effects-infections-injections-and-monitoring",
+    "title": "Biologic Side Effects: Infections, Injections and Monitoring"
+  },
+  {
+    "path": "/blog/biologics-for-ra-a-realistic-year-one-roadmap",
+    "title": "Biologics for RA: A Realistic Year-One Roadmap"
+  },
+  {
+    "path": "/blog/blood-pressure-tablets-falls-arthritis-uk",
+    "title": "Blood pressure tablets, standing up and arthritic joints (UK)"
+  },
+  {
+    "path": "/blog/blood-test-transport-arthritis-frailty-uk",
+    "title": "Getting to blood tests when you are frail with arthritis (UK)"
+  },
+  {
+    "path": "/blog/blue-badge-arthritis-scotland",
+    "title": "How to Get a Blue Badge for Arthritis in Scotland"
+  },
+  {
+    "path": "/blog/blue-badge-frailty-arthritis-uk",
+    "title": "Blue Badge, frailty and arthritis: walking distance in real life (UK)"
+  },
+  {
+    "path": "/blog/bone-clinic-arthritis-frailty-uk",
+    "title": "Bone clinics, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/bone-protection-steroids-arthritis-frailty-uk",
+    "title": "Bone protection on steroids when you also have arthritis and frailt…"
+  },
+  {
+    "path": "/blog/building-strength-resilience-exercise-frailty-prevention",
+    "title": "Building Strength and Resilience: Exercise for Frailty Prevention"
+  },
+  {
+    "path": "/blog/bunions-arthritis-frailty-shoes-uk",
+    "title": "Bunions, arthritis and frailty: shoes that still fit life (UK)"
+  },
+  {
+    "path": "/blog/calcium-foods-arthritis-frailty-uk",
+    "title": "Calcium-rich foods when arthritis and frailty share the plate (UK)"
+  },
+  {
+    "path": "/blog/calluses-pressure-spots-frail-arthritis-uk",
+    "title": "Calluses and pressure spots in frail arthritic feet (UK)"
+  },
+  {
+    "path": "/blog/care-home-life-arthritis-pain-frailty-uk",
+    "title": "Life in a care home with arthritis, pain and frailty (UK)"
+  },
+  {
+    "path": "/blog/caregiver-burnout-in-arthritis-families-spot-it-early",
+    "title": "Caregiver Burnout in Arthritis Families: Spot It Early"
+  },
+  {
+    "path": "/blog/caregiver-burnout-warning-signs-prevention",
+    "title": "Caregiver Burnout: Warning Signs and Prevention"
+  },
+  {
+    "path": "/blog/carer-burnout-arthritis-frailty-uk",
+    "title": "Carer burnout when arthritis and frailty fill the week (UK)"
+  },
+  {
+    "path": "/blog/carers-allowance-help-if-you-care-for-someone",
+    "title": "Carer's Allowance and Other Help If You Care for Someone"
+  },
+  {
+    "path": "/blog/carers-assessment-arthritis-frailty-uk",
+    "title": "Carer's Assessments When You Care for Someone With Arthritis (UK)"
+  },
+  {
+    "path": "/blog/carers-how-to-help-without-taking-over-uk",
+    "title": "How carers can help with arthritis and frailty without taking over …"
+  },
+  {
+    "path": "/blog/caring-for-parent-with-arthritis",
+    "title": "Caring for a Parent With Arthritis: Practical Tips"
+  },
+  {
+    "path": "/blog/category/exercise",
+    "title": "Where can I find arthritis exercise articles?"
+  },
+  {
+    "path": "/blog/category/frailty",
+    "title": "blog · category · frailty"
+  },
+  {
+    "path": "/blog/category/health",
+    "title": "blog · category · health"
+  },
+  {
+    "path": "/blog/category/lifestyle",
+    "title": "blog · category · lifestyle"
+  },
+  {
+    "path": "/blog/category/mental-health",
+    "title": "blog · category · mental health"
+  },
+  {
+    "path": "/blog/category/nutrition",
+    "title": "blog · category · nutrition"
+  },
+  {
+    "path": "/blog/category/supplements",
+    "title": "blog · category · supplements"
+  },
+  {
+    "path": "/blog/category/treatment",
+    "title": "blog · category · treatment"
+  },
+  {
+    "path": "/blog/cbt-chronic-pain-arthritis",
+    "title": "How Cognitive Behavioural Therapy (CBT) Helps Arthritis Pain"
+  },
+  {
+    "path": "/blog/chair-based-exercise-ra-frailty-uk",
+    "title": "Chair-based exercise for rheumatoid arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/chair-yoga-elderly-arthritis-stiffness",
+    "title": "Chair Yoga for Elderly Arthritis Stiffness Beginners"
+  },
+  {
+    "path": "/blog/chair-yoga-frailty-inflammatory-arthritis-uk",
+    "title": "Chair yoga for frailty and inflammatory arthritis (UK)"
+  },
+  {
+    "path": "/blog/chest-infection-arthritis-frailty-uk",
+    "title": "Chest infections, arthritis pain and frailty (UK)"
+  },
+  {
+    "path": "/blog/circadian-rhythm-arthritis-inflammation",
+    "title": "Your Circadian Rhythm and Arthritis Inflammation"
+  },
+  {
+    "path": "/blog/ckd-nsaids-arthritis-frailty-uk",
+    "title": "Kidney disease, NSAIDs and frail arthritis (UK)"
+  },
+  {
+    "path": "/blog/clinical-trials-for-arthritis-how-to-find-and-join-one",
+    "title": "Clinical Trials for Arthritis: How to Find and Join One"
+  },
+  {
+    "path": "/blog/codeine-drowsiness-falls-arthritis-uk",
+    "title": "Codeine, drowsiness and falls when you have arthritis (UK)"
+  },
+  {
+    "path": "/blog/cognition-arthritis-frailty-remembering-tablets-uk",
+    "title": "Cognition, arthritis and remembering tablets (UK)"
+  },
+  {
+    "path": "/blog/cold-weather-arthritis-uk-winter",
+    "title": "Cold Weather Arthritis: Winter Joint Pain & What Helps (UK)"
+  },
+  {
+    "path": "/blog/commode-night-arthritis-frailty-uk",
+    "title": "Commodes at night for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/community-alarm-arthritis-frailty-uk",
+    "title": "Community alarms when arthritis and frailty raise falls risk (UK)"
+  },
+  {
+    "path": "/blog/community-matron-arthritis-frailty-uk",
+    "title": "Community matrons, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/community-ot-waiting-arthritis-frailty-uk",
+    "title": "Waiting for community OT with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/community-physio-wait-frail-arthritis-uk",
+    "title": "Community physiotherapy waits when you are frail with arthritis (UK)"
+  },
+  {
+    "path": "/blog/community-strength-classes-frail-oa-uk",
+    "title": "Community strength classes for frail osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/community-transport-arthritis-frailty-uk",
+    "title": "Community transport for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/comprehensive-geriatric-assessment-arthritis-uk",
+    "title": "Comprehensive geriatric assessment in plain English if you have art…"
+  },
+  {
+    "path": "/blog/compression-stockings-hand-oa-frailty-uk",
+    "title": "Compression stockings when hand osteoarthritis is severe (UK)"
+  },
+  {
+    "path": "/blog/confidence-after-fall-arthritis-frailty-uk",
+    "title": "Rebuilding confidence after a fall if you have arthritis (UK)"
+  },
+  {
+    "path": "/blog/constipation-pain-medicines-frailty-arthritis-uk",
+    "title": "Constipation, pain medicines and frailty in arthritis (UK)"
+  },
+  {
+    "path": "/blog/continence-night-trips-arthritis-frailty-uk",
+    "title": "Continence, night toilet trips and arthritis-related frailty (UK)"
+  },
+  {
+    "path": "/blog/cooking-with-hand-oa-frailty-uk",
+    "title": "Cooking with hand osteoarthritis when you are becoming frailer (UK)"
+  },
+  {
+    "path": "/blog/copd-arthritis-frailty-breathlessness-uk",
+    "title": "COPD, arthritis and frailty: breathlessness plus sore joints (UK)"
+  },
+  {
+    "path": "/blog/core-strengthening-spinal-arthritis",
+    "title": "Core Strengthening: Deep Stabilisers for Spinal Arthritis"
+  },
+  {
+    "path": "/blog/covid-winter-arthritis-frailty-uk",
+    "title": "Winter Viruses and Arthritis Medicines: Stay Safe (UK)"
+  },
+  {
+    "path": "/blog/cppd-pseudogout-frailty-sudden-hot-joint-uk",
+    "title": "CPPD (pseudogout) and frailty: a sudden hot joint in later life (UK)"
+  },
+  {
+    "path": "/blog/cycling-with-arthritis",
+    "title": "Cycling with Arthritis: A Low-Impact Way to Keep Moving"
+  },
+  {
+    "path": "/blog/dating-with-arthritis-confidence",
+    "title": "Dating With Arthritis: When and How to Tell a Partner"
+  },
+  {
+    "path": "/blog/day-centres-arthritis-frailty-uk",
+    "title": "Day centres for people with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/deconditioning-after-arthritis-flare-uk",
+    "title": "Deconditioning after an arthritis flare: getting moving again (UK)"
+  },
+  {
+    "path": "/blog/delirium-hospital-arthritis-frailty-uk",
+    "title": "Delirium in hospital when you also have arthritis (UK)"
+  },
+  {
+    "path": "/blog/dental-care-arthritis-frailty-hands-uk",
+    "title": "Dental care when arthritis, frailty and sore hands collide (UK)"
+  },
+  {
+    "path": "/blog/depression-arthritis-when-to-seek-help",
+    "title": "Depression and Arthritis: When to Ask for Help (UK)"
+  },
+  {
+    "path": "/blog/depression-osteoarthritis-frailty-uk",
+    "title": "Depression, osteoarthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/desk-setup-arthritis-uk-workers",
+    "title": "The Perfect Desk Setup for UK Workers with Arthritis"
+  },
+  {
+    "path": "/blog/diabetes-arthritis-frailty-feet-uk",
+    "title": "Diabetes, arthritis and frailty: feet at the centre (UK)"
+  },
+  {
+    "path": "/blog/direct-payments-arthritis-frailty-uk",
+    "title": "Direct Payments for care when arthritis and frailty overlap (UK)"
+  },
+  {
+    "path": "/blog/disability-rights-workplace-arthritis",
+    "title": "Arthritis at Work: Your UK Disability Rights Explained"
+  },
+  {
+    "path": "/blog/disabled-facilities-grant-arthritis-frailty-uk",
+    "title": "Disabled Facilities Grants, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/discharge-planning-arthritis-frailty-uk",
+    "title": "Discharge planning when arthritis and frailty delayed recovery (UK)"
+  },
+  {
+    "path": "/blog/dmards-explained-how-methotrexate-slows-rheumatoid-arthritis",
+    "title": "DMARDs Explained: How Methotrexate Slows Rheumatoid Arthritis"
+  },
+  {
+    "path": "/blog/dnacpr-conversations-arthritis-frailty-uk",
+    "title": "DNACPR conversations: arthritis, frailty and being heard (UK)"
+  },
+  {
+    "path": "/blog/dosette-boxes-arthritis-frailty-hands-uk",
+    "title": "Dosette boxes and blister packs when arthritis affects the hands (UK)"
+  },
+  {
+    "path": "/blog/downstairs-living-arthritis-frailty-uk",
+    "title": "Temporary downstairs living with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/driving-with-arthritis-uk",
+    "title": "Driving With Arthritis: UK Rules and Adaptations"
+  },
+  {
+    "path": "/blog/early-arthritis-intervention-uk",
+    "title": "Why Early Intervention Beats Late Treatment in Arthritis"
+  },
+  {
+    "path": "/blog/early-signs-gout-big-toe",
+    "title": "Early Signs of Gout in the Big Toe UK"
+  },
+  {
+    "path": "/blog/elbow-osteoarthritis-frailty-kitchen-tasks-uk",
+    "title": "Elbow osteoarthritis and frailty: kitchen tasks without a flare spi…"
+  },
+  {
+    "path": "/blog/end-of-life-joint-pain-frailty-uk",
+    "title": "Joint pain, frailty and comfort-focused care (UK)"
+  },
+  {
+    "path": "/blog/energy-management-and-pacing-arthritis",
+    "title": "Energy Management and Pacing: Daily Planning for Arthritis Fatigue"
+  },
+  {
+    "path": "/blog/evening-routine-arthritis-frailty-uk",
+    "title": "Evening routines for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/exam-adjustments-for-students-with-arthritis",
+    "title": "Exam Adjustments for Students With Arthritis"
+  },
+  {
+    "path": "/blog/exercise-for-energy-arthritis-fatigue",
+    "title": "Exercise for Energy: Why Movement Eases Arthritis Fatigue"
+  },
+  {
+    "path": "/blog/exercise-for-hip-arthritis",
+    "title": "Best Hip Exercises for Arthritis – OA & RA Guide (UK)"
+  },
+  {
+    "path": "/blog/exercises-rheumatoid-arthritis-hands-wrists",
+    "title": "Best Exercises for Rheumatoid Arthritis in Hands and Wrists"
+  },
+  {
+    "path": "/blog/expert-brief-12-week-hip-exercise-protocol",
+    "title": "Expert Brief: The 12-Week Hip Exercise Protocol"
+  },
+  {
+    "path": "/blog/expert-brief-activity-safety-knee-arthritis",
+    "title": "Expert Brief: How Much Activity Is Safe With Knee Arthritis?"
+  },
+  {
+    "path": "/blog/expert-brief-exercise-order-pain-relief",
+    "title": "Expert Brief: Exercise Order for Maximum Pain Relief"
+  },
+  {
+    "path": "/blog/expert-brief-frozen-shoulder-vs-ra",
+    "title": "Expert Brief: Frozen Shoulder vs Rheumatoid Shoulder"
+  },
+  {
+    "path": "/blog/expert-qa-are-steroid-tapers-always-necessary",
+    "title": "Expert Q&A: Are Steroid Tapers Always Necessary?"
+  },
+  {
+    "path": "/blog/expert-qa-choosing-a-career-friendly-to-arthritis",
+    "title": "Expert Q&A: Choosing a Career-Friendly to Arthritis"
+  },
+  {
+    "path": "/blog/expert-qa-exercising-through-a-flare-up",
+    "title": "Expert Q&A: Exercising Through a Flare-Up"
+  },
+  {
+    "path": "/blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me",
+    "title": "Expert Q&A: How Do I Know If Surgery Is Right for Me?"
+  },
+  {
+    "path": "/blog/expert-qa-how-to-ask-for-help-without-feeling-guilty",
+    "title": "Expert Q&A: How to Ask for Help Without Feeling Guilty"
+  },
+  {
+    "path": "/blog/expert-qa-how-to-evaluate-a-clinical-trial-invitation",
+    "title": "Expert Q&A: How to Evaluate a Clinical Trial Invitation"
+  },
+  {
+    "path": "/blog/expert-qa-how-to-talk-to-your-gp-about-medication-worries",
+    "title": "Expert Q&A: How to Talk to Your GP About Medication Worries"
+  },
+  {
+    "path": "/blog/expert-qa-is-it-too-soon-for-joint-replacement",
+    "title": "Expert Q&A: Is It Too Soon for Joint Replacement?"
+  },
+  {
+    "path": "/blog/expert-qa-is-it-worth-paying-for-a-second-opinion",
+    "title": "Expert Q&A: Is It Worth Paying for a Second Opinion?"
+  },
+  {
+    "path": "/blog/expert-qa-occupational-therapy-hand-pain",
+    "title": "Expert Q&A: Occupational Therapy for Daily Hand Pain"
+  },
+  {
+    "path": "/blog/expert-qa-returning-to-work-after-a-bad-flare",
+    "title": "Expert Q&A: Returning to Work After a Bad Flare"
+  },
+  {
+    "path": "/blog/expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
+    "title": "Expert Q&A: Should I Apply for PIP If My Arthritis Is Mild?"
+  },
+  {
+    "path": "/blog/expert-qa-should-you-start-dmards-at-diagnosis",
+    "title": "Expert Q&A: Should You Start DMARDs at Diagnosis?"
+  },
+  {
+    "path": "/blog/expert-qa-spinal-injections-vs-exercise",
+    "title": "Expert Q&A: When to Consider Spinal Injections vs Exercise"
+  },
+  {
+    "path": "/blog/expert-qa-track-progress-without-measuring",
+    "title": "Expert Q&A: How to Track Progress Without Constant Measuring"
+  },
+  {
+    "path": "/blog/expert-qa-why-did-my-arthritis-come-back",
+    "title": "Expert Q&A: Why Did My Arthritis Come Back?"
+  },
+  {
+    "path": "/blog/expert-qa-will-my-children-inherit-my-arthritis",
+    "title": "Expert Q&A: Will My Children Inherit My Arthritis?"
+  },
+  {
+    "path": "/blog/explain-juvenile-arthritis-school-teachers",
+    "title": "How to Explain Juvenile Arthritis to School Teachers UK"
+  },
+  {
+    "path": "/blog/extra-care-housing-arthritis-frailty-uk",
+    "title": "Extra-care housing, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/eye-clinic-day-arthritis-frailty-uk",
+    "title": "Eye clinic days with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/faith-groups-arthritis-frailty-access-uk",
+    "title": "Faith groups, access and arthritis-related frailty (UK)"
+  },
+  {
+    "path": "/blog/falls-clinic-arthritis-what-to-expect-uk",
+    "title": "Falls clinic with arthritis: what to expect (UK)"
+  },
+  {
+    "path": "/blog/falls-response-service-arthritis-uk",
+    "title": "Community falls response if you live with arthritis (UK)"
+  },
+  {
+    "path": "/blog/family-meetings-arthritis-frailty-uk",
+    "title": "Family meetings about arthritis, frailty and staying at home (UK)"
+  },
+  {
+    "path": "/blog/fatty-fish-omega-3-arthritis-evidence",
+    "title": "Fatty Fish and Omega-3s: The Evidence for Arthritis Pain"
+  },
+  {
+    "path": "/blog/fear-of-falling-hip-oa-frailty-uk",
+    "title": "Fear of falling with hip osteoarthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/fibromyalgia-flare-ups-without-medication",
+    "title": "How to Manage Fibromyalgia Flare Ups Without Medication"
+  },
+  {
+    "path": "/blog/flare-management-pain-spikes",
+    "title": "Flare Management: What to Do When Pain Spikes"
+  },
+  {
+    "path": "/blog/flare-versus-frailty-arthritis-uk",
+    "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)"
+  },
+  {
+    "path": "/blog/flexible-working-arthritis-pacing",
+    "title": "How to Pitch Flexible Working Because of Arthritis"
+  },
+  {
+    "path": "/blog/flu-jab-arthritis-frailty-uk",
+    "title": "Flu Jab and Arthritis: Who Gets It Free This Winter (UK)"
+  },
+  {
+    "path": "/blog/flying-with-arthritis-uk-airports",
+    "title": "Flying with Arthritis: A UK Airport Survival Guide"
+  },
+  {
+    "path": "/blog/food-drink-and-arthritis-medicines-interactions",
+    "title": "Food, Drink and Arthritis Medicines: What Not to Mix"
+  },
+  {
+    "path": "/blog/foods-to-avoid-with-arthritis",
+    "title": "Foods to Avoid With Arthritis: A Complete UK Guide"
+  },
+  {
+    "path": "/blog/foot-and-ankle-arthritis-uk",
+    "title": "Foot and Ankle Arthritis: Symptoms, Exercises and Footwear (UK)"
+  },
+  {
+    "path": "/blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk",
+    "title": "Foot and ankle osteoarthritis and frailty: safer indoor walking (UK)"
+  },
+  {
+    "path": "/blog/footwear-indoor-slippers-frailty-arthritis-uk",
+    "title": "Indoor footwear: slippers, frailty and arthritis (UK)"
+  },
+  {
+    "path": "/blog/frailty-older-people-arthritis-wales-uk",
+    "title": "Older people, arthritis and frailty services in Wales (UK)"
+  },
+  {
+    "path": "/blog/frailty-services-arthritis-scotland-uk",
+    "title": "Frailty services and arthritis in Scotland (UK)"
+  },
+  {
+    "path": "/blog/free-arthritis-exercise-classes-england",
+    "title": "Free Arthritis Exercise Classes Near Me England"
+  },
+  {
+    "path": "/blog/free-arthritis-support-northern-ireland",
+    "title": "Free Arthritis Support Services Northern Ireland"
+  },
+  {
+    "path": "/blog/fried-frailty-phenotype-painful-joints-uk",
+    "title": "The Fried frailty phenotype when joints are painful (UK)"
+  },
+  {
+    "path": "/blog/gabapentinoids-unsteadiness-arthritis-frailty-uk",
+    "title": "Gabapentinoids, unsteadiness and arthritis in later life (UK)"
+  },
+  {
+    "path": "/blog/gadgets-aids-arthritis-uk",
+    "title": "Best Gadgets and Daily Living Aids for Arthritis in the UK"
+  },
+  {
+    "path": "/blog/garden-raised-beds-arthritis-frailty-uk",
+    "title": "Raised beds and perch seating for frail gardeners with arthritis (UK)"
+  },
+  {
+    "path": "/blog/gene-therapy-and-arthritis-where-are-we-in-2026",
+    "title": "Gene Therapy and Arthritis: Where Are We in 2026?"
+  },
+  {
+    "path": "/blog/generalised-oa-frailty-whole-body-day-uk",
+    "title": "Generalised osteoarthritis and frailty: planning a whole-body day (UK)"
+  },
+  {
+    "path": "/blog/geriatric-clinic-plus-arthritis-uk",
+    "title": "Geriatric clinics that also take arthritis seriously (UK)"
+  },
+  {
+    "path": "/blog/giant-cell-arteritis-headache-warning-signs",
+    "title": "Giant Cell Arteritis: The Headache You Must Not Ignore"
+  },
+  {
+    "path": "/blog/ginger-root-natural-anti-inflammatory",
+    "title": "Ginger Root: A Natural Anti-Inflammatory Food"
+  },
+  {
+    "path": "/blog/ginger-vs-turmeric-for-arthritis",
+    "title": "Ginger vs Turmeric for Arthritis: Which Actually Works?"
+  },
+  {
+    "path": "/blog/glucosamine-vs-collagen",
+    "title": "Glucosamine vs Collagen: Arthritis Evidence and Risks"
+  },
+  {
+    "path": "/blog/glute-bridges-hip-osteoarthritis-guide",
+    "title": "Glute Bridges for Hip Osteoarthritis: Complete Guide"
+  },
+  {
+    "path": "/blog/goal-setting-tiny-wins-arthritis-frailty-uk",
+    "title": "Tiny goals for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/gout-flare-up-diet-foods-avoid",
+    "title": "Gout Flare Up Diet: What Foods to Avoid"
+  },
+  {
+    "path": "/blog/gout-medication-uk",
+    "title": "Gout Medication UK: A Complete Guide to Drugs for Gout"
+  },
+  {
+    "path": "/blog/gout-older-people-frailty-hydration-uk",
+    "title": "Gout in older people and frailty: hydration, feet and falls (UK)"
+  },
+  {
+    "path": "/blog/gout-winter-dehydration-frailty-uk",
+    "title": "Winter gout, dehydration and frailty (UK)"
+  },
+  {
+    "path": "/blog/gp-frailty-register-arthritis-uk",
+    "title": "GP frailty registers if you also live with arthritis (UK)"
+  },
+  {
+    "path": "/blog/gp-home-visit-arthritis-frailty-uk",
+    "title": "Asking for a GP home visit if arthritis and frailty trap you indoor…"
+  },
+  {
+    "path": "/blog/grab-rails-arthritis-frailty-home-uk",
+    "title": "Grab rails at home: arthritis, frailty and safer rooms (UK)"
+  },
+  {
+    "path": "/blog/grandparenting-arthritis-frailty-uk",
+    "title": "Grandparenting with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/grants-for-adapting-your-home-with-arthritis",
+    "title": "Grants for Adapting Your Home With Arthritis"
+  },
+  {
+    "path": "/blog/grief-and-loss-after-arthritis-diagnosis",
+    "title": "Grief and Loss After an Arthritis Diagnosis: Processing Change and Rebuilding"
+  },
+  {
+    "path": "/blog/grip-strength-exercises-hand-oa",
+    "title": "Grip Strength Exercises: A Gentle Progression for Hand OA"
+  },
+  {
+    "path": "/blog/gut-health-arthritis-connection",
+    "title": "Gut Health and Arthritis: The Microbiome Connection Explained"
+  },
+  {
+    "path": "/blog/gut-joint-connection-microbiome-arthritis",
+    "title": "The Gut-Joint Connection: How Your Microbiome Affects Arthritis"
+  },
+  {
+    "path": "/blog/hand-exercises-for-arthritis",
+    "title": "Hand Exercises for Arthritis – Complete Guide"
+  },
+  {
+    "path": "/blog/hand-oa-frailty-opening-packaging-uk",
+    "title": "Hand osteoarthritis and frailty: opening packaging without giving u…"
+  },
+  {
+    "path": "/blog/hand-osteoarthritis-frailty-dressing-cooking-uk",
+    "title": "Hand osteoarthritis and frailty: dressing, cooking and grip (UK)"
+  },
+  {
+    "path": "/blog/hand-therapy-frail-ra-uk",
+    "title": "Hand therapy for frail adults with rheumatoid arthritis (UK)"
+  },
+  {
+    "path": "/blog/hearing-balance-arthritis-frailty-uk",
+    "title": "Hearing, balance and arthritis in frail adults (UK)"
+  },
+  {
+    "path": "/blog/heart-failure-arthritis-frailty-overlap-uk",
+    "title": "Heart failure, arthritis and frailty: pacing two conditions (UK)"
+  },
+  {
+    "path": "/blog/heat-packs-frail-arthritis-uk",
+    "title": "Heat packs for frail adults with arthritis: safe use (UK)"
+  },
+  {
+    "path": "/blog/heat-versus-ice-frail-arthritis-uk",
+    "title": "Heat versus ice for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/heatwave-arthritis-frailty-hydration-uk",
+    "title": "Heatwaves, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/high-rise-flat-arthritis-frailty-lifts-uk",
+    "title": "High-rise flats, lifts and arthritis-related frailty (UK)"
+  },
+  {
+    "path": "/blog/hip-and-knee-oa-frailty-transfers-uk",
+    "title": "Hip and knee osteoarthritis together: frailty-friendly transfers (UK)"
+  },
+  {
+    "path": "/blog/hip-arthritis-symptoms-uk",
+    "title": "Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options"
+  },
+  {
+    "path": "/blog/hip-oa-frailty-bed-mobility-uk",
+    "title": "Hip osteoarthritis and frailty: turning in bed and getting up (UK)"
+  },
+  {
+    "path": "/blog/hip-oa-frailty-getting-into-car-uk",
+    "title": "Hip osteoarthritis and frailty: getting into a car without a jolt (UK)"
+  },
+  {
+    "path": "/blog/hip-osteoarthritis-frailty-chair-rise-uk",
+    "title": "Hip osteoarthritis and frailty: getting out of a chair more safely …"
+  },
+  {
+    "path": "/blog/hip-pain-climbing-stairs-causes-relief",
+    "title": "Hip Pain When Climbing Stairs: Causes and Relief"
+  },
+  {
+    "path": "/blog/hip-replacement-arthritis-uk",
+    "title": "Hip Replacement UK Guide, Recovery & What to Expect"
+  },
+  {
+    "path": "/blog/hip-replacement-recovery-week-by-week",
+    "title": "Hip Replacement Recovery Week by Week – UK Guide"
+  },
+  {
+    "path": "/blog/hobbies-arthritis-friendly-uk",
+    "title": "10 Arthritis-Friendly Hobbies UK Patients Love"
+  },
+  {
+    "path": "/blog/hoist-conversations-family-carers-uk",
+    "title": "Hoist conversations for family carers of people with arthritis (UK)"
+  },
+  {
+    "path": "/blog/holiday-at-home-arthritis-frailty-uk",
+    "title": "A holiday-at-home with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/hospital-appointments-frailty-arthritis-uk",
+    "title": "Hospital appointments when frailty and arthritis make the day huge …"
+  },
+  {
+    "path": "/blog/hospital-deconditioning-arthritis-stay-uk",
+    "title": "Hospital deconditioning when you live with arthritis (UK)"
+  },
+  {
+    "path": "/blog/hospital-parking-walking-frail-arthritis-uk",
+    "title": "Hospital parking, walking distance and frail arthritis (UK)"
+  },
+  {
+    "path": "/blog/hospital-stay-arthritis-frailty-what-to-pack-uk",
+    "title": "Hospital stays with arthritis and frailty: what to pack and ask (UK)"
+  },
+  {
+    "path": "/blog/hot-weather-arthritis-management",
+    "title": "Managing Arthritis in a UK Heatwave – Practical Tips"
+  },
+  {
+    "path": "/blog/hotel-rooms-accessibility-arthritis",
+    "title": "Booking Accessible Hotel Rooms with Arthritis"
+  },
+  {
+    "path": "/blog/how-arthritis-is-diagnosed-tests-scans-results",
+    "title": "How Arthritis Is Diagnosed: Blood Tests, Scans and Results"
+  },
+  {
+    "path": "/blog/how-to-sleep-with-arthritis-uk",
+    "title": "How to Sleep with Arthritis: Night Pain & Better Rest (UK)"
+  },
+  {
+    "path": "/blog/hydration-gout-frailty-older-adults-uk",
+    "title": "Hydration, gout and frailty in older adults (UK)"
+  },
+  {
+    "path": "/blog/hydrotherapy-arthritis-uk",
+    "title": "Hydrotherapy for Arthritis – Benefits & What to Expect (UK)"
+  },
+  {
+    "path": "/blog/hydrotherapy-frail-arthritis-uk",
+    "title": "Hydrotherapy for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/hydrotherapy-pools-uk",
+    "title": "Hydrotherapy Pools UK – Find Warm Water Therapy Near You"
+  },
+  {
+    "path": "/blog/ice-snow-arthritis-frailty-uk",
+    "title": "Ice, snow, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/indoor-walking-frame-arthritis-frailty-uk",
+    "title": "Indoor walking with a frame when arthritis and frailty overlap (UK)"
+  },
+  {
+    "path": "/blog/inflammatory-arthritis-frailty-flare-week-uk",
+    "title": "Inflammatory arthritis and frailty: surviving a flare week (UK)"
+  },
+  {
+    "path": "/blog/inflammatory-arthritis-guide",
+    "title": "Inflammatory Arthritis: Types, Causes and Treatment (UK Guide)"
+  },
+  {
+    "path": "/blog/injections-knee-frail-adults-uk",
+    "title": "Knee injections in frail adults: questions worth asking (UK)"
+  },
+  {
+    "path": "/blog/intermediate-care-arthritis-frailty-uk",
+    "title": "Intermediate care beds after arthritis-related deconditioning (UK)"
+  },
+  {
+    "path": "/blog/jak-inhibitors-the-next-wave-of-ra-treatment",
+    "title": "JAK Inhibitors: The Next Wave of RA Treatment"
+  },
+  {
+    "path": "/blog/joint-fusion-vs-replacement-how-surgeons-choose",
+    "title": "Joint Fusion vs Replacement: How Surgeons Choose"
+  },
+  {
+    "path": "/blog/joint-protection-easier-everyday-tasks",
+    "title": "Joint Protection for Arthritis: Easier Everyday Tasks (UK)"
+  },
+  {
+    "path": "/blog/joint-replacement-decision-frailty-uk",
+    "title": "Joint replacement decisions when frailty is already present (UK)"
+  },
+  {
+    "path": "/blog/joint-replacement-surgery",
+    "title": "Joint Replacement Surgery for Arthritis — A Complete UK Guide"
+  },
+  {
+    "path": "/blog/juvenile-arthritis-school-support-parents",
+    "title": "Juvenile Arthritis School Support Guide for Parents UK"
+  },
+  {
+    "path": "/blog/juvenile-arthritis-uk",
+    "title": "Juvenile Arthritis: A UK Parent's Guide to Childhood Joint Care"
+  },
+  {
+    "path": "/blog/kettle-safety-arthritis-frailty-uk",
+    "title": "Kettle safety with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/kitchen-adaptations-arthritis-frailty-uk",
+    "title": "Kitchen adaptations when arthritis and frailty share the house (UK)"
+  },
+  {
+    "path": "/blog/knee-arthritis-exercises-uk",
+    "title": "Best Knee Exercises for Arthritis – OA & RA Guide (UK)"
+  },
+  {
+    "path": "/blog/knee-arthroscopy-for-osteoarthritis-helpful-or-hype",
+    "title": "Knee Arthroscopy for Osteoarthritis: Helpful or Hype?"
+  },
+  {
+    "path": "/blog/knee-exercises-for-arthritis",
+    "title": "Best Knee Exercises for Arthritis"
+  },
+  {
+    "path": "/blog/knee-oa-frailty-outdoor-pavements-uk",
+    "title": "Knee osteoarthritis and frailty: pavements, kerbs and outdoor confi…"
+  },
+  {
+    "path": "/blog/knee-oa-frailty-rising-from-low-sofa-uk",
+    "title": "Knee osteoarthritis and frailty: rising from a low sofa (UK)"
+  },
+  {
+    "path": "/blog/knee-oa-frailty-stairs-banisters-uk",
+    "title": "Knee osteoarthritis and frailty: stairs, banisters and rest stops (UK)"
+  },
+  {
+    "path": "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk",
+    "title": "Knee osteoarthritis and frailty: staying steady at home (UK)"
+  },
+  {
+    "path": "/blog/knee-replacement-arthritis-uk",
+    "title": "Knee Replacement UK – What to Expect, Wait Times & Recovery"
+  },
+  {
+    "path": "/blog/lasting-power-of-attorney-arthritis-frailty-uk",
+    "title": "Lasting power of attorney conversations in arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/late-onset-ra-frailty-first-months-uk",
+    "title": "Late-onset rheumatoid arthritis and frailty: the first months (UK)"
+  },
+  {
+    "path": "/blog/leflunomide-for-arthritis-blood-tests-side-effects",
+    "title": "Leflunomide for Arthritis: Blood Tests, Side Effects and Tips"
+  },
+  {
+    "path": "/blog/libraries-arthritis-frailty-getting-out-uk",
+    "title": "Libraries as a gentle outing with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/living-alone-falls-plan-arthritis-uk",
+    "title": "A falls plan if you live alone with arthritis (UK)"
+  },
+  {
+    "path": "/blog/local-wheelchair-service-arthritis-uk",
+    "title": "Local wheelchair services for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/loneliness-arthritis-frailty-social-contact-uk",
+    "title": "Loneliness, arthritis and frailty: rebuilding social contact (UK)"
+  },
+  {
+    "path": "/blog/longevity-habits-arthritis-patients",
+    "title": "5 Longevity Habits That Help People With Arthritis Live Longer"
+  },
+  {
+    "path": "/blog/lower-back-stiffness-worse-after-sitting",
+    "title": "Lower Back Stiffness: Why It Is Worse After Sitting"
+  },
+  {
+    "path": "/blog/lymphoedema-arthritis-frailty-uk",
+    "title": "Lymphoedema, arthritis and frailty: heavy limbs (UK)"
+  },
+  {
+    "path": "/blog/manage-arthritis-pain-flare-ups-night",
+    "title": "How to Manage Arthritis Pain Flare Ups at Night"
+  },
+  {
+    "path": "/blog/managing-arthritis-at-work",
+    "title": "Managing Arthritis at Work: Practical Tips"
+  },
+  {
+    "path": "/blog/managing-arthritis-flare-ups-at-home",
+    "title": "Arthritis Flare-Up at Home UK – Self-Management Strategies"
+  },
+  {
+    "path": "/blog/managing-methotrexate-side-effects-practical-tips",
+    "title": "How do I manage methotrexate side effects?"
+  },
+  {
+    "path": "/blog/meal-delivery-arthritis-frailty-uk",
+    "title": "Meal delivery services when arthritis and frailty shrink cooking (UK)"
+  },
+  {
+    "path": "/blog/meal-times-care-home-arthritis-uk",
+    "title": "Meal times in a care home when arthritis makes eating slow (UK)"
+  },
+  {
+    "path": "/blog/medication-management-travel-arthritis",
+    "title": "Travelling Abroad With Arthritis Medication: A UK Checklist"
+  },
+  {
+    "path": "/blog/medication-supplement-interactions-arthritis",
+    "title": "Medication and Supplement Interactions: DMARD, Biologic and NSAID Safety"
+  },
+  {
+    "path": "/blog/mediterranean-diet-arthritis-14-day-plan",
+    "title": "Mediterranean Diet for Arthritis: A 14-Day UK Meal Plan"
+  },
+  {
+    "path": "/blog/mediterranean-diet-shopping-list-arthritis",
+    "title": "Mediterranean Diet Shopping List for Arthritis (UK)"
+  },
+  {
+    "path": "/blog/mediterranean-eating-frail-osteoarthritis-uk",
+    "title": "Mediterranean-style eating for frail osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/menopause-hrt-and-joint-pain",
+    "title": "Menopause, HRT and Joint Pain: What Women Should Know"
+  },
+  {
+    "path": "/blog/methotrexate-older-frail-adults-uk",
+    "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
+  },
+  {
+    "path": "/blog/midfoot-osteoarthritis-frailty-standing-time-uk",
+    "title": "Midfoot osteoarthritis and frailty: standing time in the kitchen (UK)"
+  },
+  {
+    "path": "/blog/mindfulness-arthritis-beginners",
+    "title": "Mindfulness for Arthritis: A 10-Minute Daily Practice"
+  },
+  {
+    "path": "/blog/mindfulness-chronic-pain-arthritis-guide",
+    "title": "Mindfulness and Chronic Pain: A Practical Guide for Arthritis"
+  },
+  {
+    "path": "/blog/mindfulness-for-arthritis-pain",
+    "title": "Mindfulness and Meditation for Arthritis Pain Management"
+  },
+  {
+    "path": "/blog/mindfulness-pain-arthritis-frailty-uk",
+    "title": "Mindfulness for pain when arthritis and frailty overlap (UK)"
+  },
+  {
+    "path": "/blog/mobility-scooter-arthritis-frailty-uk",
+    "title": "Mobility scooters, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/morning-knee-stiffness-30-minutes",
+    "title": "Why Morning Knee Stiffness Lasts 30+ Minutes"
+  },
+  {
+    "path": "/blog/morning-routine-multi-joint-arthritis",
+    "title": "Morning Routine for Multi-Joint Arthritis – UK Guide"
+  },
+  {
+    "path": "/blog/morning-stiffness-frailty-routine-uk",
+    "title": "Morning stiffness and frailty: a slower start that still starts (UK)"
+  },
+  {
+    "path": "/blog/motivation-after-setback-arthritis-frailty-uk",
+    "title": "Motivation after a setback: arthritis, frailty and starting again (UK)"
+  },
+  {
+    "path": "/blog/multimorbidity-arthritis-frailty-whole-picture-uk",
+    "title": "Multimorbidity, arthritis and frailty: looking at the whole picture…"
+  },
+  {
+    "path": "/blog/naps-versus-inactivity-arthritis-frailty-uk",
+    "title": "Naps versus inactivity in arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/neck-osteoarthritis-frailty-balance-looking-down-uk",
+    "title": "Neck osteoarthritis and frailty: looking down, dizziness and balanc…"
+  },
+  {
+    "path": "/blog/nhs-access-to-biologics-how-the-approval-pathway-works",
+    "title": "NHS Access to Biologics: How the Approval Pathway Works"
+  },
+  {
+    "path": "/blog/nhs-frailty-pathway-arthritis-england",
+    "title": "The NHS frailty pathway and arthritis in England"
+  },
+  {
+    "path": "/blog/nhs-rheumatologist-northern-ireland",
+    "title": "How to Find an NHS Rheumatologist Near Me Northern Ireland"
+  },
+  {
+    "path": "/blog/night-lights-arthritis-falls-frailty-uk",
+    "title": "Night lights, joint stiffness and frailty (UK)"
+  },
+  {
+    "path": "/blog/nine-nine-nine-vs-111-arthritis-frailty-uk",
+    "title": "999 versus NHS 111 when arthritis, frailty and a crisis collide (UK)"
+  },
+  {
+    "path": "/blog/nordic-poles-arthritis-frailty-uk",
+    "title": "Nordic poles, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/nsaid-stomach-protection-when-you-need-a-ppi",
+    "title": "NSAIDs and Stomach Protection: Questions to Ask"
+  },
+  {
+    "path": "/blog/nsaids-and-arthritis-benefits-risks-and-safer-use",
+    "title": "NSAIDs and Arthritis: Benefits, Risks and Safer Use"
+  },
+  {
+    "path": "/blog/nsaids-kidneys-heart-frail-arthritis-uk",
+    "title": "NSAIDs, kidneys and heart problems in frail arthritis (UK)"
+  },
+  {
+    "path": "/blog/nursing-home-arthritis-pain-review-uk",
+    "title": "Nursing homes and arthritis: asking for a pain and movement review …"
+  },
+  {
+    "path": "/blog/nutrition-strategies-reduce-frailty-risk",
+    "title": "Nutrition Strategies to Reduce Frailty Risk"
+  },
+  {
+    "path": "/blog/oa-vs-ra-comparison",
+    "title": "Osteoarthritis vs Rheumatoid Arthritis — Understanding the Differences"
+  },
+  {
+    "path": "/blog/occupational-therapist-kitchen-visit-frailty-uk",
+    "title": "An OT kitchen visit for frail arthritis (UK)"
+  },
+  {
+    "path": "/blog/occupational-therapy-arthritis-uk",
+    "title": "Occupational Therapy for Arthritis in the UK – What OTs Do"
+  },
+  {
+    "path": "/blog/oily-fish-arthritis-frailty-simple-meals-uk",
+    "title": "Oily fish, arthritis and frailty: simple meals (UK)"
+  },
+  {
+    "path": "/blog/older-adults-arthritis-frailty-northern-ireland-uk",
+    "title": "Arthritis and frailty support for older adults in Northern Ireland …"
+  },
+  {
+    "path": "/blog/olive-oil-polyphenols-pain-management",
+    "title": "Olive Oil Polyphenols: A Natural Pain Management Tool"
+  },
+  {
+    "path": "/blog/omega-3-foods-for-joints",
+    "title": "Omega-3 Foods for Joints UK: Fish, ALA & Realistic Limits"
+  },
+  {
+    "path": "/blog/orthotics-insoles-arthritis-frailty-uk",
+    "title": "Insoles and orthotics for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/osteoarthritis-symptoms-uk",
+    "title": "Osteoarthritis Symptoms UK – Signs & When to See a GP"
+  },
+  {
+    "path": "/blog/osteoporosis-arthritis-frailty-bone-joint-uk",
+    "title": "Osteoporosis, arthritis and frailty: protecting bone and joint toge…"
+  },
+  {
+    "path": "/blog/ot-assessment-arthritis-frailty-uk",
+    "title": "Occupational therapy assessment for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/outdoor-steps-handrails-arthritis-uk",
+    "title": "Outdoor steps and handrails when arthritis meets frailty (UK)"
+  },
+  {
+    "path": "/blog/pacing-housework-arthritis-frailty-uk",
+    "title": "Pacing housework when arthritis and frailty share the chores (UK)"
+  },
+  {
+    "path": "/blog/pacing-techniques-arthritis-pain",
+    "title": "Pacing Techniques: Working Around Arthritis Pain"
+  },
+  {
+    "path": "/blog/pacing-visitors-arthritis-frailty-uk",
+    "title": "Pacing visitors and family days with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/packing-list-arthritis-traveller",
+    "title": "The Ultimate Packing List for an Arthritis Traveller"
+  },
+  {
+    "path": "/blog/pain-clinic-older-frail-arthritis-uk",
+    "title": "Pain clinics for older frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+    "title": "Painkillers in older adults with arthritis: caution, not dosing (UK)"
+  },
+  {
+    "path": "/blog/palindromic-rheumatism-joint-attacks-come-and-go",
+    "title": "Palindromic Rheumatism: Joint Attacks That Come and Go"
+  },
+  {
+    "path": "/blog/paracetamol-for-arthritis-pain-what-the-evidence-says",
+    "title": "Paracetamol for Arthritis Pain: What the Evidence Says"
+  },
+  {
+    "path": "/blog/paracetamol-older-frail-arthritis-uk",
+    "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+  },
+  {
+    "path": "/blog/paramedic-fall-lift-arthritis-uk",
+    "title": "After paramedics lift you: arthritis pain and the next 48 hours (UK)"
+  },
+  {
+    "path": "/blog/parenting-with-arthritis-hacks-for-babies-and-toddlers",
+    "title": "Parenting With Arthritis: Hacks for Babies and Toddlers"
+  },
+  {
+    "path": "/blog/pendant-alarm-arthritis-swollen-fingers-uk",
+    "title": "Pendant alarms when fingers are swollen from arthritis (UK)"
+  },
+  {
+    "path": "/blog/pendulum-swings-wall-slides-shoulder",
+    "title": "Pendulum Swings and Wall Slides for Shoulder Mobility"
+  },
+  {
+    "path": "/blog/pets-arthritis-frailty-walking-dogs-uk",
+    "title": "Pets, dog walking and frailty if you have arthritis (UK)"
+  },
+  {
+    "path": "/blog/pharmacist-medication-review-frail-arthritis-uk",
+    "title": "Pharmacist medication reviews for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/physiotherapy-arthritis",
+    "title": "Physiotherapy for Arthritis — How It Helps and How to Access It"
+  },
+  {
+    "path": "/blog/physiotherapy-home-visit-frail-oa-uk",
+    "title": "Home-visit physiotherapy for frail osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/pip-arthritis-frailty-honest-uk",
+    "title": "PIP, arthritis and frailty: an honest UK overview"
+  },
+  {
+    "path": "/blog/pip-fibromyalgia-denied-reapply",
+    "title": "How to Get PIP for Fibromyalgia Denied on First Application"
+  },
+  {
+    "path": "/blog/pip-fibromyalgia-uk-apply",
+    "title": "How to Apply for PIP With Fibromyalgia UK"
+  },
+  {
+    "path": "/blog/pip-for-arthritis-how-to-build-a-strong-application",
+    "title": "PIP for Arthritis: How to Build a Strong Application"
+  },
+  {
+    "path": "/blog/pip-for-arthritis-uk",
+    "title": "PIP for Arthritis: Eligibility, Forms & Appeals (UK)"
+  },
+  {
+    "path": "/blog/pip-osteoarthritis-both-knees",
+    "title": "How to Claim PIP for Osteoarthritis in Both Knees"
+  },
+  {
+    "path": "/blog/pmr-frailty-morning-stiffness-uk",
+    "title": "Polymyalgia rheumatica and frailty: morning stiffness versus muscle…"
+  },
+  {
+    "path": "/blog/pmr-steroid-taper-frailty-weakness-uk",
+    "title": "PMR steroid tapering and frailty: rebuilding strength slowly (UK)"
+  },
+  {
+    "path": "/blog/podiatry-footcare-arthritis-frailty-uk",
+    "title": "Podiatry and footcare for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/podiatry-nails-diabetes-arthritis-uk",
+    "title": "Nail care, diabetes and arthritis-related frailty (UK)"
+  },
+  {
+    "path": "/blog/polyarticular-oa-frailty-pacing-several-joints-uk",
+    "title": "Polyarticular osteoarthritis and frailty: pacing several painful jo…"
+  },
+  {
+    "path": "/blog/polypharmacy-arthritis-frailty-review-uk",
+    "title": "Polypharmacy, arthritis and frailty: asking for a medicines review …"
+  },
+  {
+    "path": "/blog/post-hip-replacement-frailty-home-uk",
+    "title": "After hip replacement: coming home frail (UK)"
+  },
+  {
+    "path": "/blog/post-knee-replacement-frailty-rehab-uk",
+    "title": "After knee replacement: frailty-aware rehabilitation (UK)"
+  },
+  {
+    "path": "/blog/post-op-constipation-arthritis-frailty-uk",
+    "title": "Post-operative constipation, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/prefrailty-osteoarthritis-early-action-uk",
+    "title": "Prefrailty and osteoarthritis: early action before a crisis (UK)"
+  },
+  {
+    "path": "/blog/pregnancy-and-arthritis-what-uk-guidelines-recommend",
+    "title": "Pregnancy and Arthritis: What UK Guidelines Recommend"
+  },
+  {
+    "path": "/blog/prehabilitation-frail-arthritis-before-surgery-uk",
+    "title": "Prehabilitation for frail adults with arthritis facing surgery (UK)"
+  },
+  {
+    "path": "/blog/prehabilitation-how-pre-op-exercise-speeds-recovery",
+    "title": "Prehabilitation: How Pre-Op Exercise Speeds Recovery"
+  },
+  {
+    "path": "/blog/prescription-costs-and-arthritis-nhs-prepayment-certificates",
+    "title": "Prescription Costs and Arthritis: NHS Prepayment Certificate"
+  },
+  {
+    "path": "/blog/pressure-cushion-arthritis-frailty-uk",
+    "title": "Pressure cushions when arthritis keeps you sitting (UK)"
+  },
+  {
+    "path": "/blog/preventing-falls-guide-frail-adults",
+    "title": "Preventing Falls: A Guide for Frail and At-Risk Adults"
+  },
+  {
+    "path": "/blog/preventing-knee-osteoarthritis-uk",
+    "title": "Can You Prevent Knee Osteoarthritis? UK Evidence Review"
+  },
+  {
+    "path": "/blog/private-rheumatology-in-the-uk-when-its-worth-considering",
+    "title": "Private Rheumatology in the UK: When It's Worth Considering"
+  },
+  {
+    "path": "/blog/protein-painful-joints-frailty-uk",
+    "title": "Protein, painful joints and frailty (UK)"
+  },
+  {
+    "path": "/blog/pseudogout-cppd-sudden-hot-swollen-joints",
+    "title": "Pseudogout (CPPD): Sudden Hot, Swollen Joints Explained"
+  },
+  {
+    "path": "/blog/psoriatic-arthritis-later-life-frailty-uk",
+    "title": "Psoriatic arthritis in later life: joints, skin and frailty (UK)"
+  },
+  {
+    "path": "/blog/psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments",
+    "title": "Psoriatic Arthritis vs Rheumatoid Arthritis: Tests, Treatments and Prognosis"
+  },
+  {
+    "path": "/blog/psoriatic-vs-rheumatoid-arthritis",
+    "title": "Psoriatic Arthritis vs Rheumatoid Arthritis: Key Differences"
+  },
+  {
+    "path": "/blog/ra-fatigue-frailty-energy-envelope-uk",
+    "title": "RA fatigue and frailty: protecting your energy envelope (UK)"
+  },
+  {
+    "path": "/blog/ra-frailty-older-adults-daily-rhythm-uk",
+    "title": "Rheumatoid arthritis and frailty in older adults: a gentler daily r…"
+  },
+  {
+    "path": "/blog/ra-monitoring-older-frail-adults-uk",
+    "title": "Blood monitoring for RA in older frail adults (UK)"
+  },
+  {
+    "path": "/blog/ra-steroids-frailty-infection-watch-uk",
+    "title": "Steroids, rheumatoid arthritis and frailty: watching for infection …"
+  },
+  {
+    "path": "/blog/reablement-after-discharge-arthritis-uk",
+    "title": "Reablement after hospital if arthritis slowed the admission (UK)"
+  },
+  {
+    "path": "/blog/reablement-team-arthritis-home-practice-uk",
+    "title": "Working with a reablement team when arthritis flares at home (UK)"
+  },
+  {
+    "path": "/blog/reasonable-adjustments-that-actually-help",
+    "title": "Reasonable Adjustments That Actually Help"
+  },
+  {
+    "path": "/blog/rebuilding-intimacy-after-arthritis-diagnosis",
+    "title": "Rebuilding Intimacy After an Arthritis Diagnosis: Emotional and Physical Reconnection"
+  },
+  {
+    "path": "/blog/relationships-chronic-pain-arthritis",
+    "title": "How Arthritis Changes Relationships (And How to Adapt)"
+  },
+  {
+    "path": "/blog/remote-gp-apps-arthritis-frailty-uk",
+    "title": "Remote GP apps when arthritis and frailty limit travel (UK)"
+  },
+  {
+    "path": "/blog/repeat-prescriptions-arthritis-frailty-uk",
+    "title": "Repeat prescriptions when leaving the house is the hard part (UK)"
+  },
+  {
+    "path": "/blog/resistance-bands-seated-frail-oa-uk",
+    "title": "Seated resistance bands for frail osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/resistance-training-arthritis-longevity",
+    "title": "Resistance Training: The Best-Kept Secret for Arthritis Longevity"
+  },
+  {
+    "path": "/blog/respite-care-arthritis-frailty-carers-uk",
+    "title": "Respite care for families living with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/restless-nights-joint-pain-frailty-uk",
+    "title": "Restless nights, joint pain and next-day frailty (UK)"
+  },
+  {
+    "path": "/blog/rheumatoid-arthritis-diet-uk",
+    "title": "Best Diet for Rheumatoid Arthritis: Evidence-Based UK Guide"
+  },
+  {
+    "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+    "title": "Rheumatology clinics for frail older adults (UK)"
+  },
+  {
+    "path": "/blog/rheumatology-waiting-times-uk",
+    "title": "Rheumatology Waiting Times UK – How to Cope While Waiting"
+  },
+  {
+    "path": "/blog/rise-recline-chair-arthritis-frailty-uk",
+    "title": "Rise-recline chairs for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/rockwood-clinical-frailty-scale-arthritis-uk",
+    "title": "What the Rockwood Clinical Frailty Scale means if you also have art…"
+  },
+  {
+    "path": "/blog/running-with-arthritis-knees-and-hips",
+    "title": "Running With Arthritis: Is It Safe for Your Knees and Hips?"
+  },
+  {
+    "path": "/blog/rural-living-arthritis-frailty-uk",
+    "title": "Rural living with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/sarcopenia-knee-oa-frailty-overlap-uk",
+    "title": "Sarcopenia and knee osteoarthritis: the frailty overlap (UK)"
+  },
+  {
+    "path": "/blog/sarcopenia-muscle-loss-how-to-combat",
+    "title": "Sarcopenia: Muscle Loss and How to Combat It"
+  },
+  {
+    "path": "/blog/school-run-survival-for-parents-with-arthritis",
+    "title": "School-Run Survival for Parents With Arthritis"
+  },
+  {
+    "path": "/blog/seasonal-affective-disorder-arthritis",
+    "title": "SAD and Arthritis: A Hidden UK Connection"
+  },
+  {
+    "path": "/blog/seasonal-arthritis-guide-uk",
+    "title": "Seasonal Arthritis Guide: Managing Symptoms Through the UK Year"
+  },
+  {
+    "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+    "title": "Seated strength training for frail adults with osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/second-hand-equipment-arthritis-frailty-uk",
+    "title": "Second-hand equipment for arthritis and frailty: safety checks (UK)"
+  },
+  {
+    "path": "/blog/septic-arthritis-hot-swollen-joint-emergency",
+    "title": "Septic Arthritis: A Hot, Swollen Joint That Needs A&E"
+  },
+  {
+    "path": "/blog/sex-and-intimacy-with-arthritis",
+    "title": "Sex and Intimacy With Arthritis: Comfort Tips"
+  },
+  {
+    "path": "/blog/sheltered-housing-arthritis-frailty-uk",
+    "title": "Sheltered housing, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/shingles-vaccine-arthritis-frailty-uk",
+    "title": "Shingles vaccination if you have arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/shopping-online-arthritis-frailty-uk",
+    "title": "Online food shops for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/short-breaks-accessible-arthritis-frailty-uk",
+    "title": "Short accessible breaks for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/short-term-equipment-loans-arthritis-uk",
+    "title": "Short-term equipment loans for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/should-you-tell-your-employer-about-your-arthritis",
+    "title": "Should You Tell Your Employer About Your Arthritis?"
+  },
+  {
+    "path": "/blog/shoulder-arthritis-exercises-uk",
+    "title": "Best Shoulder Exercises for Arthritis – OA & RA (UK)"
+  },
+  {
+    "path": "/blog/shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix",
+    "title": "Shoulder Arthroscopy and Arthritis: What It Can and Can't Fix"
+  },
+  {
+    "path": "/blog/shoulder-oa-frailty-high-cupboards-uk",
+    "title": "Shoulder osteoarthritis and frailty: high cupboards and safer reach…"
+  },
+  {
+    "path": "/blog/shoulder-osteoarthritis-frailty-washing-dressing-uk",
+    "title": "Shoulder osteoarthritis and frailty: reaching, washing and dressing…"
+  },
+  {
+    "path": "/blog/shoulder-pain-reaching-ra-vs-oa",
+    "title": "Shoulder Pain When Reaching: RA vs OA Differences"
+  },
+  {
+    "path": "/blog/sick-pay-fit-notes-time-off-work-arthritis",
+    "title": "Sick Pay & Fit Notes for Arthritis: SSP, Leave & Return (UK)"
+  },
+  {
+    "path": "/blog/signs-rheumatoid-arthritis-early-stages",
+    "title": "Signs of Rheumatoid Arthritis in Early Stages"
+  },
+  {
+    "path": "/blog/sit-to-stand-practice-frail-arthritis-uk",
+    "title": "Sit-to-stand practice for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/skin-pressure-care-arthritis-frailty-uk",
+    "title": "Skin and pressure care if arthritis keeps you sitting (UK)"
+  },
+  {
+    "path": "/blog/sleep-and-pain-management-arthritis",
+    "title": "Sleep and Pain Management: Why Arthritis Disrupts Sleep and How to Fix It"
+  },
+  {
+    "path": "/blog/sleep-apnoea-arthritis-frailty-uk",
+    "title": "Sleep apnoea, arthritis and daytime frailty (UK)"
+  },
+  {
+    "path": "/blog/sleep-arthritis-frailty-night-pain-uk",
+    "title": "Sleep, night pain and frailty in arthritis (UK)"
+  },
+  {
+    "path": "/blog/sleep-quality-arthritis-pain",
+    "title": "How Sleep Quality Affects Arthritis Pain: What the Research Shows"
+  },
+  {
+    "path": "/blog/sleeping-tablets-falls-arthritis-frailty-uk",
+    "title": "Sleeping tablets, night falls and arthritis (UK)"
+  },
+  {
+    "path": "/blog/slow-walking-groups-arthritis-frailty-uk",
+    "title": "Slow walking groups for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/smart-speakers-arthritis-frailty-uk",
+    "title": "Smart speakers for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/social-care-needs-assessment-arthritis-uk",
+    "title": "Social care needs assessments for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/social-prescribing-arthritis-frailty-uk",
+    "title": "Social prescribing for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/sofa-height-arthritis-frailty-uk",
+    "title": "Sofa height, osteoarthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/soft-foods-jaw-arthritis-frailty-uk",
+    "title": "Jaw arthritis, frailty and softer meals (UK)"
+  },
+  {
+    "path": "/blog/speech-swallowing-meals-arthritis-frailty-uk",
+    "title": "Slow meals, sore hands and frailty: keeping eating safe (UK)"
+  },
+  {
+    "path": "/blog/spinal-arthritis-back-pain-uk",
+    "title": "Spinal Arthritis – Back Pain Symptoms & Self-Help (UK)"
+  },
+  {
+    "path": "/blog/spinal-osteoarthritis-frailty-standing-pacing-uk",
+    "title": "Spinal osteoarthritis and frailty: standing tall without overdoing …"
+  },
+  {
+    "path": "/blog/spinal-stenosis-oa-frailty-walking-stops-uk",
+    "title": "Spinal stenosis, osteoarthritis and frailty: walking with planned s…"
+  },
+  {
+    "path": "/blog/spine-oa-frailty-gardening-pacing-uk",
+    "title": "Spinal osteoarthritis and frailty: short spells in the garden (UK)"
+  },
+  {
+    "path": "/blog/spiritual-care-arthritis-frailty-uk",
+    "title": "Spiritual care, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/splints-night-hand-oa-frailty-uk",
+    "title": "Night splints for hand osteoarthritis in frail adults (UK)"
+  },
+  {
+    "path": "/blog/stair-assessments-arthritis-frailty-uk",
+    "title": "Stair assessments for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/stairlifts-arthritis-frailty-uk-home",
+    "title": "Stairlifts, arthritis and frailty: questions before you buy (UK)"
+  },
+  {
+    "path": "/blog/standing-desk-arthritis-pros-cons",
+    "title": "Standing Desks and Arthritis: Pros, Cons and How to Use One"
+  },
+  {
+    "path": "/blog/starting-a-new-arthritis-medicine-questions-to-ask",
+    "title": "Starting a New Arthritis Medicine: 10 Questions to Ask"
+  },
+  {
+    "path": "/blog/static-bike-frail-osteoarthritis-uk",
+    "title": "Static bikes for frail osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/staying-active-arthritis-winter-uk",
+    "title": "Staying Active with Arthritis in Winter UK: What Helps"
+  },
+  {
+    "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
+    "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
+  },
+  {
+    "path": "/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense",
+    "title": "Steroid Injections vs Oral Steroids: When Each Makes Sense"
+  },
+  {
+    "path": "/blog/stopping-arthritis-medication-safely-a-step-by-step-guide",
+    "title": "Stopping Arthritis Medication Safely: A Step-By-Step Guide"
+  },
+  {
+    "path": "/blog/straight-leg-raises-knee-osteoarthritis",
+    "title": "Straight Leg Raises: The Foundation Exercise for Knee Ost..."
+  },
+  {
+    "path": "/blog/strength-training-arthritis-beginners",
+    "title": "Strength Training with Arthritis: A Beginner's Safe Start Guide"
+  },
+  {
+    "path": "/blog/strength-training-on-biologics-is-it-safe",
+    "title": "Strength Training on Biologics: Is It Safe?"
+  },
+  {
+    "path": "/blog/sulfasalazine-for-arthritis-what-to-expect",
+    "title": "Sulfasalazine for Arthritis: What to Expect When Starting"
+  },
+  {
+    "path": "/blog/support-friend-diagnosed-lupus",
+    "title": "How to Support a Friend Newly Diagnosed With Lupus"
+  },
+  {
+    "path": "/blog/supporting-a-partner-with-arthritis-a-practical-handbook",
+    "title": "Supporting a Partner With Arthritis: A Practical Handbook"
+  },
+  {
+    "path": "/blog/supporting-a-partner-with-arthritis-strategies",
+    "title": "Supporting a Partner With Arthritis: Strategies"
+  },
+  {
+    "path": "/blog/swelling-legs-arthritis-frailty-uk",
+    "title": "Leg swelling, arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/swimming-exercises-hip-osteoarthritis",
+    "title": "Swimming Strokes for Hip Arthritis (Pool Guide)"
+  },
+  {
+    "path": "/blog/swimming-for-arthritis",
+    "title": "Swimming for Arthritis: A Complete Guide"
+  },
+  {
+    "path": "/blog/swimming-frail-arthritis-changing-rooms-uk",
+    "title": "Swimming with frail arthritis: the changing-room problem (UK)"
+  },
+  {
+    "path": "/blog/swimming-full-body-arthritis",
+    "title": "Full-Body Low-Impact Workout: Swimming for Arthritis"
+  },
+  {
+    "path": "/blog/tai-chi-arthritis-joint-pain",
+    "title": "Tai Chi for Arthritis Joint Pain: Benefits and Evidence"
+  },
+  {
+    "path": "/blog/tai-chi-balance-arthritis-frailty-uk",
+    "title": "Tai Chi for balance when arthritis and frailty overlap (UK)"
+  },
+  {
+    "path": "/blog/tai-chi-for-arthritis-uk",
+    "title": "Tai Chi for Arthritis – A UK Beginner's Guide"
+  },
+  {
+    "path": "/blog/talk-employer-rheumatoid-arthritis-work",
+    "title": "How to Talk to Your Employer About Rheumatoid Arthritis at Work"
+  },
+  {
+    "path": "/blog/talking-therapies-pain-older-arthritis-uk",
+    "title": "Talking therapies for pain in older adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/talking-to-children-about-your-arthritis",
+    "title": "Talking to Children About Your Arthritis"
+  },
+  {
+    "path": "/blog/talking-to-your-partner-about-arthritis",
+    "title": "Talking to Your Partner About Arthritis: Scripts and a Communication Framework"
+  },
+  {
+    "path": "/blog/tapering-biologics-what-the-latest-trials-show",
+    "title": "Tapering Biologics: What the Latest Trials Show"
+  },
+  {
+    "path": "/blog/tens-machine-older-frail-arthritis-uk",
+    "title": "TENS machines for older frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/tens-machines-arthritis-uk",
+    "title": "TENS Machines for Arthritis: Do They Work and How to Use Them (UK)"
+  },
+  {
+    "path": "/blog/threshold-ramps-arthritis-frailty-uk",
+    "title": "Threshold ramps for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk",
+    "title": "Thumb-base osteoarthritis and frailty: jars, taps and daily grip (UK)"
+  },
+  {
+    "path": "/blog/thumb-base-pain-early-hand-arthritis",
+    "title": "Thumb Base Pain: Early Signs of Hand Arthritis"
+  },
+  {
+    "path": "/blog/toilet-frame-arthritis-frailty-uk",
+    "title": "Toilet frames and raised seats for arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/topical-nsaids-frail-hand-knee-oa-uk",
+    "title": "Topical NSAIDs for frail adults with hand or knee osteoarthritis (UK)"
+  },
+  {
+    "path": "/blog/topical-nsaids-often-overlooked-often-effective",
+    "title": "Topical NSAIDs: Often Overlooked, Often Effective"
+  },
+  {
+    "path": "/blog/total-knee-replacement-a-uk-patients-guide-for-2026",
+    "title": "Total Knee Replacement: A UK Patient's Guide for 2026"
+  },
+  {
+    "path": "/blog/transfer-board-arthritis-frailty-uk",
+    "title": "Transfer boards for frail adults with arthritis (UK)"
+  },
+  {
+    "path": "/blog/travelling-with-arthritis-uk",
+    "title": "Travelling with Arthritis – UK Tips for Comfortable Holidays"
+  },
+  {
+    "path": "/blog/turmeric-and-methotrexate-interaction",
+    "title": "Turmeric and Methotrexate: Interaction Risks, Evidence and Safe Use"
+  },
+  {
+    "path": "/blog/turmeric-curcumin-arthritis-evidence",
+    "title": "Turmeric and Curcumin: Evidence-Based Arthritis Relief"
+  },
+  {
+    "path": "/blog/turmeric-for-arthritis",
+    "title": "Turmeric for Arthritis: Evidence, Safety & Use (UK)"
+  },
+  {
+    "path": "/blog/two-walking-aids-arthritis-frailty-uk",
+    "title": "Two walking aids in the house: arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/understanding-frailty-older-adults",
+    "title": "Understanding Frailty in Older Adults – UK Guide"
+  },
+  {
+    "path": "/blog/universal-credit-and-arthritis-limited-capability-for-work",
+    "title": "Universal Credit and Arthritis: Limited Capability for Work"
+  },
+  {
+    "path": "/blog/university-with-arthritis-disability-support-and-dsa",
+    "title": "University With Arthritis: Disability Support and DSA"
+  },
+  {
+    "path": "/blog/uti-confusion-arthritis-frailty-uk",
+    "title": "UTIs, confusion and frailty in people with arthritis (UK)"
+  },
+  {
+    "path": "/blog/vaccines-on-dmards-and-biologics-uk-guide",
+    "title": "Vaccines When You Take DMARDs or Biologics: A UK Guide"
+  },
+  {
+    "path": "/blog/vision-falls-arthritis-frailty-uk",
+    "title": "Vision, falls and arthritis in frail adults (UK)"
+  },
+  {
+    "path": "/blog/vitamin-d-and-falls-arthritis-uk",
+    "title": "Vitamin D, falls conversations and arthritis (UK)"
+  },
+  {
+    "path": "/blog/vitamin-d-arthritis-uk",
+    "title": "Vitamin D and Arthritis: Why Every UK Patient Should Test"
+  },
+  {
+    "path": "/blog/vitamin-d-winter-arthritis-frailty-uk",
+    "title": "Vitamin D in winter: arthritis, bone and frailty (UK)"
+  },
+  {
+    "path": "/blog/volunteering-seated-arthritis-frailty-uk",
+    "title": "Seated volunteering with arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/walking-30-minutes-a-day-while-on-dmards-a-practical-plan",
+    "title": "Walking 30 Minutes a Day While on DMARDs: A Practical Plan"
+  },
+  {
+    "path": "/blog/walking-aids-arthritis-uk",
+    "title": "Walking Aids for Arthritis – Sticks & Daily Aids (UK)"
+  },
+  {
+    "path": "/blog/walking-sport-too-much-frail-arthritis-uk",
+    "title": "When walking sport is too much: frail arthritis alternatives (UK)"
+  },
+  {
+    "path": "/blog/walking-stick-vs-frame-arthritis-frailty-uk",
+    "title": "Walking stick versus frame: arthritis, wrists and frailty (UK)"
+  },
+  {
+    "path": "/blog/walking-with-arthritis-start-build-up-keep-going",
+    "title": "Walking With Arthritis: How to Start, Build Up and Keep Going"
+  },
+  {
+    "path": "/blog/weekend-plan-arthritis-frailty-uk",
+    "title": "Weekend plans when arthritis and frailty make days uneven (UK)"
+  },
+  {
+    "path": "/blog/weight-loss-injections-arthritis-wegovy-mounjaro",
+    "title": "Weight-Loss Injections and Arthritis: Wegovy and Mounjaro"
+  },
+  {
+    "path": "/blog/weight-management-arthritis-evidence",
+    "title": "Weight Management and Arthritis: The Evidence"
+  },
+  {
+    "path": "/blog/wet-rooms-arthritis-frailty-washing-uk",
+    "title": "Wet rooms and arthritis: washing when you are frail (UK)"
+  },
+  {
+    "path": "/blog/what-sustained-remission-means-in-ra",
+    "title": "What Sustained Remission Means in RA – UK Guide"
+  },
+  {
+    "path": "/blog/wheelchair-for-distance-arthritis-frailty-uk",
+    "title": "A wheelchair for distance, not for giving up: arthritis and frailty…"
+  },
+  {
+    "path": "/blog/why-exercise-makes-your-arthritis-medication-work-better",
+    "title": "Why Exercise Makes Your Arthritis Medication Work Better"
+  },
+  {
+    "path": "/blog/widowhood-meals-arthritis-frailty-uk",
+    "title": "Cooking for one after loss when arthritis and frailty remain (UK)"
+  },
+  {
+    "path": "/blog/winter-arthritis-frailty-cold-houses-uk",
+    "title": "Cold Home and Arthritis: Keep Warm and Keep Moving (UK)"
+  },
+  {
+    "path": "/blog/working-with-arthritis-uk-rights",
+    "title": "What workplace rights do people with arthritis have in the UK?"
+  },
+  {
+    "path": "/blog/wound-care-reaching-arthritis-frailty-uk",
+    "title": "Wound care you cannot reach: arthritis and frailty (UK)"
+  },
+  {
+    "path": "/blog/wrist-hand-oa-frailty-self-care-uk",
+    "title": "Wrist and hand osteoarthritis and frailty: washing, teeth and hair …"
+  },
+  {
+    "path": "/blog/wrist-osteoarthritis-frailty-walking-aids-uk",
+    "title": "Wrist osteoarthritis and frailty: choosing a walking aid that does …"
+  },
+  {
+    "path": "/blog/yoga-ankylosing-spondylitis-stiffness",
+    "title": "Best Yoga Poses for Ankylosing Spondylitis Stiffness"
+  },
+  {
+    "path": "/blog/yoga-for-arthritis",
+    "title": "Yoga for Arthritis: Gentle Poses That Help"
+  },
+  {
+    "path": "/blog/yoga-for-arthritis-beginners",
+    "title": "Yoga for Arthritis Beginners: A Safe and Gentle Starting Guide"
+  },
+  {
+    "path": "/blog/your-arthritis-care-team-who-does-what",
+    "title": "Your Arthritis Care Team: Who Does What in the NHS"
+  },
+  {
+    "path": "/blog/your-workplace-rights-with-arthritis-the-equality-act-2010",
+    "title": "Your Workplace Rights With Arthritis: The Equality Act 2010"
+  },
+  {
+    "path": "/campaigns/exercise-circuit-500",
+    "title": "campaigns · exercise circuit 500"
+  },
+  {
+    "path": "/chat",
+    "title": "chat"
+  },
+  {
+    "path": "/community",
+    "title": "community"
+  },
+  {
+    "path": "/community/connect-groups",
+    "title": "community · connect groups"
+  },
+  {
+    "path": "/complaints",
+    "title": "complaints"
+  },
+  {
+    "path": "/conditions/ankylosing-spondylitis",
+    "title": "What is ankylosing spondylitis?"
+  },
+  {
+    "path": "/conditions/ankylosing-spondylitis/diet",
+    "title": "Diet for ankylosing spondylitis"
+  },
+  {
+    "path": "/conditions/ankylosing-spondylitis/exercises",
+    "title": "What are the best exercises for ankylosing spondylitis?"
+  },
+  {
+    "path": "/conditions/ankylosing-spondylitis/symptoms",
+    "title": "Ankylosing spondylitis symptoms"
+  },
+  {
+    "path": "/conditions/ankylosing-spondylitis/treatment",
+    "title": "Ankylosing spondylitis treatment"
+  },
+  {
+    "path": "/conditions/arthritis",
+    "title": "conditions · arthritis"
+  },
+  {
+    "path": "/conditions/calcific-periarthritis",
+    "title": "conditions · calcific periarthritis"
+  },
+  {
+    "path": "/conditions/elbow-arthritis",
+    "title": "What is elbow arthritis?"
+  },
+  {
+    "path": "/conditions/elbow-arthritis/diet",
+    "title": "Diet for elbow arthritis"
+  },
+  {
+    "path": "/conditions/elbow-arthritis/exercises",
+    "title": "Best exercises for elbow arthritis"
+  },
+  {
+    "path": "/conditions/elbow-arthritis/symptoms",
+    "title": "Elbow arthritis symptoms"
+  },
+  {
+    "path": "/conditions/elbow-arthritis/treatment",
+    "title": "Elbow arthritis treatment"
+  },
+  {
+    "path": "/conditions/fibromyalgia",
+    "title": "What is fibromyalgia?"
+  },
+  {
+    "path": "/conditions/fibromyalgia/diet",
+    "title": "Diet for fibromyalgia"
+  },
+  {
+    "path": "/conditions/fibromyalgia/exercises",
+    "title": "Best exercises for fibromyalgia"
+  },
+  {
+    "path": "/conditions/fibromyalgia/symptoms",
+    "title": "Fibromyalgia symptoms"
+  },
+  {
+    "path": "/conditions/fibromyalgia/treatment",
+    "title": "Fibromyalgia treatment"
+  },
+  {
+    "path": "/conditions/foot-and-ankle-arthritis",
+    "title": "conditions · foot and ankle arthritis"
+  },
+  {
+    "path": "/conditions/foot-and-ankle-arthritis/diet",
+    "title": "Diet for foot and ankle arthritis"
+  },
+  {
+    "path": "/conditions/foot-and-ankle-arthritis/exercises",
+    "title": "Best exercises for foot and ankle arthritis"
+  },
+  {
+    "path": "/conditions/foot-and-ankle-arthritis/symptoms",
+    "title": "Foot and ankle arthritis symptoms"
+  },
+  {
+    "path": "/conditions/foot-and-ankle-arthritis/treatment",
+    "title": "Foot and ankle arthritis treatment"
+  },
+  {
+    "path": "/conditions/gout",
+    "title": "What is gout?"
+  },
+  {
+    "path": "/conditions/gout/diet",
+    "title": "Diet for gout"
+  },
+  {
+    "path": "/conditions/gout/exercises",
+    "title": "Best exercises for gout"
+  },
+  {
+    "path": "/conditions/gout/symptoms",
+    "title": "Gout symptoms"
+  },
+  {
+    "path": "/conditions/gout/treatment",
+    "title": "Gout treatment"
+  },
+  {
+    "path": "/conditions/hand-arthritis",
+    "title": "What is hand arthritis?"
+  },
+  {
+    "path": "/conditions/hand-arthritis/diet",
+    "title": "Diet for hand arthritis"
+  },
+  {
+    "path": "/conditions/hand-arthritis/exercises",
+    "title": "Best exercises for hand arthritis"
+  },
+  {
+    "path": "/conditions/hand-arthritis/symptoms",
+    "title": "Hand arthritis symptoms"
+  },
+  {
+    "path": "/conditions/hand-arthritis/treatment",
+    "title": "Hand arthritis treatment"
+  },
+  {
+    "path": "/conditions/hip-arthritis",
+    "title": "What is hip arthritis?"
+  },
+  {
+    "path": "/conditions/hip-arthritis/diet",
+    "title": "Diet for hip arthritis"
+  },
+  {
+    "path": "/conditions/hip-arthritis/symptoms",
+    "title": "Hip arthritis symptoms"
+  },
+  {
+    "path": "/conditions/hip-arthritis/treatment",
+    "title": "Hip arthritis treatment"
+  },
+  {
+    "path": "/conditions/juvenile-arthritis",
+    "title": "What is juvenile arthritis?"
+  },
+  {
+    "path": "/conditions/juvenile-arthritis/diet",
+    "title": "Diet for juvenile arthritis"
+  },
+  {
+    "path": "/conditions/juvenile-arthritis/exercises",
+    "title": "Best exercises for juvenile arthritis"
+  },
+  {
+    "path": "/conditions/juvenile-arthritis/symptoms",
+    "title": "Juvenile arthritis symptoms"
+  },
+  {
+    "path": "/conditions/juvenile-arthritis/treatment",
+    "title": "Juvenile arthritis treatment"
+  },
+  {
+    "path": "/conditions/knee-arthritis",
+    "title": "What is knee arthritis?"
+  },
+  {
+    "path": "/conditions/knee-arthritis/diet",
+    "title": "Diet for knee arthritis"
+  },
+  {
+    "path": "/conditions/knee-arthritis/exercises",
+    "title": "Best exercises for knee arthritis"
+  },
+  {
+    "path": "/conditions/knee-arthritis/symptoms",
+    "title": "Knee arthritis symptoms"
+  },
+  {
+    "path": "/conditions/knee-arthritis/treatment",
+    "title": "Knee arthritis treatment"
+  },
+  {
+    "path": "/conditions/lupus",
+    "title": "What is lupus?"
+  },
+  {
+    "path": "/conditions/lupus/diet",
+    "title": "Diet for lupus"
+  },
+  {
+    "path": "/conditions/lupus/exercises",
+    "title": "Best exercises for lupus"
+  },
+  {
+    "path": "/conditions/lupus/symptoms",
+    "title": "Lupus symptoms"
+  },
+  {
+    "path": "/conditions/lupus/treatment",
+    "title": "Lupus treatment"
+  },
+  {
+    "path": "/conditions/osteoarthritis",
+    "title": "What is osteoarthritis?"
+  },
+  {
+    "path": "/conditions/osteoarthritis/diet",
+    "title": "Diet for osteoarthritis"
+  },
+  {
+    "path": "/conditions/osteoarthritis/exercises",
+    "title": "Best exercises for osteoarthritis"
+  },
+  {
+    "path": "/conditions/osteoarthritis/symptoms",
+    "title": "Osteoarthritis symptoms — what to look for"
+  },
+  {
+    "path": "/conditions/osteoarthritis/treatment",
+    "title": "Osteoarthritis treatment options"
+  },
+  {
+    "path": "/conditions/polymyalgia-rheumatica",
+    "title": "What is polymyalgia rheumatica?"
+  },
+  {
+    "path": "/conditions/polymyalgia-rheumatica/diet",
+    "title": "Diet for polymyalgia rheumatica"
+  },
+  {
+    "path": "/conditions/polymyalgia-rheumatica/exercises",
+    "title": "Best exercises for polymyalgia rheumatica"
+  },
+  {
+    "path": "/conditions/polymyalgia-rheumatica/symptoms",
+    "title": "Polymyalgia rheumatica symptoms"
+  },
+  {
+    "path": "/conditions/polymyalgia-rheumatica/treatment",
+    "title": "Polymyalgia rheumatica treatment"
+  },
+  {
+    "path": "/conditions/psoriatic-arthritis",
+    "title": "What is psoriatic arthritis?"
+  },
+  {
+    "path": "/conditions/psoriatic-arthritis/diet",
+    "title": "Diet for psoriatic arthritis"
+  },
+  {
+    "path": "/conditions/psoriatic-arthritis/exercises",
+    "title": "Best exercises for psoriatic arthritis"
+  },
+  {
+    "path": "/conditions/psoriatic-arthritis/symptoms",
+    "title": "Psoriatic arthritis symptoms"
+  },
+  {
+    "path": "/conditions/psoriatic-arthritis/treatment",
+    "title": "Psoriatic arthritis treatment"
+  },
+  {
+    "path": "/conditions/reactive-arthritis",
+    "title": "What is reactive arthritis?"
+  },
+  {
+    "path": "/conditions/reactive-arthritis/diet",
+    "title": "Diet for reactive arthritis"
+  },
+  {
+    "path": "/conditions/reactive-arthritis/exercises",
+    "title": "Best exercises for reactive arthritis"
+  },
+  {
+    "path": "/conditions/reactive-arthritis/symptoms",
+    "title": "Reactive arthritis symptoms"
+  },
+  {
+    "path": "/conditions/reactive-arthritis/treatment",
+    "title": "Reactive arthritis treatment"
+  },
+  {
+    "path": "/conditions/rheumatoid-arthritis",
+    "title": "What is rheumatoid arthritis?"
+  },
+  {
+    "path": "/conditions/rheumatoid-arthritis/diet",
+    "title": "Diet for rheumatoid arthritis"
+  },
+  {
+    "path": "/conditions/rheumatoid-arthritis/exercises",
+    "title": "Best exercises for rheumatoid arthritis"
+  },
+  {
+    "path": "/conditions/rheumatoid-arthritis/symptoms",
+    "title": "Rheumatoid arthritis symptoms"
+  },
+  {
+    "path": "/conditions/rheumatoid-arthritis/treatment",
+    "title": "Rheumatoid arthritis treatment"
+  },
+  {
+    "path": "/conditions/shoulder-arthritis",
+    "title": "What is shoulder arthritis?"
+  },
+  {
+    "path": "/conditions/shoulder-arthritis/diet",
+    "title": "Diet for shoulder arthritis"
+  },
+  {
+    "path": "/conditions/shoulder-arthritis/exercises",
+    "title": "Best exercises for shoulder arthritis"
+  },
+  {
+    "path": "/conditions/shoulder-arthritis/symptoms",
+    "title": "Shoulder arthritis symptoms"
+  },
+  {
+    "path": "/conditions/shoulder-arthritis/treatment",
+    "title": "Shoulder arthritis treatment"
+  },
+  {
+    "path": "/contact",
+    "title": "contact"
+  },
+  {
+    "path": "/cookies",
+    "title": "cookies"
+  },
+  {
+    "path": "/corporate-giving",
+    "title": "corporate giving"
+  },
+  {
+    "path": "/corporate-partnerships",
+    "title": "corporate partnerships"
+  },
+  {
+    "path": "/daily-tips/anti-inflammatory-snacks",
+    "title": "daily tips · anti inflammatory snacks"
+  },
+  {
+    "path": "/daily-tips/morning-stretches",
+    "title": "daily tips · morning stretches"
+  },
+  {
+    "path": "/daily-tips/pace-yourself",
+    "title": "daily tips · pace yourself"
+  },
+  {
+    "path": "/daily-tips/prioritise-sleep",
+    "title": "daily tips · prioritise sleep"
+  },
+  {
+    "path": "/daily-tips/stay-hydrated",
+    "title": "daily tips · stay hydrated"
+  },
+  {
+    "path": "/daily-tips/walk-20-minutes",
+    "title": "daily tips · walk 20 minutes"
+  },
+  {
+    "path": "/diet",
+    "title": "What is the best diet for arthritis?"
+  },
+  {
+    "path": "/diet/foods-to-avoid-with-arthritis",
+    "title": "diet · foods to avoid with arthritis"
+  },
+  {
+    "path": "/diet/mediterranean-diet-for-arthritis",
+    "title": "Does the Mediterranean diet help arthritis?"
+  },
+  {
+    "path": "/disclaimer",
+    "title": "disclaimer"
+  },
+  {
+    "path": "/donate",
+    "title": "How do I donate to Living With Arthritis?"
+  },
+  {
+    "path": "/editorial-standards",
+    "title": "editorial standards"
+  },
+  {
+    "path": "/events",
+    "title": "events"
+  },
+  {
+    "path": "/exercises",
+    "title": "exercises"
+  },
+  {
+    "path": "/exercises/ankle-arthritis-exercises",
+    "title": "exercises · ankle arthritis exercises"
+  },
+  {
+    "path": "/exercises/cycling-for-ankle-arthritis",
+    "title": "exercises · cycling for ankle arthritis"
+  },
+  {
+    "path": "/exercises/cycling-for-back-arthritis",
+    "title": "exercises · cycling for back arthritis"
+  },
+  {
+    "path": "/exercises/cycling-for-hand-arthritis",
+    "title": "exercises · cycling for hand arthritis"
+  },
+  {
+    "path": "/exercises/cycling-for-hip-arthritis",
+    "title": "exercises · cycling for hip arthritis"
+  },
+  {
+    "path": "/exercises/cycling-for-knee-arthritis",
+    "title": "exercises · cycling for knee arthritis"
+  },
+  {
+    "path": "/exercises/cycling-for-shoulder-arthritis",
+    "title": "exercises · cycling for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/neck-arthritis-exercises",
+    "title": "exercises · neck arthritis exercises"
+  },
+  {
+    "path": "/exercises/pilates-for-ankle-arthritis",
+    "title": "exercises · pilates for ankle arthritis"
+  },
+  {
+    "path": "/exercises/pilates-for-back-arthritis",
+    "title": "exercises · pilates for back arthritis"
+  },
+  {
+    "path": "/exercises/pilates-for-hand-arthritis",
+    "title": "exercises · pilates for hand arthritis"
+  },
+  {
+    "path": "/exercises/pilates-for-hip-arthritis",
+    "title": "exercises · pilates for hip arthritis"
+  },
+  {
+    "path": "/exercises/pilates-for-knee-arthritis",
+    "title": "exercises · pilates for knee arthritis"
+  },
+  {
+    "path": "/exercises/pilates-for-shoulder-arthritis",
+    "title": "exercises · pilates for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/seated-tai-chi-for-arthritis",
+    "title": "exercises · seated tai chi for arthritis"
+  },
+  {
+    "path": "/exercises/strength-training-for-ankle-arthritis",
+    "title": "exercises · strength training for ankle arthritis"
+  },
+  {
+    "path": "/exercises/strength-training-for-back-arthritis",
+    "title": "exercises · strength training for back arthritis"
+  },
+  {
+    "path": "/exercises/strength-training-for-hand-arthritis",
+    "title": "exercises · strength training for hand arthritis"
+  },
+  {
+    "path": "/exercises/strength-training-for-hip-arthritis",
+    "title": "exercises · strength training for hip arthritis"
+  },
+  {
+    "path": "/exercises/strength-training-for-knee-arthritis",
+    "title": "exercises · strength training for knee arthritis"
+  },
+  {
+    "path": "/exercises/strength-training-for-shoulder-arthritis",
+    "title": "exercises · strength training for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/stretching-for-ankle-arthritis",
+    "title": "exercises · stretching for ankle arthritis"
+  },
+  {
+    "path": "/exercises/stretching-for-back-arthritis",
+    "title": "exercises · stretching for back arthritis"
+  },
+  {
+    "path": "/exercises/stretching-for-hand-arthritis",
+    "title": "exercises · stretching for hand arthritis"
+  },
+  {
+    "path": "/exercises/stretching-for-hip-arthritis",
+    "title": "exercises · stretching for hip arthritis"
+  },
+  {
+    "path": "/exercises/stretching-for-knee-arthritis",
+    "title": "exercises · stretching for knee arthritis"
+  },
+  {
+    "path": "/exercises/stretching-for-shoulder-arthritis",
+    "title": "exercises · stretching for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/swimming-for-ankle-arthritis",
+    "title": "exercises · swimming for ankle arthritis"
+  },
+  {
+    "path": "/exercises/swimming-for-back-arthritis",
+    "title": "exercises · swimming for back arthritis"
+  },
+  {
+    "path": "/exercises/swimming-for-hand-arthritis",
+    "title": "exercises · swimming for hand arthritis"
+  },
+  {
+    "path": "/exercises/swimming-for-hip-arthritis",
+    "title": "exercises · swimming for hip arthritis"
+  },
+  {
+    "path": "/exercises/swimming-for-knee-arthritis",
+    "title": "exercises · swimming for knee arthritis"
+  },
+  {
+    "path": "/exercises/swimming-for-shoulder-arthritis",
+    "title": "exercises · swimming for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-ankle-arthritis",
+    "title": "exercises · tai chi for ankle arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-arthritis",
+    "title": "exercises · tai chi for arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-back-arthritis",
+    "title": "exercises · tai chi for back arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-balance",
+    "title": "exercises · tai chi for balance"
+  },
+  {
+    "path": "/exercises/tai-chi-for-beginners",
+    "title": "exercises · tai chi for beginners"
+  },
+  {
+    "path": "/exercises/tai-chi-for-hand-arthritis",
+    "title": "exercises · tai chi for hand arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-hip-arthritis",
+    "title": "exercises · tai chi for hip arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-knee-arthritis",
+    "title": "exercises · tai chi for knee arthritis"
+  },
+  {
+    "path": "/exercises/tai-chi-for-shoulder-arthritis",
+    "title": "exercises · tai chi for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/walking-for-ankle-arthritis",
+    "title": "exercises · walking for ankle arthritis"
+  },
+  {
+    "path": "/exercises/walking-for-back-arthritis",
+    "title": "exercises · walking for back arthritis"
+  },
+  {
+    "path": "/exercises/walking-for-hand-arthritis",
+    "title": "exercises · walking for hand arthritis"
+  },
+  {
+    "path": "/exercises/walking-for-hip-arthritis",
+    "title": "exercises · walking for hip arthritis"
+  },
+  {
+    "path": "/exercises/walking-for-knee-arthritis",
+    "title": "exercises · walking for knee arthritis"
+  },
+  {
+    "path": "/exercises/walking-for-shoulder-arthritis",
+    "title": "exercises · walking for shoulder arthritis"
+  },
+  {
+    "path": "/exercises/yoga-for-ankle-arthritis",
+    "title": "exercises · yoga for ankle arthritis"
+  },
+  {
+    "path": "/exercises/yoga-for-back-arthritis",
+    "title": "exercises · yoga for back arthritis"
+  },
+  {
+    "path": "/exercises/yoga-for-hand-arthritis",
+    "title": "exercises · yoga for hand arthritis"
+  },
+  {
+    "path": "/exercises/yoga-for-hip-arthritis",
+    "title": "exercises · yoga for hip arthritis"
+  },
+  {
+    "path": "/exercises/yoga-for-knee-arthritis",
+    "title": "exercises · yoga for knee arthritis"
+  },
+  {
+    "path": "/exercises/yoga-for-shoulder-arthritis",
+    "title": "exercises · yoga for shoulder arthritis"
+  },
+  {
+    "path": "/expert-articles",
+    "title": "expert articles"
+  },
+  {
+    "path": "/faq",
+    "title": "faq"
+  },
+  {
+    "path": "/faq/arthritis-and-cold-weather",
+    "title": "faq · arthritis and cold weather"
+  },
+  {
+    "path": "/faq/arthritis-and-mental-health",
+    "title": "faq · arthritis and mental health"
+  },
+  {
+    "path": "/faq/arthritis-and-nutrition",
+    "title": "faq · arthritis and nutrition"
+  },
+  {
+    "path": "/faq/arthritis-and-pregnancy",
+    "title": "faq · arthritis and pregnancy"
+  },
+  {
+    "path": "/faq/arthritis-and-sleep",
+    "title": "faq · arthritis and sleep"
+  },
+  {
+    "path": "/faq/arthritis-disability-benefits-uk",
+    "title": "faq · arthritis disability benefits uk"
+  },
+  {
+    "path": "/faq/arthritis-driving-adaptations",
+    "title": "faq · arthritis driving adaptations"
+  },
+  {
+    "path": "/faq/arthritis-employment-rights-uk",
+    "title": "faq · arthritis employment rights uk"
+  },
+  {
+    "path": "/faq/arthritis-exercise-myths",
+    "title": "faq · arthritis exercise myths"
+  },
+  {
+    "path": "/faq/arthritis-flare-management",
+    "title": "faq · arthritis flare management"
+  },
+  {
+    "path": "/faq/arthritis-footwear",
+    "title": "faq · arthritis footwear"
+  },
+  {
+    "path": "/faq/arthritis-hand-exercises",
+    "title": "faq · arthritis hand exercises"
+  },
+  {
+    "path": "/faq/arthritis-medication-explained",
+    "title": "faq · arthritis medication explained"
+  },
+  {
+    "path": "/faq/arthritis-pain-management",
+    "title": "faq · arthritis pain management"
+  },
+  {
+    "path": "/faq/arthritis-return-to-work",
+    "title": "faq · arthritis return to work"
+  },
+  {
+    "path": "/faq/arthritis-sleeping-positions",
+    "title": "faq · arthritis sleeping positions"
+  },
+  {
+    "path": "/faq/arthritis-support-groups-uk",
+    "title": "faq · arthritis support groups uk"
+  },
+  {
+    "path": "/faq/arthritis-travel-tips",
+    "title": "faq · arthritis travel tips"
+  },
+  {
+    "path": "/faq/arthritis-walking-aids",
+    "title": "faq · arthritis walking aids"
+  },
+  {
+    "path": "/faq/best-exercises-arthritis",
+    "title": "What are the best exercises for people with arthritis?"
+  },
+  {
+    "path": "/faq/best-pain-relief-creams-arthritis",
+    "title": "faq · best pain relief creams arthritis"
+  },
+  {
+    "path": "/faq/can-arthritis-affect-young-people",
+    "title": "faq · can arthritis affect young people"
+  },
+  {
+    "path": "/faq/can-arthritis-cause-fatigue",
+    "title": "faq · can arthritis cause fatigue"
+  },
+  {
+    "path": "/faq/is-arthritis-a-disability",
+    "title": "faq · is arthritis a disability"
+  },
+  {
+    "path": "/faq/living-well-arthritis-tips",
+    "title": "faq · living well arthritis tips"
+  },
+  {
+    "path": "/faq/osteoarthritis-vs-rheumatoid-arthritis",
+    "title": "faq · osteoarthritis vs rheumatoid arthritis"
+  },
+  {
+    "path": "/faq/reduce-arthritis-pain-naturally",
+    "title": "faq · reduce arthritis pain naturally"
+  },
+  {
+    "path": "/faq/returning-to-work-arthritis",
+    "title": "faq · returning to work arthritis"
+  },
+  {
+    "path": "/faq/weight-management-osteoarthritis",
+    "title": "faq · weight management osteoarthritis"
+  },
+  {
+    "path": "/faq/what-is-juvenile-arthritis",
+    "title": "faq · what is juvenile arthritis"
+  },
+  {
+    "path": "/faq/what-is-osteoarthritis",
+    "title": "faq · what is osteoarthritis"
+  },
+  {
+    "path": "/faq/what-is-rheumatoid-arthritis",
+    "title": "faq · what is rheumatoid arthritis"
+  },
+  {
+    "path": "/faq/when-to-see-a-rheumatologist",
+    "title": "faq · when to see a rheumatologist"
+  },
+  {
+    "path": "/faq/young-people-arthritis",
+    "title": "faq · young people arthritis"
+  },
+  {
+    "path": "/glossary",
+    "title": "What arthritis and rheumatology terms should I know?"
+  },
+  {
+    "path": "/glossary/ankylosis",
+    "title": "What is ankylosis?"
+  },
+  {
+    "path": "/glossary/anti-ccp",
+    "title": "What is anti-ccp?"
+  },
+  {
+    "path": "/glossary/biologic",
+    "title": "What is biologic?"
+  },
+  {
+    "path": "/glossary/cartilage",
+    "title": "What is cartilage?"
+  },
+  {
+    "path": "/glossary/corticosteroid",
+    "title": "What is corticosteroid?"
+  },
+  {
+    "path": "/glossary/crepitus",
+    "title": "What is crepitus?"
+  },
+  {
+    "path": "/glossary/crp",
+    "title": "What is crp?"
+  },
+  {
+    "path": "/glossary/dactylitis",
+    "title": "What is dactylitis?"
+  },
+  {
+    "path": "/glossary/dmard",
+    "title": "What is dmard?"
+  },
+  {
+    "path": "/glossary/enthesitis",
+    "title": "What is enthesitis?"
+  },
+  {
+    "path": "/glossary/esr",
+    "title": "What is esr?"
+  },
+  {
+    "path": "/glossary/flare",
+    "title": "What is flare?"
+  },
+  {
+    "path": "/glossary/hla-b27",
+    "title": "What is hla-b27?"
+  },
+  {
+    "path": "/glossary/joint-effusion",
+    "title": "What is joint effusion?"
+  },
+  {
+    "path": "/glossary/morning-stiffness",
+    "title": "What is morning stiffness?"
+  },
+  {
+    "path": "/glossary/musculoskeletal",
+    "title": "What is musculoskeletal (msk)?"
+  },
+  {
+    "path": "/glossary/nsaid",
+    "title": "What is nsaid?"
+  },
+  {
+    "path": "/glossary/osteophyte",
+    "title": "What is osteophyte?"
+  },
+  {
+    "path": "/glossary/pannus",
+    "title": "What is pannus?"
+  },
+  {
+    "path": "/glossary/physiotherapy-triage",
+    "title": "What is physiotherapy triage?"
+  },
+  {
+    "path": "/glossary/remission",
+    "title": "What is remission?"
+  },
+  {
+    "path": "/glossary/rheumatoid-factor",
+    "title": "What is rheumatoid factor?"
+  },
+  {
+    "path": "/glossary/seronegative",
+    "title": "What is seronegative?"
+  },
+  {
+    "path": "/glossary/subchondral",
+    "title": "What is subchondral bone?"
+  },
+  {
+    "path": "/glossary/synovium",
+    "title": "What is synovium?"
+  },
+  {
+    "path": "/glossary/tophi",
+    "title": "What is tophi?"
+  },
+  {
+    "path": "/glossary/uric-acid",
+    "title": "What is uric acid?"
+  },
+  {
+    "path": "/governance",
+    "title": "governance"
+  },
+  {
+    "path": "/guides",
+    "title": "Where can I find UK arthritis guides?"
+  },
+  {
+    "path": "/guides/arthritis-pain-relief",
+    "title": "How do I relieve arthritis pain today?"
+  },
+  {
+    "path": "/guides/arthritis-vs-fibromyalgia",
+    "title": "How do I know if it's arthritis or fibromyalgia?"
+  },
+  {
+    "path": "/guides/azathioprine-for-arthritis",
+    "title": "guides · azathioprine for arthritis"
+  },
+  {
+    "path": "/guides/benefits-pip",
+    "title": "Can you claim PIP for arthritis?"
+  },
+  {
+    "path": "/guides/blue-badge-vs-disability-parking",
+    "title": "Do I qualify for a Blue Badge with arthritis?"
+  },
+  {
+    "path": "/guides/bone-density-osteoporosis",
+    "title": "How do I improve bone density?"
+  },
+  {
+    "path": "/guides/bursitis-vs-arthritis",
+    "title": "Is it bursitis or arthritis?"
+  },
+  {
+    "path": "/guides/can-exercise-make-osteoarthritis-worse",
+    "title": "Can exercise make osteoarthritis worse?"
+  },
+  {
+    "path": "/guides/chair-yoga-vs-tai-chi",
+    "title": "Should I try chair yoga or tai chi for arthritis?"
+  },
+  {
+    "path": "/guides/cold-plunge-vs-warm-bath-arthritis",
+    "title": "Is a cold plunge or warm bath better for arthritis?"
+  },
+  {
+    "path": "/guides/collagen-vs-glucosamine",
+    "title": "guides · collagen vs glucosamine"
+  },
+  {
+    "path": "/guides/diet",
+    "title": "guides · diet"
+  },
+  {
+    "path": "/guides/disability-support",
+    "title": "What UK disability support is available for arthritis?"
+  },
+  {
+    "path": "/guides/dmards-vs-biologics",
+    "title": "What's the difference between DMARDs and biologics?"
+  },
+  {
+    "path": "/guides/dog-arthritis-supplements-vs-prescription",
+    "title": "Should I give my dog joint supplements or vet-prescribed medication?"
+  },
+  {
+    "path": "/guides/exercise",
+    "title": "What exercise is best for arthritis?"
+  },
+  {
+    "path": "/guides/fall-prevention-older-adults",
+    "title": "How can older adults prevent falls?"
+  },
+  {
+    "path": "/guides/febuxostat-for-gout",
+    "title": "guides · febuxostat for gout"
+  },
+  {
+    "path": "/guides/febuxostat-vs-allopurinol",
+    "title": "guides · febuxostat vs allopurinol"
+  },
+  {
+    "path": "/guides/frailty-management-hub",
+    "title": "How is frailty managed with arthritis?"
+  },
+  {
+    "path": "/guides/free-arthritis-resources-uk",
+    "title": "What free arthritis resources do UK charities offer?"
+  },
+  {
+    "path": "/guides/glucosamine-vs-turmeric-arthritis",
+    "title": "Does glucosamine or turmeric work better for arthritis?"
+  },
+  {
+    "path": "/guides/gout-vs-pseudogout",
+    "title": "How do I tell gout and pseudogout apart?"
+  },
+  {
+    "path": "/guides/health-services",
+    "title": "guides · health services"
+  },
+  {
+    "path": "/guides/heat-vs-cold-arthritis-pain",
+    "title": "Should I use a heat pad or ice pack for arthritis?"
+  },
+  {
+    "path": "/guides/hip-exercises-for-osteoarthritis",
+    "title": "What are the best hip exercises for osteoarthritis?"
+  },
+  {
+    "path": "/guides/insurance-coverage",
+    "title": "guides · insurance coverage"
+  },
+  {
+    "path": "/guides/knee-exercises-for-osteoarthritis",
+    "title": "What are the best free knee exercises for osteoarthritis in the UK?"
+  },
+  {
+    "path": "/guides/knee-replacement-surgery",
+    "title": "guides · knee replacement surgery"
+  },
+  {
+    "path": "/guides/magnesium-vs-vitamin-d",
+    "title": "Should I take magnesium or vitamin D for arthritis?"
+  },
+  {
+    "path": "/guides/meditation-vs-cbt-arthritis-pain",
+    "title": "Does meditation or CBT work better for chronic arthritis pain?"
+  },
+  {
+    "path": "/guides/mediterranean-diet-vs-anti-inflammatory-diet",
+    "title": "Is the Mediterranean diet the same as an anti-inflammatory diet?"
+  },
+  {
+    "path": "/guides/musculoskeletal-health",
+    "title": "What is musculoskeletal health?"
+  },
+  {
+    "path": "/guides/newly-diagnosed",
+    "title": "What should I do after an arthritis diagnosis?"
+  },
+  {
+    "path": "/guides/nhs-vs-private-rheumatology",
+    "title": "Should I go private for arthritis care in the UK?"
+  },
+  {
+    "path": "/guides/osteoarthritis-vs-rheumatoid-arthritis",
+    "title": "What's the difference between osteoarthritis and rheumatoid arthritis?"
+  },
+  {
+    "path": "/guides/painkillers-and-nsaids",
+    "title": "guides · painkillers and nsaids"
+  },
+  {
+    "path": "/guides/paracetamol-vs-ibuprofen-for-arthritis",
+    "title": "Should I take paracetamol or ibuprofen for arthritis pain?"
+  },
+  {
+    "path": "/guides/physio-self-referral-vs-gp-referral",
+    "title": "Do I need to see my GP before physiotherapy?"
+  },
+  {
+    "path": "/guides/physiotherapy-vs-surgery-knee-arthritis",
+    "title": "Should I have physio or knee surgery for arthritis?"
+  },
+  {
+    "path": "/guides/pip-vs-attendance-allowance",
+    "title": "Should I claim PIP or Attendance Allowance?"
+  },
+  {
+    "path": "/guides/preventative-msk-health",
+    "title": "How do I keep my muscles and joints healthy?"
+  },
+  {
+    "path": "/guides/resistance-bands-vs-weights",
+    "title": "Should I use resistance bands or weights for arthritis?"
+  },
+  {
+    "path": "/guides/rollator-vs-walking-frame",
+    "title": "Should I use a rollator or a walking frame?"
+  },
+  {
+    "path": "/guides/sarcopenia-muscle-loss",
+    "title": "What is sarcopenia and how is it linked to arthritis?"
+  },
+  {
+    "path": "/guides/sciatica-vs-hip-arthritis",
+    "title": "Is my pain sciatica or hip arthritis?"
+  },
+  {
+    "path": "/guides/shoulder-pain-relief",
+    "title": "guides · shoulder pain relief"
+  },
+  {
+    "path": "/guides/standing-desk-vs-sitting-desk",
+    "title": "Is a standing desk better for arthritis?"
+  },
+  {
+    "path": "/guides/steroid-injection-vs-hyaluronic-acid",
+    "title": "Should I have a steroid or hyaluronic acid injection in my knee?"
+  },
+  {
+    "path": "/guides/steroids-for-arthritis",
+    "title": "guides · steroids for arthritis"
+  },
+  {
+    "path": "/guides/swimming-vs-walking-arthritis",
+    "title": "Is swimming or walking better for arthritis?"
+  },
+  {
+    "path": "/guides/tendonitis-vs-arthritis",
+    "title": "Is my joint pain tendonitis or arthritis?"
+  },
+  {
+    "path": "/guides/topical-nsaid-vs-oral-nsaid-arthritis",
+    "title": "Is topical ibuprofen gel as good as oral ibuprofen for arthritis?"
+  },
+  {
+    "path": "/guides/travel-with-arthritis",
+    "title": "Travelling with arthritis: plan ahead and enjoy the trip"
+  },
+  {
+    "path": "/guides/uk-arthritis",
+    "title": "guides · uk arthritis"
+  },
+  {
+    "path": "/guides/understanding-pain",
+    "title": "What are the main types of pain?"
+  },
+  {
+    "path": "/guides/walking-stick-vs-crutch-arthritis",
+    "title": "Do I need a walking stick or a crutch?"
+  },
+  {
+    "path": "/guides/wet-vs-dry-heat-therapy",
+    "title": "Is a warm bath or a heat pad better for arthritis?"
+  },
+  {
+    "path": "/guides/work-with-arthritis",
+    "title": "Working with arthritis: your rights, adjustments and support"
+  },
+  {
+    "path": "/guides/yoga-vs-pilates-arthritis",
+    "title": "Should I try yoga or Pilates for arthritis?"
+  },
+  {
+    "path": "/health-tools",
+    "title": "health tools"
+  },
+  {
+    "path": "/healthcare-professionals",
+    "title": "healthcare professionals"
+  },
+  {
+    "path": "/helpline",
+    "title": "helpline"
+  },
+  {
+    "path": "/impact",
+    "title": "impact"
+  },
+  {
+    "path": "/library",
+    "title": "library"
+  },
+  {
+    "path": "/library/access-to-work",
+    "title": "Access to Work for arthritis: UK workplace support explained"
+  },
+  {
+    "path": "/library/achilles-tendonitis",
+    "title": "Achilles Tendonitis"
+  },
+  {
+    "path": "/library/acupuncture",
+    "title": "Acupuncture"
+  },
+  {
+    "path": "/library/adalimumab",
+    "title": "Adalimumab"
+  },
+  {
+    "path": "/library/allopurinol",
+    "title": "Allopurinol"
+  },
+  {
+    "path": "/library/amitriptyline",
+    "title": "Amitriptyline"
+  },
+  {
+    "path": "/library/ankylosing-spondylitis",
+    "title": "Ankylosing spondylitis: inflammatory back pain, not 'just a bad back'"
+  },
+  {
+    "path": "/library/aps",
+    "title": "Antiphospholipid Syndrome (APS)"
+  },
+  {
+    "path": "/library/arthritis",
+    "title": "Arthritis explained: types, symptoms and next steps in the UK"
+  },
+  {
+    "path": "/library/arthritis-symptoms",
+    "title": "Arthritis symptoms: what to notice before a diagnosis has a name"
+  },
+  {
+    "path": "/library/aspirin",
+    "title": "Aspirin"
+  },
+  {
+    "path": "/library/back-exercises",
+    "title": "Back Exercises"
+  },
+  {
+    "path": "/library/british-supplements",
+    "title": "British Supplements"
+  },
+  {
+    "path": "/library/bursitis",
+    "title": "Bursitis"
+  },
+  {
+    "path": "/library/carpal-tunnel",
+    "title": "Carpal tunnel syndrome: numb hands, night tingling and relief"
+  },
+  {
+    "path": "/library/colchicine",
+    "title": "Colchicine"
+  },
+  {
+    "path": "/library/collagen",
+    "title": "Collagen"
+  },
+  {
+    "path": "/library/collagen-vs-glucosamine",
+    "title": "Collagen vs Glucosamine for Arthritis"
+  },
+  {
+    "path": "/library/discomfort-knee",
+    "title": "Discomfort in the Knee Joint"
+  },
+  {
+    "path": "/library/fibromyalgia",
+    "title": "Fibromyalgia in the UK: widespread pain, fatigue and fibro fog"
+  },
+  {
+    "path": "/library/ginger",
+    "title": "Ginger"
+  },
+  {
+    "path": "/library/gout-symptoms",
+    "title": "Gout symptoms: why the attack often starts at night"
+  },
+  {
+    "path": "/library/hip-pain",
+    "title": "Hip Pain"
+  },
+  {
+    "path": "/library/hydroxychloroquine",
+    "title": "Hydroxychloroquine: eye checks, side effects and what to expect"
+  },
+  {
+    "path": "/library/hypermobility",
+    "title": "Hypermobility"
+  },
+  {
+    "path": "/library/hypermobility-and",
+    "title": "Hypermobility Spectrum Disorders"
+  },
+  {
+    "path": "/library/ibuprofen",
+    "title": "Ibuprofen"
+  },
+  {
+    "path": "/library/kawasaki",
+    "title": "Kawasaki Disease"
+  },
+  {
+    "path": "/library/knee-pain",
+    "title": "Knee pain: common causes and what you can do about it"
+  },
+  {
+    "path": "/library/knee-support",
+    "title": "Knee Support"
+  },
+  {
+    "path": "/library/lower-back-back",
+    "title": "Lower Back Pain"
+  },
+  {
+    "path": "/library/lupus",
+    "title": "Lupus (SLE) in the UK: a library overview"
+  },
+  {
+    "path": "/library/lupus-symptoms",
+    "title": "Lupus symptoms in the UK: the signs people actually notice first"
+  },
+  {
+    "path": "/library/manchester-marathon",
+    "title": "Exercise and Arthritis: Running and Physical Activity"
+  },
+  {
+    "path": "/library/methotrexate",
+    "title": "Methotrexate"
+  },
+  {
+    "path": "/library/msm",
+    "title": "MSM (Methylsulfonylmethane)"
+  },
+  {
+    "path": "/library/mtx-methotrexal",
+    "title": "MTX (Methotrexate) — Patient Guide"
+  },
+  {
+    "path": "/library/musculoskeletal",
+    "title": "Musculoskeletal Health"
+  },
+  {
+    "path": "/library/naproxen",
+    "title": "Naproxen"
+  },
+  {
+    "path": "/library/naproxen-500mg",
+    "title": "Naproxen 500mg"
+  },
+  {
+    "path": "/library/naproxen-adverse",
+    "title": "Naproxen Adverse Effects"
+  },
+  {
+    "path": "/library/naproxen-side-effects",
+    "title": "Naproxen Side Effects"
+  },
+  {
+    "path": "/library/neck-pain",
+    "title": "Neck Pain"
+  },
+  {
+    "path": "/library/osteoarthritis",
+    "title": "Osteoarthritis: the UK's most common joint condition"
+  },
+  {
+    "path": "/library/osteoporosis",
+    "title": "Osteoporosis: protecting your bones when you have arthritis"
+  },
+  {
+    "path": "/library/osteoporosis-osteoporosis",
+    "title": "Osteoporosis — In Depth"
+  },
+  {
+    "path": "/library/pins-needles",
+    "title": "Pins and Needles in Hands"
+  },
+  {
+    "path": "/library/plantar-fasciitis",
+    "title": "Heel pain in the morning? A plantar fasciitis self-help guide"
+  },
+  {
+    "path": "/library/plantar-fasciitis-treatment",
+    "title": "Plantar Fasciitis Treatment"
+  },
+  {
+    "path": "/library/polymyalgia",
+    "title": "Polymyalgia Rheumatica"
+  },
+  {
+    "path": "/library/psoriatic-arthritis",
+    "title": "Psoriatic Arthritis"
+  },
+  {
+    "path": "/library/raynauds",
+    "title": "Raynaud's: cold, white fingers and how to keep warm"
+  },
+  {
+    "path": "/library/rheumatoid-arthritis",
+    "title": "Rheumatoid Arthritis"
+  },
+  {
+    "path": "/library/scleroderma",
+    "title": "Scleroderma"
+  },
+  {
+    "path": "/library/selenium",
+    "title": "Selenium"
+  },
+  {
+    "path": "/library/shoulder-exercises",
+    "title": "Shoulder Exercises"
+  },
+  {
+    "path": "/library/shoulder-pain",
+    "title": "Shoulder pain: frozen shoulder, rotator cuff or arthritis?"
+  },
+  {
+    "path": "/library/sjogrens",
+    "title": "Sjögren's: dry eyes, dry mouth and tiredness explained"
+  },
+  {
+    "path": "/library/sore-bottom-back",
+    "title": "Sore Bottom of the Back"
+  },
+  {
+    "path": "/library/tens-machine",
+    "title": "TENS Machine"
+  },
+  {
+    "path": "/library/turmeric",
+    "title": "Turmeric and curcumin for arthritis: a cautious UK overview"
+  },
+  {
+    "path": "/library/turmeric-benefits",
+    "title": "Turmeric Benefits"
+  },
+  {
+    "path": "/library/vasculitis",
+    "title": "Vasculitis: types, symptoms and treatment explained"
+  },
+  {
+    "path": "/library/what-is-gout",
+    "title": "What is Gout?"
+  },
+  {
+    "path": "/living-with-arthritis",
+    "title": "living with arthritis"
+  },
+  {
+    "path": "/myths/does-cracking-knuckles-cause-arthritis",
+    "title": "myths · does cracking knuckles cause arthritis"
+  },
+  {
+    "path": "/partners",
+    "title": "partners"
+  },
+  {
+    "path": "/pedometer",
+    "title": "pedometer"
+  },
+  {
+    "path": "/pets",
+    "title": "Can pets get arthritis?"
+  },
+  {
+    "path": "/pets/arthritis-in-cats",
+    "title": "How do I know if my cat is in pain?"
+  },
+  {
+    "path": "/pets/arthritis-in-dogs",
+    "title": "Which dog breeds get arthritis most?"
+  },
+  {
+    "path": "/pets/arthritis-in-horses",
+    "title": "Can an arthritic horse still be ridden?"
+  },
+  {
+    "path": "/pets/arthritis-in-llamas-and-alpacas",
+    "title": "How long do llamas and alpacas live with arthritis?"
+  },
+  {
+    "path": "/pets/home-adaptations-for-arthritic-pets",
+    "title": "What single change helps most?"
+  },
+  {
+    "path": "/pets/pet-weight-and-joint-health",
+    "title": "How fast should my dog lose weight?"
+  },
+  {
+    "path": "/pets/senior-pet-exercise-guide",
+    "title": "Is hydrotherapy worth it for dogs?"
+  },
+  {
+    "path": "/pets/when-to-see-the-vet-pet-arthritis",
+    "title": "Is limping ever an emergency?"
+  },
+  {
+    "path": "/press",
+    "title": "press"
+  },
+  {
+    "path": "/privacy",
+    "title": "privacy"
+  },
+  {
+    "path": "/regions/midlands",
+    "title": "regions · midlands"
+  },
+  {
+    "path": "/regions/north-west",
+    "title": "regions · north west"
+  },
+  {
+    "path": "/regions/scotland",
+    "title": "regions · scotland"
+  },
+  {
+    "path": "/regions/wales",
+    "title": "regions · wales"
+  },
+  {
+    "path": "/research",
+    "title": "research"
+  },
+  {
+    "path": "/research/clinical-trials",
+    "title": "research · clinical trials"
+  },
+  {
+    "path": "/research/grants",
+    "title": "research · grants"
+  },
+  {
+    "path": "/resource-centre",
+    "title": "resource centre"
+  },
+  {
+    "path": "/resources-directory",
+    "title": "resources directory"
+  },
+  {
+    "path": "/resources/clinic-pack",
+    "title": "resources · clinic pack"
+  },
+  {
+    "path": "/resources/flare-action-plan",
+    "title": "resources · flare action plan"
+  },
+  {
+    "path": "/resources/pip-evidence-diary",
+    "title": "resources · pip evidence diary"
+  },
+  {
+    "path": "/reviewers",
+    "title": "Who medically reviews Living With Arthritis content?"
+  },
+  {
+    "path": "/reviewers/maxwell",
+    "title": "reviewers · maxwell"
+  },
+  {
+    "path": "/safeguarding",
+    "title": "safeguarding"
+  },
+  {
+    "path": "/self-assessment",
+    "title": "self assessment"
+  },
+  {
+    "path": "/self-help",
+    "title": "self help"
+  },
+  {
+    "path": "/services",
+    "title": "services"
+  },
+  {
+    "path": "/sources",
+    "title": "sources"
+  },
+  {
+    "path": "/stories",
+    "title": "stories"
+  },
+  {
+    "path": "/supplements",
+    "title": "supplements"
+  },
+  {
+    "path": "/supplements/collagen",
+    "title": "supplements · collagen"
+  },
+  {
+    "path": "/supplements/collagen-alternatives",
+    "title": "supplements · collagen alternatives"
+  },
+  {
+    "path": "/supplements/glucosamine",
+    "title": "supplements · glucosamine"
+  },
+  {
+    "path": "/supplements/msm",
+    "title": "supplements · msm"
+  },
+  {
+    "path": "/supplements/turmeric",
+    "title": "Is turmeric good for arthritis?"
+  },
+  {
+    "path": "/symptom-checker",
+    "title": "symptom checker"
+  },
+  {
+    "path": "/terms",
+    "title": "terms"
+  },
+  {
+    "path": "/tools/find-specialist",
+    "title": "tools · find specialist"
+  },
+  {
+    "path": "/tools/waiting-time",
+    "title": "tools · waiting time"
+  },
+  {
+    "path": "/treatments/complementary-therapies",
+    "title": "Complementary therapies for arthritis: what the evidence says"
+  },
+  {
+    "path": "/treatments/drug-guide",
+    "title": "Arthritis medicines explained: a plain-English guide"
+  },
+  {
+    "path": "/treatments/surgery-options",
+    "title": "Arthritis surgery options: from keyhole to joint replacement"
+  },
+  {
+    "path": "/trust",
+    "title": "trust"
+  },
+  {
+    "path": "/volunteer",
+    "title": "volunteer"
+  },
+  {
+    "path": "/ways-to-help",
+    "title": "ways to help"
+  },
+  {
+    "path": "/zakat-appeal",
+    "title": "zakat appeal"
+  }
+]

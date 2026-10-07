@@ -1,3 +1,4 @@
+import { trackEvent } from "@/lib/analytics";
 import { Link } from "react-router-dom";
 import { getClusterForPath, type TopicCluster } from "@/data/topicClusters";
 import { isResolvableClusterHref } from "@/lib/clusterHref";
@@ -58,6 +59,7 @@ export default function TopicClusterNav({
           <li>
             <Link
               to={cluster.pillarPath}
+              onClick={() => trackEvent("related_content_click", { placement: "topic_nav", destination_path: cluster.pillarPath })}
               className="inline-flex rounded-full border border-primary/30 bg-background px-3 py-1.5 font-medium text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               Pillar: {cluster.pillarTitle}
@@ -68,6 +70,7 @@ export default function TopicClusterNav({
           <li key={p}>
             <Link
               to={p}
+              onClick={() => trackEvent("related_content_click", { placement: "topic_nav", destination_path: p })}
               className="inline-flex rounded-full border border-border bg-background px-3 py-1.5 text-foreground/85 hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               {labelFor(p)}
@@ -78,6 +81,7 @@ export default function TopicClusterNav({
           <li>
             <Link
               to={cluster.toolPath}
+              onClick={() => trackEvent("related_content_click", { placement: "topic_nav", destination_path: cluster.toolPath })}
               className="inline-flex rounded-full border border-border bg-primary/10 px-3 py-1.5 font-medium text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               Tool: {cluster.toolLabel}

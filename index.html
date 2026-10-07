@@ -62,22 +62,21 @@
 
         function hasAnalyticsConsent() {
           try {
-            if (localStorage.getItem('cookie-consent') === 'accepted') return true;
             var raw = localStorage.getItem('lwa_cv3');
-            if (!raw) return false;
-            return JSON.parse(raw).a === true;
+            if (raw) return JSON.parse(raw).a === true;
+            return localStorage.getItem('cookie-consent') === 'accepted';
           } catch (e) { return false; }
         }
 
         function loadAnalytics() {
-          if (loaded) return;
+          if (loaded || !hasAnalyticsConsent()) return;
           loaded = true;
 
           // GA4 — send_page_view:false; the SPA router sends page_view itself.
           window.dataLayer = window.dataLayer || [];
           window.gtag = function () { window.dataLayer.push(arguments); };
           window.gtag('js', new Date());
-          window.gtag('config', GA_ID, { send_page_view: false });
+          window.gtag('config', GA_ID, { send_page_view: false, page_location: location.origin + location.pathname, page_referrer: document.referrer.split(/[?#]/)[0] });
           var ga = document.createElement('script');
           ga.async = true;
           ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
@@ -98,6 +97,10 @@
 
         window.__loadAnalytics = loadAnalytics;
         window.addEventListener('cookie-consent-accepted', loadAnalytics);
+        window.addEventListener('cookie-consent-declined', function () {
+          window['ga-disable-' + GA_ID] = true;
+          if (loaded) location.reload();
+        });
         if (hasAnalyticsConsent()) loadAnalytics();
       })();
     </script>
@@ -144,14 +147,11 @@
          preload of the hashed /assets/*.woff2 (see vite.config.ts). -->
     <!-- INTER_FONT_PRELOAD -->
     <style>
-      /* Keep crawler HTML in the document but never paint it for JS visitors.
-         Blog/condition inject used to set this block visible, which flashed a
-         wall of unstyled article text before React replaced #root. */
-      #seo-fallback{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;}
+      /* Public article content is readable before React loads, including without JavaScript. */
+      #seo-fallback{max-width:72rem;margin:0 auto;padding:2rem;font:1rem/1.65 system-ui,sans-serif;}
+      #seo-fallback h1{font-size:2rem;line-height:1.2;}#seo-fallback h2{margin-top:1.8rem;font-size:1.5rem;}
+      #seo-fallback a{text-decoration:underline;}#seo-fallback img{max-width:100%;height:auto;}
     </style>
-    <noscript>
-      <style>#seo-fallback{position:static!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;clip-path:none!important;white-space:normal!important;}</style>
-    </noscript>
 
     <!-- LCP hero image is bundled via Vite (hashed filename); the <img> tag in
          OAHero uses fetchpriority="high" + loading="eager" to prioritise it.
@@ -237,7 +237,7 @@
         of them) and createRoot() removes it when React commits. Copy here
         must match OAHero.tsx — see src/components/landing/__tests__/bootHero.test.ts.
       -->
-      <div id="boot-hero" hidden>
+      <div id="boot-hero">
         <div id="boot-banner" class="w-full bg-primary text-primary-foreground border-b border-primary-foreground/20">
           <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center gap-2 py-2 relative">
             <p class="text-xs sm:text-sm font-medium text-center pr-6 sm:pr-0">
@@ -297,7 +297,11 @@
       </div>
       <script>
         (function () {
-          if (location.pathname !== "/") return;
+          if (location.pathname !== "/") {
+            var offRouteShell = document.getElementById("boot-hero");
+            if (offRouteShell) offRouteShell.hidden = true;
+            return;
+          }
           var shell = document.getElementById("boot-hero");
           if (!shell) return;
           try {
@@ -317,9 +321,9 @@
         Wrapped in an offscreen, aria-hidden container so it remains
         parseable by crawlers but never flashes for sighted users.
       -->
-      <div id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;">
+      <div id="seo-fallback">
       <main>
-        <h1>Living With Arthritis — evidence-based health guides</h1>
+        <h2>About Living With Arthritis</h2>
         <p>Living With Arthritis (charity 1218461) is an independent UK charity — not Arthritis UK — helping people living with arthritis and joint pain. We provide free, clinically reviewed information on exercise, diet, pain management and UK benefits. Everything on this site is free, with no paywalls and no sign-up required.</p>
         <p>Whether you have just been diagnosed with osteoarthritis, are managing a flare of rheumatoid arthritis, or supporting a family member with fibromyalgia, you will find practical guides, gentle exercise programmes, anti-inflammatory recipes and a friendly community here.</p>
 

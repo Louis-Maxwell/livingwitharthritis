@@ -1,0 +1,201 @@
+{
+  "scope": "Local built Chromium + axe; not live/field data or full manual accessibility certification",
+  "report": [
+    {
+      "route": "/",
+      "width": 390,
+      "title": "Living With Arthritis | Evidence-Based Health Guides",
+      "h1": [
+        "Living With Arthritis — evidence-based health guidesFree, physio-reviewed help for people living with arthritis — and those who care for them"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/guides/benefits-pip",
+      "width": 390,
+      "title": "PIP for Arthritis: Eligibility, Evidence and Applying",
+      "h1": [
+        "How to claim PIP for arthritis in the UK"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/guides/benefits-pip"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/conditions/knee-arthritis/diet",
+      "width": 390,
+      "title": "Knee Arthritis and diet: evidence and practical guidance",
+      "h1": [
+        "Diet for knee arthritis"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/conditions/knee-arthritis/diet"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/blog/pip-for-arthritis-uk",
+      "width": 390,
+      "title": "PIP for Arthritis: Eligibility, Forms & Appeals (UK)",
+      "h1": [
+        "PIP for Arthritis: Eligibility, Applying and Appeals (UK)"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/contact",
+      "width": 390,
+      "title": "Contact Us | Living With Arthritis",
+      "h1": [
+        "Contact Living With Arthritis"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/contact"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/donate",
+      "width": 390,
+      "title": "Donate to Living With Arthritis | CIO 1218461",
+      "h1": [
+        "Give so someone with arthritis can walk, work, and hold the people they love"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/donate"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/site-index",
+      "width": 390,
+      "title": "Site Index: All Public Pages | Living With Arthritis",
+      "h1": [
+        "Site index"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/site-index"
+      ],
+      "viewport": 390,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "width": 1366,
+      "title": "Living With Arthritis | Evidence-Based Health Guides",
+      "h1": [
+        "Living With Arthritis — evidence-based health guidesFree, physio-reviewed help for people living with arthritis — and those who care for them"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/guides/benefits-pip",
+      "width": 1366,
+      "title": "PIP for Arthritis: Eligibility, Evidence and Applying",
+      "h1": [
+        "How to claim PIP for arthritis in the UK"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/guides/benefits-pip"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/conditions/knee-arthritis/diet",
+      "width": 1366,
+      "title": "Knee Arthritis and diet: evidence and practical guidance",
+      "h1": [
+        "Diet for knee arthritis"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/conditions/knee-arthritis/diet"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/blog/pip-for-arthritis-uk",
+      "width": 1366,
+      "title": "PIP for Arthritis: Eligibility, Forms & Appeals (UK)",
+      "h1": [
+        "PIP for Arthritis: Eligibility, Applying and Appeals (UK)"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/contact",
+      "width": 1366,
+      "title": "Contact Us | Living With Arthritis",
+      "h1": [
+        "Contact Living With Arthritis"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/contact"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/donate",
+      "width": 1366,
+      "title": "Donate to Living With Arthritis | CIO 1218461",
+      "h1": [
+        "Give so someone with arthritis can walk, work, and hold the people they love"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/donate"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    },
+    {
+      "route": "/site-index",
+      "width": 1366,
+      "title": "Site Index: All Public Pages | Living With Arthritis",
+      "h1": [
+        "Site index"
+      ],
+      "canonicals": [
+        "https://livingwitharthritis.org.uk/site-index"
+      ],
+      "viewport": 1366,
+      "violations": [],
+      "errors": []
+    }
+  ]
+}

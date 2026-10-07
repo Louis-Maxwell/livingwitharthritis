@@ -1,0 +1,97 @@
+{
+  "brand": "Living With Arthritis",
+  "status": "configuration_ready_not_connected",
+  "timezone": "Europe/London",
+  "default_period": "last 28 complete days versus preceding 28 complete days",
+  "panels": [
+    {
+      "name": "Organic acquisition",
+      "source": "GA4",
+      "dimensions": [
+        "date",
+        "sessionDefaultChannelGroup",
+        "landingPagePlusQueryString"
+      ],
+      "metrics": [
+        "sessions",
+        "activeUsers",
+        "engagedSessions",
+        "engagementRate"
+      ],
+      "filter": "Organic Search; sanitised page path",
+      "note": "Returning users and engaged sessions use native GA4 definitions, not custom event totals."
+    },
+    {
+      "name": "Search opportunity",
+      "source": "Google Search Console Site Impression and URL Impression, separate tables",
+      "dimensions": [
+        "date",
+        "page",
+        "query",
+        "device",
+        "country"
+      ],
+      "metrics": [
+        "clicks",
+        "impressions",
+        "ctr",
+        "averagePosition"
+      ],
+      "candidate_filter": "impressions > 1000 AND CTR < 0.03; position 4\u201320 examined separately",
+      "aggregation": "CTR=sum(clicks)/sum(impressions); position impression weighted. Preserve anonymised-query coverage limitations."
+    },
+    {
+      "name": "Confirmed outcomes",
+      "source": "GA4",
+      "dimensions": [
+        "eventName",
+        "pagePath",
+        "sessionSourceMedium"
+      ],
+      "metrics": [
+        "eventCount",
+        "keyEvents",
+        "totalRevenue"
+      ],
+      "notes": [
+        "newsletter_signup and generate_lead only after genuine confirmation",
+        "purchase only verified provider transactions; donation_click in separate engagement panel",
+        "Do not sum repeated micro-actions as distinct subscribers or donors"
+      ]
+    },
+    {
+      "name": "Indexing and CWV",
+      "source": "Dated Search Console exports and live field reports",
+      "metrics": [
+        "intended canonical pages indexed",
+        "exclusions by reason",
+        "field p75 LCP",
+        "field p75 INP",
+        "field p75 CLS"
+      ],
+      "note": "Coverage/field exports separate from Search Analytics connector; no field samples means unknown."
+    },
+    {
+      "name": "Bing search",
+      "source": "Verified Bing Webmaster API or controlled exports",
+      "metrics": [
+        "clicks",
+        "impressions",
+        "indexed pages"
+      ],
+      "status": "property_access_required"
+    },
+    {
+      "name": "Newsletter growth",
+      "source": "Email provider confirmed-subscriber export/API",
+      "metrics": [
+        "new confirmed subscribers",
+        "unsubscribes",
+        "net growth"
+      ],
+      "status": "provider_integration_required"
+    }
+  ],
+  "join_policy": "Normalise protocol, host, trailing slash and canonical path. Aggregate each source before joins; do not join page-query-country-device rows directly to GA4 sessions. Report mismatched dates, attribution and privacy coverage.",
+  "access": "Owner-approved viewers; keep credentials in approved connectors, never client JavaScript or the public repository."
+}

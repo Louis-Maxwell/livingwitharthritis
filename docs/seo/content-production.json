@@ -1,0 +1,3592 @@
+{
+  "date": "2026-10-06",
+  "scope": "Production backlog, not medically approved articles or measured keyword volume",
+  "pillars": [
+    {
+      "title": "Osteoarthritis",
+      "path": "/conditions/osteoarthritis"
+    },
+    {
+      "title": "Rheumatoid arthritis",
+      "path": "/conditions/rheumatoid-arthritis"
+    },
+    {
+      "title": "Exercise with arthritis",
+      "path": "/guides/exercise"
+    },
+    {
+      "title": "Strength training",
+      "path": "/blog/strength-training-arthritis-beginners"
+    },
+    {
+      "title": "Understanding joint pain",
+      "path": "/guides/understanding-pain"
+    },
+    {
+      "title": "Joint health and risk reduction",
+      "path": "/guides/can-exercise-make-osteoarthritis-worse"
+    },
+    {
+      "title": "Healthy living",
+      "path": "/arthritis-flare-ups"
+    },
+    {
+      "title": "Weight management and nutrition",
+      "path": "/guides/diet"
+    },
+    {
+      "title": "Mobility and independence",
+      "path": "/guides/disability-support"
+    },
+    {
+      "title": "Pain management",
+      "path": "/guides/arthritis-pain-relief"
+    }
+  ],
+  "content_briefs": [
+    {
+      "id": "C01",
+      "title": "Knee OA: preparing for a first physiotherapy appointment",
+      "format": "Printable question/evidence worksheet with clinician commentary",
+      "impact": 5,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/conditions/osteoarthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best Exercises for Knee Arthritis: A Complete UK Physiotherapy Guide",
+          "path": "/blog/knee-arthritis-exercises-uk"
+        },
+        {
+          "title": "Best Exercises for Osteoarthritis Knee Pain at Home",
+          "path": "/blog/best-exercises-osteoarthritis-knee-pain-home"
+        },
+        {
+          "title": "Straight Leg Raises: The Foundation Exercise for Knee Osteoarthritis",
+          "path": "/blog/straight-leg-raises-knee-osteoarthritis"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original printable question/evidence worksheet",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C02",
+      "title": "Hip OA: adapting daily tasks before treatment",
+      "format": "Occupational-therapist photo guide with several accessibility options",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/osteoarthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
+          "path": "/blog/steroid-emergency-card-frail-arthritis-uk"
+        },
+        {
+          "title": "Thumb-base osteoarthritis and frailty: jars, taps and daily grip (UK)",
+          "path": "/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk"
+        },
+        {
+          "title": "Rheumatoid arthritis and frailty in older adults: a gentler daily rhythm (UK)",
+          "path": "/blog/ra-frailty-older-adults-daily-rhythm-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original occupational-therapist photo guide",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C03",
+      "title": "Hand OA: grip-friendly household task demonstrations",
+      "format": "Captioned videos comparing tools by task, not affiliate claims",
+      "impact": 4,
+      "ease": 2,
+      "priority": "High",
+      "pillar": "/conditions/osteoarthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Grip Strength Exercises: A Gentle Progression for Hand OA",
+          "path": "/blog/grip-strength-exercises-hand-oa"
+        },
+        {
+          "title": "Hand osteoarthritis and frailty: dressing, cooking and grip (UK)",
+          "path": "/blog/hand-osteoarthritis-frailty-dressing-cooking-uk"
+        },
+        {
+          "title": "Thumb-base osteoarthritis and frailty: jars, taps and daily grip (UK)",
+          "path": "/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original captioned videos comparing tools by task, not affiliate claims",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C04",
+      "title": "What OA imaging can and cannot tell you",
+      "format": "Expert-annotated explanatory graphics with evidence limits",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/osteoarthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Hydrotherapy for Arthritis: Benefits, Access and What to Expect (UK)",
+          "path": "/blog/hydrotherapy-arthritis-uk"
+        },
+        {
+          "title": "What Sustained Remission Means in RA",
+          "path": "/blog/what-sustained-remission-means-in-ra"
+        },
+        {
+          "title": "Pregnancy and Arthritis: What UK Guidelines Recommend",
+          "path": "/blog/pregnancy-and-arthritis-what-uk-guidelines-recommend"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original expert-annotated explanatory graphics",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C05",
+      "title": "OA care options: a shared-decision conversation worksheet",
+      "format": "Evidence-linked options and personal-goal preparation, not treatment selector",
+      "impact": 5,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/osteoarthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Carer's Allowance and Other Help If You Care for Someone",
+          "path": "/blog/carers-allowance-help-if-you-care-for-someone"
+        },
+        {
+          "title": "Attendance Allowance for Arthritis: Care Needs After State Pension Age",
+          "path": "/blog/attendance-allowance-arthritis-frailty-uk"
+        },
+        {
+          "title": "Wound care you cannot reach: arthritis and frailty (UK)",
+          "path": "/blog/wound-care-reaching-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original evidence-linked options and personal-goal preparation, not treatment selector",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C06",
+      "title": "Suspected RA: documenting symptoms for an appointment",
+      "format": "Accessible timeline worksheet; referral warning signs",
+      "impact": 5,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Seasonal Arthritis Guide: Managing Symptoms Through the UK Year",
+          "path": "/blog/seasonal-arthritis-guide-uk"
+        },
+        {
+          "title": "Spinal Arthritis and Back Pain UK: Symptoms, Treatment and Self-Help",
+          "path": "/blog/spinal-arthritis-back-pain-uk"
+        },
+        {
+          "title": "Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options",
+          "path": "/blog/hip-arthritis-symptoms-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original accessible timeline worksheet; referral warning signs",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C07",
+      "title": "RA monitoring: what questions to ask about routine checks",
+      "format": "Rheumatology-team interview, avoiding individual interpretation",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Hydrotherapy for Arthritis: Benefits, Access and What to Expect (UK)",
+          "path": "/blog/hydrotherapy-arthritis-uk"
+        },
+        {
+          "title": "What Sustained Remission Means in RA",
+          "path": "/blog/what-sustained-remission-means-in-ra"
+        },
+        {
+          "title": "Pregnancy and Arthritis: What UK Guidelines Recommend",
+          "path": "/blog/pregnancy-and-arthritis-what-uk-guidelines-recommend"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original rheumatology-team interview, avoiding individual interpretation",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C08",
+      "title": "RA fatigue: planning an ordinary week",
+      "format": "Co-designed case stories and adaptable pacing template",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Energy Management and Pacing: Daily Planning for Arthritis Fatigue",
+          "path": "/blog/energy-management-and-pacing-arthritis"
+        },
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        },
+        {
+          "title": "Managing Arthritis Fatigue \u2013 A UK Guide",
+          "path": "/blog/arthritis-fatigue-management-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original co-designed case stories and adaptable pacing template",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C09",
+      "title": "Taking an RA medicine on holiday: planning conversations",
+      "format": "Pharmacist-reviewed travel checklist with official sources",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Lasting power of attorney conversations in arthritis and frailty (UK)",
+          "path": "/blog/lasting-power-of-attorney-arthritis-frailty-uk"
+        },
+        {
+          "title": "DNACPR conversations: arthritis, frailty and being heard (UK)",
+          "path": "/blog/dnacpr-conversations-arthritis-frailty-uk"
+        },
+        {
+          "title": "How carers can help with arthritis and frailty without taking over (UK)",
+          "path": "/blog/carers-how-to-help-without-taking-over-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original pharmacist-reviewed travel checklist",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C10",
+      "title": "RA and unpredictable workdays: lived-experience adaptations",
+      "format": "Consented case series with practical employer discussion prompts",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Kitchen adaptations when arthritis and frailty share the house (UK)",
+          "path": "/blog/kitchen-adaptations-arthritis-frailty-uk"
+        },
+        {
+          "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
+          "path": "/blog/steroid-emergency-card-frail-arthritis-uk"
+        },
+        {
+          "title": "Continence, night toilet trips and arthritis-related frailty (UK)",
+          "path": "/blog/continence-night-trips-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original consented case series",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C11",
+      "title": "Walking progression: choose your next comfortable step",
+      "format": "Accessible printable progression log, not prescriptive algorithm",
+      "impact": 5,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/exercise",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Blue Badge, frailty and arthritis: walking distance in real life (UK)",
+          "path": "/blog/blue-badge-frailty-arthritis-uk"
+        },
+        {
+          "title": "Working with Arthritis \u2013 Your UK Employment Rights",
+          "path": "/blog/working-with-arthritis-uk-rights"
+        },
+        {
+          "title": "Pets, dog walking and frailty if you have arthritis (UK)",
+          "path": "/blog/pets-arthritis-frailty-walking-dogs-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original accessible printable progression log, not prescriptive algorithm",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C12",
+      "title": "Pool accessibility: questions to ask before your first visit",
+      "format": "Downloadable checklist and verified facility examples",
+      "impact": 4,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/exercise",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Stairlifts, arthritis and frailty: questions before you buy (UK)",
+          "path": "/blog/stairlifts-arthritis-frailty-uk-home"
+        },
+        {
+          "title": "Working with Arthritis \u2013 Your UK Employment Rights",
+          "path": "/blog/working-with-arthritis-uk-rights"
+        },
+        {
+          "title": "Arthritis and Your Heart: Lowering Your Heart Disease Risk",
+          "path": "/blog/arthritis-and-your-heart-lowering-risk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original downloadable checklist and verified facility examples",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C13",
+      "title": "Cycling setup: joint-friendly adjustments demonstrated",
+      "format": "Physiotherapist/bike-fitter video with safety limits",
+      "impact": 4,
+      "ease": 2,
+      "priority": "High",
+      "pillar": "/guides/exercise",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best joint supplement for knees? A careful comparison",
+          "path": "/blog/best-supplement-for-knee-joint"
+        },
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        },
+        {
+          "title": "Cycling with Arthritis: A Low-Impact Way to Keep Moving",
+          "path": "/blog/cycling-with-arthritis"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original physiotherapist/bike-fitter video",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C14",
+      "title": "How to adapt a routine during a flare",
+      "format": "Clinician-reviewed scenario guide linked to individual care advice",
+      "impact": 5,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/exercise",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        },
+        {
+          "title": "Expert Q&A: Exercising Through a Flare-Up",
+          "path": "/blog/expert-qa-exercising-through-a-flare-up"
+        },
+        {
+          "title": "Managing Arthritis Flare-Ups at Home",
+          "path": "/blog/managing-arthritis-flare-ups-at-home"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original clinician-reviewed scenario guide linked to individual care advice",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C15",
+      "title": "Getting back to movement after a break",
+      "format": "Three illustrative starting scenarios and goal-setting worksheet",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/exercise",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Lower Back Stiffness: Why It Is Worse After Sitting",
+          "path": "/blog/lower-back-stiffness-worse-after-sitting"
+        },
+        {
+          "title": "Deconditioning after an arthritis flare: getting moving again (UK)",
+          "path": "/blog/deconditioning-after-arthritis-flare-uk"
+        },
+        {
+          "title": "Motivation after a setback: arthritis, frailty and starting again (UK)",
+          "path": "/blog/motivation-after-setback-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original three illustrative starting scenarios and goal-setting worksheet",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C16",
+      "title": "Resistance-band setup with reduced grip",
+      "format": "Captioned task demonstrations, alternatives and equipment checks",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "The Perfect Desk Setup for UK Workers with Arthritis",
+          "path": "/blog/desk-setup-arthritis-uk-workers"
+        },
+        {
+          "title": "Temporary downstairs living with arthritis and frailty (UK)",
+          "path": "/blog/downstairs-living-arthritis-frailty-uk"
+        },
+        {
+          "title": "TENS machines for older frail adults with arthritis (UK)",
+          "path": "/blog/tens-machine-older-frail-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original captioned task demonstrations, alternatives and equipment checks",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C17",
+      "title": "Strength progression: a simple session diary",
+      "format": "Printable reps/load/comfort log, no stored health data",
+      "impact": 5,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Grip Strength Exercises: A Gentle Progression for Hand OA",
+          "path": "/blog/grip-strength-exercises-hand-oa"
+        },
+        {
+          "title": "A simple activity diary for arthritis and frailty (UK)",
+          "path": "/blog/activity-diary-arthritis-frailty-uk"
+        },
+        {
+          "title": "Strength Training on Biologics: Is It Safe?",
+          "path": "/blog/strength-training-on-biologics-is-it-safe"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original printable reps/load/comfort log, no stored health data",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C18",
+      "title": "First gym visit with arthritis: an accessibility walkthrough",
+      "format": "Original photos, questions to ask and practical alternatives",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Temporary downstairs living with arthritis and frailty (UK)",
+          "path": "/blog/downstairs-living-arthritis-frailty-uk"
+        },
+        {
+          "title": "TENS machines for older frail adults with arthritis (UK)",
+          "path": "/blog/tens-machine-older-frail-arthritis-uk"
+        },
+        {
+          "title": "Cycling with Arthritis: A Low-Impact Way to Keep Moving",
+          "path": "/blog/cycling-with-arthritis"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original original photos, questions to ask and practical alternatives",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C19",
+      "title": "Adapting lower-body strength work for limited mobility",
+      "format": "Professionally reviewed demonstrations at several ability levels",
+      "impact": 4,
+      "ease": 2,
+      "priority": "High",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Universal Credit and Arthritis: Limited Capability for Work",
+          "path": "/blog/universal-credit-and-arthritis-limited-capability-for-work"
+        },
+        {
+          "title": "TENS Machines for Arthritis: Do They Work and How to Use Them (UK)",
+          "path": "/blog/tens-machines-arthritis-uk"
+        },
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original professionally reviewed demonstrations at several ability levels",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C20",
+      "title": "Strength and daily function: getting up from a chair",
+      "format": "Task-focused technique video and individualisation guidance",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Hip osteoarthritis and frailty: getting out of a chair more safely (UK)",
+          "path": "/blog/hip-osteoarthritis-frailty-chair-rise-uk"
+        },
+        {
+          "title": "Chair yoga for frailty and inflammatory arthritis (UK)",
+          "path": "/blog/chair-yoga-frailty-inflammatory-arthritis-uk"
+        },
+        {
+          "title": "Chair-based exercise for rheumatoid arthritis and frailty (UK)",
+          "path": "/blog/chair-based-exercise-ra-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original task-focused technique video and individualisation guidance",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C21",
+      "title": "A joint-pain appointment checklist",
+      "format": "Symptoms/function record and urgent-care signposting",
+      "impact": 5,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/understanding-pain",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best Supplements for Joint Pain: What Actually Works",
+          "path": "/blog/best-supplements-joint-pain"
+        },
+        {
+          "title": "Best Diet for Joint Pain in the UK",
+          "path": "/blog/best-diet-for-joint-pain-uk"
+        },
+        {
+          "title": "Arthritis and Sleep Problems: How to Get Better Rest with Joint Pain",
+          "path": "/blog/arthritis-and-sleep-problems"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original symptoms/function record and urgent-care signposting",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C22",
+      "title": "Morning stiffness: recording patterns without self-diagnosing",
+      "format": "Clinician explanation plus printable observation sheet",
+      "impact": 4,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/understanding-pain",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)",
+          "path": "/blog/pmr-frailty-morning-stiffness-uk"
+        },
+        {
+          "title": "Morning stiffness and frailty: a slower start that still starts (UK)",
+          "path": "/blog/morning-stiffness-frailty-routine-uk"
+        },
+        {
+          "title": "Why Morning Knee Stiffness Lasts 30+ Minutes",
+          "path": "/blog/morning-knee-stiffness-30-minutes"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original clinician explanation plus printable observation sheet",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C23",
+      "title": "Persistent swelling: choosing the right healthcare contact",
+      "format": "Clear escalation guidance reviewed by clinical team",
+      "impact": 5,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/understanding-pain",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Expert Q&A: Choosing a Career-Friendly to Arthritis",
+          "path": "/blog/expert-qa-choosing-a-career-friendly-to-arthritis"
+        },
+        {
+          "title": "Leg swelling, arthritis and frailty (UK)",
+          "path": "/blog/swelling-legs-arthritis-frailty-uk"
+        },
+        {
+          "title": "Expert Q&A: How Do I Know If Surgery Is Right for Me?",
+          "path": "/blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original clear escalation guidance reviewed by clinical team",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C24",
+      "title": "Understanding pain words at a medical appointment",
+      "format": "Plain-language glossary with patient-tested explanations",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/guides/understanding-pain",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best Exercises for Osteoarthritis Knee Pain at Home",
+          "path": "/blog/best-exercises-osteoarthritis-knee-pain-home"
+        },
+        {
+          "title": "Shoulder Pain When Reaching: RA vs OA Differences",
+          "path": "/blog/shoulder-pain-reaching-ra-vs-oa"
+        },
+        {
+          "title": "Constipation, pain medicines and frailty in arthritis (UK)",
+          "path": "/blog/constipation-pain-medicines-frailty-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original plain-language glossary",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C25",
+      "title": "After a joint injury: discussing safe return to activity",
+      "format": "Physiotherapist Q&A and shared goal-setting worksheet",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/understanding-pain",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Expert Brief: How Much Activity Is Safe With Knee Arthritis?",
+          "path": "/blog/expert-brief-activity-safety-knee-arthritis"
+        },
+        {
+          "title": "Motivation after a setback: arthritis, frailty and starting again (UK)",
+          "path": "/blog/motivation-after-setback-arthritis-frailty-uk"
+        },
+        {
+          "title": "Best joint supplement for knees? A careful comparison",
+          "path": "/blog/best-supplement-for-knee-joint"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original physiotherapist q&a and shared goal-setting worksheet",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C26",
+      "title": "Joint-health claims: what prevention research can actually show",
+      "format": "Evidence explainer separating risk reduction from guarantees",
+      "impact": 3,
+      "ease": 3,
+      "priority": "Medium",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best Supplements for Joint Pain: What Actually Works",
+          "path": "/blog/best-supplements-joint-pain"
+        },
+        {
+          "title": "Arthritis Meal Planning UK: Weekly Menus for Joint Health",
+          "path": "/blog/arthritis-meal-planning-uk"
+        },
+        {
+          "title": "Menopause, HRT and Joint Pain: What Women Should Know",
+          "path": "/blog/menopause-hrt-and-joint-pain"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original evidence explainer separating risk reduction from guarantees",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C27",
+      "title": "Breaking up sitting: accessible options for different jobs",
+      "format": "Co-designed workplace movement cards",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Lower Back Stiffness: Why It Is Worse After Sitting",
+          "path": "/blog/lower-back-stiffness-worse-after-sitting"
+        },
+        {
+          "title": "Booking Accessible Hotel Rooms with Arthritis",
+          "path": "/blog/hotel-rooms-accessibility-arthritis"
+        },
+        {
+          "title": "Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options",
+          "path": "/blog/hip-arthritis-symptoms-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original co-designed workplace movement cards",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C28",
+      "title": "Returning to sport after a previous injury",
+      "format": "Clinician interview and readiness questions, not clearance tool",
+      "impact": 3,
+      "ease": 3,
+      "priority": "Medium",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Expert Q&A: Returning to Work After a Bad Flare",
+          "path": "/blog/expert-qa-returning-to-work-after-a-bad-flare"
+        },
+        {
+          "title": "Motivation after a setback: arthritis, frailty and starting again (UK)",
+          "path": "/blog/motivation-after-setback-arthritis-frailty-uk"
+        },
+        {
+          "title": "Lower Back Stiffness: Why It Is Worse After Sitting",
+          "path": "/blog/lower-back-stiffness-worse-after-sitting"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original clinician interview and readiness questions, not clearance tool",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C29",
+      "title": "Joint-friendly gardening stations",
+      "format": "Original photo guide for standing/seated and reduced-grip tasks",
+      "impact": 3,
+      "ease": 3,
+      "priority": "Medium",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best joint supplement for knees? A careful comparison",
+          "path": "/blog/best-supplement-for-knee-joint"
+        },
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        },
+        {
+          "title": "Expert Q&A: Choosing a Career-Friendly to Arthritis",
+          "path": "/blog/expert-qa-choosing-a-career-friendly-to-arthritis"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original original photo guide for standing/seated and reduced-grip tasks",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C30",
+      "title": "Busy carers: realistic movement opportunities",
+      "format": "Consented stories and adaptable weekly planner",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Adult Children as Carers: Managing Roles, Boundaries and Family Dynamics",
+          "path": "/blog/adult-children-as-caregivers-arthritis"
+        },
+        {
+          "title": "Apprenticeships and Arthritis: A Realistic Look",
+          "path": "/blog/apprenticeships-and-arthritis-a-realistic-look"
+        },
+        {
+          "title": "How carers can help with arthritis and frailty without taking over (UK)",
+          "path": "/blog/carers-how-to-help-without-taking-over-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original consented stories and adaptable weekly planner",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C31",
+      "title": "Sleep environment adaptations with arthritis",
+      "format": "Accessibility walkthrough with OT input and printable checklist",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/arthritis-flare-ups",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Arthritis and Sleep Problems: How to Get Better Rest with Joint Pain",
+          "path": "/blog/arthritis-and-sleep-problems"
+        },
+        {
+          "title": "How to Sleep Better with Arthritis \u2013 A UK Guide",
+          "path": "/blog/how-to-sleep-with-arthritis-uk"
+        },
+        {
+          "title": "Temporary downstairs living with arthritis and frailty (UK)",
+          "path": "/blog/downstairs-living-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original accessibility walkthrough",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C32",
+      "title": "Fatigue and social plans: building a flexible week",
+      "format": "Community-designed pacing cards and example conversations",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/arthritis-flare-ups",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        },
+        {
+          "title": "Managing Arthritis Fatigue \u2013 A UK Guide",
+          "path": "/blog/arthritis-fatigue-management-uk"
+        },
+        {
+          "title": "RA fatigue and frailty: protecting your energy envelope (UK)",
+          "path": "/blog/ra-fatigue-frailty-energy-envelope-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original community-designed pacing cards and example conversations",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C33",
+      "title": "Smoke-free support: preparing for a helpful conversation",
+      "format": "Clinically reviewed signposting and practical preparation",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/arthritis-flare-ups",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Free Arthritis Support Services Northern Ireland",
+          "path": "/blog/free-arthritis-support-northern-ireland"
+        },
+        {
+          "title": "Free Arthritis Support Groups Near Me Manchester",
+          "path": "/blog/arthritis-support-groups-manchester"
+        },
+        {
+          "title": "Juvenile Arthritis School Support Guide for Parents UK",
+          "path": "/blog/juvenile-arthritis-school-support-parents"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original clinically reviewed signposting and practical preparation",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C34",
+      "title": "Loneliness and arthritis: finding accessible connection",
+      "format": "Verified support options and lived-experience interview",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/arthritis-flare-ups",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Gut Health and Arthritis: The Microbiome Connection Explained",
+          "path": "/blog/gut-health-arthritis-connection"
+        },
+        {
+          "title": "Booking Accessible Hotel Rooms with Arthritis",
+          "path": "/blog/hotel-rooms-accessibility-arthritis"
+        },
+        {
+          "title": "SAD and Arthritis: A Hidden UK Connection",
+          "path": "/blog/seasonal-affective-disorder-arthritis"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original verified support options and lived-experience interview",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C35",
+      "title": "Helping someone with arthritis without taking over",
+      "format": "Caregiver communication guide co-produced with members",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/arthritis-flare-ups",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "How carers can help with arthritis and frailty without taking over (UK)",
+          "path": "/blog/carers-how-to-help-without-taking-over-uk"
+        },
+        {
+          "title": "Carer's Assessments When You Care for Someone With Arthritis (UK)",
+          "path": "/blog/carers-assessment-arthritis-frailty-uk"
+        },
+        {
+          "title": "Temporary downstairs living with arthritis and frailty (UK)",
+          "path": "/blog/downstairs-living-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original caregiver communication guide co-produced",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C36",
+      "title": "Affordable balanced meals when chopping is difficult",
+      "format": "Dietitian/OT recipe cards with adaptive preparation photos",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/diet",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
+          "path": "/blog/steroid-emergency-card-frail-arthritis-uk"
+        },
+        {
+          "title": "Shoulder Pain When Reaching: RA vs OA Differences",
+          "path": "/blog/shoulder-pain-reaching-ra-vs-oa"
+        },
+        {
+          "title": "Community alarms when arthritis and frailty raise falls risk (UK)",
+          "path": "/blog/community-alarm-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original dietitian/ot recipe cards",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C37",
+      "title": "Weight and joint health: evidence without blame",
+      "format": "Dietitian-reviewed explanation of benefits, limits and respectful goals",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/diet",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Arthritis Meal Planning UK: Weekly Menus for Joint Health",
+          "path": "/blog/arthritis-meal-planning-uk"
+        },
+        {
+          "title": "Weight Management and Arthritis: The Evidence",
+          "path": "/blog/weight-management-arthritis-evidence"
+        },
+        {
+          "title": "Tai Chi for Arthritis Joint Pain: Benefits and Evidence",
+          "path": "/blog/tai-chi-arthritis-joint-pain"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original dietitian-reviewed explanation of benefits, limits and respectful goals",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C38",
+      "title": "Food shopping with fatigue and limited mobility",
+      "format": "Budget lists, online/in-person adaptations and low-effort meals",
+      "impact": 4,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/diet",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Online food shops for frail adults with arthritis (UK)",
+          "path": "/blog/shopping-online-arthritis-frailty-uk"
+        },
+        {
+          "title": "Temporary downstairs living with arthritis and frailty (UK)",
+          "path": "/blog/downstairs-living-arthritis-frailty-uk"
+        },
+        {
+          "title": "TENS machines for older frail adults with arthritis (UK)",
+          "path": "/blog/tens-machine-older-frail-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original budget lists, online/in-person adaptations and low-effort meals",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C39",
+      "title": "Maintaining muscle during weight-management changes",
+      "format": "Professional interview and questions for personalised support",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/diet",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Weight Management and Arthritis: The Evidence",
+          "path": "/blog/weight-management-arthritis-evidence"
+        },
+        {
+          "title": "Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)",
+          "path": "/blog/pmr-frailty-morning-stiffness-uk"
+        },
+        {
+          "title": "Sarcopenia: Muscle Loss and How to Combat It",
+          "path": "/blog/sarcopenia-muscle-loss-how-to-combat"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original professional interview and questions for personalised support",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C40",
+      "title": "Asking for nutrition support: what to prepare",
+      "format": "Referral conversation checklist and verified service signposting",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/guides/diet",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Nutrition Strategies to Reduce Frailty Risk",
+          "path": "/blog/nutrition-strategies-reduce-frailty-risk"
+        },
+        {
+          "title": "Juvenile Arthritis School Support Guide for Parents UK",
+          "path": "/blog/juvenile-arthritis-school-support-parents"
+        },
+        {
+          "title": "Hydrotherapy for Arthritis: Benefits, Access and What to Expect (UK)",
+          "path": "/blog/hydrotherapy-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original referral conversation checklist and verified service signposting",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C41",
+      "title": "Home stairs: practical questions for an OT assessment",
+      "format": "Photo examples with clear individual-assessment boundary",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/disability-support",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Best Exercises for Osteoarthritis Knee Pain at Home",
+          "path": "/blog/best-exercises-osteoarthritis-knee-pain-home"
+        },
+        {
+          "title": "Family meetings about arthritis, frailty and staying at home (UK)",
+          "path": "/blog/family-meetings-arthritis-frailty-uk"
+        },
+        {
+          "title": "Knee osteoarthritis and frailty: staying steady at home (UK)",
+          "path": "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original photo examples",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C42",
+      "title": "Walking-aid fit: what an assessment involves",
+      "format": "Clinician demonstration; no self-prescribing calculator",
+      "impact": 4,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/disability-support",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Blue Badge, frailty and arthritis: walking distance in real life (UK)",
+          "path": "/blog/blue-badge-frailty-arthritis-uk"
+        },
+        {
+          "title": "Hydrotherapy for Arthritis: Benefits, Access and What to Expect (UK)",
+          "path": "/blog/hydrotherapy-arthritis-uk"
+        },
+        {
+          "title": "What Sustained Remission Means in RA",
+          "path": "/blog/what-sustained-remission-means-in-ra"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original clinician demonstration; no self-prescribing calculator",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C43",
+      "title": "Accessible days out: planning around joint symptoms",
+      "format": "Tested venue checklist with transport/rest considerations",
+      "impact": 3,
+      "ease": 4,
+      "priority": "Medium",
+      "pillar": "/guides/disability-support",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Arthritis Meal Planning UK: Weekly Menus for Joint Health",
+          "path": "/blog/arthritis-meal-planning-uk"
+        },
+        {
+          "title": "Best joint supplement for knees? A careful comparison",
+          "path": "/blog/best-supplement-for-knee-joint"
+        },
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original tested venue checklist",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C44",
+      "title": "Footwear trials: a task-based comfort diary",
+      "format": "Practical comparison worksheet without universal \u201cbest shoe\u201d claim",
+      "impact": 4,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/disability-support",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Chair-based exercise for rheumatoid arthritis and frailty (UK)",
+          "path": "/blog/chair-based-exercise-ra-frailty-uk"
+        },
+        {
+          "title": "Natural Pain Relief for Arthritis: Evidence-Based Home Remedies",
+          "path": "/blog/arthritis-pain-relief-natural"
+        },
+        {
+          "title": "Turmeric and Curcumin: Evidence-Based Arthritis Relief",
+          "path": "/blog/turmeric-curcumin-arthritis-evidence"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original practical comparison worksheet without universal \u201cbest shoe\u201d claim",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C45",
+      "title": "Public transport with arthritis: an independence checklist",
+      "format": "Nation-specific assistance routes and original travel stories",
+      "impact": 3,
+      "ease": 3,
+      "priority": "Medium",
+      "pillar": "/guides/disability-support",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Travelling Abroad With Arthritis Medication: A UK Checklist",
+          "path": "/blog/medication-management-travel-arthritis"
+        },
+        {
+          "title": "Temporary downstairs living with arthritis and frailty (UK)",
+          "path": "/blog/downstairs-living-arthritis-frailty-uk"
+        },
+        {
+          "title": "TENS machines for older frail adults with arthritis (UK)",
+          "path": "/blog/tens-machine-older-frail-arthritis-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original nation-specific assistance routes and original travel stories",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C46",
+      "title": "Building a personal flare conversation plan",
+      "format": "Printable clinician-discussion template, no automated treatment advice",
+      "impact": 5,
+      "ease": 3,
+      "priority": "High",
+      "pillar": "/guides/arthritis-pain-relief",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Flare versus frailty: telling a bad joint week from a slower body (UK)",
+          "path": "/blog/flare-versus-frailty-arthritis-uk"
+        },
+        {
+          "title": "Expert Q&A: Exercising Through a Flare-Up",
+          "path": "/blog/expert-qa-exercising-through-a-flare-up"
+        },
+        {
+          "title": "Managing Arthritis Flare-Ups at Home",
+          "path": "/blog/managing-arthritis-flare-ups-at-home"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original printable clinician-discussion template, no automated treatment advice",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C47",
+      "title": "Pacing a household task: three worked examples",
+      "format": "Before/after case demonstrations and flexible planning cards",
+      "impact": 4,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/arthritis-pain-relief",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Pacing Techniques: Working Around Arthritis Pain",
+          "path": "/blog/pacing-techniques-arthritis-pain"
+        },
+        {
+          "title": "Polyarticular osteoarthritis and frailty: pacing several painful joints (UK)",
+          "path": "/blog/polyarticular-oa-frailty-pacing-several-joints-uk"
+        },
+        {
+          "title": "Pacing housework when arthritis and frailty share the chores (UK)",
+          "path": "/blog/pacing-housework-arthritis-frailty-uk"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original before/after case demonstrations and flexible planning cards",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C48",
+      "title": "Talking to a pharmacist about pain relief",
+      "format": "Evidence/safety questions, medication list preparation",
+      "impact": 5,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/arthritis-pain-relief",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Hand Exercises for Arthritis Pain Relief",
+          "path": "/blog/hand-exercises-for-arthritis"
+        },
+        {
+          "title": "Talking therapies for pain in older adults with arthritis (UK)",
+          "path": "/blog/talking-therapies-pain-older-arthritis-uk"
+        },
+        {
+          "title": "Hip Pain When Climbing Stairs: Causes and Relief",
+          "path": "/blog/hip-pain-climbing-stairs-causes-relief"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original evidence/safety questions, medication list preparation",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C49",
+      "title": "Heat/cold choices: understanding evidence and precautions",
+      "format": "Reviewed explainer, no universal treatment promises",
+      "impact": 3,
+      "ease": 3,
+      "priority": "Medium",
+      "pillar": "/guides/arthritis-pain-relief",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Heat packs for frail adults with arthritis: safe use (UK)",
+          "path": "/blog/heat-packs-frail-arthritis-uk"
+        },
+        {
+          "title": "Can You Prevent Knee Osteoarthritis? UK Evidence Review",
+          "path": "/blog/preventing-knee-osteoarthritis-uk"
+        },
+        {
+          "title": "Osteoarthritis vs Rheumatoid Arthritis \u2014 Understanding the Differences",
+          "path": "/blog/oa-vs-ra-comparison"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original reviewed explainer, no universal treatment promises",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    },
+    {
+      "id": "C50",
+      "title": "Tracking pain-management goals beyond a pain score",
+      "format": "Function-focused printable diary co-designed with members",
+      "impact": 4,
+      "ease": 4,
+      "priority": "High",
+      "pillar": "/guides/arthritis-pain-relief",
+      "status": "brief_ready_requires_original_production_and_review",
+      "overlap_review": [
+        {
+          "title": "Sleep and Pain Management: Why Arthritis Disrupts Sleep and How to Fix It",
+          "path": "/blog/sleep-and-pain-management-arthritis"
+        },
+        {
+          "title": "Arthritis Pain Management \u2014 A Kind, Practical Guide",
+          "path": "/blog/arthritis-pain-management"
+        },
+        {
+          "title": "Olive Oil Polyphenols: A Natural Pain Management Tool",
+          "path": "/blog/olive-oil-polyphenols-pain-management"
+        }
+      ],
+      "outline": [
+        "Direct answer and who this resource helps",
+        "What current evidence supports and its limits",
+        "Original function-focused printable diary co-designed",
+        "Accessible practical examples and alternatives",
+        "When to seek individual advice; sources and next useful resources"
+      ],
+      "reviewer": "Relevant registered clinician; welfare adviser for benefit/legal claims",
+      "source_plan": [
+        "NHS public guidance",
+        "Applicable NICE guidance",
+        "Current primary studies when needed; record retrieval dates"
+      ],
+      "acceptance": [
+        "Check overlap and update an existing canonical page where appropriate",
+        "Obtain professional and lived-experience review; record only actual review dates",
+        "Provide accessible HTML equivalent for downloadable assets",
+        "Use genuine authorship, image rights and consent",
+        "Link to the pillar and two relevant next tasks; validate schema and indexability"
+      ]
+    }
+  ],
+  "FAQ_topics": [
+    {
+      "id": "F01",
+      "question": "How is osteoarthritis different from rheumatoid arthritis?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F02",
+      "question": "When should persistent joint swelling be assessed?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F03",
+      "question": "Can I exercise when my joints hurt?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F04",
+      "question": "How should I adapt activity during a flare?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F05",
+      "question": "Is strength training suitable when I have arthritis?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F06",
+      "question": "How do I know when to progress an exercise?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F07",
+      "question": "Which swimming strokes might be comfortable with hip arthritis?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F08",
+      "question": "Is walking or swimming more practical for my goals?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F09",
+      "question": "Can arthritis be prevented, or only some risks reduced?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F10",
+      "question": "How can I make movement easier when I am fatigued?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F11",
+      "question": "Can diet change rheumatoid arthritis symptoms?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F12",
+      "question": "What is known about joint supplements and their risks?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F13",
+      "question": "How can weight-management support protect muscle and nutrition?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F14",
+      "question": "When should I ask about a walking aid?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F15",
+      "question": "What can help me discuss sleep problems with my clinician?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F16",
+      "question": "When should I ask a pharmacist about pain medicines?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F17",
+      "question": "Can I claim PIP while working?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F18",
+      "question": "How should fluctuating arthritis symptoms be explained in a PIP application?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F19",
+      "question": "When can arthritis meet the legal definition of disability?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    },
+    {
+      "id": "F20",
+      "question": "What reasonable adjustments can I discuss at work?",
+      "status": "topic_ready_requires_sourced_answer_and_review",
+      "format": "40\u201380 word direct answer, exceptions, source links, then related next task",
+      "schema": "Optional accurate FAQPage; no rich-result promise"
+    }
+  ],
+  "keyword_candidates": [
+    {
+      "id": "K001",
+      "keyword": "osteoarthritis",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K002",
+      "keyword": "knee osteoarthritis",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K003",
+      "keyword": "hip osteoarthritis",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K004",
+      "keyword": "hand osteoarthritis",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K005",
+      "keyword": "osteoarthritis symptoms",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K006",
+      "keyword": "osteoarthritis diagnosis",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K007",
+      "keyword": "osteoarthritis treatment options",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K008",
+      "keyword": "knee osteoarthritis exercises",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K009",
+      "keyword": "living with osteoarthritis",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K010",
+      "keyword": "osteoarthritis flare-up",
+      "cluster": "Osteoarthritis",
+      "pillar": "/conditions/osteoarthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K011",
+      "keyword": "rheumatoid arthritis",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K012",
+      "keyword": "early rheumatoid arthritis symptoms",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K013",
+      "keyword": "rheumatoid arthritis diagnosis",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K014",
+      "keyword": "rheumatoid arthritis fatigue",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K015",
+      "keyword": "rheumatoid arthritis flare-up",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K016",
+      "keyword": "rheumatoid arthritis exercise",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K017",
+      "keyword": "rheumatoid arthritis diet",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K018",
+      "keyword": "rheumatoid arthritis treatment monitoring",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K019",
+      "keyword": "working with rheumatoid arthritis",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K020",
+      "keyword": "rheumatoid arthritis and sleep",
+      "cluster": "Rheumatoid arthritis",
+      "pillar": "/conditions/rheumatoid-arthritis",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K021",
+      "keyword": "arthritis exercises",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K022",
+      "keyword": "exercise with arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K023",
+      "keyword": "walking with arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K024",
+      "keyword": "swimming with arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K025",
+      "keyword": "best swimming stroke for hip arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K026",
+      "keyword": "cycling with arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K027",
+      "keyword": "chair exercises for arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K028",
+      "keyword": "arthritis exercise routine",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K029",
+      "keyword": "exercise during arthritis flare",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K030",
+      "keyword": "swimming vs walking arthritis",
+      "cluster": "Exercise",
+      "pillar": "/guides/exercise",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K031",
+      "keyword": "strength training with arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K032",
+      "keyword": "resistance training arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K033",
+      "keyword": "arthritis strength exercises",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K034",
+      "keyword": "resistance bands for arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K035",
+      "keyword": "strength exercises for knee arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K036",
+      "keyword": "strength exercises for hip arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K037",
+      "keyword": "hand arthritis grip exercises",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K038",
+      "keyword": "beginner gym arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K039",
+      "keyword": "sit to stand exercise arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K040",
+      "keyword": "exercise progression arthritis",
+      "cluster": "Strength training",
+      "pillar": "/blog/strength-training-arthritis-beginners",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K041",
+      "keyword": "joint pain causes",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K042",
+      "keyword": "persistent joint pain",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K043",
+      "keyword": "morning joint stiffness",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K044",
+      "keyword": "swollen joints",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K045",
+      "keyword": "knee pain and arthritis",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K046",
+      "keyword": "hip pain and arthritis",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K047",
+      "keyword": "hand joint pain",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K048",
+      "keyword": "when to see a rheumatologist",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K049",
+      "keyword": "joint pain appointment checklist",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K050",
+      "keyword": "joint pain after exercise",
+      "cluster": "Joint pain",
+      "pillar": "/guides/understanding-pain",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K051",
+      "keyword": "joint health",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K052",
+      "keyword": "joint health exercise",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K053",
+      "keyword": "arthritis prevention risk factors",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K054",
+      "keyword": "reducing osteoarthritis risk",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K055",
+      "keyword": "joint injury prevention",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K056",
+      "keyword": "staying active with joint pain",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K057",
+      "keyword": "joint health at work",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K058",
+      "keyword": "movement breaks at work",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K059",
+      "keyword": "healthy joints as you age",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K060",
+      "keyword": "returning to exercise after injury",
+      "cluster": "Preventative joint health",
+      "pillar": "/guides/can-exercise-make-osteoarthritis-worse",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K061",
+      "keyword": "living well with arthritis",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K062",
+      "keyword": "arthritis and sleep",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K063",
+      "keyword": "arthritis fatigue management",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K064",
+      "keyword": "pacing with arthritis",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K065",
+      "keyword": "arthritis and mental wellbeing",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K066",
+      "keyword": "arthritis support groups",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K067",
+      "keyword": "arthritis and smoking",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K068",
+      "keyword": "gardening with arthritis",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K069",
+      "keyword": "caring for someone with arthritis",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K070",
+      "keyword": "daily living aids arthritis",
+      "cluster": "Healthy living",
+      "pillar": "/arthritis-flare-ups",
+      "priority": "Medium",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K071",
+      "keyword": "weight management arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K072",
+      "keyword": "weight and knee arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K073",
+      "keyword": "balanced diet arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K074",
+      "keyword": "anti inflammatory diet rheumatoid arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K075",
+      "keyword": "Mediterranean diet arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K076",
+      "keyword": "affordable meals arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K077",
+      "keyword": "cooking with hand arthritis",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K078",
+      "keyword": "nutrition and joint health",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K079",
+      "keyword": "maintaining muscle weight loss",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K080",
+      "keyword": "omega 3 foods for joints",
+      "cluster": "Weight and nutrition",
+      "pillar": "/guides/diet",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K081",
+      "keyword": "arthritis mobility aids",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K082",
+      "keyword": "walking aids arthritis",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K083",
+      "keyword": "arthritis footwear",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K084",
+      "keyword": "stairs with arthritis",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K085",
+      "keyword": "arthritis home adaptations",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K086",
+      "keyword": "arthritis driving adaptations",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K087",
+      "keyword": "driving with arthritis UK",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K088",
+      "keyword": "arthritis accessible travel",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K089",
+      "keyword": "occupational therapy arthritis",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K090",
+      "keyword": "arthritis independence",
+      "cluster": "Mobility",
+      "pillar": "/guides/disability-support",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K091",
+      "keyword": "arthritis pain management",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K092",
+      "keyword": "arthritis flare plan",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K093",
+      "keyword": "heat or cold arthritis",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K094",
+      "keyword": "topical pain relief arthritis",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K095",
+      "keyword": "NSAID stomach protection",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K096",
+      "keyword": "pain medicine pharmacist advice",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K097",
+      "keyword": "arthritis pain diary",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K098",
+      "keyword": "PIP for arthritis",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K099",
+      "keyword": "is arthritis a disability",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    },
+    {
+      "id": "K100",
+      "keyword": "arthritis employment rights UK",
+      "cluster": "Pain and practical support",
+      "pillar": "/guides/arthritis-pain-relief",
+      "priority": "High",
+      "UK_monthly_volume": null,
+      "volume_source": null,
+      "GSC_page_query_export_required": true,
+      "status": "candidate_unvalidated",
+      "next_step": "Validate UK demand and live SERP intent; map synonyms to one canonical page, then compare GSC position and CTR."
+    }
+  ]
+}

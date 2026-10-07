@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-/** /donate on the built site: content, navigation and the donation dialog. */
+/** /donate on the built site: content, navigation and verified-provider handoffs. */
 test.describe("Donation page", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
@@ -11,15 +11,14 @@ test.describe("Donation page", () => {
     await expect(page.locator("h1").first()).toBeVisible({ timeout: 15000 });
   });
 
-  test("shows the hero and the amount picker", async ({ page }) => {
+  test("shows the hero and an honest external payment handoff", async ({ page }) => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText(/give/i);
-    await expect(page.getByRole("heading", { name: "Choose what you can give" })).toBeVisible();
-    const picker = page.locator("section", {
-      has: page.getByRole("heading", { name: "Choose what you can give" }),
-    });
-    for (const amount of ["£50", "£150", "£200", "£500"]) {
-      await expect(picker.getByRole("button", { name: amount, exact: true })).toBeVisible();
-    }
+    const donate = page.locator("#give").getByRole("link", { name: /Donate on GoFundMe/ });
+    await expect(donate).toBeVisible();
+    await expect(donate).toHaveAttribute("href", /^https:\/\/www\.gofundme\.com\//);
+    await expect(donate).toHaveAttribute("target", "_blank");
+    await expect(page.getByText("Payment details and receipts are handled by GoFundMe.", { exact: false })).toBeVisible();
+    await expect(page.getByRole("button", { name: /^Donate £/ })).toHaveCount(0);
   });
 
   test("lists every way to give", async ({ page }) => {
@@ -34,9 +33,10 @@ test.describe("Donation page", () => {
     await expect(page.getByRole("heading", { name: "Gift Aid (+25%)" })).toBeVisible();
   });
 
-  test("links to the Zakat appeal", async ({ page }) => {
-    await page.getByRole("link", { name: "Give to the appeal" }).click();
-    await expect(page).toHaveURL(/\/zakat-appeal$/);
+  test("appeal link hands off to the campaign without claiming an onsite payment", async ({ page }) => {
+    const appeal = page.getByRole("link", { name: /Give to the appeal/ });
+    await expect(appeal).toHaveAttribute("href", /^https:\/\/www\.gofundme\.com\//);
+    await expect(appeal).toHaveAttribute("target", "_blank");
   });
 
   test("Start Fundraising goes to Ways to Help", async ({ page }) => {
@@ -49,12 +49,10 @@ test.describe("Donation page", () => {
     await expect(page).toHaveURL(/\/corporate-giving$/);
   });
 
-  test("the donate button opens exactly one donation dialog", async ({ page }) => {
-    await page.getByRole("button", { name: /^Donate £50$/ }).click();
-    const dialog = page.getByRole("dialog");
-    await expect(dialog).toHaveCount(1);
-    await expect(dialog.getByRole("heading", { name: /Complete Your Donation|Set Up Monthly Donation/ })).toBeVisible();
-    await page.keyboard.press("Escape");
+  test("a return URL cannot fabricate a payment confirmation", async ({ page }) => {
+    await page.goto("/donation-result/success?amount=500&session_id=fake");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(page.getByText(/£500/)).toHaveCount(0);
     await expect(page.getByRole("dialog")).toHaveCount(0);
   });
 });

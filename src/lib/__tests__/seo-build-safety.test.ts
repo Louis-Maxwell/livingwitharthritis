@@ -172,7 +172,10 @@ describe("SEO build safety", () => {
     expect(htmlSitemap).not.toContain("`/exercises/${j}/for/${condSlug}`");
     expect(htmlSitemap).not.toContain("`/uk/${c}/${sSlug}`");
     expect(htmlSitemap).not.toContain("`/arthritis-support/${c.slug}/${condSlug}`");
-    expect(htmlSitemap).toContain('href: "/chat"');
+    expect(htmlSitemap).toContain("public-page-index.generated.json");
+    const index = JSON.parse(readFileSync(resolve(process.cwd(), "src/data/public-page-index.generated.json"), "utf8")) as Array<{ path: string }>;
+    expect(index.some(p => p.path === "/chat")).toBe(true);
+    expect(index.some(p => /\/arthritis-support\/[^/]+\//.test(p.path))).toBe(false);
     expect(cityHub).not.toContain("`/arthritis-support/${cityData.slug}/${c.slug}`");
     expect(xml).not.toContain("/arthritis-support/stockport");
     expect(xml).not.toContain("/blog/mindfulness-meditation-chronic-pain");

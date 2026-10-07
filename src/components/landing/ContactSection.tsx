@@ -11,9 +11,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
-import { trackContactSubmit } from "@/lib/analytics";
 import { submitContactInquiry } from "@/lib/backendSubmit";
-import { trackContactFormSubmit } from "@/lib/ga-events";
 import { trackEvent } from "@/lib/analytics";
 import { reportFormFailure } from "@/lib/errorReporting";
 
@@ -125,8 +123,7 @@ const ContactSection = memo(() => {
         message: form.message.trim(),
       });
       if (result.via === "mailto") {
-        trackContactSubmit({ topic: form.subject });
-        trackContactFormSubmit(form.subject);
+        trackEvent("contact_email_draft", { form_id: "contact", method: "mailto" });
         // Mailto-only — not delivery confirmation
         toast.message(result.message);
         setSubmitted(true);
@@ -206,7 +203,6 @@ const ContactSection = memo(() => {
                     onClick={() => {
                       if (href.startsWith("mailto:")) {
                         trackEvent("mailto_click", { source: "contact_channel_card", topic: label });
-                        trackContactFormSubmit("mailto_channel");
                       } else if (href.startsWith("tel:")) {
                         trackEvent("tel_click", { source: "contact_channel_card" });
                       } else if (external) {
@@ -336,7 +332,6 @@ const ContactSection = memo(() => {
                   href={`mailto:${CONTACT_EMAIL}`}
                   onClick={() => {
                     trackEvent("mailto_click", { source: "contact_form_footnote" });
-                    trackContactFormSubmit("mailto_footnote");
                   }}
                   className="text-primary underline underline-offset-2 break-all [overflow-wrap:anywhere]"
                 >{CONTACT_EMAIL}</a>

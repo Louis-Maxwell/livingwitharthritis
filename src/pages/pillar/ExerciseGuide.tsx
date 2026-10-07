@@ -1,4 +1,4 @@
-﻿import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
@@ -203,8 +203,8 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Free physiotherapy exercises for arthritis at home UK | Living With Arthritis</title>
-        <meta name="description" content="Free physiotherapy exercises for arthritis at home in the UK: NICE-aligned knee, hip, hand and chair routines you can start today. Living With Arthritis charity 1218461." />
+        <title>Exercise With Arthritis: A Practical Starting Guide</title>
+        <meta name="description" content="Choose a starting level and build an arthritis exercise routine with guidance on strength, mobility, pacing and adapting activity." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Knee, Hip, Hand &amp; Chair" />

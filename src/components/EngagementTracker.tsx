@@ -79,7 +79,7 @@ const EngagementTracker = () => {
 
       if (!s.engaged10Fired && s.activeMs >= 10_000) {
         s.engaged10Fired = true;
-        trackEvent("engaged_session", {
+        trackEvent("content_engagement", {
           page_path: path,
           is_landing_page: landing,
           engagement_time_msec: Math.round(s.activeMs),
@@ -137,20 +137,31 @@ const EngagementTracker = () => {
       requestAnimationFrame(() => {
         rafScheduled = false;
         const doc = document.documentElement;
-        const max = doc.scrollHeight - window.innerHeight;
+        const article = document.querySelector("main article, article, main");
+        const top = article ? window.scrollY + article.getBoundingClientRect().top : 0;
+        const height = article ? article.getBoundingClientRect().height : doc.scrollHeight;
+        const max = height - window.innerHeight;
         if (max <= 0) return;
-        const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
+        const pct = Math.min(100, Math.round((Math.max(0, window.scrollY - top) / max) * 100));
         const marks = stateRef.current.scrollMarks;
-        for (const t of [25, 50, 75, 100]) {
+        for (const t of [25, 50, 75, 90]) {
           if (pct >= t && !marks.has(t)) {
             marks.add(t);
-            trackEvent("scroll_depth", { depth: t, page_path: path, is_landing_page: landing });
+            trackEvent("content_scroll", { percent_scrolled: t, page_path: path, is_landing_page: landing });
           }
         }
       });
     };
 
     const handleClick = (e: MouseEvent) => {
+      const link = (e.target as Element | null)?.closest?.("a[href]");
+      const href = link?.getAttribute("href") ?? "";
+      // Never send a contact address, phone number, subject or message to GA4.
+      if (/^mailto:/i.test(href) && !link?.hasAttribute("data-social-share")) {
+        trackEvent("email_click", { page_path: path, placement: "contact_link" });
+      } else if (/^tel:/i.test(href)) {
+        trackEvent("phone_click", { page_path: path, placement: "contact_link" });
+      }
       const s = stateRef.current;
       if (s.clickedFired) return;
       const target = (e.target as HTMLElement | null)?.closest?.("a,button,[role='button']");

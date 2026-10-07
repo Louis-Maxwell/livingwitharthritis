@@ -20,6 +20,7 @@ export interface PerformanceReport {
   webVitals: ReturnType<typeof getWebVitals>;
   thresholds: ReturnType<typeof getThresholds>;
   allGood: boolean;
+  sampleStatus: "pending" | "good" | "needs-improvement";
 }
 
 /**
@@ -54,15 +55,13 @@ export const isGSCVerified = (): boolean => {
 export const getConsentStatus = (): AnalyticsStatus['consentStatus'] => {
   if (typeof localStorage === 'undefined') return 'pending';
 
-  const consent = localStorage.getItem('cookie-consent');
-  if (consent === 'accepted') return 'accepted';
-
   try {
-    const lwaConsent = JSON.parse(localStorage.getItem('lwa_cv3') || '{}');
-    return lwaConsent.a === true ? 'accepted' : 'denied';
-  } catch {
-    return 'pending';
-  }
+    const raw = localStorage.getItem("lwa_cv3");
+    if (raw) return JSON.parse(raw).a === true ? "accepted" : "denied";
+    const legacy = localStorage.getItem("cookie-consent");
+    return legacy === "accepted" ? "accepted" : legacy ? "denied" : "pending";
+  } catch { return "pending"; }
+
 };
 
 /**
@@ -89,18 +88,12 @@ export const getPerformanceReport = (): PerformanceReport => {
   const vitals = getWebVitals();
   const thresholds = getThresholds();
 
-  const allGood =
-    (vitals.lcp === undefined || vitals.lcp <= thresholds.LCP.good) &&
-    (vitals.fcp === undefined || vitals.fcp <= thresholds.FCP.good) &&
-    (vitals.cls === undefined || vitals.cls <= thresholds.CLS.good) &&
-    (vitals.inp === undefined || vitals.inp <= thresholds.INP.good) &&
-    (vitals.ttfb === undefined || vitals.ttfb <= thresholds.TTFB.good);
+  const complete = vitals.lcp !== undefined && vitals.cls !== undefined && vitals.inp !== undefined;
+  const allGood = complete && vitals.lcp! <= thresholds.LCP.good &&
+    vitals.cls! <= thresholds.CLS.good && vitals.inp! <= thresholds.INP.good;
+  return { webVitals: vitals, thresholds, allGood,
+    sampleStatus: !complete ? "pending" : allGood ? "good" : "needs-improvement" };
 
-  return {
-    webVitals: vitals,
-    thresholds,
-    allGood,
-  };
 };
 
 /**
@@ -125,8 +118,7 @@ export const generateHealthReport = (): {
 
   // Check GSC
   if (!status.gscReady) {
-    issues.push('GSC not verified');
-    recommendations.push('Add GSC verification meta tag to index.html');
+    recommendations.push('No verification meta tag detected; check GSC directly because DNS verification is also supported.');
   }
 
   // Check Evarist
@@ -174,7 +166,7 @@ export const logAnalyticsStatus = (): void => {
   console.group('🔍 Analytics Health Report');
   console.table({
     'GA4 Ready': report.status.ga4Ready ? '✅' : '❌',
-    'GSC Verified': report.status.gscReady ? '✅' : '❌',
+    'GSC Meta Tag Present': report.status.gscReady ? '✅' : '❌',
     'Evarist Ready': report.status.evaristReady ? '✅' : '❌',
     'Consent Status': report.status.consentStatus,
   });
@@ -239,14 +231,14 @@ export const setupAutomaticHealthChecks = (intervalMs: number = 60000): void => 
  * Get GSC dashboard URL
  */
 export const getGSCDashboardUrl = (): string => {
-  return 'https://search.google.com/search-console/welcome?resource_id=https://livingwitharthritis.org.uk/';
+  return 'https://search.google.com/search-console?resource_id=sc-domain%3Alivingwitharthritis.org.uk';
 };
 
 /**
  * Get GA4 dashboard URL
  */
 export const getGA4DashboardUrl = (): string => {
-  return 'https://analytics.google.com/analytics/web/#/p/443814280/reports/dashboard';
+  return 'https://analytics.google.com/analytics/web/#/p546097857/reports/intelligenthome';
 };
 
 /**

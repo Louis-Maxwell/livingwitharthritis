@@ -12,11 +12,12 @@
 //
 // Run manually:  bun scripts/generate-sitemap.ts
 
-import { writeFileSync, readFileSync } from "node:fs";
+import { writeFileSync, readFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { assertSafeBlogInventory } from "../src/lib/seoBuildSafety";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
 import { readBlogCatalog } from "./lib/blog-posts.mjs";
+import { asIsoDate, uniqueEntries, buildUrlset, sitemapSection, buildSitemapIndex } from "./lib/sitemap-quality.mjs";
 import {
   BLOG_CATEGORY_KEYS,
   canonicalBlogCategoryKey,
@@ -109,7 +110,7 @@ const STATIC_EXCLUDE = new Set([
 //   /dashboard — authenticated user area
 //   /checkout  — Stripe redirect target
 //   /callback  — OAuth callback handlers
-const EXCLUDE_PREFIXES = ["/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback", "/.lovable"];
+const EXCLUDE_PREFIXES = ["/account", "/admin", "/debug", "/auth", "/dashboard", "/checkout", "/callback", "/.lovable"];
 
 function parseNavigateAliasPaths(): Set<string> {
   // <Route path="/zakat" element={<Navigate to="/zakat-appeal" replace />} />
@@ -140,13 +141,6 @@ function parseStaticRoutes(): string[] {
     paths.add(p);
   }
   return [...paths];
-}
-
-/** YYYY-MM-DD only — reject runtime `new Date()` stamps and junk. */
-function asIsoDate(value: unknown): string | undefined {
-  if (typeof value !== "string") return undefined;
-  const d = value.trim().slice(0, 10);
-  return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : undefined;
 }
 
 function maxIsoDate(...dates: Array<string | undefined>): string | undefined {
@@ -185,7 +179,7 @@ function pageSourceLastmods(): Map<string, string> {
   // path -> relative import inside lazy(() => import("..."))
   const routeFiles = new Map<string, string>();
   const lazyRe =
-    /const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
+    /const\s+(\w+)\s*=\s*(?:lazy|lazyWithRetry)\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
   const compToFile = new Map<string, string>();
   let m: RegExpExecArray | null;
   while ((m = lazyRe.exec(app)) !== null) {
@@ -209,7 +203,10 @@ function pageSourceLastmods(): Map<string, string> {
       const found: string[] = [];
       let dm: RegExpExecArray | null;
       const re = new RegExp(dateRe.source, "g");
-      while ((dm = re.exec(body)) !== null) found.push(dm[1]);
+      while ((dm = re.exec(body)) !== null) {
+        const date = asIsoDate(dm[1]);
+        if (date) found.push(date);
+      }
       const best = maxIsoDate(...found);
       if (best) out.set(route, best);
     } catch {
@@ -419,28 +416,7 @@ async function blogPosts(): Promise<BlogInventory> {
 
 // ---------- 4. ASSEMBLE ----------
 function build(entries: SitemapEntry[]): string {
-  const seen = new Set<string>();
-  const unique = entries.filter((e) => {
-    if (seen.has(e.path)) return false;
-    seen.add(e.path);
-    return true;
-  });
-  // loc + optional real lastmod only. Google ignores priority/changefreq.
-  const urls = unique.map((e) => {
-    return [
-      "  <url>",
-      `    <loc>${BASE_URL}${e.path}</loc>`,
-      ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
-      "  </url>",
-    ].join("\n");
-  });
-  return [
-    `<?xml version="1.0" encoding="UTF-8"?>`,
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-    ...urls,
-    `</urlset>`,
-    "",
-  ].join("\n");
+  return buildUrlset(entries, BASE_URL);
 }
 
 async function main() {
@@ -617,11 +593,13 @@ async function main() {
     /^\/arthritis-support\/[^/]+\/[^/]+/,
   ];
   const redirectSources = exactRedirectPathSet();
-  const cleaned = entries.filter(
+  const cleaned = uniqueEntries(entries.filter(
     (e) =>
       !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)) &&
-      !redirectSources.has(e.path),
-  );
+      !redirectSources.has(e.path) &&
+      !EXCLUDE_PREFIXES.some((pre) => e.path === pre || e.path.startsWith(pre + "/")) &&
+      !STATIC_EXCLUDE.has(e.path),
+  ));
 
   const xml = build(cleaned);
   writeFileSync(resolve("public/sitemap.xml"), xml);
@@ -629,26 +607,18 @@ async function main() {
     `[sitemap] wrote ${cleaned.length} entries (dropped ${entries.length - cleaned.length} locale/redirect URLs) -> public/sitemap.xml`,
   );
 
-  // Honest single-child index (no fake locale sitemaps). lastmod = newest real URL date.
-  const newest = cleaned
-    .map((e) => e.lastmod)
-    .filter((d): d is string => Boolean(d))
-    .sort()
-    .at(-1);
-  const indexXml = [
-    `<?xml version="1.0" encoding="UTF-8"?>`,
-    `<!-- Locale sitemaps removed: /es, /fr, /de and /pt were empty stubs that`,
-    `     served the English page and were being indexed as duplicates. -->`,
-    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-    `  <sitemap>`,
-    `    <loc>${BASE_URL}/sitemap.xml</loc>`,
-    ...(newest ? [`    <lastmod>${newest}</lastmod>`] : []),
-    `  </sitemap>`,
-    `</sitemapindex>`,
-    "",
-  ].join("\n");
+  // Keep sitemap.xml as a compatible flat URLset for existing consumers.
+  // The primary index uses disjoint sections to diagnose indexing by template.
+  const sections = ["core", "conditions", "resources", "articles"];
+  mkdirSync(resolve("public/sitemaps"), { recursive: true });
+  for (const section of sections) {
+    const items = cleaned.filter((e) => sitemapSection(e.path) === section);
+    writeFileSync(resolve(`public/sitemaps/${section}.xml`), build(items));
+    console.log(`[sitemap] ${section}: ${items.length} URLs`);
+  }
+  const indexXml = buildSitemapIndex(sections, BASE_URL);
   writeFileSync(resolve("public/sitemap-index.xml"), indexXml);
-  console.log(`[sitemap] wrote public/sitemap-index.xml` + (newest ? ` (lastmod ${newest})` : ""));
+  console.log(`[sitemap] wrote public/sitemap-index.xml (4 sections; no invented file dates)`);
 
   // Also emit a slug list for the prerender pipeline. Sorted newest-first by
   // lastmod so `PRERENDER_LIMIT` can trim to the freshest N without missing
@@ -673,8 +643,11 @@ async function main() {
   // large array across two generated files.
   // City hubs get unique static HTML from write-city-hub-html.mjs — keep them
   // out of the Chromium prerender list (faster CI; avoids duplicate work).
-  const otherPaths = [...new Set(cleaned.map((e) => e.path))].filter(
+  const eligiblePaths = new Set(cleaned.map((e) => e.path));
+  // Preserve discovery order: PRERENDER_LIMIT uses this list as a priority queue.
+  const otherPaths = [...new Set(entries.map((e) => e.path))].filter(
     (p) =>
+      eligiblePaths.has(p) &&
       (!p.startsWith("/blog/") || p.startsWith("/blog/category/")) &&
       !/^\/arthritis-support\/[^/]+$/.test(p),
   );
