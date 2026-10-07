@@ -364,11 +364,16 @@ export default function Donate() {
                     </div>
                     <h3 className="font-semibold text-foreground mb-1">{way.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">{way.desc}</p>
-                    {way.external ? (
+                    {way.external || way.href.startsWith("mailto:") ? (
                       <Button asChild variant="outline" size="sm" className="rounded-full text-xs font-semibold">
-                        <a href={way.href} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={way.href}
+                          {...(way.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        >
                           {way.action}
-                          <span className="sr-only"> (opens in a new tab)</span>
+                          <span className="sr-only">
+                            {way.external ? " (opens in a new tab)" : " (opens your email app)"}
+                          </span>
                         </a>
                       </Button>
                     ) : (
