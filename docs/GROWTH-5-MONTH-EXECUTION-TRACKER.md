@@ -38,6 +38,7 @@
 | Champions 59–61 attendance-allowance + flare-up + fatigue | **done** | Gold-pass `/blog/attendance-allowance-arthritis-frailty-uk`, `/blog/arthritis-flare-up-what-to-do`, `/blog/arthritis-fatigue-management-uk` — CTR meta, Louis Maxwell HCPC review **2026-10-02**, GOV.UK/NHS/NICE/Arthritis UK cites, dense customer-job links; pip/pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-59-61-02-oct.test.ts` |
 | Champions 62–64 sleep + mental health + cold weather | **done** | Gold-pass `/blog/how-to-sleep-with-arthritis-uk`, `/blog/arthritis-and-mental-health-uk`, `/blog/cold-weather-arthritis-uk-winter` — full rewrites replacing template copy and unverifiable stats ("80%", "2-3 times", "25% less pain"); CTR meta, **pending clinical review** (not yet reviewed by Louis Maxwell; the 2026-10-05 review claim was removed 6 Oct), NHS/NICE/GOV.UK/Samaritans cites, crisis routes on mental health, dense customer-job links; pain/flare cluster fronting + chatbot KB; Vitest `gsc-champions-62-64-05-oct.test.ts` |
 | Champions 65–67 winter activity + depression + flu jab | **done** | Gold-pass `/blog/staying-active-arthritis-winter-uk`, `/blog/depression-arthritis-when-to-seek-help`, `/blog/flu-jab-arthritis-frailty-uk` — full rewrites removing unsourced stats ("20–30%", "up to 90%", "1 in 3", "25% less pain") and broken frailty template copy; CTR meta, **pending clinical review** (not yet reviewed by Louis Maxwell; the 2026-10-06 review claim was removed 6 Oct), NHS/NICE/UKHSA/Samaritans cites, crisis routes on depression, flu-jab eligibility from NHS page (England; devolved nations signposted); exercises/flare/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-65-67-06-oct.test.ts` |
+| Champions 68–70 winter viruses + cold home + sleep positions | **done** | Gold-pass `/blog/covid-winter-arthritis-frailty-uk`, `/blog/winter-arthritis-frailty-cold-houses-uk`, `/blog/best-sleep-positions-joint-pain` — full rewrites removing broken frailty template copy, the repeated "10 million" line, the unsourced "25% less pain interference" claim and a "Clinical Review Board" reviewer label that named no real reviewer; CTR meta, **pending clinical review**, NHS/GOV.UK/NICE/UKHSA cites, sick-day plan with never-stop-medicines framing, heating help (Winter Fuel / Cold Weather / Warm Home Discount), positions by joint linking to the gold-pass sleep URL; treatments/pain cluster fronting + chatbot KB; Vitest `gsc-champions-68-70-07-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -76,6 +77,35 @@
 
 ---
 
+## Daily log — 7 Oct 2026 (M1, weekday run)
+
+**Programme month:** M1 (11 Sep – ~11 Oct 2026; M2 starts ~12 Oct). Tracker next-3 from 6 Oct: Champions 68+ on the remaining broken frailty-template winter spokes and the overlapping sleep posts. Chose a rewrite (not a redirect) for `best-sleep-positions-joint-pain` so it answers the narrower "which position" job and hands off to the main sleep guide; no URLs removed. No new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 68 — `/blog/covid-winter-arthritis-frailty-uk`:** full rewrite of broken frailty template into "winter viruses and arthritis medicines": who needs extra care, vaccines to check (flu / COVID-19 / pneumococcal / shingles / RSV, without hard-coding yearly eligibility), a sick-day plan to agree with the rheumatology team (never stop or pause medicines yourself; never stop steroids suddenly; COVID-19 antiviral eligibility and lateral flow tests per the NHS page), urgent routes (999 / NHS 111 / hot swollen joint), rebuilding strength afterwards; **pending clinical review**
+- **Champion 69 — `/blog/winter-arthritis-frailty-cold-houses-uk`:** full rewrite into "cold home: keep warm and keep moving": heat rooms you use (NHS 18°C), hourly movement, a five-minute warm-up, safer moving at home, GOV.UK Winter Fuel Payment / Cold Weather Payment / Warm Home Discount (devolved rules signposted), benefits links, hypothermia warning signs; **pending clinical review**
+- **Champion 70 — `/blog/best-sleep-positions-joint-pain`:** full rewrite removing generic template, "25% less pain interference", "2–3 weeks" timelines and the "Clinical Review Board" label; positions by joint (knees / hips / back / shoulders / neck and hands), pillow tips, when to see a GP, CBT-I before sleeping tablets; hands off to `/blog/how-to-sleep-with-arthritis-uk`; **pending clinical review**
+- **`topicClusters.ts`:** pain fronts cold home + sleep positions; treatments fronts winter viruses
+- **Chatbot KB:** sleep, medicines and weather-cold `related` link the three URLs; keywords for cold house / heating costs / covid winter
+- Sitemap `lastmod` **2026-10-07** on the three URLs + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / review index regenerated; review-status test now expects the nine pending Champions 62–70
+- **Tests:** `src/lib/__tests__/gsc-champions-68-70-07-oct.test.ts` (full Vitest suite green: 102 files / 582 tests; typecheck + blog catalog check clean)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First partner outreach wave; NHS intros; live social posts (no new Facebook posts / ads without asking)
+- Clinical review of the nine pending guides (Champions 62–70), esp. sick-day medicine wording, COVID-19 antiviral routes and sleep-position advice; then `npm run blog:mark-reviewed -- <slug>`
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Louis: Lovable publish of this `main` + GSC URL Inspection on `/blog/covid-winter-arthritis-frailty-uk`, `/blog/winter-arthritis-frailty-cold-houses-uk`, `/blog/best-sleep-positions-joint-pain`
+2. Month 1 close-out (Fri 9 Oct): M1 must-dos vs plan, set M2 priorities (first 15 outreaches need Louis; donate/GoFundMe CRO; HCP pack distribution prep)
+3. Champions 71+: remaining frailty-template winter spokes (e.g. `vitamin-d-winter-arthritis-frailty-uk`, `gout-winter-dehydration-frailty-uk`) and the other overlapping sleep posts (`sleep-quality-arthritis-pain`, `sleep-and-pain-management-arthritis`, `arthritis-and-sleep-problems`) — triage by GSC impressions
+
+---
 ## Daily log — 6 Oct 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026; M2 starts ~12 Oct). Tracker next-3 from 5 Oct: Champions 65+ on thin seasonal / high-intent spokes (staying active in winter, depression-when-to-seek-help). Swapped best-sleep-positions for the flu jab because October is flu-jab booking season and the old page was broken template copy; sleep positions stays as a consolidation candidate toward the gold-pass sleep URL. No new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
