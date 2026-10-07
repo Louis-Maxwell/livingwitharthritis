@@ -175,7 +175,7 @@ export default function Donate() {
               Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.
             </p>
             <Button asChild size="lg" className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group">
-              <a href="#donate-form">
+              <a href="#give">
                 <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
                 Donate Now
               </a>
@@ -223,7 +223,7 @@ export default function Donate() {
 
 
         {/* Donation Widget */}
-        <section id="donate-form" id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
+        <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
           <h2 className="text-2xl font-bold text-foreground text-center mb-3">Choose what you can give</h2>
           <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">
             One-time or monthly. UK taxpayers may add Gift Aid once our HMRC Gift Aid registration is complete — we will confirm on the form when reclaim is live.

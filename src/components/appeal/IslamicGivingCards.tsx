@@ -1,6 +1,5 @@
 import { Moon, HandHeart, Sprout } from "lucide-react";
 import { trackDonationClick } from "@/lib/ga-events";
-import { ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 
 const GIVING_TYPES = [
   {
@@ -33,7 +32,7 @@ const GIVING_TYPES = [
 ];
 
 /** Three-card Islamic giving strip explaining Zakat, Sadaqah and Sadaqah Jariyah. */
-export default function IslamicGivingCards() {
+export default function IslamicGivingCards({ onGive }: { onGive: (amount: number, recurring: boolean) => void }) {
   return (
     <section id="zakat" className="py-14 bg-background scroll-mt-24">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -60,19 +59,19 @@ export default function IslamicGivingCards() {
               <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                 {type.body}
               </p>
-              <a
-                href={ZAKAT_GIVE_URL}
+              <button
+                type="button"
                 onClick={() => {
                   trackDonationClick({
                     source: `gaza_${type.id}_card`,
                     amount: type.amount,
                   });
+                  onGive(type.amount, type.id === "sadaqah-jariyah");
                 }}
                 className="mt-5 inline-flex items-center justify-center h-11 bg-primary text-primary-foreground font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors"
               >
                 {type.cta}
-                <span className="sr-only"> (opens your email app)</span>
-              </a>
+              </button>
             </div>
           ))}
         </div>
