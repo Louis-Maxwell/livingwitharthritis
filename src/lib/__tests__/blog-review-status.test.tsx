@@ -66,7 +66,7 @@ const headData = JSON.parse(
  * which wrongly marked them reviewed by Louis Maxwell. They are pending until
  * he reviews them (`npm run blog:mark-reviewed -- <slug>`).
  */
-const PENDING_CHAMPIONS_62_67 = [
+const PENDING_CHAMPIONS_62_70 = [
   // #124
   "how-to-sleep-with-arthritis-uk",
   "arthritis-and-mental-health-uk",
@@ -75,10 +75,14 @@ const PENDING_CHAMPIONS_62_67 = [
   "staying-active-arthritis-winter-uk",
   "depression-arthritis-when-to-seek-help",
   "flu-jab-arthritis-frailty-uk",
+  // Champions 68–70 (7 Oct)
+  "covid-winter-arthritis-frailty-uk",
+  "winter-arthritis-frailty-cold-houses-uk",
+  "best-sleep-positions-joint-pain",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each(PENDING_CHAMPIONS_62_67)("%s is pending in the post, catalog, review index and head data", (slug) => {
+  it.each(PENDING_CHAMPIONS_62_70)("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
     expect(post.last_reviewed).toBeUndefined();
@@ -127,9 +131,9 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
-  it("only the six automated Champions 62–67 rewrites are pending review", () => {
+  it("only the nine automated Champions 62–70 rewrites are pending review", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_67].sort(),
+      [...PENDING_CHAMPIONS_62_70].sort(),
     );
   });
 
