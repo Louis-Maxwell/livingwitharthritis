@@ -137,3 +137,10 @@ export const MORE_TOPICS: JobLink[] = [
   { label: "For healthcare professionals", href: "/healthcare-professionals" },
 ];
 
+
+/** Zakat/Sadaqah for the Gaza appeal must never reach the general
+ * arthritis-research fundraiser, so it is pledged by email until a
+ * dedicated, ring-fenced payment route exists. */
+export const ZAKAT_GIVE_URL =
+  "mailto:info@livingwitharthritis.org.uk?subject=" +
+  encodeURIComponent("Zakat / Sadaqah for the Palestine & Gaza appeal");
