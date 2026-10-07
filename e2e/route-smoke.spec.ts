@@ -8,7 +8,7 @@ import { test, expect } from "@playwright/test";
  * uncaught page errors. Deliberately independent of blog data files so it
  * keeps working when the blog catalog is restructured.
  */
-const ROUTES = ["/", "/blog", "/blog/archive", "/faq"];
+const ROUTES = ["/", "/blog", "/blog/archive", "/faq", "/international-arthritis-support"];
 
 test.describe("Route smoke (must fail CI)", () => {
   for (const route of ROUTES) {
@@ -56,4 +56,16 @@ test("recovers from a missing lazy route chunk after a deploy", async ({ page })
   expect(reloaded).toBe(true);
   // Cache-busting param from the recovery reload is stripped again.
   await expect.poll(() => new URL(page.url()).searchParams.has("_r")).toBe(false);
+});
+
+test("international support has country resources and a unique canonical", async ({ page }) => {
+  await page.goto("/international-arthritis-support");
+  await expect(page).toHaveTitle("Arthritis Support: UK, USA, Australia, Canada & India");
+  await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://livingwitharthritis.org.uk/international-arthritis-support");
+  for (const id of ["uk", "usa", "australia", "canada", "india"]) {
+    await expect(page.locator(`section#${id} h2`)).toBeVisible();
+    expect(await page.locator(`section#${id} a`).count()).toBeGreaterThan(0);
+  }
+  await expect(page.locator('footer a[href="/international-arthritis-support"]')).toHaveCount(1);
 });
