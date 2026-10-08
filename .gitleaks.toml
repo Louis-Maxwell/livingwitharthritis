@@ -16,9 +16,6 @@ paths = [
   '''(^|/)dist/''',
   '''(^|/)build/''',
   '''(^|/)node_modules/''',
-  '''(^|/)\.lovable/''',
-  '''(^|/)\.env$''',
-  '''(^|/)\.env\.local$''',
 ]
 
 # Regex allowlist for safe-to-commit publishable keys.

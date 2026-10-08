@@ -1,8 +1,16 @@
 import { test, expect } from "@playwright/test";
 
-/** /donate on the built site: content, navigation and the donation dialog. */
+const CAMPAIGN_URL = "https://www.gofundme.com/f/help-fund-critical-arthritis-research";
+
+/** /donate on the built site: content, navigation and external donation links. */
 test.describe("Donation page", () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, context }) => {
+    // Exercise new-tab navigation without contacting the payment provider.
+    await context.route(CAMPAIGN_URL, (route) => route.fulfill({
+      status: 200,
+      contentType: "text/html",
+      body: "<!doctype html><title>Donation destination</title>",
+    }));
     await page.addInitScript(() => {
       localStorage.setItem("cookie-consent", "declined");
       localStorage.setItem("lwa_cv3", JSON.stringify({ a: false, p: false, m: false }));
@@ -34,9 +42,18 @@ test.describe("Donation page", () => {
     await expect(page.getByRole("heading", { name: "Gift Aid (+25%)" })).toBeVisible();
   });
 
-  test("links to the Zakat appeal", async ({ page }) => {
-    await page.getByRole("link", { name: "Give to the appeal" }).click();
-    await expect(page).toHaveURL(/\/zakat-appeal$/);
+  test("the appeal opens the campaign in a safe new tab", async ({ page }) => {
+    const link = page.getByRole("link", { name: /^Give to the appeal/ });
+    await expect(link).toHaveAttribute("href", CAMPAIGN_URL);
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", /\bnoopener\b/);
+    await expect(link).toHaveAttribute("rel", /\bnoreferrer\b/);
+    const popupPromise = page.waitForEvent("popup");
+    await link.click();
+    const popup = await popupPromise;
+    await expect(popup).toHaveURL(CAMPAIGN_URL);
+    await expect(page).toHaveURL(/\/donate$/);
+    await popup.close();
   });
 
   test("Start Fundraising goes to Ways to Help", async ({ page }) => {
@@ -49,12 +66,24 @@ test.describe("Donation page", () => {
     await expect(page).toHaveURL(/\/corporate-giving$/);
   });
 
-  test("the donate button opens exactly one donation dialog", async ({ page }) => {
-    await page.getByRole("button", { name: /^Donate £50$/ }).click();
-    const dialog = page.getByRole("dialog");
-    await expect(dialog).toHaveCount(1);
-    await expect(dialog.getByRole("heading", { name: /Complete Your Donation|Set Up Monthly Donation/ })).toBeVisible();
-    await page.keyboard.press("Escape");
+  test("the donation link opens one campaign tab without a payment dialog", async ({ page, context }) => {
+    const picker = page.locator("section", {
+      has: page.getByRole("heading", { name: "Choose what you can give" }),
+    });
+    const link = picker.getByRole("link", { name: /^Donate on GoFundMe/ });
+    await expect(link).toHaveAttribute("href", CAMPAIGN_URL);
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", /\bnoopener\b/);
+    await expect(link).toHaveAttribute("rel", /\bnoreferrer\b/);
+    const pagesBefore = context.pages().length;
+    const popupPromise = page.waitForEvent("popup");
+    await link.click();
+    const popup = await popupPromise;
+    await expect(popup).toHaveURL(CAMPAIGN_URL);
+    expect(context.pages()).toHaveLength(pagesBefore + 1);
     await expect(page.getByRole("dialog")).toHaveCount(0);
+    await expect(page).toHaveURL(/\/donate$/);
+    await expect(picker).toContainText("The amount is chosen on GoFundMe.");
+    await popup.close();
   });
 });

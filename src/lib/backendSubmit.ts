@@ -5,6 +5,7 @@
  * Never invent "saved to database" success.
  */
 import { submitViaMailto } from "@/lib/formApi";
+import { sanitizeEmail } from "@/lib/sanitize";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { reportFormFailure } from "@/lib/errorReporting";
 import {
@@ -66,7 +67,10 @@ export async function subscribeNewsletter(opts: {
   email: string;
   source?: string;
 }): Promise<BackendSubmitResult> {
-  const email = opts.email.trim().toLowerCase();
+  const email = sanitizeEmail(opts.email);
+  if (!email) {
+    return { ok: false, via: "none", message: "Please enter a valid email address." };
+  }
   const source = (opts.source || "website").slice(0, 80);
   const limited = throttled("newsletter");
   if (limited) return limited;

@@ -74,7 +74,9 @@ export function sanitizeInput(input: string, maxLength = 1000): string {
 
 /** Sanitize email: lowercase, trim, validate format */
 export function sanitizeEmail(email: string): string | null {
-  const cleaned = email.trim().toLowerCase().slice(0, 255);
+  // Reject invalid input instead of truncating it into a different address.
+  const cleaned = email.trim().toLowerCase();
+  if (cleaned.length > 254 || /[\r\n\0]/.test(email)) return null;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return emailRegex.test(cleaned) ? cleaned : null;
 }
