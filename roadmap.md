@@ -1,7 +1,6 @@
 # Roadmap
 
-- [ ] Remove decorative emoji from visitor-facing pages, components, articles and generated text
-- [ ] SEO/AEO audit fixes using existing architecture (no doorway pages, no fake hreflang)
-- [ ] International discoverability where genuinely useful (no country doorway pages)
-- [ ] Run checks (typecheck, SEO identity, schema, redirects)
-- [ ] Report the GitHub repo, branch and sync status (Git is managed by Lovable sync)
+- [x] Remove decorative emoji from visitor-facing pages, components, articles and generated text
+- [ ] Wider search and AI-answer improvements, including help for readers in India, the USA, Australia, Canada and Greenland, without thin country pages (not started yet)
+- [ ] Fix the long page titles flagged by the length check (existing issue)
+- [ ] Check the GitHub copy is up to date (Lovable's built-in sync handles this; it can't be confirmed from here)
