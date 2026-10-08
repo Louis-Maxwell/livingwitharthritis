@@ -1,10 +1,11 @@
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 const esc = (text) => String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 // The React directory and static crawler HTML consume the same verified records.
 export function internationalResourceHead() {
-  const data = JSON.parse(readFileSync(new URL("../src/data/internationalResources.json", import.meta.url), "utf8"));
+  const data = JSON.parse(readFileSync(resolve("src/data/internationalResources.json"), "utf8"));
   return {
     "/resources-directory": {
       title: data.title,
