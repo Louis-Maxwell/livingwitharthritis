@@ -472,12 +472,12 @@ const DietHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Nutrition Quick Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple daily habits for joint-friendly eating.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🐟" title="Eat Oily Fish" description="Salmon, mackerel or sardines twice a week for omega-3s. Tinned is fine." />
-              <EmojiCard emoji="🫒" title="Use Olive Oil" description="Use extra virgin olive oil instead of butter or frying oil where you can." />
-              <EmojiCard emoji="🫐" title="Berry Boost" description="A handful of berries for antioxidants — frozen supermarket berries count." />
-              <EmojiCard emoji="🥦" title="Go Green" description="Add one portion of leafy greens to a meal today. Frozen spinach works." />
-              <EmojiCard emoji="🧡" title="Spice It Up" description="Turmeric or ginger in cooking. Supplements are optional, not a cure." />
-              <EmojiCard emoji="💧" title="Hydrate Well" description="Water or unsweetened tea. Sugary drinks add an inflammation load you do not need." />
+              <EmojiCard title="Eat Oily Fish" description="Salmon, mackerel or sardines twice a week for omega-3s. Tinned is fine." />
+              <EmojiCard title="Use Olive Oil" description="Use extra virgin olive oil instead of butter or frying oil where you can." />
+              <EmojiCard title="Berry Boost" description="A handful of berries for antioxidants — frozen supermarket berries count." />
+              <EmojiCard title="Go Green" description="Add one portion of leafy greens to a meal today. Frozen spinach works." />
+              <EmojiCard title="Spice It Up" description="Turmeric or ginger in cooking. Supplements are optional, not a cure." />
+              <EmojiCard title="Hydrate Well" description="Water or unsweetened tea. Sugary drinks add an inflammation load you do not need." />
             </div>
           </div>
         </section>

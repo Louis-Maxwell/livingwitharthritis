@@ -183,7 +183,7 @@ const Pedometer = () => {
                   className="flex items-center gap-2 text-primary"
                 >
                   <Trophy className="w-5 h-5" />
-                  <span className="text-sm font-bold">Goal reached! 🎉</span>
+                  <span className="text-sm font-bold">Goal reached!</span>
                 </motion.div>
               )}
 
@@ -208,7 +208,7 @@ const Pedometer = () => {
               {sensorAvailable === false ? (
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                   <p className="text-sm text-primary font-medium">
-                    📱 Motion sensors not available on this device. Open this page on your mobile phone to use the step counter.
+                     Motion sensors not available on this device. Open this page on your mobile phone to use the step counter.
                   </p>
                 </div>
               ) : (
@@ -282,7 +282,7 @@ const Pedometer = () => {
             {/* Walking tips for arthritis */}
             <Card className="border border-border/40 bg-tint-amber">
               <CardContent className="p-6">
-                <h3 className="font-bold text-foreground text-sm mb-3">🚶 Walking Tips for Arthritis</h3>
+                <h3 className="font-bold text-foreground text-sm mb-3"> Walking Tips for Arthritis</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
