@@ -236,10 +236,10 @@ const FootAndAnkleArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily foot-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="👟" title="Footwear" description="Wide toe box, grip sole, low heel." />
-            <EmojiCard emoji="🔄" title="Mobility" description="Ankle circles and toe work daily." />
-            <EmojiCard emoji="⚖️" title="Balance" description="Brief single-leg practice near a counter." />
-            <EmojiCard emoji="♨️" title="Warm-up" description="Warm soak before the first walk." />
+            <EmojiCard title="Footwear" description="Wide toe box, grip sole, low heel." />
+            <EmojiCard title="Mobility" description="Ankle circles and toe work daily." />
+            <EmojiCard title="Balance" description="Brief single-leg practice near a counter." />
+            <EmojiCard title="Warm-up" description="Warm soak before the first walk." />
           </div>
         </motion.div>
 

@@ -218,10 +218,10 @@ const ShoulderArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily shoulder-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🪢" title="Mobility" description="Pendulums morning & evening" />
-            <EmojiCard emoji="🎯" title="Cuff strength" description="Banded rotation, 2× weekly" />
-            <EmojiCard emoji="🛌" title="Sleep" description="Off the painful side" />
-            <EmojiCard emoji="♨️" title="Heat" description="10 min before exercise" />
+            <EmojiCard title="Mobility" description="Pendulums morning & evening" />
+            <EmojiCard title="Cuff strength" description="Banded rotation, 2× weekly" />
+            <EmojiCard title="Sleep" description="Off the painful side" />
+            <EmojiCard title="Heat" description="10 min before exercise" />
           </div>
         </motion.div>
 

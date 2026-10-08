@@ -99,7 +99,7 @@ export default function ExercisePlanGenerator() {
       "",
     ];
     plan.forEach((day) => {
-      lines.push(`📅 ${day.day}`);
+      lines.push(`${day.day}`);
       if (day.isRest) {
         lines.push("   Rest Day — gentle stretching or walking");
       } else {

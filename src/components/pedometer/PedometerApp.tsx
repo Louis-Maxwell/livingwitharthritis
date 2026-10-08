@@ -545,14 +545,14 @@ type Achievement = {
 };
 
 const ACHIEVEMENTS: Achievement[] = [
-  { id: 'first_step', icon: '👟', title: 'First Steps', desc: 'Walk 1,000 steps', req: s => s >= 1000 },
-  { id: 'five_k', icon: '🏃', title: 'Five Thousand', desc: 'Reach 5,000 in a day', req: (_, b) => b >= 5000 },
-  { id: 'goal_getter', icon: '🎯', title: 'Goal Getter', desc: 'Hit your daily goal', req: (_, b, g) => b >= g },
-  { id: 'ten_k', icon: '🔥', title: 'Ten Thousand', desc: '10,000 steps in a day', req: (_, b) => b >= 10000 },
-  { id: 'streak_7', icon: '⚡', title: 'Week Warrior', desc: '7-day streak', req: (_, __, ___, st) => st >= 7 },
-  { id: 'hundred_k', icon: '💎', title: 'Century Club', desc: '100,000 all-time steps', req: s => s >= 100000 },
-  { id: 'marathon', icon: '🏅', title: 'Marathon', desc: 'Walk 42km in one day', req: (_, b) => b * 0.000762 >= 42 },
-  { id: 'streak_30', icon: '👑', title: 'Iron Legs', desc: '30-day streak', req: (_, __, ___, st) => st >= 30 },
+  { id: 'first_step', icon: '', title: 'First Steps', desc: 'Walk 1,000 steps', req: s => s >= 1000 },
+  { id: 'five_k', icon: '', title: 'Five Thousand', desc: 'Reach 5,000 in a day', req: (_, b) => b >= 5000 },
+  { id: 'goal_getter', icon: '', title: 'Goal Getter', desc: 'Hit your daily goal', req: (_, b, g) => b >= g },
+  { id: 'ten_k', icon: '', title: 'Ten Thousand', desc: '10,000 steps in a day', req: (_, b) => b >= 10000 },
+  { id: 'streak_7', icon: '', title: 'Week Warrior', desc: '7-day streak', req: (_, __, ___, st) => st >= 7 },
+  { id: 'hundred_k', icon: '', title: 'Century Club', desc: '100,000 all-time steps', req: s => s >= 100000 },
+  { id: 'marathon', icon: '', title: 'Marathon', desc: 'Walk 42km in one day', req: (_, b) => b * 0.000762 >= 42 },
+  { id: 'streak_30', icon: '', title: 'Iron Legs', desc: '30-day streak', req: (_, __, ___, st) => st >= 30 },
 ];
 
 function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlocked: boolean; delay?: number }) {
@@ -810,7 +810,7 @@ function StreakWidget({
           aria-hidden="true"
           className="text-2xl leading-none select-none"
         >
-          {streak > 0 ? '🔥' : '✦'}
+          {streak > 0 ? '' : '✦'}
         </span>
         <div className="min-w-0">
           <div className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
@@ -1005,9 +1005,9 @@ function TodayTab({ ped }: { ped: PedoState }) {
       />
 
       <div className="grid grid-cols-2 gap-3">
-        <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
-        <MetricCard icon="🔥" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
-        <MetricCard icon="⏱" label="Active Time" value={activeMin} unit="min" accent="gold" delay={160} />
+        <MetricCard icon="" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
+        <MetricCard icon="" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
+        <MetricCard icon="" label="Active Time" value={activeMin} unit="min" accent="gold" delay={160} />
         <MetricCard icon="✦" label="Streak" value={streak} unit="days" accent="gold"
           sub={streak >= 7 ? 'Week warrior' : streak > 0 ? 'Keep it up' : 'Start today'} delay={240} />
       </div>
@@ -1168,7 +1168,7 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="rounded-2xl border border-primary/20 bg-card px-5 py-5 text-center">
-        <div className="text-5xl mb-2" aria-hidden="true">🏆</div>
+        <div className="text-5xl mb-2" aria-hidden="true"></div>
         <div className="font-bold text-3xl text-primary">
           {count} <span className="text-muted-foreground font-medium">/ {ACHIEVEMENTS.length}</span>
         </div>
