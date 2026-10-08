@@ -575,6 +575,8 @@ See energy and exercise articles via **/exercises** and **/guides**. Seek GP rev
       "sleeping with pain",
       "sleep with arthritis",
       "sleeping position",
+      "keeping me awake",
+      "sleep diary",
     ],
     synonyms: ["poor sleep", "restless night", "broken sleep", "sleep hygiene"],
     priority: 11,
@@ -600,6 +602,8 @@ Pair with pacing (**/exercises**) and flare plans (**/arthritis-flare-ups**).`,
     related: [
       { type: "article", title: "How to sleep with arthritis (UK)", url: "/blog/how-to-sleep-with-arthritis-uk" },
       { type: "article", title: "Best sleep positions for joint pain", url: "/blog/best-sleep-positions-joint-pain" },
+      { type: "article", title: "Poor sleep and arthritis pain: breaking the cycle", url: "/blog/sleep-quality-arthritis-pain" },
+      { type: "article", title: "Arthritis and sleep problems: what keeps you awake", url: "/blog/arthritis-and-sleep-problems" },
       { type: "article", title: "Arthritis fatigue UK guide", url: "/blog/arthritis-fatigue-management-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
@@ -1557,6 +1561,8 @@ We do not provide doses. Confirm everything with your clinical team.`,
       "fish oil",
       "vitamin d",
       "vit d",
+      "vitamin d winter",
+      "vitamin d supplement",
       "supplements for knee pain",
       "best joint supplement",
     ],
@@ -1570,7 +1576,7 @@ No supplement reverses arthritis. A few may help symptoms modestly for some peop
 - **Omega-3 (fish oil)** — among the better-studied for inflammatory symptoms; ask a pharmacist
 - **Curcumin / ginger** — modest evidence; check interactions
 - **Glucosamine ± chondroitin** — mixed evidence for knee OA
-- **Vitamin D** — UK autumn/winter low-dose advice is common; correct deficiency with GP guidance; avoid high doses without advice
+- **Vitamin D** — NHS advice: consider 10 micrograms a day from October to early March (all year if frail, housebound or in a care home); for bones and muscles, not an arthritis treatment; do not exceed 100 micrograms a day without advice
 
 Always check interactions (blood thinners, diabetes meds, etc.) with a **pharmacist or GP**. Give any trial enough weeks before judging — and stop if you feel unwell.
 
@@ -1580,6 +1586,7 @@ Useful reads: **/blog/omega-3-foods-for-joints**, **/blog/best-supplement-for-kn
     nextSteps: ["Ask a pharmacist before combining supplements with medicines", "Prioritise diet and movement first"],
     related: [
       { type: "guide", title: "Supplements hub", url: "/supplements" },
+      { type: "article", title: "Vitamin D in autumn and winter (UK)", url: "/blog/vitamin-d-winter-arthritis-frailty-uk" },
       { type: "guide", title: "Turmeric & curcumin", url: "/supplements/turmeric" },
       { type: "article", title: "Omega-3 foods for joints", url: "/blog/omega-3-foods-for-joints" },
       { type: "article", title: "Glucosamine vs collagen", url: "/blog/glucosamine-vs-collagen" },

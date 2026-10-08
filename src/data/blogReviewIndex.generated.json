@@ -28,7 +28,7 @@
   "arthritis-and-omega-3-fish-oil": "2026-09-05",
   "arthritis-and-pets-uk": "2026-09-05",
   "arthritis-and-pregnancy-uk": "2026-09-05",
-  "arthritis-and-sleep-problems": "2026-09-05",
+  "arthritis-and-sleep-problems": "2026-10-08",
   "arthritis-and-travel-uk": "2026-09-05",
   "arthritis-and-weight-loss-uk": "2026-09-05",
   "arthritis-and-work-uk": "2026-10-01",
@@ -432,7 +432,7 @@
   "sleep-and-pain-management-arthritis": "2026-09-25",
   "sleep-apnoea-arthritis-frailty-uk": "2026-09-05",
   "sleep-arthritis-frailty-night-pain-uk": "2026-09-05",
-  "sleep-quality-arthritis-pain": "2026-09-05",
+  "sleep-quality-arthritis-pain": "2026-10-08",
   "sleeping-tablets-falls-arthritis-frailty-uk": "2026-09-05",
   "slow-walking-groups-arthritis-frailty-uk": "2026-09-05",
   "smart-speakers-arthritis-frailty-uk": "2026-09-05",
@@ -499,7 +499,7 @@
   "vision-falls-arthritis-frailty-uk": "2026-09-05",
   "vitamin-d-and-falls-arthritis-uk": "2026-09-05",
   "vitamin-d-arthritis-uk": "2026-09-05",
-  "vitamin-d-winter-arthritis-frailty-uk": "2026-09-05",
+  "vitamin-d-winter-arthritis-frailty-uk": "2026-10-08",
   "volunteering-seated-arthritis-frailty-uk": "2026-09-05",
   "walking-30-minutes-a-day-while-on-dmards-a-practical-plan": "2026-09-05",
   "walking-aids-arthritis-uk": "2026-09-05",
@@ -527,13 +527,16 @@
  },
  "pending": [
   "arthritis-and-mental-health-uk",
+  "arthritis-and-sleep-problems",
   "best-sleep-positions-joint-pain",
   "cold-weather-arthritis-uk-winter",
   "covid-winter-arthritis-frailty-uk",
   "depression-arthritis-when-to-seek-help",
   "flu-jab-arthritis-frailty-uk",
   "how-to-sleep-with-arthritis-uk",
+  "sleep-quality-arthritis-pain",
   "staying-active-arthritis-winter-uk",
+  "vitamin-d-winter-arthritis-frailty-uk",
   "winter-arthritis-frailty-cold-houses-uk"
  ]
 }
