@@ -715,6 +715,59 @@ export type Database = {
         }
         Relationships: []
       }
+      buddy_signups: {
+        Row: {
+          about: string | null
+          arthritis_type: string
+          consent: boolean
+          contact_preference: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          matched_with: string | null
+          region: string
+          role: string
+          status: string
+        }
+        Insert: {
+          about?: string | null
+          arthritis_type: string
+          consent: boolean
+          contact_preference: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          matched_with?: string | null
+          region: string
+          role: string
+          status?: string
+        }
+        Update: {
+          about?: string | null
+          arthritis_type?: string
+          consent?: boolean
+          contact_preference?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          matched_with?: string | null
+          region?: string
+          role?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "buddy_signups_matched_with_fkey"
+            columns: ["matched_with"]
+            isOneToOne: false
+            referencedRelation: "buddy_signups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       chat_conversations: {
         Row: {
           created_at: string
