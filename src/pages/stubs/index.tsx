@@ -120,7 +120,7 @@ export const ConnectGroupsStub = () => (
     faqs={CONNECT_GROUPS_FAQS}
     relatedLinks={[
       { label: "Community hub", href: "/community" },
-      { label: "Buddy programme", href: "/buddy" },
+      { label: "Buddy Programme", href: "/buddy" },
       { label: "Patient stories", href: "/stories" },
       { label: "Helpline & support", href: "/helpline" },
     ]}
