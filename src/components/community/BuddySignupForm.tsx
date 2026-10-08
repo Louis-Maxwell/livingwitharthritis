@@ -70,7 +70,6 @@ export default function BuddySignupForm() {
       .insert(parsed.data as never);
     setIsSending(false);
     if (dbError) {
-      console.error('buddy signup failed', dbError);
       setError('Sorry, something went wrong. Please try again or email us.');
       return;
     }
