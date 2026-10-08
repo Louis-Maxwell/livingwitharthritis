@@ -12,10 +12,7 @@ import ContextualLinks from "@/components/ContextualLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { dailyTips } from "@/data/dailyTips";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
-import {
-  Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, Star, Globe, BookOpen, HandHeart, Download
-} from "lucide-react";
+import { Users, MessageCircle, Calendar, Sparkles, ArrowRight, Heart, Star, Globe, BookOpen, HandHeart, Download, FileText } from "lucide-react";
 import {
   StatCounter,
   HorizontalBar,
@@ -319,7 +316,7 @@ const CommunityHub = () => {
                 >
                   <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md group">
                     <CardContent className="p-5 flex flex-col h-full">
-                      <span className="text-2xl mb-3 block" aria-hidden="true">{r.icon}</span>
+                      <FileText className="w-6 h-6 mb-3 text-primary" aria-hidden="true" />
                       <h3 className="font-semibold text-foreground text-sm mb-1">{r.title}</h3>
                       <p className="text-xs text-muted-foreground mb-3 flex-1">{r.desc}</p>
                       <div className="flex items-center justify-between mt-auto">

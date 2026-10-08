@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Circle, Printer, RotateCcw, Trophy, Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import { CheckCircle, Circle, Printer, RotateCcw, Trophy, Calendar, ChevronDown, ChevronUp, Dumbbell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -232,7 +232,7 @@ export default function ExerciseProgressTracker() {
                 >
                   <div className="flex items-center justify-between p-5 pb-3">
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl" aria-hidden="true">{guide.icon}</span>
+                      <Dumbbell className="w-6 h-6 text-primary" aria-hidden="true" />
                       <div>
                         <h3 className="font-semibold text-foreground">{guide.title}</h3>
                         <div className="flex items-center gap-2 mt-0.5">
