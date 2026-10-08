@@ -16,6 +16,6 @@ Site: https://livingwitharthritis.org.uk/
 Disambiguation: Independent of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis Foundation.
 
 /* SITE */
-Standards: NICE-aligned patient information where applicable; YMYL content clinically reviewed
+Standards: NICE-aligned patient information where applicable; YMYL content written from NHS and NICE sources, with clinical review by our HCPC-registered founder in progress
 Languages: en-GB
 Last update: 2026-09-04
