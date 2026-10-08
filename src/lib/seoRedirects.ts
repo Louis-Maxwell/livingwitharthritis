@@ -64,9 +64,7 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   // Paused placeholder pages removed 2026-09 (shop never launched, buddy
   // matching and podcast not running). 301 to the closest live page.
   "/shop": "/supplements",
-  "/buddy": "/community/connect-groups",
-  "/buddy/match": "/community/connect-groups",
-  "/podcasts": "/community",
+  "/buddy/match": "/buddy",
   "/exercise-hub": "/exercises",
   "/conditions": "/conditions/arthritis",
   "/about-us": "/about",
