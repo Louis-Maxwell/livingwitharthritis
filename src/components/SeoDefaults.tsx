@@ -85,7 +85,7 @@ function pruneStaticMetaDuplicates() {
 
 /**
  * Global hreflang emitter. Translated routes get a full language cluster.
- * Every other route gets self-referencing en-GB + x-default tags (not
+ * Every other route gets self-referencing en + en-GB + x-default tags (not
  * homepage-only). Canonical <link> tags are emitted by <SeoHead>.
  */
 export default function SeoDefaults() {
@@ -126,6 +126,8 @@ export default function SeoDefaults() {
           than <SeoHead />. The static index.html canonical is pruned above
           once this one mounts. */}
       <link rel="canonical" key="canonical" href={pageUrl} />
+      {/* General English reaches English readers across countries without inventing regional versions. */}
+      <link rel="alternate" hrefLang="en" href={`${SITE_URL}${basePath}`} />
       {hasTranslations ? (
         <>
           {SUPPORTED_LANGS.map((lang) => (
