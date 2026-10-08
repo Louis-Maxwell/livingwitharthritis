@@ -33,6 +33,7 @@ const columns = [
       { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis" },
       { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis" },
       { label: "Blog & Research", href: "/blog" },
+      { label: "International Arthritis Support", href: "/international-arthritis-support" },
       { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
       { label: "Health Services Guide", href: "/guides/health-services" },
       { label: "Diet & Nutrition Guide", href: "/guides/diet" },

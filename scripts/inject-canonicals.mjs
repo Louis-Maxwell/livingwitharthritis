@@ -378,7 +378,9 @@ function buildJsonLd(route, url, d) {
     about: d.about ? { "@type": "MedicalCondition", name: d.about } : undefined,
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
-    audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
+    audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: Array.isArray(d.audienceCountries)
+      ? d.audienceCountries.map((name) => ({ "@type": "Country", name }))
+      : { "@type": "Country", name: "United Kingdom" } },
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
