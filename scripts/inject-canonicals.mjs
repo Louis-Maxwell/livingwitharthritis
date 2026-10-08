@@ -38,6 +38,7 @@ import {
   replaceSeoFallback,
 } from "./static-article-html.mjs";
 import { exactRedirectPathSet, CITY_HUBS, CITY_SLUGS } from "./seo-redirect-map.mjs";
+import { internationalResourceHead } from "./international-resource-head.mjs";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const DIST = resolve("dist");
@@ -164,6 +165,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(HUB_GUIDE_DATA_PATH),
   authorHeadData(),
   readJson(AI_DATA_PATH),
+  internationalResourceHead(),
 );
 
 const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
@@ -367,7 +369,7 @@ function buildJsonLd(route, url, d) {
   //    Organization/WebSite nodes already present in the static head.
   graphs.push({
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": d.pageType || "MedicalWebPage",
     "@id": `${url}#webpage`,
     url,
     name: d.title,
@@ -378,7 +380,9 @@ function buildJsonLd(route, url, d) {
     about: d.about ? { "@type": "MedicalCondition", name: d.about } : undefined,
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
-    audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
+    audience: d.international
+      ? { "@type": "Audience", audienceType: "People seeking arthritis information" }
+      : { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
