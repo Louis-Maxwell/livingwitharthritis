@@ -223,7 +223,7 @@ const TrustCredibility = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 The information provided on this website is for general educational purposes only and should not replace professional medical advice. 
                 Always consult your GP, rheumatologist or healthcare professional before making changes to your treatment, exercise or diet. 
-                Our content is reviewed by qualified medical advisors but is not a substitute for individual clinical assessment.
+                Our content is written from NHS and NICE sources, with clinical review by our HCPC-registered founder in progress, and is not a substitute for individual clinical assessment.
               </p>
             </div>
           </div>

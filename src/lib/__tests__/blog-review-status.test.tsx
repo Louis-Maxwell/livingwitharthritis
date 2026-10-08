@@ -13,6 +13,7 @@ import {
   resolveBlogReviewStatus,
 } from "@/lib/blog/review";
 import catalog from "@/content/blog/catalog.generated.json";
+import PENDING_UNVERIFIED_REVIEWER from "./fixtures/pending-unverified-reviewer-2026-10-08.json";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import { readAllBlogPosts } from "../../../scripts/lib/blog-posts.mjs";
 import {
@@ -135,9 +136,9 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
-  it("only the twelve automated Champions 62–73 rewrites are pending review", () => {
+  it("only the Champions 62–73 rewrites and the guides that carried an invented reviewer label are pending review", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...(PENDING_UNVERIFIED_REVIEWER as string[])].sort(),
     );
   });
 
