@@ -6,6 +6,7 @@
 //                                       [canonical-base]
 
 import { readFileSync } from "node:fs";
+import { resolve, sep } from "node:path";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 
 const BASE = process.argv[2] || "https://livingwitharthritis.org.uk";
@@ -14,6 +15,9 @@ const OUTPUT = process.argv[4] || "audit-sitemap-report.json";
 const CANONICAL_BASE =
   process.argv[5] || "https://livingwitharthritis.org.uk";
 const TIMEOUT_MS = 12_000;
+// CI validates its generated artifact. A development static server may add
+// directory redirects that are unrelated to production hosting behaviour.
+const DIST_DIR = process.env.DIST_DIR ? resolve(process.env.DIST_DIR) : "";
 
 const ALLOWED_SITEMAP_HOSTS = new Set([
   "livingwitharthritis.org.uk",
@@ -88,7 +92,22 @@ async function checkOne(path) {
   }
   const ctl = AbortSignal.timeout(TIMEOUT_MS);
   try {
-    const res = await fetch(target, {
+    let res;
+    if (DIST_DIR) {
+      const pathname = new URL(target).pathname;
+      const file = resolve(DIST_DIR, `.${pathname}`, "index.html");
+      if (!file.startsWith(DIST_DIR + sep)) {
+        return { url: path, status: 0, reason: "bad-path" };
+      }
+      try {
+        res = new Response(readFileSync(file, "utf8"), {
+          status: 200,
+          headers: { "content-type": "text/html" },
+        });
+      } catch {
+        return { url: path, status: 404, reason: "missing-build-page" };
+      }
+    } else res = await fetch(target, {
       redirect: "manual",
       headers: { "user-agent": "lwa-sitemap-audit/1.0" },
       signal: ctl,
@@ -171,6 +190,7 @@ await Promise.all(workers);
 broken.sort((a, b) => a.url.localeCompare(b.url));
 const report = {
   base: BASE,
+  ...(DIST_DIR ? { dist: DIST_DIR } : {}),
   total: paths.length,
   broken: broken.length,
   ranAt: new Date().toISOString(),

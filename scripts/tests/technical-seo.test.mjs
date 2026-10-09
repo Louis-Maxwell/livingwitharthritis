@@ -25,7 +25,9 @@ test('sitemap audit fails on redirects, noindex, duplicate canonical and soft 40
   mkdirSync(join(root, 'public'));
   writeFileSync(join(root, 'index.html'), '<title>Homepage</title><h1>Home</h1>');
   const server = createServer((req, res) => {
-    const path = req.url;
+    // Response fixtures come only from this closed set, never raw request text.
+    const path = ['/good', '/redirect', '/blocked', '/error', '/soft404',
+      '/duplicate', '/meta-noindex', '/with-boot-hero'].find((route) => route === req.url) || '/unknown';
     res.setHeader('content-type', 'text/html');
     if (path === '/redirect') { res.writeHead(301, { location: '/good' }); res.end(); return; }
     if (path === '/blocked') res.setHeader('x-robots-tag', 'googlebot: noindex');
@@ -38,10 +40,12 @@ test('sitemap audit fails on redirects, noindex, duplicate canonical and soft 40
   });
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   const base = `http://127.0.0.1:${server.address().port}`;
-  async function run(paths) {
+  async function run(paths, dist = '') {
     writeFileSync(join(root, 'public/sitemap.xml'), `<urlset>${paths.map((p) => `<url><loc>${SITE}${p}</loc></url>`).join('')}</urlset>`);
     const report = join(root, 'report.json');
-    const child = spawn(process.execPath, [audit, base, '2', report], { cwd: root, stdio: 'ignore' });
+    const child = spawn(process.execPath, [audit, base, '2', report], {
+      cwd: root, stdio: 'ignore', env: { ...process.env, DIST_DIR: dist },
+    });
     const code = await new Promise((r, reject) => { child.on('exit', r); child.on('error', reject); });
     return { code, report: JSON.parse(readFileSync(report, 'utf8')) };
   }
@@ -53,6 +57,15 @@ test('sitemap audit fails on redirects, noindex, duplicate canonical and soft 40
     assert.equal(bad.report.broken, 6);
     assert.deepEqual(new Set(bad.report.items.map((x) => x.reason)), new Set(['redirect', 'noindex-in-sitemap', 'multiple-canonicals', 'homepage-fallback', 'http-error']));
     assert.equal((await run([])).code, 1, 'empty sitemap must not pass');
+    const dist = join(root, 'dist');
+    for (const path of ['/good', '/meta-noindex']) {
+      mkdirSync(join(dist, path), { recursive: true });
+      writeFileSync(join(dist, path, 'index.html'), html(path, path === '/meta-noindex' ? '<meta name="robots" content="noindex">' : ''));
+    }
+    assert.equal((await run(['/good'], dist)).code, 0);
+    const staticBad = await run(['/good', '/meta-noindex', '/missing'], dist);
+    assert.equal(staticBad.code, 1);
+    assert.deepEqual(new Set(staticBad.report.items.map((x) => x.reason)), new Set(['noindex-in-sitemap', 'missing-build-page']));
   } finally {
     await new Promise((r) => server.close(r));
     rmSync(root, { recursive: true, force: true });
