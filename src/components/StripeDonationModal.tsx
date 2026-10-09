@@ -3,7 +3,7 @@ import { trackDonationInitiate } from "@/lib/analytics";
 import { Heart, ExternalLink, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import { GOFUNDME_URL, ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 
 interface StripeDonationModalProps {
   isOpen: boolean;
@@ -39,6 +39,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
   };
 
   const fundLabel = getFundLabel();
+  const isZakat = fundType === "zakat";
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -70,18 +71,17 @@ const StripeDonationModal = ({ isOpen, onClose, amount, currency, fundType, recu
 
           <Button asChild className="w-full min-h-12 h-14 rounded-full text-base font-semibold btn-primary-cta">
             <a
-              href={GOFUNDME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={isZakat ? ZAKAT_GIVE_URL : GOFUNDME_URL}
+              {...(isZakat ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               onClick={() => {
                 trackDonationInitiate(amount);
                 onClose();
               }}
             >
               <Heart className="w-4 h-4 mr-2" />
-              Donate on GoFundMe
+              {isZakat ? "Email us to give your Zakat" : "Donate on GoFundMe"}
               <ExternalLink className="w-4 h-4 ml-2" aria-hidden="true" />
-              <span className="sr-only"> (opens in a new tab)</span>
+              <span className="sr-only">{isZakat ? " (opens your email app)" : " (opens in a new tab)"}</span>
             </a>
           </Button>
         </div>

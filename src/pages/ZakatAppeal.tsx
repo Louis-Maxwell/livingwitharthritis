@@ -15,7 +15,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import { ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 import { gazaAppealHero, gazaRehabStory } from "@/data/images";
 import ZakatCalculator from "@/components/ZakatCalculator";
 import GazaImpactTiers from "@/components/appeal/GazaImpactTiers";
@@ -261,19 +261,17 @@ const ZakatAppeal = () => {
                   {/* Donate button */}
                   <Button asChild className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all">
                     <a
-                      href={GOFUNDME_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={ZAKAT_GIVE_URL}
                       onClick={() => trackDonationClick({ source: "gaza_appeal_form" })}
                     >
                       <Heart className="mr-2 h-5 w-5" />
-                      Donate on GoFundMe
-                      <span className="sr-only"> (opens in a new tab)</span>
+                      Email us to give your Zakat
+                      <span className="sr-only"> (opens your email app)</span>
                     </a>
                   </Button>
 
                   <p className="text-[11px] text-muted-foreground text-center">
-                    The amount is chosen on GoFundMe. This page does not take card payments.
+                    Every gift here goes only to the Palestine &amp; Gaza appeal. Email us and we will send a secure way to give.
                   </p>
                 </div>
               </div>

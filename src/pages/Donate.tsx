@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { gazaAppealHero } from "@/data/images";
 import { trackDonationClick } from "@/lib/ga-events";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import { GOFUNDME_URL, ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 import CharityRegBadge from "@/components/CharityRegBadge";
 import { buildCharitySchema, injectJsonLd, type FAQItem } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
@@ -57,8 +57,8 @@ const WAYS_TO_GIVE = [
     title: "Zakat & Sadaqah",
     desc: "Give your Zakat or Sadaqah to our Palestine & Gaza rehabilitation appeal",
     action: "Give Zakat",
-    href: GOFUNDME_URL,
-    external: true,
+    href: ZAKAT_GIVE_URL,
+    external: false,
     color: "text-primary bg-primary/10",
   },
 
@@ -208,14 +208,12 @@ export default function Donate() {
                 Shariah-compliant and scholar-guided.
               </p>
               <a
-                href={GOFUNDME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={ZAKAT_GIVE_URL}
                 onClick={() => trackDonationClick({ source: "donate_page_gaza_card" })}
                 className="mt-6 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-bold hover:bg-primary/90 transition-colors"
               >
                 Give to the appeal <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                <span className="sr-only"> (opens in a new tab)</span>
+                <span className="sr-only"> (opens your email app)</span>
               </a>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { trackDonationClick } from "@/lib/ga-events";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import { ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 
 const GAZA_IMPACT_TIERS = [
   { amount: 25, impact: "Funds three guided physiotherapy sessions for a survivor" },
@@ -27,9 +27,7 @@ export default function GazaImpactTiers() {
           {GAZA_IMPACT_TIERS.map((tier) => (
             <a
               key={tier.amount}
-              href={GOFUNDME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={ZAKAT_GIVE_URL}
               onClick={() => {
                 trackDonationClick({
                   source: `gaza_tier_${tier.amount}`,
@@ -44,7 +42,7 @@ export default function GazaImpactTiers() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 {tier.impact}
               </p>
-              <span className="sr-only">Donate on GoFundMe (opens in a new tab)</span>
+              <span className="sr-only">Give to the Gaza appeal (opens your email app)</span>
             </a>
           ))}
         </div>
