@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import StripeDonationModal from "@/components/StripeDonationModal";
 
 const PRESETS = [50, 150, 200, 500];
 
@@ -23,6 +23,9 @@ const DonationQuickBar = () => {
   // every page; it now starts as one row and opens on request.
   const [mobileExpanded, setMobileExpanded] = useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const giftAmount = amount ? Number(amount) || 0 : selectedPreset ?? 0;
+
   const handlePreset = (val: number) => {
     setSelectedPreset(val);
     setAmount("");
@@ -34,15 +37,15 @@ const DonationQuickBar = () => {
         <div className="container mx-auto px-3 sm:px-4 py-2">
           {!mobileExpanded && (
             <div className="flex items-center justify-center gap-2 sm:hidden">
-              <a
-                href={GOFUNDME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => setMobileExpanded(true)}
+                aria-expanded={mobileExpanded}
+                aria-controls="donation-quick-bar-options"
                 className="h-9 inline-flex items-center px-4 rounded-full bg-background text-primary text-sm font-extrabold tracking-[0.1em]"
               >
                 DONATE
-                <span className="sr-only"> on GoFundMe (opens in a new tab)</span>
-              </a>
+              </button>
               <Link
                 to="/zakat-appeal"
                 className="h-9 inline-flex items-center px-4 rounded-full text-sm font-extrabold tracking-[0.1em] text-primary-foreground hover:bg-background/10 transition-colors"
@@ -132,13 +135,12 @@ const DonationQuickBar = () => {
 
             {/* DONATE */}
             <Button
-              asChild
+              type="button"
+              disabled={giftAmount < 1}
+              onClick={() => setIsModalOpen(true)}
               className="h-9 bg-transparent hover:bg-background/10 text-primary-foreground font-extrabold tracking-[0.15em] rounded-full px-5 text-sm shadow-none border-0"
             >
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
-                DONATE
-                <span className="sr-only"> on GoFundMe (opens in a new tab)</span>
-              </a>
+              DONATE
             </Button>
 
             {/* Zakat Appeal */}
@@ -151,7 +153,14 @@ const DonationQuickBar = () => {
           </div>
         </div>
       </div>
-
+      <StripeDonationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        amount={giftAmount}
+        currency="GBP"
+        fundType={fund}
+        recurring={frequency === "monthly"}
+      />
     </>
   );
 };

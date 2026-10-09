@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StripeDonationModal from "@/components/StripeDonationModal";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -88,6 +89,8 @@ const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const giftAmount = customAmount ? Number(customAmount) || 0 : selectedAmount;
 
   const description = customAmount
     ? "Your generous contribution will make a meaningful difference"
@@ -259,19 +262,27 @@ const ZakatAppeal = () => {
                   </div>
 
                   {/* Donate button */}
-                  <Button asChild className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all">
-                    <a
-                      href={ZAKAT_GIVE_URL}
-                      onClick={() => trackDonationClick({ source: "gaza_appeal_form" })}
-                    >
-                      <Heart className="mr-2 h-5 w-5" />
-                      Email us to give your Zakat
-                      <span className="sr-only"> (opens your email app)</span>
-                    </a>
+                  <Button
+                    disabled={giftAmount < 1}
+                    onClick={() => {
+                      trackDonationClick({ source: "gaza_appeal_form", amount: giftAmount });
+                      setIsModalOpen(true);
+                    }}
+                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
+                  >
+                    <Heart className="mr-2 h-5 w-5" />
+                    Give £{giftAmount.toLocaleString()} to the Gaza appeal
                   </Button>
+                  <StripeDonationModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    amount={giftAmount}
+                    currency="GBP"
+                    fundType="zakat"
+                  />
 
                   <p className="text-[11px] text-muted-foreground text-center">
-                    Every gift here goes only to the Palestine &amp; Gaza appeal. Email us and we will send a secure way to give.
+                    Every gift here goes only to the Palestine &amp; Gaza appeal. Prefer email? <a href={ZAKAT_GIVE_URL} className="underline">Contact us</a>.
                   </p>
                 </div>
               </div>
