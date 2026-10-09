@@ -6722,5 +6722,14 @@
         "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/"
       }
     ]
+  },
+  "/about/editorial-claims-policy": {
+    "title": "Editorial claims policy | Living With Arthritis",
+    "description": "How Living With Arthritis supports public claims: recorded reviews, real patient stories, transparent survey methods and agreed partnerships.",
+    "question": "How does Living With Arthritis support its public claims?",
+    "answer": "Public content counts reflect published guides, not people supported or clinical outcomes. Pages show whether clinical review is complete or pending. Review claims should have a named reviewer and a recorded date. Patient stories must come from real consenting contributors. Survey reports explain recruitment, dates, per-question response counts and limitations. Partnerships and endorsements are described only when agreed. An editorial update is not a clinical review.",
+    "breadcrumb": "Editorial claims policy",
+    "updatedAt": "2026-10-09",
+    "bodyHtml": "<p>Living With Arthritis publishes plain-English educational resources. Public content counts describe published guides, not people supported or clinical outcomes.</p><h2>Clinical review claims</h2><p>Pages show whether clinical review is complete or pending. A completed-review claim should be supported by a named reviewer and a recorded review date. An editorial update is not a clinical review.</p><h2>Patient stories and original research</h2><p>Patient stories must come from real contributors who have agreed to publication. Personal experiences are identified as experiences, not evidence that a treatment will work for everyone. We do not invent testimonials, quotes or survey responses.</p><p>When publishing a survey, we explain how participants were recruited, when the survey ran, how many people answered each question and the limitations of the sample. An open online survey is not presented as representative of everyone living with arthritis. Planned research is not described as completed research.</p><h2>Independence and partnerships</h2><p>Living With Arthritis has its own identity and governance. We only describe an organisation as a partner, sponsor or endorser when that relationship has been agreed. A link to another organisation is a reference, not an endorsement. Claims such as largest, leading or most trusted need published evidence.</p><h2>Corrections and review dates</h2><p>Contact us with the page address and details of any suspected error. Changing wording or a page date does not establish that a clinician has checked the advice.</p><p><a href=\"/contact\">Contact us</a> · <a href=\"/editorial-standards\">Editorial standards</a> · <a href=\"/trust\">Trust and credibility</a> · <a href=\"/about/ai-transparency\">AI transparency</a></p>"
   }
 }
