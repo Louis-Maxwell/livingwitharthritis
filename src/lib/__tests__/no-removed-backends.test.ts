@@ -5,6 +5,12 @@ import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
 
+// Card donations (StripeDonationModal) are the ONLY allowed backend use.
+const ALLOWED_BACKEND_FILES = new Set([
+  "src/components/StripeDonationModal.tsx",
+]);
+const ALLOWED_FUNCTIONS = ["_shared", "create-donation-checkout"];
+
 const FORBIDDEN_IMPORT = [
   /\bfrom\s+['"]@supabase\//,
   /\bfrom\s+['"]@\/integrations\/supabase/,
@@ -30,7 +36,6 @@ const FORBIDDEN_LIVE = [
 ];
 
 const FORBIDDEN_PACKAGE_DEPS = [
-  "@supabase/supabase-js",
   "@supabase/auth-js",
   "wrangler",
   "@cloudflare/workers-types",
@@ -67,7 +72,10 @@ function pathExists(rel: string): boolean {
 describe("no removed backends", () => {
   it("does not import removed supabase/vercel/cloudflare packages in src/", () => {
     const files = walk(join(ROOT, "src")).filter(
-      (f) => !f.endsWith(`${join("lib", "__tests__", "no-removed-backends.test.ts")}`),
+      (f) =>
+        !f.endsWith(`${join("lib", "__tests__", "no-removed-backends.test.ts")}`) &&
+        !relative(ROOT, f).startsWith(join("src", "integrations")) &&
+        !ALLOWED_BACKEND_FILES.has(relative(ROOT, f)),
     );
     const hits: string[] = [];
     for (const file of files) {
@@ -79,22 +87,23 @@ describe("no removed backends", () => {
     expect(hits, hits.join("\n")).toEqual([]);
   });
 
-  it("does not resurrect vercel.json, .vercel, or src/integrations/supabase", () => {
+  it("does not resurrect vercel.json or .vercel", () => {
     expect(pathExists("vercel.json")).toBe(false);
     expect(pathExists(".vercel")).toBe(false);
-    expect(pathExists("src/integrations")).toBe(false);
-    expect(pathExists("src/integrations/supabase")).toBe(false);
-    expect(pathExists("src/integrations/supabase/client.ts")).toBe(false);
-    expect(pathExists("src/integrations/supabase/types.ts")).toBe(false);
+  });
+
+  it("only keeps the card-donation backend function", () => {
+    if (!pathExists("supabase/functions")) return;
+    const extra = readdirSync(join(ROOT, "supabase/functions")).filter(
+      (name) => !ALLOWED_FUNCTIONS.includes(name),
+    );
+    expect(extra, extra.join(", ")).toEqual([]);
   });
 
   it("does not keep dormant Express server.js, src/api stubs, or supabase/", () => {
     expect(pathExists("server.js")).toBe(false);
     expect(pathExists("src/api")).toBe(false);
     expect(pathExists("src/api/routes/articles.js")).toBe(false);
-    expect(pathExists("supabase")).toBe(false);
-    expect(pathExists("supabase/config.toml")).toBe(false);
-    expect(pathExists("supabase/functions")).toBe(false);
     expect(pathExists(".github/workflows/edge-functions-preflight.yml")).toBe(false);
     expect(pathExists("database-optimizations.sql")).toBe(false);
     expect(pathExists("scripts/meta-descriptions-update.sql")).toBe(false);
@@ -131,7 +140,7 @@ describe("no removed backends", () => {
       if (!pathExists(root)) continue;
       for (const file of walk(join(ROOT, root))) {
         const rel = relative(ROOT, file);
-        if (SKIP_FILES.has(rel)) continue;
+        if (SKIP_FILES.has(rel) || ALLOWED_BACKEND_FILES.has(rel) || rel.startsWith(join("src", "integrations"))) continue;
         const text = readFileSync(file, "utf8");
         for (const { label, re } of FORBIDDEN_LIVE) {
           if (re.test(text)) hits.push(`${rel}: ${label}`);

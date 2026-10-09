@@ -174,12 +174,9 @@ export default function Donate() {
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.
             </p>
-            <Button asChild size="lg" className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
-                <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
-                Donate Now
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
+            <Button size="lg" onClick={() => setIsModalOpen(true)} className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group">
+              <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
+              Donate Now
             </Button>
           </div>
         </section>
