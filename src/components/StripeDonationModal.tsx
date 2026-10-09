@@ -97,7 +97,7 @@ const StripeDonationModal = ({ isOpen, onClose, amount, fundType, recurring = fa
                 <span>
                   Yes, I am a UK taxpayer and want to Gift Aid this donation. I understand that if I
                   pay less Income Tax or Capital Gains Tax than the Gift Aid claimed, it is my
-                  responsibility to pay the difference.
+                  responsibility to pay the difference. We record your choice now and can only claim once our HMRC registration is complete.
                 </span>
               </label>
               <Button
