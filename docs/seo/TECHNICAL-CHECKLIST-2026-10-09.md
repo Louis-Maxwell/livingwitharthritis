@@ -128,6 +128,10 @@ The live sitemap contains 1,006 URL elements; the regenerated sitemap has 1,010 
 | NHS/university/healthcare backlinks | Growth | U | Outreach not sent. Requires relevant partnerships/editorial decisions by third parties. |
 | Search/AI citation measurement | Growth | U | Requires dated baseline samples and referral/search data; inclusion cannot be guaranteed. |
 
+## Remote CI status
+
+The initial remote run found that the new regression step was placed before dependency installation; that ordering has been corrected. The existing Weekly health production-dependency audit reports six high and three moderate findings, including braces with no available fix in the reported dependency tree. No security check was disabled. Remote required checks must pass before merge; local verification does not override them.
+
 ## Hosting actions that remain critical
 
 1. Configure the host/edge to return permanent 301/308 redirects for both www variants, preserving pathname and query. Existing source redirects alone do not prove deployed behaviour.
