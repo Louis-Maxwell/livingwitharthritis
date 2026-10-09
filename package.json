@@ -11,7 +11,7 @@
   "author": "Louis-Maxwell",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": "^22.13.0 || ^24.0.0 || >=26.0.0"
   },
   "scripts": {
     "predev": "(bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs) || true; bun scripts/generate-sitemap.ts && node scripts/enrich-sitemap-images.mjs || true; node scripts/generate-llms-full.mjs || true",
@@ -52,7 +52,7 @@
     "test:e2e:debug": "playwright test --debug",
     "fix:branded-search": "node scripts/fix-branded-search.mjs",
     "indexnow": "INDEXNOW=1 node scripts/indexnow-ping.mjs",
-    "test": "vitest run",
+    "test": "vitest run && npm run test:dependency-security",
     "test:watch": "vitest",
     "search:index": "node scripts/generate-search-index.mjs",
     "blog:catalog": "bun scripts/generate-blog-catalog.ts",
@@ -63,7 +63,8 @@
     "test:blog-smoke": "playwright test e2e/blog-smoke.spec.ts",
     "test:route-smoke": "playwright test e2e/route-smoke.spec.ts",
     "test:a11y-smoke": "playwright test e2e/a11y-smoke.spec.ts",
-    "seo:foundations": "node scripts/check-live-foundations.mjs"
+    "seo:foundations": "node scripts/check-live-foundations.mjs",
+    "test:dependency-security": "node --test scripts/test-braces-security.cjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
@@ -135,7 +136,8 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^6.4.3",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.1",
+    "braces": "file:vendor/braces"
   },
   "overrides": {
     "minimatch": "^10.2.6",
@@ -157,7 +159,9 @@
     "esbuild": "^0.25.12",
     "qs": "^6.16.0",
     "brace-expansion": "^5.0.9",
-    "js-yaml": "^4.3.2"
+    "js-yaml": "^4.3.2",
+    "braces": "$braces",
+    "postcss-selector-parser": "^7.1.6"
   },
   "resolutions": {
     "minimatch": "^10.2.6",
@@ -172,6 +176,8 @@
     "jspdf": "^4.2.1",
     "picomatch": "^4.0.5",
     "lodash": "^4.17.21",
-    "brace-expansion": "^5.0.1"
+    "brace-expansion": "^5.0.1",
+    "braces": "file:vendor/braces",
+    "postcss-selector-parser": "^7.1.6"
   }
 }
