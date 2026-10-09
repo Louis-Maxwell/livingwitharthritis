@@ -170,6 +170,25 @@ const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
 const BLOG_SLUGS = new Set(
   existsSync(BLOG_SLUGS_PATH) ? readJson(BLOG_SLUGS_PATH) : [],
 );
+const STATIC_APP_ROUTES = new Set(appRoutes());
+
+function blogArchiveHeadData() {
+  const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
+  const guides = (Array.isArray(posts) ? posts : [])
+    .filter((post) => BLOG_SLUGS.has(post.slug))
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  return {
+    title: "Arthritis blog archive — browse by date and topic | Living With Arthritis",
+    description: "Browse the Living With Arthritis archive of published guides on exercise, joint pain, treatments, diet and everyday support.",
+    question: "Browse all arthritis guides",
+    answer: "Find published Living With Arthritis guides in date order. Each guide shows its own clinical-review status. Explore practical information on arthritis, exercise, diet, treatments and everyday support.",
+    breadcrumb: "Blog archive",
+    bodyHtml: `<p><a href="/blog">Explore guides by topic</a></p><ul>${guides.map((post) =>
+      `<li><a href="/blog/${escAttr(post.slug)}">${escText(post.title)}</a>${post.date ? ` — ${escText(String(post.date).slice(0, 10))}` : ""}</li>`
+    ).join("")}</ul>`,
+    noindex: false,
+  };
+}
 
 const NOT_FOUND_HEAD = {
   title: "Page not found | Living With Arthritis",
@@ -184,10 +203,11 @@ const NOT_FOUND_HEAD = {
 
 function headDataFor(route, override) {
   if (override) return override;
+  if (route === "/blog/archive") return blogArchiveHeadData();
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
-  if (blogMatch && !BLOG_SLUGS.has(blogMatch[1])) {
+  if (blogMatch && !STATIC_APP_ROUTES.has(route) && !BLOG_SLUGS.has(blogMatch[1])) {
     return NOT_FOUND_HEAD;
   }
   // Known city hubs: unique indexable heads (write-city-hub-html overwrites body).

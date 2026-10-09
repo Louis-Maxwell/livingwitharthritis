@@ -1,0 +1,13 @@
+{
+  "base": "https://livingwitharthritis.org.uk",
+  "total": 1004,
+  "broken": 1,
+  "ranAt": "2026-10-09T10:32:30.906Z",
+  "items": [
+    {
+      "url": "/blog/archive",
+      "status": 200,
+      "reason": "noindex-in-sitemap"
+    }
+  ]
+}

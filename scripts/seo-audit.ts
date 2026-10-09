@@ -49,7 +49,9 @@ const steps: Step[] = [
     args: ["-q", "Sitemap:", "public/robots.txt"],
     required: true,
   },
-  { name: "audit-sitemap", file: "node", args: ["scripts/audit-sitemap.mjs"], required: true },
+  // Audit the same served build as the other checks, rather than silently
+  // hitting production even when CI supplies BASE_URL/SITE_URL.
+  { name: "audit-sitemap", file: "node", args: ["scripts/audit-sitemap.mjs", SAFE_BASE, "16", ".preflight-reports/sitemap-audit.json"], required: true },
   { name: "check-canonicals", file: "node", args: ["scripts/check-canonicals.mjs"], required: false },
   { name: "check-social-meta", file: "node", args: ["scripts/check-social-meta.mjs"], required: false },
   {

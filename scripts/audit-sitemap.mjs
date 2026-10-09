@@ -49,7 +49,14 @@ const textOf = (html, pattern) => {
     .trim();
 };
 const titleOf = (html) => textOf(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
-const h1Of = (html) => textOf(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
+const h1Of = (html) => {
+  // The shell also contains a hidden homepage boot hero. Inspect the route's
+  // static article instead of treating that hidden heading as page content.
+  const articleStart = html.search(/<article\b[^>]*\bid=["']static-article["']/i);
+  const fallbackStart = html.search(/<div\b[^>]*\bid=["']seo-fallback["']/i);
+  const start = articleStart >= 0 ? articleStart : fallbackStart;
+  return textOf(start >= 0 ? html.slice(start) : html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
+};
 const canonicalOf = (html) => {
   const tag = html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)?.[0];
   if (!tag) return "";
@@ -93,8 +100,16 @@ async function checkOne(path) {
     if (res.status !== 200) {
       return { url: path, status: res.status, reason: "http-error" };
     }
+    if (!/text\/html/i.test(res.headers.get("content-type") || "")) {
+      return { url: path, status: 200, reason: "not-html" };
+    }
     const buf = await res.text();
     const head = buf.slice(0, 250_000);
+    const robotsTags = head.match(/<meta\b[^>]*\bname=["'](?:robots|googlebot|bingbot)["'][^>]*>/gi) || [];
+    if (/\b(?:noindex|none)\b/i.test(res.headers.get("x-robots-tag") || "") ||
+        robotsTags.some((tag) => /\bcontent=["'][^"']*\b(?:noindex|none)\b/i.test(tag))) {
+      return { url: path, status: 200, reason: "noindex-in-sitemap" };
+    }
     for (const m of NOT_FOUND_MARKERS) {
       if (head.includes(m)) {
         return { url: path, status: 200, reason: "not-found-page" };
@@ -119,6 +134,10 @@ async function checkOne(path) {
     const expectedCanonical = `${CANONICAL_BASE}${path}`;
     if (!canonical) {
       return { url: path, status: 200, reason: "missing-canonical" };
+    }
+    const canonicalCount = (head.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/gi) || []).length;
+    if (canonicalCount !== 1) {
+      return { url: path, status: 200, reason: "multiple-canonicals", count: canonicalCount };
     }
     if (canonical !== expectedCanonical) {
       return {
@@ -164,3 +183,6 @@ console.log(`[audit] DONE. ${broken.length} broken of ${paths.length}. → ${OUT
 const byReason = {};
 for (const b of broken) byReason[b.reason] = (byReason[b.reason] || 0) + 1;
 console.log("[audit] by reason:", byReason);
+// An empty sitemap or detected failures must fail the scheduled check.
+// Keep writing the report first so CI can publish actionable evidence.
+if (paths.length === 0 || broken.length > 0) process.exitCode = 1;
