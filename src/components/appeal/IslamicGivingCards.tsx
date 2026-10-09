@@ -1,6 +1,6 @@
 import { Moon, HandHeart, Sprout } from "lucide-react";
 import { trackDonationClick } from "@/lib/ga-events";
-import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import { ZAKAT_GIVE_URL } from "@/components/landing/homeJobs";
 
 const GIVING_TYPES = [
   {
@@ -61,9 +61,7 @@ export default function IslamicGivingCards() {
                 {type.body}
               </p>
               <a
-                href={GOFUNDME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={ZAKAT_GIVE_URL}
                 onClick={() => {
                   trackDonationClick({
                     source: `gaza_${type.id}_card`,
@@ -73,7 +71,7 @@ export default function IslamicGivingCards() {
                 className="mt-5 inline-flex items-center justify-center h-11 bg-primary text-primary-foreground font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors"
               >
                 {type.cta}
-                <span className="sr-only"> (opens in a new tab)</span>
+                <span className="sr-only"> (opens your email app)</span>
               </a>
             </div>
           ))}

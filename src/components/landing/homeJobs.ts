@@ -17,6 +17,11 @@ import {
  */
 export const GOFUNDME_URL = "https://www.gofundme.com/f/help-fund-critical-arthritis-research";
 
+/** Zakat must stay with the Gaza appeal, never the general research fund. */
+export const ZAKAT_GIVE_URL =
+  "mailto:info@livingwitharthritis.org.uk?subject=" +
+  encodeURIComponent("Zakat / Sadaqah for the Palestine & Gaza appeal");
+
 export type JobLink = { label: string; href: string; external?: boolean };
 
 export type VisitorJob = {
