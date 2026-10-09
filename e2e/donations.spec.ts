@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
+import { GOFUNDME_URL } from "../src/components/landing/homeJobs";
 
-/** /donate on the built site: content, navigation and the donation dialog. */
+/** /donate: content, internal navigation and safe handoff to GoFundMe. */
 test.describe("Donation page", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
@@ -34,9 +35,11 @@ test.describe("Donation page", () => {
     await expect(page.getByRole("heading", { name: "Gift Aid (+25%)" })).toBeVisible();
   });
 
-  test("links to the Zakat appeal", async ({ page }) => {
-    await page.getByRole("link", { name: "Give to the appeal" }).click();
-    await expect(page).toHaveURL(/\/zakat-appeal$/);
+  test("the appeal links to GoFundMe in a new tab", async ({ page }) => {
+    const appeal = page.getByRole("link", { name: /Give to the appeal/ });
+    await expect(appeal).toHaveAttribute("href", GOFUNDME_URL);
+    await expect(appeal).toHaveAttribute("target", "_blank");
+    await expect(appeal).toHaveAttribute("rel", /noopener/);
   });
 
   test("Start Fundraising goes to Ways to Help", async ({ page }) => {
@@ -49,12 +52,12 @@ test.describe("Donation page", () => {
     await expect(page).toHaveURL(/\/corporate-giving$/);
   });
 
-  test("the donate button opens exactly one donation dialog", async ({ page }) => {
-    await page.getByRole("button", { name: /^Donate £50$/ }).click();
-    const dialog = page.getByRole("dialog");
-    await expect(dialog).toHaveCount(1);
-    await expect(dialog.getByRole("heading", { name: /Complete Your Donation|Set Up Monthly Donation/ })).toBeVisible();
-    await page.keyboard.press("Escape");
+  test("donation hands off to GoFundMe without taking card payments", async ({ page }) => {
+    const donate = page.getByRole("link", { name: /^Donate on GoFundMe/ });
+    await expect(donate).toHaveAttribute("href", GOFUNDME_URL);
+    await expect(donate).toHaveAttribute("target", "_blank");
+    await expect(donate).toHaveAttribute("rel", /noopener/);
+    await expect(page.getByText("The amount is chosen on GoFundMe. This page does not take card payments.")).toBeVisible();
     await expect(page.getByRole("dialog")).toHaveCount(0);
   });
 });

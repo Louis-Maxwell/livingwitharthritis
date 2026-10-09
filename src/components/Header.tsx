@@ -1,12 +1,14 @@
 ﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
 
+
+const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
@@ -180,6 +182,7 @@ const Header = () => {
         { label: "Ways to Help", desc: "All the ways you can support us", icon: Heart, href: "/ways-to-help", action: () => navigate("/ways-to-help"), color: "text-primary bg-primary/10" },
       ],
     },
+    { label: "Shop", href: SHOP_URL },
     {
       label: "Research",
       href: "/research",
@@ -232,6 +235,7 @@ const Header = () => {
     { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: "Shop", icon: ShoppingBag, desc: "Living With Arthritis merchandise", href: SHOP_URL },
     { label: "Corporate Partnerships", icon: Globe, desc: "Formal partnership programme", href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships") },
     { label: "Resource Centre", icon: BookOpen, desc: "Guides, tools, PIP, exercise & chat", href: "/resource-centre", action: () => navigate("/resource-centre") },
     { label: "Healthcare Professionals", icon: Stethoscope, desc: "Clinic pack & shareable pages", href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals") },
@@ -410,6 +414,7 @@ const Header = () => {
                   const active = isLinkActive(link);
                   const open = activeDropdown === link.label;
                   const isHash = link.href.startsWith("#");
+                  const isExternal = /^https?:\/\//.test(link.href);
                   const topLevelHandlers = {
                     onClick: (e: MouseEvent) => {
                       if (link.subs) {
@@ -419,7 +424,7 @@ const Header = () => {
                         if (link.action) {
                           e.preventDefault();
                           link.action();
-                        } else {
+                        } else if (!isExternal) {
                           scrollToSection(link.href);
                         }
                         setActiveDropdown(null);
@@ -433,7 +438,7 @@ const Header = () => {
                     "aria-expanded": link.subs ? open : undefined,
                     "aria-haspopup": link.subs ? ("true" as const) : undefined,
                     "aria-current": active ? ("page" as const) : undefined,
-                    className: `relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                    className: `relative px-2 xl:px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                       open
                         ? "text-primary bg-primary/5"
                         : active
@@ -444,6 +449,7 @@ const Header = () => {
                   const topLevelContent = (
                     <>
                       {link.label}
+                      {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
                       {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />}
                       {/* Magazine-style active indicator */}
                       <span
@@ -464,7 +470,9 @@ const Header = () => {
                         rendering support. Hash-only items (e.g. "Resources", which
                         opens a drawer, not a real route) stay buttons since there's
                         no destination URL to expose. */}
-                    {isHash ? (
+                    {isExternal ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" {...topLevelHandlers}>{topLevelContent}</a>
+                    ) : isHash ? (
                       <button {...topLevelHandlers}>{topLevelContent}</button>
                     ) : (
                       <Link to={link.href} {...topLevelHandlers}>{topLevelContent}</Link>
@@ -630,6 +638,7 @@ const Header = () => {
                     ? pathname === "/"
                     : pathname === item.href || pathname.startsWith(`${item.href}/`);
                 const isHashItem = item.href.startsWith("#");
+                const isExternalItem = /^https?:\/\//.test(item.href);
                 const commonProps = {
                   "aria-current": active ? ("page" as const) : undefined,
                   onClick: () => {
@@ -662,12 +671,14 @@ const Header = () => {
                       <Icon className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className="block truncate">{item.label}</span>
+                      <span className="block truncate">{item.label}{isExternalItem && <span className="sr-only"> (opens in a new tab)</span>}</span>
                       <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
                     </div>
                   </>
                 );
-                return isHashItem ? (
+                return isExternalItem ? (
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" {...commonProps}>{content}</a>
+                ) : isHashItem ? (
                   <button key={item.label} {...commonProps}>{content}</button>
                 ) : (
                   <Link key={item.label} to={item.href} {...commonProps}>{content}</Link>
