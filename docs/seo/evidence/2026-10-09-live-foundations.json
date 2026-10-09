@@ -1,0 +1,66 @@
+{
+  "ranAt": "2026-10-09T10:29:27.121Z",
+  "site": "https://livingwitharthritis.org.uk",
+  "checks": [
+    {
+      "name": "Permanent canonical redirect: http://livingwitharthritis.org.uk",
+      "passed": true,
+      "evidence": {
+        "status": 301,
+        "location": "https://livingwitharthritis.org.uk/conditions/osteoarthritis"
+      }
+    },
+    {
+      "name": "Permanent canonical redirect: https://www.livingwitharthritis.org.uk",
+      "passed": false,
+      "evidence": {
+        "status": 302,
+        "location": "https://livingwitharthritis.org.uk/conditions/osteoarthritis"
+      }
+    },
+    {
+      "name": "Permanent canonical redirect: http://www.livingwitharthritis.org.uk",
+      "passed": false,
+      "evidence": {
+        "status": 302,
+        "location": "https://livingwitharthritis.org.uk/conditions/osteoarthritis"
+      }
+    },
+    {
+      "name": "HTTPS homepage and HSTS",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "hsts": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "name": "No HTTP assets in homepage response HTML",
+      "passed": true,
+      "evidence": []
+    },
+    {
+      "name": "Public robots.txt advertises sitemap",
+      "passed": true,
+      "evidence": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Public sitemap XML",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "pages": 1006
+      }
+    },
+    {
+      "name": "Unknown URL returns HTTP 404 or 410",
+      "passed": false,
+      "evidence": {
+        "status": 200,
+        "title": "Living With Arthritis | Evidence-Based Health Guides"
+      }
+    }
+  ]
+}

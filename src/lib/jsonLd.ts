@@ -85,10 +85,9 @@ export const buildFAQPage = (items: FAQItem[]) => ({
 });
 
 /* ---------------------------------------------------------------------- *
- *  MedicalWebPage — strongest E-E-A-T signal for health (YMYL) pages.
- *  Search engines and AI answer engines treat MedicalWebPage as a
- *  higher-authority surface than a generic WebPage and lift it into
- *  AI Overviews / ChatGPT / Perplexity answers with attribution.
+ *  MedicalWebPage describes medical educational content. Schema must match
+ *  the visible page; it does not establish clinical review, authority or
+ *  guarantee inclusion in search results or AI answers.
  * ---------------------------------------------------------------------- */
 
 export type MedicalSpecialty =

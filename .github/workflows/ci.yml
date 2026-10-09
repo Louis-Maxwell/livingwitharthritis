@@ -54,6 +54,9 @@ jobs:
       - name: Install
         run: npm ci --prefer-offline --no-audit --no-fund
 
+      - name: Technical SEO regression checks
+        run: node --test scripts/tests/technical-seo.test.mjs
+
       # The root tsconfig.json has "files": [] (project references only), so a
       # bare `tsc --noEmit` checked nothing. Check both real projects; this also
       # fails on missing or misspelled imports.

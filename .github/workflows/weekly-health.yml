@@ -67,8 +67,29 @@ jobs:
     name: Live site key routes
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Hosting, redirects and soft 404 checks
+        run: node scripts/check-live-foundations.mjs
+
+      - name: Crawl every canonical sitemap page
+        if: always()
+        run: node scripts/audit-sitemap.mjs https://livingwitharthritis.org.uk 8 .preflight-reports/sitemap-live.json
+
+      - name: Upload technical SEO evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-technical-seo
+          path: .preflight-reports/*.json
+          retention-days: 30
+          if-no-files-found: warn
+
       - name: Key routes return 200
         run: |
           set -u

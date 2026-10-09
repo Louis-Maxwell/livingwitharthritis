@@ -6,6 +6,7 @@
 //                                       [canonical-base]
 
 import { readFileSync } from "node:fs";
+import { resolve, sep } from "node:path";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 
 const BASE = process.argv[2] || "https://livingwitharthritis.org.uk";
@@ -14,6 +15,9 @@ const OUTPUT = process.argv[4] || "audit-sitemap-report.json";
 const CANONICAL_BASE =
   process.argv[5] || "https://livingwitharthritis.org.uk";
 const TIMEOUT_MS = 12_000;
+// CI validates its generated artifact. A development static server may add
+// directory redirects that are unrelated to production hosting behaviour.
+const DIST_DIR = process.env.DIST_DIR ? resolve(process.env.DIST_DIR) : "";
 
 const ALLOWED_SITEMAP_HOSTS = new Set([
   "livingwitharthritis.org.uk",
@@ -49,7 +53,14 @@ const textOf = (html, pattern) => {
     .trim();
 };
 const titleOf = (html) => textOf(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
-const h1Of = (html) => textOf(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
+const h1Of = (html) => {
+  // The shell also contains a hidden homepage boot hero. Inspect the route's
+  // static article instead of treating that hidden heading as page content.
+  const articleStart = html.search(/<article\b[^>]*\bid=["']static-article["']/i);
+  const fallbackStart = html.search(/<div\b[^>]*\bid=["']seo-fallback["']/i);
+  const start = articleStart >= 0 ? articleStart : fallbackStart;
+  return textOf(start >= 0 ? html.slice(start) : html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
+};
 const canonicalOf = (html) => {
   const tag = html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)?.[0];
   if (!tag) return "";
@@ -81,7 +92,22 @@ async function checkOne(path) {
   }
   const ctl = AbortSignal.timeout(TIMEOUT_MS);
   try {
-    const res = await fetch(target, {
+    let res;
+    if (DIST_DIR) {
+      const pathname = new URL(target).pathname;
+      const file = resolve(DIST_DIR, `.${pathname}`, "index.html");
+      if (!file.startsWith(DIST_DIR + sep)) {
+        return { url: path, status: 0, reason: "bad-path" };
+      }
+      try {
+        res = new Response(readFileSync(file, "utf8"), {
+          status: 200,
+          headers: { "content-type": "text/html" },
+        });
+      } catch {
+        return { url: path, status: 404, reason: "missing-build-page" };
+      }
+    } else res = await fetch(target, {
       redirect: "manual",
       headers: { "user-agent": "lwa-sitemap-audit/1.0" },
       signal: ctl,
@@ -93,8 +119,16 @@ async function checkOne(path) {
     if (res.status !== 200) {
       return { url: path, status: res.status, reason: "http-error" };
     }
+    if (!/text\/html/i.test(res.headers.get("content-type") || "")) {
+      return { url: path, status: 200, reason: "not-html" };
+    }
     const buf = await res.text();
     const head = buf.slice(0, 250_000);
+    const robotsTags = head.match(/<meta\b[^>]*\bname=["'](?:robots|googlebot|bingbot)["'][^>]*>/gi) || [];
+    if (/\b(?:noindex|none)\b/i.test(res.headers.get("x-robots-tag") || "") ||
+        robotsTags.some((tag) => /\bcontent=["'][^"']*\b(?:noindex|none)\b/i.test(tag))) {
+      return { url: path, status: 200, reason: "noindex-in-sitemap" };
+    }
     for (const m of NOT_FOUND_MARKERS) {
       if (head.includes(m)) {
         return { url: path, status: 200, reason: "not-found-page" };
@@ -119,6 +153,10 @@ async function checkOne(path) {
     const expectedCanonical = `${CANONICAL_BASE}${path}`;
     if (!canonical) {
       return { url: path, status: 200, reason: "missing-canonical" };
+    }
+    const canonicalCount = (head.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/gi) || []).length;
+    if (canonicalCount !== 1) {
+      return { url: path, status: 200, reason: "multiple-canonicals", count: canonicalCount };
     }
     if (canonical !== expectedCanonical) {
       return {
@@ -152,6 +190,7 @@ await Promise.all(workers);
 broken.sort((a, b) => a.url.localeCompare(b.url));
 const report = {
   base: BASE,
+  ...(DIST_DIR ? { dist: DIST_DIR } : {}),
   total: paths.length,
   broken: broken.length,
   ranAt: new Date().toISOString(),
@@ -164,3 +203,6 @@ console.log(`[audit] DONE. ${broken.length} broken of ${paths.length}. → ${OUT
 const byReason = {};
 for (const b of broken) byReason[b.reason] = (byReason[b.reason] || 0) + 1;
 console.log("[audit] by reason:", byReason);
+// An empty sitemap or detected failures must fail the scheduled check.
+// Keep writing the report first so CI can publish actionable evidence.
+if (paths.length === 0 || broken.length > 0) process.exitCode = 1;
