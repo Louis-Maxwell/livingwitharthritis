@@ -180,23 +180,13 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     );
   });
 
-  it("walking-with-arthritis remains reviewed (date may advance after Champions 52)", () => {
-    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.reviewStatus).toBe(
-      "reviewed",
-    );
-    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.last_reviewed).toBe(
-      "2026-09-29",
-    );
-    expect(
-      resolveBlogReviewStatus(bySlug.get("walking-with-arthritis-start-build-up-keep-going")),
-    ).toBe("reviewed");
-  });
-
+  // walking-with-arthritis-start-build-up-keep-going and joint-protection-easier-everyday-tasks
+  // were rewritten in the Exercise & Physiotherapy batch 2 (Oct 2026) and are now asserted
+  // as pending in PENDING_EXERCISE_PHYSIO_BATCH_2 until re-reviewed.
 
   it.each([
     "sick-pay-fit-notes-time-off-work-arthritis",
     "carers-allowance-help-if-you-care-for-someone",
-    "joint-protection-easier-everyday-tasks",
   ])("%s is clinically reviewed on 30 Sep 2026 (Champions 53–55)", (slug) => {
     expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
     expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-30");
