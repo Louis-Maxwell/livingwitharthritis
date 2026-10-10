@@ -97,6 +97,7 @@ const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
   "universal-credit-and-arthritis-limited-capability-for-work",
   "carers-allowance-help-if-you-care-for-someone",
   "workplace-adjustment-letter-templates-arthritis",
+  "sick-pay-fit-notes-time-off-work-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
@@ -163,6 +164,13 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     );
   });
 
+  it("Sick pay and fit notes blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    const slug = "sick-pay-fit-notes-time-off-work-arthritis";
+    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
+    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+  });
+
   it("Carer's Allowance blog was rewritten in Benefits batch 3 and is pending re-review", () => {
     const slug = "carers-allowance-help-if-you-care-for-someone";
     expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
@@ -192,7 +200,6 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
 
   it.each([
-    "sick-pay-fit-notes-time-off-work-arthritis",
     "joint-protection-easier-everyday-tasks",
   ])("%s is clinically reviewed on 30 Sep 2026 (Champions 53–55)", (slug) => {
     expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");

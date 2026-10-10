@@ -83,10 +83,9 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     content: string;
   };
 
-  it("Sick pay blog is clinically reviewed 2026-09-30 with CTR meta, GOV.UK cites and customer-job links", () => {
-    expect(sickJson.last_reviewed).toBe(REVIEW);
-    expect(sickJson.reviewStatus).toBe("reviewed");
-    expect(sickJson.reviewed_by).toBe("Louis Maxwell");
+  it("Sick pay blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta, GOV.UK cites and customer-job links", () => {
+    expect(sickJson.reviewStatus).toBe("pending");
+    expect(sickJson.last_reviewed).toBeUndefined();
     expect(sickJson.meta_title).toMatch(/Sick Pay & Fit Notes for Arthritis: .*\(UK\)/i);
     const urls = (sickJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -101,7 +100,8 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
       expect(sickJson.content.includes(`href="${href}"`), `Sick pay missing ${href}`).toBe(true);
     }
     expect(sickJson.content).toMatch(/1218461/);
-    expect(sickJson.content).toMatch(/HCPC PH128483/);
+    // Pending re-review: no reviewer credential is claimed in the disclaimer.
+    expect(sickJson.content).toMatch(/Pending clinical and editorial review/);
     expect(sick).not.toMatch(/Oswestry/i);
     expect(sick).not.toMatch(/George Dingley|Crewe CW1/i);
   });
