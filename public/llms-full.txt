@@ -1048,11 +1048,11 @@ A: Widespread body pain; tenderness on touch; fatigue; sleep issues; 'fibro fog'
 Q: What should I be careful about?
 A: Both respond to graded exercise, sleep hygiene and CBT — different medications from your GP.
 
-## PIP Application Guide: Forms, Evidence & Next Steps | Living With Arthritis
+## PIP for Arthritis: Complete UK Guide (2026/27) | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
 Last updated: 2026-10-10
-Q: How do I prepare a PIP application for arthritis?
-A: Check the official claim route for where you live, prepare your form and supporting evidence, and explain how daily living and mobility difficulties vary. Use the free evidence diary and get welfare advice if you need help.
+Q: Can I get PIP for arthritis in the UK?
+A: PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.
 
 ## Blue Badge vs Disability Parking Concessions
 URL: https://livingwitharthritis.org.uk/guides/blue-badge-vs-disability-parking
@@ -1648,11 +1648,11 @@ Last updated: 2026-09-05
 Q: Managing Anxiety When You Have Arthritis: A UK Guide
 A: Quick answer: Anxiety often travels with chronic pain. Here's how UK patients can use CBT, breathwork and What the evidence says Managing Anxiety.
 
-## How to Appeal a Rejected PIP Claim for Arthritis
+## PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case
 URL: https://livingwitharthritis.org.uk/blog/appeal-rejected-pip-arthritis
-Last updated: 2026-09-05
-Q: How to Appeal a Rejected PIP Claim for Arthritis
-A: To appeal rejected PIP for arthritis: request your assessment report, write a mandatory reconsideration within 1 month citing specific errors, and if refused again appeal to the SSCS tribunal (free). Tribunal success rates are 60-70% for arthritis with medical evidence. Get free help from Citizens Advice.
+Last updated: 2026-10-10
+Q: PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case
+A: If you disagree with a PIP decision, first ask DWP for a mandatory reconsideration, usually within one month of the date on your decision letter. If the decision is not changed, appeal to the independent Social Security and Child Support Tribunal within one month of your mandatory reconsideration notice. Both steps are free. Focus on the activities where you think points were missed.
 
 ## Appetite loss, arthritis pain and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/appetite-loss-arthritis-frailty-uk
@@ -2026,11 +2026,11 @@ Last updated: 2026-09-05
 Q: How to Get a Blue Badge for Arthritis in Scotland
 A: Blue Badge Scotland for arthritis: apply at mygov.scot/blue-badge. Automatic eligibility with PIP/ADP enhanced mobility. Otherwise assessed on walking difficulty. Describe worst typical days, include GP supporting letter, OT report and X-rays if available. Valid UK-wide for 3 years.
 
-## Blue Badge, frailty and arthritis: walking distance in real life (UK)
+## Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation
 URL: https://livingwitharthritis.org.uk/blog/blue-badge-frailty-arthritis-uk
-Last updated: 2026-09-05
-Q: Blue Badge, frailty and arthritis: walking distance in real life (UK)
-A: This guide stays with blue Badge, frailty and arthritis: walking distance in real life: what still moves safely, what to ask, and how to keep a steadier week. This guide covers parking support when walking is limited, without promises because arthritis with frailty affects several joints, with a focus on Northern Ireland and a home setting.
+Last updated: 2026-10-10
+Q: Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation
+A: You may get a Blue Badge if arthritis makes walking very difficult because of pain, the time it takes or the risk of falling. Some people qualify automatically, for example with 8 points or more in the PIP or ADP 'moving around' activity. Otherwise your council assesses you. Apply through GOV.UK in England, Scotland and Wales, or nidirect in Northern Ireland.
 
 ## Bone clinics, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/bone-clinic-arthritis-frailty-uk
@@ -3411,6 +3411,12 @@ URL: https://livingwitharthritis.org.uk/blog/morning-stiffness-frailty-routine-u
 Last updated: 2026-09-05
 Q: Morning stiffness and frailty: a slower start that still starts (UK)
 A: Living With Arthritis covers morning stiffness and frailty: a slower start that still starts without miracle claims — just safer movement and clearer next steps. This UK guide looks at the first hour without skipping breakfast or tablets in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
+
+## Motability Scheme and Arthritis: Who Can Join, How It Works and What It Costs (UK)
+URL: https://livingwitharthritis.org.uk/blog/motability-scheme-arthritis-uk
+Last updated: 2026-10-10
+Q: Motability Scheme and Arthritis: Who Can Join, How It Works and What It Costs (UK)
+A: The Motability Scheme lets you exchange all or part of a qualifying mobility allowance for a leased car, wheelchair accessible vehicle, scooter or powered wheelchair. With arthritis, the usual route is the enhanced (higher) rate of the PIP or Adult Disability Payment mobility part. You normally need at least 12 months left on your award to join. Insurance, servicing and breakdown cover are included.
 
 ## Motivation after a setback: arthritis, frailty and starting again (UK)
 URL: https://livingwitharthritis.org.uk/blog/motivation-after-setback-arthritis-frailty-uk
