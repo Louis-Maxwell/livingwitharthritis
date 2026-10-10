@@ -1109,3 +1109,6 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /nhs-arthritis-pathways-explained /blog/nhs-arthritis-pathways-explained 301
 /private-treatment-costs-uk-arthritis /blog/private-treatment-costs-uk-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/travel-insurance-arthritis-uk /blog/travel-insurance-arthritis-uk 301

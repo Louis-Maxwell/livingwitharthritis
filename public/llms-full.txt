@@ -2410,11 +2410,11 @@ Last updated: 2026-09-05
 Q: Temporary downstairs living with arthritis and frailty (UK)
 A: For temporary downstairs living with arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. Arthritis can accelerate that by making every transfer cost more. This article is about a camp-bed phase that needs a plan, written for people and carers in Wales, especially around a home.
 
-## Driving with Arthritis in the UK
+## Driving With Arthritis in the UK: DVLA Rules, Medicines and Help
 URL: https://livingwitharthritis.org.uk/blog/driving-with-arthritis-uk
-Last updated: 2026-09-05
-Q: Driving with Arthritis in the UK
-A: You must inform the DVLA if your arthritis affects your ability to drive safely, for example, if you have difficulty gripping the steering wheel, operating pedals, or checking mirrors. Not all arthritis requires reporting; only if it impacts driving. Vehicle adaptations like steering wheel aids or automatic transmission can help. If eligible, the Motability Scheme provides adapted cars, and a Blue Badge offers parking concessions.
+Last updated: 2026-10-10
+Q: Driving With Arthritis in the UK: DVLA Rules, Medicines and Help
+A: Arthritis alone does not need reporting. GOV.UK says you must tell the DVLA if you use special controls for driving, or if your arthritis affects your ability to drive safely. You can be fined up to £1,000 if you do not. Check with your doctor about painkillers such as codeine, and wait at least 6 weeks after a hip or total knee replacement.
 
 ## Why Early Intervention Beats Late Treatment in Arthritis
 URL: https://livingwitharthritis.org.uk/blog/early-arthritis-intervention-uk
@@ -4527,6 +4527,12 @@ URL: https://livingwitharthritis.org.uk/blog/transfer-board-arthritis-frailty-uk
 Last updated: 2026-09-05
 Q: Transfer boards for frail adults with arthritis (UK)
 A: Families dealing with transfer boards for frail adults with arthritis usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at bed to chair without a risky hoist-by-family in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
+
+## Travel Insurance With Arthritis: A UK Guide to Declaring, Comparing and Claiming
+URL: https://livingwitharthritis.org.uk/blog/travel-insurance-arthritis-uk
+Last updated: 2026-10-10
+Q: Travel Insurance With Arthritis: A UK Guide to Declaring, Comparing and Claiming
+A: Declare your arthritis, medicines, and any pending tests or surgery, as the FCDO warns that not declaring a condition may invalidate your policy. If an insurer refuses you or quotes a medical premium of £200 or more, FCA rules mean it must point you to a directory of specialist insurers. A free GHIC helps in the EEA but does not replace insurance.
 
 ## Travelling with Arthritis: A UK Guide to Pain-Free Holidays
 URL: https://livingwitharthritis.org.uk/blog/travelling-with-arthritis-uk

@@ -99,6 +99,8 @@ const PENDING_WAITING_LIFE_BATCH_5 = [
   "how-nhs-referrals-work-arthritis",
   "nhs-arthritis-pathways-explained",
   "private-treatment-costs-uk-arthritis",
+  "driving-with-arthritis-uk",
+  "travel-insurance-arthritis-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
