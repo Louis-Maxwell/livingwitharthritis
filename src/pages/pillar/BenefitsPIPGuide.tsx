@@ -226,7 +226,7 @@ export default function BenefitsPIPGuide() {
     <>
       <PageSchema
         url="/guides/benefits-pip"
-        name="PIP Application Guide: Forms, Evidence & Next Steps"
+        name="How to Claim PIP if You Have Arthritis: Complete UK Guide"
         description="Prepare a PIP claim for arthritis: application steps, evidence diary, assessments and challenges. Find current official rates and country-specific claim routes."
         medical={{ condition: "Arthritis" }}
         breadcrumbs={[
@@ -238,13 +238,13 @@ export default function BenefitsPIPGuide() {
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
-        <title>PIP Application Guide: Forms, Evidence & Next Steps | Living With Arthritis</title>
+        <title>How to Claim PIP if You Have Arthritis: Complete UK Guide | Living With Arthritis</title>
         <meta name="description" content="Prepare a PIP claim for arthritis: application steps, evidence diary, assessments and challenges. Find current official rates and country-specific claim routes." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
-      <meta property="og:title" content="PIP Application Guide: Forms, Evidence & Next Steps" />
+      <meta property="og:title" content="How to Claim PIP if You Have Arthritis: Complete UK Guide" />
       <meta property="og:description" content="Prepare a PIP claim for arthritis: application steps, evidence diary, assessments and challenges. Find current official rates and country-specific claim routes." />
 
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/benefits-pip" />
@@ -254,7 +254,7 @@ export default function BenefitsPIPGuide() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="PIP Application Guide: Forms, Evidence & Next Steps" />
+      <meta name="twitter:title" content="How to Claim PIP if You Have Arthritis: Complete UK Guide" />
       <meta name="twitter:description" content="Prepare a PIP claim for arthritis: application steps, evidence diary, assessments and challenges. Find current official rates and country-specific claim routes." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <script type="application/ld+json">{JSON.stringify({
