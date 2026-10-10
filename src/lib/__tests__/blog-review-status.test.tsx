@@ -98,6 +98,7 @@ const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
   "carers-allowance-help-if-you-care-for-someone",
   "workplace-adjustment-letter-templates-arthritis",
   "sick-pay-fit-notes-time-off-work-arthritis",
+  "retirement-planning-arthritis-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
