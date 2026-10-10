@@ -103,6 +103,7 @@ const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "expert-qa-exercising-through-a-flare-up",
   "weight-loss-exercise-plan-arthritis",
   "balance-training-arthritis",
+  "exercise-progression-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {

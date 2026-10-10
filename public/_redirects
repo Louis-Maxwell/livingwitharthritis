@@ -1109,3 +1109,6 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /balance-training-arthritis /blog/balance-training-arthritis 301
 /weight-loss-exercise-plan-arthritis /blog/weight-loss-exercise-plan-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/exercise-progression-arthritis /blog/exercise-progression-arthritis 301
