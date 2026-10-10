@@ -103,6 +103,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "arthritis-fatigue-recovery-guide",
   "pacing-techniques-arthritis-pain",
   "arthritis-pain-scale-explained",
+  "arthritis-red-flag-symptoms",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
