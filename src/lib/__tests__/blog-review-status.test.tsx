@@ -106,6 +106,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "arthritis-red-flag-symptoms",
   "emergency-arthritis-flare-checklist",
   "safe-daily-stretching-routine-arthritis",
+  "30-day-arthritis-pain-reduction-challenge",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
