@@ -101,6 +101,8 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "foods-to-avoid-with-arthritis",
   "hot-weather-arthritis-management",
   "arthritis-fatigue-recovery-guide",
+  "pacing-techniques-arthritis-pain",
+  "arthritis-pain-scale-explained",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {

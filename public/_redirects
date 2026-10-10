@@ -1103,3 +1103,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-fatigue-recovery-guide /blog/arthritis-fatigue-recovery-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-pain-scale-explained /blog/arthritis-pain-scale-explained 301
