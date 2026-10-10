@@ -104,6 +104,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "pacing-techniques-arthritis-pain",
   "arthritis-pain-scale-explained",
   "arthritis-red-flag-symptoms",
+  "emergency-arthritis-flare-checklist",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {

@@ -1109,3 +1109,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-red-flag-symptoms /blog/arthritis-red-flag-symptoms 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/emergency-arthritis-flare-checklist /blog/emergency-arthritis-flare-checklist 301
