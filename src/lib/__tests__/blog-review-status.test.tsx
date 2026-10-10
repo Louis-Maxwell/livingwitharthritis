@@ -93,6 +93,8 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "managing-arthritis-flare-ups-at-home",
   "heat-or-ice-for-arthritis",
   "morning-routine-multi-joint-arthritis",
+  "manage-arthritis-pain-flare-ups-night",
+  "arthritis-pain-tracking-journal-template",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
