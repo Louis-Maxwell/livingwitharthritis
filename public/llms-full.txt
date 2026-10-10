@@ -2776,11 +2776,11 @@ Last updated: 2026-09-25
 Q: Giant Cell Arteritis: The Headache You Must Not Ignore
 A: Giant cell arteritis (GCA) is inflammation of medium and large arteries, especially those in the head. It mainly affects people over 50 and can cause permanent sight loss if it is not treated quickly. A new headache, a tender scalp, jaw pain when chewing or any change in vision needs same-day medical help. Treatment with steroids usually starts straight away.
 
-## Ginger Root: A Natural Anti-Inflammatory Food
+## Ginger for Arthritis: An Honest Evidence Guide (UK)
 URL: https://livingwitharthritis.org.uk/blog/ginger-root-natural-anti-inflammatory
-Last updated: 2026-09-05
-Q: Ginger Root: A Natural Anti-Inflammatory Food
-A: Ginger contains gingerols and shogaols that dampen the same COX-2 and cytokine pathways NSAIDs act on. Meta-analyses show a modest but real reduction in pain and stiffness in knee osteoarthritis, typically over 4–12 weeks at 500–1,000 mg/day of standardised extract, or 1–2 g/day of fresh root. Effect size is smaller than turmeric but tolerability is excellent.
+Last updated: 2026-10-10
+Q: Ginger for Arthritis: An Honest Evidence Guide (UK)
+A: Ginger supplements may give a small reduction in osteoarthritis pain, but trials are few and of moderate or poor quality, and ibuprofen worked better in a head-to-head study. Ginger in food is safe for most people. If you take blood thinners such as warfarin, speak to a doctor or pharmacist before taking ginger supplements, as ginger might increase bleeding risk.
 
 ## Ginger vs Turmeric for Arthritis: Which Actually Works?
 URL: https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis
@@ -3712,6 +3712,12 @@ Last updated: 2026-09-05
 Q: How to Claim PIP for Osteoarthritis in Both Knees
 A: For PIP with bilateral knee OA: describe functional impact in detail — standing time limit, difficulty dressing, mobility distance with stops. Include GP supporting letter stating functional limitations (not just diagnosis). An OT assessment report is strong evidence. If refused, appeal — 60-70% success rate at tribunal.
 
+## Plant-Based and Vegan Diets for Arthritis: An Honest Evidence Review (UK)
+URL: https://livingwitharthritis.org.uk/blog/plant-based-diet-arthritis-evidence
+Last updated: 2026-10-10
+Q: Plant-Based and Vegan Diets for Arthritis: An Honest Evidence Review (UK)
+A: Eating more plant foods is a healthy choice with arthritis, and fits the Mediterranean-style pattern NICE suggests for rheumatoid arthritis. A few small trials suggest vegan or vegetarian diets may help some people with rheumatoid arthritis, but a Cochrane review found the effects uncertain. If you go fully vegan, plan for vitamin B12, iodine, calcium, vitamin D, omega-3 and protein, and consider seeing a dietitian.
+
 ## Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)
 URL: https://livingwitharthritis.org.uk/blog/pmr-frailty-morning-stiffness-uk
 Last updated: 2026-09-05
@@ -3825,6 +3831,12 @@ URL: https://livingwitharthritis.org.uk/blog/protein-painful-joints-frailty-uk
 Last updated: 2026-09-05
 Q: Protein, painful joints and frailty (UK)
 A: This page looks at protein, painful joints and frailty with a frailty-aware lens for UK readers at home. This guide covers protein foods when cooking and chewing take more effort because arthritis with frailty affects several joints, with a focus on England and a home setting.
+
+## Protein and Arthritis: How Much You Need and Easy Ways to Get It (UK Guide)
+URL: https://livingwitharthritis.org.uk/blog/protein-requirements-arthritis-uk
+Last updated: 2026-10-10
+Q: Protein and Arthritis: How Much You Need and Easy Ways to Get It (UK Guide)
+A: UK guidance for adults is about 0.75g of protein per kilogram of body weight a day, and most people already eat more than this. Older adults and people with long-term illness may benefit from more, roughly 1.0 to 1.2g per kilogram according to a European expert group, ideally spread across meals and combined with strength exercise. If you have kidney disease, ask your doctor or dietitian before increasing protein.
 
 ## Pseudogout (CPPD): Sudden Hot, Swollen Joints Explained
 URL: https://livingwitharthritis.org.uk/blog/pseudogout-cppd-sudden-hot-swollen-joints
