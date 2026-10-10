@@ -4510,11 +4510,11 @@ Last updated: 2026-09-05
 Q: Understanding Frailty in Older Adults
 A: Frailty is a medical syndrome characterised by reduced strength, endurance, and physiological reserve, making individuals vulnerable to illness or injury. It is different from normal ageing, as many older people remain robust. Clinically, frailty is identified by unintentional weight loss, exhaustion, weakness, slow walking speed, and low physical activity. Early identification is crucial for effective intervention and improved outcomes.
 
-## Universal Credit and Arthritis: Limited Capability for Work
+## ESA and Universal Credit for Arthritis: Limited Capability for Work, the WCA and What You Could Get
 URL: https://livingwitharthritis.org.uk/blog/universal-credit-and-arthritis-limited-capability-for-work
-Last updated: 2026-09-05
-Q: Universal Credit and Arthritis: Limited Capability for Work
-A: The post explains how people with arthritis can prepare for a Universal Credit Work Capability Assessment by giving an honest picture of symptoms, including bad days, and bringing medical evidence, therapy notes, medication details and a symptom diary. It highlights personalised clinical, occupational and workplace support, advises prompt clinician contact if symptoms worsen, and notes decisions can be challenged.
+Last updated: 2026-10-10
+Q: ESA and Universal Credit for Arthritis: Limited Capability for Work, the WCA and What You Could Get
+A: If arthritis limits how much you can work, you may be able to claim Universal Credit, New Style ESA, or both. Universal Credit is means-tested; New Style ESA depends on your National Insurance record. Both use the Work Capability Assessment. If you are found to have limited capability for work and work-related activity, Universal Credit includes an extra monthly amount, which has had two rates for new claims since 6 April 2026.
 
 ## University With Arthritis: Disability Support and DSA
 URL: https://livingwitharthritis.org.uk/blog/university-with-arthritis-disability-support-and-dsa
