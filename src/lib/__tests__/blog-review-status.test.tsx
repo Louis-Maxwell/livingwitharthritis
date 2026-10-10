@@ -101,6 +101,8 @@ const PENDING_DIET_NUTRITION_BATCH_4 = [
   "arthritis-meal-planning-uk",
   "arthritis-and-weight-loss-uk",
   "gut-health-arthritis-connection",
+  "best-foods-to-eat-for-arthritis",
+  "arthritis-and-diet-myths-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
