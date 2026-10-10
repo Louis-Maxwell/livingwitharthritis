@@ -103,6 +103,8 @@ const PENDING_WAITING_LIFE_BATCH_5 = [
   "travel-insurance-arthritis-uk",
   "flying-with-arthritis-uk-airports",
   "travelling-with-arthritis-uk",
+  "arthritis-and-gardening-uk",
+  "cooking-with-arthritis-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
