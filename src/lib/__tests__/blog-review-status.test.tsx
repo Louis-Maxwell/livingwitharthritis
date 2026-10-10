@@ -95,6 +95,8 @@ const PENDING_WAITING_LIFE_BATCH_5 = [
   "questions-to-ask-your-consultant-arthritis",
   "mri-scan-arthritis-explained",
   "x-ray-arthritis-explained",
+  "arthritis-blood-tests-explained-uk",
+  "how-nhs-referrals-work-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {

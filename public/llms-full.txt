@@ -1762,6 +1762,12 @@ Last updated: 2026-09-25
 Q: Arthritis and Your Heart: Lowering Your Heart Disease Risk
 A: Inflammatory types of arthritis, such as rheumatoid arthritis, psoriatic arthritis, lupus and gout, are linked with a higher risk of heart disease and stroke. Ongoing inflammation can damage blood vessels, and some medicines and reduced activity add to the risk. Keeping inflammation well controlled, not smoking, staying active and having regular blood pressure, cholesterol and blood sugar checks all help lower it.
 
+## Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More
+URL: https://livingwitharthritis.org.uk/blog/arthritis-blood-tests-explained-uk
+Last updated: 2026-10-10
+Q: Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More
+A: Blood tests support, but rarely prove, a diagnosis of inflammatory arthritis. CRP and ESR measure inflammation; rheumatoid factor and anti-CCP antibodies point towards rheumatoid arthritis; HLA-B27 helps assess axial spondyloarthritis; urate helps diagnose and treat gout. Osteoarthritis has no blood test. Medicines such as methotrexate need regular blood count, liver and kidney checks.
+
 ## Clinically recommended Arthritis Exercises
 URL: https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical
 Last updated: 2026-09-05
@@ -3063,6 +3069,12 @@ URL: https://livingwitharthritis.org.uk/blog/how-arthritis-is-diagnosed-tests-sc
 Last updated: 2026-09-25
 Q: How Arthritis Is Diagnosed: Blood Tests, Scans and Results
 A: Arthritis is diagnosed by putting together your symptoms, an examination of your joints and, when needed, blood tests and scans. Osteoarthritis can often be diagnosed without any tests if you are over 45 with typical symptoms. Inflammatory types, such as rheumatoid arthritis, usually need blood tests like CRP, ESR, rheumatoid factor and anti-CCP, plus a specialist assessment. No single test confirms most types of arthritis.
+
+## How NHS Referrals Work for Arthritis: From GP to Specialist
+URL: https://livingwitharthritis.org.uk/blog/how-nhs-referrals-work-arthritis
+Last updated: 2026-10-10
+Q: How NHS Referrals Work for Arthritis: From GP to Specialist
+A: Your GP or another clinician refers you to the service you need, such as rheumatology, orthopaedics or community MSK physiotherapy. In England most referrals go through the NHS e-Referral Service, you can usually choose your hospital, and your 18-week clock starts when the referral is received. Suspected inflammatory arthritis should be referred urgently, even if blood tests are normal.
 
 ## How to Sleep Better with Arthritis – A UK Guide
 URL: https://livingwitharthritis.org.uk/blog/how-to-sleep-with-arthritis-uk
