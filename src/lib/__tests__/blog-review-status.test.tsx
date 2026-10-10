@@ -93,6 +93,7 @@ const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "hand-exercises-for-arthritis",
   "shoulder-arthritis-exercises-uk",
   "how-to-choose-the-right-exercise-for-arthritis",
+  "walking-with-arthritis-start-build-up-keep-going",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
