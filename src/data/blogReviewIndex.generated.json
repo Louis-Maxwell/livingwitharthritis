@@ -7,7 +7,7 @@
   "alcohol-arthritis-uk-guidance": "2026-09-05",
   "allotment-identity-arthritis-frailty-uk": "2026-09-05",
   "anaesthetic-risk-arthritis-frailty-uk": "2026-09-05",
-  "anti-inflammatory-diet": "2026-09-05",
+  "anti-inflammatory-diet": "2026-10-10",
   "anti-inflammatory-diet-rheumatoid-arthritis": "2026-09-24",
   "anti-inflammatory-herbs-spices-arthritis": "2026-09-05",
   "anti-inflammatory-shopping-list-uk": "2026-09-05",
@@ -498,7 +498,7 @@
   "vaccines-on-dmards-and-biologics-uk-guide": "2026-09-27",
   "vision-falls-arthritis-frailty-uk": "2026-09-05",
   "vitamin-d-and-falls-arthritis-uk": "2026-09-05",
-  "vitamin-d-arthritis-uk": "2026-09-05",
+  "vitamin-d-arthritis-uk": "2026-10-10",
   "vitamin-d-winter-arthritis-frailty-uk": "2026-10-08",
   "volunteering-seated-arthritis-frailty-uk": "2026-09-05",
   "walking-30-minutes-a-day-while-on-dmards-a-practical-plan": "2026-09-05",
@@ -526,6 +526,7 @@
   "your-workplace-rights-with-arthritis-the-equality-act-2010": "2026-09-05"
  },
  "pending": [
+  "anti-inflammatory-diet",
   "anti-inflammatory-diet-rheumatoid-arthritis",
   "arthritis-and-mental-health-uk",
   "arthritis-and-sleep-problems",
@@ -540,6 +541,7 @@
   "sleep-quality-arthritis-pain",
   "staying-active-arthritis-winter-uk",
   "tens-machines-arthritis-uk",
+  "vitamin-d-arthritis-uk",
   "vitamin-d-winter-arthritis-frailty-uk",
   "winter-arthritis-frailty-cold-houses-uk"
  ]
