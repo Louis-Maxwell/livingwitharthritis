@@ -1090,3 +1090,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /blog/knee-arthritis-exercises-uk /guides/knee-exercises-for-osteoarthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/rheumatology-appointment-what-to-expect-uk /blog/rheumatology-appointment-what-to-expect-uk 301

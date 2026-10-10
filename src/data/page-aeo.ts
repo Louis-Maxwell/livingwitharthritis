@@ -435,10 +435,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/arthritis-waiting-list-help": withDefaults({
     question: "What can I do while waiting for a rheumatology appointment?",
     answer:
-      "Keep gently active, ask about physiotherapy self-referral where your area allows it, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary widely by NHS trust.",
+      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland have different rules. Contact your GP if symptoms get worse so the referral can be reviewed.",
     faqs: [
-      { q: "Should I go back to my GP while waiting?", a: "Yes if symptoms worsen or new red-flag symptoms appear, so urgency can be reassessed." },
-      { q: "Can I self-refer to physiotherapy?", a: "Many UK areas allow physiotherapy self-referral — ask your GP surgery or check your ICB website." },
+      { q: "How long will I wait for a rheumatology appointment?", a: "It depends on where you live, the hospital and how urgent your referral is. Check the official sites: My Planned Care in England, NHS inform in Scotland, your health board and GOV.WALES statistics in Wales, and My Waiting Times NI in Northern Ireland. Suspected inflammatory arthritis should be referred urgently." },
+      { q: "What is the 18-week rule?", a: "In England you have a legal right to start non-urgent, consultant-led treatment within 18 weeks of your referral being received or booked, with some exceptions. If you are likely to wait longer, you can ask to be offered a different provider. Scotland, Wales and Northern Ireland have different rules." },
+      { q: "Should I go back to my GP while I wait?", a: "Yes, if your symptoms are getting worse, new joints are affected or you are struggling with daily life or work. Take a symptom record so your GP can update the hospital or ask for the referral to be reprioritised." },
+      { q: "Can I refer myself to physiotherapy?", a: "In many areas you can refer yourself to NHS community musculoskeletal (MSK) physiotherapy without seeing your GP. Check your GP surgery or local NHS website." },
     ],
   }),
   "/blog/working-with-arthritis-uk-rights": withDefaults({
