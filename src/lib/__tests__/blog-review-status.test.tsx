@@ -92,6 +92,7 @@ const PENDING_CHAMPIONS_62_73 = [
 const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "hand-exercises-for-arthritis",
   "shoulder-arthritis-exercises-uk",
+  "how-to-choose-the-right-exercise-for-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
