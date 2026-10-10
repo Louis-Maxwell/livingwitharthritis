@@ -1,0 +1,190 @@
+{
+  "project": "Living With Arthritis — Inclusive Multilingual Health Information",
+  "version": "1.0",
+  "created_at": "2026-10-10",
+  "status": "planning_and_english_source_draft",
+  "languages": {
+    "tier_1": [
+      {
+        "code": "ar",
+        "name": "Arabic",
+        "direction": "rtl"
+      },
+      {
+        "code": "ur",
+        "name": "Urdu",
+        "direction": "rtl"
+      },
+      {
+        "code": "ps",
+        "name": "Pashto",
+        "direction": "rtl"
+      },
+      {
+        "code": "fa-AF",
+        "name": "Dari",
+        "direction": "rtl"
+      },
+      {
+        "code": "ckb",
+        "name": "Kurdish Sorani",
+        "direction": "rtl"
+      },
+      {
+        "code": "ti",
+        "name": "Tigrinya",
+        "direction": "ltr"
+      }
+    ],
+    "tier_2": [
+      "bn",
+      "pa",
+      "tr",
+      "so",
+      "pl",
+      "ro"
+    ],
+    "tier_3": [
+      "gu",
+      "hi",
+      "ta",
+      "fa-IR"
+    ]
+  },
+  "pillars": [
+    {
+      "id": "new-arrivals",
+      "topics": [
+        "what-is-arthritis",
+        "arthritis-symptoms-when-to-seek-help",
+        "nhs-arthritis-services",
+        "register-with-gp",
+        "physiotherapy-for-arthritis",
+        "rheumatology-appointments",
+        "migrant-nhs-entitlements"
+      ]
+    },
+    {
+      "id": "self-management",
+      "topics": [
+        "five-minute-mobility",
+        "chair-exercises",
+        "walking-plan",
+        "heat-or-ice",
+        "pacing",
+        "sleep",
+        "stairs",
+        "cooking",
+        "shopping"
+      ]
+    },
+    {
+      "id": "faith",
+      "topics": [
+        "arthritis-ramadan",
+        "fasting-arthritis-medication",
+        "joint-pain-prayer",
+        "chair-based-prayer",
+        "wudu-joint-pain"
+      ]
+    },
+    {
+      "id": "womens-health",
+      "topics": [
+        "pregnancy",
+        "menopause",
+        "caregiving",
+        "family-life",
+        "return-to-work"
+      ]
+    },
+    {
+      "id": "older-adults",
+      "topics": [
+        "falls",
+        "independence",
+        "loneliness",
+        "home-adaptations",
+        "activity-over-70",
+        "nutrition"
+      ]
+    },
+    {
+      "id": "refugee-resource-centre",
+      "topics": [
+        "healthcare-access",
+        "medicines",
+        "housing",
+        "mental-wellbeing",
+        "small-space-exercise",
+        "community-services"
+      ]
+    },
+    {
+      "id": "community-stories",
+      "topics": [
+        "migrant-diagnosis",
+        "refugee-journey",
+        "pregnancy",
+        "learning-english",
+        "later-life"
+      ]
+    }
+  ],
+  "quarterly_plan": {
+    "Q1": [
+      "publish clinically reviewed English hub",
+      "commission Arabic and Urdu translations",
+      "build language switcher and hreflang"
+    ],
+    "Q2": [
+      "review Pashto and Dari translations",
+      "faith and Ramadan materials scheduled to actual Ramadan calendar",
+      "pilot captioned exercise video"
+    ],
+    "Q3": [
+      "women's and older-adult resources",
+      "partner review with community groups",
+      "collect consent-based stories"
+    ],
+    "Q4": [
+      "remaining language rollout based on demand",
+      "community ambassadors",
+      "regional outreach and analytics review"
+    ]
+  },
+  "translation_workflow": [
+    "approved English source",
+    "qualified translator and dialect review",
+    "independent clinical review",
+    "community readability review",
+    "accessibility and RTL test",
+    "publish with lang metadata and hreflang",
+    "review after medical or policy changes"
+  ],
+  "technical_requirements": [
+    "use stable /language-code/ paths or existing locale routing, avoiding duplicate URLs",
+    "self-referencing canonical per translation",
+    "reciprocal hreflang only for actually published translations",
+    "language-aware sitemap",
+    "RTL layout for ar, ur, ps, fa-AF and ckb",
+    "accessible language switcher with native-language labels",
+    "do not index untranslated placeholders",
+    "translated captions verified by humans",
+    "consent and safeguarding for community stories"
+  ],
+  "success_metrics": [
+    "organic visits by language",
+    "engaged sessions",
+    "resource downloads",
+    "GP guidance click-through",
+    "interpreter guidance interactions",
+    "community partner referrals",
+    "clinical corrections and review currency"
+  ],
+  "warnings": [
+    "No medical translations have been published or certified by this plan.",
+    "Verify NHS eligibility and charging guidance for each UK nation.",
+    "Use Living With Arthritis branding, not Arthritis UK, to avoid implying affiliation."
+  ]
+}
