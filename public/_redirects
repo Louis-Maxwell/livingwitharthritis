@@ -1090,3 +1090,10 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /blog/knee-arthritis-exercises-uk /guides/knee-exercises-for-osteoarthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/plant-based-diet-arthritis-evidence /blog/plant-based-diet-arthritis-evidence 301
+/protein-requirements-arthritis-uk /blog/protein-requirements-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/best-breakfast-for-arthritis-uk /blog/best-breakfast-for-arthritis-uk 301

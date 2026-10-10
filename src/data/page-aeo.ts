@@ -365,11 +365,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
-      "Trials link Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods — educational guidance only.",
+      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.",
     faqs: [
-      { q: "How quickly might diet changes help?", a: "Some people notice energy or stiffness changes over weeks; joint pain changes are usually gradual and individual." },
-      { q: "Is this a weight-loss diet?", a: "It can support healthy weight, which helps knee OA load, but the primary aim here is an anti-inflammatory pattern." },
-      { q: "Can I use this with gout?", a: "General Mediterranean patterns often help, but gout also needs specific purine and alcohol advice from your clinician." },
+      { q: "Does the Mediterranean diet help arthritis?", a: "It may help some people, particularly with rheumatoid arthritis, but the evidence is limited. A small 12-week trial found modest improvements in disease activity and physical function, and NICE says adults with RA can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit. It is not a cure and does not replace medicines." },
+      { q: "Is the Mediterranean diet good for osteoarthritis?", a: "There is only limited research in osteoarthritis. The main dietary step NICE recommends for osteoarthritis is weight management if you are living with overweight or obesity. A Mediterranean-style pattern can be a sustainable way to support weight loss and heart health." },
+      { q: "Can I follow it if I am vegetarian or vegan?", a: "Yes. Beans, lentils, chickpeas, tofu, nuts and seeds can replace fish and meat. Vegans need reliable sources of vitamin B12, iodine and calcium. Ask a pharmacist before taking an algae-based omega-3 or other supplement, and see a dietitian if you are unsure your diet is balanced." },
+      { q: "Do I need to drink red wine?", a: "No. You do not need to drink alcohol to follow the pattern. If you drink, the UK guideline is no more than 14 units a week spread over 3 or more days. If you take methotrexate, ask your rheumatology team what is safe for you." },
     ],
   }),
   "/blog/knee-arthritis-exercises-uk": withDefaults({

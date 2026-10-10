@@ -316,23 +316,21 @@ Last updated: 2026-07-01
 Q: What's the best diet for arthritis?
 A: A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.
 
-## Mediterranean Diet for Arthritis: Does It Help? | Living With Arthritis
+## Mediterranean Diet for Arthritis: Evidence & UK Plan
 URL: https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis
-Last updated: 2026-09-20
+Last updated: 2026-10-10
 Q: Does the Mediterranean diet help arthritis?
-A: Research links Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods. Educational nutrition guidance, not a personal diet prescription.
-Q: Is the Mediterranean diet expensive on a UK budget?
-A: It doesn't have to be. The four cheapest staples â tinned chickpeas, tinned sardines, frozen berries and own-brand extra virgin olive oil â sit at the heart of the pattern. Lentils, oats, eggs and seasonal vegetables stretch a weekly food budget further than most processed alternatives.
-Q: Can I follow it as a vegetarian or vegan?
-A: Yes. Replace the oily fish with daily ground flaxseed, walnuts and chia seeds, and consider an algae-based EPA/DHA supplement (1â2 g a day). Pulses and tofu cover the protein side; the rest of the pattern stays identical.
-Q: What about alcohol?
-A: The traditional Mediterranean diet includes a small glass of red wine with food. Current UK guidance keeps total alcohol under 14 units a week, spread over several days, with alcohol-free days. If you have gout or take methotrexate, less is better â discuss with your GP.
-Q: Do I have to give up dairy?
-A: No. The Mediterranean diet keeps yoghurt and small amounts of cheese; both are linked with lower inflammation in most studies. Fermented dairy like live yoghurt and kefir also supports gut health, which itself influences arthritis.
-Q: Should I take supplements alongside the diet?
-A: If you eat oily fish twice a week, you usually don't need a fish-oil supplement. Vitamin D 10 mcg daily through autumn and winter is recommended for all UK adults. Curcumin (turmeric extract) and collagen have modest evidence â discuss with your GP, especially if you take blood thinners.
+A: A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.
+Q: Is the Mediterranean diet good for osteoarthritis?
+A: There is only limited research in osteoarthritis. The main dietary step NICE recommends for osteoarthritis is weight management if you are living with overweight or obesity. A Mediterranean-style pattern can be a sustainable way to support weight loss and heart health.
+Q: Can I follow it if I am vegetarian or vegan?
+A: Yes. Beans, lentils, chickpeas, tofu, nuts and seeds can replace fish and meat. Vegans need reliable sources of vitamin B12, iodine and calcium. Ask a pharmacist before taking an algae-based omega-3 or other supplement, and see a dietitian if you are unsure your diet is balanced.
+Q: Do I need to drink red wine?
+A: No. You do not need to drink alcohol to follow the pattern. If you drink, the UK guideline is no more than 14 units a week spread over 3 or more days. If you take methotrexate, ask your rheumatology team what is safe for you.
+Q: Is the Mediterranean diet safe with warfarin?
+A: Usually yes, but leafy green vegetables are high in vitamin K, which can affect how warfarin works. The NHS says you can still eat them, but talk to your warfarin clinic before making big changes and try to keep your intake steady.
 Q: How long until I notice a difference?
-A: Energy and digestion often shift within 2 weeks. Joint pain and morning stiffness typically begin to ease at the 6â12 week mark, with the strongest evidence at 16 weeks of consistent eating combined with gentle daily movement.
+A: There is no guaranteed timescale. In the main RA trial, differences between groups only showed in the second half of the 12 weeks. Give it at least 3 months, keep a simple symptom record and discuss it with your healthcare team.
 
 ## Donate to Living With Arthritis | Gift Aid
 URL: https://livingwitharthritis.org.uk/donate
@@ -1600,11 +1598,11 @@ Last updated: 2026-10-10
 Q: Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits
 A: A Mediterranean-style eating pattern can support a balanced diet for people with rheumatoid arthritis, but no diet cures RA or replaces disease-modifying treatment. Use affordable foods you enjoy and ask your clinical team about dietary changes or supplements.
 
-## Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
+## Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet
-Last updated: 2026-09-05
-Q: Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
-A: Diet does not cure arthritis, but a consistent anti-inflammatory pattern can reduce background inflammation, support joint health and improve wellbeing. The evidence points to a Mediterranean-style approach: more oily fish, vegetables, wholegrains, olive oil, nuts and berries; less red and processed meat, refined sugar and ultra-processed food. This guide is based on published research and NHS dietary advice.
+Last updated: 2026-10-10
+Q: Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)
+A: An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, oily fish twice a week, and less red and processed meat, sugar and highly processed food. It will not replace your treatment, but it supports heart health, a healthy weight and overall wellbeing, which all matter with arthritis.
 
 ## Anti-Inflammatory Herbs and Spices for Arthritis: A Complete Guide
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-herbs-spices-arthritis
@@ -1684,11 +1682,11 @@ Last updated: 2026-09-05
 Q: Cycling for Arthritis: Benefits, Tips and Getting Started (UK)
 A: Cycling is highly recommended for arthritis, especially for knee and hip osteoarthritis, as it is a low-impact exercise. It strengthens supporting muscles like quadriceps, glutes, and hamstrings, while improving joint range of motion through gentle, repetitive pedalling. Stationary bikes, e-bikes, and standard bikes are suitable options. Begin with 10–15 minutes of gentle cycling, three times a week, gradually increasing duration and resistance.
 
-## 10 Arthritis Diet Myths Debunked
+## Popular Arthritis Diet Myths: 16 Claims Checked Against the Evidence (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-diet-myths-uk
-Last updated: 2026-09-05
-Q: 10 Arthritis Diet Myths Debunked
-A: There is no strong evidence that nightshade vegetables or dairy products generally worsen arthritis. While turmeric has anti-inflammatory properties, it is not a cure. Excess sugar, however, drives inflammation and weight gain, which can worsen arthritis. Red meat should be reduced, but lean red meat in moderation provides essential nutrients. The best approach is a balanced, Mediterranean-style diet.
+Last updated: 2026-10-10
+Q: Popular Arthritis Diet Myths: 16 Claims Checked Against the Evidence (UK)
+A: Many popular arthritis diet claims are not supported by evidence. Nightshade vegetables, citrus fruit and gluten have not been shown to worsen arthritis for most people; apple cider vinegar and manuka honey have no evidence of benefit; and no diet or supplement cures arthritis or replaces medicines. What does help is a balanced, Mediterranean-style diet, oily fish, and a healthy weight.
 
 ## Gardening with Arthritis – UK Tips & Adapted Tools
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-gardening-uk
@@ -1702,11 +1700,11 @@ Last updated: 2026-10-05
 Q: Arthritis and Mental Health – A UK Guide
 A: Living with arthritis pain, flares and uncertainty commonly affects mood, and low mood or worry can make pain feel worse. Talk to your GP, or self-refer to NHS Talking Therapies in England, if low mood or anxiety lasts more than two weeks. Paced movement, sleep, social contact and realistic goals help. If you feel unsafe, call 999 or Samaritans on 116 123.
 
-## Omega-3 and Fish Oil for Arthritis: A Complete Evidence-Based Guide
+## Omega-3 and Fish Oil for Arthritis: An Honest Evidence Review (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-omega-3-fish-oil
-Last updated: 2026-09-05
-Q: Omega-3 and Fish Oil for Arthritis: A Complete Evidence-Based Guide
-A: Omega-3 fatty acids, particularly EPA, help manage arthritis by reducing inflammation. They combat inflammation by displacing pro-inflammatory fats, producing anti-inflammatory molecules, and inhibiting inflammatory gene expression. For rheumatoid arthritis, take 2,000–3,000 mg of combined EPA+DHA daily, which can reduce pain, stiffness, and potentially lower the need for NSAIDs. Benefits appear within 2 to 3 months.
+Last updated: 2026-10-10
+Q: Omega-3 and Fish Oil for Arthritis: An Honest Evidence Review (UK)
+A: Long-chain omega-3 fats (EPA and DHA) from oily fish or fish oil can modestly reduce joint tenderness and morning stiffness in rheumatoid arthritis, but they work slowly and do not replace medicines. Evidence for osteoarthritis is weak. Eat oily fish at least once a week, and check with a doctor or pharmacist before taking fish oil if you use blood thinners or NSAIDs.
 
 ## Arthritis and Pet Ownership – UK Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-pets-uk
@@ -1732,11 +1730,11 @@ Last updated: 2026-09-05
 Q: Travelling with Arthritis – UK & Abroad Guide
 A: When travelling with arthritis, declare your condition for travel insurance and carry medications in hand luggage with a GP letter. Request airport assistance, reserve an aisle seat, and move frequently during flights. Choose accessible accommodation, such as ground-floor rooms or those with lifts and walk-in showers. Pace yourself, use a fold-up walking stick, and consider a RADAR key for accessible toilets.
 
-## Arthritis and Weight Loss UK: How Losing Weight Helps Your Joints
+## Healthy Weight and Arthritis: A Practical UK Guide to Losing Weight Safely When Your Joints Hurt
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-weight-loss-uk
-Last updated: 2026-09-05
-Q: Arthritis and Weight Loss UK: How Losing Weight Helps Your Joints
-A: For arthritis sufferers, even a small amount of weight loss can significantly reduce joint pain and improve function. Losing 1kg of body weight can reduce knee joint loading by 4kg during walking. A 5-10% reduction in body weight over 3-6 months is an achievable goal, with sustainable weight loss of 0.5-1kg per week being recommended.
+Last updated: 2026-10-10
+Q: Healthy Weight and Arthritis: A Practical UK Guide to Losing Weight Safely When Your Joints Hurt
+A: If you have osteoarthritis and are living with overweight or obesity, NICE says losing weight improves pain, function and quality of life, and any amount helps, though losing 10% of your body weight is likely to be better than 5%. Aim to lose weight steadily, about 0.5 to 1kg a week, with a balanced diet and activity you can manage. Free NHS tools and your GP can help, and a dietitian can tailor advice.
 
 ## Managing Arthritis at Work in the UK: Your Rights, Adjustments
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk
@@ -1804,11 +1802,11 @@ Last updated: 2026-09-05
 Q: Arthritis in Young People – UK Guide
 A: Arthritis can affect young people, with around 15,000 children and young people in the UK living with the condition. Juvenile Idiopathic Arthritis (JIA) is the most common form in under-16s, causing joint pain, swelling, and stiffness. Symptoms can include morning stiffness, fatigue, and fevers. Early diagnosis by a GP and paediatric rheumatologist is important for managing the condition.
 
-## Arthritis Meal Planning UK: Weekly Menus for Joint Health
+## Meal Plans for Arthritis: A Practical 7-Day UK Plan, Shopping List and Batch-Cooking Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-meal-planning-uk
-Last updated: 2026-09-05
-Q: Arthritis Meal Planning UK: Weekly Menus for Joint Health
-A: An arthritis meal plan focuses on anti-inflammatory foods like vegetables, fruits, whole grains, lean protein, and healthy fats. It prioritises Omega-3s, aiming for oily fish twice weekly, and encourages colourful plates for diverse antioxidants. Practical tips include batch cooking, simple preparations to minimise hand strain, and budget-friendly choices like frozen vegetables and tinned fish.
+Last updated: 2026-10-10
+Q: Meal Plans for Arthritis: A Practical 7-Day UK Plan, Shopping List and Batch-Cooking Guide
+A: A good meal plan for arthritis follows the NHS Eatwell Guide with a Mediterranean-style lean: vegetables and fruit at most meals, wholegrains, beans and lentils, oily fish at least once a week, olive or rapeseed oil, and less processed meat and sugar. Plan meals that are easy to prepare on bad days, batch cook on good days, and see a dietitian for advice on your own portions and needs.
 
 ## Arthritis Medication — What Works, What to Expect
 URL: https://livingwitharthritis.org.uk/blog/arthritis-medication-guide
@@ -1936,6 +1934,12 @@ Last updated: 2026-09-05
 Q: Berries and Antioxidants: Food Medicine for Inflammation
 A: Evidence in this guide frames arthritis pain as multifactorial, with inflammatory and degenerative patterns needing different management. It highlights structured movement, Mediterranean-style anti-inflammatory eating, weight management, heat or cold, and sleep habits as helpful. Start small, track simple weekly outcomes, and seek GP or physiotherapy advice for red, swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
 
+## The Best Breakfast for Arthritis: Easy, Evidence-Based Ideas for UK Mornings
+URL: https://livingwitharthritis.org.uk/blog/best-breakfast-for-arthritis-uk
+Last updated: 2026-10-10
+Q: The Best Breakfast for Arthritis: Easy, Evidence-Based Ideas for UK Mornings
+A: The best breakfast for arthritis is one that is easy to make on a stiff morning and follows NHS healthy eating advice: a wholegrain starchy food such as porridge or wholemeal toast, a protein food such as eggs, yoghurt, milk, beans or nut butter, and a portion of fruit. No breakfast cures arthritis, but this kind of meal supports energy, weight, bones and medicines that need food.
+
 ## Best Diet for Joint Pain in the UK
 URL: https://livingwitharthritis.org.uk/blog/best-diet-for-joint-pain-uk
 Last updated: 2026-09-05
@@ -1948,11 +1952,11 @@ Last updated: 2026-09-05
 Q: Best Exercises for Osteoarthritis Knee Pain at Home
 A: Best home exercises for knee OA: seated leg raises, calf raises, hip side steps, mini squats and lying knee extensions. Perform daily. Strengthening quadriceps by 10-15% produces clinically meaningful pain reduction. Expect improved stiffness in 2-3 weeks, pain reduction in 6-8 weeks.
 
-## The Best Foods to Eat for Arthritis: Your Anti-Inflammatory Diet
+## Foods Supported by Research for Arthritis: What the Evidence Actually Shows (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/best-foods-to-eat-for-arthritis
-Last updated: 2026-09-05
-Q: The Best Foods to Eat for Arthritis: Your Anti-Inflammatory Diet
-A: For arthritis management, aim for an anti-inflammatory diet rich in oily fish, extra-virgin olive oil, leafy green vegetables, berries, walnuts, and alliums like garlic. Oily fish like salmon and mackerel provide omega-3s, while EVOO contains anti-inflammatory oleocanthal. These foods can help reduce inflammation and improve joint health.
+Last updated: 2026-10-10
+Q: Foods Supported by Research for Arthritis: What the Evidence Actually Shows (UK Guide)
+A: No single food treats arthritis. The best-supported choices are oily fish (omega-3 fats can reduce inflammation and disease activity in rheumatoid arthritis), a Mediterranean-style eating pattern, fibre-rich wholegrains, beans, fruit and vegetables, and calcium and vitamin D foods for bone health. Evidence for individual 'superfoods', spices, apple cider vinegar and manuka honey is weak or absent.
 
 ## Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
 URL: https://livingwitharthritis.org.uk/blog/best-plantar-fasciitis-shoes-women-uk
@@ -2776,11 +2780,11 @@ Last updated: 2026-09-25
 Q: Giant Cell Arteritis: The Headache You Must Not Ignore
 A: Giant cell arteritis (GCA) is inflammation of medium and large arteries, especially those in the head. It mainly affects people over 50 and can cause permanent sight loss if it is not treated quickly. A new headache, a tender scalp, jaw pain when chewing or any change in vision needs same-day medical help. Treatment with steroids usually starts straight away.
 
-## Ginger Root: A Natural Anti-Inflammatory Food
+## Ginger for Arthritis: An Honest Evidence Guide (UK)
 URL: https://livingwitharthritis.org.uk/blog/ginger-root-natural-anti-inflammatory
-Last updated: 2026-09-05
-Q: Ginger Root: A Natural Anti-Inflammatory Food
-A: Ginger contains gingerols and shogaols that dampen the same COX-2 and cytokine pathways NSAIDs act on. Meta-analyses show a modest but real reduction in pain and stiffness in knee osteoarthritis, typically over 4–12 weeks at 500–1,000 mg/day of standardised extract, or 1–2 g/day of fresh root. Effect size is smaller than turmeric but tolerability is excellent.
+Last updated: 2026-10-10
+Q: Ginger for Arthritis: An Honest Evidence Guide (UK)
+A: Ginger supplements may give a small reduction in osteoarthritis pain, but trials are few and of moderate or poor quality, and ibuprofen worked better in a head-to-head study. Ginger in food is safe for most people. If you take blood thinners such as warfarin, speak to a doctor or pharmacist before taking ginger supplements, as ginger might increase bleeding risk.
 
 ## Ginger vs Turmeric for Arthritis: Which Actually Works?
 URL: https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis
@@ -2872,11 +2876,11 @@ Last updated: 2026-09-05
 Q: Grip Strength Exercises: A Gentle Progression for Hand OA
 A: Movement and graded exercise are considered a first-line treatment for hand osteoarthritis. Aim for 150 minutes of moderate activity weekly, in 20–30 minute sessions. Other helpful approaches include an anti-inflammatory diet, maintaining a healthy weight, and using heat or cold for pain relief. Most individuals experience meaningful improvement within 6–12 weeks of consistent practice.
 
-## Gut Health and Arthritis: The Microbiome Connection Explained
+## Gut Health and Arthritis: What the Microbiome Research Really Shows (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/gut-health-arthritis-connection
-Last updated: 2026-09-05
-Q: Gut Health and Arthritis: The Microbiome Connection Explained
-A: The gut microbiome, comprising trillions of bacteria, significantly influences inflammation and immune function crucial for arthritis. An imbalance in gut bacteria, known as dysbiosis, may trigger or worsen autoimmune responses. Increased intestinal permeability ("leaky gut") allows bacterial fragments into the bloodstream, causing widespread inflammation. Dietary changes, such as consuming prebiotic and probiotic foods, can support a diverse and healthy gut microbiome.
+Last updated: 2026-10-10
+Q: Gut Health and Arthritis: What the Microbiome Research Really Shows (UK Guide)
+A: Research shows links between the gut microbiome and the immune system, and people with some types of arthritis have different gut bacteria. But there is no good evidence yet that changing your gut bacteria, with diet or probiotics, treats arthritis. The best-supported way to look after your gut is a varied diet rich in fibre, aiming for the NHS target of 30g a day, with plenty of fluids.
 
 ## The Gut-Joint Connection: How Your Microbiome Affects Arthritis
 URL: https://livingwitharthritis.org.uk/blog/gut-joint-connection-microbiome-arthritis
@@ -3712,6 +3716,12 @@ Last updated: 2026-09-05
 Q: How to Claim PIP for Osteoarthritis in Both Knees
 A: For PIP with bilateral knee OA: describe functional impact in detail — standing time limit, difficulty dressing, mobility distance with stops. Include GP supporting letter stating functional limitations (not just diagnosis). An OT assessment report is strong evidence. If refused, appeal — 60-70% success rate at tribunal.
 
+## Plant-Based and Vegan Diets for Arthritis: An Honest Evidence Review (UK)
+URL: https://livingwitharthritis.org.uk/blog/plant-based-diet-arthritis-evidence
+Last updated: 2026-10-10
+Q: Plant-Based and Vegan Diets for Arthritis: An Honest Evidence Review (UK)
+A: Eating more plant foods is a healthy choice with arthritis, and fits the Mediterranean-style pattern NICE suggests for rheumatoid arthritis. A few small trials suggest vegan or vegetarian diets may help some people with rheumatoid arthritis, but a Cochrane review found the effects uncertain. If you go fully vegan, plan for vitamin B12, iodine, calcium, vitamin D, omega-3 and protein, and consider seeing a dietitian.
+
 ## Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)
 URL: https://livingwitharthritis.org.uk/blog/pmr-frailty-morning-stiffness-uk
 Last updated: 2026-09-05
@@ -3825,6 +3835,12 @@ URL: https://livingwitharthritis.org.uk/blog/protein-painful-joints-frailty-uk
 Last updated: 2026-09-05
 Q: Protein, painful joints and frailty (UK)
 A: This page looks at protein, painful joints and frailty with a frailty-aware lens for UK readers at home. This guide covers protein foods when cooking and chewing take more effort because arthritis with frailty affects several joints, with a focus on England and a home setting.
+
+## Protein and Arthritis: How Much You Need and Easy Ways to Get It (UK Guide)
+URL: https://livingwitharthritis.org.uk/blog/protein-requirements-arthritis-uk
+Last updated: 2026-10-10
+Q: Protein and Arthritis: How Much You Need and Easy Ways to Get It (UK Guide)
+A: UK guidance for adults is about 0.75g of protein per kilogram of body weight a day, and most people already eat more than this. Older adults and people with long-term illness may benefit from more, roughly 1.0 to 1.2g per kilogram according to a European expert group, ideally spread across meals and combined with strength exercise. If you have kidney disease, ask your doctor or dietitian before increasing protein.
 
 ## Pseudogout (CPPD): Sudden Hot, Swollen Joints Explained
 URL: https://livingwitharthritis.org.uk/blog/pseudogout-cppd-sudden-hot-swollen-joints
@@ -4480,11 +4496,11 @@ Last updated: 2026-09-25
 Q: Turmeric and Methotrexate: Interaction Risks, Evidence and Safe Use
 A: The potential turmeric methotrexate interaction involves the liver. Both substances are processed by the same liver pathways, meaning high-dose turmeric supplements could theoretically increase methotrexate levels in your blood, raising the risk of side effects. While using turmeric in normal cooking is generally safe, always discuss high-dose supplements with your rheumatology team first.
 
-## Turmeric and Curcumin: Evidence-Based Arthritis Relief
+## Turmeric and Curcumin for Arthritis: What the Evidence Really Shows (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/turmeric-curcumin-arthritis-evidence
-Last updated: 2026-09-20
-Q: Turmeric and Curcumin: Evidence-Based Arthritis Relief
-A: The guide says arthritis relief depends on identifying whether symptoms are inflammatory or degenerative, then using evidence-based basics: graded exercise, Mediterranean-style eating, weight management, heat or cold, and better sleep. It suggests small seven-day habit changes and tracking pain and function. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
+Last updated: 2026-10-10
+Q: Turmeric and Curcumin for Arthritis: What the Evidence Really Shows (UK Guide)
+A: Small trials suggest turmeric or curcumin extracts may modestly ease knee osteoarthritis pain, but the studies are few, short and variable, so the evidence is not strong. Turmeric in cooking is safe for most people. Concentrated supplements can interact with blood thinners and have been linked with liver injury, so speak to a pharmacist or doctor before trying one.
 
 ## Turmeric for Arthritis: Evidence, Dose Context and UK Safety
 URL: https://livingwitharthritis.org.uk/blog/turmeric-for-arthritis
@@ -4540,11 +4556,11 @@ Last updated: 2026-09-05
 Q: Vitamin D, falls conversations and arthritis (UK)
 A: Families dealing with vitamin D, falls conversations and arthritis usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at linking bone, muscle and winter in one GP chat in a GP surgery setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
 
-## Vitamin D and Arthritis: Why Every UK Patient Should Test
+## Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)
 URL: https://livingwitharthritis.org.uk/blog/vitamin-d-arthritis-uk
-Last updated: 2026-09-05
-Q: Vitamin D and Arthritis: Why Every UK Patient Should Test
-A: Quick answer: From October to March, the UK sun is too weak to make vitamin D. Why this matters for joint pain and What the evidence says Vitamin D.
+Last updated: 2026-10-10
+Q: Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)
+A: The NHS advises everyone in the UK to consider a daily 10 microgram (400 IU) vitamin D supplement in autumn and winter, and all year round if you are rarely outdoors, live in a care home, cover most of your skin or have dark skin. Vitamin D is important for bones and muscles, but trials have not shown that it treats osteoarthritis pain. Do not take more than 100 micrograms a day unless a doctor advises it.
 
 ## Vitamin D in autumn and winter with arthritis (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/vitamin-d-winter-arthritis-frailty-uk
