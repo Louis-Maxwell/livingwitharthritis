@@ -337,7 +337,7 @@ export default function BenefitsPIPGuide() {
 
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated wording pending clinical and welfare review." />
       </div>
 <GuideOnwardJourney currentPath="/guides/benefits-pip" />
       <Suspense fallback={null}><Footer /></Suspense>
