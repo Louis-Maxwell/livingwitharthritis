@@ -1097,3 +1097,7 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /preparing-for-joint-replacement-uk /blog/preparing-for-joint-replacement-uk 301
 /questions-to-ask-your-consultant-arthritis /blog/questions-to-ask-your-consultant-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/mri-scan-arthritis-explained /blog/mri-scan-arthritis-explained 301
+/x-ray-arthritis-explained /blog/x-ray-arthritis-explained 301

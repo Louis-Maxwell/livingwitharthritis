@@ -93,6 +93,8 @@ const PENDING_WAITING_LIFE_BATCH_5 = [
   "rheumatology-appointment-what-to-expect-uk",
   "preparing-for-joint-replacement-uk",
   "questions-to-ask-your-consultant-arthritis",
+  "mri-scan-arthritis-explained",
+  "x-ray-arthritis-explained",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
