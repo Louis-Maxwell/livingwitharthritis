@@ -98,6 +98,7 @@ const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "chair-exercises-older-adults-arthritis",
   "aquatic-therapy-arthritis-guide",
   "resistance-band-workouts-arthritis",
+  "arthritis-friendly-gym-guide",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
