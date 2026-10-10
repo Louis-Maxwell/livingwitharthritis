@@ -568,7 +568,7 @@ const Header = () => {
                   href={GOFUNDME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                  className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-primary text-primary-foreground border border-primary/80 hover:bg-primary/90 hover:shadow-md hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
                   Donate Now
