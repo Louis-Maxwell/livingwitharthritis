@@ -24,6 +24,7 @@ import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ViewportSection from "@/components/ViewportSection";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -64,7 +65,6 @@ const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
 const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
 const FeedbackPoll = lazyWithRetry(() => import("@/components/article/FeedbackPoll"));
 const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/InlineRelatedStrip"));
-const ArticleFaqSection = lazyWithRetry(() => import("@/components/article/ArticleFaqSection"));
 const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
 const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
@@ -727,9 +727,9 @@ const BlogPost = () => {
             )}
           </section>
 
+          <ArticleFaqSection faqs={faqs} />
           <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
-            <ArticleFaqSection faqs={faqs} />
             {slug && (
               <ClusterRelatedLinks
                 slug={slug}
