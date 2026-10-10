@@ -36,11 +36,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 0 100% 42%;              /* #D60000 brand primary red — 5.4:1 on white, passes WCAG AA */
-    --primary-text: 0 100% 36%;         /* #B80000 red for text — 6.8:1 on white, 5.3:1 on primary-tinted chips (bg-primary/10–15) */
+    --primary: 349 100% 45%;            /* #E4002B KFC red */
+    --primary-text: 358 91% 34%;        /* #A3080C deep KFC red for text */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 100% 35%;            /* #B30000 brand secondary red — 7.2:1 on white */
+    --secondary: 358 91% 34%;           /* #A3080C */
     --secondary-foreground: 0 0% 100%;
 
     --accent: 0 90% 96%;                /* light red wash — tint of primary, not a foreign hue */
@@ -54,10 +54,10 @@
 
     --border: 0 0% 88%;                 /* neutral grey border */
     --input: 0 0% 85%;
-    --ring: 0 100% 42%;
+    --ring: 349 100% 45%;
 
     /* Legacy aliases — all collapsed into the red/white/black palette */
-    --gold: 0 100% 42%;
+    --gold: 349 100% 45%;
     --gold-foreground: 0 0% 100%;
     --gold-muted: 0 90% 96%;
     --amber: 0 100% 35%;
@@ -130,10 +130,10 @@
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    --primary: 0 100% 42%;
-    --primary-text: 0 100% 36%;
+    --primary: 349 100% 45%;            /* #E4002B KFC red */
+    --primary-text: 358 91% 34%;        /* #A3080C deep KFC red for text */
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 100% 35%;
+    --secondary: 358 91% 34%;           /* #A3080C */
     --secondary-foreground: 0 0% 100%;
     --accent: 0 90% 96%;
     --accent-foreground: 0 0% 0%;
@@ -143,7 +143,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 88%;
     --input: 0 0% 85%;
-    --ring: 0 100% 42%;
+    --ring: 349 100% 45%;
     --navy: 0 100% 35%;
     --navy-foreground: 0 0% 100%;
     --sidebar-background: 0 0% 97%;
