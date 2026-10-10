@@ -96,6 +96,7 @@ const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
   "access-to-work-scheme-arthritis-guide",
   "universal-credit-and-arthritis-limited-capability-for-work",
   "carers-allowance-help-if-you-care-for-someone",
+  "workplace-adjustment-letter-templates-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
