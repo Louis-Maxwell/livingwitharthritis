@@ -57,8 +57,8 @@ export function trackFileDownload(opts: {
 
 /* ---------- Existing helpers (kept for other call-sites) ---------- */
 
-export function trackSearch(query: string, results: number) {
-  trackEvent("search", { search_term: query, results_found: results });
+export function trackSearch(_query: string, results: number) {
+  trackEvent("search", { results_found: results });
 }
 
 export function trackMobileBottomCTA(
