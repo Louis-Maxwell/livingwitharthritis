@@ -3472,6 +3472,12 @@ Last updated: 2026-09-05
 Q: NHS Access to Biologics: How the Approval Pathway Works
 A: Biologics for inflammatory arthritis are considered under UK guidance, usually when conventional DMARDs have not worked adequately, with DAS28 helping assess disease activity and guide treat-to-target decisions. Evidence from trials and reviews supports earlier targeted therapy for slowing joint damage and improving quality of life, while regular monitoring helps manage infection risk, side effects and treatment response.
 
+## NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout
+URL: https://livingwitharthritis.org.uk/blog/nhs-arthritis-pathways-explained
+Last updated: 2026-10-10
+Q: NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout
+A: Osteoarthritis is usually diagnosed and treated in primary care and community physiotherapy, with referral to orthopaedics if surgery might help. Suspected inflammatory arthritis should be referred urgently to rheumatology, with NICE aiming for referral within 3 working days and treatment within 6 weeks. Gout is mostly managed by your GP, with rheumatology for complex cases.
+
 ## The NHS frailty pathway and arthritis in England
 URL: https://livingwitharthritis.org.uk/blog/nhs-frailty-pathway-arthritis-england
 Last updated: 2026-09-05
@@ -3855,6 +3861,12 @@ URL: https://livingwitharthritis.org.uk/blog/private-rheumatology-in-the-uk-when
 Last updated: 2026-09-05
 Q: Private Rheumatology in the UK: When It's Worth Considering
 A: The article says private rheumatology may offer faster specialist appointments and scans, but diagnosis can still require several visits and tests, and costs are usually ongoing. It stresses evidence-based arthritis care: early diagnosis, appropriate medication, gentle movement, lifestyle and psychological support, symptom tracking, and prompt clinical advice for new swelling, fever, severe pain or worsening function.
+
+## Private Treatment Costs for Arthritis in the UK: What to Know Before You Pay
+URL: https://livingwitharthritis.org.uk/blog/private-treatment-costs-uk-arthritis
+Last updated: 2026-10-10
+Q: Private Treatment Costs for Arthritis in the UK: What to Know Before You Pay
+A: On 10 October 2026, published UK guide prices for a private primary hip or knee replacement ranged from about £12,750 to £17,000, with a first consultant appointment from around £200 and tests often extra. Prices change, so get a written quote. Check free NHS options first, such as your right to choose in England, and remember you keep your NHS entitlement if you pay privately.
 
 ## Protein, painful joints and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/protein-painful-joints-frailty-uk

@@ -97,6 +97,8 @@ const PENDING_WAITING_LIFE_BATCH_5 = [
   "x-ray-arthritis-explained",
   "arthritis-blood-tests-explained-uk",
   "how-nhs-referrals-work-arthritis",
+  "nhs-arthritis-pathways-explained",
+  "private-treatment-costs-uk-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {

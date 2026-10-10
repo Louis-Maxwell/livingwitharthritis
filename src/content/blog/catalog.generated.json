@@ -6611,6 +6611,24 @@
   "reviewStatus": "pending"
  },
  {
+  "slug": "nhs-arthritis-pathways-explained",
+  "title": "NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout",
+  "meta_title": "NHS Arthritis Pathways Simplified (UK Guide)",
+  "excerpt": "A plain-English map of the main NHS arthritis pathways: who you see first, when you should be referred, NICE timescales, what treatment to expect, how the UK nations differ and what to do if things stall.",
+  "date": "2026-10-10",
+  "updated_at": "2026-10-10T09:00:00.000Z",
+  "category": "Health",
+  "cover": "lwa-nhs-arthritis-pathways-explained.webp",
+  "author": "Louis Maxwell",
+  "keywords": "NHS arthritis pathway, rheumatoid arthritis pathway, osteoarthritis pathway NHS, gout pathway, NICE arthritis timescales, arthritis referral pathway UK",
+  "display_order": 0,
+  "last_reviewed": "2026-10-10",
+  "image_url": "/openverse/lwa-nhs-arthritis-pathways-explained.webp",
+  "word_count": 2245,
+  "reading_minutes": 12,
+  "reviewStatus": "pending"
+ },
+ {
   "slug": "preparing-for-joint-replacement-uk",
   "title": "Preparing for Joint Replacement Surgery: A Practical UK Checklist",
   "meta_title": "Preparing for Joint Replacement: UK Checklist (Hip & Knee)",
@@ -6626,6 +6644,24 @@
   "image_url": "/openverse/lwa-preparing-for-joint-replacement-uk.webp",
   "word_count": 2293,
   "reading_minutes": 12,
+  "reviewStatus": "pending"
+ },
+ {
+  "slug": "private-treatment-costs-uk-arthritis",
+  "title": "Private Treatment Costs for Arthritis in the UK: What to Know Before You Pay",
+  "meta_title": "Private Arthritis Treatment Costs UK (Checked Oct 2026)",
+  "excerpt": "Published self-pay prices from named UK hospital groups, checked on 10 October 2026, plus what affects the cost, questions to ask, how private care fits with NHS care, private prescriptions and insurance.",
+  "date": "2026-10-10",
+  "updated_at": "2026-10-10T09:00:00.000Z",
+  "category": "Health",
+  "cover": "lwa-private-treatment-costs-uk-arthritis.webp",
+  "author": "Louis Maxwell",
+  "keywords": "private hip replacement cost UK, private knee replacement cost, private treatment arthritis UK, self-pay prices, private consultant fee, NHS and private care",
+  "display_order": 0,
+  "last_reviewed": "2026-10-10",
+  "image_url": "/openverse/lwa-private-treatment-costs-uk-arthritis.webp",
+  "word_count": 2438,
+  "reading_minutes": 13,
   "reviewStatus": "pending"
  },
  {
