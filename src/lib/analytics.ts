@@ -180,9 +180,8 @@ export const trackButtonClick = (buttonName: string, buttonLocation?: string): v
   });
 };
 
-export const trackSearch = (searchTerm: string, resultCount?: number): void => {
+export const trackSearch = (_searchTerm: string, resultCount?: number): void => {
   trackEvent("search", {
-    search_term: searchTerm,
     search_result_count: resultCount,
     event_category: "engagement",
   });

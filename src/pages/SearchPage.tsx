@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, ArrowRight } from "lucide-react";
+import { trackSearch } from "@/lib/analytics";
 import { getSiteSearchCatalog } from "@/lib/siteSearchCatalog";
 import {
   SEARCH_TOPICS,
@@ -46,6 +47,19 @@ const SearchPage = () => {
     () => filterSearchCatalog(catalog, { query, topic, wordCount }),
     [catalog, query, topic, wordCount],
   );
+
+  const lastTrackedSearch = useRef("");
+  useEffect(() => {
+    if (!query.trim()) return;
+    const timer = window.setTimeout(() => {
+      // Local deduplication only: the typed query is never an event parameter.
+      const signature = JSON.stringify([query.trim(), topic, wordCount]);
+      if (lastTrackedSearch.current === signature) return;
+      lastTrackedSearch.current = signature;
+      trackSearch("", results.length);
+    }, 800);
+    return () => window.clearTimeout(timer);
+  }, [query, topic, wordCount, results.length]);
 
   return (
     <>

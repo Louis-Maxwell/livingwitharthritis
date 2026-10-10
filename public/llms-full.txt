@@ -1048,11 +1048,11 @@ A: Widespread body pain; tenderness on touch; fatigue; sleep issues; 'fibro fog'
 Q: What should I be careful about?
 A: Both respond to graded exercise, sleep hygiene and CBT — different medications from your GP.
 
-## UK Arthritis Benefits & PIP Guide | Living With Arthritis
+## PIP Application Guide: Forms, Evidence & Next Steps | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
-Last updated: 2026-07-01
-Q: Can you claim PIP for arthritis?
-A: Yes. Personal Independence Payment is not awarded for a diagnosis but for how arthritis affects daily living and mobility. Under State Pension age you claim PIP (Adult Disability Payment in Scotland); over it, Attendance Allowance. If you are refused, ask for a mandatory reconsideration within one month, then appeal to a tribunal.
+Last updated: 2026-10-10
+Q: How do I prepare a PIP application for arthritis?
+A: Check the official claim route for where you live, prepare your form and supporting evidence, and explain how daily living and mobility difficulties vary. Use the free evidence diary and get welfare advice if you need help.
 
 ## Blue Badge vs Disability Parking Concessions
 URL: https://livingwitharthritis.org.uk/guides/blue-badge-vs-disability-parking
@@ -1594,11 +1594,11 @@ Last updated: 2026-09-05
 Q: Anaesthetic conversations for frail adults with arthritis (UK)
 A: Hospital routines rarely match home arthritis care; frailty-aware questions about walking and washing still belong on the list. Here we focus on pre-op assessment in plain English, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
 
-## Anti-Inflammatory Diet for Rheumatoid Arthritis: Foods to Eat
+## Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet-rheumatoid-arthritis
-Last updated: 2026-09-24
-Q: Anti-Inflammatory Diet for Rheumatoid Arthritis: Foods to Eat
-A: An anti-inflammatory diet for rheumatoid arthritis means a food-first pattern people often ask about: oily fish, olive oil, vegetables, fruit, pulses, and wholegrains, used beside prescribed treatment, not instead of it. It is not a cure and it does not replace disease-modifying medicines.
+Last updated: 2026-10-10
+Q: Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits
+A: A Mediterranean-style eating pattern can support a balanced diet for people with rheumatoid arthritis, but no diet cures RA or replaces disease-modifying treatment. Use affordable foods you enjoy and ask your clinical team about dietary changes or supplements.
 
 ## Anti-Inflammatory Diet for Arthritis — What to Eat for Happier Joints
 URL: https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet
@@ -1720,11 +1720,11 @@ Last updated: 2026-09-05
 Q: Arthritis and Pregnancy in the UK
 A: Managing arthritis during pregnancy requires careful planning with your rheumatologist. Some medications like methotrexate must be stopped months before conception, while others like hydroxychloroquine are considered safe. Folic acid (400 micrograms daily) should be started at least three months prior. Regular monitoring throughout pregnancy and planning for potential postpartum flares are crucial for a healthy outcome.
 
-## Arthritis and Sleep Problems: How to Get Better Rest with Joint Pain
+## Arthritis and sleep problems: what's keeping you awake? (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-sleep-problems
-Last updated: 2026-09-05
-Q: Arthritis and Sleep Problems: How to Get Better Rest with Joint Pain
-A: Arthritis pain, inflammatory cytokines, and medication side effects can disrupt sleep. To improve sleep, ensure your mattress is medium-firm with good support, replace it every 7–10 years, and use pillows for spinal alignment. Sleep in a cool room (16–18°C), maintain a consistent sleep schedule, and create a calm wind-down routine. Avoid caffeine after 2 pm and time pain relief before bed.
+Last updated: 2026-10-08
+Q: Arthritis and sleep problems: what's keeping you awake? (UK)
+A: Sleep problems with arthritis are not always caused by joint pain alone. Common causes include night pain and stiffness, more active inflammatory arthritis, medicines such as steroids, needing the toilet at night, restless legs, sleep apnoea, worry or low mood, and fibromyalgia. Work out what is waking you, then ask the right person: your GP, pharmacist or rheumatology team. Do not change prescribed medicines yourself.
 
 ## Travelling with Arthritis – UK & Abroad Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-travel-uk
@@ -1960,17 +1960,17 @@ Last updated: 2026-09-05
 Q: Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
 A: Plantar fasciitis is inflammation of the tissue band along the foot's sole, affecting around 1 in 10 adults. Supportive footwear, combined with stretches, often reduces pain within 4–8 weeks. Key shoe features include firm arch support, medium-firm cushioning, a deep heel cup, rigid heel counter, and an 8–12mm heel-to-toe drop, which can improve symptoms within weeks.
 
-## The Best Sleep Positions for Joint Pain
+## Best sleep positions for joint pain (UK)
 URL: https://livingwitharthritis.org.uk/blog/best-sleep-positions-joint-pain
-Last updated: 2026-09-05
-Q: The Best Sleep Positions for Joint Pain
-A: Quick answer: Side, back or stomach? An evidence-led look at how sleep posture affects knees, hips, back and shoulders. What the evidence says The Best Sleep.
+Last updated: 2026-10-07
+Q: Best sleep positions for joint pain (UK)
+A: There is no single best sleep position for joint pain. Most people do well lying on their side with a pillow between the knees, or on their back with a pillow under the knees. Keep the painful joint supported and in a comfortable middle position, and change position if it starts to ache. If pain wakes you most nights, see your GP or physiotherapist.
 
-## Best joint supplement for knees? A careful comparison
+## Best Supplement for Knee Joints? Evidence and Safety
 URL: https://livingwitharthritis.org.uk/blog/best-supplement-for-knee-joint
-Last updated: 2026-09-23
-Q: Best joint supplement for knees? A careful comparison
-A: There is no single best joint supplement for knees. This page compares glucosamine, collagen, and omega-3 as things people ask about, not as a tested winner. None of them rebuilds a worn knee or replaces prescribed treatment. Check with a GP or pharmacist before you start, especially if you take other medicines.
+Last updated: 2026-10-10
+Q: Best Supplement for Knee Joints? Evidence and Safety
+A: There is no established best supplement for knee joints. NICE says not to offer glucosamine for osteoarthritis. Supplements do not restore damaged cartilage and should not replace an agreed care plan. Discuss any product with a pharmacist or clinician, especially if you take other medicines.
 
 ## Best Supplements for Arthritis in the UK
 URL: https://livingwitharthritis.org.uk/blog/best-supplements-arthritis-uk
@@ -2272,11 +2272,11 @@ Last updated: 2026-09-05
 Q: Core Strengthening: Deep Stabilisers for Spinal Arthritis
 A: This guide says spinal arthritis pain can involve joints, ligaments, muscles and the nervous system, with inflammatory and degenerative patterns needing different management. It recommends graded movement, Mediterranean-style eating, weight management, heat or cold, sleep hygiene and simple progress tracking. Seek GP or physiotherapy advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
 
-## Winter viruses, arthritis medicines and frailty (UK)
+## Winter viruses and arthritis medicines: a UK guide to staying safe
 URL: https://livingwitharthritis.org.uk/blog/covid-winter-arthritis-frailty-uk
-Last updated: 2026-09-05
-Q: Winter viruses, arthritis medicines and frailty (UK)
-A: Living With Arthritis treats frailty as clinical and changeable, never as a verdict on character. This article is about infection awareness if joints and medicines both matter, written for people and carers in Wales, especially around a home.
+Last updated: 2026-10-07
+Q: Winter viruses and arthritis medicines: a UK guide to staying safe
+A: If arthritis medicines such as methotrexate, biologics, JAK inhibitors or steroid tablets weaken your immune system, winter viruses like flu and COVID-19 can hit harder. Check which NHS vaccines you are offered, keep a plan for what to do if you get ill, and contact your GP, NHS 111 or rheumatology advice line early. Never stop or pause arthritis medicines without their advice.
 
 ## CPPD (pseudogout) and frailty: a sudden hot joint in later life (UK)
 URL: https://livingwitharthritis.org.uk/blog/cppd-pseudogout-frailty-sudden-hot-joint-uk
@@ -3700,11 +3700,11 @@ Last updated: 2026-09-05
 Q: PIP for Arthritis: How to Build a Strong Application
 A: The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It advises tracking symptoms, describing good and bad days, linking pain to specific tasks, gathering clinical evidence, avoiding blank sections, starting early, and speaking to a GP or rheumatology team when symptoms or support needs change.
 
-## PIP for Arthritis: Eligibility, Applying and Appeals (UK)
+## Can You Claim PIP for Arthritis? Eligibility and Evidence
 URL: https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk
-Last updated: 2026-09-23
-Q: PIP for Arthritis: Eligibility, Applying and Appeals (UK)
-A: Personal Independence Payment (PIP) can help with extra costs when arthritis substantially affects daily living and/or mobility. Awards depend on functional descriptors and reliability — not the diagnosis name alone. Start via GOV.UK/DWP, describe worst typical days, attach clinical evidence, and seek free welfare advice. Scotland usually uses Adult Disability Payment for new claims.
+Last updated: 2026-10-10
+Q: Can You Claim PIP for Arthritis? Eligibility and Evidence
+A: Arthritis does not automatically qualify you for PIP. Eligibility depends on how your condition affects daily living or mobility, including whether you can do tasks reliably and how often difficulties occur. You can claim while working. Describe better and worse days honestly; use the application guide for the practical claim steps.
 
 ## How to Claim PIP for Osteoarthritis in Both Knees
 URL: https://livingwitharthritis.org.uk/blog/pip-osteoarthritis-both-knees
@@ -4144,11 +4144,11 @@ Last updated: 2026-09-05
 Q: Sleep, night pain and frailty in arthritis (UK)
 A: Arthritis and frailty often arrive as a pair of habits — sitting more, eating less, declining invitations — not as a single diagnosis. This UK guide looks at broken nights that make the next day more unsteady in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
 
-## How Sleep Quality Affects Arthritis Pain: What the Research Shows
+## Poor sleep and arthritis pain: how to break the cycle (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-quality-arthritis-pain
-Last updated: 2026-09-05
-Q: How Sleep Quality Affects Arthritis Pain: What the Research Shows
-A: Poor sleep can worsen arthritis pain, with up to 80% of rheumatoid arthritis patients experiencing sleep disturbances. This is because inflammatory cytokines peak at night, increasing stiffness, and pain sensitivity increases with sleep deprivation. To improve sleep, maintain consistent bedtimes, keep the bedroom cool (16–18°C), and block blue light before bed. Consider gentle stretching or a warm bath in the evening.
+Last updated: 2026-10-08
+Q: Poor sleep and arthritis pain: how to break the cycle (UK)
+A: Pain and poor sleep feed each other: aching joints can stop you settling or wake you, and a broken night can make pain feel worse and harder to cope with the next day. You can break the cycle from three sides: settle pain before bed, keep regular get-up times and NHS sleep habits, and keep gentle movement in the day. Keep a two-week sleep and pain diary to share with your GP, and if poor sleep lasts for months, ask about CBT for insomnia.
 
 ## Sleeping tablets, night falls and arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleeping-tablets-falls-arthritis-frailty-uk
@@ -4414,11 +4414,11 @@ Last updated: 2026-09-05
 Q: TENS machines for older frail adults with arthritis (UK)
 A: A practical UK guide to tENS machines for older frail adults with arthritis, written for days when energy and joints both feel limited. This page explains pads, batteries and realistic expectations if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
 
-## TENS Machines for Arthritis: Do They Work and How to Use Them (UK)
+## TENS for Arthritis: Does It Help and Is It Safe?
 URL: https://livingwitharthritis.org.uk/blog/tens-machines-arthritis-uk
-Last updated: 2026-09-05
-Q: TENS Machines for Arthritis: Do They Work and How to Use Them (UK)
-A: TENS machines are drug-free devices that deliver mild electrical impulses through pads on the skin, a popular choice for arthritis pain relief. They work by stimulating nerves to "close the gate" on pain signals (high frequency, 80-120 Hz) and by triggering endorphin release (low frequency, 2-5 Hz). Evidence suggests short-term pain relief, but they are best used as part of a wider pain management plan.
+Last updated: 2026-10-10
+Q: TENS for Arthritis: Does It Help and Is It Safe?
+A: TENS may provide temporary pain relief for some people, but results vary. NICE advises against offering TENS for osteoarthritis because evidence of benefit is insufficient. Before trying it, ask a healthcare professional whether it is appropriate for your condition and safe for you.
 
 ## Threshold ramps for frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/threshold-ramps-arthritis-frailty-uk
@@ -4546,11 +4546,11 @@ Last updated: 2026-09-05
 Q: Vitamin D and Arthritis: Why Every UK Patient Should Test
 A: Quick answer: From October to March, the UK sun is too weak to make vitamin D. Why this matters for joint pain and What the evidence says Vitamin D.
 
-## Vitamin D in winter: arthritis, bone and frailty (UK)
+## Vitamin D in autumn and winter with arthritis (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/vitamin-d-winter-arthritis-frailty-uk
-Last updated: 2026-09-05
-Q: Vitamin D in winter: arthritis, bone and frailty (UK)
-A: If you are navigating vitamin D in winter: arthritis, bone and frailty, small steady habits usually beat all-or-nothing restarts. This guide covers autumn and winter vitamin D without miracle claims when arthritis with frailty affects several joints, with a focus on Scotland and a home setting.
+Last updated: 2026-10-08
+Q: Vitamin D in autumn and winter with arthritis (UK guide)
+A: Between October and early March, the NHS says everyone should consider taking a daily vitamin D supplement of 10 micrograms (400 IU), because UK sunlight is too weak for your skin to make enough. If you are frail or housebound, live in a care home, usually cover your skin outdoors, or have dark skin, consider taking it all year. Vitamin D helps keep bones and muscles healthy but is not a treatment for arthritis itself. Do not take more than 100 micrograms a day unless a doctor advises it.
 
 ## Seated volunteering with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/volunteering-seated-arthritis-frailty-uk
@@ -4636,11 +4636,11 @@ Last updated: 2026-09-05
 Q: Cooking for one after loss when arthritis and frailty remain (UK)
 A: A frailty-aware note on cooking for one after loss when arthritis and frailty remain: protect joints, keep muscle working, and plan the hardest transfer of the day. This guide covers meals when the person who cooked is gone because arthritis with frailty affects hands, with a focus on Northern Ireland and a home setting.
 
-## Winter, cold houses, arthritis and frailty (UK)
+## Cold home and arthritis: keeping warm and keeping moving (UK)
 URL: https://livingwitharthritis.org.uk/blog/winter-arthritis-frailty-cold-houses-uk
-Last updated: 2026-09-05
-Q: Winter, cold houses, arthritis and frailty (UK)
-A: Motion is lotion still applies here: protect the joints, then give muscle a reason to stay. This UK guide looks at keeping warm without sitting still all day in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
+Last updated: 2026-10-07
+Q: Cold home and arthritis: keeping warm and keeping moving (UK)
+A: A cold home can make stiff joints feel worse and is risky if you are older or living with frailty. Heat the rooms you use, ideally to at least 18°C as the NHS suggests, wear layers, and get up and move for a few minutes every hour rather than staying wrapped up in one chair. Check GOV.UK for heating help and speak to your energy supplier if you are struggling.
 
 ## Working with Arthritis – Your UK Employment Rights
 URL: https://livingwitharthritis.org.uk/blog/working-with-arthritis-uk-rights
