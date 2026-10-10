@@ -6,6 +6,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 
 const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
@@ -302,9 +303,11 @@ const Header = () => {
             viewport width so the lazy bar mounting doesn't shift the page
             (was a fixed 52px → CLS ~0.12 on phones). See
             .donation-quickbar-placeholder in index.css. */}
-        <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
-          <DonationQuickBar />
-        </Suspense>
+        <ErrorBoundary fallback={null} resetKey={pathname}>
+          <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
+            <DonationQuickBar />
+          </Suspense>
+        </ErrorBoundary>
 
         {/* Logo Bar */}
         <div
