@@ -95,6 +95,8 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "morning-routine-multi-joint-arthritis",
   "manage-arthritis-pain-flare-ups-night",
   "arthritis-pain-tracking-journal-template",
+  "weather-and-arthritis-pain-explained",
+  "arthritis-pain-map-by-joint",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
