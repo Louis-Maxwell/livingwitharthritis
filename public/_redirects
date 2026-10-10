@@ -1115,3 +1115,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /cooking-with-arthritis-uk /blog/cooking-with-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/parenting-with-arthritis-uk /blog/parenting-with-arthritis-uk 301
