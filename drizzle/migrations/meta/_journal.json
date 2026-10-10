@@ -8,6 +8,13 @@
       "when": 1791669446063,
       "tag": "0000_donate_clicks",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791673265968,
+      "tag": "0001_grant_donate_clicks_insert",
+      "breakpoints": true
     }
   ]
 }
