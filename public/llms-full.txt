@@ -22,11 +22,23 @@ Last updated: 2026-09-19
 Q: Where can I find arthritis support in my UK city?
 A: Use the Living With Arthritis city directory for rheumatology context, local links and condition guides across England, Scotland, Wales and Northern Ireland.
 
-## Arthritis Waiting List Help UK | Rheumatology & Physio
+## Arthritis Waiting List Help UK | Your Rights & What to Do
 URL: https://livingwitharthritis.org.uk/arthritis-waiting-list-help
-Last updated: 2026-07-01
+Last updated: 2026-10-10
 Q: What can I do while waiting for a rheumatology appointment?
-A: Keep gently active, ask about physiotherapy self-referral in your area, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary by NHS trust.
+A: While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland have different rules. Contact your GP if symptoms get worse so the referral can be reviewed.
+Q: How long will I wait for a rheumatology appointment?
+A: It depends on where you live, the hospital and how urgent your referral is. Check the official sites: My Planned Care in England, NHS inform in Scotland, your health board and GOV.WALES statistics in Wales, and My Waiting Times NI in Northern Ireland. Suspected inflammatory arthritis should be referred urgently.
+Q: What is the 18-week rule?
+A: In England you have a legal right to start non-urgent, consultant-led treatment within 18 weeks of your referral being received or booked, with some exceptions. If you are likely to wait longer, you can ask to be offered a different provider. Scotland, Wales and Northern Ireland have different rules.
+Q: Should I go back to my GP while I wait?
+A: Yes, if your symptoms are getting worse, new joints are affected or you are struggling with daily life or work. Take a symptom record so your GP can update the hospital or ask for the referral to be reprioritised.
+Q: Can I refer myself to physiotherapy?
+A: In many areas you can refer yourself to NHS community musculoskeletal (MSK) physiotherapy without seeing your GP. Check your GP surgery or local NHS website.
+Q: Can I change hospital to be seen sooner?
+A: In England, you usually have the right to choose your hospital at referral, and to ask for a different provider if you are likely to wait more than 18 weeks. Ask before switching, as moving can sometimes mean repeating tests.
+Q: Who can help if my referral seems to be lost?
+A: Start with your GP surgery and the hospital booking team. If you still cannot get answers, contact PALS in England, PASS in Scotland, Llais in Wales or the Patient and Client Council in Northern Ireland.
 
 ## Authors and editorial team | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/authors
@@ -1690,17 +1702,17 @@ Last updated: 2026-09-05
 Q: 10 Arthritis Diet Myths Debunked
 A: There is no strong evidence that nightshade vegetables or dairy products generally worsen arthritis. While turmeric has anti-inflammatory properties, it is not a cure. Excess sugar, however, drives inflammation and weight gain, which can worsen arthritis. Red meat should be reduced, but lean red meat in moderation provides essential nutrients. The best approach is a balanced, Mediterranean-style diet.
 
-## Gardening with Arthritis – UK Tips & Adapted Tools
+## Gardening With Arthritis: Joint-Friendly Tips, Tools and Safety
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-gardening-uk
-Last updated: 2026-09-05
-Q: Gardening with Arthritis – UK Tips & Adapted Tools
-A: Gardening with arthritis is achievable by using adapted tools and techniques. Ergonomic hand tools, long-handled tools, and ratchet secateurs reduce strain. Raised garden beds eliminate bending and kneeling. Pacing yourself by taking breaks, spreading tasks, and alternating positions also helps. Carrying items close to your body and using foam grips on tools are joint-friendly techniques to minimise discomfort.
+Last updated: 2026-10-10
+Q: Gardening With Arthritis: Joint-Friendly Tips, Tools and Safety
+A: You can usually keep gardening with arthritis by pacing jobs into short sessions, changing position often, and using lightweight, padded or long-handled tools, raised beds and seating. If you take methotrexate, protect your skin from the sun. Wear gloves, keep tetanus jabs up to date and follow RHS precautions when handling compost.
 
-## Arthritis and Mental Health – A UK Guide
+## Arthritis and Mental Health: Signs, Self-Help and NHS Support in the UK
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-mental-health-uk
-Last updated: 2026-10-05
-Q: Arthritis and Mental Health – A UK Guide
-A: Living with arthritis pain, flares and uncertainty commonly affects mood, and low mood or worry can make pain feel worse. Talk to your GP, or self-refer to NHS Talking Therapies in England, if low mood or anxiety lasts more than two weeks. Paced movement, sleep, social contact and realistic goals help. If you feel unsafe, call 999 or Samaritans on 116 123.
+Last updated: 2026-10-10
+Q: Arthritis and Mental Health: Signs, Self-Help and NHS Support in the UK
+A: Low mood and anxiety are common with arthritis and can make pain feel worse. Speak to your GP if low mood or worry lasts two weeks or more. In England you can refer yourself to NHS Talking Therapies. In a crisis, call 999 if life is at risk, NHS 111 option 2 in England or Wales, NHS 24 on 111 in Scotland, Lifeline 0808 808 8000 in Northern Ireland, or Samaritans free on 116 123.
 
 ## Omega-3 and Fish Oil for Arthritis: A Complete Evidence-Based Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-omega-3-fish-oil
@@ -1749,6 +1761,12 @@ URL: https://livingwitharthritis.org.uk/blog/arthritis-and-your-heart-lowering-r
 Last updated: 2026-09-25
 Q: Arthritis and Your Heart: Lowering Your Heart Disease Risk
 A: Inflammatory types of arthritis, such as rheumatoid arthritis, psoriatic arthritis, lupus and gout, are linked with a higher risk of heart disease and stroke. Ongoing inflammation can damage blood vessels, and some medicines and reduced activity add to the risk. Keeping inflammation well controlled, not smoking, staying active and having regular blood pressure, cholesterol and blood sugar checks all help lower it.
+
+## Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More
+URL: https://livingwitharthritis.org.uk/blog/arthritis-blood-tests-explained-uk
+Last updated: 2026-10-10
+Q: Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More
+A: Blood tests support, but rarely prove, a diagnosis of inflammatory arthritis. CRP and ESR measure inflammation; rheumatoid factor and anti-CCP antibodies point towards rheumatoid arthritis; HLA-B27 helps assess axial spondyloarthritis; urate helps diagnose and treat gout. Osteoarthritis has no blood test. Medicines such as methotrexate need regular blood count, liver and kidney checks.
 
 ## Clinically recommended Arthritis Exercises
 URL: https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical
@@ -2110,11 +2128,11 @@ Last updated: 2026-09-05
 Q: How carers can help with arthritis and frailty without taking over (UK)
 A: Readers asking about how carers can help with arthritis and frailty without taking over often need pacing, protein and practised transfers more than a gym plan. This UK guide looks at help that still leaves practice in the day in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
 
-## Caring for a Parent With Arthritis: Practical Tips
+## Caring for an Elderly Parent With Arthritis: Practical Help and Support in the UK
 URL: https://livingwitharthritis.org.uk/blog/caring-for-parent-with-arthritis
-Last updated: 2026-09-05
-Q: Caring for a Parent With Arthritis: Practical Tips
-A: Caring for a parent with arthritis: offer specific practical help, learn their condition and triggers, consider assistive equipment, and register as a carer with their GP for a carer's assessment. Carers UK (0808 808 7777) provides free support.
+Last updated: 2026-10-10
+Q: Caring for an Elderly Parent With Arthritis: Practical Help and Support in the UK
+A: Help your parent stay independent by asking what they want, offering specific help and making tasks easier. Ask the council for a free needs assessment for them and a carer's assessment for you. Check Attendance Allowance for them and Carer's Allowance for you (Pension Age Disability Payment and Carer Support Payment in Scotland), and consider a lasting power of attorney early.
 
 ## How Cognitive Behavioural Therapy (CBT) Helps Arthritis Pain
 URL: https://livingwitharthritis.org.uk/blog/cbt-chronic-pain-arthritis
@@ -2254,6 +2272,12 @@ Last updated: 2026-09-05
 Q: Continence, night toilet trips and arthritis-related frailty (UK)
 A: Joint pain and a frailer body are different problems that often share a home, especially when getting out and about becomes harder. This guide covers rushing to the loo when joints are stiff because arthritis with frailty affects hips and knees, with a focus on Northern Ireland and a home setting.
 
+## Cooking With Arthritis: Kitchen Tips, Tools and Easier Meals
+URL: https://livingwitharthritis.org.uk/blog/cooking-with-arthritis-uk
+Last updated: 2026-10-10
+Q: Cooking With Arthritis: Kitchen Tips, Tools and Easier Meals
+A: Make cooking easier with arthritis by keeping everyday items at waist height, sitting to prepare food, sliding rather than lifting pans, and using aids such as kettle tippers, easy-grip utensils and food processors. Batch cook on good days. In England, your council can assess your needs and provide equipment and small adaptations free if you need them.
+
 ## Cooking with hand osteoarthritis when you are becoming frailer (UK)
 URL: https://livingwitharthritis.org.uk/blog/cooking-with-hand-oa-frailty-uk
 Last updated: 2026-09-05
@@ -2290,11 +2314,11 @@ Last updated: 2026-09-05
 Q: Cycling with Arthritis: A Low-Impact Way to Keep Moving
 A: Cycling is ideal for arthritis as it's low-impact, supporting your body weight and reducing joint loading. The circular pedalling motion lubricates cartilage and strengthens leg muscles supporting knees and hips. Stationary, e-bikes, and adapted cycles offer options for all abilities, with correct bike setup, including saddle and handlebar height, crucial for comfort and joint protection.
 
-## Dating With Arthritis: When and How to Tell a Partner
+## Dating With Arthritis: Telling Someone, Easier Dates and Staying Safe
 URL: https://livingwitharthritis.org.uk/blog/dating-with-arthritis-confidence
-Last updated: 2026-09-05
-Q: Dating With Arthritis: When and How to Tell a Partner
-A: Disclosure timing, accessibility-friendly date ideas, and managing flare-up surprises with grace (Dating With Arthritis: When and How to Tell a Partner).
+Last updated: 2026-10-10
+Q: Dating With Arthritis: Telling Someone, Easier Dates and Staying Safe
+A: Whether and when you tell a date you have arthritis is your choice. A short, matter-of-fact explanation often works well. Choose dates with seating at a time you feel best, rearrange honestly if you flare, and never send money to someone you have not met in person. If you take medicines such as methotrexate, use reliable contraception and plan pregnancy with your doctor.
 
 ## Day centres for people with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/day-centres-arthritis-frailty-uk
@@ -2392,11 +2416,11 @@ Last updated: 2026-09-05
 Q: Temporary downstairs living with arthritis and frailty (UK)
 A: For temporary downstairs living with arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. Arthritis can accelerate that by making every transfer cost more. This article is about a camp-bed phase that needs a plan, written for people and carers in Wales, especially around a home.
 
-## Driving with Arthritis in the UK
+## Driving With Arthritis in the UK: DVLA Rules, Medicines and Help
 URL: https://livingwitharthritis.org.uk/blog/driving-with-arthritis-uk
-Last updated: 2026-09-05
-Q: Driving with Arthritis in the UK
-A: You must inform the DVLA if your arthritis affects your ability to drive safely, for example, if you have difficulty gripping the steering wheel, operating pedals, or checking mirrors. Not all arthritis requires reporting; only if it impacts driving. Vehicle adaptations like steering wheel aids or automatic transmission can help. If eligible, the Motability Scheme provides adapted cars, and a Blue Badge offers parking concessions.
+Last updated: 2026-10-10
+Q: Driving With Arthritis in the UK: DVLA Rules, Medicines and Help
+A: Arthritis alone does not need reporting. GOV.UK says you must tell the DVLA if you use special controls for driving, or if your arthritis affects your ability to drive safely. You can be fined up to £1,000 if you do not. Check with your doctor about painkillers such as codeine, and wait at least 6 weeks after a hip or total knee replacement.
 
 ## Why Early Intervention Beats Late Treatment in Arthritis
 URL: https://livingwitharthritis.org.uk/blog/early-arthritis-intervention-uk
@@ -2668,11 +2692,11 @@ Last updated: 2026-10-06
 Q: Flu Jab and Arthritis: Who Can Get It Free in the UK
 A: Arthritis alone does not usually make you eligible, but you can get a free NHS flu vaccine if you are 65 or over, if your immune system is weakened by medicines such as steroid tablets, methotrexate or biologics, or if you are a main carer. The adult flu jab is not live, so it is safe on these medicines. Book through your GP surgery, a pharmacy or the NHS App, and do not stop your arthritis medicines without advice.
 
-## Flying with Arthritis: A UK Airport Survival Guide
+## Flying With Arthritis: Your Rights to Airport Assistance and Practical Tips
 URL: https://livingwitharthritis.org.uk/blog/flying-with-arthritis-uk-airports
-Last updated: 2026-09-05
-Q: Flying with Arthritis: A UK Airport Survival Guide
-A: Special assistance bookings, in-flight stretches and how to avoid post-flight flares. Heathrow, Gatwick and Manchester tips.
+Last updated: 2026-10-10
+Q: Flying With Arthritis: Your Rights to Airport Assistance and Practical Tips
+A: If you have a disability or reduced mobility, the CAA says you are legally entitled to free assistance when flying from a UK airport on any airline, or to the UK on a UK or EU airline. Book it when you buy your ticket or at least 48 hours before you fly. Carry medicines in hand luggage with a prescription and move around regularly on long flights.
 
 ## Food, Drink and Arthritis Medicines: What Not to Mix
 URL: https://livingwitharthritis.org.uk/blog/food-drink-and-arthritis-medicines-interactions
@@ -3052,6 +3076,12 @@ Last updated: 2026-09-25
 Q: How Arthritis Is Diagnosed: Blood Tests, Scans and Results
 A: Arthritis is diagnosed by putting together your symptoms, an examination of your joints and, when needed, blood tests and scans. Osteoarthritis can often be diagnosed without any tests if you are over 45 with typical symptoms. Inflammatory types, such as rheumatoid arthritis, usually need blood tests like CRP, ESR, rheumatoid factor and anti-CCP, plus a specialist assessment. No single test confirms most types of arthritis.
 
+## How NHS Referrals Work for Arthritis: From GP to Specialist
+URL: https://livingwitharthritis.org.uk/blog/how-nhs-referrals-work-arthritis
+Last updated: 2026-10-10
+Q: How NHS Referrals Work for Arthritis: From GP to Specialist
+A: Your GP or another clinician refers you to the service you need, such as rheumatology, orthopaedics or community MSK physiotherapy. In England most referrals go through the NHS e-Referral Service, you can usually choose your hospital, and your 18-week clock starts when the referral is received. Suspected inflammatory arthritis should be referred urgently, even if blood tests are normal.
+
 ## How to Sleep Better with Arthritis – A UK Guide
 URL: https://livingwitharthritis.org.uk/blog/how-to-sleep-with-arthritis-uk
 Last updated: 2026-10-05
@@ -3418,6 +3448,12 @@ Last updated: 2026-09-05
 Q: Motivation after a setback: arthritis, frailty and starting again (UK)
 A: If you are navigating motivation after a setback: arthritis, frailty and starting again, small steady habits usually beat all-or-nothing restarts. This guide covers the Monday after a flare or a fall when arthritis with frailty affects several joints, with a focus on Wales and a home setting.
 
+## MRI Scans for Arthritis Explained: When You Need One and What Results Mean
+URL: https://livingwitharthritis.org.uk/blog/mri-scan-arthritis-explained
+Last updated: 2026-10-10
+Q: MRI Scans for Arthritis Explained: When You Need One and What Results Mean
+A: An MRI uses magnets and radio waves, not radiation, to show soft tissues and early inflammation. It is important for diagnosing axial spondyloarthritis and can help in rheumatoid arthritis, but NICE says osteoarthritis is usually diagnosed without imaging. Many MRI findings, such as degenerative changes and meniscal tears, are common with age and may not explain your pain.
+
 ## Multimorbidity, arthritis and frailty: looking at the whole picture (UK)
 URL: https://livingwitharthritis.org.uk/blog/multimorbidity-arthritis-frailty-whole-picture-uk
 Last updated: 2026-09-05
@@ -3441,6 +3477,12 @@ URL: https://livingwitharthritis.org.uk/blog/nhs-access-to-biologics-how-the-app
 Last updated: 2026-09-05
 Q: NHS Access to Biologics: How the Approval Pathway Works
 A: Biologics for inflammatory arthritis are considered under UK guidance, usually when conventional DMARDs have not worked adequately, with DAS28 helping assess disease activity and guide treat-to-target decisions. Evidence from trials and reviews supports earlier targeted therapy for slowing joint damage and improving quality of life, while regular monitoring helps manage infection risk, side effects and treatment response.
+
+## NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout
+URL: https://livingwitharthritis.org.uk/blog/nhs-arthritis-pathways-explained
+Last updated: 2026-10-10
+Q: NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout
+A: Osteoarthritis is usually diagnosed and treated in primary care and community physiotherapy, with referral to orthopaedics if surgery might help. Suspected inflammatory arthritis should be referred urgently to rheumatology, with NICE aiming for referral within 3 working days and treatment within 6 weeks. Gout is mostly managed by your GP, with rheumatology for complex cases.
 
 ## The NHS frailty pathway and arthritis in England
 URL: https://livingwitharthritis.org.uk/blog/nhs-frailty-pathway-arthritis-england
@@ -3640,6 +3682,12 @@ Last updated: 2026-09-05
 Q: Parenting With Arthritis: Hacks for Babies and Toddlers
 A: Parenting with arthritis benefits from a combined approach of medication, movement, and lifestyle changes, alongside personalised advice from a clinician. Practical tips include using ergonomic equipment like adaptable cots and specific lifting techniques, such as bending with your knees. Energy-saving strategies like batch cooking and maximising rest are also helpful, and it is important to seek medical advice for new or worsening symptoms.
 
+## Parenting With Arthritis: Practical Tips and Support From Baby to Teen
+URL: https://livingwitharthritis.org.uk/blog/parenting-with-arthritis-uk
+Last updated: 2026-10-10
+Q: Parenting With Arthritis: Practical Tips and Support From Baby to Teen
+A: Parenting with arthritis is easier with planning: talk to your rheumatology team before trying for a baby, bring your baby up to you rather than bending, change and bathe at waist height, and have a flare plan with people who can help. In England you can ask your council for a needs assessment, which considers caring for a child, and request flexible working from day one at work.
+
 ## Pendant alarms when fingers are swollen from arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/pendant-alarm-arthritis-swollen-fingers-uk
 Last updated: 2026-09-05
@@ -3790,6 +3838,12 @@ Last updated: 2026-09-05
 Q: Prehabilitation: How Pre-Op Exercise Speeds Recovery
 A: Prehabilitation involves exercising before surgery to improve recovery. Studies show that patients who engage in structured exercise programmes pre-operation often have shorter hospital stays and fewer complications. This can lead to improved physical function and a quicker return to normal activities. Gentle, regular activity like walking, cycling, or swimming is often recommended to strengthen muscles and prepare the body for surgery.
 
+## Preparing for Joint Replacement Surgery: A Practical UK Checklist
+URL: https://livingwitharthritis.org.uk/blog/preparing-for-joint-replacement-uk
+Last updated: 2026-10-10
+Q: Preparing for Joint Replacement Surgery: A Practical UK Checklist
+A: To prepare for a joint replacement, use the waiting time to get fitter with strengthening exercise, manage your weight, stop smoking and keep alcohol within limits. Get diabetes, blood pressure and anaemia checked, and never stop arthritis medicines without advice. Attend your pre-operative assessment, then set up your home with help, equipment and easy meals before you go in.
+
 ## Prescription Costs and Arthritis: NHS Prepayment Certificate
 URL: https://livingwitharthritis.org.uk/blog/prescription-costs-and-arthritis-nhs-prepayment-certificates
 Last updated: 2026-09-05
@@ -3820,6 +3874,12 @@ Last updated: 2026-09-05
 Q: Private Rheumatology in the UK: When It's Worth Considering
 A: The article says private rheumatology may offer faster specialist appointments and scans, but diagnosis can still require several visits and tests, and costs are usually ongoing. It stresses evidence-based arthritis care: early diagnosis, appropriate medication, gentle movement, lifestyle and psychological support, symptom tracking, and prompt clinical advice for new swelling, fever, severe pain or worsening function.
 
+## Private Treatment Costs for Arthritis in the UK: What to Know Before You Pay
+URL: https://livingwitharthritis.org.uk/blog/private-treatment-costs-uk-arthritis
+Last updated: 2026-10-10
+Q: Private Treatment Costs for Arthritis in the UK: What to Know Before You Pay
+A: On 10 October 2026, published UK guide prices for a private primary hip or knee replacement ranged from about £12,750 to £17,000, with a first consultant appointment from around £200 and tests often extra. Prices change, so get a written quote. Check free NHS options first, such as your right to choose in England, and remember you keep your NHS entitlement if you pay privately.
+
 ## Protein, painful joints and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/protein-painful-joints-frailty-uk
 Last updated: 2026-09-05
@@ -3849,6 +3909,12 @@ URL: https://livingwitharthritis.org.uk/blog/psoriatic-vs-rheumatoid-arthritis
 Last updated: 2026-09-05
 Q: Psoriatic Arthritis vs Rheumatoid Arthritis: Key Differences
 A: Psoriatic arthritis is linked to psoriasis and can be asymmetric, affecting DIP joints and causing nail changes. Rheumatoid arthritis is symmetrical, seronegative in 20-30%, and does not cause skin changes. Both are treated with DMARDs but biologic choices differ.
+
+## Questions to Ask Your Consultant About Arthritis: A Ready-to-Use UK List
+URL: https://livingwitharthritis.org.uk/blog/questions-to-ask-your-consultant-arthritis
+Last updated: 2026-10-10
+Q: Questions to Ask Your Consultant About Arthritis: A Ready-to-Use UK List
+A: Start with NICE's three shared decision-making questions: what are my options, what are the benefits and risks of each, and how can we decide together what is right for me? Then add specific questions about your diagnosis, tests, medicines, surgery, work and follow-up. Pick three to five, put the most important first, and ask for a copy of the clinic letter.
 
 ## RA fatigue and frailty: protecting your energy envelope (UK)
 URL: https://livingwitharthritis.org.uk/blog/ra-fatigue-frailty-energy-envelope-uk
@@ -3945,6 +4011,12 @@ URL: https://livingwitharthritis.org.uk/blog/rheumatoid-arthritis-diet-uk
 Last updated: 2026-09-05
 Q: Best Diet for Rheumatoid Arthritis: Evidence-Based UK Guide
 A: The Mediterranean diet is recommended for managing Rheumatoid Arthritis (RA) and involves daily staples like extra-virgin olive oil, 5–7 portions of vegetables, 2–3 portions of fruit, whole grains, legumes, and nuts and seeds. Weekly priorities include oily fish 2–3 times and poultry and eggs. Foods to limit or avoid include processed items, added sugars, red meat, refined carbohydrates, and potentially alcohol and excess salt.
+
+## What Happens at a Rheumatology Appointment? A UK Guide to Your First Visit
+URL: https://livingwitharthritis.org.uk/blog/rheumatology-appointment-what-to-expect-uk
+Last updated: 2026-10-10
+Q: What Happens at a Rheumatology Appointment? A UK Guide to Your First Visit
+A: At a first rheumatology appointment, a consultant, doctor in training or specialist nurse will ask about your symptoms, examine your joints and usually arrange blood tests and sometimes X-rays, ultrasound or MRI. You may leave with a diagnosis and treatment plan, a plan to wait for results, or discharge back to your GP. Bring a medicines list, symptom diary and your top questions.
 
 ## Rheumatology clinics for frail older adults (UK)
 URL: https://livingwitharthritis.org.uk/blog/rheumatology-clinic-frail-older-adult-uk
@@ -4468,11 +4540,17 @@ Last updated: 2026-09-05
 Q: Transfer boards for frail adults with arthritis (UK)
 A: Families dealing with transfer boards for frail adults with arthritis usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at bed to chair without a risky hoist-by-family in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
 
-## Travelling with Arthritis: A UK Guide to Pain-Free Holidays
+## Travel Insurance With Arthritis: A UK Guide to Declaring, Comparing and Claiming
+URL: https://livingwitharthritis.org.uk/blog/travel-insurance-arthritis-uk
+Last updated: 2026-10-10
+Q: Travel Insurance With Arthritis: A UK Guide to Declaring, Comparing and Claiming
+A: Declare your arthritis, medicines, and any pending tests or surgery, as the FCDO warns that not declaring a condition may invalidate your policy. If an insurer refuses you or quotes a medical premium of £200 or more, FCA rules mean it must point you to a directory of specialist insurers. A free GHIC helps in the EEA but does not replace insurance.
+
+## Arthritis-Friendly Holidays: How to Plan a Trip That Suits Your Joints
 URL: https://livingwitharthritis.org.uk/blog/travelling-with-arthritis-uk
-Last updated: 2026-09-05
-Q: Travelling with Arthritis: A UK Guide to Pain-Free Holidays
-A: To travel with arthritis, consult your GP or rheumatologist at least six weeks before your trip to discuss medication and time zone changes. Always declare arthritis on travel insurance. Pack double the medication, split between hand and hold luggage. During travel, request assistance, stand and stretch frequently, and consider accessible destinations. Planning, pacing, and permission to rest are key for a comfortable journey.
+Last updated: 2026-10-10
+Q: Arthritis-Friendly Holidays: How to Plan a Trip That Suits Your Joints
+A: An arthritis-friendly holiday matches the trip to your body: a single base, level access, short journeys and built-in rest. Book free help through National Rail Passenger Assist or airline assistance, ask accommodation specific access questions, plan a quiet first day, and declare your arthritis on travel insurance if going abroad.
 
 ## Turmeric and Methotrexate: Interaction Risks, Evidence and Safe Use
 URL: https://livingwitharthritis.org.uk/blog/turmeric-and-methotrexate-interaction
@@ -4665,6 +4743,12 @@ URL: https://livingwitharthritis.org.uk/blog/wrist-osteoarthritis-frailty-walkin
 Last updated: 2026-09-05
 Q: Wrist osteoarthritis and frailty: choosing a walking aid that does not hurt (UK)
 A: Wrist osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at walking aids when wrists cannot take a hard grip in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
+
+## X-Rays for Arthritis Explained: What They Show, Radiation and Your Report
+URL: https://livingwitharthritis.org.uk/blog/x-ray-arthritis-explained
+Last updated: 2026-10-10
+Q: X-Rays for Arthritis Explained: What They Show, Radiation and Your Report
+A: An X-ray uses a small dose of radiation to show bone. In arthritis it can show joint space narrowing, bony spurs and erosions, but not cartilage, early inflammation or how much pain you have. NICE says osteoarthritis is usually diagnosed without imaging, but recommends hand and foot X-rays for suspected rheumatoid arthritis. A limb joint X-ray equals less than 1.5 days of natural background radiation.
 
 ## Best Yoga Poses for Ankylosing Spondylitis Stiffness
 URL: https://livingwitharthritis.org.uk/blog/yoga-ankylosing-spondylitis-stiffness
