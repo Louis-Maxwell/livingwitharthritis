@@ -1804,11 +1804,11 @@ Last updated: 2026-09-05
 Q: Arthritis in Young People – UK Guide
 A: Arthritis can affect young people, with around 15,000 children and young people in the UK living with the condition. Juvenile Idiopathic Arthritis (JIA) is the most common form in under-16s, causing joint pain, swelling, and stiffness. Symptoms can include morning stiffness, fatigue, and fevers. Early diagnosis by a GP and paediatric rheumatologist is important for managing the condition.
 
-## Arthritis Meal Planning UK: Weekly Menus for Joint Health
+## Meal Plans for Arthritis: A Practical 7-Day UK Plan, Shopping List and Batch-Cooking Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-meal-planning-uk
-Last updated: 2026-09-05
-Q: Arthritis Meal Planning UK: Weekly Menus for Joint Health
-A: An arthritis meal plan focuses on anti-inflammatory foods like vegetables, fruits, whole grains, lean protein, and healthy fats. It prioritises Omega-3s, aiming for oily fish twice weekly, and encourages colourful plates for diverse antioxidants. Practical tips include batch cooking, simple preparations to minimise hand strain, and budget-friendly choices like frozen vegetables and tinned fish.
+Last updated: 2026-10-10
+Q: Meal Plans for Arthritis: A Practical 7-Day UK Plan, Shopping List and Batch-Cooking Guide
+A: A good meal plan for arthritis follows the NHS Eatwell Guide with a Mediterranean-style lean: vegetables and fruit at most meals, wholegrains, beans and lentils, oily fish at least once a week, olive or rapeseed oil, and less processed meat and sugar. Plan meals that are easy to prepare on bad days, batch cook on good days, and see a dietitian for advice on your own portions and needs.
 
 ## Arthritis Medication — What Works, What to Expect
 URL: https://livingwitharthritis.org.uk/blog/arthritis-medication-guide
@@ -1935,6 +1935,12 @@ URL: https://livingwitharthritis.org.uk/blog/berries-antioxidants-inflammation
 Last updated: 2026-09-05
 Q: Berries and Antioxidants: Food Medicine for Inflammation
 A: Evidence in this guide frames arthritis pain as multifactorial, with inflammatory and degenerative patterns needing different management. It highlights structured movement, Mediterranean-style anti-inflammatory eating, weight management, heat or cold, and sleep habits as helpful. Start small, track simple weekly outcomes, and seek GP or physiotherapy advice for red, swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
+
+## The Best Breakfast for Arthritis: Easy, Evidence-Based Ideas for UK Mornings
+URL: https://livingwitharthritis.org.uk/blog/best-breakfast-for-arthritis-uk
+Last updated: 2026-10-10
+Q: The Best Breakfast for Arthritis: Easy, Evidence-Based Ideas for UK Mornings
+A: The best breakfast for arthritis is one that is easy to make on a stiff morning and follows NHS healthy eating advice: a wholegrain starchy food such as porridge or wholemeal toast, a protein food such as eggs, yoghurt, milk, beans or nut butter, and a portion of fruit. No breakfast cures arthritis, but this kind of meal supports energy, weight, bones and medicines that need food.
 
 ## Best Diet for Joint Pain in the UK
 URL: https://livingwitharthritis.org.uk/blog/best-diet-for-joint-pain-uk

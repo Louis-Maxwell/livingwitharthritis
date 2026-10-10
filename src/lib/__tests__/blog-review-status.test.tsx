@@ -97,6 +97,8 @@ const PENDING_DIET_NUTRITION_BATCH_4 = [
   "ginger-root-natural-anti-inflammatory",
   "protein-requirements-arthritis-uk",
   "plant-based-diet-arthritis-evidence",
+  "best-breakfast-for-arthritis-uk",
+  "arthritis-meal-planning-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
