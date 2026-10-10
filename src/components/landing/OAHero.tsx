@@ -43,12 +43,8 @@ const OAHero = memo(() => (
       <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] gap-6 lg:gap-12 items-center w-full">
         <div className="min-w-0">
           <h1 id="oa-hero" className="text-balance break-words leading-[1.12]">
-            <span className="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] opacity-95">
-              Living With Arthritis — evidence-based health guides
-            </span>
-            <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
-              Free, physio-reviewed help for people living with arthritis — and those who care
-              for them
+            <span className="block text-[clamp(1.6rem,4.2vw,3rem)]">
+              Providing practical advice, support and evidence-based guidance for people living with arthritis and frailty.
             </span>
           </h1>
 
