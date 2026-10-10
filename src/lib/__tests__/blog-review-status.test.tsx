@@ -85,6 +85,30 @@ const PENDING_CHAMPIONS_62_73 = [
   "arthritis-and-sleep-problems",
 ];
 
+/**
+ * Pain & Flare-Ups content batch 1 (10 Oct 2026): new or substantially
+ * rewritten guides, pending until Louis Maxwell reviews them.
+ */
+const PENDING_PAIN_FLARE_BATCH_1 = [
+  "managing-arthritis-flare-ups-at-home",
+  "heat-or-ice-for-arthritis",
+  "morning-routine-multi-joint-arthritis",
+  "manage-arthritis-pain-flare-ups-night",
+  "arthritis-pain-tracking-journal-template",
+  "weather-and-arthritis-pain-explained",
+  "arthritis-pain-map-by-joint",
+  "flare-management-pain-spikes",
+  "foods-to-avoid-with-arthritis",
+  "hot-weather-arthritis-management",
+  "arthritis-fatigue-recovery-guide",
+  "pacing-techniques-arthritis-pain",
+  "arthritis-pain-scale-explained",
+  "arthritis-red-flag-symptoms",
+  "emergency-arthritis-flare-checklist",
+  "safe-daily-stretching-routine-arthritis",
+  "30-day-arthritis-pain-reduction-challenge",
+];
+
 describe("Champions 62–67 guides awaiting clinical review", () => {
   it.each(PENDING_CHAMPIONS_62_73)("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
@@ -137,7 +161,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
     );
   });
 

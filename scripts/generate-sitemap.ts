@@ -185,7 +185,7 @@ function pageSourceLastmods(): Map<string, string> {
   // path -> relative import inside lazy(() => import("..."))
   const routeFiles = new Map<string, string>();
   const lazyRe =
-    /const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
+    /const\s+(\w+)\s*=\s*(?:lazy|lazyWithRetry)\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
   const compToFile = new Map<string, string>();
   let m: RegExpExecArray | null;
   while ((m = lazyRe.exec(app)) !== null) {
