@@ -1096,3 +1096,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /chair-exercises-older-adults-arthritis /blog/chair-exercises-older-adults-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/resistance-band-workouts-arthritis /blog/resistance-band-workouts-arthritis 301
