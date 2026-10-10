@@ -1732,11 +1732,11 @@ Last updated: 2026-09-05
 Q: Travelling with Arthritis – UK & Abroad Guide
 A: When travelling with arthritis, declare your condition for travel insurance and carry medications in hand luggage with a GP letter. Request airport assistance, reserve an aisle seat, and move frequently during flights. Choose accessible accommodation, such as ground-floor rooms or those with lifts and walk-in showers. Pace yourself, use a fold-up walking stick, and consider a RADAR key for accessible toilets.
 
-## Arthritis and Weight Loss UK: How Losing Weight Helps Your Joints
+## Healthy Weight and Arthritis: A Practical UK Guide to Losing Weight Safely When Your Joints Hurt
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-weight-loss-uk
-Last updated: 2026-09-05
-Q: Arthritis and Weight Loss UK: How Losing Weight Helps Your Joints
-A: For arthritis sufferers, even a small amount of weight loss can significantly reduce joint pain and improve function. Losing 1kg of body weight can reduce knee joint loading by 4kg during walking. A 5-10% reduction in body weight over 3-6 months is an achievable goal, with sustainable weight loss of 0.5-1kg per week being recommended.
+Last updated: 2026-10-10
+Q: Healthy Weight and Arthritis: A Practical UK Guide to Losing Weight Safely When Your Joints Hurt
+A: If you have osteoarthritis and are living with overweight or obesity, NICE says losing weight improves pain, function and quality of life, and any amount helps, though losing 10% of your body weight is likely to be better than 5%. Aim to lose weight steadily, about 0.5 to 1kg a week, with a balanced diet and activity you can manage. Free NHS tools and your GP can help, and a dietitian can tailor advice.
 
 ## Managing Arthritis at Work in the UK: Your Rights, Adjustments
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk
@@ -2878,11 +2878,11 @@ Last updated: 2026-09-05
 Q: Grip Strength Exercises: A Gentle Progression for Hand OA
 A: Movement and graded exercise are considered a first-line treatment for hand osteoarthritis. Aim for 150 minutes of moderate activity weekly, in 20–30 minute sessions. Other helpful approaches include an anti-inflammatory diet, maintaining a healthy weight, and using heat or cold for pain relief. Most individuals experience meaningful improvement within 6–12 weeks of consistent practice.
 
-## Gut Health and Arthritis: The Microbiome Connection Explained
+## Gut Health and Arthritis: What the Microbiome Research Really Shows (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/gut-health-arthritis-connection
-Last updated: 2026-09-05
-Q: Gut Health and Arthritis: The Microbiome Connection Explained
-A: The gut microbiome, comprising trillions of bacteria, significantly influences inflammation and immune function crucial for arthritis. An imbalance in gut bacteria, known as dysbiosis, may trigger or worsen autoimmune responses. Increased intestinal permeability ("leaky gut") allows bacterial fragments into the bloodstream, causing widespread inflammation. Dietary changes, such as consuming prebiotic and probiotic foods, can support a diverse and healthy gut microbiome.
+Last updated: 2026-10-10
+Q: Gut Health and Arthritis: What the Microbiome Research Really Shows (UK Guide)
+A: Research shows links between the gut microbiome and the immune system, and people with some types of arthritis have different gut bacteria. But there is no good evidence yet that changing your gut bacteria, with diet or probiotics, treats arthritis. The best-supported way to look after your gut is a varied diet rich in fibre, aiming for the NHS target of 30g a day, with plenty of fluids.
 
 ## The Gut-Joint Connection: How Your Microbiome Affects Arthritis
 URL: https://livingwitharthritis.org.uk/blog/gut-joint-connection-microbiome-arthritis

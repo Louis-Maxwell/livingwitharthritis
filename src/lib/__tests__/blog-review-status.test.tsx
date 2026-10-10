@@ -99,6 +99,8 @@ const PENDING_DIET_NUTRITION_BATCH_4 = [
   "plant-based-diet-arthritis-evidence",
   "best-breakfast-for-arthritis-uk",
   "arthritis-meal-planning-uk",
+  "arthritis-and-weight-loss-uk",
+  "gut-health-arthritis-connection",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
