@@ -1112,3 +1112,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /exercise-progression-arthritis /blog/exercise-progression-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/physio-mistakes-to-avoid-arthritis /blog/physio-mistakes-to-avoid-arthritis 301

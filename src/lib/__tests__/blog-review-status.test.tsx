@@ -105,6 +105,7 @@ const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "balance-training-arthritis",
   "exercise-progression-arthritis",
   "joint-protection-easier-everyday-tasks",
+  "physio-mistakes-to-avoid-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
