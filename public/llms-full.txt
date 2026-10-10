@@ -34,11 +34,11 @@ Last updated: 2026-08-29
 Q: Who writes Living With Arthritis content?
 A: Living With Arthritis content is written by our editorial team and led clinically by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the HCPC (PH128483) and a CSP member. Every clinical page is reviewed against NHS and NICE guidance before publication.
 
-## Benefits & PIP for Arthritis (UK) | Start Your Claim Prep
+## Benefits & PIP for Arthritis: UK Financial Help Directory
 URL: https://livingwitharthritis.org.uk/benefits-pip
-Last updated: 2026-09-20
-Q: Where do I start with PIP for arthritis?
-A: PIP looks at how arthritis affects daily living and mobility, not only your diagnosis name. Start with our full PIP guide, keep an evidence diary, and use Citizens Advice or a welfare rights adviser for form help. Educational guidance, not benefits advice.
+Last updated: 2026-10-10
+Q: What financial help can I get with arthritis in the UK?
+A: If arthritis affects your daily life or work, you may be able to get disability benefits (PIP, or Adult Disability Payment in Scotland, or Attendance Allowance over State Pension age), income support (Universal Credit, ESA, Pension Credit), help for carers, grants for home adaptations, council tax reductions, energy and health cost help, and travel concessions. Rules differ across the UK nations.
 
 ## Arthritis blog UK | Exercise, diet, PIP and pain guides
 URL: https://livingwitharthritis.org.uk/blog
@@ -1048,11 +1048,11 @@ A: Widespread body pain; tenderness on touch; fatigue; sleep issues; 'fibro fog'
 Q: What should I be careful about?
 A: Both respond to graded exercise, sleep hygiene and CBT — different medications from your GP.
 
-## PIP Application Guide: Forms, Evidence & Next Steps | Living With Arthritis
+## PIP for Arthritis: Complete UK Guide (2026/27) | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
 Last updated: 2026-10-10
-Q: How do I prepare a PIP application for arthritis?
-A: Check the official claim route for where you live, prepare your form and supporting evidence, and explain how daily living and mobility difficulties vary. Use the free evidence diary and get welfare advice if you need help.
+Q: Can I get PIP for arthritis in the UK?
+A: PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.
 
 ## Blue Badge vs Disability Parking Concessions
 URL: https://livingwitharthritis.org.uk/guides/blue-badge-vs-disability-parking
@@ -1114,11 +1114,11 @@ A: Not recommended for most arthritis. If you want cold exposure, use targeted i
 Q: What should I be careful about?
 A: Never cold plunge if you have heart disease, high blood pressure, Raynaud's, or you're pregnant, without medical advice.
 
-## UK Disability Support for Arthritis | Guide
+## Your Disability Rights With Arthritis: Equality Act 2010
 URL: https://livingwitharthritis.org.uk/guides/disability-support
-Last updated: 2026-07-01
-Q: What UK disability support is available for arthritis?
-A: You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Arthritis UK (formerly Versus Arthritis) helpline (0800 5200 520) guide applications.
+Last updated: 2026-10-10
+Q: What are my disability rights in the UK if I have arthritis?
+A: Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.
 
 ## DMARDs vs Biologics for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/guides/dmards-vs-biologics
@@ -1552,11 +1552,11 @@ A: Talk to your GP before taking turmeric if you are pregnant, take blood thinne
 Q: Turmeric vs ibuprofen for arthritis â which is better?
 A: For knee osteoarthritis, head-to-head trials show curcumin roughly matches ibuprofen or diclofenac for pain relief over 4â12 weeks, with fewer stomach and kidney side effects. It is slower to act. For short flares, NSAIDs still work faster.
 
-## Access to Work Scheme: A Complete UK Guide for People With Arthritis
+## Access to Work and Arthritis: A Complete UK Guide to Grants for Equipment, Travel and Support
 URL: https://livingwitharthritis.org.uk/blog/access-to-work-scheme-arthritis-guide
-Last updated: 2026-09-29
-Q: Access to Work Scheme: A Complete UK Guide for People With Arthritis
-A: The Access to Work scheme is a UK government grant that pays for practical support to help you start work, stay in work, or move into self-employment if you have a physical or mental health condition like arthritis. The support can cover specialist equipment, travel costs, and support workers, tailored to your specific needs.
+Last updated: 2026-10-10
+Q: Access to Work and Arthritis: A Complete UK Guide to Grants for Equipment, Travel and Support
+A: Access to Work is a government grant that helps you get or stay in work if arthritis or another health condition affects your job. It can pay for specialist equipment, adaptations, a support worker or taxis to work if you cannot use public transport. It does not replace your employer's legal duty to make reasonable adjustments, and you do not pay it back.
 
 ## A simple activity diary for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/activity-diary-arthritis-frailty-uk
@@ -1648,11 +1648,11 @@ Last updated: 2026-09-05
 Q: Managing Anxiety When You Have Arthritis: A UK Guide
 A: Quick answer: Anxiety often travels with chronic pain. Here's how UK patients can use CBT, breathwork and What the evidence says Managing Anxiety.
 
-## How to Appeal a Rejected PIP Claim for Arthritis
+## PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case
 URL: https://livingwitharthritis.org.uk/blog/appeal-rejected-pip-arthritis
-Last updated: 2026-09-05
-Q: How to Appeal a Rejected PIP Claim for Arthritis
-A: To appeal rejected PIP for arthritis: request your assessment report, write a mandatory reconsideration within 1 month citing specific errors, and if refused again appeal to the SSCS tribunal (free). Tribunal success rates are 60-70% for arthritis with medical evidence. Get free help from Citizens Advice.
+Last updated: 2026-10-10
+Q: PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case
+A: If you disagree with a PIP decision, first ask DWP for a mandatory reconsideration, usually within one month of the date on your decision letter. If the decision is not changed, appeal to the independent Social Security and Child Support Tribunal within one month of your mandatory reconsideration notice. Both steps are free. Focus on the activities where you think points were missed.
 
 ## Appetite loss, arthritis pain and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/appetite-loss-arthritis-frailty-uk
@@ -2026,11 +2026,11 @@ Last updated: 2026-09-05
 Q: How to Get a Blue Badge for Arthritis in Scotland
 A: Blue Badge Scotland for arthritis: apply at mygov.scot/blue-badge. Automatic eligibility with PIP/ADP enhanced mobility. Otherwise assessed on walking difficulty. Describe worst typical days, include GP supporting letter, OT report and X-rays if available. Valid UK-wide for 3 years.
 
-## Blue Badge, frailty and arthritis: walking distance in real life (UK)
+## Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation
 URL: https://livingwitharthritis.org.uk/blog/blue-badge-frailty-arthritis-uk
-Last updated: 2026-09-05
-Q: Blue Badge, frailty and arthritis: walking distance in real life (UK)
-A: This guide stays with blue Badge, frailty and arthritis: walking distance in real life: what still moves safely, what to ask, and how to keep a steadier week. This guide covers parking support when walking is limited, without promises because arthritis with frailty affects several joints, with a focus on Northern Ireland and a home setting.
+Last updated: 2026-10-10
+Q: Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation
+A: You may get a Blue Badge if arthritis makes walking very difficult because of pain, the time it takes or the risk of falling. Some people qualify automatically, for example with 8 points or more in the PIP or ADP 'moving around' activity. Otherwise your council assesses you. Apply through GOV.UK in England, Scotland and Wales, or nidirect in Northern Ireland.
 
 ## Bone clinics, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/bone-clinic-arthritis-frailty-uk
@@ -2092,11 +2092,11 @@ Last updated: 2026-09-05
 Q: Carer burnout when arthritis and frailty fill the week (UK)
 A: Living With Arthritis covers carer burnout when arthritis and frailty fill the week without miracle claims — just safer movement and clearer next steps. This article is about the helper's body and mood matter too, written for people and carers in Northern Ireland, especially around a home.
 
-## Carer's Allowance and Other Help If You Care for Someone
+## Carer's Allowance Explained: Help If You Care for Someone With Arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/carers-allowance-help-if-you-care-for-someone
-Last updated: 2026-09-30
-Q: Carer's Allowance and Other Help If You Care for Someone
-A: If you spend at least 35 hours a week caring for someone who gets certain disability benefits, you may be able to claim Carer's Allowance (Carer Support Payment in Scotland). There is an earnings limit and rules about education and other benefits. You can also ask your local council for a free carer's assessment, and you may be entitled to Carer's Credit, unpaid carer's leave and flexible working.
+Last updated: 2026-10-10
+Q: Carer's Allowance Explained: Help If You Care for Someone With Arthritis (UK)
+A: If you spend at least 35 hours a week caring for someone who gets a qualifying disability benefit, such as the daily living part of PIP or Attendance Allowance, you may be able to get Carer's Allowance. You must be 16 or over, not in full-time education, and earning no more than the weekly limit. In Scotland, you apply for Carer Support Payment instead.
 
 ## Carer's Assessments When You Care for Someone With Arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/carers-assessment-arthritis-frailty-uk
@@ -3046,6 +3046,12 @@ Last updated: 2026-09-05
 Q: Booking Accessible Hotel Rooms with Arthritis
 A: Quick answer: Walk-in showers, grab rails, lift access: what to ask before booking and how to vet listings on major UK What the evidence says Booking.
 
+## Housing Support for Arthritis: Adaptations, Grants, Council Tax and Moving Home (UK)
+URL: https://livingwitharthritis.org.uk/blog/housing-support-arthritis-uk
+Last updated: 2026-10-10
+Q: Housing Support for Arthritis: Adaptations, Grants, Council Tax and Moving Home (UK)
+A: If arthritis is making your home hard to manage, start by asking your council (or health and social care trust in Northern Ireland) for a needs assessment, usually by an occupational therapist. They can recommend equipment and adaptations. Bigger changes may be funded by a Disabled Facilities Grant in England, Wales and Northern Ireland, or a mandatory grant under your council's Scheme of Assistance in Scotland.
+
 ## How Arthritis Is Diagnosed: Blood Tests, Scans and Results
 URL: https://livingwitharthritis.org.uk/blog/how-arthritis-is-diagnosed-tests-scans-results
 Last updated: 2026-09-25
@@ -3411,6 +3417,12 @@ URL: https://livingwitharthritis.org.uk/blog/morning-stiffness-frailty-routine-u
 Last updated: 2026-09-05
 Q: Morning stiffness and frailty: a slower start that still starts (UK)
 A: Living With Arthritis covers morning stiffness and frailty: a slower start that still starts without miracle claims — just safer movement and clearer next steps. This UK guide looks at the first hour without skipping breakfast or tablets in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
+
+## Motability Scheme and Arthritis: Who Can Join, How It Works and What It Costs (UK)
+URL: https://livingwitharthritis.org.uk/blog/motability-scheme-arthritis-uk
+Last updated: 2026-10-10
+Q: Motability Scheme and Arthritis: Who Can Join, How It Works and What It Costs (UK)
+A: The Motability Scheme lets you exchange all or part of a qualifying mobility allowance for a leased car, wheelchair accessible vehicle, scooter or powered wheelchair. With arthritis, the usual route is the enhanced (higher) rate of the PIP or Adult Disability Payment mobility part. You normally need at least 12 months left on your award to join. Insurance, servicing and breakdown cover are included.
 
 ## Motivation after a setback: arthritis, frailty and starting again (UK)
 URL: https://livingwitharthritis.org.uk/blog/motivation-after-setback-arthritis-frailty-uk
@@ -3940,6 +3952,12 @@ Last updated: 2026-09-05
 Q: Restless nights, joint pain and next-day frailty (UK)
 A: This guide stays with restless nights, joint pain and next-day frailty: what still moves safely, what to ask, and how to keep a steadier week. This article is about broken sleep as a falls risk the next morning, written for people and carers in Wales, especially around a home.
 
+## Retirement Planning With Arthritis: Pensions, Benefits and Practical Steps (UK)
+URL: https://livingwitharthritis.org.uk/blog/retirement-planning-arthritis-uk
+Last updated: 2026-10-10
+Q: Retirement Planning With Arthritis: Pensions, Benefits and Practical Steps (UK)
+A: If you have arthritis, start planning retirement early: check your State Pension age and forecast on GOV.UK, protect your National Insurance record if you cut your hours or stop work, ask your pension scheme about ill-health early retirement, and claim PIP before State Pension age if you are eligible, because new claims after that age are not usually possible.
+
 ## Best Diet for Rheumatoid Arthritis: Evidence-Based UK Guide
 URL: https://livingwitharthritis.org.uk/blog/rheumatoid-arthritis-diet-uk
 Last updated: 2026-09-05
@@ -4102,11 +4120,11 @@ Last updated: 2026-09-05
 Q: Shoulder Pain When Reaching: RA vs OA Differences
 A: Inflammatory arthritis typically worsens with rest and improves with gentle movement. Degenerative arthritis, such as osteoarthritis, generally worsens with prolonged use. Recommended approaches include 150 minutes of moderate activity weekly, anti-inflammatory eating, weight management, heat or cold applications, and good sleep hygiene. Seek medical advice for sudden hot, red, swollen joints, unexplained weight loss, morning stiffness over an hour for two weeks, or new numbness or weakness.
 
-## Sick Pay, Fit Notes and Time Off Work With Arthritis
+## Arthritis Sick Notes Explained: Fit Notes, Sick Pay and Time Off Work (UK)
 URL: https://livingwitharthritis.org.uk/blog/sick-pay-fit-notes-time-off-work-arthritis
-Last updated: 2026-09-30
-Q: Sick Pay, Fit Notes and Time Off Work With Arthritis
-A: If arthritis keeps you off work, you may be entitled to Statutory Sick Pay (SSP) from your employer, and some employers pay more. Since April 2026, SSP is paid from the first day of sickness and there is no minimum earnings requirement. You can self-certify for the first seven days, then you need a fit note. If your arthritis counts as a disability, your employer must consider reasonable adjustments and treat disability-related absence fairly.
+Last updated: 2026-10-10
+Q: Arthritis Sick Notes Explained: Fit Notes, Sick Pay and Time Off Work (UK)
+A: A fit note (the old 'sick note') is advice from a doctor, nurse, occupational therapist, pharmacist or physiotherapist about how your health affects your work. You only need one if you are off sick for more than 7 days in a row. It can say you are not fit for work, or that you may be fit for work with changes such as a phased return, altered hours, amended duties or workplace adaptations.
 
 ## Signs of Rheumatoid Arthritis in Early Stages
 URL: https://livingwitharthritis.org.uk/blog/signs-rheumatoid-arthritis-early-stages
@@ -4504,11 +4522,11 @@ Last updated: 2026-09-05
 Q: Understanding Frailty in Older Adults
 A: Frailty is a medical syndrome characterised by reduced strength, endurance, and physiological reserve, making individuals vulnerable to illness or injury. It is different from normal ageing, as many older people remain robust. Clinically, frailty is identified by unintentional weight loss, exhaustion, weakness, slow walking speed, and low physical activity. Early identification is crucial for effective intervention and improved outcomes.
 
-## Universal Credit and Arthritis: Limited Capability for Work
+## ESA and Universal Credit for Arthritis: Limited Capability for Work, the WCA and What You Could Get
 URL: https://livingwitharthritis.org.uk/blog/universal-credit-and-arthritis-limited-capability-for-work
-Last updated: 2026-09-05
-Q: Universal Credit and Arthritis: Limited Capability for Work
-A: The post explains how people with arthritis can prepare for a Universal Credit Work Capability Assessment by giving an honest picture of symptoms, including bad days, and bringing medical evidence, therapy notes, medication details and a symptom diary. It highlights personalised clinical, occupational and workplace support, advises prompt clinician contact if symptoms worsen, and notes decisions can be challenged.
+Last updated: 2026-10-10
+Q: ESA and Universal Credit for Arthritis: Limited Capability for Work, the WCA and What You Could Get
+A: If arthritis limits how much you can work, you may be able to claim Universal Credit, New Style ESA, or both. Universal Credit is means-tested; New Style ESA depends on your National Insurance record. Both use the Work Capability Assessment. If you are found to have limited capability for work and work-related activity, Universal Credit includes an extra monthly amount, which has had two rates for new claims since 6 April 2026.
 
 ## University With Arthritis: Disability Support and DSA
 URL: https://livingwitharthritis.org.uk/blog/university-with-arthritis-disability-support-and-dsa
@@ -4647,6 +4665,12 @@ URL: https://livingwitharthritis.org.uk/blog/working-with-arthritis-uk-rights
 Last updated: 2026-09-05
 Q: Working with Arthritis – Your UK Employment Rights
 A: If your arthritis significantly affects daily activities, it's considered a disability under the Equality Act 2010. This protects you from discrimination and harassment at work. Your employer must make reasonable adjustments, such as flexible hours or ergonomic equipment. The Access to Work scheme can also fund equipment and support. You are entitled to Statutory Sick Pay if you need time off.
+
+## Workplace Adjustment Letter Templates for Arthritis: Copy-and-Edit Letters and Plans (UK)
+URL: https://livingwitharthritis.org.uk/blog/workplace-adjustment-letter-templates-arthritis
+Last updated: 2026-10-10
+Q: Workplace Adjustment Letter Templates for Arthritis: Copy-and-Edit Letters and Plans (UK)
+A: To ask for workplace adjustments for arthritis, write a short letter or email saying you have arthritis, explaining how it affects specific tasks, listing the changes you are asking for and how they would help, and asking for a meeting and a written reply. Keep a copy. For a change to hours, times, days or place of work, you can also make a statutory flexible working request.
 
 ## Wound care you cannot reach: arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/wound-care-reaching-arthritis-frailty-uk

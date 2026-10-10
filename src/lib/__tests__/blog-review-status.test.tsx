@@ -85,8 +85,25 @@ const PENDING_CHAMPIONS_62_73 = [
   "arthritis-and-sleep-problems",
 ];
 
+/**
+ * Benefits & UK Support batch 3 (topics 41–55): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
+  "appeal-rejected-pip-arthritis",
+  "motability-scheme-arthritis-uk",
+  "blue-badge-frailty-arthritis-uk",
+  "access-to-work-scheme-arthritis-guide",
+  "universal-credit-and-arthritis-limited-capability-for-work",
+  "carers-allowance-help-if-you-care-for-someone",
+  "workplace-adjustment-letter-templates-arthritis",
+  "sick-pay-fit-notes-time-off-work-arthritis",
+  "retirement-planning-arthritis-uk",
+  "housing-support-arthritis-uk",
+];
+
 describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each(PENDING_CHAMPIONS_62_73)("%s is pending in the post, catalog, review index and head data", (slug) => {
+  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_BENEFITS_SUPPORT_BATCH_3])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
     expect(post.last_reviewed).toBeUndefined();
@@ -137,7 +154,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_BENEFITS_SUPPORT_BATCH_3, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
     );
   });
 
@@ -149,11 +166,25 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     );
   });
 
-  it("Access to Work blog is clinically reviewed on 29 Sep 2026 (Champions 51)", () => {
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("reviewed");
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBe("2026-09-29");
+  it("Sick pay and fit notes blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    const slug = "sick-pay-fit-notes-time-off-work-arthritis";
+    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
+    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+  });
+
+  it("Carer's Allowance blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    const slug = "carers-allowance-help-if-you-care-for-someone";
+    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
+    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+  });
+
+  it("Access to Work blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("pending");
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBeUndefined();
     expect(resolveBlogReviewStatus(bySlug.get("access-to-work-scheme-arthritis-guide"))).toBe(
-      "reviewed",
+      "pending",
     );
   });
 
@@ -171,8 +202,6 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
 
   it.each([
-    "sick-pay-fit-notes-time-off-work-arthritis",
-    "carers-allowance-help-if-you-care-for-someone",
     "joint-protection-easier-everyday-tasks",
   ])("%s is clinically reviewed on 30 Sep 2026 (Champions 53–55)", (slug) => {
     expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
