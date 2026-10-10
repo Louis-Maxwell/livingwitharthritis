@@ -1702,11 +1702,11 @@ Last updated: 2026-10-05
 Q: Arthritis and Mental Health – A UK Guide
 A: Living with arthritis pain, flares and uncertainty commonly affects mood, and low mood or worry can make pain feel worse. Talk to your GP, or self-refer to NHS Talking Therapies in England, if low mood or anxiety lasts more than two weeks. Paced movement, sleep, social contact and realistic goals help. If you feel unsafe, call 999 or Samaritans on 116 123.
 
-## Omega-3 and Fish Oil for Arthritis: A Complete Evidence-Based Guide
+## Omega-3 and Fish Oil for Arthritis: An Honest Evidence Review (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-omega-3-fish-oil
-Last updated: 2026-09-05
-Q: Omega-3 and Fish Oil for Arthritis: A Complete Evidence-Based Guide
-A: Omega-3 fatty acids, particularly EPA, help manage arthritis by reducing inflammation. They combat inflammation by displacing pro-inflammatory fats, producing anti-inflammatory molecules, and inhibiting inflammatory gene expression. For rheumatoid arthritis, take 2,000–3,000 mg of combined EPA+DHA daily, which can reduce pain, stiffness, and potentially lower the need for NSAIDs. Benefits appear within 2 to 3 months.
+Last updated: 2026-10-10
+Q: Omega-3 and Fish Oil for Arthritis: An Honest Evidence Review (UK)
+A: Long-chain omega-3 fats (EPA and DHA) from oily fish or fish oil can modestly reduce joint tenderness and morning stiffness in rheumatoid arthritis, but they work slowly and do not replace medicines. Evidence for osteoarthritis is weak. Eat oily fish at least once a week, and check with a doctor or pharmacist before taking fish oil if you use blood thinners or NSAIDs.
 
 ## Arthritis and Pet Ownership – UK Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-and-pets-uk
@@ -4480,11 +4480,11 @@ Last updated: 2026-09-25
 Q: Turmeric and Methotrexate: Interaction Risks, Evidence and Safe Use
 A: The potential turmeric methotrexate interaction involves the liver. Both substances are processed by the same liver pathways, meaning high-dose turmeric supplements could theoretically increase methotrexate levels in your blood, raising the risk of side effects. While using turmeric in normal cooking is generally safe, always discuss high-dose supplements with your rheumatology team first.
 
-## Turmeric and Curcumin: Evidence-Based Arthritis Relief
+## Turmeric and Curcumin for Arthritis: What the Evidence Really Shows (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/turmeric-curcumin-arthritis-evidence
-Last updated: 2026-09-20
-Q: Turmeric and Curcumin: Evidence-Based Arthritis Relief
-A: The guide says arthritis relief depends on identifying whether symptoms are inflammatory or degenerative, then using evidence-based basics: graded exercise, Mediterranean-style eating, weight management, heat or cold, and better sleep. It suggests small seven-day habit changes and tracking pain and function. Seek GP or physiotherapist advice for hot swollen joints, weight loss, prolonged morning stiffness, numbness or weakness.
+Last updated: 2026-10-10
+Q: Turmeric and Curcumin for Arthritis: What the Evidence Really Shows (UK Guide)
+A: Small trials suggest turmeric or curcumin extracts may modestly ease knee osteoarthritis pain, but the studies are few, short and variable, so the evidence is not strong. Turmeric in cooking is safe for most people. Concentrated supplements can interact with blood thinners and have been linked with liver injury, so speak to a pharmacist or doctor before trying one.
 
 ## Turmeric for Arthritis: Evidence, Dose Context and UK Safety
 URL: https://livingwitharthritis.org.uk/blog/turmeric-for-arthritis

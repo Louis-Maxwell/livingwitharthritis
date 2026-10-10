@@ -92,6 +92,8 @@ const PENDING_CHAMPIONS_62_73 = [
 const PENDING_DIET_NUTRITION_BATCH_4 = [
   "anti-inflammatory-diet",
   "vitamin-d-arthritis-uk",
+  "arthritis-and-omega-3-fish-oil",
+  "turmeric-curcumin-arthritis-evidence",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
