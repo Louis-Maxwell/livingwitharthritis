@@ -92,6 +92,8 @@ const PENDING_CHAMPIONS_62_73 = [
 const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
   "appeal-rejected-pip-arthritis",
   "motability-scheme-arthritis-uk",
+  "blue-badge-frailty-arthritis-uk",
+  "access-to-work-scheme-arthritis-guide",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
@@ -158,11 +160,11 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     );
   });
 
-  it("Access to Work blog is clinically reviewed on 29 Sep 2026 (Champions 51)", () => {
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("reviewed");
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBe("2026-09-29");
+  it("Access to Work blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("pending");
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBeUndefined();
     expect(resolveBlogReviewStatus(bySlug.get("access-to-work-scheme-arthritis-guide"))).toBe(
-      "reviewed",
+      "pending",
     );
   });
 
