@@ -1100,3 +1100,6 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-pain-map-by-joint /blog/arthritis-pain-map-by-joint 301
 /weather-and-arthritis-pain-explained /blog/weather-and-arthritis-pain-explained 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-fatigue-recovery-guide /blog/arthritis-fatigue-recovery-guide 301

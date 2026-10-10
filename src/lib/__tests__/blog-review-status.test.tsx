@@ -100,6 +100,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "flare-management-pain-spikes",
   "foods-to-avoid-with-arthritis",
   "hot-weather-arthritis-management",
+  "arthritis-fatigue-recovery-guide",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
