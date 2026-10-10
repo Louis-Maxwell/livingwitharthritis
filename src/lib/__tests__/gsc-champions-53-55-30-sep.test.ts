@@ -106,10 +106,9 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     expect(sick).not.toMatch(/George Dingley|Crewe CW1/i);
   });
 
-  it("Carer's Allowance blog is clinically reviewed 2026-09-30 with CTR meta and customer-job links", () => {
-    expect(carersJson.last_reviewed).toBe(REVIEW);
-    expect(carersJson.reviewStatus).toBe("reviewed");
-    expect(carersJson.reviewed_by).toBe("Louis Maxwell");
+  it("Carer's Allowance blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta and customer-job links", () => {
+    expect(carersJson.reviewStatus).toBe("pending");
+    expect(carersJson.last_reviewed).toBeUndefined();
     expect(carersJson.meta_title).toMatch(/Carer's Allowance UK for Arthritis Care/i);
     const urls = (carersJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
