@@ -29,6 +29,7 @@ import Index from "./pages/Index";
 import GuideLayout from "./components/layouts/GuideLayout";
 const LocalizedHome = lazyWithRetry(() => import("./pages/LocalizedHome"));
 const LocalizedOsteoarthritis = lazyWithRetry(() => import("./pages/LocalizedOsteoarthritis"));
+const DonateClickStats = lazyWithRetry(() => import("./pages/DonateClickStats"));
 
 const ChatBotWidget = lazyWithRetry(() => import("./components/ChatBotWidget"));
 const CookieBanner = lazyWithRetry(() => import("./components/landing/CookieBanner"));
@@ -429,6 +430,7 @@ function AnimatedRoutes() {
         <Route path="/safeguarding" element={<Safeguarding />} />
         <Route path="/complaints" element={<Complaints />} />
         <Route path="/donate" element={withRouteBoundary(<Donate />)} />
+        <Route path="/donate-clicks" element={withRouteBoundary(<DonateClickStats />)} />
         <Route path="/campaigns/exercise-circuit-500" element={<ExerciseCircuit500 />} />
         <Route path="/guides/uk-arthritis" element={<UKArthritisGuide />} />
         <Route path="/guides/health-services" element={<HealthServicesGuide />} />

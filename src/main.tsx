@@ -6,6 +6,8 @@ import { afterPageLoad } from "./lib/afterPageLoad";
 import { installErrorReporting } from "./lib/errorReporting";
 import { installChunkRecovery, removeStaleServiceWorkers } from "./lib/chunkRecovery.ts";
 import "./index.css";
+import { installDonateClickTracker } from "./lib/donateClickTracker";
+installDonateClickTracker();
 
 // Error reporting first, so failures during start-up are captured too.
 // Stale-deploy recovery must be installed before any lazy chunk is requested.
