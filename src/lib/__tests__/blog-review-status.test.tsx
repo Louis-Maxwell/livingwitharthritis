@@ -85,8 +85,31 @@ const PENDING_CHAMPIONS_62_73 = [
   "arthritis-and-sleep-problems",
 ];
 
+/**
+ * Exercise & Physiotherapy batch 2 (topics 21–40): new or rewritten guides
+ * awaiting clinical review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
+  "hand-exercises-for-arthritis",
+  "shoulder-arthritis-exercises-uk",
+  "how-to-choose-the-right-exercise-for-arthritis",
+  "walking-with-arthritis-start-build-up-keep-going",
+  "strength-training-arthritis-beginners",
+  "chair-exercises-older-adults-arthritis",
+  "aquatic-therapy-arthritis-guide",
+  "resistance-band-workouts-arthritis",
+  "arthritis-friendly-gym-guide",
+  "daily-mobility-routine-arthritis",
+  "expert-qa-exercising-through-a-flare-up",
+  "weight-loss-exercise-plan-arthritis",
+  "balance-training-arthritis",
+  "exercise-progression-arthritis",
+  "joint-protection-easier-everyday-tasks",
+  "physio-mistakes-to-avoid-arthritis",
+];
+
 describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each(PENDING_CHAMPIONS_62_73)("%s is pending in the post, catalog, review index and head data", (slug) => {
+  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
     expect(post.last_reviewed).toBeUndefined();
@@ -137,7 +160,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_EXERCISE_PHYSIO_BATCH_2, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
     );
   });
 
@@ -157,23 +180,13 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     );
   });
 
-  it("walking-with-arthritis remains reviewed (date may advance after Champions 52)", () => {
-    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.reviewStatus).toBe(
-      "reviewed",
-    );
-    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.last_reviewed).toBe(
-      "2026-09-29",
-    );
-    expect(
-      resolveBlogReviewStatus(bySlug.get("walking-with-arthritis-start-build-up-keep-going")),
-    ).toBe("reviewed");
-  });
-
+  // walking-with-arthritis-start-build-up-keep-going and joint-protection-easier-everyday-tasks
+  // were rewritten in the Exercise & Physiotherapy batch 2 (Oct 2026) and are now asserted
+  // as pending in PENDING_EXERCISE_PHYSIO_BATCH_2 until re-reviewed.
 
   it.each([
     "sick-pay-fit-notes-time-off-work-arthritis",
     "carers-allowance-help-if-you-care-for-someone",
-    "joint-protection-easier-everyday-tasks",
   ])("%s is clinically reviewed on 30 Sep 2026 (Champions 53–55)", (slug) => {
     expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
     expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-30");

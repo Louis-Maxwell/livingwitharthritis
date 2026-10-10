@@ -160,9 +160,12 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     expect(access).not.toMatch(/Oswestry/i);
   });
 
-  it("Walking with arthritis blog has review 2026-09-29 and denser customer-job links", () => {
-    expect(walkingJson.last_reviewed).toBe(REVIEW);
-    expect(walkingJson.reviewStatus).toBe("reviewed");
+  // Rewritten as the 8-week beginner programme in the Exercise & Physiotherapy
+  // batch 2 (Oct 2026), so it is pending clinical review again until Louis
+  // re-reviews it (`npm run blog:mark-reviewed -- walking-with-arthritis-start-build-up-keep-going`).
+  it("Walking with arthritis blog is pending re-review after the batch 2 rewrite and keeps customer-job links", () => {
+    expect(walkingJson.last_reviewed).toBeUndefined();
+    expect(walkingJson.reviewStatus).toBe("pending");
     for (const href of WALKING_LINKS) {
       expect(walkingJson.content.includes(`href="${href}"`), `Walking missing ${href}`).toBe(true);
     }

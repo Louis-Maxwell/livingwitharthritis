@@ -207,7 +207,7 @@ const FootAndAnkleArthritis = () => (
         </motion.div>
 
         <Section icon={Dumbbell} title="What are the best exercises?">
-          <p>Keep the ankle and toes moving within a comfortable range. Warm the foot in a basin of warm water for 10 minutes first. Full routine: <Link to="/exercises/ankle-arthritis-exercises" className="text-primary underline">ankle arthritis exercises</Link>.</p>
+          <p>Keep the ankle and toes moving within a comfortable range. Warm the foot in a basin of warm water for 10 minutes first. Full routine: <Link to="/exercises/ankle-arthritis-exercises" className="text-primary underline">foot and ankle arthritis exercises</Link>.</p>
           <h3>Range of motion</h3>
           <ul>
             <li><strong>Ankle circles</strong> — 10 each way, both feet</li>
@@ -293,7 +293,7 @@ const FootAndAnkleArthritis = () => (
             {
               title: "Exercises & movement",
               links: [
-                { label: "Ankle arthritis exercises", to: "/exercises/ankle-arthritis-exercises" },
+                { label: "Foot and ankle arthritis exercises", to: "/exercises/ankle-arthritis-exercises" },
                 { label: "All exercise guides", to: "/exercises" },
                 { label: "Tai chi for balance", to: "/exercises/tai-chi-for-balance" },
                 { label: "Fall prevention", to: "/guides/fall-prevention-older-adults" },
