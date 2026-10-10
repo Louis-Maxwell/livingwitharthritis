@@ -58,4 +58,16 @@ describe("ErrorBoundary", () => {
     fireEvent.click(screen.getByRole("button", { name: /try again/i }));
     expect(screen.getByText("recovered")).toBeInTheDocument();
   });
+
+  it("hides a failed optional component with a null fallback and preserves navigation", () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    render(
+      <div>
+        <a href="/blog/archive">Article archive</a>
+        <ErrorBoundary fallback={null}><Boom /></ErrorBoundary>
+      </div>,
+    );
+    expect(screen.getByRole("link", { name: "Article archive" })).toHaveAttribute("href", "/blog/archive");
+    expect(screen.queryByText("Something went wrong")).not.toBeInTheDocument();
+  });
 });

@@ -198,7 +198,7 @@ function HomePage() {
 
 export default function Index() {
   return (
-    <ErrorBoundary fallback={<div>Error loading content</div>}>
+    <ErrorBoundary>
       <HomePage />
     </ErrorBoundary>
   );

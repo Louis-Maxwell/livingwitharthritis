@@ -5,6 +5,7 @@ import {
   canAutoReload,
   reloadOnce,
   stripReloadParam,
+  installChunkRecovery,
   RELOAD_WINDOW_MS,
 } from "@/lib/chunkRecovery";
 
@@ -62,5 +63,33 @@ describe("chunkRecovery", () => {
     window.history.replaceState(null, "", "/faq?q=knee&_r=abc#top");
     stripReloadParam();
     expect(window.location.pathname + window.location.search + window.location.hash).toBe("/faq?q=knee#top");
+  });
+
+  it("preserves Vite import rejection and only reloads genuine chunk failures", () => {
+    const listeners = vi.spyOn(window, "addEventListener").mockImplementation(() => {});
+    try {
+      installChunkRecovery();
+      const listener = listeners.mock.calls.find(([name]) => name === "vite:preloadError")?.[1] as EventListener;
+      const event = Object.assign(new Event("vite:preloadError", { cancelable: true }), {
+        payload: new Error("supabaseUrl is required."),
+      });
+      listener(event);
+      expect(sessionStorage.getItem("lwa:stale-reload-at")).toBeNull();
+      expect(event.defaultPrevented).toBe(false);
+
+      const storage = vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new Error("storage blocked"); });
+      try {
+        const chunkEvent = Object.assign(new Event("vite:preloadError", { cancelable: true }), {
+          payload: new TypeError("Failed to fetch dynamically imported module"),
+        });
+        listener(chunkEvent);
+        expect(storage).toHaveBeenCalledWith("lwa:stale-reload-at", expect.any(String));
+        expect(chunkEvent.defaultPrevented).toBe(false);
+      } finally {
+        storage.mockRestore();
+      }
+    } finally {
+      listeners.mockRestore();
+    }
   });
 });
