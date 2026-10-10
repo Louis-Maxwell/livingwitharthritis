@@ -311,9 +311,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.",
   }),
   "/guides/disability-support": withDefaults({
-    question: "What UK disability support is available for arthritis?",
+    question: "What are my disability rights in the UK if I have arthritis?",
     answer:
-      "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Arthritis UK (formerly Versus Arthritis) helpline (0800 5200 520) guide applications.",
+      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
