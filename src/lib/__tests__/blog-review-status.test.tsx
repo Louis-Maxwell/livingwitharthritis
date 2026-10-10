@@ -107,6 +107,7 @@ const PENDING_WAITING_LIFE_BATCH_5 = [
   "cooking-with-arthritis-uk",
   "parenting-with-arthritis-uk",
   "caring-for-parent-with-arthritis",
+  "dating-with-arthritis-confidence",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
