@@ -90,6 +90,7 @@ const PENDING_CHAMPIONS_62_73 = [
  * awaiting clinical review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
  */
 const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
+  "hand-exercises-for-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
