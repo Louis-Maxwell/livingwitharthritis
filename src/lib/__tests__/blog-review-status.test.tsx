@@ -104,6 +104,7 @@ const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "weight-loss-exercise-plan-arthritis",
   "balance-training-arthritis",
   "exercise-progression-arthritis",
+  "joint-protection-easier-everyday-tasks",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
