@@ -1037,6 +1037,30 @@ export type Database = {
         }
         Relationships: []
       }
+      donate_clicks: {
+        Row: {
+          button_label: string
+          created_at: string
+          destination: string
+          id: string
+          page_path: string
+        }
+        Insert: {
+          button_label: string
+          created_at?: string
+          destination: string
+          id?: string
+          page_path: string
+        }
+        Update: {
+          button_label?: string
+          created_at?: string
+          destination?: string
+          id?: string
+          page_path?: string
+        }
+        Relationships: []
+      }
       donation_tiers: {
         Row: {
           amount: string
@@ -2483,6 +2507,7 @@ export type Database = {
         Args: { payload: Json; queue_name: string }
         Returns: number
       }
+      get_donate_click_stats: { Args: never; Returns: Json }
       get_public_profile: {
         Args: { p_user_id: string }
         Returns: {
