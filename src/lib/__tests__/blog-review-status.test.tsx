@@ -97,6 +97,8 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "arthritis-pain-tracking-journal-template",
   "weather-and-arthritis-pain-explained",
   "arthritis-pain-map-by-joint",
+  "flare-management-pain-spikes",
+  "foods-to-avoid-with-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {

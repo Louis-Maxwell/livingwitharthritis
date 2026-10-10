@@ -2656,11 +2656,11 @@ Last updated: 2026-09-05
 Q: How to Manage Fibromyalgia Flare Ups Without Medication
 A: Managing fibromyalgia flare ups without medication: pace activity (reduce but do not stop), apply heat to painful muscle areas, maintain minimal movement (5-10 min walks), prioritise sleep hygiene. Avoid boom-bust cycles. A symptom diary helps identify personal triggers.
 
-## Flare Management: What to Do When Pain Spikes
+## How to Identify a True Arthritis Flare-Up (vs a Bad Day)
 URL: https://livingwitharthritis.org.uk/blog/flare-management-pain-spikes
-Last updated: 2026-09-05
-Q: Flare Management: What to Do When Pain Spikes
-A: Flare management involves practical steps to reduce pain spikes. Gentle movement, aiming for 150 minutes of moderate activity weekly, and an anti-inflammatory diet, such as a Mediterranean pattern, can help. Weight management, applying heat for stiffness or cold for swelling for 20 minutes, and prioritising sleep hygiene are also beneficial. Clinical advice should be sought for sudden hot, red, swollen joints or prolonged morning stiffness.
+Last updated: 2026-10-10
+Q: How to Identify a True Arthritis Flare-Up (vs a Bad Day)
+A: A true arthritis flare is a clear rise in symptoms above your usual level that lasts more than a day or two, often with more stiffness, swelling, warmth or tiredness. A bad day or pain spike usually settles within a day with rest and pacing. A hot, swollen joint with fever is not a usual flare and needs urgent help.
 
 ## Flare versus frailty: telling a bad joint week from a slower body (UK)
 URL: https://livingwitharthritis.org.uk/blog/flare-versus-frailty-arthritis-uk
@@ -2692,11 +2692,11 @@ Last updated: 2026-09-25
 Q: Food, Drink and Arthritis Medicines: What Not to Mix
 A: Some foods and drinks affect arthritis medicines. Alcohol can add to liver strain with methotrexate and leflunomide, and to stomach bleeding risk with anti-inflammatory painkillers. Grapefruit interacts with some medicines, such as colchicine. Dairy, calcium and antacids can block absorption of some tablets. Many tablets are gentler on the stomach with food. Check your leaflet and ask your pharmacist.
 
-## Foods to Avoid With Arthritis: A Complete UK Guide
+## Foods That May Trigger Arthritis Symptoms: What the Evidence Says (UK)
 URL: https://livingwitharthritis.org.uk/blog/foods-to-avoid-with-arthritis
-Last updated: 2026-09-05
-Q: Foods to Avoid With Arthritis: A Complete UK Guide
-A: For arthritis, the guide advises limiting ultra-processed foods, sugary drinks, refined carbohydrates, omega-6-rich vegetable oils and fried foods, alcohol, especially beer for gout, high-salt processed foods and sometimes full-fat dairy. It says these can worsen inflammation, uric acid, swelling and joint pain, while wholegrains, oily fish, vegetables, olive oil, nuts and seeds are suggested swaps.
+Last updated: 2026-10-10
+Q: Foods That May Trigger Arthritis Symptoms: What the Evidence Says (UK)
+A: For most types of arthritis, no single food reliably triggers flares. The clearest exception is gout, where alcohol, very large meals, sugary drinks and dehydration can trigger attacks. Limiting sugary, highly processed foods and alcohol helps overall health and weight. Do not cut out whole food groups without advice from your GP or a dietitian.
 
 ## Foot and Ankle Arthritis: Symptoms, Exercises and Footwear (UK)
 URL: https://livingwitharthritis.org.uk/blog/foot-and-ankle-arthritis-uk
