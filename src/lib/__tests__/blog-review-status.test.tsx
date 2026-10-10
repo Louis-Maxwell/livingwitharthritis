@@ -99,6 +99,7 @@ const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
   "workplace-adjustment-letter-templates-arthritis",
   "sick-pay-fit-notes-time-off-work-arthritis",
   "retirement-planning-arthritis-uk",
+  "housing-support-arthritis-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
