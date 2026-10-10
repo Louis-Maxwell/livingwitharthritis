@@ -1102,3 +1102,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-friendly-gym-guide /blog/arthritis-friendly-gym-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/daily-mobility-routine-arthritis /blog/daily-mobility-routine-arthritis 301
