@@ -11,6 +11,16 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import {
+  FIN_DIR_DESCRIPTION,
+  FIN_DIR_FAQS,
+  FIN_DIR_HTML,
+  FIN_DIR_META_TITLE,
+  FIN_DIR_QUICK_ANSWER,
+  FIN_DIR_TITLE,
+} from "@/data/benefitsGuides/financialHelpDirectoryContent";
 
 const LINKS = [
   {
@@ -86,24 +96,21 @@ const BenefitsPipHub = () => {
   return (
     <>
       <Helmet>
-        <title>Benefits & PIP for Arthritis (UK) | Start Your Claim Prep</title>
-        <meta
-          name="description"
-          content="Arthritis affecting dressing, cooking or walking? Start here for UK PIP and benefits: full guide, evidence diary, work rights and next-step links."
-        />
-        <link rel="canonical" href="https://livingwitharthritis.org.uk/guides/benefits-pip" />
-        <meta property="og:title" content="Benefits & PIP for Arthritis (UK) | Start Your Claim Prep" />
-        <meta
-          property="og:description"
-          content="PIP looks at how arthritis affects daily living and mobility — start the full guide, then use the evidence diary and disability support links."
-        />
+        <title>{`${FIN_DIR_META_TITLE} | Living With Arthritis`}</title>
+        <meta name="description" content={FIN_DIR_DESCRIPTION} />
+        {/* Self-canonical: since Benefits batch 3 this hub carries its own
+            financial help directory, distinct from the full PIP guide. */}
+        <link rel="canonical" href="https://livingwitharthritis.org.uk/benefits-pip" />
+        <meta property="og:title" content={FIN_DIR_META_TITLE} />
+        <meta property="og:description" content={FIN_DIR_DESCRIPTION} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/benefits-pip" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Benefits & PIP Hub",
+          name: FIN_DIR_TITLE,
+          description: FIN_DIR_DESCRIPTION,
           url: "https://livingwitharthritis.org.uk/benefits-pip",
           inLanguage: "en-GB",
           areaServed: { "@type": "Country", name: "United Kingdom" },
@@ -120,6 +127,15 @@ const BenefitsPipHub = () => {
             { "@type": "ListItem", position: 1, name: "Home", item: "https://livingwitharthritis.org.uk/" },
             { "@type": "ListItem", position: 2, name: "Benefits & PIP", item: "https://livingwitharthritis.org.uk/benefits-pip" },
           ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FIN_DIR_FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
         })}</script>
         <meta property="og:locale" content="en_GB" />
         <meta name="geo.region" content="GB" />
@@ -144,13 +160,13 @@ const BenefitsPipHub = () => {
               Money &amp; benefits
             </span>
           }
-          title="Benefits & PIP: start here"
-          subtitle="When arthritis makes dressing, cooking or walking harder, this hub points you to PIP prep, evidence tools and related UK support — not just the diagnosis name."
+          title="Benefits, PIP and financial help: start here"
+          subtitle="A UK directory of the benefits, grants, discounts and concessions that can help when arthritis affects your daily life or work. Facts checked on official sources on 10 October 2026."
         />
 
         <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl py-12 space-y-8">
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed m-0">
-            PIP is a UK working-age benefit that looks at how arthritis affects daily living and mobility, not just your diagnosis name — check GOV.UK for the latest rules.
+            <strong>Quick answer:</strong> {FIN_DIR_QUICK_ANSWER}
           </p>
           <div className="rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 space-y-3">
             <p className="text-sm font-semibold text-foreground m-0">
@@ -180,41 +196,27 @@ const BenefitsPipHub = () => {
               </Link>
             </div>
           </div>
-          <EducationalDisclaimerBox lastReviewed="2026-09-28" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-28" reviewStatus="pending" />
           <TopicClusterNav path="/benefits-pip" />
           <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
-          <div className="prose prose-neutral dark:prose-invert max-w-none">
-            <p>
-              If getting dressed, cooking or walking to the shops feels harder than it should,
-              you are not imagining it — and you are not alone. In the UK,{" "}
-              <strong>Personal Independence Payment (PIP)</strong> is the main working-age benefit
-              that looks at how your condition affects daily living and mobility — not just your
-              diagnosis name. This hub points you to our full guide and the related pages most
-              people need next.
-            </p>
-            <p>
-              Rules and forms change. Always check{" "}
-              <a
-                href="https://www.gov.uk/pip"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GOV.UK PIP guidance
-              </a>{" "}
-              for the latest official information, and speak with a welfare adviser if your
-              situation is complex.
-            </p>
-          </div>
-
+          <article
+            className="prose prose-neutral dark:prose-invert max-w-none prose-a:text-primary"
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(FIN_DIR_HTML) }}
+          />
+          <section id="benefits-pip-hub-faq" className="pt-8 border-t border-border/30">
+            <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
+            <FaqAccordion idPrefix="benefits-pip-hub-faq" items={FIN_DIR_FAQS} injectSchema={false} />
+          </section>
+          <h2 className="font-display font-bold text-2xl pt-4 m-0">Our benefits and work guides</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {LINKS.map((item) => (
               <Card key={item.href} className="hover:border-primary/40 transition-colors">
                 <CardContent className="p-5 flex flex-col h-full">
-                  <h2 className="font-semibold mb-2 text-base">
+                  <h3 className="font-semibold mb-2 text-base">
                     <Link to={item.href} className="hover:text-primary">
                       {item.title}
                     </Link>
-                  </h2>
+                  </h3>
                   <p className="text-sm text-muted-foreground flex-1">{item.description}</p>
                   <Link
                     to={item.href}

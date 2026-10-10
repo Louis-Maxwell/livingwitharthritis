@@ -94,7 +94,8 @@ describe("evening visibility pass — unique heads", () => {
       expect(head!.description?.trim().length).toBeGreaterThan(80);
       expect(head!.title?.toLowerCase().includes(hub.titleIncludes.toLowerCase())).toBe(true);
       expect(head!.title).not.toBe(homepageTitle);
-      expect(["2026-09-20", "2026-09-29"]).toContain(head!.updatedAt);
+      // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
+      expect(["2026-09-20", "2026-09-29", "2026-10-10"]).toContain(head!.updatedAt);
     });
   }
 
@@ -136,7 +137,8 @@ describe("evening visibility pass — crawl + AI discovery", () => {
       const hasLastmod =
         window.includes("<lastmod>2026-09-20</lastmod>") ||
         window.includes("<lastmod>2026-09-28</lastmod>") ||
-        window.includes("<lastmod>2026-09-29</lastmod>");
+        window.includes("<lastmod>2026-09-29</lastmod>") ||
+        window.includes("<lastmod>2026-10-10</lastmod>");
       expect(hasLastmod).toBe(true);
     });
   }
