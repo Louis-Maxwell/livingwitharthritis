@@ -101,6 +101,8 @@ const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
   "arthritis-friendly-gym-guide",
   "daily-mobility-routine-arthritis",
   "expert-qa-exercising-through-a-flare-up",
+  "weight-loss-exercise-plan-arthritis",
+  "balance-training-arthritis",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
