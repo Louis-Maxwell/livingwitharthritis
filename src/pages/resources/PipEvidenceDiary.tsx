@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,6 +7,18 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import { CONTACT_EMAILS, CONTACT_PHONE } from "@/config/contact";
 import { CHARITY } from "@/config/charity";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import {
+  PIP_DIARY_DESCRIPTION,
+  PIP_DIARY_FAQS,
+  PIP_DIARY_HTML_AFTER,
+  PIP_DIARY_HTML_BEFORE,
+  PIP_DIARY_META_TITLE,
+  PIP_DIARY_QUICK_ANSWER,
+} from "@/data/benefitsGuides/pipDiaryContent";
+
+const PROSE =
+  "prose prose-sm md:prose-base dark:prose-invert max-w-none prose-headings:font-display prose-a:text-primary prose-table:text-xs mb-10";
 
 const PATH = "/resources/pip-evidence-diary";
 const PRINT_UTM =
@@ -14,21 +27,46 @@ const PRINT_UTM =
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const PROMPTS = [
-  "Getting dressed / undressed",
-  "Preparing food / eating",
-  "Washing / bathing",
-  "Moving around indoors",
-  "Leaving the house",
   "Pain / stiffness (0–10)",
+  "Preparing food",
+  "Eating and drinking",
+  "Medicines / injections",
+  "Washing and bathing",
+  "Using the toilet",
+  "Dressing / undressing",
+  "Moving around (distance, aid, rests)",
+  "Going out / journeys",
   "Help needed from someone else",
+  "Falls, near misses, dropped items",
 ];
 
 export default function PipEvidenceDiary() {
+  useEffect(() => {
+    const id = "pip-diary-faq-jsonld";
+    document.getElementById(id)?.remove();
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = id;
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: PIP_DIARY_FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => document.getElementById(id)?.remove();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="UK PIP evidence diary for arthritis (printable checklist)"
-        description="Printable UK PIP evidence diary for arthritis: one-week daily living and mobility prompts to support a Personal Independence Payment claim. Educational, not legal advice."
+        title={PIP_DIARY_META_TITLE}
+        description={PIP_DIARY_DESCRIPTION}
+        type="article"
+        keywords="pip evidence diary, pip diary template, pip diary arthritis, printable pip diary uk, pip evidence"
         path={PATH}
       />
       <Header />
@@ -45,25 +83,16 @@ export default function PipEvidenceDiary() {
         </div>
 
         <h1 className="font-display mb-3 text-3xl font-extrabold text-foreground md:text-4xl">
-          PIP evidence diary checklist
+          PIP evidence diary for arthritis: free templates
         </h1>
         <p className="speakable-intro mb-6 text-lg text-muted-foreground leading-relaxed">
-          A one-week printable diary to record how arthritis affects daily living and mobility —
-          to support a PIP discussion with an adviser. Not legal advice and not a DWP form.
+          <strong>Quick answer:</strong> {PIP_DIARY_QUICK_ANSWER}
         </p>
 
-        <EducationalDisclaimerBox />
+        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated October 2026; pending clinical and editorial review." />
         <TopicClusterNav path="/guides/benefits-pip" />
 
-        <section className="mb-8 rounded-xl border border-border/50 bg-muted/20 p-5 text-sm leading-relaxed text-foreground/85">
-          <h2 className="font-display mb-2 text-lg font-bold">How to use this</h2>
-          <ul className="list-disc space-y-1 pl-5">
-            <li>Fill one column per day for a typical week, including bad days.</li>
-            <li>Note aids, time taken, pain, and whether you need help or rest.</li>
-            <li>Keep copies of clinic letters and prescription lists with this diary.</li>
-            <li>Citizens Advice or a welfare-rights adviser can help interpret PIP descriptors.</li>
-          </ul>
-        </section>
+        <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(PIP_DIARY_HTML_BEFORE) }} />
 
         <div className="mb-10 overflow-x-auto print:overflow-visible">
           <table className="w-full min-w-[640px] border-collapse text-left text-xs">
@@ -92,14 +121,28 @@ export default function PipEvidenceDiary() {
           </table>
         </div>
 
+        <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(PIP_DIARY_HTML_AFTER) }} />
+
+        <section className="mb-10 print:hidden" aria-labelledby="pip-diary-faq">
+          <h2 id="pip-diary-faq" className="font-display mb-4 text-2xl font-bold">Frequently asked questions</h2>
+          <div className="space-y-5">
+            {PIP_DIARY_FAQS.map((f) => (
+              <div key={f.question}>
+                <h3 className="mb-1 font-semibold">{f.question}</h3>
+                <p className="leading-relaxed text-foreground/80">{f.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <nav aria-label="Related PIP help" className="mb-4 rounded-xl border border-border/50 bg-muted/20 p-4 text-sm text-foreground/80 print:hidden">
           <p className="font-semibold text-foreground m-0 mb-2">Next steps</p>
           <ul className="m-0 list-disc space-y-1 pl-5">
             <li>
               <Link to={`/guides/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
-                How to claim PIP for arthritis in the UK
+                Complete PIP guide for arthritis
               </Link>
-              {" — "}full guide (eligibility, PIP2, appeals)
+              {" — "}eligibility, points, the form and challenges
             </li>
             <li>
               <a

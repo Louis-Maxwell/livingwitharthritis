@@ -345,12 +345,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "Personal Independence Payment (PIP) is based on how your condition affects daily living and mobility, not the diagnosis name alone. Keep an evidence diary, gather clinic letters, and seek advice from Citizens Advice or a welfare-rights service. We explain the process; we do not decide claims.",
-    faqs: [
-      { q: "What evidence helps a PIP arthritis claim?", a: "A daily diary of activities, medication lists, clinic letters, and notes on aids or help from others. Our printable PIP evidence diary can help you structure this." },
-      { q: "Is osteoarthritis enough for PIP?", a: "PIP looks at functional impact, not the label. Some people with OA qualify; others do not. Advice services can map your difficulties to descriptors." },
-      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
-    ],
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
   "/guides/diet": withDefaults({
     question: "What is the best anti-inflammatory diet for arthritis?",
