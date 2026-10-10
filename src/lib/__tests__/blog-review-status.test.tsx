@@ -85,6 +85,14 @@ const PENDING_CHAMPIONS_62_73 = [
   "arthritis-and-sleep-problems",
 ];
 
+/**
+ * Pain & Flare-Ups content batch 1 (10 Oct 2026): new or substantially
+ * rewritten guides, pending until Louis Maxwell reviews them.
+ */
+const PENDING_PAIN_FLARE_BATCH_1 = [
+  "managing-arthritis-flare-ups-at-home",
+];
+
 describe("Champions 62–67 guides awaiting clinical review", () => {
   it.each(PENDING_CHAMPIONS_62_73)("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
@@ -137,7 +145,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
     );
   });
 

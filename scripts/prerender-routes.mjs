@@ -135,6 +135,7 @@ const CURATED = [
   "/healthcare-professionals",
   "/resource-centre",
   "/resources/clinic-pack",
+  "/resources/flare-action-plan",
   "/guides/newly-diagnosed",
   "/guides/knee-exercises-for-osteoarthritis",
   "/guides/free-arthritis-resources-uk",
