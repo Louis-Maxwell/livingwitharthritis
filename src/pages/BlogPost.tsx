@@ -525,37 +525,6 @@ const BlogPost = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 flex-wrap">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-10 w-10 border-2 border-primary/15">
-                    <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
-                  </Avatar>
-                  {isPendingReview ? (
-                    <p
-                      className="text-sm font-medium text-foreground leading-snug max-w-[46ch]"
-                      data-testid="blog-review-pending"
-                    >
-                      {PENDING_REVIEW_TEXT}
-                    </p>
-                  ) : (
-                    <div>
-                      <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
-                      <p className="text-xs text-muted-foreground">{authorCreds}</p>
-                    </div>
-                  )}
-                </div>
-
-                {hasVerifiedReviewer && (
-                  <>
-                    <div className="hidden sm:block w-px h-8 bg-border/40" />
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
-                      <BookOpen className="w-3.5 h-3.5 text-primary" />
-                      <span className="text-xs font-medium text-primary">
-                        Reviewed by {reviewerName}
-                      </span>
-                    </div>
-                  </>
-                )}
-
                 {slug && (
                   <div className="sm:ml-auto no-print print:hidden">
                     <ArticleBookmarkButton slug={slug} title={article.title} prominent />
