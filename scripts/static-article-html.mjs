@@ -18,12 +18,12 @@ const PURIFY_CONFIG = {
   ALLOWED_TAGS: [
     "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
     "ul", "ol", "li", "blockquote", "a", "img", "table", "thead", "tbody",
-    "tr", "td", "th", "code", "pre", "hr", "span", "div", "section",
+    "tr", "td", "th", "caption", "code", "pre", "hr", "span", "div", "section",
     "article", "figure", "figcaption",
   ],
   ALLOWED_ATTR: [
     "href", "target", "rel", "src", "alt", "title", "class", "id",
-    "colspan", "rowspan", "width", "height", "loading",
+    "colspan", "rowspan", "width", "height", "loading", "decoding", "scope",
   ],
   // Explicit schemes only — closes incomplete-url-scheme-check (no data:/vbscript:).
   ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|\/|#)/i,
@@ -108,7 +108,9 @@ export function buildStaticArticleInner(data) {
     ? `<p class="article-byline">Written by ${escText(article.author)}${article.author_credentials ? ` — ${escText(article.author_credentials)}` : ""}.</p>` : "";
   const reviewer = article?.reviewStatus !== "pending" && article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
     ? `<p>Reviewed by ${escText(article.reviewed_by)}${article.reviewer_credentials ? ` — ${escText(article.reviewer_credentials)}` : ""}.</p>` : "";
-  const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label);
+  const citations = (article?.citations || data?.sources || [])
+    .map((c) => ({ ...c, label: c.label || c.name }))
+    .filter((c) => /^https?:\/\//i.test(c.url) && c.label);
   const references = citations.length
     ? `<section aria-label="Sources and references"><h2>Sources and references</h2><ol>${citations.map((c) => `<li><a href="${escText(c.url).replace(/"/g, "&quot;")}">${escText(c.label)}</a></li>`).join("")}</ol></section>` : "";
   const links = (data?.relatedLinks || []).filter((link) => /^\/(?!\/)/.test(link.path) && link.title);
