@@ -53,7 +53,7 @@ export default function Arthritis() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Arthritis: Types, Symptoms & UK Treatment Options"
+        title="Arthritis: Types & UK Treatments | Living With Arthritis" includeSiteName={false}
         description="Arthritis overview: 100+ types, symptoms, diagnosis & treatment options. UK evidence-based guide to living well with arthritis."
         path="/conditions/arthritis"
         type="article"

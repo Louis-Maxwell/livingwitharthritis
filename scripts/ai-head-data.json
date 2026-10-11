@@ -30,8 +30,8 @@
     "about": "Arthritis"
   },
   "/conditions/osteoarthritis": {
-    "title": "Osteoarthritis: Symptoms, Treatment & Exercises | UK",
-    "description": "UK guide to osteoarthritis: symptoms, diagnosis, NICE-recommended exercise, weight management, pain relief and when to see a GP.",
+    "title": "Osteoarthritis UK: Symptoms, Treatment & Exercises",
+    "description": "Osteoarthritis (OA) in the UK: how to recognise symptoms, when to see a GP, NICE-aligned treatment, exercises and diet — written for patients.",
     "about": "Osteoarthritis",
     "question": "What is osteoarthritis?",
     "answer": "Osteoarthritis (OA) is the most common form of arthritis in the UK. It happens when protective cartilage on the ends of your bones wears down over time, most often in knees, hips, hands and spine. Symptoms include joint pain that worsens with activity, morning stiffness under 30 minutes, swelling and reduced movement. It's manageable with exercise, weight control, and, when needed, medication or joint replacement.",
@@ -66,8 +66,8 @@
     ]
   },
   "/conditions/rheumatoid-arthritis": {
-    "title": "Rheumatoid Arthritis: Symptoms & Treatment | UK Guide",
-    "description": "UK guide to rheumatoid arthritis: early signs, symmetrical joint symptoms, DMARD treatment, diet support and living well with RA.",
+    "title": "Rheumatoid Arthritis: Symptoms, Treatment & Flares (UK)",
+    "description": "Rheumatoid arthritis (RA) in the UK: early symptoms, GP referral, DMARDs, flares and self-care — a plain-English guide for patients.",
     "about": "Rheumatoid arthritis",
     "question": "What is rheumatoid arthritis?",
     "answer": "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the lining of your joints, causing pain, swelling and stiffness — usually symmetrical (both hands, both feet). Early treatment with DMARDs (disease-modifying drugs) within 3 months of symptoms starting can prevent joint damage. It affects about 400,000 adults in the UK.",
@@ -98,7 +98,7 @@
     ]
   },
   "/conditions/psoriatic-arthritis": {
-    "title": "Psoriatic Arthritis: Symptoms & Treatment | UK Guide",
+    "title": "Psoriatic Arthritis UK | Symptoms & Treatment",
     "description": "UK guide to psoriatic arthritis: the link between psoriasis and joint inflammation, symptoms, diagnosis, treatment and self-care.",
     "about": "Psoriatic arthritis",
     "question": "What is psoriatic arthritis?",
@@ -298,8 +298,8 @@
     ]
   },
   "/conditions/knee-arthritis": {
-    "title": "Knee Arthritis: Symptoms, Exercises & Relief | UK",
-    "description": "UK guide to knee arthritis: pain on stairs and walking, stiffness after rest, NICE first-line exercise, weight loss and treatment options.",
+    "title": "Knee Arthritis UK | Symptoms, Treatment & Exercises",
+    "description": "Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide.",
     "about": "Knee osteoarthritis",
     "question": "What is knee arthritis?",
     "answer": "Knee arthritis is joint damage in the knee — most often osteoarthritis — causing pain when standing, walking or climbing stairs, stiffness after rest, and swelling. NICE recommends exercise and weight loss as first-line treatment; every 5 kg lost cuts knee load by roughly 20 kg.",
@@ -370,8 +370,8 @@
     ]
   },
   "/conditions/hand-arthritis": {
-    "title": "Hand Arthritis: Symptoms & Exercises | UK Guide",
-    "description": "UK guide to hand arthritis: finger, thumb and wrist symptoms of OA and RA, plus splints, hand exercises and topical NSAID gels.",
+    "title": "Hand Arthritis UK | Symptoms, Treatment & Exercises",
+    "description": "Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids.",
     "about": "Hand arthritis",
     "question": "What is hand arthritis?",
     "answer": "Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Splints, hand exercises and topical NSAID gels help most people.",
@@ -410,8 +410,8 @@
     ]
   },
   "/conditions/shoulder-arthritis": {
-    "title": "Shoulder Arthritis: Symptoms & Treatment | UK Guide",
-    "description": "UK guide to shoulder arthritis: glenohumeral and AC joint OA, night pain, reduced reach, physio, injections and replacement options.",
+    "title": "Shoulder Arthritis UK | Symptoms & Exercises",
+    "description": "UK guide to shoulder arthritis: glenohumeral & AC joint OA, rotator cuff arthropathy, symptoms, treatment and exercises.",
     "about": "Shoulder arthritis",
     "question": "What is shoulder arthritis?",
     "answer": "Shoulder arthritis is cartilage loss in the glenohumeral or acromioclavicular joints, causing deep aching pain, reduced reach and night pain when lying on the affected side. Physio, corticosteroid injections and, if severe, shoulder replacement are options.",
@@ -450,8 +450,8 @@
     ]
   },
   "/conditions/elbow-arthritis": {
-    "title": "Elbow Arthritis: Symptoms & Treatment | UK Guide",
-    "description": "UK guide to elbow arthritis: pain, stiffness, locking and grating in the elbow, with treatments from NSAIDs to arthroscopy and replacement.",
+    "title": "Elbow Arthritis UK | Causes, Treatment & Exercises",
+    "description": "UK guide to elbow pain and arthritis: causes of elbow joint pain, tennis and golfer's elbow, osteoarthritis, the best gentle exercises and when to see a GP.",
     "about": "Elbow arthritis",
     "question": "What is elbow arthritis?",
     "answer": "Elbow arthritis is joint damage in the elbow causing pain, stiffness, locking or grating during movement. Osteoarthritis and rheumatoid arthritis are the main causes. Treatment ranges from activity modification and NSAIDs to arthroscopy or elbow replacement.",
@@ -619,7 +619,7 @@
   },
   "/guides/newly-diagnosed": {
     "title": "Newly Diagnosed With Arthritis: UK First Steps Checklist",
-    "description": "Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP.",
+    "description": "Newly diagnosed with arthritis in the UK? Find first steps, questions for your GP, rheumatology preparation and guides to pain, exercise, diet and benefits.",
     "question": "What should I do after an arthritis diagnosis?",
     "answer": "Learn which type you have, keep gentle daily movement, write questions for your GP or rheumatology appointment, and track symptoms. Then explore pain relief, exercise, diet and benefits if daily living is limited. Educational guidance, not a diagnosis.",
     "updatedAt": "2026-09-29",
@@ -677,8 +677,8 @@
     ]
   },
   "/guides/arthritis-pain-relief": {
-    "title": "Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)",
-    "description": "In pain now? Practical UK arthritis pain relief: paced movement, heat/cold, topical NSAIDs, sleep and when to see your GP — then next steps for diet, exercise and PIP.",
+    "title": "Arthritis Pain Relief UK: Movement, Heat & Medicines",
+    "description": "Practical UK arthritis pain relief: paced movement, heat and cold, topical treatments, sleep and when to contact your GP. Find next steps for self-care.",
     "question": "How do I relieve arthritis pain today?",
     "answer": "Start with paced movement, heat or cold on the joint, and a topical NSAID gel if suitable. Protect sleep and see your GP if pain lasts more than six weeks, a joint is hot and swollen, or night pain wakes you. Educational guidance, not a diagnosis.",
     "updatedAt": "2026-09-20",
@@ -786,8 +786,8 @@
     ]
   },
   "/guides/fall-prevention-older-adults": {
-    "title": "Fall Prevention for Older Adults | UK Guide",
-    "description": "How older adults can prevent falls: strength and balance training, home hazard checks, medication review, eye tests and vitamin D.",
+    "title": "Fall Prevention with Arthritis | UK Strength & Balance",
+    "description": "UK fall prevention with arthritis: strength and balance exercises, a home safety checklist, medication review and practical steps to take after a fall.",
     "question": "How can older adults prevent falls?",
     "answer": "Strength and balance training (tai chi, Otago programme) cuts falls by around 30%. Also: home hazard checks, medication review, eye tests every 2 years and vitamin D 10 mcg/day. Contact your GP or NHS falls clinic if you've fallen twice in a year.",
     "updatedAt": "2026-07-01",
@@ -891,8 +891,8 @@
     ]
   },
   "/guides/musculoskeletal-health": {
-    "title": "Musculoskeletal (MSK) Health Explained | UK",
-    "description": "What musculoskeletal health means, why MSK conditions affect 20 million people in the UK, and the four proven levers that protect it.",
+    "title": "Musculoskeletal Health Guide | Living With Arthritis",
+    "description": "Understand musculoskeletal health: back and neck pain, common symptoms, workplace ergonomics, UK healthcare pathways and rehabilitation options.",
     "question": "What is musculoskeletal health?",
     "answer": "Musculoskeletal (MSK) health means healthy bones, joints, muscles, tendons and ligaments. MSK conditions affect 20 million people in the UK. Movement, strength, sleep and weight management are the four proven levers to protect it.",
     "updatedAt": "2026-07-01",
@@ -925,8 +925,8 @@
     ]
   },
   "/exercise-hub": {
-    "title": "Exercise Hub: Arthritis-Friendly Workouts | UK",
-    "description": "Free arthritis exercise hub: aerobic, strength and flexibility routines by joint, NICE-aligned plans and short home video sessions.",
+    "title": "Free Arthritis Exercises at Home UK | Exercise Hub",
+    "description": "Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist.",
     "question": "What's the best exercise for arthritis?",
     "answer": "Combine aerobic (walking, swimming, cycling) with strength training 2-3 times a week and flexibility work. NICE guideline NG226 recommends exercise as first-line for all arthritis types — with pain reduction comparable to NSAIDs and no side effects.",
     "updatedAt": "2026-07-01",
@@ -6508,8 +6508,8 @@
     "updatedAt": "2026-08-29"
   },
   "/about": {
-    "title": "About Living With Arthritis | Registered charity 1218461 · Free guides",
-    "description": "Who we are: Living With Arthritis (charity 1218461) — free, clinically reviewed guides for pain, newly diagnosed, exercise, diet and PIP. Founded by Louis Maxwell (HCPC PH128483). Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK.",
+    "title": "About Living With Arthritis | Registered charity 1218461",
+    "description": "Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits.",
     "question": "Who is Living With Arthritis?",
     "answer": "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).",
     "breadcrumb": "About us"
@@ -6522,8 +6522,8 @@
     "breadcrumb": "Diet"
   },
   "/guides/exercise": {
-    "title": "Best arthritis exercises in the UK (NICE-aligned)",
-    "description": "Evidence-based arthritis exercise guide: low-impact aerobic, strength, flexibility, water-based and chair routines for knee, hip, hand and shoulder.",
+    "title": "Arthritis Exercises at Home UK | Living With Arthritis",
+    "description": "Free arthritis exercises at home in the UK: explore knee, hip, hand and chair routines, safe progression and practical guidance from Living With Arthritis.",
     "question": "What exercise is best for arthritis?",
     "answer": "Exercise is first-line care for osteoarthritis in the UK. Combine low-impact aerobic activity (walking, cycling, swimming), strengthening work for the muscles around the affected joint, and flexibility or balance work. Build up gradually; some discomfort that settles within 24 hours is expected and does not mean harm.",
     "breadcrumb": "Exercise guide"
@@ -6539,7 +6539,7 @@
   },
   "/": {
     "title": "Living With Arthritis | Evidence-Based Health Guides",
-    "description": "Free, clinically reviewed UK arthritis guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help. Living With Arthritis is an independent charity (no. 1218461).",
+    "description": "Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461.",
     "question": "What is Living With Arthritis?",
     "answer": "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
     "updatedAt": "2026-09-20"
@@ -6738,8 +6738,8 @@
     ]
   },
   "/guides/understanding-pain": {
-    "title": "Understanding Pain Types | Living With Arthritis",
-    "description": "Plain-English guide to inflammatory vs mechanical pain, focal vs systemic patterns, fibromyalgia-type pain, acute vs chronic, and neuropathic symptoms — for people with arthritis and carers in the UK.",
+    "title": "Understanding Arthritis Pain | Talking to Your GP",
+    "description": "Understand arthritis pain: inflammatory and mechanical symptoms, nerve pain, fibromyalgia and practical questions to discuss with your GP or specialist.",
     "question": "What are the main types of pain?",
     "answer": "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
     "updatedAt": "2026-09-21",

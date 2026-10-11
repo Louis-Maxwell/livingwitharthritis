@@ -25,6 +25,10 @@ function walk(dir) {
 const missing = [];
 for (const file of walk(ROOT)) {
   const src = readFileSync(file, "utf8");
+  // Redirect-only routes render the destination's metadata, not a page head.
+  if (src.includes('return <Navigate') &&
+      src.includes('from "react-router-dom"') &&
+      !/<(?:main|article|h[1-6])\b/.test(src)) continue;
   if (
     src.includes("SeoHead") ||
     src.includes("ConditionPageTemplate") ||
