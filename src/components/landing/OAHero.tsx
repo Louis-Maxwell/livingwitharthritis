@@ -103,7 +103,7 @@ const OAHero = memo(() => (
             alt="Two smiling young women outdoors together — representing the community Living With Arthritis supports."
             width={800}
             height={800}
-            {...({ fetchpriority: "high" } as Record<string, string>)}
+            {...({ fetchpriority: "auto" } as Record<string, string>)}
             decoding="async"
             loading="eager"
             onError={onCoverImgError}

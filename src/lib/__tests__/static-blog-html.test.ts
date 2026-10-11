@@ -77,6 +77,19 @@ const WORK_HEAD = {
 };
 
 describe("static blog HTML for Soft 404s", () => {
+  it("preserves skip navigation and landmarks when replacing the new homepage shell twice", () => {
+    const source = readFileSync(resolve("index.html"), "utf8");
+    const first = replaceSeoFallback(source, "<h1>First article</h1>");
+    const second = replaceSeoFallback(first, "<h1>Updated article</h1>");
+    expect(second).not.toContain("First article");
+    expect(second).toContain("Updated article");
+    expect(second.match(/<main\b/g)).toHaveLength(1);
+    expect(second.match(/<footer>/g)).toHaveLength(1);
+    expect(second).toContain('href="#static-main-content"');
+    expect(second).toContain('<main id="static-main-content" tabindex="-1">');
+    expect(second).toContain('<header><a href="/">Living With Arthritis</a></header>');
+  });
+
   it("prerenders every published blog slug and the hand-arthritis exercises page", () => {
     const missing = (blogSlugs as string[]).filter(
       (slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`),
