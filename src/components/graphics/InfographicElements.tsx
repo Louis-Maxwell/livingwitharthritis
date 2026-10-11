@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { Progress } from "@/components/ui/progress";
+import { CheckCircle2 } from "lucide-react";
 
 /* ─── Animated Stat Counter ─── */
 export const StatCounter = ({
@@ -246,11 +247,11 @@ export const TintedSection = ({
 
 /* ─── Emoji Highlight Card ─── */
 export const EmojiCard = ({
-  emoji,
   title,
   description,
 }: {
-  emoji: string;
+  /** Ignored — decorative emoji are never rendered; kept for call-site compatibility. */
+  emoji?: string;
   title: string;
   description: string;
 }) => (
@@ -260,7 +261,7 @@ export const EmojiCard = ({
     viewport={{ once: true }}
     className="rounded-xl border border-border/30 bg-card p-5 text-center hover:shadow-medium transition-shadow"
   >
-    <span className="text-3xl block mb-2" aria-hidden="true">{emoji}</span>
+    <CheckCircle2 className="w-7 h-7 text-primary mx-auto mb-2" aria-hidden="true" />
     <h4 className="font-bold text-foreground text-sm mb-1">{title}</h4>
     <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
   </motion.div>
