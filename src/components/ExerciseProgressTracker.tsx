@@ -11,7 +11,7 @@ const EXERCISE_GUIDES = [
   {
     id: "knee",
     title: "Knee Exercise Routine",
-    icon: "🦵",
+    icon: "",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -25,7 +25,7 @@ const EXERCISE_GUIDES = [
   {
     id: "hand",
     title: "Hand Exercise Guide",
-    icon: "✋",
+    icon: "",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -39,7 +39,7 @@ const EXERCISE_GUIDES = [
   {
     id: "shoulder",
     title: "Shoulder Exercises",
-    icon: "💪",
+    icon: "",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -53,7 +53,7 @@ const EXERCISE_GUIDES = [
   {
     id: "chair",
     title: "Chair Exercise Guide",
-    icon: "🪑",
+    icon: "",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -154,7 +154,7 @@ export default function ExerciseProgressTracker() {
   const weekEnd = new Date(weekKey);
   weekEnd.setDate(weekEnd.getDate() + 6);
   const fmt = (d: Date) =>
-    d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+    d.toLocaleDateString("en-GB", { day: "numeric", month: "short"});
 
   return (
     <section className="py-16 lg:py-20 bg-muted/10 print:py-4">
@@ -163,7 +163,7 @@ export default function ExerciseProgressTracker() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 print:mb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center print:hidden">
-              <Calendar className="w-5 h-5 text-primary" />
+              <Calendar className="w-5 h-5 text-primary"/>
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">Weekly Progress Tracker</h2>
@@ -173,11 +173,11 @@ export default function ExerciseProgressTracker() {
             </div>
           </div>
           <div className="flex items-center gap-2 print:hidden">
-            <Button variant="outline" size="sm" onClick={resetWeek} className="gap-1.5 text-xs">
-              <RotateCcw className="w-3.5 h-3.5" /> Reset Week
+            <Button variant="outline"size="sm"onClick={resetWeek} className="gap-1.5 text-xs">
+              <RotateCcw className="w-3.5 h-3.5"/> Reset Week
             </Button>
-            <Button size="sm" onClick={handlePrint} className="gap-1.5 text-xs">
-              <Printer className="w-3.5 h-3.5" /> Print / Save PDF
+            <Button size="sm"onClick={handlePrint} className="gap-1.5 text-xs">
+              <Printer className="w-3.5 h-3.5"/> Print / Save PDF
             </Button>
           </div>
         </div>
@@ -187,10 +187,10 @@ export default function ExerciseProgressTracker() {
           <CardContent className="p-5">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-primary" />
+                <Trophy className="w-4 h-4 text-primary"/>
                 <span className="text-sm font-semibold text-foreground">Overall Weekly Progress</span>
               </div>
-              <Badge variant="secondary" className="text-xs">
+              <Badge variant="secondary"className="text-xs">
                 {totalDone} / {totalPossible} sessions
               </Badge>
             </div>
@@ -198,8 +198,8 @@ export default function ExerciseProgressTracker() {
               <motion.div
                 className="h-3 rounded-full bg-primary"
                 initial={{ width: 0 }}
-                animate={{ width: `${weekPercent}%` }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                animate={{ width: `${weekPercent}%`}}
+                transition={{ duration: 0.6, ease: "easeOut"}}
               />
             </div>
             <div className="flex justify-between mt-1.5">
@@ -232,14 +232,14 @@ export default function ExerciseProgressTracker() {
                 >
                   <div className="flex items-center justify-between p-5 pb-3">
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl" aria-hidden="true">{guide.icon}</span>
+                      <span className="text-2xl"aria-hidden="true">{guide.icon}</span>
                       <div>
                         <h3 className="font-semibold text-foreground">{guide.title}</h3>
                         <div className="flex items-center gap-2 mt-0.5">
                           <div className="w-24 bg-muted rounded-full h-1.5 overflow-hidden">
                             <div
                               className="h-1.5 rounded-full bg-primary transition-all duration-500"
-                              style={{ width: `${pct}%` }}
+                              style={{ width: `${pct}%`}}
                             />
                           </div>
                           <span className={`text-xs font-medium ${guide.accentColor}`}>
@@ -249,13 +249,13 @@ export default function ExerciseProgressTracker() {
                       </div>
                     </div>
                     <div className="flex items-center gap-2 print:hidden">
-                      <Badge variant="outline" className={`text-xs ${guide.badgeColor} border-0`}>
+                      <Badge variant="outline"className={`text-xs ${guide.badgeColor} border-0`}>
                         {pct}%
                       </Badge>
                       {isExpanded ? (
-                        <ChevronUp className="w-4 h-4 text-muted-foreground" />
+                        <ChevronUp className="w-4 h-4 text-muted-foreground"/>
                       ) : (
-                        <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                        <ChevronDown className="w-4 h-4 text-muted-foreground"/>
                       )}
                     </div>
                   </div>
@@ -314,13 +314,13 @@ export default function ExerciseProgressTracker() {
                                             onClick={() =>
                                               toggle(guide.id, String(i), day)
                                             }
-                                            aria-label={`${checked ? "Unmark" : "Mark"} ${ex} on ${day}`}
+                                            aria-label={`${checked ? "Unmark": "Mark"} ${ex} on ${day}`}
                                             className="mx-auto flex items-center justify-center w-7 h-7 rounded-full hover:bg-background transition-colors print:pointer-events-none"
                                           >
                                             {checked ? (
-                                              <CheckCircle className="w-5 h-5 text-primary" />
+                                              <CheckCircle className="w-5 h-5 text-primary"/>
                                             ) : (
-                                              <Circle className="w-5 h-5 text-muted-foreground print:text-muted-foreground" />
+                                              <Circle className="w-5 h-5 text-muted-foreground print:text-muted-foreground"/>
                                             )}
                                           </button>
                                         </td>
@@ -348,8 +348,8 @@ export default function ExerciseProgressTracker() {
                         {/* Motivational tip */}
                         {pct === 100 && (
                           <div className="mt-3 flex items-center gap-2 text-xs text-primary font-medium bg-primary/5 rounded-lg px-3 py-2">
-                            <Trophy className="w-3.5 h-3.5 shrink-0" />
-                            Excellent work — you completed all {guide.title} sessions this week! 🎉
+                            <Trophy className="w-3.5 h-3.5 shrink-0"/>
+                            Excellent work — you completed all {guide.title} sessions this week! 
                           </div>
                         )}
                       </CardContent>

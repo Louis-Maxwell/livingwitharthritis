@@ -36,22 +36,22 @@ const jsonLd = {
   "datePublished": "2025-06-01",
   "dateModified": "2025-12-15",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
+  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png`} },
   "about": {
     "@type": "MedicalCondition",
     "name": "Rheumatoid Arthritis",
     "alternateName": ["RA", "Rheumatoid Disease"],
-    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Synovial joints (hands, wrists, feet, knees)" },
+    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Synovial joints (hands, wrists, feet, knees)"},
     "riskFactor": ["Female sex", "Genetics (HLA-DR4)", "Smoking", "Age 30-60", "Obesity"],
     "signOrSymptom": ["Symmetrical joint pain", "Morning stiffness over 30 minutes", "Fatigue", "Joint swelling", "Joint deformity"],
     "possibleTreatment": [
-      { "@type": "MedicalTherapy", "name": "DMARDs (Disease-Modifying Anti-Rheumatic Drugs)" },
-      { "@type": "MedicalTherapy", "name": "Biologic therapies" },
-      { "@type": "MedicalTherapy", "name": "Physical therapy" },
-      { "@type": "MedicalTherapy", "name": "Anti-inflammatory diet" }
+      { "@type": "MedicalTherapy", "name": "DMARDs (Disease-Modifying Anti-Rheumatic Drugs)"},
+      { "@type": "MedicalTherapy", "name": "Biologic therapies"},
+      { "@type": "MedicalTherapy", "name": "Physical therapy"},
+      { "@type": "MedicalTherapy", "name": "Anti-inflammatory diet"}
     ]
   },
-  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
+  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom"} },
   "mainEntityOfPage": `${BASE}/conditions/rheumatoid-arthritis`
 };
 
@@ -59,11 +59,11 @@ const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What is rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Rheumatoid arthritis (RA) is a chronic autoimmune disease where the immune system mistakenly attacks the lining of the joints (synovium), causing inflammation, pain, swelling, and eventually joint damage." } },
-    { "@type": "Question", "name": "How is rheumatoid arthritis different from osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Unlike osteoarthritis which is a wear-and-tear condition, RA is an autoimmune disease. RA typically affects joints symmetrically, causes prolonged morning stiffness (over 30 minutes), and can affect other organs. OA is localised and caused by cartilage breakdown." } },
-    { "@type": "Question", "name": "What is the best treatment for rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Early treatment with DMARDs (disease-modifying anti-rheumatic drugs) such as methotrexate is the gold standard. Biologic therapies may be added if DMARDs alone aren't sufficient. Exercise, diet, and stress management also play important roles." } },
-    { "@type": "Question", "name": "Can rheumatoid arthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is currently no cure, but early aggressive treatment can achieve remission in many patients. Modern therapies have dramatically improved outcomes, allowing many people with RA to lead active, fulfilling lives." } },
-    { "@type": "Question", "name": "Does diet affect rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An anti-inflammatory Mediterranean diet rich in omega-3 fatty acids, fruits, vegetables, and whole grains can help reduce inflammation and complement medical treatment. Some patients also find benefit from eliminating specific trigger foods." } }
+    { "@type": "Question", "name": "What is rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Rheumatoid arthritis (RA) is a chronic autoimmune disease where the immune system mistakenly attacks the lining of the joints (synovium), causing inflammation, pain, swelling, and eventually joint damage."} },
+    { "@type": "Question", "name": "How is rheumatoid arthritis different from osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Unlike osteoarthritis which is a wear-and-tear condition, RA is an autoimmune disease. RA typically affects joints symmetrically, causes prolonged morning stiffness (over 30 minutes), and can affect other organs. OA is localised and caused by cartilage breakdown."} },
+    { "@type": "Question", "name": "What is the best treatment for rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Early treatment with DMARDs (disease-modifying anti-rheumatic drugs) such as methotrexate is the gold standard. Biologic therapies may be added if DMARDs alone aren't sufficient. Exercise, diet, and stress management also play important roles."} },
+    { "@type": "Question", "name": "Can rheumatoid arthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is currently no cure, but early aggressive treatment can achieve remission in many patients. Modern therapies have dramatically improved outcomes, allowing many people with RA to lead active, fulfilling lives."} },
+    { "@type": "Question", "name": "Does diet affect rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An anti-inflammatory Mediterranean diet rich in omega-3 fatty acids, fruits, vegetables, and whole grains can help reduce inflammation and complement medical treatment. Some patients also find benefit from eliminating specific trigger foods."} }
   ]
 };
 
@@ -71,13 +71,13 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
   <motion.section
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-40px" }}
+    viewport={{ once: true, margin: "-40px"}}
     transition={{ duration: 0.6 }}
     className="mb-12"
   >
     <div className="flex items-center gap-3 mb-5">
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary" />
+        <Icon className="w-5 h-5 text-primary"/>
       </div>
       <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
@@ -91,34 +91,34 @@ const RheumatoidArthritis = () => (
   <>
     <Helmet>
       <title>Rheumatoid arthritis in the UK: symptoms, treatment &amp; flares</title>
-      <meta name="description" content="Rheumatoid arthritis (RA) in the UK: early symptoms, GP referral, DMARDs, flares and self-care — a plain-English guide for patients." />
-      <meta name="keywords" content="rheumatoid arthritis, what is rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, methotrexate, biologic therapy, rheumatoid arthritis UK, rheumatoid arthritis diet, anti-inflammatory diet, difference between osteoarthritis and rheumatoid arthritis, is rheumatoid arthritis curable, early signs of RA, rheumatoid arthritis hands, joint inflammation" />
-      <meta property="og:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
-      <meta property="og:description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
-      <meta property="og:url" content={`${BASE}/conditions/rheumatoid-arthritis`} />
-      <meta property="og:type" content="article" />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis" />
-      <meta property="og:image" content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment guide" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
-      <meta name="twitter:description" content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan." />
-      <meta name="twitter:image" content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
-      <meta name="geo.region" content="GB" />
-      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/rheumatoid-arthritis`} />
+      <meta name="description"content="Rheumatoid arthritis (RA) in the UK: early symptoms, GP referral, DMARDs, flares and self-care — a plain-English guide for patients."/>
+      <meta name="keywords"content="rheumatoid arthritis, what is rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, methotrexate, biologic therapy, rheumatoid arthritis UK, rheumatoid arthritis diet, anti-inflammatory diet, difference between osteoarthritis and rheumatoid arthritis, is rheumatoid arthritis curable, early signs of RA, rheumatoid arthritis hands, joint inflammation"/>
+      <meta property="og:title"content="Rheumatoid Arthritis – Symptoms, Causes & Treatment"/>
+      <meta property="og:description"content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan."/>
+      <meta property="og:url"content={`${BASE}/conditions/rheumatoid-arthritis`} />
+      <meta property="og:type"content="article"/>
+      <meta property="og:locale"content="en_GB"/>
+      <meta property="og:site_name"content="Living With Arthritis"/>
+      <meta property="og:image"content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
+      <meta property="og:image:width"content="1200"/>
+      <meta property="og:image:height"content="630"/>
+      <meta property="og:image:alt"content="Rheumatoid Arthritis – Symptoms, Causes & Treatment guide"/>
+      <meta name="twitter:card"content="summary_large_image"/>
+      <meta name="twitter:title"content="Rheumatoid Arthritis – Symptoms, Causes & Treatment"/>
+      <meta name="twitter:description"content="Rheumatoid arthritis treatment: Inflammatory arthritis guide covering medications, flare management & achieving remission. Expert care plan."/>
+      <meta name="twitter:image"content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
+      <meta name="geo.region"content="GB"/>
+      <link rel="alternate"hrefLang="en-GB"href={`${BASE}/conditions/rheumatoid-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Rheumatoid Arthritis" }]} />
+      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions"}, { label: "Rheumatoid Arthritis"}]} />
       <PageHero
         badge={
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase border border-primary/20">
-            <Shield className="w-3.5 h-3.5" /> Autoimmune Condition
+            <Shield className="w-3.5 h-3.5"/> Autoimmune Condition
           </span>
         }
         title={<>Rheumatoid <span className="text-gradient">Arthritis</span></>}
@@ -126,13 +126,13 @@ const RheumatoidArthritis = () => (
         gradient="from-primary/8 via-background to-primary/5"
         pattern="grid"
       >
-        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
+        <Link to="/#conditions"className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+          <ArrowLeft className="w-3.5 h-3.5"/> Back to conditions
         </Link>
       </PageHero>
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
-        <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6" />
-        <AeoEnhancement route="/conditions/rheumatoid-arthritis" />
+        <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6"/>
+        <AeoEnhancement route="/conditions/rheumatoid-arthritis"/>
         <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-6">
           Rheumatoid arthritis (RA) is an autoimmune condition that causes joint inflammation, fatigue and stiffness — often starting in the hands, wrists or feet. This educational UK guide explains common symptoms, treatment pathways and self-management; it is not a diagnosis. See your GP promptly if you suspect inflammatory arthritis.
         </p>
@@ -149,23 +149,23 @@ const RheumatoidArthritis = () => (
             function.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Maxwell"title="First Contact Practitioner"credential="HCPC PH128483"date="June 2026"/>
       </section>
       {/* ─── RA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-blue">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
           <p className="section-label text-primary mb-6">Rheumatoid Arthritis at a Glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCounter value="400K" label="People with RA in the UK" icon={<Users className="w-6 h-6" />} color="sky" />
-            <StatCounter value="3×" label="More common in women" icon={<Heart className="w-6 h-6" />} color="rose" />
-            <StatCounter value="12" suffix=" wks" label="Window of opportunity for treatment" icon={<Clock className="w-6 h-6" />} color="amber" />
-            <StatCounter value="30" suffix="+" label="Minutes morning stiffness" icon={<AlertCircle className="w-6 h-6" />} color="violet" />
+            <StatCounter value="400K"label="People with RA in the UK"icon={<Users className="w-6 h-6"/>} color="sky"/>
+            <StatCounter value="3×"label="More common in women"icon={<Heart className="w-6 h-6"/>} color="rose"/>
+            <StatCounter value="12"suffix="wks"label="Window of opportunity for treatment"icon={<Clock className="w-6 h-6"/>} color="amber"/>
+            <StatCounter value="30"suffix="+"label="Minutes morning stiffness"icon={<AlertCircle className="w-6 h-6"/>} color="violet"/>
           </div>
         </div>
       </section>
-      <WaveDivider color="hsl(var(--background))" />
+      <WaveDivider color="hsl(var(--background))"/>
 
-      <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
+      <main id="main-content"role="main"tabIndex={-1} className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
 
         <Section icon={Activity} title="What is rheumatoid arthritis?">
           <p>Rheumatoid arthritis is a chronic autoimmune disease in which the immune system mistakenly attacks the <strong>synovium</strong> — the lining of the membranes that surround your joints. This causes inflammation that can eventually destroy cartilage and bone within the joint.</p>
@@ -186,10 +186,10 @@ const RheumatoidArthritis = () => (
             leftTitle="Rheumatoid Arthritis"
             rightTitle="Osteoarthritis"
             rows={[
-              { label: "Cause", left: "Autoimmune attack on joints", right: "Wear-and-tear cartilage loss" },
-              { label: "Pattern", left: "Symmetrical (both sides)", right: "Often one side or localised" },
-              { label: "Stiffness", left: "30+ minutes, often hours", right: "Usually under 30 minutes" },
-              { label: "Onset", left: "Any age (commonly 30–60)", right: "Typically after age 50" },
+              { label: "Cause", left: "Autoimmune attack on joints", right: "Wear-and-tear cartilage loss"},
+              { label: "Pattern", left: "Symmetrical (both sides)", right: "Often one side or localised"},
+              { label: "Stiffness", left: "30+ minutes, often hours", right: "Usually under 30 minutes"},
+              { label: "Onset", left: "Any age (commonly 30–60)", right: "Typically after age 50"},
             ]}
           />
         </motion.div>
@@ -295,7 +295,7 @@ const RheumatoidArthritis = () => (
           matchCategories={["Treatment", "Health", "Lifestyle"]}
         />
 
-        <ConditionSubpageLinks conditionSlug="rheumatoid-arthritis" conditionName="Rheumatoid Arthritis" />
+        <ConditionSubpageLinks conditionSlug="rheumatoid-arthritis"conditionName="Rheumatoid Arthritis"/>
 
         <ContextualLinks
           heading="Pair rheumatoid arthritis care with the right resources"
@@ -304,41 +304,41 @@ const RheumatoidArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for rheumatoid arthritis", to: "/diet" },
-                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                { label: "Best diet for rheumatoid arthritis", to: "/diet"},
+                { label: "Mediterranean diet pillar guide", to: "/guides/diet"},
+                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition"},
+                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements"},
               ],
             },
             {
               title: "Exercise & movement",
               links: [
-                { label: "Arthritis-friendly exercises", to: "/exercises" },
-                { label: "Hand & wrist exercises for RA", to: "/exercises" },
-                { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
-                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                { label: "Arthritis-friendly exercises", to: "/exercises"},
+                { label: "Hand & wrist exercises for RA", to: "/exercises"},
+                { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance"},
+                { label: "Exercises to avoid with arthritis", to: "/guides/exercise"},
               ],
             },
             {
               title: "Flare-ups & support",
               links: [
-                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
-                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
-                { label: "Community & peer support", to: "/community" },
-                { label: "Browse the Advice Hub", to: "/blog-hub" },
-                { label: "What is rheumatoid arthritis? FAQ", to: "/faq/what-is-rheumatoid-arthritis" },
-                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis" },
+                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups"},
+                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help"},
+                { label: "Community & peer support", to: "/community"},
+                { label: "Browse the Advice Hub", to: "/blog-hub"},
+                { label: "What is rheumatoid arthritis? FAQ", to: "/faq/what-is-rheumatoid-arthritis"},
+                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis"},
               ],
             },
             {
               title: "Other conditions",
               links: [
-                { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
-                { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
-                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
-                { label: "Lupus (SLE)", to: "/conditions/lupus" },
-                { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
-                { label: "Juvenile arthritis", to: "/conditions/juvenile-arthritis" },
+                { label: "Osteoarthritis", to: "/conditions/osteoarthritis"},
+                { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis"},
+                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis"},
+                { label: "Lupus (SLE)", to: "/conditions/lupus"},
+                { label: "Fibromyalgia", to: "/conditions/fibromyalgia"},
+                { label: "Juvenile arthritis", to: "/conditions/juvenile-arthritis"},
               ],
             },
           ]}
@@ -348,10 +348,10 @@ const RheumatoidArthritis = () => (
           <h2 className="font-display text-xl font-bold text-foreground mb-3">How do you live well with rheumatoid arthritis?</h2>
           <p className="text-muted-foreground mb-5">Early diagnosis and treatment can achieve remission. Explore our resources or start a chat for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
+            <Link to="/chat"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
               Start a chat
             </Link>
-            <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
+            <Link to="/blog"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
               Read our articles
             </Link>
           </div>
@@ -392,9 +392,9 @@ const RheumatoidArthritis = () => (
             ]}
           />
           <ArticleCitations citations={CITATIONS_RA} />
-          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
-          <TopicClusterNav path="/conditions/rheumatoid-arthritis" />
-          <CrossLinkBanner preset="condition" exclude="/conditions/rheumatoid-arthritis" title="Explore related resources" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-15"/>
+          <TopicClusterNav path="/conditions/rheumatoid-arthritis"/>
+          <CrossLinkBanner preset="condition"exclude="/conditions/rheumatoid-arthritis"title="Explore related resources"/>
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <RelatedArticles

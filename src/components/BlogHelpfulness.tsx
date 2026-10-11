@@ -44,13 +44,13 @@ export default function BlogHelpfulness({ slug }: Props) {
               onClick={() => handleVote(true)}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/40 bg-card text-sm font-medium text-muted-foreground hover:border-primary/40 hover:text-primary hover:bg-primary/[0.04] transition-all"
             >
-              <ThumbsUp className="w-4 h-4" /> Yes
+              <ThumbsUp className="w-4 h-4"/> Yes
             </button>
             <button
               onClick={() => handleVote(false)}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/40 bg-card text-sm font-medium text-muted-foreground hover:border-destructive/40 hover:text-destructive hover:bg-destructive/[0.04] transition-all"
             >
-              <ThumbsDown className="w-4 h-4" /> No
+              <ThumbsDown className="w-4 h-4"/> No
             </button>
           </div>
         ) : (
@@ -60,11 +60,11 @@ export default function BlogHelpfulness({ slug }: Props) {
             className="space-y-2"
           >
             <p className="text-sm text-muted-foreground">
-              {vote ? "Glad this helped! 💚" : "Thanks for the feedback — we'll improve this."}
+              {vote ? "Glad this helped! ": "Thanks for the feedback — we'll improve this."}
             </p>
             {total > 0 && (
               <p className="text-xs text-muted-foreground">
-                {counts.up} of {total} reader{total !== 1 ? "s" : ""} found this helpful
+                {counts.up} of {total} reader{total !== 1 ? "s": ""} found this helpful
               </p>
             )}
           </motion.div>

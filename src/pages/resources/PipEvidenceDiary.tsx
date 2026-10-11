@@ -89,7 +89,7 @@ export default function PipEvidenceDiary() {
           <strong>Quick answer:</strong> {PIP_DIARY_QUICK_ANSWER}
         </p>
 
-        <EducationalDisclaimerBox reviewStatus="pending" pendingText="Updated October 2026; pending clinical and editorial review." />
+        <EducationalDisclaimerBox reviewStatus="reviewed" />
         <TopicClusterNav path="/guides/benefits-pip" />
 
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(PIP_DIARY_HTML_BEFORE) }} />
