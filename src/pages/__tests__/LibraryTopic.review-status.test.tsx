@@ -6,7 +6,6 @@ import { render, screen, cleanup } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import {
-  DEFAULT_LIBRARY_LAST_REVIEWED,
   LIBRARY_PENDING_REVIEW_TEXT,
   LIBRARY_REVIEW_STATUS,
   getLibraryLastReviewed,
@@ -68,19 +67,26 @@ describe("library review status data", () => {
     expect(pending).toEqual([...PENDING_LIBRARY_TOPICS].sort());
   });
 
-  it("pending topics have no review date; unlisted topics keep the default", () => {
+  it("pending and undocumented topics have no completed review date", () => {
     for (const slug of PENDING_LIBRARY_TOPICS) {
       expect(getLibraryReviewStatus(slug)).toBe("pending");
       expect(getLibraryLastReviewed(slug)).toBeNull();
     }
-    expect(getLibraryReviewStatus("fibromyalgia")).toBe("reviewed");
-    expect(getLibraryLastReviewed("fibromyalgia")).toBe(DEFAULT_LIBRARY_LAST_REVIEWED);
+    expect(getLibraryReviewStatus("fibromyalgia")).toBe("pending");
+    expect(getLibraryLastReviewed("fibromyalgia")).toBeNull();
+  });
+
+  it("requires an explicit completed review and date", () => {
+    LIBRARY_REVIEW_STATUS['test-record'] = { reviewStatus: 'reviewed', lastReviewed: '2026-10-11' };
+    expect(getLibraryReviewStatus('test-record')).toBe('reviewed');
+    expect(getLibraryLastReviewed('test-record')).toBe('2026-10-11');
+    delete LIBRARY_REVIEW_STATUS['test-record'];
   });
 
   it("About note is pending for pending topics and drops the wording once reviewed", () => {
     expect(libraryAboutNote("knee-pain").body).toMatch(/pending clinical review/);
     expect(getLibraryTopicSeo("knee-pain")?.extraSections?.at(-1)?.body).toMatch(/pending clinical review/);
-    expect(libraryAboutNote("fibromyalgia").body).not.toMatch(/pending/);
+    expect(libraryAboutNote("fibromyalgia").body).toMatch(/pending/);
   });
 
   it("static library head data carries the pending note, no review claim", () => {
@@ -132,7 +138,9 @@ describe("LibraryTopic page review box", () => {
   });
 
   it("a reviewed topic still shows 'Clinically reviewed' with its date", () => {
+    LIBRARY_REVIEW_STATUS.fibromyalgia = { reviewStatus: "reviewed", lastReviewed: "2026-09-18" };
     renderTopic("fibromyalgia");
+    delete LIBRARY_REVIEW_STATUS.fibromyalgia;
     expect(screen.getByText(/Clinically reviewed · Louis Maxwell, HCPC PH128483 · 18 September 2026/)).toBeInTheDocument();
     expect(screen.queryByText(LIBRARY_PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
   });
