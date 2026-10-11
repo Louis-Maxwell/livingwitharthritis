@@ -65,13 +65,13 @@ export function generateKneeExercisePdf() {
   y = paragraph(doc, y, "This guide provides a gentle, evidence-based 10-minute daily routine designed specifically for people living with knee osteoarthritis. Perform each exercise slowly and stop if you feel sharp pain.");
 
   const exercises = [
-    { name: "1. Seated Knee Extensions", reps: "10 each leg", desc: "Sit upright in a firm chair. Slowly straighten one knee until the leg is extended. Hold for 3 seconds, then slowly lower. This strengthens the quadriceps, which support the knee joint." },
-    { name: "2. Standing Hamstring Curls", reps: "10 each leg", desc: "Stand behind a chair for support. Bend one knee, bringing the heel toward your buttock. Hold 2 seconds, then lower slowly. Targets hamstring strength and knee stability." },
-    { name: "3. Wall Squats (Mini)", reps: "8–10 reps", desc: "Stand with your back against a wall, feet shoulder-width apart. Slide down until knees are at roughly 30–45°. Hold 5 seconds, then slide back up. Builds quad and glute strength." },
-    { name: "4. Straight Leg Raises", reps: "10 each leg", desc: "Lie on your back with one knee bent and the other straight. Raise the straight leg to the height of the opposite knee. Hold 3 seconds, then lower. Strengthens hip flexors and quads without bending the knee." },
-    { name: "5. Calf Raises", reps: "12 reps", desc: "Stand holding a chair back. Rise onto your toes, hold 2 seconds, then lower. Improves ankle stability and calf strength, reducing load on knees during walking." },
-    { name: "6. Step-Ups", reps: "8 each leg", desc: "Use a low step (10–15 cm). Step up with one foot, bring the other up, then step down. Builds functional strength for stairs and slopes." },
-    { name: "7. Seated Marching", reps: "30 seconds", desc: "Sit tall and march your knees up alternately. Keep a steady rhythm. A gentle warm-up or cool-down that keeps the joint moving." },
+    { name: "1. Seated Knee Extensions", reps: "10 each leg", desc: "Sit upright in a firm chair. Slowly straighten one knee until the leg is extended. Hold for 3 seconds, then slowly lower. This strengthens the quadriceps, which support the knee joint."},
+    { name: "2. Standing Hamstring Curls", reps: "10 each leg", desc: "Stand behind a chair for support. Bend one knee, bringing the heel toward your buttock. Hold 2 seconds, then lower slowly. Targets hamstring strength and knee stability."},
+    { name: "3. Wall Squats (Mini)", reps: "8–10 reps", desc: "Stand with your back against a wall, feet shoulder-width apart. Slide down until knees are at roughly 30–45°. Hold 5 seconds, then slide back up. Builds quad and glute strength."},
+    { name: "4. Straight Leg Raises", reps: "10 each leg", desc: "Lie on your back with one knee bent and the other straight. Raise the straight leg to the height of the opposite knee. Hold 3 seconds, then lower. Strengthens hip flexors and quads without bending the knee."},
+    { name: "5. Calf Raises", reps: "12 reps", desc: "Stand holding a chair back. Rise onto your toes, hold 2 seconds, then lower. Improves ankle stability and calf strength, reducing load on knees during walking."},
+    { name: "6. Step-Ups", reps: "8 each leg", desc: "Use a low step (10–15 cm). Step up with one foot, bring the other up, then step down. Builds functional strength for stairs and slopes."},
+    { name: "7. Seated Marching", reps: "30 seconds", desc: "Sit tall and march your knees up alternately. Keep a steady rhythm. A gentle warm-up or cool-down that keeps the joint moving."},
   ];
 
   for (const ex of exercises) {
@@ -106,13 +106,13 @@ export function generateHandExercisePdf() {
   y = paragraph(doc, y, "Hand osteoarthritis can affect grip strength, dexterity and everyday tasks. These exercises are designed to maintain mobility, reduce stiffness and strengthen the small muscles of the hand. Do them daily, ideally after warming your hands in warm water for 5 minutes.");
 
   const exercises = [
-    { name: "1. Finger Bends", reps: "5 each finger", desc: "Hold your hand up straight. Bend each finger slowly down toward the palm, one at a time. Hold 3 seconds, then straighten. Helps maintain range of motion in each joint." },
-    { name: "2. Fist Making", reps: "10 reps", desc: "Start with fingers straight. Slowly curl them into a gentle fist (thumb outside). Hold 5 seconds, then open and spread fingers wide. Improves grip and flexibility." },
-    { name: "3. Thumb Circles", reps: "10 each direction", desc: "Hold your hand relaxed. Move your thumb in gentle circles clockwise, then anti-clockwise. Keeps the thumb's carpometacarpal joint mobile." },
-    { name: "4. Finger Lifts (Table-Top)", reps: "10 each finger", desc: "Place your hand flat on a table. Lift each finger individually, hold 2 seconds, then lower. Strengthens extensor tendons." },
-    { name: "5. Rubber Band Finger Spread", reps: "10 reps", desc: "Place a rubber band around all five fingertips. Spread fingers apart against the resistance. Hold 3 seconds. Builds extensor and abductor strength." },
-    { name: "6. Pinch Strengthening", reps: "10 each hand", desc: "Pinch a soft sponge or therapy putty between thumb and each fingertip. Hold 3 seconds. Improves pinch grip for opening jars and bottles." },
-    { name: "7. Wrist Flexion & Extension", reps: "10 each direction", desc: "Rest your forearm on a table with the hand hanging over the edge. Slowly bend the wrist up, then down. Supports wrist mobility and forearm strength." },
+    { name: "1. Finger Bends", reps: "5 each finger", desc: "Hold your hand up straight. Bend each finger slowly down toward the palm, one at a time. Hold 3 seconds, then straighten. Helps maintain range of motion in each joint."},
+    { name: "2. Fist Making", reps: "10 reps", desc: "Start with fingers straight. Slowly curl them into a gentle fist (thumb outside). Hold 5 seconds, then open and spread fingers wide. Improves grip and flexibility."},
+    { name: "3. Thumb Circles", reps: "10 each direction", desc: "Hold your hand relaxed. Move your thumb in gentle circles clockwise, then anti-clockwise. Keeps the thumb's carpometacarpal joint mobile."},
+    { name: "4. Finger Lifts (Table-Top)", reps: "10 each finger", desc: "Place your hand flat on a table. Lift each finger individually, hold 2 seconds, then lower. Strengthens extensor tendons."},
+    { name: "5. Rubber Band Finger Spread", reps: "10 reps", desc: "Place a rubber band around all five fingertips. Spread fingers apart against the resistance. Hold 3 seconds. Builds extensor and abductor strength."},
+    { name: "6. Pinch Strengthening", reps: "10 each hand", desc: "Pinch a soft sponge or therapy putty between thumb and each fingertip. Hold 3 seconds. Improves pinch grip for opening jars and bottles."},
+    { name: "7. Wrist Flexion & Extension", reps: "10 each direction", desc: "Rest your forearm on a table with the hand hanging over the edge. Slowly bend the wrist up, then down. Supports wrist mobility and forearm strength."},
   ];
 
   for (const ex of exercises) {
@@ -279,14 +279,14 @@ export function generateChairExercisePdf() {
   y = paragraph(doc, y, "These chair-based exercises are ideal for people with limited mobility, during flare-ups, or as a gentle starting point. Use a sturdy chair without wheels. Each exercise can be done seated. Aim for 10–15 minutes daily.");
 
   const exercises = [
-    { name: "1. Seated Marching", reps: "30 seconds", desc: "Sit tall with feet flat. March your knees up alternately at a comfortable pace. Swing arms gently. Warms up hips and knees." },
-    { name: "2. Ankle Circles", reps: "10 each direction, each foot", desc: "Lift one foot off the floor. Rotate the ankle slowly in circles. Switch direction, then swap feet. Improves ankle mobility and circulation." },
-    { name: "3. Seated Leg Extensions", reps: "10 each leg", desc: "Sit upright, extend one leg straight out. Hold 3 seconds, engaging the thigh muscle. Lower slowly. Key quad strengthener." },
-    { name: "4. Seated Side Bends", reps: "8 each side", desc: "Sit tall with arms by your sides. Slowly slide one hand down toward the floor, bending at the waist. Return to centre. Stretches the torso and improves spinal mobility." },
-    { name: "5. Shoulder Rolls", reps: "10 forward, 10 backward", desc: "Roll both shoulders forward in large circles, then reverse. Eases upper back and shoulder tension." },
-    { name: "6. Seated Heel & Toe Raises", reps: "12 reps", desc: "With feet flat, raise your heels (onto toes), hold briefly, then lower and raise your toes (onto heels). Strengthens calves and shins." },
-    { name: "7. Arm Raises", reps: "10 reps", desc: "Start with arms at sides. Slowly raise both arms out to the side and up overhead (or as high as comfortable). Lower slowly. Improves shoulder range of motion." },
-    { name: "8. Seated Twist", reps: "8 each side", desc: "Sit tall, cross arms over chest. Slowly rotate your upper body to the right, hold 3 seconds, return to centre, then left. Maintains spinal rotation." },
+    { name: "1. Seated Marching", reps: "30 seconds", desc: "Sit tall with feet flat. March your knees up alternately at a comfortable pace. Swing arms gently. Warms up hips and knees."},
+    { name: "2. Ankle Circles", reps: "10 each direction, each foot", desc: "Lift one foot off the floor. Rotate the ankle slowly in circles. Switch direction, then swap feet. Improves ankle mobility and circulation."},
+    { name: "3. Seated Leg Extensions", reps: "10 each leg", desc: "Sit upright, extend one leg straight out. Hold 3 seconds, engaging the thigh muscle. Lower slowly. Key quad strengthener."},
+    { name: "4. Seated Side Bends", reps: "8 each side", desc: "Sit tall with arms by your sides. Slowly slide one hand down toward the floor, bending at the waist. Return to centre. Stretches the torso and improves spinal mobility."},
+    { name: "5. Shoulder Rolls", reps: "10 forward, 10 backward", desc: "Roll both shoulders forward in large circles, then reverse. Eases upper back and shoulder tension."},
+    { name: "6. Seated Heel & Toe Raises", reps: "12 reps", desc: "With feet flat, raise your heels (onto toes), hold briefly, then lower and raise your toes (onto heels). Strengthens calves and shins."},
+    { name: "7. Arm Raises", reps: "10 reps", desc: "Start with arms at sides. Slowly raise both arms out to the side and up overhead (or as high as comfortable). Lower slowly. Improves shoulder range of motion."},
+    { name: "8. Seated Twist", reps: "8 each side", desc: "Sit tall, cross arms over chest. Slowly rotate your upper body to the right, hold 3 seconds, return to centre, then left. Maintains spinal rotation."},
   ];
 
   for (const ex of exercises) {
@@ -359,13 +359,13 @@ export function generateShoulderExercisePdf() {
   y = paragraph(doc, y, "Shoulder arthritis can make reaching, lifting and dressing difficult. These exercises aim to maintain range of motion, reduce stiffness and build the rotator cuff and deltoid muscles. Perform daily, using heat on the shoulder for 5 minutes beforehand if helpful.");
 
   const exercises = [
-    { name: "1. Pendulum Swings", reps: "30 seconds each arm", desc: "Lean forward with one hand on a table. Let the affected arm hang and gently swing it in small circles, then side to side. Gradually increase the arc. Relieves stiffness without loading the joint." },
-    { name: "2. Wall Finger Walk", reps: "5 reps each arm", desc: "Face a wall at arm's length. Walk your fingers up the wall as high as you can comfortably reach. Hold 5 seconds, then walk them down. Improves overhead reach progressively." },
-    { name: "3. Cross-Body Stretch", reps: "Hold 15 seconds, 3 each side", desc: "Bring one arm across your chest. Use the opposite hand to gently press the arm closer. Stretches the posterior shoulder capsule." },
-    { name: "4. External Rotation with Band", reps: "10 each arm", desc: "Hold a resistance band with elbows bent at 90° and tucked to your sides. Rotate your forearm outward against the band. Hold 2 seconds. Strengthens the rotator cuff." },
-    { name: "5. Shoulder Blade Squeeze", reps: "12 reps", desc: "Sit or stand tall. Squeeze your shoulder blades together as if holding a pencil between them. Hold 5 seconds. Improves posture and upper back strength." },
-    { name: "6. Towel Stretch (Behind Back)", reps: "5 reps each side", desc: "Hold a towel behind your back — one hand over the shoulder, the other at the lower back. Gently pull upward with the top hand. Improves internal and external rotation." },
-    { name: "7. Isometric Shoulder Press", reps: "Hold 10 seconds × 5", desc: "Stand in a doorway. Push your palm against the frame at shoulder height without moving the arm. Builds strength without joint movement — ideal during flare-ups." },
+    { name: "1. Pendulum Swings", reps: "30 seconds each arm", desc: "Lean forward with one hand on a table. Let the affected arm hang and gently swing it in small circles, then side to side. Gradually increase the arc. Relieves stiffness without loading the joint."},
+    { name: "2. Wall Finger Walk", reps: "5 reps each arm", desc: "Face a wall at arm's length. Walk your fingers up the wall as high as you can comfortably reach. Hold 5 seconds, then walk them down. Improves overhead reach progressively."},
+    { name: "3. Cross-Body Stretch", reps: "Hold 15 seconds, 3 each side", desc: "Bring one arm across your chest. Use the opposite hand to gently press the arm closer. Stretches the posterior shoulder capsule."},
+    { name: "4. External Rotation with Band", reps: "10 each arm", desc: "Hold a resistance band with elbows bent at 90° and tucked to your sides. Rotate your forearm outward against the band. Hold 2 seconds. Strengthens the rotator cuff."},
+    { name: "5. Shoulder Blade Squeeze", reps: "12 reps", desc: "Sit or stand tall. Squeeze your shoulder blades together as if holding a pencil between them. Hold 5 seconds. Improves posture and upper back strength."},
+    { name: "6. Towel Stretch (Behind Back)", reps: "5 reps each side", desc: "Hold a towel behind your back — one hand over the shoulder, the other at the lower back. Gently pull upward with the top hand. Improves internal and external rotation."},
+    { name: "7. Isometric Shoulder Press", reps: "Hold 10 seconds × 5", desc: "Stand in a doorway. Push your palm against the frame at shoulder height without moving the arm. Builds strength without joint movement — ideal during flare-ups."},
   ];
 
   for (const ex of exercises) {
@@ -397,13 +397,13 @@ export function generateHipExercisePdf() {
   y = paragraph(doc, y, "Hip osteoarthritis is one of the most common causes of reduced mobility. These exercises strengthen the muscles around the hip joint, improve balance and help maintain independence. Do them daily — consistency is more important than intensity.");
 
   const exercises = [
-    { name: "1. Standing Hip Abduction", reps: "10 each leg", desc: "Stand holding a chair. Lift one leg out to the side, keeping it straight. Hold 2 seconds, lower slowly. Strengthens the gluteus medius, critical for walking stability." },
-    { name: "2. Hip Flexor Stretch (Kneeling)", reps: "Hold 20 seconds each side", desc: "Kneel on one knee with the other foot forward. Push your hips gently forward until you feel a stretch at the front of the back hip. Counters the tightness from sitting." },
-    { name: "3. Bridges", reps: "12 reps", desc: "Lie on your back, knees bent, feet flat. Squeeze your glutes and lift your hips until your body forms a straight line from knees to shoulders. Hold 3 seconds. Strengthens glutes and lower back." },
-    { name: "4. Seated Hip Internal Rotation", reps: "10 each leg", desc: "Sit on a chair. Keeping your knee still, move your foot outward (rotating the hip inward). Hold 3 seconds. Maintains rotational range of motion." },
-    { name: "5. Clamshells", reps: "12 each side", desc: "Lie on your side with knees bent at 45°. Keep feet together and open the top knee like a clamshell. Hold 3 seconds. Targets hip external rotators." },
-    { name: "6. Step-Ups (Low Step)", reps: "8 each leg", desc: "Use a low step (10–15 cm). Step up, straighten, step down. Builds functional strength for stairs." },
-    { name: "7. Supine Hip Circles", reps: "8 each direction, each leg", desc: "Lie on your back and lift one knee. Gently circle the knee in small circles. Lubricates the hip joint and maintains range." },
+    { name: "1. Standing Hip Abduction", reps: "10 each leg", desc: "Stand holding a chair. Lift one leg out to the side, keeping it straight. Hold 2 seconds, lower slowly. Strengthens the gluteus medius, critical for walking stability."},
+    { name: "2. Hip Flexor Stretch (Kneeling)", reps: "Hold 20 seconds each side", desc: "Kneel on one knee with the other foot forward. Push your hips gently forward until you feel a stretch at the front of the back hip. Counters the tightness from sitting."},
+    { name: "3. Bridges", reps: "12 reps", desc: "Lie on your back, knees bent, feet flat. Squeeze your glutes and lift your hips until your body forms a straight line from knees to shoulders. Hold 3 seconds. Strengthens glutes and lower back."},
+    { name: "4. Seated Hip Internal Rotation", reps: "10 each leg", desc: "Sit on a chair. Keeping your knee still, move your foot outward (rotating the hip inward). Hold 3 seconds. Maintains rotational range of motion."},
+    { name: "5. Clamshells", reps: "12 each side", desc: "Lie on your side with knees bent at 45°. Keep feet together and open the top knee like a clamshell. Hold 3 seconds. Targets hip external rotators."},
+    { name: "6. Step-Ups (Low Step)", reps: "8 each leg", desc: "Use a low step (10–15 cm). Step up, straighten, step down. Builds functional strength for stairs."},
+    { name: "7. Supine Hip Circles", reps: "8 each direction, each leg", desc: "Lie on your back and lift one knee. Gently circle the knee in small circles. Lubricates the hip joint and maintains range."},
   ];
 
   for (const ex of exercises) {
@@ -442,7 +442,7 @@ export function generateProgressTrackerPdf() {
   doc.setFillColor(LIGHT.r, LIGHT.g, LIGHT.b);
   doc.rect(15, y, 180, 8, "F");
   doc.setFontSize(8); doc.setFont("helvetica", "bold");
-  const cols = ["Day", "Exercise Done", "Duration", "Pain Before (0-10)", "Pain After", "Mood ☺/😐/☹"];
+  const cols = ["Day", "Exercise Done", "Duration", "Pain Before (0-10)", "Pain After", "Mood //"];
   const colX = [17, 32, 90, 120, 150, 170];
   cols.forEach((c, i) => doc.text(c, colX[i], y + 5.5));
   y += 10;
@@ -464,7 +464,7 @@ export function generateProgressTrackerPdf() {
   y = paragraph(doc, y, "What I'll do differently next week: ____________________________________");
 
   y += 4;
-  y = sectionTitle(doc, y, "Celebration Corner 🎉");
+  y = sectionTitle(doc, y, "Celebration Corner ");
   y = paragraph(doc, y, "Write one thing you're proud of this week, no matter how small:");
   y = paragraph(doc, y, "_______________________________________________________________");
 

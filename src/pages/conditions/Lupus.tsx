@@ -16,7 +16,7 @@ const data: ConditionPageData = {
     <>
       <p>
         Lupus is a long-term <strong>autoimmune disease</strong> in which the immune system
-        mistakenly attacks healthy tissue. The most common form is{" "}
+        mistakenly attacks healthy tissue. The most common form is{""}
         <strong>systemic lupus erythematosus (SLE)</strong>, which can affect joints, skin,
         kidneys, heart, lungs and the brain.
       </p>

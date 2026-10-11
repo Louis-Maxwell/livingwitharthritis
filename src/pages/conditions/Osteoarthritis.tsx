@@ -33,26 +33,26 @@ const jsonLd = {
   "description": "Comprehensive guide to osteoarthritis (OA): symptoms, causes, risk factors, diagnosis, treatment options, exercises, diet and self-management tips for UK patients.",
   "url": `${BASE}/conditions/osteoarthritis`,
   "inLanguage": "en-GB",
-  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "areaServed": { "@type": "Country", "name": "United Kingdom"},
   "datePublished": "2025-06-01",
   "dateModified": "2025-12-15",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
+  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png`} },
   "about": {
     "@type": "MedicalCondition",
     "name": "Osteoarthritis",
     "alternateName": ["OA", "Degenerative Joint Disease", "Wear and Tear Arthritis"],
-    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Synovial joints (knees, hips, hands, spine)" },
+    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Synovial joints (knees, hips, hands, spine)"},
     "riskFactor": ["Age over 50", "Obesity", "Previous joint injury", "Female sex", "Genetics"],
     "signOrSymptom": ["Joint pain", "Stiffness", "Swelling", "Reduced range of motion", "Crepitus"],
     "possibleTreatment": [
-      { "@type": "MedicalTherapy", "name": "Physical therapy" },
-      { "@type": "MedicalTherapy", "name": "Weight management" },
-      { "@type": "MedicalTherapy", "name": "Low-impact exercise" },
-      { "@type": "MedicalTherapy", "name": "Anti-inflammatory diet" }
+      { "@type": "MedicalTherapy", "name": "Physical therapy"},
+      { "@type": "MedicalTherapy", "name": "Weight management"},
+      { "@type": "MedicalTherapy", "name": "Low-impact exercise"},
+      { "@type": "MedicalTherapy", "name": "Anti-inflammatory diet"}
     ]
   },
-  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
+  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom"} },
   "mainEntityOfPage": `${BASE}/conditions/osteoarthritis`
 };
 
@@ -60,11 +60,11 @@ const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What is osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Osteoarthritis is the most common form of arthritis, a degenerative joint disease where the protective cartilage cushioning the ends of bones gradually wears down, causing pain, stiffness, and reduced mobility." } },
-    { "@type": "Question", "name": "What causes osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "OA is caused by gradual cartilage breakdown. Risk factors include age over 50, obesity, previous joint injuries, genetics, repetitive joint stress, and female sex." } },
-    { "@type": "Question", "name": "Can osteoarthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is no cure for osteoarthritis, but symptoms can be effectively managed through exercise, weight management, physical therapy, anti-inflammatory diet, and medication." } },
-    { "@type": "Question", "name": "What is the best exercise for osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Low-impact exercises like walking, swimming, cycling, and tai chi are recommended. Strength training and flexibility exercises also help support joints and reduce stiffness." } },
-    { "@type": "Question", "name": "What foods help osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "An anti-inflammatory Mediterranean diet rich in oily fish, vegetables, olive oil, nuts, berries, and whole grains can help reduce inflammation and manage symptoms." } }
+    { "@type": "Question", "name": "What is osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Osteoarthritis is the most common form of arthritis, a degenerative joint disease where the protective cartilage cushioning the ends of bones gradually wears down, causing pain, stiffness, and reduced mobility."} },
+    { "@type": "Question", "name": "What causes osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "OA is caused by gradual cartilage breakdown. Risk factors include age over 50, obesity, previous joint injuries, genetics, repetitive joint stress, and female sex."} },
+    { "@type": "Question", "name": "Can osteoarthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is no cure for osteoarthritis, but symptoms can be effectively managed through exercise, weight management, physical therapy, anti-inflammatory diet, and medication."} },
+    { "@type": "Question", "name": "What is the best exercise for osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Low-impact exercises like walking, swimming, cycling, and tai chi are recommended. Strength training and flexibility exercises also help support joints and reduce stiffness."} },
+    { "@type": "Question", "name": "What foods help osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "An anti-inflammatory Mediterranean diet rich in oily fish, vegetables, olive oil, nuts, berries, and whole grains can help reduce inflammation and manage symptoms."} }
   ]
 };
 
@@ -72,13 +72,13 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
   <motion.section
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-40px" }}
+    viewport={{ once: true, margin: "-40px"}}
     transition={{ duration: 0.6 }}
     className="mb-12"
   >
     <div className="flex items-center gap-3 mb-5">
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary" />
+        <Icon className="w-5 h-5 text-primary"/>
       </div>
       <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
@@ -91,25 +91,25 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const Osteoarthritis = () => (
   <>
     <Helmet>
-      <title>Osteoarthritis UK: Symptoms, Treatment & Exercises</title>
-      <meta name="description" content="Osteoarthritis (OA) in the UK: how to recognise symptoms, when to see a GP, NICE-aligned treatment, exercises and diet — written for patients." />
-      <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
-      <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
-      <meta property="og:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
-      <meta property="og:url" content={`${BASE}/conditions/osteoarthritis`} />
-      <meta property="og:type" content="article" />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis" />
-      <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Osteoarthritis – Symptoms, Causes & Management guide" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Osteoarthritis – Symptoms, Causes & Management" />
-      <meta name="twitter:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
-      <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
-      <meta name="geo.region" content="GB" />
-      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/osteoarthritis`} />
+      <title>Osteoarthritis in the UK: symptoms, treatment &amp; exercises</title>
+      <meta name="description"content="Osteoarthritis (OA) in the UK: how to recognise symptoms, when to see a GP, NICE-aligned treatment, exercises and diet — written for patients."/>
+      <meta name="keywords"content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions"/>
+      <meta property="og:title"content="Osteoarthritis – Symptoms, Causes & Management"/>
+      <meta property="og:description"content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies."/>
+      <meta property="og:url"content={`${BASE}/conditions/osteoarthritis`} />
+      <meta property="og:type"content="article"/>
+      <meta property="og:locale"content="en_GB"/>
+      <meta property="og:site_name"content="Living With Arthritis"/>
+      <meta property="og:image"content={`${BASE}/images/og-osteoarthritis.webp`} />
+      <meta property="og:image:width"content="1200"/>
+      <meta property="og:image:height"content="630"/>
+      <meta property="og:image:alt"content="Osteoarthritis – Symptoms, Causes & Management guide"/>
+      <meta name="twitter:card"content="summary_large_image"/>
+      <meta name="twitter:title"content="Osteoarthritis – Symptoms, Causes & Management"/>
+      <meta name="twitter:description"content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies."/>
+      <meta name="twitter:image"content={`${BASE}/images/og-osteoarthritis.webp`} />
+      <meta name="geo.region"content="GB"/>
+      <link rel="alternate"hrefLang="en-GB"href={`${BASE}/conditions/osteoarthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -117,45 +117,45 @@ const Osteoarthritis = () => (
         "@type": "WebPage",
         "url": `${BASE}/conditions/osteoarthritis`,
         "inLanguage": "en-GB",
-        "areaServed": { "@type": "Country", "name": "United Kingdom" },
+        "areaServed": { "@type": "Country", "name": "United Kingdom"},
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
       })}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Osteoarthritis" }]} />
+      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions"}, { label: "Osteoarthritis"}]} />
 
       {/* Decorative hero header */}
       <div className="relative bg-gradient-to-br from-primary/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12%" cy="35%" r="3" fill="hsl(var(--primary))" />
-          <circle cx="78%" cy="20%" r="2.5" fill="hsl(var(--secondary))" />
-          <circle cx="65%" cy="75%" r="2" fill="hsl(var(--primary))" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none"/>
+        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none"/>
+        <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none"/>
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]"xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12%"cy="35%"r="3"fill="hsl(var(--primary))"/>
+          <circle cx="78%"cy="20%"r="2.5"fill="hsl(var(--secondary))"/>
+          <circle cx="65%"cy="75%"r="2"fill="hsl(var(--primary))"/>
         </svg>
 
         <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
-          <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
+          <Link to="/#conditions"className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
+            <ArrowLeft className="w-3.5 h-3.5"/> Back to conditions
           </Link>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
-              <Activity className="w-3 h-3" /> Condition Guide
+              <Activity className="w-3 h-3"/> Condition Guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Osteoarthritis: UK symptoms, treatment and exercises
             </h1>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
-            <AeoEnhancement route="/conditions/osteoarthritis" />
+            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5"/>
+            <AeoEnhancement route="/conditions/osteoarthritis"/>
             <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               Osteoarthritis (OA) is the most common form of arthritis in the UK — joint pain and stiffness that you can often manage with exercise, weight advice and NHS care pathways; this page is general information, not a diagnosis.
             </p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"/>
       </div>
 
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
@@ -172,19 +172,19 @@ const Osteoarthritis = () => (
             referral to discuss joint surgery.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Maxwell"title="First Contact Practitioner"credential="HCPC PH128483"date="June 2026"/>
       </section>
 
-      <WaveDivider color="hsl(var(--background))" />
+      <WaveDivider color="hsl(var(--background))"/>
 
-      <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-        <div className="mb-6"><MedicalDisclaimerStrip variant="short" /></div>
+      <main id="main-content"role="main"tabIndex={-1} className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+        <div className="mb-6"><MedicalDisclaimerStrip variant="short"/></div>
 
         <Section icon={Activity} title="What Is Osteoarthritis?">
           <p>Osteoarthritis is a degenerative joint disease where the protective cartilage that cushions the ends of your bones gradually wears down over time. As cartilage deteriorates, bones begin to rub against each other, causing pain, swelling, stiffness, and reduced mobility.</p>
           <p>Unlike inflammatory types of arthritis, OA is primarily a mechanical condition — though inflammation does play a role, particularly during flare-ups. It most commonly affects the <strong>knees, hips, hands, and spine</strong>, but can occur in any joint.</p>
           <h3>How Common Is Osteoarthritis in the UK?</h3>
-          <p>Around <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for osteoarthritis (Arthritis Research UK, now Arthritis UK, 2013; cited by <a href="https://cks.nice.org.uk/topics/osteoarthritis/background-information/prevalence/" target="_blank" rel="noopener noreferrer">NICE CKS</a>). It is the single most common cause of disability among older adults in England and Wales, and its prevalence is rising due to an ageing population and increasing obesity rates.</p>
+          <p>Around <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for osteoarthritis (Arthritis Research UK, now Arthritis UK, 2013; cited by <a href="https://cks.nice.org.uk/topics/osteoarthritis/background-information/prevalence/"target="_blank"rel="noopener noreferrer">NICE CKS</a>). It is the single most common cause of disability among older adults in England and Wales, and its prevalence is rising due to an ageing population and increasing obesity rates.</p>
         </Section>
 
         <Section icon={ThermometerSun} title="What are the symptoms of osteoarthritis?">
@@ -264,10 +264,10 @@ const Osteoarthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🚶" title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
-            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
-            <EmojiCard emoji="🐟" title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
-            <EmojiCard emoji="😴" title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
+            <EmojiCard emoji=""title="Stay Active"description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain."/>
+            <EmojiCard emoji=""title="Healthy Weight"description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints."/>
+            <EmojiCard emoji=""title="Eat Well"description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms."/>
+            <EmojiCard emoji=""title="Sleep Well"description="Good sleep supports healing and pain management. Use pillows to support affected joints at night."/>
           </div>
         </motion.div>
 
@@ -304,11 +304,11 @@ const Osteoarthritis = () => (
             <li><strong>Joint replacement surgery</strong> — knee, hip or thumb replacement for end-stage OA</li>
             <li><strong>Regenerative medicine</strong> — platelet-rich plasma (PRP) and stem-cell options, where evidence is still developing</li>
           </ul>
-          <p>For exercise programmes see our <Link to="/exercises" className="text-primary underline">exercise hub</Link> or the joint-specific <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">hip osteoarthritis exercise routine</Link>. For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
+          <p>For exercise programmes see our <Link to="/exercises"className="text-primary underline">exercise hub</Link> or the joint-specific <Link to="/guides/hip-exercises-for-osteoarthritis"className="text-primary underline">hip osteoarthritis exercise routine</Link>. For nutrition strategy see our <Link to="/guides/diet"className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis"className="text-primary underline">foods to avoid with arthritis</Link>.</p>
           <p className="text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands, devices or providers. Always discuss treatment escalation with your clinician.</p>
         </Section>
 
-        <section className="mb-12" aria-labelledby="osteoarthritis-sources">
+        <section className="mb-12"aria-labelledby="osteoarthritis-sources">
           <h2
             id="osteoarthritis-sources"
             className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
@@ -346,7 +346,7 @@ const Osteoarthritis = () => (
         />
 
         {/* Contextual SEO links */}
-        <ConditionSubpageLinks conditionSlug="osteoarthritis" conditionName="Osteoarthritis" />
+        <ConditionSubpageLinks conditionSlug="osteoarthritis"conditionName="Osteoarthritis"/>
 
         {/* Contextual SEO links */}
         <ContextualLinks
@@ -356,68 +356,68 @@ const Osteoarthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best supplement for knee joints — honest evidence (no rebuild claim)", to: "/blog/best-supplement-for-knee-joint" },
-                { label: "Omega-3 foods for joints", to: "/blog/omega-3-foods-for-joints" },
-                { label: "Anti-inflammatory diet for rheumatoid arthritis", to: "/blog/anti-inflammatory-diet-rheumatoid-arthritis" },
-                { label: "Anti-inflammatory diet for arthritis", to: "/blog/anti-inflammatory-diet" },
-                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                { label: "Foods to avoid with arthritis", to: "/diet/foods-to-avoid-with-arthritis" },
-                { label: "Supplements caution — what the evidence says", to: "/supplements" },
-                { label: "Glucosamine, collagen, turmeric — what works", to: "/supplements/glucosamine" },
+                { label: "Best supplement for knee joints — honest evidence (no rebuild claim)", to: "/blog/best-supplement-for-knee-joint"},
+                { label: "Omega-3 foods for joints", to: "/blog/omega-3-foods-for-joints"},
+                { label: "Anti-inflammatory diet for rheumatoid arthritis", to: "/blog/anti-inflammatory-diet-rheumatoid-arthritis"},
+                { label: "Anti-inflammatory diet for arthritis", to: "/blog/anti-inflammatory-diet"},
+                { label: "Mediterranean diet pillar guide", to: "/guides/diet"},
+                { label: "Foods to avoid with arthritis", to: "/diet/foods-to-avoid-with-arthritis"},
+                { label: "Supplements caution — what the evidence says", to: "/supplements"},
+                { label: "Glucosamine, collagen, turmeric — what works", to: "/supplements/glucosamine"},
               ],
             },
             {
               title: "Exercise & movement",
               links: [
-                { label: "Exercise hub — start here", to: "/exercises" },
-                { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
-                { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going" },
-                { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
-                { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
-                { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
-                { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },
-                { label: "Cycling with arthritis", to: "/blog/cycling-with-arthritis" },
-                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                { label: "Exercise hub — start here", to: "/exercises"},
+                { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis"},
+                { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going"},
+                { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk"},
+                { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis"},
+                { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis"},
+                { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis"},
+                { label: "Cycling with arthritis", to: "/blog/cycling-with-arthritis"},
+                { label: "Exercises to avoid with arthritis", to: "/guides/exercise"},
               ],
             },
             {
               title: "Medical treatments",
               links: [
-                { label: "Arthritis medication guide", to: "/blog/arthritis-medication-guide" },
-                { label: "NSAIDs and paracetamol comparison", to: "/guides/paracetamol-vs-ibuprofen-for-arthritis" },
-                { label: "Joint replacement surgery", to: "/blog/joint-replacement-surgery" },
-                { label: "TENS machines for arthritis pain", to: "/blog/tens-machines-arthritis-uk" },
+                { label: "Arthritis medication guide", to: "/blog/arthritis-medication-guide"},
+                { label: "NSAIDs and paracetamol comparison", to: "/guides/paracetamol-vs-ibuprofen-for-arthritis"},
+                { label: "Joint replacement surgery", to: "/blog/joint-replacement-surgery"},
+                { label: "TENS machines for arthritis pain", to: "/blog/tens-machines-arthritis-uk"},
               ],
             },
             {
               title: "Flare-ups & support",
               links: [
-                { label: "Arthritis pain relief — when joints hurt now", to: "/guides/arthritis-pain-relief" },
-                { label: "Joint protection — easier everyday tasks", to: "/blog/joint-protection-easier-everyday-tasks" },
-                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
-                { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
-                { label: "Benefits & PIP hub", to: "/benefits-pip" },
-                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
-                { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
-                { label: "Community & peer support", to: "/community" },
-                { label: "Browse the Advice Hub", to: "/blog-hub" },
-                { label: "Osteoarthritis library note", to: "/library/osteoarthritis" },
-                { label: "What is osteoarthritis? FAQ", to: "/faq/what-is-osteoarthritis" },
-                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis" },
+                { label: "Arthritis pain relief — when joints hurt now", to: "/guides/arthritis-pain-relief"},
+                { label: "Joint protection — easier everyday tasks", to: "/blog/joint-protection-easier-everyday-tasks"},
+                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups"},
+                { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk"},
+                { label: "Benefits & PIP hub", to: "/benefits-pip"},
+                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help"},
+                { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk"},
+                { label: "Community & peer support", to: "/community"},
+                { label: "Browse the Advice Hub", to: "/blog-hub"},
+                { label: "Osteoarthritis library note", to: "/library/osteoarthritis"},
+                { label: "What is osteoarthritis? FAQ", to: "/faq/what-is-osteoarthritis"},
+                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis"},
               ],
             },
             {
               title: "Other conditions",
               links: [
-                { label: "Knee arthritis", to: "/conditions/knee-arthritis" },
-                { label: "Hand arthritis", to: "/conditions/hand-arthritis" },
-                { label: "Shoulder arthritis", to: "/conditions/shoulder-arthritis" },
-                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
-                { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
-                { label: "Gout", to: "/conditions/gout" },
-                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
-                { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
-                { label: "Lupus (SLE)", to: "/conditions/lupus" },
+                { label: "Knee arthritis", to: "/conditions/knee-arthritis"},
+                { label: "Hand arthritis", to: "/conditions/hand-arthritis"},
+                { label: "Shoulder arthritis", to: "/conditions/shoulder-arthritis"},
+                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis"},
+                { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis"},
+                { label: "Gout", to: "/conditions/gout"},
+                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis"},
+                { label: "Fibromyalgia", to: "/conditions/fibromyalgia"},
+                { label: "Lupus (SLE)", to: "/conditions/lupus"},
               ],
             },
           ]}
@@ -427,32 +427,32 @@ const Osteoarthritis = () => (
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
           <p className="text-muted-foreground mb-5">Explore our resources, start a chat, or book a virtual physiotherapy consultation.</p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
+            <Link to="/chat"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
               Start a chat
             </Link>
-            <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
+            <Link to="/blog"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
               Read our articles
             </Link>
           </div>
           
 
-      <nav aria-label="Customer job pathways for osteoarthritis" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
+      <nav aria-label="Customer job pathways for osteoarthritis"className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">What do you need next?</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
-          <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief hub</Link> — paced movement, heat/cold and medicines overview</li>
-          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — joint-friendly routines (*Motion is Lotion*)</li>
-          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — buoyancy-friendly drills</li>
-          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
-          <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes (UK)</Link> — footwear that reduces load</li>
-          <li><Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline underline-offset-2">Knee supplements</Link> — honest evidence; no joint-rebuild claims</li>
-          <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link> — easier everyday tasks</li>
-          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li><Link to="/guides/arthritis-pain-relief"className="text-primary underline underline-offset-2">Pain relief hub</Link> — paced movement, heat/cold and medicines overview</li>
+          <li><Link to="/exercises"className="text-primary underline underline-offset-2">Exercise hub</Link> — joint-friendly routines (*Motion is Lotion*)</li>
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis"className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — buoyancy-friendly drills</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going"className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
+          <li><Link to="/blog/best-walking-shoes-arthritis-uk"className="text-primary underline underline-offset-2">Walking shoes (UK)</Link> — footwear that reduces load</li>
+          <li><Link to="/blog/best-supplement-for-knee-joint"className="text-primary underline underline-offset-2">Knee supplements</Link> — honest evidence; no joint-rebuild claims</li>
+          <li><Link to="/blog/joint-protection-easier-everyday-tasks"className="text-primary underline underline-offset-2">Joint protection</Link> — easier everyday tasks</li>
+          <li><Link to="/benefits-pip"className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk"className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-28" />
-      <TopicClusterNav path="/conditions/osteoarthritis" />
-<CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-28"/>
+      <TopicClusterNav path="/conditions/osteoarthritis"/>
+<CrossLinkBanner preset="condition"exclude="/conditions/osteoarthritis"title="Explore related resources"/>
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <RelatedArticles
@@ -464,7 +464,7 @@ const Osteoarthritis = () => (
         </div>
       </main>
       <InternalLinks />
-      <NextReadStrip currentPath="/conditions/osteoarthritis" />
+      <NextReadStrip currentPath="/conditions/osteoarthritis"/>
       <Footer />
     </div>
   </>

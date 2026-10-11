@@ -25,6 +25,12 @@ import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
 
+import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
+/** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
+ * verified count), without leaving a stray leading space when it's empty. */
+const withVisitorSnippet = (rest: string) =>
+  [VISITOR_STATS_SNIPPET, rest].filter(Boolean).join(" ");
+
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
 // Below the fold; its page-aeo dataset (~47 KB) stays out of the entry bundle.
@@ -81,7 +87,9 @@ function HomePage() {
         <title>Living With Arthritis | Evidence-Based Health Guides</title>
         <meta
           name="description"
-          content="Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461."
+          content={withVisitorSnippet(
+            "Free UK arthritis guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help, with clinical-review status shown on each page. Living With Arthritis, charity 1218461.",
+          )}
         />
         <meta
           name="robots"
@@ -99,11 +107,15 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content="Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461."
+          content={withVisitorSnippet(
+            "Free UK arthritis guidance on exercise, diet, pain and PIP, with clinical-review status shown on each page. Living With Arthritis, registered charity 1218461.",
+          )}
         />
         <meta
           name="twitter:description"
-          content="Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461."
+          content={withVisitorSnippet(
+            "Free UK arthritis exercises, diet guidance and support from Living With Arthritis (charity 1218461).",
+          )}
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />

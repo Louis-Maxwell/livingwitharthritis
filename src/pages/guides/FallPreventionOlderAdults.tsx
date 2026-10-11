@@ -57,8 +57,8 @@ export default function FallPreventionOlderAdults() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Fall Prevention with Arthritis | UK Strength & Balance" includeSiteName={false}
-        description="UK fall prevention with arthritis: strength and balance exercises, a home safety checklist, medication review and practical steps to take after a fall."
+        title="Fall Prevention for Older Adults with Arthritis (UK)"
+        description="UK fall prevention with arthritis: strength and balance training, home safety checklist, medication review and what to do after a fall. Educational guidance aligned with NHS themes."
         path="/guides/fall-prevention-older-adults"
         type="article"
         keywords="fall prevention UK, falls older adults arthritis, balance training arthritis, home safety falls, arthritis falls prevention, what to do after a fall"

@@ -49,7 +49,7 @@ const FAQ = () => {
         <title>Arthritis FAQs UK: symptoms, treatment, diet & PIP</title>
         <meta
           name="description"
-          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
+          content="UK arthritis FAQs answered in plain English — OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Free Living With Arthritis charity answers."
         />
         <meta
           name="keywords"
@@ -58,7 +58,7 @@ const FAQ = () => {
         <meta property="og:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
         <meta
           property="og:description"
-          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
+          content="UK arthritis FAQs answered in plain English — OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Free Living With Arthritis charity answers."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/faq`} />
@@ -72,7 +72,7 @@ const FAQ = () => {
         <meta name="twitter:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
         <meta
           name="twitter:description"
-          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
+          content="UK arthritis FAQs answered in plain English — OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Free Living With Arthritis charity answers."
         />
         <meta name="twitter:image" content={`${SITE}/images/hero-walking-group-1600.webp`} />
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>

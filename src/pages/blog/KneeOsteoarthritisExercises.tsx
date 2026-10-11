@@ -217,7 +217,7 @@ export default function KneeOsteoarthritisExercises() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Knee Arthritis Exercises for Pain"
+        title="Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility"
         description="Knee arthritis exercises for strength and mobility, including seated leg raises, walking and water exercise, with practical safety advice."
         path={PATH}
         type="article"

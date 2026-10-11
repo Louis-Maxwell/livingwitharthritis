@@ -131,36 +131,36 @@ const exerciseCategories = [
 ];
 
 const additionalActivities = [
-  { title: "Swimming for hip osteoarthritis", icon: Waves, href: "/blog/swimming-exercises-hip-osteoarthritis", desc: "Buoyancy-friendly pool drills and pacing for hip OA" },
-  { title: "Walking with arthritis", icon: Activity, href: "/blog/walking-with-arthritis-start-build-up-keep-going", desc: "Start, build up and keep going without boom-and-bust" },
-  { title: "Swimming & Hydrotherapy", icon: Waves, href: "/blog/swimming-for-arthritis", desc: "Low-impact aquatic exercise for joint pain relief" },
-  { title: "Yoga for Arthritis", icon: Activity, href: "/blog/yoga-for-arthritis-beginners", desc: "Gentle poses for flexibility and strength" },
-  { title: "Cycling for Arthritis", icon: Bike, href: "/blog/cycling-with-arthritis", desc: "Joint-friendly cardio for knee and hip health" },
-  { title: "Tai Chi for Arthritis (UK Guide)", icon: Heart, href: "/exercises/tai-chi-for-arthritis", desc: "NICE-recommended — by joint, plus seated options" },
-  { title: "Tai Chi for Beginners", icon: Heart, href: "/exercises/tai-chi-for-beginners", desc: "Free 7-day at-home plan — ~10 min/day, no equipment" },
-  { title: "Tai Chi for Balance", icon: Heart, href: "/exercises/tai-chi-for-balance", desc: "Gentle movement for balance and pain reduction" },
-  { title: "Seated Tai Chi", icon: Heart, href: "/exercises/seated-tai-chi-for-arthritis", desc: "Chair-based routine for severe OA or post-surgery" },
+  { title: "Swimming for hip osteoarthritis", icon: Waves, href: "/blog/swimming-exercises-hip-osteoarthritis", desc: "Buoyancy-friendly pool drills and pacing for hip OA"},
+  { title: "Walking with arthritis", icon: Activity, href: "/blog/walking-with-arthritis-start-build-up-keep-going", desc: "Start, build up and keep going without boom-and-bust"},
+  { title: "Swimming & Hydrotherapy", icon: Waves, href: "/blog/swimming-for-arthritis", desc: "Low-impact aquatic exercise for joint pain relief"},
+  { title: "Yoga for Arthritis", icon: Activity, href: "/blog/yoga-for-arthritis-beginners", desc: "Gentle poses for flexibility and strength"},
+  { title: "Cycling for Arthritis", icon: Bike, href: "/blog/cycling-with-arthritis", desc: "Joint-friendly cardio for knee and hip health"},
+  { title: "Tai Chi for Arthritis (UK Guide)", icon: Heart, href: "/exercises/tai-chi-for-arthritis", desc: "NICE-recommended — by joint, plus seated options"},
+  { title: "Tai Chi for Beginners", icon: Heart, href: "/exercises/tai-chi-for-beginners", desc: "Free 7-day at-home plan — ~10 min/day, no equipment"},
+  { title: "Tai Chi for Balance", icon: Heart, href: "/exercises/tai-chi-for-balance", desc: "Gentle movement for balance and pain reduction"},
+  { title: "Seated Tai Chi", icon: Heart, href: "/exercises/seated-tai-chi-for-arthritis", desc: "Chair-based routine for severe OA or post-surgery"},
 ];
 
 // Internal-link matrix surfacing every exercise×joint guide — keeps these pages
 // reachable in one click from the Exercise Hub (no orphans in sitemap.xml).
 const EXERCISE_MATRIX_TYPES: { slug: string; label: string }[] = [
-  { slug: "swimming", label: "Swimming" },
-  { slug: "yoga", label: "Yoga" },
-  { slug: "cycling", label: "Cycling" },
-  { slug: "walking", label: "Walking" },
-  { slug: "tai-chi", label: "Tai Chi" },
-  { slug: "pilates", label: "Pilates" },
-  { slug: "stretching", label: "Stretching" },
-  { slug: "strength-training", label: "Strength Training" },
+  { slug: "swimming", label: "Swimming"},
+  { slug: "yoga", label: "Yoga"},
+  { slug: "cycling", label: "Cycling"},
+  { slug: "walking", label: "Walking"},
+  { slug: "tai-chi", label: "Tai Chi"},
+  { slug: "pilates", label: "Pilates"},
+  { slug: "stretching", label: "Stretching"},
+  { slug: "strength-training", label: "Strength Training"},
 ];
 const EXERCISE_MATRIX_JOINTS: { slug: string; label: string }[] = [
-  { slug: "knee", label: "Knee" },
-  { slug: "hip", label: "Hip" },
-  { slug: "shoulder", label: "Shoulder" },
-  { slug: "hand", label: "Hand" },
-  { slug: "back", label: "Back" },
-  { slug: "ankle", label: "Ankle" },
+  { slug: "knee", label: "Knee"},
+  { slug: "hip", label: "Hip"},
+  { slug: "shoulder", label: "Shoulder"},
+  { slug: "hand", label: "Hand"},
+  { slug: "back", label: "Back"},
+  { slug: "ankle", label: "Ankle"},
 ];
 
 const ExerciseHub = () => {
@@ -171,14 +171,14 @@ const ExerciseHub = () => {
     description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. clinically aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
     url: "https://livingwitharthritis.org.uk/exercises",
     inLanguage: "en-GB",
-    areaServed: { "@type": "Country", name: "United Kingdom" },
+    areaServed: { "@type": "Country", name: "United Kingdom"},
     mainEntity: {
       "@type": "MedicalCondition",
       name: "Arthritis",
       associatedAnatomy: [
-        { "@type": "AnatomicalStructure", name: "Knee joint" },
-        { "@type": "AnatomicalStructure", name: "Hand joints" },
-        { "@type": "AnatomicalStructure", name: "Shoulder joint" },
+        { "@type": "AnatomicalStructure", name: "Knee joint"},
+        { "@type": "AnatomicalStructure", name: "Hand joints"},
+        { "@type": "AnatomicalStructure", name: "Shoulder joint"},
       ],
     },
     about: {
@@ -191,26 +191,26 @@ const ExerciseHub = () => {
   return (
     <>
       <Helmet>
-        <title>Free Arthritis Exercises at Home UK | Exercise Hub</title>
-        <meta name="description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-        <meta name="keywords" content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care" />
-        <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
-        <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub" />
-        <meta property="og:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-        <meta property="og:url" content="https://livingwitharthritis.org.uk/exercises" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Arthritis Exercises UK | Knee, Hand & Shoulder Routines" />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub" />
-        <meta name="twitter:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
-        <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="United Kingdom" />
+        <title>Free physiotherapy exercises for arthritis at home UK | Exercise Hub</title>
+        <meta name="description"content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist."/>
+        <meta name="keywords"content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care"/>
+        <link rel="alternate"hrefLang="en-GB"href="https://livingwitharthritis.org.uk/exercises"/>
+        <meta property="og:title"content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub"/>
+        <meta property="og:description"content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist."/>
+        <meta property="og:url"content="https://livingwitharthritis.org.uk/exercises"/>
+        <meta property="og:type"content="website"/>
+        <meta property="og:locale"content="en_GB"/>
+        <meta property="og:site_name"content="Living With Arthritis"/>
+        <meta property="og:image"content="https://livingwitharthritis.org.uk/og/landing-share.png"/>
+        <meta property="og:image:width"content="1200"/>
+        <meta property="og:image:height"content="630"/>
+        <meta property="og:image:alt"content="Arthritis Exercises UK | Knee, Hand & Shoulder Routines"/>
+        <meta name="twitter:image"content="https://livingwitharthritis.org.uk/og/landing-share.png"/>
+        <meta name="twitter:card"content="summary_large_image"/>
+        <meta name="twitter:title"content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub"/>
+        <meta name="twitter:description"content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist."/>
+        <meta name="geo.region"content="GB"/>
+        <meta name="geo.placename"content="United Kingdom"/>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
         <script type="application/ld+json">{JSON.stringify({
@@ -220,11 +220,11 @@ const ExerciseHub = () => {
           "description": "A safe, joint-friendly exercise routine for people with osteoarthritis or rheumatoid arthritis, aligned with NICE guidelines.",
           "totalTime": "PT30M",
           "step": [
-            { "@type": "HowToStep", "position": 1, "name": "Warm up gently", "text": "Spend 5 minutes doing slow walking on the spot or gentle shoulder rolls to increase blood flow to joints before exercise." },
-            { "@type": "HowToStep", "position": 2, "name": "Low-impact aerobic movement", "text": "Walk, cycle, or swim for 10–20 minutes at a comfortable pace. These activities reduce joint stress while improving cardiovascular health." },
-            { "@type": "HowToStep", "position": 3, "name": "Strengthening exercises", "text": "Perform 2 sets of 10 straight-leg raises or seated knee extensions to build muscle support around the knee and hip joints." },
-            { "@type": "HowToStep", "position": 4, "name": "Flexibility and balance", "text": "Hold each gentle stretch for 20–30 seconds. Tai chi or yoga for 5–10 minutes improves balance and reduces fall risk." },
-            { "@type": "HowToStep", "position": 5, "name": "Cool down", "text": "Finish with 3–5 minutes of slow walking and deep breathing. Apply ice to any joints that feel warm post-exercise." }
+            { "@type": "HowToStep", "position": 1, "name": "Warm up gently", "text": "Spend 5 minutes doing slow walking on the spot or gentle shoulder rolls to increase blood flow to joints before exercise."},
+            { "@type": "HowToStep", "position": 2, "name": "Low-impact aerobic movement", "text": "Walk, cycle, or swim for 10–20 minutes at a comfortable pace. These activities reduce joint stress while improving cardiovascular health."},
+            { "@type": "HowToStep", "position": 3, "name": "Strengthening exercises", "text": "Perform 2 sets of 10 straight-leg raises or seated knee extensions to build muscle support around the knee and hip joints."},
+            { "@type": "HowToStep", "position": 4, "name": "Flexibility and balance", "text": "Hold each gentle stretch for 20–30 seconds. Tai chi or yoga for 5–10 minutes improves balance and reduces fall risk."},
+            { "@type": "HowToStep", "position": 5, "name": "Cool down", "text": "Finish with 3–5 minutes of slow walking and deep breathing. Apply ice to any joints that feel warm post-exercise."}
           ]
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -232,62 +232,62 @@ const ExerciseHub = () => {
           "@type": "WebPage",
           "url": "https://livingwitharthritis.org.uk/exercises",
           "inLanguage": "en-GB",
-          "areaServed": { "@type": "Country", "name": "United Kingdom" },
+          "areaServed": { "@type": "Country", "name": "United Kingdom"},
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
         })}</script>
       </Helmet>
 
       <Header />
-      <main id="main-content" role="main" tabIndex={-1} className="outline-none">
+      <main id="main-content"role="main"tabIndex={-1} className="outline-none">
       <div className="container mx-auto max-w-5xl px-6 md:px-10 pt-4">
-        <MedicalDisclaimerStrip variant="short" />
+        <MedicalDisclaimerStrip variant="short"/>
       </div>
-      <PageBreadcrumb segments={[{ label: "Exercise Hub" }]} />
+      <PageBreadcrumb segments={[{ label: "Exercise Hub"}]} />
 
       <PageHero
-        badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}
+        badge={<Badge variant="outline"className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5"/> Exercise Hub</Badge>}
         title={<>Free physiotherapy exercises for arthritis at <span className="text-primary">home</span> UK</>}
         subtitle="Free NICE-aligned home physio routines for knees, hips, hands and more — from Living With Arthritis (charity 1218461). Start gently; stop if pain stays high overnight."
       >
         <div className="flex flex-wrap gap-3 mt-2">
-          <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-            <Link to="/self-help"><Zap className="w-4 h-4 mr-2" /> Interactive Joint Diagram</Link>
+          <Button asChild size="lg"className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
+            <Link to="/self-help"><Zap className="w-4 h-4 mr-2"/> Interactive Joint Diagram</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="min-h-[48px] text-base">
-            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2" /> Ask for Exercises</Link>
+          <Button asChild variant="outline"size="lg"className="min-h-[48px] text-base">
+            <Link to="/chat"><MessageCircle className="w-4 h-4 mr-2"/> Ask for Exercises</Link>
           </Button>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
-          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> Clinically Aligned</span>
-          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Physiotherapy Approved</span>
-          <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
+          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary"/> Clinically Aligned</span>
+          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary"/> Physiotherapy Approved</span>
+          <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary"/> 10–20 min routines</span>
         </div>
       </PageHero>
 
-      <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8" aria-label="Introduction">
-        <AeoEnhancement route="/exercises" />
-        <p id="exercise-empathy-lead" className="speakable-intro text-muted-foreground text-base leading-relaxed max-w-3xl">
+      <section className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-4xl pt-8"aria-label="Introduction">
+        <AeoEnhancement route="/exercises"/>
+        <p id="exercise-empathy-lead"className="speakable-intro text-muted-foreground text-base leading-relaxed max-w-3xl">
           Living with arthritis can make movement feel scary. These routines are gentle on purpose —
           free, plain-English, and designed so you can take one small step today without a gym or a lecture.
         </p>
       </section>
 
       {/* Editorial photo band — movement as discipline */}
-      <section aria-label="Movement is medicine" className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">
+      <section aria-label="Movement is medicine"className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">
         <img
           src="/images/diver-movement.webp"
           alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
           width={1920}
           height={1440}
           loading="eager"
-          {...({ fetchpriority: "high" } as Record<string, string>)}
+          {...({ fetchpriority: "high"} as Record<string, string>)}
           decoding="async"
           className="h-full w-full object-cover opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/30 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/30 to-transparent"aria-hidden="true"/>
         <figure className="absolute inset-y-0 left-0 flex items-center p-8 md:p-14 max-w-2xl">
           <blockquote>
-            <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
+            <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight"style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)"}}>
               &ldquo;Motion is lotion. Every stretch, every step, every breath — medicine.&rdquo;
             </p>
             <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground font-medium tracking-wider uppercase">Living With Arthritis · Exercise Hub</figcaption>
@@ -316,15 +316,15 @@ const ExerciseHub = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <p className="section-label text-primary mb-6">Why Exercise Matters</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <StatCounter value="40" suffix="%" label="Pain reduction with regular exercise" icon={<TrendingUp className="w-6 h-6" />} color="emerald" />
-              <StatCounter value="30" suffix=" min" label="Daily target for best results" icon={<Timer className="w-6 h-6" />} color="sky" />
-              <StatCounter value="8.75" suffix="M" label="Aged 45+ treated for OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
-              <StatCounter value="4" label="Joint-specific routines below" icon={<Target className="w-6 h-6" />} color="violet" />
+              <StatCounter value="40"suffix="%"label="Pain reduction with regular exercise"icon={<TrendingUp className="w-6 h-6"/>} color="emerald"/>
+              <StatCounter value="30"suffix="min"label="Daily target for best results"icon={<Timer className="w-6 h-6"/>} color="sky"/>
+              <StatCounter value="8.75"suffix="M"label="Aged 45+ treated for OA in the UK"icon={<Users className="w-6 h-6"/>} color="amber"/>
+              <StatCounter value="4"label="Joint-specific routines below"icon={<Target className="w-6 h-6"/>} color="violet"/>
             </div>
           </div>
         </section>
 
-        <WaveDivider color="hsl(var(--background))" />
+        <WaveDivider color="hsl(var(--background))"/>
 
         {/* Quick jump */}
         <section className="py-8 border-b border-border/40">
@@ -333,7 +333,7 @@ const ExerciseHub = () => {
             <div className="flex flex-wrap gap-2">
               {exerciseCategories.map((cat) => (
                 <a key={cat.id} href={`#${cat.id}`} className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-full bg-background border border-border/60 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition-colors">
-                  <cat.icon className="w-3.5 h-3.5" /> {cat.title}
+                  <cat.icon className="w-3.5 h-3.5"/> {cat.title}
                 </a>
               ))}
             </div>
@@ -349,14 +349,14 @@ const ExerciseHub = () => {
                 id={cat.id}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-50px"}}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
               >
                 <Card className={`border ${cat.borderColor} bg-gradient-to-br ${cat.color} overflow-hidden`}>
                   <CardContent className="p-5 sm:p-7 lg:p-10">
                     <div className="flex items-start gap-4 mb-4">
                       <div className={`w-12 h-12 rounded-xl ${cat.iconColor} flex items-center justify-center shrink-0`}>
-                        <cat.icon className="w-6 h-6" />
+                        <cat.icon className="w-6 h-6"/>
                       </div>
                       <div>
                         <h2 className="text-2xl font-bold text-foreground">{cat.title}</h2>
@@ -370,7 +370,7 @@ const ExerciseHub = () => {
                       <div className="grid sm:grid-cols-2 gap-3">
                         {cat.exercises.map((ex, j) => (
                           <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
-                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0"/>
                             <span className="text-sm text-foreground">{ex}</span>
                           </div>
                         ))}
@@ -383,11 +383,11 @@ const ExerciseHub = () => {
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
                       <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-                        <Star className="w-4 h-4 text-primary" />
+                        <Star className="w-4 h-4 text-primary"/>
                         <strong>Tip:</strong> {cat.tip}
                       </p>
                       <Button asChild className="shrink-0 min-h-[44px] font-semibold">
-                        <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
+                        <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5"/></Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -407,14 +407,14 @@ const ExerciseHub = () => {
               className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                <MessageCircle className="w-8 h-8 text-primary" />
+                <MessageCircle className="w-8 h-8 text-primary"/>
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Not sure which exercises suit you?</h2>
                 <p className="text-muted-foreground text-sm">Our help chat recommends exercises based on your specific joints, pain level and mobility — free and instant.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold shadow-md shrink-0">
-                <Link to="/chat">Get Personalised Plan <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              <Button asChild size="lg"className="min-h-[48px] font-semibold shadow-md shrink-0">
+                <Link to="/chat">Get Personalised Plan <ArrowRight className="w-4 h-4 ml-2"/></Link>
               </Button>
             </motion.div>
           </div>
@@ -429,14 +429,14 @@ const ExerciseHub = () => {
                 id={cat.id}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-50px"}}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
               >
                 <Card className={`border ${cat.borderColor} bg-gradient-to-br ${cat.color} overflow-hidden`}>
                   <CardContent className="p-5 sm:p-7 lg:p-10">
                     <div className="flex items-start gap-4 mb-4">
                       <div className={`w-12 h-12 rounded-xl ${cat.iconColor} flex items-center justify-center shrink-0`}>
-                        <cat.icon className="w-6 h-6" />
+                        <cat.icon className="w-6 h-6"/>
                       </div>
                       <div>
                         <h2 className="text-2xl font-bold text-foreground">{cat.title}</h2>
@@ -450,7 +450,7 @@ const ExerciseHub = () => {
                       <div className="grid sm:grid-cols-2 gap-3">
                         {cat.exercises.map((ex, j) => (
                           <div key={j} className="flex items-start gap-2.5 bg-background/60 backdrop-blur-sm rounded-lg p-3 border border-border/30">
-                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0"/>
                             <span className="text-sm text-foreground">{ex}</span>
                           </div>
                         ))}
@@ -463,11 +463,11 @@ const ExerciseHub = () => {
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border/30">
                       <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-                        <Star className="w-4 h-4 text-primary" />
+                        <Star className="w-4 h-4 text-primary"/>
                         <strong>Tip:</strong> {cat.tip}
                       </p>
                       <Button asChild className="shrink-0 min-h-[44px] font-semibold">
-                        <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5" /></Link>
+                        <Link to={cat.href}>Full guide <ArrowRight className="w-3.5 h-3.5 ml-1.5"/></Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -487,11 +487,11 @@ const ExerciseHub = () => {
                 <p className="text-sm text-muted-foreground mb-6">Patients reporting improvement after 12 weeks.</p>
                 <HorizontalBar
                   items={[
-                    { label: "Swimming / Hydrotherapy", value: 78, color: "hsl(var(--sky))" },
-                    { label: "Walking (30 min/day)", value: 72, color: "hsl(var(--emerald))" },
-                    { label: "Strength Training", value: 68, color: "hsl(var(--violet))" },
-                    { label: "Yoga / Tai Chi", value: 65, color: "hsl(var(--amber))" },
-                    { label: "Cycling", value: 62, color: "hsl(var(--primary))" },
+                    { label: "Swimming / Hydrotherapy", value: 78, color: "hsl(var(--sky))"},
+                    { label: "Walking (30 min/day)", value: 72, color: "hsl(var(--emerald))"},
+                    { label: "Strength Training", value: 68, color: "hsl(var(--violet))"},
+                    { label: "Yoga / Tai Chi", value: 65, color: "hsl(var(--amber))"},
+                    { label: "Cycling", value: 62, color: "hsl(var(--primary))"},
                   ]}
                 />
               </div>
@@ -499,10 +499,10 @@ const ExerciseHub = () => {
                 <DonutChart
                   label="Exercise Benefits Breakdown"
                   segments={[
-                    { percent: 35, color: "hsl(var(--emerald))", label: "Pain relief" },
-                    { percent: 25, color: "hsl(var(--sky))", label: "Mobility" },
-                    { percent: 20, color: "hsl(var(--violet))", label: "Strength" },
-                    { percent: 20, color: "hsl(var(--amber))", label: "Mood" },
+                    { percent: 35, color: "hsl(var(--emerald))", label: "Pain relief"},
+                    { percent: 25, color: "hsl(var(--sky))", label: "Mobility"},
+                    { percent: 20, color: "hsl(var(--violet))", label: "Strength"},
+                    { percent: 20, color: "hsl(var(--amber))", label: "Mood"},
                   ]}
                 />
               </div>
@@ -510,7 +510,7 @@ const ExerciseHub = () => {
           </div>
         </section>
 
-        <WaveDivider color="hsl(var(--background))" />
+        <WaveDivider color="hsl(var(--background))"/>
 
         {/* ─── Quick Tips Emoji Grid ─── */}
         <section className="py-12 lg:py-16">
@@ -518,12 +518,12 @@ const ExerciseHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🔥" title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
-              <EmojiCard emoji="💧" title="Stay Hydrated" description="Sip water before and after — dehydration makes stiffness worse." />
-              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Keep effort around 4 out of 10. Next-day soreness means do less, not more." />
-              <EmojiCard emoji="🧊" title="Ice After" description="Ten minutes of ice on a warm, swollen joint, cloth barrier, after you finish." />
-              <EmojiCard emoji="📅" title="Be Consistent" description="A short daily session beats one long weekend burst that leaves you sore." />
-              <EmojiCard emoji="🛑" title="Listen to Pain" description="Sharp or worsening pain means stop. A mild ache that settles is usually fine." />
+              <EmojiCard emoji=""title="Warm Up"description="Five minutes of gentle marching or shoulder rolls before you load a sore joint."/>
+              <EmojiCard emoji=""title="Stay Hydrated"description="Sip water before and after — dehydration makes stiffness worse."/>
+              <EmojiCard emoji=""title="Pace Yourself"description="Keep effort around 4 out of 10. Next-day soreness means do less, not more."/>
+              <EmojiCard emoji=""title="Ice After"description="Ten minutes of ice on a warm, swollen joint, cloth barrier, after you finish."/>
+              <EmojiCard emoji=""title="Be Consistent"description="A short daily session beats one long weekend burst that leaves you sore."/>
+              <EmojiCard emoji=""title="Listen to Pain"description="Sharp or worsening pain means stop. A mild ache that settles is usually fine."/>
             </div>
           </div>
         </section>
@@ -546,11 +546,11 @@ const ExerciseHub = () => {
                   <Link to={act.href} className="block group">
                     <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md">
                       <CardContent className="p-6">
-                        <act.icon className="w-8 h-8 text-primary mb-3" />
+                        <act.icon className="w-8 h-8 text-primary mb-3"/>
                         <h3 className="font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">{act.title}</h3>
                         <p className="text-sm text-muted-foreground">{act.desc}</p>
                         <span className="inline-flex items-center gap-1 text-xs text-primary font-medium mt-3">
-                          Read more about {act.title}<span className="sr-only"> exercise guide</span> <ChevronRight className="w-3 h-3" aria-hidden="true" />
+                          Read more about {act.title}<span className="sr-only"> exercise guide</span> <ChevronRight className="w-3 h-3"aria-hidden="true"/>
                         </span>
                       </CardContent>
                     </Card>
@@ -604,14 +604,14 @@ const ExerciseHub = () => {
               className="flex flex-col md:flex-row items-center gap-6 md:gap-10"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                <BarChart3 className="w-8 h-8 text-primary" />
+                <BarChart3 className="w-8 h-8 text-primary"/>
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
                 <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our help chat.</p>
               </div>
-              <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
-                <Link to="/self-help">Self Help Tool <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              <Button asChild size="lg"className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
+                <Link to="/self-help">Self Help Tool <ArrowRight className="w-4 h-4 ml-2"/></Link>
               </Button>
             </motion.div>
           </div>
@@ -623,18 +623,18 @@ const ExerciseHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
             <p className="text-sm text-muted-foreground mb-8">A balanced week of arthritis-friendly exercise.</p>
             <Timeline items={[
-              { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine." },
-              { title: "Tuesday — Walking", description: "30 min brisk walk with supportive footwear." },
-              { title: "Wednesday — Hand Exercises", description: "15 min grip & flexibility." },
-              { title: "Thursday — Swimming", description: "30 min pool session or aqua aerobics." },
-              { title: "Friday — Yoga / Tai Chi", description: "20 min gentle flexibility and balance." },
-              { title: "Saturday — Chair Exercises", description: "15 min seated routine for lower-energy days." },
-              { title: "Sunday — Rest & Stretch", description: "Gentle 10 min full-body stretching." },
+              { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine."},
+              { title: "Tuesday — Walking", description: "30 min brisk walk with supportive footwear."},
+              { title: "Wednesday — Hand Exercises", description: "15 min grip & flexibility."},
+              { title: "Thursday — Swimming", description: "30 min pool session or aqua aerobics."},
+              { title: "Friday — Yoga / Tai Chi", description: "20 min gentle flexibility and balance."},
+              { title: "Saturday — Chair Exercises", description: "15 min seated routine for lower-energy days."},
+              { title: "Sunday — Rest & Stretch", description: "Gentle 10 min full-body stretching."},
             ]} />
           </div>
         </section>
 
-        <WaveDivider color="hsl(var(--background))" />
+        <WaveDivider color="hsl(var(--background))"/>
 
         {/* Pedometer */}
         <Pedometer />
@@ -652,17 +652,17 @@ const ExerciseHub = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-primary" />
+                <Sparkles className="w-8 h-8 text-primary"/>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Need Personalised Exercise Advice?</h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg">
                 Get recommendations tailored to your joints, pain level and fitness — free, instant and evidence-based.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild size="lg" className="min-h-[52px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
-                  <Link to="/chat">Start a Chat <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                <Button asChild size="lg"className="min-h-[52px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
+                  <Link to="/chat">Start a Chat <ArrowRight className="w-4 h-4 ml-2"/></Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="min-h-[52px] text-base">
+                <Button asChild variant="outline"size="lg"className="min-h-[52px] text-base">
                   <Link to="/self-help">Interactive Joint Diagram</Link>
                 </Button>
               </div>
@@ -670,7 +670,7 @@ const ExerciseHub = () => {
           </div>
         </section>
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <CrossLinkBanner preset="exercise" exclude="/exercises" title="Related resources" />
+          <CrossLinkBanner preset="exercise"exclude="/exercises"title="Related resources"/>
           <ContextualLinks
             heading="Build a complete arthritis-friendly routine"
             intro="The best results come from pairing safe movement with diet, flare-up planning and condition-specific care."
@@ -678,39 +678,39 @@ const ExerciseHub = () => {
               {
                 title: "Joint-by-joint exercise",
                 links: [
-                  { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
-                  { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going" },
-                  { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
-                  { label: "Hip arthritis stretches", to: "/guides/hip-exercises-for-osteoarthritis" },
-                  { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
-                  { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
-                  { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                  { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis"},
+                  { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going"},
+                  { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis"},
+                  { label: "Hip arthritis stretches", to: "/guides/hip-exercises-for-osteoarthritis"},
+                  { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk"},
+                  { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance"},
+                  { label: "Exercises to avoid with arthritis", to: "/guides/exercise"},
                 ],
               },
               {
                 title: "Conditions that benefit from movement",
                 links: [
-                  { label: "Osteoarthritis — exercise plan", to: "/conditions/osteoarthritis" },
-                  { label: "Rheumatoid arthritis — staying active", to: "/conditions/rheumatoid-arthritis" },
-                  { label: "Ankylosing spondylitis — daily stretches", to: "/conditions/ankylosing-spondylitis" },
-                  { label: "Fibromyalgia — pacing and gentle exercise", to: "/conditions/fibromyalgia" },
+                  { label: "Osteoarthritis — exercise plan", to: "/conditions/osteoarthritis"},
+                  { label: "Rheumatoid arthritis — staying active", to: "/conditions/rheumatoid-arthritis"},
+                  { label: "Ankylosing spondylitis — daily stretches", to: "/conditions/ankylosing-spondylitis"},
+                  { label: "Fibromyalgia — pacing and gentle exercise", to: "/conditions/fibromyalgia"},
                 ],
               },
               {
                 title: "Support your training",
                 links: [
-                  { label: "Anti-inflammatory diet", to: "/diet" },
-                  { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
-                  { label: "Self-help joint tool", to: "/self-help" },
-                  { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },
-                  { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
+                  { label: "Anti-inflammatory diet", to: "/diet"},
+                  { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups"},
+                  { label: "Self-help joint tool", to: "/self-help"},
+                  { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise"},
+                  { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk"},
                 ],
               },
             ]}
           />
 
-          <section aria-labelledby="chair-exercise-seniors" className="mt-16 border-t border-border pt-12">
-            <h2 id="chair-exercise-seniors" className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+          <section aria-labelledby="chair-exercise-seniors"className="mt-16 border-t border-border pt-12">
+            <h2 id="chair-exercise-seniors"className="font-serif text-3xl md:text-4xl text-foreground mb-6">
               Chair-based movement for older adults
             </h2>
             <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
@@ -734,23 +734,23 @@ const ExerciseHub = () => {
         </div>
       </div>
 
-      <nav aria-label="Customer job pathways for exercise" className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
+      <nav aria-label="Customer job pathways for exercise"className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">Popular next steps from the exercise hub</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
-          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip osteoarthritis</Link> — pool drills when land impact flares you</li>
-          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — build a sustainable habit</li>
-          <li><Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee OA exercises</Link> · <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Hip OA exercises</Link></li>
-          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> · <Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis"className="text-primary underline underline-offset-2">Swimming for hip osteoarthritis</Link> — pool drills when land impact flares you</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going"className="text-primary underline underline-offset-2">Walking with arthritis</Link> — build a sustainable habit</li>
+          <li><Link to="/guides/knee-exercises-for-osteoarthritis"className="text-primary underline underline-offset-2">Knee OA exercises</Link> · <Link to="/guides/hip-exercises-for-osteoarthritis"className="text-primary underline underline-offset-2">Hip OA exercises</Link></li>
+          <li><Link to="/conditions/osteoarthritis"className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief"className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/guides/benefits-pip"className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> · <Link to="/resources/pip-evidence-diary"className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
         </ul>
       </nav>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-28" />
-        <TopicClusterNav path="/exercises" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-28"/>
+        <TopicClusterNav path="/exercises"/>
       </div>
       </main>
       <InternalLinks />
-      <NextReadStrip currentPath="/guides/exercise" />
+      <NextReadStrip currentPath="/guides/exercise"/>
       <Footer />
     </>
   );

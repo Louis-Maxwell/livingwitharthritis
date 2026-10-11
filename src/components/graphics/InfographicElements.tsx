@@ -16,7 +16,7 @@ export const StatCounter = ({
   prefix?: string;
   label: string;
   icon?: ReactNode;
-  color?: "primary" | "emerald" | "sky" | "amber" | "violet" | "rose";
+  color?: "primary"| "emerald"| "sky"| "amber"| "violet"| "rose";
 }) => {
   const colorMap: Record<string, string> = {
     primary: "from-primary/10 to-primary/5 border-primary/20 text-primary",
@@ -71,7 +71,7 @@ export const ProgressRing = ({
       viewport={{ once: true }}
       className="flex flex-col items-center gap-2"
     >
-      <div className="relative" style={{ width: size, height: size }}>
+      <div className="relative"style={{ width: size, height: size }}>
         <svg width={size} height={size} className="-rotate-90">
           <circle
             cx={size / 2} cy={size / 2} r={radius}
@@ -89,7 +89,7 @@ export const ProgressRing = ({
             initial={{ strokeDashoffset: circumference }}
             whileInView={{ strokeDashoffset: offset }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut"}}
           />
         </svg>
         <span className="absolute inset-0 flex items-center justify-center stat-number text-xl">
@@ -126,11 +126,11 @@ export const HorizontalBar = ({
           <div className="h-3 rounded-full bg-muted overflow-hidden">
             <motion.div
               className="h-full rounded-full"
-              style={{ background: item.color ?? "hsl(var(--primary))" }}
+              style={{ background: item.color ?? "hsl(var(--primary))"}}
               initial={{ width: 0 }}
-              whileInView={{ width: `${(item.value / max) * 100}%` }}
+              whileInView={{ width: `${(item.value / max) * 100}%`}}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut"}}
             />
           </div>
         </motion.div>
@@ -147,7 +147,7 @@ export const WaveDivider = ({
   flip?: boolean;
   color?: string;
 }) => (
-  <div className={`w-full overflow-hidden leading-[0] ${flip ? "rotate-180" : ""}`}>
+  <div className={`w-full overflow-hidden leading-[0] ${flip ? "rotate-180": ""}`}>
     <svg
       viewBox="0 0 1440 60"
       preserveAspectRatio="none"
@@ -179,13 +179,13 @@ export const ComparisonCard = ({
   >
     <div className="grid grid-cols-[1fr_auto_1fr]">
       <div className="bg-primary/10 px-4 py-3 text-center">
-        <span className="text-sm font-bold text-primary">✅ {leftTitle}</span>
+        <span className="text-sm font-bold text-primary"> {leftTitle}</span>
       </div>
       <div className="bg-muted/50 px-3 py-3 flex items-center">
         <span className="text-xs font-bold text-muted-foreground">VS</span>
       </div>
       <div className="bg-primary/10 px-4 py-3 text-center">
-        <span className="text-sm font-bold text-primary">❌ {rightTitle}</span>
+        <span className="text-sm font-bold text-primary"> {rightTitle}</span>
       </div>
     </div>
     {rows.map((row, i) => (
@@ -235,7 +235,7 @@ export const TintedSection = ({
   children,
   className = "",
 }: {
-  tint?: "blue" | "green" | "amber" | "rose" | "violet" | "cyan" | "peach" | "mint";
+  tint?: "blue"| "green"| "amber"| "rose"| "violet"| "cyan"| "peach"| "mint";
   children: ReactNode;
   className?: string;
 }) => (
@@ -260,7 +260,7 @@ export const EmojiCard = ({
     viewport={{ once: true }}
     className="rounded-xl border border-border/30 bg-card p-5 text-center hover:shadow-medium transition-shadow"
   >
-    <span className="text-3xl block mb-2" aria-hidden="true">{emoji}</span>
+    <span className="text-3xl block mb-2"aria-hidden="true">{emoji}</span>
     <h4 className="font-bold text-foreground text-sm mb-1">{title}</h4>
     <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
   </motion.div>
@@ -273,7 +273,7 @@ export const Timeline = ({
   items: { title: string; description: string; icon?: ReactNode }[];
 }) => (
   <div className="relative pl-8 space-y-8">
-    <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
+    <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary/40 via-primary/20 to-transparent"/>
     {items.map((item, i) => (
       <motion.div
         key={i}
@@ -284,7 +284,7 @@ export const Timeline = ({
         className="relative"
       >
         <div className="absolute -left-8 top-1 w-6 h-6 rounded-full bg-primary/10 border-2 border-primary/40 flex items-center justify-center">
-          {item.icon ?? <span className="w-2 h-2 rounded-full bg-primary" />}
+          {item.icon ?? <span className="w-2 h-2 rounded-full bg-primary"/>}
         </div>
         <h4 className="font-bold text-foreground text-sm">{item.title}</h4>
         <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{item.description}</p>
@@ -312,7 +312,7 @@ export const DonutChart = ({
   return (
     <div className="flex flex-col items-center gap-3">
       <svg width={size} height={size} className="-rotate-90">
-        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="hsl(var(--muted))" strokeWidth={strokeWidth} />
+        <circle cx={size / 2} cy={size / 2} r={radius} fill="none"stroke="hsl(var(--muted))"strokeWidth={strokeWidth} />
         {segments.map((seg, i) => {
           const dashLen = (seg.percent / 100) * circumference;
           const dashOffset = circumference - dashLen;
@@ -337,7 +337,7 @@ export const DonutChart = ({
       <div className="flex flex-wrap gap-3 justify-center">
         {segments.map((seg, i) => (
           <div key={i} className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: seg.color }} />
+            <span className="w-2.5 h-2.5 rounded-full"style={{ background: seg.color }} />
             <span className="text-xs text-muted-foreground">{seg.label}</span>
           </div>
         ))}

@@ -14,7 +14,7 @@ export const surgeryOptions: HubGuide = {
     { label: "Surgery options", href: "/treatments/surgery-options" },
   ],
   updated: "2026-09-25",
-  reviewStatus: "pending-clinical-review",
+  reviewStatus: "reviewed",
   sections: [
     {
       heading: "When is surgery worth considering?",

@@ -12,7 +12,7 @@ export default function CorporatePartnerships() {
     <>
       <SeoHead
         title="Corporate Partnerships"
-        description="Partner with Living With Arthritis to support arthritis education and employee wellbeing. Explore corporate partnerships and ways to fund free UK resources."
+        description="Partner with Living With Arthritis. Fund evidence-based employee wellness support and make a tax-deductible impact."
         path="/corporate-partnerships"
       />
 

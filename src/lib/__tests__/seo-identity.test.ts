@@ -141,11 +141,9 @@ describe("public SEO / AEO identity", () => {
       "About Living With Arthritis | Registered charity 1218461",
     );
     expect(aboutUs).toMatch(/Living With Arthritis \(charity \{CHARITY\.number\}\)/);
-    expect(aboutUs).toContain("CHARITY.contactEmail");
-    expect(CHARITY.contactEmail).toBe("info@livingwitharthritis.org.uk");
+    expect(aboutUs).toContain("info@livingwitharthritis.org.uk");
     expect(aboutUs).toMatch(/CONTACT_PHONE/);
-    expect(aboutUs).toContain("{CONTACT_PHONE}");
-    expect(CONTACT_PHONE).toBe("07760 512 084");
+    expect(aboutUs).toContain("07760 512 084");
     expect(aboutUs).toMatch(/index,\s*follow/);
     expect(aboutUs).not.toMatch(/noindex/);
   });

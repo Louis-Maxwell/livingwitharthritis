@@ -10,7 +10,7 @@ Last updated: 2026-09-20
 Q: What is Living With Arthritis?
 A: Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.
 
-## About Living With Arthritis | Registered charity 1218461
+## About Living With Arthritis | Registered charity 1218461 · Free guides
 URL: https://livingwitharthritis.org.uk/about
 Last updated: 2026-07-01
 Q: Who is Living With Arthritis?
@@ -100,7 +100,7 @@ Last updated: 2026-09-19
 Q: What are the best exercises for ankylosing spondylitis?
 A: Daily spinal mobility plus low-impact cardio such as swimming are foundational for AS; treat movement as medicine and stop for sharp inflammatory pain.
 
-## Elbow Arthritis UK | Causes, Treatment & Exercises
+## Elbow Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/elbow-arthritis
 Last updated: 2026-07-01
 Q: What is elbow arthritis?
@@ -152,7 +152,7 @@ A: An untreated attack peaks at 24 hours and usually settles within 3 to 10 days
 Q: Is gout the same as arthritis?
 A: Gout is a type of inflammatory arthritis caused by uric-acid crystals, distinct from osteoarthritis (wear and tear) or rheumatoid arthritis (autoimmune).
 
-## Hand Arthritis UK | Symptoms, Treatment & Exercises
+## Hand Arthritis: Symptoms & Exercises | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/hand-arthritis
 Last updated: 2026-07-01
 Q: What is hand arthritis?
@@ -202,7 +202,7 @@ A: JIA can cause silent eye inflammation (uveitis) that, if missed, can damage s
 Q: Can my child still play sport?
 A: Yes — sport is encouraged. Swimming and cycling are particularly good. Adapt during flares and work with the rheumatology team and PE staff.
 
-## Knee Arthritis UK | Symptoms, Treatment & Exercises
+## Knee Arthritis: Symptoms, Exercises & Relief | UK
 URL: https://livingwitharthritis.org.uk/conditions/knee-arthritis
 Last updated: 2026-07-01
 Q: What is knee arthritis?
@@ -228,7 +228,7 @@ A: UV light can trigger lupus flares — both skin rashes and internal symptoms.
 Q: Can people with lupus have children?
 A: Yes. Pregnancy in lupus needs to be planned with your rheumatology and obstetric team, ideally during a period of stable disease, with medications reviewed in advance.
 
-## Osteoarthritis UK: Symptoms, Treatment & Exercises
+## Osteoarthritis: Symptoms, Treatment & Exercises | UK
 URL: https://livingwitharthritis.org.uk/conditions/osteoarthritis
 Last updated: 2026-07-01
 Q: What is osteoarthritis?
@@ -260,7 +260,7 @@ A: Yes, and you should. Gentle walking, shoulder and hip mobility work, and ligh
 Q: Are there natural alternatives to steroids for PMR?
 A: There is no proven natural alternative to steroids for PMR — untreated inflammation can damage tissue and increase the risk of GCA. A Mediterranean diet, exercise and bone-protection medicines support steroid treatment rather than replace it.
 
-## Psoriatic Arthritis UK | Symptoms & Treatment
+## Psoriatic Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/psoriatic-arthritis
 Last updated: 2026-07-01
 Q: What is psoriatic arthritis?
@@ -288,7 +288,7 @@ A: No. Reactive arthritis itself cannot be passed from person to person. However
 Q: What is the difference between reactive arthritis and rheumatoid arthritis?
 A: Reactive arthritis is triggered by a recent infection, usually affects one or a few large joints, and most people recover within months. Rheumatoid arthritis is a lifelong autoimmune disease that typically affects small joints on both sides of the body and needs long-term medication.
 
-## Rheumatoid Arthritis: Symptoms, Treatment & Flares (UK)
+## Rheumatoid Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis
 Last updated: 2026-07-01
 Q: What is rheumatoid arthritis?
@@ -300,7 +300,7 @@ A: OA is wear-and-tear cartilage loss. RA is an autoimmune inflammatory disease.
 Q: Can diet help RA?
 A: A Mediterranean-style diet rich in oily fish, olive oil and vegetables can reduce inflammatory markers. It doesn't replace DMARDs but supports overall control.
 
-## Shoulder Arthritis UK | Symptoms & Exercises
+## Shoulder Arthritis: Symptoms & Treatment | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/shoulder-arthritis
 Last updated: 2026-07-01
 Q: What is shoulder arthritis?
@@ -356,7 +356,7 @@ A: Living With Arthritis is a registered charity in England and Wales, no. 12184
 Q: Should I donate here or through the Zakat appeal?
 A: Use this page for a general donation that funds our free UK arthritis support. To give Zakat or Sadaqah, use the Palestine & Gaza rehabilitation appeal at https://livingwitharthritis.org.uk/zakat-appeal.
 
-## Free Arthritis Exercises at Home UK | Exercise Hub
+## Exercise Hub: Arthritis-Friendly Workouts | UK
 URL: https://livingwitharthritis.org.uk/exercise-hub
 Last updated: 2026-07-01
 Q: What's the best exercise for arthritis?
@@ -1040,7 +1040,7 @@ Last updated: 2026-07-01
 Q: Where can I find UK arthritis guides?
 A: The Living With Arthritis guides hub collects practical pages on PIP and benefits, exercise, diet, pain relief and NHS care. Each guide is written for people in the United Kingdom and reviewed against current clinical guidance.
 
-## Arthritis Pain Relief UK: Movement, Heat & Medicines
+## Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)
 URL: https://livingwitharthritis.org.uk/guides/arthritis-pain-relief
 Last updated: 2026-09-20
 Q: How do I relieve arthritis pain today?
@@ -1154,13 +1154,13 @@ A: Persistent limping; night pain; reduced quality of life; supplements alone ar
 Q: What should I be careful about?
 A: Never give a dog human painkillers — paracetamol and ibuprofen can be fatal. Always consult your vet.
 
-## Arthritis Exercises at Home UK | Living With Arthritis
+## Best arthritis exercises in the UK (NICE-aligned)
 URL: https://livingwitharthritis.org.uk/guides/exercise
 Last updated: 2026-07-01
 Q: What exercise is best for arthritis?
 A: Exercise is first-line care for osteoarthritis in the UK. Combine low-impact aerobic activity (walking, cycling, swimming), strengthening work for the muscles around the affected joint, and flexibility or balance work. Build up gradually; some discomfort that settles within 24 hours is expected and does not mean harm.
 
-## Fall Prevention with Arthritis | UK Strength & Balance
+## Fall Prevention for Older Adults | UK Guide
 URL: https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults
 Last updated: 2026-07-01
 Q: How can older adults prevent falls?
@@ -1272,7 +1272,7 @@ A: You already follow one; you're looking for specific elimination or supplement
 Q: What should I be careful about?
 A: Don't cut foods without medical advice — restrictive diets can cause nutritional gaps, especially in older adults.
 
-## Musculoskeletal Health Guide | Living With Arthritis
+## Musculoskeletal (MSK) Health Explained | UK
 URL: https://livingwitharthritis.org.uk/guides/musculoskeletal-health
 Last updated: 2026-07-01
 Q: What is musculoskeletal health?
@@ -1490,7 +1490,7 @@ A: Hip/spine OA; inflammatory arthritis flares; short bursts under GP supervisio
 Q: What should I be careful about?
 A: Topical NSAIDs still carry a small systemic absorption risk — avoid on broken skin and follow the pack instructions.
 
-## Understanding Arthritis Pain | Talking to Your GP
+## Understanding Pain Types | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/guides/understanding-pain
 Last updated: 2026-09-21
 Q: What are the main types of pain?

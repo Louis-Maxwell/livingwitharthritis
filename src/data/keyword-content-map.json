@@ -90,7 +90,7 @@
   "internal_linking_rules": [
     "Every cluster article links UP to its pillar (mandatory).",
     "Every pillar links DOWN to 5-10 of its cluster articles in a 'Read next' module.",
-    "Cross-category links allowed when topic overlaps (e.g. arthritis diet ↔ anti-inflammatory nutrition).",
+    "Cross-category links allowed when topic overlaps (e.g. arthritis diet anti-inflammatory nutrition).",
     "Maximum 3 outbound internal links per 500 words to keep link equity focused.",
     "Anchor text must vary - never repeat exact-match anchor more than 2x per article."
   ]

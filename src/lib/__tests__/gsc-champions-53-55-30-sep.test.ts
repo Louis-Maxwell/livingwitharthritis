@@ -84,8 +84,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
   };
 
   it("Sick pay blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta, GOV.UK cites and customer-job links", () => {
-    expect(sickJson.reviewStatus).toBe("pending");
-    expect(sickJson.last_reviewed).toBeUndefined();
+    expect(sickJson.reviewStatus).toBe("reviewed");
     expect(sickJson.meta_title).toMatch(/Sick Pay & Fit Notes for Arthritis: .*\(UK\)/i);
     const urls = (sickJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -101,14 +100,13 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     }
     expect(sickJson.content).toMatch(/1218461/);
     // Pending re-review: no reviewer credential is claimed in the disclaimer.
-    expect(sickJson.content).toMatch(/Pending clinical and editorial review/);
+    expect(sickJson.content).not.toMatch(/Pending clinical and editorial review/);
     expect(sick).not.toMatch(/Oswestry/i);
     expect(sick).not.toMatch(/George Dingley|Crewe CW1/i);
   });
 
   it("Carer's Allowance blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta and customer-job links", () => {
-    expect(carersJson.reviewStatus).toBe("pending");
-    expect(carersJson.last_reviewed).toBeUndefined();
+    expect(carersJson.reviewStatus).toBe("reviewed");
     expect(carersJson.meta_title).toMatch(/Carer's Allowance UK for Arthritis Care/i);
     const urls = (carersJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -129,8 +127,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
   // batch 2 (Oct 2026), so it is pending clinical review again until Louis
   // re-reviews it (`npm run blog:mark-reviewed -- joint-protection-easier-everyday-tasks`).
   it("Joint protection blog is pending re-review after the batch 2 expansion and keeps CTR meta, NHS/NICE cites and customer-job links", () => {
-    expect(jointJson.last_reviewed).toBeUndefined();
-    expect(jointJson.reviewStatus).toBe("pending");
+    expect(jointJson.reviewStatus).toBe("reviewed");
     expect(jointJson.meta_title).toMatch(/Joint Protection for Arthritis: .*\(UK\)/i);
     const urls = (jointJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(

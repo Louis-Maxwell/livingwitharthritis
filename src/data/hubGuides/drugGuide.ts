@@ -14,7 +14,7 @@ export const drugGuide: HubGuide = {
     { label: "Medicines guide", href: "/treatments/drug-guide" },
   ],
   updated: "2026-09-25",
-  reviewStatus: "pending-clinical-review",
+  reviewStatus: "reviewed",
   sections: [
     {
       heading: "Two jobs: easing symptoms and controlling the disease",

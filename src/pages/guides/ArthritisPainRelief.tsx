@@ -66,10 +66,10 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ArthritisPainRelief = () => (
   <>
     <Helmet>
-      <title>Arthritis Pain Relief UK: Movement, Heat & Medicines</title>
-      <meta name="description" content="Practical UK arthritis pain relief: paced movement, heat and cold, topical treatments, sleep and when to contact your GP. Find next steps for self-care." />
+      <title>Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)</title>
+      <meta name="description" content="In pain now? Practical UK arthritis pain relief: paced movement, heat/cold, topical NSAIDs, sleep and when to see your GP — then next steps for diet, exercise and PIP." />
       <meta name="keywords" content="arthritis pain relief, arthritis pain relief tips, joint pain relief, how to relieve arthritis pain, arthritis pain management uk, arthritis flare relief, natural arthritis pain relief" />
-      <meta property="og:title" content="Arthritis Pain Relief UK: Movement, Heat & Medicines" />
+      <meta property="og:title" content="Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)" />
       <meta property="og:description" content="Movement, heat & cold, topical NSAIDs, diet and sleep — the practical things that lower arthritis pain." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />

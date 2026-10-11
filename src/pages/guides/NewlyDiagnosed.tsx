@@ -237,7 +237,7 @@ export default function NewlyDiagnosed() {
         <title>Newly Diagnosed With Arthritis: UK First Steps Checklist</title>
         <meta
           name="description"
-          content="Newly diagnosed with arthritis in the UK? Find first steps, questions for your GP, rheumatology preparation and guides to pain, exercise, diet and benefits."
+          content="Newly diagnosed with arthritis or rheumatoid arthritis in the UK? Clear first steps: GP questions, rheumatology prep, treatment basics, then pain relief, exercise, diet and PIP. Living With Arthritis charity 1218461."
         />
         <meta
           property="og:title"
@@ -245,7 +245,7 @@ export default function NewlyDiagnosed() {
         />
         <meta
           property="og:description"
-          content="Newly diagnosed with arthritis in the UK? Find first steps, questions for your GP, rheumatology preparation and guides to pain, exercise, diet and benefits."
+          content="Newly diagnosed with arthritis or rheumatoid arthritis in the UK? Clear first steps: GP questions, rheumatology prep, treatment basics, then pain relief, exercise, diet and PIP. Living With Arthritis charity 1218461."
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${BASE}/${SLUG}`} />

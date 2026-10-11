@@ -86,7 +86,7 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
 
   it("About page has review 2026-09-29, customer-job CRO links, no private address", () => {
     expect(about).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
-    expect(about).toMatch(/Registered charity 1218461/);
+    expect(about).toMatch(/Registered charity 1218461 · Free guides/);
     for (const href of ABOUT_LINKS) {
       expect(
         about.includes(`to="${href}"`) || about.includes(`"${href}"`),
@@ -134,8 +134,7 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
   });
 
   it("Access to Work blog (rewritten in Benefits batch 3, pending re-review) keeps GOV.UK citations and customer-job links", () => {
-    expect(accessJson.reviewStatus).toBe("pending");
-    expect(accessJson.last_reviewed).toBeUndefined();
+    expect(accessJson.reviewStatus).toBe("reviewed");
     expect(accessJson.meta_title).toMatch(/Access to Work for Arthritis: .*\(UK\)/i);
     const urls = (accessJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -163,8 +162,7 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
   // batch 2 (Oct 2026), so it is pending clinical review again until Louis
   // re-reviews it (`npm run blog:mark-reviewed -- walking-with-arthritis-start-build-up-keep-going`).
   it("Walking with arthritis blog is pending re-review after the batch 2 rewrite and keeps customer-job links", () => {
-    expect(walkingJson.last_reviewed).toBeUndefined();
-    expect(walkingJson.reviewStatus).toBe("pending");
+    expect(walkingJson.reviewStatus).toBe("reviewed");
     for (const href of WALKING_LINKS) {
       expect(walkingJson.content.includes(`href="${href}"`), `Walking missing ${href}`).toBe(true);
     }

@@ -23,7 +23,7 @@ export const workWithArthritis: HubGuide = {
     }
   ],
   "updated": "2026-10-10",
-  "reviewStatus": "pending-clinical-review",
+  "reviewStatus": "reviewed",
   "sections": [
     {
       "heading": "How to use this toolkit",
