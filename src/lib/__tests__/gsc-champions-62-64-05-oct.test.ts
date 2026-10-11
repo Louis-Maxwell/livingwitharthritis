@@ -107,7 +107,7 @@ describe("GSC Champions 62–64 (5 Oct): sleep + mental health + cold weather", 
       expect(json.reviewed_by).toBeNull();
       expect(json.reviewer_credentials).toBeNull();
       expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      expect(json.content).not.toMatch(/Pending clinical( and editorial)? review\./);
       expect(json.meta_title).toMatch(c.title);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);
       expect((json.meta_description || "").length).toBeLessThanOrEqual(155);

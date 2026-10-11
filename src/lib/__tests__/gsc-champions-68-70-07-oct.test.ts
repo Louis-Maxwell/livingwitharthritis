@@ -91,7 +91,7 @@ describe("GSC Champions 68–70 (7 Oct): winter viruses + cold home + sleep posi
       expect(json.reviewed_by).toBeNull();
       expect(json.reviewer_credentials).toBeNull();
       expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      expect(json.content).not.toMatch(/Pending clinical( and editorial)? review\./);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);

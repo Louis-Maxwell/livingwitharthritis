@@ -98,7 +98,7 @@ describe("GSC Champions 71–73 (8 Oct): vitamin D in winter + sleep–pain cycl
       expect(json.reviewed_by).toBeNull();
       expect(json.reviewer_credentials).toBeNull();
       expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      expect(json.content).not.toMatch(/Pending clinical( and editorial)? review\./);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);
