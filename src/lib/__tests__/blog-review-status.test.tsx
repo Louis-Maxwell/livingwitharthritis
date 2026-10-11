@@ -85,8 +85,16 @@ const PENDING_CHAMPIONS_62_73 = [
   "arthritis-and-sleep-problems",
 ];
 
+/**
+ * Unique tools and community batch 6 (topics 91–100): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_UNIQUE_BATCH_6 = [
+  "arthritis-symptoms-what-to-do-next",
+];
+
 describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each(PENDING_CHAMPIONS_62_73)("%s is pending in the post, catalog, review index and head data", (slug) => {
+  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
     expect(post.last_reviewed).toBeUndefined();
@@ -137,7 +145,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
     );
   });
 
