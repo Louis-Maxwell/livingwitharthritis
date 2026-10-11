@@ -176,7 +176,7 @@ const CONTENT = `
 <p>Pick your level from the table above and do two of the exercises today. Add the rest over the next fortnight. Note how your knee feels the morning after each session. Most people need 6 to 12 weeks of regular exercise to notice a real difference in strength and pain, so keep going even if progress feels slow at first.</p>
 
 <h2 id="sources">Sources and disclaimer</h2>
-<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s: diagnosis and management, 2022), NHS osteoarthritis guidance, the UK Chief Medical Officers' Physical Activity Guidelines (2019) and Arthritis UK (formerly Versus Arthritis) exercise information. This page is free from Living With Arthritis (registered charity 1218461). It is educational information, not a diagnosis or personal treatment plan. Pending clinical review.</p>
+<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s: diagnosis and management, 2022), NHS osteoarthritis guidance, the UK Chief Medical Officers' Physical Activity Guidelines (2019) and Arthritis UK (formerly Versus Arthritis) exercise information. This page is free from Living With Arthritis (registered charity 1218461). It is educational information, not a diagnosis or personal treatment plan. Clinically reviewed by Louis Maxwell (HCPC PH128483).</p>
 `;
 
 export default function KneeExercisesForOsteoarthritis() {

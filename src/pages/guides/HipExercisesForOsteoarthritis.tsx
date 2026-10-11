@@ -182,7 +182,7 @@ const CONTENT = `
 <p>Choose your level and try three of the exercises today. Add the others over the next two weeks, and note how your hip feels the next morning. Most people need 6 to 12 weeks of regular practice to notice real change, so be patient and keep going.</p>
 
 <h2 id="sources">Sources and disclaimer</h2>
-<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s, 2022), NHS guidance on osteoarthritis and hip pain, the UK Chief Medical Officers' Physical Activity Guidelines (2019) and Arthritis UK (formerly Versus Arthritis) exercise information. Free from Living With Arthritis (registered charity 1218461). Educational information, not a diagnosis or personal treatment plan. Pending clinical review.</p>
+<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s, 2022), NHS guidance on osteoarthritis and hip pain, the UK Chief Medical Officers' Physical Activity Guidelines (2019) and Arthritis UK (formerly Versus Arthritis) exercise information. Free from Living With Arthritis (registered charity 1218461). Educational information, not a diagnosis or personal treatment plan. Clinically reviewed by Louis Maxwell (HCPC PH128483).</p>
 `;
 
 export default function HipExercisesForOsteoarthritis() {
