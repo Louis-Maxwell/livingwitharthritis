@@ -30,7 +30,8 @@ export default function HomeTrustStrip() {
                 Living With Arthritis (charity {CHARITY.number})
                 <span className="sr-only"> (opens the Charity Commission register in a new tab)</span>
               </a>
-              {" "}— registered in England and Wales
+              {" "}— registered in England and Wales. Our charity application
+              began in {CHARITY.applicationStartedLabel}.
             </span>
           </li>
           <li className="flex items-start gap-2">
