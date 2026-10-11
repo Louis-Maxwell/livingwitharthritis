@@ -60,8 +60,8 @@ jobs:
       - name: bun.lock matches package.json
         run: bun install --frozen-lockfile --ignore-scripts
 
-      - name: npm audit (production deps, high+)
-        run: npm audit --omit=dev --audit-level=high
+      - name: npm audit (all dependencies, all severities)
+        run: npm audit --audit-level=low
 
   live-site:
     name: Live site key routes
