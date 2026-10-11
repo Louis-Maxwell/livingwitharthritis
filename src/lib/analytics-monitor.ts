@@ -20,6 +20,7 @@ export interface PerformanceReport {
   webVitals: ReturnType<typeof getWebVitals>;
   thresholds: ReturnType<typeof getThresholds>;
   allGood: boolean;
+  measured: boolean;
 }
 
 /**
@@ -58,7 +59,9 @@ export const getConsentStatus = (): AnalyticsStatus['consentStatus'] => {
   if (consent === 'accepted') return 'accepted';
 
   try {
-    const lwaConsent = JSON.parse(localStorage.getItem('lwa_cv3') || '{}');
+    const raw = localStorage.getItem('lwa_cv3');
+    if (!raw) return 'pending';
+    const lwaConsent = JSON.parse(raw);
     return lwaConsent.a === true ? 'accepted' : 'denied';
   } catch {
     return 'pending';
@@ -89,7 +92,8 @@ export const getPerformanceReport = (): PerformanceReport => {
   const vitals = getWebVitals();
   const thresholds = getThresholds();
 
-  const allGood =
+  const measured = ['lcp', 'cls', 'inp'].every(key => vitals[key as keyof typeof vitals] !== undefined);
+  const allGood = measured &&
     (vitals.lcp === undefined || vitals.lcp <= thresholds.LCP.good) &&
     (vitals.fcp === undefined || vitals.fcp <= thresholds.FCP.good) &&
     (vitals.cls === undefined || vitals.cls <= thresholds.CLS.good) &&
@@ -100,6 +104,7 @@ export const getPerformanceReport = (): PerformanceReport => {
     webVitals: vitals,
     thresholds,
     allGood,
+    measured,
   };
 };
 
@@ -125,8 +130,8 @@ export const generateHealthReport = (): {
 
   // Check GSC
   if (!status.gscReady) {
-    issues.push('GSC not verified');
-    recommendations.push('Add GSC verification meta tag to index.html');
+    issues.push('GSC verification meta tag not present; account verification status is unknown');
+    recommendations.push('Check property ownership in Search Console; DNS verification does not require a meta tag');
   }
 
   // Check Evarist
