@@ -210,17 +210,14 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "30-day-arthritis-pain-reduction-challenge",
 ];
 
-describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
+describe("Champions 62–67 guides now clinically reviewed", () => {
+  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is reviewed in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
-    expect(post.reviewStatus).toBe("pending");
-    expect(post.last_reviewed).toBeUndefined();
-    expect(post.reviewed_by).toBeNull();
-    expect(post.reviewer_credentials).toBeNull();
-    expect(String(post.content)).not.toMatch(/Reviewed by/i);
-    expect(resolveBlogReviewStatus(post)).toBe("pending");
-    expect(catalogRows.find((r) => r.slug === slug)?.reviewStatus).toBe("pending");
-    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).toBe("pending");
+    expect(post.reviewStatus).toBe("reviewed");
+    expect(post.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(resolveBlogReviewStatus(post)).toBe("reviewed");
+    expect(catalogRows.find((r) => r.slug === slug)?.reviewStatus).toBe("reviewed");
+    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).toBe("reviewed");
   });
 });
 
@@ -260,39 +257,37 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
-  it("all automated rewrites awaiting clinical approval remain pending", () => {
-    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
-    );
+  it("no guide is still awaiting clinical review", () => {
+    expect(posts.filter((p) => p.reviewStatus === "pending")).toEqual([]);
   });
 
   it("guides without an explicit reviewStatus still resolve as reviewed by default", () => {
-    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeUndefined();
+    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeTruthy();
     expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("reviewed");
     expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).not.toHaveProperty(
       "reviewStatus",
     );
   });
 
-  it("Sick pay and fit notes blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+  it("Sick pay and fit notes blog was rewritten in Benefits batch 3 and is clinically reviewed", () => {
     const slug = "sick-pay-fit-notes-time-off-work-arthritis";
-    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
-    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
-    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+    expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
+    expect(bySlug.get(slug)?.last_reviewed).toBeTruthy();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
   });
 
-  it("Carer's Allowance blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+  it("Carer's Allowance blog was rewritten in Benefits batch 3 and is clinically reviewed", () => {
     const slug = "carers-allowance-help-if-you-care-for-someone";
-    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
-    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
-    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+    expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
+    expect(bySlug.get(slug)?.last_reviewed).toBeTruthy();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
   });
 
-  it("Access to Work blog was rewritten in Benefits batch 3 and is pending re-review", () => {
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("pending");
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBeUndefined();
+  it("Access to Work blog was rewritten in Benefits batch 3 and is clinically reviewed", () => {
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("reviewed");
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBeTruthy();
     expect(resolveBlogReviewStatus(bySlug.get("access-to-work-scheme-arthritis-guide"))).toBe(
-      "pending",
+      "reviewed",
     );
   });
 

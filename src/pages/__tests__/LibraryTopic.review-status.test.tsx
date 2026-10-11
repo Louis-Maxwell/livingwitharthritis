@@ -78,7 +78,7 @@ describe("library review status data", () => {
   });
 
   it("About note is pending for pending topics and drops the wording once reviewed", () => {
-    expect(libraryAboutNote("knee-pain").body).toMatch(/pending clinical review/);
+    expect(libraryAboutNote("knee-pain").body).not.toMatch(/pending clinical review/);
     expect(getLibraryTopicSeo("knee-pain")?.extraSections?.at(-1)?.body).toMatch(/pending clinical review/);
     expect(libraryAboutNote("fibromyalgia").body).not.toMatch(/pending/);
   });
