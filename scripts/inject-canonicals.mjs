@@ -583,7 +583,8 @@ function writeRouteFiles() {
       // still look like the homepage or only have a short answer teaser.
       // Still refresh title / description / og:image from head-data so
       // social crawlers pick up cover images after blog-head-data regen.
-      if (htmlHasFullArticle(existing, data)) {
+      const hasSupportDiscovery = !data?.article?.slug || existing.includes('aria-label="Arthritis support and guides"');
+      if (htmlHasFullArticle(existing, data) && hasSupportDiscovery) {
         let patched = data ? patchShareMeta(existing, data) : existing;
         if (isNoindexRoute(route) || data?.noindex) {
           patched = applyNoindexMeta(patched);
