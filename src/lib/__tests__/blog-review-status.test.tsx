@@ -262,7 +262,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
   });
 
   it("guides without an explicit reviewStatus still resolve as reviewed by default", () => {
-    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeTruthy();
+    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeUndefined();
     expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("reviewed");
     expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).not.toHaveProperty(
       "reviewStatus",
