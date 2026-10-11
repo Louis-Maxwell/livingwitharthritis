@@ -95,6 +95,8 @@ const PENDING_UNIQUE_BATCH_6 = [
   "daily-arthritis-planner-printable",
   "gadgets-aids-arthritis-uk",
   "walking-aids-arthritis-uk",
+  "best-walking-shoes-arthritis-uk",
+  "best-mattress-for-arthritis-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
