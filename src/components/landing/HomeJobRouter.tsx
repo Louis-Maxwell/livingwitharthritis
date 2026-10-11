@@ -42,7 +42,6 @@ export default function HomeJobRouter() {
 
         <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {VISITOR_JOBS.map((job) => {
-            const Icon = job.icon;
             const isDonate = job.id === "donate";
             return (
               <li
@@ -57,14 +56,8 @@ export default function HomeJobRouter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track(job, { label: job.title, href: job.href })}
-                  className={`group grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 sm:flex sm:flex-col sm:gap-2 rounded-lg ${focusRing}`}
+                  className={`group flex flex-col gap-2 rounded-lg ${focusRing}`}
                 >
-                  <span
-                    className="row-span-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary"
-                    aria-hidden="true"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </span>
                   <h3 className="text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
                     {job.title}
                     <ArrowRight
@@ -79,14 +72,8 @@ export default function HomeJobRouter() {
                 <Link
                   to={job.href}
                   onClick={() => track(job, { label: job.title, href: job.href })}
-                  className={`group grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 sm:flex sm:flex-col sm:gap-2 rounded-lg ${focusRing}`}
+                  className={`group flex flex-col gap-2 rounded-lg ${focusRing}`}
                 >
-                  <span
-                    className="row-span-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary"
-                    aria-hidden="true"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </span>
                   <h3 className="text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
                     {job.title}
                     <ArrowRight
