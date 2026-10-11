@@ -133,10 +133,9 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     expect(getClusterForPath("/guides/newly-diagnosed")?.id).toBe("symptoms");
   });
 
-  it("Access to Work blog is clinically reviewed 2026-09-29 with GOV.UK citations and customer-job links", () => {
-    expect(accessJson.last_reviewed).toBe(REVIEW);
-    expect(accessJson.reviewStatus).toBe("reviewed");
-    expect(accessJson.reviewed_by).toBe("Louis Maxwell");
+  it("Access to Work blog (rewritten in Benefits batch 3, pending re-review) keeps GOV.UK citations and customer-job links", () => {
+    expect(accessJson.reviewStatus).toBe("pending");
+    expect(accessJson.last_reviewed).toBeUndefined();
     expect(accessJson.meta_title).toMatch(/Access to Work for Arthritis: .*\(UK\)/i);
     const urls = (accessJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(

@@ -311,9 +311,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.",
   }),
   "/guides/disability-support": withDefaults({
-    question: "What UK disability support is available for arthritis?",
+    question: "What are my disability rights in the UK if I have arthritis?",
     answer:
-      "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Arthritis UK (formerly Versus Arthritis) helpline (0800 5200 520) guide applications.",
+      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
@@ -345,12 +345,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "Personal Independence Payment (PIP) is based on how your condition affects daily living and mobility, not the diagnosis name alone. Keep an evidence diary, gather clinic letters, and seek advice from Citizens Advice or a welfare-rights service. We explain the process; we do not decide claims.",
-    faqs: [
-      { q: "What evidence helps a PIP arthritis claim?", a: "A daily diary of activities, medication lists, clinic letters, and notes on aids or help from others. Our printable PIP evidence diary can help you structure this." },
-      { q: "Is osteoarthritis enough for PIP?", a: "PIP looks at functional impact, not the label. Some people with OA qualify; others do not. Advice services can map your difficulties to descriptors." },
-      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
-    ],
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
   "/guides/diet": withDefaults({
     question: "What is the best anti-inflammatory diet for arthritis?",
