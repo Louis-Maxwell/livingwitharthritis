@@ -16,6 +16,6 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
  for row in pool.map(audit,urls):
   rows.append(row)
   if len(rows)%100==0:print('Audited',len(rows),'/',len(urls),flush=True)
-issues=[r for r in rows if r['status']!=200 or r.get('canonical')!=r['url'] or r.get('noindex') or r.get('h1_count')!=1]
+issues=[r for r in rows if r['status']!=200 or r.get('canonical')!=r['url'] or r.get('noindex') or r.get('h1_count')!=1 or r.get('transport_error')]
 report={'ran_at':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'scope':'All live sitemap URLs; response HTML, not browser rendering or Core Web Vitals','pages_audited':len(rows),'issue_pages':len(issues),'related_reading_pages':sum(r.get('related_reading',False) for r in rows),'issues':issues,'pages':rows}
 pathlib.Path('.preflight-reports').mkdir(exist_ok=True);pathlib.Path('.preflight-reports/live-page-audit.json').write_text(json.dumps(report,indent=2)+'\n');print({k:v for k,v in report.items() if k not in ['pages','issues']})
