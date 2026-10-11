@@ -20,7 +20,7 @@ const data: ConditionPageData = {
     <>
       <p>
         Calcific periarthritis is a sudden, intensely painful inflammation of the soft tissue
-        around a joint, caused by deposits of <strong>calcium hydroxyapatite crystals</strong>{" "}
+        around a joint, caused by deposits of <strong>calcium hydroxyapatite crystals</strong>{""}
         forming inside a tendon or its surrounding tissue. The shoulder is by far the most common
         site — usually the supraspinatus tendon of the rotator cuff — but it can also affect the
         hip, wrist, finger, knee or foot.
@@ -28,7 +28,7 @@ const data: ConditionPageData = {
       <p>
         Unlike osteoarthritis, the joint surface itself is usually healthy. The pain comes from
         the body&apos;s inflammatory reaction as the deposit forms and then breaks down. Attacks
-        typically peak over <strong>1–2 weeks</strong> and settle over{" "}
+        typically peak over <strong>1–2 weeks</strong> and settle over{""}
         <strong>6–12 weeks</strong>, and in most people the calcium deposit eventually resorbs on
         its own. It is most common between the ages of <strong>30 and 60</strong> and slightly
         more common in women.
@@ -64,7 +64,7 @@ const data: ConditionPageData = {
   diet: (
     <>
       <p>
-        No diet dissolves a calcium deposit, and cutting calcium out of your diet does{" "}
+        No diet dissolves a calcium deposit, and cutting calcium out of your diet does{""}
         <strong>not</strong> help — it weakens bone without changing the tendon. What diet can do
         is dampen the inflammatory response and support the conditions linked to recurrence.
       </p>

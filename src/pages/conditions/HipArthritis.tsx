@@ -34,22 +34,22 @@ const jsonLd = {
   "datePublished": "2026-06-01",
   "dateModified": "2026-06-23",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
+  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png`} },
   "about": {
     "@type": "MedicalCondition",
     "name": "Hip Osteoarthritis",
     "alternateName": ["Hip OA", "Hip Arthritis", "Coxarthrosis"],
-    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Hip joint (acetabulofemoral)" },
+    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Hip joint (acetabulofemoral)"},
     "riskFactor": ["Age over 50", "Obesity", "Previous hip injury", "Hip dysplasia", "Occupational heavy lifting"],
     "signOrSymptom": ["Groin pain", "Stiffness after sitting", "Pain at night", "Reduced range of motion", "Limp"],
     "possibleTreatment": [
-      { "@type": "MedicalTherapy", "name": "Hip strengthening exercise" },
-      { "@type": "MedicalTherapy", "name": "Weight loss" },
-      { "@type": "MedicalTherapy", "name": "Topical and oral NSAIDs" },
-      { "@type": "MedicalTherapy", "name": "Total hip replacement" }
+      { "@type": "MedicalTherapy", "name": "Hip strengthening exercise"},
+      { "@type": "MedicalTherapy", "name": "Weight loss"},
+      { "@type": "MedicalTherapy", "name": "Topical and oral NSAIDs"},
+      { "@type": "MedicalTherapy", "name": "Total hip replacement"}
     ]
   },
-  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
+  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom"} },
   "mainEntityOfPage": URL
 };
 
@@ -57,17 +57,17 @@ const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What does hip arthritis feel like?", "acceptedAnswer": { "@type": "Answer", "text": "Most people feel a deep ache in the groin or front of the hip that worsens with walking, standing up from a chair, or putting on socks. Stiffness is common after sitting and first thing in the morning, usually easing within 30 minutes of moving." } },
-    { "@type": "Question", "name": "How do I relieve hip pain while sleeping?", "acceptedAnswer": { "@type": "Answer", "text": "Sleep on your back or on the unaffected side with a firm pillow between your knees to keep the hips aligned. A medium-firm mattress, a warm bath before bed, and a topical NSAID gel applied to the hip help reduce night pain. Avoid sleeping on the painful side and don't tuck your top knee in front of the bottom one — it twists the joint." } },
-    { "@type": "Question", "name": "What is the best exercise for hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Glute and hip-abductor strengthening (bridges, clams, side-lying leg raises) combined with low-impact cardio such as cycling, swimming or pool walking is the most evidence-based approach. NICE recommends exercise as a core treatment for everyone with hip OA." } },
-    { "@type": "Question", "name": "Should I keep walking with hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Regular walking strengthens the muscles that support the hip and reduces pain over time. Build up gradually, wear cushioned shoes, and use a walking pole in the hand opposite to the painful hip to offload the joint by up to 25%." } },
-    { "@type": "Question", "name": "When is a hip replacement needed?", "acceptedAnswer": { "@type": "Answer", "text": "Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent — over 95% of hip replacements still function well at 10 years." } },
-    { "@type": "Question", "name": "Does losing weight help hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain." } },
+    { "@type": "Question", "name": "What does hip arthritis feel like?", "acceptedAnswer": { "@type": "Answer", "text": "Most people feel a deep ache in the groin or front of the hip that worsens with walking, standing up from a chair, or putting on socks. Stiffness is common after sitting and first thing in the morning, usually easing within 30 minutes of moving."} },
+    { "@type": "Question", "name": "How do I relieve hip pain while sleeping?", "acceptedAnswer": { "@type": "Answer", "text": "Sleep on your back or on the unaffected side with a firm pillow between your knees to keep the hips aligned. A medium-firm mattress, a warm bath before bed, and a topical NSAID gel applied to the hip help reduce night pain. Avoid sleeping on the painful side and don't tuck your top knee in front of the bottom one — it twists the joint."} },
+    { "@type": "Question", "name": "What is the best exercise for hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Glute and hip-abductor strengthening (bridges, clams, side-lying leg raises) combined with low-impact cardio such as cycling, swimming or pool walking is the most evidence-based approach. NICE recommends exercise as a core treatment for everyone with hip OA."} },
+    { "@type": "Question", "name": "Should I keep walking with hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Regular walking strengthens the muscles that support the hip and reduces pain over time. Build up gradually, wear cushioned shoes, and use a walking pole in the hand opposite to the painful hip to offload the joint by up to 25%."} },
+    { "@type": "Question", "name": "When is a hip replacement needed?", "acceptedAnswer": { "@type": "Answer", "text": "Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent — over 95% of hip replacements still function well at 10 years."} },
+    { "@type": "Question", "name": "Does losing weight help hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain."} },
     /* DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
        the site's clinical reviewer before this is treated as reviewed
        content; do not update LAST_REVIEWED_ISO/reviewer badge for this
        page until it's been checked. */
-    { "@type": "Question", "name": "Can hip arthritis cause pain down the leg?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is a well-recognised pattern called referred pain. Hip arthritis pain often radiates to the groin, the front or side of the thigh, and sometimes as far as the knee, because the hip joint shares nerve pathways with these areas. This can make it feel like the problem is in your leg or knee rather than your hip, which is one reason hip arthritis is sometimes initially misdiagnosed. Pain that's worse with weight-bearing or walking, combined with stiffness after rest, points more toward the hip as the true source." } }
+    { "@type": "Question", "name": "Can hip arthritis cause pain down the leg?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is a well-recognised pattern called referred pain. Hip arthritis pain often radiates to the groin, the front or side of the thigh, and sometimes as far as the knee, because the hip joint shares nerve pathways with these areas. This can make it feel like the problem is in your leg or knee rather than your hip, which is one reason hip arthritis is sometimes initially misdiagnosed. Pain that's worse with weight-bearing or walking, combined with stiffness after rest, points more toward the hip as the true source."} }
   ]
 };
 
@@ -75,13 +75,13 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
   <motion.section
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-40px" }}
+    viewport={{ once: true, margin: "-40px"}}
     transition={{ duration: 0.6 }}
     className="mb-12"
   >
     <div className="flex items-center gap-3 mb-5">
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary" />
+        <Icon className="w-5 h-5 text-primary"/>
       </div>
       <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
@@ -95,47 +95,47 @@ const HipArthritis = () => (
   <>
     <Helmet>
       <title>Hip Arthritis: Symptoms, Exercises & Relief | UK</title>
-      <meta name="description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
-      <meta name="keywords" content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip" />
-      <meta property="og:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta property="og:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
-      <meta property="og:url" content={URL} />
-      <meta property="og:type" content="article" />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis" />
-      <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Hip arthritis – symptoms, exercises and treatment guide" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta name="twitter:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
-      <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
-      <meta name="geo.region" content="GB" />
-      <link rel="alternate" hrefLang="en-GB" href={URL} />
+      <meta name="description"content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies."/>
+      <meta name="keywords"content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip"/>
+      <meta property="og:title"content="Hip Arthritis – Symptoms, Exercises & Pain Relief"/>
+      <meta property="og:description"content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies."/>
+      <meta property="og:url"content={URL} />
+      <meta property="og:type"content="article"/>
+      <meta property="og:locale"content="en_GB"/>
+      <meta property="og:site_name"content="Living With Arthritis"/>
+      <meta property="og:image"content={`${BASE}/images/og-osteoarthritis.webp`} />
+      <meta property="og:image:width"content="1200"/>
+      <meta property="og:image:height"content="630"/>
+      <meta property="og:image:alt"content="Hip arthritis – symptoms, exercises and treatment guide"/>
+      <meta name="twitter:card"content="summary_large_image"/>
+      <meta name="twitter:title"content="Hip Arthritis – Symptoms, Exercises & Pain Relief"/>
+      <meta name="twitter:description"content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies."/>
+      <meta name="twitter:image"content={`${BASE}/images/og-osteoarthritis.webp`} />
+      <meta name="geo.region"content="GB"/>
+      <link rel="alternate"hrefLang="en-GB"href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Hip Arthritis" }]} />
+      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions"}, { label: "Hip Arthritis"}]} />
 
       <div className="relative bg-gradient-to-br from-primary/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none"/>
+        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none"/>
         <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
-          <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
+          <Link to="/#conditions"className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
+            <ArrowLeft className="w-3.5 h-3.5"/> Back to conditions
           </Link>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
-              <Activity className="w-3 h-3" /> Joint-specific guide
+              <Activity className="w-3 h-3"/> Joint-specific guide
             </span>
             <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Hip Arthritis
             </h1>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
-            <AeoEnhancement route="/conditions/hip-arthritis" />
+            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5"/>
+            <AeoEnhancement route="/conditions/hip-arthritis"/>
             <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               Hip osteoarthritis is one of the most common causes of groin and outer-hip pain in adults over 45. This educational guide covers what hip arthritis feels like, the exercises that help most, how to sleep without flaring it up, and the UK treatment ladder — from self-management through to hip replacement. It is not a diagnosis; speak to your GP or physiotherapist for personalised advice.
             </p>
@@ -158,23 +158,23 @@ const HipArthritis = () => (
             options have been tried.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Maxwell"title="First Contact Practitioner"credential="HCPC PH128483"date="June 2026"/>
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
           <p className="section-label text-primary mb-6">Hip arthritis at a glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCounter value="3.2" suffix="M" label="UK adults with hip OA" icon={<Users className="w-6 h-6" />} color="emerald" />
-            <StatCounter value="45" suffix="+" label="Typical age of onset" icon={<Timer className="w-6 h-6" />} color="sky" />
-            <StatCounter value="3" suffix="Ã—" label="Body weight through hip when walking" icon={<Scale className="w-6 h-6" />} color="amber" />
-            <StatCounter value="95" suffix="%" label="Hip replacements lasting 10+ yrs" icon={<TrendingUp className="w-6 h-6" />} color="violet" />
+            <StatCounter value="3.2"suffix="M"label="UK adults with hip OA"icon={<Users className="w-6 h-6"/>} color="emerald"/>
+            <StatCounter value="45"suffix="+"label="Typical age of onset"icon={<Timer className="w-6 h-6"/>} color="sky"/>
+            <StatCounter value="3"suffix="Ã—"label="Body weight through hip when walking"icon={<Scale className="w-6 h-6"/>} color="amber"/>
+            <StatCounter value="95"suffix="%"label="Hip replacements lasting 10+ yrs"icon={<TrendingUp className="w-6 h-6"/>} color="violet"/>
           </div>
         </div>
       </section>
-      <WaveDivider color="hsl(var(--background))" />
+      <WaveDivider color="hsl(var(--background))"/>
 
-      <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+      <main id="main-content"className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
         <Section icon={Activity} title="What is hip arthritis?">
           <p>Hip arthritis is the gradual wearing down of the cartilage lining the ball-and-socket hip joint (the femoral head and acetabulum). As cartilage thins, the bones underneath thicken, small bony spurs (osteophytes) form, and the joint capsule can become inflamed — producing the familiar mix of groin pain, stiffness and reduced range of motion.</p>
@@ -185,7 +185,7 @@ const HipArthritis = () => (
         <Section icon={ThermometerSun} title="What are the symptoms of hip arthritis?">
           <ul>
             <li><strong>Groin or front-of-thigh pain</strong> — the most reliable sign; pain felt only on the outside of the hip is more often bursitis or gluteal tendinopathy</li>
-            <li><strong>Stiffness after sitting</strong> — the "movie-theatre sign" of having to walk a few stiff steps after standing up</li>
+            <li><strong>Stiffness after sitting</strong> — the "movie-theatre sign"of having to walk a few stiff steps after standing up</li>
             <li><strong>Difficulty with socks and shoes</strong> — reduced hip flexion and internal rotation make foot care harder</li>
             <li><strong>Night pain</strong> — aching that wakes you up, especially when lying on the affected side</li>
             <li><strong>Limp</strong> — a shortened stance phase on the painful leg</li>
@@ -207,11 +207,11 @@ const HipArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 p-6 rounded-2xl bg-tint-amber border border-border/30">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Symptom impact (typical patient survey)</h3>
           <HorizontalBar items={[
-            { label: "Groin pain on walking", value: 86, color: "hsl(var(--primary))" },
-            { label: "Stiffness after sitting", value: 78, color: "hsl(var(--amber))" },
-            { label: "Sleep disturbance", value: 64, color: "hsl(var(--sky))" },
-            { label: "Difficulty with socks/shoes", value: 58, color: "hsl(var(--violet))" },
-            { label: "Limp", value: 41, color: "hsl(var(--emerald))" },
+            { label: "Groin pain on walking", value: 86, color: "hsl(var(--primary))"},
+            { label: "Stiffness after sitting", value: 78, color: "hsl(var(--amber))"},
+            { label: "Sleep disturbance", value: 64, color: "hsl(var(--sky))"},
+            { label: "Difficulty with socks/shoes", value: 58, color: "hsl(var(--violet))"},
+            { label: "Limp", value: 41, color: "hsl(var(--emerald))"},
           ]} />
         </motion.div>
 
@@ -230,7 +230,7 @@ const HipArthritis = () => (
             <li><strong>Swimming or aqua-aerobics</strong> — buoyancy removes 70–90% of body weight from the joint; avoid breaststroke kick if it provokes groin pain</li>
             <li><strong>Walking</strong> — start with 10-minute blocks, build to 30; cushioned shoes and a pole in the opposite hand</li>
           </ul>
-          <p>For a step-by-step home routine, follow our <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">8-move hip osteoarthritis exercise guide</Link>, or pair this page with our <Link to="/exercises" className="text-primary underline">exercise library</Link> for video-guided sessions.</p>
+          <p>For a step-by-step home routine, follow our <Link to="/guides/hip-exercises-for-osteoarthritis"className="text-primary underline">8-move hip osteoarthritis exercise guide</Link>, or pair this page with our <Link to="/exercises"className="text-primary underline">exercise library</Link> for video-guided sessions.</p>
         </Section>
 
         <Section icon={Moon} title="How to relieve hip pain while sleeping">
@@ -243,11 +243,11 @@ const HipArthritis = () => (
             <li><strong>Pre-bed routine</strong> — a warm bath or shower for 10 minutes plus topical NSAID gel applied to the hip 30 minutes before bed</li>
             <li><strong>Stay warm</strong> — a cold joint stiffens overnight; an extra layer or heated underblanket helps</li>
           </ul>
-          <p>If pain still wakes you most nights despite these changes, ask your GP about a short course of oral NSAIDs or a hip injection. Persistent night pain is also one of the clearest signals it's time to discuss <Link to="/conditions/hip-arthritis" className="text-primary underline">surgical options</Link>.</p>
+          <p>If pain still wakes you most nights despite these changes, ask your GP about a short course of oral NSAIDs or a hip injection. Persistent night pain is also one of the clearest signals it's time to discuss <Link to="/conditions/hip-arthritis"className="text-primary underline">surgical options</Link>.</p>
         </Section>
 
         <Section icon={Apple} title="What diet helps hip arthritis?">
-          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
+          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet"className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
             <li>Plenty of vegetables, berries, nuts, olive oil and whole grains</li>
@@ -258,10 +258,10 @@ const HipArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hip-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🦵" title="Glutes" description="Daily glute and hip-abductor work to support the joint." />
-            <EmojiCard emoji="🚴" title="Cycle" description="Low-impact cycling or a static bike if walking is sore." />
-            <EmojiCard emoji="⚖️" title="Weight" description="Even a small weight loss lowers load through the hip." />
-            <EmojiCard emoji="🛏️" title="Sleep" description="A pillow between the knees can ease night pain." />
+            <EmojiCard emoji=""title="Glutes"description="Daily glute and hip-abductor work to support the joint."/>
+            <EmojiCard emoji=""title="Cycle"description="Low-impact cycling or a static bike if walking is sore."/>
+            <EmojiCard emoji=""title="Weight"description="Even a small weight loss lowers load through the hip."/>
+            <EmojiCard emoji=""title="Sleep"description="A pillow between the knees can ease night pain."/>
           </div>
         </motion.div>
 
@@ -296,7 +296,7 @@ const HipArthritis = () => (
           matchCategories={["Exercise", "Treatment", "Nutrition"]}
         />
 
-        <ConditionSubpageLinks conditionSlug="hip-arthritis" conditionName="Hip Arthritis" />
+        <ConditionSubpageLinks conditionSlug="hip-arthritis"conditionName="Hip Arthritis"/>
 
         <ContextualLinks
           heading="Pair hip care with the right resources"
@@ -305,35 +305,35 @@ const HipArthritis = () => (
             {
               title: "Exercises & movement",
               links: [
-                { label: "Hip exercises for osteoarthritis (8-move routine)", to: "/guides/hip-exercises-for-osteoarthritis" },
-                { label: "Hip-specific exercise library", to: "/exercises" },
-                { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
-                { label: "Exercises to avoid", to: "/guides/exercise" },
+                { label: "Hip exercises for osteoarthritis (8-move routine)", to: "/guides/hip-exercises-for-osteoarthritis"},
+                { label: "Hip-specific exercise library", to: "/exercises"},
+                { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance"},
+                { label: "Exercises to avoid", to: "/guides/exercise"},
               ],
             },
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
-                { label: "Mediterranean diet pillar", to: "/guides/diet" },
-                { label: "Glucosamine, collagen, turmeric", to: "/blog/category/supplements" },
+                { label: "Best diet for arthritis", to: "/diet"},
+                { label: "Mediterranean diet pillar", to: "/guides/diet"},
+                { label: "Glucosamine, collagen, turmeric", to: "/blog/category/supplements"},
               ],
             },
             {
               title: "Related conditions",
               links: [
-                { label: "Osteoarthritis (overview)", to: "/conditions/osteoarthritis" },
-                { label: "Knee arthritis", to: "/conditions/knee-arthritis" },
-                { label: "Hand arthritis", to: "/conditions/hand-arthritis" },
-                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
+                { label: "Osteoarthritis (overview)", to: "/conditions/osteoarthritis"},
+                { label: "Knee arthritis", to: "/conditions/knee-arthritis"},
+                { label: "Hand arthritis", to: "/conditions/hand-arthritis"},
+                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis"},
               ],
             },
             {
               title: "Support",
               links: [
-                { label: "Managing flare-ups", to: "/arthritis-flare-ups" },
-                { label: "Help while waiting for care", to: "/arthritis-waiting-list-help" },
-                { label: "Self-help tool", to: "/self-help" },
+                { label: "Managing flare-ups", to: "/arthritis-flare-ups"},
+                { label: "Help while waiting for care", to: "/arthritis-waiting-list-help"},
+                { label: "Self-help tool", to: "/self-help"},
               ],
             },
           ]}
@@ -343,17 +343,17 @@ const HipArthritis = () => (
           <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
           <p className="text-muted-foreground mb-5">Start a chat or browse the Advice Hub for joint-specific articles.</p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
+            <Link to="/chat"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
               Start a chat
             </Link>
-            <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
+            <Link to="/blog"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
               Read our articles
             </Link>
           </div>
           <ArticleCitations citations={CITATIONS_HIP} />
-          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
-          <TopicClusterNav path="/conditions/hip-arthritis" />
-          <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-15"/>
+          <TopicClusterNav path="/conditions/hip-arthritis"/>
+          <CrossLinkBanner preset="condition"exclude="/conditions/hip-arthritis"title="Explore related resources"/>
         </div>
       </main>
       <InternalLinks />

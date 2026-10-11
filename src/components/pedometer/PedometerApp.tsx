@@ -6,8 +6,8 @@
  *
  * Step detection: peak-finding on |accelerationIncludingGravity| with a
  * refractory period — works on any phone whose browser exposes
- * `devicemotion` events. iOS 13+ requires an explicit user-gesture
- * permission via `DeviceMotionEvent.requestPermission()` (handled here).
+ * `devicemotion`events. iOS 13+ requires an explicit user-gesture
+ * permission via `DeviceMotionEvent.requestPermission()`(handled here).
  *
  * Accessibility: WAI-ARIA tablists, focus-trapped settings dialog,
  * SVG charts as role="img", reduced-motion honoured, themed via design
@@ -42,7 +42,7 @@ const MONTHS = [
 ];
 
 type StepHistory = Record<string, number>;
-type UnitSystem = 'km' | 'mi';
+type UnitSystem = 'km'| 'mi';
 
 function dateKey(d: Date = new Date()): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -66,7 +66,7 @@ function seedHistory(): StepHistory {
 function usePrefersReducedMotion(): boolean {
   const [reduced, setReduced] = useState(false);
   useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
+    if (typeof window === 'undefined'|| !window.matchMedia) return;
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReduced(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
@@ -86,11 +86,11 @@ function useStorage<T>(key: string, initial: T | (() => T)): [T, (v: T | ((prev:
       const s = localStorage.getItem(key);
       if (s) return JSON.parse(s) as T;
     } catch { /* ignore */ }
-    return typeof initial === 'function' ? (initial as () => T)() : initial;
+    return typeof initial === 'function'? (initial as () => T)() : initial;
   });
   const set = useCallback((v: T | ((prev: T) => T)) => {
     setVal(prev => {
-      const next = typeof v === 'function' ? (v as (p: T) => T)(prev) : v;
+      const next = typeof v === 'function'? (v as (p: T) => T)(prev) : v;
       try { localStorage.setItem(key, JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
@@ -105,7 +105,7 @@ function useStorage<T>(key: string, initial: T | (() => T)): [T, (v: T | ((prev:
 const STEP_PEAK_THRESHOLD = 11.2;
 const STEP_MIN_INTERVAL_MS = 280;
 
-type SensorStatus = 'idle' | 'requesting' | 'active' | 'unsupported' | 'denied' | 'error';
+type SensorStatus = 'idle'| 'requesting'| 'active'| 'unsupported'| 'denied'| 'error';
 
 function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSystem }) {
   const [history, setHistory] = useStorage<StepHistory>('pedo_history', seedHistory);
@@ -161,7 +161,7 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     if (isTracking) return;
     setSensorMessage(null);
 
-    if (typeof window === 'undefined' || !('DeviceMotionEvent' in window)) {
+    if (typeof window === 'undefined'|| !('DeviceMotionEvent'in window)) {
       setSensorStatus('unsupported');
       setSensorMessage(
         'Motion sensors are not available on this device. Open this page on your phone to count real steps.',
@@ -171,7 +171,7 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
 
     // iOS 13+ requires an explicit user-gesture permission request.
     const DME = window.DeviceMotionEvent as typeof DeviceMotionEvent & {
-      requestPermission?: () => Promise<'granted' | 'denied'>;
+      requestPermission?: () => Promise<'granted'| 'denied'>;
     };
     if (typeof DME.requestPermission === 'function') {
       setSensorStatus('requesting');
@@ -195,7 +195,7 @@ function usePedometer({ goal, unitSystem }: { goal: number; unitSystem: UnitSyst
     setSensorStatus('active');
     setTracking(true);
     sessionRef.current = { startedAt: Date.now(), startSteps: todayTotal };
-    trackEvent('pedometer_start', { goal, sensor_status: 'active' });
+    trackEvent('pedometer_start', { goal, sensor_status: 'active'});
   }, [isTracking, attachMotion, goal, todayTotal]);
 
   const stopTracking = useCallback(() => {
@@ -337,7 +337,7 @@ type PedoState = ReturnType<typeof usePedometer>;
 // HELPERS
 // ─────────────────────────────────────────────────────────────────────────────
 
-const fmt = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(Math.round(n)));
+const fmt = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k`: String(Math.round(n)));
 const fmtFull = (n: number) => Math.round(n).toLocaleString();
 const focusRing = 'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
@@ -372,8 +372,8 @@ function StepRing({ pct, steps, goal, size = 260 }: { pct: number; steps: number
   }, [pct, reduced]);
 
   const animDash = C * Math.min(animPct, 1);
-  const accentVar = pct >= 1 ? 'hsl(var(--gold))' : 'hsl(var(--primary))';
-  const trackVar = pct >= 1 ? 'hsl(var(--gold) / 0.15)' : 'hsl(var(--primary) / 0.12)';
+  const accentVar = pct >= 1 ? 'hsl(var(--gold))': 'hsl(var(--primary))';
+  const trackVar = pct >= 1 ? 'hsl(var(--gold) / 0.15)': 'hsl(var(--primary) / 0.12)';
   const description = pct >= 1
     ? `${fmtFull(steps)} steps today. Daily goal of ${fmtFull(goal)} steps reached.`
     : `${fmtFull(steps)} steps today, ${Math.round(pct * 100)} percent of ${fmtFull(goal)} step goal.`;
@@ -383,35 +383,35 @@ function StepRing({ pct, steps, goal, size = 260 }: { pct: number; steps: number
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
-      style={{ overflow: 'visible' }}
+      style={{ overflow: 'visible'}}
       role="img"
       aria-label={description}
     >
       <title>Daily step progress</title>
       <circle cx={size / 2} cy={size / 2} r={R + 10} fill="none"
-        stroke={trackVar} strokeWidth={20} aria-hidden="true" />
+        stroke={trackVar} strokeWidth={20} aria-hidden="true"/>
       <circle cx={size / 2} cy={size / 2} r={R} fill="none"
-        stroke="hsl(var(--muted))" strokeWidth={14}
-        transform={`rotate(-90 ${size / 2} ${size / 2})`} aria-hidden="true" />
+        stroke="hsl(var(--muted))"strokeWidth={14}
+        transform={`rotate(-90 ${size / 2} ${size / 2})`} aria-hidden="true"/>
       <circle cx={size / 2} cy={size / 2} r={R} fill="none"
         stroke={accentVar} strokeWidth={14} strokeLinecap="round"
         strokeDasharray={`${animDash} ${C}`}
         transform={`rotate(-90 ${size / 2} ${size / 2})`}
-        aria-hidden="true" />
+        aria-hidden="true"/>
       <text x={size / 2} y={size / 2 - 10} textAnchor="middle"
         fontWeight={700}
         fontSize={pct >= 1 ? 38 : steps > 9999 ? 36 : 42}
-        fill="hsl(var(--foreground))" aria-hidden="true">
+        fill="hsl(var(--foreground))"aria-hidden="true">
         {fmtFull(steps)}
       </text>
       <text x={size / 2} y={size / 2 + 16} textAnchor="middle"
-        fontWeight={500} fontSize={12} fill="hsl(var(--muted-foreground))" letterSpacing="2"
+        fontWeight={500} fontSize={12} fill="hsl(var(--muted-foreground))"letterSpacing="2"
         aria-hidden="true">
         STEPS TODAY
       </text>
       <text x={size / 2} y={size / 2 + 36} textAnchor="middle"
         fontWeight={600} fontSize={12} fill={accentVar} aria-hidden="true">
-        {pct >= 1 ? 'GOAL REACHED' : `${Math.round(pct * 100)}% of ${fmtFull(goal)}`}
+        {pct >= 1 ? 'GOAL REACHED': `${Math.round(pct * 100)}% of ${fmtFull(goal)}`}
       </text>
     </svg>
   );
@@ -438,10 +438,10 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
   }, [reduced]);
 
   return (
-    <div className="relative" role="group" aria-label={ariaLabel}>
+    <div className="relative"role="group"aria-label={ariaLabel}>
       <div
         className="absolute left-0 right-0 border-t border-dashed border-primary/50 z-10"
-        style={{ top: `${((max - goal) / max) * height}px` }}
+        style={{ top: `${((max - goal) / max) * height}px`}}
         aria-hidden="true"
       >
         <span className="absolute right-0 -top-4 text-[10px] tracking-wider text-primary font-semibold">
@@ -449,11 +449,11 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
         </span>
       </div>
 
-      <div className="flex items-end gap-1.5 relative z-20" style={{ height }}>
+      <div className="flex items-end gap-1.5 relative z-20"style={{ height }}>
         {data.map((d, i) => {
           const barH = animated ? Math.round((d.steps / max) * height) : 0;
           const metGoal = d.steps >= goal;
-          const stepText = `${(d.fullLabel || d.label)}: ${fmtFull(d.steps)} steps${metGoal ? ', goal met' : ''}${d.isToday ? ', today' : ''}`;
+          const stepText = `${(d.fullLabel || d.label)}: ${fmtFull(d.steps)} steps${metGoal ? ', goal met': ''}${d.isToday ? ', today': ''}`;
           return (
             <div
               key={i}
@@ -481,7 +481,7 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
               />
               <span className={cn(
                 'text-[10px]',
-                d.isToday ? 'text-primary font-bold' : 'text-muted-foreground font-normal',
+                d.isToday ? 'text-primary font-bold': 'text-muted-foreground font-normal',
               )}>{d.label}</span>
             </div>
           );
@@ -497,7 +497,7 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
 
 function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay = 0 }: {
   icon: ReactNode; label: string; value: ReactNode; unit?: string;
-  sub?: string; accent?: 'primary' | 'gold'; delay?: number;
+  sub?: string; accent?: 'primary'| 'gold'; delay?: number;
 }) {
   const reduced = usePrefersReducedMotion();
   const [visible, setVisible] = useState(reduced);
@@ -507,9 +507,9 @@ function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay =
     return () => clearTimeout(t);
   }, [delay, reduced]);
 
-  const accentClass = accent === 'gold' ? 'text-primary' : 'text-primary';
-  const accessibleValue = typeof value === 'string' || typeof value === 'number'
-    ? `${label}: ${value}${unit ? ' ' + unit : ''}${sub ? '. ' + sub : ''}`
+  const accentClass = accent === 'gold'? 'text-primary': 'text-primary';
+  const accessibleValue = typeof value === 'string'|| typeof value === 'number'
+    ? `${label}: ${value}${unit ? ''+ unit : ''}${sub ? '. '+ sub : ''}`
     : undefined;
 
   return (
@@ -517,7 +517,7 @@ function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay =
       className={cn(
         'relative overflow-hidden rounded-2xl border border-border bg-card px-4 py-4 flex flex-col gap-1',
         !reduced && 'transition-[opacity,transform] duration-300',
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+        visible ? 'opacity-100 translate-y-0': 'opacity-0 translate-y-4',
       )}
       aria-label={accessibleValue}
     >
@@ -545,14 +545,14 @@ type Achievement = {
 };
 
 const ACHIEVEMENTS: Achievement[] = [
-  { id: 'first_step', icon: '👟', title: 'First Steps', desc: 'Walk 1,000 steps', req: s => s >= 1000 },
-  { id: 'five_k', icon: '🏃', title: 'Five Thousand', desc: 'Reach 5,000 in a day', req: (_, b) => b >= 5000 },
-  { id: 'goal_getter', icon: '🎯', title: 'Goal Getter', desc: 'Hit your daily goal', req: (_, b, g) => b >= g },
-  { id: 'ten_k', icon: '🔥', title: 'Ten Thousand', desc: '10,000 steps in a day', req: (_, b) => b >= 10000 },
-  { id: 'streak_7', icon: '⚡', title: 'Week Warrior', desc: '7-day streak', req: (_, __, ___, st) => st >= 7 },
-  { id: 'hundred_k', icon: '💎', title: 'Century Club', desc: '100,000 all-time steps', req: s => s >= 100000 },
-  { id: 'marathon', icon: '🏅', title: 'Marathon', desc: 'Walk 42km in one day', req: (_, b) => b * 0.000762 >= 42 },
-  { id: 'streak_30', icon: '👑', title: 'Iron Legs', desc: '30-day streak', req: (_, __, ___, st) => st >= 30 },
+  { id: 'first_step', icon: '', title: 'First Steps', desc: 'Walk 1,000 steps', req: s => s >= 1000 },
+  { id: 'five_k', icon: '', title: 'Five Thousand', desc: 'Reach 5,000 in a day', req: (_, b) => b >= 5000 },
+  { id: 'goal_getter', icon: '', title: 'Goal Getter', desc: 'Hit your daily goal', req: (_, b, g) => b >= g },
+  { id: 'ten_k', icon: '', title: 'Ten Thousand', desc: '10,000 steps in a day', req: (_, b) => b >= 10000 },
+  { id: 'streak_7', icon: '', title: 'Week Warrior', desc: '7-day streak', req: (_, __, ___, st) => st >= 7 },
+  { id: 'hundred_k', icon: '', title: 'Century Club', desc: '100,000 all-time steps', req: s => s >= 100000 },
+  { id: 'marathon', icon: '', title: 'Marathon', desc: 'Walk 42km in one day', req: (_, b) => b * 0.000762 >= 42 },
+  { id: 'streak_30', icon: '', title: 'Iron Legs', desc: '30-day streak', req: (_, __, ___, st) => st >= 30 },
 ];
 
 function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlocked: boolean; delay?: number }) {
@@ -567,18 +567,18 @@ function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlo
   return (
     <div
       role="listitem"
-      aria-label={`${ach.title}: ${ach.desc}. ${unlocked ? 'Unlocked' : 'Locked'}.`}
+      aria-label={`${ach.title}: ${ach.desc}. ${unlocked ? 'Unlocked': 'Locked'}.`}
       className={cn(
         'rounded-2xl border px-3 py-3.5 flex flex-col items-center gap-1.5 text-center',
         unlocked
           ? 'bg-card border-primary/30'
           : 'bg-muted border-border opacity-70',
         !reduced && 'transition-[opacity,transform] duration-300',
-        vis ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
+        vis ? 'opacity-100 scale-100': 'opacity-0 scale-95',
       )}
     >
       <div className={cn('text-[28px]', !unlocked && 'grayscale opacity-40')} aria-hidden="true">{ach.icon}</div>
-      <div className={cn('font-bold text-xs', unlocked ? 'text-foreground' : 'text-muted-foreground')}>
+      <div className={cn('font-bold text-xs', unlocked ? 'text-foreground': 'text-muted-foreground')}>
         {ach.title}
       </div>
       <div className="text-[10px] text-muted-foreground leading-tight">{ach.desc}</div>
@@ -695,14 +695,14 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
           <label className="block">
             <span className="sr-only">Custom step goal</span>
             <input
-              type="range" min={1000} max={30000} step={500} value={localGoal}
+              type="range"min={1000} max={30000} step={500} value={localGoal}
               onChange={e => setLocalGoal(Number(e.target.value))}
               aria-label="Custom step goal"
               aria-valuetext={`${localGoal.toLocaleString()} steps`}
               className={cn('w-full accent-primary', focusRing)}
             />
           </label>
-          <div className="text-center text-primary font-bold text-xl mt-2" aria-live="polite">
+          <div className="text-center text-primary font-bold text-xl mt-2"aria-live="polite">
             {localGoal.toLocaleString()} steps
           </div>
         </fieldset>
@@ -711,7 +711,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
           <legend className="text-xs text-muted-foreground tracking-wider uppercase mb-3 font-medium">
             Distance Unit
           </legend>
-          <div className="flex gap-2" role="radiogroup" aria-label="Distance unit">
+          <div className="flex gap-2"role="radiogroup"aria-label="Distance unit">
             {(['km', 'mi'] as UnitSystem[]).map(u => {
               const selected = unit === u;
               return (
@@ -728,7 +728,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
                       : 'bg-muted text-foreground border-border hover:bg-muted/70',
                   )}
                 >
-                  {u === 'km' ? 'Kilometres' : 'Miles'}
+                  {u === 'km'? 'Kilometres': 'Miles'}
                 </button>
               );
             })}
@@ -793,12 +793,12 @@ function StreakWidget({
     : streak >= 7
       ? 'A full week of wins'
       : streak > 0
-        ? goalMetToday ? 'Another day in the bag' : 'Hit today’s goal to extend it'
+        ? goalMetToday ? 'Another day in the bag': 'Hit today’s goal to extend it'
         : 'Reach today’s goal to start a streak';
 
   const ariaLabel = streak > 0
-    ? `Current goal streak: ${streak} ${streak === 1 ? 'day' : 'days'}. Best streak ${bestStreak}. Last goal reached ${last.full ?? 'not yet'}.`
-    : `No active streak. Best streak ${bestStreak}. ${lastGoalDate ? `Last goal reached ${last.full}.` : 'No goal reached yet.'}`;
+    ? `Current goal streak: ${streak} ${streak === 1 ? 'day': 'days'}. Best streak ${bestStreak}. Last goal reached ${last.full ?? 'not yet'}.`
+    : `No active streak. Best streak ${bestStreak}. ${lastGoalDate ? `Last goal reached ${last.full}.`: 'No goal reached yet.'}`;
 
   return (
     <section
@@ -810,7 +810,7 @@ function StreakWidget({
           aria-hidden="true"
           className="text-2xl leading-none select-none"
         >
-          {streak > 0 ? '🔥' : '✦'}
+          {streak > 0 ? '': '✦'}
         </span>
         <div className="min-w-0">
           <div className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
@@ -819,7 +819,7 @@ function StreakWidget({
           <div className="flex items-baseline gap-1.5">
             <span className="font-bold text-3xl text-primary tabular-nums">{streak}</span>
             <span className="text-sm text-muted-foreground">
-              {streak === 1 ? 'day' : 'days'}
+              {streak === 1 ? 'day': 'days'}
             </span>
           </div>
           <div className="text-xs text-muted-foreground mt-0.5 truncate">{motivator}</div>
@@ -829,7 +829,7 @@ function StreakWidget({
         <div>
           <dt className="text-muted-foreground tracking-wider uppercase text-[10px]">Best</dt>
           <dd className="font-semibold text-foreground tabular-nums">
-            {bestStreak} {bestStreak === 1 ? 'day' : 'days'}
+            {bestStreak} {bestStreak === 1 ? 'day': 'days'}
           </dd>
         </div>
         <div>
@@ -859,7 +859,7 @@ function GoalProgressBar({
   const percent = Math.round(pct * 100);
   const remaining = Math.max(0, goal - todayTotal);
   const message = goalMetToday
-    ? `Goal reached — streak extended to ${streak} ${streak === 1 ? 'day' : 'days'}`
+    ? `Goal reached — streak extended to ${streak} ${streak === 1 ? 'day': 'days'}`
     : streak > 0
       ? `${fmtFull(remaining)} steps to keep your ${streak}-day streak alive`
       : `${fmtFull(remaining)} steps to start a new streak today`;
@@ -876,7 +876,7 @@ function GoalProgressBar({
         <span
           className={cn(
             'text-sm font-semibold tabular-nums',
-            goalMetToday ? 'text-primary' : 'text-foreground',
+            goalMetToday ? 'text-primary': 'text-foreground',
           )}
         >
           {percent}%
@@ -894,7 +894,7 @@ function GoalProgressBar({
             'h-full rounded-full bg-primary',
             !reduced && 'transition-all duration-500 ease-out',
           )}
-          style={{ width: `${Math.min(100, Math.max(0, percent))}%` }}
+          style={{ width: `${Math.min(100, Math.max(0, percent))}%`}}
         />
       </div>
       <div className="text-xs text-muted-foreground mt-2">{message}</div>
@@ -916,8 +916,8 @@ function TodayTab({ ped }: { ped: PedoState }) {
   const reduced = usePrefersReducedMotion();
 
   const dist = unitSystem === 'km'
-    ? { val: distanceKm.toFixed(2), unit: 'km', long: 'kilometres' }
-    : { val: distanceMi.toFixed(2), unit: 'mi', long: 'miles' };
+    ? { val: distanceKm.toFixed(2), unit: 'km', long: 'kilometres'}
+    : { val: distanceMi.toFixed(2), unit: 'mi', long: 'miles'};
 
   const [pulse, setPulse] = useState(false);
   useEffect(() => {
@@ -932,17 +932,17 @@ function TodayTab({ ped }: { ped: PedoState }) {
       <div className="flex flex-col items-center pt-2">
         <div
           className={cn(!reduced && 'transition-transform duration-200')}
-          style={{ transform: pulse ? 'scale(1.02)' : 'scale(1)' }}
+          style={{ transform: pulse ? 'scale(1.02)': 'scale(1)'}}
         >
           <StepRing pct={pct} steps={todayTotal} goal={goal} />
         </div>
-        <div className="sr-only" aria-live="polite" aria-atomic="true">
+        <div className="sr-only"aria-live="polite"aria-atomic="true">
           {fmtFull(todayTotal)} steps, {Math.round(pct * 100)} percent of goal
         </div>
         <button
           onClick={isTracking ? stopTracking : startTracking}
           aria-pressed={isTracking}
-          aria-label={isTracking ? 'Stop step tracking' : 'Start step tracking'}
+          aria-label={isTracking ? 'Stop step tracking': 'Start step tracking'}
           className={cn(
             'mt-5 px-9 py-3.5 rounded-full text-[15px] font-bold tracking-wide flex items-center gap-2 transition-colors',
             focusRing,
@@ -969,12 +969,12 @@ function TodayTab({ ped }: { ped: PedoState }) {
           )}
         </button>
         {isTracking && (
-          <div className="mt-2.5 text-xs text-primary font-medium" role="status">
+          <div className="mt-2.5 text-xs text-primary font-medium"role="status">
             Tracking your real movement — keep your phone on you and walk
           </div>
         )}
-        {sensorStatus === 'requesting' && (
-          <div className="mt-2.5 text-xs text-muted-foreground" role="status">
+        {sensorStatus === 'requesting'&& (
+          <div className="mt-2.5 text-xs text-muted-foreground"role="status">
             Waiting for motion permission…
           </div>
         )}
@@ -1005,11 +1005,11 @@ function TodayTab({ ped }: { ped: PedoState }) {
       />
 
       <div className="grid grid-cols-2 gap-3">
-        <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
-        <MetricCard icon="🔥" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
-        <MetricCard icon="⏱" label="Active Time" value={activeMin} unit="min" accent="gold" delay={160} />
-        <MetricCard icon="✦" label="Streak" value={streak} unit="days" accent="gold"
-          sub={streak >= 7 ? 'Week warrior' : streak > 0 ? 'Keep it up' : 'Start today'} delay={240} />
+        <MetricCard icon=""label="Distance"value={dist.val} unit={dist.unit} accent="primary"delay={0} />
+        <MetricCard icon=""label="Calories"value={fmtFull(calories)} unit="kcal"accent="primary"delay={80} />
+        <MetricCard icon=""label="Active Time"value={activeMin} unit="min"accent="gold"delay={160} />
+        <MetricCard icon="✦"label="Streak"value={streak} unit="days"accent="gold"
+          sub={streak >= 7 ? 'Week warrior': streak > 0 ? 'Keep it up': 'Start today'} delay={240} />
       </div>
 
       {pct < 1 && (
@@ -1040,23 +1040,23 @@ function TodayTab({ ped }: { ped: PedoState }) {
 
 function HistoryTab({ ped }: { ped: PedoState }) {
   const { weekData, monthData, goal, allTimeSteps, bestDay } = ped;
-  const [view, setView] = useState<'week' | 'month'>('week');
+  const [view, setView] = useState<'week'| 'month'>('week');
   const subTablistId = useId();
 
-  const chartData = view === 'week' ? weekData : monthData;
+  const chartData = view === 'week'? weekData : monthData;
   const weekAvg = Math.round(weekData.reduce((a, b) => a + b.steps, 0) / 7);
   const weekTotal = weekData.reduce((a, b) => a + b.steps, 0);
   const goalDays = weekData.filter(d => d.steps >= goal).length;
 
   const subTabs = [
-    { id: 'week' as const, label: 'Week' },
-    { id: 'month' as const, label: 'Month' },
+    { id: 'week'as const, label: 'Week'},
+    { id: 'month'as const, label: 'Month'},
   ];
 
   const handleSubKey = (e: KeyboardEvent<HTMLButtonElement>, idx: number) => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    if (e.key === 'ArrowLeft'|| e.key === 'ArrowRight') {
       e.preventDefault();
-      const next = e.key === 'ArrowRight' ? (idx + 1) % subTabs.length : (idx - 1 + subTabs.length) % subTabs.length;
+      const next = e.key === 'ArrowRight'? (idx + 1) % subTabs.length : (idx - 1 + subTabs.length) % subTabs.length;
       setView(subTabs[next].id);
       const root = e.currentTarget.parentElement;
       const buttons = root?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
@@ -1102,19 +1102,19 @@ function HistoryTab({ ped }: { ped: PedoState }) {
 
       <div className="rounded-2xl border border-border bg-card px-4 py-5">
         <div className="font-bold text-lg text-foreground mb-1">
-          {view === 'week' ? 'This Week' : 'Last 4 Weeks'}
+          {view === 'week'? 'This Week': 'Last 4 Weeks'}
         </div>
         <div className="text-xs text-muted-foreground mb-5">
-          {view === 'week' ? `${goalDays} of 7 days hit goal` : 'Weekly averages'}
+          {view === 'week'? `${goalDays} of 7 days hit goal`: 'Weekly averages'}
         </div>
         <BarChart data={chartData} goal={goal} ariaLabel={chartLabel} />
       </div>
 
       <div className="grid grid-cols-3 gap-3">
         {[
-          { label: 'Week Total', value: fmt(weekTotal), full: `${fmtFull(weekTotal)} steps this week` },
-          { label: 'Daily Avg', value: fmt(weekAvg), full: `${fmtFull(weekAvg)} step daily average` },
-          { label: 'Goal Days', value: `${goalDays}/7`, full: `${goalDays} of 7 days hit goal` },
+          { label: 'Week Total', value: fmt(weekTotal), full: `${fmtFull(weekTotal)} steps this week`},
+          { label: 'Daily Avg', value: fmt(weekAvg), full: `${fmtFull(weekAvg)} step daily average`},
+          { label: 'Goal Days', value: `${goalDays}/7`, full: `${goalDays} of 7 days hit goal`},
         ].map((s, i) => (
           <div
             key={i}
@@ -1168,7 +1168,7 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="rounded-2xl border border-primary/20 bg-card px-5 py-5 text-center">
-        <div className="text-5xl mb-2" aria-hidden="true">🏆</div>
+        <div className="text-5xl mb-2"aria-hidden="true"></div>
         <div className="font-bold text-3xl text-primary">
           {count} <span className="text-muted-foreground font-medium">/ {ACHIEVEMENTS.length}</span>
         </div>
@@ -1184,12 +1184,12 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
           <div
             aria-hidden="true"
             className={cn('h-full rounded bg-primary', !reduced && 'transition-[width] duration-1000')}
-            style={{ width: `${(count / ACHIEVEMENTS.length) * 100}%` }}
+            style={{ width: `${(count / ACHIEVEMENTS.length) * 100}%`}}
           />
         </div>
       </div>
 
-      <div role="list" aria-label="All achievements" className="grid grid-cols-2 gap-3">
+      <div role="list"aria-label="All achievements"className="grid grid-cols-2 gap-3">
         {ACHIEVEMENTS.map((a, i) => (
           <AchievementBadge key={a.id} ach={a} unlocked={unlocked[a.id]} delay={i * 60} />
         ))}
@@ -1202,7 +1202,7 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
         <ul className="space-y-2.5 list-none p-0 m-0">
           {ACHIEVEMENTS.filter(a => !unlocked[a.id]).slice(0, 3).map(a => (
             <li key={a.id} className="flex items-center gap-3">
-              <span className="text-xl opacity-50" aria-hidden="true">{a.icon}</span>
+              <span className="text-xl opacity-50"aria-hidden="true">{a.icon}</span>
               <div>
                 <div className="text-[13px] text-foreground font-semibold">{a.title}</div>
                 <div className="text-[11px] text-muted-foreground">{a.desc}</div>
@@ -1220,9 +1220,9 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const TABS = [
-  { id: 'today', label: 'Today' },
-  { id: 'history', label: 'History' },
-  { id: 'achievements', label: 'Awards' },
+  { id: 'today', label: 'Today'},
+  { id: 'history', label: 'History'},
+  { id: 'achievements', label: 'Awards'},
 ] as const;
 type TabId = typeof TABS[number]['id'];
 
@@ -1237,7 +1237,7 @@ export default function PedometerApp() {
 
   const today = new Date();
   const dateStr = `${DAYS[today.getDay()]}, ${today.getDate()} ${MONTHS[today.getMonth()]}`;
-  const fullDateStr = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const fullDateStr = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'});
 
   // Roving tabindex for main tablist
   const handleTabKey = (e: KeyboardEvent<HTMLButtonElement>, idx: number) => {
@@ -1264,7 +1264,7 @@ export default function PedometerApp() {
           <div className="text-[11px] text-muted-foreground tracking-[0.18em] uppercase font-semibold">
             Pedometer
           </div>
-          <div className="font-bold text-lg mt-0.5" aria-label={fullDateStr}>{dateStr}</div>
+          <div className="font-bold text-lg mt-0.5"aria-label={fullDateStr}>{dateStr}</div>
         </div>
         <button
           ref={settingsBtnRef}
@@ -1277,7 +1277,7 @@ export default function PedometerApp() {
             focusRing,
           )}
         >
-          <span aria-hidden="true">⚙</span>
+          <span aria-hidden="true"></span>
         </button>
       </header>
 
@@ -1322,9 +1322,9 @@ export default function PedometerApp() {
           hidden={tab !== t.id}
           className={cn('focus:outline-none', focusRing)}
         >
-          {t.id === 'today' && tab === 'today' && <TodayTab ped={ped} />}
-          {t.id === 'history' && tab === 'history' && <HistoryTab ped={ped} />}
-          {t.id === 'achievements' && tab === 'achievements' && <AchievementsTab ped={ped} />}
+          {t.id === 'today'&& tab === 'today'&& <TodayTab ped={ped} />}
+          {t.id === 'history'&& tab === 'history'&& <HistoryTab ped={ped} />}
+          {t.id === 'achievements'&& tab === 'achievements'&& <AchievementsTab ped={ped} />}
         </div>
       ))}
 

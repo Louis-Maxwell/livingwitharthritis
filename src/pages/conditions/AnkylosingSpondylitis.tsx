@@ -24,8 +24,8 @@ const data: ConditionPageData = {
     answer: (
       <p>
         Axial spondyloarthritis (axSpA) is an inflammatory arthritis of the spine and sacroiliac
-        joints. It has two forms: <strong>radiographic axSpA</strong> — also called{" "}
-        <strong>ankylosing spondylitis (AS)</strong> — where damage is visible on X-ray; and{" "}
+        joints. It has two forms: <strong>radiographic axSpA</strong> — also called{""}
+        <strong>ankylosing spondylitis (AS)</strong> — where damage is visible on X-ray; and{""}
         <strong>non-radiographic axSpA (nr-axSpA)</strong>, where inflammation shows on MRI but
         not X-ray. Both cause inflammatory back pain, morning stiffness and fatigue, and both
         respond to the same exercise and biologic treatments.
@@ -102,7 +102,7 @@ const data: ConditionPageData = {
   exercise: (
     <>
       <p>
-        Exercise is the cornerstone of AS care. Aim for{" "}
+        Exercise is the cornerstone of AS care. Aim for{""}
         <strong>at least 30 minutes of movement most days</strong>, including:
       </p>
       <ul>

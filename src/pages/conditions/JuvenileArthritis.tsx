@@ -17,7 +17,7 @@ const data: ConditionPageData = {
       <p>
         Juvenile idiopathic arthritis (JIA) covers a group of autoimmune conditions that cause
         joint inflammation in children and young people <strong>under the age of 16</strong>.
-        "Idiopathic" simply means the cause is unknown.
+        "Idiopathic"simply means the cause is unknown.
       </p>
       <p>
         Around <strong>15,000 children and young people in the UK</strong> live with JIA. Most

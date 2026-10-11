@@ -82,7 +82,7 @@ const data: ConditionPageData = {
         <li>Strength work 2 days a week — light weights or resistance bands</li>
       </ul>
       <p>
-        A "good" session should leave you no more sore than usual the following day. If it
+        A "good"session should leave you no more sore than usual the following day. If it
         does, drop back and rebuild.
       </p>
     </>

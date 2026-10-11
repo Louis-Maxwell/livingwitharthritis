@@ -21,7 +21,7 @@ const ExerciseJointPage = () => {
     if (legacy) return <Navigate to={`/exercises/${legacy.slug}`} replace />;
   }
 
-  if (!page) return <Navigate to="/exercises" replace />;
+  if (!page) return <Navigate to="/exercises"replace />;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -33,7 +33,7 @@ const ExerciseJointPage = () => {
     audience: {
       "@type": "MedicalAudience",
       audienceType: "Patient",
-      geographicArea: { "@type": "Country", name: "United Kingdom" },
+      geographicArea: { "@type": "Country", name: "United Kingdom"},
     },
   };
 
@@ -46,8 +46,8 @@ const ExerciseJointPage = () => {
     description: page.metaDescription,
     inLanguage: "en-GB",
     totalTime: "PT15M",
-    supply: [{ "@type": "HowToSupply", name: "Comfortable clothing and supportive footwear" }],
-    tool: [{ "@type": "HowToTool", name: "Exercise mat (optional)" }],
+    supply: [{ "@type": "HowToSupply", name: "Comfortable clothing and supportive footwear"}],
+    tool: [{ "@type": "HowToTool", name: "Exercise mat (optional)"}],
     step: page.instructions.map((instr, i) => ({
       "@type": "HowToStep",
       position: i + 1,
@@ -65,22 +65,22 @@ const ExerciseJointPage = () => {
     <>
       <Helmet>
         <title>{page.title} | Living With Arthritis</title>
-        <meta name="description" content={page.metaDescription} />
-        <meta property="og:title" content={page.title} />
-        <meta property="og:description" content={page.metaDescription} />
-        <meta property="og:url" content={`${BASE}/exercises/${page.slug}`} />
-        <meta property="og:type" content="article" />
-        <meta name="geo.region" content="GB" />
-        <meta property="og:site_name" content="Living With Arthritis" />
-        <meta property="og:locale" content="en_GB" />
-        <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Arthritis Exercises by Joint" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={page.title} />
-        <meta name="twitter:description" content={page.metaDescription} />
-        <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <meta name="description"content={page.metaDescription} />
+        <meta property="og:title"content={page.title} />
+        <meta property="og:description"content={page.metaDescription} />
+        <meta property="og:url"content={`${BASE}/exercises/${page.slug}`} />
+        <meta property="og:type"content="article"/>
+        <meta name="geo.region"content="GB"/>
+        <meta property="og:site_name"content="Living With Arthritis"/>
+        <meta property="og:locale"content="en_GB"/>
+        <meta property="og:image"content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"/>
+        <meta property="og:image:width"content="1200"/>
+        <meta property="og:image:height"content="630"/>
+        <meta property="og:image:alt"content="Arthritis Exercises by Joint"/>
+        <meta name="twitter:card"content="summary_large_image"/>
+        <meta name="twitter:title"content={page.title} />
+        <meta name="twitter:description"content={page.metaDescription} />
+        <meta name="twitter:image"content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp"/>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
         <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
@@ -88,19 +88,19 @@ const ExerciseJointPage = () => {
 
       <Header />
       <PageBreadcrumb segments={[
-        { label: "Exercises", href: "/exercises" },
+        { label: "Exercises", href: "/exercises"},
         ...(page.exercise.toLowerCase().includes("tai chi")
-          ? [{ label: "Tai Chi for Arthritis", href: "/exercises/tai-chi-for-arthritis" }]
+          ? [{ label: "Tai Chi for Arthritis", href: "/exercises/tai-chi-for-arthritis"}]
           : []),
-        { label: `${page.exercise} for ${page.joint}` },
+        { label: `${page.exercise} for ${page.joint}`},
       ]} />
 
-      <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
+      <main id="main-content"className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           {/* Hero */}
           <div className="mb-10">
             <div className="flex items-center gap-2 text-primary mb-3">
-              <Dumbbell className="w-5 h-5" />
+              <Dumbbell className="w-5 h-5"/>
               <span className="text-sm font-medium">{page.exercise} • {page.joint} Arthritis</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -112,12 +112,12 @@ const ExerciseJointPage = () => {
           {/* Benefits */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-primary" /> Benefits of {page.exercise} for {page.joint} Arthritis
+              <CheckCircle className="w-5 h-5 text-primary"/> Benefits of {page.exercise} for {page.joint} Arthritis
             </h2>
             <ul className="space-y-2">
               {page.benefits.map((b, i) => (
                 <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0"/>
                   <span className="text-foreground">{b}</span>
                 </li>
               ))}
@@ -127,7 +127,7 @@ const ExerciseJointPage = () => {
           {/* Exercises */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-primary" /> Recommended {page.joint} Exercises
+              <BookOpen className="w-5 h-5 text-primary"/> Recommended {page.joint} Exercises
             </h2>
             <div className="space-y-4">
               {page.instructions.map((instr, i) => (
@@ -145,13 +145,13 @@ const ExerciseJointPage = () => {
           {/* Safety Tips */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-destructive" /> Safety Tips
+              <AlertTriangle className="w-5 h-5 text-destructive"/> Safety Tips
             </h2>
             <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-destructive mt-0.5">⚠️</span> {tip}
+                    <span className="text-destructive mt-0.5"></span> {tip}
                   </li>
                 ))}
               </ul>
@@ -161,13 +161,13 @@ const ExerciseJointPage = () => {
           {/* When to Avoid */}
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-              <ShieldAlert className="w-5 h-5 text-destructive" /> When to Avoid {page.exercise}
+              <ShieldAlert className="w-5 h-5 text-destructive"/> When to Avoid {page.exercise}
             </h2>
             <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
               <ul className="space-y-2">
                 {page.whenToAvoid.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-destructive mt-0.5">🛑</span> {item}
+                    <span className="text-destructive mt-0.5"></span> {item}
                   </li>
                 ))}
               </ul>

@@ -155,7 +155,7 @@ const Pedometer = () => {
       <div className="container mx-auto px-6 md:px-10 max-w-4xl">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Footprints className="w-5 h-5 text-primary" />
+            <Footprints className="w-5 h-5 text-primary"/>
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">Step Counter</h2>
@@ -182,24 +182,24 @@ const Pedometer = () => {
                   animate={{ scale: 1 }}
                   className="flex items-center gap-2 text-primary"
                 >
-                  <Trophy className="w-5 h-5" />
-                  <span className="text-sm font-bold">Goal reached! 🎉</span>
+                  <Trophy className="w-5 h-5"/>
+                  <span className="text-sm font-bold">Goal reached! </span>
                 </motion.div>
               )}
 
               <div className="grid grid-cols-3 gap-4 w-full">
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
-                  <Flame className="w-4 h-4 text-primary mx-auto mb-1" />
+                  <Flame className="w-4 h-4 text-primary mx-auto mb-1"/>
                   <p className="stat-number text-lg">{calories}</p>
                   <p className="text-[10px] text-muted-foreground">kcal</p>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
-                  <TrendingUp className="w-4 h-4 text-primary mx-auto mb-1" />
+                  <TrendingUp className="w-4 h-4 text-primary mx-auto mb-1"/>
                   <p className="stat-number text-lg">{distance}</p>
                   <p className="text-[10px] text-muted-foreground">km</p>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
-                  <Target className="w-4 h-4 text-primary mx-auto mb-1" />
+                  <Target className="w-4 h-4 text-primary mx-auto mb-1"/>
                   <p className="stat-number text-lg">{goalPercent}%</p>
                   <p className="text-[10px] text-muted-foreground">of goal</p>
                 </div>
@@ -208,19 +208,19 @@ const Pedometer = () => {
               {sensorAvailable === false ? (
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                   <p className="text-sm text-primary font-medium">
-                    📱 Motion sensors not available on this device. Open this page on your mobile phone to use the step counter.
+                     Motion sensors not available on this device. Open this page on your mobile phone to use the step counter.
                   </p>
                 </div>
               ) : (
                 <div className="flex gap-3 w-full">
                   <Button
                     onClick={isTracking ? stopTracking : startTracking}
-                    className={`flex-1 min-h-[44px] ${isTracking ? "bg-primary hover:bg-primary" : "bg-primary hover:bg-primary"} text-primary-foreground`}
+                    className={`flex-1 min-h-[44px] ${isTracking ? "bg-primary hover:bg-primary": "bg-primary hover:bg-primary"} text-primary-foreground`}
                   >
                     {isTracking ? (
-                      <><Pause className="w-4 h-4 mr-2" /> Pause</>
+                      <><Pause className="w-4 h-4 mr-2"/> Pause</>
                     ) : (
-                      <><Play className="w-4 h-4 mr-2" /> Start Walking</>
+                      <><Play className="w-4 h-4 mr-2"/> Start Walking</>
                     )}
                   </Button>
                   <Button
@@ -229,13 +229,13 @@ const Pedometer = () => {
                     className="min-h-[44px]"
                     aria-label="Reset today's steps"
                   >
-                    <RotateCcw className="w-4 h-4" />
+                    <RotateCcw className="w-4 h-4"/>
                   </Button>
                 </div>
               )}
 
               {isTracking && (
-                <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 animate-pulse">
+                <Badge variant="outline"className="bg-primary/10 text-primary border-primary/20 animate-pulse">
                   ● Tracking active — keep your phone in your pocket
                 </Badge>
               )}
@@ -257,14 +257,14 @@ const Pedometer = () => {
                       return (
                         <div key={day.date} className="flex items-center gap-3">
                           <span className="text-xs text-muted-foreground w-20 shrink-0">
-                            {new Date(day.date + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" })}
+                            {new Date(day.date + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short"})}
                           </span>
                           <div className="flex-1 h-2.5 rounded-full bg-muted overflow-hidden">
                             <div
                               className="h-full rounded-full transition-all"
                               style={{
                                 width: `${pct}%`,
-                                background: pct >= 100 ? "hsl(var(--emerald))" : "hsl(var(--primary))",
+                                background: pct >= 100 ? "hsl(var(--emerald))": "hsl(var(--primary))",
                               }}
                             />
                           </div>
@@ -282,7 +282,7 @@ const Pedometer = () => {
             {/* Walking tips for arthritis */}
             <Card className="border border-border/40 bg-tint-amber">
               <CardContent className="p-6">
-                <h3 className="font-bold text-foreground text-sm mb-3">🚶 Walking Tips for Arthritis</h3>
+                <h3 className="font-bold text-foreground text-sm mb-3"> Walking Tips for Arthritis</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
