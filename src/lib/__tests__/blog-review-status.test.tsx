@@ -86,6 +86,22 @@ const PENDING_CHAMPIONS_62_73 = [
 ];
 
 /**
+ * Unique tools and community batch 6 (topics 91–100): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_UNIQUE_BATCH_6 = [
+  "arthritis-symptoms-what-to-do-next",
+  "arthritis-flare-early-warning-signs",
+  "daily-arthritis-planner-printable",
+  "gadgets-aids-arthritis-uk",
+  "walking-aids-arthritis-uk",
+  "best-walking-shoes-arthritis-uk",
+  "best-mattress-for-arthritis-uk",
+  "ask-the-physio-arthritis",
+  "arthritis-roadmaps-uk",
+];
+
+/**
  * Waiting for Treatment and Life with Arthritis batch 5 (topics 71–90): new or rewritten guides
  * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
  */
@@ -195,7 +211,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
+  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
     expect(post.last_reviewed).toBeUndefined();
@@ -246,7 +262,7 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
     expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
     );
   });
 

@@ -16,6 +16,13 @@ type Row = {
   direct_answer?: string | null;
 };
 
+// Review stamps: the 20 Sep visibility sprint, or a later full rewrite
+// (best-walking-shoes-arthritis-uk was rewritten in content batch 6, 11 Oct 2026).
+const REVIEW_DATES: Record<string, string> = {
+  "best-walking-shoes-arthritis-uk": "2026-10-11",
+  "turmeric-for-arthritis": "2026-09-20",
+};
+
 const SLUGS = [
   "best-walking-shoes-arthritis-uk",
   "turmeric-for-arthritis",
@@ -51,7 +58,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
       expect(row!.meta_title?.trim().length).toBeGreaterThan(40);
       expect(row!.meta_description?.trim().length).toBeGreaterThan(110);
       expect(row!.meta_description).not.toMatch(/\.\.\.$/);
-      expect(row!.updated_at?.startsWith("2026-09-20")).toBe(true);
+      expect(row!.updated_at?.startsWith(REVIEW_DATES[slug])).toBe(true);
       expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
 
       const cites = row!.citations ?? [];
@@ -78,7 +85,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
       const head = heads[`/blog/${slug}`];
       expect(head?.title?.trim().length).toBeGreaterThan(30);
       expect(head?.description?.trim().length).toBeGreaterThan(80);
-      expect(head?.updatedAt).toBe("2026-09-20");
+      expect(head?.updatedAt).toBe(REVIEW_DATES[slug]);
     });
   }
 
