@@ -70,7 +70,7 @@ export default function DisabilitySupport() {
         <strong>Quick answer:</strong> {DIS_RIGHTS_QUICK_ANSWER}
       </p>
       <AeoEnhancement route="/guides/disability-support" />
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="reviewed" />
 
       <div
         className="prose prose-neutral dark:prose-invert max-w-none prose-a:text-primary"
