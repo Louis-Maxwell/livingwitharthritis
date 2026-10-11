@@ -36,6 +36,7 @@ import {
   embedArticleJson,
   htmlHasFullArticle,
   replaceSeoFallback,
+  stripToText,
 } from "./static-article-html.mjs";
 import { exactRedirectPathSet, CITY_HUBS, CITY_SLUGS } from "./seo-redirect-map.mjs";
 
@@ -162,6 +163,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(CONDITION_DATA_PATH),
   readJson(LIBRARY_DATA_PATH),
   readJson(HUB_GUIDE_DATA_PATH),
+  readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
   readJson(AI_DATA_PATH),
 );
@@ -380,28 +382,57 @@ function compact(obj) {
   );
 }
 
-function buildJsonLd(route, url, d) {
+export function buildJsonLd(route, url, d) {
   const graphs = [];
+  const article = d.article;
+  const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
+  const person = (name, credentials, prefix) => name && !/placeholder/i.test(name)
+    ? { "@type": /louis.*maxwell|^maxwell$/i.test(name) ? "Person" : "Organization", name,
+        ...(/louis.*maxwell|^maxwell$/i.test(name) ? {
+          ...(credentials ? { jobTitle: credentials } : {}), url: `${BASE}/${prefix}/maxwell` } : {}) } : undefined;
+  const author = person(article?.author, article?.author_credentials, "authors");
+  const reviewer = article?.reviewStatus !== "pending"
+    ? person(article?.reviewed_by, article?.reviewer_credentials, "reviewers") : undefined;
+  const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
+    .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
 
   // 1) MedicalWebPage — the page entity itself, tied to the sitewide
   //    Organization/WebSite nodes already present in the static head.
   graphs.push({
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": medical ? "MedicalWebPage" : "WebPage",
     "@id": `${url}#webpage`,
     url,
     name: d.title,
-    headline: d.question || d.title,
+    headline: article?.title || d.question || d.title,
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
-    about: d.about ? { "@type": "MedicalCondition", name: d.about } : undefined,
+    about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
+      : d.about ? { "@type": "Thing", name: d.about } : undefined,
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
-    audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
+    ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
+    ...(article ? { mainEntity: { "@id": `${url}#article` }, author, reviewedBy: reviewer,
+      ...(reviewer && article.last_reviewed ? { lastReviewed: article.last_reviewed } : {}) } : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
+  });
+  if (article) graphs.push({
+    "@context": "https://schema.org", "@type": "Article", "@id": `${url}#article`,
+    headline: article.title, description: d.description, image: d.ogImage,
+    datePublished: article.date, dateModified: article.updated_at || article.date,
+    author, reviewedBy: reviewer, publisher: { "@id": `${BASE}/#organization` },
+    mainEntityOfPage: { "@id": `${url}#webpage` }, inLanguage: "en-GB",
+    isAccessibleForFree: true, articleSection: article.category,
+    wordCount: stripToText(article.content).split(/\s+/).filter(Boolean).length,
+    ...(citations.length ? { citation: citations } : {}),
+  });
+  if (d.definedTerm) graphs.push({
+    "@context": "https://schema.org", "@type": "DefinedTerm", "@id": `${url}#term`,
+    name: d.definedTerm.name, description: d.definedTerm.description, url,
+    inDefinedTermSet: `${BASE}/glossary`,
   });
 
   // 2) BreadcrumbList — Home → current page (always-valid two-level trail).
@@ -411,7 +442,8 @@ function buildJsonLd(route, url, d) {
     "@id": `${url}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-      { "@type": "ListItem", position: 2, name: d.breadcrumb || d.about || d.title, item: url },
+      ...(article ? [{ "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` }] : []),
+      { "@type": "ListItem", position: article ? 3 : 2, name: article?.title || d.breadcrumb || d.about || d.title, item: url },
     ],
   });
 
@@ -439,7 +471,7 @@ function buildJsonLd(route, url, d) {
   return graphs
     .map(
       (g) =>
-        `  <script type="application/ld+json">${JSON.stringify(compact(g))}</script>`,
+        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(compact(g)).replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n");
 }
@@ -583,7 +615,7 @@ function writeRouteFiles() {
       // still look like the homepage or only have a short answer teaser.
       // Still refresh title / description / og:image from head-data so
       // social crawlers pick up cover images after blog-head-data regen.
-      if (htmlHasFullArticle(existing, data)) {
+      if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data)) {
         let patched = data ? patchShareMeta(existing, data) : existing;
         if (isNoindexRoute(route) || data?.noindex) {
           patched = applyNoindexMeta(patched);
