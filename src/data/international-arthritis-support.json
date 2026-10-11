@@ -1,0 +1,101 @@
+{
+  "path": "/international-arthritis-support",
+  "title": "Arthritis Support: UK, USA, Australia, Canada & India",
+  "description": "Find arthritis information and local support resources for the UK, USA, Australia, Canada and India, plus questions to prepare for your next appointment.",
+  "heading": "Arthritis support in the UK, USA, Australia, Canada and India",
+  "intro": "Living With Arthritis is a UK registered charity. Our free English-language educational guides can also help readers overseas understand arthritis and prepare questions for their own healthcare team. This directory helps you choose resources relevant to where you live.",
+  "updatedAt": "2026-10-07",
+  "countries": [
+    {
+      "id": "uk",
+      "name": "United Kingdom (UK)",
+      "text": "Start with the NHS arthritis guide for symptoms, diagnosis and getting help. Our UK support directory and benefits guides explain UK-specific topics; healthcare arrangements and eligibility can differ across England, Scotland, Wales and Northern Ireland.",
+      "links": [
+        {
+          "name": "NHS arthritis information",
+          "url": "https://www.nhs.uk/conditions/arthritis/"
+        },
+        {
+          "name": "Our UK arthritis support directory",
+          "url": "/arthritis-support"
+        },
+        {
+          "name": "UK benefits and PIP guide",
+          "url": "/guides/benefits-pip"
+        }
+      ]
+    },
+    {
+      "id": "usa",
+      "name": "United States (USA)",
+      "text": "NIAMS, part of the US National Institutes of Health, publishes arthritis information for patients and families. Before arranging care, ask your insurer and clinic about specialist referrals, participating providers and costs. HealthCare.gov explains Marketplace coverage; your own plan determines the services and costs that apply.",
+      "links": [
+        {
+          "name": "NIAMS arthritis information",
+          "url": "https://www.niams.nih.gov/health-topics/arthritis"
+        },
+        {
+          "name": "HealthCare.gov coverage information",
+          "url": "https://www.healthcare.gov/coverage/"
+        }
+      ]
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "text": "Healthdirect provides Australian arthritis information and links to local resources. Its Service Finder can help you locate health services. When booking an appointment, ask the practice about referrals, fees and the support available for your circumstances.",
+      "links": [
+        {
+          "name": "Healthdirect arthritis guide and Service Finder",
+          "url": "https://www.healthdirect.gov.au/arthritis"
+        }
+      ]
+    },
+    {
+      "id": "canada",
+      "name": "Canada",
+      "text": "Arthritis Society Canada provides information on arthritis, self-management, navigating care and local support. Use its local resources to find what is available in your community. Confirm eligibility, referral requirements and any charges directly with the service before booking.",
+      "links": [
+        {
+          "name": "Arthritis Society Canada information and local support",
+          "url": "https://arthritis.ca/"
+        }
+      ]
+    },
+    {
+      "id": "india",
+      "name": "India",
+      "text": "For local care, contact a nearby healthcare professional or hospital and ask which clinic assesses arthritis and whether a referral is needed. The National Portal of India has a Health & Wellness section and links to government services, including the national telemedicine service. Check availability, language options, appointment arrangements and costs with the provider.",
+      "links": [
+        {
+          "name": "National Portal of India: health information and government services",
+          "url": "https://www.india.gov.in/"
+        }
+      ]
+    }
+  ],
+  "preparation": [
+    "Write down which joints are affected, when symptoms started and how daily activities are affected.",
+    "Bring your current medicine list, previous test results and any questions about your diagnosis.",
+    "Ask who to contact if symptoms change, how follow-up works and which services are available locally."
+  ],
+  "scope": "NHS access, PIP, Access to Work and UK medicine guidance should not be assumed to apply overseas. This directory does not mean we have clinics or partnerships in these countries. Follow your local healthcare team's advice; for a medical emergency, use your local emergency service.",
+  "guides": [
+    {
+      "name": "Understand osteoarthritis",
+      "url": "/conditions/osteoarthritis"
+    },
+    {
+      "name": "Understand rheumatoid arthritis",
+      "url": "/conditions/rheumatoid-arthritis"
+    },
+    {
+      "name": "Explore arthritis exercises",
+      "url": "/exercises"
+    },
+    {
+      "name": "Prepare a clinic information pack",
+      "url": "/resources/clinic-pack"
+    }
+  ]
+}

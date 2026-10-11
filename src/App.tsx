@@ -100,6 +100,7 @@ const AccessibilityPage = lazyWithRetry(() => import("./pages/Accessibility"));
 const ArthritisFlareUps = lazyWithRetry(() => import("./pages/ArthritisFlareUps"));
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
+const InternationalArthritisSupport = lazyWithRetry(() => import("./pages/InternationalArthritisSupport"));
 const ArthritisSupportIndex = lazyWithRetry(() => import("./pages/ArthritisSupportIndex"));
 const CityArthritisPage = lazyWithRetry(() => import("./pages/CityArthritisPage"));
 const CityConditionPage = lazyWithRetry(() => import("./pages/CityConditionPage"));
@@ -410,6 +411,7 @@ function AnimatedRoutes() {
         <Route path="/accessibility" element={<AccessibilityPage />} />
         
         <Route path="/arthritis-flare-ups" element={<ArthritisFlareUps />} />
+        <Route path="/international-arthritis-support" element={<InternationalArthritisSupport />} />
         <Route path="/arthritis-support" element={<ArthritisSupportIndex />} />
         <Route path="/arthritis-support/:city" element={<CityArthritisPage />} />
         <Route path="/arthritis-support/:city/:condition" element={<CityConditionPage />} />
