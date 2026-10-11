@@ -553,9 +553,11 @@ const BlogPost = () => {
                   {...({ fetchpriority: "high" } as Record<string, string>)}
                   className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[16/9]"
                 />
-                <figcaption className="text-xs text-muted-foreground mt-1.5">
-                  {cover.credit}
-                </figcaption>
+                {cover.credit ? (
+                  <figcaption className="text-xs text-muted-foreground mt-1.5">
+                    {cover.credit}
+                  </figcaption>
+                ) : null}
               </figure>
             </div>
           </div>
