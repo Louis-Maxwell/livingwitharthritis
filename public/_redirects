@@ -1093,3 +1093,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-symptoms-what-to-do-next /blog/arthritis-symptoms-what-to-do-next 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-flare-early-warning-signs /blog/arthritis-flare-early-warning-signs 301

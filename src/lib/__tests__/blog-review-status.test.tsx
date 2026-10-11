@@ -91,6 +91,7 @@ const PENDING_CHAMPIONS_62_73 = [
  */
 const PENDING_UNIQUE_BATCH_6 = [
   "arthritis-symptoms-what-to-do-next",
+  "arthritis-flare-early-warning-signs",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
