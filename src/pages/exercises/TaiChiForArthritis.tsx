@@ -13,14 +13,23 @@ import { TAI_CHI_ANIMATIONS, TAI_CHI_VIDEOS } from "@/components/exercises/TaiCh
 import ExerciseVideoModal from "@/components/exercises/ExerciseVideoModal";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { Play } from "lucide-react";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import {
+  TAI_CHI_DESCRIPTION,
+  TAI_CHI_FAQS,
+  TAI_CHI_GUIDE_HTML,
+  TAI_CHI_QUICK_ANSWER,
+  TAI_CHI_TITLE,
+} from "@/data/exerciseGuides/taiChiForArthritisContent";
 
 const heroImage = "/openverse/wellness-02-tai-chi-young-and-old.webp";
 
 const benefits = [
-  { icon: Shield, title: "NICE-recommended", text: "UK NICE guidelines (NG226) explicitly recommend tai chi as a therapeutic exercise option for osteoarthritis — one of only a handful of named non-drug interventions." },
-  { icon: Activity, title: "Cuts knee & hip pain", text: "A 2019 BMJ meta-analysis showed tai chi matched standard UK healthcare physiotherapy for knee OA pain and function at 12 weeks, and the gains held at 12 months." },
-  { icon: Heart, title: "Lowers fall risk by ~20%", text: "A 2017 Cochrane review of 7,494 older adults found tai chi reduced fall rate by approximately 20% — a key concern when arthritis affects balance." },
-  { icon: Sparkles, title: "Eases stiffness without flares", text: "Slow, weight-shifted movement gently mobilises joints without the impact that can trigger inflammatory flare-ups." },
+  { icon: Shield, title: "Fits NICE exercise advice", text: "NICE (NG226) recommends tailored exercise as a core treatment for osteoarthritis. Tai chi can be one enjoyable option alongside strengthening." },
+  { icon: Activity, title: "Gentle on painful joints", text: "Slow, low-impact movement and shallow stances keep joints moving and work the leg muscles without jarring." },
+  { icon: Heart, title: "Helps balance", text: "Controlled weight shifts and stepping build balance and confidence. A 2019 Cochrane review found tai chi probably reduces the rate of falls in older people." },
+  { icon: Sparkles, title: "Standing or seated", text: "Every movement can be adapted for a chair, so you can keep practising on bad days or after surgery once cleared." },
 ];
 
 const jointLinks = [
@@ -35,32 +44,21 @@ const jointLinks = [
 ];
 
 const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; brief: string; cue: string; bestFor: string }[] = [
-  { key: "rooted-stance", name: "Rooted Stance (Wuji)", brief: "The starting posture every form returns to — feet hip-width, knees soft, spine tall.", cue: "Soft knees over toes. Crown lifts gently.", bestFor: "All joints Â· posture Â· breath" },
-  { key: "weight-shift", name: "Weight Shift", brief: "Slow lateral transfer of body weight without lifting the feet — the engine of every tai chi form.", cue: "Side-to-side, feet flat. The engine of every move.", bestFor: "Knee Â· hip Â· ankle Â· balance" },
-  { key: "cloud-hands", name: "Cloud Hands", brief: "Continuous waist-led arm circles that mobilise shoulders and rotate the spine gently.", cue: "Waist turns; arms follow, never force.", bestFor: "Shoulder Â· back Â· hand" },
-  { key: "brush-knee", name: "Brush Knee", brief: "Step forward, brush past the knee with one hand and push with the other — coordination plus mobility.", cue: "Brush past the knee, push the other hand forward.", bestFor: "Knee Â· hip Â· whole-body" },
-  { key: "closing-posture", name: "Closing Posture", brief: "The grounding sequence that ends every set — settles breath and joint warmth.", cue: "Lower the hands, settle the weight, exhale.", bestFor: "All joints Â· cool-down" },
+  { key: "rooted-stance", name: "Rooted Stance (Wuji)", brief: "The starting posture every form returns to — feet hip-width, knees soft, spine tall.", cue: "Soft knees over toes. Crown lifts gently.", bestFor: "All joints · posture · breath" },
+  { key: "weight-shift", name: "Weight Shift", brief: "Slow lateral transfer of body weight without lifting the feet — the engine of every tai chi form.", cue: "Side-to-side, feet flat. The engine of every move.", bestFor: "Knee · hip · ankle · balance" },
+  { key: "cloud-hands", name: "Cloud Hands", brief: "Continuous waist-led arm circles that mobilise shoulders and rotate the spine gently.", cue: "Waist turns; arms follow, never force.", bestFor: "Shoulder · back · hand" },
+  { key: "brush-knee", name: "Brush Knee", brief: "Step forward, brush past the knee with one hand and push with the other — coordination plus mobility.", cue: "Brush past the knee, push the other hand forward.", bestFor: "Knee · hip · whole-body" },
+  { key: "closing-posture", name: "Closing Posture", brief: "The grounding sequence that ends every set — settles breath and joint warmth.", cue: "Lower the hands, settle the weight, exhale.", bestFor: "All joints · cool-down" },
 ];
 
 const ukResources = [
   { name: "Tai Chi Union for Great Britain", url: "https://taichiunion.com/", desc: "UK governing body — searchable directory of accredited instructors." },
-  { name: "Tai Chi for Health Institute (UK chapters)", url: "https://taichiforhealthinstitute.org/", desc: "Sun-style 'Tai Chi for Arthritis' programme — the form most often referenced in NICE-aligned trials." },
+  { name: "Tai Chi for Health Institute (UK chapters)", url: "https://taichiforhealthinstitute.org/", desc: "Sun-style 'Tai Chi for Arthritis' programme with trained instructors in some UK areas." },
   { name: "Arthritis UK (formerly Versus Arthritis) — Exercise advice", url: "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/", desc: "Free UK charity guidance on safe arthritis exercise, including tai chi." },
-  { name: "UK healthcare — Tai chi", url: "https://www.nhs.uk/live-well/exercise/guide-to-tai-chi/", desc: "UK healthcare overview, cautions and how to find a class on the UK healthcare system Live Well site." },
+  { name: "NHS: Balance exercises", url: "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/balance-exercises/", desc: "Simple NHS balance exercises to practise alongside tai chi." },
 ];
 
-const faqs = [
-  { q: "Is tai chi good for arthritis?", a: "Yes. UK NICE guidelines (NG226) recommend tai chi as a therapeutic exercise option for osteoarthritis. Multiple meta-analyses (BMJ 2019, Arthritis & Rheumatology 2018) show clinically meaningful pain and function improvements for knee and hip OA, comparable to standard physiotherapy." },
-  { q: "Is tai chi safe for arthritis?", a: "For most people, yes. Tai chi is low-impact, slow, and weight-shifting rather than jarring — which is why NICE NG226 lists it as a safe therapeutic exercise for osteoarthritis. Pause practice during an acute flare, in the first 6 weeks after joint replacement surgery, or if you have severe balance issues without a chair or wall to support you. Otherwise, side effects are typically limited to mild post-session soreness that settles within 24 hours." },
-  { q: "Is tai chi safe for knee arthritis?", a: "Yes, with sensible adaptations. Keep stances shallow (knees never travelling past your toes), shift weight slowly, and avoid deep squatting postures. The Sun and Yang short-form styles taught in most UK classes are well tolerated by knee OA patients. If you feel sharp pain (not the usual stiffness easing), reduce range of motion or switch to seated practice that day." },
-  { q: "Is tai chi safe after a joint replacement?", a: "Generally yes, but timing matters. Most UK orthopaedic surgeons clear patients for low-impact movement at 6–12 weeks post-op. Start with seated tai chi, progress to standing with chair support, and only resume full standing forms once your surgeon confirms it's safe. Always tell your instructor about your replacement so they can offer modifications." },
-  { q: "What are the side effects or risks of tai chi for arthritis?", a: "Tai chi has one of the cleanest safety profiles of any exercise studied for arthritis. The main risks are: mild muscle soreness in the first 1–2 weeks (normal — reduces with practice), and falls if you practise standing forms unsupported with severe balance impairment. Stop and seek advice if you experience sharp joint pain, swelling that lasts more than 48 hours, or dizziness during practice." },
-  { q: "Is tai chi good for rheumatoid arthritis?", a: "Tai chi appears safe in rheumatoid arthritis and may improve mood, sleep and lower-limb function, though evidence for joint inflammation itself is weaker than for osteoarthritis. A 2019 Cochrane review found no harms and small-to-moderate benefit for quality of life. Avoid practice during acute flares — return when joints are calm." },
-  { q: "Is yoga or tai chi better for arthritis?", a: "Both help, but tai chi has stronger UK guideline backing for osteoarthritis (NICE NG226) and a clearer fall-prevention evidence base. Yoga can offer more flexibility gains. The best choice is whichever you'll do consistently — try both and notice how your joints feel the next morning." },
-  { q: "Can I get tai chi on the UK healthcare system?", a: "Some UK healthcare social-prescribing schemes and community pain services refer patients to tai chi classes — ask your GP or rheumatology team. Most people start through community centres, leisure trusts, or the Tai Chi Union for Great Britain instructor directory. Many councils offer subsidised over-60s classes." },
-  { q: "How often should I practise?", a: "Evidence suggests 2–3 sessions of 20–40 minutes per week for at least 8 weeks before judging benefit. Daily 10-minute mini-sessions also work and may be easier to fit into life with arthritis." },
-  { q: "What if I can't stand for long?", a: "Use seated tai chi — same flowing principles, performed from a sturdy chair. Our seated routine guide is linked below. Many people alternate seated and standing days as energy and joint comfort allow." },
-];
+const faqs = TAI_CHI_FAQS;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -95,7 +93,7 @@ const howToJsonLd = {
   "@type": "HowTo",
   name: "How to practise tai chi for arthritis",
   description:
-    "Five core tai chi movements every NICE-aligned arthritis programme builds on — a slow, weight-shifted sequence for knee, hip, hand and back joint pain.",
+    "Five core tai chi movements most beginner programmes build on: a slow, weight-shifted sequence suitable for many people with knee, hip, hand and back arthritis.",
   inLanguage: "en-GB",
   totalTime: "PT20M",
   step: movementLibrary.map((m, i) => ({
@@ -131,8 +129,8 @@ export default function TaiChiForArthritis() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Tai Chi for Arthritis (UK Guide)"
-        description="UK guide to tai chi for arthritis. NICE-recommended, evidence-based routines for knee, hip, hand and back pain — plus free UK healthcare and Arthritis UK (formerly Versus Arthritis) resources."
+        title={TAI_CHI_TITLE}
+        description={TAI_CHI_DESCRIPTION}
         path="/exercises/tai-chi-for-arthritis"
         type="article"
         keywords="tai chi for arthritis, tai chi arthritis UK, NICE tai chi osteoarthritis, tai chi knee arthritis, tai chi hip arthritis, seated tai chi arthritis"
@@ -142,9 +140,9 @@ export default function TaiChiForArthritis() {
       <PageBreadcrumb segments={[{ label: "Exercises", href: "/exercises" }, { label: "Tai Chi for Arthritis" }]} />
 
       <PageHero
-        badge={<Badge variant="secondary" className="bg-background text-primary border-0">UK Guide Â· NICE-recommended</Badge>}
+        badge={<Badge variant="secondary" className="bg-background text-primary border-0">UK Guide · Gentle exercise</Badge>}
         title="Tai Chi for Arthritis"
-        subtitle="The UK's evidence-based guide to tai chi for arthritis. Recommended by NICE, used in UK healthcare pain services, and matched to UK healthcare physiotherapy in BMJ trials for knee and hip OA."
+        subtitle="A practical UK guide to tai chi for arthritis: what it is, what the evidence says, a 12-week beginner plan, adaptations for painful joints and how to find a class."
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg"><Link to="/exercises/tai-chi-for-beginners">New to tai chi? Start the 7-day plan <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
@@ -162,12 +160,21 @@ export default function TaiChiForArthritis() {
         </div>
       </section>
 
+      <section className="bg-background">
+        <div className="container mx-auto px-6 md:px-12 max-w-[900px] pt-12">
+          <p className="quick-answer p-5 rounded-xl bg-muted/40 leading-relaxed">
+            <strong>Quick answer:</strong> {TAI_CHI_QUICK_ANSWER}
+          </p>
+          <EducationalDisclaimerBox reviewStatus="pending" />
+        </div>
+      </section>
+
       {/* Why tai chi */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Why tai chi works for arthritis</h2>
-            <p className="text-muted-foreground leading-relaxed">Tai chi is one of only a handful of exercises NICE explicitly names for osteoarthritis. Four mechanisms make it unusually well-suited to arthritic joints.</p>
+            <p className="text-muted-foreground leading-relaxed">Tai chi brings together several things that help arthritis in one gentle activity.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {benefits.map((b) => (
@@ -253,7 +260,7 @@ export default function TaiChiForArthritis() {
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><Library className="h-3 w-3 mr-1 inline" />Video library</Badge>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Tai chi movement library</h2>
-            <p className="text-muted-foreground leading-relaxed">Five core movements every NICE-aligned tai chi programme builds on. Watch the slow demo, then try it in our Balance or Seated routine.</p>
+            <p className="text-muted-foreground leading-relaxed">Five core movements most beginner tai chi programmes build on. Watch the slow demo, then try it in our Balance or Seated routine.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -314,7 +321,7 @@ export default function TaiChiForArthritis() {
           <div className="grid md:grid-cols-2 gap-6">
             <Link to="/exercises/tai-chi-for-balance" className="group">
               <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
-                <Badge variant="secondary" className="mb-3 bg-background text-primary border-0">Standing Â· 15 min</Badge>
+                <Badge variant="secondary" className="mb-3 bg-background text-primary border-0">Standing · 15 min</Badge>
                 <h3 className="font-display text-2xl font-semibold mb-3">Tai Chi for Balance</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for anyone who can stand safely with light support. The 15-minute routine focused on fall prevention and knee/hip pain reduction.</p>
                 <span className="inline-flex items-center text-primary font-semibold text-sm">Start the routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
@@ -322,7 +329,7 @@ export default function TaiChiForArthritis() {
             </Link>
             <Link to="/exercises/seated-tai-chi-for-arthritis" className="group">
               <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
-                <Badge variant="secondary" className="mb-3 bg-background text-primary border-0">Seated Â· 13 min</Badge>
+                <Badge variant="secondary" className="mb-3 bg-background text-primary border-0">Seated · 13 min</Badge>
                 <h3 className="font-display text-2xl font-semibold mb-3">Seated Tai Chi</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for severe OA, post-surgery weeks, fall risk, or low-energy days. Same flowing principles from a sturdy chair.</p>
                 <span className="inline-flex items-center text-primary font-semibold text-sm">Try seated routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
@@ -334,6 +341,14 @@ export default function TaiChiForArthritis() {
             Looking for a specific joint? <a href="#joints" className="text-primary hover:underline">Jump to the joint guides above</a> or browse all <Link to="/exercises" className="text-primary hover:underline">arthritis exercises</Link>.
           </div>
         </div>
+      </section>
+
+      {/* Long-form guide */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div
+          className="container mx-auto px-6 md:px-12 max-w-[900px] prose prose-lg dark:prose-invert prose-headings:font-display prose-a:text-primary"
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(TAI_CHI_GUIDE_HTML) }}
+        />
       </section>
 
       {/* FAQ */}

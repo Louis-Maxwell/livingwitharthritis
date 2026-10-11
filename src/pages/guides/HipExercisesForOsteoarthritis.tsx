@@ -19,119 +19,177 @@ const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const FAQS = [
   {
-    question: "Does walking help hip osteoarthritis?",
+    question: "What are the best exercises for hip osteoarthritis?",
     answer:
-      "Yes. Regular walking is one of the best-evidenced treatments for hip osteoarthritis. It maintains cartilage nutrition, strengthens the glutes and quadriceps that stabilise the hip, and improves pain and function. Start with 10–15 minutes on flat ground and build up by roughly 10% each week toward the UK Chief Medical Officer target of 150 minutes of moderate activity weekly.",
+      "Exercises that strengthen the buttock and thigh muscles, such as bridges, side-lying leg lifts, clamshells, sit-to-stands and mini squats, combined with gentle stretches and regular aerobic activity like walking, cycling or swimming. NICE recommends tailored strengthening and aerobic exercise as a core treatment for osteoarthritis.",
   },
   {
-    question: "Should I exercise through hip pain?",
+    question: "How often should I do hip exercises for osteoarthritis?",
     answer:
-      "A mild ache up to about 4/10 during or after exercise that settles within 24 hours is normal and safe to continue with. Sharp, catching or groin pain that stays high overnight is a signal to reduce load — swap to shorter sets, water-based work or gentle range-of-motion — rather than stop moving altogether.",
+      "Do the strength routine 2 or 3 times a week on non-consecutive days, with gentle movement and stretches most days. Aerobic activity on other days helps build towards 150 minutes of moderate activity a week. Start small and build up over several weeks.",
   },
   {
-    question: "Is cycling safe with hip arthritis?",
+    question: "Is it normal for my hip to ache after exercise?",
     answer:
-      "Stationary or upright cycling is one of the safest options for hip OA because it loads the joint through a controlled range with almost no impact. Set the saddle high enough that your leg is nearly straight at the bottom of the pedal stroke, and keep resistance low. Ten to twenty minutes, three times a week is a good starting dose.",
+      "Mild aching up to about 4 out of 10 that settles within 24 hours is common, especially when you start, and is not a sign of harm. If pain is higher, lasts into the next day, or you are limping more, make the exercises smaller or do fewer repetitions next time.",
   },
   {
-    question: "How long until hip exercises start to help?",
+    question: "Should I avoid any exercises with hip arthritis?",
     answer:
-      "Most people notice less stiffness and easier walking within two to four weeks of a consistent programme, with pain and strength improvements building over 8–12 weeks. NICE-recommended structured exercise programmes for hip OA typically run for at least six weeks before their full effect is measured.",
+      "Avoid anything that causes sharp pain or a catching feeling. High-impact activities such as running or jumping may aggravate some people's hips, but this varies. After a hip replacement, follow your surgical team's advice on positions to avoid. A physiotherapist can tailor exercises to you.",
   },
   {
-    question: "Can exercise delay or avoid a hip replacement?",
+    question: "Is walking good for hip osteoarthritis?",
     answer:
-      "For many people, yes. Strengthening the hip abductors, glutes and quadriceps reduces pain, improves function and can delay the need for surgery — sometimes by years. If a replacement does become necessary, entering surgery with strong surrounding muscles (\"prehabilitation\") is one of the strongest predictors of a fast, successful recovery.",
+      "Yes, for most people. Walking builds general fitness and keeps the hip moving. Start with short walks on flat ground, use supportive shoes and consider a walking stick in the opposite hand if you limp. If walking is very painful, cycling or water exercise are good alternatives.",
   },
   {
-    question: "What if my hip osteoarthritis is severe?",
+    question: "Can exercise delay a hip replacement?",
     answer:
-      "Even with advanced hip OA, gentle exercise remains part of first-line treatment under NICE NG226. Focus on seated and lying strength work, water-based movement, and short frequent walks rather than long sessions. A physiotherapist can tailor a plan; in most UK areas you can self-refer to musculoskeletal physiotherapy without going via a GP.",
+      "Exercise can improve pain and function for many people, and NICE recommends it before considering surgery. It cannot reverse joint damage, and some people still need a replacement. If you do need surgery, being stronger and fitter beforehand can help your recovery.",
   },
 ];
 
 const CONTENT = `
-<h2 id="why-hip-oa-needs-exercise">Why hip OA needs a specific routine</h2>
-<p>Hip osteoarthritis makes the ball-and-socket joint stiffer and more painful, particularly on standing up, walking uphill and turning in bed. The muscles that stabilise the hip — the <strong>gluteus medius, gluteus maximus, deep hip rotators and quadriceps</strong> — quickly weaken when the joint hurts, which then loads the hip even more and speeds the decline. A targeted routine breaks that cycle by rebuilding the muscular corset around the joint.</p>
-<p>UK <strong>NICE guideline NG226 (2022)</strong> places structured exercise <em>ahead of</em> medication and injections as the first-line treatment for hip OA. A 2022 Cochrane review of land-based exercise for hip osteoarthritis (13 trials, 1,557 participants) found moderate-certainty evidence of reduced pain and improved physical function, with no evidence of joint harm. This routine translates that evidence into a plan you can start today at home, without equipment.</p>
+<h2 id="who-this-is-for">Who this routine is for</h2>
+<p>This routine is for adults with hip osteoarthritis (OA), or long-standing hip or groin pain that a GP or physiotherapist has said is likely to be OA. It suits people starting out, people on a physiotherapy waiting list, and people preparing for a hip replacement. It is general guidance, not a personal prescription. If a physiotherapist has given you exercises, do theirs first.</p>
+<p>Hip OA often shows up as pain in the groin, buttock or front of the thigh, sometimes spreading to the knee. Stiffness is common when you first get up or after sitting, and everyday tasks such as putting on socks, getting in and out of the car, or climbing stairs can become harder.</p>
 
-<h2 id="how-exercise-helps">How exercise helps a stiff, painful hip</h2>
-<p>Movement helps hip OA in four ways:</p>
+<h2 id="why-hip-oa-needs-exercise">Why exercise helps a hip with osteoarthritis</h2>
+<p>NICE guideline NG226 (2022) recommends therapeutic exercise, tailored to the person, as a core treatment for everyone with osteoarthritis, combining local muscle strengthening with general aerobic fitness. The NHS also lists regular exercise and losing weight if you are overweight among the main ways to manage OA symptoms.</p>
 <ul>
-<li><strong>Cartilage nutrition.</strong> Cartilage has no blood supply. It feeds through gentle, repeated compression — exactly what walking, cycling and squatting provide.</li>
-<li><strong>Muscular support.</strong> Stronger glutes and quads offload the joint by taking work off the cartilage and bone.</li>
-<li><strong>Range of motion.</strong> Regular movement prevents the capsule around the hip tightening, which is what causes the "stuck" feeling first thing in the morning.</li>
-<li><strong>Pain modulation.</strong> Exercise reduces the sensitivity of pain pathways over 6–12 weeks — a real physiological effect, not distraction.</li>
+<li><strong>Stronger hip muscles.</strong> The buttock muscles (gluteals) keep the pelvis level when you walk and take load off the joint. They weaken quickly when the hip hurts.</li>
+<li><strong>Better movement.</strong> Hip OA tends to reduce how far the hip bends, turns and moves backwards. Regular movement helps keep what you have.</li>
+<li><strong>Easier everyday tasks.</strong> Sit-to-stands and squats rehearse the exact movements needed to get out of chairs, cars and the bath.</li>
+<li><strong>Less pain over time.</strong> Over 6 to 12 weeks, regular exercise can make the hip less sensitive, as well as stronger.</li>
 </ul>
+<p>Built up gradually, exercise does not speed up hip damage. Our guide to <a href="/guides/can-exercise-make-osteoarthritis-worse">whether exercise can make osteoarthritis worse</a> explains why.</p>
 
-<h2 id="before-you-start">Before you start</h2>
-<p>Most people with hip OA can start this programme safely. Speak to a GP or physiotherapist first if you have: a recent fall or fracture, sudden hip swelling or fever, a new sharp catching or locking sensation, hip pain that wakes you at night, or a suspected labral tear. In most parts of the UK you can self-refer directly to musculoskeletal physiotherapy without going via your GP.</p>
-<p>Use the <strong>4/10 pain rule</strong>: mild ache up to 4/10 during or after exercise, settling within 24 hours, is safe. Anything sharper, or pain lasting longer than a day, means dial back — don't stop.</p>
+<h2 id="before-you-start">Before you start: safety check</h2>
+<p>Speak to a GP or physiotherapist before starting if you have:</p>
+<ul>
+<li>had a fall and now have hip pain, or cannot put weight on the leg</li>
+<li>had hip surgery, including a replacement, in the last few months</li>
+<li>a hip that is suddenly very painful with a high temperature or feeling unwell</li>
+<li>pain that is getting quickly worse, or night pain that does not ease when you change position</li>
+<li>heart or lung problems that limit activity</li>
+</ul>
+<p><strong>The 4/10 pain rule.</strong> Mild discomfort during or after exercise, up to about 4 out of 10, that settles back to your usual level within 24 hours, is acceptable. If pain goes higher or lasts into the next day, make the exercise smaller next time rather than stopping altogether.</p>
 
 <h2 id="warm-up">Warm-up (2–3 minutes)</h2>
-<p>Start every session by getting blood into the muscles and the joint moving through its available range.</p>
 <ul>
-<li><strong>Marching on the spot</strong> — 60 seconds, lifting knees to a comfortable height.</li>
-<li><strong>Hip circles</strong> — hold a chair, stand on one leg, circle the other leg gently in each direction. 10 each way, per side.</li>
-<li><strong>Standing hip swings</strong> — hold a wall, swing one leg forward and back with a relaxed knee. 10 each side.</li>
+<li><strong>Marching on the spot</strong> while holding a worktop: 60 seconds.</li>
+<li><strong>Gentle leg swings:</strong> hold on and swing one leg slowly forward and back, within comfort. 10 each side.</li>
+<li><strong>Hip circles:</strong> hands on hips, make small slow circles with the pelvis. 5 each way.</li>
 </ul>
 
-<h2 id="core-routine">The core routine — 8 hip exercises</h2>
-<p>Aim for 2–3 sets of 8–12 repetitions of each strength exercise, unless a different target is given. Move slowly, breathe out on the effort, and stop 1–2 reps short of failure. Rest 30–60 seconds between sets.</p>
+<h2 id="core-routine">The core routine: 8 hip exercises for osteoarthritis</h2>
+<p>For each strength exercise, aim for 2 to 3 sets of 8 to 12 repetitions, unless shown otherwise. Move slowly, breathe out as you push, and rest 30 to 60 seconds between sets. If you are new to exercise, start with one set.</p>
 
 <h3 id="ex-1">1. Side-lying hip abduction</h3>
-<p>Lie on your side, bottom leg bent for balance, top leg straight. Lift the top leg toward the ceiling to about 30° — no higher — keeping the toes pointing forward, not up. Lower with control. <em>Targets:</em> gluteus medius, the primary hip stabiliser.</p>
+<p>Lie on your less painful side with your head supported and the bottom knee bent. Keep the top leg straight and in line with your body, toes pointing forward. Lift the top leg up to about 30 cm, hold for 2 seconds, and lower slowly. 8 to 12 each side. <em>Easier:</em> do it standing, holding a worktop, lifting the leg out to the side. <em>If lying on one side hurts,</em> use the standing version.</p>
 
 <h3 id="ex-2">2. Clamshell</h3>
-<p>Lie on your side with knees bent and heels together. Keeping the heels touching, rotate the top knee open like a clamshell. Pause at the top, lower slowly. <em>Targets:</em> deep hip external rotators, which control the alignment of the knee over the foot when walking.</p>
+<p>Lie on your side with hips and knees bent and feet together. Keeping your feet touching, lift the top knee as far as is comfortable without rolling your pelvis back. Lower slowly. 10 to 15 each side. <em>Harder:</em> loop a light resistance band just above the knees.</p>
 
 <h3 id="ex-3">3. Glute bridge</h3>
-<p>Lie on your back, knees bent, feet flat, hip-width apart. Press through your heels and lift your hips until your body forms a straight line from shoulders to knees. Squeeze your glutes at the top, hold two seconds, lower with control. <em>Targets:</em> gluteus maximus and hamstrings.</p>
+<p>Lie on your back with knees bent and feet flat, hip-width apart. Squeeze your buttocks and lift your hips until your body is in a line from shoulders to knees. Hold for 3 seconds and lower slowly. 8 to 12 repetitions. <em>Easier:</em> lift only a little way. <em>Harder:</em> hold for 5 seconds, or straighten one leg while lifted.</p>
 
 <h3 id="ex-4">4. Standing hip extension</h3>
-<p>Hold a chair or worktop for balance. Standing tall, kick one leg straight backward about 15–20 cm without leaning forward. Keep the movement small and the glute working. Return with control. <em>Targets:</em> gluteus maximus, hip mobility into extension (usually the first range hip OA loses).</p>
+<p>Stand facing a worktop and hold on. Keeping your back straight and knee straight, take one leg backwards a little way, squeezing the buttock. Do not lean forward. Return slowly. 8 to 12 each leg.</p>
 
 <h3 id="ex-5">5. Sit-to-stand</h3>
-<p>From a firm chair, cross your arms and stand up without using your hands, then sit back down under control. If that's too hard, use your hands at first and progress to arms-crossed over 2–3 weeks. Aim for 2 sets of 10. <em>Targets:</em> quadriceps and glutes together — the most functional strength exercise for hip and knee OA.</p>
+<p>Sit near the front of a firm chair with feet slightly behind your knees. Lean forward, push through both feet evenly and stand up, then sit down slowly with control. Use the armrests at first. 8 to 12 repetitions. <em>Easier:</em> a higher chair or cushion. <em>Harder:</em> arms crossed or a slow 3-second lowering.</p>
 
 <h3 id="ex-6">6. Mini squat</h3>
-<p>Stand with feet hip-width apart, holding a worktop lightly for balance. Bend your knees and hips to lower about 15–20 cm, keeping your weight in your heels. Stand up. <em>Targets:</em> whole lower-body chain. Progress by holding the bottom position for 3 seconds.</p>
+<p>Stand holding a worktop, feet hip-width apart. Push your bottom back and bend your knees slightly, as if starting to sit, keeping your chest up. Go only as far as is comfortable and stand up. 8 to 12 repetitions.</p>
 
 <h3 id="ex-7">7. Standing hip flexion (marching)</h3>
-<p>Stand tall, hold a chair for balance. Lift one knee to a comfortable height — hip level if you can — pause for one second, lower slowly. Alternate legs. <em>Targets:</em> hip flexors and balance.</p>
+<p>Stand holding a worktop. Lift one knee up in front of you towards hip height, or as high as is comfortable, keeping your back upright. Lower slowly. Alternate legs, 8 to 12 each side. <em>Easier:</em> seated marching.</p>
 
-<h3 id="ex-8">8. Cool-down stretches — hamstring &amp; hip flexor</h3>
-<p>Finish with two gentle 30-second holds per side. Hamstring: sit on the edge of a chair, straighten one leg with the heel on the floor, hinge forward until you feel a stretch behind the thigh. Hip flexor: kneel on a cushion with one foot in front, tuck the pelvis under and gently press the hips forward until you feel a stretch at the front of the back hip. Never stretch into pain — a gentle pull is enough.</p>
+<h3 id="ex-8">8. Cool-down stretches: hamstring and hip flexor</h3>
+<p><strong>Hamstring:</strong> sit near the front of a chair with one leg straight, heel on the floor. Keeping your back straight, lean forward from the hips until you feel a stretch at the back of the thigh. Hold 20 to 30 seconds, twice each side.</p>
+<p><strong>Hip flexor:</strong> stand side-on to a worktop. Step one foot back, keep your back upright and gently tuck your bottom under until you feel a stretch at the front of the back hip. Hold 20 to 30 seconds, twice each side.</p>
+
+<h2 id="three-levels">Choose your starting level</h2>
+<table>
+<thead><tr><th>Level</th><th>Who it suits</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>Gentle</td><td>Very painful hip, new to exercise, after a flare</td><td>Exercises 3 (small), 5 (with hands), 7 (seated) and 8. One set each, most days.</td></tr>
+<tr><td>Standard</td><td>Can walk for 10 minutes and manage stairs</td><td>All 8 exercises, 2 sets, 3 days a week, plus walking, cycling or swimming on other days.</td></tr>
+<tr><td>Progressing</td><td>Standard level feels easy for 2 weeks</td><td>3 sets, harder versions, resistance bands or light weights, longer aerobic sessions.</td></tr>
+</tbody>
+</table>
 
 <h2 id="weekly-plan">A sensible weekly plan</h2>
 <ul>
-<li><strong>Strength routine</strong> — 2–3 sessions per week on non-consecutive days.</li>
-<li><strong>Low-impact aerobic work</strong> — walking, cycling, swimming or water aerobics on the other days, working toward 150 minutes of moderate activity per week.</li>
-<li><strong>Mobility &amp; balance</strong> — a weekly tai chi or yoga class if possible; both have strong evidence for hip OA function and fall prevention.</li>
+<li><strong>Strength routine:</strong> 2 to 3 sessions a week on non-consecutive days, 15 to 25 minutes.</li>
+<li><strong>Aerobic activity:</strong> walking, cycling (static or outdoor), swimming or water exercise on other days, building towards the UK Chief Medical Officers' target of 150 minutes of moderate activity a week.</li>
+<li><strong>Daily movement:</strong> a few minutes of marching, hip circles and stretches, and breaking up long spells of sitting.</li>
+<li><strong>Balance:</strong> tai chi or simple balance exercises once or twice a week, which also help prevent falls.</li>
 </ul>
-<p>Consistency matters more than intensity. Three short 15-minute sessions a week done for six months beat a heroic hour done twice and abandoned.</p>
+<p>Water exercise suits many people with hip OA because the water supports your weight. See our guide to <a href="/blog/swimming-exercises-hip-osteoarthritis">swimming exercises for hip osteoarthritis</a>.</p>
 
-<h2 id="flare-ups-and-surgery">Flare-ups, prehab and post-hip-replacement</h2>
-<p><strong>During a flare</strong> (24–48 hours of hot, sharper pain) drop to gentle range-of-motion work only: hip circles, seated marches, glute squeezes, short water walks. Return to the full routine within a week — prolonged rest deconditions the joint and prolongs the flare.</p>
-<p><strong>If a hip replacement is on the horizon</strong>, this routine doubles as prehabilitation. Entering surgery with strong glutes and quads is one of the strongest predictors of a fast recovery. Continue exercises like the clamshell, glute bridge and sit-to-stand right up to the week before surgery unless your surgical team advises otherwise.</p>
-<p><strong>After a hip replacement</strong>, do not restart this routine unsupervised. Your surgical team will provide a phased protocol, typically starting with hip abduction and gentle glute work in week one and progressing through 12 weeks. Return to this general programme once your surgeon or physiotherapist has signed you off — usually around week 10–12.</p>
+<h2 id="progression">How to progress</h2>
+<p>Move up when you can complete the top of the rep range with good form, and your hip settles within 24 hours, for three sessions in a row. Change one thing at a time: add repetitions, then a set, then a harder version, then light resistance. If you have a flare after progressing, drop back for a week, then try again.</p>
+<table>
+<thead><tr><th>Exercise</th><th>Starting version</th><th>Next step</th><th>Later</th></tr></thead>
+<tbody>
+<tr><td>Abduction</td><td>Standing, holding on</td><td>Side-lying</td><td>Band around ankles</td></tr>
+<tr><td>Bridge</td><td>Small lift</td><td>Full lift, 3-second hold</td><td>Single leg</td></tr>
+<tr><td>Sit-to-stand</td><td>High chair, hands</td><td>Standard chair, no hands</td><td>Slow lowering, holding a weight</td></tr>
+<tr><td>Squat</td><td>Quarter range, holding on</td><td>Deeper, light hold</td><td>Holding a light weight</td></tr>
+</tbody>
+</table>
 
-<h2 id="progression-and-red-flags">Progression and red flags</h2>
-<p>You are ready to progress an exercise when you can complete the top of the rep range with clean technique and a manageable pain response over three consecutive sessions. Add reps first, then sets, then resistance (a small ankle weight or a resistance band). Progress by no more than 10% per week.</p>
-<p>Stop and seek medical advice if you experience: sudden severe pain, a hip that gives way or locks, calf swelling or warmth (possible clot), fever with hip pain, or pain that does not settle after a week of reduced activity.</p>
+<h2 id="everyday-tips">Everyday tips for a painful hip</h2>
+<ul>
+<li><strong>Stairs:</strong> lead with the less painful leg going up and the painful leg going down, holding the rail.</li>
+<li><strong>Walking stick:</strong> held in the hand opposite the painful hip, a stick can reduce load on the joint. Ask a physiotherapist to check the height.</li>
+<li><strong>Chairs:</strong> a firm, higher chair is easier to get out of. Cushions or chair raisers can help.</li>
+<li><strong>Socks and shoes:</strong> long-handled shoe horns and sock aids reduce bending. An occupational therapist can advise on equipment.</li>
+<li><strong>Sleep:</strong> a pillow between the knees when lying on your side can ease night-time hip pain.</li>
+<li><strong>Weight:</strong> if you are overweight, losing some weight can reduce the load through your hips.</li>
+</ul>
+
+<h2 id="common-mistakes">Common mistakes to avoid</h2>
+<ul>
+<li><strong>Doing too much on a good day.</strong> A big burst of activity often leads to a flare. Keep to your plan and build up steadily.</li>
+<li><strong>Letting the pelvis tip or twist.</strong> In side-lying lifts and clamshells, keep your hips stacked and move only the leg. Fewer good repetitions beat many sloppy ones.</li>
+<li><strong>Holding your breath.</strong> Breathe out as you lift or push.</li>
+<li><strong>Stopping when it gets easier.</strong> Strength fades within weeks if you stop. Keep at least two sessions a week going long term.</li>
+<li><strong>Only stretching.</strong> Stretches help stiffness, but strengthening is what builds support around the hip.</li>
+</ul>
+
+<h2 id="flare-ups-and-surgery">Flare-ups, prehab and hip replacement</h2>
+<p><strong>During a flare,</strong> drop to the gentle level: small bridges, seated marching, gentle stretches and short, flat walks. Warmth often helps a stiff hip. Build back up over a week or two rather than resting completely, as long rest makes muscles weaker.</p>
+<p><strong>If a hip replacement is being considered,</strong> continue this routine. Stronger muscles and better fitness before surgery can help you recover.</p>
+<p><strong>After a hip replacement,</strong> follow your surgical team's exercises and any advice about positions to avoid. Only return to a general routine like this when your physiotherapist or surgeon says it is suitable.</p>
+
+<h2 id="group-programmes">NHS physiotherapy and group programmes</h2>
+<p>In many areas you can refer yourself to NHS physiotherapy without seeing a GP first; check your GP practice or local NHS website. Some areas run group exercise and education programmes for knee and hip pain, such as ESCAPE-pain. For more options, including water-based and seated exercise, see our <a href="/exercises">exercise hub</a>. Knee pain often comes alongside hip OA; our <a href="/guides/knee-exercises-for-osteoarthritis">knee exercises for osteoarthritis</a> can be combined with this routine.</p>
+
+<h2 id="progression-and-red-flags">Stop rules and when to get medical help</h2>
+<p><strong>Stop the session if you get:</strong> sharp or stabbing pain, a feeling of the hip catching or giving way, pain that keeps increasing as you go, or pins and needles or numbness down the leg.</p>
+<ul>
+<li><strong>Call 999</strong> for chest pain, severe breathlessness or feeling faint during exercise that does not settle with rest.</li>
+<li><strong>Go to A&amp;E</strong> if you fall and cannot put weight on your leg, or the leg looks shorter or turned outwards.</li>
+<li><strong>Call NHS 111 urgently</strong> if your hip becomes suddenly very painful with a high temperature, or a hip replacement becomes hot, swollen and painful.</li>
+<li><strong>See your GP or physiotherapist</strong> if pain is steadily getting worse, night pain is disturbing your sleep most nights, you are limping more, or you are not improving after 6 to 12 weeks of regular exercise.</li>
+</ul>
 
 <h2 id="next-steps">Your next step</h2>
-<p>Pick two of the eight exercises above and do them today — even one set is enough to start. Add the rest over the coming fortnight. Track how the hip feels the morning after each session. Within three to six weeks you should notice easier walking, less morning stiffness and more confidence on stairs.</p>
+<p>Choose your level and try three of the exercises today. Add the others over the next two weeks, and note how your hip feels the next morning. Most people need 6 to 12 weeks of regular practice to notice real change, so be patient and keep going.</p>
 
-<h2 id="sources">Sources &amp; disclaimer</h2>
-<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s, 2022), the 2022 Cochrane review of land-based exercise for hip osteoarthritis (Bartholdy et al.), UK Chief Medical Officer Physical Activity Guidelines (2019) and Chartered Society of Physiotherapy hip OA guidance. For educational use only and not a substitute for personalised advice from a physiotherapist or GP, particularly in severe or unstable joint disease.</p>
+<h2 id="sources">Sources and disclaimer</h2>
+<p>Based on NICE guideline NG226 (Osteoarthritis in over 16s, 2022), NHS guidance on osteoarthritis and hip pain, the UK Chief Medical Officers' Physical Activity Guidelines (2019) and Arthritis UK (formerly Versus Arthritis) exercise information. Free from Living With Arthritis (registered charity 1218461). Educational information, not a diagnosis or personal treatment plan. Pending clinical review.</p>
 `;
 
 export default function HipExercisesForOsteoarthritis() {
   const html = addHeadingIds(CONTENT);
-  const title = "Hip exercises for osteoarthritis: 8-move UK physio-aligned routine";
+  const title = "Hip Osteoarthritis Exercises: 8-Move Home Routine (UK)";
   const description =
-    "A safe, NICE-aligned home routine of eight hip exercises for osteoarthritis — with warm-up, weekly plan, flare-up modifications and progression rules.";
+    "A safe, NICE-aligned routine of 8 hip osteoarthritis exercises: levels, weekly plan, progression table, flare-up changes, stop rules and when to see a GP.";
   const url = "https://livingwitharthritis.org.uk/guides/hip-exercises-for-osteoarthritis";
 
   return (
@@ -165,7 +223,6 @@ export default function HipExercisesForOsteoarthritis() {
           { name: "Hip exercises for osteoarthritis" },
         ]}
         faqs={FAQS}
-        lastReviewed="2026-09-15"
         idPrefix="hip-oa-exercises"
       />
       <Header />
@@ -178,7 +235,7 @@ export default function HipExercisesForOsteoarthritis() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
           <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
-          <EducationalDisclaimerBox lastReviewed="2026-09-15" />
+          <EducationalDisclaimerBox reviewStatus="pending" />
           <TopicClusterNav path="/guides/hip-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Hip osteoarthritis responds to targeted strength and mobility work.

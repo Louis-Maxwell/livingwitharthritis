@@ -46,7 +46,7 @@ const SUPPLEMENTS = [
   {
     to: "/supplements/collagen",
     label: "Collagen peptides",
-    desc: "Hydrolysed peptides (10 g/day) or undenatured type II (40 mg/day) — emerging evidence for knee pain, stiffness and joint comfort.",
+    desc: "Hydrolysed peptides and undenatured type II collagen — mixed, limited evidence for osteoarthritis symptoms, safety and medicine checks.",
     available: true,
   },
   {
