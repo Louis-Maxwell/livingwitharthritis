@@ -98,6 +98,7 @@ const PENDING_UNIQUE_BATCH_6 = [
   "best-walking-shoes-arthritis-uk",
   "best-mattress-for-arthritis-uk",
   "ask-the-physio-arthritis",
+  "arthritis-roadmaps-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
