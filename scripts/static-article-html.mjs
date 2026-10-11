@@ -33,11 +33,11 @@ const PURIFY_CONFIG = {
 
 export function stripToText(value) {
   const raw = String(value ?? "").replace(/\\n/g, " ");
-  const dom = new JSDOM(`<body>${raw}</body>`);
-  for (const node of dom.window.document.querySelectorAll("script, style")) {
+  const fragment = JSDOM.fragment(raw);
+  for (const node of fragment.querySelectorAll("script, style")) {
     node.remove();
   }
-  return (dom.window.document.body.textContent || "")
+  return (fragment.textContent || "")
     .replace(/[#*_>`\[\]]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
