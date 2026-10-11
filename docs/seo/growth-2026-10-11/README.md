@@ -18,6 +18,8 @@ Prepared 11 October 2026 for https://livingwitharthritis.org.uk.
 
 Changes in the codebase add condition-specific hub, symptom, treatment, exercise and diet links to the hydrated reading journeys and initial article HTML. The topic resolver now checks exact matches before parent paths. Reading-journey links are filtered against published blog and FAQ catalogues. These changes add discovery pathways without introducing keyword lists into visible medical copy or metadata.
 
+Initial HTML now also includes Article nodes with source-derived publication dates, citations and author identity for all 568 published blogs. Pending clinical review never becomes a completed review claim. Existing full-article HTML is refreshed without duplicating Article nodes, and JSON-LD is escaped to prevent closing-script injection.
+
 The image sitemap generator runs after cover enrichment in the existing build pipeline. It cannot advertise pages without image entries or duplicate the sitemap registration. A video sitemap is not emitted: the checkout has no playable MP4/WebM assets with complete landing-page metadata. Missing demonstration files must not be advertised as real videos.
 
 Existing code already provides robots.txt, llms.txt, humans.txt, IndexNow, canonical generation, article/medical/breadcrumb/organisation structured data, and Open Graph/X metadata. Pending PR #156 separately improves IndexNow and discovery; it has not been silently merged or duplicated here.
@@ -123,9 +125,9 @@ These source checks support the strategy and evidence requirements. They do not 
 
 - TypeScript application and build-configuration checks passed.
 - 661 existing/new unit tests across 105 files passed, plus 10 dependency-security tests.
-- Five Node technical SEO/media/link tests passed.
+- Six Node technical SEO/media/link tests passed.
 - Production build and HTML postprocessing passed.
-- All 1,048 source sitemap pages had built HTML, matching canonical tags and no noindex conflict; 4,675 JSON-LD blocks parsed without errors. This is static parse validation, not vocabulary or rich-result eligibility certification.
+- All 1,048 source sitemap pages had built HTML, matching canonical tags and no noindex conflict; 5,343 JSON-LD blocks parsed without errors. This is static parse validation, not vocabulary or rich-result eligibility certification.
 - Twenty article pages contained the newly added condition pathways in initial HTML.
 - Built metadata audit found zero generic title/description/social-head regressions and zero prohibited noindex pages.
 - Planning datasets passed count, uniqueness and canonical-target checks.

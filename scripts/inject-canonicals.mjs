@@ -28,6 +28,7 @@
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
+import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
@@ -371,7 +372,7 @@ export function patchShareMeta(html, d) {
       `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
     );
   }
-  return out;
+  return d.article?.slug ? ensureArticleJsonLd(out, `${BASE}/blog/${d.article.slug}`, d) : out;
 }
 
 // JSON.stringify drops undefined object properties automatically, but we
@@ -384,6 +385,8 @@ function compact(obj) {
 
 function buildJsonLd(route, url, d) {
   const graphs = [];
+  const article = articleJsonLd(url, d);
+  if (article) graphs.push(article);
 
   // 1) MedicalWebPage — the page entity itself, tied to the sitewide
   //    Organization/WebSite nodes already present in the static head.
@@ -397,6 +400,7 @@ function buildJsonLd(route, url, d) {
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
+    ...(article ? { mainEntity: { "@id": article["@id"] }, author: article.author } : {}),
     about: d.about ? { "@type": "MedicalCondition", name: d.about } : undefined,
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
@@ -441,7 +445,7 @@ function buildJsonLd(route, url, d) {
   return graphs
     .map(
       (g) =>
-        `  <script type="application/ld+json">${JSON.stringify(compact(g))}</script>`,
+        `  <script type="application/ld+json">${JSON.stringify(compact(g)).replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n");
 }
