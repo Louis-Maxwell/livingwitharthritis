@@ -117,10 +117,11 @@ export function hashStr(s: string): number {
 }
 
 export function toImg(filename: string): ArticleImage {
+  const isPanel = filename.startsWith("lwa-panel-");
   return {
     src: `/openverse/${filename}`,
-    alt: humanizeAlt(filename),
-    credit: "Openly licensed image via Openverse",
+    alt: isPanel ? "" : humanizeAlt(filename),
+    credit: isPanel ? "" : "Openly licensed image via Openverse",
   };
 }
 
