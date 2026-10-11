@@ -150,7 +150,7 @@ jobs:
         run: npm run test:dependency-security
 
       - name: Run npm audit
-        run: npm audit --audit-level=moderate
+        run: npm audit --audit-level=low
 
   build:
     name: Build Check
