@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -377,6 +377,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/stories</loc>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/expert-articles</loc>
@@ -3428,9 +3429,9 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gadgets-aids-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0341-060415couples.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-gadgets-aids-arthritis-uk.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3533,7 +3534,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0351-walkers.webp</image:loc>
     </image:image>
@@ -3673,7 +3674,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/walking-aids-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0421-group-of-elderly-men-one-has-a-cane-nino-f-sc.webp</image:loc>
     </image:image>
@@ -4019,6 +4020,48 @@
     <lastmod>2026-09-05</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0210-ballet-and-macs-at-pleasantview-care-facility.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-flare-early-warning-signs</loc>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-arthritis-flare-early-warning-signs.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-roadmaps-uk</loc>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-arthritis-roadmaps-uk.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-symptoms-what-to-do-next</loc>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-arthritis-symptoms-what-to-do-next.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/ask-the-physio-arthritis</loc>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-ask-the-physio-arthritis.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/best-mattress-for-arthritis-uk</loc>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-best-mattress-for-arthritis-uk.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/daily-arthritis-planner-printable</loc>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-daily-arthritis-planner-printable.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -4996,19 +5039,19 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/lifestyle</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/treatment</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/health</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/supplements</loc>

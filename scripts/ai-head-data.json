@@ -6724,5 +6724,53 @@
         "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/"
       }
     ]
+  },
+  "/stories": {
+    "title": "Share Your Arthritis Story | Living With Arthritis",
+    "description": "Share your experience of living with arthritis in the UK. How to send your story, how consent works, our editorial and safeguarding rules, and what to expect.",
+    "question": "How can I share my arthritis story with Living With Arthritis?",
+    "answer": "Email info@livingwitharthritis.org.uk with the subject 'Share my story', or use the contact form. We only publish an account you send us, after you have seen and approved the final version. You can stay anonymous and ask us to remove it at any time. No stories have been published yet: stories coming soon.",
+    "breadcrumb": "Share your story",
+    "faqs": [
+      {
+        "q": "Do you publish stories from real patients?",
+        "a": "Only real accounts sent to us by the person themselves, edited with them and approved by them in writing before publication. We have not published any yet. We never invent stories, names or quotes."
+      },
+      {
+        "q": "Can I share my story anonymously?",
+        "a": "Yes. You can choose your full name, first name only, initials or no name at all. We will remove details that could identify you if you ask."
+      },
+      {
+        "q": "Can I change my mind after my story is published?",
+        "a": "Yes. Email us and we will take it down or change it as soon as we can. We cannot control copies made by others before removal, which is one reason to think carefully about identifying details."
+      },
+      {
+        "q": "Will you pay me for my story?",
+        "a": "No. We do not pay for stories and we do not accept payment to publish them."
+      },
+      {
+        "q": "Can I mention the treatment or products that helped me?",
+        "a": "You can describe your treatment. We will not publish recommendations of specific products, private practitioners or unproven treatments, and we may add a note pointing to NHS or NICE information."
+      },
+      {
+        "q": "Can young people share their story?",
+        "a": "Yes, with the written agreement of a parent or guardian if they are under 18. We take extra care with identifying details for under-18s."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Living With Arthritis: Safeguarding",
+        "url": "https://livingwitharthritis.org.uk/safeguarding"
+      },
+      {
+        "name": "Living With Arthritis: Editorial standards",
+        "url": "https://livingwitharthritis.org.uk/editorial-standards"
+      },
+      {
+        "name": "Samaritans",
+        "url": "https://www.samaritans.org/"
+      }
+    ],
+    "updatedAt": "2026-10-11"
   }
 }

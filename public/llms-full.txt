@@ -1534,6 +1534,24 @@ Last updated: 2026-07-01
 Q: How do I search Living With Arthritis?
 A: Use the site search page to filter blogs and hub pages by keyword, topic and approximate word count. Results update in your browser without needing an account.
 
+## Share Your Arthritis Story | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/stories
+Last updated: 2026-10-11
+Q: How can I share my arthritis story with Living With Arthritis?
+A: Email info@livingwitharthritis.org.uk with the subject 'Share my story', or use the contact form. We only publish an account you send us, after you have seen and approved the final version. You can stay anonymous and ask us to remove it at any time. No stories have been published yet: stories coming soon.
+Q: Do you publish stories from real patients?
+A: Only real accounts sent to us by the person themselves, edited with them and approved by them in writing before publication. We have not published any yet. We never invent stories, names or quotes.
+Q: Can I share my story anonymously?
+A: Yes. You can choose your full name, first name only, initials or no name at all. We will remove details that could identify you if you ask.
+Q: Can I change my mind after my story is published?
+A: Yes. Email us and we will take it down or change it as soon as we can. We cannot control copies made by others before removal, which is one reason to think carefully about identifying details.
+Q: Will you pay me for my story?
+A: No. We do not pay for stories and we do not accept payment to publish them.
+Q: Can I mention the treatment or products that helped me?
+A: You can describe your treatment. We will not publish recommendations of specific products, private practitioners or unproven treatments, and we may add a note pointing to NHS or NICE information.
+Q: Can young people share their story?
+A: Yes, with the written agreement of a parent or guardian if they are under 18. We take extra care with identifying details for under-18s.
+
 ## Is Turmeric Good for Arthritis? UK Curcumin Guide | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/supplements/turmeric
 Last updated: 2026-09-20
@@ -1768,6 +1786,12 @@ Last updated: 2026-10-02
 Q: Managing Arthritis Fatigue – A UK Guide
 A: Arthritis fatigue is extreme tiredness that is not fully fixed by sleep. Inflammation, pain, poor sleep, mood, medicines and deconditioning can all contribute. Pace activity, protect sleep, keep gentle movement, and see your GP if fatigue is new, severe or comes with red-flag symptoms.
 
+## Spot a Flare Coming: Early Warning Signs, Triggers and a Printable Tracker
+URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-early-warning-signs
+Last updated: 2026-10-11
+Q: Spot a Flare Coming: Early Warning Signs, Triggers and a Printable Tracker
+A: No tool can predict a flare, but many people notice early signs such as heavier fatigue, longer morning stiffness, warmth in a joint or poorer sleep. Common triggers include overdoing it, stress, illness, missed medicines and, for gout, alcohol, large meals and dehydration. Track symptoms for at least four weeks to find your own pattern and start your flare plan early.
+
 ## Arthritis Flare-Ups — How to Recognise, Manage, and Recover
 URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-management
 Last updated: 2026-09-05
@@ -1846,6 +1870,12 @@ Last updated: 2026-09-05
 Q: Arthritis and Relationships: Honest Conversations That Help
 A: Arthritis can significantly impact relationships, with 67% of individuals feeling it negatively affects their closest bonds. Open communication with partners about unpredictable energy and pain, specific needs, and emotional impact is crucial. Maintaining intimacy involves planning moments during lower pain, exploring comfortable positions, and focusing on emotional closeness. Professional support from organisations like Relate or Arthritis Action can also help strengthen relationships.
 
+## Personalised Arthritis Roadmaps: Step-by-Step Guides for Your Situation
+URL: https://livingwitharthritis.org.uk/blog/arthritis-roadmaps-uk
+Last updated: 2026-10-11
+Q: Personalised Arthritis Roadmaps: Step-by-Step Guides for Your Situation
+A: Choose the roadmap closest to your situation. Newly diagnosed: understand the condition, start treatment and exercise, learn to pace and plan for flares. Working: know your rights, ask for adjustments and check Access to Work. Carers: get equipment, a carer's assessment and breaks. Retired: keep moving, prevent falls, make home easier and check Attendance Allowance.
+
 ## Arthritis Support Groups Near Me Glasgow
 URL: https://livingwitharthritis.org.uk/blog/arthritis-support-groups-glasgow
 Last updated: 2026-09-05
@@ -1870,11 +1900,23 @@ Last updated: 2026-09-05
 Q: Arthritis Support Groups Near Me Wales
 A: Arthritis support groups Wales: search arthritis-uk.org by postcode, call 0800 5200 520, ask GP for NHS community connector referral. Welsh-language materials available from Arthritis UK (formerly Versus Arthritis) on request. NRAS Wales: 0800 298 7650.
 
+## Arthritis Symptoms: What Could It Be and What to Do Next (UK)
+URL: https://livingwitharthritis.org.uk/blog/arthritis-symptoms-what-to-do-next
+Last updated: 2026-10-11
+Q: Arthritis Symptoms: What Could It Be and What to Do Next (UK)
+A: Check red flags first. Call 999 for severe pain after injury, a joint out of place, or back pain with numbness in both legs or bladder or bowel changes. Get same-day help from your GP or NHS 111 for a hot, swollen joint or joint pain with fever. See a GP for swelling that does not settle, stiffness over 30 minutes after waking, or pain not improving after 2 weeks.
+
 ## Arthritis Treatment — Your Complete Guide to Managing Joint Pain
 URL: https://livingwitharthritis.org.uk/blog/arthritis-treatment-hub
 Last updated: 2026-09-05
 Q: Arthritis Treatment — Your Complete Guide to Managing Joint Pain
 A: Arthritis treatment involves a combination of approaches to manage symptoms. Key options include exercise and movement (recommended as a first-line treatment), weight management, physiotherapy, occupational therapy, and various medications for pain and inflammation. Surgery may be considered for severe cases when other treatments are insufficient. Complementary therapies can also provide additional relief. Always discuss treatment choices with your GP.
+
+## Ask the Physio: Your Arthritis Exercise and Physiotherapy Questions
+URL: https://livingwitharthritis.org.uk/blog/ask-the-physio-arthritis
+Last updated: 2026-10-11
+Q: Ask the Physio: Your Arthritis Exercise and Physiotherapy Questions
+A: Email info@livingwitharthritis.org.uk with the subject Ask the Physio, or use the contact form. Keep your question general and do not send medical records. Answers will come from an HCPC-registered physiotherapist once appointed. Until then, sample answers here are editorial answers based on NHS, NICE and CSP guidance, not personal advice.
 
 ## Assistive Devices for Arthritis – UK Buyer's Guide
 URL: https://livingwitharthritis.org.uk/blog/assistive-devices-arthritis-uk
@@ -1954,6 +1996,12 @@ Last updated: 2026-09-05
 Q: The Best Foods to Eat for Arthritis: Your Anti-Inflammatory Diet
 A: For arthritis management, aim for an anti-inflammatory diet rich in oily fish, extra-virgin olive oil, leafy green vegetables, berries, walnuts, and alliums like garlic. Oily fish like salmon and mackerel provide omega-3s, while EVOO contains anti-inflammatory oleocanthal. These foods can help reduce inflammation and improve joint health.
 
+## Best Mattress for Arthritis? An Honest UK Buying Guide
+URL: https://livingwitharthritis.org.uk/blog/best-mattress-for-arthritis-uk
+Last updated: 2026-10-11
+Q: Best Mattress for Arthritis? An Honest UK Buying Guide
+A: There is no good evidence for a single best mattress for arthritis. Studies in low back pain found medium-firm mattresses did better than firm ones, but comfort matters most. Choose a mattress that supports your spine, relieves pressure on painful joints, is easy to turn over on and get up from, and test it for at least 10 to 15 minutes before buying.
+
 ## Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)
 URL: https://livingwitharthritis.org.uk/blog/best-plantar-fasciitis-shoes-women-uk
 Last updated: 2026-09-05
@@ -1984,11 +2032,11 @@ Last updated: 2026-09-05
 Q: Best Supplements for Joint Pain: What Actually Works
 A: Best supplements for joint pain with good evidence: omega-3 fish oil (2.7g EPA+DHA daily for RA), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Always tell your GP what you are taking.
 
-## Best Walking Shoes for Arthritis in the UK (2026 Guide)
+## Best Shoes for Arthritis: How to Choose (UK Buying Guide)
 URL: https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk
-Last updated: 2026-09-20
-Q: Best Walking Shoes for Arthritis in the UK (2026 Guide)
-A: For arthritis, choose walking shoes with a cushioned midsole, supportive midfoot, wide toe box and easy fastenings. A removable insole helps with orthotics. Get measured late in the day and ask about NHS podiatry if foot pain or deformity limits walking.
+Last updated: 2026-10-11
+Q: Best Shoes for Arthritis: How to Choose (UK Buying Guide)
+A: Choose shoes that fit well and have a roomy toe box, a low broad heel, a cushioned grippy sole, a firm heel counter, a removable insole and fastenings you can manage. Get measured later in the day and try shoes on. If you have inflammatory arthritis with foot problems or your feet have changed shape, ask about a podiatrist.
 
 ## Big-toe osteoarthritis and frailty: shoes, push-off and balance (UK)
 URL: https://livingwitharthritis.org.uk/blog/big-toe-osteoarthritis-frailty-shoes-balance-uk
@@ -2289,6 +2337,12 @@ URL: https://livingwitharthritis.org.uk/blog/cycling-with-arthritis
 Last updated: 2026-09-05
 Q: Cycling with Arthritis: A Low-Impact Way to Keep Moving
 A: Cycling is ideal for arthritis as it's low-impact, supporting your body weight and reducing joint loading. The circular pedalling motion lubricates cartilage and strengthens leg muscles supporting knees and hips. Stationary, e-bikes, and adapted cycles offer options for all abilities, with correct bike setup, including saddle and handlebar height, crucial for comfort and joint protection.
+
+## Daily Arthritis Planner: A Free Printable Plan for Pacing Your Day
+URL: https://livingwitharthritis.org.uk/blog/daily-arthritis-planner-printable
+Last updated: 2026-10-11
+Q: Daily Arthritis Planner: A Free Printable Plan for Pacing Your Day
+A: Plan your day with the 3 Ps: pace, plan and prioritise. Put the most important task at your best time of day, mix high and low energy jobs, build in at least two short rests, and mark medicines, movement and appointments. Print the daily planner and weekly overview on this page, and have a simpler flare-day version ready.
 
 ## Dating With Arthritis: When and How to Tell a Partner
 URL: https://livingwitharthritis.org.uk/blog/dating-with-arthritis-confidence
@@ -2740,11 +2794,11 @@ Last updated: 2026-09-05
 Q: Gabapentinoids, unsteadiness and arthritis in later life (UK)
 A: Keep expectations kind: pain in several joints plus frailty is a reason to simplify the day, not to stop moving altogether. This page explains dizziness from nerve-pain tablets in frail adults if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
 
-## Best Gadgets and Daily Living Aids for Arthritis in the UK
+## How to Choose Arthritis-Friendly Products: Criteria, Red Flags and VAT Relief
 URL: https://livingwitharthritis.org.uk/blog/gadgets-aids-arthritis-uk
-Last updated: 2026-09-05
-Q: Best Gadgets and Daily Living Aids for Arthritis in the UK
-A: Many gadgets and daily living aids can help people with arthritis manage tasks and reduce joint strain. Examples include ergonomic jar openers, specially designed cutlery, and kettle tippers for the kitchen. Personal care aids like button hooks and long-handled shoe horns assist with dressing. Technology such as ergonomic keyboards, voice assistants, and styluses can also make daily life easier.
+Last updated: 2026-10-11
+Q: How to Choose Arthritis-Friendly Products: Criteria, Red Flags and VAT Relief
+A: Start with the task you find hard, then look for the simplest solution. Check first for free help: a council needs assessment can provide equipment, and an occupational therapist can advise. Look for thick, light, easy-grip designs that reduce force and reach. Be wary of cure claims and pressure selling. If you are disabled, you may not pay VAT on qualifying products.
 
 ## Raised beds and perch seating for frail gardeners with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/garden-raised-beds-arthritis-frailty-uk
@@ -4564,11 +4618,11 @@ Last updated: 2026-09-05
 Q: Walking 30 Minutes a Day While on DMARDs: A Practical Plan
 A: Walking daily with arthritis is generally safe and recommended, especially when gentle and progressive. Regular, moderate intensity exercise, including walking, improves joint function, reduces pain, and boosts overall quality of life. Tailored activity, alongside medication, helps keep muscles strong and supports heart health. Listen to your body and adjust if experiencing pain; consistency is more important than intensity.
 
-## Walking Aids and Gadgets for Arthritis: A Complete UK Guide
+## Choosing Mobility Aids for Arthritis: Sticks, Rollators, Wheelchairs and Scooters (UK)
 URL: https://livingwitharthritis.org.uk/blog/walking-aids-arthritis-uk
-Last updated: 2026-09-05
-Q: Walking Aids and Gadgets for Arthritis: A Complete UK Guide
-A: Walking sticks reduce load on an affected hip or knee by up to 25%, while Nordic walking poles, used in pairs, can reduce lower limb joint loading by up to 30%. Rollators, available through NHS physiotherapy referral, offer more support with a seat. Wheelchairs and scooters assist with longer distances. Many aids can be provided free via an NHS occupational therapy referral.
+Last updated: 2026-10-11
+Q: Choosing Mobility Aids for Arthritis: Sticks, Rollators, Wheelchairs and Scooters (UK)
+A: Get assessed first by a physiotherapist or occupational therapist so you get the right aid at the right height. The NHS can lend some sticks and frames, and wheelchairs come through your local wheelchair service after an assessment. Mobility scooters are not generally available on the NHS. Class 2 scooters go up to 4mph on pavements; class 3 go up to 8mph, can use roads and must be registered with DVLA.
 
 ## When walking sport is too much: frail arthritis alternatives (UK)
 URL: https://livingwitharthritis.org.uk/blog/walking-sport-too-much-frail-arthritis-uk
