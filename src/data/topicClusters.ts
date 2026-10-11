@@ -1,5 +1,7 @@
+import conditionTopicClusters from "./conditionTopicClusters.json";
+
 /**
- * Eight SEO topic clusters from docs/SEO-90-DAY-VISIBILITY-PLAN.md.
+ * Core SEO topic clusters from docs/SEO-90-DAY-VISIBILITY-PLAN.md.
  * Pillars and supporting routes are limited to paths that exist in App.tsx.
  * Do not invent doorway pages or unverified claims here.
  */
@@ -12,7 +14,11 @@ export type TopicClusterId =
   | "symptoms"
   | "treatments"
   | "flare-ups"
-  | "pip";
+  | "pip"
+  | "rheumatoid-arthritis"
+  | "psoriatic-arthritis"
+  | "ankylosing-spondylitis"
+  | "fibromyalgia";
 
 export interface TopicCluster {
   id: TopicClusterId;
@@ -30,6 +36,7 @@ export interface TopicCluster {
 }
 
 export const TOPIC_CLUSTERS: TopicCluster[] = [
+  ...(conditionTopicClusters as TopicCluster[]),
   {
     id: "pain",
     label: "Arthritis pain",
@@ -373,7 +380,12 @@ export function getClusterForPath(pathname: string): TopicCluster | null {
 
   // Exact / supportingPaths matches first (incl. GSC champion blog URLs listed below).
   for (const row of PATH_INDEX) {
-    if (path === row.path || path.startsWith(`${row.path}/`)) return row.cluster;
+    if (path === row.path) return row.cluster;
+  }
+
+  // Resolve known child routes only after every exact match.
+  for (const row of PATH_INDEX) {
+    if (path.startsWith(`${row.path}/`)) return row.cluster;
   }
 
   if (path.startsWith("/blog/")) {

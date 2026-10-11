@@ -1,3 +1,4 @@
+import { isResolvableClusterHref } from "@/lib/clusterHref";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Compass, Route, Wrench } from "lucide-react";
 import {
@@ -25,7 +26,7 @@ function pathLabel(path: string): string {
 /** Next supporting path after the current article (or first sibling if not in list). */
 function nextClusterSibling(cluster: TopicCluster, slug: string): { to: string; label: string } | null {
   const currentPath = `/blog/${slug}`;
-  const siblings = cluster.supportingPaths.filter((p) => p !== cluster.pillarPath && p !== cluster.toolPath);
+  const siblings = cluster.supportingPaths.filter((p) => p !== cluster.pillarPath && p !== cluster.toolPath && isResolvableClusterHref(p));
   if (siblings.length === 0) return null;
   const idx = siblings.findIndex((p) => p === currentPath || p.endsWith(`/${slug}`));
   const next = idx >= 0 ? siblings[(idx + 1) % siblings.length] : siblings[0];
@@ -70,11 +71,11 @@ const ClusterRelatedLinks = ({
       kind: "Practical tool",
       icon: Wrench,
     },
-  ].filter((item): item is NonNullable<typeof item> => Boolean(item));
+  ].filter((item): item is NonNullable<typeof item> => Boolean(item) && isResolvableClusterHref(item?.to));
 
   const journeyPaths = new Set(journey.map((j) => j.to));
   const extra = cluster.supportingPaths
-    .filter((to) => !journeyPaths.has(to) && to !== `/blog/${slug}`)
+    .filter((to) => !journeyPaths.has(to) && to !== `/blog/${slug}` && isResolvableClusterHref(to))
     .slice(0, 3)
     .map((to) => ({
       to,
