@@ -45,7 +45,7 @@ export interface BlogCatalogArtifacts {
   coverMap: Record<string, string>;
   contentStats: { blogArticleCount: number; wordCounts: Record<string, number> };
   mostRead: { slug: string; title: string }[];
-  reviewIndex: { lastReviewed: Record<string, string>; pending: string[] };
+  reviewIndex: { lastReviewed: Record<string, string | null>; pending: string[] };
   errors: string[];
 }
 
@@ -53,7 +53,7 @@ export function toBlogMeta(post: BlogPost): BlogMeta {
   const meta = {} as Record<string, unknown>;
   for (const key of BLOG_META_FIELDS) meta[key] = post[key];
   const words = countWords(post.content);
-  meta.last_reviewed = post.last_reviewed ?? post.updated_at.slice(0, 10);
+  meta.last_reviewed = post.last_reviewed;
   meta.image_url = `/openverse/${post.cover}`;
   meta.word_count = words;
   meta.reading_minutes = readingMinutes(words);
@@ -107,7 +107,7 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     mostRead: catalog.slice(0, 5).map((row) => ({ slug: row.slug, title: row.title })),
     reviewIndex: {
       lastReviewed: Object.fromEntries(
-        [...catalog].sort((a, b) => a.slug.localeCompare(b.slug)).map((row) => [row.slug, row.last_reviewed]),
+        [...catalog].sort((a, b) => a.slug.localeCompare(b.slug)).map((row) => [row.slug, row.last_reviewed ?? null]),
       ),
       pending: catalog.filter((row) => row.reviewStatus === "pending").map((row) => row.slug).sort(),
     },

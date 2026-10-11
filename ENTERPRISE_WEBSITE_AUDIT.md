@@ -58,10 +58,10 @@ Validated build: 568 Article pages, 813 MedicalWebPage pages, 619 FAQPage pages,
 
 Actual profile routes /authors/maxwell and /reviewers/maxwell are used. Pending records omit completed-review claims. A source-recorded reviewer/date is required for lastReviewed; an editorial update is not clinical review. Verify practitioner and charity claims with authoritative registers. Physician/Review schema is inappropriate without the corresponding genuine entity or review evidence.
 
-64 NICE CG161 labels/URLs now point to NG249, with prior review dates preserved. This does not certify that the underlying advice meets the replacement guideline.
+64 NICE CG161 labels/URLs now point to NG249, without assigning clinical-review dates to editorial reference updates. Removed 64 dates inferred during this implementation; preserve only the 26 explicitly recorded source dates. The catalog and runtime no longer substitute publication/update dates for clinical review. This does not certify that the underlying advice meets the replacement guideline.
 
 ## 7. Core Web Vitals / mobile / accessibility report
-Initial GitHub Lighthouse run passed its regression budget but warned of mobile LCP around 5.9s on osteoarthritis and 5.1s on /blog. Passing that budget is not achieving >95. New logs expose actual category scores, LCP/FCP/TBT/CLS; retained artifacts provide the full audit.
+Measured desktop Lighthouse: home Performance 100; osteoarthritis 96–97; blog 98. All measured Accessibility, Best Practices and SEO categories scored 100. Desktop LCP ranged 0.61–1.34s, TBT 0–5.5ms and CLS 0–0.0023. Mobile warnings remain: osteoarthritis LCP ~5.58s and blog ~5.04s. These mobile targets are not achieved. Retained artifacts and numeric logs provide lab evidence; no field-CWV claim is made. Before the final review-date correction, CI passed 663 Vitest tests and 44 Playwright checks (6 existing screenshot checks skipped), including all 35 checks at the five requested widths. The final corrected commit must pass CI again.
 
 Acceptance targets: field LCP ≤2.5s, INP ≤200ms, CLS ≤0.1 at the 75th percentile. Lighthouse SEO has a maximum score of 100; >100 is impossible. Lab TBT is not field INP. No live CrUX score or WCAG certification is claimed.
 

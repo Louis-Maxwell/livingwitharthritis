@@ -23,6 +23,7 @@ import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
 import {
   buildBlogCatalogArtifacts,
   serializeArtifacts,
+  toBlogMeta,
 } from "../../../scripts/generate-blog-catalog";
 
 type HeadEntry = {
@@ -42,6 +43,13 @@ const root = process.cwd();
 const read = (rel: string) => readFileSync(resolve(root, rel), "utf8");
 
 describe("blog source of truth: src/content/blog/posts/*.json", () => {
+  it("never derives a clinical-review date from a content update", () => {
+    const post = { ...PUBLISHED_BLOG_POSTS[0], last_reviewed: undefined, reviewStatus: "pending" as const };
+    expect(toBlogMeta(post).last_reviewed).toBeUndefined();
+    expect(toBlogMeta(post).reviewStatus).toBe("pending");
+    expect(toBlogMeta({ ...post, last_reviewed: "2026-10-01" }).last_reviewed).toBe("2026-10-01");
+  });
+
   it("validates every guide file against the zod schema", () => {
     expect(ALL_BLOG_POSTS.length).toBeGreaterThan(400);
     const bad: string[] = [];
@@ -70,7 +78,7 @@ describe("blog source of truth: src/content/blog/posts/*.json", () => {
     expect(dupes, dupes.slice(0, 15).join("\n")).toEqual([]);
   });
 
-  it("requires title, description, date, last reviewed, category and cover on every guide", () => {
+  it("requires metadata and preserves explicit clinical-review dates", () => {
     const bad: string[] = [];
     for (const row of getBlogCatalog()) {
       const post = BLOG_POSTS_BY_SLUG.get(row.slug)!;
@@ -79,10 +87,10 @@ describe("blog source of truth: src/content/blog/posts/*.json", () => {
       if (description.length < 50) bad.push(`${row.slug}: description length ${description.length}`);
       if (String(post.excerpt).trim().length < 100) bad.push(`${row.slug}: excerpt < 100 chars`);
       if (!ISO_DATE_PATTERN.test(row.date) || Number.isNaN(Date.parse(row.date))) bad.push(`${row.slug}: date ${row.date}`);
-      if (!ISO_DATE_PATTERN.test(row.last_reviewed) || Number.isNaN(Date.parse(row.last_reviewed))) {
-        bad.push(`${row.slug}: last_reviewed ${row.last_reviewed}`);
+      if (row.last_reviewed !== post.last_reviewed) bad.push(`${row.slug}: clinical-review date provenance`);
+      if (row.last_reviewed && (!ISO_DATE_PATTERN.test(row.last_reviewed) || Number.isNaN(Date.parse(row.last_reviewed)))) {
+        bad.push(`${row.slug}: invalid clinical-review date`);
       }
-      if (row.last_reviewed < row.date) bad.push(`${row.slug}: last_reviewed before publish date`);
       if (!row.category.trim()) bad.push(`${row.slug}: category`);
       else if (!canonicalBlogCategoryKey(row.category)) {
         bad.push(`${row.slug}: category "${row.category}" has no topic in src/data/blogCategories.ts`);
