@@ -600,7 +600,6 @@ const Header = () => {
           <div className="fixed inset-y-0 end-0 w-[min(80%,24rem)] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" id="mobile-primary-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
-                <SiteLogo variant="mark" markClassName="h-8 w-auto" />
                 <span className="text-lg font-extrabold text-primary">Menu</span>
               </div>
               <div className="flex items-center gap-1.5">
