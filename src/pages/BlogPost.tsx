@@ -54,6 +54,7 @@ import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
 const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
 const BlogHelpfulness = lazyWithRetry(() => import("@/components/BlogHelpfulness"));
@@ -790,6 +791,7 @@ const BlogPost = () => {
             )}
             <ViewportSection>
               {slug && <BlogHelpfulness slug={slug} />}
+              {slug && <KeywordRelatedLinks path={`/blog/${slug}`} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
               {slug && (
                 <RelatedArticles

@@ -17,7 +17,7 @@ export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 /** Full ISO timestamp or plain date. */
 const ISO_DATETIME_PATTERN = /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?)?$/;
 
-/** Clinical-review state — see ./review.ts (omitted = "reviewed"). */
+/** Clinical-review state — see ./review.ts (omitted = "pending"). */
 export const blogReviewStatusSchema = z.enum(BLOG_REVIEW_STATUSES);
 
 const nonEmpty = (label: string) => z.string().trim().min(1, `${label} is required`);
@@ -43,7 +43,7 @@ export const blogPostSchema = z
     updated_at: z.string().regex(ISO_DATETIME_PATTERN, "updated_at must be ISO 8601"),
     /** Explicit clinical-review date. Never inferred from publication or updates. */
     last_reviewed: z.string().regex(ISO_DATE_PATTERN, "last_reviewed must be YYYY-MM-DD").optional(),
-    /** Optional; omitted means "reviewed" (see DEFAULT_BLOG_REVIEW_STATUS). */
+    /** Optional; omitted means "pending" (see DEFAULT_BLOG_REVIEW_STATUS). */
     reviewStatus: blogReviewStatusSchema.optional(),
     category: nonEmpty("category"),
     /** Unique cover file under public/openverse/ (1:1 per slug). */

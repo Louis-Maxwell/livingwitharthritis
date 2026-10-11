@@ -109,3 +109,11 @@ Expected ranking/AI/conversion impact is qualitative; percentages and timelines 
 https://github.com/Louis-Maxwell/livingwitharthritis/actions
 
 Official references: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl · https://www.indexnow.org/documentation · https://www.nice.org.uk/guidance/ng249 · https://web.dev/articles/vitals · https://www.w3.org/TR/WCAG22/
+
+## Release follow-up — 11 October 2026
+
+Resolved conflicts with the subsequent metadata, entity, keyword-search, media-sitemap and topic-cluster changes on main, preserving both implementations. Regenerated affected catalogs, static article data, search and crawler files. Explicit review status is now carried through all article surfaces: missing approval defaults to pending, with 546 pending records and 22 explicitly recorded completed statuses in the current 568-post inventory. Historical names without a recorded approval were moved to the review backlog rather than being presented as completed reviews. Source-recorded approvals and review dates were retained; these are records, not independent credential verification. The per-post queue is `docs/seo/clinical-review-backlog.csv`; completing it requires actual qualified review.
+
+Added first-response route/dependency preloads for /blog and /conditions/osteoarthritis, and independent retention of mobile and desktop Lighthouse artifacts. The previous mobile LCP baseline was about 5.04s and 5.58s. Local Chrome could not launch because the execution environment denied its process-singleton socket; GitHub Lighthouse CI is the measurement authority for the new release. No new mobile score is claimed without its report.
+
+Google sign-in still returns 502 Bad Gateway / connection refused in the Cloud Browser, so authenticated Search Console submissions cannot be completed in that environment. Publication and real IndexNow submission are to be verified after the release. The sitemap and page count can vary across generated HTML, redirect stubs and canonical indexable routes; these counts must not be conflated.

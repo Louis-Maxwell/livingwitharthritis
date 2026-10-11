@@ -128,13 +128,13 @@ describe("BlogPost clinical review status", () => {
   });
 
   it("guide flipped with blog:mark-reviewed shows 'Clinically reviewed'", async () => {
-    renderWith({ ...baseArticle, slug: "menopause-hrt-and-joint-pain", last_reviewed: "2026-09-27" });
+    renderWith({ ...baseArticle, slug: "menopause-hrt-and-joint-pain", last_reviewed: "2026-09-27", reviewStatus: "reviewed" });
     expect(screen.queryByText(PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
     expect(screen.getByText(/Clinically reviewed · Louis Maxwell/)).toBeInTheDocument();
   });
 
   it("reviewed guide without a date: records reviewer without inventing a review date", async () => {
-    renderWith(baseArticle);
+    renderWith({ ...baseArticle, reviewStatus: "reviewed" });
     expect(screen.queryByText(PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
     expect(screen.getByText(/Review date not recorded/)).toBeInTheDocument();
     expect(screen.queryByText(/Clinically reviewed/)).not.toBeInTheDocument();

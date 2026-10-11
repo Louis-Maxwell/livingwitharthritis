@@ -1,16 +1,11 @@
 /**
- * Clinical-review state of a blog guide (runtime-safe: no zod here).
- *
- * `reviewStatus` is optional on every post JSON. Omitted (or "reviewed") means
- * Louis Maxwell has clinically reviewed the guide, which is how every guide
- * published before 25 Sep 2026 behaves. "pending" means the guide was written
- * by the team and is awaiting that review: the page shows PENDING_REVIEW_TEXT
- * and the JSON-LD must not claim a completed review (no reviewedBy /
- * lastReviewed). Flip a guide with `npm run blog:mark-reviewed -- <slug>`.
+ * Clinical-review state recorded by the editor. Missing approval is pending;
+ * a publication/update timestamp never establishes a completed review.
+ * Only a qualified reviewer should use blog:mark-reviewed after reviewing.
  */
 export const BLOG_REVIEW_STATUSES = ["reviewed", "pending"] as const;
 export type BlogReviewStatus = (typeof BLOG_REVIEW_STATUSES)[number];
-export const DEFAULT_BLOG_REVIEW_STATUS: BlogReviewStatus = "reviewed";
+export const DEFAULT_BLOG_REVIEW_STATUS: BlogReviewStatus = "pending";
 
 /** Exact byline shown on a guide awaiting clinical review. */
 export const PENDING_REVIEW_TEXT =
@@ -20,7 +15,7 @@ type MaybeReviewStatus = { reviewStatus?: string | null } | null | undefined;
 
 /**
  * Resolve a guide's review state. The first source that sets the field wins
- * (e.g. the full post, then its catalog row); anything else is "reviewed".
+ * (e.g. the full post, then its catalog row); anything else is "pending".
  */
 export function resolveBlogReviewStatus(...sources: MaybeReviewStatus[]): BlogReviewStatus {
   for (const src of sources) {

@@ -199,10 +199,10 @@ const Section = ({
 const UnderstandingPain = () => (
   <>
     <Helmet>
-      <title>Understanding Pain | Types, Causes &amp; Talking to Your GP | UK</title>
+      <title>Understanding Arthritis Pain | Talking to Your GP</title>
       <meta
         name="description"
-        content="Understanding pain for people with arthritis: inflammatory vs mechanical, focal vs systemic, bilateral, fibromyalgia, acute vs chronic, neuropathic pain, and questions to ask your doctor."
+        content="Understand arthritis pain: inflammatory and mechanical symptoms, nerve pain, fibromyalgia and practical questions to discuss with your GP or specialist."
       />
       <meta
         name="keywords"

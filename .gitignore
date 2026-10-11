@@ -40,3 +40,5 @@ dist-ssr
 # Cloudflare Wrangler local secrets
 .dev.vars
 .wrangler/
+
+.lighthouseci-mobile/

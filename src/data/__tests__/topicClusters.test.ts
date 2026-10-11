@@ -14,10 +14,14 @@ import { faqArticles } from "@/data/faqArticles";
 
 
 describe("topicClusters", () => {
-  it("defines exactly eight clusters from the 90-day plan", () => {
-    expect(TOPIC_CLUSTERS).toHaveLength(8);
+  it("defines the core and condition-specific topic clusters", () => {
+    expect(TOPIC_CLUSTERS).toHaveLength(12);
     expect(TOPIC_CLUSTERS.map((c) => c.id).sort()).toEqual(
       [
+        "rheumatoid-arthritis",
+        "psoriatic-arthritis",
+        "ankylosing-spondylitis",
+        "fibromyalgia",
         "diet",
         "exercises",
         "flare-ups",
@@ -28,6 +32,13 @@ describe("topicClusters", () => {
         "treatments",
       ].sort(),
     );
+  });
+
+  it("routes specific conditions and FAQ matches before broad parent paths", () => {
+    expect(getClusterForPath("/conditions/rheumatoid-arthritis/treatment")?.id).toBe("rheumatoid-arthritis");
+    expect(getClusterForPath("/conditions/psoriatic-arthritis")?.id).toBe("psoriatic-arthritis");
+    expect(getClusterForPath("/faq/what-is-rheumatoid-arthritis")?.id).toBe("rheumatoid-arthritis");
+    expect(getClusterForSlug("fibromyalgia-sleep-support")?.id).toBe("fibromyalgia");
   });
 
   it("maps known pillar paths", () => {

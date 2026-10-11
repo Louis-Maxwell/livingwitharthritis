@@ -27,6 +27,8 @@
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
+import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
+import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
@@ -59,6 +61,10 @@ const readJson = (path) =>
 // bundle instead of only after the entry has run.
 const VITE_MANIFEST = readJson(join(DIST, ".vite", "manifest.json"));
 const BLOG_POST_ENTRY = "src/pages/BlogPost.tsx";
+const CRITICAL_ROUTE_ENTRIES = {
+  "/blog": "src/pages/BlogIndex.tsx",
+  "/conditions/osteoarthritis": "src/pages/conditions/Osteoarthritis.tsx",
+};
 
 /** The chunk for `entry` plus its static imports, as /assets/... URLs. */
 export function chunkPreloadUrls(manifest, entry) {
@@ -111,7 +117,7 @@ function authorHeadData() {
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
-            ? `${record.name} medically reviews Living With Arthritis content as a ${record.title}${credential ? ` (${credential})` : ""}, checking each guide for clinical accuracy before publication.`
+            ? `${record.name} medically reviews Living With Arthritis content as a ${record.title}${credential ? ` (${credential})` : ""}, supporting documented clinical review and source checks.`
             : `${record.name} writes Living With Arthritis guides as a ${record.title}${credential ? ` (${credential})` : ""}, drawing on day-to-day UK musculoskeletal practice.`,
           bio,
         ]
@@ -356,6 +362,7 @@ function escText(s) {
  */
 export function patchShareMeta(html, d) {
   if (!d) return html;
+  d = normalizeStaticMeta(d);
   let out = html;
   if (d.title) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
@@ -392,7 +399,7 @@ export function patchShareMeta(html, d) {
       `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
     );
   }
-  return out;
+  return d.article?.slug ? ensureArticleJsonLd(out, `${BASE}/blog/${d.article.slug}`, d) : out;
 }
 
 // JSON.stringify drops undefined object properties automatically, but we
@@ -498,7 +505,7 @@ export function buildJsonLd(route, url, d) {
 }
 
 function enrichHead(html, route, url, override) {
-  const d = headDataFor(route, override);
+  const d = normalizeStaticMeta(headDataFor(route, override));
   if (!d) return html;
 
   let out = html;
@@ -566,9 +573,13 @@ function enrichHead(html, route, url, override) {
   });
   if (d.article) {
     out = embedArticleJson(out, d.article);
-    out = addModulePreloads(out, chunkPreloadUrls(VITE_MANIFEST, BLOG_POST_ENTRY));
+
   }
 
+  // Discover the requested route and its dependencies in the first response,
+  // avoiding the entry -> route -> dependency waterfall on mobile networks.
+  const routeEntry = d.article ? BLOG_POST_ENTRY : CRITICAL_ROUTE_ENTRIES[route];
+  if (routeEntry) out = addModulePreloads(out, chunkPreloadUrls(VITE_MANIFEST, routeEntry));
   return out;
 }
 

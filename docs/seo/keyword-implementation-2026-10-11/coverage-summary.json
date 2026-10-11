@@ -1,0 +1,28 @@
+{
+  "sourceEntries": 136407,
+  "uniqueKeywords": 104565,
+  "duplicates": 31842,
+  "sourceCounts": {
+    "public/data/keywords-30000.json": 30000,
+    "public/data/keywords-40000.json": 39928,
+    "public/data/keywords-arthritis-frailty-msk-disability.generated.json": 50000,
+    "src/data/keywords.generated.json": 4999,
+    "keywords_for_import.csv": 10000,
+    "docs/seo/growth-2026-10-11/keyword-map.csv": 1480
+  },
+  "authoredPagesAudited": 700,
+  "statusCounts": {
+    "phrase_present": 475,
+    "intent_review": 27486,
+    "content_gap": 76604
+  },
+  "invalidDeclaredTargetKeywords": 10163,
+  "searchAliases": 421,
+  "linkedBlogPages": 529,
+  "notes": [
+    "Stored/generated candidates are not measured organic rankings.",
+    "Literal presence and token co-occurrence do not prove intent satisfaction.",
+    "Local modifiers are retained: national pages cannot satisfy every local query.",
+    "Content gaps are not published as doorway pages."
+  ]
+}
