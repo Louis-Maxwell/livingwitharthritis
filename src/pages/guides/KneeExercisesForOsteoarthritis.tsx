@@ -229,7 +229,7 @@ export default function KneeExercisesForOsteoarthritis() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" />
           <ArticleCitations citations={CITATIONS_KNEE_EXERCISES} />
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox reviewStatus="reviewed" />
           <TopicClusterNav path="/guides/knee-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Free knee exercises for osteoarthritis in the UK. NICE guidance

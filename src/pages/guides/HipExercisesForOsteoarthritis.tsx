@@ -235,7 +235,7 @@ export default function HipExercisesForOsteoarthritis() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/hip-exercises-for-osteoarthritis" />
           <ArticleCitations citations={CITATIONS_HIP_EXERCISES} />
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox reviewStatus="reviewed" />
           <TopicClusterNav path="/guides/hip-exercises-for-osteoarthritis" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Hip osteoarthritis responds to targeted strength and mobility work.

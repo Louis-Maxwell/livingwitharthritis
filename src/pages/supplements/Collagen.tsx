@@ -105,7 +105,7 @@ export default function Collagen() {
       </div>
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="reviewed" />
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(COLLAGEN_HTML) }} />
 
         <section className="my-12">

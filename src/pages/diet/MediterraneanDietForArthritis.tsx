@@ -117,7 +117,7 @@ export default function MediterraneanDietForArthritis() {
           <strong>Quick answer:</strong> {MED_DIET_QUICK_ANSWER}
         </p>
         <AeoEnhancement route={PATH} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="reviewed" />
       </div>
 
       <section className="bg-secondary/30 border-y border-border/15">

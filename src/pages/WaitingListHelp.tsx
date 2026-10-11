@@ -84,7 +84,7 @@ const WaitingListHelp = () => {
           <strong>Quick answer:</strong> {WAIT_LIST_QUICK_ANSWER}
         </p>
         <AeoEnhancement route={PATH} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="reviewed" />
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(WAIT_LIST_HTML) }} />
 
         <section className="my-12">

@@ -103,7 +103,7 @@ export default function AnkleArthritisExercises() {
             </p>
           </aside>
 
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox reviewStatus="reviewed" />
 
           <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(FOOT_ANKLE_BEFORE_HTML) }} />
 
