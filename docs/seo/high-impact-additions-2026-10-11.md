@@ -29,6 +29,10 @@ Scope: source implementation in Louis-Maxwell/livingwitharthritis. Live publicat
 - Static social-meta checker reports CityConditionPage.tsx because it does not recognize redirect-only pages; inspection confirms it redirects to the city hub or renders NotFound, so no extra social tags were injected into that redirect component.
 - Browser JSON-LD validator could not run because its required Chromium binary is unavailable. Static/build checks do not replace browser schema validation.
 - Publication and live IndexNow submission remain pending Lovable publication; GitHub commit is not a deployment.
+- Protected main rejected the direct push because eight checks are required. Changes are in PR #156: https://github.com/Louis-Maxwell/livingwitharthritis/pull/156. Repository auto-merge is disabled. Latest observed CI includes failures in build-and-audit, integrity and the push secret scan (the PR secret scan passed); no successful merge is claimed.
+- Full-suite runs reported timing failures in Search and BlogPost. Both passed individually (2 and 10 tests); the changed IndexNow integration slice passed all 22 tests after replacing its hardcoded-list assertion. Do not describe the full suite or CI as green.
+- Verified all 568 generated static blog pages contain the support-service link. Static text extraction now uses inert document fragments instead of allocating a browser window per call, resolving memory exhaustion encountered during regeneration; regeneration passed after this fix.
+- After the static memory fix, 129 static/review/content-format regression tests passed; 19 static/redirect regression tests passed.
 
 ## After publication
 
@@ -38,3 +42,4 @@ References:
 - https://www.indexnow.org/documentation
 - https://developers.google.com/search/updates (May and June 2026 FAQ retirement and llms.txt clarification)
 - https://developers.google.com/search/blog/2023/08/howto-faq-changes
+
