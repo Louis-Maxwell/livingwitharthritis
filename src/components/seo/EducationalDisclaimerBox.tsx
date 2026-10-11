@@ -9,7 +9,7 @@ import { useDisclaimerStripShown } from "@/components/disclaimerContext";
 import { PENDING_REVIEW_TEXT, type BlogReviewStatus } from "@/lib/blog/review";
 
 interface EducationalDisclaimerBoxProps {
-  /** ISO date shown as last clinical review, default Sep 2026 Month 1 pass. */
+  /** Explicit clinical-review date; never inferred from content updates. */
   lastReviewed?: string;
   reviewer?: string;
   /** "pending" replaces the "Clinically reviewed" line with the pending byline. */
@@ -25,17 +25,17 @@ interface EducationalDisclaimerBoxProps {
  * review line is shown — the short copy is not repeated.
  */
 export default function EducationalDisclaimerBox({
-  lastReviewed = "2026-09-16",
+  lastReviewed,
   reviewer = "Louis Maxwell, HCPC PH128483",
   reviewStatus = "reviewed",
   pendingText = PENDING_REVIEW_TEXT,
   className = "",
 }: EducationalDisclaimerBoxProps) {
-  const reviewedLabel = new Date(lastReviewed).toLocaleDateString("en-GB", {
+  const reviewedLabel = lastReviewed && !Number.isNaN(Date.parse(lastReviewed)) ? new Date(lastReviewed).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
-  });
+  }) : null;
   const copyMode = educationalDisclaimerCopyMode(useDisclaimerStripShown());
 
   return (
@@ -52,7 +52,7 @@ export default function EducationalDisclaimerBox({
             </p>
           ) : (
             <p className="font-semibold text-foreground">
-              Clinically reviewed · {reviewer} · {reviewedLabel}
+              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded`}
             </p>
           )}
           {copyMode === "full" ? (

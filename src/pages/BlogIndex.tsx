@@ -271,7 +271,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <title>Arthritis blog UK | Exercise, diet, PIP and pain guides</title>
         <meta
           name="description"
-          content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
+          content="Arthritis blog UK: evidence-based guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
         />
         <meta
           name="keywords"
@@ -280,7 +280,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta property="og:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
         <meta
           property="og:description"
-          content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
+          content="Arthritis blog UK: evidence-based guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
         />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
@@ -295,7 +295,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         <meta name="twitter:title" content="Arthritis blog UK | Exercise, diet, PIP and pain guides" />
         <meta
           name="twitter:description"
-          content="Arthritis blog UK: clinically reviewed guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
+          content="Arthritis blog UK: evidence-based guides on exercise, anti-inflammatory diet, PIP and benefits, treatments and flare-ups from Living With Arthritis."
         />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
@@ -362,7 +362,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           }
           subtitle={
             heroSubtitle ??
-            `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed articles for UK readers — practical help when living with arthritis feels exhausting. You are not alone.`
+            `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} articles for UK readers; clinical-review status is shown on each guide — practical help when living with arthritis feels exhausting. You are not alone.`
           }
         />
 
@@ -378,7 +378,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               full archive by date
             </Link>
             . Living With Arthritis (registered charity 1218461)
-            publishes clinically reviewed guides — honest evidence, no invented miracle cures. Start
+            publishes evidence-based guides — honest evidence, no invented miracle cures. Start
             with{" "}
             <Link to="/blog/category/exercise" className="text-primary underline underline-offset-2">
               exercise articles

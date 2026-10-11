@@ -1181,6 +1181,10 @@
   -webkit-overflow-scrolling: touch;
   margin: 1.25rem 0;
 }
+.table-scroll:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 4px;
+}
 .blog-prose .table-scroll > table,
 .prose .table-scroll > table {
   width: max-content;

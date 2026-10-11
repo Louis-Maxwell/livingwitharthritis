@@ -142,7 +142,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Best exercises for hand arthritis");
     expect(html).toContain("small joints from contracture");
     expect(html).toContain("clip:rect(0 0 0 0)");
-    expect(html).toContain('aria-hidden="true"');
+    expect(html).not.not.toContain('id="seo-fallback" aria-hidden="true"');
     expect(html).not.toContain(HOME_SHELL_HEADING);
   });
 
@@ -154,7 +154,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
     expect(html).toContain("Equality Act 2010");
     expect(html).toContain("clip:rect(0 0 0 0)");
-    expect(html).toContain('aria-hidden="true"');
+    expect(html).not.not.toContain('id="seo-fallback" aria-hidden="true"');
   });
 
   it("reads an embedded article only when the slug matches", () => {

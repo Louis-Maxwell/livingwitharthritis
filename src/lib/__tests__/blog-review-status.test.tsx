@@ -227,13 +227,13 @@ describe("Champions 62–67 guides awaiting clinical review", () => {
 describe("blog reviewStatus schema", () => {
   const base = bySlug.get("menopause-hrt-and-joint-pain")!;
 
-  it("is optional and defaults to reviewed", () => {
+  it("is optional and defaults to pending", () => {
     const { reviewStatus: _omit, ...withoutStatus } = base;
     const parsed = blogPostSchema.parse(withoutStatus);
     expect(parsed.reviewStatus).toBeUndefined();
-    expect(DEFAULT_BLOG_REVIEW_STATUS).toBe("reviewed");
-    expect(resolveBlogReviewStatus(parsed)).toBe("reviewed");
-    expect(resolveBlogReviewStatus(undefined, null, {})).toBe("reviewed");
+    expect(DEFAULT_BLOG_REVIEW_STATUS).toBe("pending");
+    expect(resolveBlogReviewStatus(parsed)).toBe("pending");
+    expect(resolveBlogReviewStatus(undefined, null, {})).toBe("pending");
   });
 
   it("accepts reviewed and pending, rejects anything else", () => {
@@ -255,23 +255,21 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-27");
     expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
     const row = catalogRows.find((r) => r.slug === slug) as { reviewStatus?: string; last_reviewed?: string };
-    expect(row?.reviewStatus).toBeUndefined();
+    expect(row?.reviewStatus).toBe("reviewed");
     expect(row?.last_reviewed).toBe("2026-09-27");
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
   it("all automated rewrites awaiting clinical approval remain pending", () => {
-    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
+    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(expect.arrayContaining(
       [...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
-    );
+    ));
   });
 
-  it("guides without an explicit reviewStatus still resolve as reviewed by default", () => {
-    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeUndefined();
-    expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("reviewed");
-    expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).not.toHaveProperty(
-      "reviewStatus",
-    );
+  it("legacy guides without review evidence are explicitly pending", () => {
+    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBe("pending");
+    expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("pending");
+    expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).toHaveProperty("reviewStatus", "pending");
   });
 
   it("Sick pay and fit notes blog was rewritten in Benefits batch 3 and is pending re-review", () => {

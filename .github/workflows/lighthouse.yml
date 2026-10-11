@@ -2,7 +2,7 @@ name: Lighthouse performance budget
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/enterprise-seo-audit-2026-10-11]
   pull_request:
     branches: [main]
 
@@ -55,6 +55,31 @@ jobs:
           fi
           exit $LH_EXIT
 
+      - name: Summarize measured Lighthouse results
+        if: always()
+        run: |
+          node --input-type=module <<'JS'
+          import { existsSync, readdirSync, readFileSync } from 'node:fs';
+          for (const dir of ['.lighthouseci-mobile', '.lighthouseci-desktop']) {
+            if (!existsSync(dir)) continue;
+            for (const name of readdirSync(dir).filter((name) => name.endsWith('.json'))) {
+              let report;
+              try { report = JSON.parse(readFileSync(dir + '/' + name, 'utf8')); } catch { continue; }
+              if (!report.categories?.performance) continue;
+              const result = {
+                url: report.finalDisplayedUrl || report.finalUrl,
+                device: report.configSettings?.formFactor,
+                scores: Object.fromEntries(Object.entries(report.categories).map(([key, value]) => [key, Math.round(value.score * 100)])),
+                lcpMs: report.audits?.['largest-contentful-paint']?.numericValue,
+                fcpMs: report.audits?.['first-contentful-paint']?.numericValue,
+                tbtMs: report.audits?.['total-blocking-time']?.numericValue,
+                cls: report.audits?.['cumulative-layout-shift']?.numericValue,
+              };
+              console.log('LIGHTHOUSE_RESULT ' + JSON.stringify(result));
+            }
+          }
+          JS
+
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -62,6 +87,8 @@ jobs:
           name: lighthouse-reports
           path: |
             .lighthouseci/
+            .lighthouseci-mobile/
             .lighthouseci-desktop/
+          include-hidden-files: true
           retention-days: 14
           if-no-files-found: ignore

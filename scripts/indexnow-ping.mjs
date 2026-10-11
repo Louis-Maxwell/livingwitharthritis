@@ -1,85 +1,41 @@
-/**
- * IndexNow ping — tells Bing, Copilot, Yandex and other IndexNow
- * participants that our key hub URLs changed. Runs after a production
- * build (see package.json postbuild). Deliberately simple: a fixed list
- * of hub URLs, one POST, never fails the build.
- *
- * The key file must stay reachable at
- * https://livingwitharthritis.org.uk/<KEY>.txt (public/<KEY>.txt).
+/** Run explicitly after publication: INDEXNOW=1 node scripts/indexnow-ping.mjs.
+ * Notifications aid discovery; they do not guarantee indexing.
  */
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 const KEY = 'c98cc1e7f04d43b213d256e243f9ddd6';
 const HOST = 'livingwitharthritis.org.uk';
 const ORIGIN = `https://${HOST}`;
-
-const PATHS = [
-  '/',
-  '/llms.txt',
-  '/ai.txt',
-  '/.well-known/ai.txt',
-  '/guides/benefits-pip',
-  '/arthritis-waiting-list-help',
-  '/diet',
-  '/exercises',
-  '/guides/exercise',
-  '/guides/newly-diagnosed',
-  '/guides/arthritis-pain-relief',
-  '/guides/hip-exercises-for-osteoarthritis',
-  '/about',
-  '/blog/working-with-arthritis-uk-rights',
-  '/blog/managing-methotrexate-side-effects-practical-tips',
-  '/blog/knee-arthritis-exercises-uk',
-  '/blog/turmeric-for-arthritis',
-  '/blog/omega-3-foods-for-joints',
-  '/blog/mediterranean-diet-arthritis-14-day-plan',
-  '/blog/pip-for-arthritis-uk',
-  '/blog/expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild',
-  '/blog/best-walking-shoes-arthritis-uk',
-  '/blog/mindfulness-chronic-pain-arthritis-guide',
-  '/blog/category/exercise',
-  '/conditions/osteoarthritis',
-  '/conditions/rheumatoid-arthritis',
-  '/conditions/ankylosing-spondylitis/exercises',
-  '/conditions/hip-arthritis',
-  '/supplements/glucosamine',
-  '/glossary/nice',
-  '/arthritis-support',
-  '/editorial-standards',
-  '/humans.txt',
-  '/guides',
-  '/benefits-pip',
-  '/search',
-  '/donate',
-  '/diet/mediterranean-diet-for-arthritis',
-  '/supplements/turmeric',
-  '/blog/mediterranean-diet-shopping-list-arthritis',
-  '/blog/turmeric-curcumin-arthritis-evidence',
-  '/blog',
-];
-
-async function main() {
-  // Only ping for real production builds — local/dev builds would
-  // otherwise submit URLs on every run.
-  if (process.env.INDEXNOW !== '1' && process.env.NODE_ENV !== 'production') {
-    console.log('[indexnow] skipped (set INDEXNOW=1 to force)');
-    return;
-  }
-
-  const body = {
-    host: HOST,
-    key: KEY,
-    keyLocation: `${ORIGIN}/${KEY}.txt`,
-    urlList: PATHS.map((p) => `${ORIGIN}${p}`),
-  };
-
-  const res = await fetch('https://api.indexnow.org/IndexNow', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    body: JSON.stringify(body),
-  });
-
-  console.log(`[indexnow] submitted ${body.urlList.length} URLs — HTTP ${res.status}`);
+export function sitemapPageUrls(xml) {
+  return [...new Set([...xml.matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)]
+    .map((m) => m[1].replace(/&amp;/g, '&')).filter((s) => {
+      try { const u = new URL(s); return u.origin === ORIGIN && !u.search && !u.hash; } catch { return false; }
+    }))];
 }
-
-main().catch((err) => {
-  console.warn('[indexnow] ping failed (non-fatal):', err?.message ?? err);
-});
+async function main() {
+  const urls = sitemapPageUrls(readFileSync('public/sitemap.xml', 'utf8'));
+  if (process.argv.includes('--dry-run')) {
+    console.log(`[indexnow] dry run: ${urls.length} canonical sitemap page URLs; no network request`); return;
+  }
+  // A build is not a deployment. Never notify engines automatically before
+  // updated HTML is publicly available, even when NODE_ENV is production.
+  if (process.env.INDEXNOW !== '1') {
+    console.log('[indexnow] skipped; run npm run indexnow after publication'); return;
+  }
+  const keyLocation = `${ORIGIN}/${KEY}.txt`;
+  const keyResponse = await fetch(keyLocation, { signal: AbortSignal.timeout(15000) });
+  if (!keyResponse.ok || (await keyResponse.text()).trim() !== KEY) throw new Error('Published IndexNow key file could not be verified');
+  for (let offset = 0; offset < urls.length; offset += 10000) {
+    const urlList = urls.slice(offset, offset + 10000);
+    const res = await fetch('https://api.indexnow.org/indexnow', {
+      method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify({ host: HOST, key: KEY, keyLocation, urlList }), signal: AbortSignal.timeout(20000),
+    });
+    if (![200, 202].includes(res.status)) throw new Error(`IndexNow rejected notification: HTTP ${res.status}`);
+    console.log(`[indexnow] ${urlList.length} URLs notified — HTTP ${res.status}; indexing is not guaranteed`);
+  }
+}
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+  main().catch((err) => { console.error('[indexnow]', err.message); process.exitCode = 1; });
+}
