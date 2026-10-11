@@ -3,6 +3,7 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import { keywordRelatedLinks } from "./keyword-related-links.mjs";
 import { conditionTopicLinks } from "./condition-topic-links.mjs";
 import { JSDOM } from "jsdom";
 import createDOMPurify from "dompurify";
@@ -107,6 +108,7 @@ export function buildStaticArticleInner(data) {
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
     conditionTopicLinks(data?.article) +
+    keywordRelatedLinks(data?.article) +
     `</article>`
   );
 }

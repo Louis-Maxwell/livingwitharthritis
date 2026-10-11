@@ -19,6 +19,12 @@ interface IndexedItem extends SearchItem {
 // /exercises/:slug routes (so a result can never point at a URL the router
 // does not serve). That dataset is ~28 KB, so it is only fetched when the
 // visitor opens search — not on every page load.
+let catalogPromise: Promise<IndexedItem[]> | null = null;
+function loadCatalogItems(): Promise<IndexedItem[]> {
+  catalogPromise ??= import("@/lib/siteSearchCatalog").then(({ getSiteSearchCatalog }) => getSiteSearchCatalog().map(item => ({ label: item.title, href: item.href, category: item.topic, icon: FileText, l: [item.title, item.excerpt, ...(item.keywords || [])].join(" ").toLowerCase() })));
+  return catalogPromise;
+}
+
 let jointItemsPromise: Promise<IndexedItem[]> | null = null;
 function loadJointExerciseItems(): Promise<IndexedItem[]> {
   jointItemsPromise ??= import("@/data/exerciseJointMatrix").then(({ exerciseJointPages }) =>
@@ -91,16 +97,26 @@ export default function SiteSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const [catalogItems, setCatalogItems] = useState<IndexedItem[]>([]);
   const [jointItems, setJointItems] = useState<IndexedItem[]>([]);
-  const searchIndex = useMemo(() => [...HEAD_INDEX, ...jointItems, ...TAIL_INDEX], [jointItems]);
+  const searchIndex = useMemo(() => {
+    const seen = new Set<string>();
+    return [...catalogItems, ...HEAD_INDEX, ...jointItems, ...TAIL_INDEX].filter(item => {
+      if (seen.has(item.href)) return false;
+      seen.add(item.href); return true;
+    });
+  }, [catalogItems, jointItems]);
 
   // Fetch the joint-exercise dataset the first time search is used.
   useEffect(() => {
     if (!open && query.length === 0) return;
     let cancelled = false;
-    loadJointExerciseItems()
-      .then((items) => {
-        if (!cancelled) setJointItems(items);
+    Promise.allSettled([loadJointExerciseItems(), loadCatalogItems()])
+      .then(([items, catalog]) => {
+        if (!cancelled) {
+          if (items.status === "fulfilled") setJointItems(items.value);
+          if (catalog.status === "fulfilled") setCatalogItems(catalog.value);
+        }
       })
       .catch(() => {
         // Search still works over the static index if the chunk fails.
@@ -122,11 +138,12 @@ export default function SiteSearch() {
 
   const results = useMemo(() => {
     if (debounced.length < MIN_QUERY) return [];
-    const q = debounced.toLowerCase();
+    const q = debounced.trim().toLowerCase();
+    const words = q.split(/\s+/);
     const out: IndexedItem[] = [];
     // Manual loop with early exit at MAX_RESULTS — avoids allocating a full filtered array.
     for (let i = 0; i < searchIndex.length; i++) {
-      if (searchIndex[i].l.includes(q)) {
+      if (words.every(word => searchIndex[i].l.includes(word))) {
         out.push(searchIndex[i]);
         if (out.length >= MAX_RESULTS) break;
       }
@@ -197,6 +214,7 @@ export default function SiteSearch() {
           ref={inputRef}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search the site"
           placeholder="Search exercises, joints, articles..."
           className="border-0 bg-transparent p-0 h-auto text-sm focus-visible:ring-0 focus-visible:ring-offset-0"
         />

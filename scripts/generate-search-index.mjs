@@ -78,12 +78,14 @@ const guideItems = guides.map((g) => ({
   keywords: [g.cluster, g.title],
 }));
 
+const aliases = JSON.parse(readFileSync("src/data/keywordSearchAliases.generated.json", "utf8"));
+const keywordPages = JSON.parse(readFileSync("src/data/keywordSearchPages.generated.json", "utf8"));
 const seen = new Set();
 const items = [];
-for (const item of [...HUB, ...guideItems, ...blogItems]) {
+for (const item of [...HUB, ...guideItems, ...blogItems, ...keywordPages]) {
   if (seen.has(item.href)) continue;
   seen.add(item.href);
-  items.push(item);
+  items.push({ ...item, keywords: [...(item.keywords || []), ...(aliases[item.href] || [])] });
 }
 
 const out = { generatedAt: new Date().toISOString(), version: 1, items };
