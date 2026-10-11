@@ -27,6 +27,7 @@
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
+import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
@@ -333,6 +334,7 @@ function escText(s) {
  */
 export function patchShareMeta(html, d) {
   if (!d) return html;
+  d = normalizeStaticMeta(d);
   let out = html;
   if (d.title) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
@@ -445,7 +447,7 @@ function buildJsonLd(route, url, d) {
 }
 
 function enrichHead(html, route, url, override) {
-  const d = headDataFor(route, override);
+  const d = normalizeStaticMeta(headDataFor(route, override));
   if (!d) return html;
 
   let out = html;

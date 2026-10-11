@@ -186,8 +186,8 @@ export default function DietGuide() {
   return (
     <>
       <Helmet>
-        <title>Best arthritis diet advice UK | Anti-inflammatory Mediterranean guide</title>
-        <meta name="description" content="Best arthritis diet advice UK: anti-inflammatory Mediterranean eating, omega-3s, foods to limit, supplements evidence and a sample meal plan. Living With Arthritis charity 1218461." />
+        <title>Arthritis Diet UK | Mediterranean Eating Guide</title>
+        <meta name="description" content="Explore UK arthritis diet guidance: Mediterranean meals, omega-3, foods to limit, supplement evidence and a sample meal plan from Living With Arthritis." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Best arthritis diet advice UK – Anti-inflammatory Mediterranean diet" />
