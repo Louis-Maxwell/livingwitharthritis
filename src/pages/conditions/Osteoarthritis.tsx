@@ -141,7 +141,7 @@ const Osteoarthritis = () => (
             <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
@@ -153,7 +153,7 @@ const Osteoarthritis = () => (
             <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               Osteoarthritis (OA) is the most common form of arthritis in the UK — joint pain and stiffness that you can often manage with exercise, weight advice and NHS care pathways; this page is general information, not a diagnosis.
             </p>
-          </motion.div>
+          </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
