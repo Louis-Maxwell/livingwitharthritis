@@ -126,10 +126,12 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     expect(carers).not.toMatch(/Oswestry/i);
   });
 
-  it("Joint protection blog is clinically reviewed 2026-09-30 with CTR meta, NHS/NICE cites and customer-job links", () => {
-    expect(jointJson.last_reviewed).toBe(REVIEW);
-    expect(jointJson.reviewStatus).toBe("reviewed");
-    expect(jointJson.reviewed_by).toBe("Louis Maxwell");
+  // Expanded into the Joint Protection Techniques guide in the Exercise & Physiotherapy
+  // batch 2 (Oct 2026), so it is pending clinical review again until Louis
+  // re-reviews it (`npm run blog:mark-reviewed -- joint-protection-easier-everyday-tasks`).
+  it("Joint protection blog is pending re-review after the batch 2 expansion and keeps CTR meta, NHS/NICE cites and customer-job links", () => {
+    expect(jointJson.last_reviewed).toBeUndefined();
+    expect(jointJson.reviewStatus).toBe("pending");
     expect(jointJson.meta_title).toMatch(/Joint Protection for Arthritis: .*\(UK\)/i);
     const urls = (jointJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
