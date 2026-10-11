@@ -203,7 +203,7 @@ const NOT_FOUND_HEAD = {
   noindex: true,
 };
 
-function headDataFor(route, override) {
+function baseHeadDataFor(route, override) {
   if (override) return override;
   if (route === "/blog/archive") return blogArchiveHeadData();
   // Soft-404: /blog/:slug not in the published catalog must not ship
@@ -239,6 +239,24 @@ function headDataFor(route, override) {
   }
   if (AI_DATA[route]) return AI_DATA[route];
   return deriveHeadData(route);
+}
+
+// Expose the existing child pages on their own section landing pages in the
+// first response. This mirrors a directory rather than injecting a global
+// link list into every article, and makes no-JS navigation usable.
+const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
+  ? [...readFileSync(resolve('public/sitemap.xml'), 'utf8').matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)]
+      .map((m) => new URL(m[1]).pathname) : [];
+function headDataFor(route, override) {
+  const data = baseHeadDataFor(route, override);
+  if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
+  const children = SITEMAP_PATHS.filter((path) => path.startsWith(`${route}/`) && !path.slice(route.length + 1).includes('/'));
+  if (!children.length) return data;
+  const links = [...(data.relatedLinks || []), ...children.map((path) => {
+    const child = baseHeadDataFor(path);
+    return { path, title: child.breadcrumb || child.question || child.title };
+  })];
+  return { ...data, relatedLinks: [...new Map(links.map((link) => [link.path, link])).values()] };
 }
 
 /** Exported for soft-404 unit tests. */
