@@ -154,7 +154,7 @@
     </noscript>
 
     <!-- LCP hero image is bundled via Vite (hashed filename); the <img> tag in
-         OAHero uses fetchpriority="high" + loading="eager" to prioritise it.
+         OAHero loads eagerly at automatic priority so it does not outrank the mobile LCP text.
          No static preload link here — the previous hero-walking-group preload
          pointed at a stale asset that wasn't actually on the page. -->
 
@@ -238,6 +238,8 @@
         must match OAHero.tsx — see src/components/landing/__tests__/bootHero.test.ts.
       -->
       <div id="boot-hero" hidden>
+        <a href="#boot-main" class="sr-only focus:not-sr-only">Skip to main content</a>
+        <header>
         <div id="boot-banner" class="w-full bg-primary text-primary-foreground border-b border-primary-foreground/20">
           <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-center gap-2 py-2 relative">
             <p class="text-xs sm:text-sm font-medium text-center pr-6 sm:pr-0">
@@ -274,7 +276,8 @@
           </div>
         </div>
         <div class="hidden lg:block bg-background border-b border-border/20 h-[46px]" aria-hidden="true"></div>
-        <main id="boot-main">
+        </header>
+        <div id="boot-main" tabindex="-1" role="region" aria-label="Arthritis support introduction">
           <section class="band-red relative w-full max-w-full overflow-hidden">
             <div class="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-7 sm:py-9 lg:py-12">
               <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] gap-6 lg:gap-12 items-center w-full">
@@ -293,7 +296,7 @@
               </div>
             </div>
           </section>
-        </main>
+        </div>
       </div>
       <script>
         (function () {
@@ -318,7 +321,9 @@
         parseable by crawlers but never flashes for sighted users.
       -->
       <div id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;">
-      <main>
+      <header><a href="/">Living With Arthritis</a></header>
+      <a href="#static-main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+      <main id="static-main-content" tabindex="-1">
         <h1>Living With Arthritis — evidence-based health guides</h1>
         <p>Living With Arthritis (charity 1218461) is an independent UK charity — not Arthritis UK — helping people living with arthritis and joint pain. We provide free, clinically reviewed information on exercise, diet, pain management and UK benefits. Everything on this site is free, with no paywalls and no sign-up required.</p>
         <p>Whether you have just been diagnosed with osteoarthritis, are managing a flare of rheumatoid arthritis, or supporting a family member with fibromyalgia, you will find practical guides, gentle exercise programmes, anti-inflammatory recipes and a friendly community here.</p>
@@ -426,6 +431,8 @@
         </ul>
 
 
+      </main>
+      <footer>
         <nav aria-label="Footer">
           <a href="/sitemap">Sitemap</a> ·
           <a href="/privacy-policy">Privacy policy</a> ·
@@ -433,7 +440,7 @@
           <a href="/terms-conditions">Terms</a> ·
           <a href="/credits">Credits</a>
         </nav>
-      </main>
+      </footer>
       </div>
     </div>
     <script type="module" src="/src/main.tsx" fetchpriority="high"></script>

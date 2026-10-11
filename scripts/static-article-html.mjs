@@ -114,13 +114,13 @@ export function buildStaticArticleInner(data) {
 }
 
 const SEO_FALLBACK_RE =
-  /<div id="seo-fallback"[^>]*>[\s\S]*?<\/main>\s*<\/div>/i;
+  /<div id="seo-fallback"[^>]*>[\s\S]*?<\/main>\s*(?:<footer>[\s\S]*?<\/footer>\s*)?<\/div>/i;
 
 export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {
   const attrs = visible
     ? `id="seo-fallback"`
     : `id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;"`;
-  const block = `<div ${attrs}>\n      <main>\n        ${innerHtml}\n      </main>\n      </div>`;
+  const block = `<div ${attrs}>\n      <header><a href="/">Living With Arthritis</a></header>\n      <a href="#static-main-content" class="sr-only focus:not-sr-only">Skip to main content</a>\n      <main id="static-main-content" tabindex="-1">\n        ${innerHtml}\n      </main>\n      <footer><nav aria-label="Footer"><a href="/contact">Contact us</a> · <a href="/accessibility">Accessibility</a> · <a href="/privacy-policy">Privacy policy</a></nav></footer>\n      </div>`;
   if (SEO_FALLBACK_RE.test(html)) {
     return html.replace(SEO_FALLBACK_RE, block);
   }
