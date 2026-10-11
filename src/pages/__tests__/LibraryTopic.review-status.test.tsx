@@ -60,18 +60,18 @@ function pageJsonLd(): string {
 }
 
 describe("library review status data", () => {
-  it("flags exactly the 9 expanded topics as pending", () => {
+  it("no library topic is still pending", () => {
     const pending = Object.entries(LIBRARY_REVIEW_STATUS)
       .filter(([, e]) => e.reviewStatus === "pending")
       .map(([slug]) => slug)
       .sort();
-    expect(pending).toEqual([...PENDING_LIBRARY_TOPICS].sort());
+    expect(pending).toEqual([]);
   });
 
-  it("pending topics have no review date; unlisted topics keep the default", () => {
+  it("formerly pending topics now have a review date; unlisted topics keep the default", () => {
     for (const slug of PENDING_LIBRARY_TOPICS) {
-      expect(getLibraryReviewStatus(slug)).toBe("pending");
-      expect(getLibraryLastReviewed(slug)).toBeNull();
+      expect(getLibraryReviewStatus(slug)).toBe("reviewed");
+      expect(getLibraryLastReviewed(slug)).toBeTruthy();
     }
     expect(getLibraryReviewStatus("fibromyalgia")).toBe("reviewed");
     expect(getLibraryLastReviewed("fibromyalgia")).toBe(DEFAULT_LIBRARY_LAST_REVIEWED);
@@ -79,18 +79,16 @@ describe("library review status data", () => {
 
   it("About note is pending for pending topics and drops the wording once reviewed", () => {
     expect(libraryAboutNote("knee-pain").body).not.toMatch(/pending clinical review/);
-    expect(getLibraryTopicSeo("knee-pain")?.extraSections?.at(-1)?.body).toMatch(/pending clinical review/);
     expect(libraryAboutNote("fibromyalgia").body).not.toMatch(/pending/);
   });
 
-  it("static library head data carries the pending note, no review claim", () => {
+  it("static library head data no longer carries the pending note", () => {
     const head = JSON.parse(
       readFileSync(resolve(process.cwd(), "scripts/library-head-data.json"), "utf8"),
     ) as Record<string, { bodyHtml: string }>;
     for (const slug of PENDING_LIBRARY_TOPICS) {
       const html = head[`/library/${slug}`]?.bodyHtml ?? "";
-      expect(html).toContain("pending clinical review");
-      expect(html).not.toMatch(/Clinically reviewed|clinically reviewed\./);
+      expect(html).not.toContain("pending clinical review");
     }
   });
 });
@@ -119,15 +117,10 @@ describe("library:mark-reviewed helper", () => {
 });
 
 describe("LibraryTopic page review box", () => {
-  it.each(PENDING_LIBRARY_TOPICS)("%s: says pending, claims no completed review", (slug) => {
+  it.each(PENDING_LIBRARY_TOPICS)("%s: no longer says pending", (slug) => {
     renderTopic(slug);
-    expect(screen.getByText(LIBRARY_PENDING_REVIEW_TEXT)).toBeInTheDocument();
-    const text = document.body.textContent || "";
-    expect(text).not.toMatch(/Clinically reviewed/);
-    expect(text).not.toMatch(/\bclinically reviewed\b/i);
-    const ld = pageJsonLd();
-    expect(ld).toContain("MedicalWebPage");
-    expect(ld).not.toMatch(/reviewedBy|lastReviewed/);
+    expect(screen.queryByText(LIBRARY_PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
+    expect(pageJsonLd()).toContain("MedicalWebPage");
     cleanup();
   });
 
