@@ -7,6 +7,7 @@
   "direct_answer": "Between October and early March, the NHS says everyone should consider taking a daily vitamin D supplement of 10 micrograms (400 IU), because UK sunlight is too weak for your skin to make enough. If you are frail or housebound, live in a care home, usually cover your skin outdoors, or have dark skin, consider taking it all year. Vitamin D helps keep bones and muscles healthy but is not a treatment for arthritis itself. Do not take more than 100 micrograms a day unless a doctor advises it.",
   "date": "2026-09-03",
   "updated_at": "2026-10-08T09:00:00.000Z",
+  "last_reviewed": "2026-10-11",
   "category": "Nutrition",
   "cover": "cover-0446-hearty-autumn-salad.webp",
   "author": "Louis Maxwell",
@@ -49,5 +50,5 @@
       "publisher": "NICE"
     }
   ],
-  "reviewStatus": "pending"
+  "reviewStatus": "reviewed"
 }

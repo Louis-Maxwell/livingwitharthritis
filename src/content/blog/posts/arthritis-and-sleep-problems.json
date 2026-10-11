@@ -7,6 +7,7 @@
   "direct_answer": "Sleep problems with arthritis are not always caused by joint pain alone. Common causes include night pain and stiffness, more active inflammatory arthritis, medicines such as steroids, needing the toilet at night, restless legs, sleep apnoea, worry or low mood, and fibromyalgia. Work out what is waking you, then ask the right person: your GP, pharmacist or rheumatology team. Do not change prescribed medicines yourself.",
   "date": "2026-02-17",
   "updated_at": "2026-10-08T09:00:00.000Z",
+  "last_reviewed": "2026-10-11",
   "category": "Sleep",
   "cover": "cover-0475-boroma.webp",
   "author": "Louis Maxwell",
@@ -54,5 +55,5 @@
       "publisher": "NHS"
     }
   ],
-  "reviewStatus": "pending"
+  "reviewStatus": "reviewed"
 }

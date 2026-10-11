@@ -1,11 +1,11 @@
 {
-  "carpal-tunnel": { "reviewStatus": "pending" },
-  "hydroxychloroquine": { "reviewStatus": "pending" },
-  "knee-pain": { "reviewStatus": "pending" },
-  "osteoporosis": { "reviewStatus": "pending" },
-  "plantar-fasciitis": { "reviewStatus": "pending" },
-  "raynauds": { "reviewStatus": "pending" },
-  "shoulder-pain": { "reviewStatus": "pending" },
-  "sjogrens": { "reviewStatus": "pending" },
-  "vasculitis": { "reviewStatus": "pending" }
+  "carpal-tunnel": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "hydroxychloroquine": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "knee-pain": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "osteoporosis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "plantar-fasciitis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "raynauds": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "shoulder-pain": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "sjogrens": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" },
+  "vasculitis": { "reviewStatus": "reviewed", "lastReviewed": "2026-10-11" }
 }
