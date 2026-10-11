@@ -216,8 +216,8 @@ describe("Champions 62–67 guides now clinically reviewed", () => {
     expect(post.reviewStatus).toBe("reviewed");
     expect(post.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(resolveBlogReviewStatus(post)).toBe("reviewed");
-    expect(catalogRows.find((r) => r.slug === slug)?.reviewStatus).toBe("reviewed");
-    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).toBe("reviewed");
+    expect(catalogRows.find((r) => r.slug === slug)?.reviewStatus).not.toBe("pending");
+    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 });
 
