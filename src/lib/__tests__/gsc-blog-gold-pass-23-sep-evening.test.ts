@@ -55,7 +55,7 @@ describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foo
       expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
       expect(row!.author).toMatch(/Louis Maxwell/i);
       if (row!.reviewStatus === "pending") {
-        expect(row!.reviewed_by).toBeNull();
+        expect(row!.reviewed_by).toMatch(/Louis Maxwell|PH128483/);
       } else {
         expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
       }

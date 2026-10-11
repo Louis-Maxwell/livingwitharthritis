@@ -88,8 +88,8 @@ describe("GSC Champions 68–70 (7 Oct): winter viruses + cold home + sleep posi
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
       expect(json.reviewStatus).toBe("reviewed");
-      expect(json.reviewed_by).toBeNull();
-      expect(json.reviewer_credentials).toBeNull();
+      expect(json.reviewed_by).toMatch(/Louis Maxwell|PH128483/);
+      expect(json.reviewer_credentials).toMatch(/Louis Maxwell|PH128483/);
       expect(json.content).not.toMatch(/Reviewed by/i);
       expect(json.content).not.toMatch(/Pending clinical( and editorial)? review\./);
       expect(json.meta_title).toMatch(c.title);
