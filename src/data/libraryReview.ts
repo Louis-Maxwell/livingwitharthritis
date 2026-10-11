@@ -4,7 +4,7 @@
  * Source of truth: src/data/libraryReviewStatus.json, keyed by library slug:
  *   { "<slug>": { "reviewStatus": "pending" } }
  *   { "<slug>": { "reviewStatus": "reviewed", "lastReviewed": "YYYY-MM-DD" } }
- * Topics not listed are "reviewed" with DEFAULT_LIBRARY_LAST_REVIEWED.
+ * Topics without an explicit completed review and date remain pending.
  *
  * A pending topic shows LIBRARY_PENDING_REVIEW_TEXT in its review box and its
  * "About this page" note, and never claims a completed review. Flip a topic
@@ -18,7 +18,7 @@ export interface LibraryReviewEntry {
   lastReviewed?: string;
 }
 
-/** Review date shown on library topics that have no explicit entry. */
+/** Legacy migration constant; never use as evidence of a completed review. */
 export const DEFAULT_LIBRARY_LAST_REVIEWED = "2026-09-18";
 
 /** Review-box line on a library topic awaiting clinical review. */
@@ -28,7 +28,9 @@ export const LIBRARY_PENDING_REVIEW_TEXT =
 export const LIBRARY_REVIEW_STATUS = reviewStatusJson as Record<string, LibraryReviewEntry>;
 
 export function getLibraryReviewStatus(slug: string): BlogReviewStatus {
-  return LIBRARY_REVIEW_STATUS[slug]?.reviewStatus === "pending" ? "pending" : "reviewed";
+  const entry = LIBRARY_REVIEW_STATUS[slug];
+  return entry?.reviewStatus === "reviewed" && /^\d{4}-\d{2}-\d{2}$/.test(entry.lastReviewed || "")
+    ? "reviewed" : "pending";
 }
 
 export function isLibraryReviewPending(slug: string): boolean {
@@ -38,7 +40,7 @@ export function isLibraryReviewPending(slug: string): boolean {
 /** Real review date for a reviewed topic; null while pending. */
 export function getLibraryLastReviewed(slug: string): string | null {
   if (isLibraryReviewPending(slug)) return null;
-  return LIBRARY_REVIEW_STATUS[slug]?.lastReviewed ?? DEFAULT_LIBRARY_LAST_REVIEWED;
+  return LIBRARY_REVIEW_STATUS[slug]?.lastReviewed ?? null;
 }
 
 /**

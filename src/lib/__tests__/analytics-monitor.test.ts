@@ -1,9 +1,20 @@
 import { describe, expect, it, beforeEach, vi } from "vitest";
-import { getAnalyticsStatus, isGA4Ready, isGSCVerified, getConsentStatus } from "@/lib/analytics-monitor";
+import { getAnalyticsStatus, isGA4Ready, isGSCVerified, getConsentStatus, getPerformanceReport } from "@/lib/analytics-monitor";
 
 describe("analytics-monitor", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it("does not label unmeasured Core Web Vitals as good", () => {
+    expect(getPerformanceReport().measured).toBe(false);
+    expect(getPerformanceReport().allGood).toBe(false);
+  });
+
+  it("keeps unanswered consent pending", () => {
+    localStorage.removeItem('cookie-consent');
+    localStorage.removeItem('lwa_cv3');
+    expect(getConsentStatus()).toBe('pending');
   });
 
   describe("getAnalyticsStatus", () => {

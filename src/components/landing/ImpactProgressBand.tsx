@@ -29,7 +29,7 @@ const ImpactProgressBand = () => {
             Help us fund arthritis research.
           </h2>
           <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Every pound funds clinically reviewed guides, plain-English writing
+            Every pound funds evidence-informed guides, plain-English writing
             and free resources for everyone in the UK living with arthritis.
             You can see the live total and every update on our GoFundMe page.
           </p>
