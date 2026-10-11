@@ -128,15 +128,16 @@ describe("BlogPost clinical review status", () => {
   });
 
   it("guide flipped with blog:mark-reviewed shows 'Clinically reviewed'", async () => {
-    renderWith({ ...baseArticle, slug: "menopause-hrt-and-joint-pain" });
+    renderWith({ ...baseArticle, slug: "menopause-hrt-and-joint-pain", last_reviewed: "2026-09-27" });
     expect(screen.queryByText(PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
     expect(screen.getByText(/Clinically reviewed · Louis Maxwell/)).toBeInTheDocument();
   });
 
-  it("reviewed guide (default): unchanged 'Clinically reviewed' and reviewedBy", async () => {
+  it("reviewed guide without a date: records reviewer without inventing a review date", async () => {
     renderWith(baseArticle);
     expect(screen.queryByText(PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
-    expect(screen.getByText(/Clinically reviewed · Louis Maxwell/)).toBeInTheDocument();
+    expect(screen.getByText(/Review date not recorded/)).toBeInTheDocument();
+    expect(screen.queryByText(/Clinically reviewed/)).not.toBeInTheDocument();
     expect(screen.getAllByText(/Reviewed by Maxwell/).length).toBeGreaterThan(0);
     for (const node of await articleJsonLd()) {
       expect(node).toHaveProperty("reviewedBy");
