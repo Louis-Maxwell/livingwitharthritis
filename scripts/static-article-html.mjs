@@ -139,7 +139,7 @@ export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {
   const attrs = visible
     ? `id="seo-fallback"`
     : `id="seo-fallback" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;"`;
-  const block = `<div ${attrs}>\n      <main>\n        ${innerHtml}\n      </main>\n      </div>`;
+  const block = `<div ${attrs}>\n      <header><a href="/">Living With Arthritis</a></header>\n      <a href="#static-main-content" class="sr-only focus:not-sr-only">Skip to main content</a>\n      <main id="static-main-content" tabindex="-1">\n        ${innerHtml}\n      </main>\n      <footer><nav aria-label="Footer"><a href="/contact">Contact us</a> · <a href="/accessibility">Accessibility</a> · <a href="/privacy">Privacy policy</a></nav></footer>\n      </div>`;
   const doc = parse(html, { sourceCodeLocationInfo: true });
   // The homepage-only first-paint shell must never survive on another route.
   // DOM replacement handles nested divs; a first-closing-div regex did not.

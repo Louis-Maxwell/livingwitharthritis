@@ -47,8 +47,8 @@ const OAHero = memo(() => (
               Living With Arthritis — evidence-based health guides
             </span>
             <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
-              Free, practical help for people living with arthritis — and those who care
-              for them
+              Providing practical advice, support and evidence-based guidance for people living
+              with arthritis and frailty.
             </span>
           </h1>
 
@@ -103,7 +103,7 @@ const OAHero = memo(() => (
             alt="Two smiling young women outdoors together — representing the community Living With Arthritis supports."
             width={800}
             height={800}
-            {...({ fetchpriority: "high" } as Record<string, string>)}
+            {...({ fetchpriority: "auto" } as Record<string, string>)}
             decoding="async"
             loading="eager"
             onError={onCoverImgError}

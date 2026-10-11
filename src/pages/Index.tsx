@@ -136,7 +136,7 @@ function HomePage() {
           <HomeJobRouter />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
-          <ViewportSection fallback={<SectionFallback />}>
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <JointExerciseSection />
             <HomeToolsBand />
           </ViewportSection>
@@ -150,14 +150,14 @@ function HomePage() {
 
           {/* 06 — Conditions (target of "/#conditions" breadcrumbs) + latest */}
           <div id="conditions" className="scroll-mt-28">
-            <ViewportSection fallback={<SectionFallback />}>
+            <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
               <ConditionPillBand />
               <LatestGrid />
             </ViewportSection>
           </div>
 
           {/* 07 — Research fund appeal (live total on GoFundMe, no static meter) + donate */}
-          <ViewportSection fallback={<SectionFallback />}>
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <ImpactProgressBand />
             <FinalDonateBand />
           </ViewportSection>
@@ -168,7 +168,7 @@ function HomePage() {
           </Suspense>
         </main>
 
-        <ViewportSection fallback={<div className="h-64" aria-hidden="true" />}>
+        <ViewportSection rootMargin="200px 0px" fallback={<div className="h-64" aria-hidden="true" />}>
           <NextReadStrip currentPath="/" />
           <Footer />
         </ViewportSection>
