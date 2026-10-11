@@ -29,22 +29,22 @@ const jsonLd = {
   "datePublished": "2025-06-01",
   "dateModified": "2025-12-15",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
+  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png`} },
   "about": {
     "@type": "MedicalCondition",
     "name": "Psoriatic Arthritis",
     "alternateName": ["PsA", "Arthritis Psoriatica"],
-    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Joints, skin, entheses, spine" },
+    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Joints, skin, entheses, spine"},
     "riskFactor": ["Psoriasis", "Family history", "Age 30-50", "Obesity", "Nail psoriasis"],
     "signOrSymptom": ["Joint pain and swelling", "Skin plaques", "Dactylitis (sausage digits)", "Enthesitis", "Nail changes", "Fatigue"],
     "possibleTreatment": [
-      { "@type": "MedicalTherapy", "name": "DMARDs" },
-      { "@type": "MedicalTherapy", "name": "Biologic therapies (anti-TNF, IL-17, IL-23)" },
-      { "@type": "MedicalTherapy", "name": "Physical therapy" },
-      { "@type": "MedicalTherapy", "name": "Topical skin treatments" }
+      { "@type": "MedicalTherapy", "name": "DMARDs"},
+      { "@type": "MedicalTherapy", "name": "Biologic therapies (anti-TNF, IL-17, IL-23)"},
+      { "@type": "MedicalTherapy", "name": "Physical therapy"},
+      { "@type": "MedicalTherapy", "name": "Topical skin treatments"}
     ]
   },
-  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
+  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom"} },
   "mainEntityOfPage": `${BASE}/conditions/psoriatic-arthritis`
 };
 
@@ -52,11 +52,11 @@ const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What is psoriatic arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Psoriatic arthritis (PsA) is a chronic inflammatory condition that affects both the joints and the skin. It occurs in up to 30% of people with psoriasis and causes joint pain, swelling, stiffness, and skin plaques." } },
-    { "@type": "Question", "name": "Can you have psoriatic arthritis without psoriasis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, though uncommon. About 15% of people develop joint symptoms before skin involvement. A family history of psoriasis is a strong indicator, and nail changes may be present before skin plaques appear." } },
-    { "@type": "Question", "name": "What are the early signs of psoriatic arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Early signs include swollen, painful joints (especially fingers and toes), morning stiffness, nail pitting or separation, heel or sole pain (enthesitis), and 'sausage-like' swelling of entire fingers or toes (dactylitis)." } },
-    { "@type": "Question", "name": "How is psoriatic arthritis treated?", "acceptedAnswer": { "@type": "Answer", "text": "Treatment involves NSAIDs for mild symptoms, DMARDs (methotrexate) for moderate disease, and biologic therapies (anti-TNF, IL-17, IL-23 inhibitors) for more severe cases. Physiotherapy, exercise, and weight management are also important." } },
-    { "@type": "Question", "name": "Is psoriatic arthritis worse than rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Neither is inherently 'worse' — both can range from mild to severe. PsA uniquely involves skin and nail changes, and has distinct patterns like dactylitis and enthesitis. Both require early treatment to prevent joint damage." } }
+    { "@type": "Question", "name": "What is psoriatic arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Psoriatic arthritis (PsA) is a chronic inflammatory condition that affects both the joints and the skin. It occurs in up to 30% of people with psoriasis and causes joint pain, swelling, stiffness, and skin plaques."} },
+    { "@type": "Question", "name": "Can you have psoriatic arthritis without psoriasis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, though uncommon. About 15% of people develop joint symptoms before skin involvement. A family history of psoriasis is a strong indicator, and nail changes may be present before skin plaques appear."} },
+    { "@type": "Question", "name": "What are the early signs of psoriatic arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Early signs include swollen, painful joints (especially fingers and toes), morning stiffness, nail pitting or separation, heel or sole pain (enthesitis), and 'sausage-like'swelling of entire fingers or toes (dactylitis)."} },
+    { "@type": "Question", "name": "How is psoriatic arthritis treated?", "acceptedAnswer": { "@type": "Answer", "text": "Treatment involves NSAIDs for mild symptoms, DMARDs (methotrexate) for moderate disease, and biologic therapies (anti-TNF, IL-17, IL-23 inhibitors) for more severe cases. Physiotherapy, exercise, and weight management are also important."} },
+    { "@type": "Question", "name": "Is psoriatic arthritis worse than rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Neither is inherently 'worse'— both can range from mild to severe. PsA uniquely involves skin and nail changes, and has distinct patterns like dactylitis and enthesitis. Both require early treatment to prevent joint damage."} }
   ]
 };
 
@@ -64,13 +64,13 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
   <motion.section
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-40px" }}
+    viewport={{ once: true, margin: "-40px"}}
     transition={{ duration: 0.6 }}
     className="mb-12"
   >
     <div className="flex items-center gap-3 mb-5">
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary" />
+        <Icon className="w-5 h-5 text-primary"/>
       </div>
       <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
@@ -84,34 +84,34 @@ const PsoriaticArthritis = () => (
   <>
     <Helmet>
       <title>Psoriatic Arthritis: Symptoms & Treatment | Living With Arthritis</title>
-      <meta name="description" content="UK guide to psoriatic arthritis: the link between psoriasis and joint inflammation, symptoms, diagnosis, treatment and self-care." />
-      <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, ankylosing spondylitis, biologic therapy, psoriatic arthritis diet, anti-inflammatory diet, autoimmune arthritis, joint inflammation, chronic pain management, what causes arthritis, arthritis medication" />
-      <meta property="og:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
-      <meta property="og:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
-      <meta property="og:url" content={`${BASE}/conditions/psoriatic-arthritis`} />
-      <meta property="og:type" content="article" />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis" />
-      <meta property="og:image" content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Psoriatic Arthritis – Symptoms, Causes & Treatment guide" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
-      <meta name="twitter:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
-      <meta name="twitter:image" content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
-      <meta name="geo.region" content="GB" />
-      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/psoriatic-arthritis`} />
+      <meta name="description"content="UK guide to psoriatic arthritis: the link between psoriasis and joint inflammation, symptoms, diagnosis, treatment and self-care."/>
+      <meta name="keywords"content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, ankylosing spondylitis, biologic therapy, psoriatic arthritis diet, anti-inflammatory diet, autoimmune arthritis, joint inflammation, chronic pain management, what causes arthritis, arthritis medication"/>
+      <meta property="og:title"content="Psoriatic Arthritis – Symptoms, Causes & Treatment"/>
+      <meta property="og:description"content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management."/>
+      <meta property="og:url"content={`${BASE}/conditions/psoriatic-arthritis`} />
+      <meta property="og:type"content="article"/>
+      <meta property="og:locale"content="en_GB"/>
+      <meta property="og:site_name"content="Living With Arthritis"/>
+      <meta property="og:image"content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
+      <meta property="og:image:width"content="1200"/>
+      <meta property="og:image:height"content="630"/>
+      <meta property="og:image:alt"content="Psoriatic Arthritis – Symptoms, Causes & Treatment guide"/>
+      <meta name="twitter:card"content="summary_large_image"/>
+      <meta name="twitter:title"content="Psoriatic Arthritis – Symptoms, Causes & Treatment"/>
+      <meta name="twitter:description"content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management."/>
+      <meta name="twitter:image"content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
+      <meta name="geo.region"content="GB"/>
+      <link rel="alternate"hrefLang="en-GB"href={`${BASE}/conditions/psoriatic-arthritis`} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
-      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Psoriatic Arthritis" }]} />
+      <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions"}, { label: "Psoriatic Arthritis"}]} />
       <PageHero
         badge={
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase border border-primary/20">
-            <Fingerprint className="w-3.5 h-3.5" /> Joint & Skin Condition
+            <Fingerprint className="w-3.5 h-3.5"/> Joint & Skin Condition
           </span>
         }
         title={<>Psoriatic <span className="text-gradient">Arthritis</span></>}
@@ -119,12 +119,12 @@ const PsoriaticArthritis = () => (
         gradient="from-primary/8 via-background to-primary/5"
         pattern="diagonal"
       >
-        <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
+        <Link to="/#conditions"className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+          <ArrowLeft className="w-3.5 h-3.5"/> Back to conditions
         </Link>
       </PageHero>
       <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
-        <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6" />
+        <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6"/>
         <AnswerBox
           question="What is the best treatment for psoriatic arthritis?"
           reviewed="2026-06-13"
@@ -143,16 +143,16 @@ const PsoriaticArthritis = () => (
         <div className="container mx-auto px-6 md:px-10 max-w-4xl">
           <p className="section-label text-primary mb-6">Psoriatic Arthritis at a Glance</p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCounter value="150K" label="People with PsA in the UK" icon={<Users className="w-6 h-6" />} color="violet" />
-            <StatCounter value="30" suffix="%" label="Of psoriasis patients develop PsA" icon={<Percent className="w-6 h-6" />} color="amber" />
-            <StatCounter value="5" label="Distinct PsA patterns" icon={<Fingerprint className="w-6 h-6" />} color="sky" />
-            <StatCounter value="80" suffix="%" label="Develop skin symptoms first" icon={<Eye className="w-6 h-6" />} color="rose" />
+            <StatCounter value="150K"label="People with PsA in the UK"icon={<Users className="w-6 h-6"/>} color="violet"/>
+            <StatCounter value="30"suffix="%"label="Of psoriasis patients develop PsA"icon={<Percent className="w-6 h-6"/>} color="amber"/>
+            <StatCounter value="5"label="Distinct PsA patterns"icon={<Fingerprint className="w-6 h-6"/>} color="sky"/>
+            <StatCounter value="80"suffix="%"label="Develop skin symptoms first"icon={<Eye className="w-6 h-6"/>} color="rose"/>
           </div>
         </div>
       </section>
-      <WaveDivider color="hsl(var(--background))" />
+      <WaveDivider color="hsl(var(--background))"/>
 
-      <main id="main-content" className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
+      <main id="main-content"className="container mx-auto px-6 md:px-10 py-16 md:py-24 max-w-3xl">
         <Section icon={Activity} title="What is psoriatic arthritis?">
           <p>Psoriatic arthritis is a chronic inflammatory condition that combines the joint inflammation of arthritis with the skin disease psoriasis. The immune system attacks both the joints and skin, causing pain, swelling, stiffness, and characteristic scaly skin patches.</p>
           <p>PsA can affect any joint and varies considerably between individuals. It was once considered a mild form of arthritis, but we now know it can be <strong>progressive and destructive</strong> if left untreated.</p>
@@ -258,7 +258,7 @@ const PsoriaticArthritis = () => (
           matchCategories={["Treatment", "Lifestyle"]}
         />
 
-        <ConditionSubpageLinks conditionSlug="psoriatic-arthritis" conditionName="Psoriatic Arthritis" />
+        <ConditionSubpageLinks conditionSlug="psoriatic-arthritis"conditionName="Psoriatic Arthritis"/>
 
         <ContextualLinks
           heading="Pair psoriatic arthritis care with the right resources"
@@ -267,39 +267,39 @@ const PsoriaticArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for psoriatic arthritis", to: "/diet" },
-                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                { label: "Best diet for psoriatic arthritis", to: "/diet"},
+                { label: "Mediterranean diet pillar guide", to: "/guides/diet"},
+                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition"},
+                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements"},
               ],
             },
             {
               title: "Exercise & movement",
               links: [
-                { label: "Arthritis-friendly exercises", to: "/exercises" },
-                { label: "Spine & posture work", to: "/exercises" },
-                { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
-                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                { label: "Arthritis-friendly exercises", to: "/exercises"},
+                { label: "Spine & posture work", to: "/exercises"},
+                { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance"},
+                { label: "Exercises to avoid with arthritis", to: "/guides/exercise"},
               ],
             },
             {
               title: "Flare-ups & support",
               links: [
-                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
-                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
-                { label: "Community & peer support", to: "/community" },
-                { label: "Browse the Advice Hub", to: "/blog-hub" },
+                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups"},
+                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help"},
+                { label: "Community & peer support", to: "/community"},
+                { label: "Browse the Advice Hub", to: "/blog-hub"},
               ],
             },
             {
               title: "Other conditions",
               links: [
-                { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
-                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
-                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
-                { label: "Gout", to: "/conditions/gout" },
-                { label: "Lupus (SLE)", to: "/conditions/lupus" },
-                { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
+                { label: "Osteoarthritis", to: "/conditions/osteoarthritis"},
+                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis"},
+                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis"},
+                { label: "Gout", to: "/conditions/gout"},
+                { label: "Lupus (SLE)", to: "/conditions/lupus"},
+                { label: "Fibromyalgia", to: "/conditions/fibromyalgia"},
               ],
             },
           ]}
@@ -309,10 +309,10 @@ const PsoriaticArthritis = () => (
           <h2 className="font-display text-xl font-bold text-foreground mb-3">How is psoriatic arthritis managed day-to-day?</h2>
           <p className="text-muted-foreground mb-5">Modern treatments can control both skin and joint symptoms. Explore our resources or start a chat for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
+            <Link to="/chat"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
               Start a chat
             </Link>
-            <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
+            <Link to="/blog"className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
               Read our articles
             </Link>
           </div>
@@ -352,7 +352,7 @@ const PsoriaticArthritis = () => (
               },
             ]}
           />
-          <CrossLinkBanner preset="condition" exclude="/conditions/psoriatic-arthritis" title="Explore related resources" />
+          <CrossLinkBanner preset="condition"exclude="/conditions/psoriatic-arthritis"title="Explore related resources"/>
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <RelatedArticles

@@ -6,18 +6,18 @@ import { Calendar, Download, Dumbbell, CheckCircle } from "lucide-react";
 import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 
 const allJoints = ["knee", "hip", "shoulder", "hand", "back", "ankle"] as const;
-const jointLabels: Record<string, string> = { knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle" };
+const jointLabels: Record<string, string> = { knee: "Knee", hip: "Hip", shoulder: "Shoulder", hand: "Hand", back: "Back", ankle: "Ankle"};
 
 const fitnessLevels = [
-  { id: "beginner", label: "Beginner", desc: "New to exercise or recovering" },
-  { id: "intermediate", label: "Intermediate", desc: "Some regular activity" },
-  { id: "active", label: "Active", desc: "Exercise 4+ times per week" },
+  { id: "beginner", label: "Beginner", desc: "New to exercise or recovering"},
+  { id: "intermediate", label: "Intermediate", desc: "Some regular activity"},
+  { id: "active", label: "Active", desc: "Exercise 4+ times per week"},
 ] as const;
 
 const goals = [
-  { id: "pain", label: "Pain Relief", desc: "Gentle exercises to reduce pain" },
-  { id: "mobility", label: "Improve Mobility", desc: "Increase range of motion" },
-  { id: "strength", label: "Build Strength", desc: "Strengthen muscles around joints" },
+  { id: "pain", label: "Pain Relief", desc: "Gentle exercises to reduce pain"},
+  { id: "mobility", label: "Improve Mobility", desc: "Increase range of motion"},
+  { id: "strength", label: "Build Strength", desc: "Strengthen muscles around joints"},
 ] as const;
 
 const goalExerciseMap: Record<string, string[]> = {
@@ -28,7 +28,7 @@ const goalExerciseMap: Record<string, string[]> = {
 
 const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-type Step = "joints" | "fitness" | "goal" | "plan";
+type Step = "joints"| "fitness"| "goal"| "plan";
 
 export default function ExercisePlanGenerator() {
   const [step, setStep] = useState<Step>("joints");
@@ -43,10 +43,10 @@ export default function ExercisePlanGenerator() {
   };
 
   const plan = useMemo(() => {
-    if (step !== "plan" || selectedJoints.length === 0) return [];
+    if (step !== "plan"|| selectedJoints.length === 0) return [];
 
     const exerciseTypes = goalExerciseMap[goal] || goalExerciseMap.pain;
-    const sessionsPerWeek = fitness === "beginner" ? 4 : fitness === "intermediate" ? 5 : 6;
+    const sessionsPerWeek = fitness === "beginner"? 4 : fitness === "intermediate"? 5 : 6;
 
     const selectedLabels = selectedJoints.map((j) => jointLabels[j]);
     const relevantPages = exerciseJointPages.filter(
@@ -70,7 +70,7 @@ export default function ExercisePlanGenerator() {
         || relevantPages[d % Math.max(relevantPages.length, 1)];
 
       if (page) {
-        const maxExercises = fitness === "beginner" ? 2 : fitness === "intermediate" ? 3 : 3;
+        const maxExercises = fitness === "beginner"? 2 : fitness === "intermediate"? 3 : 3;
         days.push({
           day: dayNames[d],
           isRest: false,
@@ -99,21 +99,21 @@ export default function ExercisePlanGenerator() {
       "",
     ];
     plan.forEach((day) => {
-      lines.push(`📅 ${day.day}`);
+      lines.push(`${day.day}`);
       if (day.isRest) {
-        lines.push("   Rest Day — gentle stretching or walking");
+        lines.push("Rest Day — gentle stretching or walking");
       } else {
         day.exercises.forEach((ex) => {
-          lines.push(`   ${jointLabels[ex.joint]} — ${ex.exercise}`);
+          lines.push(`${jointLabels[ex.joint]} — ${ex.exercise}`);
           ex.instructions.forEach((inst) => {
-            lines.push(`   • ${inst.name}: ${inst.reps}`);
+            lines.push(`• ${inst.name}: ${inst.reps}`);
           });
         });
       }
       lines.push("");
     });
     lines.push("Disclaimer: This plan is for educational purposes. Consult your GP or physiotherapist before starting.");
-    const blob = new Blob([lines.join("\n")], { type: "text/plain" });
+    const blob = new Blob([lines.join("\n")], { type: "text/plain"});
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -127,7 +127,7 @@ export default function ExercisePlanGenerator() {
       <div className="space-y-6">
         <div className="rounded-2xl overflow-hidden bg-accent flex items-center gap-4 p-4 sm:p-6">
           <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <Dumbbell className="w-10 h-10 sm:w-12 sm:h-12 text-primary" aria-hidden />
+            <Dumbbell className="w-10 h-10 sm:w-12 sm:h-12 text-primary"aria-hidden />
           </div>
           <div>
             <h3 className="text-lg font-bold text-foreground">Build your personalised plan</h3>
@@ -147,14 +147,14 @@ export default function ExercisePlanGenerator() {
                   : "border-border/30 bg-card hover:border-primary/30 text-muted-foreground"
               }`}
             >
-              <Dumbbell className={`w-5 h-5 mx-auto mb-1.5 ${selectedJoints.includes(joint) ? "text-primary" : ""}`} />
+              <Dumbbell className={`w-5 h-5 mx-auto mb-1.5 ${selectedJoints.includes(joint) ? "text-primary": ""}`} />
               <span className="text-sm font-semibold">{jointLabels[joint]}</span>
             </button>
           ))}
         </div>
         <div className="flex justify-end">
           <Button onClick={() => setStep("fitness")} disabled={selectedJoints.length === 0} className="gap-1">
-            Next <CheckCircle className="w-4 h-4" />
+            Next <CheckCircle className="w-4 h-4"/>
           </Button>
         </div>
       </div>
@@ -182,7 +182,7 @@ export default function ExercisePlanGenerator() {
           ))}
         </div>
         <div className="flex justify-between">
-          <Button variant="ghost" onClick={() => setStep("joints")}>Back</Button>
+          <Button variant="ghost"onClick={() => setStep("joints")}>Back</Button>
           <Button onClick={() => setStep("goal")}>Next</Button>
         </div>
       </div>
@@ -210,8 +210,8 @@ export default function ExercisePlanGenerator() {
           ))}
         </div>
         <div className="flex justify-between">
-          <Button variant="ghost" onClick={() => setStep("fitness")}>Back</Button>
-          <Button onClick={() => setStep("plan")} className="gap-1">Generate Plan <Calendar className="w-4 h-4" /></Button>
+          <Button variant="ghost"onClick={() => setStep("fitness")}>Back</Button>
+          <Button onClick={() => setStep("plan")} className="gap-1">Generate Plan <Calendar className="w-4 h-4"/></Button>
         </div>
       </div>
     );
@@ -227,17 +227,17 @@ export default function ExercisePlanGenerator() {
             {selectedJoints.map((j) => jointLabels[j]).join(", ")} · {fitness} · {goal}
           </p>
         </div>
-        <Button variant="outline" size="sm" onClick={downloadPlan} className="gap-1.5">
-          <Download className="w-4 h-4" /> Download
+        <Button variant="outline"size="sm"onClick={downloadPlan} className="gap-1.5">
+          <Download className="w-4 h-4"/> Download
         </Button>
       </div>
 
       <div className="space-y-3">
         {plan.map((day) => (
-          <Card key={day.day} className={`border-border/30 ${day.isRest ? "bg-muted/30" : ""}`}>
+          <Card key={day.day} className={`border-border/30 ${day.isRest ? "bg-muted/30": ""}`}>
             <CardContent className="py-4">
               <div className="flex items-center gap-3">
-                <Badge variant="outline" className="text-xs font-bold w-24 justify-center">{day.day}</Badge>
+                <Badge variant="outline"className="text-xs font-bold w-24 justify-center">{day.day}</Badge>
                 {day.isRest ? (
                   <span className="text-sm text-muted-foreground italic">Rest day — gentle stretching or a short walk</span>
                 ) : (
@@ -245,7 +245,7 @@ export default function ExercisePlanGenerator() {
                     {day.exercises.map((ex, i) => (
                       <div key={i}>
                         <span className="text-sm font-semibold text-foreground capitalize">
-                          {jointLabels[ex.joint]} — {ex.exercise.replace("-", " ")}
+                          {jointLabels[ex.joint]} — {ex.exercise.replace("-", "")}
                         </span>
                         <ul className="mt-1 space-y-0.5">
                           {ex.instructions.map((inst, j) => (
@@ -270,7 +270,7 @@ export default function ExercisePlanGenerator() {
       </p>
 
       <div className="flex justify-center gap-3">
-        <Button variant="outline" onClick={() => { setStep("joints"); }}>Start Over</Button>
+        <Button variant="outline"onClick={() => { setStep("joints"); }}>Start Over</Button>
       </div>
     </div>
   );
