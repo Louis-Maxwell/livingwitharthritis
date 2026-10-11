@@ -47,8 +47,8 @@ const OAHero = memo(() => (
               Living With Arthritis — evidence-based health guides
             </span>
             <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
-              Free, physio-reviewed help for people living with arthritis — and those who care
-              for them
+              Providing practical advice, support and evidence-based guidance for people living
+              with arthritis and frailty.
             </span>
           </h1>
 
