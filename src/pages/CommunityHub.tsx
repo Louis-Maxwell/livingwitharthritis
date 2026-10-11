@@ -14,7 +14,7 @@ import { dailyTips } from "@/data/dailyTips";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 import {
   Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, Star, Globe, BookOpen, HandHeart, Download
+  Heart, Star, Globe, BookOpen, HandHeart, Download,
   FileText,
 } from "lucide-react";
 import {
