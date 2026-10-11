@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
+import international from "@/data/internationalResources.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
@@ -77,36 +78,44 @@ export default function ResourceDirectory() {
     items.filter(r =>
       !search || r.name.toLowerCase().includes(search.toLowerCase()) ||
       r.description.toLowerCase().includes(search.toLowerCase()) ||
+      r.region.toLowerCase().includes(search.toLowerCase()) ||
       r.tags.some(t => t.toLowerCase().includes(search.toLowerCase()))
     );
 
   return (
     <>
-      <Helmet>
-        <title>UK Arthritis Resource Directory | Living With Arthritis</title>
-        <meta name="description" content="Arthritis resource directory: free UK guides, webinars, e-books, anti-inflammatory recipes and support groups to help you manage arthritis effectively." />
-      <meta property="og:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
-      <meta property="og:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://livingwitharthritis.org.uk/resources-directory" />
-      <meta property="og:site_name" content="Living With Arthritis" />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Resource Directory | Living With Arthritis" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
-      <meta name="twitter:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
-      <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-    </Helmet>
+      <SeoHead title={international.title} description={international.description} path="/resources-directory" includeSiteName={false} />
       <div className="min-h-screen bg-background">
         <Header />
         <main id="main-content">
           <PageHero
-            title="UK Arthritis Resource Directory"
-            subtitle="A curated directory of health services, charities, benefits, equipment, and research opportunities — everything you need in one place."
+            title={international.heading}
+            subtitle="Trusted arthritis information, local support and free guides for readers in the UK and around the world."
           />
+
+          <section aria-labelledby="international-resources" className="py-10 border-b border-border/50">
+            <div className="container mx-auto px-4 max-w-5xl space-y-6">
+              <h2 id="international-resources" className="text-2xl font-bold">{international.question}</h2>
+              <p className="speakable-intro text-muted-foreground leading-relaxed">{international.answer}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {international.resources.map(resource => (
+                  <Card key={resource.region}>
+                    <CardContent className="p-5 space-y-2">
+                      <h3 className="font-semibold">{resource.region}</h3>
+                      <a href={resource.url} className="text-primary underline underline-offset-4">{resource.name}</a>
+                      <p className="text-sm text-muted-foreground">{resource.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              <h2 className="text-xl font-semibold">Free self-management guides</h2>
+              <ul className="flex flex-wrap gap-x-6 gap-y-3">
+                {international.guides.map(guide => <li key={guide.href}><Link className="text-primary underline underline-offset-4" to={guide.href}>{guide.label}</Link></li>)}
+              </ul>
+              <h2 className="text-xl font-semibold">UK services and support directory</h2>
+              <p className="text-sm text-muted-foreground">The directory below covers UK health services, charities, benefits, equipment and research opportunities. UK services and eligibility rules apply to UK readers.</p>
+            </div>
+          </section>
 
           {/* Search */}
           <section className="py-6 bg-muted/30 border-y border-border/50">

@@ -60,7 +60,7 @@ export default function BlogHelpfulness({ slug }: Props) {
             className="space-y-2"
           >
             <p className="text-sm text-muted-foreground">
-              {vote ? "Glad this helped! 💚" : "Thanks for the feedback — we'll improve this."}
+              {vote ? "Glad this helped." : "Thanks for the feedback — we'll improve this."}
             </p>
             {total > 0 && (
               <p className="text-xs text-muted-foreground">

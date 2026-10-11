@@ -82,7 +82,7 @@ export function deriveHeadData(route) {
       title: `Living With Arthritis — ${meta.label}`,
       description: `Guías sobre la artritis / arthrite / Arthritis ${meta.suffix} de Living With Arthritis, una organización benéfica registrada (nº 1218461).`.slice(0, 158),
       question: `Living With Arthritis — ${meta.label}`,
-      answer: `This is the ${meta.label} entry point for Living With Arthritis. Our clinically reviewed arthritis guides are published ${meta.suffix}.`,
+      answer: `This is the ${meta.label} entry point for Living With Arthritis. Read the translation and review notices on the page before using its guidance.`,
       breadcrumb: meta.label,
     };
   }
@@ -99,7 +99,7 @@ export function deriveHeadData(route) {
     `${subject}.`,
     lang ? `Read this page ${LANG_LABELS[lang].suffix}.` : '',
     section ? `${section} from Living With Arthritis,` : 'From Living With Arthritis,',
-    'a UK registered charity (no. 1218461) publishing plain-English, clinically reviewed arthritis information.',
+    'a registered charity in England and Wales (no. 1218461) publishing plain-English arthritis information.',
   ]
     .filter(Boolean)
     .join(' ');
@@ -109,9 +109,9 @@ export function deriveHeadData(route) {
   const answer = [
     `${subject}:`,
     section
-      ? `this ${section.toLowerCase()} covers what people in the UK most often ask about ${base.toLowerCase()}.`
-      : `this page covers what people in the UK most often ask about ${base.toLowerCase()}.`,
-    'Written in plain English and reviewed by a First Contact Practitioner (HCPC PH128483).',
+      ? `explore this ${section.toLowerCase()} from Living With Arthritis.`
+      : 'explore this page from Living With Arthritis.',
+    'Check the page for its sources, clinical-review status and any country-specific guidance.',
   ].join(' ');
 
   return {

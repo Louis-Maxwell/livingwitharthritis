@@ -442,7 +442,7 @@ export function generateProgressTrackerPdf() {
   doc.setFillColor(LIGHT.r, LIGHT.g, LIGHT.b);
   doc.rect(15, y, 180, 8, "F");
   doc.setFontSize(8); doc.setFont("helvetica", "bold");
-  const cols = ["Day", "Exercise Done", "Duration", "Pain Before (0-10)", "Pain After", "Mood ☺/😐/☹"];
+  const cols = ["Day", "Exercise Done", "Duration", "Pain Before (0-10)", "Pain After", "Mood (good/okay/low)"];
   const colX = [17, 32, 90, 120, 150, 170];
   cols.forEach((c, i) => doc.text(c, colX[i], y + 5.5));
   y += 10;
@@ -464,7 +464,7 @@ export function generateProgressTrackerPdf() {
   y = paragraph(doc, y, "What I'll do differently next week: ____________________________________");
 
   y += 4;
-  y = sectionTitle(doc, y, "Celebration Corner 🎉");
+  y = sectionTitle(doc, y, "Celebration Corner");
   y = paragraph(doc, y, "Write one thing you're proud of this week, no matter how small:");
   y = paragraph(doc, y, "_______________________________________________________________");
 

@@ -1,3 +1,4 @@
+import { CheckCircle2, Check, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { Progress } from "@/components/ui/progress";
@@ -179,13 +180,13 @@ export const ComparisonCard = ({
   >
     <div className="grid grid-cols-[1fr_auto_1fr]">
       <div className="bg-primary/10 px-4 py-3 text-center">
-        <span className="text-sm font-bold text-primary">✅ {leftTitle}</span>
+        <span className="inline-flex items-center gap-1.5 text-sm font-bold text-foreground"><Check className="w-4 h-4 text-primary" aria-hidden="true" />{leftTitle}</span>
       </div>
       <div className="bg-muted/50 px-3 py-3 flex items-center">
         <span className="text-xs font-bold text-muted-foreground">VS</span>
       </div>
       <div className="bg-primary/10 px-4 py-3 text-center">
-        <span className="text-sm font-bold text-primary">❌ {rightTitle}</span>
+        <span className="inline-flex items-center gap-1.5 text-sm font-bold text-foreground"><X className="w-4 h-4 text-primary" aria-hidden="true" />{rightTitle}</span>
       </div>
     </div>
     {rows.map((row, i) => (
@@ -246,11 +247,11 @@ export const TintedSection = ({
 
 /* ─── Emoji Highlight Card ─── */
 export const EmojiCard = ({
-  emoji,
   title,
   description,
 }: {
-  emoji: string;
+  /** @deprecated Decorative emoji are no longer rendered. */
+  emoji?: string;
   title: string;
   description: string;
 }) => (
@@ -260,7 +261,7 @@ export const EmojiCard = ({
     viewport={{ once: true }}
     className="rounded-xl border border-border/30 bg-card p-5 text-center hover:shadow-medium transition-shadow"
   >
-    <span className="text-3xl block mb-2" aria-hidden="true">{emoji}</span>
+    <CheckCircle2 className="w-7 h-7 text-primary mx-auto mb-2" aria-hidden="true" />
     <h4 className="font-bold text-foreground text-sm mb-1">{title}</h4>
     <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
   </motion.div>

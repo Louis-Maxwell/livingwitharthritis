@@ -1,0 +1,20 @@
+{
+  "title": "Arthritis Resources & Support | Living With Arthritis",
+  "description": "Find arthritis information and support in the UK, India, USA, Australia, Canada and Greenland, with trusted local resources and free self-management guides.",
+  "heading": "Arthritis resources and support",
+  "question": "Where can I find arthritis support in my country?",
+  "answer": "Use the country resources below to find arthritis information and local health services in India, the USA, Australia, Canada and Greenland. Living With Arthritis's free English-language guides are available worldwide. UK referrals, benefits and charity services follow UK rules; ask a local healthcare professional about care in your country.",
+  "resources": [
+    { "region": "India", "name": "Indian Rheumatology Association", "url": "https://indianrheumatology.org/", "description": "Patient information and rheumatology resources from India's professional rheumatology association." },
+    { "region": "USA", "name": "NIAMS — arthritis and rheumatic diseases", "url": "https://www.niams.nih.gov/health-topics/arthritis-and-rheumatic-diseases", "description": "Arthritis information from the US National Institute of Arthritis and Musculoskeletal and Skin Diseases." },
+    { "region": "Australia", "name": "Healthdirect — arthritis", "url": "https://www.healthdirect.gov.au/arthritis", "description": "Australian arthritis information, with links to health services and local support." },
+    { "region": "Canada", "name": "Arthritis Society Canada", "url": "https://arthritis.ca/", "description": "Arthritis education, self-management resources and support for people in Canada." },
+    { "region": "Greenland", "name": "Peqqik — Greenland health information", "url": "https://peqqik.gl/", "description": "Greenland's health information portal. Use local health services for assessment and care; resources may be in Greenlandic or Danish." }
+  ],
+  "guides": [
+    { "href": "/conditions/osteoarthritis", "label": "Understand osteoarthritis" },
+    { "href": "/conditions/rheumatoid-arthritis", "label": "Understand rheumatoid arthritis" },
+    { "href": "/exercises", "label": "Explore exercises by joint" },
+    { "href": "/diet", "label": "Explore diet guidance" }
+  ]
+}

@@ -286,7 +286,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
           <p className="text-primary-foreground text-xs">Home Exercise Plan</p>
         </div>
       </div>
-      <p className="text-primary-foreground text-sm mt-2 leading-relaxed">💡 {joint.tip}</p>
+      <p className="text-primary-foreground text-sm mt-2 leading-relaxed">{joint.tip}</p>
     </div>
 
     {/* Cinematic humanoid demo of the joint movement */}
