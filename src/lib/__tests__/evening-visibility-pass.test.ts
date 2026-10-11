@@ -94,6 +94,7 @@ describe("evening visibility pass — unique heads", () => {
       expect(head!.description?.trim().length).toBeGreaterThan(80);
       expect(head!.title?.toLowerCase().includes(hub.titleIncludes.toLowerCase())).toBe(true);
       expect(head!.title).not.toBe(homepageTitle);
+      // Diet batch 4 (10 Oct 2026) refreshed the Mediterranean page content;
       // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
       expect(["2026-09-20", "2026-09-29", "2026-10-10"]).toContain(head!.updatedAt);
     });
