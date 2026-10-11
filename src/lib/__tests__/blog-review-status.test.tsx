@@ -93,6 +93,8 @@ const PENDING_UNIQUE_BATCH_6 = [
   "arthritis-symptoms-what-to-do-next",
   "arthritis-flare-early-warning-signs",
   "daily-arthritis-planner-printable",
+  "gadgets-aids-arthritis-uk",
+  "walking-aids-arthritis-uk",
 ];
 
 describe("Champions 62–67 guides awaiting clinical review", () => {
