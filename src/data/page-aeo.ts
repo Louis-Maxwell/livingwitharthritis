@@ -311,9 +311,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.",
   }),
   "/guides/disability-support": withDefaults({
-    question: "What UK disability support is available for arthritis?",
+    question: "What are my disability rights in the UK if I have arthritis?",
     answer:
-      "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Arthritis UK (formerly Versus Arthritis) helpline (0800 5200 520) guide applications.",
+      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
@@ -345,12 +345,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "Personal Independence Payment (PIP) is based on how your condition affects daily living and mobility, not the diagnosis name alone. Keep an evidence diary, gather clinic letters, and seek advice from Citizens Advice or a welfare-rights service. We explain the process; we do not decide claims.",
-    faqs: [
-      { q: "What evidence helps a PIP arthritis claim?", a: "A daily diary of activities, medication lists, clinic letters, and notes on aids or help from others. Our printable PIP evidence diary can help you structure this." },
-      { q: "Is osteoarthritis enough for PIP?", a: "PIP looks at functional impact, not the label. Some people with OA qualify; others do not. Advice services can map your difficulties to descriptors." },
-      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
-    ],
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
   "/guides/diet": withDefaults({
     question: "What is the best anti-inflammatory diet for arthritis?",
@@ -365,11 +360,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
-      "Trials link Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods — educational guidance only.",
+      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.",
     faqs: [
-      { q: "How quickly might diet changes help?", a: "Some people notice energy or stiffness changes over weeks; joint pain changes are usually gradual and individual." },
-      { q: "Is this a weight-loss diet?", a: "It can support healthy weight, which helps knee OA load, but the primary aim here is an anti-inflammatory pattern." },
-      { q: "Can I use this with gout?", a: "General Mediterranean patterns often help, but gout also needs specific purine and alcohol advice from your clinician." },
+      { q: "Does the Mediterranean diet help arthritis?", a: "It may help some people, particularly with rheumatoid arthritis, but the evidence is limited. A small 12-week trial found modest improvements in disease activity and physical function, and NICE says adults with RA can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit. It is not a cure and does not replace medicines." },
+      { q: "Is the Mediterranean diet good for osteoarthritis?", a: "There is only limited research in osteoarthritis. The main dietary step NICE recommends for osteoarthritis is weight management if you are living with overweight or obesity. A Mediterranean-style pattern can be a sustainable way to support weight loss and heart health." },
+      { q: "Can I follow it if I am vegetarian or vegan?", a: "Yes. Beans, lentils, chickpeas, tofu, nuts and seeds can replace fish and meat. Vegans need reliable sources of vitamin B12, iodine and calcium. Ask a pharmacist before taking an algae-based omega-3 or other supplement, and see a dietitian if you are unsure your diet is balanced." },
+      { q: "Do I need to drink red wine?", a: "No. You do not need to drink alcohol to follow the pattern. If you drink, the UK guideline is no more than 14 units a week spread over 3 or more days. If you take methotrexate, ask your rheumatology team what is safe for you." },
     ],
   }),
   "/blog/knee-arthritis-exercises-uk": withDefaults({
@@ -435,10 +431,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/arthritis-waiting-list-help": withDefaults({
     question: "What can I do while waiting for a rheumatology appointment?",
     answer:
-      "Keep gently active, ask about physiotherapy self-referral where your area allows it, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary widely by NHS trust.",
+      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland have different rules. Contact your GP if symptoms get worse so the referral can be reviewed.",
     faqs: [
-      { q: "Should I go back to my GP while waiting?", a: "Yes if symptoms worsen or new red-flag symptoms appear, so urgency can be reassessed." },
-      { q: "Can I self-refer to physiotherapy?", a: "Many UK areas allow physiotherapy self-referral — ask your GP surgery or check your ICB website." },
+      { q: "How long will I wait for a rheumatology appointment?", a: "It depends on where you live, the hospital and how urgent your referral is. Check the official sites: My Planned Care in England, NHS inform in Scotland, your health board and GOV.WALES statistics in Wales, and My Waiting Times NI in Northern Ireland. Suspected inflammatory arthritis should be referred urgently." },
+      { q: "What is the 18-week rule?", a: "In England you have a legal right to start non-urgent, consultant-led treatment within 18 weeks of your referral being received or booked, with some exceptions. If you are likely to wait longer, you can ask to be offered a different provider. Scotland, Wales and Northern Ireland have different rules." },
+      { q: "Should I go back to my GP while I wait?", a: "Yes, if your symptoms are getting worse, new joints are affected or you are struggling with daily life or work. Take a symptom record so your GP can update the hospital or ask for the referral to be reprioritised." },
+      { q: "Can I refer myself to physiotherapy?", a: "In many areas you can refer yourself to NHS community musculoskeletal (MSK) physiotherapy without seeing your GP. Check your GP surgery or local NHS website." },
     ],
   }),
   "/blog/working-with-arthritis-uk-rights": withDefaults({
