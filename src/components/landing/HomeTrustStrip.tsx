@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BadgeCheck, Landmark, Stethoscope, HandCoins, Scale } from "lucide-react";
+import { BadgeCheck, Landmark, Stethoscope } from "lucide-react";
 import { CHARITY } from "@/config/charity";
 
 /**
@@ -17,7 +17,7 @@ export default function HomeTrustStrip() {
         <h2 id="home-trust-heading" className="text-sm font-bold tracking-tight text-foreground">
           Why you can trust this site
         </h2>
-        <ul className="mt-3 grid gap-x-6 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-4 text-sm text-foreground leading-snug">
+        <ul className="mt-3 grid gap-x-6 gap-y-2.5 sm:grid-cols-2 text-sm text-foreground leading-snug">
           <li className="flex items-start gap-2">
             <Landmark className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
             <span>
@@ -42,14 +42,6 @@ export default function HomeTrustStrip() {
                 Louis Maxwell, HCPC-registered physiotherapist (PH128483)
               </Link>
             </span>
-          </li>
-          <li className="flex items-start gap-2">
-            <HandCoins className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-            <span>Free to use — no paywall, no app download</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Scale className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-            <span>Independent of Arthritis UK. Educational information — not a diagnosis</span>
           </li>
         </ul>
         <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
