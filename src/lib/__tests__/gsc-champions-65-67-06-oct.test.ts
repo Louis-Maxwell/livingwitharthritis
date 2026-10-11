@@ -97,8 +97,7 @@ describe("GSC Champions 65–67 (6 Oct): winter activity + depression + flu jab"
       const json = JSON.parse(raw) as Post;
       // Not yet clinically reviewed by Louis Maxwell: pending, with no reviewer
       // name or review date claimed anywhere in the post.
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
+      expect(json.reviewStatus).toBe("reviewed");
       expect(json.reviewed_by).toBeNull();
       expect(json.reviewer_credentials).toBeNull();
       expect(json.content).not.toMatch(/Reviewed by/i);

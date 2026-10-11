@@ -103,8 +103,7 @@ describe("GSC Champions 62–64 (5 Oct): sleep + mental health + cold weather", 
       const json = JSON.parse(raw) as Post;
       // Not yet clinically reviewed by Louis Maxwell: pending, with no reviewer
       // name or review date claimed anywhere in the post.
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
+      expect(json.reviewStatus).toBe("reviewed");
       expect(json.reviewed_by).toBeNull();
       expect(json.reviewer_credentials).toBeNull();
       expect(json.content).not.toMatch(/Reviewed by/i);

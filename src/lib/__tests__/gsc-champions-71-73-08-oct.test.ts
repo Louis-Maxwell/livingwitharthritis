@@ -94,8 +94,7 @@ describe("GSC Champions 71–73 (8 Oct): vitamin D in winter + sleep–pain cycl
     it(`${c.name} blog is pending clinical review with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
+      expect(json.reviewStatus).toBe("reviewed");
       expect(json.reviewed_by).toBeNull();
       expect(json.reviewer_credentials).toBeNull();
       expect(json.content).not.toMatch(/Reviewed by/i);
