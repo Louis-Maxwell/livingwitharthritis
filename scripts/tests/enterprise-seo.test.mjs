@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { parse } from 'parse5';
-import { rewriteHead, buildJsonLd } from '../inject-canonicals.mjs';
+import { rewriteHead, buildJsonLd, headDataFor } from '../inject-canonicals.mjs';
 import { buildStaticArticleInner, stripToText } from '../static-article-html.mjs';
 
 function nodes(html, tag) {
@@ -17,6 +17,17 @@ const article = { slug: 'fixture', title: 'Full patient-facing title', content: 
   citations: [{ label: 'NHS arthritis', url: 'https://www.nhs.uk/conditions/arthritis/' }] };
 const data = { title: 'Short SERP title', description: 'An existing patient guide.', question: 'Short headline', article,
   faqs: [{ q: 'How can I start?', a: 'Choose an activity you can manage and discuss your plan with your care team.' }] };
+
+test('section first-response navigation exposes real glossary child pages', () => {
+  const html = buildStaticArticleInner(headDataFor('/glossary'));
+  assert.match(html, /href="\/glossary\/dmard"/);
+  assert.match(html, /aria-label="Related guides"/);
+});
+test('existing FAQ source references remain visible without JavaScript', () => {
+  const html = buildStaticArticleInner({ question: 'Existing question', sources: [{ name: 'NHS', url: 'https://www.nhs.uk/' }] });
+  assert.match(html, /Sources and references/);
+  assert.match(html, /href="https:\/\/www.nhs.uk\/"/);
+});
 
 test('non-home route output removes the deeply nested homepage shell and preserves the article H1', () => {
   const html = rewriteHead(readFileSync('index.html', 'utf8'), '/blog/fixture', data);

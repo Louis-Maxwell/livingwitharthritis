@@ -250,7 +250,10 @@ const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
 function headDataFor(route, override) {
   const data = baseHeadDataFor(route, override);
   if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
-  const children = SITEMAP_PATHS.filter((path) => path.startsWith(`${route}/`) && !path.slice(route.length + 1).includes('/'));
+  const children = SITEMAP_PATHS.filter((path) =>
+    (path.startsWith(`${route}/`) && !path.slice(route.length + 1).includes('/')) ||
+    (route === '/guides' && /^\/(conditions|tools|myths|daily-tips)\/[^/]+$/.test(path)) ||
+    (route === '/about' && /^\/campaigns\/[^/]+$/.test(path)));
   if (!children.length) return data;
   const links = [...(data.relatedLinks || []), ...children.map((path) => {
     const child = baseHeadDataFor(path);
