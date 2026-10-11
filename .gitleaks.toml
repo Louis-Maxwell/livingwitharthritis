@@ -30,6 +30,10 @@ paths = [
 # Stripe `pk_*` keys are publishable by design.
 # Google Analytics measurement IDs are public by design.
 regexes = [
+  # IndexNow verification token: intentionally public at /<token>.txt.
+  # Exact-value exception only; other API keys remain scanned.
+  # See public/c98cc1e7f04d43b213d256e243f9ddd6.txt.
+  '''c98cc1e7f04d43b213d256e243f9ddd6''',
   '''pk_(live|test)_[A-Za-z0-9]+''',
   '''G-[A-Z0-9]{8,}''',
 ]
