@@ -5,6 +5,7 @@ import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
 import SocialLinks from "@/components/SocialLinks";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
+import { BRAND } from "@/config/brand";
 
 const columns = [
   {
@@ -92,8 +93,10 @@ const Footer = () => {
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
           <SiteLogo variant="full" markClassName="h-10 md:h-12" textClassName="text-3xl md:text-4xl" />
+          <p className="mt-3 text-sm font-bold text-primary">{BRAND.tagline}</p>
+          <p className="mt-2 font-semibold text-foreground">{BRAND.promise}</p>
           <p className="text-sm text-muted-foreground mt-3 max-w-sm leading-relaxed">
-            Free physiotherapy, diet plans and evidence-based support for people living with arthritis across the UK.
+            {BRAND.description}
           </p>
         </div>
 

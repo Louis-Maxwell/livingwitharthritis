@@ -1,3 +1,4 @@
+import { BRAND } from "@/config/brand";
 import { getSchemaOrgSameAs } from "@/config/social-media";
 
 /**
@@ -46,7 +47,7 @@ export const ORGANIZATION_PAYLOAD = {
     url: `${BASE}/authors/maxwell`,
   },
   description:
-    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
+    "Living With Arthritis is an independent UK charity (1218461) providing free educational arthritis support: exercise, pain, diet, benefits and everyday-life guides. Clinical-review status is shown on each guide.",
   email: "info@livingwitharthritis.org.uk",
   areaServed: [
     { "@type": "Country", name: "United Kingdom" },
@@ -121,8 +122,7 @@ export const WEBSITE_PAYLOAD = {
   name: "Living With Arthritis",
   url: `${BASE}/`,
   inLanguage: "en-GB",
-  description:
-    "Free UK arthritis guidance from Living With Arthritis (registered charity 1218461), with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
+  description: BRAND.description,
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["h1", ".speakable-intro"],

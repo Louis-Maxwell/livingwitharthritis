@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, HeartPulse } from "lucide-react";
 import { onCoverImgError } from "@/lib/coverFallback";
 import { trackStartHereCard } from "@/lib/ga-events";
+import { BRAND } from "@/config/brand";
 
 /**
  * Homepage hero — customer-first.
@@ -47,8 +48,7 @@ const OAHero = memo(() => (
               Living With Arthritis — evidence-based health guides
             </span>
             <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
-              Free, physio-reviewed help for people living with arthritis — and those who care
-              for them
+              {BRAND.headline}
             </span>
           </h1>
 
@@ -57,6 +57,15 @@ const OAHero = memo(() => (
             practical help with pain, exercise, benefits and everyday life — written for UK
             readers.
           </p>
+
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold" aria-label="Our approach">
+            {BRAND.pillars.map((pillar) => (
+              <li key={pillar} className="inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-white" aria-hidden="true" />
+                {pillar}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3 min-w-0">
             <Link
@@ -95,7 +104,7 @@ const OAHero = memo(() => (
 
         {/* Octagon image — MAP signature shape. Sits after the copy on mobile
             (small) so the CTAs stay above the fold. */}
-        <div className="relative aspect-square w-full max-w-[160px] sm:max-w-[240px] lg:max-w-[300px] mx-auto lg:mx-0 lg:justify-self-end min-w-0">
+        <figure className="w-full max-w-[160px] sm:max-w-[240px] lg:max-w-[300px] mx-auto lg:mx-0 lg:justify-self-end min-w-0">
           <img
             src={HERO_IMG}
             srcSet={HERO_SRCSET}
@@ -107,9 +116,12 @@ const OAHero = memo(() => (
             decoding="async"
             loading="eager"
             onError={onCoverImgError}
-            className="clip-octagon w-full h-full object-cover"
+            className="clip-octagon aspect-square w-full object-cover"
           />
-        </div>
+          <figcaption className="mt-4 text-center text-sm font-semibold leading-relaxed">
+            {BRAND.promise}
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>

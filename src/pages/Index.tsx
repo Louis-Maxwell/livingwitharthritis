@@ -26,6 +26,7 @@ import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
 
 import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
+import { BRAND } from "@/config/brand";
 /** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
  * verified count), without leaving a stray leading space when it's empty. */
 const withVisitorSnippet = (rest: string) =>
@@ -88,7 +89,7 @@ function HomePage() {
         <meta
           name="description"
           content={withVisitorSnippet(
-            "Free UK arthritis guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help, with clinical-review status shown on each page. Living With Arthritis, charity 1218461.",
+            BRAND.description,
           )}
         />
         <meta
@@ -108,13 +109,13 @@ function HomePage() {
         <meta
           property="og:description"
           content={withVisitorSnippet(
-            "Free UK arthritis guidance on exercise, diet, pain and PIP, with clinical-review status shown on each page. Living With Arthritis, registered charity 1218461.",
+            BRAND.description,
           )}
         />
         <meta
           name="twitter:description"
           content={withVisitorSnippet(
-            "Free UK arthritis exercises, diet guidance and support from Living With Arthritis (charity 1218461).",
+            BRAND.description,
           )}
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
