@@ -99,7 +99,7 @@ export default function MedicalDisclaimer() {
               <h2 className="text-xl font-bold text-foreground">No clinical relationship</h2>
               <p>
                 Using this website does not create a clinician–patient relationship with Living With
-                Arthritis UK or with Louis Maxwell (HCPC PH128483) personally, unless you have a
+                Arthritis or with Louis Maxwell (HCPC PH128483) personally, unless you have a
                 separate, explicit clinical arrangement outside this site.
               </p>
             </section>
