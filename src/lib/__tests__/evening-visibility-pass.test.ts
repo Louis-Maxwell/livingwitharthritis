@@ -15,7 +15,6 @@ const ai = JSON.parse(
   { title?: string; description?: string; updatedAt?: string; faqs?: unknown[] }
 >;
 const sitemap = readFileSync(resolve(root, "public/sitemap.xml"), "utf8");
-const indexNow = readFileSync(resolve(root, "scripts/indexnow-ping.mjs"), "utf8");
 const llms = readFileSync(resolve(root, "public/llms.txt"), "utf8");
 const homepageTitle = ai["/"]?.title ?? "";
 
@@ -144,11 +143,13 @@ describe("evening visibility pass — crawl + AI discovery", () => {
     });
   }
 
-  it("IndexNow ping list includes mediterranean + turmeric supplement", () => {
-    expect(indexNow).toContain("'/diet/mediterranean-diet-for-arthritis'");
-    expect(indexNow).toContain("'/supplements/turmeric'");
-    expect(indexNow).toContain("'/guides/arthritis-pain-relief'");
-    expect(indexNow).toContain("'/benefits-pip'");
+  it("IndexNow canonical sitemap selection includes key topic hubs", async () => {
+    const { sitemapUrls } = await import("../../../scripts/indexnow-ping.mjs");
+    const urls = sitemapUrls(readFileSync(resolve(root, "public/sitemap.xml"), "utf8"));
+    for (const path of ["/diet/mediterranean-diet-for-arthritis", "/supplements/turmeric", "/guides/arthritis-pain-relief", "/benefits-pip"]) {
+      expect(urls).toContain(`https://livingwitharthritis.org.uk${path}`);
+    }
+    expect(urls).not.toContain("https://livingwitharthritis.org.uk/blog/knee-exercises-arthritis");
   });
 
   it("llms.txt prefers the evening-pass hubs", () => {
