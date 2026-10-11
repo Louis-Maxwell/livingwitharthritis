@@ -6,6 +6,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
+import { BRAND } from "@/config/brand";
 
 
 const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
@@ -328,7 +329,7 @@ const Header = () => {
                   textClassName="text-[15px] sm:text-xl md:text-2xl"
                 />
                 <span className="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
-                  Motion is Lotion
+                  {BRAND.tagline}
                 </span>
               </span>
             </button>

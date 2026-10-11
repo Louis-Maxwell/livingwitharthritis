@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { BRAND } from '@/config/brand';
 
 interface SiteLogoProps {
   /** "full" = figure + wordmark, "mark" = figure only */
@@ -59,7 +60,7 @@ const SiteLogo = ({
           textClassName,
         )}
       >
-        Living With Arthritis
+        {BRAND.name}
       </span>
     </span>
   );
