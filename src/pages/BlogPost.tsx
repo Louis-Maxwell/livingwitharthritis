@@ -538,7 +538,9 @@ const BlogPost = () => {
                     </p>
                   ) : (
                     <div>
-                      <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
+                      <p className="text-sm font-semibold text-foreground leading-tight">
+                        <Link to={isMaxwellAuthor ? "/authors/maxwell" : "/authors"} className="underline underline-offset-2">{authorName}</Link>
+                      </p>
                       <p className="text-xs text-muted-foreground">{authorCreds}</p>
                     </div>
                   )}
@@ -728,17 +730,17 @@ const BlogPost = () => {
           </section>
 
           <ArticleFaqSection faqs={faqs} />
+          {slug && (
+            <ClusterRelatedLinks
+              slug={slug}
+              title={article.title}
+              excerpt={article.excerpt}
+              category={article.category}
+              keywords={article.keywords}
+            />
+          )}
           <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
-            {slug && (
-              <ClusterRelatedLinks
-                slug={slug}
-                title={article.title}
-                excerpt={article.excerpt}
-                category={article.category}
-                keywords={article.keywords}
-              />
-            )}
             <ArticleClosingCTA title={article.title} category={article.category} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
           </ViewportSection>

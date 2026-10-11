@@ -97,6 +97,11 @@ export function buildStaticArticleInner(data) {
     ? `<p class="review-status-pending">${escText(STATIC_PENDING_REVIEW_TEXT)}</p>`
     : "";
 
+  // Keep discovery links in the first response, including for non-JS crawlers.
+  const supportLinks = data?.article?.slug
+    ? `<nav aria-label="Arthritis support and guides"><a href="/arthritis-support">Arthritis support</a> · <a href="/guides">Arthritis guides</a> · <a href="/authors">Authors and editorial team</a></nav>`
+    : "";
+
   return (
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
@@ -105,6 +110,7 @@ export function buildStaticArticleInner(data) {
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
+    supportLinks +
     `</article>`
   );
 }

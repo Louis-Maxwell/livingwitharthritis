@@ -109,6 +109,9 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Access to Work");
     expect(html).toContain("Occupational health");
     expect(html).toContain('id="static-article"');
+    expect(html).toContain('href="/arthritis-support"');
+    expect(html).toContain('href="/guides"');
+    expect(html).toContain('href="/authors"');
     expect(html).not.toContain(HOME_SHELL_HEADING);
     expect(html).not.toContain(
       "10 million people in Britain living with arthritis",

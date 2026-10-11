@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { DEFAULT_OG_PATH } from "@/lib/coverFallback";
 import authors from "@/data/medical-authors.json";
 import NotFound from "@/pages/NotFound";
 
@@ -53,6 +54,8 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   const realCredential = isPlaceholder(record.credential) ? undefined : record.credential;
   const realOrg = isPlaceholder(record.organization) ? undefined : record.organization;
 
+  const shareImage = new URL(record.image || DEFAULT_OG_PATH, BASE).href;
+
   const personLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -88,17 +91,26 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
     <>
       <Helmet>
         <title>{title}</title>
+        <link rel="canonical" href={url} />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="profile" />
+        <meta property="og:site_name" content="Living With Arthritis" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:image" content={shareImage} />
+        <meta property="og:image:alt" content={record.image ? `Portrait of ${record.name}` : "Living With Arthritis"} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={shareImage} />
+        <meta name="twitter:image:alt" content={record.image ? `Portrait of ${record.name}` : "Living With Arthritis"} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfilePage",
           url,
           mainEntity: personLd,
-          dateModified: new Date().toISOString().slice(0, 10),
           inLanguage: "en-GB",
         })}</script>
         <script type="application/ld+json">{JSON.stringify(personLd)}</script>
@@ -190,9 +202,9 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
             <h2 className="text-lg font-bold mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
-              Every clinical article on Living With Arthritis is written or reviewed
-              by a qualified UK healthcare professional and updated on a rolling
-              schedule. Read the full{" "}
+              Our editorial standards explain how clinical content is checked
+              by qualified UK healthcare professionals. Each article shows its
+              review status; content awaiting review is labelled. Read the full{" "}
               <Link to="/editorial-standards" className="text-primary underline">
                 editorial standards
               </Link>{" "}
