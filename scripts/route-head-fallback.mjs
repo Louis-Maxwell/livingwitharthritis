@@ -99,7 +99,7 @@ export function deriveHeadData(route) {
     `${subject}.`,
     lang ? `Read this page ${LANG_LABELS[lang].suffix}.` : '',
     section ? `${section} from Living With Arthritis,` : 'From Living With Arthritis,',
-    'a UK registered charity (no. 1218461) publishing plain-English, clinically reviewed arthritis information.',
+    'a UK registered charity (no. 1218461) publishing plain-English, educational arthritis and frailty information.',
   ]
     .filter(Boolean)
     .join(' ');

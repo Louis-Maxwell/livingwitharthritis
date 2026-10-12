@@ -2813,6 +2813,16 @@ Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
 Reference: Age UK Advice Line — https://www.ageuk.org.uk/services/age-uk-advice-line/
 
+## Cauda Equina Warning Signs: When to Go to A&E (UK)
+URL: https://livingwitharthritis.org.uk/blog/cauda-equina-warning-signs-uk
+Last updated: 2026-10-12
+Author: Living With Arthritis team
+Clinical review: pending; this guide has not completed clinical review.
+Q: Cauda Equina Warning Signs: When to Go to A&E (UK)
+A: New bladder or bowel changes, numbness around the genitals or anus, or symptoms in both legs with back pain need emergency assessment. Do not wait.
+Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
+Reference: Chesterfield Royal: Cauda equina — https://www.chesterfieldroyal.nhs.uk/all-services-and-wards/physiotherapy-services/musculoskeletal-and-rheumatology-services/cauda-equina
+
 ## How Cognitive Behavioural Therapy (CBT) Helps Arthritis Pain
 URL: https://livingwitharthritis.org.uk/blog/cbt-chronic-pain-arthritis
 Last updated: 2026-09-05
@@ -4718,6 +4728,15 @@ Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-mine
 Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+
+## Inclusive Arthritis and Frailty Support Plan (UK)
+URL: https://livingwitharthritis.org.uk/blog/inclusive-arthritis-frailty-support-plan-uk
+Last updated: 2026-10-12
+Author: Living With Arthritis team
+Clinical review: pending; this guide has not completed clinical review.
+Q: Inclusive Arthritis and Frailty Support Plan (UK)
+A: Our plan for practical arthritis and frailty education, including Asian communities, Muslim women, refugees and asylum seekers, with accessible NHS signposting.
+Reference: NHS: Register with a GP — https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/
 
 ## Indoor walking with a frame when arthritis and frailty overlap (UK)
 URL: https://livingwitharthritis.org.uk/blog/indoor-walking-frame-arthritis-frailty-uk

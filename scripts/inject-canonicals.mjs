@@ -204,7 +204,7 @@ const NOT_FOUND_HEAD = {
     "The page you are looking for could not be found. Search Living With Arthritis or pick a popular guide instead.",
   question: "Page not found",
   answer:
-    "This URL is not a published Living With Arthritis page. Use search or the guides hub to find clinically reviewed arthritis information.",
+    "This URL is not a published Living With Arthritis page. Use search or the guides hub to find educational arthritis and frailty information.",
   breadcrumb: "Page not found",
   noindex: true,
 };

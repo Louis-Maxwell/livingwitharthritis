@@ -89,7 +89,7 @@ const OAHero = memo(() => (
 
           <p className="mt-4 text-sm opacity-95 max-w-xl">
             Educational information only — not a diagnosis or personal medical advice. If
-            you are worried about sudden or severe symptoms, contact your GP or NHS 111.
+            you have an emergency, call 999. For urgent non-emergency advice contact your GP or NHS 111.
           </p>
         </div>
 

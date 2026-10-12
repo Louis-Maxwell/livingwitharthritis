@@ -1,3 +1,5 @@
+import BlogPdfDownload from '@/components/BlogPdfDownload';
+import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
@@ -618,6 +620,7 @@ const BlogPost = () => {
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
+            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
             <Button
               variant="outline"
               size="sm"
@@ -626,7 +629,7 @@ const BlogPost = () => {
               className="min-h-11"
             >
               <Download className="w-4 h-4 mr-2" aria-hidden="true" />
-              Download PDF
+              Print / save PDF
             </Button>
           </div>
 
@@ -640,6 +643,7 @@ const BlogPost = () => {
             />
           )}
 
+          {slug === 'cauda-equina-warning-signs-uk' && <CaudaEquinaQuestions />}
           <KeyTakeaways html={htmlContent} title={article.title} />
           <div className="lg:hidden">
             <TableOfContents html={htmlWithIds} variant="inline" />
