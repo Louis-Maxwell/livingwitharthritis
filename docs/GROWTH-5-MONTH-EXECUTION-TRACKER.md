@@ -119,6 +119,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 - **`/expert-articles`:** removed the unverifiable four-clinician contributor panel and per-article clinician roles; byline is now "Living With Arthritis editorial team — Pending clinical review"; added a "Who writes these articles" block (charity 1218461, founded by Louis Maxwell, HCPC PH128483, link to the editorial claims policy); removed first-person clinician lines ("In my clinical practice", "I recommend"); title / meta / OG / JSON-LD no longer say "clinician-written" or "by UK clinicians". URL unchanged
 - Catalog / head data / content stats / search index regenerated
 - **Tests:** `src/lib/__tests__/m2-trust-sweep-12-oct.test.ts` (no unnamed panel anywhere in posts or `/expert-articles`, pending status matches the line, no private addresses)
+- **M2 first-15 outreach send sheet:** `docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md` (public routes only; Louis sends)
 
 ### Still blocked on Louis
 - Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
@@ -133,7 +134,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 ### Next 3 digital actions (GTM)
 1. Champions 74–75: `gout-winter-dehydration-frailty-uk` (last broken frailty-template winter spoke: repeated "10 million" line, empty heading, OA advice on a gout page) and `sleep-and-pain-management-arthritis` (third overlapping sleep post; give it a distinct job and hand off to the gold-pass sleep guide)
 2. Frailty-template sweep plan: 243 posts still open with the same "a smaller group also live with frailty" template; triage by a fresh GSC export when Louis supplies it, otherwise by October/November seasonal relevance
-3. M2 outreach prep: one-page first-15 send sheet from `docs/PARTNER-OUTREACH-50.md` (public contact routes, subject lines, which linkable asset to offer) so Louis can send in one sitting
+3. ~~M2 outreach prep~~ **done 12 Oct (afternoon):** `docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md` — 15 public contact routes, copy-paste email, asset angles; Louis sends
 
 ---
 
