@@ -80,7 +80,7 @@ test.describe("Accessibility smoke (WCAG 2.1 AA, must fail CI)", () => {
 });
 
 test.describe("One popup at a time", () => {
-  test("opening the accessibility panel closes the help chat, Escape closes the panel", async ({ page }) => {
+  test("the removed accessibility toolbar stays absent and Escape closes help", async ({ page }) => {
     await page.setViewportSize({ width: 1366, height: 900 });
     await page.addInitScript(() => {
       localStorage.setItem("cookie-consent", "declined");
@@ -93,12 +93,11 @@ test.describe("One popup at a time", () => {
     await help.click();
     await expect(page.getByRole("region", { name: "Help chat" })).toBeVisible();
 
-    await page.getByRole("button", { name: "Accessibility settings" }).click();
-    await expect(page.getByRole("group", { name: "Accessibility settings" })).toBeVisible();
-    await expect(page.getByRole("region", { name: "Help chat" })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Accessibility settings" })).toHaveCount(0);
+    await expect(page.getByRole("group", { name: "Accessibility settings" })).toHaveCount(0);
 
     await page.keyboard.press("Escape");
-    await expect(page.getByRole("group", { name: "Accessibility settings" })).toHaveCount(0);
+    await expect(page.getByRole("region", { name: "Help chat" })).toHaveCount(0);
   });
 
   test("the cookie banner steps aside while a popup is open", async ({ page }) => {
