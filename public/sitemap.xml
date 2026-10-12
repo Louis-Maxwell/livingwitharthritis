@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -4025,6 +4025,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/blog/cauda-equina-warning-signs-uk</loc>
+    <lastmod>2026-10-12</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cauda-equina-education.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/inclusive-arthritis-frailty-support-plan-uk</loc>
+    <lastmod>2026-10-12</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/inclusive-support-plan.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-flare-early-warning-signs</loc>
     <lastmod>2026-10-11</lastmod>
     <image:image>
@@ -5315,7 +5329,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/health</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>

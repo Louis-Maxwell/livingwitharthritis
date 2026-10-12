@@ -13,7 +13,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 # Content usage policy
 Content-Usage: ai-training=allow, ai-summarization=allow, ai-citation=required
