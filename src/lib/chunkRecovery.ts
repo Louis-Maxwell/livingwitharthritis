@@ -133,7 +133,10 @@ export function installChunkRecovery(): void {
   if (typeof window === "undefined") return;
   stripReloadParam();
   window.addEventListener("vite:preloadError", (event) => {
-    if (reloadOnce()) event.preventDefault();
+    const payload = (event as Event & { payload?: unknown }).payload;
+    if (isChunkLoadError(payload)) reloadOnce();
+    // Do not preventDefault: Vite would resolve the failed import to undefined,
+    // breaking React.lazy. Preserve rejection for the nearest error boundary.
   });
   window.addEventListener("unhandledrejection", (event) => {
     if (isChunkLoadError(event.reason)) reloadOnce();
