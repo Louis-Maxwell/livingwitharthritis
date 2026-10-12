@@ -10,7 +10,7 @@ Added a 30/60/90-day inclusive arthritis and frailty plan for everyone, with tar
 
 Corrected broken exercise links in seven existing articles. Removed blanket clinical-review claims from fallback metadata and a misleading free-physiotherapy promise from the footer. Added site-footer disclaimer and safety links.
 
-Validation: production build and typecheck passed; 15 blog metadata/image guards passed; six existing technical/growth regression tests passed; two CES questionnaire safety tests passed; ten dependency recursion security tests passed. Built response-HTML audit checked 1,050 URLs with no reported metadata/schema issues or unresolved link pages; internal-link checker passed. Browser visual QA and measured mobile CWV were not performed in this run.
+Validation: production build and typecheck passed; 15 blog metadata/image guards passed; six existing technical/growth regression tests passed; two CES questionnaire safety tests passed; ten dependency recursion security tests passed; 23 catalogue/host-redirect integrity checks passed after synchronising the generated metadata and two new redirect rules. Built response-HTML audit checked 1,050 URLs with no reported metadata/schema issues or unresolved link pages; internal-link checker passed. Browser visual QA and measured mobile CWV were not performed in this run.
 
 Live hosting still needs attention: www variants returned 302 redirects, canonical origin redirected to a condition page, and an unknown URL returned 200. A deployment and fresh response-level verification are required. See live-foundations.json. Code-level redirects/404 assets already exist; actual response status is controlled by the host.
 
