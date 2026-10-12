@@ -53,6 +53,13 @@ const CONTENT = `
 <p>All oral NSAIDs share risks: stomach ulcers and bleeding, kidney injury, raised blood pressure, fluid retention, and a small increase in heart attack and stroke risk. Risks rise with dose, age and duration. Exact dose and duration must come from your clinician or the product label — not from educational websites.</p>
 <p>People who need an oral NSAID for more than a few weeks are often also prescribed a <strong>proton-pump inhibitor</strong> to protect the stomach — especially if over 65, with ulcer history, or on blood-thinners. Ask your GP or pharmacist what applies to you.</p>
 
+<h2 id="naproxen">Naproxen for arthritis: uses and safety</h2>
+<p>Naproxen is an NSAID that can ease pain and inflammation in conditions including osteoarthritis, rheumatoid arthritis and gout. Whether it is suitable depends on your health and other medicines.</p>
+<p>Follow your prescription or the product leaflet. Take it with or after food, using the lowest effective dose for the shortest time needed. Ask a pharmacist or prescriber about stomach protection.</p>
+<p>Do not combine naproxen with ibuprofen or another NSAID. If you take prescribed aspirin, blood thinners or other regular medicines, ask your pharmacist before taking naproxen; do not stop prescribed medicines yourself.</p>
+<p>Check first if you have had a stomach ulcer, have kidney, heart or liver problems, have reacted to NSAIDs, or are pregnant or breastfeeding. Seek urgent advice for suspected serious side effects, including black, tar-like stools or vomiting blood. Call 999 for difficulty breathing or swelling of the tongue or throat.</p>
+<p>Read the <a href="https://www.nhs.uk/medicines/naproxen/">NHS naproxen information</a> and ask a pharmacist about your own circumstances.</p>
+
 <h2 id="paracetamol">Paracetamol: useful but limited</h2>
 <p>Paracetamol used to be the standard first-line painkiller for osteoarthritis. NICE downgraded it in 2022 after evidence reviews showed only modest benefit at best. It remains useful for:</p>
 <ul>
