@@ -1,8 +1,8 @@
 ﻿import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { Suspense } from "react";
-import { Link } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
@@ -53,7 +53,7 @@ const CONTENT = `
 <p>All oral NSAIDs share risks: stomach ulcers and bleeding, kidney injury, raised blood pressure, fluid retention, and a small increase in heart attack and stroke risk. Risks rise with dose, age and duration. Exact dose and duration must come from your clinician or the product label — not from educational websites.</p>
 <p>People who need an oral NSAID for more than a few weeks are often also prescribed a <strong>proton-pump inhibitor</strong> to protect the stomach — especially if over 65, with ulcer history, or on blood-thinners. Ask your GP or pharmacist what applies to you.</p>
 
-<h2 id="naproxen">Naproxen for arthritis: uses and safety</h2>
+<h2 id="naproxen" tabindex="-1" class="scroll-mt-28">Naproxen for arthritis: uses and safety</h2>
 <p>Naproxen is an NSAID that can ease pain and inflammation in conditions including osteoarthritis, rheumatoid arthritis and gout. Whether it is suitable depends on your health and other medicines.</p>
 <p>Follow your prescription or the product leaflet. Take it with or after food, using the lowest effective dose for the shortest time needed. Ask a pharmacist or prescriber about stomach protection.</p>
 <p>Do not combine naproxen with ibuprofen or another NSAID. If you take prescribed aspirin, blood thinners or other regular medicines, ask your pharmacist before taking naproxen; do not stop prescribed medicines yourself.</p>
@@ -129,6 +129,16 @@ const CONTENT = `
 `;
 
 export default function PainkillersNsaidsGuide() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (hash !== "#naproxen") return;
+    const frame = requestAnimationFrame(() => {
+      const heading = document.getElementById("naproxen");
+      heading?.scrollIntoView({ block: "start", behavior: "auto" });
+      heading?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [hash]);
   const html = addHeadingIds(CONTENT);
   return (
     <>
