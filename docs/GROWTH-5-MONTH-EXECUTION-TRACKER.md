@@ -78,6 +78,65 @@
 
 ---
 
+## Month 1 close-out (11 Sep – 11 Oct 2026) — written 12 Oct 2026
+
+The planned Fri 9 Oct close-out run did not complete, so this is written on the first M2 weekday. Figures below are only those recorded in this repo; no new GA4/GSC numbers have been exported since B₁ (14 Sep), so **no traffic multiple vs Year 0 is claimed for M1**.
+
+| M1 KPI (CEO plan §11) | Scenario A floor | Scenario B | Status |
+|---|---|---|---|
+| Traffic | Year 0 export live; GSC verified | + Ad Grants submitted | **A met** (B₁ locked 15 Sep). B not met: Ad Grants pack ready, application not submitted (Louis) |
+| Social | Profiles audited; 3-platform cadence | Carousel design system | SOPs + carousel assets in repo; live cadence is Louis-owned (no new Facebook posts / ads without asking) |
+| Email | PECR forms audited; welcome draft | ESP chosen; first 100 consented | **A met** (`docs/EMAIL-WELCOME-SERIES.md`, PECR form tighten). B: ESP choice + consented count not recorded |
+| Partnerships | 20 targets researched | 10 outreach emails sent | **A met** (50 targets, `docs/PARTNER-OUTREACH-50.md`). B: no sends recorded (Louis) |
+| Revenue | Gift Aid status confirmed | 2 grant apps in draft | Gift Aid still blocked-on-Louis (donate copy does not claim it). Grant drafts live with the Grant writer agent, not this repo |
+| Content | Inventory CI; 8 refreshes | 12 refreshes + 4 new | **B exceeded on refreshes**: Champions 1–73 gold-passed on existing URLs (no doorway pages); new pages limited to linkable assets (flare plan, PIP diary, clinic pack) |
+| Conversions | Donate path QA | Checker → email CTA live | Donate mobile CRO pass shipped; donate buttons now go to GoFundMe |
+
+**Honest read:** M1 content and governance work is ahead of plan. Everything that needs a human outside GitHub (Ad Grants, Regulator, Gift Aid, outreach, clinical sign-off, fresh GSC/GA4 export) is still with Louis, and that is the gap between Scenario A and B.
+
+## Month 2 must-do status (12 Oct – ~11 Nov 2026)
+
+| Must-do (CEO plan §12, M2) | Status | Notes |
+|---|---|---|
+| Champions 11–30 upgraded | **done** (in M1) | Now at 73; M2 work shifts to trust/accuracy sweeps and pillar spoke density |
+| Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
+| Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
+| Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
+| Clinical review checklist formalised | **done** | `docs/CLINICAL-REVIEW-CHECKLIST.md`; 546 of 568 blog posts are marked pending clinical review awaiting a named reviewer |
+| Research fund campaign creative | **done** (draft) | Louis/trustee approval before posting |
+| **Trust sweep: remove unnamed reviewer labels** | **in progress** | 12 Oct: 74 blog posts + `/expert-articles` (see Daily log) |
+
+M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 12 Oct 2026 (M2 day 1, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). The 8 Oct next-3 listed Champions 74+ and a sweep of the unnamed "Clinical Advisory Panel" / "Clinical Review Board" labels. `vitamin-d-arthritis-uk` was already rewritten on 10 Oct outside this routine, so it was dropped from the list. A repo scan found the "Clinical Review Board" sentence in **74 blog posts, every one of them marked pending**, so the page claimed a review that the review status contradicts. `/expert-articles` also listed a consultant rheumatologist, registered dietitian and clinical psychologist (with degrees) as contributors we cannot name or verify. Fixing that affects far more readers than three more rewrites, so the sweep went first. No URLs removed, no new pages, no Lovable credits / CloudAgent.
+
+### Shipped
+- **74 blog posts:** "reviewed by our Clinical Review Board" replaced with an honest line (prepared by the Living With Arthritis editorial team using NICE / NHS / peer-reviewed sources; pending clinical review). Content otherwise untouched; no repo page now claims an unnamed review board or panel
+- **`/expert-articles`:** removed the unverifiable four-clinician contributor panel and per-article clinician roles; byline is now "Living With Arthritis editorial team — Pending clinical review"; added a "Who writes these articles" block (charity 1218461, founded by Louis Maxwell, HCPC PH128483, link to the editorial claims policy); removed first-person clinician lines ("In my clinical practice", "I recommend"); title / meta / OG / JSON-LD no longer say "clinician-written" or "by UK clinicians". URL unchanged
+- Catalog / head data / content stats / search index regenerated
+- **Tests:** `src/lib/__tests__/m2-trust-sweep-12-oct.test.ts` (no unnamed panel anywhere in posts or `/expert-articles`, pending status matches the line, no private addresses)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches; NHS intros; live social posts (no new Facebook posts / ads without asking)
+- Clinical review: the twelve pending Champions 62–73 plus the 74 swept posts and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 74–75: `gout-winter-dehydration-frailty-uk` (last broken frailty-template winter spoke: repeated "10 million" line, empty heading, OA advice on a gout page) and `sleep-and-pain-management-arthritis` (third overlapping sleep post; give it a distinct job and hand off to the gold-pass sleep guide)
+2. Frailty-template sweep plan: 243 posts still open with the same "a smaller group also live with frailty" template; triage by a fresh GSC export when Louis supplies it, otherwise by October/November seasonal relevance
+3. M2 outreach prep: one-page first-15 send sheet from `docs/PARTNER-OUTREACH-50.md` (public contact routes, subject lines, which linkable asset to offer) so Louis can send in one sitting
+
+---
+
 ## Daily log — 8 Oct 2026 (M1, weekday run)
 
 **Programme month:** M1 (11 Sep – ~11 Oct 2026; M2 starts ~12 Oct). Tracker next-3 from 7 Oct: Champions 71+ on the remaining frailty-template winter spokes and the overlapping sleep posts, triaged by GSC impressions. The only GSC export in the repo (`docs/exports/year0-2026-09-15/`, B₁ window) shows no impressions for any of the five candidates, so triage fell back to the most broken copy plus October relevance: vitamin D (NHS autumn/winter advice starts in October; broken frailty template) and the two sleep posts carrying fake reviewer labels and an unsourced "up to 80%" claim. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
