@@ -16,7 +16,7 @@ import * as path from 'path'
 
 const REPO_ROOT = process.cwd()
 
-console.log('🎯 Branded Search Recovery — Phase 1 Quick Wins\n')
+console.log(' Branded Search Recovery — Phase 1 Quick Wins\n')
 console.log('='.repeat(60))
 
 // ============================================================================
@@ -24,13 +24,13 @@ console.log('='.repeat(60))
 // ============================================================================
 
 function checkHomepageMeta() {
-  console.log('\n1️⃣  Checking homepage meta tags...\n')
+  console.log('\n1  Checking homepage meta tags...\n')
 
   const homepagePath = path.join(REPO_ROOT, 'src/pages/Index.tsx')
   if (!fs.existsSync(homepagePath)) {
     const indexPath = path.join(REPO_ROOT, 'src/pages/index.tsx')
     if (!fs.existsSync(indexPath)) {
-      console.log('  ❌ Homepage not found at Index.tsx or index.tsx')
+      console.log('   Homepage not found at Index.tsx or index.tsx')
       return
     }
   }
@@ -48,10 +48,10 @@ function checkHomepageMeta() {
   checks.forEach(({ keyword, desc }) => {
     const regex = new RegExp(keyword, 'i')
     const found = regex.test(content)
-    console.log(`  ${found ? '✅' : '❌'} ${desc}`)
+    console.log(`  ${found ? '' : ''} ${desc}`)
   })
 
-  console.log('\n  📝 Recommended updates:')
+  console.log('\n   Recommended updates:')
   console.log(`     1. Update <title>: "Living With Arthritis – Free Arthritis Support & Physiotherapy"`)
   console.log(`     2. Add og:title with "Independent" keyword`)
   console.log(`     3. Add charity registration (1218461) to description`)
@@ -63,7 +63,7 @@ function checkHomepageMeta() {
 // ============================================================================
 
 function generateFaqSchema() {
-  console.log('\n2️⃣  Generating FAQPage schema...\n')
+  console.log('\n2  Generating FAQPage schema...\n')
 
   const schema = {
     '@context': 'https://schema.org',
@@ -129,10 +129,10 @@ export default function FAQPageSchema() {
 `
 
   fs.writeFileSync(templatePath, componentContent)
-  console.log(`  ✅ FAQPageSchema.tsx created`)
+  console.log(`   FAQPageSchema.tsx created`)
   console.log(`     Usage: Import in homepage and add <FAQPageSchema />`)
   console.log(`     Path: src/components/seo/FAQPageSchema.tsx\n`)
-  console.log(`  📋 FAQ Schema (JSON-LD):`)
+  console.log(`   FAQ Schema (JSON-LD):`)
   console.log(`     ${JSON.stringify(schema, null, 2).split('\n').slice(0, 15).join('\n     ')}...`)
 
   return templatePath
@@ -143,11 +143,11 @@ export default function FAQPageSchema() {
 // ============================================================================
 
 function auditSameAsLinks() {
-  console.log('\n3️⃣  Auditing sameAs links...\n')
+  console.log('\n3  Auditing sameAs links...\n')
 
   const schemaPath = path.join(REPO_ROOT, 'src/components/seo/RootOrganizationSchema.tsx')
   if (!fs.existsSync(schemaPath)) {
-    console.log('  ❌ RootOrganizationSchema.tsx not found')
+    console.log('   RootOrganizationSchema.tsx not found')
     return
   }
 
@@ -172,14 +172,14 @@ function auditSameAsLinks() {
   let count = 0
   requiredLinks.forEach(({ name, url }) => {
     const found = content.includes(url)
-    console.log(`  ${found ? '✅' : '❌'} ${name}`)
+    console.log(`  ${found ? '' : ''} ${name}`)
     if (found) count++
   })
 
   console.log(`\n  Status: ${count}/${requiredLinks.length} required links present`)
 
   if (count < requiredLinks.length) {
-    console.log('\n  📝 Missing links — add to sameAs array in RootOrganizationSchema.tsx:')
+    console.log('\n   Missing links — add to sameAs array in RootOrganizationSchema.tsx:')
     requiredLinks.forEach(({ name, url }) => {
       console.log(`     "${url}",`)
     })
@@ -191,7 +191,7 @@ function auditSameAsLinks() {
 // ============================================================================
 
 function createDisambiguationPage() {
-  console.log('\n4️⃣  Creating disambiguation page template...\n')
+  console.log('\n4  Creating disambiguation page template...\n')
 
   const pagePath = path.join(REPO_ROOT, 'src/pages/about/NotArthritisUk.tsx')
   const pageDir = path.dirname(pagePath)
@@ -330,7 +330,7 @@ export default function NotArthritisUk() {
 `
 
   fs.writeFileSync(pagePath, content)
-  console.log(`  ✅ Disambiguation page created`)
+  console.log(`   Disambiguation page created`)
   console.log(`     Path: src/pages/about/NotArthritisUk.tsx`)
   console.log(`     URL: /about/not-arthritis-uk`)
   console.log(`     SEO benefit: Ranks for comparative searches\n`)
@@ -342,16 +342,16 @@ export default function NotArthritisUk() {
 
 function printSummary() {
   console.log('\n' + '='.repeat(60))
-  console.log('\n✅ Phase 1 Quick Wins Summary\n')
+  console.log('\n Phase 1 Quick Wins Summary\n')
 
   console.log('Generated Files:')
-  console.log('  ✅ src/components/seo/FAQPageSchema.tsx')
-  console.log('  ✅ src/pages/about/NotArthritisUk.tsx')
+  console.log('   src/components/seo/FAQPageSchema.tsx')
+  console.log('   src/pages/about/NotArthritisUk.tsx')
   console.log('\nAudits Completed:')
-  console.log('  ✅ Homepage meta tags check')
-  console.log('  ✅ sameAs links audit')
+  console.log('   Homepage meta tags check')
+  console.log('   sameAs links audit')
 
-  console.log('\n📋 Next Steps (Immediate):\n')
+  console.log('\n Next Steps (Immediate):\n')
 
   console.log('1. Update Homepage (src/pages/Index.tsx):')
   console.log('   - Change <title> to include "Independent" keyword')
@@ -377,7 +377,7 @@ function printSummary() {
   console.log('   - Track: "living with arthritis" (exact)')
   console.log('   - Expected improvement: 2-4 weeks\n')
 
-  console.log('📚 Full plan: See BRANDED-SEARCH-RECOVERY.md\n')
+  console.log(' Full plan: See BRANDED-SEARCH-RECOVERY.md\n')
   console.log('=' .repeat(60) + '\n')
 }
 
@@ -392,6 +392,6 @@ try {
   createDisambiguationPage()
   printSummary()
 } catch (err) {
-  console.error('\n❌ Error:', err.message)
+  console.error('\n Error:', err.message)
   process.exit(1)
 }

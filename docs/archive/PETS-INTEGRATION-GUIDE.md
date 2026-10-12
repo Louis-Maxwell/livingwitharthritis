@@ -82,16 +82,16 @@ anyone who promises it. Benchmarks: health-information sites typically run
 excellent target for this site is **45-55% within 3-6 months**.
 
 What actually moves it — and what's already shipped:
-- ✅ Related-articles blocks (pet pages ship with "Keep reading" — extend the
+- Yes Related-articles blocks (pet pages ship with "Keep reading" — extend the
   same component to condition/guide pages)
-- ✅ Cross-links between hubs (pets → exercise hub → glossary)
-- ✅ Speed (route splitting, lazy widgets — slow loads are the #1 bounce cause)
-- ✅ Chatbot with resource cards (each card click = engaged session)
-- ✅ Exit-intent modal, accessibility toolbar
-- ⬜ Email capture above the fold (in HomePage.NEW.tsx — publish it)
-- ⬜ Interactive tools (the joint-diagram exercise picker is your best asset —
+- Yes Cross-links between hubs (pets → exercise hub → glossary)
+- Yes Speed (route splitting, lazy widgets — slow loads are the #1 bounce cause)
+- Yes Chatbot with resource cards (each card click = engaged session)
+- Yes Exit-intent modal, accessibility toolbar
+- Pending Email capture above the fold (in HomePage.NEW.tsx — publish it)
+- Pending Interactive tools (the joint-diagram exercise picker is your best asset —
   link it prominently from every condition page)
-- ⬜ "Was this helpful?" widgets (any click counts as engagement in GA4)
+- Pending "Was this helpful?" widgets (any click counts as engagement in GA4)
 
 Measure in GA4: Engagement rate (inverse of bounce), avg engagement time,
 pages/session. Review monthly, not daily — daily numbers are noise.

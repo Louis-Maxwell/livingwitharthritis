@@ -13,19 +13,19 @@
   <!-- Heart Shape (Human Care) -->
   <path
     class="logo-heart"
-    d="M 50 65 
-       C 50 55, 45 45, 35 45 
-       C 25 45, 20 55, 20 65 
-       C 20 85, 50 110, 50 110 
-       C 50 110, 80 85, 80 65 
-       C 80 55, 75 45, 65 45 
+    d="M 50 65
+       C 50 55, 45 45, 35 45
+       C 25 45, 20 55, 20 65
+       C 20 85, 50 110, 50 110
+       C 50 110, 80 85, 80 65
+       C 80 55, 75 45, 65 45
        C 55 45, 50 55, 50 65 Z"
   />
 
   <!-- Paw Print Integrated (Animal Care) -->
   <!-- Main Pad (integrated into heart) -->
   <circle class="logo-paw" cx="50" cy="85" r="16" opacity="0.85" />
-  
+
   <!-- Toe Pads -->
   <!-- Top -->
   <circle class="logo-paw" cx="50" cy="45" r="9" opacity="0.9" />
@@ -68,7 +68,7 @@
 
   <!-- Tagline: "Humans & Pets" -->
   <text x="130" y="135" class="logo-text logo-subtitle">
-    ❤️ Humans • Pets 🐾
+     Humans • Pets
   </text>
 
   <!-- Optional: Decorative line -->

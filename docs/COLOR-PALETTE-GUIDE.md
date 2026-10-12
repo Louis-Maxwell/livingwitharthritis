@@ -25,14 +25,14 @@
 
 | Combination | Ratio | Status |
 |---|---|---|
-| #DC2626 on white (#FFFFFF) | 5.2:1 | ✅ WCAG AAA |
-| #DC2626 on #FEE2E2 | 4.8:1 | ✅ WCAG AAA |
-| #991B1B on white (#FFFFFF) | 8.1:1 | ✅ WCAG AAA |
-| #B91C1C on white (#FFFFFF) | 6.9:1 | ✅ WCAG AAA |
-| #EF4444 on white (#FFFFFF) | 4.6:1 | ✅ WCAG AA (large text) |
-| White text on #DC2626 | 5.2:1 | ✅ WCAG AAA |
-| White text on #991B1B | 8.1:1 | ✅ WCAG AAA |
-| #1F2937 (dark gray) on #FEE2E2 | 9.5:1 | ✅ WCAG AAA |
+| #DC2626 on white (#FFFFFF) | 5.2:1 | Yes WCAG AAA |
+| #DC2626 on #FEE2E2 | 4.8:1 | Yes WCAG AAA |
+| #991B1B on white (#FFFFFF) | 8.1:1 | Yes WCAG AAA |
+| #B91C1C on white (#FFFFFF) | 6.9:1 | Yes WCAG AAA |
+| #EF4444 on white (#FFFFFF) | 4.6:1 | Yes WCAG AA (large text) |
+| White text on #DC2626 | 5.2:1 | Yes WCAG AAA |
+| White text on #991B1B | 8.1:1 | Yes WCAG AAA |
+| #1F2937 (dark gray) on #FEE2E2 | 9.5:1 | Yes WCAG AAA |
 
 **Note**: All primary text uses #1F2937 (dark gray) or white for maximum legibility.
 
@@ -620,5 +620,5 @@ See `tailwind.config.js` in the main documentation.
 
 ---
 
-*Document Version: 1.0*  
+*Document Version: 1.0*
 *Last Updated: July 25, 2026*

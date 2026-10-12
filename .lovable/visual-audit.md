@@ -4,7 +4,7 @@ Sweep of 26 top routes at mobile (375px) and desktop (1440px), 52 screenshots to
 
 ## P0 — Broken layouts (fix this batch)
 
-### 1. Related-guides card grid collapsed on every stub page ✅ FIXED
+### 1. Related-guides card grid collapsed on every stub page Yes FIXED
 
 **Where:** `src/components/StubPage.tsx` — affects every stub route:
 `/guides/newly-diagnosed`, `/guides/arthritis-pain-relief`, `/guides/work-with-arthritis`, `/guides/travel-with-arthritis`, `/guides/insurance-coverage`, `/treatments/drug-guide`, `/treatments/surgery-options`, `/treatments/complementary-therapies`, `/tools/find-specialist`, `/community/connect-groups`, `/events`, and 2 more.

@@ -32,23 +32,23 @@ trackSocialMediaClick('twitter', 'footer');
 import SocialLinks from '@/components/SocialLinks';
 
 // Footer with labels
-<SocialLinks 
-  context="footer" 
-  showLabels={true} 
-  orientation="vertical" 
+<SocialLinks
+  context="footer"
+  showLabels={true}
+  orientation="vertical"
 />
 
 // Header compact
-<SocialLinks 
-  context="header" 
-  size="sm" 
-  orientation="horizontal" 
+<SocialLinks
+  context="header"
+  size="sm"
+  orientation="horizontal"
 />
 
 // Social buttons
-<SocialLinks 
-  context="social-buttons" 
-  size="lg" 
+<SocialLinks
+  context="social-buttons"
+  size="lg"
 />
 ```
 
@@ -72,19 +72,19 @@ import HeaderSocial from '@/components/HeaderSocial';
 
 | Platform | URL | Status | Tracking |
 |----------|-----|--------|----------|
-| X/Twitter | — | ❌ Disabled (wrong organisation) | — |
-| Facebook | https://www.facebook.com/profile.php?id=61583723925315 | ✅ Enabled | ✅ Yes |
-| Instagram | https://www.instagram.com/livingwitharthritisuk | ✅ Enabled | ✅ Yes |
-| LinkedIn | https://www.linkedin.com/company/112596569/ | ✅ Enabled | ✅ Yes |
-| YouTube | https://www.youtube.com/@livingwitharthritisuk | ✅ Enabled | ✅ Yes |
-| TikTok | https://www.tiktok.com/@livingwitharthritisuk | ✅ Enabled | ✅ Yes |
-| Pinterest | https://www.pinterest.co.uk/livingwitharthritis | ✅ Enabled | ✅ Yes |
-| Reddit | https://www.reddit.com/r/arthritis | ❌ Disabled | ✅ Yes |
-| Email | mailto:info@livingwitharthritis.org.uk | ✅ Enabled | ✅ Yes |
+| X/Twitter | — | No Disabled (wrong organisation) | — |
+| Facebook | https://www.facebook.com/profile.php?id=61583723925315 | Yes Enabled | Yes Yes |
+| Instagram | https://www.instagram.com/livingwitharthritisuk | Yes Enabled | Yes Yes |
+| LinkedIn | https://www.linkedin.com/company/112596569/ | Yes Enabled | Yes Yes |
+| YouTube | https://www.youtube.com/@livingwitharthritisuk | Yes Enabled | Yes Yes |
+| TikTok | https://www.tiktok.com/@livingwitharthritisuk | Yes Enabled | Yes Yes |
+| Pinterest | https://www.pinterest.co.uk/livingwitharthritis | Yes Enabled | Yes Yes |
+| Reddit | https://www.reddit.com/r/arthritis | No Disabled | Yes Yes |
+| Email | mailto:info@livingwitharthritis.org.uk | Yes Enabled | Yes Yes |
 
 ## Features
 
-### ✅ Analytics Tracking
+### Yes Analytics Tracking
 
 All social media clicks are tracked in GA4:
 
@@ -102,7 +102,7 @@ window.gtag('event', 'social_media_click', {
 - Search for `social_media_click`
 - Filter by `platform` parameter for individual social networks
 
-### ✅ Accessibility Features
+### Yes Accessibility Features
 
 - Proper ARIA labels: `aria-label="Visit X (Twitter)"`
 - Screen reader text: `<span class="sr-only">X (Twitter)</span>`
@@ -110,7 +110,7 @@ window.gtag('event', 'social_media_click', {
 - Title attributes: Hover tooltips with platform description
 - Semantic HTML: `role="list"` and `role="listitem"`
 
-### ✅ Schema.org Integration
+### Yes Schema.org Integration
 
 Social links automatically added to Organization schema:
 
@@ -132,7 +132,7 @@ Social links automatically added to Organization schema:
 - Improves Knowledge Graph integration
 - Supports social sharing validation
 
-### ✅ Link Validation
+### Yes Link Validation
 
 All URLs are validated:
 
@@ -151,7 +151,7 @@ Edit `config/social-media.ts`:
 ```typescript
 export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   // ... existing platforms
-  
+
   new_platform: {
     platform: 'new_platform',
     url: 'https://new-platform.com/livingwitharthritis',
@@ -183,15 +183,15 @@ const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
 Add platform to `SocialPlatform` type:
 
 ```typescript
-export type SocialPlatform = 
-  | 'twitter' 
-  | 'facebook' 
-  | 'instagram' 
-  | 'linkedin' 
-  | 'youtube' 
-  | 'tiktok' 
-  | 'pinterest' 
-  | 'reddit' 
+export type SocialPlatform =
+  | 'twitter'
+  | 'facebook'
+  | 'instagram'
+  | 'linkedin'
+  | 'youtube'
+  | 'tiktok'
+  | 'pinterest'
+  | 'reddit'
   | 'email'
   | 'new_platform'; // Add here
 ```
@@ -296,11 +296,11 @@ When deploying new social platforms:
 
 ## Files Modified/Created
 
-- ✅ `config/social-media.ts` - Centralized configuration
-- ✅ `components/SocialLinks.tsx` - Universal social links component
-- ✅ `components/HeaderSocial.tsx` - Header-specific component
-- ✅ `components/Footer.tsx` - Updated to use new system
-- ✅ `components/seo/RootOrganizationSchema.tsx` - Updated with centralized config
+- Yes `config/social-media.ts` - Centralized configuration
+- Yes `components/SocialLinks.tsx` - Universal social links component
+- Yes `components/HeaderSocial.tsx` - Header-specific component
+- Yes `components/Footer.tsx` - Updated to use new system
+- Yes `components/seo/RootOrganizationSchema.tsx` - Updated with centralized config
 
 ## Related Documentation
 

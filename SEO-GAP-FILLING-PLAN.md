@@ -1,8 +1,8 @@
 # SEO Gap-Filling Plan: Complete Implementation
 **Fill ALL SEO gaps immediately. Priority actions to close 60-70% traffic loss.**
 
-**Status:** CRITICAL PRIORITY  
-**Timeline:** 2 weeks  
+**Status:** CRITICAL PRIORITY
+**Timeline:** 2 weeks
 **Expected Impact:** +25-40% organic traffic (20K-50K visitors/month)
 
 ---
@@ -36,8 +36,8 @@
 - +200-300 new ranking keywords
 - +10K-30K monthly organic visits recovered
 
-**Effort:** 2-3 hours (copy/paste links in Lovable editor)  
-**Priority:** 🔴 CRITICAL (biggest traffic loss)
+**Effort:** 2-3 hours (copy/paste links in Lovable editor)
+**Priority:** Critical CRITICAL (biggest traffic loss)
 
 ---
 
@@ -45,7 +45,7 @@
 
 ### Current Issue
 69 articles have titles >60 characters. This hurts CTR because:
-- Titles get truncated in Google SERPs (show "...") 
+- Titles get truncated in Google SERPs (show "...")
 - Incomplete titles are less clickable
 - Each costs -1-3% CTR = -100-200 monthly visits
 
@@ -76,8 +76,8 @@
 - +100-200 monthly organic visits recovered
 - Better SERP appearance
 
-**Effort:** 1 hour (just run script)  
-**Priority:** 🟠 HIGH (immediate impact)
+**Effort:** 1 hour (just run script)
+**Priority:** High HIGH (immediate impact)
 
 ---
 
@@ -107,15 +107,15 @@ Competitors have 200+ featured snippets. You have 0. That's:
 
 **Article:** "Osteoarthritis Explained"
 ```
-**Quick Answer:** Osteoarthritis is joint wear from cartilage breakdown. 
-It causes pain, stiffness, and swelling—especially in knees, hips, and hands. 
+**Quick Answer:** Osteoarthritis is joint wear from cartilage breakdown.
+It causes pain, stiffness, and swelling—especially in knees, hips, and hands.
 Treatment ranges from exercise and medication to joint replacement.
 ```
 
 **Article:** "Arthritis Fatigue: Why It Happens"
 ```
-**Quick Answer:** Arthritis fatigue comes from inflammation, medication side effects, 
-and pain affecting sleep. It's distinct from regular tiredness and requires 
+**Quick Answer:** Arthritis fatigue comes from inflammation, medication side effects,
+and pain affecting sleep. It's distinct from regular tiredness and requires
 specific energy management strategies.
 ```
 
@@ -125,8 +125,8 @@ specific energy management strategies.
 - +5-10% CTR improvement (snippet visibility)
 - Better SERP presence (position 0)
 
-**Effort:** 2-3 hours (add answer boxes + optimize FAQs)  
-**Priority:** 🟠 HIGH (direct visitor impact)
+**Effort:** 2-3 hours (add answer boxes + optimize FAQs)
+**Priority:** High HIGH (direct visitor impact)
 
 ---
 
@@ -146,35 +146,35 @@ specific energy management strategies.
    - **Cluster 1: Sexual Health** (4 articles planned)
      - Pillar: "Sex & Intimacy with Arthritis"
      - Hub pages: Medications + sexual function, Rebuilding intimacy, Partner communication
-   
+
    - **Cluster 2: Caregiver Support** (3 articles planned)
      - Pillar: "Supporting a Partner with Arthritis"
      - Hub pages: Caregiver burnout, Adult children caregivers
-   
+
    - **Cluster 3: Fatigue Management** (4 articles planned + existing)
      - Pillar: "Arthritis Fatigue Explained"
      - Hub pages: Energy management, Sleep optimization, Exercise for energy
-   
+
    - **Cluster 4: Medication & Safety** (2 articles planned + existing)
      - Pillar: "Arthritis Medications: Complete Guide"
      - Hub pages: Turmeric + methotrexate, Supplement interactions
-   
+
    - **Cluster 5: Mental Health** (2 articles planned + existing)
      - Pillar: "Mental Health & Arthritis"
      - Hub pages: Anxiety + arthritis, Grief & loss
-   
+
    - **Cluster 6: Condition-Specific** (2 articles planned)
      - Pillar: "Understanding Your Arthritis Type"
      - Hub pages: Psoriatic arthritis vs RA, Access to Work scheme
-   
+
    - **Cluster 7: Exercise & Movement** (existing + new)
      - Pillar: "Exercise for Arthritis"
      - Hub pages: Joint-specific exercises, Low-impact workouts
-   
+
    - **Cluster 8: Pain Management** (existing)
      - Pillar: "Managing Arthritis Pain"
      - Hub pages: Pain relief techniques, Medication options
-   
+
    - **Cluster 9: Daily Living** (existing)
      - Pillar: "Living Well with Arthritis"
      - Hub pages: Home modifications, Work accommodations
@@ -195,8 +195,8 @@ specific energy management strategies.
 - +200-300 new ranking keywords
 - +10K-20K monthly visits (improved crawlability + ranking)
 
-**Effort:** 4-5 hours (map articles, create internal links)  
-**Priority:** 🔴 CRITICAL (structural improvement)
+**Effort:** 4-5 hours (map articles, create internal links)
+**Priority:** Critical CRITICAL (structural improvement)
 
 ---
 
@@ -221,7 +221,7 @@ WHERE image_url IS NULL
   AND created_at > '2026-05-01';
 
 -- Verify: should return 0 rows
-SELECT COUNT(*) FROM blog_articles 
+SELECT COUNT(*) FROM blog_articles
 WHERE image_url IS NULL AND is_published = true;
 ```
 
@@ -236,8 +236,8 @@ bun scripts/generate-og-images.ts --regenerate
 - Slight SEO boost (engagement signals)
 - +0-5% conversion improvement
 
-**Effort:** 30 minutes (SQL + script)  
-**Priority:** 🟡 MEDIUM (complementary, not critical)
+**Effort:** 30 minutes (SQL + script)
+**Priority:** Medium MEDIUM (complementary, not critical)
 
 ---
 
@@ -253,7 +253,7 @@ bun scripts/generate-og-images.ts --regenerate
 Competitors have 0-5% coverage = massive opportunity.
 
 ### Solution: Create 17 New Articles
-**Status:** 🟡 LOVABLE CREATING (sent in previous message)
+**Status:** Medium LOVABLE CREATING (sent in previous message)
 
 **Articles to Create:**
 1. Sexual Health (4 articles) → 80-120 keywords, 600-900/month visits
@@ -268,8 +268,8 @@ Competitors have 0-5% coverage = massive opportunity.
 - +3K-8K monthly visits (first 6 months)
 - Cover 100% of competitor gaps
 
-**Timeline:** 2-4 weeks (in Lovable)  
-**Priority:** 🔴 CRITICAL (biggest traffic gain)
+**Timeline:** 2-4 weeks (in Lovable)
+**Priority:** Critical CRITICAL (biggest traffic gain)
 
 ---
 
@@ -325,8 +325,8 @@ CREATE TABLE seo_analytics (
 - Track ranking improvements
 - Guide content creation
 
-**Effort:** 2-3 hours (GSC setup + table creation)  
-**Priority:** 🟠 HIGH (enables optimization)
+**Effort:** 2-3 hours (GSC setup + table creation)
+**Priority:** High HIGH (enables optimization)
 
 ---
 
@@ -357,8 +357,8 @@ This costs -30-40% of potential internal link power.
 - +200-300 new ranking keywords
 - Users discover more content
 
-**Effort:** 3-4 hours  
-**Priority:** 🟠 HIGH (amplifies other improvements)
+**Effort:** 3-4 hours
+**Priority:** High HIGH (amplifies other improvements)
 
 ---
 
@@ -445,7 +445,7 @@ All committed to GitHub, auto-deployed to Lovable.
 
 | Metric | Before | After | Change |
 |--------|--------|-------|--------|
-| Monthly organic traffic | 1-2K | 21-61K | +1,000-3,000% 🚀 |
+| Monthly organic traffic | 1-2K | 21-61K | +1,000-3,000%  |
 | Keywords ranking | 200-300 | 500-800 | +300-500 |
 | Featured snippets | 0 | 15-25 | +15-25 |
 | Orphan pages active | 192 hidden | 0 hidden | 100% connected |
@@ -457,9 +457,9 @@ All committed to GitHub, auto-deployed to Lovable.
 
 ---
 
-**Status:** Ready for immediate implementation  
-**Timeline:** 2 weeks  
-**Effort:** 35-50 hours (spreads across team/automation)  
+**Status:** Ready for immediate implementation
+**Timeline:** 2 weeks
+**Effort:** 35-50 hours (spreads across team/automation)
 **Expected ROI:** +20K-50K monthly visits
 
 **All work tracked in GitHub with clear commits.**

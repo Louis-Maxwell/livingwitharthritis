@@ -7,9 +7,9 @@
 
 From your audit:
 - **51 city pages** (/arthritis-support/:city)
-- All return **HTTP 200** ✅
-- All are **indexable** ✅
-- **ALL MISSING FROM SITEMAP** ❌ (The problem!)
+- All return **HTTP 200** Yes
+- All are **indexable** Yes
+- **ALL MISSING FROM SITEMAP** No (The problem!)
 - Only **1-52 inlinks** each (poorly linked)
 - **0 organic traffic** (stuck)
 
@@ -31,19 +31,19 @@ Add this function:
 // Auto-discover dynamic routes
 async function getUrldynamicPages() {
   const supabase = createClient(...);
-  
+
   // Fetch all city support pages
   const { data: cities } = await supabase
     .from('city_support_pages')
     .select('slug, updated_at')
     .eq('is_published', true);
-  
+
   // Fetch all library topics
   const { data: topics } = await supabase
     .from('library_topics')
     .select('slug, updated_at')
     .eq('is_published', true);
-  
+
   return [
     ...cities.map(c => ({
       url: `/arthritis-support/${c.slug}`,
@@ -157,8 +157,8 @@ const supabase = createClient(
 );
 
 async function generateCompleteSitemap() {
-  console.log('🔍 Generating complete sitemap...');
-  
+  console.log(' Generating complete sitemap...');
+
   // Static URLs
   const staticUrls = [
     { url: '/', priority: 1.0 },
@@ -168,46 +168,46 @@ async function generateCompleteSitemap() {
     { url: '/connect', priority: 0.7 },
     { url: '/about', priority: 0.7 },
   ];
-  
+
   // Blog articles
   const { data: articles } = await supabase
     .from('blog_articles')
     .select('slug, updated_at')
     .eq('is_published', true);
-  
+
   const blogUrls = articles.map(a => ({
     url: `/blog/${a.slug}`,
     lastmod: a.updated_at,
     priority: 0.8,
   }));
-  
+
   // City support pages (THE MISSING ONES!)
   const { data: cities } = await supabase
     .from('city_support_pages')
     .select('slug, updated_at')
     .eq('is_published', true);
-  
+
   const cityUrls = cities.map(c => ({
     url: `/arthritis-support/${c.slug}`,
     lastmod: c.updated_at,
     priority: 0.8,
   }));
-  
+
   // Library topics
   const { data: topics } = await supabase
     .from('library_topics')
     .select('slug, updated_at')
     .eq('is_published', true);
-  
+
   const topicUrls = topics.map(t => ({
     url: `/library/${t.slug}`,
     lastmod: t.updated_at,
     priority: 0.7,
   }));
-  
+
   // Combine all URLs
   const allUrls = [...staticUrls, ...blogUrls, ...cityUrls, ...topicUrls];
-  
+
   // Generate XML
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -217,10 +217,10 @@ ${allUrls.map(u => `  <url>
     <priority>${u.priority}</priority>
   </url>`).join('\n')}
 </urlset>`;
-  
+
   writeFileSync('public/sitemap.xml', sitemap);
-  
-  console.log(`✅ Sitemap generated with ${allUrls.length} URLs`);
+
+  console.log(`Yes Sitemap generated with ${allUrls.length} URLs`);
   console.log(`   - Static: ${staticUrls.length}`);
   console.log(`   - Blog: ${blogUrls.length}`);
   console.log(`   - Cities: ${cityUrls.length}`);
@@ -334,7 +334,7 @@ This ensures any new city pages are automatically added to sitemap.
 
 This is ONE of the biggest opportunities on the site!
 
-Priority: 🔴 CRITICAL
+Priority: Critical CRITICAL
 Effort: 30 minutes
 ROI: 1000%+
 Timeline: Results in 2 weeks

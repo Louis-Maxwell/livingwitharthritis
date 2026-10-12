@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Move } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -238,10 +238,10 @@ const ElbowArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily elbow-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🔄" title="Mobility" description="Bend and straighten morning and evening." />
-            <EmojiCard emoji="✊" title="Grip" description="Soft-ball squeezes daily, stop if it spikes pain." />
-            <EmojiCard emoji="🎒" title="Load" description="Use a backpack, not a single-shoulder bag." />
-            <EmojiCard emoji="♨️" title="Heat" description="Ten minutes of heat before exercise." />
+            <HighlightCard title="Mobility" description="Bend and straighten morning and evening." />
+            <HighlightCard title="Grip" description="Soft-ball squeezes daily, stop if it spikes pain." />
+            <HighlightCard title="Load" description="Use a backpack, not a single-shoulder bag." />
+            <HighlightCard title="Heat" description="Ten minutes of heat before exercise." />
           </div>
         </motion.div>
 

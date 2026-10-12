@@ -20,7 +20,7 @@ import {
   StatCounter,
   HorizontalBar,
   WaveDivider,
-  EmojiCard,
+  HighlightCard,
   DonutChart,
 } from "@/components/graphics/InfographicElements";
 
@@ -201,12 +201,12 @@ const CommunityHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Support Resources</h2>
             <p className="text-sm text-muted-foreground mb-8">Instant access to key areas of support.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🏋️" title="Exercise Hub" description="Knee, hand, chair and tai chi routines you can start at home." />
-              <EmojiCard emoji="🥗" title="Diet Hub" description="Anti-inflammatory and Mediterranean ideas for a real UK kitchen." />
-              <EmojiCard emoji="💬" title="Help Chat" description="Ask about pain, flares, diet, exercises or PIP — UK-safe, no diagnosis." />
-              <EmojiCard emoji="📖" title="Blog Articles" description="505 clinically reviewed guides — search by topic when you know what you need." />
-              <EmojiCard emoji="📋" title="Self-Help Tool" description="Tap a joint on the diagram for a short home exercise plan." />
-              <EmojiCard emoji="💊" title="Supplements" description="What the evidence actually says about turmeric, omega-3 and glucosamine." />
+              <HighlightCard title="Exercise Hub" description="Knee, hand, chair and tai chi routines you can start at home." />
+              <HighlightCard title="Diet Hub" description="Anti-inflammatory and Mediterranean ideas for a real UK kitchen." />
+              <HighlightCard title="Help Chat" description="Ask about pain, flares, diet, exercises or PIP — UK-safe, no diagnosis." />
+              <HighlightCard title="Blog Articles" description="505 clinically reviewed guides — search by topic when you know what you need." />
+              <HighlightCard title="Self-Help Tool" description="Tap a joint on the diagram for a short home exercise plan." />
+              <HighlightCard title="Supplements" description="What the evidence actually says about turmeric, omega-3 and glucosamine." />
             </div>
           </div>
         </section>
@@ -275,7 +275,7 @@ const CommunityHub = () => {
                       </div>
                       <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
                       <p className="text-sm text-muted-foreground mb-3">{f.description}</p>
-                      
+
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -300,15 +300,15 @@ const CommunityHub = () => {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { title: "Knee Exercise Routine", desc: "10-minute daily programme for knee osteoarthritis, including 7 targeted exercises with coaching tips.", icon: "🦵", pages: "3 pages", fn: "generateKneeExercisePdf" },
-                { title: "Hand Exercise Guide", desc: "Grip strength & flexibility exercises for hand OA. 7 exercises with step-by-step instructions.", icon: "✋", pages: "2 pages", fn: "generateHandExercisePdf" },
-                { title: "Shoulder Exercise Guide", desc: "7 rotator cuff & mobility exercises for shoulder arthritis with daily living tips.", icon: "💪", pages: "3 pages", fn: "generateShoulderExercisePdf" },
-                { title: "Hip Exercise Guide", desc: "7 strengthening & flexibility exercises for hip OA plus daily living adaptations.", icon: "🦴", pages: "3 pages", fn: "generateHipExercisePdf" },
-                { title: "Chair Exercise Guide", desc: "8 seated routines requiring no equipment — suitable for all ability levels and flare-ups.", icon: "🪑", pages: "2 pages", fn: "generateChairExercisePdf" },
-                { title: "7-Day Meal Plan", desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.", icon: "🥗", pages: "3 pages", fn: "generateMealPlanPdf" },
-                { title: "Anti-Inflammatory Foods List", desc: "Printable tick-box shopping checklist covering 9 food groups with foods to limit.", icon: "🛒", pages: "2 pages", fn: "generateFoodsListPdf" },
-                { title: "Joint Pain Tracker", desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.", icon: "📋", pages: "2 pages", fn: "generatePainTrackerPdf" },
-                { title: "Weekly Exercise Tracker", desc: "Log your exercises, track pain before/after, set goals and celebrate weekly wins.", icon: "📊", pages: "2 pages", fn: "generateProgressTrackerPdf" },
+                { title: "Knee Exercise Routine", desc: "10-minute daily programme for knee osteoarthritis, including 7 targeted exercises with coaching tips.", pages: "3 pages", fn: "generateKneeExercisePdf" },
+                { title: "Hand Exercise Guide", desc: "Grip strength & flexibility exercises for hand OA. 7 exercises with step-by-step instructions.", pages: "2 pages", fn: "generateHandExercisePdf" },
+                { title: "Shoulder Exercise Guide", desc: "7 rotator cuff & mobility exercises for shoulder arthritis with daily living tips.", pages: "3 pages", fn: "generateShoulderExercisePdf" },
+                { title: "Hip Exercise Guide", desc: "7 strengthening & flexibility exercises for hip OA plus daily living adaptations.", pages: "3 pages", fn: "generateHipExercisePdf" },
+                { title: "Chair Exercise Guide", desc: "8 seated routines requiring no equipment — suitable for all ability levels and flare-ups.", pages: "2 pages", fn: "generateChairExercisePdf" },
+                { title: "7-Day Meal Plan", desc: "Full Mediterranean-style anti-inflammatory weekly menu with breakfast, lunch, dinner & snacks.", pages: "3 pages", fn: "generateMealPlanPdf" },
+                { title: "Anti-Inflammatory Foods List", desc: "Printable tick-box shopping checklist covering 9 food groups with foods to limit.", pages: "2 pages", fn: "generateFoodsListPdf" },
+                { title: "Joint Pain Tracker", desc: "Daily symptom diary worksheet with a weekly log table and reflection prompts.", pages: "2 pages", fn: "generatePainTrackerPdf" },
+                { title: "Weekly Exercise Tracker", desc: "Log your exercises, track pain before/after, set goals and celebrate weekly wins.", pages: "2 pages", fn: "generateProgressTrackerPdf" },
               ].map((r, i) => (
                 <motion.div
                   key={r.title}
@@ -319,7 +319,6 @@ const CommunityHub = () => {
                 >
                   <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md group">
                     <CardContent className="p-5 flex flex-col h-full">
-                      <span className="text-2xl mb-3 block" aria-hidden="true">{r.icon}</span>
                       <h3 className="font-semibold text-foreground text-sm mb-1">{r.title}</h3>
                       <p className="text-xs text-muted-foreground mb-3 flex-1">{r.desc}</p>
                       <div className="flex items-center justify-between mt-auto">

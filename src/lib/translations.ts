@@ -12,11 +12,11 @@ export type Lang = "en" | "es" | "fr" | "de" | "pt";
 export const SUPPORTED_LANGS: Lang[] = ["en", "es", "fr", "de", "pt"];
 
 export const LANG_LABELS: Record<Lang, { native: string; english: string; flag: string }> = {
-  en: { native: "English", english: "English", flag: "🇬🇧" },
-  es: { native: "Español", english: "Spanish", flag: "🇪🇸" },
-  fr: { native: "Français", english: "French", flag: "🇫🇷" },
-  de: { native: "Deutsch", english: "German", flag: "🇩🇪" },
-  pt: { native: "Português", english: "Portuguese", flag: "🇵🇹" },
+  en: { native: "English", english: "English", flag: "" },
+  es: { native: "Español", english: "Spanish", flag: "" },
+  fr: { native: "Français", english: "French", flag: "" },
+  de: { native: "Deutsch", english: "German", flag: "" },
+  pt: { native: "Português", english: "Portuguese", flag: "" },
 };
 
 export const HREFLANG_CODES: Record<Lang, string> = {

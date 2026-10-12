@@ -139,7 +139,7 @@ jobs:
           SHA="${{ steps.sha.outputs.sha }}"
           echo "::notice title=Safe to publish::All gates green for ${SHA}. Publish in Lovable when ready."
           {
-            echo "## ✅ SAFE TO PUBLISH \`${SHA:0:7}\`"
+            echo "##  SAFE TO PUBLISH \`${SHA:0:7}\`"
             echo
             echo "CI, Lint & Test, Tests, Keep green, CodeQL and Gitleaks all succeeded for \`${SHA}\`."
             echo
@@ -156,7 +156,7 @@ jobs:
           SHA="${{ steps.sha.outputs.sha }}"
           echo "::warning title=Not verified::Gates for ${SHA} were still running when this check timed out. Do NOT treat this run as publish-ready; a later run for the same SHA will confirm."
           {
-            echo "## ⏳ NOT VERIFIED \`${SHA:0:7}\`"
+            echo "##  NOT VERIFIED \`${SHA:0:7}\`"
             echo
             echo "Some gating workflows were still running. Wait for a run that says **SAFE TO PUBLISH**."
           } >> "$GITHUB_STEP_SUMMARY"
