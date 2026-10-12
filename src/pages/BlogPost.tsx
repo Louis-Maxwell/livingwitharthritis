@@ -296,13 +296,8 @@ const BlogPost = () => {
       )
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
-  // Real review date only: explicit last_reviewed, else the catalog's
-  // derived value (updated_at), else the publish date. Never a hard-coded date.
-  const blogLastReviewed =
-    (typeof (article as { last_reviewed?: string }).last_reviewed === "string" &&
-      (article as { last_reviewed?: string }).last_reviewed) ||
-    getBlogReviewMeta(slug)?.last_reviewed ||
-    (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw) ? updatedAtRaw.slice(0, 10) : article.date);
+  // Only an explicitly recorded date establishes when clinical review occurred.
+  const blogLastReviewed = (article as { last_reviewed?: string }).last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {

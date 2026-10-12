@@ -9,14 +9,14 @@ interface TocItem {
 }
 
 function extractHeadings(html: string): TocItem[] {
-  const regex = /<h([2-3])[^>]*(?:id="([^"]*)")?[^>]*>(.*?)<\/h[2-3]>/gi;
+  const regex = /<h([23])\b([^>]*)>([\s\S]*?)<\/h\1>/gi;
   const items: TocItem[] = [];
   let match;
   while ((match = regex.exec(html)) !== null) {
     const level = parseInt(match[1], 10);
     const text = stripHtml(match[3]).trim();
     const id =
-      match[2] ||
+      match[2].match(/\bid=["']([^"']+)["']/i)?.[1] ||
       text
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
@@ -69,13 +69,24 @@ const TableOfContents = memo(({ html, variant = "inline", className = "" }: Tabl
             href={`#${h.id}`}
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById(h.id)?.scrollIntoView({
-                behavior: "smooth",
+              const heading = document.getElementById(h.id);
+              const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+              heading?.scrollIntoView({
+                behavior: reducedMotion ? "auto" : "smooth",
                 block: "start",
               });
+              if (heading) {
+                const previousTabIndex = heading.getAttribute("tabindex");
+                heading.setAttribute("tabindex", "-1");
+                heading.focus({ preventScroll: true });
+                heading.addEventListener("blur", () => {
+                  if (previousTabIndex === null) heading.removeAttribute("tabindex");
+                  else heading.setAttribute("tabindex", previousTabIndex);
+                }, { once: true });
+              }
               if (!isSticky) setIsOpen(false);
             }}
-            className={`block py-2 min-h-[40px] text-[13px] leading-snug transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm ${
+            className={`block py-2 min-h-[44px] text-[13px] leading-snug transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm ${
               h.level === 3 ? "pl-4 border-l border-border/30" : ""
             } ${activeId === h.id ? "text-primary font-semibold" : "text-muted-foreground"}`}
           >
@@ -138,15 +149,20 @@ export default TableOfContents;
 /** Adds id attributes to h2/h3 tags that don't have them */
 // eslint-disable-next-line react-refresh/only-export-components
 export function addHeadingIds(html: string): string {
+  const used = new Set([...html.matchAll(/\bid=["']([^"']+)["']/gi)].map((m) => m[1]));
   return html.replace(
-    /<h([2-3])([^>]*)>(.*?)<\/h[2-3]>/gi,
+    /<h([23])\b([^>]*)>([\s\S]*?)<\/h\1>/gi,
     (match, level, attrs, content) => {
-      if (/id="/.test(attrs)) return match;
+      if (/\bid=["']/.test(attrs)) return match;
       const text = stripHtml(content).trim();
-      const id = text
+      const base = text
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
+        .replace(/(^-|-$)/g, "") || "section";
+      let id = base;
+      let suffix = 2;
+      while (used.has(id)) id = `${base}-${suffix++}`;
+      used.add(id);
       return `<h${level}${attrs} id="${id}">${content}</h${level}>`;
     },
   );

@@ -6,6 +6,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { sitemapPageUrls } from "../../../scripts/indexnow-ping.mjs";
 
 const root = process.cwd();
 const ai = JSON.parse(
@@ -15,7 +16,7 @@ const ai = JSON.parse(
   { title?: string; description?: string; updatedAt?: string; faqs?: unknown[] }
 >;
 const sitemap = readFileSync(resolve(root, "public/sitemap.xml"), "utf8");
-const indexNow = readFileSync(resolve(root, "scripts/indexnow-ping.mjs"), "utf8");
+const indexNowUrls = sitemapPageUrls(sitemap);
 const llms = readFileSync(resolve(root, "public/llms.txt"), "utf8");
 const homepageTitle = ai["/"]?.title ?? "";
 
@@ -144,11 +145,17 @@ describe("evening visibility pass — crawl + AI discovery", () => {
     });
   }
 
-  it("IndexNow ping list includes mediterranean + turmeric supplement", () => {
-    expect(indexNow).toContain("'/diet/mediterranean-diet-for-arthritis'");
-    expect(indexNow).toContain("'/supplements/turmeric'");
-    expect(indexNow).toContain("'/guides/arthritis-pain-relief'");
-    expect(indexNow).toContain("'/benefits-pip'");
+  it("IndexNow sitemap selection includes the priority diet, supplement and benefit pages", () => {
+    for (const path of [
+      "/diet/mediterranean-diet-for-arthritis",
+      "/supplements/turmeric",
+      "/guides/arthritis-pain-relief",
+      "/benefits-pip",
+    ]) {
+      expect(indexNowUrls).toContain(`https://livingwitharthritis.org.uk${path}`);
+    }
+    expect(new Set(indexNowUrls).size).toBe(indexNowUrls.length);
+    expect(indexNowUrls.every((url) => !url.includes("/openverse/"))).toBe(true);
   });
 
   it("llms.txt prefers the evening-pass hubs", () => {

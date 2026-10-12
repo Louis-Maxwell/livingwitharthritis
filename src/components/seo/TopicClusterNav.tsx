@@ -60,7 +60,7 @@ export default function TopicClusterNav({
               to={cluster.pillarPath}
               className="inline-flex rounded-full border border-primary/30 bg-background px-3 py-1.5 font-medium text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              Pillar: {cluster.pillarTitle}
+              {cluster.pillarTitle}
             </Link>
           </li>
         )}
@@ -80,7 +80,7 @@ export default function TopicClusterNav({
               to={cluster.toolPath}
               className="inline-flex rounded-full border border-border bg-primary/10 px-3 py-1.5 font-medium text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              Tool: {cluster.toolLabel}
+              {cluster.toolLabel}
             </Link>
           </li>
         )}

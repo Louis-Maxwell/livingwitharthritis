@@ -35,11 +35,12 @@ export default function ArticleCitations({ citations = [], title = "Sources & Re
             <a
               href={c.url}
               target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="inline-flex items-center gap-1 text-primary underline underline-offset-2 hover:opacity-80"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 min-h-11 break-words text-primary underline underline-offset-2 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
             >
               {c.publisher ?? c.label}
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
             {c.publisher && <span className="text-foreground/80"> — {c.label}</span>}
           </li>
