@@ -112,7 +112,7 @@ const md = [
   ``,
   ...results.map(
     (r) =>
-      `## ${r.ok ? "✅" : "❌"} ${r.name}\n\n\`\`\`\n${r.out.slice(0, 2000).trim()}\n\`\`\`\n`,
+      `## ${r.ok ? "" : ""} ${r.name}\n\n\`\`\`\n${r.out.slice(0, 2000).trim()}\n\`\`\`\n`,
   ),
 ].join("\n");
 

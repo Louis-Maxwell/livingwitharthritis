@@ -266,7 +266,7 @@ if (process.argv.includes("--json")) {
 }
 
 if (violations.length > 0) {
-  console.error(`✖ ${violations.length} heading issues found.`);
+  console.error(` ${violations.length} heading issues found.`);
   process.exit(1);
 }
 console.log(`✓ No heading issues.`);

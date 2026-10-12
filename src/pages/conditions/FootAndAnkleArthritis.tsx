@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Footprints } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -236,10 +236,10 @@ const FootAndAnkleArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily foot-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="👟" title="Footwear" description="Wide toe box, grip sole, low heel." />
-            <EmojiCard emoji="🔄" title="Mobility" description="Ankle circles and toe work daily." />
-            <EmojiCard emoji="⚖️" title="Balance" description="Brief single-leg practice near a counter." />
-            <EmojiCard emoji="♨️" title="Warm-up" description="Warm soak before the first walk." />
+            <HighlightCard title="Footwear" description="Wide toe box, grip sole, low heel." />
+            <HighlightCard title="Mobility" description="Ankle circles and toe work daily." />
+            <HighlightCard title="Balance" description="Brief single-leg practice near a counter." />
+            <HighlightCard title="Warm-up" description="Warm soak before the first walk." />
           </div>
         </motion.div>
 

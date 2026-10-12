@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import RelatedArticles from "@/components/RelatedArticles";
 import ContextualLinks from "@/components/ContextualLinks";
@@ -264,10 +264,10 @@ const Osteoarthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🚶" title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
-            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
-            <EmojiCard emoji="🐟" title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
-            <EmojiCard emoji="😴" title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
+            <HighlightCard title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
+            <HighlightCard title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
+            <HighlightCard title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
+            <HighlightCard title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
           </div>
         </motion.div>
 
@@ -434,7 +434,7 @@ const Osteoarthritis = () => (
               Read our articles
             </Link>
           </div>
-          
+
 
       <nav aria-label="Customer job pathways for osteoarthritis" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">What do you need next?</p>

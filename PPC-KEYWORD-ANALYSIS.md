@@ -13,7 +13,7 @@
 | Monthly searches (UK) | 50-200 | Low (branded) |
 | CPC (estimated) | £0.10-0.30 | Very cheap |
 | Monthly ad cost (1000 clicks) | £100-300 | Budget-friendly |
-| **BUT:** You should own this organically | ✅ | We just fixed it |
+| **BUT:** You should own this organically | Yes | We just fixed it |
 
 ### Conversion Path
 
@@ -157,14 +157,14 @@ ROI: +£72 profit (72 conversions × £5 - £288 spend)
 ## When TO Bid on "Living With Arthritis"
 
 **DO bid if:**
-1. ❌ Another advertiser is bidding on your own brand name (not yet)
-2. ✅ You want to accelerate organic ranking while building authority (next 4-8 weeks)
-3. ✅ You have excess budget and want to maximize immediate traffic (£2000+/month)
+1. No Another advertiser is bidding on your own brand name (not yet)
+2. Yes You want to accelerate organic ranking while building authority (next 4-8 weeks)
+3. Yes You have excess budget and want to maximize immediate traffic (£2000+/month)
 
 **DON'T bid if:**
-1. ✅ You're building organic ranking anyway (we are — BRANDED-SEARCH-RECOVERY.md)
-2. ✅ Your budget is limited (it is — grant-funded non-profit)
-3. ✅ You can get these clicks free in 4-8 weeks (you can)
+1. Yes You're building organic ranking anyway (we are — BRANDED-SEARCH-RECOVERY.md)
+2. Yes Your budget is limited (it is — grant-funded non-profit)
+3. Yes You can get these clicks free in 4-8 weeks (you can)
 
 ---
 
@@ -212,9 +212,9 @@ ROI: +£72 profit (72 conversions × £5 - £288 spend)
 
 ## What To Do Right Now
 
-1. ✅ Implement BRANDED-SEARCH-RECOVERY.md (free, organic ranking)
-2. ✅ Start Google Ads on "arthritis exercises" (high intent)
-3. ⏸️ SKIP branded "living with arthritis" bidding (for now)
-4. ✅ Re-evaluate in 8 weeks (might rank #1 by then)
+1. Yes Implement BRANDED-SEARCH-RECOVERY.md (free, organic ranking)
+2. Yes Start Google Ads on "arthritis exercises" (high intent)
+3.  SKIP branded "living with arthritis" bidding (for now)
+4. Yes Re-evaluate in 8 weeks (might rank #1 by then)
 
 **Save the brand bidding budget. Use it to dominate high-intent keywords instead.**

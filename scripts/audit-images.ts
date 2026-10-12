@@ -210,7 +210,7 @@ if (process.argv.includes("--json")) {
 }
 
 if (critical.length > 0) {
-  console.error(`\n✖ ${critical.length} critical image issues found.`);
+  console.error(`\n ${critical.length} critical image issues found.`);
   process.exit(1);
 }
 console.log(`✓ No critical image issues.`);

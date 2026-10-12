@@ -7,12 +7,12 @@
 
 | Item | Count | Status | Issue |
 |------|-------|--------|-------|
-| Crawled internal URLs | 1,098 | ✅ OK | Good baseline |
-| **Uncrawled links** | **7,981** | 🔴 CRITICAL | These are orphan pages + unreachable content |
-| Anchor texts | 90,873 | ✅ OK | Lots of internal linking (good) |
-| Images without alt text | 0 | ✅ OK | Perfect compliance |
-| Links blocked by robots.txt | 0 | ✅ OK | robots.txt is not blocking |
-| Links to 4xx errors | 0 | ✅ OK | No dead links |
+| Crawled internal URLs | 1,098 | Yes OK | Good baseline |
+| **Uncrawled links** | **7,981** | Critical CRITICAL | These are orphan pages + unreachable content |
+| Anchor texts | 90,873 | Yes OK | Lots of internal linking (good) |
+| Images without alt text | 0 | Yes OK | Perfect compliance |
+| Links blocked by robots.txt | 0 | Yes OK | robots.txt is not blocking |
+| Links to 4xx errors | 0 | Yes OK | No dead links |
 
 ---
 
@@ -123,7 +123,7 @@ findUncrawledLinks().catch(console.error);
 
 **Run:** `bun scripts/audit-uncrawled-links.mjs`
 
-**Output:** 
+**Output:**
 - Breakdown of broken vs orphaned links
 - First 100 examples
 - SQL ready for bulk fixes
@@ -165,12 +165,12 @@ ORDER BY created_at DESC;
 
 -- For each orphaned page, add it to internal_links table
 INSERT INTO article_internal_links (
-  source_article_id, 
-  target_article_id, 
-  anchor_text, 
+  source_article_id,
+  target_article_id,
+  anchor_text,
   link_type
 )
-SELECT 
+SELECT
   pillar.id,
   orphan.id,
   CONCAT('Learn about ', orphan.title),
@@ -213,12 +213,12 @@ bun scripts/generate-sitemap.ts
 
 #### 3C: Update Crawl Parameters (in SEO tool)
 ```
-✅ No crawl delays
-✅ Follow robots.txt: Yes
-✅ Crawl subdomains: No (only main domain)
-✅ Include HTTPS: Yes
-✅ Follow redirects: Yes (up to 5)
-✅ Avoid cookie prompts: Yes
+Yes No crawl delays
+Yes Follow robots.txt: Yes
+Yes Crawl subdomains: No (only main domain)
+Yes Include HTTPS: Yes
+Yes Follow redirects: Yes (up to 5)
+Yes Avoid cookie prompts: Yes
 ```
 
 ---
@@ -273,7 +273,7 @@ git add scripts/audit-uncrawled-links.mjs uncrawled-links-audit.json
 git commit -m "Fix: Resolve 7,981 uncrawled links in site audit
 
 - Identify 192 orphaned pages
-- Fix ~100 broken internal links  
+- Fix ~100 broken internal links
 - Create internal linking to orphans
 - Regenerate sitemap with all pages
 - Verify robots.txt is clean
@@ -296,12 +296,12 @@ git push origin main
 // Scheduled job (weekly)
 async function auditCrawlability() {
   const uncrawled = await getUncrawledLinks();
-  
+
   if (uncrawled.length > 50) {
     // Alert: New uncrawled links detected
     sendAlert(`New uncrawled links: ${uncrawled.length}`);
   }
-  
+
   // Log to seo_audit table
   await logAudit({
     date: new Date(),
@@ -348,9 +348,9 @@ bun scripts/audit-uncrawled-links.mjs
 
 ## STATUS
 
-**Priority:** 🔴 CRITICAL (blocking 500-1K keywords)  
-**Effort:** 2-3 hours  
-**Expected Impact:** +15-25K monthly visits  
+**Priority:** Critical CRITICAL (blocking 500-1K keywords)
+**Effort:** 2-3 hours
+**Expected Impact:** +15-25K monthly visits
 **Timeline:** Can complete this week
 
 **Next step:** Run audit script to get exact breakdown of broken vs orphaned links.

@@ -11,7 +11,6 @@ const EXERCISE_GUIDES = [
   {
     id: "knee",
     title: "Knee Exercise Routine",
-    icon: "🦵",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -25,7 +24,6 @@ const EXERCISE_GUIDES = [
   {
     id: "hand",
     title: "Hand Exercise Guide",
-    icon: "✋",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -39,7 +37,6 @@ const EXERCISE_GUIDES = [
   {
     id: "shoulder",
     title: "Shoulder Exercises",
-    icon: "💪",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -53,7 +50,6 @@ const EXERCISE_GUIDES = [
   {
     id: "chair",
     title: "Chair Exercise Guide",
-    icon: "🪑",
     color: "border-primary/30 bg-primary/5",
     accentColor: "text-primary",
     badgeColor: "bg-background text-primary",
@@ -232,7 +228,6 @@ export default function ExerciseProgressTracker() {
                 >
                   <div className="flex items-center justify-between p-5 pb-3">
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl" aria-hidden="true">{guide.icon}</span>
                       <div>
                         <h3 className="font-semibold text-foreground">{guide.title}</h3>
                         <div className="flex items-center gap-2 mt-0.5">
@@ -349,7 +344,7 @@ export default function ExerciseProgressTracker() {
                         {pct === 100 && (
                           <div className="mt-3 flex items-center gap-2 text-xs text-primary font-medium bg-primary/5 rounded-lg px-3 py-2">
                             <Trophy className="w-3.5 h-3.5 shrink-0" />
-                            Excellent work — you completed all {guide.title} sessions this week! 🎉
+                            Excellent work — you completed all {guide.title} sessions this week!
                           </div>
                         )}
                       </CardContent>

@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Move } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -218,10 +218,10 @@ const ShoulderArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily shoulder-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🪢" title="Mobility" description="Pendulums morning & evening" />
-            <EmojiCard emoji="🎯" title="Cuff strength" description="Banded rotation, 2× weekly" />
-            <EmojiCard emoji="🛌" title="Sleep" description="Off the painful side" />
-            <EmojiCard emoji="♨️" title="Heat" description="10 min before exercise" />
+            <HighlightCard title="Mobility" description="Pendulums morning & evening" />
+            <HighlightCard title="Cuff strength" description="Banded rotation, 2× weekly" />
+            <HighlightCard title="Sleep" description="Off the painful side" />
+            <HighlightCard title="Heat" description="10 min before exercise" />
           </div>
         </motion.div>
 

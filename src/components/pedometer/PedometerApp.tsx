@@ -24,6 +24,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from 'react';
+import { Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { trackEvent } from '@/lib/analytics';
 
@@ -521,7 +522,7 @@ function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay =
       )}
       aria-label={accessibleValue}
     >
-      <div className={cn('text-[22px] mb-0.5', accentClass)} aria-hidden="true">{icon}</div>
+      {icon && <div className={cn('text-[22px] mb-0.5', accentClass)} aria-hidden="true">{icon}</div>}
       <div className="font-bold text-2xl text-foreground leading-none">
         {value}
         {unit && <span className="text-sm font-normal text-muted-foreground ml-0.5">{unit}</span>}
@@ -538,21 +539,20 @@ function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay =
 
 type Achievement = {
   id: string;
-  icon: string;
   title: string;
   desc: string;
   req: (allTime: number, best: number, goal: number, streak: number) => boolean;
 };
 
 const ACHIEVEMENTS: Achievement[] = [
-  { id: 'first_step', icon: '👟', title: 'First Steps', desc: 'Walk 1,000 steps', req: s => s >= 1000 },
-  { id: 'five_k', icon: '🏃', title: 'Five Thousand', desc: 'Reach 5,000 in a day', req: (_, b) => b >= 5000 },
-  { id: 'goal_getter', icon: '🎯', title: 'Goal Getter', desc: 'Hit your daily goal', req: (_, b, g) => b >= g },
-  { id: 'ten_k', icon: '🔥', title: 'Ten Thousand', desc: '10,000 steps in a day', req: (_, b) => b >= 10000 },
-  { id: 'streak_7', icon: '⚡', title: 'Week Warrior', desc: '7-day streak', req: (_, __, ___, st) => st >= 7 },
-  { id: 'hundred_k', icon: '💎', title: 'Century Club', desc: '100,000 all-time steps', req: s => s >= 100000 },
-  { id: 'marathon', icon: '🏅', title: 'Marathon', desc: 'Walk 42km in one day', req: (_, b) => b * 0.000762 >= 42 },
-  { id: 'streak_30', icon: '👑', title: 'Iron Legs', desc: '30-day streak', req: (_, __, ___, st) => st >= 30 },
+  { id: 'first_step', title: 'First Steps', desc: 'Walk 1,000 steps', req: s => s >= 1000 },
+  { id: 'five_k', title: 'Five Thousand', desc: 'Reach 5,000 in a day', req: (_, b) => b >= 5000 },
+  { id: 'goal_getter', title: 'Goal Getter', desc: 'Hit your daily goal', req: (_, b, g) => b >= g },
+  { id: 'ten_k', title: 'Ten Thousand', desc: '10,000 steps in a day', req: (_, b) => b >= 10000 },
+  { id: 'streak_7', title: 'Week Warrior', desc: '7-day streak', req: (_, __, ___, st) => st >= 7 },
+  { id: 'hundred_k', title: 'Century Club', desc: '100,000 all-time steps', req: s => s >= 100000 },
+  { id: 'marathon', title: 'Marathon', desc: 'Walk 42km in one day', req: (_, b) => b * 0.000762 >= 42 },
+  { id: 'streak_30', title: 'Iron Legs', desc: '30-day streak', req: (_, __, ___, st) => st >= 30 },
 ];
 
 function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlocked: boolean; delay?: number }) {
@@ -577,7 +577,6 @@ function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlo
         vis ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
       )}
     >
-      <div className={cn('text-[28px]', !unlocked && 'grayscale opacity-40')} aria-hidden="true">{ach.icon}</div>
       <div className={cn('font-bold text-xs', unlocked ? 'text-foreground' : 'text-muted-foreground')}>
         {ach.title}
       </div>
@@ -609,7 +608,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
 
   // Focus first element on open; restore focus on unmount
   // Capture ref at effect time to avoid closure issues in cleanup
-   
+
   useEffect(() => {
     closeBtnRef.current?.focus();
     const elementToFocus = returnFocusRef.current;
@@ -810,7 +809,7 @@ function StreakWidget({
           aria-hidden="true"
           className="text-2xl leading-none select-none"
         >
-          {streak > 0 ? '🔥' : '✦'}
+          {'✦'}
         </span>
         <div className="min-w-0">
           <div className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
@@ -963,8 +962,7 @@ function TodayTab({ ped }: { ped: PedoState }) {
               Stop Tracking
             </>
           ) : (
-            <>
-              <span aria-hidden="true">▶</span> Start Walking
+            <> Start Walking
             </>
           )}
         </button>
@@ -1005,9 +1003,9 @@ function TodayTab({ ped }: { ped: PedoState }) {
       />
 
       <div className="grid grid-cols-2 gap-3">
-        <MetricCard icon="📍" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
-        <MetricCard icon="🔥" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
-        <MetricCard icon="⏱" label="Active Time" value={activeMin} unit="min" accent="gold" delay={160} />
+        <MetricCard icon="" label="Distance" value={dist.val} unit={dist.unit} accent="primary" delay={0} />
+        <MetricCard icon="" label="Calories" value={fmtFull(calories)} unit="kcal" accent="primary" delay={80} />
+        <MetricCard icon="" label="Active Time" value={activeMin} unit="min" accent="gold" delay={160} />
         <MetricCard icon="✦" label="Streak" value={streak} unit="days" accent="gold"
           sub={streak >= 7 ? 'Week warrior' : streak > 0 ? 'Keep it up' : 'Start today'} delay={240} />
       </div>
@@ -1168,7 +1166,6 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="rounded-2xl border border-primary/20 bg-card px-5 py-5 text-center">
-        <div className="text-5xl mb-2" aria-hidden="true">🏆</div>
         <div className="font-bold text-3xl text-primary">
           {count} <span className="text-muted-foreground font-medium">/ {ACHIEVEMENTS.length}</span>
         </div>
@@ -1202,7 +1199,6 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
         <ul className="space-y-2.5 list-none p-0 m-0">
           {ACHIEVEMENTS.filter(a => !unlocked[a.id]).slice(0, 3).map(a => (
             <li key={a.id} className="flex items-center gap-3">
-              <span className="text-xl opacity-50" aria-hidden="true">{a.icon}</span>
               <div>
                 <div className="text-[13px] text-foreground font-semibold">{a.title}</div>
                 <div className="text-[11px] text-muted-foreground">{a.desc}</div>
@@ -1277,7 +1273,7 @@ export default function PedometerApp() {
             focusRing,
           )}
         >
-          <span aria-hidden="true">⚙</span>
+          <Settings className="h-5 w-5" aria-hidden="true" />
         </button>
       </header>
 

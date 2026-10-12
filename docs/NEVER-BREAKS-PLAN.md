@@ -62,9 +62,9 @@ part of the required gates.
 
 Current settings (checked 25 Sep 2026 with `gh api`):
 
-- Required status checks: the 8 above, strict (branch must be up to date) ✅
-- Rules apply to admins too ✅
-- Force-push to `main` blocked ✅ · deleting `main` blocked ✅
+- Required status checks: the 8 above, strict (branch must be up to date) Yes
+- Rules apply to admins too Yes
+- Force-push to `main` blocked Yes · deleting `main` blocked Yes
 - **Pull request required before merging: not on yet.** See "Louis-only clicks".
 
 ## Layer 4: deploy only from green commits
@@ -77,9 +77,9 @@ The old "Deploy to Lovable" workflow called a Lovable URL that doesn't exist
 **Publish readiness (Lovable)**, which deploys nothing. For every commit on
 `main` it waits for CI, Lint & Test, Tests, Keep green, CodeQL and Gitleaks, then says one of three things:
 
-- **✅ SAFE TO PUBLISH `abc1234`**: every gate passed for that exact commit.
-- **Red ❌**: a gate failed. Do not publish.
-- **⏳ NOT VERIFIED**: gates were still running when it timed out. Wait for a later run.
+- **Yes SAFE TO PUBLISH `abc1234`**: every gate passed for that exact commit.
+- **Red No**: a gate failed. Do not publish.
+- **Pending NOT VERIFIED**: gates were still running when it timed out. Wait for a later run.
 
 **Rule:** only click Publish when the newest commit on `main` shows SAFE TO PUBLISH.
 
@@ -132,7 +132,7 @@ These need Louis's own login or judgement:
    Branches → `main` rule → Edit → tick *Require a pull request before merging*,
    set *Required approvals* to **0** (you're the only collaborator and GitHub won't
    let you approve your own PR), leave *Require review from Code Owners* **off**
-   → Save. ⚠️ If you still make edits inside Lovable, Lovable pushes straight to
+   → Save.  If you still make edits inside Lovable, Lovable pushes straight to
    `main`, and this setting will block those pushes. Only turn it on if all code
    changes go through GitHub PRs (the current way of working).
 3. Optional: **Require conversation resolution before merging** (same page).

@@ -91,18 +91,18 @@ if (isReturningVisitor()) {
 ```
 
 **What Gets Tracked:**
-- ✅ Unique visitor ID (auto-generated)
-- ✅ First visit date
-- ✅ Last visit date
-- ✅ Visit count
-- ✅ Device info (type, browser, OS)
-- ✅ Location (country, region, city)
-- ✅ Referrer source
-- ✅ Entry/exit pages
-- ✅ Session duration
-- ✅ Page views
-- ✅ Engagement events
-- ✅ Conversion status
+- Yes Unique visitor ID (auto-generated)
+- Yes First visit date
+- Yes Last visit date
+- Yes Visit count
+- Yes Device info (type, browser, OS)
+- Yes Location (country, region, city)
+- Yes Referrer source
+- Yes Entry/exit pages
+- Yes Session duration
+- Yes Page views
+- Yes Engagement events
+- Yes Conversion status
 
 ### 3. **Audience Segmentation** (7 Built-In)
 Pre-configured audience segments:
@@ -245,7 +245,7 @@ export default function App() {
   useEffect(() => {
     // Initialize GA4 enhancements
     initGA4Enhancements(true); // true = auto-start realtime monitoring
-    
+
     // Initialize visitor tracking
     initVisitorTracking();
   }, []);
@@ -342,14 +342,14 @@ console.log(exportVisitorProfile())
 
 ## Best Practices
 
-✅ **Do:**
+Yes **Do:**
 - Track meaningful events (not every click)
 - Set user ID for authenticated users
 - Assign audiences based on behavior
 - Monitor funnels weekly
 - Create alerts for key metrics
 
-❌ **Don't:**
+No **Don't:**
 - Track personally identifiable information (PII)
 - Send duplicate events
 - Track everything (causes noise)
@@ -358,11 +358,11 @@ console.log(exportVisitorProfile())
 
 ## Privacy & Compliance
 
-- ✅ Respect user privacy
-- ✅ Follow GDPR/CCPA
-- ✅ Don't track sensitive health data
-- ✅ Anonymize visitor data
-- ✅ Provide opt-out option
+- Yes Respect user privacy
+- Yes Follow GDPR/CCPA
+- Yes Don't track sensitive health data
+- Yes Anonymize visitor data
+- Yes Provide opt-out option
 
 ## Troubleshooting
 

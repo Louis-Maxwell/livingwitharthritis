@@ -176,15 +176,15 @@ export const generateHealthReport = (): {
 export const logAnalyticsStatus = (): void => {
   const report = generateHealthReport();
 
-  console.group('🔍 Analytics Health Report');
+  console.group(' Analytics Health Report');
   console.table({
-    'GA4 Ready': report.status.ga4Ready ? '✅' : '❌',
-    'GSC Verified': report.status.gscReady ? '✅' : '❌',
-    'Evarist Ready': report.status.evaristReady ? '✅' : '❌',
+    'GA4 Ready': report.status.ga4Ready ? '' : '',
+    'GSC Verified': report.status.gscReady ? '' : '',
+    'Evarist Ready': report.status.evaristReady ? '' : '',
     'Consent Status': report.status.consentStatus,
   });
 
-  console.group('📊 Performance Metrics');
+  console.group(' Performance Metrics');
   console.table({
     LCP: report.performance.webVitals.lcp
       ? `${Math.round(report.performance.webVitals.lcp)}ms (good: ≤${report.performance.thresholds.LCP.good}ms)`
@@ -205,18 +205,18 @@ export const logAnalyticsStatus = (): void => {
   console.groupEnd();
 
   if (report.issues.length > 0) {
-    console.group('⚠️  Issues Found');
+    console.group('  Issues Found');
     report.issues.forEach((issue) => console.warn(issue));
     console.groupEnd();
   }
 
   if (report.recommendations.length > 0) {
-    console.group('💡 Recommendations');
+    console.group(' Recommendations');
     report.recommendations.forEach((rec) => console.log(rec));
     console.groupEnd();
   }
 
-  console.log('✨ Overall Status:', report.performance.allGood ? 'All Good!' : 'Issues detected');
+  console.log(' Overall Status:', report.performance.allGood ? 'All Good!' : 'Issues detected');
   console.groupEnd();
 };
 
@@ -279,8 +279,8 @@ export const copyHealthReportToClipboard = async (): Promise<void> => {
   const report = exportHealthReport();
   try {
     await navigator.clipboard.writeText(report);
-    console.log('✅ Health report copied to clipboard');
+    console.log(' Health report copied to clipboard');
   } catch (err) {
-    console.error('❌ Failed to copy report:', err);
+    console.error(' Failed to copy report:', err);
   }
 };

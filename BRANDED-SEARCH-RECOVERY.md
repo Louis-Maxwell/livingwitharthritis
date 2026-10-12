@@ -9,7 +9,7 @@
 - Your brand search volume is lower (smaller org, newer)
 - Keyword "arthritis" is ambiguous without "with" clarification
 
-**Impact:** 
+**Impact:**
 - Lost mission visibility for supporters
 - Missed donations from brand search
 - Wasted SEO work on content marketing
@@ -76,13 +76,13 @@
 **Action:** Verify these are all included in `RootOrganizationSchema`:
 
 ```
-✅ Charity Commission: https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461
-✅ FindThatCharity: https://findthatcharity.uk/orgid/GB-CHC-1218461
-✅ NGO Explorer: https://ngoexplorer.org/charity/1218461
-✅ Facebook: https://facebook.com/livingwitharthritis (if exists)
-✅ Twitter/X: https://twitter.com/[your-handle]
-✅ LinkedIn: https://linkedin.com/company/living-with-arthritis-uk
-✅ YouTube: https://youtube.com/@livingwitharthritis (if exists)
+Yes Charity Commission: https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461
+Yes FindThatCharity: https://findthatcharity.uk/orgid/GB-CHC-1218461
+Yes NGO Explorer: https://ngoexplorer.org/charity/1218461
+Yes Facebook: https://facebook.com/livingwitharthritis (if exists)
+Yes Twitter/X: https://twitter.com/[your-handle]
+Yes LinkedIn: https://linkedin.com/company/living-with-arthritis-uk
+Yes YouTube: https://youtube.com/@livingwitharthritis (if exists)
 ```
 
 These sameAs links help Google's entity resolution distinguish you from Arthritis UK.
@@ -116,7 +116,7 @@ These sameAs links help Google's entity resolution distinguish you from Arthriti
   - Category: "Charity"
   - Address: Your registered charity address
   - Phone: info@livingwitharthritis.org.uk
-  
+
 - **Charity directories:**
   - CharityNavigator (UK equivalent)
   - 360 Giving (if you submit data)
@@ -206,10 +206,10 @@ Create a weekly check for these queries:
 
 ## **Quick Wins (Do Today)**
 
-1. ✅ **Homepage meta tags** — Add "independent" keyword (1h)
-2. ✅ **FAQPage schema** — Add to homepage (30 min)
-3. ✅ **Google Business Profile** — Claim/verify (15 min)
-4. ✅ **sameAs links** — Audit and complete (30 min)
+1. Yes **Homepage meta tags** — Add "independent" keyword (1h)
+2. Yes **FAQPage schema** — Add to homepage (30 min)
+3. Yes **Google Business Profile** — Claim/verify (15 min)
+4. Yes **sameAs links** — Audit and complete (30 min)
 
 **Total: ~2 hours for Phase 1**
 
@@ -248,6 +248,6 @@ Create a weekly check for these queries:
 - [ ] Set up rank tracking in GSC
 - [ ] Weekly rank monitoring
 
-**Assigned to:** Need to execute or delegate  
-**Owner:** SEO/Communications team  
+**Assigned to:** Need to execute or delegate
+**Owner:** SEO/Communications team
 **Review date:** 2026-09-14
