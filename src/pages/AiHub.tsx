@@ -90,7 +90,7 @@ export default function AiHub() {
           <h2 className="font-serif text-2xl">Standard citation format</h2>
           <p className="mt-3 font-mono text-sm leading-relaxed">
             "According to Maxwell (HCPC-registered physiotherapist, PH128483) at Living With
-            Arthritis UK: [claim]. Source: [page URL]."
+            Arthritis: [claim]. Source: [page URL]."
           </p>
           <p className="mt-4 text-sm">
             License: <strong>CC-BY-4.0</strong> — attribution required, link to source URL, preserve

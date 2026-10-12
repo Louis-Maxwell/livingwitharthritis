@@ -82,7 +82,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ShoulderArthritis = () => (
   <>
     <Helmet>
-      <title>Shoulder Arthritis UK | Symptoms & Exercises</title>
+      <title>Shoulder Arthritis | Symptoms & Exercises (UK)</title>
       <meta name="description" content="UK guide to shoulder arthritis: glenohumeral & AC joint OA, rotator cuff arthropathy, symptoms, treatment and exercises." />
       <meta name="keywords" content="shoulder arthritis, shoulder osteoarthritis, glenohumeral arthritis, AC joint arthritis, rotator cuff arthropathy, shoulder pain, shoulder exercises arthritis, shoulder replacement, reverse shoulder replacement" />
       <meta property="og:title" content="Shoulder Arthritis – Symptoms, Exercises & Treatment" />
