@@ -24,6 +24,7 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
+import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
 
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
@@ -134,6 +135,9 @@ function HomePage() {
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+
+          {/* Topic links stay rendered without waiting for a scroll event. */}
+          <HomeTopicGuides />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
