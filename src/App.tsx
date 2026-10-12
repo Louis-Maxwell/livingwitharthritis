@@ -33,7 +33,6 @@ const LocalizedOsteoarthritis = lazyWithRetry(() => import("./pages/LocalizedOst
 
 const ChatBotWidget = lazyWithRetry(() => import("./components/ChatBotWidget"));
 const CookieBanner = lazyWithRetry(() => import("./components/landing/CookieBanner"));
-const AccessibilityToolbar = lazyWithRetry(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazyWithRetry(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazyWithRetry(() => import("./components/MobileNextStepBar"));
 const EngagementTracker = lazyWithRetry(() => import("./components/EngagementTracker"));
@@ -592,7 +591,6 @@ const App = () => {
                     <CookieBanner />
                     <MobileBottomNav />
                     <MobileNextStepBar />
-                    <AccessibilityToolbar />
                   </Suspense>
                 </ErrorBoundary>
               </DeferredMount>
