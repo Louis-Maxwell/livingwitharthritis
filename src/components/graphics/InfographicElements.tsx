@@ -258,7 +258,7 @@ export const HighlightCard = ({
     viewport={{ once: true }}
     className="rounded-xl border border-border/30 bg-card p-5 text-center hover:shadow-medium transition-shadow"
   >
-    <h4 className="font-medium text-foreground text-sm mb-1">{title}</h4>
+    <h4 className="font-bold text-foreground text-sm mb-1">{title}</h4>
     <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
   </motion.div>
 );
@@ -283,7 +283,7 @@ export const Timeline = ({
         <div className="absolute -left-8 top-1 w-6 h-6 rounded-full bg-primary/10 border-2 border-primary/40 flex items-center justify-center">
           {item.icon ?? <span className="w-2 h-2 rounded-full bg-primary" />}
         </div>
-        <h4 className="font-medium text-foreground text-sm">{item.title}</h4>
+        <h4 className="font-bold text-foreground text-sm">{item.title}</h4>
         <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{item.description}</p>
       </motion.div>
     ))}

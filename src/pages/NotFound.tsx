@@ -66,7 +66,7 @@ const NotFound = () => {
 
       <main id="main-content" className="flex-1 container mx-auto px-6 md:px-10 py-16 max-w-3xl">
         <p className="text-sm font-semibold uppercase tracking-wider text-primary">404</p>
-        <h1 className="mt-2 font-display text-3xl md:text-4xl font-medium text-foreground">
+        <h1 className="mt-2 font-display text-3xl md:text-4xl font-bold text-foreground">
           We could not find that page
         </h1>
         <p className="mt-3 text-base text-muted-foreground">
@@ -104,7 +104,7 @@ const NotFound = () => {
 
         {/* Top articles */}
         <section aria-labelledby="popular-heading" className="mt-12">
-          <h2 id="popular-heading" className="text-xl font-medium text-foreground">
+          <h2 id="popular-heading" className="text-xl font-semibold text-foreground">
             Popular right now
           </h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-3">
@@ -127,7 +127,7 @@ const NotFound = () => {
 
         {/* Quick links */}
         <section aria-labelledby="quicklinks-heading" className="mt-12">
-          <h2 id="quicklinks-heading" className="text-xl font-medium text-foreground">
+          <h2 id="quicklinks-heading" className="text-xl font-semibold text-foreground">
             Or jump to
           </h2>
           <ul className="mt-4 flex flex-wrap gap-3">

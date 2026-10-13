@@ -142,7 +142,7 @@ export default function MediterraneanDietForArthritis() {
 
       <section className="py-16 lg:py-20 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Mediterranean Diet for Arthritis: FAQs
           </h2>
           <FaqAccordion idPrefix="diet-mediterranean-faq" items={MED_DIET_FAQS} />
@@ -151,7 +151,7 @@ export default function MediterraneanDietForArthritis() {
 
       <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">Keep going</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Keep going</h2>
           <div className="grid md:grid-cols-3 gap-5">
             {keepGoing.map((c) => (
               <Link key={c.to} to={c.to} className="group">
@@ -159,7 +159,7 @@ export default function MediterraneanDietForArthritis() {
                   <div className="rounded-lg bg-primary/10 p-3 w-fit mb-4">
                     <Heart className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="font-display text-lg font-medium mb-2">{c.title}</h3>
+                  <h3 className="font-display text-lg font-semibold mb-2">{c.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{c.desc}</p>
                   <span className="inline-flex items-center text-primary font-semibold text-sm">
                     Open <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />

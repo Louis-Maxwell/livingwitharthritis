@@ -82,7 +82,7 @@ export default function PipEvidenceDiary() {
           </button>
         </div>
 
-        <h1 className="font-display mb-3 text-3xl font-medium text-foreground md:text-4xl">
+        <h1 className="font-display mb-3 text-3xl font-extrabold text-foreground md:text-4xl">
           PIP evidence diary for arthritis: free templates
         </h1>
         <p className="speakable-intro mb-6 text-lg text-muted-foreground leading-relaxed">
@@ -124,11 +124,11 @@ export default function PipEvidenceDiary() {
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(PIP_DIARY_HTML_AFTER) }} />
 
         <section className="mb-10 print:hidden" aria-labelledby="pip-diary-faq">
-          <h2 id="pip-diary-faq" className="font-display mb-4 text-2xl font-medium">Frequently asked questions</h2>
+          <h2 id="pip-diary-faq" className="font-display mb-4 text-2xl font-bold">Frequently asked questions</h2>
           <div className="space-y-5">
             {PIP_DIARY_FAQS.map((f) => (
               <div key={f.question}>
-                <h3 className="mb-1 font-medium">{f.question}</h3>
+                <h3 className="mb-1 font-semibold">{f.question}</h3>
                 <p className="leading-relaxed text-foreground/80">{f.answer}</p>
               </div>
             ))}

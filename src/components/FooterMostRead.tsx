@@ -26,7 +26,7 @@ const FooterMostRead = memo(() => {
           <TrendingUp className="w-4 h-4 text-primary" aria-hidden="true" />
           <h2
             id="footer-most-read-heading"
-            className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground"
+            className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground"
           >
             Most read this week
           </h2>

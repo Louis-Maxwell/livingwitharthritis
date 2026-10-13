@@ -80,7 +80,7 @@ const Accessibility_Page = () => {
           </div>
 
           {/* Features grid */}
-          <h2 className="text-2xl font-medium text-foreground mb-8">Accessibility Features</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8">Accessibility Features</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {STATIC_FEATURES.map((f) => {
               const Icon = f.icon;
@@ -89,7 +89,7 @@ const Accessibility_Page = () => {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-sm font-medium text-foreground">{f.title}</h3>
+                  <h3 className="text-sm font-bold text-foreground">{f.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
                 </div>
               );
@@ -99,11 +99,11 @@ const Accessibility_Page = () => {
           {/* Backend-driven settings if any */}
           {backendSettings.length > 0 && (
             <section className="mb-16">
-              <h2 className="text-2xl font-medium text-foreground mb-6">Additional Commitments</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Additional Commitments</h2>
               <div className="space-y-4">
                 {backendSettings.map((s) => (
                   <div key={s.title} className="bg-muted/30 rounded-xl p-5 border border-border/20">
-                    <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
+                    <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-primary" />
                       {s.title}
                     </h3>
@@ -117,12 +117,12 @@ const Accessibility_Page = () => {
           {/* Compliance & testing */}
           <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
             <section>
-              <h2 className="text-xl font-medium text-foreground mt-8 mb-3">Conformance Status</h2>
+              <h2 className="text-xl font-bold text-foreground mt-8 mb-3">Conformance Status</h2>
               <p>We aim to meet WCAG 2.1 Level AA across all pages. Where we have identified areas that do not yet fully meet this standard, we are actively working to resolve them. Our site is regularly tested using automated tools (axe, Lighthouse) and manual keyboard/screen reader testing.</p>
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground mt-8 mb-3">Known Limitations</h2>
+              <h2 className="text-xl font-bold text-foreground mt-8 mb-3">Known Limitations</h2>
               <ul className="list-disc pl-6 space-y-2 mt-3">
                 <li>Some third-party pages we link to, including the GoFundMe campaign, may have accessibility limitations outside our direct control.</li>
                 <li>Older blog images may have generic alt text — we are progressively improving these.</li>
@@ -131,7 +131,7 @@ const Accessibility_Page = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground mt-8 mb-3">Feedback & Contact</h2>
+              <h2 className="text-xl font-bold text-foreground mt-8 mb-3">Feedback & Contact</h2>
               <p>We welcome your feedback on the accessibility of this website. If you encounter any barriers or have suggestions for improvement, please contact us:</p>
               <p className="mt-2">
                 Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a><br />
@@ -141,7 +141,7 @@ const Accessibility_Page = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground mt-8 mb-3">Enforcement Procedure</h2>
+              <h2 className="text-xl font-bold text-foreground mt-8 mb-3">Enforcement Procedure</h2>
               <p>If you are not satisfied with our response, you can contact the <a href="https://www.equalityadvisoryservice.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Equality Advisory Support Service (EASS)</a> for further assistance.</p>
             </section>
           </div>

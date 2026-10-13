@@ -149,7 +149,7 @@ export default function ResourceDirectory() {
                             <div className="flex flex-col sm:flex-row sm:items-start gap-3">
                               <div className="flex-1 space-y-2">
                                 <div className="flex items-start gap-2">
-                                  <h3 className="font-medium text-foreground">{r.name}</h3>
+                                  <h3 className="font-semibold text-foreground">{r.name}</h3>
                                   {r.featured && <Badge className="bg-primary/10 text-primary text-xs">Featured</Badge>}
                                 </div>
                                 <p className="text-sm text-foreground/80 leading-relaxed">{r.description}</p>
@@ -184,7 +184,7 @@ export default function ResourceDirectory() {
           {/* Cross-links */}
           <section className="bg-primary/5 py-12">
             <div className="container mx-auto px-4 text-center max-w-2xl space-y-4">
-              <h2 className="text-2xl font-medium text-foreground">Can't Find What You Need?</h2>
+              <h2 className="text-2xl font-bold text-foreground">Can't Find What You Need?</h2>
               <p className="text-muted-foreground">Our help chat can help you find specific resources, or browse our local support pages for your area.</p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button asChild><Link to="/chat">Start a Chat</Link></Button>

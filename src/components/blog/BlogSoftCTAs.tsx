@@ -24,7 +24,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-1.5 inline-flex items-center gap-1.5">
               <Mail className="w-3 h-3" aria-hidden="true" /> Newsletter
             </p>
-            <h2 className="font-display text-lg font-medium text-foreground mb-1">
+            <h2 className="font-display text-lg font-bold text-foreground mb-1">
               Practical arthritis updates
             </h2>
             <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
@@ -71,7 +71,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2 inline-flex items-center gap-1.5">
             <Mail className="w-3.5 h-3.5" aria-hidden="true" /> Free updates
           </p>
-          <h2 className="font-display text-xl font-medium text-foreground mb-2">
+          <h2 className="font-display text-xl font-bold text-foreground mb-2">
             Get arthritis guides in your inbox
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-md">
@@ -84,7 +84,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2 inline-flex items-center gap-1.5">
             <Heart className="w-3.5 h-3.5" aria-hidden="true" /> Soft ask
           </p>
-          <h2 className="font-display text-lg font-medium text-foreground mb-2">
+          <h2 className="font-display text-lg font-bold text-foreground mb-2">
             Keep this advice free
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4">

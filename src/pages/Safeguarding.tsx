@@ -34,35 +34,35 @@ export default function Safeguarding() {
               <Shield className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-medium text-foreground">Safeguarding Policy</h1>
+              <h1 className="text-3xl font-bold text-foreground">Safeguarding Policy</h1>
               <p className="text-sm text-muted-foreground">Last updated: March 2026</p>
             </div>
           </div>
 
           <div className="prose prose-sm dark:prose-invert max-w-none space-y-8">
             <section>
-              <h2 className="text-xl font-medium text-foreground">1. Our Commitment</h2>
+              <h2 className="text-xl font-semibold text-foreground">1. Our Commitment</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Living With Arthritis is committed to safeguarding and promoting the welfare of all individuals who engage with our services. We recognise our responsibility to take all reasonable steps to promote safe practice and to protect vulnerable adults from harm, abuse and exploitation.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">2. Scope</h2>
+              <h2 className="text-xl font-semibold text-foreground">2. Scope</h2>
               <p className="text-muted-foreground leading-relaxed">
                 This policy applies to all trustees, staff, volunteers, and anyone working on behalf of Living With Arthritis, including those providing services through our website, community forums, and virtual physiotherapy sessions.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">3. Definitions</h2>
+              <h2 className="text-xl font-semibold text-foreground">3. Definitions</h2>
               <p className="text-muted-foreground leading-relaxed">
                 A <strong>vulnerable adult</strong> is a person aged 18 or over who may be unable to take care of themselves or protect themselves from harm or exploitation due to mental or physical disability, age, or illness. Abuse includes physical, emotional, financial, sexual abuse, neglect, and discriminatory abuse.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">4. Principles</h2>
+              <h2 className="text-xl font-semibold text-foreground">4. Principles</h2>
               <ul className="text-muted-foreground space-y-2">
                 <li>The welfare of adults at risk is paramount</li>
                 <li>All adults have the right to be protected from abuse regardless of age, disability, gender, racial heritage, religious belief, sexual orientation, or identity</li>
@@ -72,14 +72,14 @@ export default function Safeguarding() {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">5. Online Safety</h2>
+              <h2 className="text-xl font-semibold text-foreground">5. Online Safety</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Our community forums and help chat are moderated. All user-generated content is reviewed for harmful material. Our help chat provides evidence-based health information only and explicitly directs users to 111 helpline or emergency services for urgent concerns. We do not provide medical diagnoses.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">6. Reporting Concerns</h2>
+              <h2 className="text-xl font-semibold text-foreground">6. Reporting Concerns</h2>
               <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5 space-y-3">
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-destructive" />
@@ -100,7 +100,7 @@ export default function Safeguarding() {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">7. Review</h2>
+              <h2 className="text-xl font-semibold text-foreground">7. Review</h2>
               <p className="text-muted-foreground leading-relaxed">
                 This policy is reviewed annually by the Board of Trustees and updated as necessary to reflect changes in legislation, best practice, or organisational structure.
               </p>

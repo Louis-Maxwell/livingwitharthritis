@@ -99,7 +99,7 @@ export default function GlossaryTerm() {
               Glossary term
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-medium mb-4">{label}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{label}</h1>
           <AeoEnhancement
             route={href}
             question={`What is ${label}?`}
@@ -129,7 +129,7 @@ export default function GlossaryTerm() {
           )}
 
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
-            <h2 className="text-lg font-medium mb-2">Talk to your team</h2>
+            <h2 className="text-lg font-bold mb-2">Talk to your team</h2>
             <p className="text-sm text-muted-foreground">
               This page is general information, not medical advice. If you've seen{" "}
               <strong>{label}</strong> mentioned in an UK healthcare letter or clinic and want it
@@ -139,7 +139,7 @@ export default function GlossaryTerm() {
 
           {related.length > 0 && (
             <>
-              <h2 className="text-xl font-medium mb-4">Related terms</h2>
+              <h2 className="text-xl font-bold mb-4">Related terms</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {related.map((r) => (
                   <li key={r.href}>

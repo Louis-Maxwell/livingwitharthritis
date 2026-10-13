@@ -56,12 +56,12 @@ const PrivacyPolicy = () => (
       <main id="main-content" className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">1. Who We Are</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. Who We Are</h2>
             <p>Living With Arthritis ("we", "us", "our") is committed to protecting your personal data. This policy explains how we collect, use and safeguard information when you use our website and services. We operate in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">2. Information We Collect</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">2. Information We Collect</h2>
             <p>We may collect the following types of personal information:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li><strong>Contact details:</strong> Your name, email address and phone number when you email us (many site forms currently open your email client via mailto) or contact us by phone.</li>
@@ -73,7 +73,7 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">3. How We Use Your Information</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">3. How We Use Your Information</h2>
             <p>We use your personal data to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Provide our services, including virtual physiotherapy guidance, self-help tools and online assistance.</li>
@@ -85,7 +85,7 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">4. Legal Basis for Processing</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">4. Legal Basis for Processing</h2>
             <p>We process your data based on one or more of the following grounds:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li><strong>Consent:</strong> Where you have given clear consent for us to process your personal data for a specific purpose.</li>
@@ -96,7 +96,7 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">5. Sharing Your Information</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">5. Sharing Your Information</h2>
             <p>We do not sell your personal information to third parties. We may share data with:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Service providers who help us deliver our website and services (e.g. hosting, payment processing, email delivery), under strict data protection agreements.</li>
@@ -106,12 +106,12 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">6. Data Retention</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">6. Data Retention</h2>
             <p>We retain personal data only for as long as necessary to fulfil the purposes for which it was collected. Donation records are kept for up to 7 years for financial compliance. Contact enquiries are kept for up to 2 years unless ongoing communication is required.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">7. Your Rights</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">7. Your Rights</h2>
             <p>Under UK GDPR, you have the right to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Access the personal data we hold about you.</li>
@@ -125,22 +125,22 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">8. Security</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">8. Security</h2>
             <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure or destruction. All data transmitted through our website is encrypted using industry-standard TLS/SSL protocols.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">9. Children's Privacy</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">9. Children's Privacy</h2>
             <p>Our services are not directed at children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us with personal data, please contact us and we will take steps to delete it.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">10. Changes to This Policy</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">10. Changes to This Policy</h2>
             <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">11. Current website processing model</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">11. Current website processing model</h2>
             <p>
               As of September 2026 this website is primarily a static educational site. Many forms
               hand off to email (mailto) rather than posting personal data to our servers. Analytics
@@ -152,7 +152,7 @@ const PrivacyPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">12. Contact Us</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">12. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy or our data practices, please contact:</p>
             <p className="mt-2">
               <strong>Living With Arthritis</strong><br />

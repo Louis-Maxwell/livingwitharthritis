@@ -57,24 +57,24 @@ function ExerciseCircuit500() {
           <section className="py-16 md:py-24 bg-muted/30">
             <div className="container mx-auto px-6 lg:px-16">
               <div className="max-w-3xl mx-auto">
-                <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
                   What donations support
                 </h2>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="rounded-xl bg-card border border-border p-6">
-                    <h3 className="font-medium text-foreground mb-2">Free exercise guides</h3>
+                    <h3 className="font-semibold text-foreground mb-2">Free exercise guides</h3>
                     <p className="text-sm text-foreground/70">
                       Plain-English home routines people can start without an appointment, including knee and flare-safe movement.
                     </p>
                   </div>
                   <div className="rounded-xl bg-card border border-border p-6">
-                    <h3 className="font-medium text-foreground mb-2">Tools people can use</h3>
+                    <h3 className="font-semibold text-foreground mb-2">Tools people can use</h3>
                     <p className="text-sm text-foreground/70">
                       Printable plans and diaries that sit alongside NHS care. They do not replace a GP, physio or rheumatology appointment.
                     </p>
                   </div>
                   <div className="rounded-xl bg-card border border-border p-6">
-                    <h3 className="font-medium text-foreground mb-2">Clinical review</h3>
+                    <h3 className="font-semibold text-foreground mb-2">Clinical review</h3>
                     <p className="text-sm text-foreground/70">
                       Educational pages are checked by our clinical lead before we publish them. We do not invent patient results.
                     </p>

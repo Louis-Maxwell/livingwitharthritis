@@ -29,7 +29,7 @@ export default function GbpMapSection({ embedUrl: override }: GbpMapSectionProps
       <div className="container mx-auto px-6 md:px-10 max-w-4xl">
         <h2
           id="gbp-map-heading"
-          className="text-2xl font-medium text-foreground mb-2"
+          className="text-2xl font-bold text-foreground mb-2"
         >
           Where we serve
         </h2>

@@ -37,7 +37,7 @@ export default function IslamicGivingCards() {
   return (
     <section id="zakat" className="py-14 bg-background scroll-mt-24">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-xl sm:text-2xl font-display font-medium text-center text-foreground mb-2">
+        <h2 className="text-xl sm:text-2xl font-display font-bold text-center text-foreground mb-2">
           Ways to give
         </h2>
         <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto mb-8">
@@ -54,7 +54,7 @@ export default function IslamicGivingCards() {
               <div className="w-11 h-11 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                 <type.icon className="h-5 w-5 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="font-display font-medium text-lg text-foreground mb-2">
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">
                 {type.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed flex-1">

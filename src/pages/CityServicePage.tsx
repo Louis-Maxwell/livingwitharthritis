@@ -141,7 +141,7 @@ const CityServicePage = () => {
               {city.name}, {city.region} • <Icon className="w-4 h-4 inline-block -mt-0.5" /> {sLabel}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {content.headline}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -154,7 +154,7 @@ const CityServicePage = () => {
 
         {/* Local resources */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {sLabel} options in {city.name}
           </h2>
           <div className="space-y-3">
@@ -163,7 +163,7 @@ const CityServicePage = () => {
                 key={i}
                 className="bg-card border border-border rounded-xl p-5"
               >
-                <h3 className="font-medium text-foreground">{r.name}</h3>
+                <h3 className="font-semibold text-foreground">{r.name}</h3>
                 <div className="text-xs uppercase tracking-wide text-primary mt-1 mb-2">
                   {r.type}
                 </div>
@@ -175,7 +175,7 @@ const CityServicePage = () => {
 
         {/* Tips */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             Tips for {serviceShortLabel[service].toLowerCase()} in {city.name}
           </h2>
           <ul className="space-y-2">
@@ -204,7 +204,7 @@ const CityServicePage = () => {
 
         {/* Sibling services in same city */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             Other arthritis support in {city.name}
           </h2>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -270,7 +270,7 @@ const CityServicePage = () => {
 
         {/* People Also Ask */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {sLabel} in {city.name} — People Also Ask
           </h2>
           <FaqAccordion

@@ -47,7 +47,7 @@ const AITransparency = () => {
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
             About
           </p>
-          <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             AI Transparency &amp; Clinical Review
           </h1>
           <p className="text-lg text-foreground/75 leading-relaxed">
@@ -57,7 +57,7 @@ const AITransparency = () => {
         </header>
 
         <section className="mb-12" id="maxwell">
-          <h2 className="font-display text-2xl font-medium mb-4">
+          <h2 className="font-display text-2xl font-bold mb-4">
             Maxwell&apos;s credentials
           </h2>
           <ul className="space-y-2 text-foreground/85">
@@ -79,7 +79,7 @@ const AITransparency = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-medium mb-4">
+          <h2 className="font-display text-2xl font-bold mb-4">
             Our review process
           </h2>
           <ul className="space-y-3 text-foreground/85 list-disc list-inside">
@@ -97,7 +97,7 @@ const AITransparency = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-medium mb-4">
+          <h2 className="font-display text-2xl font-bold mb-4">
             Data &amp; privacy
           </h2>
           <ul className="space-y-3 text-foreground/85 list-disc list-inside">
@@ -108,7 +108,7 @@ const AITransparency = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-medium mb-4">
+          <h2 className="font-display text-2xl font-bold mb-4">
             How we write for search and answers
           </h2>
           <p className="text-foreground/85 mb-4">
@@ -131,7 +131,7 @@ const AITransparency = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-medium mb-4">
+          <h2 className="font-display text-2xl font-bold mb-4">
             AI citation request
           </h2>
           <p className="text-foreground/85 mb-4">

@@ -83,7 +83,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
         <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">{title}</h2>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
     <div className="prose prose-lg max-w-none text-foreground/85 prose-headings:font-display prose-headings:text-foreground prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-li:leading-relaxed prose-strong:text-foreground">
       {children}
@@ -131,7 +131,7 @@ const HipArthritis = () => (
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Joint-specific guide
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-5 leading-tight tracking-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Hip Arthritis
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
@@ -205,7 +205,7 @@ const HipArthritis = () => (
         </Section>
 
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 p-6 rounded-2xl bg-tint-amber border border-border/30">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4">Symptom impact (typical patient survey)</h3>
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Symptom impact (typical patient survey)</h3>
           <HorizontalBar items={[
             { label: "Groin pain on walking", value: 86, color: "hsl(var(--primary))" },
             { label: "Stiffness after sitting", value: 78, color: "hsl(var(--amber))" },
@@ -256,7 +256,7 @@ const HipArthritis = () => (
         </Section>
 
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4">Daily hip-care checklist</h3>
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hip-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <HighlightCard title="Glutes" description="Daily glute and hip-abductor work to support the joint." />
             <HighlightCard title="Cycle" description="Low-impact cycling or a static bike if walking is sore." />
@@ -340,7 +340,7 @@ const HipArthritis = () => (
         />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-medium text-foreground mb-3">Need more support?</h2>
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
           <p className="text-muted-foreground mb-5">Start a chat or browse the Advice Hub for joint-specific articles.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">

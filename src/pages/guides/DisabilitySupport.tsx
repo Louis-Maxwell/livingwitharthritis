@@ -65,7 +65,7 @@ export default function DisabilitySupport() {
         <Link to="/" className="hover:text-primary">Home</Link> / <Link to="/guides" className="hover:text-primary">Guides</Link> / <span>Your disability rights</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-medium mb-6">{DIS_RIGHTS_TITLE}</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">{DIS_RIGHTS_TITLE}</h1>
       <p className="speakable-intro text-lg text-muted-foreground mb-6 leading-relaxed">
         <strong>Quick answer:</strong> {DIS_RIGHTS_QUICK_ANSWER}
       </p>
@@ -78,17 +78,17 @@ export default function DisabilitySupport() {
       />
 
       <section id="faq" className="my-12">
-        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         {DIS_RIGHTS_FAQS.map((f) => (
           <div key={f.question} className="mb-6">
-            <h3 className="text-lg font-medium mb-2">{f.question}</h3>
+            <h3 className="text-lg font-semibold mb-2">{f.question}</h3>
             <p className="leading-relaxed text-foreground/85">{f.answer}</p>
           </div>
         ))}
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
+        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/work-with-arthritis" className="text-primary underline">Working with arthritis toolkit</Link></li>
           <li><Link to="/guides/benefits-pip" className="text-primary underline">Complete PIP guide</Link></li>

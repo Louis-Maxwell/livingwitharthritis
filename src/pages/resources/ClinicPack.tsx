@@ -60,7 +60,7 @@ export default function ClinicPack() {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
             For clinics · Waiting room
           </p>
-          <h1 className="font-display mt-2 text-3xl font-medium text-foreground md:text-4xl">
+          <h1 className="font-display mt-2 text-3xl font-extrabold text-foreground md:text-4xl">
             Living With Arthritis — free patient resources
           </h1>
           <p className="mt-3 text-base leading-relaxed text-foreground/85">

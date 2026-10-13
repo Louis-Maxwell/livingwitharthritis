@@ -140,7 +140,7 @@ const CrossLinkBanner = memo(({ preset = "blog", links, exclude, title }: CrossL
 
   return (
     <nav aria-label="Related resources" className="my-12 print:hidden">
-      <h3 className="font-display text-lg font-medium text-foreground mb-4">
+      <h3 className="font-display text-lg font-bold text-foreground mb-4">
         {title || "Continue exploring"}
       </h3>
       <div className="grid sm:grid-cols-2 gap-3">

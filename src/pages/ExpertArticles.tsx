@@ -258,7 +258,7 @@ export default function ExpertArticles() {
           {/* Who writes these articles */}
           <section className="bg-muted/30 py-10 border-y border-border/50" aria-labelledby="who-writes">
             <div className="container mx-auto px-4 max-w-3xl text-center space-y-3">
-              <h2 id="who-writes" className="text-lg font-medium text-foreground">Who writes these articles</h2>
+              <h2 id="who-writes" className="text-lg font-semibold text-foreground">Who writes these articles</h2>
               <p className="text-sm text-muted-foreground">
                 These articles are prepared by the Living With Arthritis editorial team. Living With Arthritis is a UK charity (registered charity 1218461) founded by Louis Maxwell, an HCPC-registered physiotherapist (PH128483). These articles have been clinically reviewed. They are general information, not a diagnosis or personal medical advice.
               </p>
@@ -298,7 +298,7 @@ export default function ExpertArticles() {
                       <p className="text-foreground/80 leading-relaxed">{article.summary}</p>
 
                       <div className="bg-primary/5 rounded-xl p-4">
-                        <h3 className="font-medium text-sm text-foreground mb-2">Key Takeaways</h3>
+                        <h3 className="font-semibold text-sm text-foreground mb-2">Key Takeaways</h3>
                         <ul className="space-y-2">
                           {article.keyPoints.map((point, j) => (
                             <li key={j} className="flex gap-2 text-sm text-foreground/80">
@@ -312,7 +312,7 @@ export default function ExpertArticles() {
                       <div className="prose prose-sm max-w-none">
                         {article.content.split("\n\n").map((para, j) => {
                           if (para.startsWith("**") && para.endsWith("**")) {
-                            return <h3 key={j} className="text-base font-medium text-foreground mt-6 mb-2">{para.replace(/\*\*/g, "")}</h3>;
+                            return <h3 key={j} className="text-base font-semibold text-foreground mt-6 mb-2">{para.replace(/\*\*/g, "")}</h3>;
                           }
                           if (para.startsWith("- ")) {
                             return (
@@ -336,7 +336,7 @@ export default function ExpertArticles() {
           {/* CTA */}
           <section className="bg-primary/5 py-12">
             <div className="container mx-auto px-4 text-center max-w-2xl space-y-4">
-              <h2 className="text-2xl font-medium text-foreground">Looking for more guides?</h2>
+              <h2 className="text-2xl font-bold text-foreground">Looking for more guides?</h2>
               <p className="text-muted-foreground">Our blog has plain-English guides on pain, exercise, diet, work and benefits in the UK.</p>
               <Button asChild><Link to="/blog">Browse All Articles <ArrowRight className="w-4 h-4 ml-1" /></Link></Button>
             </div>

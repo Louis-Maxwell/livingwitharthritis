@@ -266,14 +266,14 @@ const BlogHub = () => {
                     <Icon className="w-6 h-6 text-primary" aria-hidden="true" />
                   </span>
                   <div className="flex-1 min-w-0">
-                    <h2 className="font-display text-xl md:text-2xl font-medium text-foreground leading-tight mb-2">
+                    <h2 className="font-display text-xl md:text-2xl font-bold text-foreground leading-tight mb-2">
                       {title}
                     </h2>
                     <p className="text-sm text-muted-foreground leading-relaxed">{intro}</p>
                   </div>
                 </div>
 
-                <h3 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground mb-3 flex items-center gap-1.5">
+                <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-3 flex items-center gap-1.5">
                   <HelpCircle className="w-3.5 h-3.5" /> People often ask
                 </h3>
                 <ul className="space-y-2 mb-6">
@@ -312,7 +312,7 @@ const BlogHub = () => {
 
           {/* Quick links to all categories */}
           <div className="mt-14 pt-10 border-t border-border/30">
-            <h2 className="font-display text-xl font-medium text-foreground mb-2">Browse all articles</h2>
+            <h2 className="font-display text-xl font-bold text-foreground mb-2">Browse all articles</h2>
             <p className="text-sm text-muted-foreground mb-6">
               Prefer chronological reading? Jump straight into the full article library.
             </p>

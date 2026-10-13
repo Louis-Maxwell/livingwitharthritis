@@ -156,7 +156,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
   return (
     <nav aria-label="Related pages" className="bg-muted/30 border-t border-border/40">
       <div className="container mx-auto max-w-6xl px-4 py-12 sm:py-16">
-        <h2 className="font-display text-2xl sm:text-3xl font-medium text-foreground mb-2 text-center">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-2 text-center">
           Keep exploring
         </h2>
         <p className="text-muted-foreground text-center mb-8 max-w-xl mx-auto text-sm">
@@ -185,7 +185,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                     <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
                       <Icon className="w-4 h-4" />
                     </span>
-                    <h3 className="font-display text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
                       {page.title}
                     </h3>
                   </div>
@@ -205,7 +205,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                     <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
                       <Icon className="w-4 h-4" />
                     </span>
-                    <h3 className="font-display text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
                       {page.title}
                     </h3>
                   </div>

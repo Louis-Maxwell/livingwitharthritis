@@ -91,7 +91,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
       <Header />
       <main id="main-content" role="main" tabIndex={-1} className="flex-1">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-3xl md:text-4xl font-medium mb-3">{heading}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">{heading}</h1>
           <p className="text-lg text-foreground/80 mb-10">{description}</p>
 
           <ul className="space-y-6">
@@ -105,7 +105,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
                     <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
                       <ShieldCheck className="w-5 h-5 text-primary" aria-hidden="true" />
                     </span>
-                    <h2 className="text-xl font-medium">{record.name}</h2>
+                    <h2 className="text-xl font-bold">{record.name}</h2>
                   </div>
                   <p className="text-sm font-semibold text-foreground/80 mb-2">
                     {record.title}

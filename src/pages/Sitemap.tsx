@@ -291,7 +291,7 @@ const Sitemap = () => {
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Site Index
           </p>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-foreground mb-6 ">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-foreground mb-6 uppercase">
             A–Z Index
           </h1>
           <p className="text-muted-foreground max-w-2xl mb-10">
@@ -338,7 +338,7 @@ const Sitemap = () => {
                 className="scroll-mt-24"
               >
                 <div className="flex items-baseline gap-4 mb-5">
-                  <h2 className="font-display text-5xl sm:text-6xl font-medium text-primary leading-none">
+                  <h2 className="font-display text-5xl sm:text-6xl font-black text-primary leading-none">
                     {letter}
                   </h2>
                   <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -375,7 +375,7 @@ const Sitemap = () => {
             {groups["#"]?.length ? (
               <section id="letter-#" className="scroll-mt-24">
                 <div className="flex items-baseline gap-4 mb-5">
-                  <h2 className="font-display text-5xl sm:text-6xl font-medium text-primary leading-none">
+                  <h2 className="font-display text-5xl sm:text-6xl font-black text-primary leading-none">
                     #
                   </h2>
                   <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">

@@ -156,13 +156,13 @@ export default function TaiChiForBeginners() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">What tai chi actually is</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">What tai chi actually is</h2>
             <p className="text-muted-foreground leading-relaxed">Three things to know before Day 1.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {primer.map((p) => (
               <Card key={p.title} className="p-6 border border-border/40">
-                <h3 className="font-display text-xl font-medium mb-2">{p.title}</h3>
+                <h3 className="font-display text-xl font-semibold mb-2">{p.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
               </Card>
             ))}
@@ -175,7 +175,7 @@ export default function TaiChiForBeginners() {
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">Zero equipment</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">What you need to start</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">What you need to start</h2>
             <p className="text-muted-foreground leading-relaxed">Truly nothing to buy. If you have a hallway and trainers, you have a tai chi studio.</p>
           </div>
           <ul className="space-y-3">
@@ -194,7 +194,7 @@ export default function TaiChiForBeginners() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><Clock className="h-3 w-3 mr-1 inline" />Your first week</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">The 7-day plan</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The 7-day plan</h2>
             <p className="text-muted-foreground leading-relaxed">One movement at a time. By Day 7, you'll string them into your first mini-form.</p>
           </div>
 
@@ -240,7 +240,7 @@ export default function TaiChiForBeginners() {
                       <Badge variant="secondary" className="bg-background text-primary border-0">Day {d.day}</Badge>
                       <span className="text-xs text-muted-foreground font-medium">{d.mins}</span>
                     </div>
-                    <h3 className="font-display text-lg font-medium leading-snug flex items-start gap-2">
+                    <h3 className="font-display text-lg font-semibold leading-snug flex items-start gap-2">
                       <PlayCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       {d.title}
                     </h3>
@@ -258,13 +258,13 @@ export default function TaiChiForBeginners() {
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><AlertCircle className="h-3 w-3 mr-1 inline" />Avoid these</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">5 common beginner mistakes</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">5 common beginner mistakes</h2>
             <p className="text-muted-foreground leading-relaxed">Sidestep these and you'll progress twice as fast.</p>
           </div>
           <div className="space-y-3">
             {mistakes.map((m) => (
               <Card key={m.title} className="p-5 bg-background border border-border/40">
-                <h3 className="font-display text-base font-medium mb-1">{m.title}</h3>
+                <h3 className="font-display text-base font-semibold mb-1">{m.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{m.text}</p>
               </Card>
             ))}
@@ -277,7 +277,7 @@ export default function TaiChiForBeginners() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">After Day 7</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Where to go next</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Where to go next</h2>
             <p className="text-muted-foreground leading-relaxed">Pick the path that fits your body and your week.</p>
           </div>
 
@@ -288,7 +288,7 @@ export default function TaiChiForBeginners() {
                   <div className="rounded-lg bg-primary/10 p-3 w-fit mb-4">
                     <Heart className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="font-display text-xl font-medium mb-2">{n.title}</h3>
+                  <h3 className="font-display text-xl font-semibold mb-2">{n.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{n.desc}</p>
                   <span className="inline-flex items-center text-primary font-semibold text-sm">{n.cta} <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
                 </Card>
@@ -301,7 +301,7 @@ export default function TaiChiForBeginners() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">Tai Chi for Beginners: FAQs</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Tai Chi for Beginners: FAQs</h2>
           <FaqAccordion
             idPrefix="tai-chi-beginners-faq"
             items={faqs.map((f) => ({ question: f.q, answer: f.a }))}

@@ -98,7 +98,7 @@ const TrustCredibility = () => {
               <div className="inline-flex items-center gap-2 bg-background border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-bold mb-6">
                 <Award className="w-4 h-4" /> UK Registered Charity
               </div>
-              <h2 className="text-3xl font-medium text-foreground mb-3">Our Impact at a Glance</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-3">Our Impact at a Glance</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">Registered with the Charity Commission for England and Wales. Every donation is accounted for and reported.</p>
             </div>
             <div className="max-w-3xl mx-auto mb-12">
@@ -136,7 +136,7 @@ const TrustCredibility = () => {
                 <Users className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-medium text-foreground">Board of Trustees & Medical Advisors</h2>
+                <h2 className="text-2xl font-bold text-foreground">Board of Trustees & Medical Advisors</h2>
                 <p className="text-sm text-muted-foreground">Qualified professionals overseeing our charity governance and clinical accuracy</p>
               </div>
             </div>
@@ -156,7 +156,7 @@ const TrustCredibility = () => {
                 <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-medium text-foreground">Evidence Sources</h2>
+                <h2 className="text-2xl font-bold text-foreground">Evidence Sources</h2>
                 <p className="text-sm text-muted-foreground">All our content is informed by reputable, peer-reviewed medical sources</p>
               </div>
             </div>
@@ -176,7 +176,7 @@ const TrustCredibility = () => {
                           <s.icon className="w-4 h-4 text-primary" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-foreground text-sm group-hover:text-primary transition-colors flex items-center gap-1.5">
+                          <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors flex items-center gap-1.5">
                             {s.name} <ExternalLink className="w-3 h-3 text-muted-foreground" />
                           </h3>
                           <p className="text-xs text-muted-foreground mt-0.5">{s.desc}</p>
@@ -199,7 +199,7 @@ const TrustCredibility = () => {
                 <Scale className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-medium text-foreground">Policies & Compliance</h2>
+                <h2 className="text-2xl font-bold text-foreground">Policies & Compliance</h2>
                 <p className="text-sm text-muted-foreground">Our legal and safeguarding framework</p>
               </div>
             </div>
@@ -217,7 +217,7 @@ const TrustCredibility = () => {
             </div>
 
             <div className="mt-10 p-6 bg-background rounded-xl border border-border/40">
-              <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
+              <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                 <Heart className="w-4 h-4 text-primary" /> Medical Disclaimer
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">

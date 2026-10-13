@@ -173,7 +173,7 @@ export default function TaiChiForArthritis() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Why tai chi works for arthritis</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Why tai chi works for arthritis</h2>
             <p className="text-muted-foreground leading-relaxed">Tai chi brings together several things that help arthritis in one gentle activity.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -182,7 +182,7 @@ export default function TaiChiForArthritis() {
                 <div className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-3 shrink-0"><b.icon className="h-6 w-6 text-primary" /></div>
                   <div>
-                    <h3 className="font-display text-xl font-medium mb-2">{b.title}</h3>
+                    <h3 className="font-display text-xl font-semibold mb-2">{b.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{b.text}</p>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export default function TaiChiForArthritis() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">By joint</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Tai chi for your joint</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Tai chi for your joint</h2>
             <p className="text-muted-foreground leading-relaxed">Each guide focuses on the movements and adaptations most useful for that joint.</p>
           </div>
 
@@ -206,7 +206,7 @@ export default function TaiChiForArthritis() {
               <Link key={j.slug} to={`/exercises/${j.slug}`} className="group">
                 <Card className="p-6 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-md transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-display text-xl font-medium">{j.joint}</h3>
+                    <h3 className="font-display text-xl font-semibold">{j.joint}</h3>
                     <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{j.note}</p>
@@ -228,14 +228,14 @@ export default function TaiChiForArthritis() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><MapPin className="h-3 w-3 mr-1 inline" />UK resources</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">How to start in the UK</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">How to start in the UK</h2>
             <p className="text-muted-foreground leading-relaxed">Free and low-cost ways to begin — no equipment, no membership.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-5">
             {ukResources.map((r) => (
               <Card key={r.name} className="p-6 border border-border/40">
-                <h3 className="font-display text-lg font-medium mb-2">
+                <h3 className="font-display text-lg font-semibold mb-2">
                   <a href={r.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{r.name}</a>
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
@@ -244,7 +244,7 @@ export default function TaiChiForArthritis() {
           </div>
 
           <Card className="mt-8 p-6 bg-primary/5 border-primary/20">
-            <h3 className="font-display text-lg font-medium mb-3 flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-primary" />A simple first month</h3>
+            <h3 className="font-display text-lg font-semibold mb-3 flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-primary" />A simple first month</h3>
             <ol className="space-y-2 text-sm text-muted-foreground leading-relaxed list-decimal list-inside">
               <li><strong className="text-foreground">Week 1–2:</strong> 10 minutes a day of standing rooted + weight-shift drills. Follow our <Link to="/exercises/tai-chi-for-balance" className="text-primary underline underline-offset-2">15-minute beginner routine</Link>.</li>
               <li><strong className="text-foreground">Week 3:</strong> Add Cloud Hands and Brush Knee. Try a free YouTube class from the Tai Chi for Health Institute.</li>
@@ -259,7 +259,7 @@ export default function TaiChiForArthritis() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0"><Library className="h-3 w-3 mr-1 inline" />Video library</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Tai chi movement library</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Tai chi movement library</h2>
             <p className="text-muted-foreground leading-relaxed">Five core movements most beginner tai chi programmes build on. Watch the slow demo, then try it in our Balance or Seated routine.</p>
           </div>
 
@@ -292,7 +292,7 @@ export default function TaiChiForArthritis() {
                   <div className="p-5 flex flex-col gap-3 flex-1">
                     <div className="flex items-start gap-2">
                       <PlayCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <h3 className="font-display text-lg font-medium leading-snug">{m.name}</h3>
+                      <h3 className="font-display text-lg font-semibold leading-snug">{m.name}</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">{m.brief}</p>
                     <p className="text-xs uppercase tracking-wider text-primary font-semibold mt-auto">{m.bestFor}</p>
@@ -314,7 +314,7 @@ export default function TaiChiForArthritis() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">Related guides</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Pick the routine that fits today</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Pick the routine that fits today</h2>
             <p className="text-muted-foreground leading-relaxed">Two doors into the same practice — choose by how your joints feel right now.</p>
           </div>
 
@@ -322,7 +322,7 @@ export default function TaiChiForArthritis() {
             <Link to="/exercises/tai-chi-for-balance" className="group">
               <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
                 <Badge variant="secondary" className="mb-3 bg-background text-primary border-0">Standing · 15 min</Badge>
-                <h3 className="font-display text-2xl font-medium mb-3">Tai Chi for Balance</h3>
+                <h3 className="font-display text-2xl font-semibold mb-3">Tai Chi for Balance</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for anyone who can stand safely with light support. The 15-minute routine focused on fall prevention and knee/hip pain reduction.</p>
                 <span className="inline-flex items-center text-primary font-semibold text-sm">Start the routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
               </Card>
@@ -330,7 +330,7 @@ export default function TaiChiForArthritis() {
             <Link to="/exercises/seated-tai-chi-for-arthritis" className="group">
               <Card className="p-7 h-full border border-border/40 group-hover:border-primary/40 group-hover:shadow-lg transition-all">
                 <Badge variant="secondary" className="mb-3 bg-background text-primary border-0">Seated · 13 min</Badge>
-                <h3 className="font-display text-2xl font-medium mb-3">Seated Tai Chi</h3>
+                <h3 className="font-display text-2xl font-semibold mb-3">Seated Tai Chi</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">Best for severe OA, post-surgery weeks, fall risk, or low-energy days. Same flowing principles from a sturdy chair.</p>
                 <span className="inline-flex items-center text-primary font-semibold text-sm">Try seated routine <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
               </Card>
@@ -354,7 +354,7 @@ export default function TaiChiForArthritis() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">Tai Chi for Arthritis: FAQs</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Tai Chi for Arthritis: FAQs</h2>
           <FaqAccordion
             idPrefix="tai-chi-arthritis-faq"
             items={faqs.map((f) => ({ question: f.q, answer: f.a }))}

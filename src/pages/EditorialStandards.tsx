@@ -77,7 +77,7 @@ export default function EditorialStandards() {
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <ShieldCheck className="w-3 h-3" /> Trust & Transparency
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-4 leading-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
               Our editorial standards
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -189,7 +189,7 @@ function Section({
         <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
           <Icon className="w-5 h-5 text-primary" />
         </div>
-        <h2 className="font-display text-xl md:text-2xl font-medium text-foreground">
+        <h2 className="font-display text-xl md:text-2xl font-bold text-foreground">
           {title}
         </h2>
       </div>

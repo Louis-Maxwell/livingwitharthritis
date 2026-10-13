@@ -162,7 +162,7 @@ export default function ExerciseProgressTracker() {
               <Calendar className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h2 className="text-2xl font-medium text-foreground">Weekly Progress Tracker</h2>
+              <h2 className="text-2xl font-bold text-foreground">Weekly Progress Tracker</h2>
               <p className="text-sm text-muted-foreground">
                 Week of {fmt(weekStart)} – {fmt(weekEnd)}
               </p>
@@ -229,7 +229,7 @@ export default function ExerciseProgressTracker() {
                   <div className="flex items-center justify-between p-5 pb-3">
                     <div className="flex items-center gap-3">
                       <div>
-                        <h3 className="font-medium text-foreground">{guide.title}</h3>
+                        <h3 className="font-semibold text-foreground">{guide.title}</h3>
                         <div className="flex items-center gap-2 mt-0.5">
                           <div className="w-24 bg-muted rounded-full h-1.5 overflow-hidden">
                             <div

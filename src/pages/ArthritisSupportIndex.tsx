@@ -45,7 +45,7 @@ const ArthritisSupportIndex = () => {
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Arthritis Support Across the UK
           </h1>
           <p className="text-lg text-muted-foreground mb-8">
@@ -87,7 +87,7 @@ const ArthritisSupportIndex = () => {
                 >
                   <div className="flex items-center gap-2 mb-2">
                     <MapPin className="w-4 h-4 text-primary" />
-                    <h2 className="font-medium text-foreground group-hover:text-primary transition-colors">{city.name}</h2>
+                    <h2 className="font-semibold text-foreground group-hover:text-primary transition-colors">{city.name}</h2>
                   </div>
                   <p className="text-xs text-muted-foreground mb-1">{city.region}</p>
                   <p className="text-sm text-muted-foreground line-clamp-2">{city.localTrust}</p>
@@ -100,7 +100,7 @@ const ArthritisSupportIndex = () => {
           ) : (
             regions.map((region) => (
               <div key={region} className="mb-8">
-                <h2 className="text-lg font-medium text-foreground mb-3 border-b border-border pb-2">{region}</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-3 border-b border-border pb-2">{region}</h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {ukCities
                     .filter((c) => c.region === region)
@@ -130,7 +130,7 @@ const ArthritisSupportIndex = () => {
 
           {/* Local services — point at real city hubs, not thin /uk/{city}/{service} templates */}
           <section className="mt-16 border-t border-border pt-12" aria-labelledby="local-services">
-            <h2 id="local-services" className="text-2xl font-medium text-foreground mb-2">
+            <h2 id="local-services" className="text-2xl font-bold text-foreground mb-2">
               Arthritis support by city
             </h2>
             <p className="text-muted-foreground mb-6">

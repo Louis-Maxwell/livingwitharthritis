@@ -62,7 +62,7 @@ const CampaignBand = memo(({
 
           <h1
             id="campaign-heading"
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-2 leading-tight"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 leading-tight"
           >
             {title}
           </h1>
@@ -155,7 +155,7 @@ const CampaignBand = memo(({
           <div className="bg-card border border-border rounded-2xl p-8 md:p-10">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <h3 className="text-lg font-medium text-foreground mb-2">
+                <h3 className="text-lg font-bold text-foreground mb-2">
                   {cta || "Join us in making a difference"}
                 </h3>
                 <p className="text-foreground/70">

@@ -163,7 +163,7 @@ const RegionHub = () => {
           <MapPin className="w-5 h-5" />
           <span className="text-sm font-medium uppercase tracking-wide">United Kingdom</span>
         </div>
-        <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-5">
+        <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
           Arthritis Support in {r.name}
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-3xl">{r.intro}</p>
@@ -171,7 +171,7 @@ const RegionHub = () => {
         <section className="bg-card border border-border rounded-2xl p-6 mb-10">
           <div className="flex items-center gap-3 mb-4">
             <Hospital className="w-5 h-5 text-primary" />
-            <h2 className="text-xl font-medium">Major Rheumatology Centres</h2>
+            <h2 className="text-xl font-semibold">Major Rheumatology Centres</h2>
           </div>
           <ul className="grid sm:grid-cols-2 gap-3">
             {r.highlights.map((h) => (
@@ -184,7 +184,7 @@ const RegionHub = () => {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-medium mb-5 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-5 flex items-center gap-2">
             <Users className="w-5 h-5 text-primary" /> Cities & Towns in {r.name}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -206,7 +206,7 @@ const RegionHub = () => {
           <div className="flex items-start gap-4">
             <Calculator className="w-6 h-6 text-primary shrink-0 mt-1" />
             <div>
-              <h2 className="text-xl font-medium mb-2">Worried about health service waiting times in {r.name}?</h2>
+              <h2 className="text-xl font-semibold mb-2">Worried about health service waiting times in {r.name}?</h2>
               <p className="text-muted-foreground mb-4">
                 Use our free Arthritis Waiting Time Calculator to estimate your referral wait and discover what to do while you wait.
               </p>
@@ -221,7 +221,7 @@ const RegionHub = () => {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-medium mb-4 flex items-center gap-2">
+          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
             <Stethoscope className="w-5 h-5 text-primary" /> Common Conditions
           </h2>
           <div className="grid sm:grid-cols-3 gap-3">

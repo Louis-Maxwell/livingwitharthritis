@@ -158,7 +158,7 @@ const ZakatAppeal = () => {
               </div>
 
               <div className="mt-8 space-y-5">
-                <h2 className="text-xl sm:text-2xl font-display font-medium text-foreground">
+                <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
                   Palestine — rebuilding bodies broken by war
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -179,7 +179,7 @@ const ZakatAppeal = () => {
                 <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 flex gap-3 items-start">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <div>
-                    <h3 className="text-sm font-medium text-foreground mb-1">Gift Aid — coming after HMRC registration</h3>
+                    <h3 className="text-sm font-semibold text-foreground mb-1">Gift Aid — coming after HMRC registration</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       Gift Aid registration is in progress. We will not claim Gift Aid until HMRC registration is live. You can still give Zakat or Sadaqah today.
                     </p>
@@ -193,7 +193,7 @@ const ZakatAppeal = () => {
               <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
                 {/* Card header */}
                 <div className="bg-primary px-6 py-5 text-primary-foreground">
-                  <h1 className="text-2xl sm:text-3xl font-display font-medium">Zakat Appeal</h1>
+                  <h1 className="text-2xl sm:text-3xl font-display font-bold">Zakat Appeal</h1>
                   <p className="text-primary-foreground text-sm mt-1">
                     Fund rehabilitation for war & trauma survivors
                   </p>
@@ -297,7 +297,7 @@ const ZakatAppeal = () => {
               className="w-full h-auto rounded-2xl object-cover shadow-lg"
             />
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-display font-medium text-foreground">
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
                 What rehabilitation really means
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -326,7 +326,7 @@ const ZakatAppeal = () => {
         {/* Trust & promise section */}
         <section className="bg-muted/30 py-14">
           <div className="container mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl font-display font-medium text-center text-foreground mb-8">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-center text-foreground mb-8">
               Your Zakat, Our Promise
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -339,7 +339,7 @@ const ZakatAppeal = () => {
                   <div className="w-11 h-11 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
                     <item.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="font-medium text-foreground text-sm mb-1.5">{item.title}</h3>
+                  <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -350,7 +350,7 @@ const ZakatAppeal = () => {
         {/* FAQ section */}
         <section className="py-14 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-xl sm:text-2xl font-display font-medium text-center text-foreground mb-8">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-center text-foreground mb-8">
               Frequently Asked Questions
             </h2>
             <div className="space-y-2">

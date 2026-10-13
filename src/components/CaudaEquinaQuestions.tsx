@@ -10,7 +10,7 @@ export default function CaudaEquinaQuestions() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const concern = Object.values(answers).some(a => a === 'yes' || a === 'unsure');
   return <section aria-labelledby="ces-questions" className="my-8 rounded-xl border-2 border-primary p-5">
-    <h2 id="ces-questions" className="text-xl font-medium">Cauda equina warning-sign questions</h2>
+    <h2 id="ces-questions" className="text-xl font-bold">Cauda equina warning-sign questions</h2>
     <p className="mt-3 font-semibold">If you have the warning signs described above, call 999 or go to A&amp;E now. Do not wait to answer these questions.</p>
     <p className="mt-2">This is an educational checklist, not a validated diagnostic test. It cannot confirm or rule out cauda equina syndrome. Answers stay in memory in this browser tab and are not submitted or saved by this checklist.</p>
     {questions.map((q, i) => <fieldset key={q} className="mt-5 border-t pt-4"><legend className="font-medium">{q}</legend><div className="flex flex-wrap gap-5 mt-2">{['yes', 'no', 'unsure'].map(value => <label key={value} className="inline-flex min-h-11 items-center gap-2"><input type="radio" name={`ces-${i}`} value={value} checked={answers[i] === value} onChange={() => setAnswers(prev => ({...prev, [i]: value}))}/>{value === 'unsure' ? 'Not sure' : value === 'yes' ? 'Yes' : 'No'}</label>)}</div></fieldset>)}

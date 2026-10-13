@@ -58,7 +58,7 @@ export default function BoneDensityOsteoporosis() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Bone Density &amp; Osteoporosis</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-medium mb-6">Bone Density &amp; Osteoarthritis: Managing Both Conditions</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">Bone Density &amp; Osteoarthritis: Managing Both Conditions</h1>
             <AeoEnhancement route="/guides/bone-density-osteoporosis" />
 
       <AnswerBox question="Can you have osteoarthritis and osteoporosis at the same time?" reviewed="2026-06-21">
@@ -68,23 +68,23 @@ export default function BoneDensityOsteoporosis() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="difference" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">1. Osteoporosis vs osteoarthritis: what is the difference?</h2>
+        <h2 className="text-2xl font-bold mb-4">1. Osteoporosis vs osteoarthritis: what is the difference?</h2>
         <p className="leading-relaxed mb-4"><strong>Osteoarthritis</strong> is a joint disease: cartilage thins, bones rub, pain and stiffness follow. <strong>Osteoporosis</strong> is a bone disease: bones lose density and become fragile, raising fracture risk — often silently until a fall.</p>
       </section>
 
       <section id="symptoms-risk" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">2. Symptoms and risk factors</h2>
+        <h2 className="text-2xl font-bold mb-4">2. Symptoms and risk factors</h2>
         <p className="leading-relaxed mb-4">Osteoporosis is often called a "silent" condition because there are usually no symptoms until a fracture happens — most commonly in the wrist, hip or spine. Gradual loss of height, a stooped or curved upper back, and unexplained back pain from a spinal compression fracture can be later warning signs.</p>
         <p className="leading-relaxed">Key risk factors include being female and post-menopausal, a family history of hip fracture, low body weight, smoking, high alcohol intake, long-term oral steroid use, early menopause, and reduced mobility from another condition. Some inflammatory arthritis conditions also raise risk independently of steroid use.</p>
       </section>
 
       <section id="overlap" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">3. Why arthritis and weak bones often occur together</h2>
+        <h2 className="text-2xl font-bold mb-4">3. Why arthritis and weak bones often occur together</h2>
         <p className="leading-relaxed mb-4">Pain reduces activity, and inactivity weakens bones. Steroid medications used in inflammatory arthritis directly reduce bone density. Post-menopausal oestrogen loss accelerates both conditions. Sarcopenia and low body weight magnify the risk.</p>
       </section>
 
       <section id="minerals" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">4. Calcium, vitamin D, magnesium: the mineral strategy</h2>
+        <h2 className="text-2xl font-bold mb-4">4. Calcium, vitamin D, magnesium: the mineral strategy</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Calcium:</strong> 700–1,200 mg/day from dairy, fortified milks, sardines, leafy greens.</li>
           <li><strong>Vitamin D:</strong> 10 µg/day October–March (NHS), or 25 µg/day if deficient.</li>
@@ -94,22 +94,22 @@ export default function BoneDensityOsteoporosis() {
       </section>
 
       <section id="exercise" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">5. Load-bearing exercise for bone and joint health</h2>
+        <h2 className="text-2xl font-bold mb-4">5. Load-bearing exercise for bone and joint health</h2>
         <p className="leading-relaxed mb-4">Bones respond to load. Walking, dancing, tai chi, stair climbing and progressive resistance training all stimulate bone formation. Aim for 30 minutes of weight-bearing activity most days plus 2 strength sessions weekly. Avoid high-impact loading on inflamed or already-damaged joints.</p>
       </section>
 
       <section id="screening" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">6. Screening, testing and when medication is needed</h2>
+        <h2 className="text-2xl font-bold mb-4">6. Screening, testing and when medication is needed</h2>
         <p className="leading-relaxed mb-4">A DEXA scan measures bone mineral density. NICE recommends scanning post-menopausal women with risk factors, anyone on long-term steroids, and those with a fragility fracture. Treatment (bisphosphonates, denosumab, HRT) is considered when T-score is below -2.5 or after a fragility fracture.</p>
       </section>
 
       <section id="reversibility" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">7. Can bone density loss be reversed?</h2>
+        <h2 className="text-2xl font-bold mb-4">7. Can bone density loss be reversed?</h2>
         <p className="leading-relaxed">Bone loss can be slowed, partially rebuilt and fracture risk substantially reduced through the right combination of nutrition, weight-bearing exercise and, where clinically indicated, medication. Full reversal to youthful bone density isn't generally realistic, which is why earlier action — ideally before or around menopause — gives the best long-term outcome.</p>
       </section>
 
       <section id="later-life" className="mb-12 bg-muted/30 p-6 rounded-lg">
-        <h2 className="text-2xl font-medium mb-4">8. Bone health, falls and frailty: the bigger picture</h2>
+        <h2 className="text-2xl font-bold mb-4">8. Bone health, falls and frailty: the bigger picture</h2>
         <p className="leading-relaxed mb-4">Osteoporosis rarely causes a fall by itself — its real danger is turning a minor stumble into a serious fracture. That's why bone density is best managed alongside muscle strength and falls prevention, not in isolation.</p>
         <ul className="list-disc pl-6 space-y-2">
           <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Falls prevention for older adults</Link> — reducing fall risk at home</li>
@@ -121,7 +121,7 @@ export default function BoneDensityOsteoporosis() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
+        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/sarcopenia-muscle-loss" className="text-primary underline">Sarcopenia &amp; muscle loss</Link></li>
           <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Fall prevention</Link></li>
@@ -133,10 +133,10 @@ export default function BoneDensityOsteoporosis() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
+            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

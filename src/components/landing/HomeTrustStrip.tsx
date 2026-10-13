@@ -15,7 +15,7 @@ export default function HomeTrustStrip() {
   return (
     <aside aria-labelledby="home-trust-heading" className="border-b border-border/50 bg-muted/40">
       <div className="container mx-auto max-w-6xl px-5 md:px-10 py-5 md:py-6">
-        <h2 id="home-trust-heading" className="text-sm font-medium tracking-tight text-foreground">
+        <h2 id="home-trust-heading" className="text-sm font-bold tracking-tight text-foreground">
           Why you can trust this site
         </h2>
         <ul className="mt-3 grid gap-x-6 gap-y-2.5 sm:grid-cols-2 text-sm text-foreground leading-snug">

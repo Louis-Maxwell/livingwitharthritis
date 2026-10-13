@@ -120,7 +120,7 @@ const GuidesHub = () => {
           </nav>
 
           <section aria-labelledby="popular-guides-heading" className="rounded-2xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
-            <h2 id="popular-guides-heading" className="text-lg font-medium mb-1">
+            <h2 id="popular-guides-heading" className="text-lg font-semibold mb-1">
               Popular guides
             </h2>
             <p className="text-sm text-muted-foreground mb-4 max-w-2xl">
@@ -185,14 +185,14 @@ const GuidesHub = () => {
               <div key={cluster}>
                 <div className="flex items-center gap-3 mb-4">
                   <BookOpen className="text-primary" size={20} aria-hidden="true" />
-                  <h2 className="text-xl font-medium">{CLUSTER_LABELS[cluster]}</h2>
+                  <h2 className="text-xl font-semibold">{CLUSTER_LABELS[cluster]}</h2>
                   <Badge variant="secondary">{guides.length}</Badge>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {guides.map((guide) => (
                     <Card key={guide.path} className="hover:border-primary/40 transition-colors">
                       <CardContent className="p-5 flex flex-col h-full">
-                        <h3 className="font-medium mb-2">
+                        <h3 className="font-semibold mb-2">
                           <Link to={guide.path} className="hover:text-primary">
                             {guide.title}
                           </Link>

@@ -33,7 +33,7 @@ export default function PetArticle() {
           </Link>
 
           <span className="text-xs font-bold uppercase tracking-wide text-primary">{article.species}</span>
-          <h1 className="text-3xl md:text-4xl font-medium mt-2 mb-4">{article.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">{article.title}</h1>
           <p className="text-lg text-gray-600 mb-6">{article.summary}</p>
 
           {/* Lead image */}
@@ -65,7 +65,7 @@ export default function PetArticle() {
             const img = article.images[i + 1];
             return (
               <div key={i}>
-                <h2 className="text-2xl font-medium mt-8 mb-3">{s.heading}</h2>
+                <h2 className="text-2xl font-bold mt-8 mb-3">{s.heading}</h2>
                 <p className="text-gray-700 leading-relaxed">{s.body}</p>
                 {img && (
                   <figure className="my-6">
@@ -87,7 +87,7 @@ export default function PetArticle() {
 
           {/* FAQs */}
           <section className="mt-10">
-            <h2 className="text-2xl font-medium mb-4">Frequently asked questions</h2>
+            <h2 className="text-2xl font-bold mb-4">Frequently asked questions</h2>
             <FaqAccordion
               idPrefix={`pets-${article.slug}-faq`}
               items={article.faqs.map((f) => ({ question: f.q, answer: f.a }))}
@@ -96,7 +96,7 @@ export default function PetArticle() {
 
           {/* Related — keeps visitors on-site (bounce-rate lever) */}
           <section className="mt-12 border-t pt-8">
-            <h2 className="text-xl font-medium mb-4">Keep reading</h2>
+            <h2 className="text-xl font-bold mb-4">Keep reading</h2>
             <div className="grid sm:grid-cols-3 gap-4">
               {related.map((r) => (
                 <Link key={r.slug} to={`/pets/${r.slug}`} className="group rounded-lg overflow-hidden border hover:shadow-md transition">
