@@ -95,7 +95,7 @@ export default function HelplineWidget() {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {channels.map(({ Icon, eyebrow, value, sub, href, external, track }) => {
             const cardClass =
-              "group relative flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white text-foreground shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60";
+              "group relative flex w-full min-w-0 flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white text-foreground shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60";
             const inner = (
               <>
                 <span
@@ -107,14 +107,14 @@ export default function HelplineWidget() {
                 <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
                   {eyebrow}
                 </span>
-                <span className="font-bold text-sm md:text-base text-foreground break-words leading-snug">
+                <span className="w-full min-w-0 font-bold text-sm md:text-base text-foreground [overflow-wrap:anywhere] leading-snug">
                   {value}
                 </span>
                 <span className="text-xs text-muted-foreground">{sub}</span>
               </>
             );
             return (
-              <li key={eyebrow}>
+              <li key={eyebrow} className="min-w-0">
                 {external ? (
                   <a
                     href={href}
