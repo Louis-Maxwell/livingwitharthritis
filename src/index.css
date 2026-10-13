@@ -1689,3 +1689,56 @@
 @media (min-width: 640px) { .donation-quickbar-placeholder { height: 140px; } }
 @media (min-width: 703px) { .donation-quickbar-placeholder { height: 96px; } }
 @media (min-width: 1340px) { .donation-quickbar-placeholder { height: 52px; } }
+
+/* Lightweight, seamless right-to-left encouragement banner. */
+.motivation-marquee {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 clamp(0.75rem, 2vw, 1.5rem) 1rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  background: #c84308;
+  color: #fff;
+  border-top: 2px solid #ffab76;
+}
+.motivation-marquee__viewport { flex: 1; min-width: 0; overflow: hidden; }
+.motivation-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: lwaMotivationScroll 36s linear infinite;
+}
+.motivation-marquee__group { display: flex; flex-shrink: 0; }
+.motivation-marquee__message {
+  flex-shrink: 0;
+  padding: 1rem clamp(2rem, 4vw, 4rem);
+  white-space: nowrap;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.motivation-marquee__toggle {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border: 1px solid #fff9;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.motivation-marquee__toggle:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.motivation-marquee:hover .motivation-marquee__track,
+.motivation-marquee:focus-within .motivation-marquee__track { animation-play-state: paused !important; }
+@keyframes lwaMotivationScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motivation-marquee__track { animation: none; width: auto; }
+  .motivation-marquee__group { display: block; width: 100%; }
+  .motivation-marquee__group + .motivation-marquee__group,
+  .motivation-marquee__message + .motivation-marquee__message,
+  .motivation-marquee__toggle { display: none; }
+  .motivation-marquee__message { display: block; white-space: normal; text-align: center; padding: 1rem; }
+}
