@@ -48,7 +48,7 @@ export const ORGANIZATION_PAYLOAD = {
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   keywords:
-    "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise",
+    "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
   knowsLanguage: ["en-GB", "English"],
   areaServed: [
@@ -164,6 +164,13 @@ export const ORGANIZATION_PAYLOAD = {
     "Rheumatology waiting lists UK",
     "Methotrexate side effects",
     "NICE osteoarthritis exercise",
+    "Arthritis pain relief UK",
+    "Arthritis waiting list help UK",
+    "Arthritis disability benefits UK",
+    "Arthritis charity UK",
+    "Frailty and arthritis exercises",
+    "Working with arthritis UK rights",
+    "Mediterranean diet for arthritis",
     "Knee exercises for osteoarthritis",
     "Free arthritis resources UK",
     "Newly diagnosed arthritis UK",
