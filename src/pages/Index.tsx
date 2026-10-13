@@ -79,10 +79,10 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | Evidence-Based Health Guides</title>
+        <title>Arthritis Exercises & PIP Advice | Living With Arthritis</title>
         <meta
           name="description"
-          content="Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461."
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta
           name="robots"
@@ -92,19 +92,19 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | Evidence-Based Health Guides"
+          content="Arthritis Exercises & PIP Advice | Living With Arthritis"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | Evidence-Based Health Guides"
+          content="Arthritis Exercises & PIP Advice | Living With Arthritis"
         />
         <meta
           property="og:description"
-          content="Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461."
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta
           name="twitter:description"
-          content="Free UK arthritis guides on joint pain, exercise, diet and PIP. Find practical self-care help from Living With Arthritis, independent charity 1218461."
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />

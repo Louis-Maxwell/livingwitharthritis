@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BadgeCheck, Landmark, Stethoscope } from "lucide-react";
+import { CONTACT_EMAILS, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/config/contact";
 import { CHARITY } from "@/config/charity";
 
 /**
@@ -57,6 +58,11 @@ export default function HomeTrustStrip() {
           >
             About us
           </Link>
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Contact Living With Arthritis: <a href={`mailto:${CONTACT_EMAILS.info}`} className={linkCls}>{CONTACT_EMAILS.info}</a>
+          {" · "}<a href={`tel:${CONTACT_PHONE_TEL}`} className={linkCls}>{CONTACT_PHONE}</a>
+          {" · "}<Link to="/contact" className={linkCls}>Ask about support</Link>
         </p>
       </div>
     </aside>
