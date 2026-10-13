@@ -3,10 +3,10 @@
  * Used by TopicClusterNav so we never ship sibling chips to missing pages.
  */
 import blogSlugs from "@/data/blog-slugs.generated.json";
-import { faqArticles } from "@/data/faqArticles";
+import { FAQ_SLUGS as FAQ_SLUG_LIST } from "@/data/faqSlugs";
 
 const BLOG_SLUGS = new Set(blogSlugs as string[]);
-const FAQ_SLUGS = new Set(faqArticles.map((a) => a.slug));
+const FAQ_SLUGS = new Set(FAQ_SLUG_LIST);
 
 export function isResolvableClusterHref(path: string | null | undefined): boolean {
   if (!path || typeof path !== "string") return false;
