@@ -1,13 +1,14 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it, vi } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import HomeJobRouter from "../HomeJobRouter";
 import { GOFUNDME_URL, MORE_TOPICS, VISITOR_JOBS } from "../homeJobs";
 import blogSlugs from "@/data/blog-slugs.generated.json";
 import authors from "@/data/medical-authors.json";
 import { faqArticles } from "@/data/faqArticles";
+import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
 
 vi.mock("@/lib/ga-events", () => ({
   trackStartHereCard: vi.fn(),
@@ -50,6 +51,22 @@ const renderRouter = () =>
   );
 
 describe("HomeJobRouter", () => {
+  it("records GoFundMe clicks with the correct donation method", () => {
+    vi.mocked(trackDonationClick).mockClear();
+    vi.mocked(trackStartHereCard).mockClear();
+    renderRouter();
+    fireEvent.click(screen.getByRole("link", { name: /I'd like to help/i }));
+    expect(trackDonationClick).toHaveBeenCalledWith({ source: "home_router_card", method: "gofundme" });
+    expect(trackStartHereCard).toHaveBeenCalledWith("I'd like to help", GOFUNDME_URL, true);
+  });
+
+  it("does not count browsing other ways to help as a donation click", () => {
+    vi.mocked(trackDonationClick).mockClear();
+    renderRouter();
+    fireEvent.click(screen.getByRole("link", { name: "Other ways to help" }));
+    expect(trackDonationClick).not.toHaveBeenCalled();
+    expect(trackStartHereCard).toHaveBeenCalledWith("Other ways to help", "/ways-to-help", false);
+  });
   it("covers every customer job with one card each", () => {
     expect(VISITOR_JOBS.map((j) => j.id)).toEqual([
       "pain",

@@ -55,7 +55,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Technical SEO regression checks
-        run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs
+        run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs scripts/tests/built-site-audit.test.mjs
 
       # The root tsconfig.json has "files": [] (project references only), so a
       # bare `tsc --noEmit` checked nothing. Check both real projects; this also
@@ -94,6 +94,9 @@ jobs:
       # content must resolve to a route, a built page or a redirect.
       - name: Internal link check
         run: npm run links:check
+
+      - name: Built metadata and structure gate
+        run: npm run seo:built-audit
 
       - name: Upload prerender meta report
         if: always()

@@ -40,7 +40,9 @@ describe("host + client SEO redirects", () => {
       "/blog/mindfulness-meditation-chronic-pain",
       "/blog/mindfulness-chronic-pain-arthritis-guide",
     );
-    expect(html).toContain('content="noindex, nofollow"');
+    expect(html).toContain('name="robots" content="noindex, follow"');
+    expect(html).toContain('name="googlebot" content="noindex, follow"');
+    expect(html).not.toContain("nofollow");
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/mindfulness-chronic-pain-arthritis-guide"',
     );

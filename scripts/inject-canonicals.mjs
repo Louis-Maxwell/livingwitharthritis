@@ -285,6 +285,7 @@ export function applyNoindexMeta(html) {
 // They still get a unique static title/description so no URL on the domain
 // serves the homepage head.
 const NOINDEX_PREFIXES = [
+  "/search",
   "/.lovable",
   "/account",
   "/admin",
@@ -390,6 +391,12 @@ export function patchShareMeta(html, d) {
     );
   }
   if (d.ogImage) {
+    // Prerendered templates can carry a homepage secure image. Keep the
+    // optional HTTPS image URL consistent with the route's actual cover.
+    out = out.replace(/<meta\b[^>]*property=["']og:image:secure_url["'][^>]*>\s*/gi, "");
+    if (d.ogImage.startsWith("https://")) {
+      out = out.replace(/<\/head>/i, `<meta property="og:image:secure_url" content="${escAttr(d.ogImage)}" />\n</head>`);
+    }
     out = out.replace(
       /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
       `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,
@@ -539,6 +546,12 @@ function enrichHead(html, route, url, override) {
 
   // Per-route OG image (build-time satori output) when it exists.
   if (d.ogImage) {
+    // Prerendered templates can carry a homepage secure image. Keep the
+    // optional HTTPS image URL consistent with the route's actual cover.
+    out = out.replace(/<meta\b[^>]*property=["']og:image:secure_url["'][^>]*>\s*/gi, "");
+    if (d.ogImage.startsWith("https://")) {
+      out = out.replace(/<\/head>/i, `<meta property="og:image:secure_url" content="${escAttr(d.ogImage)}" />\n</head>`);
+    }
     out = out.replace(
       /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
       `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,

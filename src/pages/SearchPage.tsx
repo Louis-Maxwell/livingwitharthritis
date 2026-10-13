@@ -66,6 +66,7 @@ const SearchPage = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex,follow" />
         <title>Search Arthritis Guides & Articles | Living With Arthritis</title>
         <meta
           name="description"
