@@ -58,7 +58,7 @@ const TermsConditions = () => (
         <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">1. Introduction</h2>
+            <h2 className="text-2xl font-bold text-foreground">1. Introduction</h2>
             <p className="text-muted-foreground leading-relaxed">
               These Terms and Conditions govern your use of the {CHARITY.shortName} website
               ({CHARITY.websiteDomain}). By accessing or using this website, you agree to be
@@ -71,7 +71,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">2. Use of the Website</h2>
+            <h2 className="text-2xl font-bold text-foreground">2. Use of the Website</h2>
             <p className="text-muted-foreground leading-relaxed">
               You may use this website for lawful purposes only. You must not use it in any way that
               breaches any applicable local, national, or international law or regulation, or that is
@@ -85,7 +85,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">3. Intellectual Property</h2>
+            <h2 className="text-2xl font-bold text-foreground">3. Intellectual Property</h2>
             <p className="text-muted-foreground leading-relaxed">
               All content on this website — including text, graphics, logos, images, and software — is
               the property of Living With Arthritis or its content suppliers and is protected by
@@ -99,7 +99,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">4. Health Information Disclaimer</h2>
+            <h2 className="text-2xl font-bold text-foreground">4. Health Information Disclaimer</h2>
             <p className="text-muted-foreground leading-relaxed">
               The information provided on this website is for general educational purposes only and does
               not constitute medical advice, diagnosis, or a treatment plan. It is not intended to replace
@@ -117,7 +117,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">5. Donations & Refunds</h2>
+            <h2 className="text-2xl font-bold text-foreground">5. Donations & Refunds</h2>
             <p className="text-muted-foreground leading-relaxed">
               All donations made through our website are voluntary and processed securely via
               third-party payment providers (e.g. Stripe). By donating, you confirm that you are
@@ -131,7 +131,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">6. User-Generated Content</h2>
+            <h2 className="text-2xl font-bold text-foreground">6. User-Generated Content</h2>
             <p className="text-muted-foreground leading-relaxed">
               Where you submit content to our website (e.g. feedback, comments, or email),
               you grant us a non-exclusive, royalty-free licence to use, reproduce, and display
@@ -144,7 +144,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">7. External Links</h2>
+            <h2 className="text-2xl font-bold text-foreground">7. External Links</h2>
             <p className="text-muted-foreground leading-relaxed">
               Our website may contain links to external websites. These links are provided for your
               convenience and do not signify endorsement. We have no control over the content or
@@ -153,7 +153,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">8. Limitation of Liability</h2>
+            <h2 className="text-2xl font-bold text-foreground">8. Limitation of Liability</h2>
             <p className="text-muted-foreground leading-relaxed">
               To the fullest extent permitted by law, Living With Arthritis excludes all liability
               for any loss or damage arising from your use of, or inability to use, this website.
@@ -167,7 +167,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">9. Changes to These Terms</h2>
+            <h2 className="text-2xl font-bold text-foreground">9. Changes to These Terms</h2>
             <p className="text-muted-foreground leading-relaxed">
               We may revise these terms at any time by updating this page. You are expected to
               check this page periodically to take notice of any changes. Your continued use of the
@@ -176,7 +176,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">10. Governing Law</h2>
+            <h2 className="text-2xl font-bold text-foreground">10. Governing Law</h2>
             <p className="text-muted-foreground leading-relaxed">
               These terms are governed by and construed in accordance with the laws of England and
               Wales. Any disputes arising under these terms shall be subject to the exclusive
@@ -185,7 +185,7 @@ const TermsConditions = () => (
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium text-foreground">11. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-foreground">11. Contact Us</h2>
             <p className="text-muted-foreground leading-relaxed">
               If you have any questions about these Terms and Conditions, please contact us at:
             </p>

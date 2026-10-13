@@ -21,7 +21,7 @@ const FinalDonateBand = () => {
           </p>
           <h2
             id="final-donate-heading"
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.025em] leading-[1.05] text-background mb-8"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.025em] leading-[1.05] text-background mb-8"
           >
             Funded entirely by people <span className="italic">like you.</span>
           </h2>

@@ -242,7 +242,7 @@ export default function KneeOsteoarthritisExercises() {
               Exercise Â· Knee OA Â· Evidence-based
             </Badge>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Knee Arthritis Exercises: Safe Exercises for Pain, Strength &amp; Mobility
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
@@ -310,7 +310,7 @@ export default function KneeOsteoarthritisExercises() {
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Zap className="h-3 w-3 mr-1 inline" /> Tier 1
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Core exercises to consider
             </h2>
             <p className="speakable-intro text-lg text-muted-foreground">
@@ -324,7 +324,7 @@ export default function KneeOsteoarthritisExercises() {
                 <div className="flex items-start gap-4 mb-4">
                   <CheckCircle2 className="h-6 w-6 text-primary shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <h3 className="font-display text-2xl font-medium mb-2">{ex.title}</h3>
+                    <h3 className="font-display text-2xl font-bold mb-2">{ex.title}</h3>
                     <Badge variant="outline" className="mb-4">
                       {ex.difficulty}
                     </Badge>
@@ -332,11 +332,11 @@ export default function KneeOsteoarthritisExercises() {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium text-sm mb-1">How to do it</h4>
+                    <h4 className="font-semibold text-sm mb-1">How to do it</h4>
                     <p className="text-base text-foreground leading-relaxed">{ex.description}</p>
                   </div>
                   <div className="pl-4 border-l-2 border-primary">
-                    <h4 className="font-medium text-sm mb-1">Why it works</h4>
+                    <h4 className="font-semibold text-sm mb-1">Why it works</h4>
                     <p className="text-base text-foreground leading-relaxed">{ex.why}</p>
                   </div>
                 </div>
@@ -353,7 +353,7 @@ export default function KneeOsteoarthritisExercises() {
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Droplet className="h-3 w-3 mr-1 inline" /> Tier 2
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Additional strength exercises
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -363,7 +363,7 @@ export default function KneeOsteoarthritisExercises() {
           <div className="grid md:grid-cols-2 gap-5">
             {tier2Exercises.map((ex) => (
               <Card key={ex.title} className="p-6 border border-border/40 bg-background">
-                <h3 className="font-display text-lg font-medium mb-2">{ex.title}</h3>
+                <h3 className="font-display text-lg font-bold mb-2">{ex.title}</h3>
                 <p className="text-sm text-foreground mb-3 leading-relaxed">{ex.description}</p>
                 <p className="text-xs text-muted-foreground italic">Why: {ex.why}</p>
               </Card>
@@ -379,7 +379,7 @@ export default function KneeOsteoarthritisExercises() {
             <Badge variant="secondary" className="mb-4 bg-destructive/10 text-destructive border-0">
               <AlertCircle className="h-3 w-3 mr-1 inline" /> Avoid
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Exercises to modify when needed
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -404,13 +404,13 @@ export default function KneeOsteoarthritisExercises() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Frequently asked questions
           </h2>
           <div className="space-y-6">
             {faqs.map((f) => (
               <Card key={f.q} className="p-6 border border-border/40 bg-background">
-                <h3 className="font-display text-lg font-medium mb-2">{f.q}</h3>
+                <h3 className="font-display text-lg font-bold mb-2">{f.q}</h3>
                 <p className="text-base text-foreground leading-relaxed">{f.a}</p>
               </Card>
             ))}
@@ -422,7 +422,7 @@ export default function KneeOsteoarthritisExercises() {
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <h2
             id="sources-heading"
-            className="font-display text-2xl md:text-3xl font-medium tracking-tight mb-5"
+            className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5"
           >
             Sources and further guidance
           </h2>
@@ -460,7 +460,7 @@ export default function KneeOsteoarthritisExercises() {
       {/* Internal link cluster */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Complete your knee arthritis strategy
           </h2>
           <div className="grid md:grid-cols-3 gap-5">
@@ -468,7 +468,7 @@ export default function KneeOsteoarthritisExercises() {
               to="/diet/foods-to-avoid-with-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-medium mb-2">Foods to avoid with arthritis</h3>
+              <h3 className="font-display text-lg font-bold mb-2">Foods to avoid with arthritis</h3>
               <p className="text-sm text-muted-foreground">
                 What foods make knee pain worse, and the anti-inflammatory swaps that help.
               </p>
@@ -477,7 +477,7 @@ export default function KneeOsteoarthritisExercises() {
               to="/supplements"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-medium mb-2">Supplements for joint support</h3>
+              <h3 className="font-display text-lg font-bold mb-2">Supplements for joint support</h3>
               <p className="text-sm text-muted-foreground">
                 Evidence for glucosamine, omega-3, turmeric and other joint-support supplements.
               </p>
@@ -486,7 +486,7 @@ export default function KneeOsteoarthritisExercises() {
               to="/conditions/knee-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-medium mb-2">Knee arthritis overview</h3>
+              <h3 className="font-display text-lg font-bold mb-2">Knee arthritis overview</h3>
               <p className="text-sm text-muted-foreground">
                 Full guide: symptoms, causes, diagnosis, treatment options and long-term management.
               </p>
@@ -495,7 +495,7 @@ export default function KneeOsteoarthritisExercises() {
               to="/conditions/osteoarthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-medium mb-2">Osteoarthritis guide</h3>
+              <h3 className="font-display text-lg font-bold mb-2">Osteoarthritis guide</h3>
               <p className="text-sm text-muted-foreground">
                 Complete UK guide to osteoarthritis across all joints: causes and management.
               </p>
@@ -504,7 +504,7 @@ export default function KneeOsteoarthritisExercises() {
               to="/diet/mediterranean-diet-for-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-medium mb-2">Mediterranean 7-day plan</h3>
+              <h3 className="font-display text-lg font-bold mb-2">Mediterranean 7-day plan</h3>
               <p className="text-sm text-muted-foreground">
                 Complete meal plan, UK shopping list and five anti-inflammatory recipes.
               </p>
@@ -513,7 +513,7 @@ export default function KneeOsteoarthritisExercises() {
               to="/living-with-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-medium mb-2">Living with arthritis</h3>
+              <h3 className="font-display text-lg font-bold mb-2">Living with arthritis</h3>
               <p className="text-sm text-muted-foreground">
                 Day-to-day strategies: work, sleep, mood, relationships and independence.
               </p>

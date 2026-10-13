@@ -317,7 +317,7 @@ export default function NewlyDiagnosed() {
 
           {/* Hero */}
           <header className="mb-8">
-            <h1 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-4">
+            <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">
               Newly diagnosed? Your first UK arthritis checklist
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
@@ -469,7 +469,7 @@ export default function NewlyDiagnosed() {
                   </span>
                   <h2
                     id={`${s.id}-heading`}
-                    className="font-display text-2xl md:text-3xl font-medium text-foreground"
+                    className="font-display text-2xl md:text-3xl font-black text-foreground"
                   >
                     {s.title}
                   </h2>
@@ -480,7 +480,7 @@ export default function NewlyDiagnosed() {
                 </p>
 
                 <div className="rounded-xl border border-border bg-card p-5 md:p-6">
-                  <h3 className="text-sm font-medium tracking-wider text-primary mb-3">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-primary mb-3">
                     Checklist
                   </h3>
                   <ul className="space-y-2">
@@ -501,7 +501,7 @@ export default function NewlyDiagnosed() {
 
                 {s.questions && (
                   <div className="rounded-xl border border-border bg-accent/30 p-5 md:p-6 mt-4">
-                    <h3 className="text-sm font-medium tracking-wider text-primary mb-3">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-primary mb-3">
                       What to ask your clinician
                     </h3>
                     <ol className="space-y-2 list-decimal list-inside">
@@ -527,7 +527,7 @@ export default function NewlyDiagnosed() {
           >
             <h2
               id="faq-heading"
-              className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6"
+              className="font-display text-2xl md:text-3xl font-black text-foreground mb-6"
             >
               Common questions after diagnosis
             </h2>
@@ -542,7 +542,7 @@ export default function NewlyDiagnosed() {
 
           {/* Related */}
           <section className="my-12 border-t border-border pt-8 print:hidden">
-            <h2 className="font-display text-xl font-medium text-foreground mb-4">
+            <h2 className="font-display text-xl font-bold text-foreground mb-4">
               Take the next step
             </h2>
             <ul className="grid sm:grid-cols-2 gap-3">

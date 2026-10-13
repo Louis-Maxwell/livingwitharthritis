@@ -60,7 +60,7 @@ export default function Press() {
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 <Newspaper className="w-4 h-4" /> Press & Media
               </span>
-              <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-foreground mb-4">Press & Media Kit</h1>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Press & Media Kit</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Everything journalists, bloggers and partners need to write about Living With Arthritis — key facts, expert contacts, downloadable resources and brand guidelines.
               </p>
@@ -71,7 +71,7 @@ export default function Press() {
         {/* Key Facts */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Key Facts & Statistics</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Key Facts & Statistics</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {keyFacts.map((f) => (
                 <Card key={f.label} className="text-center border-none shadow-md bg-card">
@@ -89,7 +89,7 @@ export default function Press() {
         {/* About */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-2xl font-medium text-foreground mb-4">About the Charity</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">About the Charity</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Living With Arthritis is a registered health charity dedicated to making expert physiotherapy, evidence-based diet plans and self-management tools freely accessible to the 10 million+ people living with arthritis across the United Kingdom.
             </p>
@@ -105,7 +105,7 @@ export default function Press() {
         {/* Spokespeople */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Expert Spokespeople</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Expert Spokespeople</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {spokespeople.map((s) => (
                 <Card key={s.name} className="border-none shadow-md bg-card">
@@ -113,7 +113,7 @@ export default function Press() {
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                       <Users className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="font-medium text-lg text-foreground">{s.role}</h3>
+                    <h3 className="font-semibold text-lg text-foreground">{s.role}</h3>
                     <p className="text-muted-foreground text-sm mt-2 leading-relaxed">{s.bio}</p>
                   </CardContent>
                 </Card>
@@ -128,10 +128,10 @@ export default function Press() {
         {/* Brand Assets */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl font-medium text-foreground mb-4">Brand Guidelines</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Brand Guidelines</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-medium mb-2 text-foreground">Colour Palette</h3>
+                <h3 className="font-semibold mb-2 text-foreground">Colour Palette</h3>
                 <div className="flex gap-3 mb-4">
                   <div className="w-12 h-12 rounded-lg bg-primary" title="Primary" />
                   <div className="w-12 h-12 rounded-lg bg-secondary" title="Secondary" />
@@ -141,7 +141,7 @@ export default function Press() {
                 <p className="text-sm text-muted-foreground">Please use our official colour palette when referencing our brand. Do not alter or recolour our logo.</p>
               </div>
               <div>
-                <h3 className="font-medium mb-2 text-foreground">Usage Rules</h3>
+                <h3 className="font-semibold mb-2 text-foreground">Usage Rules</h3>
                 <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
                   <li>Always refer to us as "Living With Arthritis"</li>
                   <li>Do not crop, rotate or distort the logo</li>
@@ -156,7 +156,7 @@ export default function Press() {
         {/* Downloadable Resources */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-2xl font-medium text-foreground mb-2 text-center">Downloadable Resources</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2 text-center">Downloadable Resources</h2>
             <p className="text-center text-muted-foreground mb-8">Free, link-worthy PDF resources for media use and patient support.</p>
             <DownloadableResources />
           </div>
@@ -165,7 +165,7 @@ export default function Press() {
         {/* Press Releases */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl text-center">
-            <h2 className="text-2xl font-medium text-foreground mb-4">Press Releases & News</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">Press Releases & News</h2>
             <p className="text-muted-foreground mb-6">No press releases yet. Check back soon for updates.</p>
           </div>
         </section>
@@ -174,7 +174,7 @@ export default function Press() {
         <section className="py-16 bg-primary/5">
           <div className="container mx-auto px-4 max-w-lg text-center">
             <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl font-medium text-foreground mb-2">Media Contact</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Media Contact</h2>
             <p className="text-muted-foreground mb-4">For press enquiries, interview requests and media partnerships:</p>
             <a href={`mailto:${CONTACT_EMAILS.info}`}>
               <Button size="lg" className="gap-2">

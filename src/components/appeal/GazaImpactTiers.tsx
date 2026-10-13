@@ -15,7 +15,7 @@ export default function GazaImpactTiers() {
   return (
     <section className="py-14 bg-muted/30">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-xl sm:text-2xl font-display font-medium text-center text-foreground mb-2">
+        <h2 className="text-xl sm:text-2xl font-display font-bold text-center text-foreground mb-2">
           What your gift does
         </h2>
         <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto mb-8">

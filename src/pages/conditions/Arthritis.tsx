@@ -64,7 +64,7 @@ export default function Arthritis() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Arthritis</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-medium mb-6">Arthritis: Understanding Joint Pain and Treatment Options</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">Arthritis: Understanding Joint Pain and Treatment Options</h1>
       <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6 -mt-4" />
 
       <AnswerBox question="What is arthritis and how is it treated?" reviewed="2026-06-22">
@@ -74,13 +74,13 @@ export default function Arthritis() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="overview" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">What is arthritis?</h2>
+        <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
         <p className="mb-4 leading-relaxed">Arthritis is not a single disease — it is a broad term covering more than 100 joint conditions. The two most common are <Link to="/conditions/osteoarthritis" className="text-primary underline">osteoarthritis</Link>, where joint cartilage gradually wears down, and <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">rheumatoid arthritis</Link>, an autoimmune condition where the immune system attacks the joint lining.</p>
         <p className="leading-relaxed">More than 10 million people in the UK live with arthritis. It is the leading cause of pain and disability and affects people of every age — including children with juvenile arthritis.</p>
       </section>
 
       <section id="symptoms" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">What are the symptoms of arthritis?</h2>
+        <h2 className="text-2xl font-bold mb-4">What are the symptoms of arthritis?</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Joint pain that worsens with activity or after rest</li>
           <li>Morning stiffness lasting more than 30 minutes</li>
@@ -92,12 +92,12 @@ export default function Arthritis() {
       </section>
 
       <section id="diagnosis" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">How is arthritis diagnosed?</h2>
+        <h2 className="text-2xl font-bold mb-4">How is arthritis diagnosed?</h2>
         <p className="leading-relaxed">A GP or first-contact practitioner will take a detailed history, examine your joints and check for swelling or restricted movement. Blood tests (CRP, ESR, rheumatoid factor, anti-CCP, uric acid) and imaging (X-ray, ultrasound, MRI) help identify the type and severity of arthritis and rule out other causes.</p>
       </section>
 
       <section id="patients-look-for" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">What do arthritis patients commonly look for?</h2>
+        <h2 className="text-2xl font-bold mb-4">What do arthritis patients commonly look for?</h2>
         <p className="mb-4 leading-relaxed">People newly diagnosed — and those managing arthritis long-term — typically search for help in four areas:</p>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Pain relief options:</strong> topical and oral anti-inflammatories, heat and cold therapy, compression supports, splints and pain-relief gels.</li>
@@ -109,7 +109,7 @@ export default function Arthritis() {
       </section>
 
       <section id="treatments" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">What are the evidence-based treatment options for arthritis?</h2>
+        <h2 className="text-2xl font-bold mb-4">What are the evidence-based treatment options for arthritis?</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Exercise:</strong> progressive strength, mobility and aerobic training reduce pain and improve function — see our <Link to="/guides/exercise" className="text-primary underline">exercise guide</Link>.</li>
           <li><strong>Weight management:</strong> a 5–10% reduction in body weight significantly reduces knee and hip load.</li>
@@ -121,7 +121,7 @@ export default function Arthritis() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-medium mb-4">Related conditions and guides</h2>
+        <h2 className="text-2xl font-bold mb-4">Related conditions and guides</h2>
         <ul className="space-y-2">
           <li><Link to="/conditions/osteoarthritis" className="text-primary underline">Osteoarthritis</Link></li>
           <li><Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">Rheumatoid arthritis</Link></li>
@@ -133,10 +133,10 @@ export default function Arthritis() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
+            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

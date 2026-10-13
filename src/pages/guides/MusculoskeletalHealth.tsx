@@ -63,7 +63,7 @@ export default function MusculoskeletalHealth() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Musculoskeletal Health</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-medium mb-6">Musculoskeletal Health: Back, Neck and Repetitive Strain</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">Musculoskeletal Health: Back, Neck and Repetitive Strain</h1>
             <AeoEnhancement route="/guides/musculoskeletal-health" />
 
       <AnswerBox question="What is musculoskeletal health and why does it matter?" reviewed="2026-06-22">
@@ -73,13 +73,13 @@ export default function MusculoskeletalHealth() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="what-is" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">1. What MSK dysfunction is and why it matters</h2>
+        <h2 className="text-2xl font-bold mb-4">1. What MSK dysfunction is and why it matters</h2>
         <p className="leading-relaxed mb-4">Musculoskeletal disorders include back and neck pain, repetitive strain injuries (RSI), tendinopathies, joint conditions and post-injury rehabilitation. They affect around 1 in 5 UK adults at any one time and account for over 30 million working days lost each year.</p>
         <p className="leading-relaxed">MSK health overlaps heavily with arthritis — many of the same exercise, weight and posture principles apply across both fields.</p>
       </section>
 
       <section id="symptoms-causes" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">2. Common symptoms and causes</h2>
+        <h2 className="text-2xl font-bold mb-4">2. Common symptoms and causes</h2>
         <p className="leading-relaxed mb-4">MSK symptoms vary by site but commonly include:</p>
         <ul className="list-disc pl-6 space-y-2 mb-4">
           <li><strong>Pain</strong> — aching, sharp, or a dull background ache that changes with movement or time of day</li>
@@ -94,7 +94,7 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="acute-chronic" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">3. Acute vs. chronic MSK conditions</h2>
+        <h2 className="text-2xl font-bold mb-4">3. Acute vs. chronic MSK conditions</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Acute (under 12 weeks):</strong> short-term, often follows a strain, sprain or flare. Relative rest, gradual return to movement and pain modulation are the priority.</li>
           <li><strong>Chronic (over 12 weeks):</strong> needs a structured rehabilitation plan — graded strength, mobility, pacing, sleep and stress strategies.</li>
@@ -102,26 +102,26 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="diagnosis" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">4. Diagnosis and assessment</h2>
+        <h2 className="text-2xl font-bold mb-4">4. Diagnosis and assessment</h2>
         <p className="leading-relaxed mb-4">Most MSK conditions are diagnosed through a clinical history and physical examination rather than imaging. A physiotherapist or GP will typically ask about the pattern of pain, what aggravates or eases it, any red-flag symptoms, and your work or activity demands, before testing movement, strength and specific joint signs.</p>
         <p className="leading-relaxed mb-4">Validated screening tools — such as the STarT Back Screening Tool for lower back pain — help clinicians judge whether simple advice, physiotherapy, or a more specialist pathway is the right next step. Our free <Link to="/self-assessment" className="text-primary underline">self-assessment tool</Link> can help you organise your symptoms and history ahead of an appointment, though it is educational and does not replace a clinical diagnosis.</p>
         <p className="leading-relaxed">Imaging (X-ray, ultrasound or MRI) is reserved for suspected fractures, red-flag symptoms, or when the result would change treatment — for example before considering injections or surgery.</p>
       </section>
 
       <section id="care" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">5. Physiotherapy, chiropractic care and sports massage</h2>
+        <h2 className="text-2xl font-bold mb-4">5. Physiotherapy, chiropractic care and sports massage</h2>
         <p className="leading-relaxed mb-4">Physiotherapy is the first-line, evidence-backed treatment for most MSK conditions. Chiropractic and osteopathic care may help in selected cases. Sports and remedial massage support recovery from soft-tissue injuries and tightness, but should sit alongside — not replace — active rehabilitation.</p>
         <p className="leading-relaxed">A good clinician will combine hands-on treatment with a progressive home exercise programme. Many UK healthcare areas now offer MSK physiotherapy self-referral — meaning you can book directly without a GP appointment first. Check your GP practice website or search "physiotherapy self-referral" plus your area on NHS.uk to see what's available locally.</p>
       </section>
 
       <section id="exercise-diet" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">6. Exercise and diet for MSK health</h2>
+        <h2 className="text-2xl font-bold mb-4">6. Exercise and diet for MSK health</h2>
         <p className="leading-relaxed mb-4">Movement — not rest — is the foundation of most MSK recovery plans. Graded strength training around the affected area, combined with general aerobic activity (walking, swimming or cycling), reduces pain and rebuilds capacity over time. Our <Link to="/exercises" className="text-primary underline">exercise hub</Link> has condition-specific routines to start from.</p>
         <p className="leading-relaxed">There's no single "MSK diet", but maintaining a healthy weight measurably reduces load on weight-bearing joints (hips, knees, lower back), and a Mediterranean-style eating pattern — vegetables, oily fish, whole grains, olive oil and legumes — is generally associated with lower systemic inflammation. See our <Link to="/diet" className="text-primary underline">diet &amp; nutrition hub</Link> for practical guidance.</p>
       </section>
 
       <section id="ergonomics" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">7. Workplace ergonomics and occupational assessment</h2>
+        <h2 className="text-2xl font-bold mb-4">7. Workplace ergonomics and occupational assessment</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Monitor at eye level, screen an arm&apos;s length away</li>
           <li>Elbows at ~90°, wrists neutral, feet flat or supported</li>
@@ -132,12 +132,12 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="home" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">8. Home solutions: insoles, taping and posture support</h2>
+        <h2 className="text-2xl font-bold mb-4">8. Home solutions: insoles, taping and posture support</h2>
         <p className="leading-relaxed">Off-the-shelf insoles, kinesiology tape, posture-reminder devices and lumbar cushions can help symptom control while you rehabilitate. They work best as part of a wider strength and movement programme — never as a standalone fix. For anything beyond simple, general supports, an occupational therapist or physiotherapist can match equipment to your specific needs — self-selecting specialist equipment without assessment can sometimes do more harm than good.</p>
       </section>
 
       <section id="msk-later-life" className="mb-12 bg-muted/30 p-6 rounded-lg">
-        <h2 className="text-2xl font-medium mb-4">9. MSK health in later life: frailty, sarcopenia and falls</h2>
+        <h2 className="text-2xl font-bold mb-4">9. MSK health in later life: frailty, sarcopenia and falls</h2>
         <p className="leading-relaxed mb-4">Muscle mass and bone density naturally decline with age, and joint tissue becomes less resilient to load — which is why musculoskeletal health overlaps so closely with frailty, sarcopenia (age-related muscle loss) and falls risk in later life. Strength and balance work that supports MSK recovery earlier in life is the same foundation that protects independence later on.</p>
         <p className="leading-relaxed mb-4">If MSK symptoms are appearing alongside general slowing down, reduced grip strength, or a fall or near-fall, it's worth looking at these related guides:</p>
         <ul className="list-disc pl-6 space-y-2">
@@ -150,7 +150,7 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="patients-look-for" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">MSK solutions patients commonly look for</h2>
+        <h2 className="text-2xl font-bold mb-4">MSK solutions patients commonly look for</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Private physiotherapy</strong> for faster assessment and treatment</li>
           <li><strong>Diagnostic imaging</strong> — ultrasound, MRI — when red flags or persistent symptoms warrant it</li>
@@ -163,7 +163,7 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
+        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/exercises" className="text-primary underline">Exercise hub</Link></li>
           <li><Link to="/diet" className="text-primary underline">Diet &amp; nutrition hub</Link></li>
@@ -180,10 +180,10 @@ export default function MusculoskeletalHealth() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
+            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

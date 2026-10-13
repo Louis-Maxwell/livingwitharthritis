@@ -184,7 +184,7 @@ const SearchPage = () => {
                       </span>
                     )}
                   </div>
-                  <h2 className="text-lg font-medium mb-1">
+                  <h2 className="text-lg font-semibold mb-1">
                     <Link to={item.href} className="hover:text-primary">
                       {item.title}
                     </Link>

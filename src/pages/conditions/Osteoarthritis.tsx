@@ -80,7 +80,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
         <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">{title}</h2>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
     <div className="prose prose-lg max-w-none text-foreground/85 prose-headings:font-display prose-headings:text-foreground prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-li:leading-relaxed prose-strong:text-foreground">
       {children}
@@ -145,7 +145,7 @@ const Osteoarthritis = () => (
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-5 leading-tight tracking-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               Osteoarthritis: UK symptoms, treatment and exercises
             </h1>
             <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
@@ -262,7 +262,7 @@ const Osteoarthritis = () => (
 
         {/* ─── Quick Self-Management Tips ─── */}
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-          <h3 className="font-display text-lg font-medium text-foreground mb-4">Daily Self-Care Checklist</h3>
+          <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <HighlightCard title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
             <HighlightCard title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
@@ -311,7 +311,7 @@ const Osteoarthritis = () => (
         <section className="mb-12" aria-labelledby="osteoarthritis-sources">
           <h2
             id="osteoarthritis-sources"
-            className="font-display text-2xl md:text-3xl font-medium text-foreground mb-5"
+            className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
           >
             Sources and further guidance
           </h2>
@@ -424,7 +424,7 @@ const Osteoarthritis = () => (
         />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-medium text-foreground mb-3">Need more support?</h2>
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
           <p className="text-muted-foreground mb-5">Explore our resources, start a chat, or book a virtual physiotherapy consultation.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">

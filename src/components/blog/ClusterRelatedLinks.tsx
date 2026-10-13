@@ -91,7 +91,7 @@ const ClusterRelatedLinks = ({
       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-1.5 inline-flex items-center gap-1.5">
         <Compass className="w-3.5 h-3.5" aria-hidden="true" /> {cluster.label}
       </p>
-      <h2 className="font-display text-xl md:text-2xl font-medium text-foreground mb-2">
+      <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
         Your reading journey
       </h2>
       <p className="text-sm md:text-base text-muted-foreground mb-5 max-w-2xl leading-relaxed">

@@ -103,7 +103,7 @@ const ExerciseJointPage = () => {
               <Dumbbell className="w-5 h-5" />
               <span className="text-sm font-medium">{page.exercise} • {page.joint} Arthritis</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {page.exercise} for {page.joint} Arthritis
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{page.intro}</p>
@@ -111,7 +111,7 @@ const ExerciseJointPage = () => {
 
           {/* Benefits */}
           <section className="mb-10">
-            <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-primary" /> Benefits of {page.exercise} for {page.joint} Arthritis
             </h2>
             <ul className="space-y-2">
@@ -126,14 +126,14 @@ const ExerciseJointPage = () => {
 
           {/* Exercises */}
           <section className="mb-10">
-            <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-primary" /> Recommended {page.joint} Exercises
             </h2>
             <div className="space-y-4">
               {page.instructions.map((instr, i) => (
                 <div key={i} id={`step-${i + 1}`} className="bg-card border border-border rounded-xl p-5">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-medium text-foreground">{i + 1}. {instr.name}</h3>
+                    <h3 className="font-semibold text-foreground">{i + 1}. {instr.name}</h3>
                     <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full whitespace-nowrap">{instr.reps}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">{instr.description}</p>
@@ -144,7 +144,7 @@ const ExerciseJointPage = () => {
 
           {/* Safety Tips */}
           <section className="mb-10">
-            <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-destructive" /> Safety Tips
             </h2>
             <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
@@ -160,7 +160,7 @@ const ExerciseJointPage = () => {
 
           {/* When to Avoid */}
           <section className="mb-10">
-            <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-destructive" /> When to Avoid {page.exercise}
             </h2>
             <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-5">
@@ -176,7 +176,7 @@ const ExerciseJointPage = () => {
 
           {/* Related Pages */}
           <section className="mb-10">
-            <h2 className="text-xl font-medium text-foreground mb-4">More {page.exercise} Guides</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">More {page.exercise} Guides</h2>
             <div className="flex flex-wrap gap-2 mb-6">
               {sameExercise.map((p) => (
                 <Link
@@ -189,7 +189,7 @@ const ExerciseJointPage = () => {
               ))}
             </div>
 
-            <h2 className="text-xl font-medium text-foreground mb-4">More {page.joint} Exercises</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">More {page.joint} Exercises</h2>
             <div className="flex flex-wrap gap-2">
               {sameJoint.map((p) => (
                 <Link

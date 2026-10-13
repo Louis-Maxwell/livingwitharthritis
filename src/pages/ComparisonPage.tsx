@@ -120,7 +120,7 @@ export default function ComparisonPage() {
               Compared, side-by-side
             </span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-4">{title}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{title}</h1>
           <AeoEnhancement
             route={path}
             question={aeoQuestion}
@@ -148,7 +148,7 @@ export default function ComparisonPage() {
                 key={opt.name}
                 className="rounded-2xl border border-border bg-white shadow-sm p-6"
               >
-                <h2 className="text-2xl font-medium mb-3">{opt.name}</h2>
+                <h2 className="text-2xl font-bold mb-3">{opt.name}</h2>
                 {"howItWorks" in opt ? (
                   <ul className="text-sm space-y-2">
                     <li><strong>How it works:</strong> {opt.howItWorks}</li>
@@ -171,7 +171,7 @@ export default function ComparisonPage() {
             <>
               {article.sections.map((s) => (
                 <section key={s.heading} className="mb-10">
-                  <h2 className="text-2xl font-medium mb-3">{s.heading}</h2>
+                  <h2 className="text-2xl font-bold mb-3">{s.heading}</h2>
                   {s.paragraphs.map((p, i) => (
                     <p key={i} className="text-base leading-relaxed mb-3 text-foreground/90">
                       {p}
@@ -181,7 +181,7 @@ export default function ComparisonPage() {
               ))}
 
               <section className="mb-12">
-                <h2 className="text-2xl font-medium mb-4">At a glance</h2>
+                <h2 className="text-2xl font-bold mb-4">At a glance</h2>
                 <div className="overflow-x-auto rounded-2xl border border-border">
                   <table className="w-full text-sm">
                     <thead className="bg-secondary/60">
@@ -205,7 +205,7 @@ export default function ComparisonPage() {
               </section>
 
               <section className="mb-12 rounded-2xl border border-border p-6 bg-primary/5">
-                <h2 className="text-xl font-medium mb-4">Key takeaways</h2>
+                <h2 className="text-xl font-bold mb-4">Key takeaways</h2>
                 <ul className="space-y-2">
                   {article.takeaways.map((t) => (
                     <li key={t} className="flex items-start gap-2 text-sm">
@@ -219,7 +219,7 @@ export default function ComparisonPage() {
           )}
 
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-12">
-            <h2 className="text-lg font-medium mb-2">Talk to your clinician</h2>
+            <h2 className="text-lg font-bold mb-2">Talk to your clinician</h2>
             <p className="text-sm text-muted-foreground">
               This is general information, not medical advice. Discuss {a} and {b} with
               your GP, rheumatology team or pharmacist before starting, stopping or
@@ -227,7 +227,7 @@ export default function ComparisonPage() {
             </p>
           </section>
 
-          <h2 className="text-xl font-medium mb-4">Other comparisons</h2>
+          <h2 className="text-xl font-bold mb-4">Other comparisons</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {others.map((r) => {
               const p = parseComparison(r.replace(/^\/guides\//, ""));

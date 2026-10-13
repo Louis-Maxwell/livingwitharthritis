@@ -46,7 +46,7 @@ const Unsubscribe = () => {
           {status === "valid" && (
             <>
               <MailX className="h-12 w-12 text-primary mx-auto" />
-              <h1 className="text-2xl font-medium text-foreground">Unsubscribe</h1>
+              <h1 className="text-2xl font-bold text-foreground">Unsubscribe</h1>
               <p className="text-muted-foreground">
                 Are you sure you want to unsubscribe from emails from Living With Arthritis?
               </p>
@@ -66,7 +66,7 @@ const Unsubscribe = () => {
           {status === "done" && (
             <>
               <CheckCircle2 className="h-12 w-12 text-primary mx-auto" />
-              <h2 className="text-2xl font-medium text-foreground">Unsubscribed</h2>
+              <h2 className="text-2xl font-bold text-foreground">Unsubscribed</h2>
               <p className="text-muted-foreground">
                 You've been successfully unsubscribed. You won't receive any more emails from us.
               </p>
@@ -76,7 +76,7 @@ const Unsubscribe = () => {
           {status === "already" && (
             <>
               <CheckCircle2 className="h-12 w-12 text-muted-foreground mx-auto" />
-              <h2 className="text-2xl font-medium text-foreground">Already Unsubscribed</h2>
+              <h2 className="text-2xl font-bold text-foreground">Already Unsubscribed</h2>
               <p className="text-muted-foreground">
                 This email address has already been unsubscribed.
               </p>
@@ -86,7 +86,7 @@ const Unsubscribe = () => {
           {(status === "invalid" || status === "error") && (
             <>
               <AlertCircle className="h-12 w-12 text-destructive mx-auto" />
-              <h2 className="text-2xl font-medium text-foreground">
+              <h2 className="text-2xl font-bold text-foreground">
                 {status === "invalid" ? "Invalid Link" : "Something Went Wrong"}
               </h2>
               <p className="text-muted-foreground">
@@ -102,7 +102,7 @@ const Unsubscribe = () => {
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
             Before you go
           </p>
-          <h2 className="font-display text-2xl font-medium text-foreground leading-tight">
+          <h2 className="font-display text-2xl font-bold text-foreground leading-tight">
             You can still keep Living With Arthritis without the emails
           </h2>
           <p className="text-muted-foreground leading-relaxed">

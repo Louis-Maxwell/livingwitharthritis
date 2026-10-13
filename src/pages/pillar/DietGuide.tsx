@@ -245,7 +245,7 @@ export default function DietGuide() {
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
           <section id="diet-guide-faq" className="mt-16 pt-8 border-t border-border/30">
-            <h2 className="font-display font-medium text-2xl mb-6">Frequently asked questions</h2>
+            <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion
               idPrefix="diet-guide-faq"
               items={DIET_GUIDE_FAQS}
@@ -253,7 +253,7 @@ export default function DietGuide() {
             />
           </section>
           <div className="mt-16 pt-8 border-t border-border/30">
-            <h3 className="font-display font-medium text-lg mb-4">Continue Reading</h3>
+            <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link to="/guides/exercise" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
                 <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>

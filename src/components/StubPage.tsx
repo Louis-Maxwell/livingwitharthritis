@@ -125,7 +125,7 @@ export default function StubPage({
 
           {/* Hero */}
           <header className="mb-8">
-            <h1 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-4">
+            <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">
               {title}
             </h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -154,7 +154,7 @@ export default function StubPage({
           <section aria-labelledby="faq-heading" className="my-12">
             <h2
               id="faq-heading"
-              className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6"
+              className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6"
             >
               Frequently asked questions
             </h2>
@@ -169,7 +169,7 @@ export default function StubPage({
 
             {relatedLinks.length > 0 && (
               <>
-                <h2 className="font-display text-xl font-medium text-foreground mb-4">
+                <h2 className="font-display text-xl font-bold text-foreground mb-4">
                   Related guides
                 </h2>
                 <ul role="list" className="grid sm:grid-cols-2 gap-3 list-none p-0 m-0">

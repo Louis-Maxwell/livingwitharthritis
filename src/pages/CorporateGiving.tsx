@@ -181,7 +181,7 @@ const CorporateGiving = () => {
                 <Handshake className="w-4 h-4" />
                 Corporate Partnerships
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-medium text-foreground mb-5 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-foreground mb-5 leading-tight">
                 Together, we can make a <span className="text-primary italic">bigger impact</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -223,7 +223,7 @@ const CorporateGiving = () => {
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-6 md:px-10 max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-display font-medium text-foreground mb-3">Partnership Tiers</h2>
+              <h2 className="text-3xl font-display font-bold text-foreground mb-3">Partnership Tiers</h2>
               <p className="text-muted-foreground max-w-lg mx-auto">
                 Choose the level that fits your organisation. Every tier includes meaningful impact and recognition.
               </p>
@@ -239,7 +239,7 @@ const CorporateGiving = () => {
                   className={`rounded-2xl border bg-gradient-to-b ${tier.color} p-6 flex flex-col`}
                 >
                   <Award className={`w-8 h-8 ${tier.icon} mb-3`} />
-                  <h3 className="text-lg font-medium text-foreground mb-1">{tier.name}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{tier.name}</h3>
                   <p className="text-sm font-semibold text-primary mb-4">{tier.amount}</p>
                   <ul className="space-y-2 flex-1">
                     {tier.benefits.map((b) => (
@@ -268,7 +268,7 @@ const CorporateGiving = () => {
         {/* Ways to Partner */}
         <section className="py-16 bg-accent/30">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-            <h2 className="text-3xl font-display font-medium text-foreground text-center mb-10">Ways to Partner</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground text-center mb-10">Ways to Partner</h2>
             <div className="grid sm:grid-cols-2 gap-5">
               {[
                 { title: "Matched Giving", desc: "Double your employees' charitable donations with a company-matched giving programme." },
@@ -286,7 +286,7 @@ const CorporateGiving = () => {
                   transition={{ delay: i * 0.05 }}
                   className="bg-card rounded-xl border border-border/40 p-5"
                 >
-                  <h3 className="font-medium text-foreground mb-1.5">{way.title}</h3>
+                  <h3 className="font-bold text-foreground mb-1.5">{way.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{way.desc}</p>
                 </motion.div>
               ))}
@@ -299,7 +299,7 @@ const CorporateGiving = () => {
           <div className="container mx-auto px-6 md:px-10 max-w-xl">
             <div className="text-center mb-10">
               <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h2 className="text-3xl font-display font-medium text-foreground mb-3">Get in Touch</h2>
+              <h2 className="text-3xl font-display font-bold text-foreground mb-3">Get in Touch</h2>
               <p className="text-muted-foreground">
                 Tell us about your organisation and we'll design a partnership that works for you.
               </p>

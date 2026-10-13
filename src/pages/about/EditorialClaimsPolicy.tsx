@@ -51,7 +51,7 @@ export default function EditorialClaimsPolicy() {
       <main id="main-content" className="container mx-auto max-w-3xl px-6 py-16 md:px-12 lg:py-24">
         <header className="mb-10">
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">About · Trust</p>
-          <h1 className="font-display mb-4 text-4xl font-medium text-foreground md:text-5xl">
+          <h1 className="font-display mb-4 text-4xl font-bold text-foreground md:text-5xl">
             Editorial claims policy
           </h1>
           <p className="text-lg leading-relaxed text-foreground/75">
@@ -61,7 +61,7 @@ export default function EditorialClaimsPolicy() {
         </header>
 
         <section className="mb-10 space-y-3 text-foreground/85">
-          <h2 className="font-display text-2xl font-medium">Source of truth</h2>
+          <h2 className="font-display text-2xl font-bold">Source of truth</h2>
           <p>
             Public content counts come from{" "}
             <code className="rounded bg-muted px-1.5 py-0.5 text-sm">CONTENT_INVENTORY</code>{" "}
@@ -78,7 +78,7 @@ export default function EditorialClaimsPolicy() {
         </section>
 
         <section className="mb-10 space-y-3 text-foreground/85">
-          <h2 className="font-display text-2xl font-medium">What we will not claim</h2>
+          <h2 className="font-display text-2xl font-bold">What we will not claim</h2>
           <ul className="list-disc space-y-2 pl-5">
             <li>Unverified “people supported”, “specialists on staff”, or session rates</li>
             <li>Fake or rounded-up visitor, pageview, or conversion statistics</li>
@@ -88,7 +88,7 @@ export default function EditorialClaimsPolicy() {
         </section>
 
         <section className="mb-10 space-y-3 text-foreground/85">
-          <h2 className="font-display text-2xl font-medium">Educational, not diagnostic</h2>
+          <h2 className="font-display text-2xl font-bold">Educational, not diagnostic</h2>
           <p>
             {CHARITY.shortName} (charity {CHARITY.number}) publishes plain-English UK education.
             Content is reviewed by an HCPC-registered physiotherapist where clinical claims appear.

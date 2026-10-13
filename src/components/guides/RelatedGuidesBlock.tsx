@@ -26,7 +26,7 @@ export default function RelatedGuidesBlock({
       className="border-t border-border bg-background"
     >
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <h2 className="mb-6 text-2xl font-medium text-foreground">
+        <h2 className="mb-6 text-2xl font-semibold text-foreground">
           {heading}
         </h2>
         <ul className="grid gap-4 md:grid-cols-3">
@@ -39,7 +39,7 @@ export default function RelatedGuidesBlock({
                 <span className="text-xs font-medium uppercase tracking-wide text-primary">
                   {clusterLabel(guide.cluster)}
                 </span>
-                <h3 className="mt-2 text-lg font-medium text-foreground">
+                <h3 className="mt-2 text-lg font-semibold text-foreground">
                   {guide.title}
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">

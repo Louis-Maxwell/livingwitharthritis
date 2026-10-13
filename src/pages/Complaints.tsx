@@ -34,21 +34,21 @@ export default function Complaints() {
               <MessageSquareWarning className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-medium text-foreground">Complaints Procedure</h1>
+              <h1 className="text-3xl font-bold text-foreground">Complaints Procedure</h1>
               <p className="text-sm text-muted-foreground">Last updated: March 2026</p>
             </div>
           </div>
 
           <div className="prose prose-sm dark:prose-invert max-w-none space-y-8">
             <section>
-              <h2 className="text-xl font-medium text-foreground">1. Our Commitment</h2>
+              <h2 className="text-xl font-semibold text-foreground">1. Our Commitment</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Living With Arthritis is committed to providing high-quality services and support. If something goes wrong, we want to know about it so we can put it right and learn from our mistakes. We treat all complaints seriously, fairly, and confidentially.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">2. What You Can Complain About</h2>
+              <h2 className="text-xl font-semibold text-foreground">2. What You Can Complain About</h2>
               <ul className="text-muted-foreground space-y-2">
                 <li>The quality or standard of our services</li>
                 <li>The behaviour or conduct of staff, volunteers, or trustees</li>
@@ -59,7 +59,7 @@ export default function Complaints() {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">3. How to Raise a Complaint</h2>
+              <h2 className="text-xl font-semibold text-foreground">3. How to Raise a Complaint</h2>
               <div className="bg-muted/30 border border-border/30 rounded-xl p-5 space-y-3">
                 <p className="text-muted-foreground text-sm">You can contact us by:</p>
                 <div className="space-y-2 text-sm">
@@ -74,7 +74,7 @@ export default function Complaints() {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">4. Our Process</h2>
+              <h2 className="text-xl font-semibold text-foreground">4. Our Process</h2>
               <div className="space-y-4">
                 {[
                   { step: "Step 1", title: "Acknowledgement", time: "Within 5 working days", desc: "We will acknowledge receipt of your complaint and assign a named person to investigate." },
@@ -87,7 +87,7 @@ export default function Complaints() {
                       <Clock className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-medium text-foreground">{item.step}: {item.title}</h3>
+                      <h3 className="text-sm font-semibold text-foreground">{item.step}: {item.title}</h3>
                       <p className="text-xs text-primary font-medium">{item.time}</p>
                       <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
                     </div>
@@ -97,7 +97,7 @@ export default function Complaints() {
             </section>
 
             <section>
-              <h2 className="text-xl font-medium text-foreground">5. External Escalation</h2>
+              <h2 className="text-xl font-semibold text-foreground">5. External Escalation</h2>
               <p className="text-muted-foreground leading-relaxed">
                 If you remain dissatisfied after completing our internal process, you may contact the {CHARITY.regulator} at{" "}
                 <a href="https://www.gov.uk/complain-about-charity" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">

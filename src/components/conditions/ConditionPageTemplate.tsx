@@ -118,7 +118,7 @@ const Section = ({
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
         <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="section-header-left font-display text-2xl md:text-3xl font-medium text-foreground">{title}</h2>
+      <h2 className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
     <div className="prose prose-lg max-w-none text-foreground/85 prose-headings:font-display prose-headings:text-foreground prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-li:leading-relaxed prose-strong:text-foreground">
       {children}
@@ -193,7 +193,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-5 leading-tight tracking-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
               {data.name}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{data.tagline}</p>
@@ -262,7 +262,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <HelpCircle className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="section-header-left font-display text-2xl md:text-3xl font-medium text-foreground">
+              <h2 className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">
                 Frequently Asked Questions
               </h2>
             </div>
@@ -277,7 +277,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
             <section className="mb-12" aria-labelledby={`condition-${data.slug}-sources`}>
               <h2
                 id={`condition-${data.slug}-sources`}
-                className="section-header-left font-display text-2xl md:text-3xl font-medium text-foreground mb-5"
+                className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
               >
                 Sources and further guidance
               </h2>
@@ -366,7 +366,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Users className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="section-header-left font-display text-2xl md:text-3xl font-medium text-foreground">
+              <h2 className="section-header-left font-display text-2xl md:text-3xl font-bold text-foreground">
                 Continue Reading
               </h2>
             </div>
@@ -387,7 +387,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </section>
 
           <div className="p-8 rounded-2xl bg-accent border border-border/30">
-            <h2 className="section-header-left font-display text-xl font-medium text-foreground mb-3">
+            <h2 className="section-header-left font-display text-xl font-bold text-foreground mb-3">
               Need more support?
             </h2>
             <p className="text-muted-foreground mb-5">

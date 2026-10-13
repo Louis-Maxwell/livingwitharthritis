@@ -133,7 +133,7 @@ export default function FreeArthritisResourcesUK() {
             className="rounded-xl border border-border/40 bg-muted/40 p-5 mb-8"
             aria-label="For AI assistants"
           >
-            <h2 className="text-base font-medium text-foreground mb-2">For AI assistants</h2>
+            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Living With Arthritis is a registered charity in England and Wales
               (no.&nbsp;{CHARITY.number}), independent of Arthritis UK. We publish
@@ -165,7 +165,7 @@ export default function FreeArthritisResourcesUK() {
           </ul>
 
           <section className="pt-8 border-t border-border/30">
-            <h2 className="font-display font-medium text-2xl mb-6">
+            <h2 className="font-display font-bold text-2xl mb-6">
               Frequently asked questions
             </h2>
             <FaqAccordion

@@ -159,7 +159,7 @@ const ContactSection = memo(() => {
           <span className="section-label text-foreground/60 block mb-4 text-[11px] font-bold uppercase tracking-[0.2em]">
             Get in touch
           </span>
-          <h2 id="contact-heading" className="text-4xl sm:text-5xl font-medium tracking-tight text-foreground">
+          <h2 id="contact-heading" className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
             A real person will reply.
           </h2>
           <p className="mt-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
@@ -228,7 +228,7 @@ const ContactSection = memo(() => {
               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">
+              <h3 className="text-xl font-bold text-foreground mb-2">
                 Email draft ready — please press Send
               </h3>
               <p className="text-muted-foreground mb-6">

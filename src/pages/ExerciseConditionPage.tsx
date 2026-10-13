@@ -155,7 +155,7 @@ const ExerciseConditionPage = () => {
               {jointName} Exercises • {cond.shortName}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {jointName} Exercises for {cond.name}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -165,7 +165,7 @@ const ExerciseConditionPage = () => {
 
         {/* Why these exercises work */}
         <section className="mb-10 bg-primary/5 rounded-xl p-6">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-3 flex items-center gap-2">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
             <CheckCircle className="w-5 h-5 text-primary" />
             Why these {jointName.toLowerCase()} exercises work for {cond.name.toLowerCase()}
           </h2>
@@ -185,7 +185,7 @@ const ExerciseConditionPage = () => {
 
         {/* Exercise picks */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4 flex items-center gap-2">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-primary" />
             Recommended {jointName.toLowerCase()} exercises
           </h2>
@@ -193,7 +193,7 @@ const ExerciseConditionPage = () => {
             {picks.map((p, i) => (
               <article key={p.slug} className="bg-card border border-border rounded-xl p-5">
                 <div className="flex justify-between items-start mb-2 gap-3">
-                  <h3 className="font-medium text-foreground">
+                  <h3 className="font-semibold text-foreground">
                     {i + 1}. {p.exercise} for the {p.joint.toLowerCase()}
                   </h3>
                   <Link
@@ -263,7 +263,7 @@ const ExerciseConditionPage = () => {
 
         {/* Sibling links — other joints for this condition */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             Exercises for other joints affected by {cond.name.toLowerCase()}
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -281,7 +281,7 @@ const ExerciseConditionPage = () => {
 
         {/* Sibling links — same joint, other conditions */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {jointName} exercises for other conditions
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -299,7 +299,7 @@ const ExerciseConditionPage = () => {
 
         {/* People Also Ask — FAQ */}
         <section className="mb-10">
-          <h2 className="section-header-left text-xl font-medium text-foreground mb-4">
+          <h2 className="section-header-left text-xl font-semibold text-foreground mb-4">
             {jointName} exercises for {cond.shortName} — People Also Ask
           </h2>
           <FaqAccordion

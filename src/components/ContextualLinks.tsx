@@ -49,7 +49,7 @@ export default function ContextualLinks({
       aria-label={heading}
       className={`mt-12 rounded-2xl border ${bg} p-6 md:p-8`}
     >
-      <h2 className="font-display text-xl md:text-2xl font-medium text-foreground mb-2">
+      <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
         {heading}
       </h2>
       {intro && (
@@ -61,7 +61,7 @@ export default function ContextualLinks({
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {groups.map((group) => (
           <div key={group.title}>
-            <h3 className="text-[11px] font-medium tracking-[0.18em] text-primary mb-3">
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary mb-3">
               {group.title}
             </h3>
             <ul className="space-y-2">

@@ -93,7 +93,7 @@ export default function ResourceCentre() {
             <section key={group.title} aria-labelledby={headingId}>
               <h2
                 id={headingId}
-                className="font-display text-xl md:text-2xl font-medium text-foreground mb-4"
+                className="font-display text-xl md:text-2xl font-bold text-foreground mb-4"
               >
                 {group.title}
               </h2>

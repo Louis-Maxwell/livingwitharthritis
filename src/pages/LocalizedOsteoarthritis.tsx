@@ -36,7 +36,7 @@ export default function LocalizedOsteoarthritis() {
             </Link>
           </Button>
 
-          <h1 className="text-4xl md:text-5xl font-medium mb-6">{oa.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{oa.title}</h1>
           <p className="text-lg text-muted-foreground mb-8">{oa.intro}</p>
 
           <div
@@ -48,7 +48,7 @@ export default function LocalizedOsteoarthritis() {
           </div>
 
           <section className="mb-10">
-            <h2 className="text-2xl font-medium mb-4">{oa.symptomsHeading}</h2>
+            <h2 className="text-2xl font-bold mb-4">{oa.symptomsHeading}</h2>
             <ul className="space-y-2">
               {oa.symptoms.map((s) => (
                 <li key={s} className="flex items-start gap-2">
@@ -60,7 +60,7 @@ export default function LocalizedOsteoarthritis() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-medium mb-4">{oa.managementHeading}</h2>
+            <h2 className="text-2xl font-bold mb-4">{oa.managementHeading}</h2>
             <ul className="space-y-2">
               {oa.management.map((m) => (
                 <li key={m} className="flex items-start gap-2">

@@ -155,14 +155,14 @@ export default function SeatedTaiChiForArthritis() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Who seated tai chi is for</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Who seated tai chi is for</h2>
             <p className="text-muted-foreground leading-relaxed">Seated tai chi keeps the flowing rhythm and breathing of standing practice — without loading painful joints or risking a fall.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {whoFor.map((b) => (
               <Card key={b.title} className="p-6 border border-border/40">
                 <div className="rounded-lg bg-primary/10 p-3 w-fit mb-4"><b.icon className="h-6 w-6 text-primary" /></div>
-                <h3 className="font-display text-lg font-medium mb-2">{b.title}</h3>
+                <h3 className="font-display text-lg font-semibold mb-2">{b.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{b.text}</p>
               </Card>
             ))}
@@ -175,7 +175,7 @@ export default function SeatedTaiChiForArthritis() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1000px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">13 minutes Â· 5 movements</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">The seated routine</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The seated routine</h2>
             <p className="text-muted-foreground leading-relaxed">Move through these in order, sitting on a sturdy chair. Breathe slowly through the nose throughout.</p>
           </div>
 
@@ -189,7 +189,7 @@ export default function SeatedTaiChiForArthritis() {
                       <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Clock className="h-4 w-4" />{m.duration}</div>
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-display text-xl md:text-2xl font-medium mb-3">{m.name}</h3>
+                      <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">{m.name}</h3>
                       <p className="text-foreground/90 leading-relaxed mb-3"><span className="font-medium text-foreground">How:</span> {m.how}</p>
                       <p className="text-sm text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Why it helps:</span> {m.why}</p>
                     </div>
@@ -204,7 +204,7 @@ export default function SeatedTaiChiForArthritis() {
       {/* Safety */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-6">Stay safe</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-6">Stay safe</h2>
           <ul className="space-y-3">
             {safety.map((s) => (
               <li key={s} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
@@ -219,7 +219,7 @@ export default function SeatedTaiChiForArthritis() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">Seated Tai Chi: FAQs</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">Seated Tai Chi: FAQs</h2>
           <FaqAccordion
             idPrefix="seated-tai-chi-faq"
             items={faqs.map((f) => ({ question: f.q, answer: f.a }))}

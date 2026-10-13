@@ -55,7 +55,7 @@ export default function FrailtyManagementHub() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Frailty Management</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-medium mb-6">Frailty &amp; Arthritis: A Complete Management Hub</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">Frailty &amp; Arthritis: A Complete Management Hub</h1>
             <AeoEnhancement route="/guides/frailty-management-hub" />
 
       <AnswerBox question="What is frailty and can it be reversed?" reviewed="2026-06-21">
@@ -65,13 +65,13 @@ export default function FrailtyManagementHub() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="what-is" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">1. What is frailty and how does it connect to arthritis?</h2>
+        <h2 className="text-2xl font-bold mb-4">1. What is frailty and how does it connect to arthritis?</h2>
         <p className="mb-4 leading-relaxed">Frailty is a clinical syndrome of reduced reserve across multiple body systems — muscle, bone, balance, cognition and immunity. Adults with arthritis are at higher risk because chronic pain reduces activity, accelerating muscle loss (sarcopenia) and balance decline.</p>
         <p className="leading-relaxed">Around 10% of people aged 65+ in the UK are living with frailty, rising to 25–50% over 85. The Clinical Frailty Scale, gait speed and grip strength help clinicians identify who is pre-frail or frail.</p>
       </section>
 
       <section id="pillars" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">2. The five pillars of frailty prevention</h2>
+        <h2 className="text-2xl font-bold mb-4">2. The five pillars of frailty prevention</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Strength:</strong> progressive resistance training 2–3 times per week.</li>
           <li><strong>Nutrition:</strong> 1.0–1.2 g/kg protein/day plus vitamin D, calcium and adequate calories.</li>
@@ -82,19 +82,19 @@ export default function FrailtyManagementHub() {
       </section>
 
       <section id="exercise" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">3. Exercise for frailty: safe progressions</h2>
+        <h2 className="text-2xl font-bold mb-4">3. Exercise for frailty: safe progressions</h2>
         <p className="mb-4 leading-relaxed">Start seated. Sit-to-stand from a chair (aim for 10–15 reps), heel raises, knee extensions with ankle weights, and resistance band rows build the legs and trunk safely. Add balance work — single-leg standing at a counter — once strength returns.</p>
         <p className="leading-relaxed">See our <Link to="/exercises" className="text-primary underline">exercise hub</Link> for progressions.</p>
       </section>
 
       <section id="nutrition" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">4. Nutrition strategies for muscle preservation</h2>
+        <h2 className="text-2xl font-bold mb-4">4. Nutrition strategies for muscle preservation</h2>
         <p className="mb-4 leading-relaxed">Spread protein across meals: 25–30 g per meal triggers muscle protein synthesis better than one large serving. Sources include eggs, Greek yoghurt, fish, lean meat, beans and tofu. Pair with vitamin D (10 Âµg/day October–March, UK healthcare guidance) and adequate calories.</p>
         <p className="leading-relaxed">Read our <Link to="/diet" className="text-primary underline">diet hub</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
       </section>
 
       <section id="help" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">5. When to ask for help: red flags and support services</h2>
+        <h2 className="text-2xl font-bold mb-4">5. When to ask for help: red flags and support services</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Unintentional weight loss greater than 5% in 12 months</li>
           <li>More than one fall in 12 months</li>
@@ -106,10 +106,10 @@ export default function FrailtyManagementHub() {
       </section>
 
       <section id="family-focus" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">6. What families are looking for</h2>
+        <h2 className="text-2xl font-bold mb-4">6. What families are looking for</h2>
         <p className="mb-4 leading-relaxed">Many adult children begin researching frailty after a parent has a fall, loses weight or struggles with day-to-day tasks. The most effective interventions are preventative rather than reactive — nutritional support, balance and strength work, home safety changes and assistive technology — and the earlier they start, the better the outcome.</p>
         <p className="leading-relaxed mb-4">A community geriatric or occupational therapy assessment is the highest-value starting point: it pulls together the medical, functional and home-environment picture and signposts the right combination of services and equipment.</p>
-        <h3 className="text-xl font-medium mt-6 mb-3">Common frailty solutions</h3>
+        <h3 className="text-xl font-bold mt-6 mb-3">Common frailty solutions</h3>
         <ul className="list-disc pl-6 space-y-2">
           <li>High-protein supplements and fortified foods to counter sarcopenia</li>
           <li>Vitamin D and other targeted nutritional intervention</li>
@@ -122,7 +122,7 @@ export default function FrailtyManagementHub() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
+        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/sarcopenia-muscle-loss" className="text-primary underline">Sarcopenia &amp; muscle loss</Link></li>
           <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Fall prevention for older adults</Link></li>
@@ -132,10 +132,10 @@ export default function FrailtyManagementHub() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
+            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

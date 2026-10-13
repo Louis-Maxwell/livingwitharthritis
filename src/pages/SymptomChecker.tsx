@@ -142,7 +142,7 @@ export default function SymptomChecker() {
           </section>
 
           <section className="mt-14" aria-labelledby="faq-heading">
-            <h2 id="faq-heading" className="font-display text-2xl font-medium text-foreground mb-4">
+            <h2 id="faq-heading" className="font-display text-2xl font-bold text-foreground mb-4">
               Symptom checker FAQs
             </h2>
             <Accordion type="single" collapsible className="w-full">

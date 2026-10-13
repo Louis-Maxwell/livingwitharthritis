@@ -399,7 +399,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <section aria-labelledby="continue-heading" className="mb-8 max-w-3xl">
               <h2
                 id="continue-heading"
-                className="flex items-center gap-2 font-display text-base font-medium text-foreground mb-3"
+                className="flex items-center gap-2 font-display text-base font-semibold text-foreground mb-3"
               >
                 <BookOpen className="w-4 h-4 text-primary" aria-hidden="true" /> Continue reading
               </h2>
@@ -414,7 +414,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             className="scroll-mt-24 mb-10 rounded-2xl border border-border/60 bg-card p-4 sm:p-5 dark:border-border/70"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <h2 id="find-heading" className="font-display text-base font-medium text-foreground">
+              <h2 id="find-heading" className="font-display text-base font-semibold text-foreground">
                 Find a guide
               </h2>
               {hasActiveFilters && (
@@ -580,7 +580,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           {/* Editor's picks — lead card spans two columns on md+ */}
           {showDiscovery && featuredPosts.length > 0 && (
             <section aria-labelledby="featured-heading" className="mb-14">
-              <h2 id="featured-heading" className="font-display text-xl md:text-2xl font-medium text-foreground mb-5">
+              <h2 id="featured-heading" className="font-display text-xl md:text-2xl font-bold text-foreground mb-5">
                 Editor&rsquo;s picks
               </h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -603,7 +603,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             <section aria-labelledby="saved-heading" className="mb-14">
               <h2
                 id="saved-heading"
-                className="flex items-center gap-2 font-display text-xl md:text-2xl font-medium text-foreground mb-5"
+                className="flex items-center gap-2 font-display text-xl md:text-2xl font-bold text-foreground mb-5"
               >
                 <Bookmark className="w-5 h-5 text-primary" aria-hidden="true" /> Saved on this device
               </h2>
@@ -616,7 +616,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           )}
 
           <section aria-labelledby="all-heading">
-            <h2 id="all-heading" className="font-display text-xl md:text-2xl font-medium text-foreground mb-5">
+            <h2 id="all-heading" className="font-display text-xl md:text-2xl font-bold text-foreground mb-5">
               {activeCategory === "All" ? "All guides" : `${activeCategory} guides`}
             </h2>
 
@@ -715,7 +715,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           {showDiscovery && recentlyUpdated.length > 0 && (
             <section aria-labelledby="updated-heading" className="mt-16">
               <div className="mb-4 flex items-baseline justify-between gap-3">
-                <h2 id="updated-heading" className="font-display text-xl md:text-2xl font-medium text-foreground">
+                <h2 id="updated-heading" className="font-display text-xl md:text-2xl font-bold text-foreground">
                   Recently updated
                 </h2>
                 <button
@@ -752,12 +752,12 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
           {/* Explore — topic hubs, pillar journeys and categories as calm link lists */}
           <section aria-labelledby="explore-heading" className="mt-16 border-t border-border/50 pt-12">
-            <h2 id="explore-heading" className="font-display text-xl md:text-2xl font-medium text-foreground mb-8">
+            <h2 id="explore-heading" className="font-display text-xl md:text-2xl font-bold text-foreground mb-8">
               Explore by topic
             </h2>
             <div className="grid gap-10 md:grid-cols-3">
               <nav aria-label="Browse by category">
-                <h3 className="mb-3 text-sm font-medium tracking-wider text-muted-foreground">
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   Blog categories
                 </h3>
                 <ul className="space-y-1">
@@ -786,7 +786,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </nav>
 
               <nav aria-label="Browse arthritis topics">
-                <h3 className="mb-3 text-sm font-medium tracking-wider text-muted-foreground">
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   Topic hubs
                 </h3>
                 <ul className="space-y-1">
@@ -807,7 +807,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               <nav aria-labelledby="journeys-heading">
                 <h3
                   id="journeys-heading"
-                  className="mb-3 text-sm font-medium tracking-wider text-muted-foreground"
+                  className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground"
                 >
                   Editor journeys
                 </h3>

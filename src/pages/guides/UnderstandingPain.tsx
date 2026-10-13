@@ -188,7 +188,7 @@ const Section = ({
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
         <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">{title}</h2>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
     </div>
     <div className="prose prose-lg max-w-none text-foreground/85 prose-headings:font-display prose-headings:text-foreground prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-li:leading-relaxed prose-strong:text-foreground">
       {children}
@@ -242,7 +242,7 @@ const UnderstandingPain = () => (
           <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
             <Brain className="w-3 h-3" /> Pain education
           </span>
-          <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-5 leading-tight tracking-tight">
+          <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
             Understanding Pain
           </h1>
           <AeoEnhancement route={PATH} />
@@ -438,7 +438,7 @@ const UnderstandingPain = () => (
         </Section>
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30 mb-10">
-          <h2 className="font-display text-xl font-medium text-foreground mb-3">Next steps on Living With Arthritis</h2>
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">Next steps on Living With Arthritis</h2>
           <p className="text-muted-foreground mb-5">
             Put this explanation to work with practical relief ideas, flare plans and movement guidance — then talk any lasting pain through with your GP.
           </p>

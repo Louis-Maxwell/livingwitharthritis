@@ -33,7 +33,7 @@ export default function AnswerBox({
       itemType="https://schema.org/Question"
     >
       <h2
-        className="text-lg font-medium text-foreground mb-2"
+        className="text-lg font-semibold text-foreground mb-2"
         itemProp="name"
       >
         {question}

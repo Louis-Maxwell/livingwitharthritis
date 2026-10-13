@@ -63,7 +63,7 @@ const DonationSuccess = () => {
               </div>
 
               <div className="space-y-2">
-                <h1 className="text-3xl font-medium text-foreground">Thank You!</h1>
+                <h1 className="text-3xl font-bold text-foreground">Thank You!</h1>
                 <p className="text-lg text-muted-foreground">
                   Your generous donation has been received. Every contribution helps us support people living with arthritis across the UK.
                 </p>
@@ -98,7 +98,7 @@ const DonationSuccess = () => {
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-3xl font-medium text-foreground">Donation Cancelled</h2>
+                <h2 className="text-3xl font-bold text-foreground">Donation Cancelled</h2>
                 <p className="text-lg text-muted-foreground">
                   No worries — your payment was not processed. You can try again anytime, or explore other ways to support our work.
                 </p>

@@ -16,7 +16,7 @@ export default function ConditionSubpageLinks({ conditionSlug, conditionName }: 
 
   return (
     <section className="my-12 p-6 md:p-8 rounded-2xl bg-card border border-border" aria-label={`${conditionName} guide sections`}>
-      <h2 className="font-display text-xl md:text-2xl font-medium text-foreground mb-2">
+      <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
         Explore the full {conditionName} guide
       </h2>
       <p className="text-sm text-muted-foreground mb-5">

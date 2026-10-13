@@ -55,7 +55,7 @@ export default function BlogComments({ slug }: { slug: string }) {
 
   return (
     <section className="mt-14 border-t border-border pt-10">
-      <h2 className="font-display text-2xl font-medium text-foreground mb-6 flex items-center gap-2">
+      <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
         <MessageSquare className="w-5 h-5 text-primary" />
         Comments
       </h2>

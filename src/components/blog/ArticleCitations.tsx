@@ -20,7 +20,7 @@ export default function ArticleCitations({ citations = [], title = "Sources & Re
     >
       <h2
         id="article-sources-heading"
-        className="font-display text-xl md:text-2xl font-medium text-foreground mb-4"
+        className="font-display text-xl md:text-2xl font-bold text-foreground mb-4"
       >
         {title}
       </h2>

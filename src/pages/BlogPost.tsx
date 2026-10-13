@@ -514,7 +514,7 @@ const BlogPost = () => {
               </div>
 
 
-              <h1 itemProp="headline" className="font-display text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-medium text-foreground leading-[1.15] tracking-tight mb-4 break-words text-balance">
+              <h1 itemProp="headline" className="font-display text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-4 break-words text-balance">
                 {article.title}
               </h1>
 

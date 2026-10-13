@@ -182,7 +182,7 @@ export default function TaiChiForBalance() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Why tai chi, for arthritis?</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Why tai chi, for arthritis?</h2>
             <p className="text-muted-foreground leading-relaxed">Tai chi is a 700-year-old practice of slow, weight-shifted movement. For people with arthritis, four mechanisms make it unusually effective.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -191,7 +191,7 @@ export default function TaiChiForBalance() {
                 <div className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-3 shrink-0"><b.icon className="h-6 w-6 text-primary" /></div>
                   <div>
-                    <h3 className="font-display text-xl font-medium mb-2">{b.title}</h3>
+                    <h3 className="font-display text-xl font-semibold mb-2">{b.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{b.text}</p>
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function TaiChiForBalance() {
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">15 minutes · 5 movements</Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">The beginner routine</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The beginner routine</h2>
             <p className="text-muted-foreground leading-relaxed">Move through these in order. Each posture has an animated demonstration on the right — follow the figure at your own pace. Breathe slowly through the nose throughout.</p>
           </div>
 
@@ -223,7 +223,7 @@ export default function TaiChiForBalance() {
                         <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Clock className="h-4 w-4" />{m.duration}</div>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="font-display text-xl md:text-2xl font-medium mb-3">{m.name}</h3>
+                        <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">{m.name}</h3>
                         <p className="text-foreground/90 leading-relaxed mb-3"><span className="font-medium text-foreground">How:</span> {m.how}</p>
                         <p className="text-sm text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Why it helps:</span> {m.why}</p>
                       </div>
@@ -258,7 +258,7 @@ export default function TaiChiForBalance() {
             <div className="flex items-start gap-3">
               <AlertTriangle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-medium mb-1">When to stop</h4>
+                <h4 className="font-semibold mb-1">When to stop</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">Stop if you feel sharp joint pain, dizziness, or chest discomfort. Mild muscle fatigue the next day is normal; sharp pain is not. If symptoms persist beyond 24 hours, scale back the range of motion or consult your GP or physiotherapist.</p>
               </div>
             </div>
@@ -270,7 +270,7 @@ export default function TaiChiForBalance() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">The evidence base</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">The evidence base</h2>
             <p className="text-muted-foreground leading-relaxed">Tai chi is one of the most-studied complementary movement therapies. A summary of the strongest UK and international research:</p>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
@@ -292,7 +292,7 @@ export default function TaiChiForBalance() {
       {/* 8-week plan */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-3">An 8-week build-up</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-3">An 8-week build-up</h2>
           <p className="text-muted-foreground leading-relaxed mb-10 max-w-2xl">A realistic ramp from "never tried it" to a sustainable habit. Adjust to how you feel — progress is not linear with arthritis.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
@@ -313,11 +313,11 @@ export default function TaiChiForBalance() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-10">Common questions</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-10">Common questions</h2>
           <div className="space-y-5 max-w-3xl">
             {faqs.map((f) => (
               <Card key={f.q} className="p-6 border border-border/40">
-                <h3 className="font-display text-lg font-medium mb-2">{f.q}</h3>
+                <h3 className="font-display text-lg font-semibold mb-2">{f.q}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.a}</p>
               </Card>
             ))}
@@ -328,7 +328,7 @@ export default function TaiChiForBalance() {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px] text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">Build a routine that fits your joints</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">Build a routine that fits your joints</h2>
           <p className="text-primary-foreground max-w-2xl mx-auto mb-8 leading-relaxed">Combine tai chi with our other arthritis-friendly programmes — strength, mobility, and anti-inflammatory eating.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button asChild size="lg" variant="secondary"><Link to="/exercises">All exercises</Link></Button>

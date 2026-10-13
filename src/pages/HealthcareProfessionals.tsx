@@ -66,7 +66,7 @@ export default function HealthcareProfessionals() {
         >
           <h2
             id="hcp-clinic-heading"
-            className="font-display text-2xl font-medium text-foreground mb-4"
+            className="font-display text-2xl font-bold text-foreground mb-4"
           >
             Clinic materials
           </h2>
@@ -94,7 +94,7 @@ export default function HealthcareProfessionals() {
           <div className="container mx-auto max-w-4xl px-6 md:px-10">
             <h2
               id="hcp-share-heading"
-              className="font-display text-2xl font-medium text-foreground mb-2"
+              className="font-display text-2xl font-bold text-foreground mb-2"
             >
               Shareable patient pages
             </h2>
@@ -123,7 +123,7 @@ export default function HealthcareProfessionals() {
         >
           <h2
             id="hcp-contact-heading"
-            className="font-display text-2xl font-medium text-foreground mb-3"
+            className="font-display text-2xl font-bold text-foreground mb-3"
           >
             Talks, clinics and feedback
           </h2>

@@ -91,15 +91,15 @@ const SelfAssessment = () => {
                 </div>
                 <p className="text-base leading-relaxed">{result.recommendations.summary}</p>
 
-                <h2 className="font-serif text-2xl font-medium pt-2">Your recommendations</h2>
+                <h2 className="font-serif text-2xl font-semibold pt-2">Your recommendations</h2>
 
                 <div>
-                  <h3 className="font-medium mb-2">Suggested physiotherapy</h3>
+                  <h3 className="font-semibold mb-2">Suggested physiotherapy</h3>
                   <p className="text-muted-foreground">{result.recommendations.physioSessions}</p>
                 </div>
 
                 <div>
-                  <h3 className="font-medium mb-2">Focus areas</h3>
+                  <h3 className="font-semibold mb-2">Focus areas</h3>
                   <ul className="list-disc list-inside text-muted-foreground space-y-1">
                     {result.recommendations.focusAreas.map((f) => <li key={f}>{f}</li>)}
                   </ul>
@@ -107,7 +107,7 @@ const SelfAssessment = () => {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="font-medium mb-2">Exercises for you</h3>
+                    <h3 className="font-semibold mb-2">Exercises for you</h3>
                     <ul className="space-y-1">
                       {result.recommendations.exercises.map((e) => (
                         <li key={e.href}>
@@ -119,7 +119,7 @@ const SelfAssessment = () => {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-medium mb-2">Resources</h3>
+                    <h3 className="font-semibold mb-2">Resources</h3>
                     <ul className="space-y-1">
                       {result.recommendations.resources.map((r) => (
                         <li key={r.href}>

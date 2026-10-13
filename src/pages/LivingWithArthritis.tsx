@@ -50,7 +50,7 @@ export default function LivingWithArthritis() {
         keywords="living with arthritis, arthritis management, arthritis guide UK"
       />
 
-      <h1 className="text-4xl md:text-5xl font-medium mb-6">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">
         Living With Arthritis: A Complete Guide
       </h1>
 
@@ -63,7 +63,7 @@ export default function LivingWithArthritis() {
 
 
       <nav aria-label="Table of contents" className="bg-muted p-6 rounded-lg mb-10 border-l-4 border-primary">
-        <h2 className="font-medium text-lg mb-4">In this guide</h2>
+        <h2 className="font-bold text-lg mb-4">In this guide</h2>
         <ul className="space-y-2 md:columns-2">
           <li><a href="#what-is" className="text-primary hover:underline">What is arthritis?</a></li>
           <li><a href="#types" className="text-primary hover:underline">Types of arthritis</a></li>
@@ -79,7 +79,7 @@ export default function LivingWithArthritis() {
       </nav>
 
       <section id="what-is" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">What is arthritis?</h2>
+        <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
         <p className="mb-4 leading-relaxed">
           Arthritis is inflammation of one or more joints. It affects the cartilage
           (the smooth tissue that covers the ends of bones), causing pain, stiffness
@@ -97,9 +97,9 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="types" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Types of arthritis</h2>
+        <h2 className="text-2xl font-bold mb-4">Types of arthritis</h2>
 
-        <h3 className="text-xl font-medium mb-2 mt-6">
+        <h3 className="text-xl font-bold mb-2 mt-6">
           <Link to="/conditions/osteoarthritis" className="text-primary hover:underline">Osteoarthritis (OA)</Link>
         </h3>
         <p className="leading-relaxed mb-4">
@@ -112,7 +112,7 @@ export default function LivingWithArthritis() {
           </Link>.
         </p>
 
-        <h3 className="text-xl font-medium mb-2 mt-6">
+        <h3 className="text-xl font-bold mb-2 mt-6">
           <Link to="/conditions/rheumatoid-arthritis" className="text-primary hover:underline">Rheumatoid Arthritis (RA)</Link>
         </h3>
         <p className="leading-relaxed mb-4">
@@ -124,7 +124,7 @@ export default function LivingWithArthritis() {
           </Link>.
         </p>
 
-        <h3 className="text-xl font-medium mb-2 mt-6">
+        <h3 className="text-xl font-bold mb-2 mt-6">
           <Link to="/conditions/juvenile-arthritis" className="text-primary hover:underline">Juvenile Arthritis (JA)</Link>
         </h3>
         <p className="leading-relaxed mb-4">
@@ -135,7 +135,7 @@ export default function LivingWithArthritis() {
           </Link>.
         </p>
 
-        <h3 className="text-xl font-medium mb-2 mt-6">Other types</h3>
+        <h3 className="text-xl font-bold mb-2 mt-6">Other types</h3>
         <p className="leading-relaxed">
           <Link to="/conditions/psoriatic-arthritis" className="text-primary hover:underline">Psoriatic arthritis</Link>,{' '}
           <Link to="/conditions/ankylosing-spondylitis" className="text-primary hover:underline">ankylosing spondylitis</Link>,{' '}
@@ -147,7 +147,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="symptoms" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Symptoms & diagnosis</h2>
+        <h2 className="text-2xl font-bold mb-4">Symptoms & diagnosis</h2>
         <p className="mb-4 leading-relaxed">
           Arthritis symptoms vary depending on the type and which joints are affected.
           However, some symptoms are common across most types:
@@ -168,20 +168,20 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="management" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Management strategies</h2>
+        <h2 className="text-2xl font-bold mb-4">Management strategies</h2>
         <p className="mb-4 leading-relaxed">
           Living well with arthritis requires a multi-pronged approach. No single
           strategy works for everyone, so it's about finding what works for you.
         </p>
 
-        <h3 className="text-xl font-medium mb-2 mt-4">Medical management</h3>
+        <h3 className="text-xl font-bold mb-2 mt-4">Medical management</h3>
         <ul className="list-disc list-inside space-y-1 mb-4 ml-4">
           <li>Medications (painkillers, anti-inflammatories, DMARDs)</li>
           <li>Injections (corticosteroids, biologics)</li>
           <li>Regular monitoring with your GP or rheumatologist</li>
         </ul>
 
-        <h3 className="text-xl font-medium mb-2 mt-4">Exercise & movement</h3>
+        <h3 className="text-xl font-bold mb-2 mt-4">Exercise & movement</h3>
         <ul className="list-disc list-inside space-y-1 mb-4 ml-4">
           <li>Gentle range-of-motion exercises to maintain flexibility</li>
           <li>Strengthening routines to support joints</li>
@@ -189,7 +189,7 @@ export default function LivingWithArthritis() {
           <li>Physiotherapy guidance tailored to your needs</li>
         </ul>
 
-        <h3 className="text-xl font-medium mb-2 mt-4">Lifestyle changes</h3>
+        <h3 className="text-xl font-bold mb-2 mt-4">Lifestyle changes</h3>
         <ul className="list-disc list-inside space-y-1 mb-4 ml-4">
           <li>Weight management (reduces joint stress)</li>
           <li>Heat and cold therapy for pain relief</li>
@@ -199,7 +199,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="exercises" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Exercise & movement</h2>
+        <h2 className="text-2xl font-bold mb-4">Exercise & movement</h2>
         <p className="mb-4 leading-relaxed">
           Exercise is one of the most powerful tools for managing arthritis. Regular
           movement reduces pain, improves mobility, strengthens muscles around joints
@@ -223,7 +223,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="diet" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Diet & nutrition</h2>
+        <h2 className="text-2xl font-bold mb-4">Diet & nutrition</h2>
         <p className="mb-4 leading-relaxed">
           What you eat can influence arthritis symptoms. Some foods reduce inflammation;
           others may trigger flares. While diet alone can't cure arthritis, it plays an
@@ -246,7 +246,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="mental" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Mental health & emotional wellbeing</h2>
+        <h2 className="text-2xl font-bold mb-4">Mental health & emotional wellbeing</h2>
         <p className="mb-4 leading-relaxed">
           Living with chronic arthritis affects not just the body but also mental
           health. Persistent pain, fatigue and lifestyle limitations can lead to
@@ -268,7 +268,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="work" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Work & employment rights</h2>
+        <h2 className="text-2xl font-bold mb-4">Work & employment rights</h2>
         <p className="mb-4 leading-relaxed">
           Many people with arthritis continue to work and have fulfilling careers. The
           Equality Act 2010 protects disabled workers in the UK, including those with
@@ -289,7 +289,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="benefits" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Benefits & financial support</h2>
+        <h2 className="text-2xl font-bold mb-4">Benefits & financial support</h2>
         <p className="mb-4 leading-relaxed">
           If arthritis affects your ability to work or care for yourself, you may be
           eligible for government benefits.
@@ -308,10 +308,10 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="living-well" className="mb-12">
-        <h2 className="text-2xl font-medium mb-4">Living Well with Arthritis: Practical Strategies for Independence</h2>
+        <h2 className="text-2xl font-bold mb-4">Living Well with Arthritis: Practical Strategies for Independence</h2>
         <p className="leading-relaxed mb-4">Living well with arthritis is about working with your joints rather than against them. The strategies that make the biggest day-to-day difference combine gentle, consistent movement, joint-protection techniques, an anti-inflammatory eating pattern, good sleep, and the right supportive equipment. Many people find that small adaptations — a kettle tipper, a long-handled shoehorn, a raised toilet seat — make the difference between struggling and staying independent.</p>
         <p className="leading-relaxed mb-4">An occupational therapy assessment is often the single most valuable step: a clinician will review your home, your routines and your goals, then recommend specific equipment, adaptations and pacing strategies tailored to your needs.</p>
-        <h3 className="text-xl font-medium mt-6 mb-3">Essential Adaptive Equipment</h3>
+        <h3 className="text-xl font-bold mt-6 mb-3">Essential Adaptive Equipment</h3>
         <ul className="list-disc list-inside space-y-2 ml-4">
           <li><strong>Kitchen tools:</strong> ergonomic utensils, jar openers, kettle tippers, reachers and lightweight pans</li>
           <li><strong>Clothing aids:</strong> magnetic buttons, Velcro closures, long-handled shoehorns, dressing sticks</li>
@@ -324,31 +324,31 @@ export default function LivingWithArthritis() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         <div className="space-y-6">
           <div>
-            <h3 className="text-lg font-medium mb-2">Can arthritis be cured?</h3>
+            <h3 className="text-lg font-bold mb-2">Can arthritis be cured?</h3>
             <p className="leading-relaxed">
               Most types of arthritis cannot be cured, but symptoms can be effectively
               managed with the right combination of treatment and lifestyle changes.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-medium mb-2">Is arthritis only for older people?</h3>
+            <h3 className="text-lg font-bold mb-2">Is arthritis only for older people?</h3>
             <p className="leading-relaxed">
               No. Arthritis can affect people of any age, including children with
               juvenile arthritis.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-medium mb-2">Can exercise make arthritis worse?</h3>
+            <h3 className="text-lg font-bold mb-2">Can exercise make arthritis worse?</h3>
             <p className="leading-relaxed">
               Gentle, appropriate exercise almost always helps. Start slowly and listen
               to your body. A physiotherapist can design a safe programme for you.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-medium mb-2">Can I have a normal life with arthritis?</h3>
+            <h3 className="text-lg font-bold mb-2">Can I have a normal life with arthritis?</h3>
             <p className="leading-relaxed">
               Yes. Many people with arthritis work, exercise, travel and pursue hobbies.
             </p>
@@ -357,7 +357,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section className="bg-muted p-6 rounded-lg mb-12">
-        <h2 className="text-2xl font-medium mb-4">Related articles</h2>
+        <h2 className="text-2xl font-bold mb-4">Related articles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <Link to="/conditions/osteoarthritis" className="text-primary hover:underline font-semibold">→ Osteoarthritis guide</Link>
           <Link to="/conditions/rheumatoid-arthritis" className="text-primary hover:underline font-semibold">→ Rheumatoid arthritis guide</Link>
@@ -369,7 +369,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section className="bg-primary text-primary-foreground p-8 rounded-lg text-center">
-        <h2 className="text-2xl font-medium mb-4 text-primary-foreground">Get weekly arthritis tips</h2>
+        <h2 className="text-2xl font-bold mb-4 text-primary-foreground">Get weekly arthritis tips</h2>
         <p className="mb-6 text-lg text-primary-foreground">
           Join thousands of people living well with arthritis. Evidence-based tips,
           exercises and support delivered to your inbox.

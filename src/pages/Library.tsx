@@ -154,7 +154,7 @@ const Library = () => {
                       >
                         {topic.category}
                       </Badge>
-                      <h2 className="font-serif text-xl font-medium mb-2 text-foreground group-hover:text-primary transition-colors">
+                      <h2 className="font-serif text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                         {topic.title}
                       </h2>
                       {topic.subtitle && (
