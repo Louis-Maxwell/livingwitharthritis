@@ -4118,6 +4118,11 @@ Author: Maxwell (First Contact Practitioner · HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Ginger vs Turmeric for Arthritis: Which Actually Works?
 A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement at around 1,000 mg/day for 8–12 weeks) has the stronger evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
+Reference: Daily JW et al. Turmeric extracts and curcumin for joint arthritis: systematic review and meta-analysis (J Med Food, 2016) — https://pubmed.ncbi.nlm.nih.gov/27533649/
+Reference: Bartels EM et al. Efficacy and safety of ginger in osteoarthritis: meta-analysis (Osteoarthritis Cartilage, 2015) — https://pubmed.ncbi.nlm.nih.gov/25300574/
+Reference: NCCIH: Turmeric — https://www.nccih.nih.gov/health/turmeric
+Reference: NCCIH: Ginger — https://www.nccih.nih.gov/health/ginger
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
 ## Glucosamine vs Collagen: Which Is Better for Joints?
 URL: https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen
@@ -4497,6 +4502,8 @@ Author: Living With Arthritis Editorial Team (Editorial Team)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Hip Replacement Recovery Week by Week
 A: After hip replacement, most people gradually reduce walking aid reliance over 2-6 weeks. Driving may resume around 6 weeks, depending on comfort and being able to perform an emergency stop. Low-impact activities are often possible within 6-12 weeks, while more demanding hobbies can take 3-6 months. High-impact sports are generally not recommended.
+Reference: NHS: Hip replacement — recovery — https://www.nhs.uk/conditions/hip-replacement/recovery/
+Reference: NICE NG157: Joint replacement (primary): hip, knee and shoulder — https://www.nice.org.uk/guidance/ng157
 
 ## 10 Arthritis-Friendly Hobbies UK Patients Love
 URL: https://livingwitharthritis.org.uk/blog/hobbies-arthritis-friendly-uk
