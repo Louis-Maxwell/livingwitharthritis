@@ -296,7 +296,7 @@ const Header = () => {
 
 
         <aside aria-label="Clinical review commitment" className="w-full border-b border-primary/20 bg-accent text-foreground">
-          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Our guides are written by Louis Maxwell, First Contact Practitioner (HCPC PH128483). Each guide shows its own review status and sources.</p>
+          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Practical arthritis and frailty information. Check each guide for its sources and clinical-review status.</p>
         </aside>
 
         {/* Donation Quick Bar — top of sticky header */}
