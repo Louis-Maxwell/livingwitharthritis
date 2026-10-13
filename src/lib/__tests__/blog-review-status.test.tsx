@@ -298,14 +298,21 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
   // were rewritten in the Exercise & Physiotherapy batch 2 (Oct 2026) and are now asserted
   // as pending in PENDING_EXERCISE_PHYSIO_BATCH_2 until re-reviewed.
 
-  it("catalog and head data only flag guides whose post file is pending", () => {
-    const pendingPosts = posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort();
+  it("catalog and head data only flag published guides whose post file is pending", () => {
+    const pendingPosts = posts.filter((p) => p.is_published === true && p.reviewStatus === "pending").map((p) => p.slug).sort();
     expect(catalogRows.filter((r) => r.reviewStatus === "pending").map((r) => r.slug).sort()).toEqual(pendingPosts);
     const headPending = Object.entries(headData)
       .filter(([, e]) => e.article?.reviewStatus === "pending")
       .map(([route]) => route.replace(/^\/blog\//, ""))
       .sort();
     expect(headPending).toEqual(pendingPosts);
+  });
+
+  it("keeps unpublished drafts out of the catalog and public head data", () => {
+    for (const post of posts.filter((p) => p.is_published === false)) {
+      expect(catalogRows.some((row) => row.slug === post.slug)).toBe(false);
+      expect(headData[`/blog/${post.slug}`]).toBeUndefined();
+    }
   });
 });
 
