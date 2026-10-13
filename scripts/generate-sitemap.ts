@@ -89,10 +89,8 @@ const STATIC_EXCLUDE = new Set([
   // support, falls, exercises) stay included via App.tsx discovery.
   "/search",
   "/seo-content-framework",
-  "/ai-citations",
-  "/ai-guidelines",
-  "/accessibility-for-ai",
-  "/ai",
+  // AI/AEO trust pages are intentionally indexable: they give answer engines
+  // clear attribution, citation, source and crawler-policy signals.
   "/credits",
   "/gallery",
   "/shop",

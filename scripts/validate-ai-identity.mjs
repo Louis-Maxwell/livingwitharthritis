@@ -17,6 +17,7 @@ const files = {
   llms: 'public/llms.txt',
   ai: 'public/ai.txt',
   wellKnownAi: 'public/.well-known/ai.txt',
+  answerEngine: 'public/answer-engine.json',
 };
 
 const failures = [];
@@ -69,7 +70,7 @@ if (robotsText) {
 
 // --- llms.txt and both ai.txt surfaces: required identity strings ----
 const requiredStrings = ['1218461', 'independent of Arthritis UK', 'PH128483'];
-for (const key of ['llms', 'ai', 'wellKnownAi']) {
+for (const key of ['llms', 'ai', 'wellKnownAi', 'answerEngine']) {
   const text = contents[key];
   if (!text) continue; // missing-file failure already recorded
   const lower = text.toLowerCase();

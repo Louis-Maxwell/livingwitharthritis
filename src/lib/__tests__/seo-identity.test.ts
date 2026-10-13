@@ -18,6 +18,7 @@ const indexHtml = readFileSync(resolve("index.html"), "utf8");
 const robots = readFileSync(resolve("public/robots.txt"), "utf8");
 const wellKnownAi = readFileSync(resolve("public/.well-known/ai.txt"), "utf8");
 const llms = readFileSync(resolve("public/llms.txt"), "utf8");
+const answerEngine = readFileSync(resolve("public/answer-engine.json"), "utf8");
 const aboutUs = readFileSync(resolve("src/pages/AboutUs.tsx"), "utf8");
 const homepage = readFileSync(resolve("src/pages/Index.tsx"), "utf8");
 const trustStrip = readFileSync(
@@ -75,6 +76,7 @@ describe("public SEO / AEO identity", () => {
     expect(schemaTs).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
     expect(llms).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
     expect(wellKnownAi).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
+    expect(answerEngine).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
     expect(CHARITY.address.street).toBe("");
     expect(CHARITY.address.postalCode).toBe("");
     expect(hasCharityAddress()).toBe(false);
@@ -122,6 +124,9 @@ describe("public SEO / AEO identity", () => {
     expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
     expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
     expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(WEBSITE_PAYLOAD.about).toEqual(
+      expect.arrayContaining(["Osteoarthritis", "Frailty and musculoskeletal health"]),
+    );
   });
 
   it("uses brand-first homepage titles and a crawlable brand string", () => {
@@ -177,6 +182,11 @@ describe("public SEO / AEO identity", () => {
     expect(wellKnownAi).toMatch(/PH128483/);
     expect(wellKnownAi).toContain("Living With Arthritis (charity 1218461)");
     expect(llms).toContain("Living With Arthritis (charity 1218461)");
+    expect(wellKnownAi).toContain("Answer-Engine-Facts");
+    expect(llms).toContain("answer-engine.json");
+    expect(answerEngine).toContain("Living With Arthritis");
+    expect(answerEngine).toContain("1218461");
+    expect(answerEngine).toMatch(/independent of Arthritis UK/i);
   });
 
   it("does not mark city hubs as a MedicalBusiness", () => {
