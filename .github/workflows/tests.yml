@@ -57,7 +57,7 @@ jobs:
         run: bun run build
       - name: Serve build
         run: |
-          bunx serve -s dist -l 4173 &
+          nohup bunx serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
           echo $! > /tmp/serve.pid
           for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then
@@ -66,6 +66,7 @@ jobs:
             fi
             sleep 1
           done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
       # Includes tests/visual/layout-snapshots.spec.ts — the layout
       # regression alerts (no horizontal overflow, no element wider than the
       # viewport, plus screenshot diffs when baselines are committed).

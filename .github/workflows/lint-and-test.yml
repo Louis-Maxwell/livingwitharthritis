@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, develop]
 
+concurrency:
+  group: lint-and-test-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -32,6 +36,7 @@ jobs:
   test-e2e:
     name: E2E Tests (Playwright)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
 
@@ -59,16 +64,22 @@ jobs:
 
       - name: Serve build
         run: |
-          npx --yes serve -s dist -l 4173 &
+          nohup npx --yes serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
+          echo $! > /tmp/serve.pid
           for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then break; fi
             sleep 1
           done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
 
       - name: Run E2E tests
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4173
         run: npm run test:e2e
+
+      - name: Stop preview server
+        if: always()
+        run: kill "$(cat /tmp/serve.pid)" 2>/dev/null || true
 
       - name: Upload test results
         if: always()
@@ -108,7 +119,7 @@ jobs:
 
       - name: Serve build
         run: |
-          npx --yes serve -s dist -l 4173 &
+          nohup npx --yes serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
           echo $! > /tmp/serve.pid
           for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then
@@ -117,6 +128,7 @@ jobs:
             fi
             sleep 1
           done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
 
       - name: Blog smoke (fail the workflow)
         run: npm run test:blog-smoke
