@@ -92,7 +92,11 @@ export async function subscribeNewsletter(opts: {
         signal: controller.signal,
       });
 
-      if (res.ok) {
+      const payload: unknown = res.ok ? await res.json().catch(() => null) : null;
+      const accepted =
+        payload !== null && typeof payload === "object" && "success" in payload &&
+        (payload.success === true || payload.success === "true");
+      if (res.ok && accepted) {
         markFormSubmitted("newsletter");
         return {
           ok: true,
@@ -100,7 +104,7 @@ export async function subscribeNewsletter(opts: {
           message: "Thanks, we have your email address and will add you to our newsletter.",
         };
       }
-      reportFormFailure("newsletter", `FormSubmit HTTP ${res.status}`);
+      reportFormFailure("newsletter", res.ok ? "FormSubmit did not confirm acceptance" : `FormSubmit HTTP ${res.status}`);
     } finally {
       window.clearTimeout(timer);
     }
