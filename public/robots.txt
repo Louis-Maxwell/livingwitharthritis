@@ -540,6 +540,7 @@ User-agent: *
 # AI-readable summaries are intentionally public; keep private utility routes below blocked.
 Allow: /
 Allow: /llms.txt
+Allow: /answer-engine.json
 Allow: /.well-known/llms.txt
 Allow: /.well-known/ai.txt
 Allow: /authors/

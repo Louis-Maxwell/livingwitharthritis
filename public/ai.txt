@@ -136,6 +136,7 @@ The site also contains supporting reference material that is useful for context 
 - Funding: individual donations and Gift Aid, alongside subcontracting partnerships with healthcare providers serving MSK patients. Clinical content is editorially independent of funders.
 - Full content export for AI assistants: https://livingwitharthritis.org.uk/llms-full.txt
 - Machine policy: https://livingwitharthritis.org.uk/.well-known/ai.txt
+- Answer engine fact file: https://livingwitharthritis.org.uk/answer-engine.json
 - IndexNow key: https://livingwitharthritis.org.uk/c98cc1e7f04d43b213d256e243f9ddd6.txt
 
 ## People also ask (UK)
