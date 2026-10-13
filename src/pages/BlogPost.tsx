@@ -3,6 +3,7 @@ import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
+import { resolveSharedBlogSlug } from "@/lib/resolveSharedBlogSlug";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -186,7 +187,9 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const redirectTo = slug ? BLOG_SLUG_REDIRECTS[slug] : undefined;
+  const redirectTo = slug
+    ? BLOG_SLUG_REDIRECTS[slug] ?? resolveSharedBlogSlug(slug)
+    : undefined;
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
   // Hooks must run on every render — never after the loading/404 early returns.
   const viewCount = useBlogViews(redirectTo ? undefined : slug);
