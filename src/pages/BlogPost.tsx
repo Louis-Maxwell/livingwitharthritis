@@ -649,19 +649,6 @@ const BlogPost = () => {
             <TableOfContents html={htmlWithIds} variant="inline" />
           </div>
 
-          {slug && (
-            <ViewportSection>
-              <InlineRelatedStrip
-                currentSlug={slug}
-                currentCategory={article.category}
-                currentTitle={article.title}
-                currentExcerpt={article.excerpt}
-                currentKeywords={article.keywords ?? undefined}
-                heading="Keep reading — related articles"
-                limit={2}
-              />
-            </ViewportSection>
-          )}
 
           <section
             aria-label="Article body"
@@ -728,6 +715,20 @@ const BlogPost = () => {
           </section>
 
           <ArticleFaqSection faqs={faqs} />
+
+          {slug && (
+            <ViewportSection>
+              <InlineRelatedStrip
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+                heading="Keep reading — related articles"
+                limit={2}
+              />
+            </ViewportSection>
+          )}
           <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
             {slug && (
@@ -739,7 +740,7 @@ const BlogPost = () => {
                 keywords={article.keywords}
               />
             )}
-            <ArticleClosingCTA title={article.title} category={article.category} />
+            <ArticleClosingCTA title={article.title} category={article.category} slug={slug} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
           </ViewportSection>
 
