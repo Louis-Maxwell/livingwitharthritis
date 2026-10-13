@@ -1,8 +1,9 @@
 {
-  "sourceEntries": 136407,
-  "uniqueKeywords": 104565,
-  "duplicates": 31842,
+  "sourceEntries": 136468,
+  "uniqueKeywords": 104603,
+  "duplicates": 31865,
   "sourceCounts": {
+    "public/data/organic-keywords-living-with-arthritis-2026.json": 61,
     "public/data/keywords-30000.json": 30000,
     "public/data/keywords-40000.json": 39928,
     "public/data/keywords-arthritis-frailty-msk-disability.generated.json": 50000,
@@ -12,12 +13,12 @@
   },
   "authoredPagesAudited": 702,
   "statusCounts": {
-    "phrase_present": 475,
-    "intent_review": 27492,
-    "content_gap": 76598
+    "phrase_present": 479,
+    "intent_review": 27484,
+    "content_gap": 76640
   },
   "invalidDeclaredTargetKeywords": 10163,
-  "searchAliases": 421,
+  "searchAliases": 425,
   "linkedBlogPages": 531,
   "notes": [
     "Stored/generated candidates are not measured organic rankings.",

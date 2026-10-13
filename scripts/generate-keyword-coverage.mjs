@@ -24,7 +24,7 @@ function parseCsv(text) {
   for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(!quoted&&(c===','||c==='\n')){row.push(cell.replace(/\r$/,''));cell='';if(c==='\n'){rows.push(row);row=[];}}else cell+=c;}
   if(cell||row.length){row.push(cell);rows.push(row);}const headers=rows.shift();return rows.filter(r=>r.length===headers.length).map(r=>Object.fromEntries(headers.map((h,i)=>[h,r[i]])));
 }
-const sources = ['public/data/keywords-30000.json','public/data/keywords-40000.json','public/data/keywords-arthritis-frailty-msk-disability.generated.json','src/data/keywords.generated.json','keywords_for_import.csv','docs/seo/growth-2026-10-11/keyword-map.csv'];
+const sources = ['public/data/organic-keywords-living-with-arthritis-2026.json','public/data/keywords-30000.json','public/data/keywords-40000.json','public/data/keywords-arthritis-frailty-msk-disability.generated.json','src/data/keywords.generated.json','keywords_for_import.csv','docs/seo/growth-2026-10-11/keyword-map.csv'];
 const strip = s => normalize(String(s ?? '').replace(/<[^>]*>/g,' ').replace(/&[a-z0-9#]+;/gi,' '));
 function main(){
  const redirects = new Map(exactRedirects().map(r=>[r.from,r.to]));

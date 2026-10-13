@@ -1,0 +1,368 @@
+[
+  {
+    "keyword": "arthritis charity uk",
+    "intent": "brand_trust",
+    "target_path": "/about",
+    "priority": "P1"
+  },
+  {
+    "keyword": "living with arthritis charity",
+    "intent": "brand_trust",
+    "target_path": "/about",
+    "priority": "P1"
+  },
+  {
+    "keyword": "free arthritis help uk",
+    "intent": "support",
+    "target_path": "/guides/free-arthritis-resources-uk",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis support uk",
+    "intent": "support",
+    "target_path": "/guides/free-arthritis-resources-uk",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis advice uk",
+    "intent": "support",
+    "target_path": "/guides/newly-diagnosed",
+    "priority": "P1"
+  },
+  {
+    "keyword": "newly diagnosed arthritis what to do",
+    "intent": "support",
+    "target_path": "/guides/newly-diagnosed",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis waiting list help uk",
+    "intent": "nhs_navigation",
+    "target_path": "/arthritis-waiting-list-help",
+    "priority": "P1"
+  },
+  {
+    "keyword": "rheumatology waiting list help",
+    "intent": "nhs_navigation",
+    "target_path": "/arthritis-waiting-list-help",
+    "priority": "P1"
+  },
+  {
+    "keyword": "physiotherapy waiting list arthritis",
+    "intent": "nhs_navigation",
+    "target_path": "/arthritis-waiting-list-help",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis exercises uk",
+    "intent": "exercise",
+    "target_path": "/guides/exercise",
+    "priority": "P1"
+  },
+  {
+    "keyword": "exercise for arthritis uk",
+    "intent": "exercise",
+    "target_path": "/guides/exercise",
+    "priority": "P1"
+  },
+  {
+    "keyword": "NICE arthritis exercises",
+    "intent": "exercise",
+    "target_path": "/guides/exercise",
+    "priority": "P1"
+  },
+  {
+    "keyword": "knee exercises for osteoarthritis",
+    "intent": "exercise",
+    "target_path": "/guides/knee-exercises-for-osteoarthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "knee arthritis exercises uk",
+    "intent": "exercise",
+    "target_path": "/guides/knee-exercises-for-osteoarthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "hip osteoarthritis exercises uk",
+    "intent": "exercise",
+    "target_path": "/guides/hip-exercises-for-osteoarthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "hand arthritis exercises",
+    "intent": "exercise",
+    "target_path": "/blog/exercises-rheumatoid-arthritis-hands-wrists",
+    "priority": "P1"
+  },
+  {
+    "keyword": "ankle arthritis exercises",
+    "intent": "exercise",
+    "target_path": "/exercises/ankle-arthritis-exercises",
+    "priority": "P2"
+  },
+  {
+    "keyword": "neck arthritis exercises",
+    "intent": "exercise",
+    "target_path": "/exercises/neck-arthritis-exercises",
+    "priority": "P2"
+  },
+  {
+    "keyword": "arthritis pain relief uk",
+    "intent": "pain",
+    "target_path": "/guides/arthritis-pain-relief",
+    "priority": "P1"
+  },
+  {
+    "keyword": "joint pain relief uk",
+    "intent": "pain",
+    "target_path": "/guides/arthritis-pain-relief",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis flare up what to do",
+    "intent": "pain",
+    "target_path": "/blog/arthritis-flare-up-what-to-do",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis flare up uk",
+    "intent": "pain",
+    "target_path": "/blog/arthritis-flare-up-what-to-do",
+    "priority": "P1"
+  },
+  {
+    "keyword": "night pain arthritis sleep",
+    "intent": "sleep",
+    "target_path": "/blog/sleep-and-pain-management-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "how to sleep with arthritis",
+    "intent": "sleep",
+    "target_path": "/blog/how-to-sleep-with-arthritis-uk",
+    "priority": "P1"
+  },
+  {
+    "keyword": "best sleep positions joint pain",
+    "intent": "sleep",
+    "target_path": "/blog/best-sleep-positions-joint-pain",
+    "priority": "P2"
+  },
+  {
+    "keyword": "arthritis fatigue uk",
+    "intent": "fatigue",
+    "target_path": "/blog/arthritis-fatigue-management-uk",
+    "priority": "P1"
+  },
+  {
+    "keyword": "energy management arthritis",
+    "intent": "fatigue",
+    "target_path": "/blog/energy-management-and-pacing-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "pacing arthritis fatigue",
+    "intent": "fatigue",
+    "target_path": "/blog/energy-management-and-pacing-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "PIP for arthritis uk",
+    "intent": "benefits",
+    "target_path": "/guides/benefits-pip",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis disability benefits uk",
+    "intent": "benefits",
+    "target_path": "/guides/benefits-pip",
+    "priority": "P1"
+  },
+  {
+    "keyword": "can I get PIP for arthritis",
+    "intent": "benefits",
+    "target_path": "/guides/benefits-pip",
+    "priority": "P1"
+  },
+  {
+    "keyword": "blue badge arthritis uk",
+    "intent": "benefits",
+    "target_path": "/guides/benefits-pip",
+    "priority": "P2"
+  },
+  {
+    "keyword": "attendance allowance arthritis uk",
+    "intent": "benefits",
+    "target_path": "/blog/attendance-allowance-arthritis-frailty-uk",
+    "priority": "P2"
+  },
+  {
+    "keyword": "access to work arthritis",
+    "intent": "work",
+    "target_path": "/library/access-to-work",
+    "priority": "P1"
+  },
+  {
+    "keyword": "working with arthritis uk rights",
+    "intent": "work",
+    "target_path": "/blog/working-with-arthritis-uk-rights",
+    "priority": "P1"
+  },
+  {
+    "keyword": "reasonable adjustments arthritis",
+    "intent": "work",
+    "target_path": "/blog/arthritis-and-work-uk",
+    "priority": "P1"
+  },
+  {
+    "keyword": "sick pay fit note arthritis",
+    "intent": "work",
+    "target_path": "/blog/sick-pay-fit-notes-time-off-work-arthritis",
+    "priority": "P2"
+  },
+  {
+    "keyword": "osteoarthritis symptoms uk",
+    "intent": "condition",
+    "target_path": "/conditions/osteoarthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "osteoarthritis treatment uk",
+    "intent": "condition",
+    "target_path": "/conditions/osteoarthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "rheumatoid arthritis symptoms uk",
+    "intent": "condition",
+    "target_path": "/conditions/rheumatoid-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "rheumatoid arthritis flare management",
+    "intent": "condition",
+    "target_path": "/conditions/rheumatoid-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "psoriatic arthritis symptoms",
+    "intent": "condition",
+    "target_path": "/conditions/psoriatic-arthritis",
+    "priority": "P2"
+  },
+  {
+    "keyword": "gout treatment uk",
+    "intent": "condition",
+    "target_path": "/conditions/gout",
+    "priority": "P2"
+  },
+  {
+    "keyword": "ankylosing spondylitis exercises",
+    "intent": "condition",
+    "target_path": "/conditions/ankylosing-spondylitis",
+    "priority": "P2"
+  },
+  {
+    "keyword": "fibromyalgia joint pain uk",
+    "intent": "condition",
+    "target_path": "/conditions/fibromyalgia",
+    "priority": "P2"
+  },
+  {
+    "keyword": "arthritis diet uk",
+    "intent": "diet",
+    "target_path": "/diet",
+    "priority": "P1"
+  },
+  {
+    "keyword": "mediterranean diet for arthritis",
+    "intent": "diet",
+    "target_path": "/diet/mediterranean-diet-for-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "foods to avoid with arthritis",
+    "intent": "diet",
+    "target_path": "/diet/foods-to-avoid-with-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "anti inflammatory diet arthritis uk",
+    "intent": "diet",
+    "target_path": "/blog/anti-inflammatory-diet-rheumatoid-arthritis",
+    "priority": "P1"
+  },
+  {
+    "keyword": "vitamin d arthritis uk",
+    "intent": "diet",
+    "target_path": "/blog/vitamin-d-winter-arthritis-frailty-uk",
+    "priority": "P2"
+  },
+  {
+    "keyword": "turmeric for arthritis uk",
+    "intent": "supplements",
+    "target_path": "/supplements/turmeric",
+    "priority": "P1"
+  },
+  {
+    "keyword": "glucosamine for arthritis uk",
+    "intent": "supplements",
+    "target_path": "/supplements/glucosamine",
+    "priority": "P2"
+  },
+  {
+    "keyword": "collagen for arthritis uk",
+    "intent": "supplements",
+    "target_path": "/supplements/collagen",
+    "priority": "P2"
+  },
+  {
+    "keyword": "frailty and arthritis uk",
+    "intent": "frailty",
+    "target_path": "/guides/frailty-management-hub",
+    "priority": "P1"
+  },
+  {
+    "keyword": "fall prevention older adults arthritis",
+    "intent": "frailty",
+    "target_path": "/guides/fall-prevention-older-adults",
+    "priority": "P1"
+  },
+  {
+    "keyword": "arthritis and frailty exercises",
+    "intent": "frailty",
+    "target_path": "/guides/frailty-management-hub",
+    "priority": "P1"
+  },
+  {
+    "keyword": "musculoskeletal health older adults",
+    "intent": "frailty",
+    "target_path": "/guides/musculoskeletal-health",
+    "priority": "P2"
+  },
+  {
+    "keyword": "arthritis mental health uk",
+    "intent": "wellbeing",
+    "target_path": "/blog/arthritis-and-mental-health-uk",
+    "priority": "P1"
+  },
+  {
+    "keyword": "depression and arthritis uk",
+    "intent": "wellbeing",
+    "target_path": "/blog/depression-arthritis-when-to-seek-help",
+    "priority": "P2"
+  },
+  {
+    "keyword": "arthritis carers support uk",
+    "intent": "carers",
+    "target_path": "/blog/carers-allowance-help-if-you-care-for-someone",
+    "priority": "P2"
+  },
+  {
+    "keyword": "carers assessment arthritis uk",
+    "intent": "carers",
+    "target_path": "/blog/carers-assessment-arthritis-frailty-uk",
+    "priority": "P2"
+  }
+]
