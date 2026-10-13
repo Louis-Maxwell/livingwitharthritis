@@ -19,7 +19,7 @@ const FounderStoryBand = memo(() => {
           {/* Heading */}
           <h2
             id="founder-story-heading"
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight mb-6"
           >
             Founded by a clinician who lived the lonely bit too
           </h2>

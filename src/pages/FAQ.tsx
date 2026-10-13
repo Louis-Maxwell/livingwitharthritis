@@ -90,7 +90,7 @@ const FAQ = () => {
 
         <section className="py-16 bg-muted/30 border-t border-border/40" aria-labelledby="faq-article-index">
           <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-            <h2 id="faq-article-index" className="text-2xl md:text-3xl font-display font-bold mb-3">
+            <h2 id="faq-article-index" className="text-2xl md:text-3xl font-display font-medium mb-3">
               Full FAQ library
             </h2>
             <p className="text-muted-foreground mb-6 max-w-2xl">
@@ -140,7 +140,7 @@ const FAQ = () => {
             </div>
             {grouped.map(([category, articles]) => (
               <div key={category} className="mb-10">
-                <h3 className="text-lg font-semibold text-foreground mb-3">{category}</h3>
+                <h3 className="text-lg font-medium text-foreground mb-3">{category}</h3>
                 <ul className="space-y-2">
                   {articles.map((article) => (
                     <li key={article.slug}>
@@ -159,7 +159,7 @@ const FAQ = () => {
               aria-label="Optional email updates"
               className="mb-10 rounded-2xl border border-primary/20 bg-primary/[0.04] p-5 sm:p-6"
             >
-              <h3 className="font-display text-lg font-bold text-foreground mb-2">
+              <h3 className="font-display text-lg font-medium text-foreground mb-2">
                 Prefer answers by email?
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">

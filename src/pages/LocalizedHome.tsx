@@ -35,7 +35,7 @@ export default function LocalizedHome() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">
             {t.home.heroEyebrow}
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-medium leading-tight mb-6">
             {t.home.heroTitle}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
@@ -73,7 +73,7 @@ export default function LocalizedHome() {
               to={card.to}
               className="block rounded-xl border border-border p-6 hover:border-primary transition-colors"
             >
-              <h2 className="text-lg font-semibold mb-2">{card.label}</h2>
+              <h2 className="text-lg font-medium mb-2">{card.label}</h2>
               <span className="text-sm text-primary inline-flex items-center gap-1">
                 {t.common.learnMore} <ArrowRight className="w-3.5 h-3.5" />
               </span>

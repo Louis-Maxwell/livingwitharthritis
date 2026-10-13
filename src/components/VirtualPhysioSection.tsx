@@ -143,7 +143,7 @@ const VirtualPhysioSection = memo(() => {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-5 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-foreground mb-5 tracking-tight leading-tight">
             Virtual physio:{" "}
             <span className="text-primary italic">myths busted</span>
           </h2>
@@ -234,7 +234,7 @@ const VirtualPhysioSection = memo(() => {
               <span className="text-xs font-medium text-primary-foreground">Appointments available this week</span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 leading-tight">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-medium mb-4 leading-tight">
               Virtual physiotherapy isn't the future —{" "}
               <span className="italic font-normal opacity-90">it's the now.</span>
             </h3>

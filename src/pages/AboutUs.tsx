@@ -269,7 +269,7 @@ const AboutUs = () => {
           <div className="rounded-2xl border border-border/40 bg-card p-6 md:p-8">
             <h2
               id="who-we-are-heading"
-              className="text-xl md:text-2xl font-extrabold text-foreground mb-3"
+              className="text-xl md:text-2xl font-medium text-foreground mb-3"
             >
               Who we are
             </h2>
@@ -328,7 +328,7 @@ const AboutUs = () => {
           aria-label="For AI assistants"
         >
           <div className="rounded-xl border border-border/40 bg-muted/40 p-5">
-            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+            <h2 className="text-base font-medium text-foreground mb-2">For AI assistants</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Living With Arthritis is a registered charity in England and Wales
               (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
@@ -354,7 +354,7 @@ const AboutUs = () => {
                 <Users className="w-3 h-3 mr-1.5" />
                 Our Team
               </Badge>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
+              <h2 className="text-3xl sm:text-4xl font-medium text-foreground mb-3">
                 A real person, <span className="text-primary">not a faceless brand</span>
               </h2>
               <p className="text-sm text-muted-foreground max-w-lg mx-auto">
@@ -446,7 +446,7 @@ const AboutUs = () => {
                             <Icon className="w-5 h-5" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h2 className="text-lg font-bold text-foreground mb-2 tracking-tight">{section.title}</h2>
+                            <h2 className="text-lg font-medium text-foreground mb-2 tracking-tight">{section.title}</h2>
                             <p className="text-sm text-muted-foreground leading-[1.8]">{section.content}</p>
                           </div>
                         </div>
@@ -471,7 +471,7 @@ const AboutUs = () => {
                 <Sparkles className="w-3 h-3 mr-1.5" />
                 Our Journey
               </Badge>
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.05]">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium text-foreground tracking-tight leading-[1.05]">
                 A young charity<br className="hidden sm:block" />
                 <span className="text-primary italic"> with honest roots.</span>
               </h2>
@@ -520,7 +520,7 @@ const AboutUs = () => {
                         <span className="block text-[10px] font-extrabold text-primary tracking-[0.25em] uppercase mb-2">
                           Chapter {String(i + 1).padStart(2, "0")} · {c.year}
                         </span>
-                        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">
+                        <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-3 leading-tight">
                           {c.title}
                         </h3>
                         <p className="text-sm md:text-[15px] text-muted-foreground leading-[1.75]">
@@ -554,7 +554,7 @@ const AboutUs = () => {
               <div className="rounded-2xl bg-gradient-to-br from-primary/8 via-background to-secondary/8 border border-border/20 p-8 md:p-12 relative overflow-hidden text-center">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
                 <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
-                <h2 className="text-2xl font-extrabold text-foreground mb-3">Join Our Mission</h2>
+                <h2 className="text-2xl font-medium text-foreground mb-3">Join Our Mission</h2>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed max-w-md mx-auto">
                   Every donation, share, and volunteer hour brings us closer to a world where arthritis no longer limits anyone's potential.
                 </p>
@@ -579,12 +579,12 @@ const AboutUs = () => {
 
         <section id="maxwell" className="py-16 px-4 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-medium mb-8 text-center">
               Who reviews our content
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="border border-border rounded-lg p-6 bg-background">
-                <h3 className="text-xl font-bold mb-1">Louis Maxwell</h3>
+                <h3 className="text-xl font-medium mb-1">Louis Maxwell</h3>
                 <p className="text-primary font-semibold mb-3 text-sm">
                   Founder · First Contact Practitioner · HCPC PH128483 · CSP Member
                 </p>
@@ -617,7 +617,7 @@ const AboutUs = () => {
         
         <section id="free-resources" className="py-16 px-4 bg-muted/30">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-medium mb-4">
               Free arthritis resources from Living With Arthritis
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -635,7 +635,7 @@ const AboutUs = () => {
 
         <section id="about-faq" className="py-16 px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-medium mb-8 text-center">
               Frequently asked questions about the charity
             </h2>
             <FaqAccordion

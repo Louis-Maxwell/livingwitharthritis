@@ -71,7 +71,7 @@ const NextReadStrip = memo(({ currentPath = "", items, heading = "Keep reading" 
         <div className="mb-10 flex items-end justify-between gap-4">
           <h2
             id="next-read-heading"
-            className="text-3xl md:text-4xl font-bold tracking-tight text-foreground"
+            className="text-3xl md:text-4xl font-medium tracking-tight text-foreground"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             {heading}
@@ -94,7 +94,7 @@ const NextReadStrip = memo(({ currentPath = "", items, heading = "Keep reading" 
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                 {item.eyebrow}
               </p>
-              <h3 className="mt-2 text-xl font-semibold text-foreground">
+              <h3 className="mt-2 text-xl font-medium text-foreground">
                 {item.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-foreground/75">

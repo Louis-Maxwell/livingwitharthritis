@@ -33,7 +33,7 @@ export default function RelatedGuides({
     <section aria-labelledby={headingId} className={cn("mt-12", className)}>
       <div className="flex items-center gap-2 mb-5">
         <BookOpen className="w-5 h-5 text-primary" aria-hidden="true" />
-        <h2 id={headingId} className="font-display text-xl md:text-2xl font-bold text-foreground m-0">
+        <h2 id={headingId} className="font-display text-xl md:text-2xl font-medium text-foreground m-0">
           {title}
         </h2>
       </div>

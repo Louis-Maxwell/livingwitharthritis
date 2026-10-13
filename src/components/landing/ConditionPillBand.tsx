@@ -27,7 +27,7 @@ const ConditionPillBand = () => {
         <div className="mb-10 lg:mb-14 max-w-2xl">
           <h2
             id="conditions-band-heading"
-            className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-balance"
+            className="font-display text-3xl lg:text-4xl font-medium tracking-tight text-balance"
           >
             Understanding arthritis
           </h2>

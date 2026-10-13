@@ -128,7 +128,7 @@ export default function DebugSchema() {
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-[1200px]">
         <div className="mb-8">
           <Badge variant="secondary" className="mb-3">Internal tool</Badge>
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">
+          <h1 className="font-display text-3xl md:text-4xl font-medium mb-2">
             JSON-LD Schema Inspector
           </h1>
           <p className="text-muted-foreground">
@@ -204,7 +204,7 @@ export default function DebugSchema() {
 
         {/* Results */}
         <div className="mb-4 flex items-center justify-between gap-2 flex-wrap">
-          <h2 className="font-display text-xl font-semibold">
+          <h2 className="font-display text-xl font-medium">
             Detected blocks ({blocks.length})
           </h2>
           <div className="flex items-center gap-2">

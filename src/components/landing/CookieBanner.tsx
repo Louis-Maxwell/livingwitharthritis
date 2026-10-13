@@ -48,7 +48,7 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
           <div className="flex items-start gap-3">
             <Lock className="w-6 h-6 text-primary mt-0.5 shrink-0" aria-hidden="true" />
             <div>
-              <h2 className="font-bold text-foreground text-base">We value your privacy</h2>
+              <h2 className="font-medium text-foreground text-base">We value your privacy</h2>
               <p className="text-sm text-muted-foreground mt-1">
                 Essential cookies keep this site working. Analytics (optional) help us improve.{" "}
                 <Link to="/privacy" className="text-primary underline underline-offset-2">

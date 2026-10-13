@@ -72,7 +72,7 @@ export default function Pedometer() {
           <PedometerApp />
 
           <section className="mt-12 prose prose-sm max-w-none text-foreground">
-            <h2 className="text-xl font-semibold">Why walking helps arthritis</h2>
+            <h2 className="text-xl font-medium">Why walking helps arthritis</h2>
             <p className="text-muted-foreground">
               Low-impact movement like walking helps lubricate joints, strengthens supporting
               muscles and reduces stiffness. Even short walks broken across the day can ease

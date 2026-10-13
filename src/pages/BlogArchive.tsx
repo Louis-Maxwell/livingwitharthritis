@@ -167,7 +167,7 @@ const BlogArchive = () => {
             </div>
 
             <nav aria-label="Filter archive by topic">
-              <h2 className="mb-2 text-sm font-semibold text-foreground">Topic</h2>
+              <h2 className="mb-2 text-sm font-medium text-foreground">Topic</h2>
               <div
                 role="group"
                 aria-label="Filter by category"
@@ -196,7 +196,7 @@ const BlogArchive = () => {
 
             {yearGroups.length > 1 && (
               <nav aria-label="Jump to year" className="mt-4">
-                <h2 className="mb-2 text-sm font-semibold text-foreground">Year</h2>
+                <h2 className="mb-2 text-sm font-medium text-foreground">Year</h2>
                 <ul className="flex flex-wrap gap-2">
                   <li>
                     <button
@@ -275,7 +275,7 @@ const BlogArchive = () => {
               >
                 <h2
                   id={`year-heading-${yearGroup.year}`}
-                  className="mb-6 flex items-baseline gap-2 font-display text-2xl font-bold text-foreground"
+                  className="mb-6 flex items-baseline gap-2 font-display text-2xl font-medium text-foreground"
                 >
                   {yearGroup.year}
                   <span className="text-sm font-normal text-muted-foreground">
@@ -287,7 +287,7 @@ const BlogArchive = () => {
                   <section key={month.key} aria-labelledby={`month-${month.key}`} className="mb-8">
                     <h3
                       id={`month-${month.key}`}
-                      className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground"
+                      className="mb-3 text-sm font-medium tracking-wider text-muted-foreground"
                     >
                       {month.label}
                     </h3>

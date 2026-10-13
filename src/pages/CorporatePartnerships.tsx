@@ -20,7 +20,7 @@ export default function CorporatePartnerships() {
         {/* Hero */}
         <section className="bg-gradient-to-r from-black to-secondary text-white px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-medium mb-4">
               Partner With Living With Arthritis
             </h1>
             <p className="text-xl text-white/80 mb-8">
@@ -34,32 +34,32 @@ export default function CorporatePartnerships() {
 
         {/* Why Partner */}
         <section className="max-w-6xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-bold mb-12 text-center">Why Partner With Us?</h2>
+          <h2 className="text-3xl font-medium mb-12 text-center">Why Partner With Us?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-black/5 p-8 rounded-lg border-l-4 border-black">
               <Building2 className="w-8 h-8 text-black mb-3" />
-              <h3 className="font-bold text-xl mb-2">Employee Wellness</h3>
+              <h3 className="font-medium text-xl mb-2">Employee Wellness</h3>
               <p className="text-gray-700">
                 <strong>2M UK employees manage arthritis.</strong> Your workforce likely includes many of them. Partnering gives them free, workplace-ready guidance on managing pain, staying active, and accessing UK healthcare care.
               </p>
             </div>
             <div className="bg-secondary/5 p-8 rounded-lg border-l-4 border-secondary">
               <Users className="w-8 h-8 text-secondary mb-3" />
-              <h3 className="font-bold text-xl mb-2">Brand Alignment</h3>
+              <h3 className="font-medium text-xl mb-2">Brand Alignment</h3>
               <p className="text-gray-700">
                 <strong>Associates your brand with health equity and disability inclusion.</strong> Messaging that resonates with 70% of consumers who prioritise corporate social responsibility.
               </p>
             </div>
             <div className="bg-primary/5 p-8 rounded-lg border-l-4 border-primary/60">
               <TrendingUp className="w-8 h-8 text-primary/80 mb-3" />
-              <h3 className="font-bold text-xl mb-2">Measurable Impact</h3>
+              <h3 className="font-medium text-xl mb-2">Measurable Impact</h3>
               <p className="text-gray-700">
                 <strong>We report monthly on reach and outcomes.</strong> Your partnership funds X guides, Y exercise videos, Z lives improved. Transparent, auditable, real.
               </p>
             </div>
             <div className="bg-primary/5 p-8 rounded-lg border-l-4 border-primary">
               <Gift className="w-8 h-8 text-primary mb-3" />
-              <h3 className="font-bold text-xl mb-2">Tax Deductible</h3>
+              <h3 className="font-medium text-xl mb-2">Tax Deductible</h3>
               <p className="text-gray-700">
                 <strong>100% of your donation is tax-deductible.</strong> Registered charity 1218461. Equivalent of 25% discount on your sponsorship cost.
               </p>
@@ -69,7 +69,7 @@ export default function CorporatePartnerships() {
 
         {/* Partnership Tiers */}
         <section className="bg-gray-50 max-w-6xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-bold mb-12 text-center">Partnership Tiers</h2>
+          <h2 className="text-3xl font-medium mb-12 text-center">Partnership Tiers</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -109,7 +109,7 @@ export default function CorporatePartnerships() {
                 i === 1 ? "border-primary bg-white shadow-lg" : "border-gray-200 bg-white"
               }`}>
                 {i === 1 && <div className="bg-primary text-white text-xs font-bold py-1 px-3 rounded inline-block mb-3">Most Popular</div>}
-                <h3 className="font-bold text-2xl mb-2">{t.tier}</h3>
+                <h3 className="font-medium text-2xl mb-2">{t.tier}</h3>
                 <p className="text-3xl font-bold text-primary mb-6">{t.amount}</p>
                 <ul className="space-y-2 text-sm mb-6">
                   {t.benefits.map((b, j) => (
@@ -129,7 +129,7 @@ export default function CorporatePartnerships() {
 
         {/* Case Study */}
         <section className="max-w-4xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">We do not invent partner quotes</h2>
+          <h2 className="text-3xl font-medium mb-8 text-center">We do not invent partner quotes</h2>
           <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto text-center">
             Living With Arthritis is a young charity (1218461, registered 15 June 2026). We will not invent an employee-reach figure, a wellness-programme percentage, or a named Head of Wellness. Email info@livingwitharthritis.org.uk if your organisation wants to talk.
           </p>
@@ -138,7 +138,7 @@ export default function CorporatePartnerships() {
         {/* CTA */}
         <section className="bg-primary text-white px-6 py-16">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Make an Impact?</h2>
+            <h2 className="text-3xl font-medium mb-4">Ready to Make an Impact?</h2>
             <p className="text-lg mb-8">Let's discuss how Living With Arthritis can align with your corporate strategy.</p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100">

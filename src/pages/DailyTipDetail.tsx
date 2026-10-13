@@ -27,7 +27,7 @@ const ContentRenderer = ({ content }: { content: string }) => (
       if (!trimmed) return <br key={i} />;
       if (trimmed.startsWith("## "))
         return (
-          <h2 key={i} className="text-xl md:text-2xl font-display font-bold text-foreground mt-12 mb-4 flex items-center gap-3">
+          <h2 key={i} className="text-xl md:text-2xl font-display font-medium text-foreground mt-12 mb-4 flex items-center gap-3">
             <span className="w-1 h-6 bg-primary rounded-full inline-block" />
             {trimmed.replace("## ", "")}
           </h2>
@@ -68,7 +68,7 @@ const DailyTipDetail = () => {
         <Header />
         <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Tip not found</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-4">Tip not found</h2>
             <Button variant="outline" onClick={() => navigate("/")}>Back to Home</Button>
           </div>
         </main>
@@ -139,7 +139,7 @@ const DailyTipDetail = () => {
                 )}
                 <div>
                   <span className="text-xs uppercase tracking-widest text-primary font-semibold mb-1 block">Daily Living</span>
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground leading-tight">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-medium text-foreground leading-tight">
                     {title}
                   </h1>
                   <div className="flex items-center gap-4 mt-3 text-muted-foreground">
@@ -172,7 +172,7 @@ const DailyTipDetail = () => {
               {/* Key Takeaways */}
               {keyTakeaways.length > 0 && (
                 <div className="mb-12 p-6 md:p-8 rounded-2xl bg-primary/5 border border-primary/15">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-primary mb-4 flex items-center gap-2">
+                  <h3 className="text-sm font-medium tracking-wider text-primary mb-4 flex items-center gap-2">
                     <Heart className="w-4 h-4" /> Key Takeaways
                   </h3>
                   <ul className="space-y-3">
@@ -201,7 +201,7 @@ const DailyTipDetail = () => {
 
               {/* CTA section */}
               <div className="mt-16 p-8 md:p-10 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/40 to-primary/5 border border-primary/15 text-center">
-                <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-3">
+                <h3 className="text-lg md:text-xl font-display font-medium text-foreground mb-3">
                   Need personalised guidance?
                 </h3>
                 <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
@@ -217,7 +217,7 @@ const DailyTipDetail = () => {
               {/* Other tips navigation (on individual pages) */}
               {!isOverview && (
                 <div className="mt-16 pt-10 border-t border-border/30">
-                  <h3 className="text-lg font-display font-bold text-foreground mb-6">
+                  <h3 className="text-lg font-display font-medium text-foreground mb-6">
                     Explore more tips
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -234,7 +234,7 @@ const DailyTipDetail = () => {
                           >
                             <img src={t.image} alt={t.title} className="w-16 h-16 rounded-xl object-cover shrink-0" loading="lazy" decoding="async" />
                             <div>
-                              <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{t.title}</h4>
+                              <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{t.title}</h4>
                               <p className="text-xs text-muted-foreground line-clamp-2">{t.desc}</p>
                             </div>
                           </Link>

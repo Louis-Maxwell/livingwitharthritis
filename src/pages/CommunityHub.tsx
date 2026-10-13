@@ -126,7 +126,7 @@ const CommunityHub = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <p className="section-label text-primary mb-3">Evidence-Based Benefits</p>
-                <h2 className="text-2xl font-bold text-foreground mb-4">Why Community & Self-Management Work</h2>
+                <h2 className="text-2xl font-medium text-foreground mb-4">Why Community & Self-Management Work</h2>
                 <p className="text-sm text-muted-foreground mb-6">Research shows that people who actively self-manage their arthritis report better outcomes.</p>
                 <HorizontalBar
                   items={[
@@ -160,7 +160,7 @@ const CommunityHub = () => {
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Newly Diagnosed? Start Here</h2>
+                <h2 className="text-2xl font-medium text-foreground">Newly Diagnosed? Start Here</h2>
                 <p className="text-sm text-muted-foreground">A step-by-step guide to managing your arthritis from day one</p>
               </div>
             </div>
@@ -180,7 +180,7 @@ const CommunityHub = () => {
                           <span className="text-sm font-bold text-primary">{s.step}</span>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
+                          <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
                           <p className="text-sm text-muted-foreground mt-0.5">{s.desc}</p>
                         </div>
                         <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors mt-1 shrink-0" />
@@ -198,7 +198,7 @@ const CommunityHub = () => {
         {/* ─── Emoji Quick Resources ─── */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Quick Support Resources</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2">Quick Support Resources</h2>
             <p className="text-sm text-muted-foreground mb-8">Instant access to key areas of support.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               <HighlightCard title="Exercise Hub" description="Knee, hand, chair and tai chi routines you can start at home." />
@@ -219,7 +219,7 @@ const CommunityHub = () => {
                 <Heart className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Situations we write for</h2>
+                <h2 className="text-2xl font-medium text-foreground">Situations we write for</h2>
                 <p className="text-sm text-muted-foreground">Guides for common situations. Not named patients and not star ratings.</p>
               </div>
             </div>
@@ -234,7 +234,7 @@ const CommunityHub = () => {
                 >
                   <Card className="h-full border border-border/40">
                     <CardContent className="p-6">
-                      <h3 className="font-semibold text-foreground mb-2">{s.title}</h3>
+                      <h3 className="font-medium text-foreground mb-2">{s.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.text}</p>
                       <Link to={s.href} className="text-sm font-semibold text-primary hover:underline">Open the guide</Link>
                     </CardContent>
@@ -255,7 +255,7 @@ const CommunityHub = () => {
                 <Globe className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">More Community Features</h2>
+                <h2 className="text-2xl font-medium text-foreground">More Community Features</h2>
                 <p className="text-sm text-muted-foreground">Building a supportive arthritis community in the UK</p>
               </div>
             </div>
@@ -273,7 +273,7 @@ const CommunityHub = () => {
                       <div className={`w-11 h-11 rounded-xl ${f.color} flex items-center justify-center mb-4`}>
                         <f.icon className="w-5 h-5" />
                       </div>
-                      <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
+                      <h3 className="font-medium text-foreground mb-2">{f.title}</h3>
                       <p className="text-sm text-muted-foreground mb-3">{f.description}</p>
 
                     </CardContent>
@@ -294,7 +294,7 @@ const CommunityHub = () => {
                 <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Free Downloadable Resources</h2>
+                <h2 className="text-2xl font-medium text-foreground">Free Downloadable Resources</h2>
                 <p className="text-sm text-muted-foreground">Print-friendly guides you can use at home</p>
               </div>
             </div>
@@ -319,7 +319,7 @@ const CommunityHub = () => {
                 >
                   <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md group">
                     <CardContent className="p-5 flex flex-col h-full">
-                      <h3 className="font-semibold text-foreground text-sm mb-1">{r.title}</h3>
+                      <h3 className="font-medium text-foreground text-sm mb-1">{r.title}</h3>
                       <p className="text-xs text-muted-foreground mb-3 flex-1">{r.desc}</p>
                       <div className="flex items-center justify-between mt-auto">
                         <span className="text-xs text-muted-foreground">{r.pages} · PDF</span>
@@ -346,7 +346,7 @@ const CommunityHub = () => {
         <section className="py-16 lg:py-20 bg-tint-mint">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl text-center">
             <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-foreground mb-4">Help Us Build This Community</h2>
+            <h2 className="text-3xl font-medium text-foreground mb-4">Help Us Build This Community</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               Your donations fund free resources, webinars and support programmes for people living with arthritis across the UK.
             </p>
@@ -400,7 +400,7 @@ const CommunityHub = () => {
         </div>
 
         <section aria-labelledby="daily-tips-heading" className="container mx-auto px-6 md:px-10 max-w-6xl py-12 border-t border-border">
-          <h2 id="daily-tips-heading" className="text-2xl md:text-3xl font-bold text-foreground mb-3">Daily tips for joint health</h2>
+          <h2 id="daily-tips-heading" className="text-2xl md:text-3xl font-medium text-foreground mb-3">Daily tips for joint health</h2>
           <p className="text-muted-foreground mb-6 max-w-2xl">Small, everyday habits that ease stiffness, support mobility, and help you live well with arthritis.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {dailyTips.map((tip) => (
@@ -409,7 +409,7 @@ const CommunityHub = () => {
                 to={`/daily-tips/${tip.slug}`}
                 className="block bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all group"
               >
-                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-1">{tip.title}</h3>
+                <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-1">{tip.title}</h3>
                 <p className="text-sm text-muted-foreground line-clamp-3">{tip.desc}</p>
               </Link>
             ))}

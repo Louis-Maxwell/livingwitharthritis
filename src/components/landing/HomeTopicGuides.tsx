@@ -45,20 +45,20 @@ const TOPIC_GROUPS = [
 
 export default function HomeTopicGuides() {
   return (
-    <section aria-labelledby="arthritis-topic-guides" className="bg-muted/40 py-10 md:py-14">
+    <section aria-labelledby="arthritis-topic-guides" className="bg-muted/40 py-16 md:py-24">
       <div className="container mx-auto max-w-6xl px-5 md:px-10">
         <p className="text-sm font-semibold text-primary">Find your next step</p>
-        <h2 id="arthritis-topic-guides" className="mt-2 font-display text-2xl font-bold tracking-tight md:text-3xl">
+        <h2 id="arthritis-topic-guides" className="mt-2 font-display text-3xl font-medium tracking-tight md:text-5xl">
           Arthritis exercises, PIP and practical support
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
           Clear information for the questions that come with living with arthritis.
           Choose a topic to explore a free guide at your own pace.
         </p>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           {TOPIC_GROUPS.map((group) => (
             <div key={group.title} className="min-w-0 rounded-2xl border border-border bg-card p-5 md:p-6">
-              <h3 className="text-lg font-bold">{group.title}</h3>
+              <h3 className="text-lg font-medium">{group.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.description}</p>
               <ul className="mt-4 space-y-1">
                 {group.links.map((link) => (

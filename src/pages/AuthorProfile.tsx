@@ -132,7 +132,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">{record.name}</h1>
+          <h1 className="text-3xl md:text-4xl font-medium mb-2">{record.name}</h1>
           <p className="text-lg text-foreground/80 mb-8">
             {record.title}
             {realOrg && <> · {realOrg}</>}
@@ -151,12 +151,12 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           )}
 
           <section className="prose prose-slate max-w-none mb-10">
-            <h2 className="text-xl font-bold mb-3">Biography</h2>
+            <h2 className="text-xl font-medium mb-3">Biography</h2>
             <p className="text-base leading-relaxed whitespace-pre-line">{record.bio}</p>
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-bold mb-3">Credentials</h2>
+            <h2 className="text-xl font-medium mb-3">Credentials</h2>
             <ul className="space-y-2">
               {record.credentials.map((c) => (
                 <li
@@ -174,7 +174,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-bold mb-3">Specialist areas</h2>
+            <h2 className="text-xl font-medium mb-3">Specialist areas</h2>
             <ul className="flex flex-wrap gap-2">
               {record.specialties.map((s) => (
                 <li
@@ -188,7 +188,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           </section>
 
           <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
-            <h2 className="text-lg font-bold mb-2">How we review content</h2>
+            <h2 className="text-lg font-medium mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
               Every clinical article on Living With Arthritis is written or reviewed
               by a qualified UK healthcare professional and updated on a rolling

@@ -275,7 +275,7 @@ export default function LivedExperiences() {
                   <Card key={s.title} className="border border-border/40">
                     <CardContent className="p-6 space-y-3">
                       <Badge className="bg-primary/10 text-primary hover:bg-primary/20">{s.condition}</Badge>
-                      <h3 className="text-xl font-bold text-foreground">{s.title}</h3>
+                      <h3 className="text-xl font-medium text-foreground">{s.title}</h3>
                       <p className="text-foreground/85 leading-relaxed">{s.text}</p>
                       <Button asChild variant="outline">
                         <Link to={s.href}>Open the guide <ArrowRight className="w-4 h-4 ml-1" /></Link>
@@ -291,7 +291,7 @@ export default function LivedExperiences() {
               <div className="space-y-5">
                 {faqs.map((f) => (
                   <div key={f.q}>
-                    <h3 className="font-semibold text-foreground mb-1">{f.q}</h3>
+                    <h3 className="font-medium text-foreground mb-1">{f.q}</h3>
                     <p className="text-foreground/85 leading-relaxed">{f.a}</p>
                   </div>
                 ))}

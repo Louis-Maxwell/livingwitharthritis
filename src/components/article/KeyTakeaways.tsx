@@ -66,7 +66,7 @@ const KeyTakeaways = ({ html, title }: KeyTakeawaysProps) => {
       <div className="flex items-center justify-between gap-3 mb-3">
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-primary" aria-hidden="true" />
-          <h2 className="font-display text-sm font-bold uppercase tracking-[0.12em] text-primary m-0">
+          <h2 className="font-display text-sm font-medium tracking-[0.12em] text-primary m-0">
             Key takeaways
           </h2>
         </div>

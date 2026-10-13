@@ -228,7 +228,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
             <div className="flex items-start gap-3">
               <ShieldCheck className="h-6 w-6 text-primary shrink-0 mt-1" />
               <div>
-                <h2 className="font-display text-2xl font-bold mb-3">The short answer</h2>
+                <h2 className="font-display text-2xl font-medium mb-3">The short answer</h2>
                 <p className="text-foreground/90 leading-relaxed mb-3">
                   <strong>Cracking your knuckles or toes does not cause arthritis.</strong> Multiple
                   studies — including X-ray comparisons of crackers and non-crackers — have looked
@@ -251,7 +251,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
             <Sparkles className="h-3 w-3 mr-1 inline" /> What's that pop?
           </Badge>
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-5">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-5">
             What's actually happening when a joint cracks
           </h2>
           <div className="space-y-4 text-foreground/90 leading-relaxed">
@@ -284,7 +284,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Activity className="h-3 w-3 mr-1 inline" /> The evidence
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
               What the research actually shows
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -294,7 +294,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           <div className="grid md:grid-cols-2 gap-5">
             {evidence.map((e) => (
               <Card key={e.title} className="p-6 border border-border/40">
-                <h3 className="font-display text-lg font-semibold mb-2">{e.title}</h3>
+                <h3 className="font-display text-lg font-medium mb-2">{e.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{e.text}</p>
               </Card>
             ))}
@@ -311,7 +311,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       {/* Toes specifically */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-5">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-5">
             What about cracking your toes?
           </h2>
           <div className="space-y-4 text-foreground/90 leading-relaxed">
@@ -336,7 +336,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
               What cracking can — and cannot — cause
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -345,7 +345,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           </div>
           <div className="grid md:grid-cols-2 gap-5">
             <Card className="p-6 border border-border/40 bg-background">
-              <h3 className="font-display text-xl font-semibold mb-4 text-primary">
+              <h3 className="font-display text-xl font-medium mb-4 text-primary">
                 What it can (mildly) cause
               </h3>
               <ul className="space-y-2.5">
@@ -361,7 +361,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
               </ul>
             </Card>
             <Card className="p-6 border border-border/40 bg-background">
-              <h3 className="font-display text-xl font-semibold mb-4 text-primary">
+              <h3 className="font-display text-xl font-medium mb-4 text-primary">
                 What it does not cause
               </h3>
               <ul className="space-y-2.5">
@@ -387,7 +387,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
             <div className="flex items-start gap-3">
               <AlertCircle className="h-6 w-6 text-primary shrink-0 mt-1" />
               <div>
-                <h2 className="font-display text-2xl font-bold mb-3">
+                <h2 className="font-display text-2xl font-medium mb-3">
                   When cracking is a red flag
                 </h2>
                 <p className="text-foreground/90 leading-relaxed mb-4">
@@ -427,7 +427,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
               What actually causes arthritis
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -437,7 +437,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {realCauses.map((c) => (
               <Card key={c.title} className="p-6 border border-border/40">
-                <h3 className="font-display text-lg font-semibold mb-2">{c.title}</h3>
+                <h3 className="font-display text-lg font-medium mb-2">{c.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
               </Card>
             ))}
@@ -452,7 +452,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Hand className="h-3 w-3 mr-1 inline" /> Healthier alternatives
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
               What to do instead if you crack out of habit
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -462,7 +462,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           <div className="grid md:grid-cols-2 gap-5">
             {insteadOfCracking.map((s) => (
               <Card key={s.title} className="p-6 border border-border/40 bg-background">
-                <h3 className="font-display text-lg font-semibold mb-2">{s.title}</h3>
+                <h3 className="font-display text-lg font-medium mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.text}</p>
               </Card>
             ))}
@@ -486,13 +486,13 @@ export default function DoesCrackingKnucklesCauseArthritis() {
           <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
             <HelpCircle className="h-3 w-3 mr-1 inline" /> FAQ
           </Badge>
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
             Common questions
           </h2>
           <div className="space-y-4">
             {faqs.map((f) => (
               <Card key={f.q} className="p-6 border border-border/40">
-                <h3 className="font-display text-lg font-semibold mb-2">{f.q}</h3>
+                <h3 className="font-display text-lg font-medium mb-2">{f.q}</h3>
                 <p className="text-sm text-foreground/85 leading-relaxed">{f.a}</p>
               </Card>
             ))}
@@ -503,7 +503,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       {/* Sources */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
+          <h2 className="font-display text-2xl md:text-3xl font-medium tracking-tight mb-5">
             Sources
           </h2>
           <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed list-disc pl-5">

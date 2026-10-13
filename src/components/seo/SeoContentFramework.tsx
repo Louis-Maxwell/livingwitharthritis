@@ -79,7 +79,7 @@ export default function SeoContentFramework({
         </div>
         <h2
           id="seo-content-framework-heading"
-          className="font-display text-xl md:text-2xl font-bold text-foreground"
+          className="font-display text-xl md:text-2xl font-medium text-foreground"
         >
           How we write SEO content
         </h2>

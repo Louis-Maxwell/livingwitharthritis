@@ -158,7 +158,7 @@ const ConditionSubpagePage = () => {
               {cond.name} • {subLabel}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-4">
             {sub.headline}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">{sub.intro}</p>
@@ -168,7 +168,7 @@ const ConditionSubpagePage = () => {
         {subpage === "symptoms" && (
           <>
             <section className="mb-10">
-              <h2 className="text-xl font-semibold text-foreground mb-4">
+              <h2 className="text-xl font-medium text-foreground mb-4">
                 Common symptoms of {cond.name.toLowerCase()}
               </h2>
               <ul className="space-y-2">
@@ -183,7 +183,7 @@ const ConditionSubpagePage = () => {
             <section className="mb-10 bg-destructive/5 border border-destructive/20 rounded-xl p-5 flex gap-3">
               <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
               <div>
-                <h2 className="font-semibold text-foreground mb-1">When to see your GP</h2>
+                <h2 className="font-medium text-foreground mb-1">When to see your GP</h2>
                 <p className="text-sm text-foreground">{(sub as typeof content.symptoms).whenToSeeGP}</p>
               </div>
             </section>
@@ -192,11 +192,11 @@ const ConditionSubpagePage = () => {
 
         {subpage === "treatment" && (
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Treatment approaches</h2>
+            <h2 className="text-xl font-medium text-foreground mb-4">Treatment approaches</h2>
             <div className="space-y-3">
               {(sub as typeof content.treatment).approaches.map((a, i) => (
                 <article key={i} className="bg-card border border-border rounded-xl p-5">
-                  <h3 className="font-semibold text-foreground mb-1">
+                  <h3 className="font-medium text-foreground mb-1">
                     {i + 1}. {a.name}
                   </h3>
                   <p className="text-sm text-muted-foreground">{a.description}</p>
@@ -208,7 +208,7 @@ const ConditionSubpagePage = () => {
 
         {subpage === "exercises" && (
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-foreground mb-4">
+            <h2 className="text-xl font-medium text-foreground mb-4">
               Why exercise helps {cond.name.toLowerCase()}
             </h2>
             <ul className="space-y-2 mb-6">
@@ -231,7 +231,7 @@ const ConditionSubpagePage = () => {
         {subpage === "diet" && (
           <>
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Foods to favour</h2>
+              <h2 className="text-xl font-medium text-foreground mb-4">Foods to favour</h2>
               <ul className="space-y-2">
                 {(sub as typeof content.diet).foodsToFavor.map((f, i) => (
                   <li key={i} className="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
@@ -242,7 +242,7 @@ const ConditionSubpagePage = () => {
               </ul>
             </section>
             <section className="mb-10">
-              <h2 className="text-xl font-semibold text-foreground mb-4">Foods to limit</h2>
+              <h2 className="text-xl font-medium text-foreground mb-4">Foods to limit</h2>
               <ul className="space-y-2">
                 {(sub as typeof content.diet).foodsToLimit.map((f, i) => (
                   <li key={i} className="flex items-start gap-3 bg-destructive/5 rounded-xl p-4">
@@ -258,7 +258,7 @@ const ConditionSubpagePage = () => {
         {"extraSections" in sub &&
           sub.extraSections?.map((section) => (
             <section key={section.heading} className="mb-10">
-              <h2 className="text-xl font-semibold text-foreground mb-4">
+              <h2 className="text-xl font-medium text-foreground mb-4">
                 {section.heading}
               </h2>
               {section.body.split("\n\n").map((para) => (
@@ -281,7 +281,7 @@ const ConditionSubpagePage = () => {
 
         {/* People also ask — long-tail question keywords + FAQPage schema */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-primary" />
             People also ask about {lcName} {subpage === "diet" ? "and diet" : subpage}
           </h2>
@@ -290,7 +290,7 @@ const ConditionSubpagePage = () => {
 
         {/* Sibling sub-pages — same condition */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+          <h2 className="text-xl font-medium text-foreground mb-4">
             More on {cond.name.toLowerCase()}
           </h2>
           <div className="grid sm:grid-cols-2 gap-3">

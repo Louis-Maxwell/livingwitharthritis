@@ -359,7 +359,7 @@ const ExerciseHub = () => {
                         <cat.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-foreground">{cat.title}</h2>
+                        <h2 className="text-2xl font-medium text-foreground">{cat.title}</h2>
                         <p className="text-sm text-muted-foreground font-medium">{cat.subtitle}</p>
                       </div>
                     </div>
@@ -410,7 +410,7 @@ const ExerciseHub = () => {
                 <MessageCircle className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Not sure which exercises suit you?</h2>
+                <h2 className="text-xl font-medium text-foreground mb-1">Not sure which exercises suit you?</h2>
                 <p className="text-muted-foreground text-sm">Our help chat recommends exercises based on your specific joints, pain level and mobility — free and instant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold shadow-md shrink-0">
@@ -439,7 +439,7 @@ const ExerciseHub = () => {
                         <cat.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-foreground">{cat.title}</h2>
+                        <h2 className="text-2xl font-medium text-foreground">{cat.title}</h2>
                         <p className="text-sm text-muted-foreground font-medium">{cat.subtitle}</p>
                       </div>
                     </div>
@@ -483,7 +483,7 @@ const ExerciseHub = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <p className="section-label text-primary mb-3">Research Findings</p>
-                <h2 className="text-2xl font-bold text-foreground mb-2">Exercise Effectiveness by Type</h2>
+                <h2 className="text-2xl font-medium text-foreground mb-2">Exercise Effectiveness by Type</h2>
                 <p className="text-sm text-muted-foreground mb-6">Patients reporting improvement after 12 weeks.</p>
                 <HorizontalBar
                   items={[
@@ -515,7 +515,7 @@ const ExerciseHub = () => {
         {/* ─── Quick Tips Emoji Grid ─── */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2">Quick Exercise Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               <HighlightCard title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
@@ -531,7 +531,7 @@ const ExerciseHub = () => {
         {/* Additional activities */}
         <section className="py-12 lg:py-16 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-3xl font-bold text-foreground mb-3">More Ways to Stay Active</h2>
+            <h2 className="text-3xl font-medium text-foreground mb-3">More Ways to Stay Active</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">Low-impact activities that complement your routine.</p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -547,7 +547,7 @@ const ExerciseHub = () => {
                     <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md">
                       <CardContent className="p-6">
                         <act.icon className="w-8 h-8 text-primary mb-3" />
-                        <h3 className="font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">{act.title}</h3>
+                        <h3 className="font-medium text-foreground mb-1.5 group-hover:text-primary transition-colors">{act.title}</h3>
                         <p className="text-sm text-muted-foreground">{act.desc}</p>
                         <span className="inline-flex items-center gap-1 text-xs text-primary font-medium mt-3">
                           Read more about {act.title}<span className="sr-only"> exercise guide</span> <ChevronRight className="w-3 h-3" aria-hidden="true" />
@@ -564,7 +564,7 @@ const ExerciseHub = () => {
         {/* Exercises by joint — internal-link matrix (de-orphans 48 sitemap URLs) */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Exercises by Joint</h2>
+            <h2 className="text-3xl font-medium text-foreground mb-3">Exercises by Joint</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">
               Pick the exercise type, then the joint you want to focus on. Each guide covers benefits,
               step-by-step instructions, and safety tips.
@@ -573,7 +573,7 @@ const ExerciseHub = () => {
             <div className="space-y-8">
               {EXERCISE_MATRIX_TYPES.map((type) => (
                 <div key={type.slug}>
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-3">
+                  <h3 className="font-display text-lg font-medium text-foreground mb-3">
                     {type.label}
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -607,7 +607,7 @@ const ExerciseHub = () => {
                 <BarChart3 className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Track how exercise affects your symptoms</h2>
+                <h2 className="text-xl font-medium text-foreground mb-1">Track how exercise affects your symptoms</h2>
                 <p className="text-muted-foreground text-sm">Use our Self Help Tool to explore joint-specific exercises and get personalised guidance from our help chat.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
@@ -620,7 +620,7 @@ const ExerciseHub = () => {
         {/* ─── Weekly Plan Timeline ─── */}
         <section className="py-12 lg:py-16 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2">Sample Weekly Plan</h2>
             <p className="text-sm text-muted-foreground mb-8">A balanced week of arthritis-friendly exercise.</p>
             <Timeline items={[
               { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine." },
@@ -654,7 +654,7 @@ const ExerciseHub = () => {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <Sparkles className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Need Personalised Exercise Advice?</h2>
+              <h2 className="text-3xl sm:text-4xl font-medium text-foreground mb-4">Need Personalised Exercise Advice?</h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg">
                 Get recommendations tailored to your joints, pain level and fitness — free, instant and evidence-based.
               </p>

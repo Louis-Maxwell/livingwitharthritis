@@ -119,7 +119,7 @@ export default function ArthritisMentalHealth() {
         keywords={pillar.targetKeywords.join(', ')}
       />
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      <h1 className="text-4xl md:text-5xl font-medium mb-6">
         Arthritis &amp; Mental Health
       </h1>
 
@@ -132,7 +132,7 @@ export default function ArthritisMentalHealth() {
 
 
       <nav aria-label="Table of contents" className="bg-muted p-6 rounded-lg mb-10 border-l-4 border-primary">
-        <h2 className="font-bold text-lg mb-4">In this guide</h2>
+        <h2 className="font-medium text-lg mb-4">In this guide</h2>
         <ul className="space-y-2 md:columns-2">
           {pillar.sections.map((s) => (
             <li key={s}>
@@ -160,7 +160,7 @@ export default function ArthritisMentalHealth() {
 
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">In-depth articles</h2>
+        <h2 className="text-2xl font-medium mb-4">In-depth articles</h2>
         <ul className="grid md:grid-cols-2 gap-3">
           {clusters.map((c) => (
             <li key={c.slug} className="rounded-lg border p-4 hover:bg-accent/40 transition-colors">
@@ -176,7 +176,7 @@ export default function ArthritisMentalHealth() {
       </section>
 
       <section id="faqs" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Frequently asked questions</h2>
+        <h2 className="text-2xl font-medium mb-4">Frequently asked questions</h2>
         <FaqAccordion idPrefix="mental-health" items={faqs} />
       </section>
 
@@ -184,7 +184,7 @@ export default function ArthritisMentalHealth() {
       <TopicClusterNav path="/arthritis-mental-health" />
 
       <aside className="bg-accent rounded-lg p-6 border-l-4 border-primary">
-        <h2 className="font-bold text-lg mb-2">Need to talk to someone now?</h2>
+        <h2 className="font-medium text-lg mb-2">Need to talk to someone now?</h2>
         <p className="text-muted-foreground mb-3">
           Samaritans are available 24/7 on <a href="tel:116123" className="text-primary underline">116 123</a>,
           or text SHOUT to 85258. In an emergency, call 999.

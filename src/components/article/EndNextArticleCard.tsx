@@ -50,7 +50,7 @@ const EndNextArticleCard = memo(({ currentSlug }: EndNextArticleCardProps) => {
               <BookOpen className="w-3 h-3" aria-hidden="true" />
               Keep reading
             </p>
-            <h2 className="font-display text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-snug m-0">
+            <h2 className="font-display text-lg md:text-xl font-medium text-foreground group-hover:text-primary transition-colors leading-snug m-0">
               {next.title}
             </h2>
             <p className="text-sm text-muted-foreground mt-1.5">

@@ -123,7 +123,7 @@ const ImpactStories = () => {
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
             <div className="text-center mb-10">
-              <h2 className="text-2xl font-bold text-foreground mb-2">What we can say honestly</h2>
+              <h2 className="text-2xl font-medium text-foreground mb-2">What we can say honestly</h2>
               <p className="text-sm text-muted-foreground">No invented visitor counts, specialist panels or engagement scores</p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
@@ -150,7 +150,7 @@ const ImpactStories = () => {
                 <Quote className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Situations these guides are for</h2>
+                <h2 className="text-2xl font-medium text-foreground">Situations these guides are for</h2>
                 <p className="text-sm text-muted-foreground">Everyday situations we write about. Not named patients, not audited outcomes, not a measure of reach.</p>
               </div>
             </div>
@@ -168,7 +168,7 @@ const ImpactStories = () => {
                     <CardContent className="p-6 md:p-8">
                       <div className="flex flex-col md:flex-row gap-6">
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-foreground mb-2">{cs.title}</h3>
+                          <h3 className="font-medium text-foreground mb-2">{cs.title}</h3>
                           <p className="text-sm text-muted-foreground leading-relaxed mb-4">{cs.text}</p>
                           <div className="flex flex-wrap gap-1.5 mb-3">
                             {cs.links.map((s) => (
@@ -194,7 +194,7 @@ const ImpactStories = () => {
                 <Target className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Public Benefit Evidence</h2>
+                <h2 className="text-2xl font-medium text-foreground">Public Benefit Evidence</h2>
                 <p className="text-sm text-muted-foreground">Demonstrating who benefits from our charity and how, as required by the Charity Commission</p>
               </div>
             </div>
@@ -204,7 +204,7 @@ const ImpactStories = () => {
                 <motion.div key={section.title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                   <Card className="border border-border/40">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-foreground text-base mb-4 flex items-center gap-2">
+                      <h3 className="font-medium text-foreground text-base mb-4 flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-primary" /> {section.title}
                       </h3>
                       <ul className="space-y-2.5">
@@ -231,7 +231,7 @@ const ImpactStories = () => {
                 <Star className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">We do not publish a satisfaction survey</h2>
+                <h2 className="text-2xl font-medium text-foreground">We do not publish a satisfaction survey</h2>
                 <p className="text-sm text-muted-foreground">There is no verified 2024/25 survey behind earlier percentages on this page. If something on the site helped or missed the mark, write to us.</p>
               </div>
             </div>
@@ -246,7 +246,7 @@ const ImpactStories = () => {
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-2xl text-center">
             <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-foreground mb-3">Help Us Support More People</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-3">Help Us Support More People</h2>
             <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
               Every donation helps us reach more people living with arthritis across the UK with free, evidence-based support.
             </p>

@@ -26,13 +26,13 @@ export default function HomeJobRouter() {
     <section
       id="find-help"
       aria-labelledby="find-help-heading"
-      className="scroll-mt-28 bg-background py-10 md:py-14"
+      className="scroll-mt-28 bg-background py-16 md:py-24"
     >
       <div className="container mx-auto max-w-6xl px-5 md:px-10">
         <h2
           id="find-help-heading"
           tabIndex={-1}
-          className="font-display font-bold text-2xl md:text-3xl text-foreground tracking-tight focus:outline-none"
+          className="font-display font-medium text-3xl md:text-5xl text-foreground tracking-tight focus:outline-none"
         >
           What do you need today?
         </h2>
@@ -40,14 +40,14 @@ export default function HomeJobRouter() {
           Pick the one that fits. Each goes straight to a free guide — no sign-up, no quiz.
         </p>
 
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {VISITOR_JOBS.map((job) => {
             const Icon = job.icon;
             const isDonate = job.id === "donate";
             return (
               <li
                 key={job.id}
-                className={`flex min-w-0 flex-col rounded-2xl border p-4 sm:p-5 transition-shadow hover:shadow-md ${
+                className={`flex min-w-0 flex-col rounded-2xl border p-6 sm:p-7 transition-colors hover:border-primary/30 ${
                   isDonate ? "border-border/60 bg-muted/40" : "border-border/60 bg-card"
                 }`}
               >
@@ -65,7 +65,7 @@ export default function HomeJobRouter() {
                   >
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-lg font-medium leading-snug text-foreground group-hover:text-primary transition-colors">
                     {job.title}
                     <ArrowRight
                       className="ml-1 inline h-4 w-4 align-[-2px] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
@@ -87,7 +87,7 @@ export default function HomeJobRouter() {
                   >
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-lg font-medium leading-snug text-foreground group-hover:text-primary transition-colors">
                     {job.title}
                     <ArrowRight
                       className="ml-1 inline h-4 w-4 align-[-2px] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"

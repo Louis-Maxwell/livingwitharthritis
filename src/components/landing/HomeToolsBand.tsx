@@ -35,7 +35,7 @@ export default function HomeToolsBand() {
           </p>
           <h2
             id="home-tools-heading"
-            className="font-display font-bold text-2xl md:text-3xl text-foreground"
+            className="font-display font-medium text-3xl md:text-5xl text-foreground"
           >
             Practical tools to get unstuck
           </h2>

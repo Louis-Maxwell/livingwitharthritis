@@ -72,7 +72,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
         <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
+      <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">{title}</h2>
     </div>
     <div className="prose prose-lg max-w-none text-foreground/85 prose-headings:font-display prose-headings:text-foreground prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-li:leading-relaxed prose-strong:text-foreground">
       {children}
@@ -306,7 +306,7 @@ const PsoriaticArthritis = () => (
         />
 
         <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-bold text-foreground mb-3">How is psoriatic arthritis managed day-to-day?</h2>
+          <h2 className="font-display text-xl font-medium text-foreground mb-3">How is psoriatic arthritis managed day-to-day?</h2>
           <p className="text-muted-foreground mb-5">Modern treatments can control both skin and joint symptoms. Explore our resources or start a chat for personalised guidance.</p>
           <div className="flex flex-wrap gap-3">
             <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">

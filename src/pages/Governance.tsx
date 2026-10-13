@@ -178,7 +178,7 @@ Regulated by the Charity Commission for England and Wales.
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Building2 className="w-5 h-5 text-primary" />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground">Registered Details</h2>
+                    <h2 className="text-lg font-medium text-foreground">Registered Details</h2>
                   </div>
                   <dl className="space-y-3 text-sm">
                     <div>
@@ -207,7 +207,7 @@ Regulated by the Charity Commission for England and Wales.
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
-                    <h2 className="text-lg font-bold text-foreground">Contact</h2>
+                    <h2 className="text-lg font-medium text-foreground">Contact</h2>
                   </div>
                   <div className="space-y-2.5">
                     <a href={`mailto:${CONTACT_EMAILS.info}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -232,7 +232,7 @@ Regulated by the Charity Commission for England and Wales.
                   <FileText className="w-8 h-8 text-primary" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <h2 className="text-xl font-bold text-foreground mb-2">Our Governing Document</h2>
+                  <h2 className="text-xl font-medium text-foreground mb-2">Our Governing Document</h2>
                   <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
                     Our constitution sets out our charitable objects, trustee responsibilities, and how the organisation is governed.
                     It is publicly available as required by the Charity Commission.
@@ -254,7 +254,7 @@ Regulated by the Charity Commission for England and Wales.
                 <Gavel className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Charitable Objects</h2>
+                <h2 className="text-2xl font-medium text-foreground">Charitable Objects</h2>
                 <p className="text-sm text-muted-foreground">Our legally defined purposes as registered with the Charity Commission</p>
               </div>
             </div>
@@ -275,7 +275,7 @@ Regulated by the Charity Commission for England and Wales.
                     <CardContent className="p-5 flex items-start gap-4">
                       <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <div>
-                        <h3 className="font-semibold text-foreground text-sm mb-1">{obj.title}</h3>
+                        <h3 className="font-medium text-foreground text-sm mb-1">{obj.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">{obj.desc}</p>
                       </div>
                     </CardContent>
@@ -294,7 +294,7 @@ Regulated by the Charity Commission for England and Wales.
                 <Users className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Board of Trustees</h2>
+                <h2 className="text-2xl font-medium text-foreground">Board of Trustees</h2>
                 <p className="text-sm text-muted-foreground">Our board meets quarterly to review finances, impact, strategy, and compliance</p>
               </div>
             </div>
@@ -315,7 +315,7 @@ Regulated by the Charity Commission for England and Wales.
                 <Clock className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Quarterly Board Meetings</h2>
+                <h2 className="text-2xl font-medium text-foreground">Quarterly Board Meetings</h2>
                 <p className="text-sm text-muted-foreground">Our trustees meet four times a year to govern the charity</p>
               </div>
             </div>
@@ -323,7 +323,7 @@ Regulated by the Charity Commission for England and Wales.
               {meetingSchedule.map((m) => (
                 <Card key={m.quarter} className="border border-border/40">
                   <CardContent className="p-5">
-                    <h3 className="font-semibold text-foreground text-sm mb-1">{m.quarter}</h3>
+                    <h3 className="font-medium text-foreground text-sm mb-1">{m.quarter}</h3>
                     <p className="text-sm text-muted-foreground">{m.focus}</p>
                   </CardContent>
                 </Card>
@@ -340,7 +340,7 @@ Regulated by the Charity Commission for England and Wales.
                 <Scale className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Governance Policies</h2>
+                <h2 className="text-2xl font-medium text-foreground">Governance Policies</h2>
                 <p className="text-sm text-muted-foreground">Key policies ensuring we operate responsibly and transparently</p>
               </div>
             </div>
@@ -355,7 +355,7 @@ Regulated by the Charity Commission for England and Wales.
                 >
                   <Card className="border border-border/40 h-full">
                     <CardContent className="p-5">
-                      <h3 className="font-semibold text-foreground text-sm mb-1.5 flex items-center gap-2">
+                      <h3 className="font-medium text-foreground text-sm mb-1.5 flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0" /> {p.title}
                       </h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
@@ -371,7 +371,7 @@ Regulated by the Charity Commission for England and Wales.
         <section className="py-14 lg:py-20 bg-muted/20">
           <div className="container mx-auto px-6 md:px-10 max-w-2xl text-center">
             <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-foreground mb-3">Questions About Our Governance?</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-3">Questions About Our Governance?</h2>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed max-w-md mx-auto">
               We welcome enquiries about how we operate. Contact our trustees directly or view our other compliance pages.
             </p>

@@ -54,7 +54,7 @@ class ErrorBoundary extends Component<Props, State> {
               <div className="mx-auto w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
                 <AlertTriangle className="w-7 h-7 text-destructive" />
               </div>
-              <h3 className="text-lg font-bold text-foreground">Something went wrong</h3>
+              <h3 className="text-lg font-medium text-foreground">Something went wrong</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 An unexpected error occurred. Please try again or refresh the page.
               </p>

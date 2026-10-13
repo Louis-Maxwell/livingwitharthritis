@@ -59,7 +59,7 @@ const ZakatCalculator = () => {
           <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
             <Calculator className="w-6 h-6 text-primary" />
           </div>
-          <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground">
+          <h2 className="text-xl sm:text-2xl font-display font-medium text-foreground">
             Zakat Calculator
           </h2>
           <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
@@ -70,7 +70,7 @@ const ZakatCalculator = () => {
         <div className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
           {/* Assets */}
           <div className="p-5 sm:p-6 space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Your Assets</h3>
+            <h3 className="text-sm font-medium text-foreground">Your Assets</h3>
             {ASSET_FIELDS.map(({ key, label, placeholder }) => (
               <div key={key}>
                 <label htmlFor={`zakat-${key}`} className="text-xs font-medium text-muted-foreground">

@@ -24,7 +24,7 @@ const ImpactProgressBand = () => {
           </p>
           <h2
             id="impact-progress-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.02em] leading-[1.05] text-foreground mb-6"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.02em] leading-[1.05] text-foreground mb-6"
           >
             Help us fund arthritis research.
           </h2>

@@ -30,7 +30,7 @@ const HealthToolsCTA = memo(() => (
         <Activity className="w-5 h-5 text-primary" aria-hidden="true" />
       </div>
       <div>
-        <h3 className="font-display text-lg font-bold text-foreground mb-1">
+        <h3 className="font-display text-lg font-medium text-foreground mb-1">
           Free tools to keep you moving
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed">

@@ -163,7 +163,7 @@ export default function Donate() {
               <Heart className="w-4 h-4 text-primary fill-primary/20" />
               <span className="text-xs font-bold text-primary tracking-wider uppercase">Help someone move again</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-foreground tracking-tight leading-tight mb-5">
               Give so someone with arthritis can walk, work, and hold the people they love
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-4">
@@ -199,7 +199,7 @@ export default function Donate() {
               <p className="inline-block bg-primary text-primary-foreground px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]">
                 Urgent appeal
               </p>
-              <h2 className="mt-4 text-2xl md:text-3xl font-extrabold text-white leading-tight">
+              <h2 className="mt-4 text-2xl md:text-3xl font-medium text-white leading-tight">
                 Palestine & Gaza: fund rehabilitation for war survivors
               </h2>
               <p className="mt-3 text-sm md:text-base text-white/90 leading-relaxed">
@@ -225,7 +225,7 @@ export default function Donate() {
 
         {/* Donation Widget */}
         <section id="give" className="container mx-auto px-6 md:px-10 py-16 max-w-3xl scroll-mt-24">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-3">Choose what you can give</h2>
+          <h2 className="text-2xl font-medium text-foreground text-center mb-3">Choose what you can give</h2>
           <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">
             One-time or monthly. UK taxpayers may add Gift Aid once our HMRC Gift Aid registration is complete — we will confirm on the form when reclaim is live.
           </p>
@@ -338,7 +338,7 @@ export default function Donate() {
 
         {/* Impact Cards */}
         <section className="container mx-auto px-6 md:px-10 pb-16 max-w-5xl">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-3">What your gift does</h2>
+          <h2 className="text-2xl font-medium text-foreground text-center mb-3">What your gift does</h2>
           <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">Not a slogan. A real unit of care for one person.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {DONATION_OPTIONS.map((opt) => (
@@ -354,7 +354,7 @@ export default function Donate() {
         {/* Ways to Give */}
         <section className="bg-muted/30 border-y border-border/20">
           <div className="container mx-auto px-6 md:px-10 py-16 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground text-center mb-3">Ways to Give</h2>
+            <h2 className="text-2xl font-medium text-foreground text-center mb-3">Ways to Give</h2>
             <p className="text-muted-foreground text-center mb-10 max-w-lg mx-auto">Whether it's a one-off gift, regular giving, or your time — every contribution makes a difference.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {WAYS_TO_GIVE.map((way) => {
@@ -364,7 +364,7 @@ export default function Donate() {
                     <div className={`w-11 h-11 rounded-xl ${way.color} flex items-center justify-center mb-4`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-semibold text-foreground mb-1">{way.title}</h3>
+                    <h3 className="font-medium text-foreground mb-1">{way.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">{way.desc}</p>
                     {way.external ? (
                       <Button asChild variant="outline" size="sm" className="rounded-full text-xs font-semibold">
@@ -398,7 +398,7 @@ export default function Donate() {
           </div>
           <div className="text-center mb-10">
 
-            <h2 className="text-2xl font-bold text-foreground mb-3">Tax-Efficient Giving</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-3">Tax-Efficient Giving</h2>
             <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Make your donation go further. UK taxpayers have several ways to give that increase your impact at no extra cost.
             </p>
@@ -409,7 +409,7 @@ export default function Donate() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Gift className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Gift Aid (+25%)</h3>
+              <h3 className="font-medium text-foreground mb-2">Gift Aid (+25%)</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Once Louis completes HMRC Gift Aid registration for charity 1218461, eligible UK taxpayers can add Gift Aid (+25%). Registration is in progress — we will not claim Gift Aid on donations until it is live.
               </p>
@@ -418,7 +418,7 @@ export default function Donate() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Receipt className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Higher-Rate Relief</h3>
+              <h3 className="font-medium text-foreground mb-2">Higher-Rate Relief</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 40% and 45% taxpayers can claim back the difference through Self Assessment — up to £31.25 back on a £100 gift.
               </p>
@@ -427,7 +427,7 @@ export default function Donate() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Briefcase className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Payroll Giving</h3>
+              <h3 className="font-medium text-foreground mb-2">Payroll Giving</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Donate directly from your salary before tax — your employer's scheme makes giving simple and even more tax-efficient.
               </p>
@@ -436,7 +436,7 @@ export default function Donate() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Landmark className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Legacy Gifts</h3>
+              <h3 className="font-medium text-foreground mb-2">Legacy Gifts</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Gifts in your Will are exempt from Inheritance Tax and can reduce the rate on the rest of your estate from 40% to 36%.
               </p>
@@ -445,7 +445,7 @@ export default function Donate() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Globe className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Shares & Securities</h3>
+              <h3 className="font-medium text-foreground mb-2">Shares & Securities</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Donating qualifying shares gives you both Income Tax relief on the value and exemption from Capital Gains Tax.
               </p>
@@ -454,7 +454,7 @@ export default function Donate() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Heart className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Zakat</h3>
+              <h3 className="font-medium text-foreground mb-2">Zakat</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Fulfil your Zakat through our Shariah-compliant appeal, funding rehabilitation for those most in need.
               </p>
@@ -470,7 +470,7 @@ export default function Donate() {
           </div>
         </section>
         <section id="donate-faq" className="container mx-auto px-6 md:px-10 pb-16 max-w-3xl" aria-labelledby="donate-faq-heading">
-          <h2 id="donate-faq-heading" className="text-2xl font-bold text-foreground mb-6 text-center">Donation FAQs</h2>
+          <h2 id="donate-faq-heading" className="text-2xl font-medium text-foreground mb-6 text-center">Donation FAQs</h2>
           <FaqAccordion idPrefix="donate-faq" items={DONATE_FAQS} />
         </section>
       </main>

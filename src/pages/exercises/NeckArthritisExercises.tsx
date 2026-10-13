@@ -134,7 +134,7 @@ export default function NeckArthritisExercises() {
           <Badge variant="secondary" className="mb-4">
             Exercise Hub · Neck
           </Badge>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="font-serif text-4xl md:text-5xl font-medium mb-4">
             Neck arthritis exercises: 7 gentle moves for cervical osteoarthritis
           </h1>
           <p className="text-lg text-muted-foreground mb-10">
@@ -156,7 +156,7 @@ export default function NeckArthritisExercises() {
             </p>
           </aside>
 
-          <h2 className="font-serif text-2xl font-semibold mb-6">Who these exercises are for</h2>
+          <h2 className="font-serif text-2xl font-medium mb-6">Who these exercises are for</h2>
           <ul className="space-y-2 mb-12">
             {[
               "Cervical osteoarthritis (wear-and-tear of the neck joints)",
@@ -172,11 +172,11 @@ export default function NeckArthritisExercises() {
             ))}
           </ul>
 
-          <h2 className="font-serif text-2xl font-semibold mb-6">The seven exercises</h2>
+          <h2 className="font-serif text-2xl font-medium mb-6">The seven exercises</h2>
           <ol className="space-y-8 mb-12">
             {exercises.map((e, i) => (
               <li key={e.name} className="border-l-2 border-primary/30 pl-5">
-                <h3 className="font-serif text-xl font-semibold mb-1">
+                <h3 className="font-serif text-xl font-medium mb-1">
                   {i + 1}. {e.name}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-2">{e.purpose}</p>
@@ -186,7 +186,7 @@ export default function NeckArthritisExercises() {
             ))}
           </ol>
 
-          <h2 className="font-serif text-2xl font-semibold mb-6">How often should I do them?</h2>
+          <h2 className="font-serif text-2xl font-medium mb-6">How often should I do them?</h2>
           <p className="mb-4 leading-relaxed">
             Once or twice a day is enough. Start with chin tucks, rotations and
             shoulder rolls for the first week, then layer in the stretches and
@@ -199,18 +199,18 @@ export default function NeckArthritisExercises() {
             neck come from sustained postures, not from heavy use.
           </p>
 
-          <h2 className="font-serif text-2xl font-semibold mb-6">Frequently asked questions</h2>
+          <h2 className="font-serif text-2xl font-medium mb-6">Frequently asked questions</h2>
           <div className="space-y-6 mb-12">
             {faqs.map((f) => (
               <div key={f.q}>
-                <h3 className="font-semibold mb-2">{f.q}</h3>
+                <h3 className="font-medium mb-2">{f.q}</h3>
                 <p className="text-foreground/80 leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>
 
           <section className="mt-16 pt-10 border-t border-border">
-            <h2 className="font-serif text-2xl font-semibold mb-6">Related guides</h2>
+            <h2 className="font-serif text-2xl font-medium mb-6">Related guides</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
                 { to: "/conditions/osteoarthritis", label: "Osteoarthritis guide" },

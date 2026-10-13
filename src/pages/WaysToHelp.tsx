@@ -187,7 +187,7 @@ export default function WaysToHelp() {
                   <span className="text-xs font-semibold tracking-wide uppercase">Together We Can Make a Difference</span>
                 </div>
 
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1] mb-5">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight leading-[1.1] mb-5">
                   Every action helps someone live{" "}
                   <span className="relative">
                     <span className="relative z-10">a fuller life</span>
@@ -249,7 +249,7 @@ export default function WaysToHelp() {
               {/* Section header */}
               <div className="text-center mb-14">
                 <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Support Our Mission</p>
-                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-3">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground tracking-tight mb-3">
                   Five Ways You Can Help
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto">
@@ -271,7 +271,7 @@ export default function WaysToHelp() {
                         <div className="w-16 h-16 rounded-2xl bg-background/20 backdrop-blur-sm flex items-center justify-center mb-5">
                           <Icon className="w-8 h-8" />
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-2">{way.title}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-medium mb-2">{way.title}</h3>
                         <p className="text-sm text-primary-foreground font-medium">{way.impact}</p>
                       </div>
 
@@ -319,7 +319,7 @@ export default function WaysToHelp() {
                         <Icon className="w-6 h-6 text-primary-foreground" />
                       </div>
 
-                      <h3 className="text-lg font-bold text-foreground mb-2 tracking-tight">{way.title}</h3>
+                      <h3 className="text-lg font-medium text-foreground mb-2 tracking-tight">{way.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mb-2">{way.description}</p>
 
                       {/* Impact badge */}
@@ -366,7 +366,7 @@ export default function WaysToHelp() {
             <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
               <div className="text-center mb-12">
                 <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Your Impact</p>
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-3">
+                <h2 className="font-display text-2xl sm:text-3xl font-medium text-foreground tracking-tight mb-3">
                   How Your Support Changes Lives
                 </h2>
                 <p className="text-muted-foreground max-w-lg mx-auto">
@@ -404,7 +404,7 @@ export default function WaysToHelp() {
                       <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 shadow-sm`}>
                         <Icon className="w-7 h-7 text-primary-foreground" />
                       </div>
-                      <h3 className="text-base font-bold text-foreground mb-2">{item.title}</h3>
+                      <h3 className="text-base font-medium text-foreground mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                   );
@@ -421,7 +421,7 @@ export default function WaysToHelp() {
                 {/* Left: Why volunteer */}
                 <div>
                   <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">Join Our Team</p>
-                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-4">
+                  <h2 className="font-display text-2xl sm:text-3xl font-medium text-foreground tracking-tight mb-4">
                     Volunteer With Us
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-8">
@@ -442,7 +442,7 @@ export default function WaysToHelp() {
                             <BIcon className="w-4.5 h-4.5 text-primary" />
                           </div>
                           <div>
-                            <h4 className="text-sm font-bold text-foreground">{benefit.title}</h4>
+                            <h4 className="text-sm font-medium text-foreground">{benefit.title}</h4>
                             <p className="text-xs text-muted-foreground">{benefit.desc}</p>
                           </div>
                         </div>
@@ -458,14 +458,14 @@ export default function WaysToHelp() {
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                         <CheckCircle2 className="w-8 h-8 text-primary" />
                       </div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">Email draft ready — please press Send</h3>
+                      <h3 className="text-xl font-medium text-foreground mb-2">Email draft ready — please press Send</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         Your email app should have opened with a volunteer enquiry draft. We only receive it after you press Send — nothing was submitted automatically. We aim to reply within 5 working days once it arrives.
                       </p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="bg-card border border-border/30 rounded-2xl p-6 sm:p-8 shadow-lg shadow-primary/5 space-y-4">
-                      <h3 className="text-lg font-bold text-foreground mb-1">Sign Up to Volunteer</h3>
+                      <h3 className="text-lg font-medium text-foreground mb-1">Sign Up to Volunteer</h3>
                       <p className="text-xs text-muted-foreground mb-4">Opens an email draft to our inbox — nothing is stored on this website until you press Send.</p>
 
                       {/* Name */}
@@ -570,7 +570,7 @@ export default function WaysToHelp() {
           {/* ── Final CTA ── */}
           <section className="py-16 sm:py-20 bg-gradient-to-br from-primary/95 to-primary text-primary-foreground">
             <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center">
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight mb-4">
                 Ready to Make a Difference?
               </h2>
               <p className="text-base sm:text-lg text-primary-foreground leading-relaxed mb-8 max-w-xl mx-auto">

@@ -79,7 +79,7 @@ const WaitingListHelp = () => {
           <Hospital className="w-5 h-5" />
           <span className="text-sm font-medium uppercase tracking-wide">UK patient guide</span>
         </div>
-        <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">{WAIT_LIST_TITLE}</h1>
+        <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-5">{WAIT_LIST_TITLE}</h1>
         <p className="speakable-intro text-lg text-muted-foreground leading-relaxed mb-6">
           <strong>Quick answer:</strong> {WAIT_LIST_QUICK_ANSWER}
         </p>
@@ -88,7 +88,7 @@ const WaitingListHelp = () => {
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(WAIT_LIST_HTML) }} />
 
         <section className="my-12">
-          <h2 className="text-2xl font-semibold mb-5">Frequently asked questions</h2>
+          <h2 className="text-2xl font-medium mb-5">Frequently asked questions</h2>
           <FaqAccordion idPrefix="waiting-list-help-faq" items={WAIT_LIST_FAQS} />
         </section>
 

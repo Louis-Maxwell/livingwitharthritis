@@ -264,7 +264,7 @@ const DietHub = () => {
         {/* ─── Food Comparison ─── */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">What to Eat vs What to Avoid</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2">What to Eat vs What to Avoid</h2>
             <p className="text-sm text-muted-foreground mb-6">A quick reference guide for arthritis-friendly eating.</p>
             <ComparisonCard
               leftTitle="Eat More"
@@ -313,7 +313,7 @@ const DietHub = () => {
                         <sec.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-foreground">{sec.title}</h2>
+                        <h2 className="text-2xl font-medium text-foreground">{sec.title}</h2>
                         <p className="text-sm text-muted-foreground font-medium">{sec.subtitle}</p>
                       </div>
                     </div>
@@ -356,7 +356,7 @@ const DietHub = () => {
                 <MessageCircle className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Want a diet plan for your arthritis type?</h2>
+                <h2 className="text-xl font-medium text-foreground mb-1">Want a diet plan for your arthritis type?</h2>
                 <p className="text-muted-foreground text-sm">Our help chat creates personalised meal suggestions based on your condition, allergies and preferences — free and instant.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
@@ -385,7 +385,7 @@ const DietHub = () => {
                         <sec.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-foreground">{sec.title}</h2>
+                        <h2 className="text-2xl font-medium text-foreground">{sec.title}</h2>
                         <p className="text-sm text-muted-foreground font-medium">{sec.subtitle}</p>
                       </div>
                     </div>
@@ -405,7 +405,7 @@ const DietHub = () => {
 
                     {"mealPlan" in sec && sec.mealPlan && (
                       <div className="space-y-3 mb-5">
-                        <h3 className="text-sm font-semibold text-foreground flex items-center gap-1.5">
+                        <h3 className="text-sm font-medium text-foreground flex items-center gap-1.5">
                           <Star className="w-4 h-4 text-primary" /> Sample Daily Meal Plan
                         </h3>
                         <div className="grid sm:grid-cols-2 gap-3">
@@ -437,7 +437,7 @@ const DietHub = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <p className="section-label text-primary mb-3">Key Nutrients</p>
-                <h2 className="text-2xl font-bold text-foreground mb-2">Anti-Inflammatory Power Foods</h2>
+                <h2 className="text-2xl font-medium text-foreground mb-2">Anti-Inflammatory Power Foods</h2>
                 <p className="text-sm text-muted-foreground mb-6">Contribution to reducing arthritis inflammation.</p>
                 <HorizontalBar
                   items={[
@@ -469,7 +469,7 @@ const DietHub = () => {
         {/* ─── Quick Tips Emoji Grid ─── */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Nutrition Quick Tips</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2">Nutrition Quick Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple daily habits for joint-friendly eating.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               <HighlightCard title="Eat Oily Fish" description="Salmon, mackerel or sardines twice a week for omega-3s. Tinned is fine." />
@@ -495,7 +495,7 @@ const DietHub = () => {
                 <Download className="w-8 h-8 text-primary" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-foreground mb-1">Free 7-Day Meal Plan PDF</h2>
+                <h2 className="text-xl font-medium text-foreground mb-1">Free 7-Day Meal Plan PDF</h2>
                 <p className="text-muted-foreground text-sm">Download our anti-inflammatory meal plan with shopping list — designed by nutrition experts for arthritis patients.</p>
               </div>
               <Button asChild size="lg" className="min-h-[48px] font-semibold bg-primary hover:bg-primary text-primary-foreground shadow-md shrink-0">
@@ -508,7 +508,7 @@ const DietHub = () => {
         {/* ─── Supplement Comparison Progress Rings ─── */}
         <section className="py-12 lg:py-16 bg-tint-violet">
           <div className="container mx-auto px-6 md:px-10 max-w-4xl">
-            <h2 className="text-2xl font-bold text-foreground mb-2 text-center">Supplement Evidence Strength</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2 text-center">Supplement Evidence Strength</h2>
             <p className="text-sm text-muted-foreground mb-8 text-center">Research confidence for common arthritis supplements.</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
               <ProgressRing percent={82} label="Turmeric / Curcumin" sublabel="Strong evidence" color="hsl(var(--amber))" />
@@ -524,7 +524,7 @@ const DietHub = () => {
         {/* Related topics */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Related Nutrition Topics</h2>
+            <h2 className="text-3xl font-medium text-foreground mb-3">Related Nutrition Topics</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">Dive deeper into supplements, specific foods and meal planning.</p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -540,7 +540,7 @@ const DietHub = () => {
                     <Card className="h-full border border-border/40 hover:border-primary/30 transition-all hover:shadow-md">
                       <CardContent className="p-6">
                         <topic.icon className="w-8 h-8 text-primary mb-3" />
-                        <h3 className="font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">{topic.title}</h3>
+                        <h3 className="font-medium text-foreground mb-1.5 group-hover:text-primary transition-colors">{topic.title}</h3>
                         <p className="text-sm text-muted-foreground">{topic.desc}</p>
                         <span className="inline-flex items-center gap-1 text-xs text-primary font-medium mt-3">
                           Read more about {topic.title}<span className="sr-only"> guide</span> <ChevronRight className="w-3 h-3" aria-hidden="true" />
@@ -566,7 +566,7 @@ const DietHub = () => {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <Sparkles className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Get Personalised Diet Advice</h2>
+              <h2 className="text-3xl sm:text-4xl font-medium text-foreground mb-4">Get Personalised Diet Advice</h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg">
                 Anti-inflammatory recipes, food swaps and meal plans tailored to your arthritis type — free and instant.
               </p>
@@ -622,7 +622,7 @@ const DietHub = () => {
 
       <section id="diet-faq" className="py-16">
         <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
+          <h2 className="text-2xl sm:text-3xl font-medium text-foreground mb-6">
             Arthritis and diet — your questions answered
           </h2>
           <FaqAccordion idPrefix="diet-hub-faq" items={DIET_HUB_FAQS} />
