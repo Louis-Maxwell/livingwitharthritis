@@ -14,7 +14,6 @@ const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
-import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -296,8 +295,6 @@ const Header = () => {
       >
 
 
-        {/* Site-wide update announcement banner — top of sticky header */}
-        <SiteAnnouncementBanner />
         {/* Donation Quick Bar — top of sticky header */}
         {/* Placeholder reserves the bar's real (flex-wrapped) height per
             viewport width so the lazy bar mounting doesn't shift the page
