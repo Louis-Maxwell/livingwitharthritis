@@ -14,6 +14,7 @@ import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
+import MotivationMarquee from "@/components/landing/MotivationMarquee";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DeferredMount from "@/components/DeferredMount";
@@ -129,6 +130,7 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Hero (eager LCP): one H1, one primary + one secondary action */}
           <OAHero />
+          <MotivationMarquee />
 
           {/* 02 — Trust strip: verifiable facts only */}
           <HomeTrustStrip />
