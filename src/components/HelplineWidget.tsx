@@ -99,7 +99,7 @@ export default function HelplineWidget() {
                     {eyebrow}
                   </span>
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-white transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-white motion-reduce:transition-none" aria-hidden="true">
-                    <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
+                    <ArrowUpRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" strokeWidth={1.5} />
                   </span>
                 </span>
                 <span className={`w-full min-w-0 font-medium tracking-[-0.01em] leading-snug [overflow-wrap:anywhere] ${track === "email" ? "text-lg sm:text-xl lg:text-2xl" : "text-2xl md:text-3xl"}`}>
