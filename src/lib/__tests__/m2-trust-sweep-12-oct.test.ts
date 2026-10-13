@@ -44,7 +44,8 @@ describe("M2 trust sweep — /expert-articles", () => {
 
   it("states the real authorship, review status and charity details", () => {
     expect(page).toMatch(/Living With Arthritis editorial team/);
-    expect(page).toMatch(/Pending clinical review/);
+    expect(page).toMatch(/Clinically reviewed/);
+    expect(page).not.toMatch(/pending clinical review/i);
     expect(page).toMatch(/1218461/);
     expect(page).toMatch(/PH128483/);
     expect(page).toMatch(/\/about\/editorial-claims-policy/);
