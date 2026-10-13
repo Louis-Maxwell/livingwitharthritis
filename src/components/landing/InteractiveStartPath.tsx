@@ -306,7 +306,7 @@ const InteractiveStartPath = memo(() => {
         </p>
         <h2
           id="start-here-heading"
-          className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight text-balance"
+          className="font-display text-2xl sm:text-3xl font-medium text-foreground tracking-tight text-balance"
         >
           Find your starting point
         </h2>

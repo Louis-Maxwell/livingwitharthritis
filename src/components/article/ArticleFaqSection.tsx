@@ -25,7 +25,7 @@ const ArticleFaqSection = ({ faqs }: Props) => {
     >
       <div className="flex items-center gap-2 mb-6">
         <HelpCircle className="w-5 h-5 text-primary" aria-hidden="true" />
-        <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground m-0">
+        <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground m-0">
           Frequently asked questions
         </h2>
       </div>

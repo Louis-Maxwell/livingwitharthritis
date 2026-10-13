@@ -655,7 +655,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
         className="w-full max-w-md bg-card border border-border rounded-t-3xl px-6 pt-7 pb-10 shadow-2xl"
       >
         <div className="flex justify-between items-center mb-7">
-          <h2 id={headingId} className="font-bold text-xl text-foreground m-0">Settings</h2>
+          <h2 id={headingId} className="font-medium text-xl text-foreground m-0">Settings</h2>
           <button
             ref={closeBtnRef}
             onClick={onClose}

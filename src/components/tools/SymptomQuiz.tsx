@@ -184,7 +184,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
     }`;
 
   const stepHeading = (
-    <h2 id={headingId} className="font-display text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+    <h2 id={headingId} className="font-display text-xl sm:text-2xl font-medium text-foreground tracking-tight">
       {stepLabel(step)}
     </h2>
   );
@@ -319,7 +319,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
           <div className="flex gap-3 items-start">
             <AlertTriangle className="w-7 h-7 text-destructive shrink-0" aria-hidden />
             <div>
-              <h2 id={headingId} className="font-display text-2xl font-bold text-foreground">
+              <h2 id={headingId} className="font-display text-2xl font-medium text-foreground">
                 {urgentLevel === "emergency" ? "Call 999 now" : "Get urgent NHS advice"}
               </h2>
               <p className="mt-2 text-base text-foreground leading-relaxed">
@@ -610,7 +610,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
           </div>
 
           <div>
-            <h2 id={headingId} className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2">
+            <h2 id={headingId} className="font-display text-xl sm:text-2xl font-medium text-foreground mb-2">
               Guides worth reading next
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-5">
@@ -629,7 +629,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
                         >
                           {i + 1}
                         </span>
-                        <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">{g.name}</h3>
+                        <h3 className="font-display text-lg sm:text-xl font-medium text-foreground">{g.name}</h3>
                       </div>
                       <span className="text-xs font-bold uppercase tracking-wider text-primary border border-primary/30 px-2.5 py-1 rounded-full whitespace-nowrap">
                         Pattern overlap {g.relevance}%
@@ -659,7 +659,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
           </div>
 
           <section aria-labelledby="next-steps-heading" className="space-y-4">
-            <h3 id="next-steps-heading" className="font-display text-lg font-bold text-foreground">
+            <h3 id="next-steps-heading" className="font-display text-lg font-medium text-foreground">
               Practical next steps
             </h3>
             <div className="grid sm:grid-cols-2 gap-3">
@@ -700,7 +700,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2 inline-flex items-center gap-1.5">
               <Mail className="w-3.5 h-3.5" aria-hidden="true" /> Optional email
             </p>
-            <h3 id="checker-email-heading" className="font-display text-lg font-bold text-foreground mb-2">
+            <h3 id="checker-email-heading" className="font-display text-lg font-medium text-foreground mb-2">
               Want a short guide series after this?
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">
@@ -716,7 +716,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
           </section>
 
           <section aria-labelledby="soft-cta-heading" className="rounded-2xl border border-border/60 bg-muted/20 p-5">
-            <h3 id="soft-cta-heading" className="font-display text-base font-bold text-foreground mb-3">
+            <h3 id="soft-cta-heading" className="font-display text-base font-medium text-foreground mb-3">
               Optional extras
             </h3>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">

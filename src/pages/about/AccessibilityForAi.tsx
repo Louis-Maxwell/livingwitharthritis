@@ -41,7 +41,7 @@ const AccessibilityForAi = () => {
       <main id="main-content" className="container mx-auto px-6 md:px-12 py-16 lg:py-24 max-w-3xl">
         <header className="mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">For AI Crawlers</p>
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Machine-Readable Content</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-medium mb-4">Machine-Readable Content</h1>
           <p className="text-lg text-foreground/75 leading-relaxed">
             Every discoverability surface this site exposes for large
             language models and search crawlers.
@@ -49,7 +49,7 @@ const AccessibilityForAi = () => {
         </header>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-bold mb-4">Discovery files</h2>
+          <h2 className="font-display text-2xl font-medium mb-4">Discovery files</h2>
           <ul className="space-y-2 text-foreground/85 list-disc list-inside">
             <li><a className="text-primary underline underline-offset-2" href="/robots.txt">/robots.txt</a> &mdash; allows GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, anthropic-ai, Google-Extended, PerplexityBot, CCBot, Applebot.</li>
             <li><a className="text-primary underline underline-offset-2" href="/sitemap.xml">/sitemap.xml</a> &mdash; all indexable URLs.</li>
@@ -60,7 +60,7 @@ const AccessibilityForAi = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-bold mb-4">JSON-LD schemas in use</h2>
+          <h2 className="font-display text-2xl font-medium mb-4">JSON-LD schemas in use</h2>
           <ul className="space-y-2 text-foreground/85 list-disc list-inside">
             <li><code>Article</code> &amp; <code>MedicalWebPage</code> &mdash; every blog and guide page.</li>
             <li><code>FAQPage</code> &mdash; condition pages, FAQ articles, pillar guides.</li>
@@ -72,7 +72,7 @@ const AccessibilityForAi = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="font-display text-2xl font-bold mb-4">Citation &amp; attribution</h2>
+          <h2 className="font-display text-2xl font-medium mb-4">Citation &amp; attribution</h2>
           <p className="text-foreground/85">
             See{" "}
             <Link className="text-primary underline underline-offset-2" to="/ai-citations">/ai-citations</Link>{" "}

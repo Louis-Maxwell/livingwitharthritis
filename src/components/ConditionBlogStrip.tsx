@@ -46,7 +46,7 @@ const FeatureCard = ({ a }: { a: CardArticle }) => (
       <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2">
         {a.category}
       </span>
-      <h3 className="font-display text-lg font-bold text-foreground leading-snug mb-2 group-hover:text-primary transition-colors">
+      <h3 className="font-display text-lg font-medium text-foreground leading-snug mb-2 group-hover:text-primary transition-colors">
         {a.title}
       </h3>
       <p className="text-sm text-muted-foreground line-clamp-2 mb-4 flex-1">
@@ -112,7 +112,7 @@ export default function ConditionBlogStrip({
             <BookOpen className="w-3.5 h-3.5" />
             Blog &amp; Stories
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground leading-tight">
             Advice &amp; Guidance for {conditionName}
           </h2>
           <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
@@ -133,7 +133,7 @@ export default function ConditionBlogStrip({
       <div className="mb-10">
         <div className="flex items-center gap-2 mb-4">
           <Sparkles className="w-4 h-4 text-primary" />
-          <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+          <h3 className="text-xs font-medium tracking-[0.18em] text-foreground">
             Editor&apos;s Picks
           </h3>
         </div>
@@ -147,7 +147,7 @@ export default function ConditionBlogStrip({
       {/* Recent matched articles */}
       {(recent.isLoading || recentArticles.length > 0) && (
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground mb-4">
+          <h3 className="text-xs font-medium tracking-[0.18em] text-foreground mb-4">
             Latest on {conditionName}
           </h3>
           <div className="grid sm:grid-cols-2 gap-3">

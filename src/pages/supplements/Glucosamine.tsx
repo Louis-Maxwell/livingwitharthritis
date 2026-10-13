@@ -133,7 +133,7 @@ export default function Glucosamine() {
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Pill className="w-3 h-3" /> Supplement Guide
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-5 leading-tight tracking-tight">
               Glucosamine for arthritis
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -161,7 +161,7 @@ export default function Glucosamine() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <FlaskConical className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 What is glucosamine?
               </h2>
             </div>
@@ -185,7 +185,7 @@ export default function Glucosamine() {
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5">
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-5">
               Sources and safety information
             </h2>
             <ul className="list-disc pl-6 space-y-2">
@@ -217,7 +217,7 @@ export default function Glucosamine() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <BookOpen className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 What the evidence says
               </h2>
             </div>
@@ -258,7 +258,7 @@ export default function Glucosamine() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Pill className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 Dosage and how to take it
               </h2>
             </div>
@@ -282,7 +282,7 @@ export default function Glucosamine() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <ShieldAlert className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 Side effects and safety
               </h2>
             </div>
@@ -312,7 +312,7 @@ export default function Glucosamine() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Scale className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 Glucosamine vs chondroitin, MSM and collagen
               </h2>
             </div>
@@ -351,7 +351,7 @@ export default function Glucosamine() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <HelpCircle className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 Frequently asked questions
               </h2>
             </div>
@@ -391,7 +391,7 @@ export default function Glucosamine() {
             ]}
           />
           <div className="p-8 rounded-2xl bg-accent border border-border/30">
-            <h2 className="font-display text-xl font-bold text-foreground mb-3">
+            <h2 className="font-display text-xl font-medium text-foreground mb-3">
               Pair supplements with what really works
             </h2>
             <p className="text-muted-foreground mb-5">

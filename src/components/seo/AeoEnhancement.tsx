@@ -88,7 +88,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
 
       {faqs.length > 0 && (
         <div className="rounded-xl bg-white p-6">
-          <h2 className="text-xl font-bold text-foreground mb-4">Frequently asked questions</h2>
+          <h2 className="text-xl font-medium text-foreground mb-4">Frequently asked questions</h2>
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((f, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>

@@ -57,7 +57,7 @@ export default function PreventativeMSKHealth() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Preventative MSK Health</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Preventative MSK Health: Stop Arthritis Before It Spreads</h1>
+      <h1 className="text-4xl md:text-5xl font-medium mb-6">Preventative MSK Health: Stop Arthritis Before It Spreads</h1>
             <AeoEnhancement route="/guides/preventative-msk-health" />
 
       <AnswerBox question="Can early intervention prevent arthritis getting worse?" reviewed="2026-06-21">
@@ -67,22 +67,22 @@ export default function PreventativeMSKHealth() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="signs" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">1. Recognising early arthritis signs</h2>
+        <h2 className="text-2xl font-medium mb-4">1. Recognising early arthritis signs</h2>
         <p className="leading-relaxed mb-4">Early arthritis often whispers before it shouts. Watch for morning stiffness that eases within 30 minutes, brief joint clicking with discomfort, mild swelling after activity, and reduced range of motion. Many people dismiss these as "getting older" — but they are opportunities for intervention.</p>
       </section>
 
       <section id="prevention-vs-management" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">2. Prevention vs management: what's the difference?</h2>
+        <h2 className="text-2xl font-medium mb-4">2. Prevention vs management: what's the difference?</h2>
         <p className="leading-relaxed">Prevention aims to delay or reduce the severity of a condition before it develops or worsens. Management addresses a condition that already exists. In practice the two overlap heavily — the same strength training, weight management, movement variety and diet principles that prevent MSK problems are also the backbone of managing them once they've started. This is why our guides on exercise and diet apply whether you're trying to stay ahead of a problem or already living with one.</p>
       </section>
 
       <section id="posture" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">3. The role of posture and movement patterns</h2>
+        <h2 className="text-2xl font-medium mb-4">3. The role of posture and movement patterns</h2>
         <p className="leading-relaxed mb-4">There is no single "perfect" posture. The body needs variety. Long hours in one position — at a desk, on a sofa, behind the wheel — overload specific tissues. Aim to change position every 30–45 minutes and strengthen muscles that support your daily postures. See our <Link to="/guides/musculoskeletal-health" className="text-primary underline">musculoskeletal health guide</Link> for a full workplace ergonomics checklist.</p>
       </section>
 
       <section id="load" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">4. Load management during daily activities</h2>
+        <h2 className="text-2xl font-medium mb-4">4. Load management during daily activities</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Carry shopping in two balanced bags rather than one heavy one</li>
           <li>Use both hands to lift, keeping objects close to the body</li>
@@ -93,13 +93,13 @@ export default function PreventativeMSKHealth() {
       </section>
 
       <section id="exercise" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">5. Preventative exercise: which joints to target first</h2>
+        <h2 className="text-2xl font-medium mb-4">5. Preventative exercise: which joints to target first</h2>
         <p className="leading-relaxed mb-4">Prioritise the joints most likely to develop arthritis: knees, hips, hands and lower back. Quadriceps strength predicts knee arthritis outcomes. Hip abductor strength protects the hip and lower back. Grip strength is a marker of whole-body health.</p>
         <p className="leading-relaxed">Visit the <Link to="/exercises" className="text-primary underline">exercise hub</Link> for programmes.</p>
       </section>
 
       <section id="when" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">6. When to see a physio, GP or specialist</h2>
+        <h2 className="text-2xl font-medium mb-4">6. When to see a physio, GP or specialist</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Physio:</strong> any joint pain over 2 weeks, post-injury stiffness, recurring symptoms</li>
           <li><strong>GP:</strong> swelling, redness, hot joint, prolonged morning stiffness over an hour, fatigue with joint pain</li>
@@ -108,7 +108,7 @@ export default function PreventativeMSKHealth() {
       </section>
 
       <section id="life-course" className="mb-12 bg-muted/30 p-6 rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">7. Prevention across the life course</h2>
+        <h2 className="text-2xl font-medium mb-4">7. Prevention across the life course</h2>
         <p className="leading-relaxed mb-4">The strength, balance and mineral-intake habits that prevent arthritis progression in your 40s and 50s are the same foundation that prevents frailty, falls and muscle loss decades later. Preventative MSK health isn't a one-off fix — it's a life-course strategy that pays off at every age, including your 70s and 80s.</p>
         <ul className="list-disc pl-6 space-y-2">
           <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management hub</Link> — recognising and managing frailty</li>
@@ -120,7 +120,7 @@ export default function PreventativeMSKHealth() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
+        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/musculoskeletal-health" className="text-primary underline">Musculoskeletal health</Link></li>
           <li><Link to="/living-with-arthritis" className="text-primary underline">Living with arthritis</Link></li>
@@ -131,10 +131,10 @@ export default function PreventativeMSKHealth() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
+            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

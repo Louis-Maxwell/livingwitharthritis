@@ -107,7 +107,7 @@ export default function Partners() {
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 <Handshake className="w-4 h-4" /> Partnerships
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Partner With Us</h1>
+              <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-foreground mb-4">Partner With Us</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 We partner with public health bodies, GP practices, health charities and community organisations to extend free arthritis support to more people across the UK.
               </p>
@@ -118,7 +118,7 @@ export default function Partners() {
         {/* Why Partner */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Why Partner With Us?</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Why Partner With Us?</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {benefits.map((b) => (
                 <div key={b} className="flex items-start gap-3 p-4 rounded-xl bg-card shadow-sm">
@@ -133,13 +133,13 @@ export default function Partners() {
         {/* Partnership Types */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Partnership Types</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Partnership Types</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {partnershipTypes.map((p) => (
                 <Card key={p.title} className="border-none shadow-md bg-card hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
                     <p.icon className="w-8 h-8 text-primary mb-3" />
-                    <h3 className="font-semibold text-foreground mb-1">{p.title}</h3>
+                    <h3 className="font-medium text-foreground mb-1">{p.title}</h3>
                     <p className="text-sm text-muted-foreground">{p.desc}</p>
                   </CardContent>
                 </Card>
@@ -151,7 +151,7 @@ export default function Partners() {
         {/* Enquiry Form */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-lg">
-            <h2 className="text-2xl font-bold text-foreground mb-2 text-center">Partnership Enquiry</h2>
+            <h2 className="text-2xl font-medium text-foreground mb-2 text-center">Partnership Enquiry</h2>
             <p className="text-center text-muted-foreground mb-8">Tell us about your organisation and how you'd like to work together.</p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>

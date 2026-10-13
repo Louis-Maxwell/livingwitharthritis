@@ -116,7 +116,7 @@ const LibraryTopic = () => {
           <Badge variant="secondary" className="mb-4">
             {topic.category}
           </Badge>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-3">
+          <h1 className="font-serif text-4xl md:text-5xl font-medium mb-3">
             {heading}
           </h1>
           {(seo?.description || topic.subtitle) && (
@@ -128,7 +128,7 @@ const LibraryTopic = () => {
           <div className="space-y-10">
             {topic.sections.map((section, i) => (
               <section key={i}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+                <h2 className="font-serif text-2xl font-medium text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
@@ -150,7 +150,7 @@ const LibraryTopic = () => {
             ))}
             {seo?.extraSections?.map((section, i) => (
               <section key={`seo-extra-${i}`}>
-                <h2 className="font-serif text-2xl font-semibold text-primary mb-4">
+                <h2 className="font-serif text-2xl font-medium text-primary mb-4">
                   {section.heading}
                 </h2>
                 {section.body &&
@@ -175,13 +175,13 @@ const LibraryTopic = () => {
 
           {seo?.faqs && seo.faqs.length > 0 && (
             <section className="mt-16 pt-10 border-t border-border" aria-labelledby="library-faq-heading">
-              <h2 id="library-faq-heading" className="font-serif text-2xl font-semibold mb-6">
+              <h2 id="library-faq-heading" className="font-serif text-2xl font-medium mb-6">
                 Frequently asked questions
               </h2>
               <div className="space-y-6">
                 {seo.faqs.map((f) => (
                   <div key={f.q}>
-                    <h3 className="font-semibold mb-2">{f.q}</h3>
+                    <h3 className="font-medium mb-2">{f.q}</h3>
                     <p className="leading-relaxed text-foreground/85">{f.a}</p>
                   </div>
                 ))}
@@ -202,7 +202,7 @@ const LibraryTopic = () => {
 
           {pillarRelated.length > 0 && (
             <section className="mt-16 pt-10 border-t border-border">
-              <h2 className="font-serif text-2xl font-semibold mb-6">
+              <h2 className="font-serif text-2xl font-medium mb-6">
                 Related guides
               </h2>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -225,7 +225,7 @@ const LibraryTopic = () => {
 
           {related.length > 0 && (
             <section className="mt-16 pt-10 border-t border-border">
-              <h2 className="font-serif text-2xl font-semibold mb-6">
+              <h2 className="font-serif text-2xl font-medium mb-6">
                 Related topics
               </h2>
               <div className="grid sm:grid-cols-2 gap-3">

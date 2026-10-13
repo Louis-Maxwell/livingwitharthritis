@@ -275,7 +275,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
           <Activity className="w-5 h-5" />
         </div>
         <div className="text-primary-foreground">
-          <h3 className="text-xl font-display font-bold">
+          <h3 className="text-xl font-display font-medium">
             {joint.label}
             {side && PAIRED.has(joint.id) && (
               <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-background/25 text-primary-foreground">
@@ -313,7 +313,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
             >
               {i + 1}
             </span>
-            <h4 className="font-semibold text-foreground text-sm">{ex.name}</h4>
+            <h4 className="font-medium text-foreground text-sm">{ex.name}</h4>
           </div>
           <p className="text-muted-foreground text-xs leading-relaxed mb-2 ml-8">{ex.description}</p>
           <div className="flex gap-3 ml-8">
@@ -381,7 +381,7 @@ const JointExerciseSection = memo(() => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground mb-3 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-foreground mb-3 tracking-tight">
             Choose an area
           </h2>
           <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
@@ -461,7 +461,7 @@ const JointExerciseSection = memo(() => {
                     >
                       <Dumbbell className="w-8 h-8" style={{ color: "hsl(180 70% 40%)" }} />
                     </div>
-                    <h3 className="text-xl font-display font-bold text-foreground mb-2">
+                    <h3 className="text-xl font-display font-medium text-foreground mb-2">
                       Select a Joint
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">

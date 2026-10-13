@@ -154,7 +154,7 @@ export default function InflammationCalculator() {
       {weakAreas.length > 0 && (
         <Card className="border-primary/20">
           <CardContent className="pt-5 pb-5">
-            <h4 className="font-semibold text-foreground flex items-center gap-2 mb-4">
+            <h4 className="font-medium text-foreground flex items-center gap-2 mb-4">
               <Lightbulb className="w-4 h-4 text-primary" /> Personalised Tips
             </h4>
             <div className="space-y-3">

@@ -73,7 +73,7 @@ export default function SeoContentFrameworkPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">
               Editorial · SEO · AEO · GEO
             </p>
-            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-4 leading-tight">
               How we write SEO content
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">

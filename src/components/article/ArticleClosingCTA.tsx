@@ -29,7 +29,7 @@ const ArticleClosingCTA = ({ title, category, slug }: Props) => {
 
   return (
     <section aria-label="Find support" className="not-prose mt-10 rounded-2xl border border-primary/20 bg-primary/[0.04] p-5 md:p-6">
-      <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold text-foreground">
+      <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-medium text-foreground">
         <HeartHandshake className="h-5 w-5 text-primary" aria-hidden="true" />
         What would help you next?
       </h2>

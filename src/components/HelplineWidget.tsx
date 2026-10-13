@@ -1,4 +1,4 @@
-import { Phone, Mail, MessageCircle, MessageSquare } from "lucide-react";
+import { Phone, Mail, MessageCircle, MessageSquare, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   CONTACT_PHONE,
@@ -20,12 +20,7 @@ const trackClick = (channel: string) => {
   }
 };
 
-/**
- * Full-width helpline strip — placed above the footer on every page.
- * Renders the four contact channels (phone, email, WhatsApp, form) with
- * shared GA tracking. Uses brand red token for the band itself; channel
- * cards use card surface so the band reads scannably on any page.
- */
+/** Accessible contact cards with shared analytics tracking. */
 type Channel = {
   Icon: typeof Phone;
   eyebrow: string;
@@ -76,41 +71,41 @@ export default function HelplineWidget() {
   return (
     <section
       aria-labelledby="helpline-heading"
-      className="bg-primary text-primary-foreground"
+      className="border-y border-border bg-white text-foreground"
     >
-      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 max-w-6xl">
-        <div className="text-center mb-10">
+      <div className="container mx-auto px-5 md:px-8 py-16 md:py-24 max-w-6xl">
+        <div className="mb-10 md:mb-14 max-w-2xl">
           <h2
             id="helpline-heading"
-            className="font-display text-3xl md:text-4xl font-black tracking-tight"
+            className="font-display text-4xl md:text-5xl font-medium leading-[1.05] tracking-[-0.01em]"
           >
             We’re here to help
           </h2>
-          <p className="mt-3 text-sm md:text-base text-primary-foreground/90 max-w-2xl mx-auto">
+          <p className="mt-5 text-base md:text-lg leading-relaxed text-muted-foreground max-w-xl">
             A real person — not a chatbot — replies within 2 working days.
             Available Monday to Friday, 9am – 5pm.
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {channels.map(({ Icon, eyebrow, value, sub, href, external, track }) => {
             const cardClass =
-              "group relative flex w-full min-w-0 flex-col items-center text-center gap-3 p-6 rounded-2xl bg-white text-foreground shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60";
+              "group flex h-full w-full min-w-0 flex-col rounded-2xl border border-transparent bg-background p-6 md:p-8 text-left text-foreground transition-colors duration-200 hover:border-primary/30 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 motion-reduce:transition-none";
             const inner = (
               <>
-                <span
-                  className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300"
-                  aria-hidden
-                >
-                  <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                <span className="mb-8 flex w-full items-center justify-between gap-4">
+                  <span className="flex items-center gap-3 text-sm font-medium">
+                    <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                    {eyebrow}
+                  </span>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-white transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-white motion-reduce:transition-none" aria-hidden="true">
+                    <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
+                  </span>
                 </span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
-                  {eyebrow}
+                <span className={`w-full min-w-0 font-medium tracking-[-0.01em] leading-snug [overflow-wrap:anywhere] ${track === "email" ? "text-lg sm:text-xl lg:text-2xl" : "text-2xl md:text-3xl"}`}>
+                  {track === "email" ? <>{value.split("@")[0]}@<wbr />{value.split("@")[1]}</> : value}
                 </span>
-                <span className="w-full min-w-0 font-bold text-sm md:text-base text-foreground [overflow-wrap:anywhere] leading-snug">
-                  {value}
-                </span>
-                <span className="text-xs text-muted-foreground">{sub}</span>
+                <span className="mt-3 text-sm leading-relaxed text-muted-foreground">{sub}</span>
               </>
             );
             return (

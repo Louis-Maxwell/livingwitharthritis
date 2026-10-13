@@ -55,15 +55,15 @@ const CookiesPolicy = () => (
       <main id="main-content" className="w-full px-6 md:px-10 lg:px-20 py-10 md:py-16 max-w-5xl mx-auto">
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. What Are Cookies?</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">1. What Are Cookies?</h2>
             <p>Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work more efficiently, improve user experience and provide information to site owners. Cookies may be set by the website you are visiting ("first-party cookies") or by third parties whose services appear on the page ("third-party cookies").</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">2. How We Use Cookies</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">2. How We Use Cookies</h2>
             <p>Living With Arthritis uses cookies for the following purposes:</p>
 
-            <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Essential Cookies</h3>
+            <h3 className="text-lg font-medium text-foreground mt-5 mb-2">Essential Cookies</h3>
             <p>These cookies are strictly necessary for the website to function. They enable core features such as security, form submissions, user authentication and accessibility. You cannot opt out of these cookies as the website would not work properly without them.</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
               <li>Session management and authentication tokens</li>
@@ -71,18 +71,18 @@ const CookiesPolicy = () => (
               <li>Cookie consent preferences</li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Functional Cookies</h3>
+            <h3 className="text-lg font-medium text-foreground mt-5 mb-2">Functional Cookies</h3>
             <p>These cookies allow us to remember your preferences and choices (such as your language or region) to provide a more personalised experience. They may also be used to provide services you have requested, such as remembering items in a donation form.</p>
 
-            <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Analytics Cookies</h3>
+            <h3 className="text-lg font-medium text-foreground mt-5 mb-2">Analytics Cookies</h3>
             <p>We use analytics cookies to understand how visitors interact with our website. This helps us improve our content, navigation and overall experience. The information collected is aggregated and anonymous. We do not use this data to identify individual visitors.</p>
 
-            <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Payment Cookies</h3>
+            <h3 className="text-lg font-medium text-foreground mt-5 mb-2">Payment Cookies</h3>
             <p>Donations open our GoFundMe campaign in a new tab. GoFundMe may set its own cookies on that site. We do not take card payments on this website.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">3. Third-Party Cookies</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">3. Third-Party Cookies</h2>
             <p>Some cookies on our site are set by third-party services that appear on our pages. We do not control these cookies. The third parties we work with include:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
                             <li><strong>Google Fonts:</strong> For typography delivery (no tracking cookies set).</li>
@@ -90,7 +90,7 @@ const CookiesPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">4. Managing Your Cookie Preferences</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">4. Managing Your Cookie Preferences</h2>
             <p>You can control and manage cookies in several ways:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li><strong>Browser settings:</strong> Most browsers allow you to refuse or delete cookies through their settings. Please note that blocking all cookies may affect the functionality of our website.</li>
@@ -100,7 +100,7 @@ const CookiesPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">5. How Long Do Cookies Last?</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">5. How Long Do Cookies Last?</h2>
             <p>Cookies can be either "session" or "persistent":</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
               <li><strong>Session cookies:</strong> Deleted automatically when you close your browser.</li>
@@ -109,12 +109,12 @@ const CookiesPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">6. Updates to This Policy</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">6. Updates to This Policy</h2>
             <p>We may update this Cookies Policy from time to time to reflect changes in technology or legislation. Any updates will be published on this page with a revised date.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mt-8 mb-3">7. Contact Us</h2>
+            <h2 className="text-xl font-medium text-foreground mt-8 mb-3">7. Contact Us</h2>
             <p>If you have questions about our use of cookies, please contact us:</p>
             <p className="mt-2">
               Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a><br />

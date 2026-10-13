@@ -88,7 +88,7 @@ const TriggerCard = ({ icon: Icon, title, desc, color }: { icon: React.ElementTy
         <Icon className="w-5 h-5 text-foreground/70" />
       </span>
       <div>
-        <h3 className="font-semibold text-foreground mb-1">{title}</h3>
+        <h3 className="font-medium text-foreground mb-1">{title}</h3>
         <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
       </div>
     </CardContent>
@@ -324,7 +324,7 @@ export default function ArthritisFlareUps() {
                   {step.n}
                 </span>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">{step.title}</h3>
+                  <h3 className="font-medium text-foreground mb-1">{step.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p>
                 </div>
               </CardContent>
@@ -336,7 +336,7 @@ export default function ArthritisFlareUps() {
         <Card className="border-0 bg-gradient-to-r from-primary/5 to-secondary/5 mb-12">
           <CardContent className="p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5">
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-foreground mb-2">Get Personalised Exercise Support</h3>
+              <h3 className="text-xl font-medium text-foreground mb-2">Get Personalised Exercise Support</h3>
               <p className="text-sm text-muted-foreground">Our Help Chat can recommend exercises, diet tips, and coping strategies tailored to your arthritis type.</p>
             </div>
             <Button asChild size="lg" className="shrink-0">
@@ -356,7 +356,7 @@ export default function ArthritisFlareUps() {
         <div className="grid sm:grid-cols-2 gap-6 mb-6">
           <Card className="border-0 shadow-sm bg-[hsl(var(--tint-green))]">
             <CardContent className="p-5">
-              <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+              <h3 className="font-medium text-foreground mb-3 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-primary" /> Eat More
               </h3>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
@@ -371,7 +371,7 @@ export default function ArthritisFlareUps() {
           </Card>
           <Card className="border-0 shadow-sm bg-[hsl(var(--tint-rose))]">
             <CardContent className="p-5">
-              <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+              <h3 className="font-medium text-foreground mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5 text-primary" /> Eat Less
               </h3>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
@@ -401,7 +401,7 @@ export default function ArthritisFlareUps() {
 
         <Card className="border-0 shadow-sm mb-6">
           <CardContent className="p-6">
-            <h3 className="font-semibold text-foreground mb-4">Flare-Friendly Exercise Guide</h3>
+            <h3 className="font-medium text-foreground mb-4">Flare-Friendly Exercise Guide</h3>
             <div className="grid sm:grid-cols-3 gap-4">
               {[
                 { label: "Gentle Range-of-Motion", items: ["Ankle circles", "Wrist rotations", "Shoulder rolls", "Knee bends"], time: "5–10 min, 2×/day" },
@@ -409,7 +409,7 @@ export default function ArthritisFlareUps() {
                 { label: "Restorative Stretching", items: ["Chair yoga", "Gentle hamstring stretches", "Cat-cow spinal movement", "Deep breathing exercises"], time: "10–15 min, daily" },
               ].map((col) => (
                 <div key={col.label}>
-                  <h4 className="text-sm font-bold text-foreground mb-2">{col.label}</h4>
+                  <h4 className="text-sm font-medium text-foreground mb-2">{col.label}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1 mb-2">
                     {col.items.map((i) => <li key={i}>• {i}</li>)}
                   </ul>
@@ -469,7 +469,7 @@ export default function ArthritisFlareUps() {
           </table>
         </div>
 
-        <h3 className="text-lg font-bold text-foreground mb-3">Evidence-Based Supplements</h3>
+        <h3 className="text-lg font-medium text-foreground mb-3">Evidence-Based Supplements</h3>
         <div className="grid sm:grid-cols-3 gap-4 mb-8">
           {[
             { name: "Curcumin (Turmeric)", dose: "500–1000 mg/day", evidence: "Strong", note: "Take with piperine; anti-inflammatory comparable to NSAIDs in some trials" },
@@ -478,7 +478,7 @@ export default function ArthritisFlareUps() {
           ].map((s) => (
             <Card key={s.name} className="border-0 shadow-sm">
               <CardContent className="p-4">
-                <h4 className="font-semibold text-foreground text-sm mb-1">{s.name}</h4>
+                <h4 className="font-medium text-foreground text-sm mb-1">{s.name}</h4>
                 <p className="text-xs text-muted-foreground mb-2">{s.dose}</p>
                 <Badge variant="outline" className="text-xs mb-2">{s.evidence} evidence</Badge>
                 <p className="text-xs text-muted-foreground">{s.note}</p>
@@ -491,7 +491,7 @@ export default function ArthritisFlareUps() {
         <SectionHeading id="when-gp" icon={ShieldCheck}>When to See Your GP</SectionHeading>
         <Card className="border-l-4 border-l-destructive bg-destructive/[0.03] mb-8">
           <CardContent className="p-5">
-            <h3 className="font-bold text-foreground mb-3">Seek medical advice if:</h3>
+            <h3 className="font-medium text-foreground mb-3">Seek medical advice if:</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <Tip>A flare lasts more than <strong>two weeks</strong> despite self-management</Tip>
               <Tip>You develop a <strong>hot, red, significantly swollen joint</strong> — this could indicate infection (septic arthritis), which is a medical emergency</Tip>
@@ -522,7 +522,7 @@ export default function ArthritisFlareUps() {
           ].map((item) => (
             <Card key={item.title} className="border-0 shadow-sm">
               <CardContent className="p-4">
-                <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                <h3 className="font-medium text-foreground text-sm mb-1">{item.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </CardContent>
             </Card>
@@ -535,7 +535,7 @@ export default function ArthritisFlareUps() {
           {faqs.map((f, i) => (
             <Card key={i} className="border-0 shadow-sm">
               <CardContent className="p-5">
-                <h3 className="font-semibold text-foreground mb-2">{f.q}</h3>
+                <h3 className="font-medium text-foreground mb-2">{f.q}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.a}</p>
               </CardContent>
             </Card>
@@ -545,7 +545,7 @@ export default function ArthritisFlareUps() {
         {/* ────── Final CTA ────── */}
         <Card className="border-0 bg-gradient-to-br from-primary/8 via-background to-secondary/5 overflow-hidden">
           <CardContent className="p-8 sm:p-10 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">Take Control of Your Arthritis</h2>
+            <h2 className="text-2xl sm:text-3xl font-medium text-foreground mb-3">Take Control of Your Arthritis</h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
               Use our free tools to track symptoms, access personalised exercise programmes, and get evidence-based guidance — all designed for UK arthritis patients.
             </p>

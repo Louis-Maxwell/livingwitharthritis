@@ -158,7 +158,7 @@ const Pedometer = () => {
             <Footprints className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-foreground">Step Counter</h2>
+            <h2 className="text-2xl font-medium text-foreground">Step Counter</h2>
             <p className="text-sm text-muted-foreground">Track your daily walking — a key exercise for arthritis</p>
           </div>
         </div>
@@ -247,7 +247,7 @@ const Pedometer = () => {
             {/* Weekly history */}
             <Card className="border border-border/40">
               <CardContent className="p-6">
-                <h3 className="font-bold text-foreground text-sm mb-4">Recent History</h3>
+                <h3 className="font-medium text-foreground text-sm mb-4">Recent History</h3>
                 {state.history.length === 0 ? (
                   <p className="text-sm text-muted-foreground">No previous data yet. Start tracking to build your history!</p>
                 ) : (
@@ -282,7 +282,7 @@ const Pedometer = () => {
             {/* Walking tips for arthritis */}
             <Card className="border border-border/40 bg-tint-amber">
               <CardContent className="p-6">
-                <h3 className="font-bold text-foreground text-sm mb-3"> Walking Tips for Arthritis</h3>
+                <h3 className="font-medium text-foreground text-sm mb-3"> Walking Tips for Arthritis</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>

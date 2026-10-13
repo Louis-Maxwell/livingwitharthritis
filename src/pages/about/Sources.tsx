@@ -92,7 +92,7 @@ const Sources = () => {
       <main id="main-content" className="container mx-auto px-6 md:px-12 py-16 lg:py-24 max-w-3xl">
         <header className="mb-12">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">About</p>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-4">
             Clinical Sources &amp; Evidence
           </h1>
           <p className="text-lg text-foreground/75 leading-relaxed">
@@ -103,7 +103,7 @@ const Sources = () => {
 
         {sections.map((s) => (
           <section key={s.id} id={s.id} className="mb-12">
-            <h2 className="font-display text-2xl font-bold mb-4">{s.title}</h2>
+            <h2 className="font-display text-2xl font-medium mb-4">{s.title}</h2>
             <ul className="space-y-3 text-foreground/85">
               {s.items.map((item) => (
                 <li key={item.url + item.label} id={item.id}>

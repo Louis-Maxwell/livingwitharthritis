@@ -158,7 +158,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
           />
           <div className="mt-16 pt-8 border-t border-border/30">
-            <h3 className="font-display font-bold text-lg mb-4">Continue reading</h3>
+            <h3 className="font-display font-medium text-lg mb-4">Continue reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link
                 to="/guides/exercise"

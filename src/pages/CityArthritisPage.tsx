@@ -110,7 +110,7 @@ const CityArthritisPage = () => {
               <MapPin className="w-5 h-5" />
               <span className="text-sm font-medium">{cityData.region}</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-4">
               Arthritis Support in {cityData.name}
             </h1>
             <AeoEnhancement
@@ -135,7 +135,7 @@ const CityArthritisPage = () => {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Hospital className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-semibold text-foreground">Rheumatology Services</h2>
+              <h2 className="text-xl font-medium text-foreground">Rheumatology Services</h2>
             </div>
             <p className="text-muted-foreground mb-3">
               Your local health trust for rheumatology referrals in {cityData.name} is <strong>{cityData.localTrust}</strong>.
@@ -153,7 +153,7 @@ const CityArthritisPage = () => {
 
           {/* Local Resources */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
               <Users className="w-5 h-5 text-primary" /> Local Resources in {cityData.name}
             </h2>
             <ul className="space-y-3">
@@ -168,7 +168,7 @@ const CityArthritisPage = () => {
 
           {/* What You Can Do */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Managing Arthritis in {cityData.name}</h2>
+            <h2 className="text-xl font-medium text-foreground mb-4">Managing Arthritis in {cityData.name}</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {[
                 { icon: Dumbbell, title: "Stay Active", desc: "Regular low-impact exercise like walking, swimming, and cycling helps maintain joint mobility.", link: "/exercises", linkText: "Exercise guides" },
@@ -179,7 +179,7 @@ const CityArthritisPage = () => {
                 <div key={title} className="bg-card border border-border rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <Icon className="w-5 h-5 text-primary" />
-                    <h3 className="font-semibold text-foreground">{title}</h3>
+                    <h3 className="font-medium text-foreground">{title}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-2">{desc}</p>
                   <Link to={link} className="text-sm text-primary hover:underline inline-flex items-center gap-1">
@@ -192,7 +192,7 @@ const CityArthritisPage = () => {
 
           {/* How to Get Help */}
           <section className="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-foreground mb-3 flex items-center gap-2">
               <Phone className="w-5 h-5 text-primary" /> How to Get an GP Referral in {cityData.name}
             </h2>
             <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
@@ -206,7 +206,7 @@ const CityArthritisPage = () => {
 
           {/* Condition guides — real unique pages, not thin city×condition templates */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-foreground mb-4 flex items-center gap-2">
               <Stethoscope className="w-5 h-5 text-primary" /> Arthritis Types in {cityData.name}
             </h2>
             <div className="grid sm:grid-cols-3 gap-3">
@@ -225,7 +225,7 @@ const CityArthritisPage = () => {
 
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Arthritis Support in Other UK Cities</h2>
+            <h2 className="text-xl font-medium text-foreground mb-4">Arthritis Support in Other UK Cities</h2>
             <div className="flex flex-wrap gap-2">
               {ukCities
                 .filter((c) => c.slug !== cityData.slug)

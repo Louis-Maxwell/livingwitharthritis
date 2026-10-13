@@ -107,7 +107,7 @@ export default function UkArthritisSearchInsights() {
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Search className="w-3 h-3" aria-hidden="true" /> Research notes
             </span>
-            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+            <h1 className="font-display text-3xl md:text-5xl font-medium text-foreground mb-4 leading-tight">
               UK arthritis search insights
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -134,7 +134,7 @@ export default function UkArthritisSearchInsights() {
             className="mb-12 rounded-xl border border-amber-500/30 bg-amber-500/5 p-5"
             aria-labelledby="data-caveats"
           >
-            <h2 id="data-caveats" className="flex items-center gap-2 font-display text-lg font-bold mb-3">
+            <h2 id="data-caveats" className="flex items-center gap-2 font-display text-lg font-medium mb-3">
               <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" aria-hidden="true" />
               Honest data caveats
             </h2>
@@ -168,7 +168,7 @@ export default function UkArthritisSearchInsights() {
 
           {/* Q1 */}
           <section id="where-uk-searches" className="mb-14">
-            <h2 className="flex items-center gap-2 font-display text-2xl md:text-3xl font-bold mb-4">
+            <h2 className="flex items-center gap-2 font-display text-2xl md:text-3xl font-medium mb-4">
               <MapPin className="w-6 h-6 text-primary shrink-0" aria-hidden="true" />
               1. Where in the UK do people search most?
             </h2>
@@ -236,7 +236,7 @@ export default function UkArthritisSearchInsights() {
 
           {/* Q2 */}
           <section id="related-topics" className="mb-14">
-            <h2 className="flex items-center gap-2 font-display text-2xl md:text-3xl font-bold mb-4">
+            <h2 className="flex items-center gap-2 font-display text-2xl md:text-3xl font-medium mb-4">
               <BookOpen className="w-6 h-6 text-primary shrink-0" aria-hidden="true" />
               2. What related topics do people search alongside arthritis?
             </h2>
@@ -290,7 +290,7 @@ export default function UkArthritisSearchInsights() {
                 is a strong long-tail theme in NHS trust leaflets.
               </p>
 
-              <h3 className="font-display text-xl font-bold pt-2">Related topic clusters</h3>
+              <h3 className="font-display text-xl font-medium pt-2">Related topic clusters</h3>
               <ul className="grid gap-3 sm:grid-cols-2 not-prose">
                 {TOPIC_CLUSTERS.map((row) => (
                   <li
@@ -307,7 +307,7 @@ export default function UkArthritisSearchInsights() {
 
           {/* Q3 */}
           <section id="competitor-set" className="mb-14">
-            <h2 className="flex items-center gap-2 font-display text-2xl md:text-3xl font-bold mb-4">
+            <h2 className="flex items-center gap-2 font-display text-2xl md:text-3xl font-medium mb-4">
               <Users className="w-6 h-6 text-primary shrink-0" aria-hidden="true" />
               3. What other sites appear for “managing arthritis pain”?
             </h2>
@@ -345,7 +345,7 @@ export default function UkArthritisSearchInsights() {
           </section>
 
           <section id="explore-our-hubs" className="mb-14">
-            <h2 className="font-display text-2xl font-bold mb-4">Explore our related hubs</h2>
+            <h2 className="font-display text-2xl font-medium mb-4">Explore our related hubs</h2>
             <ul className="grid gap-2 sm:grid-cols-2">
               {HUB_LINKS.map((l) => (
                 <li key={l.href}>
@@ -361,7 +361,7 @@ export default function UkArthritisSearchInsights() {
           </section>
 
           <section id="sources" className="mb-8">
-            <h2 className="font-display text-xl font-bold mb-3">Key sources</h2>
+            <h2 className="font-display text-xl font-medium mb-3">Key sources</h2>
             <ul className="text-sm text-foreground/80 space-y-2 list-disc pl-5">
               <li>
                 <a href="https://www.semrush.com/website/arthritis-uk.org/overview/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">Semrush arthritis-uk.org overview</a>

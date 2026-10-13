@@ -110,7 +110,7 @@ const WaitingTimeCalculator = () => {
           <Calculator className="w-5 h-5" />
           <span className="text-sm font-medium uppercase tracking-wide">Free UK Tool</span>
         </div>
-        <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-4">
           Arthritis Waiting Time Calculator
         </h1>
         <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
@@ -168,7 +168,7 @@ const WaitingTimeCalculator = () => {
           <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 mb-8 animate-in fade-in slide-in-from-bottom-4">
             <div className="flex items-center gap-3 mb-3">
               <Clock className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Estimated wait: ~{result} weeks</h2>
+              <h2 className="text-2xl font-medium">Estimated wait: ~{result} weeks</h2>
             </div>
             <p className="text-muted-foreground mb-5">
               Based on 2026 national health averages for {region}. Your actual wait depends on your specific local health trust and clinical urgency.
@@ -196,7 +196,7 @@ const WaitingTimeCalculator = () => {
         </div>
 
         <div className="mt-10 p-6 bg-card border border-border rounded-2xl">
-          <h2 className="text-xl font-semibold mb-3">Need more help?</h2>
+          <h2 className="text-xl font-medium mb-3">Need more help?</h2>
           <Link to="/arthritis-waiting-list-help" className="text-primary hover:underline inline-flex items-center gap-1.5">
             Read our full rheumatology waiting list survival guide <ArrowRight className="w-4 h-4" />
           </Link>

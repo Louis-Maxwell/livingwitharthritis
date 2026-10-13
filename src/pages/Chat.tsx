@@ -70,7 +70,7 @@ const Chat = () => {
               <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-primary/10 mb-4">
                 <MessageCircle className="h-8 w-8 text-primary" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3 tracking-tight">
+              <h1 className="text-3xl md:text-4xl font-medium text-foreground mb-3 tracking-tight">
                 Help & <span className="text-primary">Support</span>
               </h1>
               <p className="text-muted-foreground max-w-lg mx-auto">

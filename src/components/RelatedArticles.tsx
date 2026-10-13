@@ -97,7 +97,7 @@ const RelatedArticles = memo(
           <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5">
             Next clicks
           </p>
-          <h2 className="font-display text-2xl font-bold text-foreground m-0">
+          <h2 className="font-display text-2xl font-medium text-foreground m-0">
             {heading}
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
@@ -181,7 +181,7 @@ const RelatedArticles = memo(
                   ? "New to you · Up next"
                   : "Up next"}
               </span>
-              <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+              <h3 className="font-display text-lg md:text-xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
                 {featured.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2">
@@ -229,7 +229,7 @@ const RelatedArticles = memo(
                   <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
                     {eyebrow}
                   </span>
-                  <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                  <h3 className="font-display text-base font-medium text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
                     {post.title}
                   </h3>
                   <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">
@@ -251,7 +251,7 @@ const RelatedArticles = memo(
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 inline-flex items-center gap-1.5">
                 <Compass className="w-3 h-3" aria-hidden="true" /> Best supporting guide
               </span>
-              <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+              <h3 className="font-display text-base font-medium text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
                 {bestGuide.title}
               </h3>
               <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">

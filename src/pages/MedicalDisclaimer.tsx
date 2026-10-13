@@ -40,7 +40,7 @@ export default function MedicalDisclaimer() {
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <ShieldAlert className="w-3 h-3" aria-hidden /> Important
             </span>
-            <h1 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mb-4 leading-tight">
+            <h1 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-4 leading-tight">
               Medical disclaimer
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -64,7 +64,7 @@ export default function MedicalDisclaimer() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-foreground">When to seek urgent care</h2>
+              <h2 className="text-xl font-medium text-foreground">When to seek urgent care</h2>
               <p className="flex items-start gap-2 mt-3">
                 <Phone className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden />
                 <span>{nhsEscalationLine()}</span>
@@ -77,7 +77,7 @@ export default function MedicalDisclaimer() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-foreground">Medicines and treatments</h2>
+              <h2 className="text-xl font-medium text-foreground">Medicines and treatments</h2>
               <p>
                 Medicines pages summarise publicly available UK guidance (for example NICE, NHS,
                 BNF / SmPC themes) for education. They do <strong>not</strong> tell you what dose to
@@ -88,7 +88,7 @@ export default function MedicalDisclaimer() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-foreground">Tools and chat</h2>
+              <h2 className="text-xl font-medium text-foreground">Tools and chat</h2>
               <p>
                 The symptom checker and chatbot route you to educational guides. They cannot examine
                 you, order tests, or issue a diagnosis. Do not rely on them in an emergency.
@@ -96,7 +96,7 @@ export default function MedicalDisclaimer() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-foreground">No clinical relationship</h2>
+              <h2 className="text-xl font-medium text-foreground">No clinical relationship</h2>
               <p>
                 Using this website does not create a clinician–patient relationship with Living With
                 Arthritis or with Louis Maxwell (HCPC PH128483) personally, unless you have a
@@ -105,7 +105,7 @@ export default function MedicalDisclaimer() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-foreground">Related pages</h2>
+              <h2 className="text-xl font-medium text-foreground">Related pages</h2>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
                   <Link to="/editorial-standards" className="text-primary underline">

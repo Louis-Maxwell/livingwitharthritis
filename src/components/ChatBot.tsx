@@ -264,7 +264,7 @@ export function ChatBot() {
             <Heart className="h-4.5 w-4.5 text-primary-foreground" />
           </div>
           <div>
-            <h2 className="font-semibold text-sm text-primary-foreground leading-tight">Help & Support</h2>
+            <h2 className="font-medium text-sm text-primary-foreground leading-tight">Help & Support</h2>
             <div className="flex items-center gap-1">
               <div className={`w-1.5 h-1.5 rounded-full ${isLoading ? "bg-amber-300 animate-pulse" : "bg-emerald-300"}`} aria-hidden="true" />
               <span className="text-[10px] text-primary-foreground/70" aria-live="polite">
@@ -317,7 +317,7 @@ export function ChatBot() {
               className="absolute inset-y-0 left-0 z-30 w-[78%] max-w-[300px] bg-background border-r border-border/50 shadow-xl flex flex-col"
             >
               <div className="flex items-center justify-between px-3.5 py-3 border-b border-border/40">
-                <h3 className="text-sm font-semibold text-foreground">Past chats</h3>
+                <h3 className="text-sm font-medium text-foreground">Past chats</h3>
                 <button
                   onClick={() => setHistoryOpen(false)}
                   aria-label="Close history"

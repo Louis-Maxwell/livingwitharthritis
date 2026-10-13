@@ -68,7 +68,7 @@ export default function FallPreventionOlderAdults() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Fall Prevention</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Fall Prevention for Older Adults with Arthritis</h1>
+      <h1 className="text-4xl md:text-5xl font-medium mb-6">Fall Prevention for Older Adults with Arthritis</h1>
             <AeoEnhancement route="/guides/fall-prevention-older-adults" />
 
       <AnswerBox question="How can older adults with arthritis prevent falls?">
@@ -82,12 +82,12 @@ export default function FallPreventionOlderAdults() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="risk" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">1. Understanding fall risk in arthritis</h2>
+        <h2 className="text-2xl font-medium mb-4">1. Understanding fall risk in arthritis</h2>
         <p className="leading-relaxed mb-4">One in three adults over 65 falls each year — more for those with arthritis. Risk factors cluster: muscle weakness, balance loss, slower reactions, joint pain altering gait, medications causing dizziness, vision changes and environmental hazards. Addressing several at once works best.</p>
       </section>
 
       <section id="home" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">2. Home safety: the checklist</h2>
+        <h2 className="text-2xl font-medium mb-4">2. Home safety: the checklist</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Remove loose rugs or secure them with non-slip backing</li>
           <li>Install grab rails by the toilet, shower and front door</li>
@@ -99,22 +99,22 @@ export default function FallPreventionOlderAdults() {
       </section>
 
       <section id="balance" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">3. Balance and proprioception training</h2>
+        <h2 className="text-2xl font-medium mb-4">3. Balance and proprioception training</h2>
         <p className="leading-relaxed mb-4">Balance is trainable at any age. Start with simple drills at a kitchen counter: stand on one leg 10 seconds (build to 30), heel-to-toe walking, weight shifts. Tai chi reduces falls by around 20% and is suitable for most older adults — see our <Link to="/exercises/tai-chi-for-balance" className="text-primary underline">tai chi for balance</Link> guide.</p>
       </section>
 
       <section id="strength" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">4. Strength training to prevent falls</h2>
+        <h2 className="text-2xl font-medium mb-4">4. Strength training to prevent falls</h2>
         <p className="leading-relaxed mb-4">Strong legs catch you when balance fails. Prioritise quadriceps (sit-to-stand, step-ups), glutes (bridges, sideways leg lifts), calves (heel raises) and core (gentle planks at a counter). Two sessions per week, building from 1 to 3 sets of 10–12.</p>
       </section>
 
       <section id="after" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">5. When a fall happens: immediate response and recovery</h2>
+        <h2 className="text-2xl font-medium mb-4">5. When a fall happens: immediate response and recovery</h2>
         <p className="leading-relaxed mb-4">Stay calm and check for pain or injury before moving. If you may be injured, feel unwell or cannot get up safely, use a phone or pendant alarm and keep warm while you wait for help. Call 999 for a serious injury or emergency. Tell your GP or another healthcare professional about a fall so they can consider strength, medication, vision and home hazards.</p>
       </section>
 
       <section id="sources" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Sources and further guidance</h2>
+        <h2 className="text-2xl font-medium mb-4">Sources and further guidance</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>
             <a
@@ -140,7 +140,7 @@ export default function FallPreventionOlderAdults() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
+        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management hub</Link></li>
           <li><Link to="/guides/sarcopenia-muscle-loss" className="text-primary underline">Sarcopenia &amp; muscle loss</Link></li>
@@ -153,10 +153,10 @@ export default function FallPreventionOlderAdults() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
+            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

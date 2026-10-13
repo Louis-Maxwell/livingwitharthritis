@@ -89,7 +89,7 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
           </nav>
 
           <header className="mb-8">
-            <h1 className="font-display text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">
+            <h1 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-4">
               {guide.title}
             </h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -175,7 +175,7 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
 
           {guide.related.length > 0 && (
             <section className="mt-12 border-t border-border pt-8">
-              <h2 className="font-display text-xl font-bold text-foreground mb-4">Related guides</h2>
+              <h2 className="font-display text-xl font-medium text-foreground mb-4">Related guides</h2>
               <ul role="list" className="grid sm:grid-cols-2 gap-3 list-none p-0 m-0">
                 {guide.related.map((l) => (
                   <li key={l.href} className="flex list-none">

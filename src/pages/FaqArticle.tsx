@@ -107,7 +107,7 @@ export default function FaqArticle() {
         keywords={`${article.title}, arthritis, ${article.category}`}
       />
 
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.question}</h1>
+      <h1 className="text-3xl md:text-4xl font-medium mb-6">{article.question}</h1>
 
       <div className="bg-accent/40 border-l-4 border-primary p-6 rounded-r-lg my-6 text-lg font-semibold">
         {article.quickAnswer}
@@ -116,7 +116,7 @@ export default function FaqArticle() {
       <div className="space-y-8">
         {article.sections.map((section, idx) => (
           <section key={idx}>
-            <h2 className="text-2xl font-bold mt-8 mb-3">{section.heading}</h2>
+            <h2 className="text-2xl font-medium mt-8 mb-3">{section.heading}</h2>
             <p className="leading-relaxed whitespace-pre-wrap">{section.content}</p>
           </section>
         ))}
@@ -130,7 +130,7 @@ export default function FaqArticle() {
 
       {article.citations && article.citations.length > 0 && (
         <section className="my-10" aria-labelledby="faq-citations-heading">
-          <h2 id="faq-citations-heading" className="text-xl font-bold mb-3">
+          <h2 id="faq-citations-heading" className="text-xl font-medium mb-3">
             Trusted sources
           </h2>
           <p className="text-sm text-muted-foreground mb-3">
@@ -158,7 +158,7 @@ export default function FaqArticle() {
 
       {(article.relatedArticles.length > 0 || extraLinks.length > 0) && (
         <section className="bg-muted p-6 rounded-lg my-12">
-          <h2 className="text-xl font-bold mb-4">Related questions and guides</h2>
+          <h2 className="text-xl font-medium mb-4">Related questions and guides</h2>
           <ul className="space-y-2">
             {extraLinks.map((link) => (
               <li key={link.href}>

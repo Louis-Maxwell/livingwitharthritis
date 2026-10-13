@@ -36,7 +36,7 @@ export default function PatientStory() {
         type="article"
       />
 
-      <h1 className="text-3xl md:text-4xl font-bold mb-2">{story.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-medium mb-2">{story.title}</h1>
       <p className="text-muted-foreground mb-8">
         {story.patientName}'s story · {story.condition} · {story.month}
       </p>

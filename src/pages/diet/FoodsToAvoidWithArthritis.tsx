@@ -293,7 +293,7 @@ export default function FoodsToAvoidWithArthritis() {
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <AlertTriangle className="h-3 w-3 mr-1 inline" /> Trigger foods
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
               The six foods most likely to worsen joint inflammation
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -307,7 +307,7 @@ export default function FoodsToAvoidWithArthritis() {
                 <div className="rounded-lg bg-primary/10 p-3 w-fit mb-4">
                   <t.icon className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="font-display text-xl font-semibold mb-2">
+                <h3 className="font-display text-xl font-medium mb-2">
                   {t.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -326,7 +326,7 @@ export default function FoodsToAvoidWithArthritis() {
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
               <Leaf className="h-3 w-3 mr-1 inline" /> Eat instead
             </Badge>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
               What to put on your plate instead
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -358,13 +358,13 @@ export default function FoodsToAvoidWithArthritis() {
       {/* Myths */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
             Common myths about arthritis trigger foods
           </h2>
           <div className="space-y-6">
             {myths.map((m) => (
               <div key={m.q} className="pl-5 border-l-4 border-primary">
-                <h3 className="font-display text-xl font-semibold mb-2">
+                <h3 className="font-display text-xl font-medium mb-2">
                   {m.q}
                 </h3>
                 <p className="text-base text-foreground leading-relaxed">
@@ -379,13 +379,13 @@ export default function FoodsToAvoidWithArthritis() {
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
             Frequently asked questions
           </h2>
           <div className="space-y-6">
             {faqs.map((f) => (
               <Card key={f.q} className="p-6 border border-border/40 bg-background">
-                <h3 className="font-display text-lg font-semibold mb-2">
+                <h3 className="font-display text-lg font-medium mb-2">
                   {f.q}
                 </h3>
                 <p className="text-base text-foreground leading-relaxed">
@@ -400,7 +400,7 @@ export default function FoodsToAvoidWithArthritis() {
       {/* Internal link cluster */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-8">
             Complete your arthritis strategy
           </h2>
           <div className="grid md:grid-cols-3 gap-5">
@@ -408,7 +408,7 @@ export default function FoodsToAvoidWithArthritis() {
               to="/diet/mediterranean-diet-for-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">
+              <h3 className="font-display text-lg font-medium mb-2">
                 Mediterranean diet plan
               </h3>
               <p className="text-sm text-muted-foreground">
@@ -420,7 +420,7 @@ export default function FoodsToAvoidWithArthritis() {
               to="/supplements"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">
+              <h3 className="font-display text-lg font-medium mb-2">
                 Supplements that help
               </h3>
               <p className="text-sm text-muted-foreground">
@@ -432,7 +432,7 @@ export default function FoodsToAvoidWithArthritis() {
               to="/guides/exercise"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">
+              <h3 className="font-display text-lg font-medium mb-2">
                 Exercise for arthritis
               </h3>
               <p className="text-sm text-muted-foreground">
@@ -444,7 +444,7 @@ export default function FoodsToAvoidWithArthritis() {
               to="/conditions/knee-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">
+              <h3 className="font-display text-lg font-medium mb-2">
                 Knee arthritis
               </h3>
               <p className="text-sm text-muted-foreground">
@@ -456,7 +456,7 @@ export default function FoodsToAvoidWithArthritis() {
               to="/conditions/osteoarthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">
+              <h3 className="font-display text-lg font-medium mb-2">
                 Osteoarthritis overview
               </h3>
               <p className="text-sm text-muted-foreground">
@@ -468,7 +468,7 @@ export default function FoodsToAvoidWithArthritis() {
               to="/living-with-arthritis"
               className="block p-6 border border-border/40 rounded-lg hover:bg-secondary/40 transition-colors"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">
+              <h3 className="font-display text-lg font-medium mb-2">
                 Living with arthritis
               </h3>
               <p className="text-sm text-muted-foreground">

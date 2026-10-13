@@ -130,11 +130,11 @@ export default function ExercisePlanGenerator() {
             <Dumbbell className="w-10 h-10 sm:w-12 sm:h-12 text-primary" aria-hidden />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-foreground">Build your personalised plan</h3>
+            <h3 className="text-lg font-medium text-foreground">Build your personalised plan</h3>
             <p className="text-sm text-muted-foreground mt-1">Tell us about your joints, fitness level and goals — we'll generate a weekly routine.</p>
           </div>
         </div>
-        <h3 className="text-lg font-bold text-foreground">Step 1: Select Your Affected Joints</h3>
+        <h3 className="text-lg font-medium text-foreground">Step 1: Select Your Affected Joints</h3>
         <p className="text-sm text-muted-foreground">Choose all joints where you experience pain or stiffness.</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {allJoints.map((joint) => (
@@ -164,7 +164,7 @@ export default function ExercisePlanGenerator() {
   if (step === "fitness") {
     return (
       <div className="space-y-6">
-        <h3 className="text-lg font-bold text-foreground">Step 2: Your Fitness Level</h3>
+        <h3 className="text-lg font-medium text-foreground">Step 2: Your Fitness Level</h3>
         <div className="space-y-3">
           {fitnessLevels.map((level) => (
             <button
@@ -192,7 +192,7 @@ export default function ExercisePlanGenerator() {
   if (step === "goal") {
     return (
       <div className="space-y-6">
-        <h3 className="text-lg font-bold text-foreground">Step 3: Your Primary Goal</h3>
+        <h3 className="text-lg font-medium text-foreground">Step 3: Your Primary Goal</h3>
         <div className="space-y-3">
           {goals.map((g) => (
             <button
@@ -222,7 +222,7 @@ export default function ExercisePlanGenerator() {
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h3 className="text-lg font-bold text-foreground">Your 7-Day Exercise Plan</h3>
+          <h3 className="text-lg font-medium text-foreground">Your 7-Day Exercise Plan</h3>
           <p className="text-xs text-muted-foreground mt-1">
             {selectedJoints.map((j) => jointLabels[j]).join(", ")} · {fitness} · {goal}
           </p>

@@ -204,15 +204,15 @@ const BenefitsPipHub = () => {
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(FIN_DIR_HTML) }}
           />
           <section id="benefits-pip-hub-faq" className="pt-8 border-t border-border/30">
-            <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
+            <h2 className="font-display font-medium text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion idPrefix="benefits-pip-hub-faq" items={FIN_DIR_FAQS} injectSchema={false} />
           </section>
-          <h2 className="font-display font-bold text-2xl pt-4 m-0">Our benefits and work guides</h2>
+          <h2 className="font-display font-medium text-2xl pt-4 m-0">Our benefits and work guides</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {LINKS.map((item) => (
               <Card key={item.href} className="hover:border-primary/40 transition-colors">
                 <CardContent className="p-5 flex flex-col h-full">
-                  <h3 className="font-semibold mb-2 text-base">
+                  <h3 className="font-medium mb-2 text-base">
                     <Link to={item.href} className="hover:text-primary">
                       {item.title}
                     </Link>

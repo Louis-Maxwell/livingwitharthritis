@@ -66,7 +66,7 @@ export default function SarcopeniaMuscleControl() {
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Sarcopenia &amp; Muscle Loss</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Sarcopenia &amp; Arthritis: How to Prevent Muscle Loss</h1>
+      <h1 className="text-4xl md:text-5xl font-medium mb-6">Sarcopenia &amp; Arthritis: How to Prevent Muscle Loss</h1>
             <AeoEnhancement route="/guides/sarcopenia-muscle-loss" />
 
       <AnswerBox question="What is sarcopenia and how is it linked to arthritis?" reviewed="2026-06-21">
@@ -76,13 +76,13 @@ export default function SarcopeniaMuscleControl() {
       <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
 
       <section id="what" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">1. What is sarcopenia and why arthritis speeds it up</h2>
+        <h2 className="text-2xl font-medium mb-4">1. What is sarcopenia and why arthritis speeds it up</h2>
         <p className="leading-relaxed mb-4">Muscle mass declines about 1% per year from age 40, and strength declines faster — around 3% per year after 60. Arthritis multiplies this loss: pain limits movement, inflammatory cytokines (IL-6, TNF-Î±) drive muscle breakdown, and steroid medications worsen it further.</p>
         <p className="leading-relaxed">The result is a vicious cycle: weak muscles destabilise joints, joints hurt more, activity drops, muscles weaken further.</p>
       </section>
 
       <section id="measure" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">2. How to measure muscle loss at home</h2>
+        <h2 className="text-2xl font-medium mb-4">2. How to measure muscle loss at home</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Sit-to-stand:</strong> stand 5 times from a chair without using hands. Over 15 seconds suggests weakness.</li>
           <li><strong>Grip:</strong> struggling to open jars or carry shopping is an early sign.</li>
@@ -92,19 +92,19 @@ export default function SarcopeniaMuscleControl() {
       </section>
 
       <section id="protein" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">3. Protein: how much and which sources work best</h2>
+        <h2 className="text-2xl font-medium mb-4">3. Protein: how much and which sources work best</h2>
         <p className="leading-relaxed mb-4">Aim for 1.0–1.2 g/kg body weight daily. A 70 kg adult needs 70–84 g. Split across 3 meals — 25–30 g each — to maximise muscle protein synthesis. Leucine-rich sources (whey, eggs, dairy, fish, chicken, soya) are most effective.</p>
         <p className="leading-relaxed">Plant-based? Combine legumes, tofu, tempeh, quinoa and a leucine-rich protein powder. See our <Link to="/diet" className="text-primary underline">diet hub</Link>.</p>
       </section>
 
       <section id="strength" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">4. Strength training for sarcopenia (adapted for arthritis)</h2>
+        <h2 className="text-2xl font-medium mb-4">4. Strength training for sarcopenia (adapted for arthritis)</h2>
         <p className="leading-relaxed mb-4">Two sessions per week targeting all major muscle groups: legs (sit-to-stand, step-ups), hips (bridges, clamshells), back (band rows), chest (wall push-ups) and core. Use 8–12 reps at a load you can just complete.</p>
         <p className="leading-relaxed">More in our <Link to="/exercises" className="text-primary underline">exercise hub</Link> and <Link to="/blog/knee-osteoarthritis-exercises" className="text-primary underline">knee OA exercises</Link>.</p>
       </section>
 
       <section id="supplements" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">5. Medications and supplements that support muscle</h2>
+        <h2 className="text-2xl font-medium mb-4">5. Medications and supplements that support muscle</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Vitamin D:</strong> 10–25 Âµg/day, especially October–March (UK healthcare guidance).</li>
           <li><strong>Creatine monohydrate:</strong> 3–5 g/day, combined with resistance work, modestly improves strength in older adults.</li>
@@ -115,7 +115,7 @@ export default function SarcopeniaMuscleControl() {
       </section>
 
       <section id="related" className="mb-12 bg-muted p-6 rounded-lg border-l-4 border-primary">
-        <h2 className="text-2xl font-bold mb-4">Related guides</h2>
+        <h2 className="text-2xl font-medium mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management hub</Link></li>
           <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Fall prevention</Link></li>
@@ -124,10 +124,10 @@ export default function SarcopeniaMuscleControl() {
       </section>
 
       <section id="faq" className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
+        <h2 className="text-2xl font-medium mb-6">Frequently asked questions</h2>
         {FAQS.map((f) => (
           <div key={f.q} className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
+            <h3 className="text-lg font-medium mb-2">{f.q}</h3>
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}

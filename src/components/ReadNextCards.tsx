@@ -31,7 +31,7 @@ const ReadNextCards = memo(({ items, heading = "Read Next", subheading = "Hand-p
         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-2">
           Continue Reading
         </p>
-        <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">
+        <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-1">
           {heading}
         </h2>
         <p className="text-sm text-muted-foreground">{subheading}</p>
@@ -62,7 +62,7 @@ const ReadNextCards = memo(({ items, heading = "Read Next", subheading = "Hand-p
                 <p className="relative text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
                   {item.eyebrow}
                 </p>
-                <h3 className="relative font-display text-base md:text-lg font-bold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+                <h3 className="relative font-display text-base md:text-lg font-medium text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
                 <p className="relative text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">

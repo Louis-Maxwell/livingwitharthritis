@@ -318,7 +318,7 @@ const Header = () => {
               : "bg-background border-b border-border/15"
           }`}
         >
-          <div className="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
+          <div className="container mx-auto px-4 sm:px-6 md:px-10 py-4 flex items-center justify-between gap-2 sm:gap-4">
             {/* Logo — stick figure mark + wordmark */}
             <button
               onClick={() => navigate("/")}
@@ -392,14 +392,14 @@ const Header = () => {
           role="banner"
           className={`transition-all duration-300 ${
             scrolled
-              ? "bg-background/95 backdrop-blur-xl shadow-md border-b border-border/30"
+              ? "bg-background/95 backdrop-blur-xl border-b border-border/30"
               : "bg-background border-b border-border/20"
           }`}
         >
           <div className="mx-auto px-6 md:px-10 max-w-[1400px]">
             {/* Desktop-only row: on phones it held nothing but a spacer and
                 left a 46px blank band above every page's first section. */}
-            <div className="hidden lg:flex justify-between items-center h-[46px]">
+            <div className="hidden lg:flex justify-between items-center h-[54px]">
 
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">

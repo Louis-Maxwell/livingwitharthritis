@@ -80,7 +80,7 @@ export default function FlareActionPlan() {
           </button>
         </div>
 
-        <h1 className="font-display mb-3 text-3xl font-extrabold text-foreground md:text-4xl">
+        <h1 className="font-display mb-3 text-3xl font-medium text-foreground md:text-4xl">
           Arthritis flare-up action plan (free printable)
         </h1>
         <p className="speakable-intro quick-answer mb-4 text-lg text-muted-foreground leading-relaxed">
@@ -100,13 +100,13 @@ export default function FlareActionPlan() {
         />
 
         <section aria-labelledby="flare-plan-faq" className="mt-10 print:break-before-page">
-          <h2 id="flare-plan-faq" className="font-display mb-4 text-2xl font-bold text-foreground">
+          <h2 id="flare-plan-faq" className="font-display mb-4 text-2xl font-medium text-foreground">
             Frequently asked questions
           </h2>
           <div className="space-y-5">
             {FLARE_PLAN_FAQS.map((f) => (
               <div key={f.question} className="speakable-faq">
-                <h3 className="font-display text-lg font-semibold text-foreground">{f.question}</h3>
+                <h3 className="font-display text-lg font-medium text-foreground">{f.question}</h3>
                 <p className="mt-1 text-foreground/85 leading-relaxed">{f.answer}</p>
               </div>
             ))}
@@ -130,7 +130,7 @@ export default function FlareActionPlan() {
         </nav>
 
         <section className="mb-6 text-sm text-muted-foreground">
-          <h2 className="font-display mb-2 text-base font-bold text-foreground">Sources</h2>
+          <h2 className="font-display mb-2 text-base font-medium text-foreground">Sources</h2>
           <ul className="list-disc space-y-1 pl-5">
             <li><a href="https://www.nice.org.uk/guidance/ng226" rel="noopener noreferrer">NICE NG226: Osteoarthritis in over 16s</a></li>
             <li><a href="https://www.nice.org.uk/guidance/ng100" rel="noopener noreferrer">NICE NG100: Rheumatoid arthritis in adults</a></li>

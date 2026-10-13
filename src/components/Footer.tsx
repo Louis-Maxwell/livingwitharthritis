@@ -103,10 +103,10 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 mb-10">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">{col.title}</h3>
+              <h3 className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mb-5">{col.title}</h3>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -115,21 +115,21 @@ const Footer = () => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </a>
                     ) : link.href.startsWith("#") ? (
                       <a
                         href={link.href}
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+                        className="text-foreground/85 hover:text-primary transition-colors duration-200 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
                       >
                         {link.label}
                       </Link>
@@ -142,12 +142,12 @@ const Footer = () => {
 
           {/* Social Media Section */}
           <nav aria-label="Social and connect">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-5">Connect</h3>
+            <h3 className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground mb-5">Connect</h3>
             <SocialLinks
               context="footer"
               size="md"
               orientation="vertical"
-              linkClassName="text-foreground/85 hover:text-primary transition-colors duration-200 text-[13px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
+              linkClassName="text-foreground/85 hover:text-primary transition-colors duration-200 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm flex items-center gap-2"
               showLabels={true}
             />
           </nav>
