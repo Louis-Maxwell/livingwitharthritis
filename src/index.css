@@ -182,7 +182,7 @@
        <html> font-size) actually resizes body copy instead of leaving it
        fixed while only headings responded. */
     font-size: 1.125rem;
-    /* ~0.5px at 18px — WCAG-friendly character spacing for low-vision users */
+    /* Neutral tracking for clear body copy; user text-spacing overrides remain supported. */
     letter-spacing: 0;
     /* Keep 200% zoom free of horizontal scrolling */
     overflow-x: hidden;
