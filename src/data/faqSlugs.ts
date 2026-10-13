@@ -1,0 +1,41 @@
+/**
+ * Slugs of every FAQ article, kept separate from the full FAQ text so
+ * link checks on article pages do not download ~90 KB of FAQ content.
+ * Must match src/data/faqArticles.ts (enforced by faqSlugs.test.ts).
+ */
+export const FAQ_SLUGS: readonly string[] = [
+  'can-arthritis-cause-fatigue',
+  'arthritis-employment-rights-uk',
+  'arthritis-disability-benefits-uk',
+  'best-exercises-arthritis',
+  'reduce-arthritis-pain-naturally',
+  'what-is-osteoarthritis',
+  'what-is-rheumatoid-arthritis',
+  'what-is-juvenile-arthritis',
+  'can-arthritis-affect-young-people',
+  'is-arthritis-a-disability',
+  'arthritis-and-pregnancy',
+  'arthritis-and-sleep',
+  'arthritis-flare-management',
+  'returning-to-work-arthritis',
+  'arthritis-support-groups-uk',
+  'arthritis-pain-management',
+  'arthritis-and-mental-health',
+  'arthritis-medication-explained',
+  'living-well-arthritis-tips',
+  'arthritis-and-cold-weather',
+  'best-pain-relief-creams-arthritis',
+  'arthritis-exercise-myths',
+  'young-people-arthritis',
+  'weight-management-osteoarthritis',
+  'arthritis-driving-adaptations',
+  'arthritis-sleeping-positions',
+  'arthritis-hand-exercises',
+  'osteoarthritis-vs-rheumatoid-arthritis',
+  'arthritis-and-nutrition',
+  'arthritis-walking-aids',
+  'arthritis-return-to-work',
+  'arthritis-footwear',
+  'arthritis-travel-tips',
+  'when-to-see-a-rheumatologist',
+];
