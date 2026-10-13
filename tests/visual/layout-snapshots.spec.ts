@@ -86,6 +86,16 @@ for (const viewport of VIEWPORTS) {
           if (rect.width > limit + 2 && rect.height > 0) {
             const style = window.getComputedStyle(el);
             if (style.position === "fixed" || style.overflowX !== "visible") return;
+            // Carousels and marquees intentionally have wide tracks inside a
+            // bounded clipping viewport. Root clipping must not hide genuine
+            // layout regressions, so only consider non-root ancestors.
+            let ancestor = el.parentElement;
+            while (ancestor && ancestor !== document.body && ancestor !== document.documentElement) {
+              const clip = window.getComputedStyle(ancestor).overflowX;
+              const bounds = ancestor.getBoundingClientRect();
+              if (clip !== "visible" && bounds.left >= -2 && bounds.right <= limit + 2) return;
+              ancestor = ancestor.parentElement;
+            }
             bad.push(
               `${el.tagName.toLowerCase()}${el.className && typeof el.className === "string" ? `.${el.className.split(" ")[0]}` : ""} (${Math.round(rect.width)}px)`,
             );
