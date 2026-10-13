@@ -40,6 +40,7 @@
 | Champions 65–67 winter activity + depression + flu jab | **done** | Gold-pass `/blog/staying-active-arthritis-winter-uk`, `/blog/depression-arthritis-when-to-seek-help`, `/blog/flu-jab-arthritis-frailty-uk` — full rewrites removing unsourced stats ("20–30%", "up to 90%", "1 in 3", "25% less pain") and broken frailty template copy; CTR meta, **pending clinical review** (not yet reviewed by Louis Maxwell; the 2026-10-06 review claim was removed 6 Oct), NHS/NICE/UKHSA/Samaritans cites, crisis routes on depression, flu-jab eligibility from NHS page (England; devolved nations signposted); exercises/flare/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-65-67-06-oct.test.ts` |
 | Champions 68–70 winter viruses + cold home + sleep positions | **done** | Gold-pass `/blog/covid-winter-arthritis-frailty-uk`, `/blog/winter-arthritis-frailty-cold-houses-uk`, `/blog/best-sleep-positions-joint-pain` — full rewrites removing broken frailty template copy, the repeated "10 million" line, the unsourced "25% less pain interference" claim and a "Clinical Review Board" reviewer label that named no real reviewer; CTR meta, **pending clinical review**, NHS/GOV.UK/NICE/UKHSA cites, sick-day plan with never-stop-medicines framing, heating help (Winter Fuel / Cold Weather / Warm Home Discount), positions by joint linking to the gold-pass sleep URL; treatments/pain cluster fronting + chatbot KB; Vitest `gsc-champions-68-70-07-oct.test.ts` |
 | Champions 71–73 winter vitamin D + sleep–pain cycle + what keeps you awake | **done** | Gold-pass `/blog/vitamin-d-winter-arthritis-frailty-uk`, `/blog/sleep-quality-arthritis-pain`, `/blog/arthritis-and-sleep-problems` — full rewrites removing broken frailty template copy ("several joints", the "10 million" line), unsourced "up to 80%" sleep-disturbance claims, mattress/brand/price filler, a named reviewer line ("Dr. Hannah Clarke") that we cannot verify and the unnamed "Clinical Advisory Panel" label; CTR meta, **pending clinical review**, NHS/NICE/GOV.UK cites (NHS vitamin D 10 micrograms Oct–Mar and 100 microgram upper limit, osteoporosis/steroids, insomnia self-help, NICE MTG70 Sleepio, restless legs, sleep apnoea, prednisolone timing), never-change-medicines framing; the two sleep posts now have distinct jobs (pain–sleep cycle + two-week diary; cause-by-cause checklist) and hand off to the gold-pass sleep URL; diet/pain cluster fronting + chatbot KB; Vitest `gsc-champions-71-73-08-oct.test.ts` |
+| Champions 74–75 gout winter dehydration + night pain toolkit | **done** | Gold-pass `/blog/gout-winter-dehydration-frailty-uk`, `/blog/sleep-and-pain-management-arthritis` — full rewrites removing broken frailty template copy (repeated "10 million" line, empty heading, OA exercise advice on a gout page) and overlapping sleep filler; CTR meta, **pending clinical review**, NHS/NICE/Versus Arthritis cites (gout + dehydration triggers, NG219, insomnia/OA treatment), never-change-medicines / keep urate-lowering in flare framing; night-pain post has a distinct overnight pain-toolkit job and hands off to `/blog/how-to-sleep-with-arthritis-uk`; treatments/pain cluster fronting + chatbot KB; Vitest `gsc-champions-74-75-13-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -98,7 +99,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 73; M2 work shifts to trust/accuracy sweeps and pillar spoke density |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 75 (Champions 74–75 shipped 13 Oct); M2 work continues with frailty-template triage and pillar spoke density |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -107,6 +108,36 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 | **Trust sweep: remove unnamed reviewer labels** | **in progress** | 12 Oct: 74 blog posts + `/expert-articles` (see Daily log) |
 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 13 Oct 2026 (M2 day 2, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 12 Oct: Champions 74–75 on the last broken frailty-template winter gout spoke and the overlapping night-pain sleep post. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 74 — `/blog/gout-winter-dehydration-frailty-uk`:** full rewrite of broken frailty template into "gout in winter: dehydration, uric acid and flares": NHS dehydration / alcohol / illness triggers, winter drinks plan, flare self-care (fluids, ice, rest), keep urate-lowering medicines during a flare unless advised otherwise, festive alcohol and sugary drinks, when a hot joint + fever needs urgent help; hand-offs to `/conditions/gout`, treatment, medication, diet and older-adult hydration spokes; **pending clinical review**
+- **Champion 75 — `/blog/sleep-and-pain-management-arthritis`:** full rewrite into a distinct overnight **pain toolkit** job (evening pain-relief timing with pharmacist/GP, heat vs cold, gentle evening movement, pressure-off bed tips, when night pain means daytime disease control needs review); hands off early to `/blog/how-to-sleep-with-arthritis-uk` and differentiates from the cycle/diary and cause-checklist sleep posts; **pending clinical review**
+- **`topicClusters.ts`:** treatments fronts gout winter; pain fronts night-pain toolkit (+ gout / uric acid / night-pain triggers)
+- **Chatbot KB:** gout `related` + winter/dehydration keywords; sleep `related` + overnight/night-pain keywords
+- Sitemap `lastmod` **2026-10-13** on the two URLs + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / review index regenerated; review-status test now expects Champions 62–75 pending
+- **Tests:** `src/lib/__tests__/gsc-champions-74-75-13-oct.test.ts`
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches; NHS intros; live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–75 plus the 74 swept posts and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Frailty-template sweep triage plan for the remaining ~243 template posts (or next 2–3 seasonal frailty spokes by October/November relevance if no fresh GSC export)
+2. Leftover trust/accuracy pass: spot-check any posts still carrying unverifiable reviewer lines, empty headings, or wrong-condition advice after the 12 Oct sweep
+3. HCP clinic-pack distribution prep doc (public routes + copy-paste email for clinic managers) — highest-ROI digital work that does not need Louis to click Ad Grants / Regulator / social
 
 ---
 
@@ -132,7 +163,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 - Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
 
 ### Next 3 digital actions (GTM)
-1. Champions 74–75: `gout-winter-dehydration-frailty-uk` (last broken frailty-template winter spoke: repeated "10 million" line, empty heading, OA advice on a gout page) and `sleep-and-pain-management-arthritis` (third overlapping sleep post; give it a distinct job and hand off to the gold-pass sleep guide)
+1. ~~Champions 74–75~~ **done 13 Oct:** `gout-winter-dehydration-frailty-uk` + `sleep-and-pain-management-arthritis` gold-pass
 2. Frailty-template sweep plan: 243 posts still open with the same "a smaller group also live with frailty" template; triage by a fresh GSC export when Louis supplies it, otherwise by October/November seasonal relevance
 3. ~~M2 outreach prep~~ **done 12 Oct (afternoon):** `docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md` — 15 public contact routes, copy-paste email, asset angles; Louis sends
 
