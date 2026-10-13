@@ -83,6 +83,9 @@ const PENDING_CHAMPIONS_62_73 = [
   "vitamin-d-winter-arthritis-frailty-uk",
   "sleep-quality-arthritis-pain",
   "arthritis-and-sleep-problems",
+  // Champions 74–75 (13 Oct)
+  "gout-winter-dehydration-frailty-uk",
+  "sleep-and-pain-management-arthritis",
 ];
 
 /**
@@ -210,7 +213,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "30-day-arthritis-pain-reduction-challenge",
 ];
 
-describe("Champions 62–67 guides awaiting clinical review", () => {
+describe("Champions 62–75 guides awaiting clinical review", () => {
   it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
