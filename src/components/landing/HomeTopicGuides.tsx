@@ -5,6 +5,16 @@ import { trackStartHereCard } from "@/lib/ga-events";
 // need to scroll or expand a control to discover the existing guides.
 const TOPIC_GROUPS = [
   {
+    title: "Arthritis exercises",
+    description: "Explore joint-specific movement and strengthening routines, with guidance on choosing a suitable starting point.",
+    links: [{ label: "Choose arthritis exercises", href: "/exercise-hub" }, { label: "Exercise and arthritis guide", href: "/guides/exercise" }],
+  },
+  {
+    title: "PIP arthritis guidance",
+    description: "Understand how arthritis affects daily living and mobility, and find help preparing evidence for a PIP application.",
+    links: [{ label: "Read the arthritis PIP guide", href: "/guides/benefits-pip" }],
+  },
+  {
     title: "Understand pain relief",
     description: "Questions about medicines? Start with what they are used for, safety information and what to ask your pharmacist.",
     links: [
@@ -39,7 +49,7 @@ export default function HomeTopicGuides() {
       <div className="container mx-auto max-w-6xl px-5 md:px-10">
         <p className="text-sm font-semibold text-primary">Find your next step</p>
         <h2 id="arthritis-topic-guides" className="mt-2 font-display text-2xl font-bold tracking-tight md:text-3xl">
-          Arthritis medicines, exercises and condition guides
+          Arthritis exercises, PIP and practical support
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
           Clear information for the questions that come with living with arthritis.
