@@ -182,7 +182,7 @@
        <html> font-size) actually resizes body copy instead of leaving it
        fixed while only headings responded. */
     font-size: 1.125rem;
-    /* ~0.5px at 18px — WCAG-friendly character spacing for low-vision users */
+    /* Readable default spacing; WCAG 1.4.12 also requires supporting user overrides. */
     letter-spacing: 0.03em;
     /* Keep 200% zoom free of horizontal scrolling */
     overflow-x: hidden;
@@ -1610,6 +1610,13 @@
     color: hsl(var(--primary-foreground));
   }
   .band-red h1, .band-red h2, .band-red h3, .band-red p, .band-red li { color: hsl(var(--primary-foreground)); }
+
+  /* Keep keyboard focus visible against the red hero, including .btn-map. */
+  .band-red a:focus-visible,
+  .band-red button:focus-visible {
+    outline: 3px solid hsl(var(--primary-foreground));
+    outline-offset: 3px;
+  }
 
   /* Softer octagon for inline cards / thumbnails */
   .clip-octagon-soft {
