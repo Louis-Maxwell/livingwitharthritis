@@ -71,11 +71,11 @@ export function trackTestimonialSubmit(condition?: string) {
   trackEvent("testimonial_submit", { condition: condition || "unspecified" });
 }
 
-export function trackStartHereCard(label: string, href: string) {
+export function trackStartHereCard(label: string, href: string, isDonation = false) {
   trackEvent("start_here_click", {
     card_label: label,
     destination_path: href,
-    is_donation: false,
+    is_donation: isDonation,
   });
 }
 

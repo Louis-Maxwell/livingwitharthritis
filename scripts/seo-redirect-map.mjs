@@ -156,7 +156,7 @@ export function buildRedirectHtml(from, to) {
   const fromPath = normalizePath(from);
   // Lovable CDN ignores HTTP 301 files. These stubs must:
   // 1) never look like empty homepage soft-404s
-  // 2) stay out of the index (noindex,nofollow)
+  // 2) stay out of the index while permitting destination discovery
   // 3) point Google at the live destination via canonical + refresh
   return `<!DOCTYPE html>
 <html lang="en-GB">
@@ -165,8 +165,8 @@ export function buildRedirectHtml(from, to) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moved permanently to ${abs} | Living With Arthritis</title>
     <meta name="description" content="This URL (${fromPath}) has permanently moved to ${abs}. Use the destination page on Living With Arthritis." />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot" content="noindex, follow" />
     <link rel="canonical" href="${abs}" />
     <meta http-equiv="refresh" content="0;url=${safeDest}" />
     <script>location.replace(${jsDest}+location.search+location.hash);</script>

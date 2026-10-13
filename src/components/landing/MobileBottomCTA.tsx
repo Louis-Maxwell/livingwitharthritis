@@ -1,4 +1,5 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { HeartPulse, BookOpen, Wallet, X } from "lucide-react";
 import { trackMobileBottomCTA } from "@/lib/ga-events";
 
@@ -10,20 +11,25 @@ const STORAGE_KEY = "lwa.mobileCta.dismissed";
  */
 const MobileBottomCTA = memo(() => {
   const [hidden, setHidden] = useState(true);
+  const dismissed = useRef(false);
 
   useEffect(() => {
     try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
+      if (sessionStorage.getItem(STORAGE_KEY) === "1") {
+        dismissed.current = true;
+        return;
+      }
     } catch {
       /* ignore */
     }
-    const onScroll = () => setHidden(window.scrollY < 400);
+    const onScroll = () => setHidden(dismissed.current || window.scrollY < 400);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const dismiss = () => {
+    dismissed.current = true;
     setHidden(true);
     try {
       sessionStorage.setItem(STORAGE_KEY, "1");
@@ -49,28 +55,28 @@ const MobileBottomCTA = memo(() => {
           >
             <X className="w-3 h-3" aria-hidden="true" />
           </button>
-          <a
-            href="/guides/arthritis-pain-relief"
+          <Link
+            to="/guides/arthritis-pain-relief"
             onClick={() => trackMobileBottomCTA("pain_relief")}
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-primary text-primary-foreground font-bold text-xs px-2"
           >
             <HeartPulse className="w-4 h-4" aria-hidden="true" /> Relief
-          </a>
-          <a
-            href="/guides/newly-diagnosed"
+          </Link>
+          <Link
+            to="/guides/newly-diagnosed"
             onClick={() => trackMobileBottomCTA("newly_diagnosed")}
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-foreground text-background font-bold text-xs px-2"
           >
             <BookOpen className="w-4 h-4" aria-hidden="true" /> New
-          </a>
-          <a
-            href="/guides/benefits-pip"
+          </Link>
+          <Link
+            to="/guides/benefits-pip"
             onClick={() => trackMobileBottomCTA("benefits")}
             aria-label="Money and benefits including PIP"
             className="flex-1 inline-flex items-center justify-center gap-1.5 min-h-11 rounded-xl bg-card text-foreground border border-border font-bold text-xs px-2"
           >
             <Wallet className="w-4 h-4" aria-hidden="true" /> PIP
-          </a>
+          </Link>
         </div>
       </div>
     </div>

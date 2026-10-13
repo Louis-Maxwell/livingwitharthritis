@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
-import { rewriteHead } from "../../../scripts/inject-canonicals.mjs";
+import { patchShareMeta, rewriteHead } from "../../../scripts/inject-canonicals.mjs";
 import {
   HOME_SHELL_HEADING,
   buildStaticArticleInner,
@@ -77,6 +77,19 @@ const WORK_HEAD = {
 };
 
 describe("static blog HTML for Soft 404s", () => {
+  it("replaces an inherited secure social image in fresh and retained HTML", () => {
+    const template = TEMPLATE.replace("</head>", '<meta property="og:image:secure_url" content="https://example.com/home.png" /></head>');
+    const data = { ...WORK_HEAD, ogImage: "https://example.com/work.png" };
+    for (const html of [rewriteHead(template, "/blog/arthritis-and-work-uk", data), patchShareMeta(template, data)]) {
+      expect(html).toContain('property="og:image:secure_url" content="https://example.com/work.png"');
+      expect(html).not.toContain("https://example.com/home.png");
+      expect(html.match(/property="og:image:secure_url"/g)).toHaveLength(1);
+    }
+  });
+
+  it("keeps search results out of the index while allowing guide discovery", () => {
+    expect(rewriteHead(TEMPLATE, "/search")).toContain('name="robots" content="noindex, follow"');
+  });
   it("preserves skip navigation and landmarks when replacing the new homepage shell twice", () => {
     const source = readFileSync(resolve("index.html"), "utf8");
     const first = replaceSeoFallback(source, "<h1>First article</h1>");
