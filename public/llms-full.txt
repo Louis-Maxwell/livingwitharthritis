@@ -4175,17 +4175,17 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: nidirect — https://www.nidirect.gov.uk
 
-## Winter gout, dehydration and frailty (UK)
+## Gout in winter: dehydration, uric acid and flares (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/gout-winter-dehydration-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-13
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Winter gout, dehydration and frailty (UK)
-A: Here is a plain-English take on winter gout, dehydration and frailty when arthritis and lower reserve share the same week. This page explains winter drinks, heating and gout risk in frail adults if you live with gout, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Gout — https://www.nhs.uk/conditions/gout/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Q: Gout in winter: dehydration, uric acid and flares (UK guide)
+A: The NHS lists dehydration as something that can trigger a gout attack. In winter many people drink less because they feel less thirsty, while alcohol and sugary drinks can raise uric acid and dry you out further. Drink plenty of fluids unless your GP has set a fluid limit, keep alcohol-free days, and during a flare rest the joint, use ice wrapped in a towel, and take prescribed medicines as directed — do not stop urate-lowering tablets during a flare unless your clinician says so.
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Dehydration — https://www.nhs.uk/conditions/dehydration/
+Reference: NICE NG219: Gout diagnosis and management — https://www.nice.org.uk/guidance/ng219
+Reference: Versus Arthritis: Gout — https://www.versusarthritis.org/about-arthritis/conditions/gout/
 
 ## GP frailty registers if you also live with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/gp-frailty-register-arthritis-uk
@@ -6795,13 +6795,18 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Sleep and Pain Management: Why Arthritis Disrupts Sleep and How to Fix It
+## Night pain management for arthritis: settle pain so you can sleep (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-and-pain-management-arthritis
-Last updated: 2026-09-25
-Author: Living With Arthritis
+Last updated: 2026-10-13
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sleep and Pain Management: Why Arthritis Disrupts Sleep and How to Fix It
-A: Tackling arthritis sleep problems often requires breaking a vicious cycle where joint pain causes poor rest, and exhaustion makes your physical symptoms feel worse. You can improve your nights by timing your medication carefully, using supportive pillows to align your joints, adjusting your bedroom environment, and speaking directly to your healthcare team.
+Q: Night pain management for arthritis: settle pain so you can sleep (UK)
+A: Night pain is often what stops sleep with arthritis. Settle the pain side before you chase perfect sleep habits: ask a pharmacist or GP whether your evening pain-relief timing covers the early hours, use heat for stiff aching joints or cold for a hot swollen flare, do gentle range-of-motion before bed, and keep bedclothes light over sore feet. For the full sleep routine, positions and when to ask about CBT for insomnia, use our how to sleep with arthritis guide. Do not change prescribed medicines yourself.
+Reference: NHS: How to get to sleep — https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 
 ## Sleep apnoea, arthritis and daytime frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-apnoea-arthritis-frailty-uk
