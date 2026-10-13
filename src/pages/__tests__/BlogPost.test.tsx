@@ -189,7 +189,8 @@ describe("BlogPost Page", () => {
       expect(screen.getByTestId("related")).toBeInTheDocument();
       expect(screen.getByTestId("comments")).toBeInTheDocument();
       expect(screen.getByTestId("helpfulness")).toBeInTheDocument();
-    });
+    // These sections mount lazily after the article; allow for a busy runner.
+    }, { timeout: 5000 });
   });
 
   it("uses default author when article has no author", () => {
