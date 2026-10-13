@@ -2542,11 +2542,15 @@ Reference: Arthritis: conditions and care — https://www.nhs.uk/conditions/arth
 
 ## Best Supplements for Arthritis in the UK
 URL: https://livingwitharthritis.org.uk/blog/best-supplements-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-13
 Author: Living With Arthritis Editorial Team (UK Patient Education Desk)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Best Supplements for Arthritis in the UK
-A: Omega-3 fish oil and turmeric are recommended for arthritis, with omega-3s reducing inflammation, especially in rheumatoid arthritis, at 2-3g EPA/DHA daily. Turmeric, specifically 1000mg/day curcumin with piperine, can provide pain relief comparable to NSAIDs. Vitamin D at 10mcg (400 IU) daily supports bone health, addressing common deficiencies. Always consult a GP or pharmacist before starting any supplement, especially with other medications.
+A: Supplement evidence for arthritis is limited and mixed. NICE advises against offering glucosamine for osteoarthritis because there is no strong evidence of benefit. Small trials of turmeric (curcumin) and ginger suggest a possible modest effect on pain, but they do not show these are as effective as anti-inflammatory medicines. Vitamin D is advised for general health in the UK, not as an arthritis treatment. Check with a pharmacist or GP before starting any supplement, especially if you take other medicines.
+Reference: NICE NG226: Osteoarthritis in over 16s – recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: Turmeric – usefulness and safety — https://www.nccih.nih.gov/health/turmeric
+Reference: Ginger – usefulness and safety — https://www.nccih.nih.gov/health/ginger
 
 ## Best Supplements for Joint Pain: What Actually Works
 URL: https://livingwitharthritis.org.uk/blog/best-supplements-joint-pain
@@ -4892,11 +4896,13 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Best Exercises for Knee Arthritis: A Complete UK Physiotherapy Guide
 URL: https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-13
 Author: Living With Arthritis Editorial Team (UK Patient Education Desk)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Best Exercises for Knee Arthritis: A Complete UK Physiotherapy Guide
-A: Regular exercise is crucial for managing knee arthritis, reducing pain by 25–50% on average, strengthening supporting muscles, and improving flexibility. A balanced programme includes strengthening exercises (2-3 times/week), such as straight leg raises and wall sits, alongside flexibility exercises daily and 150 minutes of moderate aerobic activity weekly, like walking or swimming. Controlled joint loading helps nourish cartilage without worsening arthritis.
+A: Regular exercise is crucial for managing knee arthritis, which can ease pain and improve function for many people, strengthening supporting muscles, and improving flexibility. A balanced programme includes strengthening exercises (2-3 times/week), such as straight leg raises and wall sits, alongside flexibility exercises daily and 150 minutes of moderate aerobic activity weekly, like walking or swimming. Appropriate exercise is not thought to make knee arthritis worse.
+Reference: NICE NG226: Osteoarthritis in over 16s – recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+Reference: Osteoarthritis: treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 
 ## Knee Arthroscopy for Osteoarthritis: Helpful or Hype?
 URL: https://livingwitharthritis.org.uk/blog/knee-arthroscopy-for-osteoarthritis-helpful-or-hype
@@ -6703,7 +6709,7 @@ A: The article says telling your employer about arthritis can help if done early
 
 ## Shoulder Arthritis Exercises: A Safe UK Home Programme
 URL: https://livingwitharthritis.org.uk/blog/shoulder-arthritis-exercises-uk
-Last updated: 2026-10-10
+Last updated: 2026-10-13
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Shoulder Arthritis Exercises: A Safe UK Home Programme
@@ -6714,6 +6720,7 @@ Reference: NHS: Shoulder pain — https://www.nhs.uk/conditions/shoulder-pain/
 Reference: NHS: Frozen shoulder — https://www.nhs.uk/conditions/frozen-shoulder/
 Reference: NHS: Physiotherapy – accessing — https://www.nhs.uk/conditions/physiotherapy/accessing/
 Reference: Arthritis UK: Exercising with arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s – recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
 
 ## Shoulder Arthroscopy and Arthritis: What It Can and Can't Fix
 URL: https://livingwitharthritis.org.uk/blog/shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix
@@ -7321,7 +7328,7 @@ Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care
 
 ## TENS for Arthritis: Does It Help and Is It Safe?
 URL: https://livingwitharthritis.org.uk/blog/tens-machines-arthritis-uk
-Last updated: 2026-10-10
+Last updated: 2026-10-13
 Author: Living With Arthritis Editorial Team (UK Patient Education Desk)
 Clinical review: pending; this guide has not completed clinical review.
 Q: TENS for Arthritis: Does It Help and Is It Safe?

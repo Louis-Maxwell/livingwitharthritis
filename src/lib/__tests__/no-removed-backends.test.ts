@@ -5,12 +5,9 @@ import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
 
+// Lovable Cloud (the @supabase client in src/integrations/supabase) is the
+// supported backend, so only Vercel/Cloudflare/Express are banned here.
 const FORBIDDEN_IMPORT = [
-  /\bfrom\s+['"]@supabase\//,
-  /\bfrom\s+['"]@\/integrations\/supabase/,
-  /\bimport\s*\(\s*['"]@supabase\//,
-  /\bimport\s*\(\s*['"]@\/integrations\/supabase/,
-  /\brequire\s*\(\s*['"]@supabase\//,
   /\bfrom\s+['"]@vercel\//,
   /\bfrom\s+['"]vercel\//,
   /\bfrom\s+['"]wrangler['"]/,
@@ -20,9 +17,6 @@ const FORBIDDEN_IMPORT = [
 
 /** Live backend resurrection signals (not historical denial comments). */
 const FORBIDDEN_LIVE = [
-  { label: "@supabase/ package import", re: /from\s+['"]@supabase\// },
-  { label: "@/integrations/supabase", re: /@\/integrations\/supabase/ },
-  { label: "supabase.functions path usage", re: /supabase\/functions\/[a-z]/ },
   { label: ".vercel directory ref", re: /['"]\.vercel['"]/ },
   { label: "vercelRedirects export use", re: /\bvercelRedirects\b/ },
   { label: "mcpPlugin( invocation", re: /\bmcpPlugin\s*\(/ },
@@ -30,8 +24,6 @@ const FORBIDDEN_LIVE = [
 ];
 
 const FORBIDDEN_PACKAGE_DEPS = [
-  "@supabase/supabase-js",
-  "@supabase/auth-js",
   "wrangler",
   "@cloudflare/workers-types",
 ];
@@ -65,7 +57,7 @@ function pathExists(rel: string): boolean {
 }
 
 describe("no removed backends", () => {
-  it("does not import removed supabase/vercel/cloudflare packages in src/", () => {
+  it("does not import removed vercel/cloudflare packages in src/", () => {
     const files = walk(join(ROOT, "src")).filter(
       (f) => !f.endsWith(`${join("lib", "__tests__", "no-removed-backends.test.ts")}`),
     );
@@ -79,22 +71,15 @@ describe("no removed backends", () => {
     expect(hits, hits.join("\n")).toEqual([]);
   });
 
-  it("does not resurrect vercel.json, .vercel, or src/integrations/supabase", () => {
+  it("does not resurrect vercel.json or .vercel", () => {
     expect(pathExists("vercel.json")).toBe(false);
     expect(pathExists(".vercel")).toBe(false);
-    expect(pathExists("src/integrations")).toBe(false);
-    expect(pathExists("src/integrations/supabase")).toBe(false);
-    expect(pathExists("src/integrations/supabase/client.ts")).toBe(false);
-    expect(pathExists("src/integrations/supabase/types.ts")).toBe(false);
   });
 
-  it("does not keep dormant Express server.js, src/api stubs, or supabase/", () => {
+  it("does not keep dormant Express server.js or src/api stubs", () => {
     expect(pathExists("server.js")).toBe(false);
     expect(pathExists("src/api")).toBe(false);
     expect(pathExists("src/api/routes/articles.js")).toBe(false);
-    expect(pathExists("supabase")).toBe(false);
-    expect(pathExists("supabase/config.toml")).toBe(false);
-    expect(pathExists("supabase/functions")).toBe(false);
     expect(pathExists(".github/workflows/edge-functions-preflight.yml")).toBe(false);
     expect(pathExists("database-optimizations.sql")).toBe(false);
     expect(pathExists("scripts/meta-descriptions-update.sql")).toBe(false);
@@ -139,5 +124,13 @@ describe("no removed backends", () => {
       }
     }
     expect(hits, hits.join("\n")).toEqual([]);
+  });
+
+  it("keeps the supported Lovable Cloud backend client and package", () => {
+    expect(pathExists("src/integrations/supabase/client.ts")).toBe(true);
+    const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as {
+      dependencies?: Record<string, string>;
+    };
+    expect(pkg.dependencies?.["@supabase/supabase-js"]).toBeTruthy();
   });
 });
