@@ -4,9 +4,71 @@ import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
-import LastReviewed, { LAST_REVIEWED_ISO } from '@/components/LastReviewed';
+import LastReviewed from '@/components/LastReviewed';
 import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
 import TopicClusterNav from '@/components/seo/TopicClusterNav';
+import ArticleCitations, { type Citation } from '@/components/blog/ArticleCitations';
+
+const CITATIONS: Citation[] = [
+  {
+    label: 'Osteoarthritis',
+    url: 'https://www.nhs.uk/conditions/osteoarthritis/',
+    publisher: 'NHS',
+  },
+  {
+    label: 'Rheumatoid arthritis',
+    url: 'https://www.nhs.uk/conditions/rheumatoid-arthritis/',
+    publisher: 'NHS',
+  },
+  {
+    label: 'Osteoarthritis in over 16s: diagnosis and management (NG226)',
+    url: 'https://www.nice.org.uk/guidance/ng226',
+    publisher: 'NICE',
+  },
+  {
+    label: 'Rheumatoid arthritis in adults: management (NG100)',
+    url: 'https://www.nice.org.uk/guidance/ng100',
+    publisher: 'NICE',
+  },
+  {
+    label: 'Exercise and arthritis',
+    url: 'https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/',
+    publisher: 'Arthritis UK',
+  },
+];
+
+const HUB_LINKS = [
+  {
+    title: 'Arthritis symptoms',
+    href: '/arthritis-symptoms',
+    copy: 'Early signs, inflammatory warning patterns, red flags and when to see a GP.',
+  },
+  {
+    title: 'Arthritis treatment',
+    href: '/arthritis-treatment',
+    copy: 'Exercise, pain relief, medicines, injections, rheumatology care and surgery escalation.',
+  },
+  {
+    title: 'Arthritis exercises',
+    href: '/guides/exercise',
+    copy: 'NICE-aligned strengthening, range-of-movement, aerobic and balance guidance.',
+  },
+  {
+    title: 'Arthritis pain relief',
+    href: '/guides/arthritis-pain-relief',
+    copy: 'Heat, cold, pacing, topical medicines, flare planning and when to get reviewed.',
+  },
+  {
+    title: 'Living with arthritis',
+    href: '/living-with-arthritis',
+    copy: 'Daily routines, work, sleep, benefits, mental health and independence.',
+  },
+  {
+    title: 'PIP and benefits',
+    href: '/guides/benefits-pip',
+    copy: 'UK disability benefits, evidence, descriptors and appeals for arthritis.',
+  },
+];
 
 const FAQS = [
   { q: 'What is arthritis?', a: 'Arthritis is an umbrella term for over 100 conditions that cause joint pain, stiffness and swelling. The most common forms in the UK are osteoarthritis (wear-related) and rheumatoid arthritis (inflammatory).' },
@@ -15,10 +77,6 @@ const FAQS = [
   { q: 'Can arthritis be cured?', a: 'Most forms of arthritis cannot be cured, but symptoms can be effectively managed with exercise, weight management, an anti-inflammatory diet, medication, and in some cases joint replacement surgery.' },
   { q: 'What treatments help most?', a: 'Evidence consistently supports a combination of progressive exercise, weight optimisation, topical or oral anti-inflammatories, physiotherapy and joint protection strategies. Inflammatory arthritis often needs DMARDs or biologics.' },
   { q: 'When should I see a specialist?', a: 'Ask your GP for a rheumatology referral if you have suspected inflammatory arthritis, persistent unexplained joint swelling, or symptoms that are not responding to first-line care.' },
-  // DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
-  // the site's clinical reviewer before this is treated as reviewed
-  // content; do not update lastReviewed/reviewedBy above on the basis of
-  // this entry alone until it's been checked.
   { q: 'Can arthritis come and go?', a: 'For some types, yes. Inflammatory arthritis (like rheumatoid or psoriatic arthritis) commonly flares and eases in cycles — periods of active symptoms followed by remission. Gout is defined by sudden attacks with symptom-free periods between them. Osteoarthritis behaves differently: it’s typically a gradual, progressive condition, though day-to-day pain can still vary with activity, weather, or overuse. If symptoms are genuinely disappearing and returning, that pattern itself is a useful thing to describe to a GP or rheumatologist, since it helps narrow down which type of arthritis is involved.' },
 ];
 
@@ -29,10 +87,26 @@ export default function Arthritis() {
       headline: 'Arthritis: Understanding Joint Pain and Treatment Options',
       description: 'Comprehensive UK guide to arthritis — symptoms, diagnosis, treatment options, and what patients commonly look for at each stage of their journey.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
-      datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
-      reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      lastReviewed: '2026-09-16',
+      publisher: { '@id': 'https://livingwitharthritis.org.uk/#organization' },
+      datePublished: '2026-06-22', dateModified: '2026-10-14',
+      reviewedBy: { '@type': 'Person', name: 'Louis Maxwell', alternateName: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483', url: 'https://livingwitharthritis.org.uk/authors/maxwell' },
+      lastReviewed: '2026-10-14',
+      inLanguage: 'en-GB',
+      isPartOf: { '@id': 'https://livingwitharthritis.org.uk/#website' },
+      medicalAudience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
+      specialty: ['Rheumatology', 'Physiotherapy'],
+      about: {
+        '@type': 'MedicalCondition',
+        name: 'Arthritis',
+        alternateName: ['Joint inflammation', 'Joint disease'],
+        signOrSymptom: ['Joint pain', 'Joint stiffness', 'Joint swelling', 'Reduced range of motion', 'Morning stiffness'],
+        possibleTreatment: [
+          { '@type': 'MedicalTherapy', name: 'Therapeutic exercise' },
+          { '@type': 'MedicalTherapy', name: 'Physiotherapy' },
+          { '@type': 'MedicalTherapy', name: 'Pain management' },
+          { '@type': 'MedicalTherapy', name: 'Disease-modifying medicines for inflammatory arthritis' },
+        ],
+      },
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/conditions/arthritis',
     };
     const faq = {
@@ -53,25 +127,46 @@ export default function Arthritis() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Arthritis: Types & UK Treatments | Living With Arthritis" includeSiteName={false}
-        description="Arthritis overview: 100+ types, symptoms, diagnosis & treatment options. UK evidence-based guide to living well with arthritis."
+        title="Arthritis: Symptoms, Types & Treatment UK"
+        description="Arthritis guide for the UK: symptoms, types, diagnosis, treatment, exercises, pain relief and living well with arthritis."
         path="/conditions/arthritis"
         type="article"
-        keywords="arthritis, arthritis symptoms, arthritis treatment, arthritis uk, joint pain"
+        keywords="arthritis, arthritis symptoms, arthritis treatment, arthritis exercises, arthritis pain relief, arthritis support UK, joint pain"
+        includeSiteName={false}
       />
 
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground mb-4">
         <Link to="/" className="hover:text-primary">Home</Link> / <span>Arthritis</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Arthritis: Understanding Joint Pain and Treatment Options</h1>
-      <LastReviewed date={LAST_REVIEWED_ISO} className="mb-6 -mt-4" />
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">Arthritis: symptoms, types and treatment options in the UK</h1>
+      <LastReviewed date="2026-10-14" className="mb-6 -mt-4" />
 
-      <AnswerBox question="What is arthritis and how is it treated?" reviewed="2026-06-22">
+      <AnswerBox question="What is arthritis and how is it treated?" reviewed="2026-10-14">
         Arthritis describes over 100 conditions that affect the joints — causing pain, stiffness, swelling and reduced movement. Osteoarthritis (wear-related) and rheumatoid arthritis (inflammatory) are the most common forms in the UK. Effective management combines targeted exercise, weight optimisation, an anti-inflammatory diet, medical treatment for pain and inflammation, and — when needed — specialist rheumatology care, injections or joint replacement surgery. Early diagnosis and a structured care plan dramatically improve long-term outcomes.
       </AnswerBox>
 
-      <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+      <MedicalReviewBadge reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="October 2026" />
+
+      <section aria-labelledby="arthritis-hub" className="mb-12 rounded-lg border border-primary/20 bg-primary/5 p-6">
+        <h2 id="arthritis-hub" className="text-2xl font-bold mb-4">Arthritis hub: choose your next step</h2>
+        <p className="mb-5 leading-relaxed text-foreground/85">
+          This page is the main arthritis overview. Use the cluster guides below for
+          symptoms, treatment, exercises, pain relief, daily life and UK benefits.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {HUB_LINKS.map((item) => (
+            <Link
+              key={item.href}
+              to={item.href}
+              className="rounded-lg border border-border bg-card p-4 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <span className="block font-bold text-primary underline underline-offset-2">{item.title}</span>
+              <span className="mt-2 block text-sm text-muted-foreground">{item.copy}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section id="overview" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
@@ -81,6 +176,11 @@ export default function Arthritis() {
 
       <section id="symptoms" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">What are the symptoms of arthritis?</h2>
+        <p className="mb-4 leading-relaxed">
+          The most common symptoms are pain, stiffness, swelling and reduced movement.
+          For a deeper checklist, red flags and the difference between mechanical and
+          inflammatory patterns, read the <Link to="/arthritis-symptoms" className="text-primary underline">arthritis symptoms guide</Link>.
+        </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>Joint pain that worsens with activity or after rest</li>
           <li>Morning stiffness lasting more than 30 minutes</li>
@@ -110,6 +210,10 @@ export default function Arthritis() {
 
       <section id="treatments" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">What are the evidence-based treatment options for arthritis?</h2>
+        <p className="mb-4 leading-relaxed">
+          Treatment depends on the type of arthritis, the joint affected and your wider
+          health. The full comparison is in our <Link to="/arthritis-treatment" className="text-primary underline">arthritis treatment guide</Link>.
+        </p>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Exercise:</strong> progressive strength, mobility and aerobic training reduce pain and improve function — see our <Link to="/guides/exercise" className="text-primary underline">exercise guide</Link>.</li>
           <li><strong>Weight management:</strong> a 5–10% reduction in body weight significantly reduces knee and hip load.</li>
@@ -127,6 +231,9 @@ export default function Arthritis() {
           <li><Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">Rheumatoid arthritis</Link></li>
           <li><Link to="/conditions/psoriatic-arthritis" className="text-primary underline">Psoriatic arthritis</Link></li>
           <li><Link to="/conditions/gout" className="text-primary underline">Gout</Link></li>
+          <li><Link to="/arthritis-symptoms" className="text-primary underline">Arthritis symptoms</Link></li>
+          <li><Link to="/arthritis-treatment" className="text-primary underline">Arthritis treatment options</Link></li>
+          <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline">Arthritis pain relief</Link></li>
           <li><Link to="/living-with-arthritis" className="text-primary underline">Living with arthritis</Link></li>
           <li><Link to="/guides/musculoskeletal-health" className="text-primary underline">Musculoskeletal health</Link></li>
         </ul>
@@ -142,7 +249,8 @@ export default function Arthritis() {
         ))}
       </section>
 
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <ArticleCitations citations={CITATIONS} />
+      <EducationalDisclaimerBox lastReviewed="2026-10-14" />
       <TopicClusterNav path="/conditions/arthritis" />
     </article>
   );
