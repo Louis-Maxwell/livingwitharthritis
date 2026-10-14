@@ -54,6 +54,7 @@ const DailyTipDetail = lazyWithRetry(() => import("./pages/DailyTipDetail"));
 const AboutUs = lazyWithRetry(() => import("./pages/AboutUs"));
 const AITransparency = lazyWithRetry(() => import("./pages/about/AITransparency"));
 const UkArthritisSearchInsights = lazyWithRetry(() => import("./pages/about/UkArthritisSearchInsights"));
+const ArthritisSeoGrowthRoadmap = lazyWithRetry(() => import("./pages/about/ArthritisSeoGrowthRoadmap"));
 const Sources = lazyWithRetry(() => import("./pages/about/Sources"));
 const AICitations = lazyWithRetry(() => import("./pages/about/AICitations"));
 const AIGuidelines = lazyWithRetry(() => import("./pages/about/AIGuidelines"));
@@ -335,6 +336,7 @@ function AnimatedRoutes() {
         <Route path="/healthcare-professionals" element={withRouteBoundary(<HealthcareProfessionals />)} />
         <Route path="/resource-centre" element={withRouteBoundary(<ResourceCentre />)} />
         <Route path="/about/uk-arthritis-search-insights" element={<UkArthritisSearchInsights />} />
+        <Route path="/about/arthritis-seo-growth-roadmap" element={<ArthritisSeoGrowthRoadmap />} />
         <Route path="/sources" element={<Sources />} />
         <Route path="/ai-citations" element={<AICitations />} />
         <Route path="/ai-guidelines" element={<AIGuidelines />} />
