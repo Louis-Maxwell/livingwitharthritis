@@ -14,40 +14,91 @@ export default function LivingWithArthritis() {
     const article = {
       '@context': 'https://schema.org',
       '@type': 'Article',
+      '@id': 'https://livingwitharthritis.org.uk/living-with-arthritis#article',
       headline: 'Living With Arthritis: A Complete Guide',
       description:
-        'Evidence-based guide to living with arthritis in the UK. Symptoms, types, management, exercises, diet, mental health, work and benefits.',
+        'Evidence-based guide to living with arthritis in the UK. Symptoms, types, pain management, exercise, diet, mental health, work, benefits and daily routines.',
       author: {
         '@type': 'Person',
-        name: 'Maxwell',
+        name: 'Louis Maxwell',
+        alternateName: 'Maxwell',
         jobTitle: 'First Contact Practitioner',
         identifier: 'HCPC PH128483',
+        url: 'https://livingwitharthritis.org.uk/authors/maxwell',
       },
       publisher: {
-        '@type': 'MedicalOrganization',
-        name: 'Living With Arthritis',
+        '@id': 'https://livingwitharthritis.org.uk/#organization',
       },
       datePublished: '2026-06-18',
       dateModified: new Date().toISOString().slice(0, 10),
+      inLanguage: 'en-GB',
+      about: [
+        { '@type': 'MedicalCondition', name: 'Arthritis' },
+        { '@type': 'MedicalCondition', name: 'Osteoarthritis' },
+        { '@type': 'MedicalCondition', name: 'Rheumatoid arthritis' },
+        { '@type': 'Thing', name: 'Living with arthritis' },
+        { '@type': 'Thing', name: 'Arthritis self-management' },
+      ],
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/living-with-arthritis',
+    };
+    const medicalWebPage = {
+      '@context': 'https://schema.org',
+      '@type': 'MedicalWebPage',
+      '@id': 'https://livingwitharthritis.org.uk/living-with-arthritis#medicalwebpage',
+      url: 'https://livingwitharthritis.org.uk/living-with-arthritis',
+      name: 'Living With Arthritis: A Complete UK Guide',
+      description:
+        'A UK guide to living with arthritis, covering pain, stiffness, exercise, diet, pacing, work, mental health, benefits and when to seek clinical help.',
+      inLanguage: 'en-GB',
+      isPartOf: { '@id': 'https://livingwitharthritis.org.uk/#website' },
+      publisher: { '@id': 'https://livingwitharthritis.org.uk/#organization' },
+      medicalAudience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
+      specialty: ['Rheumatology', 'Physiotherapy'],
+      about: { '@type': 'MedicalCondition', name: 'Arthritis' },
+    };
+    const faq = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What does living with arthritis mean?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'Living with arthritis means managing joint pain, stiffness, fatigue and daily routines with a mix of medical care, pacing, strengthening exercise, sleep support, diet, work adjustments and practical aids.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can you live well with arthritis?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'Yes. Many people live well with arthritis by using an agreed treatment plan, staying active within symptoms, building strength, managing flare-ups early and getting help with work, benefits or home adaptations when needed.',
+          },
+        },
+      ],
     };
     const breadcrumb = buildBreadcrumb([
       { name: 'Home', path: '/' },
       { name: 'Living With Arthritis', path: '/living-with-arthritis' },
     ]);
     const c1 = injectJsonLd('living-with-arthritis-article', article);
-    const c2 = injectJsonLd('living-with-arthritis-breadcrumb', breadcrumb);
-    return () => { c1(); c2(); };
+    const c2 = injectJsonLd('living-with-arthritis-medical-webpage', medicalWebPage);
+    const c3 = injectJsonLd('living-with-arthritis-faq', faq);
+    const c4 = injectJsonLd('living-with-arthritis-breadcrumb', breadcrumb);
+    return () => { c1(); c2(); c3(); c4(); };
   }, []);
 
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Living With Arthritis: UK Guide"
-        description="Living with arthritis in the UK: complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
+        description="Living with arthritis in the UK: manage pain, stiffness, exercise, work, benefits and daily routines with evidence-based practical guidance."
         path="/living-with-arthritis"
         type="article"
-        keywords="living with arthritis, arthritis management, arthritis guide UK"
+        keywords="living with arthritis, living with arthritis UK, arthritis management, arthritis support UK, arthritis guide UK"
       />
 
       <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -61,11 +112,19 @@ export default function LivingWithArthritis() {
         practical strategies for living well.
       </p>
 
+      <p className="speakable-intro text-lg mb-8 leading-relaxed">
+        Living With Arthritis is the charity's main practical guide for people searching
+        how to live with arthritis day to day. It brings together pain relief, exercise,
+        diet, flare-up planning, work, benefits, mental health and independence in one
+        UK-focused resource.
+      </p>
+
 
       <nav aria-label="Table of contents" className="bg-muted p-6 rounded-lg mb-10 border-l-4 border-primary">
         <h2 className="font-bold text-lg mb-4">In this guide</h2>
         <ul className="space-y-2 md:columns-2">
           <li><a href="#what-is" className="text-primary hover:underline">What is arthritis?</a></li>
+          <li><a href="#quick-start" className="text-primary hover:underline">Quick-start plan</a></li>
           <li><a href="#types" className="text-primary hover:underline">Types of arthritis</a></li>
           <li><a href="#symptoms" className="text-primary hover:underline">Symptoms & diagnosis</a></li>
           <li><a href="#management" className="text-primary hover:underline">Management strategies</a></li>
@@ -77,6 +136,22 @@ export default function LivingWithArthritis() {
           <li><a href="#faq" className="text-primary hover:underline">FAQ</a></li>
         </ul>
       </nav>
+
+      <section id="quick-start" className="mb-12 rounded-lg border border-primary/25 bg-primary/5 p-6">
+        <h2 className="text-2xl font-bold mb-4">Quick-start plan for living with arthritis</h2>
+        <p className="mb-4 leading-relaxed">
+          If you are newly diagnosed, in a flare-up, or trying to get daily life back
+          under control, start with these steps. They help searchers and readers move
+          from "I have arthritis" to a practical plan.
+        </p>
+        <ol className="list-decimal list-inside space-y-2 ml-4">
+          <li><Link to="/conditions/arthritis" className="text-primary underline">Understand what arthritis is</Link> and which type you may have.</li>
+          <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline">Make a pain-relief and flare-up plan</Link> with your GP, pharmacist or rheumatology team.</li>
+          <li><Link to="/guides/exercise" className="text-primary underline">Build gentle movement and strengthening</Link> into the week.</li>
+          <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline">Use a Mediterranean-style eating pattern</Link> where it fits your culture and budget.</li>
+          <li><Link to="/guides/benefits-pip" className="text-primary underline">Check benefits, work and home support</Link> if arthritis limits daily living or mobility.</li>
+        </ol>
+      </section>
 
       <section id="what-is" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">What is arthritis?</h2>
