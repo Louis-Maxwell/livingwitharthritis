@@ -14,6 +14,30 @@ import { CITATIONS_PAIN_RELIEF } from "@/data/clinical/ukCitations";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
+const REVIEWED_DATE = "2026-10-14";
+
+const CLUSTER_LINKS = [
+  {
+    title: "Arthritis symptoms",
+    href: "/arthritis-symptoms",
+    copy: "Understand pain, stiffness, swelling and inflammatory warning patterns.",
+  },
+  {
+    title: "Arthritis treatment",
+    href: "/arthritis-treatment",
+    copy: "See how pain relief fits with exercise, medicines and specialist care.",
+  },
+  {
+    title: "Exercise for arthritis",
+    href: "/guides/exercise",
+    copy: "Build a safe movement routine that reduces pain over weeks.",
+  },
+  {
+    title: "PIP and benefits",
+    href: "/guides/benefits-pip",
+    copy: "Document how pain affects daily living, walking and work.",
+  },
+];
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -23,9 +47,11 @@ const jsonLd = {
   "url": URL,
   "inLanguage": "en-GB",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": REVIEWED_DATE,
+  "lastReviewed": REVIEWED_DATE,
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
+  "publisher": { "@id": `${BASE}/#organization` },
+  "reviewedBy": { "@type": "Person", "name": "Louis Maxwell", "jobTitle": "First Contact Practitioner", "identifier": "HCPC PH128483", "url": `${BASE}/authors/maxwell` },
   "about": { "@type": "MedicalCondition", "name": "Arthritis" },
   "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
   "mainEntityOfPage": URL
@@ -103,6 +129,20 @@ const ArthritisPainRelief = () => (
           <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
             Need relief today? This UK guide gathers the everyday levers that usually help first — paced movement, heat or cold, topical NSAIDs, sleep and knowing when to see your GP — so you can act without scrolling endlessly.
           </p>
+          <section aria-labelledby="pain-authority-path" className="mt-8 rounded-2xl border border-primary/20 bg-background/80 p-5 sm:p-6">
+            <h2 id="pain-authority-path" className="font-display text-xl font-bold mb-3">Arthritis pain authority path</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+              Pain relief works best when it is connected to diagnosis, treatment, movement and practical support.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {CLUSTER_LINKS.map((item) => (
+                <Link key={item.href} to={item.href} className="rounded-xl border border-border bg-card p-4 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                  <span className="block font-semibold text-primary underline underline-offset-2">{item.title}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{item.copy}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
           <div className="flex flex-wrap gap-3 mt-6">
             <Link to="/exercises" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
               Next: try gentle exercises
@@ -226,7 +266,7 @@ const ArthritisPainRelief = () => (
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-28" />
+      <EducationalDisclaimerBox lastReviewed={REVIEWED_DATE} />
       <TopicClusterNav path="/guides/arthritis-pain-relief" />
 <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />
