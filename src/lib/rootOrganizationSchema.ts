@@ -48,7 +48,7 @@ export const ORGANIZATION_PAYLOAD = {
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   keywords:
-    "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
+    "Living With Arthritis, arthritis support UK, arthritis charity UK, arthritis help UK, living with arthritis UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
   knowsLanguage: ["en-GB", "English"],
   areaServed: [
@@ -196,12 +196,18 @@ export const WEBSITE_PAYLOAD = {
   description:
     "Free UK arthritis guidance from Living With Arthritis (registered charity 1218461), with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
   about: [
+    "Living With Arthritis",
+    "Arthritis support UK",
     "Living with arthritis in the United Kingdom",
     "Osteoarthritis",
     "Rheumatoid arthritis",
     "Joint pain",
     "Frailty and musculoskeletal health",
     "UK disability benefits for arthritis",
+  ],
+  mainEntity: [
+    { "@type": "MedicalWebPage", "@id": `${BASE}/conditions/arthritis#medicalwebpage`, name: "Arthritis" },
+    { "@type": "Article", "@id": `${BASE}/living-with-arthritis#article`, name: "Living With Arthritis: A Complete UK Guide" },
   ],
   mentions: [
     { "@type": "Thing", name: "NICE osteoarthritis exercise guidance" },
