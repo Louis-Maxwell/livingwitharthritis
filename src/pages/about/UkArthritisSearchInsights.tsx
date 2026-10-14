@@ -16,6 +16,7 @@ const HUB_LINKS = [
   { label: "Exercise hub", href: "/exercises" },
   { label: "Diet & nutrition hub", href: "/diet" },
   { label: "Benefits & PIP guide", href: "/guides/benefits-pip" },
+  { label: "SEO growth roadmap", href: "/about/arthritis-seo-growth-roadmap" },
 ] as const;
 
 const TOPIC_CLUSTERS = [
