@@ -5,6 +5,15 @@ import { trackStartHereCard } from "@/lib/ga-events";
 // need to scroll or expand a control to discover the existing guides.
 const TOPIC_GROUPS = [
   {
+    title: "Start with arthritis",
+    description: "Use these core pages when you want a clear overview of arthritis and everyday life with the condition.",
+    links: [
+      { label: "What is arthritis?", href: "/conditions/arthritis" },
+      { label: "Living with arthritis guide", href: "/living-with-arthritis" },
+      { label: "Free arthritis resources UK", href: "/guides/free-arthritis-resources-uk" },
+    ],
+  },
+  {
     title: "Arthritis exercises",
     description: "Explore joint-specific movement and strengthening routines, with guidance on choosing a suitable starting point.",
     links: [{ label: "Choose arthritis exercises", href: "/exercise-hub" }, { label: "Exercise and arthritis guide", href: "/guides/exercise" }],
@@ -35,7 +44,7 @@ const TOPIC_GROUPS = [
     title: "Understand your condition",
     description: "Explore symptoms, diagnosis and support, then choose the next step that fits your situation.",
     links: [
-      { label: "What is arthritis?", href: "/conditions/arthritis" },
+      { label: "Osteoarthritis", href: "/conditions/osteoarthritis" },
       { label: "Rheumatoid arthritis", href: "/conditions/rheumatoid-arthritis" },
       { label: "Axial spondyloarthritis and ankylosing spondylitis", href: "/conditions/ankylosing-spondylitis" },
       { label: "Gout", href: "/conditions/gout" },
@@ -49,10 +58,10 @@ export default function HomeTopicGuides() {
       <div className="container mx-auto max-w-6xl px-5 md:px-10">
         <p className="text-sm font-semibold text-primary">Find your next step</p>
         <h2 id="arthritis-topic-guides" className="mt-2 font-display text-2xl font-bold tracking-tight md:text-3xl">
-          Arthritis exercises, PIP and practical support
+          Arthritis support, exercises, PIP and practical guidance
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Clear information for the questions that come with living with arthritis.
+          Clear information for the questions that come with arthritis and living with arthritis.
           Choose a topic to explore a free guide at your own pace.
         </p>
         <div className="mt-6 grid gap-5 md:grid-cols-3">
