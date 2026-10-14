@@ -27,6 +27,30 @@ import {
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const CONTENT = PIP_GUIDE_HTML;
+const REVIEWED_DATE = "2026-10-14";
+
+const CLUSTER_LINKS = [
+  {
+    title: "Arthritis symptoms",
+    href: "/arthritis-symptoms",
+    copy: "Use symptom patterns to explain how arthritis affects daily living.",
+  },
+  {
+    title: "Arthritis treatment",
+    href: "/arthritis-treatment",
+    copy: "Record treatments tried, side effects and functional limits.",
+  },
+  {
+    title: "Arthritis pain relief",
+    href: "/guides/arthritis-pain-relief",
+    copy: "Turn pain patterns into clear evidence for typical days and flares.",
+  },
+  {
+    title: "Exercise for arthritis",
+    href: "/guides/exercise",
+    copy: "Document what helps, what worsens symptoms and what support is needed.",
+  },
+];
 
 export default function BenefitsPIPGuide() {
   const html = addHeadingIds(CONTENT);
@@ -45,6 +69,12 @@ export default function BenefitsPIPGuide() {
           { name: "Benefits & PIP Guide" },
         ]}
         faqs={PIP_GUIDE_FAQS}
+        lastReviewed={REVIEWED_DATE}
+        reviewedBy={{
+          name: "Louis Maxwell",
+          jobTitle: "First Contact Practitioner",
+          identifier: "HCPC PH128483",
+        }}
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
@@ -67,27 +97,7 @@ export default function BenefitsPIPGuide() {
       <meta name="twitter:title" content={PIP_GUIDE_META_TITLE} />
       <meta name="twitter:description" content={PIP_GUIDE_DESCRIPTION} />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
-        "name": PIP_GUIDE_TITLE,
-        "description": PIP_GUIDE_DESCRIPTION,
-        "url": "https://livingwitharthritis.org.uk/guides/benefits-pip",
-        "inLanguage": "en-GB",
-        "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-        "about": { "@type": "MedicalCondition", "name": "Arthritis" },
-        "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/guides/uk-arthritis" },
-          { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
-        ]
-      })}</script>
+      {/* MedicalWebPage and FAQPage JSON-LD are emitted by PageSchema above. */}
       {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={PIP_GUIDE_FAQS})
           for the questions rendered visibly in the accordion below. The
           second, hand-written FAQPage block that used to sit here duplicated
@@ -106,6 +116,20 @@ export default function BenefitsPIPGuide() {
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
             <strong>Quick answer:</strong> {PIP_GUIDE_QUICK_ANSWER}
           </p>
+          <section aria-labelledby="pip-authority-path" className="mb-10 rounded-2xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+            <h2 id="pip-authority-path" className="font-display text-xl font-bold mb-3">Arthritis benefits authority path</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+              Strong PIP evidence connects symptoms, treatment, pain, mobility and daily function. These guides help build that picture.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {CLUSTER_LINKS.map((item) => (
+                <Link key={item.href} to={item.href} className="rounded-xl border border-border bg-card p-4 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                  <span className="block font-semibold text-primary underline underline-offset-2">{item.title}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{item.copy}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
           <div className="mb-10 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 print:hidden">
             <p className="text-sm font-semibold text-foreground m-0 mb-2">Free tool: printable PIP evidence diary</p>
             <p className="text-sm text-muted-foreground m-0 mb-4">
