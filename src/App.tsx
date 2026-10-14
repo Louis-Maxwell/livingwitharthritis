@@ -98,6 +98,8 @@ const CookiesPolicy = lazyWithRetry(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazyWithRetry(() => import("./pages/Accessibility"));
 
 const ArthritisFlareUps = lazyWithRetry(() => import("./pages/ArthritisFlareUps"));
+const ArthritisSymptoms = lazyWithRetry(() => import("./pages/ArthritisSymptoms"));
+const ArthritisTreatment = lazyWithRetry(() => import("./pages/ArthritisTreatment"));
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
 const ArthritisSupportIndex = lazyWithRetry(() => import("./pages/ArthritisSupportIndex"));
@@ -384,6 +386,8 @@ function AnimatedRoutes() {
         <Route path="/guides/bone-density-osteoporosis" element={<GuideLayout currentPath="/guides/bone-density-osteoporosis"><BoneDensityOsteoporosis /></GuideLayout>} />
         <Route path="/guides/fall-prevention-older-adults" element={<GuideLayout currentPath="/guides/fall-prevention-older-adults"><FallPreventionOlderAdults /></GuideLayout>} />
         <Route path="/conditions/arthritis" element={<Arthritis />} />
+        <Route path="/arthritis-symptoms" element={<ArthritisSymptoms />} />
+        <Route path="/arthritis-treatment" element={<ArthritisTreatment />} />
         <Route path="/guides/musculoskeletal-health" element={<GuideLayout currentPath="/guides/musculoskeletal-health"><MusculoskeletalHealth /></GuideLayout>} />
         <Route path="/guides/disability-support" element={<GuideLayout currentPath="/guides/disability-support"><DisabilitySupport /></GuideLayout>} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
