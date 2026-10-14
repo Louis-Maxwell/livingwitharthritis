@@ -72,18 +72,80 @@ function HomePage() {
     });
     document.head.appendChild(breadcrumbScript);
 
+    const faqId = "ld-home-brand-faq";
+    document.getElementById(faqId)?.remove();
+    const faqScript = document.createElement("script");
+    faqScript.type = "application/ld+json";
+    faqScript.id = faqId;
+    faqScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is Living With Arthritis?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Living With Arthritis is a UK registered charity providing free, evidence-based arthritis guidance, joint-pain support, exercise advice, PIP information and practical resources for people living with arthritis and frailty.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Where should I start if I am living with arthritis?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Start with the Living With Arthritis homepage, the arthritis overview, the living with arthritis guide, the pain-relief guide, or the exercise and PIP guides depending on your main concern.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is Living With Arthritis the same as Arthritis UK?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "No. Living With Arthritis is an independent UK charity, registered charity 1218461, and is separate from Arthritis UK, formerly Versus Arthritis.",
+          },
+        },
+      ],
+    });
+    document.head.appendChild(faqScript);
+
+    const hubId = "ld-home-topic-hubs";
+    document.getElementById(hubId)?.remove();
+    const hubScript = document.createElement("script");
+    hubScript.type = "application/ld+json";
+    hubScript.id = hubId;
+    hubScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Core arthritis support guides from Living With Arthritis",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Arthritis overview", url: `${SITE_URL}/conditions/arthritis` },
+        { "@type": "ListItem", position: 2, name: "Living with arthritis guide", url: `${SITE_URL}/living-with-arthritis` },
+        { "@type": "ListItem", position: 3, name: "Arthritis pain relief", url: `${SITE_URL}/guides/arthritis-pain-relief` },
+        { "@type": "ListItem", position: 4, name: "Exercise for arthritis", url: `${SITE_URL}/guides/exercise` },
+        { "@type": "ListItem", position: 5, name: "PIP and benefits for arthritis", url: `${SITE_URL}/guides/benefits-pip` },
+        { "@type": "ListItem", position: 6, name: "Free arthritis resources UK", url: `${SITE_URL}/guides/free-arthritis-resources-uk` },
+      ],
+    });
+    document.head.appendChild(hubScript);
+
     return () => {
       document.getElementById(breadcrumbId)?.remove();
+      document.getElementById(faqId)?.remove();
+      document.getElementById(hubId)?.remove();
     };
   }, []);
 
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | Exercises & PIP Advice</title>
+        <title>Living With Arthritis | Arthritis Support UK</title>
         <meta
           name="description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
+          content="Living With Arthritis offers free UK arthritis support, joint pain guides, exercises, PIP advice and evidence-based help for people with arthritis and frailty."
         />
         <meta
           name="robots"
@@ -93,19 +155,19 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | Exercises & PIP Advice"
+          content="Living With Arthritis | Arthritis Support UK"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | Exercises & PIP Advice"
+          content="Living With Arthritis | Arthritis Support UK"
         />
         <meta
           property="og:description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
+          content="Living With Arthritis offers free UK arthritis support, joint pain guides, exercises, PIP advice and evidence-based help for people with arthritis and frailty."
         />
         <meta
           name="twitter:description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
+          content="Living With Arthritis offers free UK arthritis support, joint pain guides, exercises, PIP advice and evidence-based help for people with arthritis and frailty."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />
