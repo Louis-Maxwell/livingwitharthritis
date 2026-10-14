@@ -15,6 +15,30 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
+const REVIEWED_DATE = "2026-10-14";
+
+const CLUSTER_LINKS = [
+  {
+    title: "Arthritis symptoms",
+    href: "/arthritis-symptoms",
+    copy: "Check whether pain, stiffness or swelling needs GP or urgent review.",
+  },
+  {
+    title: "Arthritis treatment",
+    href: "/arthritis-treatment",
+    copy: "Compare exercise, medicines, injections, rheumatology care and surgery.",
+  },
+  {
+    title: "Arthritis pain relief",
+    href: "/guides/arthritis-pain-relief",
+    copy: "Use heat, cold, pacing and medicines safely alongside movement.",
+  },
+  {
+    title: "PIP and benefits",
+    href: "/guides/benefits-pip",
+    copy: "Prepare evidence when arthritis affects daily living or mobility.",
+  },
+];
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -233,7 +257,12 @@ export default function ExerciseGuide() {
           { name: "Exercise Guide" },
         ]}
         faqs={EXERCISE_GUIDE_FAQS}
-        lastReviewed="2026-09-17"
+        lastReviewed={REVIEWED_DATE}
+        reviewedBy={{
+          name: "Louis Maxwell",
+          jobTitle: "First Contact Practitioner",
+          identifier: "HCPC PH128483",
+        }}
         idPrefix="exercise-guide"
       />
       <Header />
@@ -251,6 +280,20 @@ export default function ExerciseGuide() {
             plus two sessions of strength work and a flexibility practice such as tai chi.
             Start short, build gradually, and pick activities you enjoy.
           </p>
+          <section aria-labelledby="exercise-authority-path" className="mb-10 rounded-2xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+            <h2 id="exercise-authority-path" className="font-display text-xl font-bold mb-3">Arthritis exercise authority path</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+              Use this guide as the exercise spoke in the arthritis hub. Start with symptoms and treatment if you are newly diagnosed, then return here for safe progression.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {CLUSTER_LINKS.map((item) => (
+                <Link key={item.href} to={item.href} className="rounded-xl border border-border bg-card p-4 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                  <span className="block font-semibold text-primary underline underline-offset-2">{item.title}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{item.copy}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
           <AeoEnhancement route="/guides/exercise" />
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
@@ -283,7 +326,7 @@ export default function ExerciseGuide() {
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+        <EducationalDisclaimerBox lastReviewed={REVIEWED_DATE} />
         <TopicClusterNav path="/guides/exercise" />
       </div>
       <GuideOnwardJourney currentPath="/guides/exercise" />
