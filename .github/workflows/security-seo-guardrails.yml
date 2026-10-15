@@ -3,15 +3,7 @@ name: Security and SEO guardrails
 on:
   push:
     branches: [main]
-    paths:
-      - "public/**"
-      - "scripts/check-security-guardrails.mjs"
-      - ".github/workflows/security-seo-guardrails.yml"
   pull_request:
-    paths:
-      - "public/**"
-      - "scripts/check-security-guardrails.mjs"
-      - ".github/workflows/security-seo-guardrails.yml"
   schedule:
     - cron: "17 4 * * 1"
   workflow_dispatch:
@@ -25,10 +17,23 @@ concurrency:
 
 jobs:
   integrity:
-    name: Sitemap and security integrity
+    name: Sitemap, security and AI integrity
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Check security and sitemap invariants
+
+      - name: Use supported Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.1
+          cache: npm
+
+      - name: Check security, sitemap and AI-discovery invariants
         run: node scripts/check-security-guardrails.mjs
+
+      - name: Check verified AI identity and crawler policy
+        run: node scripts/validate-ai-identity.mjs
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
