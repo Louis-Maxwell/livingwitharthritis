@@ -63,8 +63,8 @@ describe("clinical review transparency", () => {
   });
 
   it("distinguishes content update dates from completed clinical review", () => {
-    expect(standards).toMatch(/publication or an updated date[\\s\\S]*does not mean clinical review is complete/);
-    expect(standards).toMatch(/An update date[\\s\\S]*is not a clinical review date/);
+    expect(standards).toMatch(/publication or an updated date[\s\S]*does not mean clinical review is complete/);
+    expect(standards).toMatch(/An update date[\s\S]*is not a clinical review date/);
     expect(standards).toMatch(/Pending clinical review/);
   });
 });
