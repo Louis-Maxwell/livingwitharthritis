@@ -90,11 +90,13 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 
 ## Recommended next 10 (Champions 79–88)
 
+**Progress:** 79–81 done 15 Oct 2026 (pending clinical review); 242 template posts left. Next: 82–84.
+
 | # | Slug | Why now | Suggested job |
 |---|---|---|---|
-| 79 | `steroid-emergency-card-frail-arthritis-uk` | 6 inbound links, including the printable **flare action plan** (`flareActionPlanContent.ts`); pairs with Champion 78 | Red and blue steroid cards, sick-day steps, when to show the card (NHS prednisolone page) |
-| 80 | `shingles-vaccine-arthritis-frailty-uk` | Linked from gold-pass `covid-winter-arthritis-frailty-uk`; vaccine season | NHS shingles eligibility, non-live vaccine on DMARDs/biologics, how to book |
-| 81 | `uti-confusion-arthritis-frailty-uk` | Winter infection plus sudden confusion in older people | NHS UTI signs, delirium red flags, 111/999 routes, fluids, carers |
+| 79 ✅ 15 Oct | `steroid-emergency-card-frail-arthritis-uk` | 6 inbound links, including the printable **flare action plan** (`flareActionPlanContent.ts`); pairs with Champion 78 | Red and blue steroid cards, sick-day steps, when to show the card (NHS prednisolone page) |
+| 80 ✅ 15 Oct | `shingles-vaccine-arthritis-frailty-uk` | Linked from gold-pass `covid-winter-arthritis-frailty-uk`; vaccine season | NHS shingles eligibility, non-live vaccine on DMARDs/biologics, how to book |
+| 81 ✅ 15 Oct | `uti-confusion-arthritis-frailty-uk` | Winter infection plus sudden confusion in older people | NHS UTI signs, delirium red flags, 111/999 routes, fluids, carers |
 | 82 | `sleeping-tablets-falls-arthritis-frailty-uk` | 6 inbound, including gold-pass `arthritis-and-sleep-problems` and `best-sleep-positions-joint-pain`; long nights | Sleeping tablets and night falls, CBT for insomnia first, never stop prescribed medicines yourself |
 | 83 | `sleep-apnoea-arthritis-frailty-uk` | 4 inbound from three gold-pass sleep posts | NHS sleep apnoea signs, referral, how it links to daytime tiredness and pain |
 | 84 | `bone-protection-steroids-arthritis-frailty-uk` | Linked from gold-pass vitamin D winter guide; pairs with 78 | Bone protection on steroids, vitamin D/calcium, bone scans, falls |
