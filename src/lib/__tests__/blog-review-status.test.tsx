@@ -367,7 +367,7 @@ describe("static prerendered article HTML", () => {
   it("uses the same pending text as the React template", () => {
     expect(STATIC_PENDING_REVIEW_TEXT).toBe(PENDING_REVIEW_TEXT);
     expect(PENDING_REVIEW_TEXT).toBe(
-      "Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)",
+      "Clinical review status: not yet recorded",
     );
   });
 
@@ -377,7 +377,7 @@ describe("static prerendered article HTML", () => {
       article: { content: "<p>Body text</p>", reviewStatus: "pending" },
     });
     const reviewed = buildStaticArticleInner({ title: "T", article: { content: "<p>Body text</p>" } });
-    expect(pending).toContain("pending clinical review by Louis Maxwell (HCPC PH128483)");
+    expect(pending).toContain("Clinical review status: not yet recorded");
     expect(reviewed).not.toContain("pending clinical review");
   });
 });

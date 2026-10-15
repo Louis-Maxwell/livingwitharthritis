@@ -84,7 +84,7 @@ export function escText(value) {
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
 export const STATIC_PENDING_REVIEW_TEXT =
-  "Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)";
+  "Clinical review status: not yet recorded";
 
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
