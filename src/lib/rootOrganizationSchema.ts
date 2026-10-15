@@ -47,7 +47,10 @@ export const ORGANIZATION_PAYLOAD = {
   },
   description:
     "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
+  keywords:
+    "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
+  knowsLanguage: ["en-GB", "English"],
   areaServed: [
     { "@type": "Country", name: "United Kingdom" },
     { "@type": "AdministrativeArea", name: "England" },
@@ -68,6 +71,68 @@ export const ORGANIZATION_PAYLOAD = {
     "@type": "CreativeWork",
     name: "UK Charity Commission Register entry",
     url: REGISTER_URL,
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Free UK arthritis support from Living With Arthritis",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Arthritis exercise and movement guides",
+        url: `${BASE}/guides/exercise`,
+        availability: "https://schema.org/InStock",
+        price: "0",
+        priceCurrency: "GBP",
+        itemOffered: {
+          "@type": "Service",
+          serviceType: "NICE-aligned arthritis exercise guidance",
+          areaServed: "GB",
+          audience: {
+            "@type": "MedicalAudience",
+            audienceType: "People living with arthritis",
+          },
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Benefits and PIP guidance for arthritis",
+        url: `${BASE}/guides/benefits-pip`,
+        availability: "https://schema.org/InStock",
+        price: "0",
+        priceCurrency: "GBP",
+        itemOffered: {
+          "@type": "Service",
+          serviceType: "UK benefits information for arthritis and disability",
+          areaServed: "GB",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Waiting-list and appointment preparation help",
+        url: `${BASE}/arthritis-waiting-list-help`,
+        availability: "https://schema.org/InStock",
+        price: "0",
+        priceCurrency: "GBP",
+        itemOffered: {
+          "@type": "Service",
+          serviceType: "Plain-English UK healthcare navigation support",
+          areaServed: "GB",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "AI-readable arthritis content export",
+        url: `${BASE}/llms.txt`,
+        availability: "https://schema.org/InStock",
+        price: "0",
+        priceCurrency: "GBP",
+        itemOffered: {
+          "@type": "DigitalDocument",
+          encodingFormat: "text/plain",
+          name: "Living With Arthritis llms.txt",
+        },
+      },
+    ],
   },
   contactPoint: [
     {
@@ -99,6 +164,13 @@ export const ORGANIZATION_PAYLOAD = {
     "Rheumatology waiting lists UK",
     "Methotrexate side effects",
     "NICE osteoarthritis exercise",
+    "Arthritis pain relief UK",
+    "Arthritis waiting list help UK",
+    "Arthritis disability benefits UK",
+    "Arthritis charity UK",
+    "Frailty and arthritis exercises",
+    "Working with arthritis UK rights",
+    "Mediterranean diet for arthritis",
     "Knee exercises for osteoarthritis",
     "Free arthritis resources UK",
     "Newly diagnosed arthritis UK",
@@ -123,6 +195,19 @@ export const WEBSITE_PAYLOAD = {
   inLanguage: "en-GB",
   description:
     "Free UK arthritis guidance from Living With Arthritis (registered charity 1218461), with clinical-review status shown on each page — NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.",
+  about: [
+    "Living with arthritis in the United Kingdom",
+    "Osteoarthritis",
+    "Rheumatoid arthritis",
+    "Joint pain",
+    "Frailty and musculoskeletal health",
+    "UK disability benefits for arthritis",
+  ],
+  mentions: [
+    { "@type": "Thing", name: "NICE osteoarthritis exercise guidance" },
+    { "@type": "Thing", name: "NHS rheumatology and physiotherapy pathways" },
+    { "@type": "Thing", name: "PIP, Attendance Allowance and Access to Work" },
+  ],
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["h1", ".speakable-intro"],

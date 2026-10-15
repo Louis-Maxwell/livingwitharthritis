@@ -1,6 +1,6 @@
 # Living With Arthritis UK — SEO Growth Blueprint
-**Generated:** 2026-07-24 | **Based on:** Real Semrush data + full codebase audit  
-**Current baseline:** 35 ranked keywords · ~0 organic traffic · Semrush Rank ~4.8M  
+**Generated:** 2026-07-24 | **Based on:** Real Semrush data + full codebase audit
+**Current baseline:** 35 ranked keywords · ~0 organic traffic · Semrush Rank ~4.8M
 **Target:** 60,000+ ranking keywords · 1,000+ Top 10 positions · 24 months
 
 > **Honesty note:** Volume figures below are from live Semrush UK database pulls.
@@ -35,41 +35,41 @@ Each topic needs: 1 pillar page + 6–20 cluster articles + FAQ coverage
 
 | # | Topic cluster | Priority | Existing page? |
 |---|---|---|---|
-| 1 | Rheumatoid Arthritis | HIGH | ✅ /conditions/rheumatoid-arthritis |
-| 2 | Osteoarthritis | HIGH | ✅ /conditions/osteoarthritis |
-| 3 | Psoriatic Arthritis | HIGH | ✅ /conditions/psoriatic-arthritis |
-| 4 | Juvenile Arthritis | HIGH | ✅ /conditions/juvenile-arthritis |
-| 5 | Ankylosing Spondylitis | HIGH | ✅ /conditions/ankylosing-spondylitis |
-| 6 | Gout | HIGH | ✅ /conditions/gout |
-| 7 | Arthritis Symptoms | HIGH | ⬜ MISSING — cluster needed |
-| 8 | Arthritis Diagnosis | HIGH | ⬜ MISSING — cluster needed |
-| 9 | Arthritis Treatments | HIGH | ⬜ MISSING — cluster needed |
-| 10 | Arthritis Medications | HIGH | ⬜ MISSING — cluster needed |
-| 11 | Biologics | MEDIUM | ⬜ MISSING |
-| 12 | Steroid Treatments | MEDIUM | ✅ /pillar/SteroidsGuide |
-| 13 | Alternative Treatments | MEDIUM | ⬜ MISSING |
-| 14 | Arthritis Diet | HIGH | ✅ /pillar/DietGuide (thin) |
-| 15 | Anti-inflammatory Foods | HIGH | ✅ /diet/FoodsToAvoidWithArthritis |
-| 16 | Arthritis Exercises | HIGH | ✅ /pillar/ExerciseGuide (thin) |
-| 17 | Home Exercises | HIGH | ⬜ MISSING — cluster needed |
-| 18 | Walking Programs | MEDIUM | ⬜ MISSING |
-| 19 | Hydrotherapy | MEDIUM | ⬜ MISSING |
-| 20 | Physical Therapy | HIGH | ⬜ MISSING |
-| 21 | Occupational Therapy | MEDIUM | ⬜ MISSING |
-| 22 | Joint Replacement | HIGH | ✅ /pillar/KneeReplacementSurgeryGuide |
-| 23 | Pain Management | HIGH | ✅ /guides/ArthritisPainRelief (thin) |
-| 24 | Mobility Aids | MEDIUM | ⬜ MISSING |
-| 25 | Living With Arthritis | HIGH | ✅ /LivingWithArthritis (exists) |
-| 26 | Work and Arthritis | MEDIUM | ⬜ MISSING |
-| 27 | Sleep and Arthritis | MEDIUM | ⬜ MISSING |
-| 28 | Mental Health and Arthritis | HIGH | ✅ /ArthritisMentalHealth |
-| 29 | Arthritis in Women | MEDIUM | ⬜ MISSING |
-| 30 | Arthritis in Men | LOW | ⬜ MISSING |
-| 31 | Arthritis and Aging | HIGH | ✅ /guides/FrailtyManagementHub (partial) |
-| 32 | Arthritis Research | LOW | ⬜ MISSING |
-| 33 | Arthritis Prevention | MEDIUM | ✅ /guides/PreventativeMSKHealth |
-| 34 | Arthritis Myths | MEDIUM | ⬜ MISSING |
-| 35 | Arthritis FAQs | HIGH | ✅ /FAQ |
+| 1 | Rheumatoid Arthritis | HIGH | Yes /conditions/rheumatoid-arthritis |
+| 2 | Osteoarthritis | HIGH | Yes /conditions/osteoarthritis |
+| 3 | Psoriatic Arthritis | HIGH | Yes /conditions/psoriatic-arthritis |
+| 4 | Juvenile Arthritis | HIGH | Yes /conditions/juvenile-arthritis |
+| 5 | Ankylosing Spondylitis | HIGH | Yes /conditions/ankylosing-spondylitis |
+| 6 | Gout | HIGH | Yes /conditions/gout |
+| 7 | Arthritis Symptoms | HIGH | Pending MISSING — cluster needed |
+| 8 | Arthritis Diagnosis | HIGH | Pending MISSING — cluster needed |
+| 9 | Arthritis Treatments | HIGH | Pending MISSING — cluster needed |
+| 10 | Arthritis Medications | HIGH | Pending MISSING — cluster needed |
+| 11 | Biologics | MEDIUM | Pending MISSING |
+| 12 | Steroid Treatments | MEDIUM | Yes /pillar/SteroidsGuide |
+| 13 | Alternative Treatments | MEDIUM | Pending MISSING |
+| 14 | Arthritis Diet | HIGH | Yes /pillar/DietGuide (thin) |
+| 15 | Anti-inflammatory Foods | HIGH | Yes /diet/FoodsToAvoidWithArthritis |
+| 16 | Arthritis Exercises | HIGH | Yes /pillar/ExerciseGuide (thin) |
+| 17 | Home Exercises | HIGH | Pending MISSING — cluster needed |
+| 18 | Walking Programs | MEDIUM | Pending MISSING |
+| 19 | Hydrotherapy | MEDIUM | Pending MISSING |
+| 20 | Physical Therapy | HIGH | Pending MISSING |
+| 21 | Occupational Therapy | MEDIUM | Pending MISSING |
+| 22 | Joint Replacement | HIGH | Yes /pillar/KneeReplacementSurgeryGuide |
+| 23 | Pain Management | HIGH | Yes /guides/ArthritisPainRelief (thin) |
+| 24 | Mobility Aids | MEDIUM | Pending MISSING |
+| 25 | Living With Arthritis | HIGH | Yes /LivingWithArthritis (exists) |
+| 26 | Work and Arthritis | MEDIUM | Pending MISSING |
+| 27 | Sleep and Arthritis | MEDIUM | Pending MISSING |
+| 28 | Mental Health and Arthritis | HIGH | Yes /ArthritisMentalHealth |
+| 29 | Arthritis in Women | MEDIUM | Pending MISSING |
+| 30 | Arthritis in Men | LOW | Pending MISSING |
+| 31 | Arthritis and Aging | HIGH | Yes /guides/FrailtyManagementHub (partial) |
+| 32 | Arthritis Research | LOW | Pending MISSING |
+| 33 | Arthritis Prevention | MEDIUM | Yes /guides/PreventativeMSKHealth |
+| 34 | Arthritis Myths | MEDIUM | Pending MISSING |
+| 35 | Arthritis FAQs | HIGH | Yes /FAQ |
 
 **Gap count: 19 of 35 topic clusters missing or materially thin.**
 Filling these 19 is the single highest-leverage content action available.
@@ -517,26 +517,26 @@ Filling these 19 is the single highest-leverage content action available.
 
 | Keyword | Vol | Competition | Existing page? |
 |---|---|---|---|
-| what does arthritis feel like | 3,600 | Low | ❌ Blog article needed |
-| what are the 4 stages of rheumatoid arthritis | 3,600 | Low | ❌ Blog article needed |
-| how to cure rheumatoid arthritis permanently | 3,600 | Low | ❌ Article (debunking intent) |
-| i cured my osteoarthritis | 4,400 | Low | ❌ Article needed |
-| is arthritis hereditary | 2,400 | Low | ❌ Blog needed |
-| rheumatoid nodules | 2,900 | Low | ❌ Blog needed |
-| anti inflammatory diet plan | 40,500 | High (existing page thin) | ✅ Expand existing |
-| knee strengthening exercises | 6,600 | Medium | ✅ Needs more depth |
-| arthritis in feet | 3,600 | Low | ❌ Blog needed |
-| psoriatic arthritis symptoms | 2,900 | Low | ✅ Expand existing |
-| inflammatory arthritis | 5,400 | Low | ❌ Blog needed |
-| types of arthritis | 4,400 | Low | ❌ Blog needed |
-| arthritis treatment | 8,100 | High | ✅ Strengthen existing |
-| arthritis in hands | 4,400 | Low | ✅ Expand existing |
-| joint pain causes | 5,400 | Low | ❌ Blog needed |
-| what causes arthritis | 2,900 | Low | ❌ Blog needed |
-| ra morning stiffness | 2,900 | Low | ❌ Blog needed |
-| gout diet | 2,400 | Low | ❌ Blog needed |
-| knee brace arthritis | 1,900 | Low | ❌ Commercial article needed |
-| turmeric arthritis | 2,200 | Low | ❌ Blog needed |
+| what does arthritis feel like | 3,600 | Low | No Blog article needed |
+| what are the 4 stages of rheumatoid arthritis | 3,600 | Low | No Blog article needed |
+| how to cure rheumatoid arthritis permanently | 3,600 | Low | No Article (debunking intent) |
+| i cured my osteoarthritis | 4,400 | Low | No Article needed |
+| is arthritis hereditary | 2,400 | Low | No Blog needed |
+| rheumatoid nodules | 2,900 | Low | No Blog needed |
+| anti inflammatory diet plan | 40,500 | High (existing page thin) | Yes Expand existing |
+| knee strengthening exercises | 6,600 | Medium | Yes Needs more depth |
+| arthritis in feet | 3,600 | Low | No Blog needed |
+| psoriatic arthritis symptoms | 2,900 | Low | Yes Expand existing |
+| inflammatory arthritis | 5,400 | Low | No Blog needed |
+| types of arthritis | 4,400 | Low | No Blog needed |
+| arthritis treatment | 8,100 | High | Yes Strengthen existing |
+| arthritis in hands | 4,400 | Low | Yes Expand existing |
+| joint pain causes | 5,400 | Low | No Blog needed |
+| what causes arthritis | 2,900 | Low | No Blog needed |
+| ra morning stiffness | 2,900 | Low | No Blog needed |
+| gout diet | 2,400 | Low | No Blog needed |
+| knee brace arthritis | 1,900 | Low | No Commercial article needed |
+| turmeric arthritis | 2,200 | Low | No Blog needed |
 
 ---
 

@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, develop]
 
+concurrency:
+  group: lint-and-test-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -14,10 +18,10 @@ jobs:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -32,11 +36,12 @@ jobs:
   test-e2e:
     name: E2E Tests (Playwright)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -59,20 +64,26 @@ jobs:
 
       - name: Serve build
         run: |
-          npx --yes serve -s dist -l 4173 &
+          nohup npx --yes serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
+          echo $! > /tmp/serve.pid
           for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then break; fi
             sleep 1
           done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
 
       - name: Run E2E tests
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4173
         run: npm run test:e2e
 
+      - name: Stop preview server
+        if: always()
+        run: kill "$(cat /tmp/serve.pid)" 2>/dev/null || true
+
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-report
           path: playwright-report/
@@ -85,10 +96,10 @@ jobs:
     env:
       PLAYWRIGHT_BASE_URL: http://localhost:4173
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -108,7 +119,7 @@ jobs:
 
       - name: Serve build
         run: |
-          npx --yes serve -s dist -l 4173 &
+          nohup npx --yes serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
           echo $! > /tmp/serve.pid
           for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then
@@ -117,6 +128,7 @@ jobs:
             fi
             sleep 1
           done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
 
       - name: Blog smoke (fail the workflow)
         run: npm run test:blog-smoke
@@ -135,10 +147,10 @@ jobs:
     name: Security Audit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -146,17 +158,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify dependency security patch
+        run: npm run test:dependency-security
+
       - name: Run npm audit
-        run: npm audit --audit-level=moderate
+        run: npm audit --audit-level=low
 
   build:
     name: Build Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -172,7 +187,7 @@ jobs:
         run: npm run build
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/

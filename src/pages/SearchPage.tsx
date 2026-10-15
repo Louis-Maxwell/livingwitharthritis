@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, ArrowRight } from "lucide-react";
+import { trackSearch } from "@/lib/analytics";
 import { getSiteSearchCatalog } from "@/lib/siteSearchCatalog";
 import {
   SEARCH_TOPICS,
@@ -27,6 +28,7 @@ const WORD_OPTIONS: { value: WordCountBucket; label: string }[] = [
 const SearchPage = () => {
   const [params, setParams] = useSearchParams();
   const [query, setQuery] = useState(params.get("q") || "");
+  const [visibleCount, setVisibleCount] = useState(50);
   const [topic, setTopic] = useState<SearchTopic>(normalizeTopic(params.get("topic")));
   const [wordCount, setWordCount] = useState<WordCountBucket>(
     (params.get("length") as WordCountBucket) || "any",
@@ -46,10 +48,25 @@ const SearchPage = () => {
     () => filterSearchCatalog(catalog, { query, topic, wordCount }),
     [catalog, query, topic, wordCount],
   );
+  useEffect(() => setVisibleCount(50), [query, topic, wordCount]);
+
+  const lastTrackedSearch = useRef("");
+  useEffect(() => {
+    if (!query.trim()) return;
+    const timer = window.setTimeout(() => {
+      // Local deduplication only: the typed query is never an event parameter.
+      const signature = JSON.stringify([query.trim(), topic, wordCount]);
+      if (lastTrackedSearch.current === signature) return;
+      lastTrackedSearch.current = signature;
+      trackSearch("", results.length);
+    }, 800);
+    return () => window.clearTimeout(timer);
+  }, [query, topic, wordCount, results.length]);
 
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex,follow" />
         <title>Search Arthritis Guides & Articles | Living With Arthritis</title>
         <meta
           name="description"
@@ -101,7 +118,7 @@ const SearchPage = () => {
             <Link to="/blog" className="text-primary underline underline-offset-2">arthritis blog</Link>.
           </p>
           <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed">
-            Search covers clinically reviewed UK guides on exercise, anti-inflammatory diet, PIP and benefits,
+            Search covers UK guides on exercise, anti-inflammatory diet, PIP and benefits,
             flare-ups and condition explainers — filter by topic and length when you already know the angle.
           </p>
           <div className="relative">
@@ -156,8 +173,8 @@ const SearchPage = () => {
             {results.length} result{results.length === 1 ? "" : "s"}
           </p>
 
-          <div className="space-y-3">
-            {results.map((item) => (
+          <div className="space-y-3" role="region" aria-label="Search results">
+            {results.slice(0, visibleCount).map((item) => (
               <Card key={item.id} className="hover:border-primary/40 transition-colors">
                 <CardContent className="p-5">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -183,6 +200,12 @@ const SearchPage = () => {
                 </CardContent>
               </Card>
             ))}
+            {results.length > visibleCount && (
+              <button type="button" onClick={() => setVisibleCount((count) => count + 50)}
+                className="min-h-11 rounded-md border border-border px-5 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                Show more results ({Math.min(50, results.length - visibleCount)})
+              </button>
+            )}
             {results.length === 0 && (
               <div
                 className="rounded-2xl border border-dashed border-border bg-muted/20 p-8 text-center"

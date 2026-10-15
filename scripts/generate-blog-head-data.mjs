@@ -37,11 +37,26 @@ const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
 const SITE = 'https://livingwitharthritis.org.uk';
 const BRAND = 'Living With Arthritis';
 const DEFAULT_OG_IMAGE = `${SITE}/og/landing-share.png`;
+const TOPICS = {
+  exercise: ['exercise', 'exercises', 'exercise guides'],
+  nutrition: ['nutrition', 'diet'],
+  lifestyle: ['lifestyle', 'living well', 'family & relationships', 'finances & benefits', 'work & career', 'travel', 'social & leisure', 'weather & season', 'sleep', 'older adults', 'young adults'],
+  health: ['health', 'symptoms', 'conditions', 'inflammatory', 'expert q&a'],
+  'mental-health': ['mental health'], supplements: ['supplements'],
+  treatment: ['treatment', 'treatments', 'treatment guides', 'surgery & recovery'],
+  frailty: ['frailty', 'prevention & longevity'],
+};
+export function categoryKey(category) {
+  const label = String(category || '').trim().toLowerCase();
+  return Object.entries(TOPICS).find(([key, aliases]) => key === label || aliases.includes(label))?.[0];
+}
 
 export function clipText(text, max) {
   const value = String(text ?? '').replace(/\s+/g, ' ').trim();
   if (value.length <= max) return value;
-  return `${value.slice(0, max - 1).replace(/[\s,;:.-]+$/, '')}…`;
+  const cut = value.slice(0, max - 1);
+  const boundary = cut.lastIndexOf(' ');
+  return `${(boundary > max * 0.6 ? cut.slice(0, boundary) : cut).replace(/[\s,;:.-]+$/, '')}…`;
 }
 
 /**
@@ -132,7 +147,7 @@ function loadLocalStaticArticles() {
     .map((row) => ({ ...row, image_url: row.cover ? `/openverse/${row.cover}` : null }));
 }
 
-function buildEntry(row, extractFaqs, coverMap) {
+export function buildEntry(row, extractFaqs, coverMap) {
   const answer = row.direct_answer || row.excerpt || '';
   const description = row.meta_description || row.excerpt || row.direct_answer || '';
   const headline = pickHeadline(row);
@@ -141,7 +156,7 @@ function buildEntry(row, extractFaqs, coverMap) {
   const entry = {
     title: buildPageTitle(headline),
     description: clipText(description, 158),
-    question: headline,
+    question: row.title,
     answer: answer ? clipText(answer, 600) : undefined,
     breadcrumb: headline,
     about: row.category || undefined,
@@ -167,10 +182,11 @@ function buildEntry(row, extractFaqs, coverMap) {
       reviewer_credentials: row.reviewer_credentials ?? null,
       // Only pending guides carry the flag (absent = reviewed), so the
       // embedded article and static HTML never claim an unfinished review.
-      ...(row.reviewStatus === 'pending' ? { reviewStatus: 'pending' } : {}),
+      ...(row.reviewStatus ? { reviewStatus: row.reviewStatus } : {}),
       is_published: true,
       display_order: row.display_order ?? 0,
       updated_at: row.updated_at ?? null,
+      ...(row.last_reviewed ? { last_reviewed: row.last_reviewed } : {}),
       direct_answer: row.direct_answer ?? null,
       citations: row.citations ?? null,
     },
@@ -236,7 +252,19 @@ async function main() {
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
     const entry = buildEntry(row, extractFaqs, coverMap);
-    if (entry) data[`/blog/${row.slug}`] = entry;
+    if (entry) {
+      // Link every article back into its existing topic and to nearby guides.
+      // All destinations come from the same published inventory, never guessed slugs.
+      const topic = categoryKey(row.category);
+      const terms = new Set(`${row.title} ${row.keywords || ''}`.toLowerCase().match(/[a-z]{4,}/g) || []);
+      const peers = rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
+        .map((p) => ({ post: p, score: (p.title.toLowerCase().match(/[a-z]{4,}/g) || []).filter((t) => terms.has(t)).length }))
+        .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3);
+      entry.relatedLinks = [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
+        ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
+        ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+      data[`/blog/${row.slug}`] = entry;
+    }
   }
 
   writeFileSync(OUT, `${JSON.stringify(data, null, 2)}\n`);

@@ -172,13 +172,9 @@ for (const file of pages) {
   if (/<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
     // Soft-404 / not-found templates keep noindex — only fail when a sitemap
     // URL (or any non-allowlisted route if sitemap missing) ships noindex.
-    const isNotFoundHead = /Page not found \| Living With Arthritis/i.test(
-      html,
-    );
     const inSitemap = sitemapRoutes ? sitemapRoutes.has(route) : true;
     if (
       !isAllowedNoindexPrefix(route) &&
-      !isNotFoundHead &&
       inSitemap
     ) {
       noindex.push(route);

@@ -1,17 +1,19 @@
 ﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
+
+const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
-import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -180,6 +182,7 @@ const Header = () => {
         { label: "Ways to Help", desc: "All the ways you can support us", icon: Heart, href: "/ways-to-help", action: () => navigate("/ways-to-help"), color: "text-primary bg-primary/10" },
       ],
     },
+    { label: "Shop", href: SHOP_URL },
     {
       label: "Research",
       href: "/research",
@@ -232,6 +235,7 @@ const Header = () => {
     { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: "Shop", icon: ShoppingBag, desc: "Living With Arthritis merchandise", href: SHOP_URL },
     { label: "Corporate Partnerships", icon: Globe, desc: "Formal partnership programme", href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships") },
     { label: "Resource Centre", icon: BookOpen, desc: "Guides, tools, PIP, exercise & chat", href: "/resource-centre", action: () => navigate("/resource-centre") },
     { label: "Healthcare Professionals", icon: Stethoscope, desc: "Clinic pack & shareable pages", href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals") },
@@ -291,16 +295,20 @@ const Header = () => {
       >
 
 
-        {/* Site-wide update announcement banner — top of sticky header */}
-        <SiteAnnouncementBanner />
+        <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
+          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
+        </aside>
+
         {/* Donation Quick Bar — top of sticky header */}
         {/* Placeholder reserves the bar's real (flex-wrapped) height per
             viewport width so the lazy bar mounting doesn't shift the page
             (was a fixed 52px → CLS ~0.12 on phones). See
             .donation-quickbar-placeholder in index.css. */}
-        <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
-          <DonationQuickBar />
-        </Suspense>
+        <ErrorBoundary fallback={null} resetKey={pathname}>
+          <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
+            <DonationQuickBar />
+          </Suspense>
+        </ErrorBoundary>
 
         {/* Logo Bar */}
         <div
@@ -354,17 +362,6 @@ const Header = () => {
               >
                 <Search size={18} aria-hidden="true" />
               </Button>
-              <a
-                href={GOFUNDME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
-              >
-                <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
-                <span className="hidden sm:inline">Donate Now</span>
-                <span className="sm:hidden">Donate</span>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
 
               <Button
                 variant="ghost"
@@ -410,6 +407,7 @@ const Header = () => {
                   const active = isLinkActive(link);
                   const open = activeDropdown === link.label;
                   const isHash = link.href.startsWith("#");
+                  const isExternal = /^https?:\/\//.test(link.href);
                   const topLevelHandlers = {
                     onClick: (e: MouseEvent) => {
                       if (link.subs) {
@@ -419,7 +417,7 @@ const Header = () => {
                         if (link.action) {
                           e.preventDefault();
                           link.action();
-                        } else {
+                        } else if (!isExternal) {
                           scrollToSection(link.href);
                         }
                         setActiveDropdown(null);
@@ -433,7 +431,7 @@ const Header = () => {
                     "aria-expanded": link.subs ? open : undefined,
                     "aria-haspopup": link.subs ? ("true" as const) : undefined,
                     "aria-current": active ? ("page" as const) : undefined,
-                    className: `relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                    className: `relative px-2 xl:px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                       open
                         ? "text-primary bg-primary/5"
                         : active
@@ -444,6 +442,7 @@ const Header = () => {
                   const topLevelContent = (
                     <>
                       {link.label}
+                      {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
                       {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />}
                       {/* Magazine-style active indicator */}
                       <span
@@ -464,7 +463,9 @@ const Header = () => {
                         rendering support. Hash-only items (e.g. "Resources", which
                         opens a drawer, not a real route) stay buttons since there's
                         no destination URL to expose. */}
-                    {isHash ? (
+                    {isExternal ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" {...topLevelHandlers}>{topLevelContent}</a>
+                    ) : isHash ? (
                       <button {...topLevelHandlers}>{topLevelContent}</button>
                     ) : (
                       <Link to={link.href} {...topLevelHandlers}>{topLevelContent}</Link>
@@ -555,19 +556,7 @@ const Header = () => {
                   );
                 })}
 
-                {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
-                <a
-                  href={GOFUNDME_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
-                >
-                  <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
-                  Donate Now
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-
-                {/* Ways to Help — demoted to a quiet text link to avoid competing with primary Donate CTA */}
+                {/* Ways to Help */}
                 <Link
                   to="/ways-to-help"
                   className="ms-3 inline-flex items-center gap-1 text-[12px] font-semibold text-muted-foreground hover:text-primary underline-offset-4 hover:underline transition-colors duration-200"
@@ -630,6 +619,7 @@ const Header = () => {
                     ? pathname === "/"
                     : pathname === item.href || pathname.startsWith(`${item.href}/`);
                 const isHashItem = item.href.startsWith("#");
+                const isExternalItem = /^https?:\/\//.test(item.href);
                 const commonProps = {
                   "aria-current": active ? ("page" as const) : undefined,
                   onClick: () => {
@@ -662,12 +652,14 @@ const Header = () => {
                       <Icon className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className="block truncate">{item.label}</span>
+                      <span className="block truncate">{item.label}{isExternalItem && <span className="sr-only"> (opens in a new tab)</span>}</span>
                       <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
                     </div>
                   </>
                 );
-                return isHashItem ? (
+                return isExternalItem ? (
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" {...commonProps}>{content}</a>
+                ) : isHashItem ? (
                   <button key={item.label} {...commonProps}>{content}</button>
                 ) : (
                   <Link key={item.label} to={item.href} {...commonProps}>{content}</Link>

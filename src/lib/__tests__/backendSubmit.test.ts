@@ -73,6 +73,18 @@ describe("backendSubmit newsletter + mailto", () => {
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
   });
 
+  it.each([{ success: false }, { success: "false" }, { message: "Activation required" }])("does not claim signup success for a rejected 200 response: %j", async (payload) => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(payload), { status: 200 })));
+    const result = await subscribeNewsletter({ email: "jane@example.com" });
+    expect(result.ok).toBe(false);
+    expect(result.via).toBe("mailto");
+  });
+
+  it("accepts the provider's string success response", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ success: "true" }), { status: 200 })));
+    expect((await subscribeNewsletter({ email: "jane@example.com" })).ok).toBe(true);
+  });
+
   it("opens mailto for contact inquiry", async () => {
     const result = await submitContactInquiry({
       name: "Jane",

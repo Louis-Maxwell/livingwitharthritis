@@ -5,25 +5,18 @@ import PageHero from "@/components/ui/PageHero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Clock, ArrowRight, Shield, FlaskConical, Utensils, Activity, Brain } from "lucide-react";
+import { Clock, ArrowRight, Shield, FlaskConical, Utensils, Activity, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
-const experts = [
-  { role: "HCPC Registered Physiotherapist", credentials: "MSc Physiotherapy, BSc Sport Science", specialty: "Musculoskeletal Rehabilitation" },
-  { role: "Consultant Rheumatologist", credentials: "MBBS, MRCP, PhD Rheumatology", specialty: "Inflammatory Arthritis" },
-  { role: "Registered Dietitian", credentials: "BSc Nutrition & Dietetics, HCPC", specialty: "Anti-Inflammatory Nutrition" },
-  { role: "Clinical Psychologist", credentials: "DClinPsy, BPS Chartered", specialty: "Chronic Pain Psychology" },
-];
-
-const CONTRIBUTOR_BYLINE = "Living With Arthritis Clinical Review Board";
+const CONTRIBUTOR_BYLINE = "Living With Arthritis editorial team";
+const REVIEW_STATUS_LABEL = "Clinically reviewed";
 
 const articles = [
   {
     title: "Understanding Biologics: A Patient's Guide to Modern RA Treatment",
     author: CONTRIBUTOR_BYLINE,
-    authorRole: "Consultant Rheumatologist",
     date: "March 2026",
     readTime: "12 min read",
     category: "Treatment",
@@ -60,7 +53,6 @@ Regular monitoring with blood tests every 3-6 months is essential. If a biologic
   {
     title: "The Science Behind Exercise and Joint Cartilage Health",
     author: CONTRIBUTOR_BYLINE,
-    authorRole: "HCPC Registered Physiotherapist",
     date: "February 2026",
     readTime: "10 min read",
     category: "Exercise",
@@ -91,7 +83,7 @@ The evidence base for exercise in OA management is now substantial:
 
 **Practical Recommendations**
 
-For patients with knee or hip OA, I recommend:
+For many people with knee or hip OA, a sensible starting plan (agreed with your physiotherapist or GP) is:
 1. **Strengthening exercises** 2-3 times per week (focus on quadriceps, gluteals, hamstrings)
 2. **Low-impact aerobic activity** for 150 minutes per week (walking, cycling, swimming)
 3. **Flexibility work** daily (gentle stretches, yoga adapted for arthritis)
@@ -102,7 +94,6 @@ Start slowly and progress gradually. Some discomfort during exercise is normal, 
   {
     title: "Anti-Inflammatory Nutrition: What the Evidence Actually Shows",
     author: CONTRIBUTOR_BYLINE,
-    authorRole: "Registered Dietitian",
     date: "January 2026",
     readTime: "14 min read",
     category: "Nutrition",
@@ -153,7 +144,6 @@ For knee and hip OA, weight management is arguably the most powerful dietary int
   {
     title: "Managing the Mental Health Impact of Chronic Joint Pain",
     author: CONTRIBUTOR_BYLINE,
-    authorRole: "Clinical Psychologist",
     date: "December 2025",
     readTime: "11 min read",
     category: "Mental Health",
@@ -176,7 +166,7 @@ Research consistently shows that psychological factors like depression, anxiety,
 
 **Common Psychological Challenges**
 
-In my clinical practice with arthritis patients, I frequently encounter:
+People living with arthritis often describe:
 
 1. **Grief and loss** — mourning the life and abilities you had before diagnosis
 2. **Uncertainty anxiety** — fear about disease progression and future disability
@@ -214,14 +204,14 @@ export default function ExpertArticles() {
   return (
     <>
       <Helmet>
-        <title>Expert Arthritis Articles by UK Clinicians</title>
+        <title>In-depth Arthritis Articles (UK guide) | Living With Arthritis</title>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "name": "Expert Arthritis Articles",
+          "name": "In-depth Arthritis Articles",
           "url": "https://livingwitharthritis.org.uk/expert-articles",
           "inLanguage": "en-GB",
-          "description": "Clinician-written, evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists.",
+          "description": "In-depth, evidence-informed arthritis articles from the Living With Arthritis editorial team, drawing on NICE guidance, NHS information and peer-reviewed research. Clinically reviewed.",
           "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
           "hasPart": articles ? undefined : undefined
         })}</script>
@@ -241,9 +231,9 @@ export default function ExpertArticles() {
             }
           }))
         })}</script>
-        <meta name="description" content="Evidence-based arthritis articles by HCPC physiotherapists, consultant rheumatologists, registered dietitians and clinical psychologists." />
-      <meta property="og:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis" />
-      <meta property="og:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
+        <meta name="description" content="In-depth arthritis articles on biologics, exercise, diet and emotional health from a UK charity, drawing on NICE and NHS guidance. Educational, not diagnostic." />
+      <meta property="og:title" content="In-depth Arthritis Articles (UK guide) | Living With Arthritis" />
+      <meta property="og:description" content="In-depth arthritis articles on biologics, exercise, diet and emotional health from a UK charity, drawing on NICE and NHS guidance. Educational, not diagnostic." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/expert-articles" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -251,38 +241,30 @@ export default function ExpertArticles() {
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Expert Articles | Living With Arthritis" />
+        <meta property="og:image:alt" content="In-depth arthritis articles | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Expert Articles – Clinician-Written Arthritis Guides | Living With Arthritis" />
-      <meta name="twitter:description" content="Evidence-based arthritis articles written by HCPC physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists. Expert UK health content." />
+      <meta name="twitter:title" content="In-depth Arthritis Articles (UK guide) | Living With Arthritis" />
+      <meta name="twitter:description" content="In-depth arthritis articles on biologics, exercise, diet and emotional health from a UK charity, drawing on NICE and NHS guidance. Educational, not diagnostic." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
         <main id="main-content">
           <PageHero
-            title="Expert-Contributed Articles"
-            subtitle="Evidence-based content written by HCPC registered physiotherapists, consultant rheumatologists, registered dietitians, and clinical psychologists."
+            title="In-depth Arthritis Articles"
+            subtitle="Longer reads on treatment, exercise, diet and emotional health, drawing on NICE guidance, NHS information and peer-reviewed research."
           />
 
-          {/* Expert panel */}
-          <section className="bg-muted/30 py-10 border-y border-border/50">
-            <div className="container mx-auto px-4">
-              <h2 className="text-lg font-semibold text-center mb-6 text-foreground">Our Clinical Contributors</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-                {experts.map(e => (
-                  <Card key={e.role} className="text-center border-primary/10">
-                    <CardContent className="p-4 space-y-1">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
-                        <GraduationCap className="w-5 h-5 text-primary" />
-                      </div>
-                      <p className="font-semibold text-sm text-foreground">{e.role}</p>
-                      <p className="text-xs text-primary">{e.specialty}</p>
-                      <p className="text-xs text-muted-foreground">{e.credentials}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+          {/* Who writes these articles */}
+          <section className="bg-muted/30 py-10 border-y border-border/50" aria-labelledby="who-writes">
+            <div className="container mx-auto px-4 max-w-3xl text-center space-y-3">
+              <h2 id="who-writes" className="text-lg font-semibold text-foreground">Who writes these articles</h2>
+              <p className="text-sm text-muted-foreground">
+                These articles are prepared by the Living With Arthritis editorial team. Living With Arthritis is a UK charity (registered charity 1218461) founded by Louis Maxwell, an HCPC-registered physiotherapist (PH128483). These articles have been clinically reviewed. They are general information, not a diagnosis or personal medical advice.
+              </p>
+              <p className="text-sm">
+                <Link to="/about/editorial-claims-policy" className="text-primary underline underline-offset-4">Read our editorial and claims policy</Link>
+              </p>
             </div>
           </section>
 
@@ -309,7 +291,7 @@ export default function ExpertArticles() {
                       <CardTitle className="text-xl leading-tight">{article.title}</CardTitle>
                       <div className="flex items-center gap-2 mt-2">
                         <Shield className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-muted-foreground">{article.author} — <span className="text-primary">{article.authorRole}</span></span>
+                        <span className="text-sm text-muted-foreground">{article.author} — <span className="text-primary">{REVIEW_STATUS_LABEL}</span></span>
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -354,8 +336,8 @@ export default function ExpertArticles() {
           {/* CTA */}
           <section className="bg-primary/5 py-12">
             <div className="container mx-auto px-4 text-center max-w-2xl space-y-4">
-              <h2 className="text-2xl font-bold text-foreground">Want More Expert Content?</h2>
-              <p className="text-muted-foreground">Our clinical team publishes new evidence-based articles every week on the blog.</p>
+              <h2 className="text-2xl font-bold text-foreground">Looking for more guides?</h2>
+              <p className="text-muted-foreground">Our blog has plain-English guides on pain, exercise, diet, work and benefits in the UK.</p>
               <Button asChild><Link to="/blog">Browse All Articles <ArrowRight className="w-4 h-4 ml-1" /></Link></Button>
             </div>
           </section>

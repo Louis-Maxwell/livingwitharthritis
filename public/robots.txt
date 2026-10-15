@@ -4,18 +4,9 @@
 # AI assistants: https://livingwitharthritis.org.uk/llms.txt
 # are private and noindex'd via SeoHead as belt-and-braces.
 #
-# /site-index added below to match public/.well-known/ai.txt and the
-# sitemap generator's own "private/utility" exclusion list for this page
-# (an HTML sitemap listing with no standalone content value to cite).
-# ai.txt previously also disallowed /chat, which contradicted the /chat
-# decision above — removed there instead of duplicated here.
+# Public HTML directory /site-index remains crawlable for link discovery.
+# Crawling permission does not guarantee indexing or AI citation.
 
-# An automated audit flagged DuckDuckBot and the Internet Archive bot as
-# blocked. DuckDuckBot already has an explicit Allow: / rule further down
-# (same shape as Googlebot/Bingbot) so nothing changes there. The Internet
-# Archive crawler had no rule at all, so it fell through to the wildcard
-# group — added an explicit allow for both known user-agent token variants
-# it uses, for clarity.
 User-agent: ia_archiver
 Allow: /
 
@@ -30,7 +21,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Googlebot
 Allow: /
@@ -45,7 +35,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Bingbot
 Allow: /
@@ -60,7 +49,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: DuckDuckBot
 Allow: /
@@ -75,7 +63,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Applebot
 Allow: /
@@ -88,7 +75,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Twitterbot
 Allow: /
@@ -101,7 +87,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: facebookexternalhit
 Allow: /
@@ -114,7 +99,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: LinkedInBot
 Allow: /
@@ -127,7 +111,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Slackbot
 Allow: /
@@ -140,7 +123,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: GPTBot
 Allow: /
@@ -153,7 +135,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: ChatGPT-User
 Allow: /
@@ -166,7 +147,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -179,7 +159,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: CCBot
 Allow: /
@@ -192,7 +171,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: anthropic-ai
 Allow: /
@@ -205,7 +183,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Claude-Web
 Allow: /
@@ -218,7 +195,19 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
+
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+Disallow: /admin
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /callback
+Disallow: /donation-result
+Disallow: /unsubscribe
+Disallow: /newsletter/confirm
+Disallow: /debug/
 
 User-agent: ClaudeBot
 Allow: /
@@ -231,7 +220,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Google-Extended
 Allow: /
@@ -244,7 +232,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: PerplexityBot
 Allow: /
@@ -257,7 +244,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Perplexity-User
 Allow: /
@@ -270,7 +256,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 
 User-agent: FacebookBot
@@ -284,7 +269,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 # Additional AI / answer-engine crawlers explicitly allowed.
 User-agent: Amazonbot
@@ -298,7 +282,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Applebot-Extended
 Allow: /
@@ -311,7 +294,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Google-CloudVertexBot
 Allow: /
@@ -324,7 +306,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: meta-externalagent
 Allow: /
@@ -337,7 +318,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: YouBot
 Allow: /
@@ -350,7 +330,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: cohere-ai
 Allow: /
@@ -363,7 +342,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 # SEO tooling crawlers are allowed so the site can be audited.
 User-agent: SemrushBot
@@ -377,7 +355,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: SemrushBot-SA
 Allow: /
@@ -390,7 +367,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: SemrushBot-BA
 Allow: /
@@ -403,7 +379,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: AhrefsBot
 Allow: /
@@ -416,7 +391,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: AhrefsSiteAudit
 Allow: /
@@ -429,7 +403,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: MJ12bot
 Allow: /
@@ -442,7 +415,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: DotBot
 Allow: /
@@ -455,7 +427,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: DataForSeoBot
 Allow: /
@@ -468,7 +439,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: serpstatbot
 Allow: /
@@ -481,7 +451,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: rogerbot
 Allow: /
@@ -494,7 +463,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: SiteAuditBot
 Allow: /
@@ -507,7 +475,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: YandexBot
 Allow: /
@@ -520,7 +487,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Baiduspider
 Allow: /
@@ -533,7 +499,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 User-agent: Bytespider
 Disallow: /
@@ -575,6 +540,7 @@ User-agent: *
 # AI-readable summaries are intentionally public; keep private utility routes below blocked.
 Allow: /
 Allow: /llms.txt
+Allow: /answer-engine.json
 Allow: /.well-known/llms.txt
 Allow: /.well-known/ai.txt
 Allow: /authors/
@@ -588,7 +554,6 @@ Disallow: /debug/
 Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
-Disallow: /site-index
 
 Sitemap: https://livingwitharthritis.org.uk/sitemap-index.xml
 Sitemap: https://livingwitharthritis.org.uk/sitemap.xml

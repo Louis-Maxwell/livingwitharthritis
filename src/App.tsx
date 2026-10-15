@@ -1,3 +1,4 @@
+import { analyticsUrl } from "@/lib/analytics-url";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
@@ -32,7 +33,6 @@ const LocalizedOsteoarthritis = lazyWithRetry(() => import("./pages/LocalizedOst
 
 const ChatBotWidget = lazyWithRetry(() => import("./components/ChatBotWidget"));
 const CookieBanner = lazyWithRetry(() => import("./components/landing/CookieBanner"));
-const AccessibilityToolbar = lazyWithRetry(() => import("./components/AccessibilityToolbar"));
 const MobileBottomNav = lazyWithRetry(() => import("./components/MobileBottomNav"));
 const MobileNextStepBar = lazyWithRetry(() => import("./components/MobileNextStepBar"));
 const EngagementTracker = lazyWithRetry(() => import("./components/EngagementTracker"));
@@ -274,14 +274,16 @@ function AnimatedRoutes() {
     const sendPageView = () => {
       const w = window as unknown as { gtag?: (...a: unknown[]) => void };
       if (typeof w.gtag !== "function") return;
-      const page_path = location.pathname + location.search;
+      const page_location = analyticsUrl(window.location.href);
+      const page_path = page_location ? new URL(page_location).pathname : location.pathname;
       const now = Date.now();
       if (page_path === lastKey && now - lastAt < 1000) return;
       lastKey = page_path;
       lastAt = now;
       w.gtag("event", "page_view", {
         page_path,
-        page_location: window.location.href,
+        page_location,
+        page_referrer: analyticsUrl(document.referrer) || "",
         page_title: document.title,
         send_to: "G-ZLLSD3PXZ9",
       });
@@ -589,7 +591,6 @@ const App = () => {
                     <CookieBanner />
                     <MobileBottomNav />
                     <MobileNextStepBar />
-                    <AccessibilityToolbar />
                   </Suspense>
                 </ErrorBoundary>
               </DeferredMount>

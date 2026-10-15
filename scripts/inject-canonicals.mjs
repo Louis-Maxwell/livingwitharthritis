@@ -28,6 +28,8 @@
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
+import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
+import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
 import { resolve, join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRERENDER_ROUTES } from "./prerender-routes.mjs";
@@ -37,6 +39,7 @@ import {
   embedArticleJson,
   htmlHasFullArticle,
   replaceSeoFallback,
+  stripToText,
 } from "./static-article-html.mjs";
 import { exactRedirectPathSet, CITY_HUBS, CITY_SLUGS } from "./seo-redirect-map.mjs";
 
@@ -59,6 +62,10 @@ const readJson = (path) =>
 // bundle instead of only after the entry has run.
 const VITE_MANIFEST = readJson(join(DIST, ".vite", "manifest.json"));
 const BLOG_POST_ENTRY = "src/pages/BlogPost.tsx";
+const CRITICAL_ROUTE_ENTRIES = {
+  "/blog": "src/pages/BlogIndex.tsx",
+  "/conditions/osteoarthritis": "src/pages/conditions/Osteoarthritis.tsx",
+};
 
 /** The chunk for `entry` plus its static imports, as /assets/... URLs. */
 export function chunkPreloadUrls(manifest, entry) {
@@ -111,7 +118,7 @@ function authorHeadData() {
         question: `${record.name} — ${label.toLowerCase()} profile`,
         answer: [
           prefix === "reviewers"
-            ? `${record.name} medically reviews Living With Arthritis content as a ${record.title}${credential ? ` (${credential})` : ""}, checking each guide for clinical accuracy before publication.`
+            ? `${record.name} medically reviews Living With Arthritis content as a ${record.title}${credential ? ` (${credential})` : ""}, supporting documented clinical review and source checks.`
             : `${record.name} writes Living With Arthritis guides as a ${record.title}${credential ? ` (${credential})` : ""}, drawing on day-to-day UK musculoskeletal practice.`,
           bio,
         ]
@@ -163,6 +170,7 @@ const AI_DATA = mergeHeadLayers(
   readJson(CONDITION_DATA_PATH),
   readJson(LIBRARY_DATA_PATH),
   readJson(HUB_GUIDE_DATA_PATH),
+  readJson(resolve("scripts/editorial-head-data.json")),
   authorHeadData(),
   readJson(AI_DATA_PATH),
 );
@@ -171,6 +179,25 @@ const BLOG_SLUGS_PATH = resolve("src/data/blog-slugs.generated.json");
 const BLOG_SLUGS = new Set(
   existsSync(BLOG_SLUGS_PATH) ? readJson(BLOG_SLUGS_PATH) : [],
 );
+const STATIC_APP_ROUTES = new Set(appRoutes());
+
+function blogArchiveHeadData() {
+  const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
+  const guides = (Array.isArray(posts) ? posts : [])
+    .filter((post) => BLOG_SLUGS.has(post.slug))
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  return {
+    title: "Arthritis blog archive — browse by date and topic | Living With Arthritis",
+    description: "Browse the Living With Arthritis archive of published guides on exercise, joint pain, treatments, diet and everyday support.",
+    question: "Browse all arthritis guides",
+    answer: "Find published Living With Arthritis guides in date order. Each guide shows its own clinical-review status. Explore practical information on arthritis, exercise, diet, treatments and everyday support.",
+    breadcrumb: "Blog archive",
+    bodyHtml: `<p><a href="/blog">Explore guides by topic</a></p><ul>${guides.map((post) =>
+      `<li><a href="/blog/${escAttr(post.slug)}">${escText(post.title)}</a>${post.date ? ` — ${escText(String(post.date).slice(0, 10))}` : ""}</li>`
+    ).join("")}</ul>`,
+    noindex: false,
+  };
+}
 
 const NOT_FOUND_HEAD = {
   title: "Page not found | Living With Arthritis",
@@ -178,17 +205,18 @@ const NOT_FOUND_HEAD = {
     "The page you are looking for could not be found. Search Living With Arthritis or pick a popular guide instead.",
   question: "Page not found",
   answer:
-    "This URL is not a published Living With Arthritis page. Use search or the guides hub to find clinically reviewed arthritis information.",
+    "This URL is not a published Living With Arthritis page. Use search or the guides hub to find educational arthritis and frailty information.",
   breadcrumb: "Page not found",
   noindex: true,
 };
 
-function headDataFor(route, override) {
+function baseHeadDataFor(route, override) {
   if (override) return override;
+  if (route === "/blog/archive") return blogArchiveHeadData();
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
-  if (blogMatch && !BLOG_SLUGS.has(blogMatch[1])) {
+  if (blogMatch && !STATIC_APP_ROUTES.has(route) && !BLOG_SLUGS.has(blogMatch[1])) {
     return NOT_FOUND_HEAD;
   }
   // Known city hubs: unique indexable heads (write-city-hub-html overwrites body).
@@ -220,6 +248,27 @@ function headDataFor(route, override) {
   return deriveHeadData(route);
 }
 
+// Expose the existing child pages on their own section landing pages in the
+// first response. This mirrors a directory rather than injecting a global
+// link list into every article, and makes no-JS navigation usable.
+const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
+  ? [...readFileSync(resolve('public/sitemap.xml'), 'utf8').matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)]
+      .map((m) => new URL(m[1]).pathname) : [];
+function headDataFor(route, override) {
+  const data = baseHeadDataFor(route, override);
+  if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
+  const children = SITEMAP_PATHS.filter((path) =>
+    (path.startsWith(`${route}/`) && !path.slice(route.length + 1).includes('/')) ||
+    (route === '/guides' && /^\/(conditions|tools|myths|daily-tips)\/[^/]+$/.test(path)) ||
+    (route === '/about' && /^\/campaigns\/[^/]+$/.test(path)));
+  if (!children.length) return data;
+  const links = [...(data.relatedLinks || []), ...children.map((path) => {
+    const child = baseHeadDataFor(path);
+    return { path, title: child.breadcrumb || child.question || child.title };
+  })];
+  return { ...data, relatedLinks: [...new Map(links.map((link) => [link.path, link])).values()] };
+}
+
 /** Exported for soft-404 unit tests. */
 export { headDataFor, NOT_FOUND_HEAD };
 
@@ -237,6 +286,7 @@ export function applyNoindexMeta(html) {
 // They still get a unique static title/description so no URL on the domain
 // serves the homepage head.
 const NOINDEX_PREFIXES = [
+  "/search",
   "/.lovable",
   "/account",
   "/admin",
@@ -314,6 +364,7 @@ function escText(s) {
  */
 export function patchShareMeta(html, d) {
   if (!d) return html;
+  d = normalizeStaticMeta(d);
   let out = html;
   if (d.title) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
@@ -341,6 +392,12 @@ export function patchShareMeta(html, d) {
     );
   }
   if (d.ogImage) {
+    // Prerendered templates can carry a homepage secure image. Keep the
+    // optional HTTPS image URL consistent with the route's actual cover.
+    out = out.replace(/<meta\b[^>]*property=["']og:image:secure_url["'][^>]*>\s*/gi, "");
+    if (d.ogImage.startsWith("https://")) {
+      out = out.replace(/<\/head>/i, `<meta property="og:image:secure_url" content="${escAttr(d.ogImage)}" />\n</head>`);
+    }
     out = out.replace(
       /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
       `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,
@@ -350,7 +407,7 @@ export function patchShareMeta(html, d) {
       `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
     );
   }
-  return out;
+  return d.article?.slug ? ensureArticleJsonLd(out, `${BASE}/blog/${d.article.slug}`, d) : out;
 }
 
 // JSON.stringify drops undefined object properties automatically, but we
@@ -361,28 +418,57 @@ function compact(obj) {
   );
 }
 
-function buildJsonLd(route, url, d) {
+export function buildJsonLd(route, url, d) {
   const graphs = [];
+  const article = d.article;
+  const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
+  const person = (name, credentials, prefix) => name && !/placeholder/i.test(name)
+    ? { "@type": /louis.*maxwell|^maxwell$/i.test(name) ? "Person" : "Organization", name,
+        ...(/louis.*maxwell|^maxwell$/i.test(name) ? {
+          ...(credentials ? { jobTitle: credentials } : {}), url: `${BASE}/${prefix}/maxwell` } : {}) } : undefined;
+  const author = person(article?.author, article?.author_credentials, "authors");
+  const reviewer = article?.reviewStatus !== "pending"
+    ? person(article?.reviewed_by, article?.reviewer_credentials, "reviewers") : undefined;
+  const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
+    .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
 
   // 1) MedicalWebPage — the page entity itself, tied to the sitewide
   //    Organization/WebSite nodes already present in the static head.
   graphs.push({
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": medical ? "MedicalWebPage" : "WebPage",
     "@id": `${url}#webpage`,
     url,
     name: d.title,
-    headline: d.question || d.title,
+    headline: article?.title || d.question || d.title,
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
-    about: d.about ? { "@type": "MedicalCondition", name: d.about } : undefined,
+    about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
+      : d.about ? { "@type": "Thing", name: d.about } : undefined,
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
-    audience: { "@type": "MedicalAudience", audienceType: "Patient", geographicArea: { "@type": "Country", name: "United Kingdom" } },
+    ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
+    ...(article ? { mainEntity: { "@id": `${url}#article` }, author, reviewedBy: reviewer,
+      ...(reviewer && article.last_reviewed ? { lastReviewed: article.last_reviewed } : {}) } : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,
+  });
+  if (article) graphs.push({
+    "@context": "https://schema.org", "@type": "Article", "@id": `${url}#article`,
+    headline: article.title, description: d.description, image: d.ogImage,
+    datePublished: article.date, dateModified: article.updated_at || article.date,
+    author, reviewedBy: reviewer, publisher: { "@id": `${BASE}/#organization` },
+    mainEntityOfPage: { "@id": `${url}#webpage` }, inLanguage: "en-GB",
+    isAccessibleForFree: true, articleSection: article.category,
+    wordCount: stripToText(article.content).split(/\s+/).filter(Boolean).length,
+    ...(citations.length ? { citation: citations } : {}),
+  });
+  if (d.definedTerm) graphs.push({
+    "@context": "https://schema.org", "@type": "DefinedTerm", "@id": `${url}#term`,
+    name: d.definedTerm.name, description: d.definedTerm.description, url,
+    inDefinedTermSet: `${BASE}/glossary`,
   });
 
   // 2) BreadcrumbList — Home → current page (always-valid two-level trail).
@@ -392,7 +478,8 @@ function buildJsonLd(route, url, d) {
     "@id": `${url}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-      { "@type": "ListItem", position: 2, name: d.breadcrumb || d.about || d.title, item: url },
+      ...(article ? [{ "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` }] : []),
+      { "@type": "ListItem", position: article ? 3 : 2, name: article?.title || d.breadcrumb || d.about || d.title, item: url },
     ],
   });
 
@@ -420,13 +507,13 @@ function buildJsonLd(route, url, d) {
   return graphs
     .map(
       (g) =>
-        `  <script type="application/ld+json">${JSON.stringify(compact(g))}</script>`,
+        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(compact(g)).replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n");
 }
 
 function enrichHead(html, route, url, override) {
-  const d = headDataFor(route, override);
+  const d = normalizeStaticMeta(headDataFor(route, override));
   if (!d) return html;
 
   let out = html;
@@ -460,6 +547,12 @@ function enrichHead(html, route, url, override) {
 
   // Per-route OG image (build-time satori output) when it exists.
   if (d.ogImage) {
+    // Prerendered templates can carry a homepage secure image. Keep the
+    // optional HTTPS image URL consistent with the route's actual cover.
+    out = out.replace(/<meta\b[^>]*property=["']og:image:secure_url["'][^>]*>\s*/gi, "");
+    if (d.ogImage.startsWith("https://")) {
+      out = out.replace(/<\/head>/i, `<meta property="og:image:secure_url" content="${escAttr(d.ogImage)}" />\n</head>`);
+    }
     out = out.replace(
       /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
       `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,
@@ -494,9 +587,13 @@ function enrichHead(html, route, url, override) {
   });
   if (d.article) {
     out = embedArticleJson(out, d.article);
-    out = addModulePreloads(out, chunkPreloadUrls(VITE_MANIFEST, BLOG_POST_ENTRY));
+
   }
 
+  // Discover the requested route and its dependencies in the first response,
+  // avoiding the entry -> route -> dependency waterfall on mobile networks.
+  const routeEntry = d.article ? BLOG_POST_ENTRY : CRITICAL_ROUTE_ENTRIES[route];
+  if (routeEntry) out = addModulePreloads(out, chunkPreloadUrls(VITE_MANIFEST, routeEntry));
   return out;
 }
 
@@ -571,7 +668,7 @@ function writeRouteFiles() {
       // still look like the homepage or only have a short answer teaser.
       // Still refresh title / description / og:image from head-data so
       // social crawlers pick up cover images after blog-head-data regen.
-      if (htmlHasFullArticle(existing, data)) {
+      if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data)) {
         let patched = data ? patchShareMeta(existing, data) : existing;
         if (!isNoindexRoute(route) && !data?.noindex) {
           patched = patchEnglishAlternates(patched, route, BASE);

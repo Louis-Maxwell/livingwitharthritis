@@ -1,3 +1,4 @@
+import { analyticsUrl } from "./analytics-url";
 import { onCLS, onFCP, onLCP, onINP, onTTFB } from 'web-vitals';
 
 type GtagFn = (command: "event" | "config" | "set" | "js", ...args: unknown[]) => void;
@@ -158,7 +159,7 @@ export const trackScrollDepth = (percent: 25 | 50 | 75 | 100): void => {
 
 export const trackExternalLink = (url: string, linkText?: string): void => {
   trackEvent("click_external_link", {
-    link_url: url,
+    link_url: analyticsUrl(url),
     link_text: linkText,
     event_category: "engagement",
   });
@@ -180,9 +181,8 @@ export const trackButtonClick = (buttonName: string, buttonLocation?: string): v
   });
 };
 
-export const trackSearch = (searchTerm: string, resultCount?: number): void => {
+export const trackSearch = (_searchTerm: string, resultCount?: number): void => {
   trackEvent("search", {
-    search_term: searchTerm,
     search_result_count: resultCount,
     event_category: "engagement",
   });
@@ -294,6 +294,7 @@ export interface CoreWebVitalsMetrics {
 }
 
 const metricsCache: CoreWebVitalsMetrics = {};
+let vitalsInitialized = false;
 
 const getRating = (metric: string, value: number): string => {
   const thresholds: Record<string, [number, number]> = {
@@ -312,7 +313,8 @@ const getRating = (metric: string, value: number): string => {
 };
 
 export const initWebVitals = (): CoreWebVitalsMetrics => {
-  if (typeof window === "undefined") return metricsCache;
+  if (typeof window === "undefined" || vitalsInitialized) return metricsCache;
+  vitalsInitialized = true;
 
   onLCP((metric) => {
     metricsCache.lcp = metric.value;

@@ -12,6 +12,7 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CITY_HUBS, SITE } from "./seo-redirect-map.mjs";
+import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 
 const DIST = resolve("dist");
 
@@ -37,10 +38,11 @@ function assetTagsFromIndex(indexHtml) {
 }
 
 export function buildCityHubHtml(city, assetTags = "") {
-  const title = `Arthritis Support in ${city.name} | Living With Arthritis`;
-  const description =
-    city.description ||
-    `Arthritis support information for people in ${city.name} from Living With Arthritis, a national UK charity.`;
+  const { title, description } = normalizeStaticMeta({
+    title: `Arthritis Support in ${city.name} | Living With Arthritis`,
+    description: city.description ||
+      `Arthritis support information for people in ${city.name} from Living With Arthritis, a national UK charity.`,
+  });
   const path = `/arthritis-support/${city.slug}`;
   const abs = `${SITE}${path}`;
   const regionBit = city.region ? ` (${escapeHtml(city.region)})` : "";

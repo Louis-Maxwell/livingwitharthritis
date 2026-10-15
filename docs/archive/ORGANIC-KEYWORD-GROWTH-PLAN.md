@@ -139,17 +139,17 @@ These pull from two sources:
 2. **llms.txt / ai.txt** — your site already has these (we built them)
 
 What's already done:
-✅ llms.txt exists with all pillar pages listed
-✅ ai.txt exists
-✅ AITransparency page with HCPC credentials
-✅ Structured data (FAQPage, MedicalWebPage schema) on pages
+Yes llms.txt exists with all pillar pages listed
+Yes ai.txt exists
+Yes AITransparency page with HCPC credentials
+Yes Structured data (FAQPage, MedicalWebPage schema) on pages
 
 What still needs doing:
-⬜ Every article needs a clear, quotable "Quick Answer" paragraph
+Pending Every article needs a clear, quotable "Quick Answer" paragraph
    in the first 100 words — AI engines pull these for citations
-⬜ Your HCPC reviewer credentials need to be on EVERY page
+Pending Your HCPC reviewer credentials need to be on EVERY page
    (currently inconsistent) — AI engines weight named experts
-⬜ Each article should have an explicit "Last reviewed: [date]"
+Pending Each article should have an explicit "Last reviewed: [date]"
    in the HTML — AI engines prefer recently-reviewed medical content
 
 **The AI citation formula:**
@@ -171,13 +171,13 @@ Your current E-E-A-T gaps vs a strong site:
 
 | Signal | Status |
 |---|---|
-| Author named on every page | ⚠️ Inconsistent |
-| Author credentials verifiable (HCPC link) | ✅ Done |
-| Publication + last-reviewed dates | ⚠️ Inconsistent |
-| Cited NICE guidelines by number | ⚠️ Some pages only |
-| External references (NHS, peer review) | ⚠️ Some pages only |
-| Patient testimonials / case studies | ⬜ Missing |
-| Named editorial board | ⬜ Missing |
+| Author named on every page |  Inconsistent |
+| Author credentials verifiable (HCPC link) | Yes Done |
+| Publication + last-reviewed dates |  Inconsistent |
+| Cited NICE guidelines by number |  Some pages only |
+| External references (NHS, peer review) |  Some pages only |
+| Patient testimonials / case studies | Pending Missing |
+| Named editorial board | Pending Missing |
 
 ---
 
@@ -285,8 +285,8 @@ KPI targets at Month 12:
 ## THE AI PLATFORMS SPECIFICALLY — EXACT ACTIONS
 
 ### For ChatGPT (GPT-4o web search):
-GPTBot is already allowed in your robots.txt ✅
-Your llms.txt lists your pillar pages ✅
+GPTBot is already allowed in your robots.txt Yes
+Your llms.txt lists your pillar pages Yes
 Action needed: Add a "Quick Answer" box to every article.
 Format: One paragraph, 40–60 words, directly answering the
 page's primary question. Label it "Quick Answer:" so AI
@@ -295,38 +295,38 @@ engines recognise it as a citation target.
 ### For Microsoft Copilot:
 Copilot uses Bing's index.
 Action needed: Submit sitemap to Bing Webmaster Tools.
-Your robots.txt already allows Bingbot ✅
+Your robots.txt already allows Bingbot Yes
 
 ### For Grok (X.com AI):
 Grok currently indexes public web content via X/Twitter.
 Action needed: Create a Living With Arthritis UK Twitter/X
 account and share article links regularly.
-Your robots.txt allows Twitterbot ✅
+Your robots.txt allows Twitterbot Yes
 
 ### For Perplexity:
-PerplexityBot is already allowed in your robots.txt ✅
+PerplexityBot is already allowed in your robots.txt Yes
 Action needed: Ensure every page has clear H2 headings
 phrased as questions (e.g. "What causes arthritis?") —
 Perplexity prioritises pages with direct question/answer structure.
 
 ### For Claude (Anthropic):
-anthropic-ai, Claude-Web, ClaudeBot are all allowed ✅
-anthropic-ai is in your llms.txt ✅
+anthropic-ai, Claude-Web, ClaudeBot are all allowed Yes
+anthropic-ai is in your llms.txt Yes
 
 ---
 
 ## PRIORITY ORDER — DO THESE FIRST
 
-1. ✅ DONE — robots.txt, llms.txt, ai.txt, HSTS, sitemap clean
-2. ✅ DONE — 218 PDFs, 50K keywords, SEO blueprint
-3. 🔴 TODAY — Submit sitemaps to Google Search Console
-4. 🔴 TODAY — Submit sitemaps to Bing Webmaster Tools
-5. 🔴 THIS WEEK — Request indexing for top 20 pages
-6. 🟠 THIS MONTH — Expand knee/gout/hip/hand pages to 1,500+ words
-7. 🟠 THIS MONTH — Add "Quick Answer" paragraph to every article
-8. 🟡 NEXT MONTH — Submit to ARMA, NHS directories
-9. 🟡 NEXT MONTH — Start World Arthritis Day PR campaign
-10. 🟢 ONGOING — 4–6 new articles/month, 2 referring domains/month
+1. Yes DONE — robots.txt, llms.txt, ai.txt, HSTS, sitemap clean
+2. Yes DONE — 218 PDFs, 50K keywords, SEO blueprint
+3. Critical TODAY — Submit sitemaps to Google Search Console
+4. Critical TODAY — Submit sitemaps to Bing Webmaster Tools
+5. Critical THIS WEEK — Request indexing for top 20 pages
+6. High THIS MONTH — Expand knee/gout/hip/hand pages to 1,500+ words
+7. High THIS MONTH — Add "Quick Answer" paragraph to every article
+8. Medium NEXT MONTH — Submit to ARMA, NHS directories
+9. Medium NEXT MONTH — Start World Arthritis Day PR campaign
+10. Low ONGOING — 4–6 new articles/month, 2 referring domains/month
 
 ---
 

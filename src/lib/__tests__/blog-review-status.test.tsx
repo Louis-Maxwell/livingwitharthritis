@@ -83,10 +83,146 @@ const PENDING_CHAMPIONS_62_73 = [
   "vitamin-d-winter-arthritis-frailty-uk",
   "sleep-quality-arthritis-pain",
   "arthritis-and-sleep-problems",
+  // Champions 74–75 (13 Oct)
+  "gout-winter-dehydration-frailty-uk",
+  "sleep-and-pain-management-arthritis",
+  // Champions 76–78 (14 Oct)
+  "chest-infection-arthritis-frailty-uk",
+  "ice-snow-arthritis-frailty-uk",
+  "ra-steroids-frailty-infection-watch-uk",
+  // Champions 79–81 (15 Oct)
+  "steroid-emergency-card-frail-arthritis-uk",
+  "shingles-vaccine-arthritis-frailty-uk",
+  "uti-confusion-arthritis-frailty-uk",
 ];
 
-describe("Champions 62–67 guides awaiting clinical review", () => {
-  it.each(PENDING_CHAMPIONS_62_73)("%s is pending in the post, catalog, review index and head data", (slug) => {
+/**
+ * Unique tools and community batch 6 (topics 91–100): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_UNIQUE_BATCH_6 = [
+  "arthritis-symptoms-what-to-do-next",
+  "arthritis-flare-early-warning-signs",
+  "daily-arthritis-planner-printable",
+  "gadgets-aids-arthritis-uk",
+  "walking-aids-arthritis-uk",
+  "best-walking-shoes-arthritis-uk",
+  "best-mattress-for-arthritis-uk",
+  "ask-the-physio-arthritis",
+  "arthritis-roadmaps-uk",
+];
+
+/**
+ * Waiting for Treatment and Life with Arthritis batch 5 (topics 71–90): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_WAITING_LIFE_BATCH_5 = [
+  "rheumatology-appointment-what-to-expect-uk",
+  "preparing-for-joint-replacement-uk",
+  "questions-to-ask-your-consultant-arthritis",
+  "mri-scan-arthritis-explained",
+  "x-ray-arthritis-explained",
+  "arthritis-blood-tests-explained-uk",
+  "how-nhs-referrals-work-arthritis",
+  "nhs-arthritis-pathways-explained",
+  "private-treatment-costs-uk-arthritis",
+  "driving-with-arthritis-uk",
+  "travel-insurance-arthritis-uk",
+  "flying-with-arthritis-uk-airports",
+  "travelling-with-arthritis-uk",
+  "arthritis-and-gardening-uk",
+  "cooking-with-arthritis-uk",
+  "parenting-with-arthritis-uk",
+  "caring-for-parent-with-arthritis",
+  "dating-with-arthritis-confidence",
+];
+
+/**
+ * Diet & Nutrition batch 4 (topics 56–70): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_DIET_NUTRITION_BATCH_4 = [
+  "anti-inflammatory-diet",
+  "vitamin-d-arthritis-uk",
+  "arthritis-and-omega-3-fish-oil",
+  "turmeric-curcumin-arthritis-evidence",
+  "ginger-root-natural-anti-inflammatory",
+  "protein-requirements-arthritis-uk",
+  "plant-based-diet-arthritis-evidence",
+  "best-breakfast-for-arthritis-uk",
+  "arthritis-meal-planning-uk",
+  "arthritis-and-weight-loss-uk",
+  "gut-health-arthritis-connection",
+  "best-foods-to-eat-for-arthritis",
+  "arthritis-and-diet-myths-uk",
+];
+
+/**
+ * Benefits & UK Support batch 3 (topics 41–55): new or rewritten guides
+ * awaiting clinical and editorial review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_BENEFITS_SUPPORT_BATCH_3 = [
+  "appeal-rejected-pip-arthritis",
+  "motability-scheme-arthritis-uk",
+  "blue-badge-frailty-arthritis-uk",
+  "access-to-work-scheme-arthritis-guide",
+  "universal-credit-and-arthritis-limited-capability-for-work",
+  "carers-allowance-help-if-you-care-for-someone",
+  "workplace-adjustment-letter-templates-arthritis",
+  "sick-pay-fit-notes-time-off-work-arthritis",
+  "retirement-planning-arthritis-uk",
+  "housing-support-arthritis-uk",
+];
+
+/**
+ * Exercise & Physiotherapy batch 2 (topics 21–40): new or rewritten guides
+ * awaiting clinical review by Louis Maxwell (`npm run blog:mark-reviewed -- <slug>`).
+ */
+const PENDING_EXERCISE_PHYSIO_BATCH_2 = [
+  "hand-exercises-for-arthritis",
+  "shoulder-arthritis-exercises-uk",
+  "how-to-choose-the-right-exercise-for-arthritis",
+  "walking-with-arthritis-start-build-up-keep-going",
+  "strength-training-arthritis-beginners",
+  "chair-exercises-older-adults-arthritis",
+  "aquatic-therapy-arthritis-guide",
+  "resistance-band-workouts-arthritis",
+  "arthritis-friendly-gym-guide",
+  "daily-mobility-routine-arthritis",
+  "expert-qa-exercising-through-a-flare-up",
+  "weight-loss-exercise-plan-arthritis",
+  "balance-training-arthritis",
+  "exercise-progression-arthritis",
+  "joint-protection-easier-everyday-tasks",
+  "physio-mistakes-to-avoid-arthritis",
+];
+
+/**
+ * Pain & Flare-Ups content batch 1 (10 Oct 2026): new or substantially
+ * rewritten guides, pending until Louis Maxwell reviews them.
+ */
+const PENDING_PAIN_FLARE_BATCH_1 = [
+  "managing-arthritis-flare-ups-at-home",
+  "heat-or-ice-for-arthritis",
+  "morning-routine-multi-joint-arthritis",
+  "manage-arthritis-pain-flare-ups-night",
+  "arthritis-pain-tracking-journal-template",
+  "weather-and-arthritis-pain-explained",
+  "arthritis-pain-map-by-joint",
+  "flare-management-pain-spikes",
+  "foods-to-avoid-with-arthritis",
+  "hot-weather-arthritis-management",
+  "arthritis-fatigue-recovery-guide",
+  "pacing-techniques-arthritis-pain",
+  "arthritis-pain-scale-explained",
+  "arthritis-red-flag-symptoms",
+  "emergency-arthritis-flare-checklist",
+  "safe-daily-stretching-routine-arthritis",
+  "30-day-arthritis-pain-reduction-challenge",
+];
+
+describe("Champions 62–81 guides awaiting clinical review", () => {
+  it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
     expect(post.last_reviewed).toBeUndefined();
@@ -102,13 +238,13 @@ describe("Champions 62–67 guides awaiting clinical review", () => {
 describe("blog reviewStatus schema", () => {
   const base = bySlug.get("menopause-hrt-and-joint-pain")!;
 
-  it("is optional and defaults to reviewed", () => {
+  it("is optional and defaults to pending", () => {
     const { reviewStatus: _omit, ...withoutStatus } = base;
     const parsed = blogPostSchema.parse(withoutStatus);
     expect(parsed.reviewStatus).toBeUndefined();
-    expect(DEFAULT_BLOG_REVIEW_STATUS).toBe("reviewed");
-    expect(resolveBlogReviewStatus(parsed)).toBe("reviewed");
-    expect(resolveBlogReviewStatus(undefined, null, {})).toBe("reviewed");
+    expect(DEFAULT_BLOG_REVIEW_STATUS).toBe("pending");
+    expect(resolveBlogReviewStatus(parsed)).toBe("pending");
+    expect(resolveBlogReviewStatus(undefined, null, {})).toBe("pending");
   });
 
   it("accepts reviewed and pending, rejects anything else", () => {
@@ -130,68 +266,64 @@ describe("guides from PRs #95–#97, clinically reviewed 27 Sep 2026", () => {
     expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-27");
     expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
     const row = catalogRows.find((r) => r.slug === slug) as { reviewStatus?: string; last_reviewed?: string };
-    expect(row?.reviewStatus).toBeUndefined();
+    expect(row?.reviewStatus).toBe("reviewed");
     expect(row?.last_reviewed).toBe("2026-09-27");
     expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
   });
 
-  it("only the twelve automated Champions 62–73 rewrites are pending review", () => {
-    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(
-      [...PENDING_CHAMPIONS_62_73].sort(),
-    );
+  it("all automated rewrites awaiting clinical approval remain pending", () => {
+    expect(posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort()).toEqual(expect.arrayContaining(
+      [...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2, ...PENDING_PAIN_FLARE_BATCH_1, "pip-for-arthritis-uk", "anti-inflammatory-diet-rheumatoid-arthritis", "best-supplement-for-knee-joint", "tens-machines-arthritis-uk"].sort(),
+    ));
   });
 
-  it("guides without an explicit reviewStatus still resolve as reviewed by default", () => {
-    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBeUndefined();
-    expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("reviewed");
-    expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).not.toHaveProperty(
-      "reviewStatus",
-    );
+  it("legacy guides without review evidence are explicitly pending", () => {
+    expect(bySlug.get("arthritis-fatigue-explained")?.reviewStatus).toBe("pending");
+    expect(resolveBlogReviewStatus(bySlug.get("arthritis-fatigue-explained"))).toBe("pending");
+    expect(catalogRows.find((r) => r.slug === "arthritis-fatigue-explained")).toHaveProperty("reviewStatus", "pending");
   });
 
-  it("Access to Work blog is clinically reviewed on 29 Sep 2026 (Champions 51)", () => {
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("reviewed");
-    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBe("2026-09-29");
+  it("Sick pay and fit notes blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    const slug = "sick-pay-fit-notes-time-off-work-arthritis";
+    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
+    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+  });
+
+  it("Carer's Allowance blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    const slug = "carers-allowance-help-if-you-care-for-someone";
+    expect(bySlug.get(slug)?.reviewStatus).toBe("pending");
+    expect(bySlug.get(slug)?.last_reviewed).toBeUndefined();
+    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("pending");
+  });
+
+  it("Access to Work blog was rewritten in Benefits batch 3 and is pending re-review", () => {
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.reviewStatus).toBe("pending");
+    expect(bySlug.get("access-to-work-scheme-arthritis-guide")?.last_reviewed).toBeUndefined();
     expect(resolveBlogReviewStatus(bySlug.get("access-to-work-scheme-arthritis-guide"))).toBe(
-      "reviewed",
+      "pending",
     );
   });
 
-  it("walking-with-arthritis remains reviewed (date may advance after Champions 52)", () => {
-    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.reviewStatus).toBe(
-      "reviewed",
-    );
-    expect(bySlug.get("walking-with-arthritis-start-build-up-keep-going")?.last_reviewed).toBe(
-      "2026-09-29",
-    );
-    expect(
-      resolveBlogReviewStatus(bySlug.get("walking-with-arthritis-start-build-up-keep-going")),
-    ).toBe("reviewed");
-  });
+  // walking-with-arthritis-start-build-up-keep-going and joint-protection-easier-everyday-tasks
+  // were rewritten in the Exercise & Physiotherapy batch 2 (Oct 2026) and are now asserted
+  // as pending in PENDING_EXERCISE_PHYSIO_BATCH_2 until re-reviewed.
 
-
-  it.each([
-    "sick-pay-fit-notes-time-off-work-arthritis",
-    "carers-allowance-help-if-you-care-for-someone",
-    "joint-protection-easier-everyday-tasks",
-  ])("%s is clinically reviewed on 30 Sep 2026 (Champions 53–55)", (slug) => {
-    expect(bySlug.get(slug)?.reviewStatus).toBe("reviewed");
-    expect(bySlug.get(slug)?.last_reviewed).toBe("2026-09-30");
-    expect(resolveBlogReviewStatus(bySlug.get(slug))).toBe("reviewed");
-    const row = catalogRows.find((r) => r.slug === slug) as { last_reviewed?: string };
-    expect(row?.last_reviewed).toBe("2026-09-30");
-    expect(headData[`/blog/${slug}`]?.article?.reviewStatus).not.toBe("pending");
-  });
-
-
-  it("catalog and head data only flag guides whose post file is pending", () => {
-    const pendingPosts = posts.filter((p) => p.reviewStatus === "pending").map((p) => p.slug).sort();
+  it("catalog and head data only flag published guides whose post file is pending", () => {
+    const pendingPosts = posts.filter((p) => p.is_published === true && p.reviewStatus === "pending").map((p) => p.slug).sort();
     expect(catalogRows.filter((r) => r.reviewStatus === "pending").map((r) => r.slug).sort()).toEqual(pendingPosts);
     const headPending = Object.entries(headData)
       .filter(([, e]) => e.article?.reviewStatus === "pending")
       .map(([route]) => route.replace(/^\/blog\//, ""))
       .sort();
     expect(headPending).toEqual(pendingPosts);
+  });
+
+  it("keeps unpublished drafts out of the catalog and public head data", () => {
+    for (const post of posts.filter((p) => p.is_published === false)) {
+      expect(catalogRows.some((row) => row.slug === post.slug)).toBe(false);
+      expect(headData[`/blog/${post.slug}`]).toBeUndefined();
+    }
   });
 });
 

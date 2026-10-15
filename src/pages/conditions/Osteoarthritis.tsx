@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import RelatedArticles from "@/components/RelatedArticles";
 import ContextualLinks from "@/components/ContextualLinks";
@@ -91,7 +91,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const Osteoarthritis = () => (
   <>
     <Helmet>
-      <title>Osteoarthritis in the UK: symptoms, treatment &amp; exercises</title>
+      <title>Osteoarthritis UK: Symptoms, Treatment & Exercises</title>
       <meta name="description" content="Osteoarthritis (OA) in the UK: how to recognise symptoms, when to see a GP, NICE-aligned treatment, exercises and diet — written for patients." />
       <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
       <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
@@ -141,7 +141,7 @@ const Osteoarthritis = () => (
             <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
               <Activity className="w-3 h-3" /> Condition Guide
             </span>
@@ -153,7 +153,7 @@ const Osteoarthritis = () => (
             <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
               Osteoarthritis (OA) is the most common form of arthritis in the UK — joint pain and stiffness that you can often manage with exercise, weight advice and NHS care pathways; this page is general information, not a diagnosis.
             </p>
-          </motion.div>
+          </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
@@ -264,10 +264,10 @@ const Osteoarthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🚶" title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
-            <EmojiCard emoji="⚖️" title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
-            <EmojiCard emoji="🐟" title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
-            <EmojiCard emoji="😴" title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
+            <HighlightCard title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
+            <HighlightCard title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
+            <HighlightCard title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
+            <HighlightCard title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
           </div>
         </motion.div>
 
@@ -434,7 +434,7 @@ const Osteoarthritis = () => (
               Read our articles
             </Link>
           </div>
-          
+
 
       <nav aria-label="Customer job pathways for osteoarthritis" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">What do you need next?</p>

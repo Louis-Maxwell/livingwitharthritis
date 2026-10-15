@@ -1,3 +1,5 @@
+import BlogPdfDownload from '@/components/BlogPdfDownload';
+import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
@@ -24,6 +26,7 @@ import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ViewportSection from "@/components/ViewportSection";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -53,6 +56,7 @@ import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
+const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
 const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
 const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
 const BlogHelpfulness = lazyWithRetry(() => import("@/components/BlogHelpfulness"));
@@ -64,7 +68,6 @@ const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
 const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
 const FeedbackPoll = lazyWithRetry(() => import("@/components/article/FeedbackPoll"));
 const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/InlineRelatedStrip"));
-const ArticleFaqSection = lazyWithRetry(() => import("@/components/article/ArticleFaqSection"));
 const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
 const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
@@ -295,13 +298,8 @@ const BlogPost = () => {
       )
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
-  // Real review date only: explicit last_reviewed, else the catalog's
-  // derived value (updated_at), else the publish date. Never a hard-coded date.
-  const blogLastReviewed =
-    (typeof (article as { last_reviewed?: string }).last_reviewed === "string" &&
-      (article as { last_reviewed?: string }).last_reviewed) ||
-    getBlogReviewMeta(slug)?.last_reviewed ||
-    (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw) ? updatedAtRaw.slice(0, 10) : article.date);
+  // Only an explicitly recorded date establishes when clinical review occurred.
+  const blogLastReviewed = (article as { last_reviewed?: string }).last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
@@ -622,6 +620,7 @@ const BlogPost = () => {
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
+            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
             <Button
               variant="outline"
               size="sm"
@@ -630,7 +629,7 @@ const BlogPost = () => {
               className="min-h-11"
             >
               <Download className="w-4 h-4 mr-2" aria-hidden="true" />
-              Download PDF
+              Print / save PDF
             </Button>
           </div>
 
@@ -644,24 +643,12 @@ const BlogPost = () => {
             />
           )}
 
+          {slug === 'cauda-equina-warning-signs-uk' && <CaudaEquinaQuestions />}
           <KeyTakeaways html={htmlContent} title={article.title} />
           <div className="lg:hidden">
             <TableOfContents html={htmlWithIds} variant="inline" />
           </div>
 
-          {slug && (
-            <ViewportSection>
-              <InlineRelatedStrip
-                currentSlug={slug}
-                currentCategory={article.category}
-                currentTitle={article.title}
-                currentExcerpt={article.excerpt}
-                currentKeywords={article.keywords ?? undefined}
-                heading="Keep reading — related articles"
-                limit={2}
-              />
-            </ViewportSection>
-          )}
 
           <section
             aria-label="Article body"
@@ -727,9 +714,23 @@ const BlogPost = () => {
             )}
           </section>
 
+          <ArticleFaqSection faqs={faqs} />
+
+          {slug && (
+            <ViewportSection>
+              <InlineRelatedStrip
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+                heading="Keep reading — related articles"
+                limit={2}
+              />
+            </ViewportSection>
+          )}
           <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
-            <ArticleFaqSection faqs={faqs} />
             {slug && (
               <ClusterRelatedLinks
                 slug={slug}
@@ -739,7 +740,7 @@ const BlogPost = () => {
                 keywords={article.keywords}
               />
             )}
-            <ArticleClosingCTA title={article.title} category={article.category} />
+            <ArticleClosingCTA title={article.title} category={article.category} slug={slug} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
           </ViewportSection>
 
@@ -795,6 +796,7 @@ const BlogPost = () => {
             )}
             <ViewportSection>
               {slug && <BlogHelpfulness slug={slug} />}
+              {slug && <KeywordRelatedLinks path={`/blog/${slug}`} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
               {slug && (
                 <RelatedArticles

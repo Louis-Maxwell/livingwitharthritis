@@ -107,6 +107,6 @@ function walkDir(dir) {
 console.log('Removing console logs from source files...\n');
 walkDir(srcDir);
 
-console.log(`\n✅ Done!`);
-console.log(`📝 Files modified: ${filesModified}`);
-console.log(`🗑️  Logs removed: ${logsRemoved}`);
+console.log(`\n Done!`);
+console.log(` Files modified: ${filesModified}`);
+console.log(`  Logs removed: ${logsRemoved}`);

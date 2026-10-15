@@ -29,7 +29,7 @@ const ImpactProgressBand = () => {
             Help us fund arthritis research.
           </h2>
           <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Every pound funds clinically reviewed guides, plain-English writing
+            Every pound funds evidence-informed guides, plain-English writing
             and free resources for everyone in the UK living with arthritis.
             You can see the live total and every update on our GoFundMe page.
           </p>
@@ -49,7 +49,7 @@ const ImpactProgressBand = () => {
                 href={GOFUNDME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackDonationClick("impact_progress_band_gofundme")}
+                onClick={() => trackDonationClick({ source: "impact_progress_band_gofundme", method: "gofundme" })}
               >
                 <Heart className="w-4 h-4 mr-2 fill-white/20" aria-hidden="true" />
                 Donate on GoFundMe
@@ -67,7 +67,7 @@ const ImpactProgressBand = () => {
                 href={GOFUNDME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackDonationClick("impact_progress_band")}
+                onClick={() => trackDonationClick({ source: "impact_progress_band", method: "gofundme" })}
               >
                 Give on GoFundMe
                 <span className="sr-only"> (opens in a new tab)</span>

@@ -82,10 +82,12 @@ export default function EditorialStandards() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Pages carrying a clinically reviewed badge have been reviewed by a
-              qualified healthcare professional and are built on guideline-grade
-              evidence. Pages still awaiting review are labelled “Pending
-              clinical review”. We also follow a clear eight-step SEO content
-              framework so answers stay intent-led, readable, and useful for UK readers.
+              qualified healthcare professional. Pages still awaiting review are
+              labelled “Pending clinical review”; publication or an updated date
+              alone does not mean clinical review is complete. We identify sources
+              for clinical recommendations and material factual claims, and link to
+              relevant guidance or research where available. We also follow a clear
+              content framework so answers stay readable and useful for UK readers.
               Content is educational — see our{" "}
               <Link to="/disclaimer" className="text-primary underline underline-offset-2">
                 medical disclaimer
@@ -106,12 +108,12 @@ export default function EditorialStandards() {
                 <strong>{maxwell.name}</strong> — {maxwell.title},{" "}
                 {maxwell.credential}, {maxwell.organization}
               </li>
-              <li>Additional specialist input from physiotherapists and clinical experts</li>
+              <li>Where specialist input is obtained, the contributor and their role are identified on the relevant page.</li>
             </ul>
           </Section>
 
           <Section icon={BookOpen} title="Evidence standards">
-            <p>Our content is based on:</p>
+            <p>For health and care information, writers check relevant primary or authoritative sources, such as:</p>
             <ul>
               <li>NICE (National Institute for Health and Care Excellence) guidelines</li>
               <li>UK healthcare evidence-based recommendations</li>
@@ -139,10 +141,11 @@ export default function EditorialStandards() {
 
           <Section icon={RefreshCw} title="Update frequency">
             <p>
-              Content is reviewed and updated regularly to reflect the latest
-              evidence. Each article shows the date it was last updated. Pages
-              referencing NICE or UK healthcare guidance are re-checked whenever those
-              sources publish revisions.
+              Pages show their publication or update date, and a clinical review
+              date when that review has been completed and recorded. An update date
+              is not a clinical review date. We revisit content when relevant
+              evidence, guidance, or service information changes; we do not claim
+              that every page is reviewed daily.
             </p>
           </Section>
 

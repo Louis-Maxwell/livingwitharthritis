@@ -82,6 +82,9 @@ export default function SeoHead({
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content={absoluteImage} />
+      {absoluteImage.startsWith("https://") && (
+        <meta property="og:image:secure_url" content={absoluteImage} />
+      )}
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={imageAlt} />

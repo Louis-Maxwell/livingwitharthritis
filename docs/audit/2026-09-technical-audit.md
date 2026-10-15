@@ -30,12 +30,12 @@ These are lab numbers from a local server. Field data (Chrome UX Report / GA4 we
 
 | Target | Home before | Home after | Article before | Article after | Met? |
 |---|---|---|---|---|---|
-| Initial JS < 300 KB gzip | 324.6 KB (991 KB raw) | **212.0 KB** (615.5 KB raw) | 549.3 KB (1,853 KB raw) | **276.2 KB** (822.1 KB raw) | ✅ both |
-| Mobile Lighthouse performance > 90 | 91 | **98** | 92 | **92** | ✅ both |
-| LCP < 2.5 s (mobile lab) | 3.2 s | **2.2 s** | 3.0 s\* | **3.2 s** | ✅ home / ❌ article |
-| Lighthouse accessibility | 97 | **100** | 97 | **100** | ✅ |
-| Lighthouse best practices / SEO | 100 / 100 | 100 / 100 | 100 / 100 | 100 / 100 | ✅ |
-| axe serious/critical page-views | 12 of 12 failing (6 key pages × 2 viewports, build just before #108) | **0 of 28** (14 pages × 2 viewports) | | | ✅ |
+| Initial JS < 300 KB gzip | 324.6 KB (991 KB raw) | **212.0 KB** (615.5 KB raw) | 549.3 KB (1,853 KB raw) | **276.2 KB** (822.1 KB raw) | Yes both |
+| Mobile Lighthouse performance > 90 | 91 | **98** | 92 | **92** | Yes both |
+| LCP < 2.5 s (mobile lab) | 3.2 s | **2.2 s** | 3.0 s\* | **3.2 s** | Yes home / No article |
+| Lighthouse accessibility | 97 | **100** | 97 | **100** | Yes |
+| Lighthouse best practices / SEO | 100 / 100 | 100 / 100 | 100 / 100 | 100 / 100 | Yes |
+| axe serious/critical page-views | 12 of 12 failing (6 key pages × 2 viewports, build just before #108) | **0 of 28** (14 pages × 2 viewports) | | | Yes |
 
 \* The "before" article LCP of 3.0 s was measured on the wrong element. The page-enter animation faded the article in from `opacity: 0`, and Chrome ignores transparent paints for LCP, so the cookie banner was reported as the LCP. With the fade fixed, LCP measures the guide text itself.
 

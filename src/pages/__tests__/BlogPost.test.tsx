@@ -6,6 +6,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 // Mock hooks
 const mockArticle = {
+  reviewStatus: "reviewed",
   slug: "test-article",
   title: "Managing Arthritis Pain",
   excerpt: "Tips for managing joint pain effectively.",

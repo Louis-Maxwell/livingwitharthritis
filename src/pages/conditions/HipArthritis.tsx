@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Scale, Moon } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -258,10 +258,10 @@ const HipArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hip-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🦵" title="Glutes" description="Daily glute and hip-abductor work to support the joint." />
-            <EmojiCard emoji="🚴" title="Cycle" description="Low-impact cycling or a static bike if walking is sore." />
-            <EmojiCard emoji="⚖️" title="Weight" description="Even a small weight loss lowers load through the hip." />
-            <EmojiCard emoji="🛏️" title="Sleep" description="A pillow between the knees can ease night pain." />
+            <HighlightCard title="Glutes" description="Daily glute and hip-abductor work to support the joint." />
+            <HighlightCard title="Cycle" description="Low-impact cycling or a static bike if walking is sore." />
+            <HighlightCard title="Weight" description="Even a small weight loss lowers load through the hip." />
+            <HighlightCard title="Sleep" description="A pillow between the knees can ease night pain." />
           </div>
         </motion.div>
 

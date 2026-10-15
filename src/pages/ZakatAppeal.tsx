@@ -97,8 +97,8 @@ const ZakatAppeal = () => {
   return (
     <>
       <Helmet>
-        <title>Palestine & Gaza Appeal | Zakat & Sadaqah | Living With Arthritis</title>
-        <meta name="description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza. Shariah-compliant, scholar-guided. Gift Aid not yet live." />
+        <title>Gaza Zakat & Sadaqah | Living With Arthritis</title>
+        <meta name="description" content="Give Zakat or Sadaqah to support physiotherapy and rehabilitation for war and trauma survivors in Gaza. Learn how donations help. Gift Aid not yet live." />
         <meta property="og:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah for Rehabilitation" />
         <meta property="og:description" content="Thousands in Gaza are living with crushed joints and amputations. Your Zakat and Sadaqah fund the physiotherapy that helps them walk again." />
         <meta property="og:type" content="website" />

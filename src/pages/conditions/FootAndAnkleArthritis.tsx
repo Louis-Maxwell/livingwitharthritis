@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Footprints } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -85,7 +85,7 @@ const FootAndAnkleArthritis = () => (
   <>
     <Helmet>
       <title>Foot & Ankle Arthritis: Symptoms, Footwear & Exercises (UK)</title>
-      <meta name="description" content="UK guide to foot and ankle arthritis: hallux rigidus, midfoot and ankle OA, rheumatoid feet, supportive footwear, orthotics, gentle exercises and when to see a GP or podiatrist." />
+      <meta name="description" content="UK guide to foot and ankle arthritis: symptoms, supportive footwear, orthotics, gentle exercises and when to see your GP, physiotherapist or podiatrist." />
       <meta name="keywords" content="foot arthritis, ankle arthritis, hallux rigidus, big toe arthritis, midfoot arthritis, ankle osteoarthritis, rheumatoid foot, arthritis footwear UK, ankle exercises arthritis" />
       <meta property="og:title" content="Foot & Ankle Arthritis – Symptoms, Footwear & Exercises" />
       <meta property="og:description" content="Evidence-based UK guide to foot and ankle arthritis: footwear, orthotics, exercises and NHS pathways." />
@@ -207,7 +207,7 @@ const FootAndAnkleArthritis = () => (
         </motion.div>
 
         <Section icon={Dumbbell} title="What are the best exercises?">
-          <p>Keep the ankle and toes moving within a comfortable range. Warm the foot in a basin of warm water for 10 minutes first. Full routine: <Link to="/exercises/ankle-arthritis-exercises" className="text-primary underline">ankle arthritis exercises</Link>.</p>
+          <p>Keep the ankle and toes moving within a comfortable range. Warm the foot in a basin of warm water for 10 minutes first. Full routine: <Link to="/exercises/ankle-arthritis-exercises" className="text-primary underline">foot and ankle arthritis exercises</Link>.</p>
           <h3>Range of motion</h3>
           <ul>
             <li><strong>Ankle circles</strong> — 10 each way, both feet</li>
@@ -236,10 +236,10 @@ const FootAndAnkleArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily foot-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="👟" title="Footwear" description="Wide toe box, grip sole, low heel." />
-            <EmojiCard emoji="🔄" title="Mobility" description="Ankle circles and toe work daily." />
-            <EmojiCard emoji="⚖️" title="Balance" description="Brief single-leg practice near a counter." />
-            <EmojiCard emoji="♨️" title="Warm-up" description="Warm soak before the first walk." />
+            <HighlightCard title="Footwear" description="Wide toe box, grip sole, low heel." />
+            <HighlightCard title="Mobility" description="Ankle circles and toe work daily." />
+            <HighlightCard title="Balance" description="Brief single-leg practice near a counter." />
+            <HighlightCard title="Warm-up" description="Warm soak before the first walk." />
           </div>
         </motion.div>
 
@@ -293,7 +293,7 @@ const FootAndAnkleArthritis = () => (
             {
               title: "Exercises & movement",
               links: [
-                { label: "Ankle arthritis exercises", to: "/exercises/ankle-arthritis-exercises" },
+                { label: "Foot and ankle arthritis exercises", to: "/exercises/ankle-arthritis-exercises" },
                 { label: "All exercise guides", to: "/exercises" },
                 { label: "Tai chi for balance", to: "/exercises/tai-chi-for-balance" },
                 { label: "Fall prevention", to: "/guides/fall-prevention-older-adults" },

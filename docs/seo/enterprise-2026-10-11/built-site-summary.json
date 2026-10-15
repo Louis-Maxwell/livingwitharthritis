@@ -1,0 +1,62 @@
+{
+  "ranAt": "2026-10-11T20:25:36.723Z",
+  "scope": "All canonical sitemap URLs in built response HTML; rendering, clinical review and CWV require separate validation",
+  "sitemapUrls": 1048,
+  "pagesAudited": 1048,
+  "counts": {},
+  "issues": [],
+  "unresolvedLinkPages": [
+    {
+      "path": "/blog/exercise-for-hip-arthritis",
+      "links": [
+        "/exercises/hip/for/osteoarthritis",
+        "/exercises/hip/for/rheumatoid-arthritis"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    },
+    {
+      "path": "/blog/knee-arthritis-exercises-uk",
+      "links": [
+        "/exercises/knee/for/osteoarthritis",
+        "/exercises/knee/for/rheumatoid-arthritis"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    },
+    {
+      "path": "/blog/joint-fusion-vs-replacement-how-surgeons-choose",
+      "links": [
+        "/exercises/ankle"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    },
+    {
+      "path": "/blog/shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix",
+      "links": [
+        "/exercises/shoulder"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    },
+    {
+      "path": "/blog/hip-replacement-recovery-week-by-week",
+      "links": [
+        "/exercises/hip"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    },
+    {
+      "path": "/blog/topical-nsaids-often-overlooked-often-effective",
+      "links": [
+        "/exercises/hand"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    },
+    {
+      "path": "/blog/back-arthritis-exercises-uk",
+      "links": [
+        "/exercises/spine/for/osteoarthritis",
+        "/exercises/spine/for/rheumatoid-arthritis"
+      ],
+      "status": "Dynamic routes exist; browser/deep-link verification required"
+    }
+  ]
+}

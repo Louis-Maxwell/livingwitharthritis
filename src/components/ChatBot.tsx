@@ -20,6 +20,7 @@ const quickSuggestions = [
   { icon: Apple, label: "Best anti-inflammatory foods?", image: chatFoods },
   { icon: Dumbbell, label: "Safe exercises for knee pain?", image: chatExercise },
   { icon: HelpCircle, label: "Can I claim PIP with arthritis?", image: chatDoctor },
+  { icon: Heart, label: "How does arthritis affect daily life?", image: chatDoctor },
 ];
 
 const SESSION_KEY_STORAGE = "arthritis_chat_session_key_v1";

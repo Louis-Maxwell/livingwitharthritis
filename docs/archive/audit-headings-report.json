@@ -5234,7 +5234,7 @@
         },
         {
           "level": 3,
-          "text": "🚶 Walking Tips for Arthritis",
+          "text": " Walking Tips for Arthritis",
           "file": "src\\components\\Pedometer.tsx",
           "line": 276,
           "hasAriaHidden": false

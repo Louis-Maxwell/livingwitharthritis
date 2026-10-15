@@ -1,7 +1,7 @@
 # PHASE 1: QUICK WINS — REMAINING (Session 2)
 
-**Status**: Ready to execute  
-**Estimated Time**: 2-3 hours  
+**Status**: Ready to execute
+**Estimated Time**: 2-3 hours
 **Priority**: All 5 are protective (protect high rankings, minimal changes)
 
 ---
@@ -10,7 +10,7 @@
 
 All 5 remaining quick wins are **protective in nature** — they're already ranking well (positions 1-4), so the goal is to ensure they stay there with minor optimizations.
 
-### **Priority 7: Gout** ⭐ PROTECT
+### **Priority 7: Gout**  PROTECT
 - **URL**: `/conditions/gout`
 - **Current Rank**: Position 7.8 (~25 GSC impressions)
 - **Type**: Hardcoded React component
@@ -28,7 +28,7 @@ All 5 remaining quick wins are **protective in nature** — they're already rank
 
 ---
 
-### **Priority 17: Hip Exercises for Osteoarthritis** 🏆 GOLD
+### **Priority 17: Hip Exercises for Osteoarthritis**  GOLD
 - **URL**: `/guides/hip-exercises-for-osteoarthritis`
 - **Current Rank**: Position ~1 (GOLD)
 - **Type**: Hardcoded React component
@@ -49,7 +49,7 @@ All 5 remaining quick wins are **protective in nature** — they're already rank
 
 ---
 
-### **Priority 18: Shoulder Pain Relief** 🥉 HIGH
+### **Priority 18: Shoulder Pain Relief**  HIGH
 - **URL**: `/guides/shoulder-pain-relief`
 - **Current Rank**: Position ~3
 - **Type**: Hardcoded React component
@@ -65,7 +65,7 @@ All 5 remaining quick wins are **protective in nature** — they're already rank
 
 ---
 
-### **Priority 19: Paracetamol vs Ibuprofen for Arthritis** 🥈 HIGH
+### **Priority 19: Paracetamol vs Ibuprofen for Arthritis**  HIGH
 - **URL**: `/guides/paracetamol-vs-ibuprofen-for-arthritis`
 - **Current Rank**: Position ~4
 - **Type**: Hardcoded React component
@@ -88,7 +88,7 @@ All 5 remaining quick wins are **protective in nature** — they're already rank
 
 ---
 
-### **Priority 24: Walking (Daily Tip)** 👟 GOOD RANKING
+### **Priority 24: Walking (Daily Tip)**  GOOD RANKING
 - **URL**: `/daily-tips/walk-20-minutes`
 - **Current Rank**: Good ranking (exact position unknown)
 - **Type**: Daily tip component
@@ -118,19 +118,19 @@ All 5 remaining quick wins are **protective in nature** — they're already rank
 5. **Batch commit** all 5 updates together
 
 ### What NOT to Do
-- ❌ Don't rewrite entire pages
-- ❌ Don't change URLs
-- ❌ Don't add promotional language
-- ❌ Don't remove working content
-- ❌ Don't alter the ranking-successful structure
+- No Don't rewrite entire pages
+- No Don't change URLs
+- No Don't add promotional language
+- No Don't remove working content
+- No Don't alter the ranking-successful structure
 
 ### What TO Do
-- ✅ Add missing reviewer credentials if visible elsewhere on site
-- ✅ Add safety warnings if they're missing
-- ✅ Ensure breadcrumbs are present
-- ✅ Add contextual internal links where relevant
-- ✅ Fix broken links if found
-- ✅ Validate schema
+- Yes Add missing reviewer credentials if visible elsewhere on site
+- Yes Add safety warnings if they're missing
+- Yes Ensure breadcrumbs are present
+- Yes Add contextual internal links where relevant
+- Yes Fix broken links if found
+- Yes Validate schema
 
 ---
 
@@ -208,8 +208,8 @@ When all 5 are complete:
 - [ ] Deployed to production
 
 Once complete, you'll have:
-- ✅ Knee exercises consolidated (Priority 1)
-- ✅ Osteoarthritis hub enhanced (Priority 2)
-- ✅ All top-ranking pages protected (Priorities 7, 17-19, 24)
-- 🎯 Ready to move to PHASE 2 (DevOps) and PHASE 3 (Content team)
+- Yes Knee exercises consolidated (Priority 1)
+- Yes Osteoarthritis hub enhanced (Priority 2)
+- Yes All top-ranking pages protected (Priorities 7, 17-19, 24)
+-  Ready to move to PHASE 2 (DevOps) and PHASE 3 (Content team)
 

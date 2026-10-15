@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
 import SearchPage from "@/pages/SearchPage";
 
@@ -23,6 +23,13 @@ function renderSearch(initial = "/search") {
 }
 
 describe("Search page", () => {
+  it("limits initial rendering and keeps further results accessible", () => {
+    renderSearch();
+    const results = within(screen.getByRole("region", { name: "Search results" }));
+    expect(results.getAllByRole("heading", { level: 2 })).toHaveLength(50);
+    fireEvent.click(screen.getByRole("button", { name: /show more results/i }));
+    expect(results.getAllByRole("heading", { level: 2 })).toHaveLength(100);
+  });
   it("renders heading filters and query results", () => {
     renderSearch();
     expect(screen.getByRole("heading", { name: /find answers faster/i })).toBeInTheDocument();

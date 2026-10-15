@@ -14,6 +14,7 @@ import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
+import MotivationMarquee from "@/components/landing/MotivationMarquee";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DeferredMount from "@/components/DeferredMount";
@@ -24,12 +25,7 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
-
-import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
-/** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
- * verified count), without leaving a stray leading space when it's empty. */
-const withVisitorSnippet = (rest: string) =>
-  [VISITOR_STATS_SNIPPET, rest].filter(Boolean).join(" ");
+import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
 
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
@@ -84,12 +80,10 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis | Exercises & PIP Advice</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Free UK arthritis guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help, with clinical-review status shown on each page. Living With Arthritis, charity 1218461.",
-          )}
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta
           name="robots"
@@ -99,23 +93,19 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | Evidence-Based Health Guides"
+          content="Living With Arthritis | Exercises & PIP Advice"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | Evidence-Based Health Guides"
+          content="Living With Arthritis | Exercises & PIP Advice"
         />
         <meta
           property="og:description"
-          content={withVisitorSnippet(
-            "Free UK arthritis guidance on exercise, diet, pain and PIP, with clinical-review status shown on each page. Living With Arthritis, registered charity 1218461.",
-          )}
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta
           name="twitter:description"
-          content={withVisitorSnippet(
-            "Free UK arthritis exercises, diet guidance and support from Living With Arthritis (charity 1218461).",
-          )}
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />
@@ -140,6 +130,7 @@ function HomePage() {
         <main id="main-content" role="main" tabIndex={-1}>
           {/* 01 — Hero (eager LCP): one H1, one primary + one secondary action */}
           <OAHero />
+          <MotivationMarquee />
 
           {/* 02 — Trust strip: verifiable facts only */}
           <HomeTrustStrip />
@@ -147,8 +138,11 @@ function HomePage() {
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
 
+          {/* Topic links stay rendered without waiting for a scroll event. */}
+          <HomeTopicGuides />
+
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
-          <ViewportSection fallback={<SectionFallback />}>
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <JointExerciseSection />
             <HomeToolsBand />
           </ViewportSection>
@@ -162,14 +156,14 @@ function HomePage() {
 
           {/* 06 — Conditions (target of "/#conditions" breadcrumbs) + latest */}
           <div id="conditions" className="scroll-mt-28">
-            <ViewportSection fallback={<SectionFallback />}>
+            <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
               <ConditionPillBand />
               <LatestGrid />
             </ViewportSection>
           </div>
 
           {/* 07 — Research fund appeal (live total on GoFundMe, no static meter) + donate */}
-          <ViewportSection fallback={<SectionFallback />}>
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <ImpactProgressBand />
             <FinalDonateBand />
           </ViewportSection>
@@ -180,7 +174,7 @@ function HomePage() {
           </Suspense>
         </main>
 
-        <ViewportSection fallback={<div className="h-64" aria-hidden="true" />}>
+        <ViewportSection rootMargin="200px 0px" fallback={<div className="h-64" aria-hidden="true" />}>
           <NextReadStrip currentPath="/" />
           <Footer />
         </ViewportSection>

@@ -83,9 +83,9 @@ High-volume, low-spend markets (IN, ID, BD, NG-via-EN) get **content breadth + o
 
 | Pattern | Used? | Why |
 |---|---|---|
-| `/{lang}/` subdirectory | **✅ Yes** | Consolidates domain authority, simpler ops |
-| `lang.example.com` subdomain | ❌ | Splits PageRank, more DNS overhead |
-| `example.fr` ccTLD | ❌ (future) | Best local signal but 20× infra cost |
+| `/{lang}/` subdirectory | **Yes Yes** | Consolidates domain authority, simpler ops |
+| `lang.example.com` subdomain | No | Splits PageRank, more DNS overhead |
+| `example.fr` ccTLD | No (future) | Best local signal but 20× infra cost |
 
 Locale variants use `/{lang}-{region}/` only where SERPs diverge meaningfully (e.g. `/es-mx/`, `/pt-br/`).
 

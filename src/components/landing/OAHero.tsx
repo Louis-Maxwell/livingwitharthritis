@@ -47,8 +47,8 @@ const OAHero = memo(() => (
               Living With Arthritis — evidence-based health guides
             </span>
             <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
-              Free, physio-reviewed help for people living with arthritis — and those who care
-              for them
+              Providing practical advice, support and evidence-based guidance for people living
+              with arthritis and frailty.
             </span>
           </h1>
 
@@ -89,7 +89,7 @@ const OAHero = memo(() => (
 
           <p className="mt-4 text-sm opacity-95 max-w-xl">
             Educational information only — not a diagnosis or personal medical advice. If
-            you are worried about sudden or severe symptoms, contact your GP or NHS 111.
+            you have an emergency, call 999. For urgent non-emergency advice contact your GP or NHS 111.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ const OAHero = memo(() => (
             alt="Two smiling young women outdoors together — representing the community Living With Arthritis supports."
             width={800}
             height={800}
-            {...({ fetchpriority: "high" } as Record<string, string>)}
+            {...({ fetchpriority: "auto" } as Record<string, string>)}
             decoding="async"
             loading="eager"
             onError={onCoverImgError}

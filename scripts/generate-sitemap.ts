@@ -89,10 +89,8 @@ const STATIC_EXCLUDE = new Set([
   // support, falls, exercises) stay included via App.tsx discovery.
   "/search",
   "/seo-content-framework",
-  "/ai-citations",
-  "/ai-guidelines",
-  "/accessibility-for-ai",
-  "/ai",
+  // AI/AEO trust pages are intentionally indexable: they give answer engines
+  // clear attribution, citation, source and crawler-policy signals.
   "/credits",
   "/gallery",
   "/shop",
@@ -185,7 +183,7 @@ function pageSourceLastmods(): Map<string, string> {
   // path -> relative import inside lazy(() => import("..."))
   const routeFiles = new Map<string, string>();
   const lazyRe =
-    /const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
+    /const\s+(\w+)\s*=\s*(?:lazy|lazyWithRetry)\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g;
   const compToFile = new Map<string, string>();
   let m: RegExpExecArray | null;
   while ((m = lazyRe.exec(app)) !== null) {

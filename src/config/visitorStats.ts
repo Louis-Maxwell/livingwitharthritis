@@ -2,7 +2,7 @@
  * Visitor stats — single source of truth for the homepage visitor badge,
  * meta descriptions and OG snippets.
  *
- * ⚠️  ALWAYS source `VITE_VISITOR_COUNT` from **Google Analytics 4**, never
+ *   ALWAYS source `VITE_VISITOR_COUNT` from **Google Analytics 4**, never
  * from the Lovable in-app analytics panel. GA4 auto-filters known bot/spider
  * traffic; Lovable's panel counts every HTTP hit, including SEO crawlers
  * (SemrushBot, AhrefsBot, DataForSEO) and AI training bots. A single crawler

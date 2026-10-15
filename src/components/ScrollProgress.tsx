@@ -8,25 +8,27 @@ const ScrollProgress = memo(() => {
   const [pct, setPct] = useState(0);
 
   useEffect(() => {
-    let ticking = false;
+    let frame: number | null = null;
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
+      if (frame !== null) return;
+      frame = requestAnimationFrame(() => {
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
         const denom = Math.max(1, scrollHeight - clientHeight);
         const next = Math.min(100, Math.max(0, (scrollTop / denom) * 100));
         if (barRef.current) {
-          barRef.current.style.width = `${next}%`;
+          barRef.current.style.transform = `scaleX(${next / 100})`;
           barRef.current.style.opacity = next < 1 ? "0" : "1";
         }
         setPct(Math.round(next));
-        ticking = false;
+        frame = null;
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame !== null) cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -40,8 +42,8 @@ const ScrollProgress = memo(() => {
     >
       <div
         ref={barRef}
-        className="h-full reading-progress bg-primary transition-[width,opacity] duration-75 ease-out"
-        style={{ width: 0, opacity: 0 }}
+        className="h-full w-full origin-left reading-progress bg-primary transition-[transform,opacity] duration-75 ease-out motion-reduce:transition-none"
+        style={{ transform: "scaleX(0)", opacity: 0 }}
       />
     </div>
   );

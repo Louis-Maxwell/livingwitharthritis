@@ -1,12 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
-import {
-  expandCategoryAliases,
-  getBlogCatalog,
-  getBlogMeta,
-  nextBlogPost,
-  type BlogPost,
-} from "@/lib/blog/catalog";
+import type { BlogPost } from "@/lib/blog/schema";
 
 export { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 export type { BlogCitation as BlogArticleCitation, BlogListItem } from "@/lib/blog/catalog";
@@ -19,7 +13,7 @@ export { useBlogArticle } from "./useBlogArticle";
 export function useBlogArticlesList() {
   return useQuery({
     queryKey: ["blog_articles_list"],
-    queryFn: async () => getBlogCatalog(),
+    queryFn: async () => (await import("@/lib/blog/catalog")).getBlogCatalog(),
   });
 }
 
@@ -27,7 +21,7 @@ export function useBlogArticlesList() {
 export function useFeaturedArticles(limit = 3) {
   return useQuery({
     queryKey: ["blog_articles_featured", limit],
-    queryFn: async () => getBlogCatalog().slice(0, limit),
+    queryFn: async () => (await import("@/lib/blog/catalog")).getBlogCatalog().slice(0, limit),
   });
 }
 
@@ -36,6 +30,7 @@ export function useConditionArticles(categories: string[] = [], limit = 4) {
   return useQuery({
     queryKey: ["blog_articles_by_categories", categories, limit],
     queryFn: async () => {
+      const { expandCategoryAliases, getBlogCatalog } = await import("@/lib/blog/catalog");
       const aliases = expandCategoryAliases(categories);
       return getBlogCatalog()
         .filter((article) => (categories.length === 0 ? true : aliases.has(article.category)))
@@ -48,7 +43,7 @@ export function useConditionArticles(categories: string[] = [], limit = 4) {
 export function useNextArticle(currentSlug: string) {
   return useQuery({
     queryKey: ["next_article", currentSlug],
-    queryFn: async () => nextBlogPost(currentSlug),
+    queryFn: async () => (await import("@/lib/blog/catalog")).nextBlogPost(currentSlug),
   });
 }
 
@@ -81,6 +76,7 @@ export function useRelatedArticles(currentSlug: string, options: RelatedArticles
       seedTitle ?? null,
     ],
     queryFn: async () => {
+      const { getBlogCatalog, getBlogMeta } = await import("@/lib/blog/catalog");
       let sourceClusters: string[] = seedClusters ?? [];
       let sourceCategory: string | null = seedCategory ?? null;
 

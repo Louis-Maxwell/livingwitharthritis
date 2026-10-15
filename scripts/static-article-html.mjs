@@ -3,8 +3,11 @@
 // shell or a homepage-duplicate fallback. Used by inject-canonicals.mjs.
 
 import { marked } from "marked";
+import { keywordRelatedLinks } from "./keyword-related-links.mjs";
+import { conditionTopicLinks } from "./condition-topic-links.mjs";
 import { JSDOM } from "jsdom";
 import createDOMPurify from "dompurify";
+import { parse, parseFragment } from "parse5";
 import {
   dedentIndentedHtmlForMarked,
   unwrapEscapedHtmlCodeBlocks,
@@ -17,12 +20,12 @@ const PURIFY_CONFIG = {
   ALLOWED_TAGS: [
     "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
     "ul", "ol", "li", "blockquote", "a", "img", "table", "thead", "tbody",
-    "tr", "td", "th", "code", "pre", "hr", "span", "div", "section",
+    "tr", "td", "th", "caption", "code", "pre", "hr", "span", "div", "section",
     "article", "figure", "figcaption",
   ],
   ALLOWED_ATTR: [
     "href", "target", "rel", "src", "alt", "title", "class", "id",
-    "colspan", "rowspan", "width", "height", "loading",
+    "colspan", "rowspan", "width", "height", "loading", "decoding", "scope",
   ],
   // Explicit schemes only — closes incomplete-url-scheme-check (no data:/vbscript:).
   ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|\/|#)/i,
@@ -33,11 +36,15 @@ const PURIFY_CONFIG = {
 
 export function stripToText(value) {
   const raw = String(value ?? "").replace(/\\n/g, " ");
-  const dom = new JSDOM(`<body>${raw}</body>`);
-  for (const node of dom.window.document.querySelectorAll("script, style")) {
-    node.remove();
-  }
-  return (dom.window.document.body.textContent || "")
+  const parts = [];
+  const visit = (node) => {
+    if (node.tagName === "script" || node.tagName === "style") return;
+    if (node.nodeName === "#text") parts.push(node.value);
+    for (const child of node.childNodes || []) visit(child);
+    if (node.tagName) parts.push(" ");
+  };
+  visit(parseFragment(raw));
+  return parts.join("")
     .replace(/[#*_>`\[\]]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -80,12 +87,14 @@ export const STATIC_PENDING_REVIEW_TEXT =
   "Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)";
 
 export function buildStaticArticleInner(data) {
-  const heading = data?.question || data?.title || "";
+  const heading = data?.article?.title || data?.question || data?.title || "";
   const bodyHtml = data?.bodyHtml || renderArticleHtml(data?.article?.content);
   const answer = data?.answer && !bodyHtml.includes(data.answer)
     ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
     : "";
-  const faqPairs = Array.isArray(data?.faqs) ? data.faqs : [];
+  const bodyText = stripToText(bodyHtml);
+  const faqPairs = Array.isArray(data?.faqs)
+    ? data.faqs.filter((f) => !bodyText.includes(stripToText(f.q))) : [];
   const faqHtml = faqPairs.length
     ? `<section><h2>Frequently asked questions</h2>${faqPairs
         .map((f) => `<h3>${escText(f.q)}</h3><p>${escText(f.a)}</p>`)
@@ -96,31 +105,66 @@ export function buildStaticArticleInner(data) {
   const pending = data?.article?.reviewStatus === "pending"
     ? `<p class="review-status-pending">${escText(STATIC_PENDING_REVIEW_TEXT)}</p>`
     : "";
+  const article = data?.article;
+  const author = article?.author && !/placeholder/i.test(article.author)
+    ? `<p class="article-byline">Written by ${escText(article.author)}${article.author_credentials ? ` — ${escText(article.author_credentials)}` : ""}.</p>` : "";
+  const reviewer = article?.reviewStatus !== "pending" && article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
+    ? `<p>Reviewed by ${escText(article.reviewed_by)}${article.reviewer_credentials ? ` — ${escText(article.reviewer_credentials)}` : ""}.</p>` : "";
+  const citations = (article?.citations || data?.sources || [])
+    .map((c) => ({ ...c, label: c.label || c.name }))
+    .filter((c) => /^https?:\/\//i.test(c.url) && c.label);
+  const references = citations.length
+    ? `<section aria-label="Sources and references"><h2>Sources and references</h2><ol>${citations.map((c) => `<li><a href="${escText(c.url).replace(/"/g, "&quot;")}">${escText(c.label)}</a></li>`).join("")}</ol></section>` : "";
+  const links = (data?.relatedLinks || []).filter((link) => /^\/(?!\/)/.test(link.path) && link.title);
+  const related = links.length
+    ? `<nav aria-label="Related guides"><h2>Related guides</h2><ul>${links.map((link) => `<li><a href="${escText(link.path).replace(/"/g, "&quot;")}">${escText(link.title)}</a></li>`).join("")}</ul></nav>` : "";
 
   return (
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
+    author + reviewer +
     pending +
     answer +
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
+    references + related +
+    conditionTopicLinks(data?.article) +
+    keywordRelatedLinks(data?.article) +
     `</article>`
   );
 }
 
-const SEO_FALLBACK_RE =
-  /<div id="seo-fallback"[^>]*>[\s\S]*?<\/main>\s*<\/div>/i;
-
 export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {
   const attrs = visible
     ? `id="seo-fallback"`
-    : `id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;"`;
-  const block = `<div ${attrs}>\n      <main>\n        ${innerHtml}\n      </main>\n      </div>`;
-  if (SEO_FALLBACK_RE.test(html)) {
-    return html.replace(SEO_FALLBACK_RE, block);
+    : `id="seo-fallback" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;"`;
+  const block = `<div ${attrs}>\n      <header><a href="/">Living With Arthritis</a></header>\n      <a href="#static-main-content" class="sr-only focus:not-sr-only">Skip to main content</a>\n      <main id="static-main-content" tabindex="-1">\n        ${innerHtml}\n      </main>\n      <footer><nav aria-label="Footer"><a href="/contact">Contact us</a> · <a href="/accessibility">Accessibility</a> · <a href="/privacy">Privacy policy</a></nav></footer>\n      </div>`;
+  const doc = parse(html, { sourceCodeLocationInfo: true });
+  // The homepage-only first-paint shell must never survive on another route.
+  // DOM replacement handles nested divs; a first-closing-div regex did not.
+  const byId = new Map();
+  const visit = (node) => {
+    const id = node.attrs?.find((a) => a.name === "id")?.value;
+    if (id) byId.set(id, node);
+    for (const child of node.childNodes || []) visit(child);
+  };
+  visit(doc);
+  const replacements = [];
+  const boot = byId.get("boot-hero")?.sourceCodeLocation;
+  if (boot) replacements.push({ start: boot.startOffset, end: boot.endOffset, text: "" });
+  const fallback = byId.get("seo-fallback")?.sourceCodeLocation;
+  const root = byId.get("root")?.sourceCodeLocation;
+  if (fallback) replacements.push({ start: fallback.startOffset, end: fallback.endOffset, text: block });
+  else if (root?.startTag && root?.endTag) {
+    // Replace all nested root children, never only the first closing div.
+    return html.slice(0, root.startTag.endOffset) + block + html.slice(root.endTag.startOffset);
   }
-  return html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">\n      ${block}\n    </div>`);
+  let out = html;
+  for (const r of replacements.sort((a, b) => b.start - a.start)) {
+    out = out.slice(0, r.start) + r.text + out.slice(r.end);
+  }
+  return out;
 }
 
 export function uniqueBodyNeedle(data) {

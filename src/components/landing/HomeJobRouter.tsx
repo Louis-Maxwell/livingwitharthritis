@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
-import { MORE_TOPICS, VISITOR_JOBS, type VisitorJob } from "./homeJobs";
+import { GOFUNDME_URL, MORE_TOPICS, VISITOR_JOBS, type VisitorJob } from "./homeJobs";
 
 /**
  * Visitor-job router — the homepage's main navigation for people living
@@ -15,10 +15,11 @@ const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
 function track(job: VisitorJob, link: { label: string; href: string }) {
-  if (job.id === "donate") {
-    trackDonationClick({ source: link.href === job.href ? "home_router_card" : "home_router_link" });
+  const isDonation = link.href === GOFUNDME_URL;
+  if (isDonation) {
+    trackDonationClick({ source: link.label === job.title ? "home_router_card" : "home_router_link", method: "gofundme" });
   }
-  trackStartHereCard(link.label, link.href);
+  trackStartHereCard(link.label, link.href, isDonation);
 }
 
 export default function HomeJobRouter() {

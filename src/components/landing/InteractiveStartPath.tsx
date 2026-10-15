@@ -214,7 +214,7 @@ function buildResults(joint: JointId, need: NeedId): { links: ResultLink[]; next
     return {
       links: DONATE_LINKS,
       nextStep:
-        "A gift keeps clinically reviewed guidance free. Living With Arthritis is charity 1218461, a UK national charity independent of Arthritis UK.",
+        "A gift keeps evidence-informed guidance free. Living With Arthritis is charity 1218461, a UK national charity independent of Arthritis UK.",
     };
   }
 

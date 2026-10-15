@@ -6,7 +6,8 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 100 900;
-  font-display: swap;
+  /* Avoid a late font swap repainting the mobile LCP text on slow links. */
+  font-display: optional;
   src: url("./assets/fonts/Inter.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -181,7 +182,7 @@
        <html> font-size) actually resizes body copy instead of leaving it
        fixed while only headings responded. */
     font-size: 1.125rem;
-    /* ~0.5px at 18px — WCAG-friendly character spacing for low-vision users */
+    /* Readable default spacing; WCAG 1.4.12 also requires supporting user overrides. */
     letter-spacing: 0.03em;
     /* Keep 200% zoom free of horizontal scrolling */
     overflow-x: hidden;
@@ -1180,6 +1181,10 @@
   -webkit-overflow-scrolling: touch;
   margin: 1.25rem 0;
 }
+.table-scroll:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 4px;
+}
 .blog-prose .table-scroll > table,
 .prose .table-scroll > table {
   width: max-content;
@@ -1606,6 +1611,13 @@
   }
   .band-red h1, .band-red h2, .band-red h3, .band-red p, .band-red li { color: hsl(var(--primary-foreground)); }
 
+  /* Keep keyboard focus visible against the red hero, including .btn-map. */
+  .band-red a:focus-visible,
+  .band-red button:focus-visible {
+    outline: 3px solid hsl(var(--primary-foreground));
+    outline-offset: 3px;
+  }
+
   /* Softer octagon for inline cards / thumbnails */
   .clip-octagon-soft {
     clip-path: polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%);
@@ -1684,3 +1696,56 @@
 @media (min-width: 640px) { .donation-quickbar-placeholder { height: 140px; } }
 @media (min-width: 703px) { .donation-quickbar-placeholder { height: 96px; } }
 @media (min-width: 1340px) { .donation-quickbar-placeholder { height: 52px; } }
+
+/* Lightweight, seamless right-to-left encouragement banner. */
+.motivation-marquee {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 clamp(0.75rem, 2vw, 1.5rem) 1rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  background: #c84308;
+  color: #fff;
+  border-top: 2px solid #ffab76;
+}
+.motivation-marquee__viewport { flex: 1; min-width: 0; overflow: hidden; }
+.motivation-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: lwaMotivationScroll 36s linear infinite;
+}
+.motivation-marquee__group { display: flex; flex-shrink: 0; }
+.motivation-marquee__message {
+  flex-shrink: 0;
+  padding: 1rem clamp(2rem, 4vw, 4rem);
+  white-space: nowrap;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.motivation-marquee__toggle {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border: 1px solid #fff9;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.motivation-marquee__toggle:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.motivation-marquee:hover .motivation-marquee__track,
+.motivation-marquee:focus-within .motivation-marquee__track { animation-play-state: paused !important; }
+@keyframes lwaMotivationScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motivation-marquee__track { animation: none; width: auto; }
+  .motivation-marquee__group { display: block; width: 100%; }
+  .motivation-marquee__group + .motivation-marquee__group,
+  .motivation-marquee__message + .motivation-marquee__message,
+  .motivation-marquee__toggle { display: none; }
+  .motivation-marquee__message { display: block; white-space: normal; text-align: center; padding: 1rem; }
+}

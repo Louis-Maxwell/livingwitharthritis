@@ -56,6 +56,7 @@ const AccessibilityForAi = () => {
             <li><a className="text-primary underline underline-offset-2" href="/llms.txt">/llms.txt</a> &mdash; condensed site map for LLMs.</li>
             <li><a className="text-primary underline underline-offset-2" href="/llms-full.txt">/llms-full.txt</a> &mdash; full plain-text content corpus.</li>
             <li><a className="text-primary underline underline-offset-2" href="/.well-known/ai.txt">/.well-known/ai.txt</a> &mdash; usage policy &amp; license (CC-BY-4.0, attribution required).</li>
+            <li><a className="text-primary underline underline-offset-2" href="/answer-engine.json">/answer-engine.json</a> &mdash; concise entity facts, attribution rules and preferred citation pages.</li>
           </ul>
         </section>
 

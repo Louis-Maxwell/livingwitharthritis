@@ -47,6 +47,7 @@ const MANAGED_META = [
   { attr: "property", value: "og:site_name" },
   { attr: "property", value: "og:locale" },
   { attr: "property", value: "og:image" },
+  { attr: "property", value: "og:image:secure_url" },
   { attr: "property", value: "og:image:width" },
   { attr: "property", value: "og:image:height" },
   { attr: "property", value: "og:image:alt" },
@@ -66,6 +67,15 @@ function pruneStaticMetaDuplicates() {
     if (!hasHelmetVersion) continue;
     for (const el of Array.from(matches)) {
       if (!el.hasAttribute("data-rh")) el.remove();
+    }
+  }
+
+  // A page may only override og:image. Remove the template's secure URL
+  // as well, otherwise social readers can prefer the homepage image.
+  const managedImage = document.head.querySelector('meta[property="og:image"][data-rh]');
+  if (managedImage) {
+    for (const el of document.head.querySelectorAll('meta[property="og:image:secure_url"]:not([data-rh])')) {
+      if (el.getAttribute("content") !== managedImage.getAttribute("content")) el.remove();
     }
   }
 

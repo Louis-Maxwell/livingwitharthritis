@@ -45,7 +45,7 @@ const FinalDonateBand = () => {
               href={GOFUNDME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackDonationClick("final_band_monthly")}
+              onClick={() => trackDonationClick({ source: "final_band_monthly", method: "gofundme" })}
             >
               <Repeat className="w-4 h-4 mr-2" aria-hidden="true" />
               Give monthly
@@ -62,7 +62,7 @@ const FinalDonateBand = () => {
               href={GOFUNDME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackDonationClick("final_band_once")}
+              onClick={() => trackDonationClick({ source: "final_band_once", method: "gofundme" })}
             >
               <Heart className="w-4 h-4 mr-2" aria-hidden="true" />
               Give once

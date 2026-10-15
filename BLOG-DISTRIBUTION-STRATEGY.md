@@ -19,16 +19,16 @@
 
 **What to include on every post:**
 ```
-✅ SEO title (60 chars) — "Arthritis Exercises: 7-Move Routine for Knee Pain (Video)"
-✅ Meta description (160 chars) — "Step-by-step arthritis exercises for knee pain relief..."
-✅ Featured image (1200x630px) — og:image optimized
-✅ H1 with keyword — matches title
-✅ 2000+ words (compete with Arthritis UK)
-✅ FAQ section (8-10 Q&As) — appears in "People also ask"
-✅ Internal links (3-5) — to other guides/resources
-✅ CTA — "Join our community" / "Download free guide"
-✅ Author bio — Louis Maxwell, HCPC registered
-✅ Last updated date — shows freshness
+Yes SEO title (60 chars) — "Arthritis Exercises: 7-Move Routine for Knee Pain (Video)"
+Yes Meta description (160 chars) — "Step-by-step arthritis exercises for knee pain relief..."
+Yes Featured image (1200x630px) — og:image optimized
+Yes H1 with keyword — matches title
+Yes 2000+ words (compete with Arthritis UK)
+Yes FAQ section (8-10 Q&As) — appears in "People also ask"
+Yes Internal links (3-5) — to other guides/resources
+Yes CTA — "Join our community" / "Download free guide"
+Yes Author bio — Louis Maxwell, HCPC registered
+Yes Last updated date — shows freshness
 ```
 
 **Setup instructions:**
@@ -47,7 +47,7 @@
 
 **Content strategy:**
 - **Carousel post** (Day 1 of week): 5-7 slide carousel previewing blog topic
-  - Slide 1: "5 Arthritis Myths Debunked 🦵"
+  - Slide 1: "5 Arthritis Myths Debunked "
   - Slide 2-5: Each myth + truth
   - Slide 6: "Full guide in bio → [link]"
   - Slide 7: "Save this for later"
@@ -81,10 +81,10 @@ Sunday: Story reminder + link to blog
 - **Post 1:** Carousel link post
   ```
   "New guide: 7 Arthritis Exercises for Knee Pain Relief
-  
-  Our founder Louis (HCPC physiotherapist) shows step-by-step 
+
+  Our founder Louis (HCPC physiotherapist) shows step-by-step
   video demonstrations. Free, no signup required.
-  
+
   [Link to blog post]"
   ```
 
@@ -202,7 +202,7 @@ https://livingwitharthritis.org.uk/blog/arthritis-exercises-knee-pain
 ```
 User: "Does anyone have good knee arthritis exercises?"
 
-You reply: "Our founder Louis (HCPC physio) created a guide with 
+You reply: "Our founder Louis (HCPC physio) created a guide with
 step-by-step videos for exactly this. Completely free:
 [link to blog]
 
@@ -274,7 +274,7 @@ Happy to answer follow-up questions!"
 MONTH: September 2026
 
 WEEK 1-2:
-Blog 1: "Arthritis Exercises: 7-Move Routine for Knee Pain" 
+Blog 1: "Arthritis Exercises: 7-Move Routine for Knee Pain"
 - Keywords: arthritis exercises, knee pain relief
 - Channels: Your blog → Instagram carousel → Facebook → Medium → Reddit
 
@@ -353,7 +353,7 @@ export default function ArthritisExercisesKneeBlog() {
 
       <article className="max-w-4xl mx-auto px-4 py-12">
         <h1>Arthritis Exercises for Knee Pain: 7-Move Routine (Video Guide)</h1>
-        
+
         <div className="prose prose-lg max-w-none">
           {/* Your blog content here */}
           <p>Introduction...</p>
@@ -494,7 +494,7 @@ export default function ArthritisExercisesKneeBlog() {
 
 ---
 
-**Ready to publish your first blog?** 
+**Ready to publish your first blog?**
 
 Let me know:
 1. What's your first blog topic?
@@ -502,4 +502,4 @@ Let me know:
 3. Can you create/find a featured image (1200x630px)?
 4. When should we target publication (next week)?
 
-Once I know, I'll create the exact file + social schedule for you. 🚀
+Once I know, I'll create the exact file + social schedule for you.
