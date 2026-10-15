@@ -194,6 +194,8 @@ We cannot provide emergency medical care by phone — for urgent symptoms use **
       { type: "guide", title: "Contact", url: "/contact" },
       { type: "guide", title: "Donate", url: "https://www.gofundme.com/f/help-fund-critical-arthritis-research" },
       { type: "guide", title: "About us", url: "/about" },
+      { type: "guide", title: "Living with arthritis: complete guide", url: "/living-with-arthritis", description: "A practical overview of symptoms, movement, work, support and daily life." },
+      { type: "article", title: "How life with arthritis can feel", url: "/blog/arthritis-hows-life-living-with-arthritis", description: "Daily-life questions about pain, stiffness, fatigue, sleep and pacing." },
     ],
   },
   {
@@ -1771,6 +1773,7 @@ We are Living With Arthritis, charity **1218461**, independent of Arthritis UK (
       "Name the joint or type (OA, RA, gout…) for a more specific answer",
       "Browse the health library at /library",
       "Read /about to meet the charity",
+      "Read /living-with-arthritis for a practical overview of daily life",
     ],
     related: [
       { type: "condition", title: "Osteoarthritis guide", url: "/conditions/osteoarthritis" },
