@@ -156,7 +156,7 @@ Ask about exercises, diet, flares, PIP, or browse **/about**.`,
     related: [
       { type: "guide", title: "About us", url: "/about", description: "Charity 1218461 · independent of Arthritis UK" },
       { type: "guide", title: "Contact", url: "/contact", description: "Email or WhatsApp the team" },
-      { type: "guide", title: "Donate", url: "/donate", description: "Support free UK arthritis guidance" },
+      { type: "guide", title: "Donate", url: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", description: "Support free UK arthritis guidance" },
     ],
   },
   {
@@ -186,14 +186,16 @@ We are a small independent UK charity (**1218461**). Donations and Gift Aid help
 - Phone / WhatsApp: **07760 512 084**
 - Web forms: **/contact**
 
-**Donate:** **/donate**
+**Donate:** https://www.gofundme.com/f/help-fund-critical-arthritis-research
 
 We cannot provide emergency medical care by phone — for urgent symptoms use **NHS 111** or **999**.`,
     nextSteps: ["Open the contact page", "Consider a one-off or monthly donation"],
     related: [
       { type: "guide", title: "Contact", url: "/contact" },
-      { type: "guide", title: "Donate", url: "/donate" },
+      { type: "guide", title: "Donate", url: "https://www.gofundme.com/f/help-fund-critical-arthritis-research" },
       { type: "guide", title: "About us", url: "/about" },
+      { type: "guide", title: "Living with arthritis: complete guide", url: "/living-with-arthritis", description: "A practical overview of symptoms, movement, work, support and daily life." },
+      { type: "article", title: "How life with arthritis can feel", url: "/blog/arthritis-hows-life-living-with-arthritis", description: "Daily-life questions about pain, stiffness, fatigue, sleep and pacing." },
     ],
   },
   {
@@ -224,7 +226,7 @@ Useful hubs on Living With Arthritis:
 - **Benefits & PIP:** **/guides/benefits-pip** and **/benefits-pip**
 - **Flares:** **/arthritis-flare-ups**
 - **Mental health:** **/arthritis-mental-health**
-- **About / contact / donate:** **/about**, **/contact**, **/donate**
+- **About / contact / donate:** **/about**, **/contact**, https://www.gofundme.com/f/help-fund-critical-arthritis-research
 
 Ask me about a joint, condition, diet, flares or PIP and I will answer with links.`,
     nextSteps: ["Open /exercises or /diet", "Browse /blog for recent articles"],
@@ -287,6 +289,12 @@ We cannot assess your entitlement or predict points — rules change and every c
     related: [
       { type: "guide", title: "Benefits & PIP guide", url: "/guides/benefits-pip", description: "UK PIP orientation for arthritis" },
       { type: "guide", title: "Benefits hub", url: "/benefits-pip" },
+      { type: "article", title: "Arthritis disability benefits FAQ", url: "/faq/arthritis-disability-benefits-uk", description: "PIP, ESA, Blue Badge orientation" },
+      { type: "article", title: "PIP for arthritis (UK blog)", url: "/blog/pip-for-arthritis-uk" },
+      { type: "guide", title: "Access to Work", url: "/library/access-to-work" },
+      { type: "article", title: "Access to Work scheme guide", url: "/blog/access-to-work-scheme-arthritis-guide" },
+      { type: "article", title: "Sick pay & fit notes", url: "/blog/sick-pay-fit-notes-time-off-work-arthritis" },
+      { type: "article", title: "Carer's Allowance help", url: "/blog/carers-allowance-help-if-you-care-for-someone" },
       { type: "guide", title: "PIP evidence diary", url: "/resources/pip-evidence-diary", description: "Template for flare and daily-living notes" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
@@ -304,6 +312,13 @@ We cannot assess your entitlement or predict points — rules change and every c
       "occupational health",
       "sick leave",
       "fit note",
+      "sick pay",
+      "ssp",
+      "carer's allowance",
+      "carers allowance",
+      "carer's assessment",
+      "carers assessment",
+      "attendance allowance",
       "work adjustments",
     ],
     synonyms: ["at work", "working with arthritis", "disability at work", "adjustments", "hr arthritis", "phased return"],
@@ -334,8 +349,14 @@ For benefit income support see **/guides/benefits-pip**. This is general informa
     ],
     related: [
       { type: "guide", title: "Benefits & PIP", url: "/guides/benefits-pip" },
-      { type: "article", title: "Guides hub", url: "/guides" },
-      { type: "article", title: "Blog", url: "/blog" },
+      { type: "guide", title: "Access to Work library", url: "/library/access-to-work" },
+      { type: "article", title: "Access to Work scheme guide", url: "/blog/access-to-work-scheme-arthritis-guide" },
+      { type: "article", title: "Sick pay & fit notes", url: "/blog/sick-pay-fit-notes-time-off-work-arthritis" },
+      { type: "article", title: "Carer's Allowance help", url: "/blog/carers-allowance-help-if-you-care-for-someone" },
+      { type: "article", title: "Carer's assessment UK", url: "/blog/carers-assessment-arthritis-frailty-uk" },
+      { type: "article", title: "Attendance Allowance UK", url: "/blog/attendance-allowance-arthritis-frailty-uk" },
+      { type: "article", title: "Arthritis at work UK", url: "/blog/arthritis-and-work-uk" },
+      { type: "article", title: "Joint protection everyday tasks", url: "/blog/joint-protection-easier-everyday-tasks" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
   },
@@ -416,7 +437,11 @@ We are Living With Arthritis (charity **1218461**), independent of Arthritis UK 
       "Write questions for your next GP/rheumatology visit",
     ],
     related: [
+      { type: "guide", title: "Newly diagnosed checklist", url: "/guides/newly-diagnosed" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
+      { type: "guide", title: "Benefits & PIP", url: "/benefits-pip" },
+      { type: "article", title: "Access to Work scheme", url: "/blog/access-to-work-scheme-arthritis-guide" },
       { type: "guide", title: "Diet hub", url: "/diet" },
       { type: "guide", title: "Flare-up guide", url: "/arthritis-flare-ups" },
       { type: "guide", title: "About us", url: "/about" },
@@ -456,6 +481,8 @@ Full guide: **/arthritis-flare-ups**`,
     ],
     related: [
       { type: "guide", title: "Flare-up guide", url: "/arthritis-flare-ups" },
+      { type: "article", title: "Flare-up: what to do", url: "/blog/arthritis-flare-up-what-to-do" },
+      { type: "guide", title: "Flare action plan", url: "/resources/flare-action-plan" },
       { type: "exercise", title: "Gentle exercises", url: "/exercises" },
       { type: "guide", title: "Diet hub", url: "/diet" },
     ],
@@ -472,6 +499,8 @@ Full guide: **/arthritis-flare-ups**`,
       "ice for",
       "hot or cold",
       "heat or ice",
+      "cold weather",
+      "winter",
     ],
     synonyms: ["warmth", "cryotherapy", "thermal", "ice or heat", "cold pack"],
     priority: 9,
@@ -497,12 +526,13 @@ Combine with pacing and movement — see **/exercises** and **/arthritis-flare-u
     nextSteps: ["Match heat vs cold to swelling vs stiffness", "Add gentle range-of-motion after heat"],
     related: [
       { type: "guide", title: "Flare-up guide", url: "/arthritis-flare-ups" },
+      { type: "article", title: "Cold weather & arthritis UK", url: "/blog/cold-weather-arthritis-uk-winter" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
     ],
   },
   {
     id: "fatigue",
-    keywords: ["fatigue", "exhausted", "tired all the time", "no energy", "brain fog", "worn out", "arthritis tiredness"],
+    keywords: ["fatigue", "exhausted", "tired all the time", "no energy", "brain fog", "worn out", "arthritis tiredness", "pacing", "energy management", "boom and bust"],
     synonyms: ["energy crash", "worn down", "lethargy", "crippling tiredness"],
     priority: 11,
     chips: ["Sleep tips", "Pacing at work", "Gentle exercise"],
@@ -526,9 +556,12 @@ See energy and exercise articles via **/exercises** and **/guides**. Seek GP rev
       "Ask GP to rule out other causes if fatigue is severe or new",
     ],
     related: [
+      { type: "article", title: "Arthritis fatigue UK guide", url: "/blog/arthritis-fatigue-management-uk" },
+      { type: "article", title: "Pacing & energy management", url: "/blog/energy-management-and-pacing-arthritis" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
-      { type: "guide", title: "Guides", url: "/guides" },
+      { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
+      { type: "article", title: "Flare-up: what to do", url: "/blog/arthritis-flare-up-what-to-do" },
       { type: "guide", title: "Mental health", url: "/arthritis-mental-health" },
     ],
   },
@@ -542,6 +575,13 @@ See energy and exercise articles via **/exercises** and **/guides**. Seek GP rev
       "waking at night",
       "night pain",
       "sleeping with pain",
+      "sleep with arthritis",
+      "sleeping position",
+      "keeping me awake",
+      "sleep diary",
+      "overnight pain",
+      "pain at night",
+      "night pain management",
     ],
     synonyms: ["poor sleep", "restless night", "broken sleep", "sleep hygiene"],
     priority: 11,
@@ -565,6 +605,12 @@ Pair with pacing (**/exercises**) and flare plans (**/arthritis-flare-ups**).`,
       "Ask GP about sleep apnoea or medication timing if nights are severe",
     ],
     related: [
+      { type: "article", title: "How to sleep with arthritis (UK)", url: "/blog/how-to-sleep-with-arthritis-uk" },
+      { type: "article", title: "Best sleep positions for joint pain", url: "/blog/best-sleep-positions-joint-pain" },
+      { type: "article", title: "Poor sleep and arthritis pain: breaking the cycle", url: "/blog/sleep-quality-arthritis-pain" },
+      { type: "article", title: "Arthritis and sleep problems: what keeps you awake", url: "/blog/arthritis-and-sleep-problems" },
+      { type: "article", title: "Night pain management for arthritis", url: "/blog/sleep-and-pain-management-arthritis" },
+      { type: "article", title: "Arthritis fatigue UK guide", url: "/blog/arthritis-fatigue-management-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
       { type: "guide", title: "Mental health", url: "/arthritis-mental-health" },
@@ -582,6 +628,8 @@ Pair with pacing (**/exercises**) and flare plans (**/arthritis-flare-ups**).`,
       "lonely",
       "feeling down",
       "panic",
+      "when to get help for depression",
+      "talking therapies",
     ],
     synonyms: ["wellbeing", "emotional", "crying a lot", "worried all the time", "mental wellbeing"],
     priority: 13,
@@ -608,6 +656,9 @@ We are Living With Arthritis (charity **1218461**) — educational support only.
     ],
     related: [
       { type: "guide", title: "Arthritis & mental health", url: "/arthritis-mental-health" },
+      { type: "article", title: "Arthritis & mental health UK guide", url: "/blog/arthritis-and-mental-health-uk" },
+      { type: "article", title: "Depression and arthritis: when to ask for help", url: "/blog/depression-arthritis-when-to-seek-help" },
+      { type: "article", title: "How to sleep with arthritis (UK)", url: "/blog/how-to-sleep-with-arthritis-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Contact", url: "/contact" },
     ],
@@ -831,10 +882,12 @@ A **Mediterranean-style** pattern has the strongest everyday evidence for joint-
 - Ultra-processed foods, sugary drinks, refined carbs
 - Fried / processed meats; excess alcohol
 
-Modest weight loss, if relevant, often eases knee and hip load. Recipes and plans: **/diet**.`,
+Modest weight loss, if relevant, often eases knee and hip load. Food patterns support care — they are **not a cure** for rheumatoid arthritis. Recipes and plans: **/diet**; RA-focused food-first guide: **/blog/anti-inflammatory-diet-rheumatoid-arthritis**.`,
     nextSteps: ["Shift one meal a day toward a Mediterranean plate", "Open /diet for UK-focused ideas"],
     related: [
       { type: "guide", title: "Diet hub", url: "/diet" },
+      { type: "article", title: "Anti-inflammatory diet for RA", url: "/blog/anti-inflammatory-diet-rheumatoid-arthritis", description: "Food-first RA plates — not a cure" },
+      { type: "article", title: "Omega-3 foods for joints", url: "/blog/omega-3-foods-for-joints" },
       { type: "guide", title: "Mediterranean diet", url: "/diet/mediterranean-diet-for-arthritis" },
       { type: "guide", title: "Foods to avoid", url: "/diet/foods-to-avoid-with-arthritis" },
     ],
@@ -899,6 +952,9 @@ Discomfort that settles quickly can be OK; sharp or prolonged pain means ease ba
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Exercise guide", url: "/guides/exercise" },
       { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
+      { type: "article", title: "Swimming for hip OA", url: "/blog/swimming-exercises-hip-osteoarthritis" },
+      { type: "article", title: "Walking with arthritis", url: "/blog/walking-with-arthritis-start-build-up-keep-going" },
+      { type: "guide", title: "Knee OA exercises", url: "/guides/knee-exercises-for-osteoarthritis" },
     ],
   },
 
@@ -985,6 +1041,7 @@ On flare days, reduce intensity rather than stopping completely. Browse **/exerc
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Exercise guide", url: "/guides/exercise" },
       { type: "exercise", title: "Tai chi for arthritis", url: "/exercises/tai-chi-for-arthritis" },
+      { type: "article", title: "Staying active in winter", url: "/blog/staying-active-arthritis-winter-uk" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
   },
@@ -1083,8 +1140,13 @@ OA is the most common arthritis. Cartilage cushioning wears, so joints feel stif
 Explore **/conditions/osteoarthritis** and **/exercises**. Hot/red joint with fever needs urgent care.`,
     nextSteps: ["Build a weekly movement habit", "Open /exercises"],
     related: [
+      { type: "article", title: "Joint protection everyday tasks", url: "/blog/joint-protection-easier-everyday-tasks" },
       { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "article", title: "Swimming for hip OA", url: "/blog/swimming-exercises-hip-osteoarthritis" },
+      { type: "article", title: "Walking with arthritis", url: "/blog/walking-with-arthritis-start-build-up-keep-going" },
+      { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
+      { type: "guide", title: "Benefits & PIP hub", url: "/benefits-pip" },
       { type: "guide", title: "Diet hub", url: "/diet" },
     ],
   },
@@ -1141,6 +1203,9 @@ We do not diagnose. Read **/conditions/psoriatic-arthritis**; self-care via **/e
       "febuxostat",
       "urate lowering",
       "colchicine",
+      "gout winter",
+      "gout dehydration",
+      "uric acid winter",
     ],
     synonyms: ["gouty", "high urate", "podagra", "gout crystal"],
     priority: 14,
@@ -1170,6 +1235,7 @@ Fever with a hot joint can also be infection — use **NHS 111**/urgent care if 
       { type: "condition", title: "Gout treatment", url: "/conditions/gout/treatment" },
       { type: "condition", title: "Gout", url: "/conditions/gout" },
       { type: "guide", title: "Febuxostat guide", url: "/guides/febuxostat-for-gout" },
+      { type: "article", title: "Gout in winter: dehydration and flares", url: "/blog/gout-winter-dehydration-frailty-uk" },
       { type: "guide", title: "Diet pillar", url: "/guides/diet" },
     ],
   },
@@ -1308,9 +1374,13 @@ Opioids have limited role in most arthritis and carry dependence risk. More deta
 Urgent: sudden severe pain with hot swollen joint and fever → **NHS 111/999** as appropriate.`,
     nextSteps: ["Ask a pharmacist about topical options", "Pair relief with /exercises pacing"],
     related: [
+      { type: "guide", title: "Arthritis pain relief", url: "/guides/arthritis-pain-relief" },
       { type: "guide", title: "Painkillers & NSAIDs guide", url: "/guides/painkillers-and-nsaids" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
+      { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
+      { type: "article", title: "Swimming for hip OA", url: "/blog/swimming-exercises-hip-osteoarthritis" },
+      { type: "guide", title: "Benefits & PIP hub", url: "/benefits-pip" },
     ],
   },
   {
@@ -1357,6 +1427,9 @@ Guide: **/guides/painkillers-and-nsaids**. Alternatives include pacing, topical 
       "cortisone",
       "steroid injection",
       "corticosteroid",
+      "steroids infection",
+      "steroid card",
+      "steroid emergency card",
     ],
     synonyms: ["steroid tablets", "depomedrone", "kenalog", "bridging steroid"],
     priority: 13,
@@ -1378,6 +1451,8 @@ Read **/guides/steroids-for-arthritis**. Urgent review if you are on steroids an
     ],
     related: [
       { type: "guide", title: "Steroids guide", url: "/guides/steroids-for-arthritis" },
+      { type: "article", title: "Steroids and infection: what to watch for", url: "/blog/ra-steroids-frailty-infection-watch-uk" },
+      { type: "article", title: "Steroid emergency cards: when to show yours", url: "/blog/steroid-emergency-card-frail-arthritis-uk" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
     ],
@@ -1414,6 +1489,12 @@ We do not provide doses or personal regimens.`,
       "Use your rheumatology advice line for medicine queries",
     ],
     related: [
+      { type: "article", title: "Flu jab and arthritis (UK)", url: "/blog/flu-jab-arthritis-frailty-uk" },
+      { type: "article", title: "Winter viruses and arthritis medicines", url: "/blog/covid-winter-arthritis-frailty-uk" },
+      { type: "article", title: "Chest infections and arthritis", url: "/blog/chest-infection-arthritis-frailty-uk" },
+      { type: "article", title: "Vaccines on DMARDs and biologics", url: "/blog/vaccines-on-dmards-and-biologics-uk-guide" },
+      { type: "article", title: "Shingles vaccine and arthritis medicines", url: "/blog/shingles-vaccine-arthritis-frailty-uk" },
+      { type: "article", title: "UTIs and sudden confusion", url: "/blog/uti-confusion-arthritis-frailty-uk" },
       { type: "guide", title: "Azathioprine guide", url: "/guides/azathioprine-for-arthritis" },
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
       { type: "guide", title: "Guides hub", url: "/guides" },
@@ -1498,6 +1579,8 @@ We do not provide doses. Confirm everything with your clinical team.`,
       "fish oil",
       "vitamin d",
       "vit d",
+      "vitamin d winter",
+      "vitamin d supplement",
       "supplements for knee pain",
       "best joint supplement",
     ],
@@ -1511,7 +1594,7 @@ No supplement reverses arthritis. A few may help symptoms modestly for some peop
 - **Omega-3 (fish oil)** — among the better-studied for inflammatory symptoms; ask a pharmacist
 - **Curcumin / ginger** — modest evidence; check interactions
 - **Glucosamine ± chondroitin** — mixed evidence for knee OA
-- **Vitamin D** — UK autumn/winter low-dose advice is common; correct deficiency with GP guidance; avoid high doses without advice
+- **Vitamin D** — NHS advice: consider 10 micrograms a day from October to early March (all year if frail, housebound or in a care home); for bones and muscles, not an arthritis treatment; do not exceed 100 micrograms a day without advice
 
 Always check interactions (blood thinners, diabetes meds, etc.) with a **pharmacist or GP**. Give any trial enough weeks before judging — and stop if you feel unwell.
 
@@ -1521,6 +1604,7 @@ Useful reads: **/blog/omega-3-foods-for-joints**, **/blog/best-supplement-for-kn
     nextSteps: ["Ask a pharmacist before combining supplements with medicines", "Prioritise diet and movement first"],
     related: [
       { type: "guide", title: "Supplements hub", url: "/supplements" },
+      { type: "article", title: "Vitamin D in autumn and winter (UK)", url: "/blog/vitamin-d-winter-arthritis-frailty-uk" },
       { type: "guide", title: "Turmeric & curcumin", url: "/supplements/turmeric" },
       { type: "article", title: "Omega-3 foods for joints", url: "/blog/omega-3-foods-for-joints" },
       { type: "article", title: "Glucosamine vs collagen", url: "/blog/glucosamine-vs-collagen" },
@@ -1578,6 +1662,19 @@ Early review of possible inflammatory arthritis can protect joints long-term. No
       "barometric",
       "winter arthritis",
       "cold makes pain worse",
+      "exercise in winter",
+      "flu jab",
+      "flu vaccine",
+      "cold house",
+      "heating costs",
+      "covid winter",
+      "chest infection",
+      "icy pavements",
+      "ice and snow",
+      "slipped on ice",
+      "shingles vaccine",
+      "shingles jab",
+      "urine infection confusion",
     ],
     synonyms: ["rain and joints", "weather pain", "cold climate joints"],
     priority: 8,
@@ -1595,6 +1692,14 @@ Many people notice more ache in cold or damp weather. Evidence is mixed, but com
 Weather does not replace medical review if symptoms suddenly change. See **/arthritis-flare-ups** if pain spikes.`,
     nextSteps: ["Plan an indoor movement option for cold days", "Use heat before gentle mobility"],
     related: [
+      { type: "article", title: "Cold weather & arthritis UK", url: "/blog/cold-weather-arthritis-uk-winter" },
+      { type: "article", title: "Staying active in winter", url: "/blog/staying-active-arthritis-winter-uk" },
+      { type: "article", title: "Flu jab and arthritis (UK)", url: "/blog/flu-jab-arthritis-frailty-uk" },
+      { type: "article", title: "Cold home: keep warm and keep moving", url: "/blog/winter-arthritis-frailty-cold-houses-uk" },
+      { type: "article", title: "Ice and snow: staying steady", url: "/blog/ice-snow-arthritis-frailty-uk" },
+      { type: "article", title: "Chest infections and arthritis", url: "/blog/chest-infection-arthritis-frailty-uk" },
+      { type: "article", title: "Shingles vaccine and arthritis", url: "/blog/shingles-vaccine-arthritis-frailty-uk" },
+      { type: "article", title: "UTIs and sudden confusion", url: "/blog/uti-confusion-arthritis-frailty-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
@@ -1663,11 +1768,12 @@ Track duration for your clinician. Movement hub: **/exercises**. Condition overv
 - Diet & supplements caution → **/guides/diet**, **/supplements**
 - UK benefits orientation → **/benefits-pip**
 
-We are Living With Arthritis, charity **1218461**, independent of Versus Arthritis / Arthritis UK. Clinically reviewed themes are led by Louis Maxwell (HCPC **PH128483**). We do **not** diagnose — see your GP for personal assessment.`,
+We are Living With Arthritis, charity **1218461**, independent of Arthritis UK (formerly Versus Arthritis). Clinically reviewed themes are led by Louis Maxwell (HCPC **PH128483**). We do **not** diagnose — see your GP for personal assessment.`,
     nextSteps: [
       "Name the joint or type (OA, RA, gout…) for a more specific answer",
       "Browse the health library at /library",
       "Read /about to meet the charity",
+      "Read /living-with-arthritis for a practical overview of daily life",
     ],
     related: [
       { type: "condition", title: "Osteoarthritis guide", url: "/conditions/osteoarthritis" },

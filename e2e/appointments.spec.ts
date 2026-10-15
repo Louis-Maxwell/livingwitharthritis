@@ -91,6 +91,6 @@ test.describe("Appointment Booking Flow", () => {
     await bookBtn.scrollIntoViewIfNeeded();
     await bookBtn.click();
 
-    await expect(page.getByText("Free Consultation")).toBeVisible({ timeout: 5000 });
+    await expect(page.getByRole("dialog").getByText("Free Consultation")).toBeVisible({ timeout: 5000 });
   });
 });

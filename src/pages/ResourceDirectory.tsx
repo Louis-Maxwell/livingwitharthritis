@@ -23,7 +23,7 @@ type Resource = {
 
 const resources: Record<string, Resource[]> = {
   "Health Services": [
-    { name: "Rheumatology Referral", description: "Ask your GP for an urgent referral if you have persistent joint swelling, morning stiffness lasting over 30 minutes, or rapid onset of multiple joint pain. Target: 18-week pathway.", region: "Nationwide", url: "https://www.gov.uk/browse/health-and-social-care", tags: ["Referral", "Public Health"], featured: true },
+    { name: "Rheumatology Referral", description: "Ask your GP for an urgent referral if you have persistent joint swelling, morning stiffness lasting over 30 minutes, or rapid onset of multiple joint pain. Target: 18-week pathway.", region: "Nationwide", url: "https://www.nhs.uk/nhs-services/", tags: ["Referral", "Public Health"], featured: true },
     { name: "First Contact Practitioners (FCPs)", description: "HCPC-registered physiotherapists based in GP surgeries who can assess, diagnose, and manage musculoskeletal conditions without needing a GP referral first.", region: "England", url: "https://www.csp.org.uk/professional-clinical/first-contact-physiotherapy", tags: ["Physio", "GP"], featured: true },
     { name: "Physiotherapy Self-Referral", description: "In most areas of England, you can self-refer to public health physiotherapy without seeing your GP first. Check your local local health trust website for details.", region: "England", tags: ["Physio", "Self-referral"] },
     { name: "Scottish Musculoskeletal Pathway", description: "Scotland's integrated musculoskeletal service provides direct access to physiotherapy, podiatry, and occupational therapy.", region: "Scotland", url: "https://www.nhsinform.scot/illnesses-and-conditions/muscle-bone-and-joints/", tags: ["Scotland", "MSK"] },
@@ -31,7 +31,7 @@ const resources: Record<string, Resource[]> = {
     { name: "Northern Ireland Rheumatology", description: "Rheumatology services are provided through HSC Trusts. The Belfast Trust has one of the largest rheumatology departments in the UK.", region: "Northern Ireland", tags: ["NI", "Rheumatology"] },
   ],
   "Charities & Support": [
-    { name: "Versus Arthritis", description: "The UK's largest arthritis charity. Provides information, support services, helpline, research funding, and campaigning. Helpline: free, confidential advice from trained advisors.", region: "Nationwide", url: "https://www.versusarthritis.org", phone: "0800 5200 520", tags: ["Helpline", "Information"], featured: true },
+    { name: "Arthritis UK (formerly Versus Arthritis)", description: "The UK's largest arthritis charity. Provides information, support services, helpline, research funding, and campaigning. Helpline: free, confidential advice from trained advisors.", region: "Nationwide", url: "https://www.arthritis-uk.org", phone: "0800 5200 520", tags: ["Helpline", "Information"], featured: true },
     { name: "National Rheumatoid Arthritis Society (NRAS)", description: "Specialist support for people with RA and JIA. Offers helpline, publications, self-management programmes, and healthcare professional support.", region: "Nationwide", url: "https://nras.org.uk", phone: "0800 298 7650", tags: ["RA", "Helpline"], featured: true },
     { name: "Psoriasis Association", description: "Support and information for people with psoriasis and psoriatic arthritis. Offers fact sheets, forums, and healthcare professional resources.", region: "Nationwide", url: "https://www.psoriasis-association.org.uk", tags: ["PsA", "Psoriasis"] },
     { name: "Arthritis Action", description: "Self-management focused charity. Provides practical support including physiotherapy, dietetics, and self-management courses.", region: "Nationwide", url: "https://www.arthritisaction.org.uk", tags: ["Self-management"] },
@@ -40,7 +40,7 @@ const resources: Record<string, Resource[]> = {
   ],
   "Benefits & Financial": [
     { name: "Personal Independence Payment (PIP)", description: "UK disability benefit for people aged 16-66 with long-term health conditions or disabilities. Arthritis can qualify if it significantly affects daily living or mobility.", region: "England, Wales, Scotland", url: "https://www.gov.uk/pip", tags: ["PIP", "Benefits"], featured: true },
-    { name: "Adult Disability Payment (ADP)", description: "Scotland's replacement for PIP, administered by Social Security Scotland. Similar eligibility criteria but with a different application process.", region: "Scotland", url: "https://www.socialsecurity.gov.scot/benefits/adult-disability-payment", tags: ["Scotland", "Benefits"] },
+    { name: "Adult Disability Payment (ADP)", description: "Scotland's replacement for PIP, administered by Social Security Scotland. Similar eligibility criteria but with a different application process.", region: "Scotland", url: "https://www.mygov.scot/adult-disability-payment", tags: ["Scotland", "Benefits"] },
     { name: "Attendance Allowance", description: "For people over State Pension age who need help with personal care due to disability. Two rates: £72.65/week (daytime or night) or £108.55/week (both).", region: "Nationwide", url: "https://www.gov.uk/attendance-allowance", tags: ["Over 66", "Benefits"] },
     { name: "Access to Work", description: "Government programme funding workplace adjustments for disabled people. Can cover ergonomic equipment, support workers, and travel costs.", region: "England, Wales, Scotland", url: "https://www.gov.uk/access-to-work", tags: ["Employment", "Workplace"] },
     { name: "Blue Badge Scheme", description: "Parking concession for people with severe mobility problems. Arthritis patients may qualify depending on walking ability and pain levels.", region: "Nationwide", url: "https://www.gov.uk/apply-blue-badge", tags: ["Mobility", "Parking"] },
@@ -54,7 +54,7 @@ const resources: Record<string, Resource[]> = {
   ],
   "Research & Clinical Trials": [
     { name: "NIHR Be Part of Research", description: "Find and volunteer for arthritis-related clinical trials and research studies across the UK. Searchable database of active studies.", region: "Nationwide", url: "https://bepartofresearch.nihr.ac.uk", tags: ["Trials", "Research"], featured: true },
-    { name: "Versus Arthritis Centre for Sport, Exercise & Osteoarthritis Research", description: "Multi-university research centre studying the role of exercise in OA prevention and management.", region: "Nationwide", url: "https://www.versusarthritis.org/research/", tags: ["Research", "Exercise"] },
+    { name: "Centre for Sport, Exercise and Osteoarthritis Research (funded by Arthritis UK (formerly Versus Arthritis))", description: "Multi-university research centre studying the role of exercise in OA prevention and management.", region: "Nationwide", url: "https://www.arthritis-uk.org/our-research/", tags: ["Research", "Exercise"] },
     { name: "UK Biobank", description: "Large-scale biomedical database and research resource containing genetic, lifestyle, and health information from 500,000 UK participants.", region: "Nationwide", url: "https://www.ukbiobank.ac.uk", tags: ["Genetics", "Data"] },
     { name: "OMERACT", description: "International initiative to improve outcome measures in rheumatology clinical trials. Involves patient research partners.", region: "International", url: "https://omeract.org", tags: ["International", "Outcomes"] },
   ],
@@ -89,12 +89,12 @@ export default function ResourceDirectory() {
       <meta property="og:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/resources-directory" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Resource Directory | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Resource Directory | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="UK Arthritis Resource Directory – Public Health, Charities, Benefits | Living With Arthritis" />
       <meta name="twitter:description" content="Arthritis resources: Guides, webinars, e-books, recipes & support groups. Free tools to manage arthritis effectively." />

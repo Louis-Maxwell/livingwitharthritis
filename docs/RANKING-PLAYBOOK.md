@@ -1,4 +1,4 @@
-# Ranking Playbook — Living With Arthritis UK
+# Ranking Playbook — Living With Arthritis
 
 **Legitimate SEO only.** No black-hat, cloaking, fake traffic, link schemes, or fabricated stats.
 Nobody can force Google/Bing/DuckDuckGo rankings; this playbook improves crawlability, relevance, and trustworthy signals so engines *can* rank the site when content and links earn it.

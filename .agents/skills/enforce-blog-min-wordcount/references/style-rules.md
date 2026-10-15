@@ -1,6 +1,6 @@
 # Blog article style rules
 
-Living With Arthritis UK blog structure, as rendered by `src/pages/BlogPost.tsx` and the components in `src/components/blog/`.
+Living With Arthritis blog structure, as rendered by `src/pages/BlogPost.tsx` and the components in `src/components/blog/`.
 
 ## Required sections (top → bottom)
 

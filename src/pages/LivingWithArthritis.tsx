@@ -25,7 +25,7 @@ export default function LivingWithArthritis() {
       },
       publisher: {
         '@type': 'MedicalOrganization',
-        name: 'Living With Arthritis UK',
+        name: 'Living With Arthritis',
       },
       datePublished: '2026-06-18',
       dateModified: new Date().toISOString().slice(0, 10),
@@ -36,15 +36,54 @@ export default function LivingWithArthritis() {
       { name: 'Living With Arthritis', path: '/living-with-arthritis' },
     ]);
     const c1 = injectJsonLd('living-with-arthritis-article', article);
+    const faq = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Can arthritis be cured?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Most types of arthritis cannot be cured, but symptoms and function can often be improved with an individually appropriate combination of treatment, movement and practical support.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is arthritis only for older people?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. Arthritis can affect people of any age, including children and younger adults.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can exercise make arthritis worse?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Suitable, gradually introduced activity often supports strength and function, but the type and amount should match the person and condition. Seek professional advice if symptoms are severe, persistent or unusual.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I have a normal life with arthritis?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Many people with arthritis continue working, exercising, travelling and enjoying hobbies, although support and adaptations may be helpful.',
+          },
+        },
+      ],
+    };
     const c2 = injectJsonLd('living-with-arthritis-breadcrumb', breadcrumb);
-    return () => { c1(); c2(); };
+    const c3 = injectJsonLd('living-with-arthritis-faq', faq);
+    return () => { c1(); c2(); c3(); };
   }, []);
 
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Living With Arthritis: UK Guide"
-        description="Living with arthritis UK: Complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
+        description="Living with arthritis in the UK: complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
         path="/living-with-arthritis"
         type="article"
         keywords="living with arthritis, arthritis management, arthritis guide UK"
@@ -55,10 +94,7 @@ export default function LivingWithArthritis() {
       </h1>
 
       <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-        Arthritis affects 10 million people in the UK. It's a long-term condition,
-        but that doesn't mean living in pain or giving up the things you love. This
-        evidence-based guide covers what arthritis is, how to manage symptoms, and
-        practical strategies for living well.
+        Arthritis affects 10 million people in the UK. Experiences vary by condition and person, but many people continue meaningful activities with the right treatment, movement, pacing and practical support. This evidence-based guide covers what arthritis is, how symptoms may affect daily life, and questions to discuss with a healthcare professional.
       </p>
 
 
@@ -343,8 +379,7 @@ export default function LivingWithArthritis() {
           <div>
             <h3 className="text-lg font-bold mb-2">Can exercise make arthritis worse?</h3>
             <p className="leading-relaxed">
-              Gentle, appropriate exercise almost always helps. Start slowly and listen
-              to your body. A physiotherapist can design a safe programme for you.
+              Suitable activity often helps maintain strength and function, but the type and amount should match your condition and general health. Start gradually and ask a physiotherapist or other qualified professional for individual advice.
             </p>
           </div>
           <div>
@@ -357,7 +392,7 @@ export default function LivingWithArthritis() {
       </section>
 
       <section className="bg-muted p-6 rounded-lg mb-12">
-        <h2 className="text-2xl font-bold mb-4">Related articles</h2>
+        <h2 className="text-2xl font-bold mb-4">Related articles</h2>\n        <p className="mb-4 leading-relaxed">For a practical overview of daily life, symptoms, pacing, work and support, read our <Link to="/blog/arthritis-hows-life-living-with-arthritis" className="text-primary underline font-semibold">guide to how life with arthritis can feel</Link>.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <Link to="/conditions/osteoarthritis" className="text-primary hover:underline font-semibold">→ Osteoarthritis guide</Link>
           <Link to="/conditions/rheumatoid-arthritis" className="text-primary hover:underline font-semibold">→ Rheumatoid arthritis guide</Link>

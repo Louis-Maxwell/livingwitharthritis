@@ -94,7 +94,7 @@ export default function Glucosamine() {
   return (
     <>
       <Helmet>
-        <title>{`${META_TITLE} | Living With Arthritis UK`}</title>
+        <title>{`${META_TITLE} | Living With Arthritis`}</title>
         <meta name="description" content={META_DESC} />
         <meta
           name="keywords"
@@ -107,7 +107,7 @@ export default function Glucosamine() {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={URL} />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={META_TITLE} />
         <meta name="twitter:description" content={META_DESC} />
@@ -201,7 +201,7 @@ export default function Glucosamine() {
               </li>
               <li>
                 <a
-                  href="https://www.nhs.uk/medicines/warfarin/taking-warfarin-with-other-medicines-and-herbal-supplements/"
+                  href="https://www.nhs.uk/medicines/warfarin/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline"

@@ -4,7 +4,7 @@ function wrapTablesForMobile(html: string): string {
   // Scroll wide tables inside a wrapper so the page itself never side-scrolls.
   return html.replace(/<table(\b[^>]*)>[\s\S]*?<\/table>/gi, (match) => {
     if (/class=["'][^"']*\btable-scroll\b/.test(match)) return match;
-    return `<div class="table-scroll">${match}</div>`;
+    return `<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table">${match}</div>`;
   });
 }
 
@@ -28,6 +28,13 @@ function installHooks() {
         node.setAttribute("rel", "noopener noreferrer");
       }
     }
+    if (node.tagName === "IMG") {
+      node.setAttribute("decoding", "async");
+      if (!node.hasAttribute("loading")) node.setAttribute("loading", "lazy");
+    }
+    if (node.tagName === "TH" && !node.hasAttribute("scope")) {
+      node.setAttribute("scope", node.closest("thead") ? "col" : "row");
+    }
   });
 }
 
@@ -44,12 +51,12 @@ export function sanitizeHtml(rawHtml: string): string {
       "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
       "ul", "ol", "li", "blockquote", "a", "img", "table", "thead", "tbody",
       "tr", "td", "th", "code", "pre", "hr", "span", "div", "section",
-      "article", "figure", "figcaption",
+      "article", "figure", "figcaption", "caption",
     ],
     ALLOWED_ATTR: [
       "href", "target", "rel", "src", "alt", "title", "class", "id",
       "colspan", "rowspan", "controls", "width", "height",
-      "loading", "srcset", "sizes", "aria-label", "aria-hidden",
+      "loading", "decoding", "srcset", "sizes", "scope", "tabindex", "role", "aria-label", "aria-hidden",
     ],
     ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))/i,
     FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form", "link", "meta", "base"],

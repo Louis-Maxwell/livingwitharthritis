@@ -8,7 +8,7 @@ import {
   unwrapEscapedHtmlCodeBlocks,
 } from "@/lib/articleHtmlCodeBlocks.mjs";
 import { renderArticleHtml } from "../../../scripts/static-article-html.mjs";
-import blogArticles from "@/data/blogArticles.json";
+import { ALL_BLOG_POSTS as blogArticles } from "@/test/blogPosts";
 
 describe("article HTML code-block guards", () => {
   it("unwraps escaped block HTML trapped in pre/code", () => {
@@ -78,7 +78,7 @@ Done.
 
   it("repairFencedArticleHtml is idempotent on young-people sample", () => {
     const raw = readFileSync(
-      resolve("src/data/blogArticles.json"),
+      resolve("src/content/blog/posts/arthritis-in-young-people-uk.json"),
       "utf8",
     );
     expect(raw).toContain("arthritis-in-young-people-uk");

@@ -5,8 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://api.resend.com https://api-m.paypal.com https://api-m.sandbox.paypal.com https://ai.gateway.lovable.dev https://api.stripe.com https://*.lovable.app https://*.lovableproject.com https://*.evarist.ai https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net; frame-src 'self' https://*.paypal.com https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com" />
-    <!-- CSP: 'unsafe-eval' removed (Vite prod build does not need it). 'unsafe-inline' remains for boot/consent scripts and Vite/Lovable inline styles. HTTP headers in public/_headers are the source of truth; Lovable may still strip them until host applies. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.g.doubleclick.net https://www.google.com; frame-src 'self' https://www.google.com https://www.google.co.uk https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <!-- CSP: this meta tag is the policy that actually applies. Lovable's host
+         ignores public/_headers (checked 28 Sep 2026: the live response only
+         carries "frame-ancestors 'self'"), so keep the two in sync; the header
+         copy adds frame-ancestors, which a meta tag cannot set. Allowlist = only
+         what the site uses: GA4 + Evarist (after consent), FormSubmit (newsletter),
+         Google Maps embed (contact). Stripe is a redirect to Checkout, so it needs
+         no entry. 'unsafe-inline' remains for the boot/consent scripts. -->
+
+    <!-- Stale-deploy boot guard. If this HTML was served from a cache after a
+         new publish, its hashed /assets/* entry files no longer exist and the
+         page would stay blank. Resource errors do not bubble, so listen in the
+         capture phase and reload ONCE with a cache-busting param (same key and
+         param as src/lib/chunkRecovery.ts, which strips the param on boot). -->
+    <script>
+      (function () {
+        var KEY = 'lwa:stale-reload-at', WINDOW_MS = 300000;
+        window.addEventListener('error', function (e) {
+          var t = e && e.target;
+          if (!t || (t.tagName !== 'SCRIPT' && t.tagName !== 'LINK')) return;
+          var url = t.src || t.href || '';
+          if (url.indexOf('/assets/') === -1) return;
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < WINDOW_MS) return;
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch (err) { return; /* no storage = no loop guard, so never auto-reload */ }
+          var u = new URL(location.href);
+          u.searchParams.set('_r', Date.now().toString(36));
+          location.replace(u.toString());
+        }, true);
+      })();
+    </script>
 
     <!-- Analytics are consent-gated: nothing loads until the visitor has
          explicitly accepted analytics cookies in the site cookie banner.
@@ -46,7 +77,17 @@
           window.dataLayer = window.dataLayer || [];
           window.gtag = function () { window.dataLayer.push(arguments); };
           window.gtag('js', new Date());
-          window.gtag('config', GA_ID, { send_page_view: false });
+          // Do not let automatic events inherit search queries, contact data or fragments.
+          var safeLocation = new URL(window.location.href);
+          safeLocation.search = ''; safeLocation.hash = '';
+          if (/@|%40/i.test(safeLocation.pathname)) safeLocation.pathname = '/';
+          var safeReferrer = '';
+          try { safeReferrer = new URL(document.referrer).origin + '/'; } catch (e) {}
+          window.gtag('config', GA_ID, {
+            send_page_view: false,
+            page_location: safeLocation.href,
+            page_referrer: safeReferrer
+          });
           var ga = document.createElement('script');
           ga.async = true;
           ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
@@ -74,10 +115,10 @@
     <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
          Per-route SeoHead (react-helmet-async) overrides title / description /
          og:title / og:description for JS-executing crawlers on subpages. -->
-    <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
-    <meta name="description" content="Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help." />
-    <meta name="author" content="Living With Arthritis UK" />
-    <meta name="publisher" content="Living With Arthritis UK" />
+    <title>Living With Arthritis | Exercises & PIP Advice</title>
+    <meta name="description" content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461." />
+    <meta name="author" content="Living With Arthritis" />
+    <meta name="publisher" content="Living With Arthritis" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="bingbot" content="index, follow" />
@@ -104,23 +145,15 @@
 
 
 
-    <!-- LCP hero image: served via OAHero's <img fetchpriority="high" loading="eager">
-         (see src/components/landing/OAHero.tsx). Responsive: phones pull the
-         400w variant (~31KB) instead of the full 800w file (~133KB). The
-         imagesrcset/imagesizes here must stay in sync with OAHero's srcset. -->
-    <link
-      rel="preload"
-      as="image"
-      href="/openverse/hero-friends-800.webp"
-      imagesrcset="/openverse/hero-friends-400.webp 400w, /openverse/hero-friends-800.webp 800w"
-      imagesizes="(min-width: 1024px) 560px, 100vw"
-      fetchpriority="high"
-    />
-    <!-- Inter (single family, variable weight 100-900), self-hosted from
-         /public/fonts as a latin-subset woff2. One file covers every weight. -->
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/Inter.woff2" crossorigin />
+    <!-- No early hero-image preload. Measured 4 Oct 2026 (Lighthouse mobile,
+         simulated slow 4G): the homepage LCP element is the hero paragraph,
+         not the photo. A high-priority preload of the photo started before
+         the entry scripts and shared their bandwidth. OAHero still loads the
+         picture with the responsive srcset once React paints.
+         INTER_FONT_PRELOAD is replaced at build time with a low-priority
+         preload of the hashed /assets/*.woff2 (see vite.config.ts). -->
+    <!-- INTER_FONT_PRELOAD -->
     <style>
-      @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/Inter.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
       /* Keep crawler HTML in the document but never paint it for JS visitors.
          Blog/condition inject used to set this block visible, which flashed a
          wall of unstyled article text before React replaced #root. */
@@ -131,7 +164,7 @@
     </noscript>
 
     <!-- LCP hero image is bundled via Vite (hashed filename); the <img> tag in
-         OAHero uses fetchpriority="high" + loading="eager" to prioritise it.
+         OAHero loads eagerly at automatic priority so it does not outrank the mobile LCP text.
          No static preload link here — the previous hero-walking-group preload
          pointed at a stale asset that wasn't actually on the page. -->
 
@@ -141,43 +174,44 @@
          JS-executing crawlers (Googlebot, Twitterbot). Subpages shared on
          non-JS social platforms will preview with the homepage copy below
          until SSR/prerender is added. -->
-    <meta property="og:title" content="Living With Arthritis UK | Evidence-Based Health Guides" />
-    <meta property="og:description" content="Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help." />
+    <meta property="og:title" content="Living With Arthritis | Exercises & PIP Advice" />
+    <meta property="og:description" content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461." />
     <!-- Self-referencing canonical. Per-route builds rewrite this in
          scripts/inject-canonicals.mjs; <SeoHead> re-emits it via Helmet. -->
     <link rel="canonical" href="https://livingwitharthritis.org.uk/" />
     <link rel="alternate" type="text/plain" href="https://livingwitharthritis.org.uk/llms.txt" title="LLM site guide" />
     <link rel="alternate" type="text/plain" href="https://livingwitharthritis.org.uk/ai.txt" title="AI crawler notes" />
+    <link rel="alternate" type="application/ld+json" href="https://livingwitharthritis.org.uk/answer-engine.json" title="Answer engine facts" />
     <meta property="og:url" content="https://livingwitharthritis.org.uk/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="en_GB" />
-    <meta property="og:site_name" content="Living With Arthritis UK" />
+    <meta property="og:site_name" content="Living With Arthritis" />
     <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="People walking together — Living With Arthritis UK free joint-pain support" />
+    <meta property="og:image:alt" content="People walking together — Living With Arthritis free joint-pain support" />
 
     <!-- Twitter / X Card (per-route SeoHead overrides title/description for JS crawlers) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Living With Arthritis UK | Evidence-Based Health Guides" />
-    <meta name="twitter:description" content="Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help." />
+    <meta name="twitter:title" content="Living With Arthritis | Exercises & PIP Advice" />
+    <meta name="twitter:description" content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461." />
     <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png">
-    <meta name="twitter:image:alt" content="People walking together — Living With Arthritis UK free joint-pain support" />
+    <meta name="twitter:image:alt" content="People walking together — Living With Arthritis free joint-pain support" />
 
 
 
 
     <!-- JSON-LD Structured Data: Organisation. id lets RootOrganizationSchema
          refresh this node on hydrate instead of emitting a second copy. -->
-    <script id="root-organization-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalOrganization","NGO","Organization"],"@id":"https://livingwitharthritis.org.uk/#organization","name":"Living With Arthritis UK","legalName":"Living With Arthritis","alternateName":["Living With Arthritis UK","Living With Arthritis charity"],"url":"https://livingwitharthritis.org.uk","logo":{"@type":"ImageObject","url":"https://livingwitharthritis.org.uk/icons/icon-512.png","width":512,"height":512},"image":{"@type":"ImageObject","url":"https://livingwitharthritis.org.uk/og/landing-share.png","width":1200,"height":630},"foundingDate":"2026-06-15","founder":{"@type":"Person","name":"Louis Maxwell","alternateName":"Maxwell","jobTitle":"First Contact Practitioner","identifier":{"@type":"PropertyValue","propertyID":"HCPC","value":"PH128483"},"url":"https://livingwitharthritis.org.uk/authors/maxwell"},"identifier":[{"@type":"PropertyValue","propertyID":"GB-CHC","value":"1218461","url":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0"}],"subjectOf":{"@type":"CreativeWork","name":"UK Charity Commission Register entry","url":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0"},"description":"Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.","email":"info@livingwitharthritis.org.uk","medicalSpecialty":["Rheumatology","Physiotherapy","Nutrition"],"areaServed":[{"@type":"Country","name":"United Kingdom"},{"@type":"AdministrativeArea","name":"England"},{"@type":"AdministrativeArea","name":"Scotland"},{"@type":"AdministrativeArea","name":"Wales"},{"@type":"AdministrativeArea","name":"Northern Ireland"}],"contactPoint":[{"@type":"ContactPoint","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","contactType":"customer support","availableLanguage":["English","en-GB"],"areaServed":"GB"}],"knowsAbout":["Osteoarthritis","Rheumatoid arthritis","Psoriatic arthritis","Gout","Ankylosing spondylitis","Fibromyalgia","Lupus","Polymyalgia rheumatica","Anti-inflammatory diet","Mediterranean diet","Joint exercises","PIP arthritis benefits","Adult Disability Payment Scotland","Blue Badge arthritis","Access to Work","Equality Act reasonable adjustments","Rheumatology waiting lists UK","Methotrexate side effects","NICE osteoarthritis exercise"],"sameAs":["https://www.facebook.com/profile.php?id=61583723925315","https://www.instagram.com/livingwitharthritisuk/","https://www.linkedin.com/company/112596569/","https://www.youtube.com/@livingwitharthritisuk","https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0","https://findthatcharity.uk/orgid/GB-CHC-1218461","https://ngoexplorer.org/charity/1218461"]}</script>
+    <script id="root-organization-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalOrganization","NGO","Organization"],"@id":"https://livingwitharthritis.org.uk/#organization","name":"Living With Arthritis","legalName":"Living With Arthritis","alternateName":["Living With Arthritis charity","Living With Arthritis (charity 1218461)"],"url":"https://livingwitharthritis.org.uk","logo":{"@type":"ImageObject","url":"https://livingwitharthritis.org.uk/icons/icon-512.png","width":512,"height":512},"image":{"@type":"ImageObject","url":"https://livingwitharthritis.org.uk/og/landing-share.png","width":1200,"height":630},"foundingDate":"2026-06-15","founder":{"@type":"Person","name":"Louis Maxwell","alternateName":"Maxwell","jobTitle":"First Contact Practitioner","identifier":{"@type":"PropertyValue","propertyID":"HCPC","value":"PH128483"},"url":"https://livingwitharthritis.org.uk/authors/maxwell"},"identifier":[{"@type":"PropertyValue","propertyID":"GB-CHC","value":"1218461","url":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0"}],"subjectOf":{"@type":"CreativeWork","name":"UK Charity Commission Register entry","url":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0"},"description":"Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.","keywords":"arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise","email":"info@livingwitharthritis.org.uk","knowsLanguage":["en-GB","English"],"medicalSpecialty":["Rheumatology","Physiotherapy","Nutrition"],"areaServed":[{"@type":"Country","name":"United Kingdom"},{"@type":"AdministrativeArea","name":"England"},{"@type":"AdministrativeArea","name":"Scotland"},{"@type":"AdministrativeArea","name":"Wales"},{"@type":"AdministrativeArea","name":"Northern Ireland"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Free UK arthritis support from Living With Arthritis","itemListElement":[{"@type":"Offer","name":"Arthritis exercise and movement guides","url":"https://livingwitharthritis.org.uk/guides/exercise","availability":"https://schema.org/InStock","price":"0","priceCurrency":"GBP","itemOffered":{"@type":"Service","serviceType":"NICE-aligned arthritis exercise guidance","areaServed":"GB","audience":{"@type":"MedicalAudience","audienceType":"People living with arthritis"}}},{"@type":"Offer","name":"Benefits and PIP guidance for arthritis","url":"https://livingwitharthritis.org.uk/guides/benefits-pip","availability":"https://schema.org/InStock","price":"0","priceCurrency":"GBP","itemOffered":{"@type":"Service","serviceType":"UK benefits information for arthritis and disability","areaServed":"GB"}},{"@type":"Offer","name":"Waiting-list and appointment preparation help","url":"https://livingwitharthritis.org.uk/arthritis-waiting-list-help","availability":"https://schema.org/InStock","price":"0","priceCurrency":"GBP","itemOffered":{"@type":"Service","serviceType":"Plain-English UK healthcare navigation support","areaServed":"GB"}},{"@type":"Offer","name":"AI-readable arthritis content export","url":"https://livingwitharthritis.org.uk/llms.txt","availability":"https://schema.org/InStock","price":"0","priceCurrency":"GBP","itemOffered":{"@type":"DigitalDocument","encodingFormat":"text/plain","name":"Living With Arthritis llms.txt"}}]},"contactPoint":[{"@type":"ContactPoint","telephone":"+44-7760-512-084","email":"info@livingwitharthritis.org.uk","contactType":"customer support","availableLanguage":["English","en-GB"],"areaServed":"GB"}],"knowsAbout":["Osteoarthritis","Rheumatoid arthritis","Psoriatic arthritis","Gout","Ankylosing spondylitis","Fibromyalgia","Lupus","Polymyalgia rheumatica","Anti-inflammatory diet","Mediterranean diet","Joint exercises","PIP arthritis benefits","Adult Disability Payment Scotland","Blue Badge arthritis","Access to Work","Equality Act reasonable adjustments","Rheumatology waiting lists UK","Methotrexate side effects","NICE osteoarthritis exercise","Knee exercises for osteoarthritis","Free arthritis resources UK","Newly diagnosed arthritis UK"],"sameAs":["https://www.facebook.com/profile.php?id=61583723925315","https://www.instagram.com/livingwitharthritisuk/","https://www.linkedin.com/company/112596569/","https://www.youtube.com/@livingwitharthritisuk","https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0","https://findthatcharity.uk/orgid/GB-CHC-1218461","https://ngoexplorer.org/charity/1218461"],"disambiguatingDescription":"UK charity 1218461 providing free evidence-informed arthritis guidance — not Arthritis UK (formerly Versus Arthritis)."}</script>
 
     <!-- Per-page schemas (MedicalWebPage, BreadcrumbList, FAQPage) are injected
          per-route via react-helmet-async to avoid duplicate/irrelevant rich
          results data on subpages. -->
 
     <!-- JSON-LD: WebSite with SearchAction -->
-    <script id="root-website-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://livingwitharthritis.org.uk/#website","name":"Living With Arthritis UK","url":"https://livingwitharthritis.org.uk/","inLanguage":"en-GB","description":"Expert arthritis support, virtual physiotherapy, anti-inflammatory nutrition and community resources for UK residents.","publisher":{"@id":"https://livingwitharthritis.org.uk/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://livingwitharthritis.org.uk/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+    <script id="root-website-jsonld" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://livingwitharthritis.org.uk/#website","name":"Living With Arthritis","url":"https://livingwitharthritis.org.uk/","inLanguage":"en-GB","description":"Free, evidence-informed UK arthritis guidance from Living With Arthritis (registered charity 1218461) \u2014 NICE-aligned exercise, diet, PIP and waiting-list help. Independent of Arthritis UK.","about":["Living with arthritis in the United Kingdom","Osteoarthritis","Rheumatoid arthritis","Joint pain","Frailty and musculoskeletal health","UK disability benefits for arthritis"],"mentions":[{"@type":"Thing","name":"NICE osteoarthritis exercise guidance"},{"@type":"Thing","name":"NHS rheumatology and physiotherapy pathways"},{"@type":"Thing","name":"PIP, Attendance Allowance and Access to Work"}],"publisher":{"@id":"https://livingwitharthritis.org.uk/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://livingwitharthritis.org.uk/search?q={search_term_string}"},"query-input":"required name=search_term_string"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".speakable-intro"]}}</script>
 
   <!-- Per-route og:title, og:description, og:url and twitter equivalents are
        emitted via react-helmet-async (SeoHead) on every page. Do not duplicate
@@ -205,6 +239,80 @@
   <body style="background:#ffffff;">
     <div id="root">
       <!--
+        Homepage-only first paint. The live page is client-rendered, and on
+        4 Oct 2026 the mobile LCP element (the hero paragraph) did not exist
+        until the entry scripts had downloaded and run — about three quarters
+        of LCP was render delay. This shell uses the same classes as Header /
+        OAHero so the paragraph can paint with the stylesheet, before JS.
+        It stays hidden on every other route (this file is the shell for all
+        of them) and createRoot() removes it when React commits. Copy here
+        must match OAHero.tsx — see src/components/landing/__tests__/bootHero.test.ts.
+      -->
+      <div id="boot-hero" hidden>
+        <a href="#boot-main" class="sr-only focus:not-sr-only">Skip to main content</a>
+        <header>
+        <aside aria-label="Clinical review commitment" class="w-full border-b border-primary/20 bg-accent text-foreground">
+          <p class="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Our clinical team reviews and updates this website daily to ensure all content remains accurate, reliable, and informed by the latest evidence.</p>
+        </aside>
+        <div class="bg-primary donation-quickbar-placeholder" aria-hidden="true"></div>
+        <div class="bg-background border-b border-border/15">
+          <div class="container mx-auto px-4 sm:px-6 md:px-10 py-2.5 flex items-center justify-between gap-2 sm:gap-4">
+            <a href="/" class="group cursor-pointer select-none shrink-0" aria-label="Living With Arthritis — Go to homepage">
+              <span class="flex flex-col items-start leading-none">
+                <span class="inline-flex items-center gap-3">
+                  <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-7 sm:h-8 md:h-10 w-auto shrink-0" aria-hidden="true" focusable="false">
+                    <g stroke="hsl(var(--primary))" stroke-width="30" stroke-linecap="round" fill="none">
+                      <path d="M256 200 Q176 128 92 64" />
+                      <path d="M256 200 Q336 128 420 64" />
+                      <path d="M256 172 L256 308" />
+                      <path d="M256 308 Q206 388 168 460" />
+                      <path d="M256 308 Q306 388 344 460" />
+                    </g>
+                    <circle cx="256" cy="124" r="44" fill="hsl(var(--primary))" />
+                  </svg>
+                  <span class="font-sans font-extrabold uppercase tracking-[-0.01em] leading-none text-primary text-[15px] sm:text-xl md:text-2xl">Living With Arthritis</span>
+                </span>
+                <span class="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">Motion is Lotion</span>
+              </span>
+            </a>
+            <div class="flex items-center gap-1.5 lg:hidden min-w-0">
+              <a href="/donate" class="inline-flex items-center h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary text-primary-foreground">Donate</a>
+              <span class="inline-flex h-11 w-11" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:block bg-background border-b border-border/20 h-[46px]" aria-hidden="true"></div>
+        </header>
+        <div id="boot-main" tabindex="-1" role="region" aria-label="Arthritis support introduction">
+          <section class="band-red relative w-full max-w-full overflow-hidden">
+            <div class="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-7 sm:py-9 lg:py-12">
+              <div class="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] gap-6 lg:gap-12 items-center w-full">
+                <div class="min-w-0">
+                  <div class="text-balance break-words leading-[1.12]">
+                    <span class="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] opacity-95">Living With Arthritis — evidence-based health guides</span>
+                    <span class="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">Providing practical advice, support and evidence-based guidance for people living with arthritis and frailty.</span>
+                  </div>
+                  <p class="mt-3 sm:mt-4 text-base lg:text-lg font-medium max-w-xl leading-relaxed">Stiff mornings, cancelled plans, the feeling that nobody quite gets it. Find practical help with pain, exercise, benefits and everyday life — written for UK readers.</p>
+                  <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3 min-w-0">
+                    <a href="/guides/arthritis-pain-relief" class="btn-map w-full sm:w-auto justify-center min-h-12 shadow-md" style="background:white;color:hsl(var(--foreground))">I'm in pain — help now</a>
+                    <a href="#find-help" class="btn-map w-full sm:w-auto justify-center min-h-12 border-2 border-white/90 bg-transparent text-white">Find help for my situation</a>
+                  </div>
+                  <p class="mt-4 text-sm opacity-95 max-w-xl">Educational information only — not a diagnosis or personal medical advice. If you are worried about sudden or severe symptoms, contact your GP or NHS 111.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <script>
+        (function () {
+          if (location.pathname !== "/") return;
+          var shell = document.getElementById("boot-hero");
+          if (!shell) return;
+          shell.hidden = false;
+        })();
+      </script>
+      <!--
         Static SEO fallback. React's createRoot().render() replaces these
         children on hydration, so real users never see this. Non-JS
         crawlers (Backlinko, Semrush, social previews, basic Lighthouse
@@ -212,13 +320,16 @@
         Wrapped in an offscreen, aria-hidden container so it remains
         parseable by crawlers but never flashes for sighted users.
       -->
-      <div id="seo-fallback" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;">
-      <main>
-        <h1>Living With Arthritis UK — evidence-based health guides</h1>
-        <p>Living With Arthritis UK (charity 1218461) is an independent UK charity — not Arthritis UK — helping people living with arthritis and joint pain. We provide free, clinically reviewed information on exercise, diet, pain management and UK benefits. Everything on this site is free, with no paywalls and no sign-up required.</p>
+      <div id="seo-fallback" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;">
+      <header><a href="/">Living With Arthritis</a></header>
+      <a href="#static-main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+      <main id="static-main-content" tabindex="-1">
+        <h1>Living With Arthritis — evidence-based health guides</h1>
+        <p>Living With Arthritis (charity 1218461) is an independent UK charity — not Arthritis UK — helping people living with arthritis and joint pain. We provide free information on exercise, diet, pain management and UK benefits. Check each guide for its clinical-review status. Everything on this site is free, with no paywalls and no sign-up required.</p>
         <p>Whether you have just been diagnosed with osteoarthritis, are managing a flare of rheumatoid arthritis, or supporting a family member with fibromyalgia, you will find practical guides, gentle exercise programmes, anti-inflammatory recipes and a friendly community here.</p>
 
-        <h2>About Living With Arthritis UK</h2>
+        <nav aria-label="Website sections"><details><summary>Explore all website sections</summary><ul><li><a href="/chat">Chat</a></li><li><a href="/library">Library</a></li><li><a href="/guides">Guides</a></li><li><a href="/benefits-pip">Benefits &amp; PIP</a></li><li><a href="/blog-hub">Blog Hub</a></li><li><a href="/about">About us</a></li><li><a href="/healthcare-professionals">Healthcare Professionals</a></li><li><a href="/resource-centre">Resource Centre</a></li><li><a href="/sources">Sources</a></li><li><a href="/editorial-standards">Editorial Standards</a></li><li><a href="/disclaimer">Disclaimer</a></li><li><a href="/authors">Authors</a></li><li><a href="/reviewers">Medical reviewers</a></li><li><a href="/supplements">Supplements</a></li><li><a href="/living-with-arthritis">Living With Arthritis</a></li><li><a href="/arthritis-mental-health">Arthritis Mental Health</a></li><li><a href="/self-help">Self Help</a></li><li><a href="/symptom-checker">Symptom Checker</a></li><li><a href="/exercises">Exercises</a></li><li><a href="/diet">Diet</a></li><li><a href="/zakat-appeal">Zakat Appeal</a></li><li><a href="/trust">Trust</a></li><li><a href="/community">Community</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/cookies">Cookies</a></li><li><a href="/accessibility">Accessibility</a></li><li><a href="/arthritis-flare-ups">Arthritis Flare Ups</a></li><li><a href="/arthritis-support">Arthritis support</a></li><li><a href="/corporate-giving">Corporate Giving</a></li><li><a href="/governance">Governance</a></li><li><a href="/impact">Impact</a></li><li><a href="/ways-to-help">Ways To Help</a></li><li><a href="/terms">Terms</a></li><li><a href="/safeguarding">Safeguarding</a></li><li><a href="/complaints">Complaints</a></li><li><a href="/press">Press</a></li><li><a href="/partners">Partners</a></li><li><a href="/stories">Share your story</a></li><li><a href="/expert-articles">Expert Articles</a></li><li><a href="/resources-directory">Resources Directory</a></li><li><a href="/health-tools">Health Tools</a></li><li><a href="/services">Services</a></li><li><a href="/faq">Faq</a></li><li><a href="/contact">Contact</a></li><li><a href="/arthritis-waiting-list-help">Waiting list help</a></li><li><a href="/pedometer">Pedometer</a></li><li><a href="/self-assessment">Self Assessment</a></li><li><a href="/events">Events</a></li><li><a href="/helpline">Helpline</a></li><li><a href="/volunteer">Volunteer</a></li><li><a href="/advocacy">Advocacy</a></li><li><a href="/research">Research</a></li><li><a href="/pets">Can pets get arthritis?</a></li><li><a href="/corporate-partnerships">Corporate Partnerships</a></li><li><a href="/glossary">What arthritis and rheumatology terms should I know?</a></li></ul></details></nav>
+        <h2>About Living With Arthritis</h2>
         <p>We are an independent UK charity governed under Charity Commission standards. Our mission is to make high-quality arthritis self-management accessible to every adult in the United Kingdom, regardless of income, postcode or background. We work with chartered physiotherapists, dietitians and lived-experience contributors to keep our guidance accurate and up to date.</p>
         <h3>Who we help</h3>
         <ul>
@@ -230,7 +341,7 @@
         </ul>
 
         <h2>Conditions we cover</h2>
-        <p>Arthritis is not a single illness. We publish in-depth, clinically reviewed guides for the most common inflammatory and degenerative joint conditions seen in UK adults, with sections on symptoms, diagnosis, treatment, exercise and diet.</p>
+        <p>Arthritis is not a single illness. We publish in-depth guides with individual clinical-review status for the most common inflammatory and degenerative joint conditions seen in UK adults, with sections on symptoms, diagnosis, treatment, exercise and diet.</p>
         <h3>Common arthritis conditions</h3>
         <ul>
           <li><a href="/conditions/osteoarthritis">Osteoarthritis</a></li>
@@ -294,14 +405,14 @@
         <ul>
           <li><a href="/community">Community hub</a></li>
           <li><a href="/blog">Blog and expert articles</a></li>
-          <li><a href="/buddy">Buddy peer-support</a></li>
+          <li><a href="/community/connect-groups">Connect groups</a></li>
           <li><a href="/stories">Lived experiences</a></li>
           <li><a href="/self-help">Self-help tool</a></li>
           <li><a href="/faq">Frequently asked questions</a></li>
         </ul>
 
         <h2>Ways to help and donate</h2>
-        <p>Every page on this site is free to use, and we keep it that way through donations from people who have been helped by our resources. One-off and monthly gifts fund new exercise videos, dietitian-reviewed recipes and accessibility work. UK taxpayers can add 25% at no extra cost through Gift Aid.</p>
+        <p>Every page on this site is free to use, and we keep it that way through donations from people who have been helped by our resources. One-off and monthly gifts fund new exercise videos, dietitian-reviewed recipes and accessibility work. Gift Aid is not yet available. We will confirm when HMRC registration is complete.</p>
         <h3>Support our charity</h3>
         <ul>
           <li><a href="/donate">Donate</a></li>
@@ -321,6 +432,8 @@
         </ul>
 
 
+      </main>
+      <footer>
         <nav aria-label="Footer">
           <a href="/sitemap">Sitemap</a> ·
           <a href="/privacy-policy">Privacy policy</a> ·
@@ -328,10 +441,11 @@
           <a href="/terms-conditions">Terms</a> ·
           <a href="/credits">Credits</a>
         </nav>
-      </main>
+      </footer>
       </div>
     </div>
     <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
     <!-- YouTube preconnect deferred to when video is clicked -->
+  <script>var fallback = document.getElementById("seo-fallback"); if (fallback) fallback.setAttribute("aria-hidden", "true");</script>
   </body>
 </html>

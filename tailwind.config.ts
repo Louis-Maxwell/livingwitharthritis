@@ -31,6 +31,11 @@ export default {
         subheading: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
         sans: ['"Inter"', '-apple-system', '"Segoe UI"', 'system-ui', 'sans-serif'],
       },
+      // Text-only override: red text sits on white and on primary-tinted chips, where
+      // #D60000 drops to ~4.2:1. Backgrounds, borders and rings keep the brand red.
+      textColor: {
+        primary: { DEFAULT: "hsl(var(--primary-text))", foreground: "hsl(var(--primary-foreground))" },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

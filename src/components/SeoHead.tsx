@@ -3,7 +3,7 @@ import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import { DEFAULT_OG_PATH } from "@/lib/articleImages";
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
-const SITE_NAME = "Living With Arthritis UK";
+const SITE_NAME = "Living With Arthritis";
 const DEFAULT_IMAGE = `${SITE_URL}${DEFAULT_OG_PATH}`;
 
 interface SeoHeadProps {
@@ -82,6 +82,9 @@ export default function SeoHead({
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content={absoluteImage} />
+      {absoluteImage.startsWith("https://") && (
+        <meta property="og:image:secure_url" content={absoluteImage} />
+      )}
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={imageAlt} />

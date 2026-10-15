@@ -1,17 +1,21 @@
-﻿import { useState, useEffect, useRef, useCallback, lazy, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+﻿import { useState, useEffect, useRef, useCallback, Suspense, type MouseEvent, type KeyboardEvent } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, ShoppingBag, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search } from "lucide-react";
+import { Menu, X, Heart, BookOpen, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 
-const _CartDrawer = lazy(() => import("@/components/CartDrawer"));
-const ResourceLibraryDrawer = lazy(() => import("@/components/ResourceLibraryDrawer"));
-const SiteSearch = lazy(() => import("@/components/SiteSearch"));
-const DonationQuickBar = lazy(() => import("@/components/DonationQuickBar"));
-import SiteAnnouncementBanner from "@/components/SiteAnnouncementBanner";
+const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
+
+const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
+const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
+const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
+import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 
 type SubItem = {
@@ -36,6 +40,13 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
+  // Mount the drawer on first open, then keep it mounted so its close
+  // animation can play.
+  const [resourceDrawerMounted, setResourceDrawerMounted] = useState(false);
+  useExclusiveOverlay("mobile-menu", mobileMenuOpen, () => setMobileMenuOpen(false));
+  useEffect(() => {
+    if (resourceDrawerOpen) setResourceDrawerMounted(true);
+  }, [resourceDrawerOpen]);
   
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -147,9 +158,7 @@ const Header = () => {
         { label: "Connect Groups", desc: "Free peer-support communities", icon: HandHeart, href: "/community/connect-groups", action: () => navigate("/community/connect-groups"), color: "text-primary bg-primary/10" },
         { label: "Helpline & Support", desc: "Real people, 2-day response", icon: MessageCircle, href: "/helpline", action: () => navigate("/helpline"), color: "text-primary bg-primary/10" },
         { label: "Events & Webinars", desc: "Free monthly online events", icon: Globe, href: "/events", action: () => navigate("/events"), color: "text-primary bg-primary/10" },
-        { label: "Podcasts", desc: "Coming soon — UK arthritis podcast", icon: Newspaper, href: "/podcasts", action: () => navigate("/podcasts"), color: "text-primary bg-primary/10" },
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
-        { label: "Buddy Programme", desc: "1-to-1 peer mentoring", icon: HandHeart, href: "/buddy", action: () => navigate("/buddy"), color: "text-primary bg-primary/10" },
         { label: "Guides Hub", desc: "PIP, exercise, diet & pain relief", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
         { label: "Resource Centre", desc: "Guides, tools, PIP, exercise & chat", icon: BookOpen, href: "/resource-centre", action: () => navigate("/resource-centre"), color: "text-primary bg-primary/10" },
         { label: "Healthcare Professionals", desc: "Clinic pack & shareable patient pages", icon: Stethoscope, href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals"), color: "text-primary bg-primary/10" },
@@ -164,7 +173,7 @@ const Header = () => {
       href: "/ways-to-help",
       action: () => navigate("/ways-to-help"),
       subs: [
-        { label: "Donate", desc: "Power free arthritis support", icon: Heart, href: "/donate", action: () => navigate("/donate"), color: "text-primary bg-primary/10" },
+        { label: "Donate", desc: "Power free arthritis support", icon: Heart, href: GOFUNDME_URL, color: "text-primary bg-primary/10" },
         { label: "Volunteer", desc: "Flexible UK roles around lived experience", icon: HandHeart, href: "/volunteer", action: () => navigate("/volunteer"), color: "text-primary bg-primary/10" },
         { label: "Advocacy", desc: "Share your story, shape research", icon: ShieldCheck, href: "/advocacy", action: () => navigate("/advocacy"), color: "text-primary bg-primary/10" },
         { label: "Corporate Giving", desc: "Partner with us as an organisation", icon: Globe, href: "/corporate-giving", action: () => navigate("/corporate-giving"), color: "text-primary bg-primary/10" },
@@ -173,6 +182,7 @@ const Header = () => {
         { label: "Ways to Help", desc: "All the ways you can support us", icon: Heart, href: "/ways-to-help", action: () => navigate("/ways-to-help"), color: "text-primary bg-primary/10" },
       ],
     },
+    { label: "Shop", href: SHOP_URL },
     {
       label: "Research",
       href: "/research",
@@ -186,7 +196,6 @@ const Header = () => {
       ],
     },
     { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", href: "/shop", action: () => navigate("/shop") },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -226,11 +235,11 @@ const Header = () => {
     { label: "Glossary", icon: BookOpen, desc: "Plain-English arthritis A–Z", href: "/glossary", action: () => navigate("/glossary") },
     { label: "Trust & Credibility", icon: ShieldCheck, desc: "Evidence, authors & governance", href: "/trust", action: () => navigate("/trust") },
     { label: "Support Us", icon: HandHeart, desc: "Donate, volunteer & fundraise", href: "#involved" },
+    { label: "Shop", icon: ShoppingBag, desc: "Living With Arthritis merchandise", href: SHOP_URL },
     { label: "Corporate Partnerships", icon: Globe, desc: "Formal partnership programme", href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships") },
     { label: "Resource Centre", icon: BookOpen, desc: "Guides, tools, PIP, exercise & chat", href: "/resource-centre", action: () => navigate("/resource-centre") },
     { label: "Healthcare Professionals", icon: Stethoscope, desc: "Clinic pack & shareable pages", href: "/healthcare-professionals", action: () => navigate("/healthcare-professionals") },
     { label: "Resources", icon: BookOpen, desc: "Care pathways, benefits & guides", href: "#resources", action: () => setResourceDrawerOpen(true) },
-    { label: "Shop", icon: ShoppingBag, desc: "Recommended arthritis products", href: "/shop", action: () => navigate("/shop") },
   ];
 
   // Lock page scroll and trap focus inside the mobile nav while open
@@ -286,12 +295,20 @@ const Header = () => {
       >
 
 
-        {/* Site-wide update announcement banner — top of sticky header */}
-        <SiteAnnouncementBanner />
+        <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
+          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
+        </aside>
+
         {/* Donation Quick Bar — top of sticky header */}
-        <Suspense fallback={<div className="bg-primary h-[52px]" />}>
-          <DonationQuickBar />
-        </Suspense>
+        {/* Placeholder reserves the bar's real (flex-wrapped) height per
+            viewport width so the lazy bar mounting doesn't shift the page
+            (was a fixed 52px → CLS ~0.12 on phones). See
+            .donation-quickbar-placeholder in index.css. */}
+        <ErrorBoundary fallback={null} resetKey={pathname}>
+          <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
+            <DonationQuickBar />
+          </Suspense>
+        </ErrorBoundary>
 
         {/* Logo Bar */}
         <div
@@ -345,23 +362,15 @@ const Header = () => {
               >
                 <Search size={18} aria-hidden="true" />
               </Button>
-              <Button
-                size="sm"
-                onClick={() => navigate("/donate")}
-                className="h-11 min-h-11 px-3 sm:px-4 rounded-full text-[11px] font-bold tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20 shrink-0"
-              >
-                <Heart className="w-3 h-3 mr-1.5 fill-background/30" />
-                <span className="hidden sm:inline">Donate Now</span>
-                <span className="sm:hidden">Donate</span>
-              </Button>
 
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-lg h-11 w-11 min-h-11 min-w-11 shrink-0"
+                className="rounded-lg h-11 w-11 min-h-11 min-w-11 shrink-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-primary-nav"
               >
                 {mobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
               </Button>
@@ -388,7 +397,9 @@ const Header = () => {
           }`}
         >
           <div className="mx-auto px-6 md:px-10 max-w-[1400px]">
-            <div className="flex justify-between items-center h-[46px]">
+            {/* Desktop-only row: on phones it held nothing but a spacer and
+                left a 46px blank band above every page's first section. */}
+            <div className="hidden lg:flex justify-between items-center h-[46px]">
 
               {/* Desktop nav */}
               <nav className="hidden lg:flex items-center gap-0.5 mx-auto" aria-label="Main navigation">
@@ -396,6 +407,7 @@ const Header = () => {
                   const active = isLinkActive(link);
                   const open = activeDropdown === link.label;
                   const isHash = link.href.startsWith("#");
+                  const isExternal = /^https?:\/\//.test(link.href);
                   const topLevelHandlers = {
                     onClick: (e: MouseEvent) => {
                       if (link.subs) {
@@ -405,7 +417,7 @@ const Header = () => {
                         if (link.action) {
                           e.preventDefault();
                           link.action();
-                        } else {
+                        } else if (!isExternal) {
                           scrollToSection(link.href);
                         }
                         setActiveDropdown(null);
@@ -419,7 +431,7 @@ const Header = () => {
                     "aria-expanded": link.subs ? open : undefined,
                     "aria-haspopup": link.subs ? ("true" as const) : undefined,
                     "aria-current": active ? ("page" as const) : undefined,
-                    className: `relative px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                    className: `relative px-2 xl:px-3.5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                       open
                         ? "text-primary bg-primary/5"
                         : active
@@ -430,6 +442,7 @@ const Header = () => {
                   const topLevelContent = (
                     <>
                       {link.label}
+                      {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
                       {link.subs && <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />}
                       {/* Magazine-style active indicator */}
                       <span
@@ -450,7 +463,9 @@ const Header = () => {
                         rendering support. Hash-only items (e.g. "Resources", which
                         opens a drawer, not a real route) stay buttons since there's
                         no destination URL to expose. */}
-                    {isHash ? (
+                    {isExternal ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" {...topLevelHandlers}>{topLevelContent}</a>
+                    ) : isHash ? (
                       <button {...topLevelHandlers}>{topLevelContent}</button>
                     ) : (
                       <Link to={link.href} {...topLevelHandlers}>{topLevelContent}</Link>
@@ -474,6 +489,36 @@ const Header = () => {
                           <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/30" />
                           {link.subs.map((sub, idx) => {
                             const Icon = sub.icon;
+                            const itemClass = `w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent/60 transition-all duration-150 cursor-pointer group/item ${idx > 0 ? "mt-0.5" : ""}`;
+                            const itemBody = (
+                              <>
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
+                                  <Icon className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
+                                  <span className="block text-[11px] text-muted-foreground leading-snug">{sub.desc}</span>
+                                </div>
+                                <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover/item:opacity-100 group-hover/item:text-primary transition-all duration-150 group-hover/item:translate-x-0.5 rtl:rotate-180 rtl:group-hover/item:-translate-x-0.5" />
+                              </>
+                            );
+                            if (sub.href.startsWith("http")) {
+                              return (
+                                <a
+                                  key={sub.label}
+                                  href={sub.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => setActiveDropdown(null)}
+                                  tabIndex={open ? 0 : -1}
+                                  className={itemClass}
+                                  role="menuitem"
+                                >
+                                  {itemBody}
+                                  <span className="sr-only"> (opens in a new tab)</span>
+                                </a>
+                              );
+                            }
                             return (
                               <Link
                                 key={sub.label}
@@ -490,7 +535,7 @@ const Header = () => {
                                   }
                                 }}
                                 tabIndex={open ? 0 : -1}
-                                className={`w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent/60 transition-all duration-150 cursor-pointer group/item ${idx > 0 ? "mt-0.5" : ""}`}
+                                className={itemClass}
                                 role="menuitem"
                               >
                                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 ${sub.color || "text-primary bg-primary/10"}`}>
@@ -511,16 +556,7 @@ const Header = () => {
                   );
                 })}
 
-                {/* Persistent Donate button — charity red, matches Ways to Help pill style */}
-                <Link
-                  to="/zakat-appeal"
-                  className="ms-3 group relative inline-flex items-center gap-1.5 px-5 py-2 text-[13px] font-bold rounded-full bg-destructive text-destructive-foreground border border-destructive/80 hover:bg-destructive/90 hover:shadow-md hover:shadow-destructive/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
-                >
-                  <Heart className="w-3.5 h-3.5 fill-background/30 transition-transform duration-300 group-hover:scale-110" />
-                  Donate Now
-                </Link>
-
-                {/* Ways to Help — demoted to a quiet text link to avoid competing with primary Donate CTA */}
+                {/* Ways to Help */}
                 <Link
                   to="/ways-to-help"
                   className="ms-3 inline-flex items-center gap-1 text-[12px] font-semibold text-muted-foreground hover:text-primary underline-offset-4 hover:underline transition-colors duration-200"
@@ -529,14 +565,12 @@ const Header = () => {
                 </Link>
               </nav>
 
-              {/* Mobile placeholder — keeps header height consistent on mobile */}
-              <div className="lg:hidden w-full" />
             </div>
           </div>
         </header>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — id ties to menu button aria-controls */}
       {mobileMenuOpen && (
         <>
           <div
@@ -544,7 +578,7 @@ const Header = () => {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-y-0 end-0 w-[min(80%,24rem)] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
+          <div className="fixed inset-y-0 end-0 w-[min(80%,24rem)] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" id="mobile-primary-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
             <div className="flex items-center justify-between p-6 border-b border-border/20">
               <div className="flex items-center gap-2.5">
                 <SiteLogo variant="mark" markClassName="h-8 w-auto" />
@@ -585,6 +619,7 @@ const Header = () => {
                     ? pathname === "/"
                     : pathname === item.href || pathname.startsWith(`${item.href}/`);
                 const isHashItem = item.href.startsWith("#");
+                const isExternalItem = /^https?:\/\//.test(item.href);
                 const commonProps = {
                   "aria-current": active ? ("page" as const) : undefined,
                   onClick: () => {
@@ -617,12 +652,14 @@ const Header = () => {
                       <Icon className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className="block truncate">{item.label}</span>
+                      <span className="block truncate">{item.label}{isExternalItem && <span className="sr-only"> (opens in a new tab)</span>}</span>
                       <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
                     </div>
                   </>
                 );
-                return isHashItem ? (
+                return isExternalItem ? (
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" {...commonProps}>{content}</a>
+                ) : isHashItem ? (
                   <button key={item.label} {...commonProps}>{content}</button>
                 ) : (
                   <Link key={item.label} to={item.href} {...commonProps}>{content}</Link>
@@ -657,7 +694,7 @@ const Header = () => {
         </>
       )}
 
-      <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>
+      {resourceDrawerMounted && <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>}
     </>
   );
 };

@@ -46,7 +46,7 @@ export default function HealthcareProfessionals() {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Healthcare professionals"
-        description="Free clinic pack, shareable patient guides and educational tools from Living With Arthritis UK for physiotherapists, GPs and rheumatology teams. Charity 1218461."
+        description="Free clinic pack, shareable patient guides and educational tools from Living With Arthritis for physiotherapists, GPs and rheumatology teams. Charity 1218461."
         path={PATH}
       />
       <Header />
@@ -136,7 +136,7 @@ export default function HealthcareProfessionals() {
             to="/contact"
             className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
-            Contact Living With Arthritis UK
+            Contact Living With Arthritis
           </Link>
         </section>
       </main>

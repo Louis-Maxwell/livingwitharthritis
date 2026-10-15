@@ -1,0 +1,77 @@
+{
+  "status": "Definitions prepared; not created inside authenticated GA4 account",
+  "measurement_id": "G-ZLLSD3PXZ9",
+  "reports": [
+    {
+      "name": "Organic traffic",
+      "dimensions": [
+        "date",
+        "sessionDefaultChannelGroup",
+        "deviceCategory"
+      ],
+      "metrics": [
+        "sessions",
+        "engagedSessions",
+        "engagementRate",
+        "keyEvents"
+      ],
+      "filter": "sessionDefaultChannelGroup = Organic Search"
+    },
+    {
+      "name": "Blog performance",
+      "dimensions": [
+        "landingPage",
+        "pagePath",
+        "deviceCategory"
+      ],
+      "metrics": [
+        "sessions",
+        "engagementRate",
+        "averageSessionDuration",
+        "eventCount"
+      ],
+      "filter": "pagePath starts with /blog/"
+    },
+    {
+      "name": "User journeys",
+      "type": "Path exploration",
+      "start": "page_view",
+      "breakdown": "page_path"
+    },
+    {
+      "name": "Landing pages",
+      "dimensions": [
+        "landingPage",
+        "sessionSourceMedium"
+      ],
+      "metrics": [
+        "sessions",
+        "engagementRate",
+        "keyEvents"
+      ]
+    },
+    {
+      "name": "Conversion paths",
+      "type": "Funnel exploration",
+      "steps": [
+        "donation_page_view",
+        "begin_checkout",
+        "purchase"
+      ],
+      "note": "Use conversion_funnel_step with step parameter for first stage; verify completed payment once per transaction"
+    },
+    {
+      "name": "Device performance",
+      "dimensions": [
+        "deviceCategory",
+        "pagePath",
+        "eventName"
+      ],
+      "metrics": [
+        "eventCount"
+      ],
+      "filter": "eventName starts with page_view_",
+      "note": "Use raw event value and units for diagnostics; field CWV requires p75 by device and page group"
+    }
+  ]
+}

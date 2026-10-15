@@ -5,10 +5,9 @@
 export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "nhs-arthritis-exercises": "arthritis-exercises-uk-clinical",
   "nhs-rheumatology-waiting-times-uk": "rheumatology-waiting-times-uk",
-  // Knee-exercise content was split across three near-duplicate pages,
-  // splitting ranking signal for the same search intent. Consolidated onto
-  // /blog/knee-arthritis-exercises-uk (the canonical URL per SEO brief, with
-  // a named HCPC-credentialed reviewer and HowTo/FAQ schema).
+  // Knee-exercise content consolidated onto /guides/knee-exercises-for-osteoarthritis.
+  // Legacy blog slugs still resolve via BlogPost; HTTP/_redirects + EXACT_SEO_REDIRECTS
+  // send users directly to the guide (no soft intermediate hop).
   "knee-osteoarthritis-exercises": "knee-arthritis-exercises-uk",
   "knee-exercises-arthritis": "knee-arthritis-exercises-uk",
   // Batch content-generation duplicated these 15 topics into near-identical
@@ -30,4 +29,12 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "arthritis-and-mental-health": "arthritis-and-mental-health-uk",
   "arthritis-diet-myths-debunked": "arthritis-and-diet-myths-uk",
   "arthritis-fatigue-management": "arthritis-fatigue-management-uk",
+  // Slugs that SiteSearch, the HTML sitemap and hub pages linked to but that
+  // never existed as guides; mapped to the closest real guide.
+  "arthritis-exercises": "arthritis-exercises-uk-clinical",
+  "arthritis-supplements-uk": "best-supplements-arthritis-uk",
+  "gardening-with-arthritis-uk": "arthritis-and-gardening-uk",
+  "meal-planning-arthritis-uk": "arthritis-meal-planning-uk",
+  "mindfulness-for-chronic-pain-uk": "mindfulness-chronic-pain-arthritis-guide",
+  "natural-pain-relief-arthritis-uk": "arthritis-pain-relief-natural",
 };

@@ -9,7 +9,7 @@ name: Keep green
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/enterprise-seo-audit-2026-10-11]
   pull_request:
     branches: [main]
 
@@ -26,13 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: "npm"
 
       - name: Require package-lock.json (npm ci truth)
@@ -42,7 +42,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Typecheck
-        run: npx tsc --noEmit
+        run: npm run typecheck
 
       - name: Integrity vitest slices
         run: |

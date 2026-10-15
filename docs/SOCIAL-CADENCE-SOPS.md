@@ -1,7 +1,7 @@
 # Social cadence SOPs — Facebook, Instagram, LinkedIn
 
 **Owner:** Louis Maxwell (founder) + GTM digital support  
-**Charity:** Living With Arthritis UK · 1218461  
+**Charity:** Living With Arthritis · 1218461  
 **Tagline:** Motion is Lotion  
 **Horizon:** Month 2 operating pack (brought forward 14 Sep 2026)  
 **Constraint:** Educational not diagnostic. Never claim 100M visitors. No Oswestry address. Independent of Versus Arthritis / Arthritis UK.
@@ -43,7 +43,7 @@ Do **not** invent follower or reach numbers. Report only from native analytics a
 2. **Value** (3–5 short lines, UK English)  
 3. **Clinical honesty** — “Educational information — not a diagnosis. Check with your GP / physio / rheumatology team.”  
 4. **CTA** — one clear URL + UTM  
-5. **Identity** — Living With Arthritis UK · charity 1218461 · Motion is Lotion  
+5. **Identity** — Living With Arthritis · charity 1218461 · Motion is Lotion  
 
 **Never:** diagnose, dose, promise cures, publish registered address, claim Gift Aid live until Louis confirms HMRC registration, or position as Arthritis UK.
 

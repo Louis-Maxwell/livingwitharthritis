@@ -23,9 +23,9 @@ export default function HealthTools() {
   return (
     <>
       <Helmet>
-        <title>Interactive Health Tools | Living With Arthritis UK</title>
+        <title>Interactive Health Tools | Living With Arthritis</title>
         <meta name="description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator and personalised results — all free to use." />
-        <meta property="og:title" content="Interactive Health Tools | Living With Arthritis UK" />
+        <meta property="og:title" content="Interactive Health Tools | Living With Arthritis" />
         <meta property="og:description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator." />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
@@ -39,13 +39,13 @@ export default function HealthTools() {
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
         })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Interactive Health Tools | Living With Arthritis UK" />
+      <meta name="twitter:title" content="Interactive Health Tools | Living With Arthritis" />
       <meta name="twitter:description" content="Free interactive arthritis health tools: symptom quiz, inflammation risk calculator, and personalised exercise plan generator. Evidence-based tools for UK patients." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Health Tools | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Health Tools | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 

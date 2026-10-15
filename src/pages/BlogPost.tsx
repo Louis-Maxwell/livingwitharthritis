@@ -1,4 +1,7 @@
-import { lazy, Suspense, useEffect } from "react";
+import BlogPdfDownload from '@/components/BlogPdfDownload';
+import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
@@ -10,9 +13,9 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { stripHtml } from "@/lib/sanitize";
+import { htmlToPlainText } from "@/lib/sanitize";
 
-import { useBlogArticle } from "@/hooks/useBlogArticles";
+import { useBlogArticle } from "@/hooks/useBlogArticle";
 import { useBlogViews } from "@/hooks/useBlogViews";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -22,8 +25,10 @@ import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
+import ViewportSection from "@/components/ViewportSection";
+import ArticleFaqSection from "@/components/article/ArticleFaqSection";
+import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
 import { Skeleton } from "@/components/ui/skeleton";
-import { marked } from "marked";
 import {
   dedentIndentedHtmlForMarked,
   unwrapEscapedHtmlCodeBlocks,
@@ -35,28 +40,38 @@ import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { setLastRead } from "@/lib/lastReadArticle";
-import { getArticleImages, coverImage, onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/articleImages";
+import { coverFromFile, pickArticleImages } from "@/lib/articleImagePicks";
+import { onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/coverFallback";
 import NotFound from "@/pages/NotFound";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
-import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import { getClusterForPath } from "@/data/topicClusters";
+import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
+import {
+  PENDING_REVIEW_TEXT,
+  blogReviewSchemaFields,
+  resolveBlogReviewStatus,
+} from "@/lib/blog/review";
+import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
-const BlogComments = lazy(() => import("@/components/BlogComments"));
-const BlogHelpfulness = lazy(() => import("@/components/BlogHelpfulness"));
-const RelatedArticles = lazy(() => import("@/components/RelatedArticles"));
-const ContinueReadingBar = lazy(() => import("@/components/ContinueReadingBar"));
-const HealthToolsCTA = lazy(() => import("@/components/HealthToolsCTA"));
-const CrossLinkBanner = lazy(() => import("@/components/CrossLinkBanner"));
-const InternalLinks = lazy(() => import("@/components/InternalLinks"));
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
-const FeedbackPoll = lazy(() => import("@/components/article/FeedbackPoll"));
-const InlineRelatedStrip = lazy(() => import("@/components/article/InlineRelatedStrip"));
-const ArticleFaqSection = lazy(() => import("@/components/article/ArticleFaqSection"));
-const ArticleClosingCTA = lazy(() => import("@/components/article/ArticleClosingCTA"));
-const MidArticleNextSteps = lazy(() => import("@/components/article/MidArticleNextSteps"));
-const EndNextArticleCard = lazy(() => import("@/components/article/EndNextArticleCard"));
-const ArticleCitations = lazy(() => import("@/components/blog/ArticleCitations"));
+// Below-the-fold article furniture loads as the reader scrolls towards it
+// (ViewportSection), so the first paint only pays for the article itself.
+const KeywordRelatedLinks = lazyWithRetry(() => import("@/components/seo/KeywordRelatedLinks"));
+const TopicClusterNav = lazyWithRetry(() => import("@/components/seo/TopicClusterNav"));
+const BlogComments = lazyWithRetry(() => import("@/components/BlogComments"));
+const BlogHelpfulness = lazyWithRetry(() => import("@/components/BlogHelpfulness"));
+const RelatedArticles = lazyWithRetry(() => import("@/components/RelatedArticles"));
+const ContinueReadingBar = lazyWithRetry(() => import("@/components/ContinueReadingBar"));
+const HealthToolsCTA = lazyWithRetry(() => import("@/components/HealthToolsCTA"));
+const CrossLinkBanner = lazyWithRetry(() => import("@/components/CrossLinkBanner"));
+const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
+const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
+const FeedbackPoll = lazyWithRetry(() => import("@/components/article/FeedbackPoll"));
+const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/InlineRelatedStrip"));
+const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
+const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
+const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
+const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
 
 
 /**
@@ -75,7 +90,7 @@ function stripQuestionHeadings(html: string): string {
 function firstParagraphSummary(html: string): string {
   const m = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
   if (!m) return "";
-  const text = stripHtml(m[1]).replace(/\s+/g, " ").trim();
+  const text = htmlToPlainText(m[1]);
   if (text.length < 60) return "";
   // First 1–2 sentences, capped at ~280 chars
   const sentences = text.split(/(?<=[.!?])\s+/).slice(0, 2).join(" ");
@@ -89,27 +104,61 @@ function looksLikeMarkdown(src: string): boolean {
   return /(?:^|\n)#{1,6}\s+\S/.test(src) || /(?:^|\n)(?:[-*+]|\d+\.)\s+\S/.test(src);
 }
 
-function markdownToHtml(md: string): string {
+function prepareArticleSource(md: string): string {
   // Database may store literal \n instead of real newlines
   const normalized = md.replace(/\\n/g, "\n");
-  const trimmed = normalized.trim();
   // Already-stored escaped HTML inside <pre><code> (legacy marked bug) → real HTML.
-  const unwrapped = unwrapEscapedHtmlCodeBlocks(trimmed);
+  return unwrapEscapedHtmlCodeBlocks(normalized.trim());
+}
+
+/** Pure HTML (no leftover markdown) can be sanitized without the parser. */
+function needsMarkdownParser(md: string | undefined | null): boolean {
+  if (!md) return false;
+  const unwrapped = prepareArticleSource(md);
+  return !(unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped));
+}
+
+/** True once the markdown parser is available (immediately when not needed). */
+function useMarkdownParserReady(needed: boolean): boolean {
+  const [ready, setReady] = useState(() => !needed || getMarkdownParser() !== null);
+  useEffect(() => {
+    if (!needed || getMarkdownParser()) {
+      setReady(true);
+      return;
+    }
+    let cancelled = false;
+    setReady(false);
+    // On a failed download, show the guide sanitised as-is rather than a
+    // skeleton that never resolves.
+    const done = () => {
+      if (!cancelled) setReady(true);
+    };
+    loadMarkdownParser().then(done, done);
+    return () => {
+      cancelled = true;
+    };
+  }, [needed]);
+  return ready;
+}
+
+function markdownToHtml(md: string): string {
+  const unwrapped = prepareArticleSource(md);
   // Pure HTML (no leftover markdown) — sanitize only.
   // Mixed HTML + markdown (common after quick-answer blocks) must go through marked,
   // otherwise headings/lists stay as literal text and KeyTakeaways scrape related-links.
-  if (unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)) {
+  const markdownParser = getMarkdownParser();
+  if ((unwrapped.startsWith("<") && !looksLikeMarkdown(unwrapped)) || !markdownParser) {
     return sanitizeHtml(unwrapped);
   }
   // Dedent indented HTML so marked never fences block tags as <pre><code>.
   const forMarked = dedentIndentedHtmlForMarked(unwrapped);
-  const rawHtml = marked.parse(forMarked, { async: false }) as string;
+  const rawHtml = markdownParser(forMarked);
   return sanitizeHtml(unwrapEscapedHtmlCodeBlocks(rawHtml));
 }
 
 function getReadingTime(html: string) {
-  const text = stripHtml(html);
-  const words = text.trim().split(/\s+/).length;
+  const text = htmlToPlainText(html);
+  const words = text.split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 230));
 }
 
@@ -124,9 +173,9 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
   const headingRe = /<h[23][^>]*>([\s\S]*?)<\/h[23]>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
   let m: RegExpExecArray | null;
   while ((m = headingRe.exec(html)) !== null) {
-    const qRaw = stripHtml(m[1]).trim();
+    const qRaw = htmlToPlainText(m[1]);
     if (!qRaw.endsWith("?")) continue;
-    const aRaw = stripHtml(m[2]).replace(/\s+/g, " ").trim().slice(0, 500);
+    const aRaw = htmlToPlainText(m[2]).slice(0, 500);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
     }
@@ -141,6 +190,7 @@ const BlogPost = () => {
   const { data: article, isLoading } = useBlogArticle(redirectTo ? undefined : slug);
   // Hooks must run on every render — never after the loading/404 early returns.
   const viewCount = useBlogViews(redirectTo ? undefined : slug);
+  const markdownReady = useMarkdownParserReady(needsMarkdownParser(article?.content));
 
   // Persist last-read immediately for "Continue reading" on /blog.
   useEffect(() => {
@@ -165,7 +215,7 @@ const BlogPost = () => {
   }
 
 
-  if (isLoading) {
+  if (isLoading || (article && !markdownReady)) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -192,9 +242,11 @@ const BlogPost = () => {
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
-  const cover = coverImage(article.category, article.title, slug || article.title);
+  // The loaded guide carries its own cover file (the same value the listing
+  // cover map is generated from), so the article page never needs that map.
+  const cover = coverFromFile(article.cover);
   // Topic-matched body figures only (may be empty). Hero always uses unique cover.
-  const relatedImages = getArticleImages(article.category, article.title, slug || article.title, article.keywords).slice(1);
+  const relatedImages = pickArticleImages(cover, article.category, article.title, slug || article.title, article.keywords).slice(1);
   const coverAbsolute = cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
@@ -215,7 +267,7 @@ const BlogPost = () => {
     `/blog/${slug}`,
   );
   const pageUrl = `https://livingwitharthritis.org.uk/blog/${slug}`;
-  const authorName = article.author || "Living With Arthritis UK Editorial Team";
+  const authorName = article.author || "Living With Arthritis Editorial Team";
   const rawAuthorCreds = article.author_credentials || "Editorial content";
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
     ? "Editorial content"
@@ -229,7 +281,15 @@ const BlogPost = () => {
     /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
+  // Guides awaiting clinical review (reviewStatus: "pending") never show or
+  // emit a completed review, whatever reviewed_by says.
+  const reviewStatus = resolveBlogReviewStatus(
+    article as { reviewStatus?: string | null },
+    getBlogReviewMeta(slug),
+  );
+  const isPendingReview = reviewStatus === "pending";
   const hasVerifiedReviewer =
+    !isPendingReview &&
     reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
@@ -238,12 +298,9 @@ const BlogPost = () => {
       )
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
-  const blogLastReviewed =
-    (typeof (article as { last_reviewed?: string }).last_reviewed === "string" &&
-      (article as { last_reviewed?: string }).last_reviewed) ||
-    (updatedAtRaw && /^\d{4}-\d{2}-\d{2}/.test(updatedAtRaw)
-      ? updatedAtRaw.slice(0, 10)
-      : "2026-09-16");
+  // Only an explicitly recorded date establishes when clinical review occurred.
+  const blogLastReviewed = (article as { last_reviewed?: string }).last_reviewed;
+  const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
     "identifier": "HCPC PH128483",
@@ -282,6 +339,7 @@ const BlogPost = () => {
         ...maxwellSchemaFields,
       }
     : null;
+  const reviewSchemaFields = blogReviewSchemaFields({ reviewStatus, reviewedBy: reviewedBySchema });
   const citationSchema = citations.map((citation) => ({
     "@type": "CreativeWork",
     "name": citation.label,
@@ -307,7 +365,7 @@ const BlogPost = () => {
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content={coverAbsolute} />
         <meta property="og:image:secure_url" content={coverAbsolute} />
         <meta property="og:image:width" content="1200" />
@@ -341,7 +399,7 @@ const BlogPost = () => {
           "mainEntity": { "@id": `${pageUrl}#article` },
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-          ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
+          ...reviewSchemaFields,
           "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
           ...(citationSchema.length ? { "citation": citationSchema } : {})
@@ -358,12 +416,12 @@ const BlogPost = () => {
           "author": authorSchema,
           "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
           "mainEntityOfPage": { "@id": `${pageUrl}#webpage` },
-          "wordCount": stripHtml(htmlContent).trim().split(/\s+/).length,
+          "wordCount": htmlToPlainText(htmlContent).split(/\s+/).filter(Boolean).length,
           "inLanguage": "en-GB",
           "isAccessibleForFree": true,
           "articleSection": article.category || "Health",
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
-          ...(reviewedBySchema ? { "reviewedBy": reviewedBySchema } : {}),
+          ...reviewSchemaFields,
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
 
@@ -399,18 +457,33 @@ const BlogPost = () => {
         <article itemScope itemType="https://schema.org/MedicalWebPage">
 
 
-        <header className="border-b border-border/20">
-          <div className="container mx-auto px-6 md:px-10 max-w-[860px]">
+        <header className="border-b border-border/30">
+          <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-[1100px]">
+          <div className="max-w-[760px]">
             <nav aria-label="Breadcrumb" className="pt-4 pb-2 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
               <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
               <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              <span className="text-foreground/60 truncate max-w-[200px]" aria-current="page">{article.title}</span>
+              <span className="text-foreground/70 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
             <div className="pb-6 md:pb-8">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-3">
+              {article.category && (
+                topicKey ? (
+                  <Link
+                    to={`/blog/category/${topicKey}`}
+                    className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary/15 no-print print:hidden"
+                  >
+                    {article.category}
+                  </Link>
+                ) : (
+                  <span className="mb-3 inline-flex min-h-8 items-center rounded-full bg-primary/[0.07] px-3 text-xs font-semibold text-primary">
+                    {article.category}
+                  </span>
+                )
+              )}
+              <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-3">
                 <span>
                   Published{" "}
                   <time dateTime={article.date} itemProp="datePublished" className="font-medium text-foreground/80">
@@ -441,29 +514,32 @@ const BlogPost = () => {
               </div>
 
 
-              <h1 itemProp="headline" className="font-display text-[1.65rem] md:text-[2.1rem] lg:text-[2.35rem] font-extrabold text-foreground leading-[1.2] tracking-tight mb-3 break-words">
+              <h1 itemProp="headline" className="font-display text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-extrabold text-foreground leading-[1.15] tracking-tight mb-4 break-words text-balance">
                 {article.title}
               </h1>
 
-              <p className="text-base md:text-[1.05rem] text-muted-foreground leading-relaxed mb-4 max-w-[640px] text-pretty">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-5 max-w-[65ch] text-pretty">
                 {metaDesc}
               </p>
-
-              {slug && (
-                <div className="no-print print:hidden mb-4">
-                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
-                </div>
-              )}
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 flex-wrap">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10 border-2 border-primary/15">
                     <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
                   </Avatar>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
-                    <p className="text-xs text-muted-foreground">{authorCreds}</p>
-                  </div>
+                  {isPendingReview ? (
+                    <p
+                      className="text-sm font-medium text-foreground leading-snug max-w-[46ch]"
+                      data-testid="blog-review-pending"
+                    >
+                      {PENDING_REVIEW_TEXT}
+                    </p>
+                  ) : (
+                    <div>
+                      <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
+                      <p className="text-xs text-muted-foreground">{authorCreds}</p>
+                    </div>
+                  )}
                 </div>
 
                 {hasVerifiedReviewer && (
@@ -485,7 +561,13 @@ const BlogPost = () => {
                 )}
               </div>
 
-              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-3 max-w-[640px]" />
+              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-4 max-w-[640px]" />
+
+              {slug && (
+                <div className="no-print print:hidden mt-4">
+                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
+                </div>
+              )}
 
               <figure className="mt-4 mb-0">
                 <img
@@ -494,7 +576,7 @@ const BlogPost = () => {
                   onError={onCoverImgError}
                   width={1600}
                   height={900}
-                  sizes="(min-width: 860px) 860px, 100vw"
+                  sizes="(min-width: 800px) 760px, 100vw"
                   loading="eager"
                   decoding="async"
                   {...({ fetchpriority: "high" } as Record<string, string>)}
@@ -506,12 +588,13 @@ const BlogPost = () => {
               </figure>
             </div>
           </div>
+          </div>
         </header>
 
-        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
+        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-5 sm:px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
           <div className="mb-6 print:hidden"><MedicalDisclaimerStrip variant="short" /></div>
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
-          <div className="min-w-0 max-w-[860px]">
+          <div className="min-w-0 max-w-[760px]">
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
@@ -523,7 +606,7 @@ const BlogPost = () => {
           {/* Print header: only visible when saving to PDF / printing */}
           <div className="print-only mb-6 pb-4 border-b border-black">
             <div className="flex items-center justify-between text-xs">
-              <strong>Living With Arthritis UK</strong>
+              <strong>Living With Arthritis</strong>
               <span>livingwitharthritis.org.uk</span>
             </div>
             {hasVerifiedReviewer && (
@@ -531,12 +614,13 @@ const BlogPost = () => {
                 Reviewed by {reviewerName}, {reviewerCreds}
               </div>
             )}
+            {isPendingReview && (
+              <div className="text-[10px] mt-1">{PENDING_REVIEW_TEXT}</div>
+            )}
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
-            {slug && (
-              <ArticleBookmarkButton slug={slug} title={article.title} className="lg:hidden" />
-            )}
+            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
             <Button
               variant="outline"
               size="sm"
@@ -545,7 +629,7 @@ const BlogPost = () => {
               className="min-h-11"
             >
               <Download className="w-4 h-4 mr-2" aria-hidden="true" />
-              Download PDF
+              Print / save PDF
             </Button>
           </div>
 
@@ -559,40 +643,27 @@ const BlogPost = () => {
             />
           )}
 
+          {slug === 'cauda-equina-warning-signs-uk' && <CaudaEquinaQuestions />}
           <KeyTakeaways html={htmlContent} title={article.title} />
           <div className="lg:hidden">
             <TableOfContents html={htmlWithIds} variant="inline" />
           </div>
 
-          {slug && (
-            <Suspense fallback={null}>
-              <InlineRelatedStrip
-                currentSlug={slug}
-                currentCategory={article.category}
-                currentTitle={article.title}
-                currentExcerpt={article.excerpt}
-                currentKeywords={article.keywords ?? undefined}
-                heading="Keep reading — related articles"
-                limit={2}
-              />
-            </Suspense>
-          )}
 
           <section
             aria-label="Article body"
             itemProp="articleBody"
-            className="blog-prose prose prose-lg max-w-none text-foreground/90
+            className="blog-prose prose prose-lg max-w-[68ch] text-foreground/90
               prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:scroll-mt-24
               prose-h2:text-[1.4rem] prose-h2:md:text-[1.6rem] prose-h2:mt-8 prose-h2:mb-3 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/15
               prose-h3:text-lg prose-h3:md:text-xl prose-h3:mt-6 prose-h3:mb-2
-              prose-p:leading-[1.75] prose-p:mb-4 prose-p:text-foreground/80
-              prose-li:leading-[1.7] prose-li:text-foreground/80 prose-li:mb-0.5
+              prose-p:leading-[1.75] prose-p:mb-5 prose-p:text-foreground/85
+              prose-li:leading-[1.7] prose-li:text-foreground/85 prose-li:mb-1
               prose-strong:text-foreground prose-strong:font-semibold
               prose-a:text-primary prose-a:font-medium prose-a:underline prose-a:underline-offset-3 prose-a:decoration-primary/30 hover:prose-a:decoration-primary prose-a:transition-colors
               prose-blockquote:border-l-[3px] prose-blockquote:border-l-primary prose-blockquote:bg-primary/[0.03] prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/85 prose-blockquote:font-medium prose-blockquote:my-8
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
-              prose-ul:my-4 prose-ol:my-4
-              first:prose-p:first-letter:text-5xl first:prose-p:first-letter:font-bold first:prose-p:first-letter:text-primary first:prose-p:first-letter:float-left first:prose-p:first-letter:mr-3 first:prose-p:first-letter:mt-1 first:prose-p:first-letter:leading-none"
+              prose-ul:my-4 prose-ol:my-4"
           >
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
             {htmlAfterStrip && relatedImages[0] && (
@@ -612,14 +683,14 @@ const BlogPost = () => {
               </figure>
             )}
             {slug && htmlAfterStrip && (
-              <Suspense fallback={null}>
+              <ViewportSection>
                 <MidArticleNextSteps
                   currentSlug={slug}
                   category={article.category}
                   title={article.title}
                   keywords={article.keywords ?? undefined}
                 />
-              </Suspense>
+              </ViewportSection>
             )}
             {htmlAfterStrip && (
               <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
@@ -643,9 +714,23 @@ const BlogPost = () => {
             )}
           </section>
 
-          <Suspense fallback={null}>
+          <ArticleFaqSection faqs={faqs} />
+
+          {slug && (
+            <ViewportSection>
+              <InlineRelatedStrip
+                currentSlug={slug}
+                currentCategory={article.category}
+                currentTitle={article.title}
+                currentExcerpt={article.excerpt}
+                currentKeywords={article.keywords ?? undefined}
+                heading="Keep reading — related articles"
+                limit={2}
+              />
+            </ViewportSection>
+          )}
+          <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
-            <ArticleFaqSection faqs={faqs} />
             {slug && (
               <ClusterRelatedLinks
                 slug={slug}
@@ -655,9 +740,9 @@ const BlogPost = () => {
                 keywords={article.keywords}
               />
             )}
-            <ArticleClosingCTA title={article.title} category={article.category} />
+            <ArticleClosingCTA title={article.title} category={article.category} slug={slug} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
-          </Suspense>
+          </ViewportSection>
 
           {/* Print footer: only visible when saving to PDF / printing */}
           <div className="print-only mt-8 pt-4 border-t border-black text-[10px] leading-snug">
@@ -665,7 +750,7 @@ const BlogPost = () => {
               Source: https://livingwitharthritis.org.uk/blog/{slug}
             </p>
             <p>
-              © Living With Arthritis UK. For personal and informational use only.
+              © Living With Arthritis. For personal and informational use only.
               This article is not a substitute for professional medical advice —
               always consult your GP or a qualified clinician.
             </p>
@@ -673,14 +758,14 @@ const BlogPost = () => {
 
 
 
-          <Suspense fallback={null}>
+          <ViewportSection>
             <ArticleCitations citations={citations} />
-          </Suspense>
+          </ViewportSection>
 
-          <Suspense fallback={null}>
+          <ViewportSection>
             {slug && <FeedbackPoll slug={slug} title={article.title} />}
             <HealthToolsCTA />
-          </Suspense>
+          </ViewportSection>
 
           </div>{/* end article column */}
 
@@ -690,24 +775,28 @@ const BlogPost = () => {
               {slug && (
                 <ArticleBookmarkButton slug={slug} title={article.title} className="w-full" />
               )}
-              <Link
-                to="/donate"
+              <a
+                href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-center text-xs font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded min-h-11 leading-[2.75rem]"
               >
                 Soft support · Donate
-              </Link>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </div>
           </aside>
           </div>{/* end lg grid */}
 
-          <footer className="mt-10 pt-6 border-t border-border/20 max-w-[860px]">
+          <footer className="mt-10 pt-6 border-t border-border/30 max-w-[760px]">
             {slug && (
               <div className="no-print print:hidden">
                 <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="footer" />
               </div>
             )}
-            <Suspense fallback={null}>
+            <ViewportSection>
               {slug && <BlogHelpfulness slug={slug} />}
+              {slug && <KeywordRelatedLinks path={`/blog/${slug}`} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
               {slug && (
                 <RelatedArticles
@@ -721,22 +810,24 @@ const BlogPost = () => {
                 />
               )}
               {slug && <BlogComments slug={slug} />}
-            </Suspense>
+            </ViewportSection>
           </footer>
         </main>
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} />
+            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} reviewStatus={reviewStatus} />
             {getClusterForPath(`/blog/${slug}`) && (
-              <TopicClusterNav path={`/blog/${slug}`} />
+              <ViewportSection>
+                <TopicClusterNav path={`/blog/${slug}`} />
+              </ViewportSection>
             )}
           </div>
           </DisclaimerStripShown>
         )}
         </article>
         <div className="no-print">
-          <Suspense fallback={null}>
+          <ViewportSection>
             {slug && <ContinueReadingBar currentSlug={slug} />}
             <InternalLinks
               tags={[
@@ -753,7 +844,7 @@ const BlogPost = () => {
               count={4}
             />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
-          </Suspense>
+          </ViewportSection>
           <Footer />
         </div>
 

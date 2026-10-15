@@ -15,6 +15,7 @@ import { z } from "zod";
 import { sanitizeInput } from "@/lib/sanitize";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { submitContactInquiry } from "@/lib/backendSubmit";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -58,15 +59,19 @@ export default function Partners() {
         name: form.name,
         email: form.email,
         subject: `Partnership Enquiry: ${form.type}`,
+        formId: "partners",
         message: `Organisation: ${form.organisation || "N/A"}\nType: ${form.type}\n\n${form.message || ""}`,
       });
       if (result.via === "mailto") {
         toast.message(result.message);
         setForm({ name: "", email: "", organisation: "", type: "", message: "" });
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("partners", error instanceof Error ? error.message : "submit failed");
       toast.error(`Something went wrong. Please try again or email ${CONTACT_EMAILS.info}`);
     } finally {
       setSubmitting(false);
@@ -76,21 +81,21 @@ export default function Partners() {
   return (
     <>
       <Helmet>
-        <title>Partner With Us | Living With Arthritis UK</title>
-        <meta name="description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups working together." />
-      <meta property="og:title" content="Partner With Us | Living With Arthritis UK" />
-      <meta property="og:description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
+        <title>Partner With Us | Living With Arthritis</title>
+        <meta name="description" content="Partner with Living With Arthritis — public health bodies, GP practices, health charities and community groups working together." />
+      <meta property="og:title" content="Partner With Us | Living With Arthritis" />
+      <meta property="og:description" content="Partner with Living With Arthritis — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/partners" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Our Partners | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Our Partners | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Partner With Us | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Partner with Living With Arthritis UK — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
+      <meta name="twitter:title" content="Partner With Us | Living With Arthritis" />
+      <meta name="twitter:description" content="Partner with Living With Arthritis — public health bodies, GP practices, health charities and community groups. Resource sharing, co-branded guides, joint events and research collaboration." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <Header />

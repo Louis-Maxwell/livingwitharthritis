@@ -15,13 +15,13 @@ This document provides a complete technical roadmap for integrating a dedicated 
 - **User Experience**: Intuitive navigation between human and pet content without cognitive overload
 
 ### Key Features
-- ✅ Dedicated pet-focused article hub
-- ✅ Pet-type filtering (dogs, cats, horses, rabbits, etc.)
-- ✅ Category-based organization (exercise, nutrition, healthcare, support)
-- ✅ Seamless navigation between human and pet sections
-- ✅ Redesigned logo unifying both missions
-- ✅ Warm red color palette (accessibility + emotional warmth)
-- ✅ Responsive design (mobile-first)
+- Yes Dedicated pet-focused article hub
+- Yes Pet-type filtering (dogs, cats, horses, rabbits, etc.)
+- Yes Category-based organization (exercise, nutrition, healthcare, support)
+- Yes Seamless navigation between human and pet sections
+- Yes Redesigned logo unifying both missions
+- Yes Warm red color palette (accessibility + emotional warmth)
+- Yes Responsive design (mobile-first)
 
 ---
 
@@ -96,7 +96,7 @@ App
 Desktop:
 ├── Logo
 ├── Links (contextual: human OR pet links)
-└── [❤️ Humans | 🐾 Pets] toggle
+└── [ Humans |  Pets] toggle
 
 Mobile:
 ├── Logo
@@ -115,7 +115,7 @@ Mobile:
 - Accessibility attributes (alt text, ARIA labels)
 
 **PetTypeTag.tsx** (Pet-specific):
-- Emoji icons (🐕 🐱 🐴 🐰)
+- Emoji icons (   )
 - Color-coded by pet type
 - Configurable size (sm, md, lg)
 
@@ -224,7 +224,7 @@ Response:
       "date": "2026-07-25",
       "category": "exercise",
       "keyword": "knee pain exercises",
-      "author": "Living With Arthritis UK",
+      "author": "Living With Arthritis",
       "reviewed_by": "Dr. Jane Smith"
     }
   ],
@@ -528,7 +528,7 @@ describe('ArticleCard', () => {
     const { getByText } = render(<ArticleCard {...mockProps} />);
     expect(getByText('Title')).toBeInTheDocument();
   });
-  
+
   it('displays pet type tag when isPet=true', () => {
     const { getByText } = render(<ArticleCard {...mockProps} isPet={true} />);
     expect(getByText('Dogs')).toBeInTheDocument();
@@ -657,6 +657,6 @@ This implementation provides a **scalable, accessible, and user-friendly** expan
 
 ---
 
-*Document Version: 1.0*  
-*Last Updated: July 25, 2026*  
-*Prepared for: Living With Arthritis UK*
+*Document Version: 1.0*
+*Last Updated: July 25, 2026*
+*Prepared for: Living With Arthritis*

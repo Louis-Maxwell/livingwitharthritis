@@ -49,7 +49,7 @@ const DonationSuccess = () => {
     <>
       <SeoHead
         title={isSuccess ? "Thank You for Your Donation" : "Donation Cancelled"}
-        description={isSuccess ? "Thank you for supporting Living With Arthritis UK. Your donation funds free physiotherapy, exercise plans and online support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis UK."}
+        description={isSuccess ? "Thank you for supporting Living With Arthritis. Your donation funds free physiotherapy, exercise plans and online support for people with arthritis." : "Your donation was cancelled — no charge was made. You can try again any time at Living With Arthritis."}
         path="/donation-result"
         noindex
       />
@@ -112,7 +112,7 @@ const DonationSuccess = () => {
                   </Link>
                 </Button>
                 <Button asChild className="rounded-full btn-primary-cta">
-                  <Link to="/#donate">Try Again</Link>
+                  <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">Try Again<span className="sr-only"> (opens in a new tab)</span></a>
                 </Button>
               </div>
             </>

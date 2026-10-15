@@ -12,6 +12,16 @@ import {
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
+/** Bing Webmaster Tools meta — set VITE_BING_SITE_VERIFICATION once Louis has the code. Never invent a token. */
+function bingSiteVerification(): string | null {
+  const raw = import.meta.env.VITE_BING_SITE_VERIFICATION as string | undefined;
+  if (!raw) return null;
+  const v = raw.trim();
+  // Bing codes are typically alphanumeric; reject empties / obvious placeholders.
+  if (!v || v.length < 8 || /^(TODO|REPLACE|YOUR_|XXX)/i.test(v)) return null;
+  return v;
+}
+
 // index.html ships static <meta name="description">/og:title/og:description/
 // twitter:title/twitter:description tags as a fallback for non-JS crawlers
 // (see index.html's own comment). react-helmet-async has no awareness of
@@ -37,6 +47,7 @@ const MANAGED_META = [
   { attr: "property", value: "og:site_name" },
   { attr: "property", value: "og:locale" },
   { attr: "property", value: "og:image" },
+  { attr: "property", value: "og:image:secure_url" },
   { attr: "property", value: "og:image:width" },
   { attr: "property", value: "og:image:height" },
   { attr: "property", value: "og:image:alt" },
@@ -56,6 +67,15 @@ function pruneStaticMetaDuplicates() {
     if (!hasHelmetVersion) continue;
     for (const el of Array.from(matches)) {
       if (!el.hasAttribute("data-rh")) el.remove();
+    }
+  }
+
+  // A page may only override og:image. Remove the template's secure URL
+  // as well, otherwise social readers can prefer the homepage image.
+  const managedImage = document.head.querySelector('meta[property="og:image"][data-rh]');
+  if (managedImage) {
+    for (const el of document.head.querySelectorAll('meta[property="og:image:secure_url"]:not([data-rh])')) {
+      if (el.getAttribute("content") !== managedImage.getAttribute("content")) el.remove();
     }
   }
 
@@ -103,10 +123,14 @@ export default function SeoDefaults() {
   // (see TRANSLATED_BASE_PATHS). Other routes get self-referencing en-GB
   // + x-default so they are not all pointed at the homepage.
   const hasTranslations = TRANSLATED_BASE_PATHS.includes(basePath);
+  const bingVerify = bingSiteVerification();
 
   return (
     <Helmet>
       {untranslatedLangPath && <meta name="robots" content="noindex,follow" />}
+      {bingVerify && (
+        <meta name="msvalidate.01" content={bingVerify} />
+      )}
       {/* Exactly one self-referencing canonical per page. Emitted here so
           every route gets one, including pages that use raw Helmet rather
           than <SeoHead />. The static index.html canonical is pruned above

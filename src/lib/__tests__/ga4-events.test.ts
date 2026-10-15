@@ -43,6 +43,8 @@ describe("GA4 measurement ID", () => {
     ].map((m) => m[0]);
     expect(new Set(ids)).toEqual(new Set(["G-ZLLSD3PXZ9"]));
     expect(html).toContain("www.googletagmanager.com");
-    expect(html).toContain("region1.google-analytics.com");
+    // GA4 regional collection hosts (e.g. region1.google-analytics.com) are
+    // allowed by the CSP wildcard; csp-policy.test.ts checks the match.
+    expect(html).toContain("https://*.google-analytics.com");
   });
 });

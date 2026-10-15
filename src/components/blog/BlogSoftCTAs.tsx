@@ -28,7 +28,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
               Practical arthritis updates
             </h2>
             <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-              Free guides when we publish something useful — no spam. Living With Arthritis UK
+              Free guides when we publish something useful — no spam. Living With Arthritis
               (charity 1218461).
             </p>
             <EmailSignupForm
@@ -46,12 +46,15 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             <p className="text-sm text-foreground/85 leading-relaxed mb-3">
               If our guides help, a gift keeps them free for UK readers.
             </p>
-            <Link
-              to="/donate"
+            <a
+              href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-primary/30 px-4 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               Donate
-            </Link>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
         </div>
       </aside>
@@ -72,7 +75,7 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             Get arthritis guides in your inbox
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-md">
-            Evidence-based tips on exercise, diet and flare-ups from Living With Arthritis UK —
+            Evidence-based tips on exercise, diet and flare-ups from Living With Arthritis —
             registered charity 1218461. Unsubscribe anytime.
           </p>
           <EmailSignupForm sequence="blog-banner" buttonText="Get free guides" />
@@ -85,16 +88,18 @@ const BlogSoftCTAs = ({ variant = "banner", className = "" }: BlogSoftCTAsProps)
             Keep this advice free
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-            We are independent of Arthritis UK. Motion is lotion — and honest guides stay free when
-            readers who can, chip in.
+            Motion is lotion — and honest guides stay free when readers who can, chip in.
           </p>
-          <Link
-            to="/donate"
+          <a
+            href="https://www.gofundme.com/f/help-fund-critical-arthritis-research"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <Heart className="w-4 h-4" aria-hidden="true" />
-            Visit donate page
-          </Link>
+            Donate on GoFundMe
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </div>
       </div>
     </aside>

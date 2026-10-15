@@ -1,6 +1,6 @@
 # 00 — Executive brief
 
-**Living With Arthritis UK · Charity 1218461**  
+**Living With Arthritis · Charity 1218461**  
 **12-month digital redesign & enhancement strategy**  
 **15 September 2026 (Europe/London)**
 
@@ -8,7 +8,7 @@
 
 ## 1. Diagnosis (honest)
 
-Living With Arthritis UK is a **new** England-and-Wales CIO (registered June 2026) with an unusually strong digital footprint for its age: a large educational library (~505 articles on the public site), condition hubs, exercise and diet pathways, a symptom checker, a local educational chatbot, Stripe donations, research-fund progress (**£5k of £50k** as shown publicly), and recent engineering hygiene (CI deploy gate, soft-404/city prerender work, Champions SEO).
+Living With Arthritis is a **new** England-and-Wales CIO (registered June 2026) with an unusually strong digital footprint for its age: a large educational library (~505 articles on the public site), condition hubs, exercise and diet pathways, a symptom checker, a local educational chatbot, Stripe donations, research-fund progress (**£5k of £50k** as shown publicly), and recent engineering hygiene (CI deploy gate, soft-404/city prerender work, Champions SEO).
 
 It is **not** yet a peer of Arthritis Foundation (US) or Arthritis UK (formerly Versus Arthritis) on brand recognition, research endowment, helpline scale, or organic market share. Framing a 12-month plan as “catch the US Arthritis Foundation” would set the organisation up to fail. The correct ambition is:
 

@@ -5,6 +5,12 @@
 **Repo:** Louis-Maxwell/livingwitharthritis
 **Honest limit:** no system can promise a page will never fail. This plan is the engineering bar so a broken blog cannot ship, cannot stay hidden, and cannot come back as the same class of bug.
 
+> **Update (25 Sep 2026):** the two catalogs described below are gone. All 505
+> guides now live in `src/content/blog/posts/<slug>.json` (one file each),
+> validated by `src/lib/blog/schema.ts` and `src/lib/__tests__/blog-catalog-integrity.test.ts`.
+> Listings read a metadata-only index; bodies lazy-load per slug. See
+> `docs/ADDING-A-BLOG-GUIDE.md`. The counts below are kept as history.
+
 ---
 
 ## What I actually counted (12 Sep 2026)

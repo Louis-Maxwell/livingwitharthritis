@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
@@ -6,15 +7,15 @@ import { FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const CookiesPolicy = () => (
   <>
     <Helmet>
-      <title>Cookies Policy | Living With Arthritis UK</title>
-      <meta name="description" content="How Living With Arthritis UK uses essential, functional, analytics and payment cookies — plus how to manage your cookie preferences." />
-      <meta property="og:title" content="Cookies Policy | Living With Arthritis UK" />
-      <meta property="og:description" content="Learn how Living With Arthritis UK uses cookies to improve your experience. Manage your cookie preferences easily." />
+      <title>Cookies Policy | Living With Arthritis</title>
+      <meta name="description" content="How Living With Arthritis uses essential, functional, analytics and payment cookies — plus how to manage your cookie preferences." />
+      <meta property="og:title" content="Cookies Policy | Living With Arthritis" />
+      <meta property="og:description" content="Learn how Living With Arthritis uses cookies to improve your experience. Manage your cookie preferences easily." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/cookies" />
       <meta property="og:locale" content="en_GB" />
@@ -23,19 +24,19 @@ const CookiesPolicy = () => (
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Cookies Policy",
-        "description": "Cookies Policy for Living With Arthritis UK explaining how we use cookies and how to manage preferences.",
+        "description": "Cookies Policy for Living With Arthritis explaining how we use cookies and how to manage preferences.",
         "url": "https://livingwitharthritis.org.uk/cookies",
         "inLanguage": "en-GB",
-        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+        "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" }
       })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Cookies Policy – How We Use Cookies | Living With Arthritis UK" />
-      <meta name="twitter:description" content="Cookies Policy for Living With Arthritis UK. Learn about essential, functional, analytics and payment cookies we use, why we use them, and how to manage your preferences under UK GDPR." />
+      <meta name="twitter:title" content="Cookies Policy – How We Use Cookies | Living With Arthritis" />
+      <meta name="twitter:description" content="Cookies Policy for Living With Arthritis. Learn about essential, functional, analytics and payment cookies we use, why we use them, and how to manage your preferences under UK GDPR." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Cookies Policy | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Cookies Policy | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
     <div className="min-h-screen bg-background">
@@ -60,7 +61,7 @@ const CookiesPolicy = () => (
 
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">2. How We Use Cookies</h2>
-            <p>Living With Arthritis UK uses cookies for the following purposes:</p>
+            <p>Living With Arthritis uses cookies for the following purposes:</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Essential Cookies</h3>
             <p>These cookies are strictly necessary for the website to function. They enable core features such as security, form submissions, user authentication and accessibility. You cannot opt out of these cookies as the website would not work properly without them.</p>
@@ -77,15 +78,14 @@ const CookiesPolicy = () => (
             <p>We use analytics cookies to understand how visitors interact with our website. This helps us improve our content, navigation and overall experience. The information collected is aggregated and anonymous. We do not use this data to identify individual visitors.</p>
 
             <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">Payment Cookies</h3>
-            <p>When you make a donation, our payment provider (Stripe) may set cookies to process the transaction securely. These cookies are necessary for the payment process and are subject to Stripe's own privacy and cookie policies.</p>
+            <p>Donations open our GoFundMe campaign in a new tab. GoFundMe may set its own cookies on that site. We do not take card payments on this website.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">3. Third-Party Cookies</h2>
             <p>Some cookies on our site are set by third-party services that appear on our pages. We do not control these cookies. The third parties we work with include:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li><strong>Stripe:</strong> For secure donation payment processing.</li>
-              <li><strong>Google Fonts:</strong> For typography delivery (no tracking cookies set).</li>
+                            <li><strong>Google Fonts:</strong> For typography delivery (no tracking cookies set).</li>
             </ul>
           </section>
 

@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from "@/lib/sanitize";
 import { submitContactInquiry } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 interface ContactData {
   name: string;
@@ -62,7 +63,8 @@ export function useContact() {
         error: result.message,
         mailtoOpened: true as const,
       };
-    } catch {
+    } catch (error) {
+      reportFormFailure("contact", error instanceof Error ? error.message : "submit failed");
       const msg = `Something went wrong. Please email ${CONTACT_EMAILS.info} or call 07760 512 084.`;
       toast.error(msg);
       return { success: false as const, error: msg };

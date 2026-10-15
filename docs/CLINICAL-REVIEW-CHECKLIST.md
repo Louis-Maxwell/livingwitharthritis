@@ -1,4 +1,4 @@
-# Clinical review checklist — Living With Arthritis UK
+# Clinical review checklist — Living With Arthritis
 
 **Clinical lead:** Louis Maxwell · FCP · HCPC **PH128483** · CSP member  
 **Charity:** 1218461  

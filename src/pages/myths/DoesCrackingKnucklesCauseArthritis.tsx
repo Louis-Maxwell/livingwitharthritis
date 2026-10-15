@@ -133,7 +133,7 @@ const articleJsonLd = {
   },
   publisher: {
     "@type": "Organization",
-    name: "Living With Arthritis UK",
+    name: "Living With Arthritis",
     url: SITE,
   },
   url: `${SITE}${PAGE_PATH}`,

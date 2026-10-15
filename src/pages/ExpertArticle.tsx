@@ -27,7 +27,7 @@ export default function ExpertArticle() {
         identifier: article.authorCredential,
       },
       datePublished: article.publishDate,
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
     };
     return injectJsonLd(`expert-${article.slug}`, payload);
   }, [article]);

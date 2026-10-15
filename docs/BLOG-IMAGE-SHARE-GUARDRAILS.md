@@ -25,7 +25,7 @@ cannot blank cards, not a license to bypass the map.
 
 1. Soft 404 / wrong title for crawlers — static HTML missing or still the homepage shell while the SPA worked.
 2. Wrong share card image — ogImage missing leads to homepage /og/home.png while the UI showed the Openverse cover.
-3. Mid-phrase title clip — e.g. Supporting a Partner With | Living With Arthritis UK.
+3. Mid-phrase title clip — e.g. Supporting a Partner With | Living With Arthritis.
 4. Dual pipeline drift — content image_url null while cover map had files (UI OK via coverImage, fragile if someone reads image_url).
 5. Competing agent rewrites — edits that break OptimizedImage / cover pipelines. Prefer map + generators + guards over bulk blog body edits.
 
@@ -36,7 +36,7 @@ See checklist below. Regenerate cover map, head data, then run seo:blog-guards.
 ## After batch import (dual pipeline)
 
 Blog posts currently live in two checked-in sources that merge at runtime:
-`src/data/blogList.json` / `blogArticles.json` (~238) and `src/content/blog/*-batch.json` (~267).
+`src/content/blog/posts/<slug>.json` (one file per guide; the dual `blogList.json` / `blogArticles.json` / `*-batch.json` catalogs were consolidated in September 2026).
 Do **not** merge the batches into one file unless you have a dedicated, tested import.
 
 After any batch import or list refresh:

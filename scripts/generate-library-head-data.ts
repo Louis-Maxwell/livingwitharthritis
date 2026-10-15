@@ -54,6 +54,7 @@ export function buildLibraryHeadData() {
       breadcrumb: string;
       about: string;
       bodyHtml: string;
+      faqs?: { q: string; a: string }[];
     }
   > = {};
 
@@ -66,14 +67,14 @@ export function buildLibraryHeadData() {
 
     const seo = getLibraryTopicSeo(topic.slug);
     const heading = seo?.h1 ?? topic.title;
-    const title = (seo?.title ?? `${topic.title} | Living With Arthritis UK`).slice(
+    const title = (seo?.title ?? `${topic.title} | Living With Arthritis`).slice(
       0,
       115,
     );
     const description = (
       seo?.description ||
       topic.subtitle ||
-      `${topic.title} — plain-English information from Living With Arthritis UK.`
+      `${topic.title} — plain-English information from Living With Arthritis.`
     ).slice(0, 158);
     const firstBody =
       topic.sections.find((s) => s.body?.trim())?.body?.trim() ?? topic.subtitle;
@@ -88,6 +89,7 @@ export function buildLibraryHeadData() {
       breadcrumb: topic.title,
       about: topic.title,
       bodyHtml,
+      ...(seo?.faqs && seo.faqs.length > 0 ? { faqs: seo.faqs } : {}),
     };
   }
   return data;

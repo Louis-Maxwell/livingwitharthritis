@@ -1,4 +1,5 @@
-import { lazy, Suspense, useMemo } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -12,8 +13,8 @@ import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_FAQ_HUB } from "@/data/clinical/ukCitations";
 import EmailSignupForm from "@/components/EmailSignupForm";
 
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const Footer = lazy(() => import("@/components/Footer"));
+const FAQSection = lazyWithRetry(() => import("@/components/landing/FAQSection"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const SITE = "https://livingwitharthritis.org.uk";
 
@@ -48,7 +49,7 @@ const FAQ = () => {
         <title>Arthritis FAQs UK: symptoms, treatment, diet & PIP</title>
         <meta
           name="description"
-          content="UK arthritis FAQs answered in plain English — OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Free Living With Arthritis charity answers."
+          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
         />
         <meta
           name="keywords"
@@ -57,21 +58,21 @@ const FAQ = () => {
         <meta property="og:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
         <meta
           property="og:description"
-          content="UK arthritis FAQs answered in plain English — OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Free Living With Arthritis charity answers."
+          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/faq`} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content={`${SITE}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Frequently Asked Questions | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Frequently Asked Questions | Living With Arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
         <meta
           name="twitter:description"
-          content="UK arthritis FAQs answered in plain English — OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Free Living With Arthritis charity answers."
+          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
         />
         <meta name="twitter:image" content={`${SITE}/images/hero-walking-group-1600.webp`} />
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>

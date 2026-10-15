@@ -1,9 +1,8 @@
 /**
- * Anonymous (not-signed-in) chatbot conversation persistence.
- * Signed-in users already get server-backed history via chat_conversations/
- * chat_messages (see useStreamingChat.ts); anonymous visitors previously
- * lost their thread on every refresh. Mirrors the load/save/clear shape of
- * chatProfile.ts.
+ * Anonymous chatbot thread for this browser tab only.
+ * There is no account system and no server history. Messages can include
+ * health details, so they stay in sessionStorage and any older localStorage
+ * copy is deleted on read. Mirrors chatProfile.ts.
  */
 
 const STORAGE_KEY = "arthritis_chat_anon_history_v1";
@@ -15,10 +14,19 @@ export interface StoredChatMessage {
   id?: string;
 }
 
+function dropLegacyLocalCopy(): void {
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    /* private mode */
+  }
+}
+
 export function loadAnonChatHistory(): StoredChatMessage[] {
   if (typeof window === "undefined") return [];
+  dropLegacyLocalCopy();
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
@@ -40,7 +48,8 @@ export function saveAnonChatHistory(messages: StoredChatMessage[]): void {
   if (typeof window === "undefined") return;
   try {
     const trimmed = messages.slice(-MAX_MESSAGES);
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
+    dropLegacyLocalCopy();
+    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
   } catch {
     /* quota or private mode — ignore, same as chatProfile.ts */
   }
@@ -49,7 +58,8 @@ export function saveAnonChatHistory(messages: StoredChatMessage[]): void {
 export function clearAnonChatHistory(): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.removeItem(STORAGE_KEY);
+    dropLegacyLocalCopy();
+    window.sessionStorage.removeItem(STORAGE_KEY);
   } catch {
     /* ignore */
   }

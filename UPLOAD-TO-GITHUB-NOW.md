@@ -1,4 +1,4 @@
-# 📤 Upload to GitHub in 2 Minutes
+#  Upload to GitHub in 2 Minutes
 
 **This is the simplest way to upload everything to your GitHub repo.**
 
@@ -51,7 +51,7 @@ https://github.com/Louis-Maxwell/livingwitharthritis
 
 ---
 
-## DONE! ✅
+## DONE! Yes
 
 The ZIP file is now in your GitHub repo.
 
@@ -68,17 +68,17 @@ Your team can now:
 
 When extracted, it contains:
 
-- ✅ Automated script that fixes everything (APPLY-SECURITY-FIX.sh)
-- ✅ Complete documentation (7 guides)
-- ✅ Fixed code files ready to use
-- ✅ Environment variable templates
-- ✅ Before/after code comparisons
+- Yes Automated script that fixes everything (APPLY-SECURITY-FIX.sh)
+- Yes Complete documentation (7 guides)
+- Yes Fixed code files ready to use
+- Yes Environment variable templates
+- Yes Before/after code comparisons
 
 ---
 
 ## THAT'S IT!
 
-**2 minutes = Everything is on GitHub ready to use.** 🎉
+**2 minutes = Everything is on GitHub ready to use.**
 
 ---
 

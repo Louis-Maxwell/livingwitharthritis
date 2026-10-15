@@ -57,8 +57,8 @@ export function trackFileDownload(opts: {
 
 /* ---------- Existing helpers (kept for other call-sites) ---------- */
 
-export function trackSearch(query: string, results: number) {
-  trackEvent("search", { search_term: query, results_found: results });
+export function trackSearch(_query: string, results: number) {
+  trackEvent("search", { results_found: results });
 }
 
 export function trackMobileBottomCTA(
@@ -71,11 +71,11 @@ export function trackTestimonialSubmit(condition?: string) {
   trackEvent("testimonial_submit", { condition: condition || "unspecified" });
 }
 
-export function trackStartHereCard(label: string, href: string) {
+export function trackStartHereCard(label: string, href: string, isDonation = false) {
   trackEvent("start_here_click", {
     card_label: label,
     destination_path: href,
-    is_donation: false,
+    is_donation: isDonation,
   });
 }
 

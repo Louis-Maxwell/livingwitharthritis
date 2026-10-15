@@ -26,22 +26,37 @@
  *   node scripts/generate-blog-head-data.mjs && node scripts/inject-canonicals.mjs
  * Lovable publish / production deploy is still required for live crawlers.
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const OUT = resolve('scripts/blog-head-data.json');
-const LOCAL_BLOG_DIR = resolve('src/content/blog');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
 const SITE = 'https://livingwitharthritis.org.uk';
-const BRAND = 'Living With Arthritis UK';
+const BRAND = 'Living With Arthritis';
 const DEFAULT_OG_IMAGE = `${SITE}/og/landing-share.png`;
+const TOPICS = {
+  exercise: ['exercise', 'exercises', 'exercise guides'],
+  nutrition: ['nutrition', 'diet'],
+  lifestyle: ['lifestyle', 'living well', 'family & relationships', 'finances & benefits', 'work & career', 'travel', 'social & leisure', 'weather & season', 'sleep', 'older adults', 'young adults'],
+  health: ['health', 'symptoms', 'conditions', 'inflammatory', 'expert q&a'],
+  'mental-health': ['mental health'], supplements: ['supplements'],
+  treatment: ['treatment', 'treatments', 'treatment guides', 'surgery & recovery'],
+  frailty: ['frailty', 'prevention & longevity'],
+};
+export function categoryKey(category) {
+  const label = String(category || '').trim().toLowerCase();
+  return Object.entries(TOPICS).find(([key, aliases]) => key === label || aliases.includes(label))?.[0];
+}
 
 export function clipText(text, max) {
   const value = String(text ?? '').replace(/\s+/g, ' ').trim();
   if (value.length <= max) return value;
-  return `${value.slice(0, max - 1).replace(/[\s,;:.-]+$/, '')}…`;
+  const cut = value.slice(0, max - 1);
+  const boundary = cut.lastIndexOf(' ');
+  return `${(boundary > max * 0.6 ? cut.slice(0, boundary) : cut).replace(/[\s,;:.-]+$/, '')}…`;
 }
 
 /**
@@ -122,24 +137,17 @@ export function resolveOgImage(slug, imageUrl, coverMap = {}) {
   return DEFAULT_OG_IMAGE;
 }
 
+/**
+ * Every published guide from the single source of truth
+ * (src/content/blog/posts/<slug>.json). image_url is derived from `cover`.
+ */
 function loadLocalStaticArticles() {
-  const articles = [];
-  try {
-    for (const name of readdirSync(LOCAL_BLOG_DIR)) {
-      if (!name.endsWith('.json')) continue;
-      const raw = JSON.parse(readFileSync(resolve(LOCAL_BLOG_DIR, name), 'utf8'));
-      const rows = Array.isArray(raw) ? raw : [raw];
-      for (const row of rows) {
-        if (row?.slug && row?.title && row?.is_published !== false) articles.push(row);
-      }
-    }
-  } catch {
-    // Catalog is optional at bootstrap.
-  }
-  return articles;
+  return readPublishedBlogPosts()
+    .filter((row) => row?.slug && row?.title)
+    .map((row) => ({ ...row, image_url: row.cover ? `/openverse/${row.cover}` : null }));
 }
 
-function buildEntry(row, extractFaqs, coverMap) {
+export function buildEntry(row, extractFaqs, coverMap) {
   const answer = row.direct_answer || row.excerpt || '';
   const description = row.meta_description || row.excerpt || row.direct_answer || '';
   const headline = pickHeadline(row);
@@ -148,7 +156,7 @@ function buildEntry(row, extractFaqs, coverMap) {
   const entry = {
     title: buildPageTitle(headline),
     description: clipText(description, 158),
-    question: headline,
+    question: row.title,
     answer: answer ? clipText(answer, 600) : undefined,
     breadcrumb: headline,
     about: row.category || undefined,
@@ -162,6 +170,9 @@ function buildEntry(row, extractFaqs, coverMap) {
       date: row.date,
       category: row.category,
       image_url: row.image_url ?? null,
+      // Cover file name, so the article page can show its cover without
+      // downloading the slug → cover map for every guide.
+      cover: row.cover ?? null,
       meta_title: row.meta_title ?? null,
       meta_description: row.meta_description ?? null,
       keywords: row.keywords ?? null,
@@ -169,9 +180,13 @@ function buildEntry(row, extractFaqs, coverMap) {
       author_credentials: row.author_credentials ?? null,
       reviewed_by: row.reviewed_by ?? null,
       reviewer_credentials: row.reviewer_credentials ?? null,
+      // Only pending guides carry the flag (absent = reviewed), so the
+      // embedded article and static HTML never claim an unfinished review.
+      ...(row.reviewStatus ? { reviewStatus: row.reviewStatus } : {}),
       is_published: true,
       display_order: row.display_order ?? 0,
       updated_at: row.updated_at ?? null,
+      ...(row.last_reviewed ? { last_reviewed: row.last_reviewed } : {}),
       direct_answer: row.direct_answer ?? null,
       citations: row.citations ?? null,
     },
@@ -184,38 +199,10 @@ function buildEntry(row, extractFaqs, coverMap) {
   return entry;
 }
 
-function mergeLocalStatic(data, extractFaqs, coverMap) {
-  for (const row of loadLocalStaticArticles()) {
-    const entry = buildEntry(row, extractFaqs, coverMap);
-    if (entry) data[`/blog/${row.slug}`] = entry;
-  }
-  return data;
-}
-
 function loadRowsFromLocalJson() {
-  // Catalog is source of truth. Seed from prior head-data only as a fallback
-  // for slugs not yet present in blogArticles / static batches, then overwrite
-  // with those catalogs so nested head copies cannot drift.
-  const map = new Map();
-  if (existsSync(OUT)) {
-    const data = JSON.parse(readFileSync(OUT, 'utf8'));
-    for (const entry of Object.values(data)) {
-      if (entry?.article?.slug) map.set(entry.article.slug, entry.article);
-    }
-  }
-  const snap = resolve('src/data/blogArticles.json');
-  if (existsSync(snap)) {
-    const arr = JSON.parse(readFileSync(snap, 'utf8'));
-    if (Array.isArray(arr)) {
-      for (const row of arr) {
-        if (row?.slug) map.set(row.slug, row);
-      }
-    }
-  }
-  for (const row of loadLocalStaticArticles()) {
-    if (row?.slug) map.set(row.slug, row);
-  }
-  return [...map.values()];
+  // Catalog is source of truth: one entry per published guide file, nothing
+  // carried over from a previous run (so removed guides cannot linger).
+  return loadLocalStaticArticles();
 }
 
 async function main() {
@@ -265,10 +252,21 @@ async function main() {
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
     const entry = buildEntry(row, extractFaqs, coverMap);
-    if (entry) data[`/blog/${row.slug}`] = entry;
+    if (entry) {
+      // Link every article back into its existing topic and to nearby guides.
+      // All destinations come from the same published inventory, never guessed slugs.
+      const topic = categoryKey(row.category);
+      const terms = new Set(`${row.title} ${row.keywords || ''}`.toLowerCase().match(/[a-z]{4,}/g) || []);
+      const peers = rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
+        .map((p) => ({ post: p, score: (p.title.toLowerCase().match(/[a-z]{4,}/g) || []).filter((t) => terms.has(t)).length }))
+        .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3);
+      entry.relatedLinks = [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
+        ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
+        ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+      data[`/blog/${row.slug}`] = entry;
+    }
   }
 
-  mergeLocalStatic(data, extractFaqs, coverMap);
   writeFileSync(OUT, `${JSON.stringify(data, null, 2)}\n`);
   const withContent = Object.values(data).filter((e) => e?.article?.content).length;
   const fromCover = Object.values(data).filter(

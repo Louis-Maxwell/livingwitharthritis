@@ -1,6 +1,6 @@
 # Local / static frontend (mailto + local chat)
 
-Living With Arthritis UK is a **static Vite SPA** (GitHub / Lovable publish).
+Living With Arthritis is a **static Vite SPA** (GitHub / Lovable publish).
 There is **no** Supabase, Vercel, or Cloudflare Workers backend in this repo.
 
 ## Forms

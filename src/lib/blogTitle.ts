@@ -21,6 +21,11 @@ export function displayTitle(post: TitleFields): string {
   if (!looksClipped(title)) return title;
 
   const meta = (post.meta_title ?? '').trim();
+  // A meta_title that is just a shorter prefix of the title was itself clipped
+  // ("…Affect Sexual"); the stored title is the complete headline then.
+  const metaIsPrefix =
+    !!meta && title.startsWith(meta.replace(/[\s,;:–-]+$/, '')) && title.length > meta.length + 3;
+  if (metaIsPrefix) return title;
   if (meta && !looksClipped(meta)) return meta;
 
   // No usable meta_title: drop the dangling partial word rather than showing it.

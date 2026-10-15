@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import blogArticles from "@/data/blogArticles.json";
+import { ALL_BLOG_POSTS as blogArticles } from "@/test/blogPosts";
 import { getClusterForPath } from "@/data/topicClusters";
 
 type Row = {
@@ -16,6 +16,13 @@ type Row = {
   direct_answer?: string | null;
 };
 
+// Review stamps: the 20 Sep visibility sprint, or a later full rewrite
+// (best-walking-shoes-arthritis-uk was rewritten in content batch 6, 11 Oct 2026).
+const REVIEW_DATES: Record<string, string> = {
+  "best-walking-shoes-arthritis-uk": "2026-10-11",
+  "turmeric-for-arthritis": "2026-09-20",
+};
+
 const SLUGS = [
   "best-walking-shoes-arthritis-uk",
   "turmeric-for-arthritis",
@@ -24,7 +31,8 @@ const SLUGS = [
 const ALLOWED_HOSTS = [
   "www.nhs.uk",
   "www.nice.org.uk",
-  "versusarthritis.org",
+  "www.arthritis-uk.org",
+  "arthritis-uk.org",
   "www.gov.uk",
 ];
 
@@ -50,7 +58,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
       expect(row!.meta_title?.trim().length).toBeGreaterThan(40);
       expect(row!.meta_description?.trim().length).toBeGreaterThan(110);
       expect(row!.meta_description).not.toMatch(/\.\.\.$/);
-      expect(row!.updated_at?.startsWith("2026-09-20")).toBe(true);
+      expect(row!.updated_at?.startsWith(REVIEW_DATES[slug])).toBe(true);
       expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
 
       const cites = row!.citations ?? [];
@@ -77,7 +85,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
       const head = heads[`/blog/${slug}`];
       expect(head?.title?.trim().length).toBeGreaterThan(30);
       expect(head?.description?.trim().length).toBeGreaterThan(80);
-      expect(head?.updatedAt).toBe("2026-09-20");
+      expect(head?.updatedAt).toBe(REVIEW_DATES[slug]);
     });
   }
 
@@ -89,7 +97,7 @@ describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
 });
 
 describe("visibility sprint: customer-job hub polish", () => {
-  it("pain relief, newly diagnosed and PIP hubs carry 2026-09-20 review + next-step CTAs", () => {
+  it("pain relief, newly diagnosed and PIP hubs carry current review + next-step CTAs", () => {
     const pain = readFileSync(
       resolve(process.cwd(), "src/pages/guides/ArthritisPainRelief.tsx"),
       "utf8",
@@ -103,17 +111,20 @@ describe("visibility sprint: customer-job hub polish", () => {
       "utf8",
     );
 
-    expect(pain).toContain('lastReviewed="2026-09-20"');
+    // Pain + PIP deepened Champions 47–48 (28 Sep); newly diagnosed Champions 50 (29 Sep) or 20 Sep sprint.
+    expect(pain).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pain).toContain("/guides/newly-diagnosed");
     expect(pain).toContain("/benefits-pip");
     expect(pain).toMatch(/pain relief/i);
 
-    expect(newly).toContain('lastReviewed="2026-09-20"');
+    expect(newly).toMatch(/lastReviewed="2026-09-(20|29)"/);
     expect(newly).toContain("/guides/arthritis-pain-relief");
-    expect(newly).toContain("/benefits-pip");
+    expect(newly).toContain("/guides/benefits-pip");
+    expect(newly).toContain("/resources/pip-evidence-diary");
 
-    expect(pip).toContain('lastReviewed="2026-09-20"');
+    expect(pip).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pip).toContain("/guides/benefits-pip");
-    expect(pip).toContain("Next step");
+    expect(pip).toContain("How to claim PIP for arthritis in the UK");
+    expect(pip).toContain('rel="canonical"');
   });
 });

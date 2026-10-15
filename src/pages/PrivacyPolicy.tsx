@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
@@ -7,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { CHARITY } from "@/config/charity";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const PrivacyPolicy = () => (
   <>
@@ -36,7 +37,7 @@ const PrivacyPolicy = () => (
         <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Privacy Policy | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Privacy Policy | Living With Arthritis" />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
     <div className="min-h-screen bg-background">
@@ -56,7 +57,7 @@ const PrivacyPolicy = () => (
         <div className="prose prose-lg max-w-none space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">1. Who We Are</h2>
-            <p>Living With Arthritis UK ("we", "us", "our") is committed to protecting your personal data. This policy explains how we collect, use and safeguard information when you use our website and services. We operate in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+            <p>Living With Arthritis ("we", "us", "our") is committed to protecting your personal data. This policy explains how we collect, use and safeguard information when you use our website and services. We operate in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
           </section>
 
           <section>
@@ -154,7 +155,7 @@ const PrivacyPolicy = () => (
             <h2 className="text-xl font-bold text-foreground mt-8 mb-3">12. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy or our data practices, please contact:</p>
             <p className="mt-2">
-              <strong>Living With Arthritis UK</strong><br />
+              <strong>Living With Arthritis</strong><br />
               Email: <a href={`mailto:${CONTACT_EMAILS.info}`} className="text-primary hover:underline">{CONTACT_EMAILS.info}</a><br />
               Phone: 07760 512 084
             </p>

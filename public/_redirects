@@ -34,6 +34,7 @@
 /zakat /zakat-appeal 301
 /library/glucosamine /supplements/glucosamine 301
 /conditions/hip-arthritis/exercises /guides/hip-exercises-for-osteoarthritis 301
+/exercises/knee /guides/knee-exercises-for-osteoarthritis 301
 /about/ /about 301
 /de/glossary/facet-joint-injection /glossary/facet-joint-injection 301
 /de/glossary/methotrexate /glossary/methotrexate 301
@@ -97,8 +98,7 @@
 # --- Blog slug consolidations (keep in sync with src/data/blogRedirects.ts) ---
 /blog/nhs-arthritis-exercises /blog/arthritis-exercises-uk-clinical 301
 /blog/nhs-rheumatology-waiting-times-uk /blog/rheumatology-waiting-times-uk 301
-/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
-/blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
+/blog/knee-arthritis-exercises-uk  /guides/knee-exercises-for-osteoarthritis  301
 /blog/food-supplements-for-joint-pain /blog/best-supplements-joint-pain 301
 /blog/arthritis-medication-uk /blog/arthritis-medication-guide 301
 /blog/arthritis-and-weight-management-uk /blog/weight-management-arthritis-evidence 301
@@ -119,6 +119,8 @@
 # Real bio pages are prerendered static files and win over these rules.
 /authors/* /404.html 404
 /reviewers/* /404.html 404
+# Shop never launched (removed 2026-09); product URLs go to the supplements hub.
+/product/* /supplements 301
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /exercises/swimming-for-knee /exercises/swimming-for-knee-arthritis 301
@@ -697,7 +699,6 @@
 /arthritis-meal-planning-uk /blog/arthritis-meal-planning-uk 301
 /arthritis-pain-relief-natural /blog/arthritis-pain-relief-natural 301
 /back-arthritis-exercises-uk /blog/back-arthritis-exercises-uk 301
-/knee-arthritis-exercises-uk /blog/knee-arthritis-exercises-uk 301
 /occupational-therapy-arthritis-uk /blog/occupational-therapy-arthritis-uk 301
 /osteoarthritis-symptoms-uk /blog/osteoarthritis-symptoms-uk 301
 /hot-weather-arthritis-management /blog/hot-weather-arthritis-management 301
@@ -1031,6 +1032,308 @@
 /access-to-work-scheme-arthritis-guide /blog/access-to-work-scheme-arthritis-guide 301
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
-/blog/knee-osteoarthritis-exercises /blog/knee-arthritis-exercises-uk 301
-/blog/knee-exercises-arthritis /blog/knee-arthritis-exercises-uk 301
-/knee-arthritis-exercises-uk /blog/knee-arthritis-exercises-uk 301
+/blog/knee-osteoarthritis-exercises /guides/knee-exercises-for-osteoarthritis 301
+/blog/knee-exercises-arthritis /guides/knee-exercises-for-osteoarthritis 301
+/knee-arthritis-exercises-uk /guides/knee-exercises-for-osteoarthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/self-help-tool /self-help 301
+/sitemap /site-index 301
+/regions/england /arthritis-support 301
+/regions/northern-ireland /blog/free-arthritis-support-northern-ireland 301
+/finances /benefits-pip 301
+/lived-experiences /community 301
+/impact-stories /community 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/food-drink-and-arthritis-medicines-interactions /blog/food-drink-and-arthritis-medicines-interactions 301
+/giant-cell-arteritis-headache-warning-signs /blog/giant-cell-arteritis-headache-warning-signs 301
+/leflunomide-for-arthritis-blood-tests-side-effects /blog/leflunomide-for-arthritis-blood-tests-side-effects 301
+/septic-arthritis-hot-swollen-joint-emergency /blog/septic-arthritis-hot-swollen-joint-emergency 301
+/starting-a-new-arthritis-medicine-questions-to-ask /blog/starting-a-new-arthritis-medicine-questions-to-ask 301
+/sulfasalazine-for-arthritis-what-to-expect /blog/sulfasalazine-for-arthritis-what-to-expect 301
+/vaccines-on-dmards-and-biologics-uk-guide /blog/vaccines-on-dmards-and-biologics-uk-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/how-arthritis-is-diagnosed-tests-scans-results /blog/how-arthritis-is-diagnosed-tests-scans-results 301
+/joint-protection-easier-everyday-tasks /blog/joint-protection-easier-everyday-tasks 301
+/palindromic-rheumatism-joint-attacks-come-and-go /blog/palindromic-rheumatism-joint-attacks-come-and-go 301
+/pseudogout-cppd-sudden-hot-swollen-joints /blog/pseudogout-cppd-sudden-hot-swollen-joints 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-and-your-heart-lowering-risk /blog/arthritis-and-your-heart-lowering-risk 301
+/carers-allowance-help-if-you-care-for-someone /blog/carers-allowance-help-if-you-care-for-someone 301
+/menopause-hrt-and-joint-pain /blog/menopause-hrt-and-joint-pain 301
+/running-with-arthritis-knees-and-hips /blog/running-with-arthritis-knees-and-hips 301
+/sick-pay-fit-notes-time-off-work-arthritis /blog/sick-pay-fit-notes-time-off-work-arthritis 301
+/walking-with-arthritis-start-build-up-keep-going /blog/walking-with-arthritis-start-build-up-keep-going 301
+/weight-loss-injections-arthritis-wegovy-mounjaro /blog/weight-loss-injections-arthritis-wegovy-mounjaro 301
+/your-arthritis-care-team-who-does-what /blog/your-arthritis-care-team-who-does-what 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/shop /supplements 301
+/buddy /community/connect-groups 301
+/buddy/match /community/connect-groups 301
+/podcasts /community 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/arthritis-exercises /blog/arthritis-exercises-uk-clinical 301
+/blog/arthritis-supplements-uk /blog/best-supplements-arthritis-uk 301
+/blog/gardening-with-arthritis-uk /blog/arthritis-and-gardening-uk 301
+/blog/meal-planning-arthritis-uk /blog/arthritis-meal-planning-uk 301
+/blog/mindfulness-for-chronic-pain-uk /blog/mindfulness-chronic-pain-arthritis-guide 301
+/blog/natural-pain-relief-arthritis-uk /blog/arthritis-pain-relief-natural 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/medical-disclaimer /disclaimer 301
+/claims-policy /about/editorial-claims-policy 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/knee-arthritis-exercises-uk /guides/knee-exercises-for-osteoarthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/heat-or-ice-for-arthritis /blog/heat-or-ice-for-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-pain-tracking-journal-template /blog/arthritis-pain-tracking-journal-template 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-pain-map-by-joint /blog/arthritis-pain-map-by-joint 301
+/weather-and-arthritis-pain-explained /blog/weather-and-arthritis-pain-explained 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-fatigue-recovery-guide /blog/arthritis-fatigue-recovery-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-pain-scale-explained /blog/arthritis-pain-scale-explained 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-red-flag-symptoms /blog/arthritis-red-flag-symptoms 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/emergency-arthritis-flare-checklist /blog/emergency-arthritis-flare-checklist 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/safe-daily-stretching-routine-arthritis /blog/safe-daily-stretching-routine-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/30-day-arthritis-pain-reduction-challenge /blog/30-day-arthritis-pain-reduction-challenge 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/how-to-choose-the-right-exercise-for-arthritis /blog/how-to-choose-the-right-exercise-for-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/chair-exercises-older-adults-arthritis /blog/chair-exercises-older-adults-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/resistance-band-workouts-arthritis /blog/resistance-band-workouts-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-friendly-gym-guide /blog/arthritis-friendly-gym-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/daily-mobility-routine-arthritis /blog/daily-mobility-routine-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/balance-training-arthritis /blog/balance-training-arthritis 301
+/weight-loss-exercise-plan-arthritis /blog/weight-loss-exercise-plan-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/exercise-progression-arthritis /blog/exercise-progression-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/physio-mistakes-to-avoid-arthritis /blog/physio-mistakes-to-avoid-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/motability-scheme-arthritis-uk /blog/motability-scheme-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/workplace-adjustment-letter-templates-arthritis /blog/workplace-adjustment-letter-templates-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/retirement-planning-arthritis-uk /blog/retirement-planning-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/housing-support-arthritis-uk /blog/housing-support-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/plant-based-diet-arthritis-evidence /blog/plant-based-diet-arthritis-evidence 301
+/protein-requirements-arthritis-uk /blog/protein-requirements-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/best-breakfast-for-arthritis-uk /blog/best-breakfast-for-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/rheumatology-appointment-what-to-expect-uk /blog/rheumatology-appointment-what-to-expect-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/preparing-for-joint-replacement-uk /blog/preparing-for-joint-replacement-uk 301
+/questions-to-ask-your-consultant-arthritis /blog/questions-to-ask-your-consultant-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/mri-scan-arthritis-explained /blog/mri-scan-arthritis-explained 301
+/x-ray-arthritis-explained /blog/x-ray-arthritis-explained 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-blood-tests-explained-uk /blog/arthritis-blood-tests-explained-uk 301
+/how-nhs-referrals-work-arthritis /blog/how-nhs-referrals-work-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/nhs-arthritis-pathways-explained /blog/nhs-arthritis-pathways-explained 301
+/private-treatment-costs-uk-arthritis /blog/private-treatment-costs-uk-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/travel-insurance-arthritis-uk /blog/travel-insurance-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/cooking-with-arthritis-uk /blog/cooking-with-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/parenting-with-arthritis-uk /blog/parenting-with-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-symptoms-what-to-do-next /blog/arthritis-symptoms-what-to-do-next 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-flare-early-warning-signs /blog/arthritis-flare-early-warning-signs 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/daily-arthritis-planner-printable /blog/daily-arthritis-planner-printable 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/best-mattress-for-arthritis-uk /blog/best-mattress-for-arthritis-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/ask-the-physio-arthritis /blog/ask-the-physio-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-roadmaps-uk /blog/arthritis-roadmaps-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/cauda-equina-warning-signs-uk /blog/cauda-equina-warning-signs-uk 301
+/inclusive-arthritis-frailty-support-plan-uk /blog/inclusive-arthritis-frailty-support-plan-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/lwa-archive-what-is-arthritis /blog/lwa-archive-what-is-arthritis 301
+/lwa-archive-early-signs-of-arthritis /blog/lwa-archive-early-signs-of-arthritis 301
+/lwa-archive-symptoms-of-arthritis-explained /blog/lwa-archive-symptoms-of-arthritis-explained 301
+/lwa-archive-types-of-arthritis /blog/lwa-archive-types-of-arthritis 301
+/lwa-archive-what-causes-arthritis /blog/lwa-archive-what-causes-arthritis 301
+/lwa-archive-is-arthritis-hereditary /blog/lwa-archive-is-arthritis-hereditary 301
+/lwa-archive-can-arthritis-be-prevented /blog/lwa-archive-can-arthritis-be-prevented 301
+/lwa-archive-arthritis-statistics-in-the-uk /blog/lwa-archive-arthritis-statistics-in-the-uk 301
+/lwa-archive-living-well-with-arthritis /blog/lwa-archive-living-well-with-arthritis 301
+/lwa-archive-arthritis-myths-vs-facts /blog/lwa-archive-arthritis-myths-vs-facts 301
+/lwa-archive-what-is-rheumatoid-arthritis /blog/lwa-archive-what-is-rheumatoid-arthritis 301
+/lwa-archive-early-symptoms-of-rheumatoid-arthritis /blog/lwa-archive-early-symptoms-of-rheumatoid-arthritis 301
+/lwa-archive-rheumatoid-arthritis-diagnosis /blog/lwa-archive-rheumatoid-arthritis-diagnosis 301
+/lwa-archive-rheumatoid-arthritis-blood-tests /blog/lwa-archive-rheumatoid-arthritis-blood-tests 301
+/lwa-archive-rheumatoid-arthritis-treatment /blog/lwa-archive-rheumatoid-arthritis-treatment 301
+/lwa-archive-best-exercise-for-rheumatoid-arthritis /blog/lwa-archive-best-exercise-for-rheumatoid-arthritis 301
+/lwa-archive-diet-for-rheumatoid-arthritis /blog/lwa-archive-diet-for-rheumatoid-arthritis 301
+/lwa-archive-fatigue-and-rheumatoid-arthritis /blog/lwa-archive-fatigue-and-rheumatoid-arthritis 301
+/lwa-archive-managing-rheumatoid-arthritis-flare-ups /blog/lwa-archive-managing-rheumatoid-arthritis-flare-ups 301
+/lwa-archive-long-term-outlook-for-rheumatoid-arthritis /blog/lwa-archive-long-term-outlook-for-rheumatoid-arthritis 301
+/lwa-archive-what-is-osteoarthritis /blog/lwa-archive-what-is-osteoarthritis 301
+/lwa-archive-knee-osteoarthritis /blog/lwa-archive-knee-osteoarthritis 301
+/lwa-archive-hip-osteoarthritis /blog/lwa-archive-hip-osteoarthritis 301
+/lwa-archive-shoulder-osteoarthritis /blog/lwa-archive-shoulder-osteoarthritis 301
+/lwa-archive-hand-osteoarthritis /blog/lwa-archive-hand-osteoarthritis 301
+/lwa-archive-neck-arthritis /blog/lwa-archive-neck-arthritis 301
+/lwa-archive-spinal-arthritis /blog/lwa-archive-spinal-arthritis 301
+/lwa-archive-foot-osteoarthritis /blog/lwa-archive-foot-osteoarthritis 301
+/lwa-archive-best-exercises-for-osteoarthritis /blog/lwa-archive-best-exercises-for-osteoarthritis 301
+/lwa-archive-when-is-surgery-needed-for-osteoarthritis /blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis 301
+/lwa-archive-joint-pain-and-arthritis /blog/lwa-archive-joint-pain-and-arthritis 301
+/lwa-archive-joint-swelling /blog/lwa-archive-joint-swelling 301
+/lwa-archive-morning-stiffness /blog/lwa-archive-morning-stiffness 301
+/lwa-archive-clicking-joints /blog/lwa-archive-clicking-joints 301
+/lwa-archive-muscle-weakness-and-arthritis /blog/lwa-archive-muscle-weakness-and-arthritis 301
+/lwa-archive-reduced-mobility /blog/lwa-archive-reduced-mobility 301
+/lwa-archive-fatigue-and-arthritis /blog/lwa-archive-fatigue-and-arthritis 301
+/lwa-archive-inflammation-and-arthritis /blog/lwa-archive-inflammation-and-arthritis 301
+/lwa-archive-balance-problems-and-arthritis /blog/lwa-archive-balance-problems-and-arthritis 301
+/lwa-archive-walking-difficulties-and-arthritis /blog/lwa-archive-walking-difficulties-and-arthritis 301
+/lwa-archive-arthritis-treatment-options /blog/lwa-archive-arthritis-treatment-options 301
+/lwa-archive-pain-medication-for-arthritis /blog/lwa-archive-pain-medication-for-arthritis 301
+/lwa-archive-anti-inflammatory-medicines /blog/lwa-archive-anti-inflammatory-medicines 301
+/lwa-archive-steroid-injections-for-arthritis /blog/lwa-archive-steroid-injections-for-arthritis 301
+/lwa-archive-physiotherapy-for-arthritis /blog/lwa-archive-physiotherapy-for-arthritis 301
+/lwa-archive-occupational-therapy-for-arthritis /blog/lwa-archive-occupational-therapy-for-arthritis 301
+/lwa-archive-hydrotherapy-for-arthritis /blog/lwa-archive-hydrotherapy-for-arthritis 301
+/lwa-archive-surgery-for-arthritis /blog/lwa-archive-surgery-for-arthritis 301
+/lwa-archive-biologic-drugs-for-arthritis /blog/lwa-archive-biologic-drugs-for-arthritis 301
+/lwa-archive-new-treatments-for-arthritis /blog/lwa-archive-new-treatments-for-arthritis 301
+/lwa-archive-best-exercises-for-arthritis /blog/lwa-archive-best-exercises-for-arthritis 301
+/lwa-archive-knee-exercises-for-arthritis /blog/lwa-archive-knee-exercises-for-arthritis 301
+/lwa-archive-hip-exercises-for-arthritis /blog/lwa-archive-hip-exercises-for-arthritis 301
+/lwa-archive-hand-exercises-for-arthritis /blog/lwa-archive-hand-exercises-for-arthritis 301
+/lwa-archive-shoulder-exercises-for-arthritis /blog/lwa-archive-shoulder-exercises-for-arthritis 301
+/lwa-archive-spine-exercises-for-arthritis /blog/lwa-archive-spine-exercises-for-arthritis 301
+/lwa-archive-home-exercise-programme-for-arthritis /blog/lwa-archive-home-exercise-programme-for-arthritis 301
+/lwa-archive-stretching-for-arthritis /blog/lwa-archive-stretching-for-arthritis 301
+/lwa-archive-strength-training-for-arthritis /blog/lwa-archive-strength-training-for-arthritis 301
+/lwa-archive-balance-training-for-arthritis /blog/lwa-archive-balance-training-for-arthritis 301
+/lwa-archive-heat-vs-ice-for-arthritis /blog/lwa-archive-heat-vs-ice-for-arthritis 301
+/lwa-archive-tens-machines-for-arthritis /blog/lwa-archive-tens-machines-for-arthritis 301
+/lwa-archive-massage-for-arthritis /blog/lwa-archive-massage-for-arthritis 301
+/lwa-archive-walking-for-arthritis /blog/lwa-archive-walking-for-arthritis 301
+/lwa-archive-swimming-for-arthritis /blog/lwa-archive-swimming-for-arthritis 301
+/lwa-archive-yoga-for-arthritis /blog/lwa-archive-yoga-for-arthritis 301
+/lwa-archive-pilates-for-arthritis /blog/lwa-archive-pilates-for-arthritis 301
+/lwa-archive-acupuncture-for-arthritis /blog/lwa-archive-acupuncture-for-arthritis 301
+/lwa-archive-improving-sleep-with-arthritis /blog/lwa-archive-improving-sleep-with-arthritis 301
+/lwa-archive-mindfulness-for-arthritis /blog/lwa-archive-mindfulness-for-arthritis 301
+/lwa-archive-anti-inflammatory-diet-for-arthritis /blog/lwa-archive-anti-inflammatory-diet-for-arthritis 301
+/lwa-archive-mediterranean-diet-and-arthritis /blog/lwa-archive-mediterranean-diet-and-arthritis 301
+/lwa-archive-turmeric-for-arthritis /blog/lwa-archive-turmeric-for-arthritis 301
+/lwa-archive-ginger-for-arthritis /blog/lwa-archive-ginger-for-arthritis 301
+/lwa-archive-omega-3-and-arthritis /blog/lwa-archive-omega-3-and-arthritis 301
+/lwa-archive-vitamin-d-and-arthritis /blog/lwa-archive-vitamin-d-and-arthritis 301
+/lwa-archive-calcium-and-bone-health /blog/lwa-archive-calcium-and-bone-health 301
+/lwa-archive-weight-loss-and-arthritis /blog/lwa-archive-weight-loss-and-arthritis 301
+/lwa-archive-foods-to-avoid-with-arthritis /blog/lwa-archive-foods-to-avoid-with-arthritis 301
+/lwa-archive-supplements-for-arthritis /blog/lwa-archive-supplements-for-arthritis 301
+/lwa-archive-pip-and-arthritis /blog/lwa-archive-pip-and-arthritis 301
+/lwa-archive-how-to-apply-for-pip-with-arthritis /blog/lwa-archive-how-to-apply-for-pip-with-arthritis 301
+/lwa-archive-disability-living-allowance-and-arthritis /blog/lwa-archive-disability-living-allowance-and-arthritis 301
+/lwa-archive-universal-credit-and-arthritis /blog/lwa-archive-universal-credit-and-arthritis 301
+/lwa-archive-blue-badge-scheme-and-arthritis /blog/lwa-archive-blue-badge-scheme-and-arthritis 301
+/lwa-archive-access-to-work-and-arthritis /blog/lwa-archive-access-to-work-and-arthritis 301
+/lwa-archive-arthritis-at-work /blog/lwa-archive-arthritis-at-work 301
+/lwa-archive-reasonable-adjustments-for-arthritis /blog/lwa-archive-reasonable-adjustments-for-arthritis 301
+/lwa-archive-sick-leave-and-arthritis /blog/lwa-archive-sick-leave-and-arthritis 301
+/lwa-archive-employment-rights-for-people-with-arthritis /blog/lwa-archive-employment-rights-for-people-with-arthritis 301
+/lwa-archive-daily-living-tips-for-arthritis /blog/lwa-archive-daily-living-tips-for-arthritis 301
+/lwa-archive-mental-health-and-arthritis /blog/lwa-archive-mental-health-and-arthritis 301
+/lwa-archive-relationships-and-arthritis /blog/lwa-archive-relationships-and-arthritis 301
+/lwa-archive-travelling-with-arthritis /blog/lwa-archive-travelling-with-arthritis 301
+/lwa-archive-driving-with-arthritis /blog/lwa-archive-driving-with-arthritis 301
+/lwa-archive-gardening-with-arthritis /blog/lwa-archive-gardening-with-arthritis 301
+/lwa-archive-holidays-with-arthritis /blog/lwa-archive-holidays-with-arthritis 301
+/lwa-archive-sleep-and-arthritis /blog/lwa-archive-sleep-and-arthritis 301
+/lwa-archive-choosing-footwear-for-arthritis /blog/lwa-archive-choosing-footwear-for-arthritis 301
+/lwa-archive-assistive-equipment-for-arthritis /blog/lwa-archive-assistive-equipment-for-arthritis 301
+/lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment /blog/lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment 301
+/lwa-archive-gout-causes-symptoms-and-treatment /blog/lwa-archive-gout-causes-symptoms-and-treatment 301
+/lwa-archive-psoriatic-arthritis-early-signs-and-treatment /blog/lwa-archive-psoriatic-arthritis-early-signs-and-treatment 301
+/lwa-archive-ankylosing-spondylitis-symptoms-and-management /blog/lwa-archive-ankylosing-spondylitis-symptoms-and-management 301
+/lwa-archive-reactive-arthritis-causes-symptoms-and-recovery /blog/lwa-archive-reactive-arthritis-causes-symptoms-and-recovery 301
+/lwa-archive-septic-arthritis-symptoms-and-emergency-treatment /blog/lwa-archive-septic-arthritis-symptoms-and-emergency-treatment 301
+/lwa-archive-juvenile-idiopathic-arthritis-arthritis-in-children /blog/lwa-archive-juvenile-idiopathic-arthritis-arthritis-in-children 301
+/lwa-archive-lupus-and-arthritis-understanding-joint-symptoms /blog/lwa-archive-lupus-and-arthritis-understanding-joint-symptoms 301
+/lwa-archive-polymyalgia-rheumatica-symptoms-and-treatment /blog/lwa-archive-polymyalgia-rheumatica-symptoms-and-treatment 301
+/lwa-archive-osteoporosis-vs-arthritis-what-s-the-difference /blog/lwa-archive-osteoporosis-vs-arthritis-what-s-the-difference 301
+/lwa-archive-cauda-equina-syndrome-symptoms-red-flags-and-emergency-treatment /blog/lwa-archive-cauda-equina-syndrome-symptoms-red-flags-and-emergency-treatment 301
+/lwa-archive-septic-joint-recognising-a-joint-infection /blog/lwa-archive-septic-joint-recognising-a-joint-infection 301
+/lwa-archive-fractures-and-arthritis-understanding-bone-injury-risks /blog/lwa-archive-fractures-and-arthritis-understanding-bone-injury-risks 301
+/lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help /blog/lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help 301
+/lwa-archive-when-should-you-see-a-gp-about-arthritis /blog/lwa-archive-when-should-you-see-a-gp-about-arthritis 301
+/lwa-archive-when-should-you-go-to-a-e-for-joint-or-back-pain /blog/lwa-archive-when-should-you-go-to-a-e-for-joint-or-back-pain 301
+/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know /blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know 301
+/lwa-archive-arthritis-medication-safety-preventing-side-effects-and-interactions /blog/lwa-archive-arthritis-medication-safety-preventing-side-effects-and-interactions 301
+/lwa-archive-falls-prevention-for-people-living-with-arthritis /blog/lwa-archive-falls-prevention-for-people-living-with-arthritis 301
+/lwa-archive-frailty-and-arthritis-maintaining-strength-mobility-and-independence /blog/lwa-archive-frailty-and-arthritis-maintaining-strength-mobility-and-independence 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-hows-life-living-with-arthritis /blog/arthritis-hows-life-living-with-arthritis 301

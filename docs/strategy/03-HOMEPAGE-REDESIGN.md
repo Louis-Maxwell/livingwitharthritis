@@ -37,7 +37,7 @@
 |                     Research  Get involved     [Search] [Donate] |
 +------------------------------------------------------------------+
 | HERO                                                             |
-| Living With Arthritis UK — evidence-based health guides          |
+| Living With Arthritis — evidence-based health guides          |
 | Empathy line (1–2 sentences).                                    |
 | [ Start your gentle plan ]   [ Donate — keep it free ]           |
 | Trust: Charity 1218461 · Reviewed Louis Maxwell HCPC PH128483    |

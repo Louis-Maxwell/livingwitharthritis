@@ -32,7 +32,7 @@ import {
   ProgressRing,
   HorizontalBar,
   WaveDivider,
-  EmojiCard,
+  HighlightCard,
   ComparisonCard,
   DonutChart,
 } from "@/components/graphics/InfographicElements";
@@ -96,10 +96,10 @@ const dietSections = [
 ];
 
 const relatedTopics = [
+  { title: "RA anti-inflammatory diet", icon: Leaf, href: "/blog/anti-inflammatory-diet-rheumatoid-arthritis", desc: "Food-first Mediterranean plates — not a cure" },
+  { title: "Omega-3 foods for joints", icon: Fish, href: "/blog/omega-3-foods-for-joints", desc: "Oily fish, ALA limits and food-first habits" },
   { title: "Turmeric for Arthritis", icon: Sparkles, href: "/blog/turmeric-for-arthritis", desc: "Evidence, dosage and best supplements" },
-  { title: "Omega-3 & Fish Oil", icon: Fish, href: "/blog/arthritis-and-omega-3-fish-oil", desc: "Benefits, dosage and UK food sources" },
-  { title: "Supplements Guide", icon: Heart, href: "/blog/arthritis-supplements-uk", desc: "Glucosamine, collagen and more" },
-  { title: "Meal Planning", icon: Utensils, href: "/blog/meal-planning-arthritis-uk", desc: "Weekly meal plans for joint health" },
+  { title: "Supplements Guide", icon: Heart, href: "/blog/best-supplements-arthritis-uk", desc: "Glucosamine, collagen and more" },
 ];
 
 /**
@@ -166,7 +166,7 @@ const DietHub = () => {
         <meta property="og:url" content="https://livingwitharthritis.org.uk/diet" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/og/diet-hub.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -472,12 +472,12 @@ const DietHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Nutrition Quick Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple daily habits for joint-friendly eating.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🐟" title="Eat Oily Fish" description="Salmon, mackerel or sardines twice a week for omega-3s. Tinned is fine." />
-              <EmojiCard emoji="🫒" title="Use Olive Oil" description="Use extra virgin olive oil instead of butter or frying oil where you can." />
-              <EmojiCard emoji="🫐" title="Berry Boost" description="A handful of berries for antioxidants — frozen supermarket berries count." />
-              <EmojiCard emoji="🥦" title="Go Green" description="Add one portion of leafy greens to a meal today. Frozen spinach works." />
-              <EmojiCard emoji="🧡" title="Spice It Up" description="Turmeric or ginger in cooking. Supplements are optional, not a cure." />
-              <EmojiCard emoji="💧" title="Hydrate Well" description="Water or unsweetened tea. Sugary drinks add an inflammation load you do not need." />
+              <HighlightCard title="Eat Oily Fish" description="Salmon, mackerel or sardines twice a week for omega-3s. Tinned is fine." />
+              <HighlightCard title="Use Olive Oil" description="Use extra virgin olive oil instead of butter or frying oil where you can." />
+              <HighlightCard title="Berry Boost" description="A handful of berries for antioxidants — frozen supermarket berries count." />
+              <HighlightCard title="Go Green" description="Add one portion of leafy greens to a meal today. Frozen spinach works." />
+              <HighlightCard title="Spice It Up" description="Turmeric or ginger in cooking. Supplements are optional, not a cure." />
+              <HighlightCard title="Hydrate Well" description="Water or unsweetened tea. Sugary drinks add an inflammation load you do not need." />
             </div>
           </div>
         </section>

@@ -7,7 +7,7 @@
 export const CHARITY = {
   number: '1218461',
   legalName: 'Living With Arthritis',
-  shortName: 'Living With Arthritis UK',
+  shortName: 'Living With Arthritis',
   type: 'Charitable Incorporated Organisation (CIO)',
   jurisdiction: 'England and Wales',
   regulator: 'Charity Commission for England and Wales',
@@ -58,11 +58,11 @@ export const canonicalUrl = (path: string = '/'): string =>
 export const registeredCharityPhrase = (): string =>
   `registered charity ${CHARITY.number}`;
 
-/** Footer/attribution line: "Living With Arthritis UK — Registered Charity 1218461". */
+/** Footer/attribution line: "Living With Arthritis — Registered Charity 1218461". */
 export const charityFooterLine = (): string =>
   `${CHARITY.shortName} — Registered Charity ${CHARITY.number}`;
 
-/** Page-title helper: `${label} | Living With Arthritis UK`. */
+/** Page-title helper: `${label} | Living With Arthritis`. */
 export const pageTitle = (label: string): string =>
   `${label} | ${CHARITY.shortName}`;
 

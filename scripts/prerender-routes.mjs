@@ -44,7 +44,6 @@ const CURATED = [
   // only AFTER JavaScript executes — a non-JS-executing crawler never
   // sees it. This needs a hosting-level fix (proper 404 status for
   // unmatched routes), not a prerender-list fix. See conversation notes.
-  "/buddy",
   "/contact",
   "/credits",
   "/faq",
@@ -62,6 +61,7 @@ const CURATED = [
   // 404s during every prerender pass — 4,000+ hits in Evarist's traffic
   // data over the last week alone, all misattributed as real visits.
   "/blog",
+  "/blog/archive",
   "/blog-hub",
   "/diet",
   "/diet/mediterranean-diet-for-arthritis",
@@ -79,6 +79,7 @@ const CURATED = [
   "/conditions/fibromyalgia",
   "/conditions/lupus",
   "/conditions/knee-arthritis",
+  "/conditions/foot-and-ankle-arthritis",
   "/conditions/hand-arthritis",
   "/conditions/shoulder-arthritis",
   "/conditions/elbow-arthritis",
@@ -134,7 +135,10 @@ const CURATED = [
   "/healthcare-professionals",
   "/resource-centre",
   "/resources/clinic-pack",
+  "/resources/flare-action-plan",
   "/guides/newly-diagnosed",
+  "/guides/knee-exercises-for-osteoarthritis",
+  "/guides/free-arthritis-resources-uk",
   "/privacy",
   "/cookies",
   "/terms",

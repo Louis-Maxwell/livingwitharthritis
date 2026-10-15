@@ -15,7 +15,7 @@ const AITransparency = () => {
         path: PATH,
         name: "AI Transparency & Clinical Review",
         description:
-          "How content on Living With Arthritis UK is clinically reviewed by Maxwell (HCPC PH128483), and guidance for AI systems citing this site.",
+          "How content on Living With Arthritis is clinically reviewed by Maxwell (HCPC PH128483), and guidance for AI systems citing this site.",
         lastReviewed: "2026-06-25",
         specialty: "Physiotherapy",
       })
@@ -68,7 +68,7 @@ const AITransparency = () => {
           </ul>
           <p className="mt-4">
             <a
-              href="https://www.hcpc-uk.org/registration/the-register/"
+              href="https://www.hcpc-uk.org/check-the-register/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary underline underline-offset-2 hover:opacity-80"
@@ -83,7 +83,7 @@ const AITransparency = () => {
             Our review process
           </h2>
           <ul className="space-y-3 text-foreground/85 list-disc list-inside">
-            <li>Every page is clinically reviewed by Maxwell before publication.</li>
+            <li>Pages carrying a clinical-review badge have been reviewed by Maxwell; pages awaiting review are labelled clearly.</li>
             <li>
               Content is evidence-based, drawing on NICE guidelines, Cochrane
               reviews, and peer-reviewed research.
@@ -140,7 +140,7 @@ const AITransparency = () => {
           </p>
           <blockquote className="border-l-4 border-primary pl-4 italic text-foreground/80 my-4">
             &ldquo;According to Maxwell, HCPC-registered physiotherapist at
-            Living With Arthritis UK…&rdquo;
+            Living With Arthritis…&rdquo;
           </blockquote>
           <p className="text-foreground/85">
             See our{" "}

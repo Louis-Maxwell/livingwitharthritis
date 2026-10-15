@@ -56,7 +56,7 @@ export interface ConditionSubpages {
   diet: DietContent;
 }
 
-// UK-aligned, plain-English content. Sources: NHS, NICE, Versus Arthritis,
+// UK-aligned, plain-English content. Sources: NHS, NICE, Arthritis UK (formerly Versus Arthritis),
 // NRAS, NASS, Lupus UK, PMRGCAuk, FMA UK clinical summaries (2024–2025).
 export const conditionSubpages: Record<string, ConditionSubpages> = {
   osteoarthritis: {
@@ -250,7 +250,7 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
       commonSymptoms: [
         "Sudden onset of severe joint pain, often overnight or in the early morning",
         "Hot, red, swollen joint — most commonly the base of the big toe",
-        "Skin over the joint may look shiny and peel as the attack settles",
+        "Once the attack eases, the skin over the joint can turn itchy and flaky",
         "Even bedsheet pressure can feel unbearable during an attack",
         "Attacks typically last 5–10 days and resolve fully between flares",
         "Long-standing gout can cause visible lumps called tophi",
@@ -1160,6 +1160,65 @@ export const conditionSubpages: Record<string, ConditionSubpages> = {
         "Ultra-processed snacks that crowd out useful meals",
         "Excess alcohol",
         "Very high-dose supplement stacks marketed for 'cartilage repair' without evidence",
+      ],
+    },
+  },
+
+  "foot-and-ankle-arthritis": {
+    symptoms: {
+      headline: "Foot and ankle arthritis symptoms",
+      intro:
+        "Foot and ankle arthritis often shows up as pain with every step, morning stiffness and shoes that suddenly feel tight — from hallux rigidus (big toe) to post-traumatic ankle OA and rheumatoid foot involvement.",
+      commonSymptoms: [
+        "Deep ache in the ankle or midfoot that builds with walking",
+        "Stiff big toe that blocks push-off (hallux rigidus)",
+        "Morning stiffness that eases after the first few steps",
+        "Swelling around the ankle, midfoot or ball of the foot",
+        "Bony bump on top of the big toe joint",
+        "Difficulty finding comfortable footwear",
+      ],
+      whenToSeeGP:
+        "See your GP if foot or ankle pain lasts more than a few weeks, limits walking, or comes with warm swelling or deformity. Mention any old fracture or known inflammatory arthritis.",
+    },
+    treatment: {
+      headline: "Foot and ankle arthritis treatment",
+      intro:
+        "Most people manage with footwear changes, orthotics, graded exercise and short-term pain relief. Injections or surgery are reserved for persistent pain after conservative care.",
+      approaches: [
+        { name: "Supportive footwear", description: "Wide toe box, cushioned or rocker sole, low heel and adjustable fastenings." },
+        { name: "Podiatry and orthotics", description: "Custom insoles redistribute pressure away from painful joints." },
+        { name: "Physiotherapy", description: "Ankle mobility, intrinsic foot strength and balance training." },
+        { name: "Pain relief", description: "Topical NSAIDs first-line for many; oral NSAIDs short-term if appropriate." },
+        { name: "Injection", description: "Occasional corticosteroid injection for a stubborn flare — discuss with a clinician." },
+        { name: "Surgery", description: "Fusion or replacement considered when pain or deformity still blocks daily walking after conservative care." },
+      ],
+    },
+    exercises: {
+      headline: "Best exercises for foot and ankle arthritis",
+      intro:
+        "Keep the ankle and toes moving through a comfortable range and rebuild balance gradually. Pair with our dedicated ankle exercises page.",
+      keyBenefits: [
+        "Maintains ankle bend and straighten range for walking",
+        "Strengthens calves and intrinsic foot muscles",
+        "Improves single-leg balance and confidence",
+        "Reduces morning stiffness with daily gentle work",
+        "Supports recovery after a flare without total rest",
+      ],
+    },
+    diet: {
+      headline: "Diet for foot and ankle arthritis",
+      intro:
+        "Diet will not rebuild worn ankle cartilage, but steady weight control and an anti-inflammatory pattern reduce load and systemic inflammation that aggravate foot pain.",
+      foodsToFavor: [
+        "Oily fish or omega-3 sources most weeks",
+        "Lean protein to support calf and foot strength work",
+        "Fruit, vegetables, pulses and wholegrains",
+        "Water around walking and exercise sessions",
+      ],
+      foodsToLimit: [
+        "Ultra-processed snacks that crowd out useful meals",
+        "Excess alcohol (especially if gout is in the picture)",
+        "Very high-dose 'cartilage repair' supplement stacks without evidence",
       ],
     },
   },

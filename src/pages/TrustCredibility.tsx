@@ -17,7 +17,7 @@ import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 
 const evidenceSources = [
-  { name: "England's health service", desc: "Exercise and diet guidance aligned with national clinical pathways", url: "https://www.gov.uk/browse/health-and-social-care", icon: Building2 },
+  { name: "England's health service", desc: "Exercise and diet guidance aligned with national clinical pathways", url: "https://www.nhs.uk/nhs-services/", icon: Building2 },
   { name: "NICE Guidelines", desc: "Treatment recommendations based on NICE clinical guidelines (CG177, NG226)", url: "https://www.nice.org.uk/guidance/ng226", icon: FileCheck },
   { name: "British Medical Journal", desc: "Peer-reviewed evidence on Mediterranean diet and arthritis outcomes", url: "https://www.bmj.com/", icon: BookOpen },
   { name: "Cochrane Library", desc: "Systematic reviews on physiotherapy and exercise interventions", url: "https://www.cochranelibrary.com/", icon: GraduationCap },
@@ -75,7 +75,7 @@ const TrustCredibility = () => {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Trust & Credibility | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Trust & Credibility | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Trust & Credibility | ${CHARITY.shortName} Charity`} />
       <meta name="twitter:description" content="Our charity registration, medical advisors, evidence sources, partner organisations and governance. Trusted by the UK arthritis community." />

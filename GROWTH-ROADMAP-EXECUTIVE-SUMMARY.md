@@ -1,15 +1,15 @@
 # Living With Arthritis — Growth Roadmap Executive Summary
 ## From 20k Followers → 500k+ Monthly Traffic (12 Months)
 
-**Last Updated:** 2026-08-31  
-**Mission:** Become the UK's #1 independent arthritis resource  
+**Last Updated:** 2026-08-31
+**Mission:** Become the UK's #1 independent arthritis resource
 **Goal:** 10x organic traffic, 50k email subscribers, dominant brand position
 
 ---
 
 ## **What We Just Fixed** (This Session)
 
-### ✅ Phase 1: Engineering Quality
+### Yes Phase 1: Engineering Quality
 - **CI/CD Pipeline** — GitHub Actions enforces linting on every push (prevents quality decay)
 - **Diagnostic Scripts** — npm run diagnose:functions checks Stripe/email setup
 - **Image Backfill Tool** — Restore ~123 missing blog post images
@@ -19,7 +19,7 @@
 
 ---
 
-### ✅ Phase 2: Branded Search Dominance
+### Yes Phase 2: Branded Search Dominance
 - **Recovery Plan** — Why "living with arthritis" directs to Arthritis UK (authority gap)
 - **Schema Enhancements** — FAQPage + sameAs links for entity disambiguation
 - **Disambiguation Page** — `/about/not-arthritis-uk` for comparative searches
@@ -29,7 +29,7 @@
 
 ---
 
-### ✅ Phase 3: Aggressive Growth Strategy
+### Yes Phase 3: Aggressive Growth Strategy
 - **12-Month Roadmap** — From 50k → 500k monthly visits
 - **4 Revenue Tiers:**
   1. **Quick Wins (Weeks 1-4)** — +5k visits (keyword targeting, social leverage)
@@ -40,7 +40,7 @@
 - **PPC Strategy** — Smart ad spending
   - DON'T bid on "living with arthritis" (you'll own it free in 4 weeks)
   - DO bid on "arthritis exercises", "arthritis support" (high intent, owned opportunity)
-  - DO bid on competitor keywords "arthritis uk", "patient info" (steal traffic)
+  - DON'T bid on other charities' or publishers' brand names
 
 ---
 
@@ -63,7 +63,7 @@
   - "Arthritis support groups uk"
   - "Anti-inflammatory diet for arthritis"
   - "Arthritis flare-up management"
-  - "Arthritis and work" 
+  - "Arthritis and work"
   - "How to get arthritis diagnosis"
 - [ ] Start social media blitz (5x posts/week with CTAs to guides)
 - [ ] Set up Google Ads campaign on high-intent keywords (NOT branded)
@@ -81,10 +81,6 @@
 - [ ] Publish 12 more blog posts (3/week content blitz)
   - Cover symptoms, diagnosis, treatment, lifestyle, mental health
 - [ ] Set up email list and opt-in forms (target: 1000 subscribers)
-- [ ] Bid on competitor keywords in Google Ads
-  - "Arthritis UK" alternatives
-  - "Patient.info arthritis"
-  - Budget: £100/month
 
 **Expected gain:** +5000-8000 visits, 500+ email subscribers
 
@@ -175,13 +171,13 @@
 
 | Factor | Living With Arthritis | Arthritis UK | Patient.info |
 |--------|----------------------|-------------|-------------|
-| **Independence** | ✅ Independent, peer-led | ❌ Large org | ❌ Corporate |
-| **Founder Authority** | ✅ HCPC Physio | ❓ Multiple trustees | ❌ Journalists |
-| **Direct Support** | ✅ Virtual physio + community | ❌ Advocacy-focused | ❌ Info only |
-| **Free Resources** | ✅ No paywalls | ✅ Free | ⚠️ Premium content |
-| **Speed** | ✅ Nimble startup | ❌ Bureaucratic | ⚠️ Moderate |
-| **Community** | ✅ Peer-led forum | ❌ No community | ❌ No community |
-| **Personalization** | ✅ Custom exercises | ❌ Generic | ❌ Generic |
+| **Independence** | Yes Independent, peer-led | No Large org | No Corporate |
+| **Founder Authority** | Yes HCPC Physio |  Multiple trustees | No Journalists |
+| **Direct Support** | Yes Virtual physio + community | No Advocacy-focused | No Info only |
+| **Free Resources** | Yes No paywalls | Yes Free |  Premium content |
+| **Speed** | Yes Nimble startup | No Bureaucratic |  Moderate |
+| **Community** | Yes Peer-led forum | No No community | No No community |
+| **Personalization** | Yes Custom exercises | No Generic | No Generic |
 
 **Your moat:** You're the ONLY independent UK charity doing direct physiotherapy + peer community. That's defensible.
 
@@ -207,7 +203,6 @@ All documents on GitHub:
 3. **PPC-KEYWORD-ANALYSIS.md** — Smart ad spending
    - Why NOT to bid on "living with arthritis"
    - Better keywords to bid on
-   - Competitor keyword strategy
    - Ad calendar (months 1-5+)
 
 4. **Scripts** (run with npm):
@@ -227,7 +222,7 @@ All documents on GitHub:
 1. **Pull latest from GitHub** into Lovable
 2. **Run:** `npm run fix:branded-search` — generates FAQPage + disambiguation page
 3. **Update homepage:**
-   - Title: "Living With Arthritis UK – Free Arthritis Support & Physiotherapy"
+   - Title: "Living With Arthritis – Free Arthritis Support & Physiotherapy"
    - Add "independent" keyword to og:title
    - Import + add `<FAQPageSchema />` component
 4. **Deploy to Lovable**
@@ -257,17 +252,17 @@ All documents on GitHub:
 ## **The Big Picture**
 
 You have:
-- ✅ 20k organic social followers (real audience)
-- ✅ Independent charity credibility (1218461)
-- ✅ HCPC-registered founder (Louis Maxwell, PH128483)
-- ✅ Free resources (exercises, guides, community)
-- ✅ Grant funding (active grant writer)
+- Yes 20k organic social followers (real audience)
+- Yes Independent charity credibility (1218461)
+- Yes HCPC-registered founder (Louis Maxwell, PH128483)
+- Yes Free resources (exercises, guides, community)
+- Yes Grant funding (active grant writer)
 
 You're missing:
-- ❌ SEO visibility (5-10x lower than Arthritis UK)
-- ❌ Email list (owned audience)
-- ❌ Community moat (stickiness)
-- ❌ Brand dominance (search directs to competitors)
+- No SEO visibility (5-10x lower than Arthritis UK)
+- No Email list (owned audience)
+- No Community moat (stickiness)
+- No Brand dominance (search directs to competitors)
 
 **This roadmap fixes all four.**
 
@@ -275,9 +270,9 @@ In 12 months, you'll be the UK's #1 independent arthritis resource. Not the bigg
 
 ---
 
-**Status:** 🟢 Ready to execute  
-**Owner:** You + grant-funded team  
-**Timeline:** 12 months to 500k monthly traffic  
-**Budget:** £12-24k annually (grant-fundable)  
+**Status:** Low Ready to execute
+**Owner:** You + grant-funded team
+**Timeline:** 12 months to 500k monthly traffic
+**Budget:** £12-24k annually (grant-fundable)
 
-**Let's build something great.** 🚀
+**Let's build something great.**

@@ -64,7 +64,7 @@ export default function SymptomChecker() {
     },
     publisher: {
       "@type": "Organization",
-      name: "Living With Arthritis UK",
+      name: "Living With Arthritis",
       url: "https://livingwitharthritis.org.uk",
     },
   };
@@ -72,17 +72,17 @@ export default function SymptomChecker() {
   return (
     <>
       <Helmet>
-        <title>{TITLE} | Living With Arthritis UK</title>
+        <title>{TITLE} | Living With Arthritis</title>
         <meta name="description" content={DESCRIPTION} />
         <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:title" content={`${TITLE} | Living With Arthritis UK`} />
+        <meta property="og:title" content={`${TITLE} | Living With Arthritis`} />
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${TITLE} | Living With Arthritis UK`} />
+        <meta name="twitter:title" content={`${TITLE} | Living With Arthritis`} />
         <meta name="twitter:description" content={DESCRIPTION} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <script type="application/ld+json">{JSON.stringify(webPageJsonLd)}</script>

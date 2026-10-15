@@ -71,7 +71,7 @@ const ExerciseJointPage = () => {
         <meta property="og:url" content={`${BASE}/exercises/${page.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="geo.region" content="GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
@@ -151,7 +151,7 @@ const ExerciseJointPage = () => {
               <ul className="space-y-2">
                 {page.safetyTips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-destructive mt-0.5">⚠️</span> {tip}
+                    <span className="text-destructive mt-0.5"></span> {tip}
                   </li>
                 ))}
               </ul>
@@ -167,7 +167,7 @@ const ExerciseJointPage = () => {
               <ul className="space-y-2">
                 {page.whenToAvoid.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="text-destructive mt-0.5">🛑</span> {item}
+                    <span className="text-destructive mt-0.5"></span> {item}
                   </li>
                 ))}
               </ul>

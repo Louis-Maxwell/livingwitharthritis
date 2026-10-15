@@ -132,7 +132,7 @@ const articleJsonLd = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Living With Arthritis UK',
+    name: 'Living With Arthritis',
     url: SITE,
     logo: {
       '@type': 'ImageObject',
@@ -217,7 +217,7 @@ export default function KneeOsteoarthritisExercises() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Knee Arthritis Exercises: Safe Exercises for Pain, Strength & Mobility"
+        title="Knee Arthritis Exercises for Pain"
         description="Knee arthritis exercises for strength and mobility, including seated leg raises, walking and water exercise, with practical safety advice."
         path={PATH}
         type="article"

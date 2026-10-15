@@ -2,7 +2,6 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { Search, X, ArrowRight, FileText, Dumbbell, Utensils, Sun, Stethoscope } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useNavigate, Link } from "react-router-dom";
-import { exerciseJointPages } from "@/data/exerciseJointMatrix";
 
 interface SearchItem {
   label: string;
@@ -16,16 +15,28 @@ interface IndexedItem extends SearchItem {
   l: string; // lowercase label, computed once
 }
 
-// Built from the same data that generates the /exercises/:slug routes, so a
-// result can never point at a URL the router does not serve.
-const jointExerciseItems: SearchItem[] = exerciseJointPages.map((page) => ({
-  label: `${page.exercise} for ${page.joint} Arthritis`,
-  href: `/exercises/${page.slug}`,
-  category: "Joint Exercises",
-  icon: Dumbbell,
-}));
+// Joint-exercise results are built from the same data that generates the
+// /exercises/:slug routes (so a result can never point at a URL the router
+// does not serve). That dataset is ~28 KB, so it is only fetched when the
+// visitor opens search — not on every page load.
+let catalogPromise: Promise<IndexedItem[]> | null = null;
+function loadCatalogItems(): Promise<IndexedItem[]> {
+  catalogPromise ??= import("@/lib/siteSearchCatalog").then(({ getSiteSearchCatalog }) => getSiteSearchCatalog().map(item => ({ label: item.title, href: item.href, category: item.topic, icon: FileText, l: [item.title, item.excerpt, ...(item.keywords || [])].join(" ").toLowerCase() })));
+  return catalogPromise;
+}
 
-const rawIndex: SearchItem[] = [
+let jointItemsPromise: Promise<IndexedItem[]> | null = null;
+function loadJointExerciseItems(): Promise<IndexedItem[]> {
+  jointItemsPromise ??= import("@/data/exerciseJointMatrix").then(({ exerciseJointPages }) =>
+    exerciseJointPages.map((page) => {
+      const label = `${page.exercise} for ${page.joint} Arthritis`;
+      return { label, l: label.toLowerCase(), href: `/exercises/${page.slug}`, category: "Joint Exercises", icon: Dumbbell };
+    }),
+  );
+  return jointItemsPromise;
+}
+
+const headIndex: SearchItem[] = [
   { label: "Home", href: "/", category: "Pages", icon: FileText },
   { label: "About Us", href: "/about", category: "Pages", icon: FileText },
   { label: "Exercise Hub", href: "/exercises", category: "Pages", icon: Dumbbell },
@@ -40,27 +51,29 @@ const rawIndex: SearchItem[] = [
   { label: "Osteoarthritis", href: "/conditions/osteoarthritis", category: "Conditions", icon: Stethoscope },
   { label: "Rheumatoid Arthritis", href: "/conditions/rheumatoid-arthritis", category: "Conditions", icon: Stethoscope },
   { label: "Psoriatic Arthritis", href: "/conditions/psoriatic-arthritis", category: "Conditions", icon: Stethoscope },
-  ...jointExerciseItems,
+];
+
+const tailIndex: SearchItem[] = [
   { label: "Best Diet for Joint Pain UK", href: "/blog/best-diet-for-joint-pain-uk", category: "Blog", icon: Utensils },
-  { label: "Turmeric for Arthritis UK", href: "/blog/turmeric-for-arthritis", category: "Blog", icon: Utensils },
+  { label: "Turmeric for Arthritis (UK)", href: "/blog/turmeric-for-arthritis", category: "Blog", icon: Utensils },
   { label: "Omega-3 & Fish Oil", href: "/blog/arthritis-and-omega-3-fish-oil", category: "Blog", icon: Utensils },
-  { label: "Knee Arthritis Exercises UK", href: "/blog/knee-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
+  { label: "Free Knee Exercises for Osteoarthritis UK", href: "/guides/knee-exercises-for-osteoarthritis", category: "Guides", icon: Dumbbell },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis", category: "Blog", icon: Dumbbell },
   { label: "Shoulder Arthritis Exercises UK", href: "/blog/shoulder-arthritis-exercises-uk", category: "Blog", icon: Dumbbell },
-  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises", category: "Blog", icon: Dumbbell },
-  { label: "Swimming for Arthritis UK", href: "/blog/swimming-for-arthritis", category: "Blog", icon: Dumbbell },
+  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises-uk-clinical", category: "Blog", icon: Dumbbell },
+  { label: "Swimming for Arthritis (UK)", href: "/blog/swimming-for-arthritis", category: "Blog", icon: Dumbbell },
   { label: "Yoga for Arthritis Beginners", href: "/blog/yoga-for-arthritis-beginners", category: "Blog", icon: Dumbbell },
   { label: "Arthritis & Sleep Problems", href: "/blog/arthritis-and-sleep-problems", category: "Blog", icon: FileText },
   { label: "Arthritis & Mental Health", href: "/blog/arthritis-and-mental-health-uk", category: "Blog", icon: FileText },
-  { label: "Natural Pain Relief Arthritis UK", href: "/blog/natural-pain-relief-arthritis-uk", category: "Blog", icon: FileText },
+  { label: "Natural Arthritis Pain Relief (UK)", href: "/blog/arthritis-pain-relief-natural", category: "Blog", icon: FileText },
   { label: "Anti-Inflammatory Herbs & Spices", href: "/blog/anti-inflammatory-herbs-spices-arthritis", category: "Blog", icon: Utensils },
   { label: "Gut Health & Arthritis", href: "/blog/gut-health-arthritis-connection", category: "Blog", icon: Utensils },
-  { label: "Meal Planning for Arthritis UK", href: "/blog/meal-planning-arthritis-uk", category: "Blog", icon: Utensils },
-  { label: "Arthritis Supplements UK", href: "/blog/arthritis-supplements-uk", category: "Blog", icon: FileText },
+  { label: "Meal Planning for Arthritis (UK)", href: "/blog/arthritis-meal-planning-uk", category: "Blog", icon: Utensils },
+  { label: "Arthritis Supplements UK", href: "/blog/best-supplements-arthritis-uk", category: "Blog", icon: FileText },
   { label: "Cold Weather & Joint Pain", href: "/blog/cold-weather-arthritis-uk-winter", category: "Blog", icon: FileText },
-  { label: "Cycling for Arthritis UK", href: "/blog/cycling-with-arthritis", category: "Blog", icon: Dumbbell },
-  { label: "Tai Chi for Arthritis UK", href: "/blog/tai-chi-for-arthritis-uk", category: "Blog", icon: Dumbbell },
-  { label: "Hydrotherapy Arthritis UK", href: "/blog/hydrotherapy-arthritis-uk", category: "Blog", icon: Dumbbell },
+  { label: "Cycling for Arthritis (UK)", href: "/blog/cycling-with-arthritis", category: "Blog", icon: Dumbbell },
+  { label: "Tai Chi for Arthritis (UK)", href: "/blog/tai-chi-for-arthritis-uk", category: "Blog", icon: Dumbbell },
+  { label: "Hydrotherapy for Arthritis (UK)", href: "/blog/hydrotherapy-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Morning Stretches", href: "/daily-tips/morning-stretches", category: "Tips", icon: Sun },
   { label: "Stay Hydrated", href: "/daily-tips/stay-hydrated", category: "Tips", icon: Sun },
   { label: "Anti-inflammatory Snacks", href: "/daily-tips/anti-inflammatory-snacks", category: "Tips", icon: Sun },
@@ -70,7 +83,9 @@ const rawIndex: SearchItem[] = [
 ];
 
 // Module-level: built once for the app lifetime, shared across mounts.
-const SEARCH_INDEX: IndexedItem[] = rawIndex.map((it) => ({ ...it, l: it.label.toLowerCase() }));
+const toIndexed = (items: SearchItem[]): IndexedItem[] => items.map((it) => ({ ...it, l: it.label.toLowerCase() }));
+const HEAD_INDEX = toIndexed(headIndex);
+const TAIL_INDEX = toIndexed(tailIndex);
 const MAX_RESULTS = 8;
 const MIN_QUERY = 2;
 const DEBOUNCE_MS = 120;
@@ -82,6 +97,34 @@ export default function SiteSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const [catalogItems, setCatalogItems] = useState<IndexedItem[]>([]);
+  const [jointItems, setJointItems] = useState<IndexedItem[]>([]);
+  const searchIndex = useMemo(() => {
+    const seen = new Set<string>();
+    return [...catalogItems, ...HEAD_INDEX, ...jointItems, ...TAIL_INDEX].filter(item => {
+      if (seen.has(item.href)) return false;
+      seen.add(item.href); return true;
+    });
+  }, [catalogItems, jointItems]);
+
+  // Fetch the joint-exercise dataset the first time search is used.
+  useEffect(() => {
+    if (!open && query.length === 0) return;
+    let cancelled = false;
+    Promise.allSettled([loadJointExerciseItems(), loadCatalogItems()])
+      .then(([items, catalog]) => {
+        if (!cancelled) {
+          if (items.status === "fulfilled") setJointItems(items.value);
+          if (catalog.status === "fulfilled") setCatalogItems(catalog.value);
+        }
+      })
+      .catch(() => {
+        // Search still works over the static index if the chunk fails.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [open, query.length]);
 
   // Debounce query → debounced. Avoids running the filter on every keystroke.
   useEffect(() => {
@@ -95,17 +138,18 @@ export default function SiteSearch() {
 
   const results = useMemo(() => {
     if (debounced.length < MIN_QUERY) return [];
-    const q = debounced.toLowerCase();
+    const q = debounced.trim().toLowerCase();
+    const words = q.split(/\s+/);
     const out: IndexedItem[] = [];
     // Manual loop with early exit at MAX_RESULTS — avoids allocating a full filtered array.
-    for (let i = 0; i < SEARCH_INDEX.length; i++) {
-      if (SEARCH_INDEX[i].l.includes(q)) {
-        out.push(SEARCH_INDEX[i]);
+    for (let i = 0; i < searchIndex.length; i++) {
+      if (words.every(word => searchIndex[i].l.includes(word))) {
+        out.push(searchIndex[i]);
         if (out.length >= MAX_RESULTS) break;
       }
     }
     return out;
-  }, [debounced]);
+  }, [debounced, searchIndex]);
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -170,6 +214,7 @@ export default function SiteSearch() {
           ref={inputRef}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search the site"
           placeholder="Search exercises, joints, articles..."
           className="border-0 bg-transparent p-0 h-auto text-sm focus-visible:ring-0 focus-visible:ring-offset-0"
         />

@@ -20,7 +20,14 @@ describe("NotFound", () => {
     expect(screen.getByRole("link", { name: /^home$/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /^blog$/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /^exercises$/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /^donate$/i })).toBeInTheDocument();
+    const donate = screen.getByRole("link", { name: /^donate/i });
+    expect(donate).toHaveAttribute(
+      "href",
+      "https://www.gofundme.com/f/help-fund-critical-arthritis-research",
+    );
+    expect(donate).toHaveAttribute("target", "_blank");
+    expect(donate.getAttribute("rel")).toContain("noopener");
+    expect(donate.getAttribute("rel")).toContain("noreferrer");
     expect(screen.getByRole("link", { name: /report a broken link/i })).toBeInTheDocument();
   });
 });

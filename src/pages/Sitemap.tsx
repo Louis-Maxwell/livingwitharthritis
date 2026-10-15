@@ -44,6 +44,9 @@ const CONDITION_SUBPAGE_SLUGS = [
   ["knee-arthritis", "Knee Arthritis"],
   ["hand-arthritis", "Hand Arthritis"],
   ["shoulder-arthritis", "Shoulder Arthritis"],
+  ["foot-and-ankle-arthritis", "Foot & Ankle Arthritis"],
+  ["elbow-arthritis", "Elbow Arthritis"],
+  ["hip-arthritis", "Hip Arthritis"],
   ["polymyalgia-rheumatica", "Polymyalgia Rheumatica"],
   ["reactive-arthritis", "Reactive Arthritis"],
 ] as const;
@@ -96,7 +99,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Corporate Giving", href: "/corporate-giving" },
   { label: "Credits", href: "/credits" },
   { label: "Diet & Nutrition Hub", href: "/diet" },
-  { label: "Donate", href: "/donate" },
+  { label: "Donate", href: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", external: true },
   { label: "Exercise Hub", href: "/exercises" },
   { label: "Expert Articles", href: "/expert-articles" },
   { label: "FAQ", href: "/faq" },
@@ -116,7 +119,6 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Self-Assessment", href: "/self-assessment" },
   { label: "Self-Help Tool", href: "/self-help" },
   { label: "Services", href: "/services" },
-  { label: "Shop", href: "/shop" },
   { label: "Terms & Conditions", href: "/terms" },
   { label: "Trust & Credibility", href: "/trust" },
   { label: "Ways to Help", href: "/ways-to-help" },
@@ -127,7 +129,8 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
   { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
   { label: "Gout", href: "/conditions/gout" },
-  { label: "Elbow Pain &amp; Arthritis", href: "/conditions/elbow-arthritis" },
+  { label: "Elbow Pain & Arthritis", href: "/conditions/elbow-arthritis" },
+  { label: "Foot & Ankle Arthritis", href: "/conditions/foot-and-ankle-arthritis" },
   { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
   { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
   { label: "Knee Arthritis", href: "/conditions/knee-arthritis" },
@@ -141,6 +144,9 @@ const ALL_LINKS: SitemapLink[] = [
   // Pillar guides
   { label: "UK Arthritis Guide", href: "/guides/uk-arthritis" },
   { label: "Exercise Guide", href: "/guides/exercise" },
+  { label: "Knee Exercises for Osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
+  { label: "Hip Exercises for Osteoarthritis", href: "/guides/hip-exercises-for-osteoarthritis" },
+  { label: "Free Arthritis Resources UK", href: "/guides/free-arthritis-resources-uk" },
   { label: "Diet Guide", href: "/guides/diet" },
   { label: "Health Services Guide", href: "/guides/health-services" },
   { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
@@ -178,14 +184,14 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Omega-3 & Fish Oil for Arthritis", href: "/blog/arthritis-and-omega-3-fish-oil" },
   { label: "Anti-Inflammatory Herbs & Spices", href: "/blog/anti-inflammatory-herbs-spices-arthritis" },
   { label: "Gut Health & Arthritis", href: "/blog/gut-health-arthritis-connection" },
-  { label: "Meal Planning for Arthritis", href: "/blog/meal-planning-arthritis-uk" },
+  { label: "Meal Planning for Arthritis", href: "/blog/arthritis-meal-planning-uk" },
   { label: "Arthritis & Weight Loss UK", href: "/blog/arthritis-and-weight-loss-uk" },
-  { label: "Arthritis Supplements UK", href: "/blog/arthritis-supplements-uk" },
+  { label: "Arthritis Supplements UK", href: "/blog/best-supplements-arthritis-uk" },
   { label: "Arthritis Medication UK", href: "/blog/arthritis-medication-guide" },
 
   // Blog – Exercise articles
-  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises" },
-  { label: "Knee Arthritis Exercises", href: "/blog/knee-arthritis-exercises-uk" },
+  { label: "Arthritis Exercises", href: "/blog/arthritis-exercises-uk-clinical" },
+  { label: "Knee Exercises for Osteoarthritis", href: "/guides/knee-exercises-for-osteoarthritis" },
   { label: "Hand Exercises for Arthritis", href: "/blog/hand-exercises-for-arthritis" },
   { label: "Shoulder Arthritis Exercises", href: "/blog/shoulder-arthritis-exercises-uk" },
   { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
@@ -203,11 +209,11 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Arthritis at Work UK", href: "/blog/arthritis-and-work-uk" },
   { label: "Arthritis Flare-Up Guide", href: "/blog/arthritis-flare-up-what-to-do" },
   { label: "Osteoarthritis Symptoms UK", href: "/blog/osteoarthritis-symptoms-uk" },
-  { label: "Natural Pain Relief for Arthritis", href: "/blog/natural-pain-relief-arthritis-uk" },
-  { label: "Gardening with Arthritis", href: "/blog/gardening-with-arthritis-uk" },
+  { label: "Natural Pain Relief for Arthritis", href: "/blog/arthritis-pain-relief-natural" },
+  { label: "Gardening with Arthritis", href: "/blog/arthritis-and-gardening-uk" },
   { label: "TENS Machines for Arthritis", href: "/blog/tens-machines-arthritis-uk" },
   { label: "Spinal Arthritis & Back Pain", href: "/blog/spinal-arthritis-back-pain-uk" },
-  { label: "Mindfulness for Chronic Pain", href: "/blog/mindfulness-for-chronic-pain-uk" },
+  { label: "Mindfulness for Chronic Pain", href: "/blog/mindfulness-chronic-pain-arthritis-guide" },
   { label: "Travelling with Arthritis", href: "/blog/travelling-with-arthritis-uk" },
 
   // Daily tips
@@ -262,19 +268,19 @@ const Sitemap = () => {
   return (
     <>
       <Helmet>
-        <title>Site Index (A–Z) | Living With Arthritis UK</title>
+        <title>Site Index (A–Z) | Living With Arthritis</title>
         <meta name="robots" content="noindex, follow" />
         <meta
           name="description"
-          content="A–Z index of every page on Living With Arthritis UK — condition guides, exercises, daily tips, regional support and more, listed alphabetically."
+          content="A–Z index of every page on Living With Arthritis — condition guides, exercises, daily tips, regional support and more, listed alphabetically."
         />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
-        <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis UK" />
-        <meta property="og:description" content="Every page on Living With Arthritis UK, listed alphabetically." />
+        <meta property="og:title" content="Site Index (A–Z) | Living With Arthritis" />
+        <meta property="og:description" content="Every page on Living With Arthritis, listed alphabetically." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/site-index" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
       </Helmet>
 
@@ -289,7 +295,7 @@ const Sitemap = () => {
             A–Z Index
           </h1>
           <p className="text-muted-foreground max-w-2xl mb-10">
-            Every page on Living With Arthritis UK, listed alphabetically. Use the
+            Every page on Living With Arthritis, listed alphabetically. Use the
             letters below to jump to a section, or browse the full list.
           </p>
 

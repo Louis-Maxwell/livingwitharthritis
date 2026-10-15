@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -12,7 +13,7 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_HEALTH_SERVICES } from "@/data/clinical/ukCitations";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const HEALTH_SERVICES_FAQS = [
   { question: "How do I get a rheumatology referral in the UK?", answer: "Book a GP appointment and describe your joint symptoms, including pattern, duration and morning stiffness. The GP can refer you to rheumatology. Suspected inflammatory arthritis (e.g. swollen small joints with morning stiffness over 30 minutes) should trigger an urgent referral to be seen within 3 weeks." },
@@ -70,7 +71,7 @@ const CONTENT = `
 <li><strong>Manual therapy</strong> — hands-on treatment for joint mobilisation</li>
 <li><strong>Education and self-management</strong> — teaching you to manage symptoms independently</li>
 </ul>
-<p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a>) lists self-referral physiotherapy services near you. Waiting times for public health physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
+<p>Access is via GP or FCP referral, or in some areas through <strong>self-referral</strong>. The health service website (<a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a>) lists self-referral physiotherapy services near you. Waiting times for public health physiotherapy typically range from <strong>4–12 weeks</strong>.</p>
 
 <h2 id="pain-management">Public Pain Management Programmes</h2>
 <p>For people with chronic arthritis pain that hasn't responded adequately to standard treatments, the public health service offers multidisciplinary <strong>pain management programmes (PMPs)</strong>. These are typically run by a team including a pain consultant, psychologist, physiotherapist and occupational therapist.</p>
@@ -112,7 +113,7 @@ const CONTENT = `
 <h2 id="mental-health-support">Mental Health Support Through the Public Health System</h2>
 <p>The health service recognises the profound impact of chronic pain on mental health. Services available include:</p>
 <ul>
-<li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free CBT and counselling, self-referral available at <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
+<li><strong>IAPT (Improving Access to Psychological Therapies)</strong> — free CBT and counselling, self-referral available at <a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a></li>
 <li><strong>Public health pain psychology</strong> — specialist psychologists within pain management teams</li>
 <li><strong>Social prescribing</strong> — link workers who connect you with community activities, support groups and local services</li>
 <li><strong>Crisis support</strong> — 111 helpline (option 2 for mental health crisis) or Samaritans 116 123</li>
@@ -135,11 +136,11 @@ const CONTENT = `
 <li><strong>Request a care plan</strong> — if you have a long-term condition, you're entitled to an annual review and personalised care plan</li>
 <li><strong>Know your rights</strong> — the public health service Constitution gives you the right to treatment within 18 weeks of referral</li>
 <li><strong>Consider Patient Advice and Liaison Service (PALS)</strong> — if you're unhappy with your care</li>
-<li><strong>Join a support group</strong> — many local health trusts partner with Versus Arthritis to run hospital-based support groups</li>
+<li><strong>Join a support group</strong> — many local health trusts partner with Arthritis UK (formerly Versus Arthritis) to run hospital-based support groups</li>
 </ul>
 
 <h2 id="sources-public-health">Sources &amp; Disclaimer</h2>
-<p>Information sourced from the public health service Digital, NICE guidelines (NG100, NG226, CG177, CG79), the National Joint Registry Annual Report 2024, England's health service workforce data, and Versus Arthritis. This guide is for educational purposes and does not constitute medical advice. Always consult your healthcare team for personalised guidance.</p>
+<p>Information sourced from the public health service Digital, NICE guidelines (NG100, NG226, CG177, CG79), the National Joint Registry Annual Report 2024, England's health service workforce data, and Arthritis UK (formerly Versus Arthritis). This guide is for educational purposes and does not constitute medical advice. Always consult your healthcare team for personalised guidance.</p>
 `;
 
 export default function HealthServicesGuide() {
@@ -156,7 +157,7 @@ export default function HealthServicesGuide() {
       <meta property="og:description" content="Complete guide to arthritis services: GP referrals, first contact physiotherapists, rheumatology clinics, pain management, joint replacement surgery and mental health support across the UK." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/health-services" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />

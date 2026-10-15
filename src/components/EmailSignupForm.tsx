@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { trackEvent, trackNewsletterSignup } from "@/lib/analytics";
 import { subscribeNewsletter } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 interface EmailSignupFormProps {
   placeholder?: string;
@@ -73,6 +74,9 @@ const EmailSignupForm = memo(({
         toast.message(result.message);
         onSuccess?.();
         setTimeout(() => setSuccess(false), 8000);
+      } else if (result.via === "throttled") {
+        setError(null);
+        toast.message(result.message);
       } else {
         const msg =
           result.message ||
@@ -81,6 +85,7 @@ const EmailSignupForm = memo(({
         toast.error(msg);
       }
     } catch (err) {
+      reportFormFailure("newsletter_form", err instanceof Error ? err.message : "submit failed");
       const msg =
         err instanceof Error
           ? err.message
@@ -195,7 +200,7 @@ const EmailSignupForm = memo(({
             )}
 
             <p className="text-[11px] text-muted-foreground leading-relaxed">
-              Educational emails from Living With Arthritis UK (charity 1218461).
+              Educational emails from Living With Arthritis (charity 1218461).
               Unsubscribe anytime. See our{" "}
               <a href="/privacy" className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
                 privacy policy

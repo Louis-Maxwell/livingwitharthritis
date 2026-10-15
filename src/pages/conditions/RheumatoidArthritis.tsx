@@ -90,7 +90,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const RheumatoidArthritis = () => (
   <>
     <Helmet>
-      <title>Rheumatoid arthritis in the UK: symptoms, treatment &amp; flares</title>
+      <title>Rheumatoid Arthritis: Symptoms, Treatment & Flares (UK)</title>
       <meta name="description" content="Rheumatoid arthritis (RA) in the UK: early symptoms, GP referral, DMARDs, flares and self-care — a plain-English guide for patients." />
       <meta name="keywords" content="rheumatoid arthritis, what is rheumatoid arthritis, rheumatoid arthritis symptoms, rheumatoid arthritis treatment, RA, autoimmune arthritis, DMARDs, methotrexate, biologic therapy, rheumatoid arthritis UK, rheumatoid arthritis diet, anti-inflammatory diet, difference between osteoarthritis and rheumatoid arthritis, is rheumatoid arthritis curable, early signs of RA, rheumatoid arthritis hands, joint inflammation" />
       <meta property="og:title" content="Rheumatoid Arthritis – Symptoms, Causes & Treatment" />
@@ -98,7 +98,7 @@ const RheumatoidArthritis = () => (
       <meta property="og:url" content={`${BASE}/conditions/rheumatoid-arthritis`} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-rheumatoid-arthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -380,7 +380,7 @@ const RheumatoidArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/tools/waiting-time-calculator",
+                to: "/tools/waiting-time",
                 eyebrow: "Free tool",
                 title: "rheumatology waiting time",
                 description: "Early RA referral matters — estimate your local 2026 wait and act fast.",

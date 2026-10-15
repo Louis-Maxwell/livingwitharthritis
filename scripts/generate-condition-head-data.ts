@@ -134,7 +134,7 @@ for (const [slug, pages] of Object.entries(conditionSubpages)) {
     const faqs = buildSubpageFaqs(cond.name, cond.shortName, subpage, slug);
     const route = `/conditions/${slug}/${subpage}`;
     data[route] = {
-      title: `${pageTitle(cond.name, subpage)} | Living With Arthritis UK`.slice(
+      title: `${pageTitle(cond.name, subpage)} | Living With Arthritis`.slice(
         0,
         115,
       ),

@@ -1,4 +1,4 @@
-# Fundraising growth roadmap — Living With Arthritis UK
+# Fundraising growth roadmap — Living With Arthritis
 ### An honest plan (what actually moves institutional money)
 
 **Reality check first.** Versus Arthritis (est. 1936, national brand) raises ~£25M/yr;

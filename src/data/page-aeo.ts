@@ -173,6 +173,19 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Can elbow arthritis be cured?", a: "Arthritis itself isn't cured, but most people manage symptoms well with exercise, activity modification, topical NSAIDs and occasional corticosteroid injections. Elbow replacement is reserved for severe pain or loss of function and gives good relief in around 85% of cases." },
     ],
   }),
+  "/conditions/foot-and-ankle-arthritis": withDefaults({
+    question: "What is foot and ankle arthritis?",
+    answer:
+      "Foot and ankle arthritis is joint damage in the ankle, midfoot or big toe that causes pain with walking, morning stiffness and difficulty finding comfortable shoes. Hallux rigidus, post-traumatic ankle OA and rheumatoid foot involvement are common UK patterns. Supportive footwear, orthotics, gentle exercises and podiatry help most people.",
+  
+    faqs: [
+      { q: "What are the first signs of foot or ankle arthritis?", a: "Morning stiffness in the ankle or big toe, a deep ache with the first steps of the day, swelling after walking, and shoes that feel tight over a bony bump on the big toe joint." },
+      { q: "What is the best footwear for foot arthritis?", a: "Choose a wide, deep toe box, firm heel counter, cushioned or rocker sole, low heel and adjustable fastenings. Removable insoles leave room for orthotics." },
+      { q: "What exercises help ankle arthritis?", a: "Daily ankle circles, alphabet tracing, towel scrunches, gentle calf raises and single-leg balance near a counter. Warm the foot first and stop short of sharp pain." },
+      { q: "Can NHS podiatry help?", a: "Yes. Ask your GP for a podiatry referral, or self-refer where available. Podiatrists assess biomechanics and can prescribe custom orthotics." },
+      { q: "When should I see a GP about foot or ankle pain?", a: "If pain lasts more than a few weeks, limits walking, comes with warm swelling or deformity, or follows an old fracture. Seek urgent care for a hot, red joint with fever." },
+    ],
+  }),
   "/conditions/juvenile-arthritis": withDefaults({
     question: "What is juvenile arthritis?",
     answer:
@@ -226,6 +239,16 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Where can I get PIP information?", a: "Start with our Benefits & PIP guide and evidence diary, then speak to Citizens Advice or a welfare-rights adviser. We provide education, not legal representation." },
     ],
   }),
+  "/guides/understanding-pain": withDefaults({
+    question: "What are the main types of pain?",
+    answer:
+      "Pain can be inflammatory or mechanical, focal or systemic, bilateral, fibromyalgia-type, acute or chronic, or neuropathic. Matching the pattern helps your GP choose the right next steps. Describe location, timing, morning stiffness and nerve-like burning or tingling clearly.",
+    faqs: [
+      { q: "Is inflammatory pain the same as arthritis?", a: "Not always — inflammatory pain can come from autoimmune arthritis and other causes. Mechanical pain is more linked to load, injury or wear. A clinical assessment sorts them out." },
+      { q: "When is pain chronic?", a: "Pain lasting longer than about three months is usually called chronic. See your GP if pain persists, wakes you at night, or comes with hot swollen joints." },
+      { q: "What is neuropathic pain?", a: "Nerve-related pain often burns, tingles or feels electric. Diabetes and some treatments can cause it. Ask your clinician about cause-specific options." },
+    ],
+  }),
   "/guides/arthritis-pain-relief": withDefaults({
     question: "How do I relieve arthritis pain?",
     answer:
@@ -246,6 +269,27 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Do I need a gym?", a: "No — bridges, clamshells and sit-to-stands can be done at home. A physiotherapist can tailor progression." },
     ],
   }),
+  "/guides/knee-exercises-for-osteoarthritis": withDefaults({
+    question: "What are the best free knee exercises for osteoarthritis in the UK?",
+    answer:
+      "NICE NG226 recommends structured exercise as first-line for knee osteoarthritis. A practical home routine includes quad sets, straight-leg raises, sit-to-stands, mini squats, step-ups, hamstring curls, calf raises and gentle range-of-motion — 2–3 sessions weekly with a 4/10 pain rule.",
+    faqs: [
+      { q: "How many reps should I do?", a: "Typically 2–3 sets of 8–12 reps, two to three times a week on non-consecutive days. Progress by about 10% per week." },
+      { q: "When should I stop?", a: "Stop if pain is sharp, catching, or stays above about 4/10 overnight. Mild ache that settles within 24 hours is usually fine." },
+      { q: "Can I start while waiting for NHS physio?", a: "Yes for most stable knee OA — begin gently at home and ask about MSK self-referral. Seek urgent care for red-flag symptoms." },
+    ],
+  }),
+  "/guides/free-arthritis-resources-uk": withDefaults({
+    question: "What free arthritis resources do UK charities offer?",
+    answer:
+      "Living With Arthritis (charity 1218461) offers free home exercise routines, diet advice, PIP claim tools and newly diagnosed checklists. Arthritis UK and NRAS also provide free information. Living With Arthritis is independent of Arthritis UK.",
+    faqs: [
+      { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No — it is an independent UK charity (1218461), not Arthritis UK (formerly Versus Arthritis)." },
+      { q: "Are the exercise and PIP tools free?", a: "Yes. Guides, home physio routines, the PIP evidence diary and flare plan are free to use." },
+    ],
+  }),
+
+
   "/guides/can-exercise-make-osteoarthritis-worse": withDefaults({
     question: "Can exercise make osteoarthritis worse?",
     answer:
@@ -267,9 +311,9 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       "Weight-bearing exercise (walking, jogging, dancing), resistance training, calcium 700 mg/day and vitamin D 10 mcg/day support bone density. If your FRAX score is high, your GP may prescribe bisphosphonates.",
   }),
   "/guides/disability-support": withDefaults({
-    question: "What UK disability support is available for arthritis?",
+    question: "What are my disability rights in the UK if I have arthritis?",
     answer:
-      "You may qualify for Personal Independence Payment (PIP), Blue Badge, Access to Work grants, and workplace reasonable adjustments under the Equality Act 2010. Citizens Advice and Versus Arthritis helpline (0800 5200 520) guide applications.",
+      "Under the Equality Act 2010 (England, Scotland and Wales), arthritis counts as a disability if it has a substantial and long-term negative effect on your normal daily activities. If it does, employers, shops, services, schools, colleges and landlords must not discriminate against you, and many must make reasonable adjustments. Northern Ireland has similar protection under the Disability Discrimination Act 1995.",
   }),
   "/guides/frailty-management-hub": withDefaults({
     question: "How is frailty managed with arthritis?",
@@ -301,12 +345,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "Personal Independence Payment (PIP) is based on how your condition affects daily living and mobility, not the diagnosis name alone. Keep an evidence diary, gather clinic letters, and seek advice from Citizens Advice or a welfare-rights service. We explain the process; we do not decide claims.",
-    faqs: [
-      { q: "What evidence helps a PIP arthritis claim?", a: "A daily diary of activities, medication lists, clinic letters, and notes on aids or help from others. Our printable PIP evidence diary can help you structure this." },
-      { q: "Is osteoarthritis enough for PIP?", a: "PIP looks at functional impact, not the label. Some people with OA qualify; others do not. Advice services can map your difficulties to descriptors." },
-      { q: "Do you complete PIP forms for me?", a: "No. Living With Arthritis UK provides educational guides only. Use Citizens Advice or a qualified adviser for form support." },
-    ],
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
   "/guides/diet": withDefaults({
     question: "What is the best anti-inflammatory diet for arthritis?",
@@ -321,11 +360,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
-      "Trials link Mediterranean-style eating with lower inflammatory markers and improved pain scores for some people with arthritis. Focus on oily fish, olive oil, plants and fewer ultra-processed foods — educational guidance only.",
+      "A Mediterranean-style diet, rich in vegetables, fruit, beans, wholegrains, fish and olive or rapeseed oil, may modestly help some people with arthritis, especially rheumatoid arthritis, and is good for heart health. NICE says there is no strong evidence diet changes benefit RA, but people can be encouraged to follow Mediterranean principles. It is not a cure and does not replace medicines.",
     faqs: [
-      { q: "How quickly might diet changes help?", a: "Some people notice energy or stiffness changes over weeks; joint pain changes are usually gradual and individual." },
-      { q: "Is this a weight-loss diet?", a: "It can support healthy weight, which helps knee OA load, but the primary aim here is an anti-inflammatory pattern." },
-      { q: "Can I use this with gout?", a: "General Mediterranean patterns often help, but gout also needs specific purine and alcohol advice from your clinician." },
+      { q: "Does the Mediterranean diet help arthritis?", a: "It may help some people, particularly with rheumatoid arthritis, but the evidence is limited. A small 12-week trial found modest improvements in disease activity and physical function, and NICE says adults with RA can be encouraged to follow Mediterranean diet principles, while explaining there is no strong evidence their arthritis will benefit. It is not a cure and does not replace medicines." },
+      { q: "Is the Mediterranean diet good for osteoarthritis?", a: "There is only limited research in osteoarthritis. The main dietary step NICE recommends for osteoarthritis is weight management if you are living with overweight or obesity. A Mediterranean-style pattern can be a sustainable way to support weight loss and heart health." },
+      { q: "Can I follow it if I am vegetarian or vegan?", a: "Yes. Beans, lentils, chickpeas, tofu, nuts and seeds can replace fish and meat. Vegans need reliable sources of vitamin B12, iodine and calcium. Ask a pharmacist before taking an algae-based omega-3 or other supplement, and see a dietitian if you are unsure your diet is balanced." },
+      { q: "Do I need to drink red wine?", a: "No. You do not need to drink alcohol to follow the pattern. If you drink, the UK guideline is no more than 14 units a week spread over 3 or more days. If you take methotrexate, ask your rheumatology team what is safe for you." },
     ],
   }),
   "/blog/knee-arthritis-exercises-uk": withDefaults({
@@ -351,9 +391,10 @@ export const PAGE_AEO: Record<string, AeoPage> = {
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
   "/": withDefaults({
-    question: "What is Living With Arthritis UK?",
+    updatedAt: "2026-09-23",
+    question: "What is Living With Arthritis?",
     answer:
-      "Living With Arthritis UK is a registered charity in England and Wales (no. 1218461) publishing free, clinically reviewed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
+      "Living With Arthritis is a registered charity in England and Wales (no. 1218461) publishing free, evidence-informed guidance for people living with arthritis across the UK — NICE-aligned exercise, diet, PIP and benefits, and help while waiting for NHS appointments. Independent of Arthritis UK.",
     faqs: [
       { q: "Is Living With Arthritis the same as Arthritis UK?", a: "No. We are a separate CIO (charity 1218461). Do not attribute our content to Arthritis UK (formerly Versus Arthritis) or the US Arthritis Foundation." },
       { q: "Is the guidance free?", a: "Yes. Guides, exercises and tools are free. Clinical content stays editorially independent of funders." },
@@ -361,7 +402,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     ],
   }),
   "/about": withDefaults({
-    question: "Who is Living With Arthritis UK?",
+    question: "Who is Living With Arthritis?",
     answer:
       "Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales on 15 June 2026 (charity no. 1218461). We publish free UK arthritis guidance online and are independent of Arthritis UK.",
     faqs: [
@@ -390,10 +431,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/arthritis-waiting-list-help": withDefaults({
     question: "What can I do while waiting for a rheumatology appointment?",
     answer:
-      "Keep gently active, ask about physiotherapy self-referral where your area allows it, track worsening symptoms, and contact your GP surgery if pain, function or sleep get worse so the referral can be reviewed. Waiting times vary widely by NHS trust.",
+      "While you wait, check your referral has been received, track your symptoms weekly, keep active, and ask about NHS physiotherapy self-referral. In England you have a legal right to start consultant-led treatment within 18 weeks, with exceptions; Scotland, Wales and Northern Ireland have different rules. Contact your GP if symptoms get worse so the referral can be reviewed.",
     faqs: [
-      { q: "Should I go back to my GP while waiting?", a: "Yes if symptoms worsen or new red-flag symptoms appear, so urgency can be reassessed." },
-      { q: "Can I self-refer to physiotherapy?", a: "Many UK areas allow physiotherapy self-referral — ask your GP surgery or check your ICB website." },
+      { q: "How long will I wait for a rheumatology appointment?", a: "It depends on where you live, the hospital and how urgent your referral is. Check the official sites: My Planned Care in England, NHS inform in Scotland, your health board and GOV.WALES statistics in Wales, and My Waiting Times NI in Northern Ireland. Suspected inflammatory arthritis should be referred urgently." },
+      { q: "What is the 18-week rule?", a: "In England you have a legal right to start non-urgent, consultant-led treatment within 18 weeks of your referral being received or booked, with some exceptions. If you are likely to wait longer, you can ask to be offered a different provider. Scotland, Wales and Northern Ireland have different rules." },
+      { q: "Should I go back to my GP while I wait?", a: "Yes, if your symptoms are getting worse, new joints are affected or you are struggling with daily life or work. Take a symptom record so your GP can update the hospital or ask for the referral to be reprioritised." },
+      { q: "Can I refer myself to physiotherapy?", a: "In many areas you can refer yourself to NHS community musculoskeletal (MSK) physiotherapy without seeing your GP. Check your GP surgery or local NHS website." },
     ],
   }),
   "/blog/working-with-arthritis-uk-rights": withDefaults({

@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { submitBlogComment } from "@/lib/backendSubmit";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const commentSchema = z.object({
   author_name: z.string().trim().min(1, "Name is required").max(100),
@@ -37,10 +38,13 @@ export default function BlogComments({ slug }: { slug: string }) {
         toast.message(result.message);
         setName("");
         setContent("");
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("comment", error instanceof Error ? error.message : "submit failed");
       toast.error(
         `Something went wrong. Please email ${CONTACT_EMAILS.info} or call 07760 512 084.`,
       );

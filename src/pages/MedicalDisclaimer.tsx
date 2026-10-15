@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AlertTriangle, Phone, ShieldAlert } from "lucide-react";
@@ -7,7 +8,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { CHARITY } from "@/config/charity";
 import { nhsEscalationLine } from "@/lib/medicalDisclaimer";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const URL = `${CHARITY.siteUrl}/disclaimer`;
 
@@ -21,7 +22,7 @@ export default function MedicalDisclaimer() {
         <title>Medical Disclaimer | {CHARITY.shortName}</title>
         <meta
           name="description"
-          content="Educational medical disclaimer for Living With Arthritis UK: not a diagnosis, not personal advice. Seek NHS care when needed."
+          content="Educational medical disclaimer for Living With Arthritis: not a diagnosis, not personal advice. Seek NHS care when needed."
         />
         <meta property="og:title" content={`Medical Disclaimer | ${CHARITY.shortName}`} />
         <meta property="og:url" content={URL} />
@@ -43,7 +44,7 @@ export default function MedicalDisclaimer() {
               Medical disclaimer
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Living With Arthritis UK ({CHARITY.type}, Charity Commission number{" "}
+              Living With Arthritis ({CHARITY.type}, Charity Commission number{" "}
               {CHARITY.number}) publishes educational information about arthritis for a UK
               audience. This page explains the limits of that information.
             </p>
@@ -98,7 +99,7 @@ export default function MedicalDisclaimer() {
               <h2 className="text-xl font-bold text-foreground">No clinical relationship</h2>
               <p>
                 Using this website does not create a clinician–patient relationship with Living With
-                Arthritis UK or with Louis Maxwell (HCPC PH128483) personally, unless you have a
+                Arthritis or with Louis Maxwell (HCPC PH128483) personally, unless you have a
                 separate, explicit clinical arrangement outside this site.
               </p>
             </section>

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useEscapeToClose, useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { Type, Moon, Sun, RotateCcw, Accessibility } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -21,6 +22,10 @@ const fontSizeLabels: Record<FontSize, string> = {
 
 export default function AccessibilityToolbar() {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const close = () => setOpen(false);
+  useExclusiveOverlay("accessibility-panel", open, close);
+  useEscapeToClose(open, close, triggerRef);
   const [fontSize, setFontSize] = useState<FontSize>("default");
   const [highContrast, setHighContrast] = useState(false);
 
@@ -58,7 +63,7 @@ export default function AccessibilityToolbar() {
   return (
     <div className="fixed left-3 bottom-20 sm:bottom-4 z-50">
       {open && (
-        <div className="mb-2 bg-background border border-border rounded-xl shadow-xl p-3 space-y-2 min-w-[180px] animate-in slide-in-from-bottom-2 fade-in duration-200">
+        <div id="accessibility-panel" role="group" aria-label="Accessibility settings" className="mb-2 bg-background border border-border rounded-xl shadow-xl p-3 space-y-2 min-w-[180px] animate-in slide-in-from-bottom-2 fade-in duration-200">
           <p className="text-xs font-bold text-foreground px-1">Accessibility</p>
 
           <Button
@@ -99,8 +104,10 @@ export default function AccessibilityToolbar() {
         size="icon"
         variant="outline"
         className="w-11 h-11 rounded-full shadow-lg bg-background border-border hover:bg-accent"
+        ref={triggerRef}
         onClick={() => setOpen(!open)}
         aria-label="Accessibility settings"
+        aria-controls="accessibility-panel"
         aria-expanded={open}
       >
         <Accessibility className="w-5 h-5" />

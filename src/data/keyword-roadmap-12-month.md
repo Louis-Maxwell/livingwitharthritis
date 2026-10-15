@@ -6,7 +6,7 @@ Status baseline (Jun 2026): 30 ranking keywords, ~2,123 90-day impressions, CTR 
 - Rewrite titles + meta for the 5 highest-impression URLs (Audit #6).
 - Request re-indexing via GSC URL Inspection on those 5 URLs.
 - Ship semantic + JSON-LD upgrades sitewide (already done in BlogPost.tsx).
-- Connect Semrush; baseline competitor gap report vs versusarthritis.org, nhs.uk/conditions/arthritis, arthritis.org.
+- Connect Semrush; baseline competitor gap report vs arthritis-uk.org, nhs.uk/conditions/arthritis, arthritis.org.
 
 ## Month 2-3 — Expand Top Performers (target: 150 keywords, 50 clicks/mo)
 - Expand top 15 thin articles from <600 → 1000+ words.

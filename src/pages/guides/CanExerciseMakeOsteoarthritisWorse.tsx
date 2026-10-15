@@ -1,5 +1,6 @@
 ﻿import { Helmet } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import PageHero from "@/components/ui/PageHero";
@@ -13,7 +14,7 @@ import { CITATIONS_EXERCISE_OA_SAFETY } from "@/data/clinical/ukCitations";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const FAQS = [
   {
@@ -111,7 +112,7 @@ export default function CanExerciseMakeOsteoarthritisWorse() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

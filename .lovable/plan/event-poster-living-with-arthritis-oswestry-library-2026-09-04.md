@@ -9,7 +9,7 @@ Create a single downloadable, print-ready event poster (PNG + PDF) for the preve
 
 ## Design (matches the site brand)
 - White background, black text, red accents (site crimson, HSL 350 85% 42%) — same as the landing page.
-- Brand stick-figure logo mark and "Living With Arthritis UK" name.
+- Brand stick-figure logo mark and "Living With Arthritis" name.
 - Headline in the site's editorial display style (Playfair Display feel), e.g. "Living Well With Arthritis — Free Preventative Health Event".
 - Crystal-clear event block: DATE / TIME / VENUE as bold, unmistakable rows.
 - Short welcoming copy: free to attend, friendly, no booking pressure, plain-English health guidance — physio, anti-inflammatory diet, daily-life support.

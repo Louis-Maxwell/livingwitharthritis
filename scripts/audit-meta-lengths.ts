@@ -16,7 +16,7 @@
 import { readFileSync } from "node:fs";
 import { globSync } from "node:fs";
 
-const SITE_SUFFIX = " | Living With Arthritis UK";
+const SITE_SUFFIX = " | Living With Arthritis";
 const MAX_TITLE = 60;
 const MAX_DESC = 160;
 const MIN_DESC = 120;

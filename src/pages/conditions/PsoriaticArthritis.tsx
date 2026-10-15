@@ -83,7 +83,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const PsoriaticArthritis = () => (
   <>
     <Helmet>
-      <title>Psoriatic Arthritis: Symptoms & Treatment | LWA UK</title>
+      <title>Psoriatic Arthritis | Symptoms & Treatment (UK)</title>
       <meta name="description" content="UK guide to psoriatic arthritis: the link between psoriasis and joint inflammation, symptoms, diagnosis, treatment and self-care." />
       <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, ankylosing spondylitis, biologic therapy, psoriatic arthritis diet, anti-inflammatory diet, autoimmune arthritis, joint inflammation, chronic pain management, what causes arthritis, arthritis medication" />
       <meta property="og:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
@@ -91,7 +91,7 @@ const PsoriaticArthritis = () => (
       <meta property="og:url" content={`${BASE}/conditions/psoriatic-arthritis`} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-psoriatic-arthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -341,7 +341,7 @@ const PsoriaticArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/tools/waiting-time-calculator",
+                to: "/tools/waiting-time",
                 eyebrow: "Free tool",
                 title: "rheumatology waiting time",
                 description: "PsA needs early specialist input — estimate your local 2026 wait now.",

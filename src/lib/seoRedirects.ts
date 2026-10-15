@@ -53,7 +53,7 @@ const EXERCISE_JOINTS = new Set([
 const JOINT_EXERCISE_HUB: Record<string, string> = {
   neck: "/exercises/neck-arthritis-exercises",
   ankle: "/exercises/ankle-arthritis-exercises",
-  knee: "/conditions/knee-arthritis",
+  knee: "/guides/knee-exercises-for-osteoarthritis",
   hip: "/conditions/hip-arthritis",
   shoulder: "/conditions/shoulder-arthritis",
   hand: "/conditions/hand-arthritis",
@@ -61,10 +61,18 @@ const JOINT_EXERCISE_HUB: Record<string, string> = {
 };
 
 export const EXACT_SEO_REDIRECTS: Record<string, string> = {
+  // Paused placeholder pages removed 2026-09 (shop never launched, buddy
+  // matching and podcast not running). 301 to the closest live page.
+  "/shop": "/supplements",
+  "/buddy": "/community/connect-groups",
+  "/buddy/match": "/community/connect-groups",
+  "/podcasts": "/community",
   "/exercise-hub": "/exercises",
   "/conditions": "/conditions/arthritis",
   "/about-us": "/about",
   "/trust-credibility": "/trust",
+  "/medical-disclaimer": "/disclaimer",
+  "/claims-policy": "/about/editorial-claims-policy",
   "/privacy-policy": "/privacy",
   "/cookies-policy": "/cookies",
   "/terms-conditions": "/terms",
@@ -83,6 +91,13 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/library/glucosamine": "/supplements/glucosamine",
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
+  "/exercises/knee": "/guides/knee-exercises-for-osteoarthritis",
+  // Published slug kept out of EXACT so prerender/catalog integrity still list it;
+  // App.tsx Navigate + public/_redirects 301 to the guide. Legacy variants below
+  // hop directly to the guide (no soft intermediate).
+  "/blog/knee-osteoarthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
+  "/blog/knee-exercises-arthritis": "/guides/knee-exercises-for-osteoarthritis",
+  "/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
   "/guides/sarcopenia-muscle-control": "/guides/sarcopenia-muscle-loss",
   // Thin GSC city doorway — send to the RA hub, do not promote city×condition pages.
   "/arthritis-support/sheffield/rheumatoid-arthritis": "/conditions/rheumatoid-arthritis",
@@ -114,6 +129,14 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/waiting-list-help": "/arthritis-waiting-list-help",
   "/diet-hub": "/diet",
   "/de/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
+  // Semrush soft-404 / duplicate-homepage-title URLs (still live as SPA shell).
+  "/self-help-tool": "/self-help",
+  "/sitemap": "/site-index",
+  "/regions/england": "/arthritis-support",
+  "/regions/northern-ireland": "/blog/free-arthritis-support-northern-ireland",
+  "/finances": "/benefits-pip",
+  "/lived-experiences": "/community",
+  "/impact-stories": "/community",
 };
 
 function normalizePath(pathname: string): string {
@@ -138,6 +161,9 @@ function resolveOnce(path: string): string | null {
 
   // Locale 404s must not stay as crawlable URLs.
   if (/^\/(es|fr|de|pt)\/404$/.test(path)) return "/";
+
+  // Shop never launched; old product links land on the supplements hub.
+  if (/^\/product\/[^/]+$/.test(path)) return "/supplements";
 
   const lang = detectLangFromPath(path);
   if (lang !== "en") {

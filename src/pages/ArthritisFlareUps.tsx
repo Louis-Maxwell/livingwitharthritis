@@ -143,7 +143,7 @@ export default function ArthritisFlareUps() {
         <meta property="og:url" content="https://livingwitharthritis.org.uk/arthritis-flare-ups" />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -214,6 +214,18 @@ export default function ArthritisFlareUps() {
         <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-6">
           An arthritis flare-up is a spell of worse pain, stiffness or swelling than your usual day. Rest the sore joint, use ice or heat as it feels comfortable, and contact a GP or NHS 111 if it is not settling — this page is general UK information, not personal medical advice.
         </p>
+        <div className="mb-8 rounded-2xl border border-primary/25 bg-primary/5 p-5 print:hidden">
+          <p className="text-sm font-semibold text-foreground m-0 mb-2">Need a short checklist right now?</p>
+          <p className="text-sm text-muted-foreground m-0 mb-3">
+            Download or print our one-page flare action plan — pace, heat/cold, medicines you already have, and when to seek help.
+          </p>
+          <Link
+            to="/resources/flare-action-plan"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+          >
+            Open the flare action plan <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+        </div>
         <AnswerBox
           question="How do you stop an arthritis flare-up fast?"
           reviewed="2026-06-13"
@@ -585,6 +597,13 @@ export default function ArthritisFlareUps() {
                 { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
                 { label: "Tai Chi for balance & stiffness", to: "/exercises/tai-chi-for-balance" },
                 { label: "Self-help joint tool", to: "/self-help" },
+              ],
+            },
+            {
+              title: "Money and practical support",
+              links: [
+                { label: "Benefits & PIP guide", to: "/guides/benefits-pip" },
+                { label: "Printable PIP evidence diary", to: "/resources/pip-evidence-diary" },
               ],
             },
             {

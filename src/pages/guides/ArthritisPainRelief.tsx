@@ -66,15 +66,15 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const ArthritisPainRelief = () => (
   <>
     <Helmet>
-      <title>Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)</title>
-      <meta name="description" content="In pain now? Practical UK arthritis pain relief: paced movement, heat/cold, topical NSAIDs, sleep and when to see your GP — then next steps for diet, exercise and PIP." />
+      <title>Arthritis Pain Relief UK: Movement, Heat & Medicines</title>
+      <meta name="description" content="Practical UK arthritis pain relief: paced movement, heat and cold, topical treatments, sleep and when to contact your GP. Find next steps for self-care." />
       <meta name="keywords" content="arthritis pain relief, arthritis pain relief tips, joint pain relief, how to relieve arthritis pain, arthritis pain management uk, arthritis flare relief, natural arthritis pain relief" />
-      <meta property="og:title" content="Arthritis Pain Relief UK: What Helps Today (Movement, Heat, Medicines)" />
+      <meta property="og:title" content="Arthritis Pain Relief UK: Movement, Heat & Medicines" />
       <meta property="og:description" content="Movement, heat & cold, topical NSAIDs, diet and sleep — the practical things that lower arthritis pain." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis Pain Relief – UK Guide" />
       <meta name="twitter:description" content="Practical, evidence-based tips that lower arthritis pain day to day." />
@@ -127,7 +127,7 @@ const ArthritisPainRelief = () => (
             <li><strong>Tai chi</strong> — reduces pain and improves balance; see our <Link to="/exercises/tai-chi-for-arthritis" className="text-primary underline">tai chi guide</Link></li>
             <li><strong>Range-of-motion work</strong> — bend and straighten each painful joint through its full pain-free range, twice a day</li>
           </ul>
-          <p>For joint-specific routines, browse the <Link to="/exercises" className="text-primary underline">exercise hub</Link>.</p>
+          <p>For joint-specific routines, browse the <Link to="/exercises" className="text-primary underline">exercise hub</Link>. Many people with hip or knee OA start with <Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline">swimming / pool drills</Link> or our <Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline">walking with arthritis</Link> guide. See also the <Link to="/conditions/osteoarthritis" className="text-primary underline">osteoarthritis hub</Link>.</p>
         </Section>
 
         <Section icon={ThermometerSun} title="2. Use heat and cold — match it to the joint">
@@ -139,12 +139,12 @@ const ArthritisPainRelief = () => (
         </Section>
 
         <Section icon={Pill} title="3. Get the right medicines">
-          <p>UK NICE guidance for osteoarthritis now recommends:</p>
+          <p>For knee and hand osteoarthritis, NICE guidance recommends trying a topical NSAID gel first. Paracetamol is not routinely offered as first-line treatment and may be considered only infrequently when other options are unsuitable.</p>
           <ul>
             <li><strong>Topical NSAID gel first</strong> — ibuprofen or diclofenac, applied 3× a day to the painful joint. Fewer side effects than tablets.</li>
             <li><strong>Oral NSAIDs</strong> — short courses with food, at the lowest effective dose. Always check with your pharmacist if you take blood thinners, have asthma, or have stomach problems.</li>
             <li><strong>Paracetamol</strong> — useful as an add-on, less effective on its own than once thought.</li>
-            <li><strong>Capsaicin cream</strong> — derived from chilli; effective for hand and knee osteoarthritis with patient persistence (it can sting at first).</li>
+            <li><strong>Capsaicin cream</strong> — derived from chilli; NICE evidence supports a possible benefit for knee osteoarthritis, but it can sting at first and is not a routine first-line option.</li>
             <li><strong>Corticosteroid injections</strong> — your GP can refer for these for a single severely painful joint.</li>
           </ul>
           <p>If you take regular painkillers more than 2–3 times a week, book a GP review.</p>
@@ -163,7 +163,7 @@ const ArthritisPainRelief = () => (
         </Section>
 
         <Section icon={Moon} title="5. Protect your sleep">
-          <p>Poor sleep amplifies pain by up to 40% in chronic-pain studies. Pain disturbs sleep, and broken sleep magnifies pain — breaking the loop matters.</p>
+          <p>Poor or disrupted sleep can increase pain sensitivity. Pain disturbs sleep, and broken sleep can magnify pain — breaking the loop matters.</p>
           <ul>
             <li>Same bed-time and wake-time, 7 days a week</li>
             <li>Bedroom cool, dark, screen-free for the last 30 minutes</li>
@@ -213,17 +213,20 @@ const ArthritisPainRelief = () => (
       <nav aria-label="Customer job pathways" className="container mx-auto px-6 md:px-10 max-w-3xl mb-10 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">After pain relief, pick your next job</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
-          <li><Link to="/guides/exercise" className="text-primary underline underline-offset-2">Exercise guide</Link> — strengthen and pace safely</li>
-          <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link> — Mediterranean-style patterns</li>
-          <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
-          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> — when pain limits daily living</li>
+          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — strengthen and pace safely · <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee exercises for osteoarthritis</Link></li>
+          <li><Link to="/resources/flare-action-plan" className="text-primary underline underline-offset-2">Flare action plan</Link> — printable checklist for the first hours of a flare</li>
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — low-impact pool drills</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link> — footwear that reduces load</li>
+          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> — symptoms, management and next steps</li>
+          <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link> · <Link to="/blog/omega-3-foods-for-joints" className="text-primary underline underline-offset-2">Omega-3 foods</Link> · <Link to="/blog/anti-inflammatory-diet-rheumatoid-arthritis" className="text-primary underline underline-offset-2">RA anti-inflammatory diet</Link></li>
+          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
           <li><Link to="/supplements/turmeric" className="text-primary underline underline-offset-2">Turmeric / curcumin</Link> — evidence, dose and safety</li>
-          <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link> — anti-inflammatory eating pattern</li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_PAIN_RELIEF} />
-      <EducationalDisclaimerBox lastReviewed="2026-09-20" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-28" />
       <TopicClusterNav path="/guides/arthritis-pain-relief" />
 <GuideOnwardJourney currentPath="/guides/arthritis-pain-relief" />
       <Footer />

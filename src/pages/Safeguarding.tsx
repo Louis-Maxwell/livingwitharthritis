@@ -20,7 +20,7 @@ export default function Safeguarding() {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Safeguarding | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Safeguarding | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Safeguarding Policy | ${CHARITY.shortName}`} />
       <meta name="twitter:description" content={`Our safeguarding policy outlines how ${CHARITY.shortName} protects vulnerable adults and ensures the safety of everyone who engages with our services.`} />
@@ -43,14 +43,14 @@ export default function Safeguarding() {
             <section>
               <h2 className="text-xl font-semibold text-foreground">1. Our Commitment</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Living With Arthritis UK is committed to safeguarding and promoting the welfare of all individuals who engage with our services. We recognise our responsibility to take all reasonable steps to promote safe practice and to protect vulnerable adults from harm, abuse and exploitation.
+                Living With Arthritis is committed to safeguarding and promoting the welfare of all individuals who engage with our services. We recognise our responsibility to take all reasonable steps to promote safe practice and to protect vulnerable adults from harm, abuse and exploitation.
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold text-foreground">2. Scope</h2>
               <p className="text-muted-foreground leading-relaxed">
-                This policy applies to all trustees, staff, volunteers, and anyone working on behalf of Living With Arthritis UK, including those providing services through our website, community forums, and virtual physiotherapy sessions.
+                This policy applies to all trustees, staff, volunteers, and anyone working on behalf of Living With Arthritis, including those providing services through our website, community forums, and virtual physiotherapy sessions.
               </p>
             </section>
 

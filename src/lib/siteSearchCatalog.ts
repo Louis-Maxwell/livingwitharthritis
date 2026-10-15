@@ -1,6 +1,8 @@
+import keywordAliases from "@/data/keywordSearchAliases.generated.json";
+import keywordPages from "@/data/keywordSearchPages.generated.json";
 import contentStats from "@/data/contentStats.generated.json";
 import { GUIDE_REGISTRY } from "@/lib/guideRegistry";
-import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
+import { getPublishedBlogList } from "@/lib/blogCatalogIndex";
 import {
   mapBlogCategoryToTopic,
   type SearchCatalogItem,
@@ -27,7 +29,7 @@ const HUB_PAGES: SearchCatalogItem[] = [
   },
   {
     id: "hub-about",
-    title: "About Living With Arthritis UK",
+    title: "About Living With Arthritis",
     href: "/about",
     excerpt: "Who we are, our mission, and how we produce clinician-reviewed guidance.",
     topic: "Guides & hubs",
@@ -112,10 +114,10 @@ const GUIDE_ITEMS: SearchCatalogItem[] = GUIDE_REGISTRY.map((g) => ({
 export function getSiteSearchCatalog(): SearchCatalogItem[] {
   const seen = new Set<string>();
   const out: SearchCatalogItem[] = [];
-  for (const item of [...HUB_PAGES, ...GUIDE_ITEMS, ...BLOG_ITEMS]) {
+  for (const item of [...HUB_PAGES, ...GUIDE_ITEMS, ...BLOG_ITEMS, ...(keywordPages as SearchCatalogItem[])]) {
     if (seen.has(item.href)) continue;
     seen.add(item.href);
-    out.push(item);
+    out.push({ ...item, keywords: [...(item.keywords || []), ...((keywordAliases as Record<string, string[]>)[item.href] || [])] });
   }
   return out;
 }

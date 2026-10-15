@@ -6,20 +6,20 @@
  * markdownToHtml), so we only manipulate the outer <p> tag and preserve
  * the inner markup untouched.
  *
- * Supported prefixes (case-insensitive, emoji optional):
- *   💡 Helpful tip:      → info
- *   ✅ Try this gently:  → success
- *   ⚠️  When to get help:→ warning
- *   📝 Remember:         → note
+ * Supported prefixes (case-insensitive):
+ *    Helpful tip:      → info
+ *    Try this gently:  → success
+ *     When to get help:→ warning
+ *    Remember:         → note
  */
 
 type Variant = "info" | "success" | "warning" | "note";
 
 const PATTERNS: { re: RegExp; variant: Variant; label: string }[] = [
-  { re: /^\s*(?:💡\s*)?(Helpful tip)\s*[:—-]\s*/i, variant: "info", label: "Helpful tip" },
-  { re: /^\s*(?:✅\s*)?(Try this gently)\s*[:—-]\s*/i, variant: "success", label: "Try this gently" },
-  { re: /^\s*(?:⚠️?\s*)?(When to get help)\s*[:—-]\s*/i, variant: "warning", label: "When to get help" },
-  { re: /^\s*(?:📝\s*)?(Remember)\s*[:—-]\s*/i, variant: "note", label: "Remember" },
+  { re: /^\s*(Helpful tip)\s*[:—-]\s*/i, variant: "info", label: "Helpful tip" },
+  { re: /^\s*(Try this gently)\s*[:—-]\s*/i, variant: "success", label: "Try this gently" },
+  { re: /^\s*(When to get help)\s*[:—-]\s*/i, variant: "warning", label: "When to get help" },
+  { re: /^\s*(Remember)\s*[:—-]\s*/i, variant: "note", label: "Remember" },
 ];
 
 export function renderCallouts(html: string): string {

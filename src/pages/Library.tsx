@@ -52,25 +52,25 @@ const Library = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Health Library UK | OA, PIP, exercise & pain guides</title>
+        <title>Arthritis Health Library UK | Pain, Exercise & PIP</title>
         <meta
           name="description"
-          content="Free UK arthritis health library — osteoarthritis, fibromyalgia, turmeric, medicines and treatments. Clinician-reviewed plain-English topics with links to exercise, pain relief and PIP."
+          content="Explore our free UK arthritis health library: conditions, medicines, supplements and treatments, with links to exercise, pain relief and benefits guides."
         />
-        <meta property="og:title" content="Arthritis Health Library UK | OA, PIP, exercise & pain guides" />
-        <meta property="og:description" content="Free UK arthritis health library — osteoarthritis, fibromyalgia, turmeric, medicines and treatments. Clinician-reviewed plain-English topics with links to exercise, pain relief and PIP." />
+        <meta property="og:title" content="Arthritis Health Library UK | Pain, Exercise & PIP" />
+        <meta property="og:description" content="Explore our free UK arthritis health library: conditions, medicines, supplements and treatments, with links to exercise, pain relief and benefits guides." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/library" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Arthritis Health Library UK | OA, PIP, exercise & pain guides" />
-        <meta name="twitter:description" content="Free UK arthritis health library — osteoarthritis, fibromyalgia, turmeric, medicines and treatments. Clinician-reviewed plain-English topics with links to exercise, pain relief and PIP." />
+        <meta name="twitter:title" content="Arthritis Health Library UK | Pain, Exercise & PIP" />
+        <meta name="twitter:description" content="Explore our free UK arthritis health library: conditions, medicines, supplements and treatments, with links to exercise, pain relief and benefits guides." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Health Library",
           "url": "https://livingwitharthritis.org.uk/library",
           "inLanguage": "en-GB",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" }
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

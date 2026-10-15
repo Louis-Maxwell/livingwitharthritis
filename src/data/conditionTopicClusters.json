@@ -1,0 +1,72 @@
+[
+  {
+    "id": "rheumatoid-arthritis",
+    "label": "Rheumatoid arthritis",
+    "pillarPath": "/conditions/rheumatoid-arthritis",
+    "pillarTitle": "Rheumatoid arthritis guide",
+    "supportingPaths": [
+      "/conditions/rheumatoid-arthritis/symptoms",
+      "/conditions/rheumatoid-arthritis/treatment",
+      "/conditions/rheumatoid-arthritis/exercises",
+      "/conditions/rheumatoid-arthritis/diet",
+      "/faq/what-is-rheumatoid-arthritis"
+    ],
+    "toolPath": "/exercises",
+    "toolLabel": "Find suitable exercises",
+    "triggers": [
+      "rheumatoid arthritis"
+    ]
+  },
+  {
+    "id": "psoriatic-arthritis",
+    "label": "Psoriatic arthritis",
+    "pillarPath": "/conditions/psoriatic-arthritis",
+    "pillarTitle": "Psoriatic arthritis guide",
+    "supportingPaths": [
+      "/conditions/psoriatic-arthritis/symptoms",
+      "/conditions/psoriatic-arthritis/treatment",
+      "/conditions/psoriatic-arthritis/exercises",
+      "/conditions/psoriatic-arthritis/diet"
+    ],
+    "toolPath": "/exercises",
+    "toolLabel": "Find suitable exercises",
+    "triggers": [
+      "psoriatic arthritis"
+    ]
+  },
+  {
+    "id": "ankylosing-spondylitis",
+    "label": "Ankylosing spondylitis",
+    "pillarPath": "/conditions/ankylosing-spondylitis",
+    "pillarTitle": "Ankylosing spondylitis guide",
+    "supportingPaths": [
+      "/conditions/ankylosing-spondylitis/symptoms",
+      "/conditions/ankylosing-spondylitis/treatment",
+      "/conditions/ankylosing-spondylitis/exercises",
+      "/conditions/ankylosing-spondylitis/diet"
+    ],
+    "toolPath": "/exercises",
+    "toolLabel": "Find suitable exercises",
+    "triggers": [
+      "ankylosing spondylitis",
+      "axial spondyloarthritis"
+    ]
+  },
+  {
+    "id": "fibromyalgia",
+    "label": "Fibromyalgia",
+    "pillarPath": "/conditions/fibromyalgia",
+    "pillarTitle": "Fibromyalgia guide",
+    "supportingPaths": [
+      "/conditions/fibromyalgia/symptoms",
+      "/conditions/fibromyalgia/treatment",
+      "/conditions/fibromyalgia/exercises",
+      "/conditions/fibromyalgia/diet"
+    ],
+    "toolPath": "/exercises",
+    "toolLabel": "Find suitable exercises",
+    "triggers": [
+      "fibromyalgia"
+    ]
+  }
+]

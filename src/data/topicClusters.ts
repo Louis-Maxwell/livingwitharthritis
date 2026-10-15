@@ -1,5 +1,7 @@
+import conditionTopicClusters from "./conditionTopicClusters.json";
+
 /**
- * Eight SEO topic clusters from docs/SEO-90-DAY-VISIBILITY-PLAN.md.
+ * Core SEO topic clusters from docs/SEO-90-DAY-VISIBILITY-PLAN.md.
  * Pillars and supporting routes are limited to paths that exist in App.tsx.
  * Do not invent doorway pages or unverified claims here.
  */
@@ -12,7 +14,11 @@ export type TopicClusterId =
   | "symptoms"
   | "treatments"
   | "flare-ups"
-  | "pip";
+  | "pip"
+  | "rheumatoid-arthritis"
+  | "psoriatic-arthritis"
+  | "ankylosing-spondylitis"
+  | "fibromyalgia";
 
 export interface TopicCluster {
   id: TopicClusterId;
@@ -30,12 +36,26 @@ export interface TopicCluster {
 }
 
 export const TOPIC_CLUSTERS: TopicCluster[] = [
+  ...(conditionTopicClusters as TopicCluster[]),
   {
     id: "pain",
     label: "Arthritis pain",
     pillarPath: "/guides/arthritis-pain-relief",
     pillarTitle: "Arthritis pain relief guide",
     supportingPaths: [
+      "/blog/walking-with-arthritis-start-build-up-keep-going",
+      "/blog/joint-protection-easier-everyday-tasks",
+      "/blog/energy-management-and-pacing-arthritis",
+      "/blog/arthritis-fatigue-management-uk",
+      "/blog/arthritis-flare-up-what-to-do",
+      "/blog/how-to-sleep-with-arthritis-uk",
+      "/blog/cold-weather-arthritis-uk-winter",
+      "/blog/winter-arthritis-frailty-cold-houses-uk",
+      "/blog/best-sleep-positions-joint-pain",
+      "/blog/sleep-quality-arthritis-pain",
+      "/blog/arthritis-and-sleep-problems",
+      "/blog/sleep-and-pain-management-arthritis",
+      "/blog/best-walking-shoes-arthritis-uk",
       "/library/fibromyalgia",
       "/library/arthritis-symptoms",
       "/arthritis-flare-ups",
@@ -56,6 +76,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "shoulder pain",
       "heat and cold",
       "topical",
+      "night pain",
+      "overnight pain",
     ],
   },
   {
@@ -64,9 +86,12 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/conditions/osteoarthritis",
     pillarTitle: "Osteoarthritis guide",
     supportingPaths: [
-      "/guides/hip-exercises-for-osteoarthritis",
       "/blog/swimming-exercises-hip-osteoarthritis",
+      "/guides/hip-exercises-for-osteoarthritis",
       "/faq/what-is-osteoarthritis",
+      "/blog/joint-protection-easier-everyday-tasks",
+      "/blog/walking-with-arthritis-start-build-up-keep-going",
+      "/blog/best-walking-shoes-arthritis-uk",
       "/conditions/hip-arthritis",
       "/library/osteoarthritis",
       "/library/arthritis",
@@ -74,7 +99,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/conditions/hand-arthritis",
       "/conditions/shoulder-arthritis",
       "/guides/can-exercise-make-osteoarthritis-worse",
-      "/blog/knee-arthritis-exercises-uk",
+      "/guides/knee-exercises-for-osteoarthritis",
     ],
     toolPath: "/exercises",
     toolLabel: "Exercise hub",
@@ -94,11 +119,15 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/exercises",
     pillarTitle: "Exercise hub",
     supportingPaths: [
-      "/guides/exercise",
-      "/blog/best-walking-shoes-arthritis-uk",
-      "/library/shoulder-exercises",
       "/blog/swimming-exercises-hip-osteoarthritis",
+      "/blog/walking-with-arthritis-start-build-up-keep-going",
+      "/blog/best-walking-shoes-arthritis-uk",
+      "/blog/staying-active-arthritis-winter-uk",
+      "/blog/ice-snow-arthritis-frailty-uk",
+      "/guides/exercise",
       "/guides/hip-exercises-for-osteoarthritis",
+      "/guides/knee-exercises-for-osteoarthritis",
+      "/library/shoulder-exercises",
       "/faq/best-exercises-arthritis",
       "/blog/cycling-with-arthritis",
       "/exercises/tai-chi-for-arthritis",
@@ -125,6 +154,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "physiotherapy",
       "physio",
       "chair exercise",
+      "icy pavements",
+      "snow and ice",
     ],
   },
   {
@@ -138,6 +169,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/library/turmeric",
       "/supplements/turmeric",
       "/blog/best-supplement-for-knee-joint",
+      "/blog/vitamin-d-winter-arthritis-frailty-uk",
       "/blog/omega-3-foods-for-joints",
       "/blog/glucosamine-vs-collagen",
       "/blog/anti-inflammatory-diet-rheumatoid-arthritis",
@@ -170,8 +202,13 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/guides/newly-diagnosed",
     pillarTitle: "Newly diagnosed guide",
     supportingPaths: [
-      "/conditions/ankylosing-spondylitis",
       "/symptom-checker",
+      "/conditions/osteoarthritis",
+      "/guides/arthritis-pain-relief",
+      "/exercises",
+      "/blog/walking-with-arthritis-start-build-up-keep-going",
+      "/blog/joint-protection-easier-everyday-tasks",
+      "/conditions/ankylosing-spondylitis",
       "/faq",
       "/living-with-arthritis",
       "/conditions/arthritis",
@@ -201,9 +238,18 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/conditions/gout/treatment",
       "/conditions/gout",
       "/guides/febuxostat-for-gout",
+      "/blog/gout-winter-dehydration-frailty-uk",
       "/guides/steroids-for-arthritis",
       "/guides/knee-replacement-surgery",
       "/guides/azathioprine-for-arthritis",
+      "/blog/flu-jab-arthritis-frailty-uk",
+      "/blog/covid-winter-arthritis-frailty-uk",
+      "/blog/chest-infection-arthritis-frailty-uk",
+      "/blog/ra-steroids-frailty-infection-watch-uk",
+      "/blog/steroid-emergency-card-frail-arthritis-uk",
+      "/blog/shingles-vaccine-arthritis-frailty-uk",
+      "/blog/uti-confusion-arthritis-frailty-uk",
+      "/blog/vaccines-on-dmards-and-biologics-uk-guide",
       "/guides/health-services",
       "/arthritis-waiting-list-help",
       "/supplements",
@@ -226,8 +272,17 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "azathioprine",
       "febuxostat",
       "gout treatment",
+      "gout",
+      "uric acid",
+      "dehydration",
       "allopurinol",
       "physiotherapy referral",
+      "chest infection",
+      "pneumonia",
+      "prednisolone",
+      "steroid card",
+      "shingles vaccine",
+      "urine infection",
     ],
   },
   {
@@ -237,7 +292,13 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarTitle: "Flare-up guide",
     supportingPaths: [
       "/guides/arthritis-pain-relief",
+      "/blog/arthritis-flare-up-what-to-do",
+      "/blog/energy-management-and-pacing-arthritis",
+      "/blog/arthritis-fatigue-management-uk",
       "/arthritis-mental-health",
+      "/blog/arthritis-and-mental-health-uk",
+      "/blog/depression-arthritis-when-to-seek-help",
+      "/blog/how-to-sleep-with-arthritis-uk",
       "/exercises",
       "/diet",
       "/chat",
@@ -263,6 +324,12 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/faq/arthritis-disability-benefits-uk",
       "/blog/pip-for-arthritis-uk",
       "/benefits-pip",
+      "/blog/sick-pay-fit-notes-time-off-work-arthritis",
+      "/blog/carers-allowance-help-if-you-care-for-someone",
+      "/blog/carers-assessment-arthritis-frailty-uk",
+      "/blog/attendance-allowance-arthritis-frailty-uk",
+      "/blog/arthritis-and-work-uk",
+      "/blog/access-to-work-scheme-arthritis-guide",
       "/library/access-to-work",
       "/resources/pip-evidence-diary",
       "/guides/disability-support",
@@ -280,6 +347,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "blue badge",
       "attendance allowance",
       "access to work",
+      "carer's assessment",
+      "carers assessment",
       "dla",
       "motability",
       "welfare",
@@ -332,7 +401,12 @@ export function getClusterForPath(pathname: string): TopicCluster | null {
 
   // Exact / supportingPaths matches first (incl. GSC champion blog URLs listed below).
   for (const row of PATH_INDEX) {
-    if (path === row.path || path.startsWith(`${row.path}/`)) return row.cluster;
+    if (path === row.path) return row.cluster;
+  }
+
+  // Resolve known child routes only after every exact match.
+  for (const row of PATH_INDEX) {
+    if (path.startsWith(`${row.path}/`)) return row.cluster;
   }
 
   if (path.startsWith("/blog/")) {

@@ -1,6 +1,6 @@
 # Living With Arthritis
 
-Vite + React + TypeScript charity site for Living With Arthritis UK, built with Vite and hosted on Lovable (static front-end).
+Vite + React + TypeScript charity site for Living With Arthritis, built with Vite and hosted on Lovable (static front-end).
 
 Live URL: https://livingwitharthritis.org.uk
 
@@ -44,4 +44,4 @@ MIT - see LICENSE.
 
 ## Production hosting
 
-**Lovable only** for the live site today. Soft-404 mitigation uses prerendered HTML, public/_redirects, vercel.json (optional), and static redirect stubs. See docs/STATIC-HOSTING.md and docs/GSC-INDEXING-FIX.md.
+**Lovable only** for the live site today. Soft-404 mitigation uses prerendered HTML, public/_redirects and static redirect stubs. See docs/STATIC-HOSTING.md and docs/GSC-INDEXING-FIX.md.

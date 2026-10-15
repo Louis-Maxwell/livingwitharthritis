@@ -42,8 +42,15 @@ file. Sample `/openverse/*.webp` URLs should return HTTP 200.
 
 ## After adding blogs
 
-1. Ensure new slugs are in `src/data/blog-slugs.generated.json`.
-2. Regenerate the 1:1 map and download any missing webps:
+Each guide names its own cover in `src/content/blog/posts/<slug>.json`
+(`"cover": "<file>.webp"`, file in `public/openverse/`). The cover map
+`src/data/blog-cover-map.generated.json` is generated from those fields by
+`bun scripts/generate-blog-catalog.ts` — never edit the map by hand.
+See `docs/ADDING-A-BLOG-GUIDE.md`.
+
+1. Ensure new slugs are in `src/data/blog-slugs.generated.json` (`npm run build` or `npm run sitemap`).
+2. Only if you need to re-shuffle every cover from Openverse (rare — this rewrites
+   every guide's `cover`), regenerate and download any missing webps:
 
    ```bash
    python3 scripts/download-unique-openverse-covers.py

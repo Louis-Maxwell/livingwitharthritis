@@ -23,6 +23,7 @@ const mockArticle = {
   display_order: 1,
 };
 
+vi.mock("@/hooks/useBlogArticle", () => ({ useBlogArticle: vi.fn() }));
 vi.mock("@/hooks/useBlogArticles", () => ({
   useBlogArticle: vi.fn(),
   useRelatedArticles: vi.fn(() => ({ data: [] })),
@@ -51,7 +52,13 @@ vi.mock("sonner", () => ({
   toast: { success: vi.fn(), error: vi.fn() },
 }));
 
-import { useBlogArticle } from "@/hooks/useBlogArticles";
+import { useBlogArticle } from "@/hooks/useBlogArticle";
+import { loadMarkdownParser } from "@/lib/markdownParser";
+
+// Fixtures are markdown; load the on-demand parser up front so renders are synchronous.
+beforeAll(async () => {
+  await loadMarkdownParser();
+});
 
 function renderBlogPost(slug: string) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });

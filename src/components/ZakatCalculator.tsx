@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Calculator, ArrowRight, Info } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
 const NISAB_GOLD_GBP = 4_500; // approximate nisab threshold (gold) in GBP
 const ZAKAT_RATE = 0.025;
@@ -149,11 +150,13 @@ const ZakatCalculator = () => {
                     £{zakatDue.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
                   <a
-                    href="#donation-form"
+                    href={GOFUNDME_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3 hover:underline"
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                   >
                     Donate your Zakat now <ArrowRight className="w-3 h-3" />
+                    <span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </div>
               ) : (

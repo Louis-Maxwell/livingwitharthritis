@@ -1,6 +1,6 @@
 /**
  * Curated UK clinical citation sets for YMYL champions / medicines pages.
- * Only real NHS / NICE / Versus Arthritis / GOV.UK / peer-reviewed URLs —
+ * Only real NHS / NICE / Arthritis UK (formerly Versus Arthritis) / GOV.UK / peer-reviewed URLs —
  * never invent DOIs or sources.
  */
 import type { Citation } from "@/components/blog/ArticleCitations";
@@ -61,26 +61,26 @@ export const NHS_HIP_PAIN: Citation = {
 
 export const VERSUS_ARTHRITIS_OA: Citation = {
   label: "Osteoarthritis information",
-  url: "https://versusarthritis.org/about-arthritis/conditions/osteoarthritis/",
-  publisher: "Versus Arthritis",
+  url: "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/osteoarthritis/",
+  publisher: "Arthritis UK",
 };
 
 export const VERSUS_ARTHRITIS_RA: Citation = {
   label: "Rheumatoid arthritis information",
-  url: "https://versusarthritis.org/about-arthritis/conditions/rheumatoid-arthritis/",
-  publisher: "Versus Arthritis",
+  url: "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/",
+  publisher: "Arthritis UK",
 };
 
 export const VERSUS_ARTHRITIS_EXERCISE: Citation = {
   label: "Exercise and arthritis",
-  url: "https://versusarthritis.org/about-arthritis/managing-symptoms/exercise/",
-  publisher: "Versus Arthritis",
+  url: "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/",
+  publisher: "Arthritis UK",
 };
 
 export const VERSUS_ARTHRITIS_PAIN: Citation = {
   label: "Pain and arthritis",
-  url: "https://versusarthritis.org/about-arthritis/managing-symptoms/pain/",
-  publisher: "Versus Arthritis",
+  url: "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/managing-arthritis-symptoms/managing-arthritis-pain/",
+  publisher: "Arthritis UK",
 };
 
 export const CMO_PHYSICAL_ACTIVITY: Citation = {
@@ -143,6 +143,15 @@ export const CITATIONS_HIP_EXERCISES: Citation[] = [
   NHS_HIP_PAIN,
 ];
 
+/** Knee exercises for osteoarthritis */
+export const CITATIONS_KNEE_EXERCISES: Citation[] = [
+  NICE_OA_NG226,
+  VERSUS_ARTHRITIS_EXERCISE,
+  CMO_PHYSICAL_ACTIVITY,
+  NHS_OSTEOARTHRITIS,
+];
+
+
 export const NHS_AZATHIOPRINE: Citation = {
   label: "Azathioprine",
   url: "https://www.nhs.uk/medicines/azathioprine/",
@@ -189,8 +198,8 @@ export const NHS_EAT_WELL: Citation = {
 
 export const VERSUS_ARTHRITIS_DIET: Citation = {
   label: "Diet and arthritis",
-  url: "https://versusarthritis.org/about-arthritis/managing-symptoms/diet/",
-  publisher: "Versus Arthritis",
+  url: "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/",
+  publisher: "Arthritis UK",
 };
 
 export const GOV_UK_PIP: Citation = {

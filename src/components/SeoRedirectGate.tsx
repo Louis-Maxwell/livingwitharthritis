@@ -1,9 +1,26 @@
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { resolveSeoRedirect } from "@/lib/seoRedirects";
+import { afterPageLoad } from "@/lib/afterPageLoad";
 
 const SITE = "https://livingwitharthritis.org.uk";
+
+type Resolver = (pathname: string) => string | null;
+let resolverPromise: Promise<Resolver> | null = null;
+let resolver: Resolver | null = null;
+
+/**
+ * The redirect tables (blog slug renames, city aliases, locale rules) are
+ * ~60 KB of data that almost no visit needs, so they are loaded in their own
+ * chunk instead of the entry bundle. Once loaded, resolution is synchronous.
+ */
+function loadResolver(): Promise<Resolver> {
+  resolverPromise ??= import("@/lib/seoRedirects").then((m) => {
+    resolver = m.resolveSeoRedirect;
+    return resolver;
+  });
+  return resolverPromise;
+}
 
 /**
  * Client-side redirect for hosts that serve the SPA shell for every path
@@ -15,7 +32,32 @@ const SITE = "https://livingwitharthritis.org.uk";
  */
 export default function SeoRedirectGate({ children }: { children: ReactNode }) {
   const { pathname, search, hash } = useLocation();
-  const dest = resolveSeoRedirect(pathname);
+  const [dest, setDest] = useState<string | null>(() => (resolver ? resolver(pathname) : null));
+
+  useEffect(() => {
+    let cancelled = false;
+    if (resolver) {
+      setDest(resolver(pathname));
+      return;
+    }
+    // First visit: fetch the tables once the page has loaded. Retired URLs
+    // are already answered by the host 301s / static redirect stubs, so this
+    // client check is a fallback and should not compete with the page.
+    const cancelLoad = afterPageLoad(() => {
+      loadResolver()
+        .then((resolve) => {
+          if (!cancelled) setDest(resolve(pathname));
+        })
+        .catch(() => {
+          // Redirect tables unavailable (offline / chunk error): the host-level
+          // 301s and static redirect stubs still cover crawlers.
+        });
+    }, 1500);
+    return () => {
+      cancelled = true;
+      cancelLoad();
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (!dest) return;

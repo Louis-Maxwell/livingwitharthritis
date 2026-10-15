@@ -4,12 +4,19 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, AlertTriangle, ArrowRight } from "lucide-react";
+import { AlertTriangle, ArrowRight } from "lucide-react";
 import { getHealthTopic, healthTopics } from "@/data/healthTopics";
 import { getLibraryTopicSeo, getLibraryPillarRelated } from "@/data/libraryTopicSeo";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import {
+  DEFAULT_LIBRARY_LAST_REVIEWED,
+  LIBRARY_PENDING_REVIEW_TEXT,
+  getLibraryLastReviewed,
+  getLibraryReviewStatus,
+} from "@/data/libraryReview";
 
 const LibraryTopic = () => {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -19,7 +26,9 @@ const LibraryTopic = () => {
   useEffect(() => {
     if (!topic) return;
     const id = "library-topic-jsonld";
+    const faqId = "library-topic-faq-jsonld";
     document.getElementById(id)?.remove();
+    document.getElementById(faqId)?.remove();
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = id;
@@ -36,7 +45,7 @@ const LibraryTopic = () => {
       about: { "@type": "MedicalCondition", name: topic.title },
       publisher: {
         "@type": "Organization",
-        name: "Living With Arthritis UK",
+        name: "Living With Arthritis",
       },
       isPartOf: {
         "@type": "CollectionPage",
@@ -45,8 +54,24 @@ const LibraryTopic = () => {
       },
     });
     document.head.appendChild(script);
+    if (seo?.faqs && seo.faqs.length > 0) {
+      const faqScript = document.createElement("script");
+      faqScript.type = "application/ld+json";
+      faqScript.id = faqId;
+      faqScript.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: seo.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      });
+      document.head.appendChild(faqScript);
+    }
     return () => {
       document.getElementById(id)?.remove();
+      document.getElementById(faqId)?.remove();
     };
   }, [topic, seo]);
 
@@ -57,11 +82,11 @@ const LibraryTopic = () => {
     .slice(0, 6);
   const pillarRelated = getLibraryPillarRelated(topic.slug, topic.category);
   const path = `/library/${topic.slug}`;
-  const title = seo?.title ?? `${topic.title} | Living With Arthritis UK`;
+  const title = seo?.title ?? `${topic.title} | Living With Arthritis`;
   const description =
     seo?.description ||
     topic.subtitle ||
-    `${topic.title} — plain-English information from Living With Arthritis UK.`;
+    `${topic.title} — plain-English information from Living With Arthritis.`;
   const heading = seo?.h1 ?? topic.title;
 
   return (
@@ -81,14 +106,13 @@ const LibraryTopic = () => {
       <Header />
 
       <main id="main-content" className="min-h-screen bg-background text-foreground">
+        <PageBreadcrumb
+          segments={[
+            { label: "Library", href: "/library" },
+            { label: topic.title },
+          ]}
+        />
         <article className="container mx-auto px-6 sm:px-8 lg:px-16 max-w-3xl py-16">
-          <Link
-            to="/library"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-8"
-          >
-            <ChevronLeft size={16} /> Back to Library
-          </Link>
-
           <Badge variant="secondary" className="mb-4">
             {topic.category}
           </Badge>
@@ -148,6 +172,23 @@ const LibraryTopic = () => {
             ))}
           </div>
 
+
+          {seo?.faqs && seo.faqs.length > 0 && (
+            <section className="mt-16 pt-10 border-t border-border" aria-labelledby="library-faq-heading">
+              <h2 id="library-faq-heading" className="font-serif text-2xl font-semibold mb-6">
+                Frequently asked questions
+              </h2>
+              <div className="space-y-6">
+                {seo.faqs.map((f) => (
+                  <div key={f.q}>
+                    <h3 className="font-semibold mb-2">{f.q}</h3>
+                    <p className="leading-relaxed text-foreground/85">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {topic.disclaimer && (
             <aside className="mt-12 p-5 rounded-xl border border-primary/20 bg-primary/5 flex gap-3 text-sm">
               <AlertTriangle
@@ -206,7 +247,13 @@ const LibraryTopic = () => {
           )}
 
           <div className="mt-12 space-y-6">
-            <EducationalDisclaimerBox lastReviewed="2026-09-18" />
+            {/* Review state per topic: src/data/libraryReviewStatus.json.
+                Pending topics never show a completed-review line or date. */}
+            <EducationalDisclaimerBox
+              lastReviewed={getLibraryLastReviewed(topic.slug) ?? DEFAULT_LIBRARY_LAST_REVIEWED}
+              reviewStatus={getLibraryReviewStatus(topic.slug)}
+              pendingText={LIBRARY_PENDING_REVIEW_TEXT}
+            />
             <TopicClusterNav path={path} />
           </div>
 

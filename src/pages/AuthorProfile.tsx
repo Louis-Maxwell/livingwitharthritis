@@ -79,9 +79,9 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   Object.keys(personLd).forEach((k) => personLd[k] === undefined && delete personLd[k]);
 
   const badgeLabel = variant === "reviewer" ? "Medical reviewer" : "Author";
-  const title = `${record.name} — ${record.title} | Living With Arthritis UK`;
+  const title = `${record.name} — ${record.title} | Living With Arthritis`;
   const description = isPlaceholder(record.bio)
-    ? `${record.name}, ${record.title}. ${badgeLabel} on Living With Arthritis UK.`
+    ? `${record.name}, ${record.title}. ${badgeLabel} on Living With Arthritis.`
     : record.bio.slice(0, 155);
 
   return (

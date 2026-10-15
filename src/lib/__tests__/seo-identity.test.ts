@@ -18,6 +18,7 @@ const indexHtml = readFileSync(resolve("index.html"), "utf8");
 const robots = readFileSync(resolve("public/robots.txt"), "utf8");
 const wellKnownAi = readFileSync(resolve("public/.well-known/ai.txt"), "utf8");
 const llms = readFileSync(resolve("public/llms.txt"), "utf8");
+const answerEngine = readFileSync(resolve("public/answer-engine.json"), "utf8");
 const aboutUs = readFileSync(resolve("src/pages/AboutUs.tsx"), "utf8");
 const homepage = readFileSync(resolve("src/pages/Index.tsx"), "utf8");
 const trustStrip = readFileSync(
@@ -25,14 +26,10 @@ const trustStrip = readFileSync(
   "utf8",
 );
 const cityPage = readFileSync(resolve("src/pages/CityArthritisPage.tsx"), "utf8");
-const cityOptimized = readFileSync(
-  resolve("src/pages/CityPageOptimized.tsx"),
-  "utf8",
-);
 const schemaTs = readFileSync(resolve("src/lib/rootOrganizationSchema.ts"), "utf8");
 
-const BRAND_STRING = "Living With Arthritis UK (charity 1218461)";
-const HOME_TITLE = "Living With Arthritis UK | Evidence-Based Health Guides";
+const BRAND_STRING = "Living With Arthritis (charity 1218461)";
+const HOME_TITLE = "Living With Arthritis | Exercises & PIP Advice";
 const OFFICIAL_SAME_AS = [
   ...getSchemaOrgSameAs(),
   "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
@@ -79,6 +76,7 @@ describe("public SEO / AEO identity", () => {
     expect(schemaTs).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
     expect(llms).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
     expect(wellKnownAi).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
+    expect(answerEngine).not.toMatch(/Oswestry|Thomas Savin|SY11 1GA/i);
     expect(CHARITY.address.street).toBe("");
     expect(CHARITY.address.postalCode).toBe("");
     expect(hasCharityAddress()).toBe(false);
@@ -91,12 +89,12 @@ describe("public SEO / AEO identity", () => {
       expect.arrayContaining(["NGO", "Organization", "MedicalOrganization"]),
     );
     expect(JSON.stringify(org.identifier)).toContain("1218461");
-    expect(org.name).toBe("Living With Arthritis UK");
+    expect(org.name).toBe("Living With Arthritis");
     expect(org.legalName).toBe("Living With Arthritis");
     expect(org.alternateName).toEqual(
       expect.arrayContaining([
-        "Living With Arthritis UK",
         "Living With Arthritis charity",
+        "Living With Arthritis (charity 1218461)",
       ]),
     );
     expect(org.founder.name).toBe("Louis Maxwell");
@@ -126,6 +124,9 @@ describe("public SEO / AEO identity", () => {
     expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
     expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
     expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(WEBSITE_PAYLOAD.about).toEqual(
+      expect.arrayContaining(["Osteoarthritis", "Frailty and musculoskeletal health"]),
+    );
   });
 
   it("uses brand-first homepage titles and a crawlable brand string", () => {
@@ -135,28 +136,27 @@ describe("public SEO / AEO identity", () => {
     expect(homepage).toContain(HOME_TITLE);
     expect(homepage).toMatch(/index,\s*follow/);
     expect(homepage).not.toMatch(/noindex/);
-    expect(trustStrip).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);
+    expect(trustStrip).toMatch(/Living With Arthritis \(charity \{CHARITY\.number\}\)/);
     expect(indexHtml).toContain(BRAND_STRING);
-    expect(indexHtml).toMatch(/Living With Arthritis UK — evidence-based health guides/i);
+    expect(indexHtml).toMatch(/Living With Arthritis — evidence-based health guides/i);
   });
 
   it("keeps About brand-first, indexable, and address-free", () => {
     expect(aboutUs).toContain(
-      "About Living With Arthritis UK | Registered charity 1218461",
+      "About Living With Arthritis | Registered charity 1218461",
     );
-    expect(aboutUs).toMatch(/Living With Arthritis UK \(charity \{CHARITY\.number\}\)/);
-    expect(aboutUs).toContain("info@livingwitharthritis.org.uk");
+    expect(aboutUs).toMatch(/Living With Arthritis \(charity \{CHARITY\.number\}\)/);
+    expect(aboutUs).toContain("CHARITY.contactEmail");
+    expect(CHARITY.contactEmail).toBe("info@livingwitharthritis.org.uk");
     expect(aboutUs).toMatch(/CONTACT_PHONE/);
-    expect(aboutUs).toContain("07760 512 084");
+    expect(aboutUs).toContain("{CONTACT_PHONE}");
+    expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(aboutUs).toMatch(/index,\s*follow/);
     expect(aboutUs).not.toMatch(/noindex/);
   });
 
   it("does not invent social sameAs URLs", () => {
-    expect(cityOptimized.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(
-      false,
-    );
-    expect(cityOptimized.includes("getSchemaOrgSameAs")).toBe(true);
+    expect(cityPage.toLowerCase().includes("twitter.com/livingwarthritis")).toBe(false);
     expect(indexHtml.toLowerCase().includes("facebook.com/livingwitharthritis")).toBe(
       false,
     );
@@ -180,8 +180,13 @@ describe("public SEO / AEO identity", () => {
     expect(wellKnownAi).toMatch(/1218461/);
     expect(wellKnownAi).toMatch(/Independent of Arthritis UK/);
     expect(wellKnownAi).toMatch(/PH128483/);
-    expect(wellKnownAi).toContain("Living With Arthritis UK (charity 1218461)");
-    expect(llms).toContain("Living With Arthritis UK (charity 1218461)");
+    expect(wellKnownAi).toContain("Living With Arthritis (charity 1218461)");
+    expect(llms).toContain("Living With Arthritis (charity 1218461)");
+    expect(wellKnownAi).toContain("Answer-Engine-Facts");
+    expect(llms).toContain("answer-engine.json");
+    expect(answerEngine).toContain("Living With Arthritis");
+    expect(answerEngine).toContain("1218461");
+    expect(answerEngine).toMatch(/independent of Arthritis UK/i);
   });
 
   it("does not mark city hubs as a MedicalBusiness", () => {

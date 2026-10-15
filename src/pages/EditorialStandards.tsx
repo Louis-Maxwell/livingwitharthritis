@@ -18,12 +18,12 @@ export default function EditorialStandards() {
     const ld = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      name: "Editorial Standards — Living With Arthritis UK",
+      name: "Editorial Standards — Living With Arthritis",
       url: URL,
       inLanguage: "en-GB",
       publisher: {
         "@type": "Organization",
-        name: "Living With Arthritis UK",
+        name: "Living With Arthritis",
         url: BASE,
       },
       mainEntity: {
@@ -53,9 +53,9 @@ export default function EditorialStandards() {
         <title>Editorial & Medical Review Standards | Living With Arthritis</title>
         <meta
           name="description"
-          content="How Living With Arthritis UK reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
+          content="How Living With Arthritis reviews health content: HCPC-registered clinicians, NICE-aligned sourcing and clear editorial standards."
         />
-        <meta property="og:title" content="Editorial Standards | Living With Arthritis UK" />
+        <meta property="og:title" content="Editorial Standards | Living With Arthritis" />
         <meta
           property="og:description"
           content="Our medical review process, evidence standards and reviewer credentials."
@@ -81,10 +81,13 @@ export default function EditorialStandards() {
               Our editorial standards
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Every health page on Living With Arthritis UK is reviewed by a
-              qualified healthcare professional and built on guideline-grade
-              evidence. We also follow a clear eight-step SEO content framework
-              so answers stay intent-led, readable, and useful for UK readers.
+              Pages carrying a clinically reviewed badge have been reviewed by a
+              qualified healthcare professional. Pages still awaiting review are
+              labelled “Pending clinical review”; publication or an updated date
+              alone does not mean clinical review is complete. We identify sources
+              for clinical recommendations and material factual claims, and link to
+              relevant guidance or research where available. We also follow a clear
+              content framework so answers stay readable and useful for UK readers.
               Content is educational — see our{" "}
               <Link to="/disclaimer" className="text-primary underline underline-offset-2">
                 medical disclaimer
@@ -95,20 +98,22 @@ export default function EditorialStandards() {
 
           <Section icon={UserCheck} title="Medical review process">
             <p>
-              All health content is reviewed by a qualified clinician before
-              publication and re-checked when guidance changes.
+              Clinically reviewed pages are reviewed by a qualified clinician
+              before publication and re-checked when guidance changes. New or
+              expanding pages remain clearly marked as pending until that review
+              is complete.
             </p>
             <ul>
               <li>
                 <strong>{maxwell.name}</strong> — {maxwell.title},{" "}
                 {maxwell.credential}, {maxwell.organization}
               </li>
-              <li>Additional specialist input from physiotherapists and clinical experts</li>
+              <li>Where specialist input is obtained, the contributor and their role are identified on the relevant page.</li>
             </ul>
           </Section>
 
           <Section icon={BookOpen} title="Evidence standards">
-            <p>Our content is based on:</p>
+            <p>For health and care information, writers check relevant primary or authoritative sources, such as:</p>
             <ul>
               <li>NICE (National Institute for Health and Care Excellence) guidelines</li>
               <li>UK healthcare evidence-based recommendations</li>
@@ -136,16 +141,17 @@ export default function EditorialStandards() {
 
           <Section icon={RefreshCw} title="Update frequency">
             <p>
-              Content is reviewed and updated regularly to reflect the latest
-              evidence. Each article shows the date it was last updated. Pages
-              referencing NICE or UK healthcare guidance are re-checked whenever those
-              sources publish revisions.
+              Pages show their publication or update date, and a clinical review
+              date when that review has been completed and recorded. An update date
+              is not a clinical review date. We revisit content when relevant
+              evidence, guidance, or service information changes; we do not claim
+              that every page is reviewed daily.
             </p>
           </Section>
 
           <Section icon={Scale} title="Conflict of interest">
             <p>
-              Living With Arthritis UK is independent and not sponsored by
+              Living With Arthritis is independent and not sponsored by
               pharmaceutical companies or medical device manufacturers. We do
               not accept payment for editorial coverage. Affiliate links, where
               used, are disclosed on the page.

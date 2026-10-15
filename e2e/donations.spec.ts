@@ -1,71 +1,63 @@
-import { test, expect } from "../playwright-fixture";
+import { test, expect } from "@playwright/test";
+import { GOFUNDME_URL } from "../src/components/landing/homeJobs";
 
-test.describe("Donation Page Flow", () => {
-  test("should display the donation page with hero section", async ({ page }) => {
+/** /donate: content, internal navigation and safe handoff to GoFundMe. */
+test.describe("Donation page", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem("cookie-consent", "declined");
+      localStorage.setItem("lwa_cv3", JSON.stringify({ a: false, p: false, m: false }));
+    });
     await page.goto("/donate");
-
-    await expect(page.getByText("Every Donation Matters")).toBeVisible();
-    await expect(page.getByRole("heading", { name: /free for everyone/i })).toBeVisible();
+    await expect(page.locator("h1").first()).toBeVisible({ timeout: 15000 });
   });
 
-  test("should display all impact donation tiers", async ({ page }) => {
-    await page.goto("/donate");
-
-    await expect(page.getByText("£10")).toBeVisible();
-    await expect(page.getByText("£25")).toBeVisible();
-    await expect(page.getByText("£50")).toBeVisible();
-    await expect(page.getByText("£100")).toBeVisible();
-
-    // Check impact descriptions
-    await expect(page.getByText(/personalised exercise plan/i)).toBeVisible();
-    await expect(page.getByText(/virtual physiotherapy sessions/i)).toBeVisible();
+  test("shows the hero and the amount picker", async ({ page }) => {
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/give/i);
+    await expect(page.getByRole("heading", { name: "Choose what you can give" })).toBeVisible();
+    const picker = page.locator("section", {
+      has: page.getByRole("heading", { name: "Choose what you can give" }),
+    });
+    for (const amount of ["£50", "£150", "£200", "£500"]) {
+      await expect(picker.getByRole("button", { name: amount, exact: true })).toBeVisible();
+    }
   });
 
-  test("should display Ways to Give section with all options", async ({ page }) => {
-    await page.goto("/donate");
-
-    await expect(page.getByText("Ways to Give")).toBeVisible();
-    await expect(page.getByText("One-Off Donation")).toBeVisible();
-    await expect(page.getByText("Zakat Appeal")).toBeVisible();
-    await expect(page.getByText("Fundraise for Us")).toBeVisible();
-    await expect(page.getByText("Corporate Giving")).toBeVisible();
-    await expect(page.getByText("Gift Aid")).toBeVisible();
-    await expect(page.getByText("Volunteer")).toBeVisible();
+  test("lists every way to give", async ({ page }) => {
+    await expect(page.getByRole("heading", { name: "Ways to Give" })).toBeVisible();
+    for (const name of ["One-Off Donation", "Zakat & Sadaqah", "Fundraise for Us", "Corporate Giving", "Volunteer"]) {
+      await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+    }
   });
 
-  test("should display Tax-Efficient Giving section", async ({ page }) => {
-    await page.goto("/donate");
-
-    await expect(page.getByText("Tax-Efficient Giving")).toBeVisible();
-    await expect(page.getByText(/£100 donation becomes £125 with Gift Aid/i)).toBeVisible();
+  test("explains tax-efficient giving", async ({ page }) => {
+    await expect(page.getByRole("heading", { name: "Tax-Efficient Giving" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Gift Aid (+25%)" })).toBeVisible();
   });
 
-  test("should navigate to Zakat Appeal page when clicking Donate Now", async ({ page }) => {
-    await page.goto("/donate");
-
-    const donateBtn = page.getByRole("button", { name: /Donate Now/i }).first();
-    await donateBtn.click();
-
-    await expect(page).toHaveURL(/zakat-appeal/);
+  test("the appeal links to GoFundMe in a new tab", async ({ page }) => {
+    const appeal = page.getByRole("link", { name: /Give to the appeal/ });
+    await expect(appeal).toHaveAttribute("href", GOFUNDME_URL);
+    await expect(appeal).toHaveAttribute("target", "_blank");
+    await expect(appeal).toHaveAttribute("rel", /noopener/);
   });
 
-  test("should navigate to Ways to Help from Fundraise card", async ({ page }) => {
-    await page.goto("/donate");
-
-    // Click the "Start Fundraising" button in the Fundraise for Us card
-    const fundraiseBtn = page.getByRole("button", { name: /Start Fundraising/i });
-    await fundraiseBtn.click();
-
-    await expect(page).toHaveURL(/ways-to-help/);
+  test("Start Fundraising goes to Ways to Help", async ({ page }) => {
+    await page.getByRole("button", { name: "Start Fundraising" }).click();
+    await expect(page).toHaveURL(/\/ways-to-help$/);
   });
 
-  test("should navigate to Corporate Giving page", async ({ page }) => {
-    await page.goto("/donate");
+  test("corporate giving card goes to Corporate Giving", async ({ page }) => {
+    await page.getByRole("button", { name: "Learn about corporate giving" }).click();
+    await expect(page).toHaveURL(/\/corporate-giving$/);
+  });
 
-    const learnMoreBtns = page.getByRole("button", { name: /Learn More/i });
-    // Corporate Giving "Learn More" button
-    await learnMoreBtns.nth(0).click();
-
-    await expect(page).toHaveURL(/zakat-appeal|corporate-giving/);
+  test("donation hands off to GoFundMe without taking card payments", async ({ page }) => {
+    const donate = page.getByRole("link", { name: /^Donate on GoFundMe/ });
+    await expect(donate).toHaveAttribute("href", GOFUNDME_URL);
+    await expect(donate).toHaveAttribute("target", "_blank");
+    await expect(donate).toHaveAttribute("rel", /noopener/);
+    await expect(page.getByText("The amount is chosen on GoFundMe. This page does not take card payments.")).toBeVisible();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
   });
 });

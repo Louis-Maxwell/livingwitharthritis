@@ -25,8 +25,9 @@ const REPORT_DIR = process.env.JSONLD_REPORT_DIR || fs.mkdtempSync(join(tmpdir()
 
 const routes = execSync("grep -oE '<loc>[^<]+</loc>' public/sitemap.xml | sed 's|</*loc>||g'", { encoding: 'utf8' })
   .trim().split('\n').map(u => u.replace(PROD_HOST, '') || '/');
-// Add product route example
-if (!routes.includes('/product/comp-1')) routes.push('/product/comp-1');
+// Do not force /product/* into the audit: affiliate SKU shells are intentionally
+// omitted from sitemap + prerender (crawl-budget growth lever). Routes come from
+// sitemap.xml only so DIST_DIR mode never fails on missing product HTML.
 
 const REQUIRED = {
   Product: ['name', 'image', 'offers', 'brand', ['sku','gtin','mpn']],

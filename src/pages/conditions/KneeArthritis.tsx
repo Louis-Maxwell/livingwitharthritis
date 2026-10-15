@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Scale } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -85,7 +85,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const KneeArthritis = () => (
   <>
     <Helmet>
-      <title>Knee Arthritis in the UK: Symptoms & Exercises | Living With Arthritis</title>
+      <title>Knee Arthritis | Symptoms, Treatment & Exercises (UK)</title>
       <meta name="description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
       <meta name="keywords" content="knee arthritis, knee osteoarthritis, knee OA, knee pain, arthritic knee, knee arthritis exercises, knee arthritis treatment, knee replacement, quadriceps exercises, NICE knee osteoarthritis" />
       <meta property="og:title" content="Knee Arthritis – Symptoms, Exercises & Treatment" />
@@ -93,7 +93,7 @@ const KneeArthritis = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -235,10 +235,10 @@ const KneeArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily knee-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="🦵" title="Strength" description="Straight-leg raises and wall sits — start small, build slowly." />
-            <EmojiCard emoji="🚴" title="Cycle" description="Cycling is easier on the knee than running or jumping." />
-            <EmojiCard emoji="⚖️" title="Weight" description="Losing 5% of body weight often eases knee load a lot." />
-            <EmojiCard emoji="🧊" title="Ice" description="Ten minutes after activity if the knee is warm or swollen." />
+            <HighlightCard title="Strength" description="Straight-leg raises and wall sits — start small, build slowly." />
+            <HighlightCard title="Cycle" description="Cycling is easier on the knee than running or jumping." />
+            <HighlightCard title="Weight" description="Losing 5% of body weight often eases knee load a lot." />
+            <HighlightCard title="Ice" description="Ten minutes after activity if the knee is warm or swollen." />
           </div>
         </motion.div>
 
@@ -302,7 +302,7 @@ const KneeArthritis = () => (
               links: [
                 { label: "Managing flare-ups", to: "/arthritis-flare-ups" },
                 { label: "Help while waiting for care", to: "/arthritis-waiting-list-help" },
-                { label: "Self-help tool", to: "/self-help-tool" },
+                { label: "Self-help tool", to: "/self-help" },
               ],
             },
           ]}
@@ -319,10 +319,14 @@ const KneeArthritis = () => (
               Read our articles
             </Link>
           </div>
-          
+
       <EducationalDisclaimerBox />
       <TopicClusterNav path="/conditions/knee-arthritis" />
-<CrossLinkBanner preset="condition" exclude="/conditions/knee-arthritis" title="Explore related resources" />
+<CrossLinkBanner
+          links={["guide-knee-oa", "flare-action-plan", "exercises", "guide-benefits"]}
+          exclude="/conditions/knee-arthritis"
+          title="Explore related resources"
+        />
         </div>
       </main>
       <InternalLinks />

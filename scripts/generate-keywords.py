@@ -233,7 +233,7 @@ trust_terms = [
     "living with arthritis charity number", "free arthritis physiotherapy uk",
     "arthritis charity donation uk", "gift aid arthritis donation", "arthritis charity gift aid",
     "trusted arthritis information uk", "medically reviewed arthritis advice",
-    "arthritis charity vs versus arthritis", "best arthritis websites uk",
+    "best arthritis websites uk",
     "arthritis foundation uk equivalent", "nhs approved arthritis exercises",
 ]
 for t in trust_terms:

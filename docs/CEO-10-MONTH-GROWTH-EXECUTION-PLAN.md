@@ -1,10 +1,10 @@
-# Living With Arthritis UK — CEO Paper
+# Living With Arthritis — CEO Paper
 # 10-Month Growth & Execution Strategy (Sep 2026 – Jul 2027)
 
 | Field | Detail |
 |---|---|
 | **Document type** | Board / CEO execution strategy |
-| **Organisation** | Living With Arthritis UK (registered charity no. **1218461**, registered 15 June 2026) |
+| **Organisation** | Living With Arthritis (registered charity no. **1218461**, registered 15 June 2026) |
 | **Website** | [livingwitharthritis.org.uk](https://livingwitharthritis.org.uk) |
 | **Tagline** | Motion is Lotion |
 | **Founder / clinical lead** | Louis Maxwell — FCP, HCPC PH128483, CSP member |
@@ -956,7 +956,7 @@ This 10-month plan **extends and does not contradict**:
 
 ## Draft board resolution
 
-*The Board approves the 10-Month Growth & Execution Strategy as the operational plan for Living With Arthritis UK, adopts Scenario B as the working envelope with Scenario A as the funded floor, classifies 100 million sessions as a Scenario C moonshot contingent on extraordinary distribution or media capital, and instructs the executive to report monthly KPIs from Year 0 GA4/GSC baselines with a formal stage-gate at Month 6.*
+*The Board approves the 10-Month Growth & Execution Strategy as the operational plan for Living With Arthritis, adopts Scenario B as the working envelope with Scenario A as the funded floor, classifies 100 million sessions as a Scenario C moonshot contingent on extraordinary distribution or media capital, and instructs the executive to report monthly KPIs from Year 0 GA4/GSC baselines with a formal stage-gate at Month 6.*
 
 ---
 

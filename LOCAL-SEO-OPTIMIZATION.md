@@ -12,7 +12,7 @@ Each city page includes:
 
 ```html
 <!-- Dynamic Title with City Name (55-60 chars) -->
-<title>Arthritis Support in {CityName} | Living With Arthritis UK</title>
+<title>Arthritis Support in {CityName} | Living With Arthritis</title>
 
 <!-- Meta Description (155-160 chars) -->
 <meta name="description" content="Find arthritis support, services, and resources in {CityName}. NHS-approved guidance, local support groups, and exercise classes for {CityName} residents.">
@@ -278,14 +278,14 @@ useAnalytics('city', citySlug);
 
 ## CITY PAGE TITLE FORMULA
 
-**Formula:** `Arthritis Support in {City} | Living With Arthritis UK`
+**Formula:** `Arthritis Support in {City} | Living With Arthritis`
 
 **Examples:**
 ```
-Arthritis Support in London | Living With Arthritis UK (57 chars)
-Arthritis Support in Manchester | Living With Arthritis UK (62 chars)
-Arthritis Support in Edinburgh | Living With Arthritis UK (59 chars)
-Arthritis Support in Cardiff | Living With Arthritis UK (57 chars)
+Arthritis Support in London | Living With Arthritis (57 chars)
+Arthritis Support in Manchester | Living With Arthritis (62 chars)
+Arthritis Support in Edinburgh | Living With Arthritis (59 chars)
+Arthritis Support in Cardiff | Living With Arthritis (57 chars)
 ```
 
 **Why This Works:**

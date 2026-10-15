@@ -1,10 +1,10 @@
 /**
  * Emit dist/404.html — a standalone, noindex error document.
  *
- * Static hosting (Lovable) serves /404.html with a real HTTP 404
- * status for unknown paths instead of falling back to index.html with a 200.
- * That kills the soft-404 problem where junk URLs inherited the homepage
- * title, canonical and OG tags.
+ * The hosting provider must route unknown paths to this document with HTTP
+ * 404. Emitting this file alone does not configure the host. Verify with
+ * scripts/check-live-foundations.mjs: the live host can still return the
+ * homepage shell with status 200 even when 404.html exists in the build.
  *
  * The document reuses the built JS/CSS assets so the React SPA still hydrates
  * and renders the full <NotFound /> page (React Router's "*" route matches the
@@ -35,9 +35,9 @@ const assetTags = [
   .map((m) => `    ${m[0]}`)
   .join('\n');
 
-const TITLE = 'Page not found | Living With Arthritis UK';
+const TITLE = 'Page not found | Living With Arthritis';
 const DESCRIPTION =
-  'The page you are looking for could not be found. Search Living With Arthritis UK or pick a popular guide instead.';
+  'The page you are looking for could not be found. Search Living With Arthritis or pick a popular guide instead.';
 
 const html = `<!DOCTYPE html>
 <html lang="en-GB">

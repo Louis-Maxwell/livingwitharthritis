@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, Users, TrendingUp, Timer, Hand } from "lucide-react";
 import { motion } from "framer-motion";
-import { StatCounter, HorizontalBar, WaveDivider, EmojiCard } from "@/components/graphics/InfographicElements";
+import { StatCounter, HorizontalBar, WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConditionBlogStrip from "@/components/ConditionBlogStrip";
@@ -93,7 +93,7 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const HandArthritis = () => (
   <>
     <Helmet>
-      <title>Hand Arthritis in the UK: Symptoms & Exercises | Living With Arthritis</title>
+      <title>Hand Arthritis | Symptoms, Treatment & Exercises (UK)</title>
       <meta name="description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
       <meta name="keywords" content="hand arthritis, finger arthritis, thumb arthritis, thumb base arthritis, CMC arthritis, Heberden's nodes, Bouchard's nodes, hand osteoarthritis, hand exercises arthritis, hand splint" />
       <meta property="og:title" content="Hand Arthritis – Symptoms, Exercises & Treatment" />
@@ -101,7 +101,7 @@ const HandArthritis = () => (
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -244,10 +244,10 @@ const HandArthritis = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
           <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily hand-care checklist</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <EmojiCard emoji="✋" title="Move" description="Finger bends and thumb touches — short sets, often." />
-            <EmojiCard emoji="🧤" title="Splint" description="A resting splint at night can ease morning stiffness." />
-            <EmojiCard emoji="♨️" title="Heat" description="Warm water for 5 minutes before you use your hands." />
-            <EmojiCard emoji="🛠️" title="Adapt" description="Jar openers, thick grips and electric gadgets save joints." />
+            <HighlightCard title="Move" description="Finger bends and thumb touches — short sets, often." />
+            <HighlightCard title="Splint" description="A resting splint at night can ease morning stiffness." />
+            <HighlightCard title="Heat" description="Warm water for 5 minutes before you use your hands." />
+            <HighlightCard title="Adapt" description="Jar openers, thick grips and electric gadgets save joints." />
           </div>
         </motion.div>
 
@@ -319,7 +319,7 @@ const HandArthritis = () => (
               links: [
                 { label: "Managing flare-ups", to: "/arthritis-flare-ups" },
                 { label: "Help while waiting for care", to: "/arthritis-waiting-list-help" },
-                { label: "Self-help tool", to: "/self-help-tool" },
+                { label: "Self-help tool", to: "/self-help" },
               ],
             },
           ]}
@@ -336,7 +336,7 @@ const HandArthritis = () => (
               Read our articles
             </Link>
           </div>
-          
+
       <EducationalDisclaimerBox />
       <TopicClusterNav path="/conditions/hand-arthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/hand-arthritis" title="Explore related resources" />

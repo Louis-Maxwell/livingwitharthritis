@@ -60,12 +60,12 @@ const CampaignBand = memo(({
             </div>
           )}
 
-          <h2
+          <h1
             id="campaign-heading"
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 leading-tight"
           >
             {title}
-          </h2>
+          </h1>
           <p className="text-lg text-primary font-semibold mb-6">{subtitle}</p>
 
           <p className="text-foreground/80 text-base md:text-lg leading-relaxed mb-10 max-w-3xl">

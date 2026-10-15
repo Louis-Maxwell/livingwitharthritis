@@ -226,7 +226,7 @@ function waitingListHelp(city: UKCity): CityServiceContent {
       `Red flags — new severe headache or vision changes (possible giant cell arteritis), hot swollen joint with fever, or sudden weakness — go to A&E or 111, not the waiting list.`,
       `If your wait is over the local target, contact PALS at ${city.localTrust} and ask about clinical-priority review or treatment at another centre.`,
     ],
-    localStats: `${city.name} (population ${city.population}) is served primarily by ${city.localTrust}. Waiting times vary by trust and specialty — check the latest figures on gov.uk/health.`,
+    localStats: `${city.name} (population ${city.population}) is served primarily by ${city.localTrust}. Waiting times vary by trust and specialty — check the latest figures on the NHS website (nhs.uk).`,
     ctaLabel: "Use our self-help plan",
     ctaPath: "/self-help",
     keywords: `${city.name.toLowerCase()} rheumatology waiting list, arthritis waiting list ${city.name.toLowerCase()}, ${city.region.toLowerCase()} MSK wait`,

@@ -49,13 +49,13 @@ const REGIONS: Record<string, Region> = {
   "scotland": {
     slug: "scotland",
     name: "Scotland",
-    intro: "Access arthritis care across Glasgow, Edinburgh, Aberdeen and Dundee through Scotland's health service. Scottish patients benefit from Versus Arthritis Scotland support networks and university-led research at Glasgow and Edinburgh.",
+    intro: "Access arthritis care across Glasgow, Edinburgh, Aberdeen and Dundee through Scotland's health service. Scottish patients benefit from Arthritis UK (formerly Versus Arthritis) support networks in Scotland and university-led research at Glasgow and Edinburgh.",
     citySlugs: ["glasgow", "edinburgh", "aberdeen", "dundee"],
     highlights: [
       "Gartnavel General Hospital Rheumatology — Glasgow",
       "Western General Hospital — Edinburgh",
       "Aberdeen Royal Infirmary Rheumatology",
-      "Versus Arthritis Scotland support",
+      "Arthritis UK Scotland support",
     ],
     keywords: "arthritis scotland, health services scotland rheumatology, scottish arthritis support",
   },
@@ -143,7 +143,7 @@ const RegionHub = () => {
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content={r.name} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
@@ -156,7 +156,7 @@ const RegionHub = () => {
 
       <Header />
 
-      <PageBreadcrumb segments={[{ label: "Regions", href: "/regions" }, { label: r.name }]} />
+      <PageBreadcrumb segments={[{ label: "Arthritis support near you", href: "/arthritis-support" }, { label: r.name }]} />
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-5xl">
         <div className="flex items-center gap-2 text-primary mb-3">

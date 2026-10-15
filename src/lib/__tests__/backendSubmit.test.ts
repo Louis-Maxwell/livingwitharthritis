@@ -24,6 +24,7 @@ import {
 describe("backendSubmit newsletter + mailto", () => {
   beforeEach(() => {
     hrefs.length = 0;
+    window.localStorage.clear();
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => new Response(JSON.stringify({ success: true }), { status: 200 })),
@@ -53,6 +54,14 @@ describe("backendSubmit newsletter + mailto", () => {
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
   });
 
+  it("throttles repeated successful newsletter submissions for 60 seconds", async () => {
+    await subscribeNewsletter({ email: "jane@example.com" });
+    const result = await subscribeNewsletter({ email: "other@example.com" });
+    expect(result.via).toBe("throttled");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(hrefs).toHaveLength(0);
+  });
+
   it("falls back to mailto when FormSubmit fails", async () => {
     vi.stubGlobal(
       "fetch",
@@ -62,6 +71,18 @@ describe("backendSubmit newsletter + mailto", () => {
     expect(result.ok).toBe(false);
     expect(result.via).toBe("mailto");
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(true);
+  });
+
+  it.each([{ success: false }, { success: "false" }, { message: "Activation required" }])("does not claim signup success for a rejected 200 response: %j", async (payload) => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(payload), { status: 200 })));
+    const result = await subscribeNewsletter({ email: "jane@example.com" });
+    expect(result.ok).toBe(false);
+    expect(result.via).toBe("mailto");
+  });
+
+  it("accepts the provider's string success response", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ success: "true" }), { status: 200 })));
+    expect((await subscribeNewsletter({ email: "jane@example.com" })).ok).toBe(true);
   });
 
   it("opens mailto for contact inquiry", async () => {

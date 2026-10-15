@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { Building2, Heart, Users, Award, Handshake, CheckCircle, ArrowRight, Shield, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const inquirySchema = z.object({
   contact_name: z.string().trim().min(1, "Name is required").max(100),
@@ -109,6 +110,7 @@ const CorporateGiving = () => {
         email: parsed.data.email,
         phone: parsed.data.phone || undefined,
         subject: "Corporate giving enquiry",
+        formId: "corporate-giving",
         message: [
           parsed.data.organization_name ? "Organisation: " + parsed.data.organization_name : "",
           "Type: " + parsed.data.inquiry_type,
@@ -118,10 +120,13 @@ const CorporateGiving = () => {
       if (result.via === "mailto") {
         toast.message(result.message);
         setFormData({ contact_name: "", email: "", organization_name: "", inquiry_type: "", phone: "", message: "" });
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("corporate_giving", error instanceof Error ? error.message : "submit failed");
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
       setIsSubmitting(false);
@@ -132,22 +137,22 @@ const CorporateGiving = () => {
     <>
       <Helmet>
         <title>Corporate Giving & Partnerships UK | Living With Arthritis</title>
-        <meta name="description" content="Partner with Living With Arthritis UK (charity 1218461) through corporate sponsorship, matched giving, employee wellness and CSR partnerships." />
+        <meta name="description" content="Partner with Living With Arthritis (charity 1218461) through corporate sponsorship, matched giving, employee wellness and CSR partnerships." />
         <meta name="keywords" content="corporate giving arthritis UK, arthritis charity partnership, CSR arthritis UK, corporate sponsorship charity, employee wellness arthritis, matched giving UK, arthritis fundraising corporate, charity partnership UK" />
         <meta property="og:title" content="Corporate Giving & Partnerships UK | Living With Arthritis" />
-        <meta property="og:description" content="Partner with Living With Arthritis UK through corporate sponsorship, matched giving and employee wellness." />
+        <meta property="og:description" content="Partner with Living With Arthritis through corporate sponsorship, matched giving and employee wellness." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/corporate-giving" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Corporate Giving & Partnerships | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Corporate Giving & Partnerships | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Corporate Giving & Partnerships UK" />
-        <meta name="twitter:description" content="Corporate partnerships with Living With Arthritis UK charity 1218461." />
+        <meta name="twitter:description" content="Corporate partnerships with Living With Arthritis charity 1218461." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/corporate-giving" />
@@ -155,10 +160,10 @@ const CorporateGiving = () => {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Corporate Giving & Partnerships UK",
-          "description": "Corporate sponsorship and partnership opportunities with Living With Arthritis UK charity.",
+          "description": "Corporate sponsorship and partnership opportunities with Living With Arthritis charity.",
           "url": "https://livingwitharthritis.org.uk/corporate-giving",
           "inLanguage": "en-GB",
-          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "isPartOf": { "@type": "WebSite", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
           "audience": { "@type": "Audience", "audienceType": "Corporate Partners", "geographicArea": { "@type": "Country", "name": "United Kingdom" } }
         })}</script>
       </Helmet>

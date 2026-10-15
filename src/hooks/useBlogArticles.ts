@@ -1,132 +1,49 @@
 import { useQuery } from "@tanstack/react-query";
 import { getClustersForArticle, scoreCandidate } from "@/lib/relatedClusters";
-import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
-import {
-  getPublishedBlogList,
-  getStaticBlogArticle,
-  getStaticBlogArticles,
-  mergePreferStatic,
-  sortBlogList,
-} from "@/lib/staticBlogCatalog";
-import {
-  getPublishedArticle,
-  listArticlesByCategory,
-  listPublishedArticles,
-  nextArticle,
-  type DBBlogArticle,
-} from "@/data/staticBlog";
-import { canonicalBlogCategoryKey, blogCategoryAliases } from "@/data/blogCategories";
+import type { BlogPost } from "@/lib/blog/schema";
 
 export { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
-export type { DBBlogArticle, BlogArticleCitation } from "@/data/staticBlog";
+export type { BlogCitation as BlogArticleCitation, BlogListItem } from "@/lib/blog/catalog";
+/** Full guide record (kept under its historic name for existing callers). */
+export type DBBlogArticle = BlogPost;
 
-type BlogListItem = Pick<
-  DBBlogArticle,
-  | "slug"
-  | "title"
-  | "meta_title"
-  | "excerpt"
-  | "date"
-  | "category"
-  | "image_url"
-  | "display_order"
-  | "author"
-  | "updated_at"
-> & {
-  tags?: string[] | null;
-};
+export { useBlogArticle } from "./useBlogArticle";
 
-function asArticle(row: unknown): DBBlogArticle {
-  return row as DBBlogArticle;
-}
-
-function snapshotList(): BlogListItem[] {
-  return getPublishedBlogList() as BlogListItem[];
-}
-
-/** Single article by slug from the checked-in snapshot. */
-export function useBlogArticle(slug: string | undefined) {
-  const initialData =
-    typeof document === "undefined"
-      ? null
-      : readEmbeddedBlogArticle<DBBlogArticle>(document, slug);
-  return useQuery({
-    queryKey: ["blog_article", slug],
-    queryFn: async () => {
-      if (!slug) return null;
-      const catalog = getStaticBlogArticle(slug);
-      if (catalog) return asArticle(catalog);
-      const snapshot = await getPublishedArticle(slug);
-      return snapshot ? asArticle(snapshot) : null;
-    },
-    enabled: !!slug,
-    ...(initialData ? { initialData, initialDataUpdatedAt: Date.now() } : {}),
-  });
-}
-
-/** All published articles (list fields only), ordered by display_order then date */
+/** All published articles (metadata only), ordered by display_order then date. */
 export function useBlogArticlesList() {
   return useQuery({
     queryKey: ["blog_articles_list"],
-    queryFn: async () => snapshotList(),
+    queryFn: async () => (await import("@/lib/blog/catalog")).getBlogCatalog(),
   });
 }
 
-/** Top editor's-pick articles for the featured strip */
+/** Top editor's-pick articles for the featured strip. */
 export function useFeaturedArticles(limit = 3) {
   return useQuery({
     queryKey: ["blog_articles_featured", limit],
-    queryFn: async () => snapshotList().slice(0, limit),
+    queryFn: async () => (await import("@/lib/blog/catalog")).getBlogCatalog().slice(0, limit),
   });
 }
 
-function expandCategoryAliases(categories: string[]): string[] {
-  const expanded = new Set<string>();
-  for (const c of categories) {
-    const key = canonicalBlogCategoryKey(c);
-    if (key) {
-      for (const alias of blogCategoryAliases(key)) expanded.add(alias);
-      expanded.add(key);
-    }
-    expanded.add(c);
-  }
-  return [...expanded];
-}
-
-/** Recent articles filtered by one or more categories — used on Condition pages */
+/** Recent articles filtered by one or more categories — used on condition/category pages. */
 export function useConditionArticles(categories: string[] = [], limit = 4) {
   return useQuery({
     queryKey: ["blog_articles_by_categories", categories, limit],
     queryFn: async () => {
-      const aliases = new Set(expandCategoryAliases(categories));
-      const fromSnapshot = listArticlesByCategory(categories, Math.max(limit, 30));
-      const merged = snapshotList().filter((article) =>
-        categories.length === 0 ? true : aliases.has(article.category),
-      );
-      const combined = sortBlogList(mergePreferStatic(merged, fromSnapshot)).filter((article) =>
-        categories.length === 0 ? true : aliases.has(article.category),
-      );
-      return combined.slice(0, limit);
+      const { expandCategoryAliases, getBlogCatalog } = await import("@/lib/blog/catalog");
+      const aliases = expandCategoryAliases(categories);
+      return getBlogCatalog()
+        .filter((article) => (categories.length === 0 ? true : aliases.has(article.category)))
+        .slice(0, limit);
     },
   });
 }
 
-/** Next article for continue-reading bar */
+/** Next article for the continue-reading bar. */
 export function useNextArticle(currentSlug: string) {
   return useQuery({
     queryKey: ["next_article", currentSlug],
-    queryFn: async () => {
-      const fromSnapshot = nextArticle(currentSlug);
-      const list = snapshotList();
-      const current = list.find((a) => a.slug === currentSlug) ?? getStaticBlogArticle(currentSlug);
-      if (!current) return fromSnapshot;
-      const older = list
-        .filter((a) => a.slug !== currentSlug && (a.date ?? "") < (current.date ?? ""))
-        .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
-      if (older[0]) return { slug: older[0].slug, title: older[0].title };
-      const newest = list.find((a) => a.slug !== currentSlug);
-      return newest ? { slug: newest.slug, title: newest.title } : fromSnapshot;
-    },
+    queryFn: async () => (await import("@/lib/blog/catalog")).nextBlogPost(currentSlug),
   });
 }
 
@@ -147,10 +64,7 @@ export interface RelatedArticlesOptions {
   seedKeywords?: string;
 }
 
-export function useRelatedArticles(
-  currentSlug: string,
-  options: RelatedArticlesOptions = {},
-) {
+export function useRelatedArticles(currentSlug: string, options: RelatedArticlesOptions = {}) {
   const { seedClusters, seedCategory, seedTitle, seedExcerpt, seedKeywords } = options;
 
   return useQuery({
@@ -162,22 +76,15 @@ export function useRelatedArticles(
       seedTitle ?? null,
     ],
     queryFn: async () => {
+      const { getBlogCatalog, getBlogMeta } = await import("@/lib/blog/catalog");
       let sourceClusters: string[] = seedClusters ?? [];
       let sourceCategory: string | null = seedCategory ?? null;
 
-      const staticCurrent =
-        getStaticBlogArticle(currentSlug) ??
-        listPublishedArticles().find((a) => a.slug === currentSlug) ??
-        null;
-      if (currentSlug && (sourceClusters.length === 0 || !sourceCategory)) {
-        if (staticCurrent) {
-          sourceCategory = sourceCategory ?? staticCurrent.category ?? null;
-          if (sourceClusters.length === 0) {
-            sourceClusters = getClustersForArticle(staticCurrent);
-          }
-        }
+      const current = getBlogMeta(currentSlug) ?? null;
+      if (current && (sourceClusters.length === 0 || !sourceCategory)) {
+        sourceCategory = sourceCategory ?? current.category ?? null;
+        if (sourceClusters.length === 0) sourceClusters = getClustersForArticle(current);
       }
-
       if (sourceClusters.length === 0) {
         sourceClusters = getClustersForArticle({
           title: seedTitle,
@@ -187,10 +94,7 @@ export function useRelatedArticles(
         });
       }
 
-      const staticPool: RelatedArticle[] = [
-        ...getStaticBlogArticles(),
-        ...listPublishedArticles(),
-      ]
+      const candidates: RelatedArticle[] = getBlogCatalog()
         .filter((a) => a.slug !== currentSlug)
         .map((a) => ({
           slug: a.slug,
@@ -201,13 +105,8 @@ export function useRelatedArticles(
           keywords: a.keywords,
         }));
 
-      const candidates = mergePreferStatic(staticPool, []).slice(0, 40);
-
       const scored = candidates
-        .map((a) => ({
-          article: a,
-          score: scoreCandidate(a, sourceClusters, sourceCategory),
-        }))
+        .map((article) => ({ article, score: scoreCandidate(article, sourceClusters, sourceCategory) }))
         .sort((a, b) => {
           if (b.score !== a.score) return b.score - a.score;
           return (b.article.date ?? "").localeCompare(a.article.date ?? "");
@@ -216,10 +115,8 @@ export function useRelatedArticles(
       const top = scored.filter((s) => s.score > 0).slice(0, 3);
       if (top.length >= 3) return top.map((s) => s.article);
 
-      const filler = candidates
-        .filter((c) => !top.find((t) => t.article.slug === c.slug))
-        .slice(0, 3 - top.length);
-
+      const picked = new Set(top.map((t) => t.article.slug));
+      const filler = candidates.filter((c) => !picked.has(c.slug)).slice(0, 3 - top.length);
       return [...top.map((s) => s.article), ...filler];
     },
   });

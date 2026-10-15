@@ -1,3 +1,4 @@
+import PageDownloads from '@/components/PageDownloads';
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
@@ -38,9 +39,9 @@ const columns = [
       { label: "Diet & Nutrition Guide", href: "/guides/diet" },
       { label: "Exercise Guide", href: "/guides/exercise" },
       { label: "Guides Hub", href: "/guides" },
-      { label: "Benefits & PIP Hub", href: "/benefits-pip" },
+      { label: "How to claim PIP for arthritis in the UK", href: "/guides/benefits-pip" },
       { label: "Search", href: "/search" },
-      { label: "Benefits & PIP Guide", href: "/guides/benefits-pip" },
+      { label: "Benefits & PIP hub", href: "/benefits-pip" },
       { label: "Azathioprine Guide", href: "/guides/azathioprine-for-arthritis" },
     ],
   },
@@ -89,11 +90,16 @@ const Footer = () => {
       <HelplineWidget />
 
       <FooterMostRead />
+      <PageDownloads />
+      <div className="container mx-auto px-6 pt-6 text-sm">
+        <p>Educational information only, not a diagnosis or individual treatment plan. For emergencies call 999. <Link to="/disclaimer" className="underline">Medical disclaimer</Link>.</p>
+        <p className="mt-2"><Link to="/blog/inclusive-arthritis-frailty-support-plan-uk" className="underline">Our inclusive arthritis and frailty support plan</Link> · <Link to="/blog/cauda-equina-warning-signs-uk" className="underline">Cauda equina warning signs</Link></p>
+      </div>
       <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20">
         <div className="mb-14">
           <SiteLogo variant="full" markClassName="h-10 md:h-12" textClassName="text-3xl md:text-4xl" />
           <p className="text-sm text-muted-foreground mt-3 max-w-sm leading-relaxed">
-            Free physiotherapy, diet plans and evidence-based support for people living with arthritis across the UK.
+            Practical educational advice and support for people living with arthritis and frailty across the UK.
           </p>
         </div>
 
@@ -172,6 +178,9 @@ const Footer = () => {
               </address>
             )}
             <p className="mt-1.5">Recently registered with the Charity Commission for England and Wales.</p>
+            <p className="mt-1.5">
+              {CHARITY.shortName} is an independent charity, not affiliated with Arthritis UK.
+            </p>
             <p className="mt-1.5">
               Educational health information only —{" "}
               <Link to="/disclaimer" className="underline-offset-2 hover:text-primary hover:underline transition-colors">

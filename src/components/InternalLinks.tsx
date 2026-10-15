@@ -25,6 +25,7 @@ const SITE_PAGES: SitePage[] = [  { path: "/conditions/osteoarthritis", title: "
   { path: "/conditions/hip-arthritis", title: "Hip Arthritis", description: "OA and inflammatory arthritis of the hip joint — symptoms, exercise and treatment options.", icon: Activity, tags: ["condition", "hip", "osteoarthritis", "exercise"] },
   { path: "/conditions/shoulder-arthritis", title: "Shoulder Arthritis", description: "OA and inflammatory arthritis of the shoulder — symptoms, exercises and when to seek referral.", icon: Activity, tags: ["condition", "shoulder", "osteoarthritis", "exercise"] },
   { path: "/conditions/elbow-arthritis", title: "Elbow Arthritis", description: "Arthritis in the elbow joint — causes, symptoms and graded exercise guidance.", icon: Activity, tags: ["condition", "elbow", "osteoarthritis", "exercise"] },
+  { path: "/conditions/foot-and-ankle-arthritis", title: "Foot & Ankle Arthritis", description: "Hallux rigidus, midfoot and ankle arthritis — footwear, orthotics, exercises and UK pathways.", icon: Activity, tags: ["condition", "foot", "ankle", "footwear", "exercise"] },
   { path: "/conditions/polymyalgia-rheumatica", title: "Polymyalgia Rheumatica", description: "Inflammatory condition causing shoulder, neck and hip stiffness, mainly in adults over 50.", icon: Heart, tags: ["condition", "pmr", "inflammatory"] },
   { path: "/conditions/reactive-arthritis", title: "Reactive Arthritis", description: "Joint inflammation triggered by a recent infection — symptoms, recovery and treatment.", icon: Activity, tags: ["condition", "reactive-arthritis", "infection"] },
   { path: "/conditions/calcific-periarthritis", title: "Calcific Periarthritis", description: "Sudden shoulder or joint pain from calcium deposits in a tendon — symptoms, X-ray findings and treatment.", icon: Activity, tags: ["condition", "shoulder", "calcific-tendinitis", "inflammatory"] },
@@ -34,7 +35,7 @@ const SITE_PAGES: SitePage[] = [  { path: "/conditions/osteoarthritis", title: "
   { path: "/blog", title: "Blog & Articles", description: "Expert articles on managing arthritis, from cold-weather tips to supplement reviews.", icon: BookOpen, tags: ["blog", "articles", "tips", "research"] },
   { path: "/guides", title: "Guides Hub", description: "Practical UK arthritis guides — benefits, exercise, diet, pain relief and NHS pathways.", icon: BookOpen, tags: ["guide", "arthritis", "UK", "blog", "articles"] },
   { path: "/guides/benefits-pip", title: "Benefits & PIP Hub", description: "UK starting point for PIP, disability support, work rights and arthritis benefits.", icon: Heart, tags: ["PIP", "benefits", "disability", "guide", "finances"] },
-  { path: "/search", title: "Search guides & articles", description: "Filter Living With Arthritis UK guides and blog posts by topic and length.", icon: Search, tags: ["search", "blog", "guides", "articles"] },
+  { path: "/search", title: "Search guides & articles", description: "Filter Living With Arthritis guides and blog posts by topic and length.", icon: Search, tags: ["search", "blog", "guides", "articles"] },
   { path: "/faq", title: "Arthritis FAQs", description: "UK answers on OA, RA, gout, PIP, diet, exercise and cold-weather flares.", icon: BookOpen, tags: ["faq", "questions", "osteoarthritis", "rheumatoid"] },
   { path: "/library", title: "Health Library", description: "Plain-English notes on conditions, medications and treatments, including fibromyalgia.", icon: BookOpen, tags: ["library", "fibromyalgia", "condition"] },
   { path: "/library/fibromyalgia", title: "Fibromyalgia library", description: "UK library guide to widespread pain, fatigue, fibro fog and self-management.", icon: Activity, tags: ["condition", "fibromyalgia", "pain", "fatigue"] },
@@ -51,7 +52,7 @@ const SITE_PAGES: SitePage[] = [  { path: "/conditions/osteoarthritis", title: "
   { path: "/guides/exercise", title: "Exercise Guide", description: "Evidence-based exercise guide for arthritis: low-impact routines, swimming, yoga and strength training.", icon: Dumbbell, tags: ["guide", "exercise", "physio", "movement"] },
   { path: "/arthritis-waiting-list-help", title: "Waiting List Help", description: "What to do while waiting for rheumatology, physiotherapy or joint replacement in the UK.", icon: Stethoscope, tags: ["guide", "waiting", "rheumatology", "NHS", "UK"] },
   { path: "/blog/working-with-arthritis-uk-rights", title: "Work Rights & Access to Work", description: "Equality Act, reasonable adjustments and Access to Work for arthritis in the UK.", icon: ShieldCheck, tags: ["work", "Equality Act", "Access to Work", "PIP", "benefits"] },
-  { path: "/donate", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
+  { path: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", title: "Donate", description: "Support our mission to provide free arthritis support across the UK. Every donation helps.", icon: Heart, tags: ["donate", "charity", "support"] },
   { path: "/chat", title: "Help Chat", description: "Free personalised arthritis assistant — ask about symptoms, exercises, diet and health services.", icon: Activity, tags: ["chat", "support", "help"] },
   { path: "/self-help", title: "Self-help tool", description: "Interactive joint diagram and practical self-management starting points for UK readers.", icon: Activity, tags: ["exercise", "self-help", "pain", "tool"] },
   { path: "/symptom-checker", title: "Symptom checker", description: "A careful UK starting point for common arthritis symptoms — not a diagnosis; see a GP when unsure.", icon: Stethoscope, tags: ["symptom", "symptoms", "tool", "guide"] },
@@ -173,6 +174,29 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: i * 0.08, duration: 0.35 }}
               >
+                {page.path.startsWith("http") ? (
+                <a
+                  href={page.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col h-full rounded-xl border border-border/60 bg-card p-5 hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <h3 className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
+                      {page.title}
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1 line-clamp-3">
+                    {page.description}
+                  </p>
+                  <span className="text-primary text-xs font-medium inline-flex items-center gap-1 group-hover:gap-1.5 transition-all mt-auto">
+                    Read {page.title} <ArrowRight className="w-3 h-3" />
+                  </span>
+                </a>
+                ) : (
                 <Link
                   to={page.path}
                   className="group flex flex-col h-full rounded-xl border border-border/60 bg-card p-5 hover:shadow-lg hover:border-primary/30 transition-all duration-300"
@@ -192,6 +216,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                     Read {page.title} <ArrowRight className="w-3 h-3" />
                   </span>
                 </Link>
+                )}
               </motion.div>
             );
           })}

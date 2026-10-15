@@ -50,13 +50,13 @@ describe("generate-blog-head-data title + ogImage", () => {
 });
 
 describe("generate-blog-head-data catalog preference", () => {
-  it("documents that blogArticles/static overwrite stale head nested articles", () => {
-    // Behavioral contract: loadRowsFromLocalJson seeds from prior head-data,
-    // then overwrites with blogArticles.json and src/content/blog/*.json.
-    // This keeps inject/prerender titles and Soft-404 bodies catalog-true.
+  it("reads guides only from the single posts source (no stale head-data seeding)", () => {
+    // Behavioral contract: head entries come from src/content/blog/posts/*.json
+    // via scripts/lib/blog-posts.mjs, so inject/prerender titles and Soft-404
+    // bodies stay catalog-true and removed guides cannot linger.
     const src = readFileSync(resolve("scripts/generate-blog-head-data.mjs"), "utf8");
     expect(src).toMatch(/Catalog is source of truth/);
-    expect(src).toMatch(/blogArticles\.json/);
-    expect(src).toMatch(/loadLocalStaticArticles/);
+    expect(src).toMatch(/readPublishedBlogPosts/);
+    expect(src).not.toMatch(/blogArticles\.json/);
   });
 });

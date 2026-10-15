@@ -4,9 +4,10 @@ import SeoHead from '@/components/SeoHead';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { faqArticles } from '@/data/faqArticles';
-import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
+import { injectJsonLd } from '@/lib/jsonLd';
 import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
 import TopicClusterNav from '@/components/seo/TopicClusterNav';
+import PageBreadcrumb from '@/components/ui/PageBreadcrumb';
 import { getClusterForPath } from '@/data/topicClusters';
 
 const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
@@ -22,11 +23,14 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: 'Hip exercises for osteoarthritis', href: '/guides/hip-exercises-for-osteoarthritis' },
   ],
   'arthritis-disability-benefits-uk': [
+    { label: 'Benefits & PIP hub', href: '/benefits-pip' },
     { label: 'PIP for arthritis in the UK (blog)', href: '/blog/pip-for-arthritis-uk' },
     { label: 'Disability support guide', href: '/guides/disability-support' },
+    { label: 'Access to Work', href: '/library/access-to-work' },
     { label: 'Waiting-list help', href: '/arthritis-waiting-list-help' },
     { label: 'Printable PIP evidence diary', href: '/resources/pip-evidence-diary' },
-    { label: 'Benefits & PIP hub', href: '/benefits-pip' },
+    { label: 'Pain-relief guide', href: '/guides/arthritis-pain-relief' },
+    { label: 'Newly diagnosed', href: '/guides/newly-diagnosed' },
   ],
   'what-is-rheumatoid-arthritis': [
     { label: 'Rheumatoid arthritis guide', href: '/conditions/rheumatoid-arthritis' },
@@ -72,16 +76,10 @@ export default function FaqArticle() {
         })),
       ],
     };
-    const breadcrumb = buildBreadcrumb([
-      { name: 'Home', path: '/' },
-      { name: 'FAQ', path: '/faq' },
-      { name: article.title, path: `/faq/${article.slug}` },
-    ]);
+    // BreadcrumbList JSON-LD comes from <PageBreadcrumb> (id=breadcrumb-jsonld).
     const cleanup1 = injectJsonLd(`faq-jsonld-${article.slug}`, faq);
-    const cleanup2 = injectJsonLd(`faq-breadcrumb-${article.slug}`, breadcrumb);
     return () => {
       cleanup1();
-      cleanup2();
     };
   }, [article]);
 
@@ -94,24 +92,20 @@ export default function FaqArticle() {
   return (
     <>
     <Header />
+    <PageBreadcrumb
+      segments={[
+        { label: 'FAQ', href: '/faq' },
+        { label: article.title },
+      ]}
+    />
     <article className="max-w-3xl mx-auto py-12 px-4">
       <SeoHead
-        title={article.question}
-        description={article.quickAnswer.slice(0, 158)}
+        title={article.seoTitle ?? article.question}
+        description={(article.metaDescription ?? article.quickAnswer).slice(0, 160)}
         path={`/faq/${article.slug}`}
         type="article"
         keywords={`${article.title}, arthritis, ${article.category}`}
       />
-
-      <nav aria-label="Breadcrumb" className="text-sm mb-4">
-        <Link to="/" className="text-primary hover:underline">Home</Link>
-        <span className="mx-2 text-muted-foreground">/</span>
-        <Link to="/faq" className="text-primary hover:underline">
-          FAQ
-        </Link>
-        <span className="mx-2 text-muted-foreground">/</span>
-        <span className="text-muted-foreground">{article.title}</span>
-      </nav>
 
       <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.question}</h1>
 
@@ -129,9 +123,37 @@ export default function FaqArticle() {
       </div>
 
 
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+      <EducationalDisclaimerBox lastReviewed={article.lastReviewed ?? "2026-09-16"} />
       {getClusterForPath(`/faq/${article.slug}`) && (
         <TopicClusterNav path={`/faq/${article.slug}`} />
+      )}
+
+      {article.citations && article.citations.length > 0 && (
+        <section className="my-10" aria-labelledby="faq-citations-heading">
+          <h2 id="faq-citations-heading" className="text-xl font-bold mb-3">
+            Trusted sources
+          </h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            Confirm current rules and rates on official sites — this FAQ is educational orientation, not legal advice.
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            {article.citations.map((c) => (
+              <li key={c.url}>
+                <a
+                  href={c.url}
+                  className="text-primary hover:underline font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {c.label}
+                </a>
+                {c.publisher ? (
+                  <span className="text-muted-foreground"> — {c.publisher}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       {(article.relatedArticles.length > 0 || extraLinks.length > 0) && (

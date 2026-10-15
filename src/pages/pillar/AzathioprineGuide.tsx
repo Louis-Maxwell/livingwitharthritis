@@ -1,18 +1,19 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_AZATHIOPRINE } from "@/data/clinical/ukCitations";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const AZA_FAQS = [
   {
@@ -207,7 +208,7 @@ export default function AzathioprineGuide() {
         <meta property="og:title" content="Azathioprine for Arthritis: UK Guide" />
         <meta property="og:description" content="How azathioprine works in lupus, vasculitis and inflammatory arthritis — TPMT testing, dosing, side effects, monitoring and interactions." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/azathioprine-for-arthritis" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

@@ -705,7 +705,7 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">
               Free PECR-consent emails on flare prep, GP visits and living well with arthritis.
-              Educational only — not a diagnosis or medical advice. Living With Arthritis UK
+              Educational only — not a diagnosis or medical advice. Living With Arthritis
               (charity 1218461).
             </p>
             <EmailSignupForm
@@ -722,16 +722,22 @@ export default function SymptomQuiz({ compact = false, onComplete }: SymptomQuiz
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               {SOFT_CTAS.map((c) => (
                 <Button key={c.href} asChild variant="outline" className="min-h-11 justify-start gap-2">
-                  <Link to={c.href}>
-                    {c.href === "/chat" ? (
-                      <MessageCircle className="w-4 h-4" aria-hidden />
-                    ) : c.href === "/donate" ? (
+                  {c.href.startsWith("http") ? (
+                    <a href={c.href} target="_blank" rel="noopener noreferrer">
                       <HandHeart className="w-4 h-4" aria-hidden />
-                    ) : (
-                      <BookOpen className="w-4 h-4" aria-hidden />
-                    )}
-                    {c.label}
-                  </Link>
+                      {c.label}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    <Link to={c.href}>
+                      {c.href === "/chat" ? (
+                        <MessageCircle className="w-4 h-4" aria-hidden />
+                      ) : (
+                        <BookOpen className="w-4 h-4" aria-hidden />
+                      )}
+                      {c.label}
+                    </Link>
+                  )}
                 </Button>
               ))}
             </div>

@@ -1,7 +1,8 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
@@ -15,13 +16,13 @@ import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const EXERCISE_GUIDE_FAQS = [
   { question: "What is the best exercise for arthritis?", answer: "Low-impact aerobic activity (walking, swimming, cycling), strength training and a flexibility practice such as tai chi or yoga. UK NICE guidelines (NG226) put exercise ahead of medication for osteoarthritis. The single best exercise is the one you'll actually do 3–5 times per week." },
   { question: "Should I exercise if my joints hurt?", answer: "Yes — moderate joint pain (up to about 4/10) during arthritis exercise is normal and safe, provided the pain settles within 24 hours. Stop and reduce intensity if pain stays high overnight, joints swell, or you experience sharp catching pain." },
   { question: "How much exercise should someone with arthritis do per week?", answer: "Aim for 150 minutes of moderate aerobic activity per week (e.g. five 30-minute walks), plus 2 sessions of muscle-strengthening work, in line with UK Chief Medical Officer guidelines. Break it into 10-minute blocks if needed — short, frequent sessions count." },
-  { question: "Is walking good for arthritis?", answer: "Yes. Walking is one of the most strongly evidenced exercises for knee and hip osteoarthritis. Start with 10–15 minutes on flat ground and build up. Supportive footwear and walking poles can reduce knee load by up to 25%." },
+  { question: "Is walking good for arthritis?", answer: "Yes. Walking is one of the most strongly evidenced exercises for knee and hip osteoarthritis. Start with 10–15 minutes on flat ground and build up. Supportive footwear and walking poles may improve comfort and confidence for some people." },
   { question: "Is swimming better than the gym for arthritis?", answer: "Swimming and water-based exercise remove weight-bearing stress, making them excellent during flares or for severe joint disease. Gym-based strength training, however, is essential for protecting joints long-term — most people benefit from a combination." },
   { question: "Can I do strength training with rheumatoid arthritis?", answer: "Yes — and you should. Progressive resistance training is safe and beneficial in stable RA, helping counter the muscle loss that comes with inflammation and steroid use. Avoid heavy loads during an acute flare and resume gradually once it settles." },
 ];
@@ -42,13 +43,24 @@ const CONTENT = `
 <li><strong>Reduced fatigue</strong> — counterintuitively, regular exercise reduces the chronic fatigue associated with RA</li>
 </ul>
 
+
+<h2 id="joint-index">Joint exercise index (start here)</h2>
+<p>Jump to the free joint-specific home routines:</p>
+<ul>
+<li><strong><a href="/guides/knee-exercises-for-osteoarthritis">Free knee exercises for osteoarthritis UK</a></strong> — 8-move NICE-aligned routine</li>
+<li><strong><a href="/guides/hip-exercises-for-osteoarthritis">Hip exercises for osteoarthritis</a></strong> — 8-move physio-aligned routine</li>
+<li><strong><a href="/exercises">Exercise hub</a></strong> — interactive library by joint</li>
+<li><strong><a href="/guides/can-exercise-make-osteoarthritis-worse">Can exercise make osteoarthritis worse?</a></strong> — safety evidence</li>
+<li><strong><a href="/guides/free-arthritis-resources-uk">Free arthritis resources UK</a></strong> — guides, home physio and tools (charity 1218461)</li>
+</ul>
+
 <h2 id="types-of-exercise">Types of Exercise for Arthritis</h2>
 <p>A balanced arthritis exercise programme should include <strong>three types</strong> of activity:</p>
 
 <h3 id="aerobic-exercise">1. Aerobic (Cardiovascular) Exercise</h3>
 <p>Low-impact aerobic exercise improves cardiovascular fitness, helps manage weight, reduces inflammation and boosts mood. The health service recommends at least <strong>150 minutes of moderate-intensity activity per week</strong> (or 75 minutes of vigorous activity). For people with arthritis, suitable options include:</p>
 <ul>
-<li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) reduces knee load by up to 30%</li>
+<li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) may improve comfort and confidence for some people, but evidence on its effect on knee loading is mixed.</li>
 <li><strong>Swimming and water aerobics</strong> — buoyancy reduces joint load by up to 90%, making it ideal for painful joints. Many the public health service and local authority pools offer arthritis-specific sessions</li>
 <li><strong>Cycling</strong> — stationary or outdoor; very low joint impact. Excellent for knee OA</li>
 <li><strong>Elliptical trainer</strong> — smooth, controlled movement without impact</li>
@@ -61,6 +73,7 @@ const CONTENT = `
 <p><strong>Key exercises by joint:</strong></p>
 
 <h3>Knee exercises</h3>
+<p>Full free programme: <a href="/guides/knee-exercises-for-osteoarthritis">Free knee exercises for osteoarthritis UK</a>.</p>
 <ul>
 <li><strong>Straight-leg raises</strong> — lie on your back, keep one leg bent and slowly raise the other, hold 5 seconds. 3 sets of 10.</li>
 <li><strong>Wall squats</strong> — lean against a wall and slide down to a comfortable squat (30–45°), hold 10 seconds. 3 sets of 5–10.</li>
@@ -69,6 +82,7 @@ const CONTENT = `
 </ul>
 
 <h3>Hip exercises</h3>
+<p>Full free programme: <a href="/guides/hip-exercises-for-osteoarthritis">Hip exercises for osteoarthritis</a>.</p>
 <ul>
 <li><strong>Bridges</strong> — lie on your back with knees bent, lift hips toward the ceiling, hold 5 seconds. 3 sets of 10.</li>
 <li><strong>Clamshells</strong> — lie on your side with knees bent, keep feet together and open the top knee like a clamshell. 3 sets of 15.</li>
@@ -120,7 +134,7 @@ const CONTENT = `
 <li><strong>Resistance</strong> — water provides natural resistance for strengthening without weights</li>
 <li><strong>Pain relief</strong> — hydrostatic pressure reduces swelling</li>
 </ul>
-<p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Versus Arthritis</strong> maintain directories of arthritis-friendly swimming sessions.</p>
+<p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Arthritis UK (formerly Versus Arthritis)</strong> maintain directories of arthritis-friendly swimming sessions.</p>
 
 <h2 id="exercise-during-flares">Exercising During Flare-Ups</h2>
 <p>A common question is whether to exercise during a flare-up. The answer is: <strong>yes, but modify</strong>. During active flares:</p>
@@ -173,8 +187,8 @@ const CONTENT = `
 <h2 id="uk-resources-exercise">UK Exercise Resources</h2>
 <ul>
 <li><strong>Living With Arthritis</strong> — <a href="/exercises">free exercise programmes</a> for every major joint</li>
-<li><strong>Versus Arthritis</strong> — exercise guides and video library at <a href="https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">versusarthritis.org</a></li>
-<li><strong>UK Health Fitness Studio</strong> — free exercise videos at <a href="https://www.gov.uk/browse/health-and-social-care" target="_blank" rel="noopener noreferrer">gov.uk/health</a></li>
+<li><strong>Arthritis UK (formerly Versus Arthritis)</strong> — exercise guides and video library at <a href="https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">arthritis-uk.org</a></li>
+<li><strong>UK Health Fitness Studio</strong> — free exercise videos at <a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a></li>
 <li><strong>Chartered Society of Physiotherapy</strong> — find a physiotherapist at <a href="https://www.csp.org.uk" target="_blank" rel="noopener noreferrer">csp.org.uk</a></li>
 <li><strong>We Are Undefeatable</strong> — campaign supporting people with long-term conditions to be active</li>
 </ul>
@@ -189,28 +203,28 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Arthritis exercises UK: safe strength, walking and chair routines</title>
-        <meta name="description" content="Safe arthritis exercises for UK adults: low-impact cardio, strength, flexibility, water and chair routines for knee, hip, hand and shoulder. Educational — check with your clinician." />
+        <title>Arthritis Exercises at Home UK | Living With Arthritis</title>
+        <meta name="description" content="Free arthritis exercises at home in the UK: explore knee, hip, hand and chair routines, safe progression and practical guidance from Living With Arthritis." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
-      <meta property="og:title" content="Best Exercises for Arthritis UK – Knee, Hip, Hand &amp; Chair Exercises Guide" />
+      <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Knee, Hip, Hand &amp; Chair" />
       <meta property="og:description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/exercise" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Best Exercises for Arthritis UK – Knee, Hip, Hand &amp; Chair Exercises Guide" />
+      <meta name="twitter:title" content="Free physiotherapy exercises for arthritis at home UK – Knee, Hip, Hand &amp; Chair" />
       <meta name="twitter:description" content="Evidence-based exercise guide for arthritis: low-impact aerobic, strength training, flexibility, water-based and chair exercises. Progressive programmes for knee, hip, hand and shoulder joints." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <PageSchema
         url="/guides/exercise"
-        name="Best Exercises for Arthritis (UK)"
-        description="Evidence-based exercise guide for arthritis: low-impact aerobic, strength, flexibility, water-based and chair exercises for every major joint."
+        name="Free physiotherapy exercises for arthritis at home UK"
+        description="Free physiotherapy exercises for arthritis at home in the UK — NICE-aligned routines for knee, hip, hand and chair, with a joint index to full guides."
         medical={{ condition: "Arthritis" }}
         speakableSelector=".speakable-intro"
         breadcrumbs={[
@@ -225,8 +239,8 @@ export default function ExerciseGuide() {
       <Header />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
-          title="Exercise Guide for Arthritis"
-          subtitle="The definitive guide to exercising with arthritis — from gentle chair-based routines to progressive strength programmes, backed by clinical evidence."
+          title="Free physiotherapy exercises for arthritis at home UK"
+          subtitle="NICE-aligned home physio routines for knees, hips, hands and more — free from Living With Arthritis (charity 1218461). Start gently, progress safely."
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">

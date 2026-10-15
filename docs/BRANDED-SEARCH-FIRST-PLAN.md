@@ -1,6 +1,6 @@
 # Branded search plan — rank first for “Living With Arthritis”
 
-**Goal:** When someone types *living with arthritis* (and close brand variants) in Google/Bing/AI search, **Living With Arthritis UK (charity 1218461)** appears first as *the organisation*, not NHS “living with” condition pages or Arthritis UK.
+**Goal:** When someone types *living with arthritis* (and close brand variants) in Google/Bing/AI search, **Living With Arthritis (charity 1218461)** appears first as *the organisation*, not NHS “living with” condition pages or Arthritis UK.
 
 **Honest limit:** Nobody can force Google to put any site #1. The phrase *living with arthritis* is also a common **informational** query (NHS, Arthritis UK, Arthritis Action). We win by owning **brand intent** hard, then expanding into the generic phrase over months with authority.
 
@@ -56,7 +56,7 @@ Honest open-web snapshot from this run (no GSC export; **Ahrefs GSC/SERP APIs un
 
 ### Homepage & About (entity clarity)
 
-- Title pattern: `Living With Arthritis UK | Registered Charity 1218461` (or keep customer H1, but title/OG must lead with **exact charity name**).
+- Title pattern: `Living With Arthritis | Registered Charity 1218461` (or keep customer H1, but title/OG must lead with **exact charity name**).
 - First screen: legal name + “Registered charity 1218461” + “Independent of Arthritis UK”.
 - About page: one clear “Who we are” block for Google (name, number, what we do, who we serve, contact).
 - Organization / NGO JSON-LD: `name`, `legalName`, `url`, `sameAs` (Charity Commission, Facebook, Instagram, YouTube, LinkedIn if real), `foundingDate`, `identifier` charity number.
@@ -73,7 +73,7 @@ Honest open-web snapshot from this run (no GSC export; **Ahrefs GSC/SERP APIs un
 
 - Charity Commission listing website = livingwitharthritis.org.uk.
 - Companies House / CIO records consistent.
-- Social profiles: display name **Living With Arthritis** / **Living With Arthritis UK**, bio with charity number + URL.
+- Social profiles: display name **Living With Arthritis** / **Living With Arthritis**, bio with charity number + URL.
 - Google Business Profile **only if** a public location policy allows (Louis: keep Oswestry off public site unless policy changes) — otherwise skip GBP or use service-area without street if Google allows.
 
 **Success:** Searching the brand shows our homepage with charity number in the snippet; Knowledge Panel starts forming if Google has enough entity signals.
@@ -104,8 +104,8 @@ Earn links from: local NHS trust patient pages, ARMA-style directories, universi
 
 ### Organic content that reinforces the brand
 
-- Pillar: “About Living With Arthritis UK” (already) + “How we help people living with arthritis in the UK”.
-- Internal links: every money hub links to About with anchor “Living With Arthritis UK (charity 1218461)”.
+- Pillar: “About Living With Arthritis” (already) + “How we help people living with arthritis in the UK”.
+- Internal links: every money hub links to About with anchor “Living With Arthritis (charity 1218461)”.
 - Blog/footer: consistent brand string, not shortened to “LWA” alone in titles.
 
 ### Paid (optional, fast)
@@ -178,4 +178,4 @@ GSC cells are placeholders until Louis exports Search Console. Ahrefs rank track
 
 ---
 
-*Phase 0 baseline recorded 2026-09-20 for Living With Arthritis UK. Consolidates PR #62. Legitimate SEO only. Off-site Louis actions: `docs/BRANDED-ENTITY-OFFSITE-CHECKLIST.md`.*
+*Phase 0 baseline recorded 2026-09-20 for Living With Arthritis. Consolidates PR #62. Legitimate SEO only. Off-site Louis actions: `docs/BRANDED-ENTITY-OFFSITE-CHECKLIST.md`.*

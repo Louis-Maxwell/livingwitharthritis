@@ -7,6 +7,8 @@
  * Google (e.g. "Understanding widespread chronic pain"), and when
  * inject-canonicals would otherwise bake a "Library — slug" stub.
  */
+import { LIBRARY_EXPANSIONS } from "./libraryExpansions";
+
 export interface ExtraSection {
   heading: string;
   body: string;
@@ -19,6 +21,7 @@ export interface LibraryTopicSeo {
   h1?: string;
   related?: { label: string; href: string }[];
   extraSections?: ExtraSection[];
+  faqs?: { q: string; a: string }[];
 }
 
 export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
@@ -30,6 +33,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     related: [
       { label: "Fibromyalgia condition guide", href: "/conditions/fibromyalgia" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Mental health and chronic pain", href: "/arthritis-mental-health" },
     ],
@@ -43,6 +47,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Full osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "What is osteoarthritis? FAQ", href: "/faq/what-is-osteoarthritis" },
     ],
   },
@@ -158,6 +163,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Arthritis overview", href: "/library/arthritis" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Benefits & PIP", href: "/benefits-pip" },
     ],
     extraSections: [
@@ -199,7 +205,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
   },
 
   turmeric: {
-    title: "Turmeric for arthritis UK: curcumin evidence and safety",
+    title: "Turmeric for arthritis: curcumin evidence and safety (UK)",
     description:
       "UK library note on turmeric and curcumin for joint pain — what trials suggest, why black pepper matters, and why supplements are not a cure. Educational only.",
     h1: "Turmeric and curcumin for arthritis: a cautious UK overview",
@@ -230,18 +236,61 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Benefits & PIP", href: "/benefits-pip" },
     ],
   },
   "access-to-work": {
-    title: "Access to Work UK: arthritis workplace support",
+    title: "Access to Work UK for arthritis: grants, eligibility & how to apply",
     description:
-      "UK library note on Access to Work for people with arthritis — equipment, travel and support at work, plus PIP and disability support next steps.",
+      "What Access to Work can fund for people with arthritis in England, Scotland and Wales — equipment, travel, support workers — plus Equality Act adjustments, PIP links and how to apply on GOV.UK.",
+    h1: "Access to Work for arthritis: UK workplace support explained",
     related: [
       { label: "Benefits & PIP hub", href: "/benefits-pip" },
-      { label: "PIP guide", href: "/guides/benefits-pip" },
+      { label: "Full PIP & benefits guide", href: "/guides/benefits-pip" },
       { label: "Disability support", href: "/guides/disability-support" },
-      { label: "Work with arthritis", href: "/guides/work-with-arthritis" },
+      { label: "Working with arthritis (rights)", href: "/blog/working-with-arthritis-uk-rights" },
+    ],
+    faqs: [
+      {
+        q: "What is Access to Work?",
+        a: "Access to Work is a UK government grant that can help pay for practical support if a disability or long-term health condition — including arthritis — affects your job. It complements, rather than replaces, your employer's Equality Act duty to make reasonable adjustments.",
+      },
+      {
+        q: "Who can apply for Access to Work with arthritis?",
+        a: "You can usually apply if you are 16 or over, live and work in England, Scotland or Wales, are in paid work or about to start, and have a long-term condition such as rheumatoid arthritis, osteoarthritis or another musculoskeletal condition that affects how you do your job.",
+      },
+      {
+        q: "What can Access to Work pay for?",
+        a: "Common awards include specialist equipment or adaptations, changes to the working environment, travel to work if public transport is not manageable, a support worker or job coach, and some mental health support. Exact awards depend on individual assessment.",
+      },
+      {
+        q: "How do I apply for Access to Work?",
+        a: "Apply online via GOV.UK Access to Work or by phone. A workplace assessment may follow. You can apply before starting a new role or while already employed. Keep notes on flare days, tasks you struggle with, and equipment that already helps.",
+      },
+      {
+        q: "Does Access to Work replace reasonable adjustments?",
+        a: "No. Under the Equality Act 2010, employers must still consider reasonable adjustments such as flexible hours, extra breaks or modified duties. Access to Work is designed for support that goes beyond what is reasonable for the employer alone.",
+      },
+      {
+        q: "Can I claim PIP and Access to Work together?",
+        a: "Yes. PIP looks at daily living and mobility; Access to Work looks at workplace support. Many people use both. Start with our Benefits & PIP hub for claim prep, then use this page for workplace grants.",
+      },
+    ],
+    extraSections: [
+      {
+        heading: "Arthritis-specific workplace examples",
+        body: "People with arthritis often use Access to Work for sit-stand desks, ergonomic chairs, vertical mice, voice recognition software, parking closer to the entrance, or taxi fares during flares when public transport is not realistic. Self-employed people can also apply. Bring a short flare diary to any assessment so bad days are visible, not only good ones.",
+        bullets: [
+          "Dictation software when hand or wrist arthritis slows typing",
+          "Supportive seating and desk height for spinal or hip OA",
+          "Travel support when morning stiffness makes commuting unreliable",
+        ],
+      },
+      {
+        heading: "Next steps after you apply",
+        body: "While you wait for a decision, talk to your manager or HR about Equality Act reasonable adjustments, and ask occupational health for a workstation review if one is available. If benefits questions sit alongside work worries, use the PIP guide and evidence diary so you are not juggling blank forms alone.",
+      },
     ],
   },
   glucosamine: {
@@ -255,35 +304,36 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Supplements hub", href: "/supplements" },
     ],
   },
-  "knee-pain": {
-    title: "Knee pain UK: arthritis causes and self-care",
-    description:
-      "UK library guide to knee pain with arthritis — common patterns, when to see a GP, and links to OA, exercise and pain-relief pillars.",
-    related: [
-      { label: "Knee arthritis guide", href: "/conditions/knee-arthritis" },
-      { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
-      { label: "Exercise for arthritis", href: "/guides/exercise" },
-      { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
-    ],
-  },
+  // Expanded overlays (Sep 2026) live in libraryExpansions.ts.
+  "carpal-tunnel": LIBRARY_EXPANSIONS["carpal-tunnel"],
+  "knee-pain": LIBRARY_EXPANSIONS["knee-pain"],
+  "raynauds": LIBRARY_EXPANSIONS["raynauds"],
+  "sjogrens": LIBRARY_EXPANSIONS["sjogrens"],
+  "vasculitis": LIBRARY_EXPANSIONS["vasculitis"],
+  "hydroxychloroquine": LIBRARY_EXPANSIONS["hydroxychloroquine"],
+  "shoulder-pain": LIBRARY_EXPANSIONS["shoulder-pain"],
+  "plantar-fasciitis": LIBRARY_EXPANSIONS["plantar-fasciitis"],
+  "osteoporosis": LIBRARY_EXPANSIONS["osteoporosis"],
   naproxen: {
-    title: "Naproxen for arthritis UK: NSAID library note",
+    title: "Naproxen for arthritis: UK NSAID library note",
     description:
       "Educational UK overview of naproxen for joint pain — how NSAIDs fit alongside exercise and pain relief, plus safety checks with your pharmacist or GP.",
     related: [
       { label: "Painkillers & NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Diet pillar", href: "/guides/diet" },
     ],
   },
   ibuprofen: {
-    title: "Ibuprofen for arthritis UK: when people use it",
+    title: "Ibuprofen for arthritis: when people use it (UK)",
     description:
       "UK library note on ibuprofen for joint pain — short-term symptom relief themes, stomach and kidney cautions, and non-drug pillars that matter more long-term.",
     related: [
       { label: "Painkillers & NSAIDs guide", href: "/guides/painkillers-and-nsaids" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
     ],
@@ -301,6 +351,7 @@ export function getLibraryPillarRelated(
     { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
     { label: "Exercise for arthritis", href: "/guides/exercise" },
     { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
     { label: "Diet pillar", href: "/guides/diet" },
   ];
 
@@ -318,12 +369,14 @@ export function getLibraryPillarRelated(
       { label: "Supplements hub", href: "/supplements" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
     ];
   }
   if (category === "Medication" || category === "Treatment") {
     return [
       { label: "Painkillers & NSAIDs", href: "/guides/painkillers-and-nsaids" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
+      { label: "Understanding pain", href: "/guides/understanding-pain" },
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },
     ];

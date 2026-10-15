@@ -52,6 +52,13 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     cluster: "medication",
   },
 
+  {
+    path: "/guides/understanding-pain",
+    title: "Understanding pain",
+    description: "Pain types explained — inflammatory, mechanical, neuropathic and more — plus questions for your GP.",
+    cluster: "condition",
+  },
+
   // MSK / movement
   {
     path: "/guides/exercise",
@@ -69,6 +76,12 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     path: "/guides/hip-exercises-for-osteoarthritis",
     title: "Hip exercises for osteoarthritis",
     description: "A safe, physio-aligned hip OA routine with warm-up, strength work and progression.",
+    cluster: "msk",
+  },
+  {
+    path: "/guides/knee-exercises-for-osteoarthritis",
+    title: "Free knee exercises for osteoarthritis UK",
+    description: "NICE-aligned 8-move home routine for knee OA — warm-up, weekly plan, 4/10 pain rule and red flags.",
     cluster: "msk",
   },
   {
@@ -139,6 +152,12 @@ export const GUIDE_REGISTRY: GuideEntry[] = [
     path: "/guides/benefits-pip",
     title: "Benefits & PIP",
     description: "Personal Independence Payment for people with arthritis.",
+    cluster: "support",
+  },
+  {
+    path: "/guides/free-arthritis-resources-uk",
+    title: "Free arthritis resources UK",
+    description: "Free Living With Arthritis guides, home physio routines, PIP diary and flare tools — charity 1218461.",
     cluster: "support",
   },
   {

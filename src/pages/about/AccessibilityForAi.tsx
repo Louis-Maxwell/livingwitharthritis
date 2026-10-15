@@ -14,7 +14,7 @@ const AccessibilityForAi = () => {
       "@type": "Article",
       headline: "Machine-Readable Content & AI Crawler Access",
       description:
-        "Machine-readable surfaces on Living With Arthritis UK: JSON-LD schemas, sitemap, llms.txt, ai.txt and robots policy for AI crawlers.",
+        "Machine-readable surfaces on Living With Arthritis: JSON-LD schemas, sitemap, llms.txt, ai.txt and robots policy for AI crawlers.",
       author: { "@type": "Person", name: "Maxwell", identifier: "HCPC PH128483" },
       datePublished: "2026-06-26",
       dateModified: "2026-06-26",
@@ -34,7 +34,7 @@ const AccessibilityForAi = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Machine-Readable Content for AI"
-        description="Discoverability surfaces for AI crawlers on Living With Arthritis UK: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail."
+        description="Discoverability surfaces for AI crawlers on Living With Arthritis: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail."
         path={PATH}
       />
       <Header />
@@ -56,6 +56,7 @@ const AccessibilityForAi = () => {
             <li><a className="text-primary underline underline-offset-2" href="/llms.txt">/llms.txt</a> &mdash; condensed site map for LLMs.</li>
             <li><a className="text-primary underline underline-offset-2" href="/llms-full.txt">/llms-full.txt</a> &mdash; full plain-text content corpus.</li>
             <li><a className="text-primary underline underline-offset-2" href="/.well-known/ai.txt">/.well-known/ai.txt</a> &mdash; usage policy &amp; license (CC-BY-4.0, attribution required).</li>
+            <li><a className="text-primary underline underline-offset-2" href="/answer-engine.json">/answer-engine.json</a> &mdash; concise entity facts, attribution rules and preferred citation pages.</li>
           </ul>
         </section>
 

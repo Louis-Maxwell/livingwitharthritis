@@ -283,7 +283,7 @@ export const SOFT_CTAS: ResourceLink[] = [
   },
   {
     label: "Support our work",
-    href: "/donate",
+    href: "https://www.gofundme.com/f/help-fund-critical-arthritis-research",
     description: "Optional donation — never required to use tools.",
   },
 ];

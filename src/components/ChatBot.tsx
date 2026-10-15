@@ -20,6 +20,7 @@ const quickSuggestions = [
   { icon: Apple, label: "Best anti-inflammatory foods?", image: chatFoods },
   { icon: Dumbbell, label: "Safe exercises for knee pain?", image: chatExercise },
   { icon: HelpCircle, label: "Can I claim PIP with arthritis?", image: chatDoctor },
+  { icon: Heart, label: "How does arthritis affect daily life?", image: chatDoctor },
 ];
 
 const SESSION_KEY_STORAGE = "arthritis_chat_session_key_v1";
@@ -36,10 +37,12 @@ function secureSessionId(): string {
 function getOrCreateSessionKey(): string {
   if (typeof window === "undefined") return "";
   try {
-    let key = window.localStorage.getItem(SESSION_KEY_STORAGE);
+    // Do not keep a stable chat id after the tab closes.
+    window.localStorage.removeItem(SESSION_KEY_STORAGE);
+    let key = window.sessionStorage.getItem(SESSION_KEY_STORAGE);
     if (!key) {
       key = secureSessionId();
-      window.localStorage.setItem(SESSION_KEY_STORAGE, key);
+      window.sessionStorage.setItem(SESSION_KEY_STORAGE, key);
     }
     return key;
   } catch {

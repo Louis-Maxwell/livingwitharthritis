@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import { lazy, Suspense, useState } from "react";
+import { Suspense, useState } from "react";
 import {
   Heart, Users, Trophy, Building2, ScrollText, ArrowRight,
   HandHeart, Send, CheckCircle2, Quote, MapPin, Clock,
@@ -16,8 +16,10 @@ import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
+import { reportFormFailure } from "@/lib/errorReporting";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const WAYS = [
   {
@@ -26,7 +28,7 @@ const WAYS = [
     description: "Your gift directly funds physiotherapy sessions, exercise programmes and community support for people living with arthritis across the UK.",
     impact: "£10 funds a virtual physio session",
     cta: "Donate Now",
-    href: "/donate",
+    href: GOFUNDME_URL,
     gradient: "from-primary to-secondary",
     bgLight: "bg-primary/5",
     iconColor: "text-primary",
@@ -129,10 +131,13 @@ export default function WaysToHelp() {
         trackContactFormSubmit("volunteer");
         toast.message(result.message);
         setSubmitted(true);
+      } else if (result.via === "throttled") {
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("volunteer", error instanceof Error ? error.message : "submit failed");
       toast.error(`Something went wrong. Please email ${CONTACT_EMAILS.info}.`);
     } finally {
       setSubmitting(false);
@@ -142,21 +147,21 @@ export default function WaysToHelp() {
   return (
     <>
       <Helmet>
-        <title>Ways to Help | Living With Arthritis UK</title>
+        <title>Ways to Help | Living With Arthritis</title>
         <meta name="description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
-      <meta property="og:title" content="Ways to Help | Living With Arthritis UK" />
+      <meta property="og:title" content="Ways to Help | Living With Arthritis" />
       <meta property="og:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/ways-to-help" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Ways To Help | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Ways To Help | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Ways to Help | Living With Arthritis UK" />
+      <meta name="twitter:title" content="Ways to Help | Living With Arthritis" />
       <meta name="twitter:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
@@ -195,13 +200,12 @@ export default function WaysToHelp() {
                 </p>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button
-                    onClick={() => navigate("/donate")}
-                    size="lg"
-                    className="rounded-full bg-background text-primary hover:bg-background/90 font-bold shadow-lg shadow-primary/10 h-12 px-8"
-                  >
-                    <Heart className="w-4 h-4 mr-2" />
-                    Donate Now
+                  <Button asChild size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 font-bold shadow-lg shadow-primary/10 h-12 px-8">
+                    <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+                      <Heart className="w-4 h-4 mr-2" />
+                      Donate Now
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
                   </Button>
                   <Button
                     onClick={() => document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" })}
@@ -289,13 +293,11 @@ export default function WaysToHelp() {
                           ))}
                         </ul>
                         <div>
-                          <Button
-                            onClick={() => navigate(way.href)}
-                            size="lg"
-                            className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md"
-                          >
-                            {way.cta}
-                            <ArrowRight className="w-4 h-4 ml-2" />
+                          <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md">
+                            <a href={way.href} target="_blank" rel="noopener noreferrer">
+                              {way.cta}
+                              <span className="sr-only"> (opens in a new tab)</span>
+                            </a>
                           </Button>
                         </div>
                       </div>
@@ -575,13 +577,12 @@ export default function WaysToHelp() {
                 Join thousands of supporters across the UK who are helping people with arthritis live better, more active lives.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Button
-                  onClick={() => navigate("/donate")}
-                  size="lg"
-                  className="rounded-full bg-background text-primary hover:bg-background/90 font-bold h-12 px-8 shadow-lg"
-                >
-                  <Heart className="w-4 h-4 mr-2" />
-                  Donate Now
+                <Button asChild size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 font-bold h-12 px-8 shadow-lg">
+                  <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+                    <Heart className="w-4 h-4 mr-2" />
+                    Donate Now
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
                 </Button>
                 <Button
                   onClick={() => navigate("/about")}

@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -15,6 +15,7 @@ import { trackContactSubmit } from "@/lib/analytics";
 import { submitContactInquiry } from "@/lib/backendSubmit";
 import { trackContactFormSubmit } from "@/lib/ga-events";
 import { trackEvent } from "@/lib/analytics";
+import { reportFormFailure } from "@/lib/errorReporting";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
 const WHATSAPP_URL = `https://wa.me/44${CONTACT_PHONE_TEL.replace(/^0/, "")}`;
@@ -92,6 +93,12 @@ const ContactSection = memo(() => {
   const [submitted, setSubmitted] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const firstErrRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
+  // Bumped on each failed submit; focus moves after React has rendered the
+  // error state (the ref only points at the first invalid field after commit).
+  const [errorAttempt, setErrorAttempt] = useState(0);
+  useEffect(() => {
+    if (errorAttempt > 0) firstErrRef.current?.focus();
+  }, [errorAttempt]);
 
   const set =
     (k: keyof ContactForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -103,7 +110,7 @@ const ContactSection = memo(() => {
     const errs = validateContact(form);
     if (Object.keys(errs).length) {
       setErrors(errs);
-      firstErrRef.current?.focus();
+      setErrorAttempt((n) => n + 1);
       return;
     }
     if (honeypot.trim()) {
@@ -123,10 +130,14 @@ const ContactSection = memo(() => {
         // Mailto-only — not delivery confirmation
         toast.message(result.message);
         setSubmitted(true);
+      } else if (result.via === "throttled") {
+        setErrors({});
+        toast.message(result.message);
       } else {
         toast.error(result.message);
       }
-    } catch {
+    } catch (error) {
+      reportFormFailure("contact_section", error instanceof Error ? error.message : "submit failed");
       toast.error(
         `Something went wrong. Please email ${CONTACT_EMAIL} or call ${CONTACT_PHONE}.`,
       );

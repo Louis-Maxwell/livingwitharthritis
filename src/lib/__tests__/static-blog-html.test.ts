@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
-import { rewriteHead } from "../../../scripts/inject-canonicals.mjs";
+import { patchShareMeta, rewriteHead } from "../../../scripts/inject-canonicals.mjs";
 import {
   HOME_SHELL_HEADING,
   buildStaticArticleInner,
@@ -66,7 +66,7 @@ Prepare a short note covering your diagnosis, the tasks that are hardest, and th
 
 const WORK_HEAD = {
   title:
-    "Arthritis at Work UK – Rights, Adjustments & Practical Tips | Living With Arthritis UK",
+    "Arthritis at Work UK – Rights, Adjustments & Practical Tips | Living With Arthritis",
   description: "Managing arthritis while working in the UK.",
   question: "Arthritis at Work UK – Rights, Adjustments & Practical Tips",
   answer: WORK_ARTICLE.direct_answer,
@@ -77,6 +77,32 @@ const WORK_HEAD = {
 };
 
 describe("static blog HTML for Soft 404s", () => {
+  it("replaces an inherited secure social image in fresh and retained HTML", () => {
+    const template = TEMPLATE.replace("</head>", '<meta property="og:image:secure_url" content="https://example.com/home.png" /></head>');
+    const data = { ...WORK_HEAD, ogImage: "https://example.com/work.png" };
+    for (const html of [rewriteHead(template, "/blog/arthritis-and-work-uk", data), patchShareMeta(template, data)]) {
+      expect(html).toContain('property="og:image:secure_url" content="https://example.com/work.png"');
+      expect(html).not.toContain("https://example.com/home.png");
+      expect(html.match(/property="og:image:secure_url"/g)).toHaveLength(1);
+    }
+  });
+
+  it("keeps search results out of the index while allowing guide discovery", () => {
+    expect(rewriteHead(TEMPLATE, "/search")).toContain('name="robots" content="noindex, follow"');
+  });
+  it("preserves skip navigation and landmarks when replacing the new homepage shell twice", () => {
+    const source = readFileSync(resolve("index.html"), "utf8");
+    const first = replaceSeoFallback(source, "<h1>First article</h1>");
+    const second = replaceSeoFallback(first, "<h1>Updated article</h1>");
+    expect(second).not.toContain("First article");
+    expect(second).toContain("Updated article");
+    expect(second.match(/<main\b/g)).toHaveLength(1);
+    expect(second.match(/<footer>/g)).toHaveLength(1);
+    expect(second).toContain('href="#static-main-content"');
+    expect(second).toContain('<main id="static-main-content" tabindex="-1">');
+    expect(second).toContain('<header><a href="/">Living With Arthritis</a></header>');
+  });
+
   it("prerenders every published blog slug and the hand-arthritis exercises page", () => {
     const missing = (blogSlugs as string[]).filter(
       (slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`),
@@ -100,7 +126,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
 
     expect(html).toContain(
-      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips | Living With Arthritis UK</title>",
+      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips</title>",
     );
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',
@@ -129,7 +155,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Best exercises for hand arthritis");
     expect(html).toContain("small joints from contracture");
     expect(html).toContain("clip:rect(0 0 0 0)");
-    expect(html).toContain('aria-hidden="true"');
+    expect(html).not.not.toContain('id="seo-fallback" aria-hidden="true"');
     expect(html).not.toContain(HOME_SHELL_HEADING);
   });
 
@@ -141,7 +167,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
     expect(html).toContain("Equality Act 2010");
     expect(html).toContain("clip:rect(0 0 0 0)");
-    expect(html).toContain('aria-hidden="true"');
+    expect(html).not.not.toContain('id="seo-fallback" aria-hidden="true"');
   });
 
   it("reads an embedded article only when the slug matches", () => {
@@ -232,7 +258,7 @@ describe("static blog HTML for Soft 404s", () => {
 
   it("unknown blog slug ships Page not found + noindex (never homepage OG)", () => {
     const html = rewriteHead(TEMPLATE, "/blog/this-slug-is-not-published-xyz");
-    expect(html).toContain("Page not found | Living With Arthritis UK");
+    expect(html).toContain("Page not found | Living With Arthritis");
     expect(html).toContain('content="noindex, follow"');
     expect(html).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
     expect(html).toContain(
@@ -246,7 +272,7 @@ describe("static blog HTML for Soft 404s", () => {
       "/uk/london/waiting-list-help",
     ]) {
       const html = rewriteHead(TEMPLATE, route);
-      expect(html, route).toContain("Page not found | Living With Arthritis UK");
+      expect(html, route).toContain("Page not found | Living With Arthritis");
       expect(html, route).toContain('content="noindex, follow"');
       expect(html, route).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
     }

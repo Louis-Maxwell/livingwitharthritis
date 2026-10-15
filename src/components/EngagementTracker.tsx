@@ -5,9 +5,8 @@ import { trackEvent, isLandingPage } from "@/lib/analytics";
 /**
  * EngagementTracker
  *
- * Emits GA4 signals so we can compute a *real* bounce rate
- * (bounce = session with NO engagement signal) and so bounce rate
- * is measurable PER PAGE in GA4.
+ * Emits supplemental reading signals. GA4 computes native engagement and
+ * bounce rate; these custom events are not a replacement for those metrics.
  *
  *  - landing_page_view  → fired only on the 6 canonical landing pages
  *  - engaged_session    → fired at 10s active time (GA4 standard threshold)
@@ -82,7 +81,7 @@ const EngagementTracker = () => {
         trackEvent("engaged_session", {
           page_path: path,
           is_landing_page: landing,
-          engagement_time_msec: Math.round(s.activeMs),
+          active_time_ms: Math.round(s.activeMs),
         });
       }
 
@@ -144,7 +143,7 @@ const EngagementTracker = () => {
         for (const t of [25, 50, 75, 100]) {
           if (pct >= t && !marks.has(t)) {
             marks.add(t);
-            trackEvent("scroll_depth", { depth: t, page_path: path, is_landing_page: landing });
+            trackEvent("scroll_depth", { percent_scrolled: t, page_path: path, is_landing_page: landing });
           }
         }
       });

@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 5
+    groups:
+      security-fixes:
+        applies-to: security-updates
+        patterns: ["*"]
+      runtime-patches:
+        dependency-type: production
+        update-types: ["minor", "patch"]
+      tooling-patches:
+        dependency-type: development
+        update-types: ["minor", "patch"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    groups:
+      actions:
+        patterns: ["*"]

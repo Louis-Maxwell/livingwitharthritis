@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, develop]
 
+concurrency:
+  group: lint-and-test-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -14,46 +18,72 @@ jobs:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
+      # --max-warnings 0: warnings fail the job too.
       - name: Run ESLint
         run: npm run lint
-        continue-on-error: false
 
   test-e2e:
     name: E2E Tests (Playwright)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
+
+      # The suite used to run against a dev server that was never started and
+      # was marked continue-on-error, so it could not fail. It now runs every
+      # spec in e2e/ against the built site and fails the job on any failure.
+      - name: Build
+        run: npm run build
+
+      - name: Serve build
+        run: |
+          nohup npx --yes serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
+          echo $! > /tmp/serve.pid
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4173 > /dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
 
       - name: Run E2E tests
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:4173
         run: npm run test:e2e
-        continue-on-error: true
+
+      - name: Stop preview server
+        if: always()
+        run: kill "$(cat /tmp/serve.pid)" 2>/dev/null || true
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-report
           path: playwright-report/
@@ -66,12 +96,12 @@ jobs:
     env:
       PLAYWRIGHT_BASE_URL: http://localhost:4173
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - uses: oven-sh/setup-bun@v2
@@ -89,7 +119,7 @@ jobs:
 
       - name: Serve build
         run: |
-          npx --yes serve -s dist -l 4173 &
+          nohup npx --yes serve -s dist -l 4173 > /tmp/lwa-preview.log 2>&1 < /dev/null &
           echo $! > /tmp/serve.pid
           for i in $(seq 1 30); do
             if curl -sf http://localhost:4173 > /dev/null; then
@@ -98,10 +128,16 @@ jobs:
             fi
             sleep 1
           done
+          curl -fsS http://localhost:4173 > /dev/null || { cat /tmp/lwa-preview.log; exit 1; }
 
       - name: Blog smoke (fail the workflow)
         run: npm run test:blog-smoke
         continue-on-error: false
+
+      # Key routes on the built output: /, /blog, /blog/archive, /faq, plus the
+      # WCAG 2.1 AA axe smoke (contrast needs a real browser) and popup stacking.
+      - name: Route smoke (fail the workflow)
+        run: npx playwright test e2e/route-smoke.spec.ts e2e/a11y-smoke.spec.ts
 
       - name: Stop preview server
         if: always()
@@ -111,32 +147,33 @@ jobs:
     name: Security Audit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify dependency security patch
+        run: npm run test:dependency-security
+
       - name: Run npm audit
-        run: npm audit --audit-level=moderate || true
-        # Note: `|| true` allows the workflow to continue even if audit finds issues
-        # Remove this if you want to enforce zero vulnerabilities
+        run: npm audit --audit-level=low
 
   build:
     name: Build Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - uses: oven-sh/setup-bun@v2
@@ -150,7 +187,7 @@ jobs:
         run: npm run build
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/

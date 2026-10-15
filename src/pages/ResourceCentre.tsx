@@ -57,7 +57,7 @@ export default function ResourceCentre() {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="Resource Centre"
-        description="One place for Living With Arthritis UK guides, exercise and diet hubs, PIP help, tools and chatbot — free educational resources. Charity 1218461."
+        description="One place for Living With Arthritis guides, exercise and diet hubs, PIP help, tools and chatbot — free educational resources. Charity 1218461."
         path={PATH}
       />
       <Header />
@@ -68,7 +68,7 @@ export default function ResourceCentre() {
         <PageHero
           badge="Resource Centre"
           title="Find guides, tools and downloads in one place"
-          subtitle={`Browse existing Living With Arthritis UK resources — educational information only, reviewed for UK readers. Registered charity ${CHARITY.number}.`}
+          subtitle={`Browse existing Living With Arthritis resources — educational information only, reviewed for UK readers. Registered charity ${CHARITY.number}.`}
         >
           <div className="flex flex-wrap gap-3">
             <Link

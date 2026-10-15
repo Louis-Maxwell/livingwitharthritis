@@ -1,55 +1,47 @@
 /**
- * Living With Arthritis UK — Homepage (customer-first)
+ * Living With Arthritis — Homepage (customer-first)
  *
  * Obsessive customer focus: people living with arthritis in the UK + carers.
- * Hierarchy: empathy hero (≤2 help CTAs) → trust strip → 4 job pathways →
- * starting point → hubs → tools → medication → research → soft donate.
+ * Hierarchy: hero (one primary + one secondary action) → trust strip (real
+ * facts only) → visitor-job router (8 jobs, real URLs) → joint exercises →
+ * tools → what-is / FAQ (AEO) → conditions + latest → research fund + donate.
  * Donate never louder than help. No invented testimonials/metrics.
  * See docs/CUSTOMER-FIRST.md.
  */
 
-import { lazy, Suspense, useEffect } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 
 import Header from "@/components/Header";
+import MotivationMarquee from "@/components/landing/MotivationMarquee";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import DeferredMount from "@/components/DeferredMount";
 import ViewportSection from "@/components/ViewportSection";
 
-// OAHero stays eager — required for LCP.
+// Above-the-fold sections stay eager — the hero is the LCP element and the
+// router is the page's main job, so neither waits on a chunk request.
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
-import HomeQuickPathways from "@/components/landing/HomeQuickPathways";
+import HomeJobRouter from "@/components/landing/HomeJobRouter";
+import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
 
-import { VISITOR_STATS_SNIPPET } from "@/config/visitorStats";
-import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
-import AeoEnhancement from "@/components/seo/AeoEnhancement";
-/** Prefixes `rest` with the visitor-stats snippet when one is set (a real,
- * verified count), without leaving a stray leading space when it's empty. */
-const withVisitorSnippet = (rest: string) =>
-  [VISITOR_STATS_SNIPPET, rest].filter(Boolean).join(" ");
-
-const JointExerciseSection = lazy(() => import("@/components/JointExerciseSection"));
-const InteractiveStartPath = lazy(() => import("@/components/landing/InteractiveStartPath"));
-const HomeToolsBand = lazy(() => import("@/components/landing/HomeToolsBand"));
-const HomeZakatLink = lazy(() => import("@/components/landing/HomeZakatLink"));
-const ImpactStats = lazy(() => import("@/components/landing/ImpactStats"));
-const WhatWeDo = lazy(() => import("@/components/landing/WhatWeDo"));
-const ConditionPillBand = lazy(() => import("@/components/landing/ConditionPillBand"));
-const LatestGrid = lazy(() => import("@/components/landing/LatestGrid"));
-const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
-const QuoteSection = lazy(() => import("@/components/landing/QuoteSection"));
-const SearchBar = lazy(() => import("@/components/landing/SearchBar"));
-const ImpactProgressBand = lazy(() => import("@/components/landing/ImpactProgressBand"));
-const FinalDonateBand = lazy(() => import("@/components/landing/FinalDonateBand"));
-const HowYouCanHelp = lazy(() => import("@/components/landing/HowYouCanHelp"));
-const StartHereBand = lazy(() => import("@/components/landing/StartHereBand"));
-const Footer = lazy(() => import("@/components/Footer"));
-const NextReadStrip = lazy(() => import("@/components/NextReadStrip"));
-const BackToTopButton = lazy(() => import("@/components/landing/BackToTopButton"));
-const MobileBottomCTA = lazy(() => import("@/components/landing/MobileBottomCTA"));
+// Everything below the router mounts only when scrolled near, so it never
+// competes with the hero for bandwidth or main-thread time on first load.
+// Below the fold; its page-aeo dataset (~47 KB) stays out of the entry bundle.
+const AeoEnhancement = lazyWithRetry(() => import("@/components/seo/AeoEnhancement"));
+const JointExerciseSection = lazyWithRetry(() => import("@/components/JointExerciseSection"));
+const HomeToolsBand = lazyWithRetry(() => import("@/components/landing/HomeToolsBand"));
+const HomeZakatLink = lazyWithRetry(() => import("@/components/landing/HomeZakatLink"));
+const ConditionPillBand = lazyWithRetry(() => import("@/components/landing/ConditionPillBand"));
+const LatestGrid = lazyWithRetry(() => import("@/components/landing/LatestGrid"));
+const ImpactProgressBand = lazyWithRetry(() => import("@/components/landing/ImpactProgressBand"));
+const FinalDonateBand = lazyWithRetry(() => import("@/components/landing/FinalDonateBand"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
+const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
+const BackToTopButton = lazyWithRetry(() => import("@/components/landing/BackToTopButton"));
+const MobileBottomCTA = lazyWithRetry(() => import("@/components/landing/MobileBottomCTA"));
 
 const SITE_URL = "https://livingwitharthritis.org.uk";
 
@@ -88,12 +80,10 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis UK | Evidence-Based Health Guides</title>
+        <title>Living With Arthritis | Exercises & PIP Advice</title>
         <meta
           name="description"
-          content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free, clinically reviewed UK guides for joint pain — NICE-aligned exercise, diet, PIP and waiting-list help.",
-          )}
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta
           name="robots"
@@ -103,23 +93,19 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis | Exercises & PIP Advice"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis UK | Evidence-Based Health Guides"
+          content="Living With Arthritis | Exercises & PIP Advice"
         />
         <meta
           property="og:description"
-          content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) is independent of Arthritis UK. Free clinically reviewed UK arthritis guidance. Registered charity 1218461.",
-          )}
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta
           name="twitter:description"
-          content={withVisitorSnippet(
-            "Living With Arthritis UK (charity 1218461) — independent of Arthritis UK. Free UK arthritis exercises, diet guidance and support.",
-          )}
+          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, UK charity 1218461."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />
@@ -127,13 +113,13 @@ function HomePage() {
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="People walking together — Living With Arthritis UK free joint-pain support"
+          content="People walking together — Living With Arthritis free joint-pain support"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta
           name="twitter:image:alt"
-          content="People walking together — Living With Arthritis UK free joint-pain support"
+          content="People walking together — Living With Arthritis free joint-pain support"
         />
       </Helmet>
 
@@ -142,234 +128,53 @@ function HomePage() {
         <ScrollProgress />
 
         <main id="main-content" role="main" tabIndex={-1}>
-          {/* 01 — Hero (eager LCP): one H1, max two CTAs */}
+          {/* 01 — Hero (eager LCP): one H1, one primary + one secondary action */}
           <OAHero />
+          <MotivationMarquee />
 
-          {/* 02 — Trust strip (P1-07), above the fold on mobile */}
+          {/* 02 — Trust strip: verifiable facts only */}
           <HomeTrustStrip />
 
-          <div className="container mx-auto px-5 md:px-10 max-w-3xl">
-            <AeoEnhancement route="/" />
-          </div>
+          {/* 03 — Visitor-job router: the main way into the site */}
+          <HomeJobRouter />
 
-          {/* 03 — Quick pathways + find your starting point */}
-          <HomeQuickPathways />
+          {/* Topic links stay rendered without waiting for a scroll event. */}
+          <HomeTopicGuides />
 
-          <Suspense fallback={<SectionFallback />}>
-            <InteractiveStartPath />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
+          {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <JointExerciseSection />
-          </Suspense>
-
-          <Suspense fallback={<SectionFallback />}>
-            <StartHereBand />
-          </Suspense>
-
-          {/* 04 — Practical hubs (max 5) */}
-          <section
-            aria-labelledby="hubs-heading"
-            className="py-12 md:py-16 bg-background border-y border-border/40"
-          >
-            <div className="container mx-auto px-5 md:px-10 max-w-6xl">
-              <div className="text-center mb-8">
-                <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2">
-                  Start here
-                </p>
-                <h2
-                  id="hubs-heading"
-                  className="font-display font-bold text-2xl md:text-3xl text-foreground"
-                >
-                  Practical hubs for living with arthritis in the UK
-                </h2>
-                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-                  Clear entry points for diet, exercise, conditions, PIP and the blog —
-                  clinically reviewed, free to use.
-                </p>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                <Link
-                  to="/diet"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Nutrition</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Diet hub
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Anti-inflammatory and Mediterranean eating patterns.
-                  </p>
-                </Link>
-                <Link
-                  to="/exercises"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Exercise</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Exercise hub
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    NICE-aligned routines for knees, hands and more.
-                  </p>
-                </Link>
-                <Link
-                  to="/conditions/arthritis"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Conditions</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Condition guides
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    OA, RA, PsA, JIA, AS and more in plain English.
-                  </p>
-                </Link>
-                <Link
-                  to="/benefits-pip"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Benefits &amp; PIP</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Benefits &amp; PIP
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Eligibility, evidence, claiming and appeals.
-                  </p>
-                </Link>
-                <Link
-                  to="/blog"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Blog</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Arthritis blog
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {formatInventoryCount(CONTENT_INVENTORY.blogArticles)} clinically reviewed
-                    articles for UK readers.
-                  </p>
-                </Link>
-              </div>
-              <p className="mt-6 text-center text-sm text-muted-foreground">
-                Looking for everything in one place?{" "}
-                <Link
-                  to="/resource-centre"
-                  className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
-                >
-                  Open the Resource Centre
-                </Link>
-                {" · "}
-                <Link
-                  to="/healthcare-professionals"
-                  className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
-                >
-                  Healthcare professionals
-                </Link>
-                {" · "}
-                <Link
-                  to="/faq"
-                  className="font-semibold text-foreground underline underline-offset-2 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
-                >
-                  FAQs (PIP, exercise, OA)
-                </Link>
-              </p>
-            </div>
-          </section>
-
-          {/* 05 — Tools band */}
-          <Suspense fallback={<SectionFallback />}>
             <HomeToolsBand />
-          </Suspense>
-
-          {/* 06 — UK medication guides */}
-          <section
-            aria-labelledby="medication-guides-heading"
-            className="py-12 md:py-16 bg-background"
-          >
-            <div className="container mx-auto px-5 md:px-10 max-w-6xl">
-              <div className="text-center mb-8">
-                <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2">
-                  UK Medication Guides
-                </p>
-                <h2
-                  id="medication-guides-heading"
-                  className="font-display font-bold text-2xl md:text-3xl text-foreground"
-                >
-                  Plain-English guides to common arthritis medications
-                </h2>
-                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-                  Clinically reviewed UK guides explaining how each drug works, monitoring, side
-                  effects and what to ask your rheumatology team. Educational only — not dosing
-                  advice.
-                </p>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Link
-                  to="/guides/azathioprine-for-arthritis"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">DMARD</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Azathioprine for Arthritis
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    TPMT testing, monitoring and side effects.
-                  </p>
-                </Link>
-                <Link
-                  to="/guides/steroids-for-arthritis"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Steroid</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Steroids for Arthritis
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Injections, tablets, side effects and UK access.
-                  </p>
-                </Link>
-                <Link
-                  to="/guides/benefits-pip"
-                  className="group p-5 rounded-xl border border-border/40 bg-card hover:border-primary/50 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <p className="text-xs text-primary font-bold mb-1">Support</p>
-                  <p className="font-bold text-foreground group-hover:text-primary transition-colors">
-                    Benefits &amp; PIP Guide
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Eligibility, claiming and appealing PIP for arthritis.
-                  </p>
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* 07 — Below-fold: mission, conditions, latest */}
-          <ViewportSection fallback={<SectionFallback />}>
-            <ImpactStats />
-            <WhatWeDo />
-            <ConditionPillBand />
-            <LatestGrid />
           </ViewportSection>
 
-          {/* 08 — Research fund (accurate £5k / £50k only) + support + FAQ */}
-          <ViewportSection fallback={<SectionFallback />}>
+          {/* 05 — Answer-first summary + FAQ (single FAQPage JSON-LD) */}
+          <div className="container mx-auto px-5 md:px-10 max-w-3xl py-6">
+            <Suspense fallback={null}>
+              <AeoEnhancement route="/" />
+            </Suspense>
+          </div>
+
+          {/* 06 — Conditions (target of "/#conditions" breadcrumbs) + latest */}
+          <div id="conditions" className="scroll-mt-28">
+            <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
+              <ConditionPillBand />
+              <LatestGrid />
+            </ViewportSection>
+          </div>
+
+          {/* 07 — Research fund appeal (live total on GoFundMe, no static meter) + donate */}
+          <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>
             <ImpactProgressBand />
-            <HowYouCanHelp />
-            <QuoteSection />
-            <SearchBar />
-            <FAQSection />
             <FinalDonateBand />
           </ViewportSection>
 
-          {/* 09 — Deprioritised Zakat entry (small link only) */}
+          {/* 08 — Deprioritised Zakat entry (small link only) */}
           <Suspense fallback={null}>
             <HomeZakatLink />
           </Suspense>
         </main>
 
-        <ViewportSection fallback={<div className="h-64" aria-hidden="true" />}>
+        <ViewportSection rootMargin="200px 0px" fallback={<div className="h-64" aria-hidden="true" />}>
           <NextReadStrip currentPath="/" />
           <Footer />
         </ViewportSection>

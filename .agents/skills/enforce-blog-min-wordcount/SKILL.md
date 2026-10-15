@@ -1,6 +1,6 @@
 ---
 name: enforce-blog-min-wordcount
-description: Audit and expand every published blog article in the Lovable Cloud `blog_articles` table to a minimum of 1,400 words. Trigger when the user asks to lengthen, expand, standardize, hit a word-count floor, or ensure a minimum length on blog posts on the Living With Arthritis UK site.
+description: Audit and expand every published blog article in the Lovable Cloud `blog_articles` table to a minimum of 1,400 words. Trigger when the user asks to lengthen, expand, standardize, hit a word-count floor, or ensure a minimum length on blog posts on the Living With Arthritis site.
 ---
 
 # Enforce ≥1,400 words on every blog article

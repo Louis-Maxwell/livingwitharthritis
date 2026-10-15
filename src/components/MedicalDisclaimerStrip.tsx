@@ -7,7 +7,7 @@ import {
   MEDICAL_DISCLAIMER_TOOL,
   shouldRenderDisclaimerStrip,
 } from "@/lib/medicalDisclaimer";
-import { useDisclaimerStripShown } from "@/components/disclaimerChrome";
+import { useDisclaimerStripShown } from "@/components/disclaimerContext";
 
 export type MedicalDisclaimerVariant = "short" | "tool" | "chat";
 

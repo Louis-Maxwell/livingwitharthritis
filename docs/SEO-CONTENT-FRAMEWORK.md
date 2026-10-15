@@ -1,4 +1,4 @@
-# How to Write SEO Content (Living With Arthritis UK)
+# How to Write SEO Content (Living With Arthritis)
 
 Louis Maxwell's 8-step framework for every new guide, hub page, and blog post.
 

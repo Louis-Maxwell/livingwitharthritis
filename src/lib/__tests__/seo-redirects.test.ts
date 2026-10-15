@@ -124,12 +124,23 @@ describe("resolveSeoRedirect", () => {
 
   it("301s legacy alias paths onto their canonical English pages", () => {
     expect(resolveSeoRedirect("/about-us")).toBe("/about");
+    expect(resolveSeoRedirect("/self-help-tool")).toBe("/self-help");
+    expect(resolveSeoRedirect("/sitemap")).toBe("/site-index");
+    expect(resolveSeoRedirect("/regions/england")).toBe("/arthritis-support");
+    expect(resolveSeoRedirect("/regions/northern-ireland")).toBe(
+      "/blog/free-arthritis-support-northern-ireland",
+    );
+    expect(resolveSeoRedirect("/finances")).toBe("/benefits-pip");
+    expect(resolveSeoRedirect("/lived-experiences")).toBe("/community");
+    expect(resolveSeoRedirect("/impact-stories")).toBe("/community");
     expect(resolveSeoRedirect("/privacy-policy")).toBe("/privacy");
+    expect(resolveSeoRedirect("/medical-disclaimer")).toBe("/disclaimer");
+    expect(resolveSeoRedirect("/claims-policy")).toBe("/about/editorial-claims-policy");
   });
 
   it("301s exercise×condition templates to a real joint/condition page", () => {
     expect(resolveSeoRedirect("/exercises/knee/for/osteoarthritis")).toBe(
-      "/conditions/knee-arthritis",
+      "/guides/knee-exercises-for-osteoarthritis",
     );
     expect(resolveSeoRedirect("/exercises/neck/for/rheumatoid-arthritis")).toBe(
       "/exercises/neck-arthritis-exercises",
@@ -167,6 +178,24 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/fr/glossary/nice")).toBe("/glossary/nice");
     expect(resolveSeoRedirect("/de/glossary/facet-joint-injection")).toBe(
       "/glossary/facet-joint-injection",
+    );
+  });
+
+
+  it("301s knee exercise variants directly onto the citable knee guide", () => {
+    expect(resolveSeoRedirect("/exercises/knee")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    // Published slug: App Navigate + _redirects (not EXACT — keeps prerender catalog green)
+    expect(resolveSeoRedirect("/blog/knee-arthritis-exercises-uk")).toBeNull();
+    expect(resolveSeoRedirect("/blog/knee-osteoarthritis-exercises")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/blog/knee-exercises-arthritis")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
+    );
+    expect(resolveSeoRedirect("/knee-arthritis-exercises-uk")).toBe(
+      "/guides/knee-exercises-for-osteoarthritis",
     );
   });
 

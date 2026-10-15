@@ -9,7 +9,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/enterprise-seo-audit-2026-10-11]
   pull_request:
     branches: [main]
 
@@ -35,16 +35,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: AI identity check
         run: node scripts/validate-ai-identity.mjs
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - uses: oven-sh/setup-bun@v2
@@ -54,8 +54,14 @@ jobs:
       - name: Install
         run: npm ci --prefer-offline --no-audit --no-fund
 
+      - name: Technical SEO regression checks
+        run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs scripts/tests/built-site-audit.test.mjs
+
+      # The root tsconfig.json has "files": [] (project references only), so a
+      # bare `tsc --noEmit` checked nothing. Check both real projects; this also
+      # fails on missing or misspelled imports.
       - name: Typecheck
-        run: npx tsc --noEmit
+        run: npm run typecheck
 
       # Alerts on Tailwind utilities that are ambiguous (e.g. duration-[1200ms])
       # or that bypass the design tokens, before they reach a build.
@@ -64,7 +70,7 @@ jobs:
 
       - name: Upload CSS utility report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: css-utility-report
           path: .preflight-reports/css-utilities-*.json
@@ -84,9 +90,17 @@ jobs:
       - name: Blog HTML gate
         run: npm run blog:html-gate
 
+      # Every internal link in the built HTML, sitemap, React source and guide
+      # content must resolve to a route, a built page or a redirect.
+      - name: Internal link check
+        run: npm run links:check
+
+      - name: Built metadata and structure gate
+        run: npm run seo:built-audit
+
       - name: Upload prerender meta report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: prerender-meta-report
           path: .preflight-reports/prerender-meta-*.json

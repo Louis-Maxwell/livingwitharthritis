@@ -1,18 +1,19 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_FEBUXOSTAT } from "@/data/clinical/ukCitations";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 
-const Footer = lazy(() => import("@/components/Footer"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const FEBUXOSTAT_FAQS = [
   { question: "What is febuxostat used for?", answer: "Febuxostat (brand names Adenuric, Uloric) is a urate-lowering medication used to prevent gout attacks in adults whose uric acid levels remain high despite lifestyle measures, or who cannot tolerate allopurinol. By lowering uric acid in the blood, it gradually dissolves the crystals in joints that cause gout flares." },
@@ -118,7 +119,7 @@ export default function FebuxostatGoutGuide() {
         <meta property="og:title" content="Febuxostat for Gout – UK Guide to Dose, Side Effects & Monitoring" />
         <meta property="og:description" content="How febuxostat lowers uric acid and prevents gout attacks — dosing, monitoring, side effects, and how it compares with allopurinol." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/febuxostat-for-gout" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>

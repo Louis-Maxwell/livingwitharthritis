@@ -126,6 +126,10 @@ const SECTIONS: Section[] = [
 ];
 
 const FAQS: { q: string; a: string }[] = [
+  { q: "I've just been newly diagnosed with rheumatoid arthritis in the UK — what are the first steps?", a: "Confirm the diagnosis letter and blood results, ask how urgently you will see rheumatology, start any prescribed DMARD monitoring (blood tests matter), keep a short symptom diary, and use trusted UK sources such as NHS rheumatoid arthritis pages and NRAS (nras.org.uk) for RA-specific support. Living With Arthritis (charity 1218461) is independent of Arthritis UK and publishes free checklists like this one." },
+  { q: "Should I contact NRAS or Arthritis UK after an RA diagnosis?", a: "NRAS (National Rheumatoid Arthritis Society) specialises in rheumatoid arthritis and is a strong partner for RA-specific information and support. Arthritis UK (formerly Versus Arthritis) covers many arthritis types. Living With Arthritis is a separate UK charity — we link to NRAS and NHS as trusted partners, not as the same organisation." },
+  { q: "How soon should treatment start after a new RA diagnosis?", a: "NICE guidance emphasises early treatment for rheumatoid arthritis. Ask your rheumatology team about DMARDs, bridging steroids if used, blood-test monitoring, and what to do if you flare before your next appointment. Do not stop prescribed medicines without clinical advice." },
+
   { q: "I’ve just been diagnosed — what should I do first?", a: "Get a copy of your diagnosis letter, confirm exactly which type of arthritis you have, write down your top 3 questions, and book a follow-up so you have someone to ask as new questions come up. Don’t rush major treatment decisions in the first week." },
   { q: "Will I become disabled?", a: "Most people with arthritis stay independent throughout their lives with the right treatment. Outcomes have improved dramatically over the last 20 years thanks to earlier diagnosis, better medications, and stronger evidence for exercise and self-management." },
   { q: "Should I stop exercising?", a: "No — almost the opposite. Appropriate exercise is one of the most effective treatments for arthritis. Start gently (walking, swimming, tai chi), build slowly, and work with a physiotherapist if you’re unsure where to begin." },
@@ -165,19 +169,19 @@ export default function NewlyDiagnosed() {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
         headline:
-          "Newly Diagnosed With Arthritis: Your Step-by-Step UK Guide",
+          "Newly diagnosed with rheumatoid arthritis: UK first steps checklist",
         url: `${BASE}/${SLUG}`,
         about: { "@type": "MedicalCondition", name: "Arthritis" },
         author: {
           "@type": "Person",
-          name: "Maxwell",
-          jobTitle: "HCPC-registered Physiotherapist (PH128483)",
+          name: "Louis Maxwell",
+          jobTitle: "HCPC-registered First Contact Practitioner (PH128483)",
         },
-        lastReviewed: "2026-09-20",
+        lastReviewed: "2026-09-29",
         reviewedBy: {
           "@type": "Person",
-          name: "Maxwell",
-          jobTitle: "HCPC-registered Physiotherapist",
+          name: "Louis Maxwell",
+          jobTitle: "HCPC-registered First Contact Practitioner (PH128483)",
         },
       },
       // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
@@ -230,18 +234,18 @@ export default function NewlyDiagnosed() {
   return (
     <>
       <Helmet>
-        <title>Newly Diagnosed With Arthritis UK: First Steps Checklist</title>
+        <title>Newly Diagnosed With Arthritis: UK First Steps Checklist</title>
         <meta
           name="description"
-          content="Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP."
+          content="Newly diagnosed with arthritis in the UK? Find first steps, questions for your GP, rheumatology preparation and guides to pain, exercise, diet and benefits."
         />
         <meta
           property="og:title"
-          content="Newly Diagnosed With Arthritis UK: First Steps Checklist"
+          content="Newly Diagnosed With Arthritis: UK First Steps Checklist"
         />
         <meta
           property="og:description"
-          content="Newly diagnosed with arthritis in the UK? Clear first steps: questions for your GP, appointment prep, treatment basics, then pain relief, exercise, diet and PIP."
+          content="Newly diagnosed with arthritis in the UK? Find first steps, questions for your GP, rheumatology preparation and guides to pain, exercise, diet and benefits."
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${BASE}/${SLUG}`} />
@@ -252,7 +256,7 @@ export default function NewlyDiagnosed() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           "url": `${BASE}/${SLUG}`,
-          "name": "Newly Diagnosed With Arthritis: Step-by-Step UK Guide",
+          "name": "Newly diagnosed with rheumatoid arthritis: UK first steps checklist",
           "inLanguage": "en-GB",
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] },
@@ -318,7 +322,8 @@ export default function NewlyDiagnosed() {
             </h1>
             <AeoEnhancement route="/guides/newly-diagnosed" />
             <p className="speakable-intro text-base md:text-lg text-muted-foreground leading-relaxed">
-              Just diagnosed with arthritis? Start here: confirm the type, prepare your specialist visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice.
+              Just diagnosed with arthritis or rheumatoid arthritis (RA) in the UK? Start here: confirm the type, prepare your rheumatology visit, begin prescribed care when offered, then add paced movement and practical support — educational checklist, not personal medical advice. We are Living With Arthritis (charity 1218461), independent of Arthritis UK.
+
             </p>
           </header>
 
@@ -353,8 +358,13 @@ export default function NewlyDiagnosed() {
               </Link>
             </Button>
             <Button asChild variant="outline" className="gap-2">
-              <Link to="/benefits-pip">
-                Benefits &amp; PIP
+              <Link to="/guides/benefits-pip">
+                How to claim PIP
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/resources/pip-evidence-diary">
+                PIP evidence diary
               </Link>
             </Button>
             <Button onClick={handlePrint} variant="outline" className="gap-2">
@@ -366,14 +376,56 @@ export default function NewlyDiagnosed() {
             <p className="text-sm font-semibold text-foreground m-0 mb-2">Related help hubs</p>
             <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
               <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
-              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
+              <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">How to claim PIP</Link></li>
+              <li><Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
+              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link></li>
+              <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+              <li><Link to="/blog/access-to-work-scheme-arthritis-guide" className="text-primary underline underline-offset-2">Access to Work</Link></li>
               <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
               <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
               <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
+              <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
               <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes</Link></li>
-              <li><Link to="/blog/turmeric-for-arthritis" className="text-primary underline underline-offset-2">Turmeric evidence</Link></li>
+              <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link></li>
+              <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming hip OA</Link></li>
+              <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link></li>
+              <li><Link to="/symptom-checker" className="text-primary underline underline-offset-2">Symptom checker</Link></li>
             </ul>
           </nav>
+
+          <aside
+            aria-label="Trusted UK sources"
+            className="mb-8 rounded-xl border border-border/40 bg-card p-4 text-sm text-muted-foreground leading-relaxed print:hidden"
+          >
+            <p className="font-semibold text-foreground m-0 mb-2">Trusted UK sources</p>
+            <ul className="m-0 pl-5 space-y-1">
+              <li>
+                <a href="https://www.nhs.uk/conditions/arthritis/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  NHS: Arthritis
+                </a>{" "}
+                — condition overview and when to get help
+              </li>
+              <li>
+                <a href="https://www.nice.org.uk/guidance/ng226" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  NICE NG226
+                </a>{" "}
+                — osteoarthritis in over 16s
+              </li>
+              <li>
+                <a href="https://www.nice.org.uk/guidance/ng100" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  NICE NG100
+                </a>{" "}
+                — rheumatoid arthritis in adults
+              </li>
+              <li>
+                <a href="https://www.arthritis-uk.org/information-and-support/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">
+                  Arthritis UK (formerly Versus Arthritis)
+                </a>{" "}
+                — living with arthritis (external; we are independent)
+              </li>
+            </ul>
+          </aside>
 
           {/* Section nav (desktop) */}
           <nav
@@ -485,7 +537,7 @@ export default function NewlyDiagnosed() {
             />
           </section>
 
-          <EducationalDisclaimerBox lastReviewed="2026-09-20" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-29" />
           <TopicClusterNav path="/guides/newly-diagnosed" />
 
           {/* Related */}
@@ -496,10 +548,14 @@ export default function NewlyDiagnosed() {
             <ul className="grid sm:grid-cols-2 gap-3">
               {[
                 { label: "Symptom checker", href: "/symptom-checker" },
-                { label: "Find a specialist", href: "/tools/find-specialist" },
                 { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
-                { label: "Connect groups", href: "/community/connect-groups" },
-                { label: "Drug guide", href: "/treatments/drug-guide" },
+                { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
+                { label: "Exercise hub", href: "/exercises" },
+                { label: "How to claim PIP", href: "/guides/benefits-pip" },
+                { label: "PIP evidence diary", href: "/resources/pip-evidence-diary" },
+                { label: "Benefits & PIP hub", href: "/benefits-pip" },
+                { label: "Access to Work", href: "/blog/access-to-work-scheme-arthritis-guide" },
+                { label: "Find a specialist", href: "/tools/find-specialist" },
                 { label: "Living with arthritis", href: "/living-with-arthritis" },
               ].map((l) => (
                 <li key={l.href}>

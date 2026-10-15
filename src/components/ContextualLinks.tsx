@@ -67,6 +67,26 @@ export default function ContextualLinks({
             <ul className="space-y-2">
               {group.links.map((link) => (
                 <li key={link.to + link.label}>
+                  {link.to.startsWith("http") ? (
+                  <a
+                    href={link.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors leading-snug"
+                  >
+                    <ArrowRight className="w-3.5 h-3.5 mt-1 text-primary group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <span>
+                      <span className="font-medium underline-offset-4 group-hover:underline">
+                        {link.label}
+                      </span>
+                      {link.desc && (
+                        <span className="block text-xs text-muted-foreground mt-0.5">
+                          {link.desc}
+                        </span>
+                      )}
+                    </span>
+                  </a>
+                  ) : (
                   <Link
                     to={link.to}
                     className="group flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors leading-snug"
@@ -83,6 +103,7 @@ export default function ContextualLinks({
                       )}
                     </span>
                   </Link>
+                  )}
                 </li>
               ))}
             </ul>

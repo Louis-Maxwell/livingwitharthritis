@@ -14,7 +14,7 @@ Do **not** invent private emails or phone numbers — use each org’s public co
 
 Hello [Name / team],  
 
-I’m Louis Maxwell, HCPC-registered physiotherapist and founder of Living With Arthritis UK (registered charity 1218461). We’re independent of Arthritis UK and publish practical, plain-English educational guides for people living with arthritis.
+I’m Louis Maxwell, HCPC-registered physiotherapist and founder of Living With Arthritis (registered charity 1218461). We’re independent of Arthritis UK and publish practical, plain-English educational guides for people living with arthritis.
 
 Could we share a free printable clinic pack (QR links to exercises, flare guidance, PIP education, and newly diagnosed support) for your [waiting room / student cohort / social prescribing list]? No cost, no patient data shared with us.
 
@@ -25,7 +25,7 @@ Happy to adapt wording for your governance process.
 
 Thanks,  
 Louis Maxwell  
-Living With Arthritis UK
+Living With Arthritis
 
 ---
 

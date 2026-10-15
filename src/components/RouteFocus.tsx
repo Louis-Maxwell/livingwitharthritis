@@ -11,6 +11,9 @@ export default function RouteFocus() {
   const initialRender = useRef(true);
 
   useEffect(() => {
+    // React owns route schema after mounting; stale build-time page entities
+    // must not remain in the head after SPA navigation.
+    document.querySelectorAll('script[data-static-route-schema]').forEach((node) => node.remove());
     if (initialRender.current) {
       initialRender.current = false;
       return;

@@ -20,7 +20,7 @@ import {
   StatCounter,
   HorizontalBar,
   WaveDivider,
-  EmojiCard,
+  HighlightCard,
   DonutChart,
   Timeline,
 } from "@/components/graphics/InfographicElements";
@@ -41,13 +41,13 @@ const exerciseCategories = [
   {
     id: "knee",
     title: "Knee Exercises",
-    subtitle: "UK Physiotherapy Guide",
+    subtitle: "Free OA home routine",
     description: "Strengthen muscles around your knees to reduce pain and improve stability.",
     icon: Footprints,
     color: "from-primary/15 to-primary/10",
     iconColor: "text-primary bg-primary/10",
     borderColor: "border-primary/20 hover:border-primary/40",
-    href: "/blog/knee-arthritis-exercises-uk",
+    href: "/guides/knee-exercises-for-osteoarthritis",
     exercises: [
       "Straight leg raises – 3 sets of 10",
       "Wall sits – hold 15–30 seconds",
@@ -55,6 +55,24 @@ const exerciseCategories = [
       "Hamstring curls – 3 sets of 10",
     ],
     tip: "Start with 5 minutes daily, building to 20 minutes over 4 weeks.",
+  },
+  {
+    id: "hip",
+    title: "Hip Exercises",
+    subtitle: "Free OA home routine",
+    description: "Strengthen the glutes and deep hip stabilisers that protect a painful hip.",
+    icon: Activity,
+    color: "from-primary/15 to-primary/10",
+    iconColor: "text-primary bg-primary/10",
+    borderColor: "border-primary/20 hover:border-primary/40",
+    href: "/guides/hip-exercises-for-osteoarthritis",
+    exercises: [
+      "Side-lying hip abduction – 3 sets of 10",
+      "Clamshells – 3 sets of 15",
+      "Glute bridges – 3 sets of 10",
+      "Sit-to-stand – 2 sets of 10",
+    ],
+    tip: "Keep movements small and controlled. Mild ache up to 4/10 that settles within 24 hours is fine.",
   },
   {
     id: "hand",
@@ -101,7 +119,7 @@ const exerciseCategories = [
     color: "from-primary/15 to-primary/10",
     iconColor: "text-primary bg-primary/10",
     borderColor: "border-primary/20 hover:border-primary/40",
-    href: "/blog/arthritis-exercises",
+    href: "/blog/arthritis-exercises-uk-clinical",
     exercises: [
       "Seated marching – 2 minutes",
       "Ankle circles – 10 each direction",
@@ -113,6 +131,8 @@ const exerciseCategories = [
 ];
 
 const additionalActivities = [
+  { title: "Swimming for hip osteoarthritis", icon: Waves, href: "/blog/swimming-exercises-hip-osteoarthritis", desc: "Buoyancy-friendly pool drills and pacing for hip OA" },
+  { title: "Walking with arthritis", icon: Activity, href: "/blog/walking-with-arthritis-start-build-up-keep-going", desc: "Start, build up and keep going without boom-and-bust" },
   { title: "Swimming & Hydrotherapy", icon: Waves, href: "/blog/swimming-for-arthritis", desc: "Low-impact aquatic exercise for joint pain relief" },
   { title: "Yoga for Arthritis", icon: Activity, href: "/blog/yoga-for-arthritis-beginners", desc: "Gentle poses for flexibility and strength" },
   { title: "Cycling for Arthritis", icon: Bike, href: "/blog/cycling-with-arthritis", desc: "Joint-friendly cardio for knee and hip health" },
@@ -147,7 +167,7 @@ const ExerciseHub = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    name: "Best Exercises for Arthritis UK – Complete Guide",
+    name: "Best Exercises for Arthritis – Complete UK Guide",
     description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. clinically aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
     url: "https://livingwitharthritis.org.uk/exercises",
     inLanguage: "en-GB",
@@ -171,23 +191,23 @@ const ExerciseHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Exercises UK | Knee, Hand & Shoulder Routines</title>
+        <title>Free Arthritis Exercises at Home UK | Exercise Hub</title>
         <meta name="description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="keywords" content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
-        <meta property="og:title" content="Best Exercises for Arthritis UK – Complete Guide" />
+        <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub" />
         <meta property="og:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/exercises" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Arthritis Exercises UK | Knee, Hand & Shoulder Routines" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Exercises for Arthritis UK – Complete Guide" />
+        <meta name="twitter:title" content="Free physiotherapy exercises for arthritis at home UK – Exercise Hub" />
         <meta name="twitter:description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
@@ -226,8 +246,8 @@ const ExerciseHub = () => {
 
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Dumbbell className="w-3.5 h-3.5 mr-1.5" /> Exercise Hub</Badge>}
-        title={<>Best Exercises for <span className="text-primary">Arthritis</span> UK</>}
-        subtitle="Motion is lotion — but only at a pace your joints can trust. Clinically aligned home routines for knees, hands, shoulders and whole-body relief. Stop if it hurts; you are not alone in starting gently."
+        title={<>Free physiotherapy exercises for arthritis at <span className="text-primary">home</span> UK</>}
+        subtitle="Free NICE-aligned home physio routines for knees, hips, hands and more — from Living With Arthritis (charity 1218461). Start gently; stop if pain stays high overnight."
       >
         <div className="flex flex-wrap gap-3 mt-2">
           <Button asChild size="lg" className="min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-shadow">
@@ -270,7 +290,7 @@ const ExerciseHub = () => {
             <p className="font-display text-2xl md:text-4xl font-bold text-primary-foreground leading-tight" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
               &ldquo;Motion is lotion. Every stretch, every step, every breath — medicine.&rdquo;
             </p>
-            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground font-medium tracking-wider uppercase">Living With Arthritis UK · Exercise Hub</figcaption>
+            <figcaption className="mt-3 text-xs md:text-sm text-primary-foreground font-medium tracking-wider uppercase">Living With Arthritis · Exercise Hub</figcaption>
           </blockquote>
         </figure>
       </section>
@@ -298,7 +318,7 @@ const ExerciseHub = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCounter value="40" suffix="%" label="Pain reduction with regular exercise" icon={<TrendingUp className="w-6 h-6" />} color="emerald" />
               <StatCounter value="30" suffix=" min" label="Daily target for best results" icon={<Timer className="w-6 h-6" />} color="sky" />
-              <StatCounter value="8.75" suffix="M" label="People with OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
+              <StatCounter value="8.75" suffix="M" label="Aged 45+ treated for OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
               <StatCounter value="4" label="Joint-specific routines below" icon={<Target className="w-6 h-6" />} color="violet" />
             </div>
           </div>
@@ -498,12 +518,12 @@ const ExerciseHub = () => {
             <h2 className="text-2xl font-bold text-foreground mb-2">Quick Exercise Tips</h2>
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <EmojiCard emoji="🔥" title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
-              <EmojiCard emoji="💧" title="Stay Hydrated" description="Sip water before and after — dehydration makes stiffness worse." />
-              <EmojiCard emoji="⏱️" title="Pace Yourself" description="Keep effort around 4 out of 10. Next-day soreness means do less, not more." />
-              <EmojiCard emoji="🧊" title="Ice After" description="Ten minutes of ice on a warm, swollen joint, cloth barrier, after you finish." />
-              <EmojiCard emoji="📅" title="Be Consistent" description="A short daily session beats one long weekend burst that leaves you sore." />
-              <EmojiCard emoji="🛑" title="Listen to Pain" description="Sharp or worsening pain means stop. A mild ache that settles is usually fine." />
+              <HighlightCard title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
+              <HighlightCard title="Stay Hydrated" description="Sip water before and after — dehydration makes stiffness worse." />
+              <HighlightCard title="Pace Yourself" description="Keep effort around 4 out of 10. Next-day soreness means do less, not more." />
+              <HighlightCard title="Ice After" description="Ten minutes of ice on a warm, swollen joint, cloth barrier, after you finish." />
+              <HighlightCard title="Be Consistent" description="A short daily session beats one long weekend burst that leaves you sore." />
+              <HighlightCard title="Listen to Pain" description="Sharp or worsening pain means stop. A mild ache that settles is usually fine." />
             </div>
           </div>
         </section>
@@ -658,9 +678,11 @@ const ExerciseHub = () => {
               {
                 title: "Joint-by-joint exercise",
                 links: [
-                  { label: "Knee arthritis exercises", to: "/exercises" },
-                  { label: "Hand and wrist arthritis exercises", to: "/exercises" },
-                  { label: "Hip arthritis stretches", to: "/exercises" },
+                  { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
+                  { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going" },
+                  { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
+                  { label: "Hip arthritis stretches", to: "/guides/hip-exercises-for-osteoarthritis" },
+                  { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
                   { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
                   { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
                 ],
@@ -681,6 +703,7 @@ const ExerciseHub = () => {
                   { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
                   { label: "Self-help joint tool", to: "/self-help" },
                   { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },
+                  { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 ],
               },
             ]}
@@ -710,9 +733,19 @@ const ExerciseHub = () => {
           </section>
         </div>
       </div>
+
+      <nav aria-label="Customer job pathways for exercise" className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
+        <p className="text-sm font-semibold text-foreground m-0 mb-3">Popular next steps from the exercise hub</p>
+        <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
+          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip osteoarthritis</Link> — pool drills when land impact flares you</li>
+          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — build a sustainable habit</li>
+          <li><Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee OA exercises</Link> · <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Hip OA exercises</Link></li>
+          <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> · <Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
+        </ul>
+      </nav>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-28" />
         <TopicClusterNav path="/exercises" />
       </div>
       </main>

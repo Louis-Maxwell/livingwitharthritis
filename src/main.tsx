@@ -1,54 +1,23 @@
 import React from "react"; // v18
 import { createRoot } from "react-dom/client";
-import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
-import { initWebVitals } from "./lib/web-vitals.ts";
+import { afterPageLoad } from "./lib/afterPageLoad";
+import { installErrorReporting } from "./lib/errorReporting";
+import { installChunkRecovery, removeStaleServiceWorkers } from "./lib/chunkRecovery.ts";
 import "./index.css";
 
-// Initialize Sentry (incl. session replay) only after explicit analytics consent
-const hasAnalyticsConsent = () => {
-  try {
-    if (localStorage.getItem("cookie-consent") === "accepted") return true;
-    const raw = localStorage.getItem("lwa_cv3");
-    if (!raw) return false;
-    return JSON.parse(raw).a === true;
-  } catch {
-    return false;
-  }
-};
+// Error reporting first, so failures during start-up are captured too.
+// Stale-deploy recovery must be installed before any lazy chunk is requested.
+installErrorReporting();
+installChunkRecovery();
+removeStaleServiceWorkers();
 
-let sentryInitialized = false;
-
-const initializeSentry = () => {
-  if (sentryInitialized) return;
-  if (!hasAnalyticsConsent()) return;
-  if (!import.meta.env.VITE_SENTRY_DSN) {
-    return;
-  }
-  sentryInitialized = true;
-
-  Sentry.init({
-    dsn: import.meta.env.VITE_SENTRY_DSN,
-    environment: import.meta.env.MODE,
-    tracesSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
-    integrations: [
-      Sentry.replayIntegration({
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
-    replaysSessionSampleRate: import.meta.env.MODE === "production" ? 0.1 : 1.0,
-    replaysOnErrorSampleRate: 1.0,
-    allowUrls: [/^https?:\/\/(www\.)?livingwitharthritis\.org\.uk(?:\/|$)/],
-  });
-};
-
-initializeSentry();
-window.addEventListener("cookie-consent-accepted", initializeSentry);
-
-// Initialize Core Web Vitals tracking (captures LCP, FCP, CLS, INP, TTFB)
-initWebVitals();
+// Core Web Vitals (LCP, FCP, CLS, INP, TTFB). Loaded after first paint; the
+// library uses buffered PerformanceObservers so early entries are not lost.
+afterPageLoad(() => {
+  import("./lib/web-vitals.ts").then((m) => m.initWebVitals()).catch(() => {});
+}, 5000);
 
 
 const AppCrashFallback = (
@@ -65,51 +34,24 @@ const AppCrashFallback = (
         </a>{" "}
         can help.
       </p>
-      <a
-        href="/"
-        className="inline-block px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
-      >
-        Go to homepage
-      </a>
+      <div className="flex flex-wrap gap-3 justify-center">
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="inline-block px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+        >
+          Reload page
+        </button>
+        <a
+          href="/"
+          className="inline-block px-5 py-2.5 rounded-xl border border-border text-foreground font-semibold hover:bg-muted transition-colors"
+        >
+          Go to homepage
+        </a>
+      </div>
     </div>
   </div>
 );
-
-// Auto-recover from stale code-split chunks after a new deploy.
-// When index.html references chunk hashes that no longer exist on the CDN,
-// dynamic imports throw "Failed to fetch dynamically imported module".
-// We reload once (guarded by sessionStorage) to pick up the fresh manifest.
-const RELOAD_KEY = "lwa:chunk-reloaded-at";
-const RELOAD_COOLDOWN_MS = 10_000; // allow another reload after 10s, scoped per URL
-const isChunkLoadError = (msg: string) =>
-  /Failed to fetch dynamically imported module|Importing a module script failed|error loading dynamically imported module/i.test(
-    msg,
-  );
-
-const tryReload = (msg: string) => {
-  if (!isChunkLoadError(msg)) return;
-  try {
-    const key = `${RELOAD_KEY}:${window.location.pathname}`;
-    const last = Number(sessionStorage.getItem(key) || 0);
-    if (Date.now() - last < RELOAD_COOLDOWN_MS) return;
-    sessionStorage.setItem(key, String(Date.now()));
-  } catch {
-    // sessionStorage may be unavailable; reload anyway
-  }
-  window.location.reload();
-};
-
-window.addEventListener("error", (e) => tryReload(e.message || ""));
-window.addEventListener("unhandledrejection", (e) => {
-  const reason: unknown = e.reason;
-  const message =
-    typeof reason === "string"
-      ? reason
-      : reason instanceof Error
-        ? reason.message
-        : "";
-  tryReload(message);
-});
 
 createRoot(document.getElementById("root")!).render(
   <ErrorBoundary fallback={AppCrashFallback}>

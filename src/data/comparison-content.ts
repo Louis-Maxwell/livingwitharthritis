@@ -298,7 +298,7 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
     metaDescription:
       "Swimming vs walking for arthritis — which helps more, which is safer for painful joints, and what UK guidance recommends.",
     intro:
-      "Regular movement is one of the most powerful treatments for arthritis — the closest thing to a wonder drug. But when joints hurt, choosing the right kind of movement matters. This guide compares swimming and walking side-by-side for UK arthritis patients, drawing on UK healthcare and Versus Arthritis guidance.",
+      "Regular movement is one of the most powerful treatments for arthritis — the closest thing to a wonder drug. But when joints hurt, choosing the right kind of movement matters. This guide compares swimming and walking side-by-side for UK arthritis patients, drawing on UK healthcare and Arthritis UK (formerly Versus Arthritis) guidance.",
     optionA: {
       name: "Swimming (and water-based exercise)",
       howItWorks:
@@ -339,7 +339,7 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
       {
         heading: "What UK guidelines say",
         paragraphs: [
-          "NICE recommends any exercise that a person will actually do, tailored to their condition and preference. Versus Arthritis and the UK healthcare system emphasise the same message: something is better than nothing, and the 'best' exercise is the one you enjoy enough to keep going.",
+          "NICE recommends any exercise that a person will actually do, tailored to their condition and preference. Arthritis UK (formerly Versus Arthritis) and the UK healthcare system emphasise the same message: something is better than nothing, and the 'best' exercise is the one you enjoy enough to keep going.",
           "For inflammatory arthritis flares and after joint surgery, hydrotherapy (physiotherapist-led exercise in a warm pool) is often prescribed short-term to rebuild strength without triggering pain. Once pain settles, most people are gradually moved onto walking, cycling or land-based physiotherapy.",
         ],
       },

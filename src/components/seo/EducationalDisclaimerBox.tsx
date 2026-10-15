@@ -5,12 +5,17 @@ import {
   MEDICAL_DISCLAIMER_SHORT,
   educationalDisclaimerCopyMode,
 } from "@/lib/medicalDisclaimer";
-import { useDisclaimerStripShown } from "@/components/disclaimerChrome";
+import { useDisclaimerStripShown } from "@/components/disclaimerContext";
+import { PENDING_REVIEW_TEXT, type BlogReviewStatus } from "@/lib/blog/review";
 
 interface EducationalDisclaimerBoxProps {
-  /** ISO date shown as last clinical review, default Sep 2026 Month 1 pass. */
+  /** Explicit clinical-review date; never inferred from content updates. */
   lastReviewed?: string;
   reviewer?: string;
+  /** "pending" replaces the "Clinically reviewed" line with the pending byline. */
+  reviewStatus?: BlogReviewStatus;
+  /** Line shown when pending (defaults to the blog byline). */
+  pendingText?: string;
   className?: string;
 }
 
@@ -20,15 +25,17 @@ interface EducationalDisclaimerBoxProps {
  * review line is shown — the short copy is not repeated.
  */
 export default function EducationalDisclaimerBox({
-  lastReviewed = "2026-09-16",
+  lastReviewed,
   reviewer = "Louis Maxwell, HCPC PH128483",
+  reviewStatus = "reviewed",
+  pendingText = PENDING_REVIEW_TEXT,
   className = "",
 }: EducationalDisclaimerBoxProps) {
-  const reviewedLabel = new Date(lastReviewed).toLocaleDateString("en-GB", {
+  const reviewedLabel = lastReviewed && !Number.isNaN(Date.parse(lastReviewed)) ? new Date(lastReviewed).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
-  });
+  }) : null;
   const copyMode = educationalDisclaimerCopyMode(useDisclaimerStripShown());
 
   return (
@@ -39,9 +46,15 @@ export default function EducationalDisclaimerBox({
       <div className="flex items-start gap-3">
         <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
         <div className="space-y-2">
-          <p className="font-semibold text-foreground">
-            Clinically reviewed · {reviewer} · {reviewedLabel}
-          </p>
+          {reviewStatus === "pending" ? (
+            <p className="font-semibold text-foreground" data-testid="review-status-pending">
+              {pendingText}
+            </p>
+          ) : (
+            <p className="font-semibold text-foreground">
+              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded`}
+            </p>
+          )}
           {copyMode === "full" ? (
             <p className="flex items-start gap-2">
               <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden />

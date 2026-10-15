@@ -9,7 +9,7 @@
 - Your brand search volume is lower (smaller org, newer)
 - Keyword "arthritis" is ambiguous without "with" clarification
 
-**Impact:** 
+**Impact:**
 - Lost mission visibility for supporters
 - Missed donations from brand search
 - Wasted SEO work on content marketing
@@ -26,11 +26,11 @@
 **Action:** Add these tags to homepage `<Helmet>`:
 
 ```jsx
-<title>Living With Arthritis UK – Free Arthritis Support & Physiotherapy</title>
+<title>Living With Arthritis – Free Arthritis Support & Physiotherapy</title>
 <meta name="description" content="Living With Arthritis is an independent UK charity (1218461) offering free virtual physiotherapy, NICE-aligned exercises, and peer support for arthritis. Separate from Arthritis UK." />
-<meta property="og:title" content="Living With Arthritis UK – Independent Arthritis Charity" />
-<meta property="og:description" content="Living With Arthritis UK: free virtual physio, exercises, nutrition advice, and community support for arthritis. Independent charity, HCPC-registered First Contact Practitioner." />
-<meta name="twitter:title" content="Living With Arthritis UK | Independent Arthritis Charity" />
+<meta property="og:title" content="Living With Arthritis – Independent Arthritis Charity" />
+<meta property="og:description" content="Living With Arthritis: free virtual physio, exercises, nutrition advice, and community support for arthritis. Independent charity, HCPC-registered First Contact Practitioner." />
+<meta name="twitter:title" content="Living With Arthritis | Independent Arthritis Charity" />
 <meta name="twitter:description" content="Free arthritis support, physiotherapy & exercises from an independent UK charity. Separate from Arthritis UK." />
 ```
 
@@ -76,13 +76,13 @@
 **Action:** Verify these are all included in `RootOrganizationSchema`:
 
 ```
-✅ Charity Commission: https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461
-✅ FindThatCharity: https://findthatcharity.uk/orgid/GB-CHC-1218461
-✅ NGO Explorer: https://ngoexplorer.org/charity/1218461
-✅ Facebook: https://facebook.com/livingwitharthritis (if exists)
-✅ Twitter/X: https://twitter.com/[your-handle]
-✅ LinkedIn: https://linkedin.com/company/living-with-arthritis-uk
-✅ YouTube: https://youtube.com/@livingwitharthritis (if exists)
+Yes Charity Commission: https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461
+Yes FindThatCharity: https://findthatcharity.uk/orgid/GB-CHC-1218461
+Yes NGO Explorer: https://ngoexplorer.org/charity/1218461
+Yes Facebook: https://facebook.com/livingwitharthritis (if exists)
+Yes Twitter/X: https://twitter.com/[your-handle]
+Yes LinkedIn: https://linkedin.com/company/living-with-arthritis-uk
+Yes YouTube: https://youtube.com/@livingwitharthritis (if exists)
 ```
 
 These sameAs links help Google's entity resolution distinguish you from Arthritis UK.
@@ -112,11 +112,11 @@ These sameAs links help Google's entity resolution distinguish you from Arthriti
 
 **Action:** Add Living With Arthritis to:
 - **Google Business Profile** (set up if not already)
-  - Name: "Living With Arthritis UK"
+  - Name: "Living With Arthritis"
   - Category: "Charity"
   - Address: Your registered charity address
   - Phone: info@livingwitharthritis.org.uk
-  
+
 - **Charity directories:**
   - CharityNavigator (UK equivalent)
   - 360 Giving (if you submit data)
@@ -127,7 +127,7 @@ These sameAs links help Google's entity resolution distinguish you from Arthriti
   - TripAdvisor (Attractions/Places)
   - Trustpilot
 
-**Format:** Always use "Living With Arthritis UK" (not variations)
+**Format:** Always use "Living With Arthritis" (not variations)
 
 ### 2.3 Inbound Link Building
 **Action:** Reach out to:
@@ -164,11 +164,11 @@ Both organizations support people with arthritis, but through different models.
 This page ranks for ["living with arthritis" not arthritis uk] searches and clarifies the distinction.
 
 ### 3.2 Homepage H1 Optimization
-**Current:** Check if H1 clearly says "Living With Arthritis UK"
+**Current:** Check if H1 clearly says "Living With Arthritis"
 
 **Action:** Homepage H1 should be:
 ```html
-<h1>Living With Arthritis UK – Free Virtual Physiotherapy & Arthritis Support</h1>
+<h1>Living With Arthritis – Free Virtual Physiotherapy & Arthritis Support</h1>
 ```
 
 (Not just "Arthritis Support" — include your name in the hero.)
@@ -206,10 +206,10 @@ Create a weekly check for these queries:
 
 ## **Quick Wins (Do Today)**
 
-1. ✅ **Homepage meta tags** — Add "independent" keyword (1h)
-2. ✅ **FAQPage schema** — Add to homepage (30 min)
-3. ✅ **Google Business Profile** — Claim/verify (15 min)
-4. ✅ **sameAs links** — Audit and complete (30 min)
+1. Yes **Homepage meta tags** — Add "independent" keyword (1h)
+2. Yes **FAQPage schema** — Add to homepage (30 min)
+3. Yes **Google Business Profile** — Claim/verify (15 min)
+4. Yes **sameAs links** — Audit and complete (30 min)
 
 **Total: ~2 hours for Phase 1**
 
@@ -248,6 +248,6 @@ Create a weekly check for these queries:
 - [ ] Set up rank tracking in GSC
 - [ ] Weekly rank monitoring
 
-**Assigned to:** Need to execute or delegate  
-**Owner:** SEO/Communications team  
+**Assigned to:** Need to execute or delegate
+**Owner:** SEO/Communications team
 **Review date:** 2026-09-14

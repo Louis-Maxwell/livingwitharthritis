@@ -1,0 +1,18 @@
+{
+  "scope": "All canonical sitemap URLs: static HTML presence, canonical/robots checks and JSON-LD parse; article-node uniqueness, not Google Rich Results eligibility certification",
+  "canonical_pages_checked": 1048,
+  "jsonld_blocks_parsed": 5343,
+  "schema_types": {
+    "MedicalOrganization": 1048,
+    "NGO": 1048,
+    "Organization": 1048,
+    "WebSite": 1048,
+    "MedicalWebPage": 1047,
+    "BreadcrumbList": 1047,
+    "FAQPage": 585,
+    "Article": 568
+  },
+  "article_pages_with_condition_navigation": 20,
+  "article_pages_with_article_schema": 568,
+  "errors": []
+}

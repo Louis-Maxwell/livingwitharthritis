@@ -1,11 +1,12 @@
-import { lazy, Suspense } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import SkeletonSection from "@/components/landing/SkeletonSection";
 import PageHero from "@/components/ui/PageHero";
 
-const ServicesGrid = lazy(() => import("@/components/ServicesGrid"));
-const Footer = lazy(() => import("@/components/Footer"));
+const ServicesGrid = lazyWithRetry(() => import("@/components/ServicesGrid"));
+const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const Services = () => (
   <>
@@ -16,12 +17,12 @@ const Services = () => (
       <meta property="og:description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/services" />
-      <meta property="og:site_name" content="Living With Arthritis UK" />
+      <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Services | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Services | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Arthritis Support Services UK | Living With Arthritis" />
       <meta name="twitter:description" content="Free arthritis support services in the UK — virtual physiotherapy, personalised exercise plans, anti-inflammatory diet guidance and 24/7 community help." />

@@ -6,7 +6,6 @@ import { createRequire } from "node:module";
 import { componentTagger } from "lovable-tagger";
 import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
-import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
 // Prerender is ON by default for production builds so crawlers (Googlebot's
@@ -44,6 +43,40 @@ if (!ENABLE_PRERENDER) {
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
 
+
+
+// The self-hosted Inter file is imported from CSS so Vite content-hashes it
+// under /assets/*, which is the only path the live host actually caches
+// (public/_headers is ignored; /fonts/*.woff2 is re-downloaded every visit).
+// Preload stays low priority: the homepage LCP is text that appears only
+// after the entry scripts run, and a high-priority 48KB font was sharing
+// that bandwidth.
+function preloadInterFont() {
+  return {
+    name: "preload-inter-font",
+    transformIndexHtml: {
+      order: "post" as const,
+      handler(
+        html: string,
+        ctx: { bundle?: Record<string, { fileName?: string; type?: string }> },
+      ) {
+        const bundle = ctx.bundle;
+        if (!bundle) return html;
+        const font = Object.values(bundle).find(
+          (item) =>
+            item.type === "asset" &&
+            typeof item.fileName === "string" &&
+            item.fileName.includes("Inter") &&
+            item.fileName.endsWith(".woff2"),
+        );
+        if (!font?.fileName) return html;
+        const tag =
+          `<link rel="preload" as="font" type="font/woff2" href="/${font.fileName}" crossorigin fetchpriority="low" />`;
+        return html.replace("<!-- INTER_FONT_PRELOAD -->", tag);
+      },
+    },
+  };
+}
 
 export default defineConfig(({ mode }) => {
   return ({
@@ -108,16 +141,8 @@ export default defineConfig(({ mode }) => {
         brotliSize: true,
         template: "treemap",
       }),
+    preloadInterFont(),
 
-    mode === "production" &&
-      sentryVitePlugin({
-        org: process.env.SENTRY_ORG,
-        project: process.env.SENTRY_PROJECT,
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-        sourcemaps: {
-          assets: ["./dist/**"],
-        },
-      }),
   ].filter(Boolean),
   resolve: {
     alias: {
@@ -141,7 +166,15 @@ export default defineConfig(({ mode }) => {
     target: "es2020",
     cssMinify: true,
     minify: "esbuild",
-    modulePreload: false,
+    // Preload a lazy chunk's dependencies in parallel with the chunk itself.
+    // With preloading off, a route like /blog/:slug discovered its ~50 small
+    // dependency chunks only after its own chunk had downloaded and run, a
+    // request waterfall that delayed the article's first paint. Failed
+    // preloads raise vite:preloadError, which chunkRecovery handles.
+    modulePreload: { polyfill: false },
+    // dist/.vite/manifest.json lets scripts/inject-canonicals.mjs preload a
+    // route's own chunk from that route's static HTML (blog guides).
+    manifest: true,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -156,14 +189,12 @@ export default defineConfig(({ mode }) => {
           // entries are modulepreloaded from the root index.html on every
           // route, including the homepage, which renders no form, tabs or
           // accordion. Rollup route-splits them onto the pages that use them.
-          "ui-core": ["@radix-ui/react-tooltip"],
-          // Deduplicate lucide icons across all routes (~15 KB saved per route
-          // that imports icons, significant on the 78 exercise/condition pages).
-          "lucide-icons": ["lucide-react"],
-          // Bundle animation libs into a single shared chunk so every lazy
-          // route that needs them shares one cached file instead of
-          // duplicating the code inside each route chunk.
-          "framer-motion": ["framer-motion"],
+          // lucide-react and framer-motion are intentionally NOT listed (2026-09
+          // perf pass). As static manualChunks they were one 80 KB icon chunk
+          // holding every icon used anywhere, plus a 123 KB animation chunk,
+          // both preloaded on every route including the homepage. Rollup now
+          // tree-shakes icons per route and shares framer-motion only between
+          // the lazy routes that actually animate.
           // recharts intentionally NOT listed here (was previously, in error —
           // see 2026-07-24 PageSpeed fix). Static manualChunks entries get
           // eagerly modulepreloaded from the root index.html regardless of

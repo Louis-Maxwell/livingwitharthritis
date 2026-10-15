@@ -1,0 +1,11 @@
+{
+  "carpal-tunnel": { "reviewStatus": "pending" },
+  "hydroxychloroquine": { "reviewStatus": "pending" },
+  "knee-pain": { "reviewStatus": "pending" },
+  "osteoporosis": { "reviewStatus": "pending" },
+  "plantar-fasciitis": { "reviewStatus": "pending" },
+  "raynauds": { "reviewStatus": "pending" },
+  "shoulder-pain": { "reviewStatus": "pending" },
+  "sjogrens": { "reviewStatus": "pending" },
+  "vasculitis": { "reviewStatus": "pending" }
+}

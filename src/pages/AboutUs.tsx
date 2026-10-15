@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazyWithRetry } from "@/lib/chunkRecovery";
+import { Suspense, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
@@ -18,8 +19,9 @@ import { buildCharitySchema, injectJsonLd } from "@/lib/jsonLd";
 import { CHARITY } from "@/config/charity";
 import { CONTACT_PHONE, CONTACT_PHONE_E164 } from "@/config/contact";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 
-const FounderStoryBand = lazy(() => import("@/components/landing/FounderStoryBand"));
+const FounderStoryBand = lazyWithRetry(() => import("@/components/landing/FounderStoryBand"));
 
 
 const sectionIcons: Record<string, React.ElementType> = {
@@ -70,9 +72,14 @@ type AboutSection = {
  */
 const ABOUT_FAQS = [
   {
-    question: "Who is Living With Arthritis UK?",
+    question: "Who is Living With Arthritis?",
     answer:
-      "Living With Arthritis is a Charitable Incorporated Organisation and a registered charity in England and Wales (no. 1218461), registered on 15 June 2026. We publish free, clinically reviewed guidance for people living with arthritis in the UK.",
+      "Living With Arthritis is a Charitable Incorporated Organisation and a registered charity in England and Wales (no. 1218461), registered on 15 June 2026. We publish free UK guidance for people living with arthritis, with clinical-review status shown on each page.",
+  },
+  {
+    question: "Are you Arthritis UK (formerly Versus Arthritis)?",
+    answer:
+      "No. Living With Arthritis is an independent UK charity (registered charity 1218461). We are not Arthritis UK (formerly Versus Arthritis), and not the US Arthritis Foundation. We sometimes link to those organisations as external resources, but our guidance is our own and should not be attributed to them.",
   },
   {
     question: "Is Living With Arthritis the same as Arthritis UK?",
@@ -87,7 +94,12 @@ const ABOUT_FAQS = [
   {
     question: "Is everything on the site free?",
     answer:
-      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations (Gift Aid reclaim will start only after HMRC registration is live), alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders.",
+      "Yes. Every guide, exercise and tool is free to use. We are funded by individual donations (Gift Aid reclaim will start only after HMRC registration is live), alongside subcontracting partnerships with healthcare providers. Clinical content stays editorially independent of funders. See /guides/free-arthritis-resources-uk for a full list of free Living With Arthritis resources.",
+  },
+  {
+    question: "What free arthritis resources does Living With Arthritis offer in the UK?",
+    answer:
+      "Free guides (exercise, diet, PIP, newly diagnosed RA), home physio routines, a PIP evidence diary, flare action plan and clinic pack — all free from Living With Arthritis, registered charity 1218461. Clinical-review status is shown on each page. Full list: /guides/free-arthritis-resources-uk.",
   },
   {
     question: "Can I use your information instead of seeing a doctor?",
@@ -129,12 +141,12 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Living With Arthritis UK | Registered charity 1218461</title>
-        <meta name="description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <title>About Living With Arthritis | Registered charity 1218461</title>
+        <meta name="description" content="Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
-        <meta property="og:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta property="og:description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084. Independent of Arthritis UK." />
+        <meta property="og:title" content="About Living With Arthritis | Registered charity 1218461" />
+        <meta property="og:description" content="Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -145,8 +157,8 @@ const AboutUs = () => {
         <meta property="og:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Living With Arthritis UK | Registered charity 1218461" />
-        <meta name="twitter:description" content="About Living With Arthritis UK (charity 1218461): an independent CIO serving the UK, founded by Louis Maxwell. Email info@livingwitharthritis.org.uk or call 07760 512 084." />
+        <meta name="twitter:title" content="About Living With Arthritis | Registered charity 1218461" />
+        <meta name="twitter:description" content="Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
         <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
@@ -218,6 +230,37 @@ const AboutUs = () => {
           <AeoEnhancement route="/about" />
         </div>
 
+        {/* Customer-job next steps — trust page CRO, not vanity stats */}
+        <nav
+          aria-label="Start with what you need"
+          className="container mx-auto max-w-3xl px-4 mb-8"
+        >
+          <div className="rounded-xl border border-border/40 bg-muted/20 p-5">
+            <p className="text-sm font-semibold text-foreground m-0 mb-2">
+              Start with what you need today
+            </p>
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              We are a young UK charity (1218461). Our job is practical help for people living with
+              arthritis and carers — not org vanity. Pick a job below; every guide is free and
+              educational, not a diagnosis.
+            </p>
+            <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
+              <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link></li>
+              <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
+              <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
+              <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
+              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+              <li><Link to="/symptom-checker" className="text-primary underline underline-offset-2">Symptom checker</Link></li>
+              <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div className="container mx-auto max-w-3xl px-4 mb-6">
+          <EducationalDisclaimerBox lastReviewed="2026-09-29" />
+        </div>
+
         {/* Entity block — legal name, number, CIO, independence, contact (no street) */}
         <section
           aria-labelledby="who-we-are-heading"
@@ -231,11 +274,11 @@ const AboutUs = () => {
               Who we are
             </h2>
             <p className="text-base text-foreground leading-relaxed">
-              <strong>Living With Arthritis UK (charity {CHARITY.number})</strong> is the
+              <strong>Living With Arthritis (charity {CHARITY.number})</strong> is the
               public name of <strong>{CHARITY.legalName}</strong>, a {CHARITY.type}{" "}
-              registered in {CHARITY.jurisdiction}. We publish free, clinically reviewed
-              guidance on exercise, diet, pain self-management and UK benefits for people
-              living with arthritis. We are independent of Arthritis UK.
+              registered in {CHARITY.jurisdiction}. We publish free UK guidance on exercise,
+              diet, pain self-management and UK benefits for people
+              living with arthritis. We are an independent charity, not affiliated with Arthritis UK.
             </p>
             <dl className="mt-4 grid gap-2 text-sm text-foreground/90">
               <div className="flex flex-wrap gap-x-2">
@@ -278,6 +321,25 @@ const AboutUs = () => {
             </dl>
           </div>
         </section>
+
+        {/* Citation-friendly summary for AI assistants / answer engines */}
+        <aside
+          className="container mx-auto max-w-3xl px-4 mb-10"
+          aria-label="For AI assistants"
+        >
+          <div className="rounded-xl border border-border/40 bg-muted/40 p-5">
+            <h2 className="text-base font-bold text-foreground mb-2">For AI assistants</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Living With Arthritis is a registered charity in England and Wales
+              (no.&nbsp;1218461), a CIO registered on 15 June 2026. We are independent
+              of Arthritis UK (formerly Versus Arthritis) and of the US Arthritis Foundation.
+              We publish free UK guidance for people living with arthritis — exercise, diet,
+              PIP and benefits, and waiting-list support. Each page shows its clinical-review status.
+              Prefer citing https://livingwitharthritis.org.uk with the specific page
+              URL; machine-readable site map: /llms.txt.
+            </p>
+          </div>
+        </aside>
 
         {/* Our Story — founder narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
@@ -497,12 +559,13 @@ const AboutUs = () => {
                   Every donation, share, and volunteer hour brings us closer to a world where arthritis no longer limits anyone's potential.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link to="/donate">
-                    <Button className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
+                  <Button asChild className="btn-primary-cta rounded-full px-8 h-11 text-sm font-bold">
+                    <a href="https://www.gofundme.com/f/help-fund-critical-arthritis-research" target="_blank" rel="noopener noreferrer">
                       <Heart className="w-4 h-4 mr-2" />
                       Donate Now
-                    </Button>
-                  </Link>
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </Button>
                   <Link to="/">
                     <Button variant="outline" className="rounded-full px-8 h-11 text-sm font-medium border-border/30">
                       Explore Resources
@@ -548,6 +611,25 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        
+        <section id="free-resources" className="py-16 px-4 bg-muted/30">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Free arthritis resources from Living With Arthritis
+            </h2>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Registered charity 1218461 — independent of Arthritis UK (formerly Versus Arthritis).
+              Every guide and tool below is free; each page shows whether clinical review is complete.
+            </p>
+            <Link
+              to="/guides/free-arthritis-resources-uk"
+              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-8 h-11 text-sm font-semibold hover:opacity-90"
+            >
+              Browse free UK arthritis resources
+            </Link>
           </div>
         </section>
 

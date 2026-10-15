@@ -5,7 +5,7 @@ On-site Phase 1–2 (titles, About entity block, Organization JSON-LD, `sameAs`)
 **Canonical facts (use exactly):**
 
 - Legal name: Living With Arthritis
-- Brand: Living With Arthritis UK
+- Brand: Living With Arthritis
 - Charity number (England & Wales): **1218461**
 - Website: **https://livingwitharthritis.org.uk**
 - Independent of Arthritis UK
@@ -30,12 +30,12 @@ Use the exact brand string + number + URL. Do not add a street.
 
 | Platform | Profile | Bio / About (suggested) |
 |----------|---------|-------------------------|
-| Facebook | [Page id 61583723925315](https://www.facebook.com/profile.php?id=61583723925315) | Living With Arthritis UK (charity 1218461). Independent of Arthritis UK. https://livingwitharthritis.org.uk |
-| Instagram | [@livingwitharthritisuk](https://www.instagram.com/livingwitharthritisuk/) | Living With Arthritis UK (charity 1218461) · https://livingwitharthritis.org.uk |
-| LinkedIn | [company/112596569](https://www.linkedin.com/company/112596569/) | Living With Arthritis UK (charity 1218461). Independent UK CIO. https://livingwitharthritis.org.uk |
-| YouTube | [@livingwitharthritisuk](https://www.youtube.com/@livingwitharthritisuk) | Living With Arthritis UK (charity 1218461). https://livingwitharthritis.org.uk |
+| Facebook | [Page id 61583723925315](https://www.facebook.com/profile.php?id=61583723925315) | Living With Arthritis (charity 1218461). Independent of Arthritis UK. https://livingwitharthritis.org.uk |
+| Instagram | [@livingwitharthritisuk](https://www.instagram.com/livingwitharthritisuk/) | Living With Arthritis (charity 1218461) · https://livingwitharthritis.org.uk |
+| LinkedIn | [company/112596569](https://www.linkedin.com/company/112596569/) | Living With Arthritis (charity 1218461). Independent UK CIO. https://livingwitharthritis.org.uk |
+| YouTube | [@livingwitharthritisuk](https://www.youtube.com/@livingwitharthritisuk) | Living With Arthritis (charity 1218461). https://livingwitharthritis.org.uk |
 
-- [ ] Display name = **Living With Arthritis** or **Living With Arthritis UK** (not “Arthritis UK”).
+- [ ] Display name = **Living With Arthritis** or **Living With Arthritis** (not “Arthritis UK”).
 - [ ] Website button / link = `https://livingwitharthritis.org.uk`.
 - [ ] Do not create or link X/Twitter, TikTok, or Pinterest until ownership is confirmed in `src/config/social-media.ts`.
 
@@ -47,7 +47,7 @@ Use the exact brand string + number + URL. Do not add a street.
 
 ## 4. After the next Lovable publish
 
-- [ ] Confirm live `/` title is `Living With Arthritis UK | Registered Charity 1218461`.
+- [ ] Confirm live `/` title is `Living With Arthritis | Registered Charity 1218461`.
 - [ ] Confirm live `/about` has the entity block (name, 1218461, CIO, independent of Arthritis UK, email/phone — **no street**).
 - [ ] Google Search Console → **URL Inspection** → Request indexing for `https://livingwitharthritis.org.uk/` and `https://livingwitharthritis.org.uk/about`.
 - [ ] Bing Webmaster Tools: verify the property if needed; submit `https://livingwitharthritis.org.uk/sitemap.xml`.

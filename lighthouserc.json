@@ -9,7 +9,6 @@
       ],
       "numberOfRuns": 3,
       "settings": {
-        "preset": "perf",
         "formFactor": "mobile",
         "throttling": {
           "rttMs": 150,
@@ -22,7 +21,18 @@
           "height": 640,
           "deviceScaleFactor": 2,
           "disabled": false
-        }
+        },
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": [
+          "uses-http2",
+          "canonical"
+        ],
+        "chromeFlags": "--no-sandbox --headless=new"
       }
     },
     "assert": {

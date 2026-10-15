@@ -26,7 +26,7 @@ export default function BoneDensityOsteoporosis() {
       headline: 'Bone Density & Osteoarthritis: Managing Both Conditions',
       description: 'Dual management for osteoarthritis and osteoporosis. Calcium, vitamin D, magnesium, exercise and screening — UK guide.',
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
-      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis UK' },
+      publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-21', dateModified: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/bone-density-osteoporosis',
     };

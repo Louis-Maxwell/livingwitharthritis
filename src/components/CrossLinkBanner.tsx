@@ -82,15 +82,39 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     label: "Benefits & PIP Guide",
     description: "PIP eligibility, application process and disability support",
   },
+  "guide-knee-oa": {
+    to: "/guides/knee-exercises-for-osteoarthritis",
+    icon: Dumbbell,
+    label: "Free knee exercises for osteoarthritis",
+    description: "NICE-aligned 8-move home routine for knee OA",
+  },
+  "guide-free-resources": {
+    to: "/guides/free-arthritis-resources-uk",
+    icon: BookOpen,
+    label: "Free arthritis resources UK",
+    description: "Guides, home physio, PIP diary and flare tools",
+  },
+  "flare-action-plan": {
+    to: "/resources/flare-action-plan",
+    icon: Stethoscope,
+    label: "Flare action plan",
+    description: "Printable checklist for the first hours of a flare",
+  },
+  "pip-evidence-diary": {
+    to: "/resources/pip-evidence-diary",
+    icon: BookOpen,
+    label: "PIP evidence diary",
+    description: "Printable one-week diary for PIP claim prep",
+  },
 };
 
 /** Preset link groups by page context */
 const PRESETS: Record<string, string[]> = {
   "condition": ["exercises", "diet", "chat", "flareups"],
-  "exercise": ["diet", "osteoarthritis", "guide-exercise", "chat"],
+  "exercise": ["guide-knee-oa", "diet", "guide-free-resources", "osteoarthritis"],
   "diet": ["exercises", "osteoarthritis", "guide-diet", "chat"],
   "blog": ["exercises", "diet", "osteoarthritis", "chat"],
-  "flareup": ["exercises", "diet", "guide-health-services", "chat"],
+  "flareup": ["flare-action-plan", "exercises", "guide-benefits", "guide-health-services"],
   "guide": ["exercises", "diet", "blog", "chat"],
 };
 

@@ -6,6 +6,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { sitemapPageUrls } from "../../../scripts/indexnow-ping.mjs";
 
 const root = process.cwd();
 const ai = JSON.parse(
@@ -15,7 +16,7 @@ const ai = JSON.parse(
   { title?: string; description?: string; updatedAt?: string; faqs?: unknown[] }
 >;
 const sitemap = readFileSync(resolve(root, "public/sitemap.xml"), "utf8");
-const indexNow = readFileSync(resolve(root, "scripts/indexnow-ping.mjs"), "utf8");
+const indexNowUrls = sitemapPageUrls(sitemap);
 const llms = readFileSync(resolve(root, "public/llms.txt"), "utf8");
 const homepageTitle = ai["/"]?.title ?? "";
 
@@ -81,7 +82,7 @@ const HUBS = [
 
 describe("evening visibility pass — unique heads", () => {
   it("homepage head is customer-first and not a 100M claim", () => {
-    expect(homepageTitle).toMatch(/Living With Arthritis UK/i);
+    expect(homepageTitle).toMatch(/Living With Arthritis/i);
     expect(homepageTitle).not.toMatch(/100\s*million|100M/i);
     expect(ai["/"]?.description ?? "").not.toMatch(/100\s*million|100M/i);
   });
@@ -94,7 +95,9 @@ describe("evening visibility pass — unique heads", () => {
       expect(head!.description?.trim().length).toBeGreaterThan(80);
       expect(head!.title?.toLowerCase().includes(hub.titleIncludes.toLowerCase())).toBe(true);
       expect(head!.title).not.toBe(homepageTitle);
-      expect(head!.updatedAt).toBe("2026-09-20");
+      // Diet batch 4 (10 Oct 2026) refreshed the Mediterranean page content;
+      // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
+      expect(["2026-09-20", "2026-09-29", "2026-10-10"]).toContain(head!.updatedAt);
     });
   }
 
@@ -125,22 +128,34 @@ describe("evening visibility pass — internal links + TopicClusterNav", () => {
 
 describe("evening visibility pass — crawl + AI discovery", () => {
   for (const hub of HUBS) {
-    it(`sitemap lists ${hub.path} with 2026-09-20 lastmod`, () => {
+    it(`sitemap lists ${hub.path} with a real lastmod`, () => {
       // Prefer indexOf over RegExp so CodeQL does not flag incomplete
       // slash escaping when interpolating hub.path into a pattern.
+      // Pillar gold-passes may bump lastmod (e.g. Champions 47–48 → 2026-09-28).
       const loc = `<loc>https://livingwitharthritis.org.uk${hub.path}</loc>`;
       const i = sitemap.indexOf(loc);
       expect(i, loc).toBeGreaterThanOrEqual(0);
       const window = sitemap.slice(i, i + loc.length + 80);
-      expect(window.includes("<lastmod>2026-09-20</lastmod>")).toBe(true);
+      const hasLastmod =
+        window.includes("<lastmod>2026-09-20</lastmod>") ||
+        window.includes("<lastmod>2026-09-28</lastmod>") ||
+        window.includes("<lastmod>2026-09-29</lastmod>") ||
+        window.includes("<lastmod>2026-10-10</lastmod>");
+      expect(hasLastmod).toBe(true);
     });
   }
 
-  it("IndexNow ping list includes mediterranean + turmeric supplement", () => {
-    expect(indexNow).toContain("'/diet/mediterranean-diet-for-arthritis'");
-    expect(indexNow).toContain("'/supplements/turmeric'");
-    expect(indexNow).toContain("'/guides/arthritis-pain-relief'");
-    expect(indexNow).toContain("'/benefits-pip'");
+  it("IndexNow sitemap selection includes the priority diet, supplement and benefit pages", () => {
+    for (const path of [
+      "/diet/mediterranean-diet-for-arthritis",
+      "/supplements/turmeric",
+      "/guides/arthritis-pain-relief",
+      "/benefits-pip",
+    ]) {
+      expect(indexNowUrls).toContain(`https://livingwitharthritis.org.uk${path}`);
+    }
+    expect(new Set(indexNowUrls).size).toBe(indexNowUrls.length);
+    expect(indexNowUrls.every((url) => !url.includes("/openverse/"))).toBe(true);
   });
 
   it("llms.txt prefers the evening-pass hubs", () => {

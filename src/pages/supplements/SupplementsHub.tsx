@@ -34,7 +34,7 @@ const SUPPLEMENTS = [
   {
     to: "/supplements/turmeric",
     label: "Turmeric & curcumin",
-    desc: "Strong anti-inflammatory action — around 1,000 mg/day curcumin is comparable to ibuprofen for knee OA pain, with fewer stomach side effects.",
+    desc: "Some small trials suggest curcumin may modestly ease knee OA pain and stiffness, but evidence is limited and it is not equivalent to an NSAID.",
     available: true,
   },
   {
@@ -46,7 +46,7 @@ const SUPPLEMENTS = [
   {
     to: "/supplements/collagen",
     label: "Collagen peptides",
-    desc: "Hydrolysed peptides (10 g/day) or undenatured type II (40 mg/day) — emerging evidence for knee pain, stiffness and joint comfort.",
+    desc: "Hydrolysed peptides and undenatured type II collagen — mixed, limited evidence for osteoarthritis symptoms, safety and medicine checks.",
     available: true,
   },
   {
@@ -114,7 +114,7 @@ export default function SupplementsHub() {
   return (
     <>
       <Helmet>
-        <title>{`${META_TITLE} | Living With Arthritis UK`}</title>
+        <title>{`${META_TITLE} | Living With Arthritis`}</title>
         <meta name="description" content={META_DESC} />
         <meta
           name="keywords"
@@ -127,7 +127,7 @@ export default function SupplementsHub() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL} />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:site_name" content="Living With Arthritis UK" />
+        <meta property="og:site_name" content="Living With Arthritis" />
       </Helmet>
 
       <PageSchema

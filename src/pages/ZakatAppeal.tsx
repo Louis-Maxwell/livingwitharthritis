@@ -15,7 +15,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NextReadStrip from "@/components/NextReadStrip";
-import StripeDonationModal from "@/components/StripeDonationModal";
+import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { gazaAppealHero, gazaRehabStory } from "@/data/images";
 import ZakatCalculator from "@/components/ZakatCalculator";
 import GazaImpactTiers from "@/components/appeal/GazaImpactTiers";
@@ -87,36 +87,18 @@ const FAQ_ITEMS = [
 const ZakatAppeal = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isRecurring, setIsRecurring] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const activeAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
   const description = customAmount
     ? "Your generous contribution will make a meaningful difference"
     : AMOUNT_DESCRIPTIONS[selectedAmount] || "";
-
-  const handleDonate = () => {
-    if (activeAmount > 0) {
-      setIsRecurring(false);
-      setIsModalOpen(true);
-    }
-  };
-
-  /** Select an amount from a tier or giving card and open the payment modal. */
-  const handleGive = (amount: number, source?: string) => {
-    setCustomAmount("");
-    setSelectedAmount(amount);
-    setIsRecurring(source === "sadaqah-jariyah");
-    setIsModalOpen(true);
-  };
 
 
   return (
     <>
       <Helmet>
-        <title>Palestine & Gaza Appeal | Zakat & Sadaqah | Living With Arthritis UK</title>
-        <meta name="description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza. Shariah-compliant, scholar-guided. Gift Aid not yet live." />
+        <title>Gaza Zakat & Sadaqah | Living With Arthritis</title>
+        <meta name="description" content="Give Zakat or Sadaqah to support physiotherapy and rehabilitation for war and trauma survivors in Gaza. Learn how donations help. Gift Aid not yet live." />
         <meta property="og:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah for Rehabilitation" />
         <meta property="og:description" content="Thousands in Gaza are living with crushed joints and amputations. Your Zakat and Sadaqah fund the physiotherapy that helps them walk again." />
         <meta property="og:type" content="website" />
@@ -128,7 +110,7 @@ const ZakatAppeal = () => {
           "@type": "DonateAction",
           "name": "Palestine & Gaza Appeal – Rehabilitation for War & Trauma Survivors",
           "description": "Give Zakat or Sadaqah to fund physiotherapy and rehabilitation sessions for people recovering from war and trauma injuries in Gaza.",
-          "recipient": { "@type": "Organization", "name": "Living With Arthritis UK", "url": "https://livingwitharthritis.org.uk" },
+          "recipient": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
           "price": "100",
           "priceCurrency": "GBP",
         })}</script>
@@ -145,12 +127,12 @@ const ZakatAppeal = () => {
           })),
         })}</script>
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah | Living With Arthritis UK" />
+      <meta name="twitter:title" content="Palestine & Gaza Appeal – Zakat & Sadaqah | Living With Arthritis" />
       <meta name="twitter:description" content="Give your Zakat or Sadaqah to fund physiotherapy and rehabilitation for war and trauma survivors in Gaza." />
         <meta property="og:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Palestine & Gaza Appeal | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Palestine & Gaza Appeal | Living With Arthritis" />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -277,24 +259,21 @@ const ZakatAppeal = () => {
                   </div>
 
                   {/* Donate button */}
-                  <Button
-                    onClick={() => {
-                      trackDonationClick({
-                        source: "gaza_appeal_form",
-                        amount: activeAmount,
-                      });
-                      handleDonate();
-                    }}
-                    disabled={activeAmount <= 0}
-                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
-                  >
-                    <Heart className="mr-2 h-5 w-5" />
-                    Donate £{activeAmount > 0 ? activeAmount.toLocaleString() : "0"}
+                  <Button asChild className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <a
+                      href={GOFUNDME_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackDonationClick({ source: "gaza_appeal_form" })}
+                    >
+                      <Heart className="mr-2 h-5 w-5" />
+                      Donate on GoFundMe
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
                   </Button>
 
-
                   <p className="text-[11px] text-muted-foreground text-center">
-                    Secure payment via Stripe. Your data is protected.
+                    The amount is chosen on GoFundMe. This page does not take card payments.
                   </p>
                 </div>
               </div>
@@ -303,7 +282,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Impact tiers */}
-        <GazaImpactTiers onSelect={handleGive} />
+        <GazaImpactTiers />
 
         {/* Empathy story block */}
         <section className="py-14 bg-background">
@@ -338,7 +317,7 @@ const ZakatAppeal = () => {
         </section>
 
         {/* Islamic giving: Zakat, Sadaqah, Sadaqah Jariyah */}
-        <IslamicGivingCards onGive={(amount, source) => handleGive(amount, source)} />
+        <IslamicGivingCards />
 
         {/* Zakat Calculator */}
         <ZakatCalculator />
@@ -411,14 +390,6 @@ const ZakatAppeal = () => {
       <NextReadStrip currentPath="/zakat-appeal" />
       <Footer />
 
-      <StripeDonationModal
-        isOpen={isModalOpen}
-        onClose={() => { setIsModalOpen(false); setIsRecurring(false); }}
-        amount={activeAmount}
-        currency="GBP"
-        fundType="zakat"
-        recurring={isRecurring}
-      />
     </>
   );
 };

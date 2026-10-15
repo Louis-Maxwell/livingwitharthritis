@@ -98,7 +98,7 @@ Monitor what Google can and can't index:
 | **Indexed** | Page is in Google's index ✓ | Monitor for drops |
 | **Discovered** | Page found but not indexed yet | Check if content is public, wait for re-crawl |
 | **Excluded** | Page is intentionally excluded | Normal for `/admin`, `/auth`, etc. |
-| **Error** | Page couldn't be indexed ❌ | Investigate and fix errors |
+| **Error** | Page couldn't be indexed No | Investigate and fix errors |
 
 **Common Crawl Errors:**
 - **404 Not Found** — Page deleted or URL changed

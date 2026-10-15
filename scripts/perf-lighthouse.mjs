@@ -15,6 +15,7 @@
  *   PERF_BASE_URL=http://localhost:8080 node scripts/perf-lighthouse.mjs --no-build --no-serve
  */
 import { spawn, spawnSync } from "node:child_process";
+import { cpSync, existsSync, rmSync } from "node:fs";
 import { setTimeout as sleep } from "node:timers/promises";
 
 const argv = process.argv.slice(2);
@@ -92,6 +93,13 @@ for (const pass of passes) {
     `--config=${pass.config}`,
     ...urlFlags,
   ]);
+  // LHCI reuses its working directory. Retain each device before the next
+  // pass overwrites it, so mobile evidence cannot be replaced by desktop.
+  const retained = `.lighthouseci-${pass.label}`;
+  if (existsSync(".lighthouseci")) {
+    rmSync(retained, { recursive: true, force: true });
+    cpSync(".lighthouseci", retained, { recursive: true });
+  }
   if (status !== 0) {
     failed = true;
     console.error(`Lighthouse ${pass.label} pass failed (exit ${status}).`);

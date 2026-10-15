@@ -20,7 +20,7 @@ export default function Complaints() {
       <meta property="og:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Complaints | Living With Arthritis UK" />
+        <meta property="og:image:alt" content="Complaints | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={`Complaints Procedure | ${CHARITY.shortName}`} />
       <meta name="twitter:description" content={`Our complaints procedure explains how to raise a concern about ${CHARITY.shortName} and how we will respond.`} />
@@ -43,7 +43,7 @@ export default function Complaints() {
             <section>
               <h2 className="text-xl font-semibold text-foreground">1. Our Commitment</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Living With Arthritis UK is committed to providing high-quality services and support. If something goes wrong, we want to know about it so we can put it right and learn from our mistakes. We treat all complaints seriously, fairly, and confidentially.
+                Living With Arthritis is committed to providing high-quality services and support. If something goes wrong, we want to know about it so we can put it right and learn from our mistakes. We treat all complaints seriously, fairly, and confidentially.
               </p>
             </section>
 

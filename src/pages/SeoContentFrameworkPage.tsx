@@ -16,12 +16,12 @@ export default function SeoContentFrameworkPage() {
   return (
     <>
       <Helmet>
-        <title>How we write SEO content | Living With Arthritis UK</title>
+        <title>How we write SEO content | Living With Arthritis</title>
         <meta
           name="description"
           content="Louis Maxwell's 8-step SEO content framework: search intent, keyword, strong title, H2/H3 outline, helpful content, on-page SEO, internal links and readability."
         />
-        <meta property="og:title" content="How we write SEO content | Living With Arthritis UK" />
+        <meta property="og:title" content="How we write SEO content | Living With Arthritis" />
         <meta
           property="og:description"
           content="Great SEO content = search intent + clarity + helpful value. Our eight-step framework for UK arthritis guides and blog posts."
@@ -44,8 +44,8 @@ export default function SeoContentFrameworkPage() {
           url: URL,
           inLanguage: "en-GB",
           description:
-            "Eight-step SEO content framework used by Living With Arthritis UK for guides and blog posts.",
-          isPartOf: { "@type": "WebSite", name: "Living With Arthritis UK", url: BASE },
+            "Eight-step SEO content framework used by Living With Arthritis for guides and blog posts.",
+          isPartOf: { "@type": "WebSite", name: "Living With Arthritis", url: BASE },
           about: { "@type": "Thing", name: "SEO content framework" },
           publisher: { "@id": `${BASE}/#organization` },
         })}</script>
@@ -77,7 +77,7 @@ export default function SeoContentFrameworkPage() {
               How we write SEO content
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Living With Arthritis UK (charity 1218461, UK national charity) publishes free, clinically
+              Living With Arthritis (charity 1218461, UK national charity) publishes free, clinically
               reviewed guidance. This page documents the framework every new guide and blog post
               should follow — independent of Arthritis UK.
             </p>

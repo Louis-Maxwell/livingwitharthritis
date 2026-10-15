@@ -33,44 +33,38 @@
 
 ### **MUST DO (Essential for Growth)**
 
-#### **#1: Your Blog Website** ⭐⭐⭐⭐⭐
+#### **#1: Your Blog Website**
 **URL:** `https://livingwitharthritis.org.uk/blog/[post-slug]`
 
 **Why:** Owns SEO, builds domain authority, captures all traffic
 
-**Steps:**
+**Steps:** one edit — create `src/content/blog/posts/<slug>.json`.
+Full field list and checks: [`docs/ADDING-A-BLOG-GUIDE.md`](docs/ADDING-A-BLOG-GUIDE.md).
 ```
-1. Create file: src/pages/blog/ArticleTitle.tsx
-2. Write 2000+ words with:
-   ✓ SEO title (60 chars)
-   ✓ Meta description (160 chars)
-   ✓ H1 with keyword
-   ✓ 3-5 H2 sections
-   ✓ 8-10 FAQs
-   ✓ 3-5 internal links
-   ✓ Featured image (1200x630px)
-   ✓ Author: Louis Maxwell
-   ✓ Last reviewed date
-
-3. Run: npm run lint (no errors)
-4. Deploy to Lovable
-5. Submit to Google Search Console
+1. Create src/content/blog/posts/<slug>.json (copy an existing guide):
+   ✓ title + meta_title (≤60 chars) + meta_description (120–165 chars)
+   ✓ excerpt, category, cover (file in public/openverse/)
+   ✓ date, updated_at (+ last_reviewed after clinical review)
+   ✓ content: 2000+ words, H2 sections, FAQs as "…?" headings, internal links
+   ✓ author / reviewer: Louis Maxwell
+2. Run: npm run blog:catalog && npm run build (validates + regenerates)
+3. Open a PR, merge when CI is green (Lovable syncs from main)
+4. Submit to Google Search Console
 ```
-
 **Timing:** First, always. Wait 24 hours before syndication.
 
 **Traffic impact:** 200-500 visits per post (grows over 3-6 months as SEO compounds)
 
 ---
 
-#### **#2: Instagram** ⭐⭐⭐⭐
+#### **#2: Instagram**
 **URL:** `@livingwitharthritis` (10k followers)
 
 **Post types (choose 2-3 per week):**
 
 **Carousel Post:**
 ```
-Slide 1: "5 Arthritis Myths Debunked 🦵"
+Slide 1: "5 Arthritis Myths Debunked "
 Slide 2: Myth #1: "Exercise makes arthritis worse"
          Truth: "Gentle movement reduces pain"
 Slide 3: Myth #2: ...
@@ -78,7 +72,7 @@ Slide 4-5: More myths
 Slide 6: "Full guide in bio → [LINK]"
 Slide 7: "Save for later"
 
-Caption: "Which myth surprised you most? Comment below! 👇
+Caption: "Which myth surprised you most? Comment below!
 Full arthritis exercise guide in bio."
 
 Hashtags: #ArthritisSupport #ExerciseForArthritis #PhysioTips
@@ -101,7 +95,7 @@ CTA: "Full guide in bio"
 
 **Posting Schedule:**
 - Monday 10am: Carousel
-- Wednesday 7pm: Reel  
+- Wednesday 7pm: Reel
 - Friday 2pm: Story series
 - Sunday 8pm: Reminder story
 
@@ -109,7 +103,7 @@ CTA: "Full guide in bio"
 
 ---
 
-#### **#3: Facebook** ⭐⭐⭐⭐
+#### **#3: Facebook**
 **URL:** `facebook.com/livingwitharthritis` (10k followers, older demographic = GOLD)
 
 **Post Format:**
@@ -118,7 +112,7 @@ CTA: "Full guide in bio"
 LINK POST:
 "NEW GUIDE: Arthritis Exercises for Knee Pain Relief
 
-Louis (HCPC physiotherapist) shows 7 step-by-step 
+Louis (HCPC physiotherapist) shows 7 step-by-step
 movements you can do at home. No equipment needed.
 
 ✓ Scientifically-proven NICE-aligned exercises
@@ -143,11 +137,11 @@ Caption: "Click to see the full guide with all 7 exercises"
 ```
 "Which arthritis symptom is hardest for you to manage?
 
-📍 Stiffness in the morning
-📍 Swelling
-📍 Chronic pain
-📍 Fatigue
-📍 Other (comment below)
+ Stiffness in the morning
+ Swelling
+ Chronic pain
+ Fatigue
+ Other (comment below)
 
 Other people with arthritis share solutions here → [LINK]"
 ```
@@ -163,7 +157,7 @@ Other people with arthritis share solutions here → [LINK]"
 
 ### **SHOULD DO (Extended Reach)**
 
-#### **#4: Email Newsletter** ⭐⭐⭐
+#### **#4: Email Newsletter**
 **Frequency:** Once per week (Monday morning)
 
 **Build email list starting Month 2**
@@ -177,7 +171,7 @@ Hi [Name],
 
 This week's guide is about arthritis exercises for knee pain.
 
-Our founder Louis (HCPC physiotherapist) created a 7-move routine 
+Our founder Louis (HCPC physiotherapist) created a 7-move routine
 you can do at home. It takes 10 minutes and requires no equipment.
 
 >>> Read the full guide with videos <<<
@@ -186,14 +180,14 @@ you can do at home. It takes 10 minutes and requires no equipment.
 Questions? Reply to this email — Louis reads every message.
 
 Cheers,
-Living With Arthritis UK
+Living With Arthritis
 ```
 
 **Traffic impact:** 20-30% open rate × subscribers = 100-500 visits per post (Month 2+)
 
 ---
 
-#### **#5: Medium** ⭐⭐
+#### **#5: Medium**
 **URL:** `medium.com/@livingwitharthritis`
 
 **Steps:**
@@ -202,7 +196,7 @@ Living With Arthritis UK
 2. Wait 24 hours after publishing on your blog
 3. Paste full blog post into Medium editor
 4. Add at the top:
-   "Originally published on Living With Arthritis UK →
+   "Originally published on Living With Arthritis →
    https://livingwitharthritis.org.uk/blog/[slug]"
 5. In settings:
    - Set "Canonical URL" = your blog URL
@@ -217,7 +211,7 @@ Living With Arthritis UK
 
 ---
 
-#### **#6: LinkedIn** ⭐
+#### **#6: LinkedIn**
 **URL:** `linkedin.com/company/living-with-arthritis`
 
 **Post as LinkedIn Article (not just link):**
@@ -241,20 +235,20 @@ https://livingwitharthritis.org.uk/blog/arthritis-exercises-knee-pain
 
 ---
 
-#### **#7: Reddit** ⭐
+#### **#7: Reddit**
 **Subreddits:** r/arthritis (50k), r/rheumatism (10k), r/Health (500k)
 
 **DON'T post like:**
 ```
-❌ "Check out my new blog post! [LINK]"
-❌ "My charity has a guide: [LINK]"
+No "Check out my new blog post! [LINK]"
+No "My charity has a guide: [LINK]"
 ```
 
 **DO post like:**
 ```
-✅ User: "Does anyone have good knee arthritis exercises?"
+Yes User: "Does anyone have good knee arthritis exercises?"
 
-You: "Our founder Louis (HCPC physio) created a guide with 
+You: "Our founder Louis (HCPC physio) created a guide with
 step-by-step videos for exactly this. Completely free:
 
 [LINK TO BLOG]
@@ -335,7 +329,7 @@ Retweet your own thread 2-3 times in different time zones.
 WEEKLY TOTAL:
 - 3 blog posts published
 - 9 social posts (Instagram carousel + reel + story per post)
-- 6 Facebook posts  
+- 6 Facebook posts
 - 3 Reddit comments
 - 3 Medium republishes
 - 3 LinkedIn articles
@@ -414,7 +408,7 @@ DEPLOYMENT:
 ```
 INSTAGRAM:
 - Carousel: Monday 10am (start the week)
-- Reel: Wednesday 7pm (mid-week boost)  
+- Reel: Wednesday 7pm (mid-week boost)
 - Story: Any time, daily
 - Peak engagement: Mornings (8-10am) + evenings (7-9pm)
 
@@ -499,4 +493,4 @@ WEEK 2-4: Repeat with Blog 2 & Blog 3
 4. I'll help you set up the file on the website
 5. You hit publish and we amplify across all 8 channels
 
-What's your first blog going to be? 📝
+What's your first blog going to be?

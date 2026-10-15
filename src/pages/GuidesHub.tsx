@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InternalLinks from "@/components/InternalLinks";
 import PageHero from "@/components/ui/PageHero";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, BookOpen } from "lucide-react";
@@ -39,12 +40,12 @@ const GuidesHub = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis Guides Hub | Living With Arthritis UK</title>
+        <title>Arthritis Guides Hub | Living With Arthritis</title>
         <meta
           name="description"
           content="Browse clinician-written UK arthritis guides: PIP and benefits, exercise, diet, pain relief, newly diagnosed steps, and navigating NHS care."
         />
-        <meta property="og:title" content="Arthritis Guides Hub | Living With Arthritis UK" />
+        <meta property="og:title" content="Arthritis Guides Hub | Living With Arthritis" />
         <meta
           property="og:description"
           content="Browse clinician-written UK arthritis guides covering benefits, movement, diet, medication and support."
@@ -60,7 +61,7 @@ const GuidesHub = () => {
           inLanguage: "en-GB",
           isPartOf: {
             "@type": "WebSite",
-            name: "Living With Arthritis UK",
+            name: "Living With Arthritis",
             url: "https://livingwitharthritis.org.uk",
           },
         })}</script>
@@ -80,6 +81,7 @@ const GuidesHub = () => {
 
       <Header />
       <main id="main-content" className="min-h-screen bg-background text-foreground">
+        <PageBreadcrumb segments={[{ label: "Guides" }]} />
         <PageHero
           badge={
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
@@ -104,18 +106,77 @@ const GuidesHub = () => {
               arthritis blog
             </Link>
             , or jump to the{" "}
-            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">
-              Benefits &amp; PIP hub
+            <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
+              Benefits &amp; PIP guide
             </Link>
             . You are not alone in figuring this out.
           </p>
           <nav aria-label="Related hubs" className="flex flex-wrap gap-2 text-sm">
             <Link to="/exercises" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Exercise hub</Link>
             <Link to="/diet" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Diet hub</Link>
-            <Link to="/benefits-pip" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Benefits &amp; PIP</Link>
+            <Link to="/guides/benefits-pip" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Benefits &amp; PIP</Link>
             <Link to="/blog" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Blog</Link>
             <Link to="/editorial-standards" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">How we write</Link>
           </nav>
+
+          <section aria-labelledby="popular-guides-heading" className="rounded-2xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+            <h2 id="popular-guides-heading" className="text-lg font-semibold mb-1">
+              Popular guides
+            </h2>
+            <p className="text-sm text-muted-foreground mb-4 max-w-2xl">
+              Free starting points most UK readers ask for — clinically reviewed, no sign-up.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link
+                to="/guides/knee-exercises-for-osteoarthritis"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Movement</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  Free knee exercises for osteoarthritis
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  NICE-aligned 8-move home routine for knee OA.
+                </p>
+              </Link>
+              <Link
+                to="/guides/free-arthritis-resources-uk"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Support</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  Free arthritis resources UK
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Guides, home physio, PIP diary and flare tools — charity 1218461.
+                </p>
+              </Link>
+              <Link
+                to="/guides/benefits-pip"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Money</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  How to claim PIP for arthritis in the UK
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Eligibility, PIP2 form tips, assessment and appeals.
+                </p>
+              </Link>
+              <Link
+                to="/resources/pip-evidence-diary"
+                className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <p className="text-xs font-bold uppercase tracking-wide text-primary mb-1">Tool</p>
+                <p className="font-semibold text-foreground group-hover:text-primary">
+                  Printable PIP evidence diary
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  One-week checklist to support a PIP discussion with an adviser.
+                </p>
+              </Link>
+            </div>
+          </section>
 
           {CLUSTER_ORDER.map((cluster) => {
             const guides = byCluster(cluster);
