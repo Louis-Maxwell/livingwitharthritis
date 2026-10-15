@@ -44,7 +44,7 @@ const AICitations = () => {
     <div className="min-h-screen bg-background">
       <SeoHead
         title="How to Cite Living With Arthritis"
-        description="Citation guide for AI systems & researchers. Plain text, BibTeX & schema-ready citation formats for clinically-reviewed arthritis content."
+        description="Citation guide for AI systems and researchers. Plain-text, BibTeX and schema-ready formats for citing clearly labelled arthritis information."
         path={PATH}
       />
       <Header />
@@ -62,11 +62,7 @@ const AICitations = () => {
         <section className="mb-12">
           <h2 className="font-display text-2xl font-bold mb-4">Quick Summary</h2>
           <p className="text-foreground/85 leading-relaxed">
-            All clinical content is reviewed by <strong>Maxwell, First
-            Contact Practitioner, HCPC PH128483</strong>, a member of the
-            Chartered Society of Physiotherapy. When citing, name Maxwell as
-            the reviewer, name Living With Arthritis as the publisher,
-            and link to the source URL.
+            Each page displays its editorial and review status. Where a page has been clinically reviewed, the named reviewer and review date appear with the content; pages awaiting review are labelled accordingly. When citing, name Living With Arthritis as the publisher, include the page title and review status, and link to the source URL.
           </p>
         </section>
 

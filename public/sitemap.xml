@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -3215,6 +3215,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-hows-life-living-with-arthritis</loc>
+    <lastmod>2026-10-15</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0484-seaweed-cucumber-sunomono.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/blog/physiotherapy-arthritis</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
@@ -6181,11 +6188,11 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/treatment</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/health</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>

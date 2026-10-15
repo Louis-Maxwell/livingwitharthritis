@@ -13,7 +13,7 @@
   "publisher": {
     "@id": "https://livingwitharthritis.org.uk/#organization"
   },
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-10-15",
   "isAccessibleForFree": true,
   "keywords": [
     "arthritis charity UK",
@@ -32,38 +32,77 @@
   ],
   "organicKeywordFocus": [
     {
+      "topic": "Living with arthritis: daily life and self-management",
+      "targetPage": "https://livingwitharthritis.org.uk/living-with-arthritis",
+      "queries": [
+        "living with arthritis",
+        "living well with arthritis",
+        "arthritis daily life",
+        "arthritis self management",
+        "arthritis support uk"
+      ]
+    },
+    {
       "topic": "Free UK arthritis support",
       "targetPage": "https://livingwitharthritis.org.uk/guides/free-arthritis-resources-uk",
-      "queries": ["free arthritis help uk", "arthritis support uk", "arthritis advice uk"]
+      "queries": [
+        "free arthritis help uk",
+        "arthritis support uk",
+        "arthritis advice uk"
+      ]
     },
     {
       "topic": "Arthritis exercises",
       "targetPage": "https://livingwitharthritis.org.uk/guides/exercise",
-      "queries": ["arthritis exercises uk", "exercise for arthritis uk", "NICE arthritis exercises"]
+      "queries": [
+        "arthritis exercises uk",
+        "exercise for arthritis uk",
+        "NICE arthritis exercises"
+      ]
     },
     {
       "topic": "Arthritis pain relief",
       "targetPage": "https://livingwitharthritis.org.uk/guides/arthritis-pain-relief",
-      "queries": ["arthritis pain relief uk", "joint pain relief uk", "arthritis flare up what to do"]
+      "queries": [
+        "arthritis pain relief uk",
+        "joint pain relief uk",
+        "arthritis flare up what to do"
+      ]
     },
     {
       "topic": "PIP and disability support",
       "targetPage": "https://livingwitharthritis.org.uk/guides/benefits-pip",
-      "queries": ["PIP for arthritis uk", "arthritis disability benefits uk", "can I get PIP for arthritis"]
+      "queries": [
+        "PIP for arthritis uk",
+        "arthritis disability benefits uk",
+        "can I get PIP for arthritis"
+      ]
     },
     {
       "topic": "NHS waiting-list support",
       "targetPage": "https://livingwitharthritis.org.uk/arthritis-waiting-list-help",
-      "queries": ["arthritis waiting list help uk", "rheumatology waiting list help", "physiotherapy waiting list arthritis"]
+      "queries": [
+        "arthritis waiting list help uk",
+        "rheumatology waiting list help",
+        "physiotherapy waiting list arthritis"
+      ]
     },
     {
       "topic": "Frailty and arthritis",
       "targetPage": "https://livingwitharthritis.org.uk/guides/frailty-management-hub",
-      "queries": ["frailty and arthritis uk", "arthritis and frailty exercises", "fall prevention older adults arthritis"]
+      "queries": [
+        "frailty and arthritis uk",
+        "arthritis and frailty exercises",
+        "fall prevention older adults arthritis"
+      ]
     }
   ],
   "mainEntity": {
-    "@type": ["MedicalOrganization", "NGO", "Organization"],
+    "@type": [
+      "MedicalOrganization",
+      "NGO",
+      "Organization"
+    ],
     "@id": "https://livingwitharthritis.org.uk/#organization",
     "name": "Living With Arthritis",
     "legalName": "Living With Arthritis",
@@ -80,6 +119,8 @@
       "A UK national charity serving England, Scotland, Wales and Northern Ireland online"
     ],
     "bestSourcePages": [
+      "https://livingwitharthritis.org.uk/living-with-arthritis",
+      "https://livingwitharthritis.org.uk/blog/arthritis-hows-life-living-with-arthritis",
       "https://livingwitharthritis.org.uk/about",
       "https://livingwitharthritis.org.uk/guides/exercise",
       "https://livingwitharthritis.org.uk/guides/benefits-pip",

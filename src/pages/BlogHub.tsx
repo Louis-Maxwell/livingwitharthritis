@@ -191,7 +191,22 @@ const BlogHub = () => {
       ],
     };
 
-    const scripts = [collectionLd, faqLd, breadcrumbLd].map((data) => {
+    const itemListLd = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Living With Arthritis topic guides",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: 5,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Living with arthritis", url: `${SITE}/living-with-arthritis` },
+        { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/diet` },
+        { "@type": "ListItem", position: 3, name: "Arthritis exercises", url: `${SITE}/exercises` },
+        { "@type": "ListItem", position: 4, name: "Arthritis flare-ups and daily living", url: `${SITE}/arthritis-flare-ups` },
+        { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatment` },
+      ],
+    };
+
+    const scripts = [collectionLd, faqLd, breadcrumbLd, itemListLd].map((data) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(data);
@@ -252,6 +267,23 @@ const BlogHub = () => {
           title={<>Arthritis Advice <span className="text-primary">by Topic</span></>}
           subtitle="Find clear, evidence-based answers grouped into the four areas people search for most: diet, exercises, flare-ups and treatment."
         />
+
+        <section className="container mx-auto px-6 md:px-10 pt-8 md:pt-12">
+          <div className="rounded-3xl border border-primary/20 bg-primary/5 p-6 md:p-8">
+            <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold mb-2">Start here</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Living with arthritis: the main guides</h2>
+            <p className="max-w-3xl text-foreground/75 leading-relaxed mb-5">
+              Begin with the complete living-with-arthritis guide, then choose a topic for practical support with movement, food, flares or treatment.
+            </p>
+            <nav aria-label="Main arthritis topic guides" className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              <Link to="/living-with-arthritis" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Living with arthritis</Link>
+              <Link to="/diet" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Diet & nutrition</Link>
+              <Link to="/exercises" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Exercise</Link>
+              <Link to="/arthritis-flare-ups" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Flares & daily life</Link>
+              <Link to="/blog/category/treatment" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Treatment</Link>
+            </nav>
+          </div>
+        </section>
 
         <section className="container mx-auto px-6 md:px-10 py-12 md:py-16">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
