@@ -133,7 +133,7 @@ const CLUSTERS: HubCluster[] = [
       "Clear routes into osteoarthritis, rheumatoid arthritis and inflammatory conditions, with symptom and diagnosis guidance.",
     Icon: HeartPulse,
     accent: "from-primary/12 to-primary/6",
-    primary: { label: "Browse condition guides", to: "/conditions" },
+    primary: { label: "Browse condition guides", to: "/conditions/arthritis" },
     questions: [
       { label: "Osteoarthritis: symptoms, diagnosis and support", to: "/conditions/osteoarthritis" },
       { label: "Rheumatoid arthritis: signs and treatment", to: "/conditions/rheumatoid-arthritis" },
@@ -171,9 +171,9 @@ const CLUSTERS: HubCluster[] = [
       "Practical guidance for maintaining strength, reducing falls risk and supporting older adults and carers.",
     Icon: Users,
     accent: "from-primary/12 to-primary/7",
-    primary: { label: "Browse frailty support", to: "/blog/category/frailty" },
+    primary: { label: "Browse frailty support", to: "/guides/frailty-management-hub" },
     questions: [
-      { label: "Arthritis and frailty: maintaining independence", to: "/blog/frailty-arthritis-uk" },
+      { label: "Arthritis and frailty: maintaining independence", to: "/blog/lwa-archive-frailty-and-arthritis-maintaining-strength-mobility-and-independence" },
       { label: "Falls prevention and balance", to: "/blog/balance-training-arthritis" },
       { label: "Support for carers and families", to: "/blog/caring-for-parent-with-arthritis" },
       { label: "Strength and resilience in later life", to: "/blog/building-strength-resilience-exercise-frailty-prevention" },
@@ -195,7 +195,7 @@ const BlogHub = () => {
       "@type": "CollectionPage",
       name: "Arthritis Advice Hub",
       description:
-        "Long-tail arthritis guides organised by topic — diet, exercises, flare-ups and treatment. Written for UK patients.",
+        "UK arthritis guides organised by condition, treatment, exercise, diet, benefits, work, frailty and daily living.",
       url: `${SITE}/blog-hub`,
       inLanguage: "en-GB",
       isPartOf: { "@type": "WebSite", name: "Living With Arthritis", url: SITE },
@@ -211,7 +211,7 @@ const BlogHub = () => {
           name: "How can I reduce joint inflammation naturally?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "A Mediterranean-style anti-inflammatory diet, regular low-impact movement, healthy weight, sleep and stress management have the strongest evidence for reducing inflammation in arthritis.",
+            text: "A balanced Mediterranean-style eating pattern, regular activity, sleep and weight management where appropriate can support general health and may help some arthritis symptoms. Food does not replace diagnosis or prescribed treatment.",
           },
         },
         {
@@ -219,7 +219,7 @@ const BlogHub = () => {
           name: "What are the best arthritis-friendly exercises?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Walking, swimming, cycling, Tai Chi and targeted strength work for the muscles around affected joints are widely recommended. Avoid high-impact activities during flare-ups.",
+            text: "Walking, swimming, cycling, Tai Chi and tailored strengthening may suit many people. The safest choice depends on the type of arthritis, current symptoms and other health conditions; modify activity if symptoms clearly worsen.",
           },
         },
         {
@@ -227,7 +227,7 @@ const BlogHub = () => {
           name: "What's the difference between osteoarthritis and rheumatoid arthritis?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Osteoarthritis is a wear-and-tear cartilage condition, usually worsening with age. Rheumatoid arthritis is an autoimmune disease where the immune system attacks the joint lining, often causing symmetrical pain and morning stiffness lasting over an hour.",
+            text: "Osteoarthritis affects the whole joint and is influenced by age, previous injury, genetics and other factors. Rheumatoid arthritis is an autoimmune inflammatory condition that often causes persistent swelling, pain and stiffness and needs timely clinical assessment.",
           },
         },
         {
@@ -235,7 +235,7 @@ const BlogHub = () => {
           name: "Is arthritis curable?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "There is no cure for most types of arthritis, but symptoms can be significantly reduced with diet, exercise, medication, physiotherapy and lifestyle changes — many people live full, active lives.",
+            text: "Many types of arthritis are long-term conditions. Treatment depends on the diagnosis and may include education, tailored activity, medication, physiotherapy, weight management where relevant and specialist care.",
           },
         },
       ],
@@ -263,9 +263,9 @@ const BlogHub = () => {
         { "@type": "ListItem", position: 3, name: "Arthritis exercises", url: `${SITE}/exercises` },
         { "@type": "ListItem", position: 4, name: "Arthritis flare-ups and daily living", url: `${SITE}/arthritis-flare-ups` },
         { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatment` },
-        { "@type": "ListItem", position: 6, name: "Arthritis conditions", url: `${SITE}/conditions` },
+        { "@type": "ListItem", position: 6, name: "Arthritis conditions", url: `${SITE}/conditions/arthritis` },
         { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/benefits-pip` },
-        { "@type": "ListItem", position: 8, name: "Frailty and carer support", url: `${SITE}/blog/category/frailty` },
+        { "@type": "ListItem", position: 8, name: "Frailty and carer support", url: `${SITE}/guides/frailty-management-hub` },
       ],
     };
 
