@@ -2877,17 +2877,19 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
 
-## Chest infections, arthritis pain and frailty (UK)
+## Chest infections and arthritis: self-care, warning signs and recovery (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/chest-infection-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-14
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Chest infections, arthritis pain and frailty (UK)
-A: A clinical frailty label should open doors to support, not close conversations about what you can still practise safely. This article is about coughing when the chest, back and energy all suffer, written for people and carers in Wales, especially around a home.
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Q: Chest infections and arthritis: self-care, warning signs and recovery (UK guide)
+A: Most chest infections get better on their own in about 7 to 10 days, although the cough can last up to 3 weeks. The NHS advises rest, plenty of water, sleeping propped up on extra pillows and painkillers for a high temperature or aches. See a GP if you are over 65, have a weakened immune system (including from arthritis medicines such as steroids, methotrexate or biologics) or feel worse. Call 999 if you are struggling to breathe, suddenly confused or coughing up blood. Do not stop arthritis medicines yourself.
+Reference: NHS: Chest infection — https://www.nhs.uk/conditions/chest-infection/
+Reference: NHS: Pneumonia — https://www.nhs.uk/conditions/pneumonia/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
+Reference: NHS: Pneumococcal vaccine — https://www.nhs.uk/vaccinations/pneumococcal-vaccine/
+Reference: NICE NG138: Pneumonia (community-acquired) — antimicrobial prescribing — https://www.nice.org.uk/guidance/ng138
+Reference: NICE NG120: Cough (acute) — antimicrobial prescribing — https://www.nice.org.uk/guidance/ng120
 
 ## Your Circadian Rhythm and Arthritis Inflammation
 URL: https://livingwitharthritis.org.uk/blog/circadian-rhythm-arthritis-inflammation
@@ -4175,17 +4177,17 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: nidirect — https://www.nidirect.gov.uk
 
-## Winter gout, dehydration and frailty (UK)
+## Gout in winter: dehydration, uric acid and flares (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/gout-winter-dehydration-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-13
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Winter gout, dehydration and frailty (UK)
-A: Here is a plain-English take on winter gout, dehydration and frailty when arthritis and lower reserve share the same week. This page explains winter drinks, heating and gout risk in frail adults if you live with gout, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Gout — https://www.nhs.uk/conditions/gout/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Q: Gout in winter: dehydration, uric acid and flares (UK guide)
+A: The NHS lists dehydration as something that can trigger a gout attack. In winter many people drink less because they feel less thirsty, while alcohol and sugary drinks can raise uric acid and dry you out further. Drink plenty of fluids unless your GP has set a fluid limit, keep alcohol-free days, and during a flare rest the joint, use ice wrapped in a towel, and take prescribed medicines as directed — do not stop urate-lowering tablets during a flare unless your clinician says so.
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Dehydration — https://www.nhs.uk/conditions/dehydration/
+Reference: NICE NG219: Gout diagnosis and management — https://www.nice.org.uk/guidance/ng219
+Reference: Versus Arthritis: Gout — https://www.versusarthritis.org/about-arthritis/conditions/gout/
 
 ## GP frailty registers if you also live with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/gp-frailty-register-arthritis-uk
@@ -4717,17 +4719,21 @@ Clinical review: pending; this guide has not completed clinical review.
 Q: Hydrotherapy Pools Near You – UK Guide
 A: Hydrotherapy is exercising in warm water, typically between 33-36°C, to relieve arthritis symptoms. The warmth relaxes muscles and eases pain, while water's buoyancy supports body weight, reducing joint stress. Benefits include pain relief, reduced stiffness, muscle strengthening, and improved balance. Access hydrotherapy through NHS physiotherapy referrals or community leisure centres offering warm water sessions.
 
-## Ice, snow, arthritis and frailty (UK)
+## Ice and snow with arthritis: staying steady and what to do if you fall (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/ice-snow-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-14
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Ice, snow, arthritis and frailty (UK)
-A: This guide stays with ice, snow, arthritis and frailty: what still moves safely, what to ask, and how to keep a steadier week. This UK guide looks at winter pavements when joints and confidence are both low in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Q: Ice and snow with arthritis: staying steady and what to do if you fall (UK guide)
+A: On icy or snowy days, plan around the ice rather than braving it: check the Met Office forecast, put off trips that can wait, wear well-fitting shoes with a good grip, keep your hands free and take small, slow steps. Keep up strength and balance exercises indoors. If you fall, the NHS advises staying calm and checking for injury before getting up slowly. Call 999 if you cannot get up or may have hurt your head, neck, back or hip.
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Broken hip — https://www.nhs.uk/conditions/broken-hip/
+Reference: NHS: Head injury and concussion — https://www.nhs.uk/conditions/head-injury-and-concussion/
+Reference: NHS: Broken arm or wrist — https://www.nhs.uk/conditions/broken-arm-or-wrist/
+Reference: NHS: Walking aids, wheelchairs and mobility scooters — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/walking-aids-wheelchairs-and-mobility-scooters/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: Met Office: UK weather warnings — https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings
+Reference: Age UK: Falls prevention — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/
 
 ## Inclusive Arthritis and Frailty Support Plan (UK)
 URL: https://livingwitharthritis.org.uk/blog/inclusive-arthritis-frailty-support-plan-uk
@@ -5062,6 +5068,966 @@ Author: Living With Arthritis Editorial Team (Editorial review by registered phy
 Clinical review: pending; this guide has not completed clinical review.
 Q: Lower Back Stiffness: Why It Is Worse After Sitting
 A: Lower back stiffness after sitting can stem from various factors, including the condition of joint cartilage, synovial fluid, ligaments, muscles, and nerves. Inflammatory arthritis typically worsens with rest, while degenerative arthritis worsens with prolonged use. Gentle movement and structured exercise, around 150 minutes weekly, often help. Other beneficial approaches include anti-inflammatory eating, weight management, heat applications, and ensuring adequate sleep.
+
+## Access to Work and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-access-to-work-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Access to Work and Arthritis
+A: Access to Work and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Access to Work may help eligible people with disability-related workplace support, such as equipment or travel assistance. It does not
+
+## Acupuncture for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-acupuncture-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Acupuncture for Arthritis
+A: Acupuncture for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Ankylosing Spondylitis: Symptoms and Management
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-ankylosing-spondylitis-symptoms-and-management
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Ankylosing Spondylitis: Symptoms and Management
+A: Ankylosing Spondylitis: Symptoms and Management. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Axial spondyloarthritis may cause back pain and stiffness that improve with movement, often beginning before age 45. Exercise and
+
+## Anti-inflammatory Diet for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-anti-inflammatory-diet-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Anti-inflammatory Diet for Arthritis
+A: Anti-inflammatory Diet for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Anti-inflammatory Medicines
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-anti-inflammatory-medicines
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Anti-inflammatory Medicines
+A: Anti-inflammatory Medicines. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Arthritis at Work
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-at-work
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Arthritis at Work
+A: Arthritis at Work. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Arthritis Medication Safety: Preventing Side Effects and Interactions
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-medication-safety-preventing-side-effects-and-interactions
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Arthritis Medication Safety: Preventing Side Effects and Interactions
+A: Arthritis Medication Safety: Preventing Side Effects and Interactions. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Medicines have different risks and monitoring needs. NSAIDs can affect the stomach, kidneys and cardiovascular system. Methotrexate for
+
+## Arthritis Myths vs Facts
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-myths-vs-facts
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Arthritis Myths vs Facts
+A: Arthritis Myths vs Facts. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Arthritis Statistics in the UK
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-statistics-in-the-uk
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Arthritis Statistics in the UK
+A: Arthritis Statistics in the UK. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Arthritis Treatment Options
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-treatment-options
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Arthritis Treatment Options
+A: Arthritis Treatment Options. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Assistive Equipment for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-assistive-equipment-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Assistive Equipment for Arthritis
+A: Assistive Equipment for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Balance Problems and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-balance-problems-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Balance Problems and Arthritis
+A: Balance Problems and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Balance Training for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-balance-training-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Balance Training for Arthritis
+A: Balance Training for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Best Exercise for Rheumatoid Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercise-for-rheumatoid-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Best Exercise for Rheumatoid Arthritis
+A: Best Exercise for Rheumatoid Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Best Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercises-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Best Exercises for Arthritis
+A: Best Exercises for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Best Exercises for Osteoarthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercises-for-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Best Exercises for Osteoarthritis
+A: Best Exercises for Osteoarthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## Biologic Drugs for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-biologic-drugs-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Biologic Drugs for Arthritis
+A: Biologic Drugs for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Blue Badge Scheme and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-blue-badge-scheme-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Blue Badge Scheme and Arthritis
+A: Blue Badge Scheme and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Blue Badge eligibility depends on qualifying mobility difficulties and relevant criteria, not an arthritis diagnosis alone. Applications
+
+## Calcium and Bone Health
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-calcium-and-bone-health
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Calcium and Bone Health
+A: Calcium and Bone Health. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Can Arthritis Be Prevented?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-can-arthritis-be-prevented
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Can Arthritis Be Prevented?
+A: Can Arthritis Be Prevented?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Cauda Equina Syndrome: Symptoms, Red Flags and Emergency Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-cauda-equina-syndrome-symptoms-red-flags-and-emergency-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Cauda Equina Syndrome: Symptoms, Red Flags and Emergency Treatment
+A: Cauda Equina Syndrome: Symptoms, Red Flags and Emergency Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic New difficulty passing urine, loss of bladder sensation, saddle-area numbness or rapidly worsening leg weakness can signal cauda equina
+
+## Choosing Footwear for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-choosing-footwear-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Choosing Footwear for Arthritis
+A: Choosing Footwear for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Clicking Joints
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-clicking-joints
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Clicking Joints
+A: Clicking Joints. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Daily Living Tips for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-daily-living-tips-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Daily Living Tips for Arthritis
+A: Daily Living Tips for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Diet for Rheumatoid Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-diet-for-rheumatoid-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Diet for Rheumatoid Arthritis
+A: Diet for Rheumatoid Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Disability Living Allowance and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-disability-living-allowance-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Disability Living Allowance and Arthritis
+A: Disability Living Allowance and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Driving with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-driving-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Driving with Arthritis
+A: Driving with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Early Signs of Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-early-signs-of-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Early Signs of Arthritis
+A: Early Signs of Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Early Symptoms of Rheumatoid Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-early-symptoms-of-rheumatoid-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Early Symptoms of Rheumatoid Arthritis
+A: Early Symptoms of Rheumatoid Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Employment Rights for People with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-employment-rights-for-people-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Employment Rights for People with Arthritis
+A: Employment Rights for People with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Workplace adjustments can include flexible hours, adapted equipment and modified tasks. Equality Act protections apply in Great Britain
+
+## Falls Prevention for People Living with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-falls-prevention-for-people-living-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Falls Prevention for People Living with Arthritis
+A: Falls Prevention for People Living with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Falls prevention combines balance and strength training with assessment of vision, medicines, footwear and home hazards. Repeated falls or
+
+## Fatigue and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fatigue-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Fatigue and Arthritis
+A: Fatigue and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Fatigue and Rheumatoid Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fatigue-and-rheumatoid-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Fatigue and Rheumatoid Arthritis
+A: Fatigue and Rheumatoid Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment
+A: Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Fibromyalgia involves widespread persistent pain, fatigue, sleep disturbance and changes in pain processing. There is no single diagnostic
+
+## Foods to Avoid with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-foods-to-avoid-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Foods to Avoid with Arthritis
+A: Foods to Avoid with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Foot Osteoarthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-foot-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Foot Osteoarthritis
+A: Foot Osteoarthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## Fractures and Arthritis: Understanding Bone Injury Risks
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fractures-and-arthritis-understanding-bone-injury-risks
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Fractures and Arthritis: Understanding Bone Injury Risks
+A: Fractures and Arthritis: Understanding Bone Injury Risks. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Frailty and Arthritis: Maintaining Strength, Mobility and Independence
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-frailty-and-arthritis-maintaining-strength-mobility-and-independence
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Frailty and Arthritis: Maintaining Strength, Mobility and Independence
+A: Frailty and Arthritis: Maintaining Strength, Mobility and Independence. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Frailty means reduced resilience to illness and stressors; it is not an inevitable part of ageing. Progressive strength and balance
+
+## Gardening with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-gardening-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Gardening with Arthritis
+A: Gardening with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Ginger for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-ginger-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Ginger for Arthritis
+A: Ginger for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Gout: Causes, Symptoms and Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-gout-causes-symptoms-and-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Gout: Causes, Symptoms and Treatment
+A: Gout: Causes, Symptoms and Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Gout is caused by monosodium urate crystals in joints. Attacks often cause sudden severe pain, redness and swelling, frequently in the big
+
+## Hand Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hand-exercises-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Hand Exercises for Arthritis
+A: Hand Exercises for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Hand Osteoarthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hand-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Hand Osteoarthritis
+A: Hand Osteoarthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## Heat vs Ice for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-heat-vs-ice-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Heat vs Ice for Arthritis
+A: Heat vs Ice for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Hip Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hip-exercises-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Hip Exercises for Arthritis
+A: Hip Exercises for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Hip Osteoarthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hip-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Hip Osteoarthritis
+A: Hip Osteoarthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## Holidays with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-holidays-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Holidays with Arthritis
+A: Holidays with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Home Exercise Programme for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-home-exercise-programme-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Home Exercise Programme for Arthritis
+A: Home Exercise Programme for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## How to Apply for PIP with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-how-to-apply-for-pip-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: How to Apply for PIP with Arthritis
+A: How to Apply for PIP with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Personal Independence Payment is based on functional difficulties, not the arthritis diagnosis alone. Applicants should describe how
+
+## Hydrotherapy for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hydrotherapy-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Hydrotherapy for Arthritis
+A: Hydrotherapy for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Improving Sleep with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-improving-sleep-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Improving Sleep with Arthritis
+A: Improving Sleep with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Inflammation and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-inflammation-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Inflammation and Arthritis
+A: Inflammation and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general
+
+## Is Arthritis Hereditary?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-is-arthritis-hereditary
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Is Arthritis Hereditary?
+A: Is Arthritis Hereditary?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Joint Pain and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-joint-pain-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Joint Pain and Arthritis
+A: Joint Pain and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Joint Swelling
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-joint-swelling
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Joint Swelling
+A: Joint Swelling. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general
+
+## Juvenile Idiopathic Arthritis: Arthritis in Children
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-juvenile-idiopathic-arthritis-arthritis-in-children
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Juvenile Idiopathic Arthritis: Arthritis in Children
+A: Juvenile Idiopathic Arthritis: Arthritis in Children. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Juvenile idiopathic arthritis begins before age 16 and can cause swollen joints, limping and morning stiffness. Some children develop
+
+## Knee Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-knee-exercises-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Knee Exercises for Arthritis
+A: Knee Exercises for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Knee Osteoarthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-knee-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Knee Osteoarthritis
+A: Knee Osteoarthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## Living Well with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-living-well-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Living Well with Arthritis
+A: Living Well with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Long-Term Outlook for Rheumatoid Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-long-term-outlook-for-rheumatoid-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Long-Term Outlook for Rheumatoid Arthritis
+A: Long-Term Outlook for Rheumatoid Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Lupus and Arthritis: Understanding Joint Symptoms
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-lupus-and-arthritis-understanding-joint-symptoms
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Lupus and Arthritis: Understanding Joint Symptoms
+A: Lupus and Arthritis: Understanding Joint Symptoms. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Lupus is an autoimmune condition that may affect joints, skin, kidneys and blood. Joint symptoms can occur with fatigue, sun-sensitive rash
+
+## Managing Rheumatoid Arthritis Flare-Ups
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-managing-rheumatoid-arthritis-flare-ups
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Managing Rheumatoid Arthritis Flare-Ups
+A: Managing Rheumatoid Arthritis Flare-Ups. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Massage for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-massage-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Massage for Arthritis
+A: Massage for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Mediterranean Diet and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-mediterranean-diet-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Mediterranean Diet and Arthritis
+A: Mediterranean Diet and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Mental Health and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-mental-health-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Mental Health and Arthritis
+A: Mental Health and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Mindfulness for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-mindfulness-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Mindfulness for Arthritis
+A: Mindfulness for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Morning Stiffness
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-morning-stiffness
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Morning Stiffness
+A: Morning Stiffness. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general
+
+## Muscle Weakness and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-muscle-weakness-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Muscle Weakness and Arthritis
+A: Muscle Weakness and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Neck Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-neck-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Neck Arthritis
+A: Neck Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## New Treatments for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-new-treatments-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: New Treatments for Arthritis
+A: New Treatments for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Occupational Therapy for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-occupational-therapy-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Occupational Therapy for Arthritis
+A: Occupational Therapy for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Omega-3 and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-omega-3-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Omega-3 and Arthritis
+A: Omega-3 and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Osteoporosis vs Arthritis: What's the Difference?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-osteoporosis-vs-arthritis-what-s-the-difference
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Osteoporosis vs Arthritis: What's the Difference?
+A: Osteoporosis vs Arthritis: What's the Difference?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoporosis reduces bone strength and increases fracture risk, often without symptoms until a fracture. Bone density testing and
+
+## Pain Medication for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-pain-medication-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Pain Medication for Arthritis
+A: Pain Medication for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Medicines have different risks and monitoring needs. NSAIDs can affect the stomach, kidneys and cardiovascular system. Methotrexate for
+
+## Physiotherapy for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-physiotherapy-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Physiotherapy for Arthritis
+A: Physiotherapy for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Pilates for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-pilates-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Pilates for Arthritis
+A: Pilates for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## PIP and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-pip-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: PIP and Arthritis
+A: PIP and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Personal Independence Payment is based on functional difficulties, not the arthritis diagnosis alone. Applicants should describe how
+
+## Polymyalgia Rheumatica: Symptoms and Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-polymyalgia-rheumatica-symptoms-and-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Polymyalgia Rheumatica: Symptoms and Treatment
+A: Polymyalgia Rheumatica: Symptoms and Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Polymyalgia rheumatica mainly affects people over 50 and causes marked shoulder and hip stiffness. Treatment often involves
+
+## Psoriatic Arthritis: Early Signs and Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-psoriatic-arthritis-early-signs-and-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Psoriatic Arthritis: Early Signs and Treatment
+A: Psoriatic Arthritis: Early Signs and Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Psoriatic arthritis may affect joints, tendon attachments and the spine. Look for swollen fingers or toes, morning stiffness, nail pitting
+
+## Reactive Arthritis: Causes, Symptoms and Recovery
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-reactive-arthritis-causes-symptoms-and-recovery
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Reactive Arthritis: Causes, Symptoms and Recovery
+A: Reactive Arthritis: Causes, Symptoms and Recovery. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Reactive arthritis may occur after gastrointestinal or sexually transmitted infection. Knees, ankles and feet are commonly affected.
+
+## Reasonable Adjustments for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-reasonable-adjustments-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Reasonable Adjustments for Arthritis
+A: Reasonable Adjustments for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Reduced Mobility
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-reduced-mobility
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Reduced Mobility
+A: Reduced Mobility. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Relationships and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-relationships-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Relationships and Arthritis
+A: Relationships and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Rheumatoid Arthritis Blood Tests
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-blood-tests
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Rheumatoid Arthritis Blood Tests
+A: Rheumatoid Arthritis Blood Tests. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Rheumatoid Arthritis Diagnosis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-diagnosis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Rheumatoid Arthritis Diagnosis
+A: Rheumatoid Arthritis Diagnosis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Rheumatoid Arthritis Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Rheumatoid Arthritis Treatment
+A: Rheumatoid Arthritis Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## Septic Arthritis: Symptoms and Emergency Treatment
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-septic-arthritis-symptoms-and-emergency-treatment
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Septic Arthritis: Symptoms and Emergency Treatment
+A: Septic Arthritis: Symptoms and Emergency Treatment. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Septic arthritis is a joint infection that can damage cartilage rapidly. A suddenly hot, swollen, extremely painful joint requires
+
+## Septic Joint: Recognising a Joint Infection
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-septic-joint-recognising-a-joint-infection
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Septic Joint: Recognising a Joint Infection
+A: Septic Joint: Recognising a Joint Infection. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Septic arthritis is a joint infection that can damage cartilage rapidly. A suddenly hot, swollen, extremely painful joint requires
+
+## Shoulder Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-shoulder-exercises-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Shoulder Exercises for Arthritis
+A: Shoulder Exercises for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Shoulder Osteoarthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-shoulder-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Shoulder Osteoarthritis
+A: Shoulder Osteoarthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## Sick Leave and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-sick-leave-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Sick Leave and Arthritis
+A: Sick Leave and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Sleep and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-sleep-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Sleep and Arthritis
+A: Sleep and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Spinal Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-spinal-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Spinal Arthritis
+A: Spinal Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Spine Exercises for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-spine-exercises-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Spine Exercises for Arthritis
+A: Spine Exercises for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Steroid Injections for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-steroid-injections-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Steroid Injections for Arthritis
+A: Steroid Injections for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Corticosteroids reduce inflammation but can cause sleep changes, raised glucose, infection risk and, with prolonged use, bone loss. Do not
+
+## Steroid Side Effects: What People with Arthritis Should Know
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Steroid Side Effects: What People with Arthritis Should Know
+A: Steroid Side Effects: What People with Arthritis Should Know. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Corticosteroids reduce inflammation but can cause sleep changes, raised glucose, infection risk and, with prolonged use, bone loss. Do not
+
+## Strength Training for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-strength-training-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Strength Training for Arthritis
+A: Strength Training for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Stretching for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-stretching-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Stretching for Arthritis
+A: Stretching for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Sudden Joint Swelling: Causes and When to Seek Help
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Sudden Joint Swelling: Causes and When to Seek Help
+A: Sudden Joint Swelling: Causes and When to Seek Help. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general
+
+## Supplements for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-supplements-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Supplements for Arthritis
+A: Supplements for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Surgery for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-surgery-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Surgery for Arthritis
+A: Surgery for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely
+
+## Swimming for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-swimming-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Swimming for Arthritis
+A: Swimming for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Symptoms of Arthritis Explained
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-symptoms-of-arthritis-explained
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Symptoms of Arthritis Explained
+A: Symptoms of Arthritis Explained. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general
+
+## TENS Machines for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-tens-machines-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: TENS Machines for Arthritis
+A: TENS Machines for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## Travelling with Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-travelling-with-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Travelling with Arthritis
+A: Travelling with Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Turmeric for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-turmeric-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Turmeric for Arthritis
+A: Turmeric for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Types of Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-types-of-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Types of Arthritis
+A: Types of Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Universal Credit and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-universal-credit-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Universal Credit and Arthritis
+A: Universal Credit and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Universal Credit depends on financial and personal circumstances. A health condition may affect work-related requirements, but diagnosis
+
+## Vitamin D and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-vitamin-d-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Vitamin D and Arthritis
+A: Vitamin D and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## Walking Difficulties and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-walking-difficulties-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Walking Difficulties and Arthritis
+A: Walking Difficulties and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Walking for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-walking-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Walking for Arthritis
+A: Walking for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
+
+## Weight Loss and Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-weight-loss-and-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Weight Loss and Arthritis
+A: Weight Loss and Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and
+
+## What Causes Arthritis?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-causes-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: What Causes Arthritis?
+A: What Causes Arthritis?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## What Is Arthritis?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-is-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: What Is Arthritis?
+A: What Is Arthritis?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## What Is Osteoarthritis?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-is-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: What Is Osteoarthritis?
+A: What Is Osteoarthritis?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## What Is Rheumatoid Arthritis?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-is-rheumatoid-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: What Is Rheumatoid Arthritis?
+A: What Is Rheumatoid Arthritis?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and
+
+## When Is Surgery Needed for Osteoarthritis?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: When Is Surgery Needed for Osteoarthritis?
+A: When Is Surgery Needed for Osteoarthritis?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and
+
+## When Should You Go to A&E for Joint or Back Pain?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-should-you-go-to-a-e-for-joint-or-back-pain
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: When Should You Go to A&E for Joint or Back Pain?
+A: When Should You Go to A&E for Joint or Back Pain?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function,
+
+## When Should You See a GP About Arthritis?
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-should-you-see-a-gp-about-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: When Should You See a GP About Arthritis?
+A: When Should You See a GP About Arthritis?. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining
+
+## Yoga for Arthritis
+URL: https://livingwitharthritis.org.uk/blog/lwa-archive-yoga-for-arthritis
+Last updated: 2026-10-14
+Author: Living With Arthritis (Independent UK arthritis information charity)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Yoga for Arthritis
+A: Yoga for Arthritis. **Living With Arthritis | Patient information (UK)** ## Understanding the topic Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress
 
 ## Lymphoedema, arthritis and frailty: heavy limbs (UK)
 URL: https://livingwitharthritis.org.uk/blog/lymphoedema-arthritis-frailty-uk
@@ -6272,17 +7238,20 @@ Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng5
 Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Steroids, rheumatoid arthritis and frailty: watching for infection (UK)
+## Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/ra-steroids-frailty-infection-watch-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-14
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Steroids, rheumatoid arthritis and frailty: watching for infection (UK)
-A: UK readers managing pain in several joints often need smaller doses of movement more than a heroic gym restart. This page explains steroid cautions when someone is already frail if you live with rheumatoid arthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Steroids — https://www.nhs.uk/conditions/steroids/
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Q: Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)
+A: Steroid tablets such as prednisolone damp down the immune system, so infections such as colds, flu, COVID-19 and chest infections are more likely. The NHS advises calling a doctor or NHS 111 straight away if you get signs of infection, such as a high temperature or shivering, a cough, a very sore throat or pain when you pee, and telling your doctor straight away if you have been near someone with chickenpox, shingles or measles. Never stop steroid tablets suddenly, and show your steroid emergency card if you have one.
+Reference: NHS: Steroids — https://www.nhs.uk/conditions/steroids/
+Reference: NHS: Common questions about prednisolone — https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/
+Reference: NHS: Side effects of prednisolone — https://www.nhs.uk/medicines/prednisolone/side-effects-of-prednisolone-tablets-and-liquid/
+Reference: NHS: How and when to take prednisolone — https://www.nhs.uk/medicines/prednisolone/how-and-when-to-take-prednisolone-tablets-and-liquid/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: Versus Arthritis: Steroids — https://www.versusarthritis.org/about-arthritis/treatments/drugs/steroids/
 
 ## Reablement after hospital if arthritis slowed the admission (UK)
 URL: https://livingwitharthritis.org.uk/blog/reablement-after-discharge-arthritis-uk
@@ -6795,13 +7764,18 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Sleep and Pain Management: Why Arthritis Disrupts Sleep and How to Fix It
+## Night pain management for arthritis: settle pain so you can sleep (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-and-pain-management-arthritis
-Last updated: 2026-09-25
-Author: Living With Arthritis
+Last updated: 2026-10-13
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sleep and Pain Management: Why Arthritis Disrupts Sleep and How to Fix It
-A: Tackling arthritis sleep problems often requires breaking a vicious cycle where joint pain causes poor rest, and exhaustion makes your physical symptoms feel worse. You can improve your nights by timing your medication carefully, using supportive pillows to align your joints, adjusting your bedroom environment, and speaking directly to your healthcare team.
+Q: Night pain management for arthritis: settle pain so you can sleep (UK)
+A: Night pain is often what stops sleep with arthritis. Settle the pain side before you chase perfect sleep habits: ask a pharmacist or GP whether your evening pain-relief timing covers the early hours, use heat for stiff aching joints or cold for a hot swollen flare, do gentle range-of-motion before bed, and keep bedclothes light over sore feet. For the full sleep routine, positions and when to ask about CBT for insomnia, use our how to sleep with arthritis guide. Do not change prescribed medicines yourself.
+Reference: NHS: How to get to sleep — https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 
 ## Sleep apnoea, arthritis and daytime frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-apnoea-arthritis-frailty-uk
