@@ -52,3 +52,19 @@ describe("M2 trust sweep — /expert-articles", () => {
     expect(page).not.toMatch(/Oswestry|SY11 1GA|George Dingley|CW1 3FJ/);
   });
 });
+
+describe("clinical review transparency", () => {
+  const header = readFileSync(resolve(process.cwd(), "src/components/Header.tsx"), "utf8");
+  const standards = readFileSync(resolve(process.cwd(), "src/pages/EditorialStandards.tsx"), "utf8");
+
+  it("does not imply the whole website is reviewed every day", () => {
+    expect(header).not.toMatch(/reviews and updates this website daily/i);
+    expect(header).toMatch(/Clinical review status and review dates are shown on each guide/);
+  });
+
+  it("distinguishes content update dates from completed clinical review", () => {
+    expect(standards).toMatch(/publication or an updated date[\s\S]*does not mean clinical review is complete/);
+    expect(standards).toMatch(/An update date[\s\S]*is not a clinical review date/);
+    expect(standards).toMatch(/Pending clinical review/);
+  });
+});
