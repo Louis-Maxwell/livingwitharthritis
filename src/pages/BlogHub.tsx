@@ -16,6 +16,9 @@ import {
   HelpCircle,
   Newspaper,
   Sparkles,
+  BriefcaseBusiness,
+  HeartPulse,
+  Users,
 } from "lucide-react";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -123,6 +126,63 @@ const CLUSTERS: HubCluster[] = [
       { label: "All Treatment articles", to: "/blog/category/treatment" },
     ],
   },
+  {
+    id: "conditions",
+    title: "Arthritis Types, Symptoms & Diagnosis",
+    intro:
+      "Clear routes into osteoarthritis, rheumatoid arthritis and inflammatory conditions, with symptom and diagnosis guidance.",
+    Icon: HeartPulse,
+    accent: "from-primary/12 to-primary/6",
+    primary: { label: "Browse condition guides", to: "/conditions" },
+    questions: [
+      { label: "Osteoarthritis: symptoms, diagnosis and support", to: "/conditions/osteoarthritis" },
+      { label: "Rheumatoid arthritis: signs and treatment", to: "/conditions/rheumatoid-arthritis" },
+      { label: "When joint symptoms need medical assessment", to: "/blog/arthritis-red-flag-symptoms" },
+      { label: "How arthritis is diagnosed", to: "/blog/how-arthritis-is-diagnosed-tests-scans-results" },
+    ],
+    related: [
+      { label: "All Health articles", to: "/blog/category/health" },
+      { label: "Newly diagnosed guide", to: "/guides/newly-diagnosed" },
+    ],
+  },
+  {
+    id: "benefits-work",
+    title: "Benefits, PIP & Working With Arthritis",
+    intro:
+      "UK-focused guidance on PIP, Access to Work, reasonable adjustments and practical help with employment.",
+    Icon: BriefcaseBusiness,
+    accent: "from-primary/10 to-primary/5",
+    primary: { label: "Visit the Benefits & PIP hub", to: "/benefits-pip" },
+    questions: [
+      { label: "Can you claim PIP for arthritis?", to: "/blog/pip-for-arthritis-uk" },
+      { label: "Access to Work grants and support", to: "/blog/access-to-work-scheme-arthritis-guide" },
+      { label: "Reasonable adjustments at work", to: "/guides/work-with-arthritis" },
+      { label: "Fit notes, sick pay and time off", to: "/blog/sick-pay-fit-notes-time-off-work-arthritis" },
+    ],
+    related: [
+      { label: "All Lifestyle articles", to: "/blog/category/lifestyle" },
+      { label: "Benefits and PIP guide", to: "/guides/benefits-pip" },
+    ],
+  },
+  {
+    id: "frailty-support",
+    title: "Frailty, Independence & Carer Support",
+    intro:
+      "Practical guidance for maintaining strength, reducing falls risk and supporting older adults and carers.",
+    Icon: Users,
+    accent: "from-primary/12 to-primary/7",
+    primary: { label: "Browse frailty support", to: "/blog/category/frailty" },
+    questions: [
+      { label: "Arthritis and frailty: maintaining independence", to: "/blog/frailty-arthritis-uk" },
+      { label: "Falls prevention and balance", to: "/blog/balance-training-arthritis" },
+      { label: "Support for carers and families", to: "/blog/caring-for-parent-with-arthritis" },
+      { label: "Strength and resilience in later life", to: "/blog/building-strength-resilience-exercise-frailty-prevention" },
+    ],
+    related: [
+      { label: "All Frailty articles", to: "/blog/category/frailty" },
+      { label: "Community support", to: "/community" },
+    ],
+  },
 ];
 
 const SITE = "https://livingwitharthritis.org.uk";
@@ -196,13 +256,16 @@ const BlogHub = () => {
       "@type": "ItemList",
       name: "Living With Arthritis topic guides",
       itemListOrder: "https://schema.org/ItemListOrderAscending",
-      numberOfItems: 5,
+      numberOfItems: 8,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Living with arthritis", url: `${SITE}/living-with-arthritis` },
         { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/diet` },
         { "@type": "ListItem", position: 3, name: "Arthritis exercises", url: `${SITE}/exercises` },
         { "@type": "ListItem", position: 4, name: "Arthritis flare-ups and daily living", url: `${SITE}/arthritis-flare-ups` },
         { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatment` },
+        { "@type": "ListItem", position: 6, name: "Arthritis conditions", url: `${SITE}/conditions` },
+        { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/benefits-pip` },
+        { "@type": "ListItem", position: 8, name: "Frailty and carer support", url: `${SITE}/blog/category/frailty` },
       ],
     };
 
@@ -223,7 +286,7 @@ const BlogHub = () => {
         <title>Arthritis Advice Hub | Living With Arthritis</title>
         <meta
           name="description"
-          content="Arthritis blog: Expert articles on pain relief, exercise, nutrition, mental health & living well. Evidence-based guidance for arthritis management."
+          content="Browse UK arthritis guidance by condition, treatment, exercise, diet, benefits, work, frailty and daily living, with clear routes to related articles."
         />
         <meta
           name="keywords"
@@ -232,7 +295,7 @@ const BlogHub = () => {
         <meta property="og:title" content="Arthritis Advice Hub: Diet, Exercises, Flare-Ups & Treatment" />
         <meta
           property="og:description"
-          content="Arthritis blog: Expert articles on pain relief, exercise, nutrition, mental health & living well. Evidence-based guidance for arthritis management."
+          content="Browse UK arthritis guidance by condition, treatment, exercise, diet, benefits, work, frailty and daily living, with clear routes to related articles."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/blog-hub`} />
@@ -265,7 +328,7 @@ const BlogHub = () => {
             </div>
           }
           title={<>Arthritis Advice <span className="text-primary">by Topic</span></>}
-          subtitle="Find clear, evidence-based answers grouped into the four areas people search for most: diet, exercises, flare-ups and treatment."
+          subtitle="Find clear, evidence-informed guidance organised by diet, exercise, flare-ups, treatment, conditions, benefits and frailty support."
         />
 
         <section className="container mx-auto px-6 md:px-10 pt-8 md:pt-12">
