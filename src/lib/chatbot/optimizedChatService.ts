@@ -44,7 +44,8 @@ export interface EngineResult {
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
 const RATE_LIMIT_WINDOW = 60 * 1000;
 const RATE_LIMIT_MAX = 30;
-const STREAMING_CHUNK_DELAY = 12;
+const STREAMING_CHUNK_DELAY = 8;
+const MAX_CACHE_ENTRIES = 256;
 /** Strong match threshold — answer the best topic as-is. */
 const MATCH_THRESHOLD = 2.5;
 /** Soft threshold — offer partial answer + clarifying chips instead of pure generic. */
@@ -420,7 +421,12 @@ class OptimizedChatService {
   }
 
   private setCache(query: string, response: string) {
-    this.responseCache.set(normalize(query), { response, timestamp: Date.now() });
+    const key = normalize(query);
+    this.responseCache.set(key, { response, timestamp: Date.now() });
+    if (this.responseCache.size > MAX_CACHE_ENTRIES) {
+      const oldest = this.responseCache.keys().next().value;
+      if (oldest) this.responseCache.delete(oldest);
+    }
   }
 
   /**
@@ -462,6 +468,7 @@ class OptimizedChatService {
     onStatus?.("Searching guidance…");
 
     let response = this.getCachedResponse(query);
+    const cacheHit = Boolean(response);
     let result: EngineResult;
 
     if (response) {
@@ -473,12 +480,12 @@ class OptimizedChatService {
       this.setCache(query, response);
     }
 
-    await this.streamResponse(response, onChunk);
+    await this.streamResponse(response, onChunk, cacheHit ? 0 : STREAMING_CHUNK_DELAY);
     onComplete();
     return result;
   }
 
-  private async streamResponse(text: string, onChunk: (chunk: string) => void): Promise<void> {
+  private async streamResponse(text: string, onChunk: (chunk: string) => void, delayMs = STREAMING_CHUNK_DELAY): Promise<void> {
     const parts = text.split(/(\n\n+)/);
     let buffer = "";
     for (const part of parts) {
@@ -490,7 +497,7 @@ class OptimizedChatService {
         if (sp > 80) cut = sp;
         onChunk(buffer.slice(0, cut));
         buffer = buffer.slice(cut);
-        await new Promise((r) => setTimeout(r, STREAMING_CHUNK_DELAY));
+        if (delayMs > 0) await new Promise((r) => setTimeout(r, delayMs));
       }
     }
     if (buffer) onChunk(buffer);
