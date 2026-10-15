@@ -2090,6 +2090,18 @@ Clinical review: pending; this guide has not completed clinical review.
 Q: Anti-Inflammatory Recipes: Easy UK Meals for Joint Health
 A: Anti-inflammatory recipes for joint health use ingredients that help reduce inflammation in the body. The Mediterranean diet, rich in omega-3 fats, antioxidants, and fibre, has strong evidence for reducing arthritis symptoms. Examples include salmon, turmeric, ginger, beetroot, berries, lentils, mackerel, and oats, which provide compounds like omega-3 fatty acids, curcumin, betalains, and fibre.
 
+## Arthritis - How's Life Living With Arthritis?
+URL: https://livingwitharthritis.org.uk/blog/arthritis-hows-life-living-with-arthritis
+Last updated: 2026-10-15
+Author: Living With Arthritis editorial team (Independent UK charity information service)
+Clinical review: pending; this guide has not completed clinical review.
+Q: Arthritis - How's Life Living With Arthritis?
+A: Living with arthritis can affect pain, stiffness, fatigue, sleep, movement, mood, work and everyday activities. Experiences vary by condition and person. A useful plan usually combines appropriate movement, pacing, symptom support, medical review and practical help.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Exercise — https://www.nhs.uk/live-well/exercise/
+
 ## Arthritis in Older Adults: What Changes and What Helps (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-in-older-adults
 Last updated: 2026-09-05
@@ -7607,17 +7619,18 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Shingles vaccination if you have arthritis and frailty (UK)
+## Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/shingles-vaccine-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Shingles vaccination if you have arthritis and frailty (UK)
-A: Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking about shingles protection in later life, written for people and carers in England, especially around a GP surgery.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)
+A: On the NHS, the shingles vaccine is offered to everyone turning 65, everyone aged 70 to 79, and adults aged 18 and over with a severely weakened immune system, which can include people on certain medicines that strongly suppress the immune system. It is given as 2 doses. The NHS says the non-live shingles vaccine is safe to have while you take prednisolone. Ask your GP surgery or rheumatology team whether you are eligible, and get vaccinated even if you have had shingles before.
+Reference: NHS: Shingles vaccine — https://www.nhs.uk/vaccinations/shingles-vaccine/
+Reference: NHS: Shingles — https://www.nhs.uk/conditions/shingles/
+Reference: NHS: Common questions about prednisolone (vaccines) — https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/
+Reference: NHS: Taking methotrexate with other medicines — https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
 
 ## Online food shops for frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/shopping-online-arthritis-frailty-uk
@@ -8051,17 +8064,19 @@ Reference: NHS: Keep warm, keep well — https://www.nhs.uk/live-well/seasonal-h
 Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Steroid emergency cards when arthritis treatment meets frailty (UK)
+## Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/steroid-emergency-card-frail-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Steroid emergency cards when arthritis treatment meets frailty (UK)
-A: Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next steps. This article is about carrying the right card if steroids are part of care, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Steroids — https://www.nhs.uk/conditions/steroids/
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
+Q: Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)
+A: If you take steroid medicines such as prednisolone, your own adrenal glands may make less cortisol, the hormone your body needs when it is ill, injured or having surgery. Your doctor or pharmacist will decide whether you need the red NHS Steroid Emergency Card. If you have one, carry it all the time and show it to anyone treating you, so they know you may need extra steroids. Never stop steroid tablets suddenly.
+Reference: NHS: Common questions about prednisolone (steroid cards) — https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/
+Reference: NHS: How and when to take prednisolone — https://www.nhs.uk/medicines/prednisolone/how-and-when-to-take-prednisolone-tablets-and-liquid/
+Reference: NHS: Steroids — https://www.nhs.uk/conditions/steroids/
+Reference: NHS: Addison's disease (adrenal crisis signs) — https://www.nhs.uk/conditions/addisons-disease/
+Reference: Society for Endocrinology: Adrenal crisis and the NHS Steroid Emergency Card — https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
 
 ## Steroid Injections vs Oral Steroids: When Each Makes Sense
 URL: https://livingwitharthritis.org.uk/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense
@@ -8484,17 +8499,19 @@ Clinical review: pending; this guide has not completed clinical review.
 Q: University With Arthritis: Disability Support and DSA
 A: Disabled Students’ Allowance can help students with arthritis access tailored university support, including specialist equipment, non-medical helpers and academic adjustments. The article advises applying early, contacting disability services, tracking symptoms, maintaining gentle movement and self-care, and involving support networks. It also recommends speaking to a GP, physiotherapist or rheumatologist if symptoms worsen or affect study.
 
-## UTIs, confusion and frailty in people with arthritis (UK)
+## UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/uti-confusion-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-15
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: UTIs, confusion and frailty in people with arthritis (UK)
-A: This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This guide covers a urine infection that unmasks frailty when arthritis with frailty affects several joints, with a focus on England and a home setting.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Q: UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)
+A: In older or frail people, a urine infection (UTI) does not always cause the usual burning or needing to pee often. The NHS says it can show up as new agitation or confusion, leaking more urine than usual or new shivering. Anyone who suddenly becomes confused needs 999 or A&E. If you are 65 or over, have a weakened immune system from arthritis medicines or have kidney pain, ask for an urgent GP appointment or contact NHS 111.
+Reference: NHS: Urinary tract infections (UTIs) — https://www.nhs.uk/conditions/urinary-tract-infections-utis/
+Reference: NHS: Sudden confusion (delirium) — https://www.nhs.uk/symptoms/confusion/
+Reference: NHS: Kidney infection — https://www.nhs.uk/conditions/kidney-infection/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
+Reference: NHS: Taking methotrexate with other medicines — https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/
+Reference: NICE CG103: Delirium — https://www.nice.org.uk/guidance/cg103
 
 ## Vaccines When You Take DMARDs or Biologics: A UK Guide
 URL: https://livingwitharthritis.org.uk/blog/vaccines-on-dmards-and-biologics-uk-guide
@@ -8881,14 +8898,3 @@ Author: Living With Arthritis Editorial Team (Editorial Team)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Your Workplace Rights With Arthritis: The Equality Act 2010
 A: Arthritis can impact work performance due to its effects on physical tasks, concentration, and energy levels. Many individuals with arthritis work successfully, often with workplace adjustments. Reasonable adjustments, which are a legal entitlement, include flexible hours, ergonomic equipment, and adjusted duties. You do not have to disclose your arthritis to your employer unless it poses a health and safety risk.
-
-## Arthritis - How's Life Living With Arthritis?
-URL: https://livingwitharthritis.org.uk/blog/arthritis-hows-life-living-with-arthritis
-Last updated: 2026-10-15
-Author: Living With Arthritis editorial team (Independent UK charity information service)
-Clinical review: pending; this guide has not completed clinical review.
-Q: How can arthritis affect daily life?
-A: Living with arthritis can affect pain, stiffness, fatigue, sleep, movement, mood, work and everyday activities. Experiences vary by condition and person. Helpful support may include suitable movement, pacing, sleep support, treatment discussions and practical adjustments.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-Reference: NICE: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-
