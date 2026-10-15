@@ -42,6 +42,7 @@
 | Champions 71–73 winter vitamin D + sleep–pain cycle + what keeps you awake | **done** | Gold-pass `/blog/vitamin-d-winter-arthritis-frailty-uk`, `/blog/sleep-quality-arthritis-pain`, `/blog/arthritis-and-sleep-problems` — full rewrites removing broken frailty template copy ("several joints", the "10 million" line), unsourced "up to 80%" sleep-disturbance claims, mattress/brand/price filler, a named reviewer line ("Dr. Hannah Clarke") that we cannot verify and the unnamed "Clinical Advisory Panel" label; CTR meta, **pending clinical review**, NHS/NICE/GOV.UK cites (NHS vitamin D 10 micrograms Oct–Mar and 100 microgram upper limit, osteoporosis/steroids, insomnia self-help, NICE MTG70 Sleepio, restless legs, sleep apnoea, prednisolone timing), never-change-medicines framing; the two sleep posts now have distinct jobs (pain–sleep cycle + two-week diary; cause-by-cause checklist) and hand off to the gold-pass sleep URL; diet/pain cluster fronting + chatbot KB; Vitest `gsc-champions-71-73-08-oct.test.ts` |
 | Champions 74–75 gout winter dehydration + night pain toolkit | **done** | Gold-pass `/blog/gout-winter-dehydration-frailty-uk`, `/blog/sleep-and-pain-management-arthritis` — full rewrites removing broken frailty template copy (repeated "10 million" line, empty heading, OA exercise advice on a gout page) and overlapping sleep filler; CTR meta, **pending clinical review**, NHS/NICE/Versus Arthritis cites (gout + dehydration triggers, NG219, insomnia/OA treatment), never-change-medicines / keep urate-lowering in flare framing; night-pain post has a distinct overnight pain-toolkit job and hands off to `/blog/how-to-sleep-with-arthritis-uk`; treatments/pain cluster fronting + chatbot KB; Vitest `gsc-champions-74-75-13-oct.test.ts` |
 | Champions 76–78 chest infection + ice and snow + steroids infection watch | **done** | Gold-pass `/blog/chest-infection-arthritis-frailty-uk`, `/blog/ice-snow-arthritis-frailty-uk`, `/blog/ra-steroids-frailty-infection-watch-uk`: full rewrites removing broken frailty template copy ("10 million" line, "several joints", random-nation filler, empty heading, OA exercise advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS chest infection / pneumonia / sepsis / falls / broken hip / head injury / steroids / prednisolone, NICE NG138 / NG120 / NG249, Met Office warnings and Versus Arthritis. Never stop or change medicines yourself; never stop steroids suddenly; steroid cards; chickenpox/shingles/measles contact. Treatments/exercises cluster fronting + chatbot KB; Vitest `gsc-champions-76-78-14-oct.test.ts` |
+| Champions 79–81 steroid emergency card + shingles vaccine + UTI confusion | **done** | Gold-pass `/blog/steroid-emergency-card-frail-arthritis-uk`, `/blog/shingles-vaccine-arthritis-frailty-uk`, `/blog/uti-confusion-arthritis-frailty-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", England / Northern Ireland filler, OA advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS prednisolone (red vs blue steroid cards), NHS Addison's (adrenal crisis 999 signs), Society for Endocrinology, NHS shingles vaccine and shingles, NHS UTIs, sudden confusion, kidney infection, sepsis, NHS methotrexate interactions and NICE CG103. No steroid doses given; never stop or change medicines yourself. Treatments cluster fronting + chatbot KB; Vitest `gsc-champions-79-81-15-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -100,7 +101,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 78 (Champions 76–78 shipped 14 Oct); next 10 (79–88) queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 81 (Champions 79–81 shipped 15 Oct); 82–88 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (242 template posts left) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -111,6 +112,38 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 | HCP clinic-pack distribution prep | **done** (13 Oct) | `docs/HCP-CLINIC-PACK-DISTRIBUTION.md` (#189); sends are Louis-owned |
 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 15 Oct 2026 (M2 day 4, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 14 Oct: Champions 79–81 from `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`. Picked because the printable flare action plan links to the steroid card post, the gold-pass winter viruses guide links to shingles, and winter infections with sudden confusion are a real October–November risk for older readers. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 79 — `/blog/steroid-emergency-card-frail-arthritis-uk`:** full rewrite into "steroid emergency cards and arthritis: who needs one and when to show it". Explains adrenal insufficiency in plain words (NHS prednisolone page), the red NHS Steroid Emergency Card vs the blue steroid treatment card (longer than 3 weeks or more than 40mg a day), keeping both (Society for Endocrinology), PDF / phone lock-screen copy, who should ask about a card (long or high-dose courses, repeated joint injections, several steroid types), when to show it (A&E, procedures, dentist, new clinicians, carers), sick-day questions to agree in advance (no doses given), NHS adrenal crisis 999 signs and frailty / carer prompts. Hands off early to Champion 78. **Pending clinical review**
+- **Champion 80 — `/blog/shingles-vaccine-arthritis-frailty-uk`:** full rewrite into "shingles vaccine and arthritis: who is eligible and is it safe with your medicines?". NHS England eligibility (turning 65, 70 to 79, 18+ with a severely weakened immune system; second dose to 81), devolved nations signposted, ask your team whether your DMARD / biologic / JAK / steroid counts, non-live vaccine safe on prednisolone (NHS), never pause medicines for a vaccine, dose intervals, side effects, early shingles signs and the pharmacist-within-3-days / urgent GP / NHS 111 routes, post-herpetic neuralgia. **Pending clinical review**
+- **Champion 81 — `/blog/uti-confusion-arthritis-frailty-uk`:** full rewrite into "UTIs and sudden confusion with arthritis: signs in older people and who to call". NHS UTI signs plus the older / frail / catheter signs (delirium, worse leaking, rigors), 999 for sudden confusion with the NHS while-you-wait steps, the NHS urgent GP / NHS 111 list (65+, weakened immune system, kidney pain), methotrexate with trimethoprim / co-trimoxazole caution (NHS), paracetamol over NSAIDs when unwell, arthritis-specific barriers (drinking less to avoid painful toilet trips, OT aids, safe night trips), recovery and NICE CG103 delirium follow-up. States that confusion should not be assumed to be a UTI. **Pending clinical review**
+- **`topicClusters.ts`:** treatments fronts all three (+ steroid card / shingles vaccine / urine infection triggers)
+- **Chatbot KB:** steroids `related` + steroid card guide; DMARDs `related` + shingles + UTI; weather-cold `related` + shingles + UTI (+ shingles vaccine / shingles jab / urine infection confusion keywords)
+- Sitemap `lastmod` **2026-10-15** on the three URLs + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–81 pending; triage doc marks 79–81 done (242 template posts left)
+- **Tests:** `src/lib/__tests__/gsc-champions-79-81-15-oct.test.ts` (also blocks any public hydrocortisone dosing line)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–81 (esp. today's steroid-card sick-day and adrenal crisis wording, shingles eligibility on immune-suppressing medicines, and the methotrexate antibiotic line), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 242 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank the triage list)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 82–84 from the triage doc: `sleeping-tablets-falls-arthritis-frailty-uk`, `sleep-apnoea-arthritis-frailty-uk`, `bone-protection-steroids-arthritis-frailty-uk`
+2. Champions 85–86: `deconditioning-after-arthritis-flare-uk` (most-linked template post, also linked from the flare action plan) and `confidence-after-fall-arthritis-frailty-uk`
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank the triage list as soon as a fresh GSC export lands
 
 ---
 
@@ -142,7 +175,7 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 - Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
 
 ### Next 3 digital actions (GTM)
-1. Champions 79–81 from the triage doc: `steroid-emergency-card-frail-arthritis-uk` (linked from the flare action plan), `shingles-vaccine-arthritis-frailty-uk` (linked from gold-pass winter viruses), `uti-confusion-arthritis-frailty-uk`
+1. ~~Champions 79–81 from the triage doc~~ **done 15 Oct:** `steroid-emergency-card-frail-arthritis-uk` (linked from the flare action plan), `shingles-vaccine-arthritis-frailty-uk` (linked from gold-pass winter viruses), `uti-confusion-arthritis-frailty-uk`
 2. Champions 82–84 sleep / steroid spokes linked from gold-pass pages: `sleeping-tablets-falls-arthritis-frailty-uk`, `sleep-apnoea-arthritis-frailty-uk`, `bone-protection-steroids-arthritis-frailty-uk`
 3. If Louis approves: one mechanical trust sweep PR across the remaining template posts (empty heading, "10 million" line, random-nation sentence; everything stays pending). Otherwise re-rank the triage list as soon as a fresh GSC export lands
 

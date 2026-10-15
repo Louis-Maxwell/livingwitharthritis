@@ -1172,12 +1172,12 @@
         "title": "Polypharmacy, arthritis and frailty: asking for a medicines review (UK)"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/arthritis-treatment-hub",
+        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       }
     ]
   },
@@ -2669,12 +2669,12 @@
         "title": "How to Sleep Better with Arthritis – A UK Guide"
       },
       {
-        "path": "/blog/arthritis-and-pets-uk",
-        "title": "Arthritis and Pet Ownership – UK Guide"
+        "path": "/blog/shingles-vaccine-arthritis-frailty-uk",
+        "title": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)"
       },
       {
-        "path": "/blog/arthritis-fatigue-management-uk",
-        "title": "Managing Arthritis Fatigue – A UK Guide"
+        "path": "/blog/uti-confusion-arthritis-frailty-uk",
+        "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)"
       }
     ]
   },
@@ -4066,8 +4066,8 @@
         "title": "Juvenile Arthritis: A UK Parent's Guide to Childhood Joint Care"
       },
       {
-        "path": "/blog/arthritis-and-pets-uk",
-        "title": "Arthritis and Pet Ownership – UK Guide"
+        "path": "/blog/uti-confusion-arthritis-frailty-uk",
+        "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)"
       }
     ]
   },
@@ -7854,16 +7854,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
         "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
+      },
+      {
+        "path": "/blog/arthritis-treatment-hub",
+        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       }
     ]
   },
@@ -9984,16 +9984,16 @@
         "title": "Health guides"
       },
       {
+        "path": "/blog/uti-confusion-arthritis-frailty-uk",
+        "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)"
+      },
+      {
         "path": "/blog/arthritis-fatigue-recovery-guide",
         "title": "Arthritis Fatigue Recovery Guide: A 4-Week Plan to Rebuild Energy (UK)"
       },
       {
         "path": "/blog/arthritis-in-young-people-uk",
         "title": "Arthritis in Young People – UK Guide"
-      },
-      {
-        "path": "/blog/arthritis-pain-scale-explained",
-        "title": "Pain Scale Explained: How to Rate Your Arthritis Pain (UK)"
       }
     ]
   },
@@ -10292,16 +10292,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/community-physio-wait-frail-arthritis-uk",
         "title": "Community physiotherapy waits when you are frail with arthritis (UK)"
       },
       {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
+        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
       }
     ]
   },
@@ -10967,16 +10967,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/hand-therapy-frail-ra-uk",
         "title": "Hand therapy for frail adults with rheumatoid arthritis (UK)"
+      },
+      {
+        "path": "/blog/methotrexate-older-frail-adults-uk",
+        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
       }
     ]
   },
@@ -12065,16 +12065,16 @@
         "title": "Health guides"
       },
       {
+        "path": "/blog/shingles-vaccine-arthritis-frailty-uk",
+        "title": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)"
+      },
+      {
         "path": "/blog/arthritis-fatigue-recovery-guide",
         "title": "Arthritis Fatigue Recovery Guide: A 4-Week Plan to Rebuild Energy (UK)"
       },
       {
         "path": "/blog/30-day-arthritis-pain-reduction-challenge",
         "title": "30-Day Arthritis Pain Reduction Challenge: A Printable Daily Plan (UK)"
-      },
-      {
-        "path": "/blog/arthritis-and-pets-uk",
-        "title": "Arthritis and Pet Ownership – UK Guide"
       }
     ]
   },
@@ -18324,7 +18324,7 @@
       },
       {
         "path": "/blog/uti-confusion-arthritis-frailty-uk",
-        "title": "UTIs, confusion and frailty in people with arthritis (UK)"
+        "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)"
       },
       {
         "path": "/blog/copd-arthritis-frailty-breathlessness-uk",
@@ -18703,16 +18703,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
         "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
+      },
+      {
+        "path": "/blog/arthritis-treatment-hub",
+        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       }
     ]
   },
@@ -23742,8 +23742,8 @@
         "title": "Pain Scale Explained: How to Rate Your Arthritis Pain (UK)"
       },
       {
-        "path": "/blog/30-day-arthritis-pain-reduction-challenge",
-        "title": "30-Day Arthritis Pain Reduction Challenge: A Printable Daily Plan (UK)"
+        "path": "/blog/shingles-vaccine-arthritis-frailty-uk",
+        "title": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)"
       }
     ]
   },
@@ -24691,8 +24691,8 @@
         "title": "Arthritis Treatment Options"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
+        "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
+        "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       }
     ]
   },
@@ -24949,16 +24949,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/arthritis-treatment-hub",
         "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       },
       {
         "path": "/blog/joint-replacement-surgery",
         "title": "Joint Replacement Surgery for Arthritis — A Complete UK Guide"
+      },
+      {
+        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
+        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
       }
     ]
   },
@@ -27240,12 +27240,12 @@
         "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
+        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
       }
     ]
   },
@@ -31912,7 +31912,7 @@
       },
       {
         "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
+        "title": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)"
       },
       {
         "path": "/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense",
@@ -40456,8 +40456,8 @@
         "title": "Nursing homes and arthritis: asking for a pain and movement review (UK)"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
+        "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
+        "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       }
     ]
   },
@@ -40542,12 +40542,12 @@
         "title": "After knee replacement: frailty-aware rehabilitation (UK)"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
+        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
       }
     ]
   },
@@ -40628,16 +40628,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
         "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
       },
       {
         "path": "/blog/arthritis-treatment-hub",
         "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
+      },
+      {
+        "path": "/blog/joint-replacement-decision-frailty-uk",
+        "title": "Joint replacement decisions when frailty is already present (UK)"
       }
     ]
   },
@@ -41515,7 +41515,7 @@
       },
       {
         "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
+        "title": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)"
       }
     ]
   },
@@ -42663,8 +42663,8 @@
         "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
       },
       {
-        "path": "/blog/arthritis-medication-guide",
-        "title": "Arthritis Medication — What Works, What to Expect"
+        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
+        "title": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)"
       }
     ]
   },
@@ -45400,26 +45400,26 @@
     ]
   },
   "/blog/shingles-vaccine-arthritis-frailty-uk": {
-    "title": "Shingles vaccination if you have arthritis and frailty (UK)",
-    "description": "Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking.",
-    "question": "Shingles vaccination if you have arthritis and frailty (UK)",
-    "answer": "Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking about shingles protection in later life, written for people and carers in England, especially around a GP surgery.",
-    "breadcrumb": "Shingles vaccination if you have arthritis and frailty (UK)",
+    "title": "Shingles Vaccine With Arthritis: Eligibility and Safety (UK)",
+    "description": "NHS shingles vaccine eligibility at 65, 70 to 79 or on strong immune-suppressing medicines, safety with prednisolone, side effects, early shingles signs.",
+    "question": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)",
+    "answer": "On the NHS, the shingles vaccine is offered to everyone turning 65, everyone aged 70 to 79, and adults aged 18 and over with a severely weakened immune system, which can include people on certain medicines that strongly suppress the immune system. It is given as 2 doses. The NHS says the non-live shingles vaccine is safe to have while you take prednisolone. Ask your GP surgery or rheumatology team whether you are eligible, and get vaccinated even if you have had shingles before.",
+    "breadcrumb": "Shingles Vaccine With Arthritis: Eligibility and Safety (UK)",
     "about": "Health",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-15",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0448-monster-salad.webp",
     "article": {
       "slug": "shingles-vaccine-arthritis-frailty-uk",
-      "title": "Shingles vaccination if you have arthritis and frailty (UK)",
-      "excerpt": "Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking.",
-      "content": "<p>Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking about shingles protection in later life, written for people and carers in England, especially around a GP surgery.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking about shingles protection in later life, written for people and carers in England, especially around a GP surgery.</p>\n\n<p>A flare in several joints can look like sudden frailty. True frailty is a wider loss of reserve: weaker recovery after a quiet week, an infection or a hospital night. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with asking about shingles protection in later life, not a generic arthritis recap. It is written in UK English for people, families and carers in England.</p>\n<h2>Pain, muscle and recovery: the England picture</h2>\n<p>Arthritis is about joints, tendons and the way pain changes movement. Frailty is about the whole system — muscle, stamina, appetite, mood, medicines and how quickly you bounce back after a setback. Arthritis with frailty sits in the middle because sore several joints quietly train you to sit more, shorten your stride and skip the movements that keep muscle.</p>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's several joints and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<h2>Small, repeatable steps — not a reinvention</h2>\n<ul><li>If you live in a GP surgery, tell one other person the plan for a fall: who to call, where the spare key sits, whether you wear a pendant you can actually press.</li><li>Set an indoor walking loop with places to pause. Pain in several joints prefer several short bouts to one heroic corridor.</li><li>Put the items you use at dawn — tablets, glasses, walking aid, phone — where you can reach them without a stretch that wrenches several joints.</li><li>Use heat for stiffness if your skin is healthy, but protect thin skin. Never fall asleep on a hot water bottle.</li><li>Carers: help the last 20 percent of a task, not the first 80, unless pain or safety says otherwise. Practice is treatment for frailty.</li></ul>\n<h2>How asking about shingles protection in later life shows up in real rooms</h2>\n<ul><li>Carers doing the last steps of a task to be kind, which removes the last practice the muscles were getting.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li></ul>\n<h2>What to put on the problem list besides several joints</h2>\n<h2>GP, 111 or 999?</h2>\n<p>This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 can help you choose. Living With Arthritis cannot triage you.</p>\n<ul><li>If you cannot get to the surgery because of arthritis with frailty, ask about a home visit or a proper phone review. Silence is not a care plan.</li><li>Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the arthritis with frailty nurse.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>Unplanned weight loss, repeated falls, or asking about shingles protection in later life that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li></ul>\n<h2>Help in England if arthritis and frailty overlap</h2>\n<p>Start with your GP practice and NHS England services via your GP. For urgent but non-emergency advice use NHS 111. For chest pain, suspected hip fracture, sudden new weakness, or a fall with a bang to the head on blood thinners, use 999.</p>\n<p>In England, some areas have community frailty or neighbourhood teams. Your GP or a social prescriber can explain what exists locally. Pathways differ by integrated care board, so do not assume a named clinic in the next town is available to you.</p>\n<p>Ask about community physiotherapy, occupational therapy, reablement after hospital, podiatry, pharmacy reviews and your local council's adult social care team (the Care Act). Names of teams change. The functions do not: get you moving, get you equipped, get the medicines tidier, get a human being through the door if you cannot get out.</p>\n<p>Age UK and local advice agencies can help with forms. The Charity Commission listing for Living With Arthritis (1218461) is public if you want to check who we are. We are independent of Arthritis UK.</p>\n<h2>Should I stop exercising during asking about shingles protection in later life?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>Will I get PIP or Attendance Allowance because I have arthritis and frailty?</h2>\n<p>Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of asking about shingles protection in later life on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims.</p>\n<h2>Is a walking aid giving in if I have arthritis with frailty?</h2>\n<p>No. An aid that matches your several joints can protect joints, reduce fear and keep you walking far enough to keep muscle. A poorly fitted stick that hurts a wrist is the problem, not the concept. Ask physiotherapy or occupational therapy to look at height and grip.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical England context for arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\">NHS 111</a> (NHS)</li><li><a href=\"https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/\">Age UK – Frailty</a> (Age UK)</li><li><a href=\"https://www.nhs.uk/conditions/osteoarthritis/\">NHS – Osteoarthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng226\">NICE NG226 – Osteoarthritis in over 16s</a> (NICE)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/frailty-older-people-arthritis-wales-uk\">Older people, arthritis and frailty services in Wales (UK)</a> — Clinicians talk about frailty as a whole-system issue; arthritis sits in the middle because sore joints train you to move less.</li>\n      <li><a href=\"/blog/flu-jab-arthritis-frailty-uk\">Flu vaccination, arthritis and frailty (UK)</a> — In plain UK English: frailty means less spare capacity.</li>\n      <li><a href=\"/blog/remote-gp-apps-arthritis-frailty-uk\">Remote GP apps when arthritis and frailty limit travel (UK)</a> — Living With Arthritis covers remote GP apps when arthritis and frailty limit travel without miracle claims — just safer movement and.</li>\n      <li><a href=\"/blog/late-onset-ra-frailty-first-months-uk\">Late-onset rheumatoid arthritis and frailty: the first months (UK)</a> — When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n    </ul>\n  </section>\n",
+      "title": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)",
+      "excerpt": "NHS shingles vaccine eligibility at 65, 70 to 79 or on strong immune-suppressing medicines, safety with prednisolone, side effects, early shingles signs.",
+      "content": "<p>On the NHS, the shingles vaccine is offered to everyone turning 65, everyone aged 70 to 79, and adults aged 18 and over with a severely weakened immune system, which can include people on certain medicines that strongly suppress the immune system. It is given as 2 doses. The NHS says the non-live shingles vaccine is safe to have while you take prednisolone. Ask your GP surgery or rheumatology team whether you are eligible, and get vaccinated even if you have had shingles before.</p>\n<p>Shingles is more likely, and more likely to cause serious problems, as you get older or if your immune system is weakened. Many arthritis treatments work by calming the immune system, so this is a vaccine worth asking about. This guide covers who is eligible, how arthritis medicines fit in and what to do if you think you have shingles. For the full winter picture, see our <a href=\"/blog/vaccines-on-dmards-and-biologics-uk-guide\">vaccines on DMARDs and biologics guide</a>.</p>\n<h2>Who can get the shingles vaccine on the NHS</h2>\n<p>The NHS in England offers the shingles vaccine to:</p>\n<ul>\n<li><strong>people turning 65</strong> on or after 1 September 2023 (if you turned 65 before that date, you become eligible at 70)</li>\n<li><strong>everyone aged 70 to 79</strong> who has not had it yet</li>\n<li><strong>adults aged 18 and over with a severely weakened immune system</strong>, which the NHS says includes people taking certain medicines that severely weaken the immune system</li>\n</ul>\n<p>The age-based offer lasts until your 80th birthday (you can have the second dose until your 81st). Only people with a severely weakened immune system can start the vaccine after 80. Scotland, Wales and Northern Ireland run similar programmes, so check with your GP surgery about the details where you live.</p>\n<h2>Do my arthritis medicines make me eligible?</h2>\n<p>Possibly. Whether your treatment counts as \"severely weakened\" depends on the medicine, the dose and how long you have taken it, and only your GP or rheumatology team can confirm it. Ask them directly if you take:</p>\n<ul>\n<li>steroid tablets such as prednisolone, especially at higher doses or for a long time</li>\n<li>DMARDs such as methotrexate, leflunomide or azathioprine</li>\n<li>biologics or JAK inhibitors</li>\n<li>a combination of these</li>\n</ul>\n<p>If you are about to start a medicine that suppresses the immune system, ask whether it would be better to have the vaccine first. If you were vaccinated in the past but now have a severely weakened immune system, the NHS says you may need it again.</p>\n<h2>Is it safe with my medicines?</h2>\n<ul>\n<li>The NHS shingles vaccine is a <strong>non-live</strong> vaccine. The NHS says non-live vaccines, including the shingles vaccine, are safe to have while you take prednisolone</li>\n<li>Always tell the nurse or pharmacist which arthritis medicines you take before any vaccine</li>\n<li><strong>Do not stop or pause your arthritis medicines</strong> to have a vaccine unless your own team tells you to</li>\n<li>You can usually have the shingles vaccine at the same time as the flu, COVID-19 and pneumococcal vaccines. See our <a href=\"/blog/flu-jab-arthritis-frailty-uk\">flu jab guide</a></li>\n</ul>\n<h2>How the vaccine is given</h2>\n<ul>\n<li>2 doses. For age-based eligibility, they are given 6 to 12 months apart</li>\n<li>For a severely weakened immune system, they are given 8 weeks to 6 months apart</li>\n<li>Your GP surgery will usually contact you by letter, text, phone or email. If you think you are eligible and have not heard, contact them</li>\n<li>If you have a high temperature or feel too unwell for normal activities on the day, wait until you feel better</li>\n</ul>\n<p>The NHS says most side effects are mild and settle within 2 or 3 days: a sore, swollen or bruised arm, headache, aching, tiredness, a temperature or shivers. Paracetamol and resting the arm usually help. If your joints ache for a day or two, keep gently moving them as you normally would.</p>\n<h2>If you think you have shingles</h2>\n<p>The first signs can be a tingling or painful patch of skin, a headache or feeling generally unwell. A rash of blotches usually appears a few days later, on <strong>one side</strong> of the body. It turns into itchy blisters that scab.</p>\n<ul>\n<li>See a <strong>pharmacist</strong> as soon as possible, ideally within 3 days of the rash appearing. Antiviral medicine works best when started early</li>\n<li>Ask for an <strong>urgent GP appointment or contact NHS 111</strong> if the rash is on your eye or nose, your vision changes, or you have a severely weakened immune system, which can include strong arthritis medicines</li>\n<li>Tell whoever treats you which arthritis medicines you take, and do not stop them yourself</li>\n<li>Keep the rash clean, dry and loosely covered, and use a cool compress. While the rash is weeping, avoid pregnant people who have not had chickenpox, people with a weakened immune system and newborn babies</li>\n</ul>\n<p>Pain can last for weeks after the rash heals, and sometimes for months (post-herpetic neuralgia). If that happens, ask your GP about nerve pain treatment rather than adding more painkillers yourself. Our <a href=\"/guides/painkillers-and-nsaids\">painkillers guide</a> explains the options.</p>\n<h2>Frequently asked questions</h2>\n<h3>I have already had shingles. Do I still need the vaccine?</h3>\n<p>Yes. The NHS says you can get shingles more than once, so it is important to be vaccinated even if you have had it before.</p>\n<h3>Will the vaccine cause a flare of my arthritis?</h3>\n<p>Some people feel achy for a couple of days after any vaccine. That is different from a flare. If joint swelling or stiffness lasts longer than a few days, contact your GP or rheumatology advice line. Our <a href=\"/arthritis-flare-ups\">flare-up guide</a> helps you tell the difference.</p>\n<h3>I am over 80. Can I still have it?</h3>\n<p>Only if you have a severely weakened immune system. Ask your GP or rheumatology team whether that applies to you.</p>\n<h2>When to get urgent help</h2>\n<p>Call <strong>999</strong> or go to A&amp;E if someone becomes suddenly confused, struggles to breathe or has signs of sepsis such as blotchy or blue skin or a rash that does not fade when pressed. If you take steroids, our <a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">steroids and infection guide</a> lists the signs to act on. For a cough that will not settle, see our <a href=\"/blog/chest-infection-arthritis-frailty-uk\">chest infection guide</a>.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/vaccinations/shingles-vaccine/\" rel=\"noopener\">NHS: Shingles vaccine</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/shingles/\" rel=\"noopener\">NHS: Shingles</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/\" rel=\"noopener\">NHS: Common questions about prednisolone (vaccines)</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/\" rel=\"noopener\">NHS: Taking methotrexate with other medicines</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/\" rel=\"noopener\">NHS: Rheumatoid arthritis treatment</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Everyone's situation is different, so always follow the advice of your own GP, pharmacist or rheumatology team. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/vaccines-on-dmards-and-biologics-uk-guide\">Vaccines on DMARDs and biologics</a> — live and non-live vaccines</li>\n      <li><a href=\"/blog/flu-jab-arthritis-frailty-uk\">Flu jab and arthritis</a> — free NHS eligibility</li>\n      <li><a href=\"/blog/covid-winter-arthritis-frailty-uk\">Winter viruses and arthritis medicines</a> — a sick-day plan</li>\n      <li><a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">Steroids and infection</a> — what to watch for</li>\n      <li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis</a> — condition hub</li>\n      <li><a href=\"/guides/painkillers-and-nsaids\">Painkillers and NSAIDs</a> — safer pain relief</li>\n      <li><a href=\"/blog/chest-infection-arthritis-frailty-uk\">Chest infections and arthritis</a> — self-care and warning signs</li>\n      <li><a href=\"/arthritis-flare-ups\">Flare-up guide</a> — flare or something more serious</li>\n    </ul>\n  </section>\n",
       "date": "2026-09-03",
       "category": "Health",
       "image_url": "/openverse/cover-0448-monster-salad.webp",
       "cover": "cover-0448-monster-salad.webp",
-      "meta_title": "Shingles vaccination if you have arthritis and frailty (UK)",
-      "meta_description": "Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking.",
-      "keywords": "arthritis with frailty, frailty, several joints, England, arthritis, health, UK",
+      "meta_title": "Shingles Vaccine With Arthritis: Eligibility and Safety (UK)",
+      "meta_description": "NHS shingles vaccine eligibility at 65, 70 to 79 or on strong immune-suppressing medicines, safety with prednisolone, side effects, early shingles signs.",
+      "keywords": "shingles vaccine arthritis, shingles vaccine methotrexate, shingles vaccine prednisolone, shingles vaccine eligibility UK, shingles vaccine weakened immune system, shingles rash older people",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -45427,47 +45427,56 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4865,
-      "updated_at": "2026-09-05T11:02:30.650Z",
-      "direct_answer": "Treating frailty as a clinical syndrome keeps the focus on changeable things — strength, protein, medicines review, safer rooms. This article is about asking about shingles protection in later life, written for people and carers in England, especially around a GP surgery.",
+      "updated_at": "2026-10-15T09:00:00.000Z",
+      "direct_answer": "On the NHS, the shingles vaccine is offered to everyone turning 65, everyone aged 70 to 79, and adults aged 18 and over with a severely weakened immune system, which can include people on certain medicines that strongly suppress the immune system. It is given as 2 doses. The NHS says the non-live shingles vaccine is safe to have while you take prednisolone. Ask your GP surgery or rheumatology team whether you are eligible, and get vaccinated even if you have had shingles before.",
       "citations": [
         {
-          "label": "NHS 111",
-          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+          "label": "NHS: Shingles vaccine",
+          "url": "https://www.nhs.uk/vaccinations/shingles-vaccine/",
           "publisher": "NHS"
         },
         {
-          "label": "Age UK – Frailty",
-          "url": "https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/",
-          "publisher": "Age UK"
-        },
-        {
-          "label": "NHS – Osteoarthritis",
-          "url": "https://www.nhs.uk/conditions/osteoarthritis/",
+          "label": "NHS: Shingles",
+          "url": "https://www.nhs.uk/conditions/shingles/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG226 – Osteoarthritis in over 16s",
-          "url": "https://www.nice.org.uk/guidance/ng226",
-          "publisher": "NICE"
+          "label": "NHS: Common questions about prednisolone (vaccines)",
+          "url": "https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Taking methotrexate with other medicines",
+          "url": "https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Rheumatoid arthritis treatment",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/",
+          "publisher": "NHS"
         }
       ]
     },
     "faqs": [
       {
-        "q": "GP, 111 or 999?",
-        "a": "This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 can help you choose. Living With Arthritis cannot triage you. If you cannot get to the surgery because of arthritis with frailty, ask about a home visit or a proper phone review. Silence is not a care plan. Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the arthritis with frailty nurse. A knock to the hea"
+        "q": "Do my arthritis medicines make me eligible?",
+        "a": "Possibly. Whether your treatment counts as \"severely weakened\" depends on the medicine, the dose and how long you have taken it, and only your GP or rheumatology team can confirm it. Ask them directly if you take: steroid tablets such as prednisolone, especially at higher doses or for a long time DMARDs such as methotrexate, leflunomide or azathioprine biologics or JAK inhibitors a combination of these If you are about to start a medicine that suppresses the immune system, ask whether it would b"
       },
       {
-        "q": "Should I stop exercising during asking about shingles protection in later life?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
+        "q": "Is it safe with my medicines?",
+        "a": "The NHS shingles vaccine is a non-live vaccine. The NHS says non-live vaccines, including the shingles vaccine, are safe to have while you take prednisolone Always tell the nurse or pharmacist which arthritis medicines you take before any vaccine Do not stop or pause your arthritis medicines to have a vaccine unless your own team tells you to You can usually have the shingles vaccine at the same time as the flu, COVID-19 and pneumococcal vaccines. See our flu jab guide"
       },
       {
-        "q": "Will I get PIP or Attendance Allowance because I have arthritis and frailty?",
-        "a": "Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of asking about shingles protection in later life on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims."
+        "q": "I have already had shingles. Do I still need the vaccine?",
+        "a": "Yes. The NHS says you can get shingles more than once, so it is important to be vaccinated even if you have had it before."
       },
       {
-        "q": "Is a walking aid giving in if I have arthritis with frailty?",
-        "a": "No. An aid that matches your several joints can protect joints, reduce fear and keep you walking far enough to keep muscle. A poorly fitted stick that hurts a wrist is the problem, not the concept. Ask physiotherapy or occupational therapy to look at height and grip."
+        "q": "Will the vaccine cause a flare of my arthritis?",
+        "a": "Some people feel achy for a couple of days after any vaccine. That is different from a flare. If joint swelling or stiffness lasts longer than a few days, contact your GP or rheumatology advice line. Our flare-up guide helps you tell the difference."
+      },
+      {
+        "q": "I am over 80. Can I still have it?",
+        "a": "Only if you have a severely weakened immune system. Ask your GP or rheumatology team whether that applies to you."
       }
     ],
     "relatedLinks": [
@@ -45480,16 +45489,16 @@
         "title": "Health guides"
       },
       {
-        "path": "/blog/bone-protection-steroids-arthritis-frailty-uk",
-        "title": "Bone protection on steroids when you also have arthritis and frailty (UK)"
+        "path": "/blog/uti-confusion-arthritis-frailty-uk",
+        "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)"
       },
       {
-        "path": "/blog/copd-arthritis-frailty-breathlessness-uk",
-        "title": "COPD, arthritis and frailty: breathlessness plus sore joints (UK)"
+        "path": "/blog/covid-winter-arthritis-frailty-uk",
+        "title": "Winter viruses and arthritis medicines: a UK guide to staying safe"
       },
       {
-        "path": "/blog/eye-clinic-day-arthritis-frailty-uk",
-        "title": "Eye clinic days with arthritis and frailty (UK)"
+        "path": "/blog/arthritis-and-travel-uk",
+        "title": "Travelling with Arthritis – UK & Abroad Guide"
       }
     ]
   },
@@ -47072,16 +47081,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
         "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
+      },
+      {
+        "path": "/blog/arthritis-treatment-hub",
+        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       }
     ]
   },
@@ -48770,26 +48779,26 @@
     ]
   },
   "/blog/steroid-emergency-card-frail-arthritis-uk": {
-    "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
-    "description": "Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next.",
-    "question": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
-    "answer": "Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next steps. This article is about carrying the right card if steroids are part of care, written for people and carers in Northern Ireland, especially around a home.",
-    "breadcrumb": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
+    "title": "Steroid Emergency Card With Arthritis: When to Show It (UK)",
+    "description": "On prednisolone or steroid injections? The red NHS Steroid Emergency Card, the blue card, sick-day steps and adrenal crisis 999 signs for carers.",
+    "question": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)",
+    "answer": "If you take steroid medicines such as prednisolone, your own adrenal glands may make less cortisol, the hormone your body needs when it is ill, injured or having surgery. Your doctor or pharmacist will decide whether you need the red NHS Steroid Emergency Card. If you have one, carry it all the time and show it to anyone treating you, so they know you may need extra steroids. Never stop steroid tablets suddenly.",
+    "breadcrumb": "Steroid Emergency Card With Arthritis: When to Show It (UK)",
     "about": "Treatment",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-15",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0471-20171027-ams-lsc-1562.webp",
     "article": {
       "slug": "steroid-emergency-card-frail-arthritis-uk",
-      "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
-      "excerpt": "Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next.",
-      "content": "<p>Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next steps. This article is about carrying the right card if steroids are part of care, written for people and carers in Northern Ireland, especially around a home.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next steps. This article is about carrying the right card if steroids are part of care, written for people and carers in Northern Ireland, especially around a home.</p>\n\n<p>It might be the kettle, the bathroom, the car door or the clinic corridor — a home task that used to be automatic now asks more of several joints than they can give on a stiff morning. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with carrying the right card if steroids are part of care, not a generic arthritis recap. It is written in UK English for people, families and carers in Northern Ireland.</p>\n<h2>How carrying the right card if steroids are part of care shows up in real rooms</h2>\n<p>In a home, carrying the right card if steroids are part of care is rarely one dramatic collapse. It is usually a stack of small avoidances. People with inflammatory arthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>Skipping meals or drinks because getting to the kitchen with sore several joints feels like a project.</li><li>Shorter outdoor range, then shorter indoor range, then a home that has quietly rearranged itself around the chair.</li><li>New fear after a near-miss, even if you did not hit the floor. Fear of falling is itself a reason people sit more.</li><li>Transfers that used to be boring — bed, chair, toilet, car — now need a pause, a push-up or a second person, especially when several joints are cold.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li></ul>\n<h2>Self-management that respects inflammatory arthritis</h2>\n<p>None of this is a gym challenge. The aim is to keep several joints moving, keep protein in the day, and keep carrying the right card if steroids are part of care from becoming the only story in the home. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>Plan the scariest transfer of the day — often the bathroom — with lighting, a rail conversation and unhurried time. Rushing with stiff several joints is how near-misses happen.</li><li>Keep a sit-to-stand practice at the height you actually use. A higher chair is not cheating if it lets several joints work without a panic haul.</li><li>Put the items you use at dawn — tablets, glasses, walking aid, phone — where you can reach them without a stretch that wrenches several joints.</li><li>Ask a pharmacist to look at the whole list if dizziness, constipation or night sedation have arrived with the pain tablets. Do not add a new painkiller just in case.</li></ul>\n<h2>Not 'just getting old': carrying the right card if steroids are part of care</h2>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual inflammatory arthritis.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether carrying the right card if steroids are part of care is shrinking your home life — and what you can change this week without pretending pain is imaginary.</p>\n<h2>Treatment conversations that include frailty</h2>\n<h2>Help in Northern Ireland if inflammatory arthritis and frailty overlap</h2>\n<h2>GP, 111 or 999?</h2>\n<p>This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, your GP out-of-hours service or emergency services as directed on nidirect can help you choose. Living With Arthritis cannot triage you.</p>\n<ul><li>Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the inflammatory arthritis nurse.</li><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>Unplanned weight loss, repeated falls, or carrying the right card if steroids are part of care that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li></ul>\n<h2>Can frailty improve if I still have pain in several joints?</h2>\n<p>Sometimes the frailty part can shift even if inflammatory arthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>How do I tell an arthritis flare from a frailty slide?</h2>\n<p>A flare of inflammatory arthritis is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel.</p>\n<h2>Will I get PIP or Attendance Allowance because I have inflammatory arthritis and frailty?</h2>\n<p>Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of carrying the right card if steroids are part of care on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical Northern Ireland context for inflammatory arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/steroids/\">NHS – Steroids</a> (NHS)</li><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/conditions/polymyalgia-rheumatica/\">NHS – Polymyalgia rheumatica</a> (NHS)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or your GP out-of-hours service or emergency services as directed on nidirect. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/nsaids-kidneys-heart-frail-arthritis-uk\">NSAIDs, kidneys and heart problems in frail arthritis (UK)</a> — Calling frailty a clinical syndrome helps families ask better questions without blaming character or willpower.</li>\n      <li><a href=\"/blog/sleeping-tablets-falls-arthritis-frailty-uk\">Sleeping tablets, night falls and arthritis (UK)</a> — When sore joints and low reserve share a house, small avoidances stack: fewer walks, fewer meals, fewer visits.</li>\n      <li><a href=\"/blog/expert-qa-are-steroid-tapers-always-necessary\">Expert Q&A: Are Steroid Tapers Always Necessary?</a> — Stopping steroids abruptly can backfire.</li>\n      <li><a href=\"/blog/community-physio-wait-frail-arthritis-uk\">Community physiotherapy waits when you are frail with arthritis (UK)</a> — Keep one social appointment that does not depend on a heroic walk — isolation feeds frailty as surely as skipped meals.</li>\n    </ul>\n  </section>\n",
+      "title": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)",
+      "excerpt": "On prednisolone or steroid injections? The red NHS Steroid Emergency Card, the blue card, sick-day steps and adrenal crisis 999 signs for carers.",
+      "content": "<p>If you take steroid medicines such as prednisolone, your own adrenal glands may make less cortisol, the hormone your body needs when it is ill, injured or having surgery. Your doctor or pharmacist will decide whether you need the red NHS Steroid Emergency Card. If you have one, carry it all the time and show it to anyone treating you, so they know you may need extra steroids. Never stop steroid tablets suddenly.</p>\n<p>Many people with rheumatoid arthritis, polymyalgia rheumatica and other inflammatory conditions take steroids for weeks, months or longer. This guide covers one job: understanding the steroid cards, knowing when to show them, and what to do on a sick day, especially if you are older, living with frailty or caring for someone. For infection warning signs on steroids, see our <a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">steroids and infection guide</a>.</p>\n<h2>Why steroids can make illness more risky</h2>\n<p>The NHS explains that steroid medicines copy the stress hormones your adrenal glands make. When you take them in doses higher than your body's usual level, your adrenal glands may make less of their own cortisol. This is called adrenal insufficiency. The NHS says it is more likely if you take high doses for a long time, especially tablets and injections, or if you use more than one kind of steroid at the same time, such as a steroid inhaler and a nasal spray.</p>\n<p>Most of the time this causes no problems, because your tablets supply what you need. The risk comes when your body needs more cortisol than usual: a bad infection, being sick or having diarrhoea, a fall or injury, or an operation. Without extra steroid, a small number of people can become seriously unwell very quickly. This is called an adrenal crisis, and it is an emergency.</p>\n<h2>The two steroid cards</h2>\n<ul>\n<li><strong>Red NHS Steroid Emergency Card:</strong> your doctor or pharmacist assesses your risk of adrenal insufficiency from the type and dose of steroids you take, and may recommend this card. It tells health professionals that you take steroids that should not be stopped suddenly, and sets out the first steps to take in an emergency. It is the size of a credit card</li>\n<li><strong>Blue steroid treatment card:</strong> the NHS says you will be given this if you take prednisolone for longer than 3 weeks, or at a high dose of more than 40mg a day. It explains how to reduce the risk of side effects and records your doctor, your dose and how long treatment will last</li>\n</ul>\n<p>The Society for Endocrinology says the blue card is not replaced by the red one, so keep both if your team has given you both. You can also download a PDF of the red card; some people save it as their phone's lock screen so emergency staff can see it.</p>\n<h2>Do I need a red card?</h2>\n<p>Only your own prescriber can say. Ask your GP, pharmacist or rheumatology team if any of these apply and nobody has mentioned a card:</p>\n<ul>\n<li>you have taken steroid tablets for a long time, or at a high dose</li>\n<li>you have repeated steroid injections into joints or muscles, as well as other steroids</li>\n<li>you use several kinds of steroid together, such as tablets plus an inhaler or nasal spray</li>\n<li>you are coming off steroids slowly after a long course</li>\n</ul>\n<p>Bring a full list of your medicines, including inhalers, creams, nasal sprays and recent injections. Our <a href=\"/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense\">steroid injections versus tablets guide</a> explains the difference.</p>\n<h2>When to show your card</h2>\n<ul>\n<li>at A&amp;E, to paramedics, and if you are admitted to hospital for any reason</li>\n<li>before any operation, procedure or scan that involves fasting or sedation, such as a colonoscopy</li>\n<li>at the dentist, before dental treatment</li>\n<li>at a new GP, out-of-hours or NHS 111 contact, so they know about your steroids</li>\n<li>to carers and family, so they can show it for you if you cannot</li>\n</ul>\n<h2>Sick days: ask for your plan now, not when you are ill</h2>\n<ul>\n<li><strong>Do not stop, skip or lower your steroid dose yourself.</strong> The NHS says it can be dangerous to stop prednisolone suddenly, especially after a high dose for a long time</li>\n<li>When you are unwell, your body may need <em>more</em> steroid, not less. Ask your doctor whether sick day rules apply to you, what dose change (if any) they want, and for how long. Write it on your <a href=\"/resources/flare-action-plan\">flare action plan</a></li>\n<li>If you are being sick and cannot keep your tablets down, or have severe diarrhoea, get urgent advice from your GP or NHS 111 the same day and tell them you take steroids</li>\n<li>Do not run out. Order repeat prescriptions early, especially before bank holidays and over Christmas</li>\n<li>Our <a href=\"/blog/covid-winter-arthritis-frailty-uk\">winter viruses guide</a> has a sick-day plan for your other arthritis medicines too</li>\n</ul>\n<h2>When it is an emergency</h2>\n<p>The NHS lists signs of adrenal crisis that need <strong>999</strong>. Call 999 if someone who takes steroids becomes suddenly much worse and has any of these:</p>\n<ul>\n<li>feeling very dizzy or light-headed, especially when standing up</li>\n<li>being sick, or severe tummy pain or pain in the side</li>\n<li>a fast heart rate</li>\n<li>muscle weakness, pain or spasms, or a headache that will not go away</li>\n<li>being very drowsy, irritable or confused</li>\n<li>a seizure (fit) or passing out</li>\n</ul>\n<p>Show the red card to the ambulance crew and take the person's medicines, or a list. If you have been given an emergency injection kit and trained to use it, the NHS says call 999 even after you have given the injection. Signs of sepsis, such as fast breathing, blotchy or blue skin and a rash that does not fade, also need 999.</p>\n<h2>Frailty and steroids: why carers matter</h2>\n<p>In older people, an adrenal crisis or a serious infection may look like going \"off their legs\", a fall, new confusion or not eating and drinking. These are reasons to ask for help early, not to wait. If you care for someone on steroids:</p>\n<ul>\n<li>keep the steroid cards, medicines list and rheumatology advice line number together</li>\n<li>know where their sick-day plan is written down</li>\n<li>check repeat prescriptions are ordered in time</li>\n<li>ask for a <a href=\"/blog/carers-assessment-arthritis-frailty-uk\">carer's assessment</a> if you need more support</li>\n</ul>\n<p>Long courses of steroids can also thin bones, so ask about bone protection. Our <a href=\"/guides/bone-density-osteoporosis\">bone density guide</a> explains the checks.</p>\n<h2>Frequently asked questions</h2>\n<h3>Do steroid joint injections count?</h3>\n<p>They can. The Society for Endocrinology says steroids given by any route, including joint injections, inhalers, nasal sprays and creams, can lower your own cortisol, especially when they add up. Ask your team whether your injections change your risk.</p>\n<h3>I have stopped steroids. Do I still need the card?</h3>\n<p>Your adrenal glands can take time to recover after a long course. Ask your doctor how long you should keep carrying the card after your last dose.</p>\n<h3>Where do I get a card?</h3>\n<p>Your GP, hospital team or pharmacist can give you one. If you think you should have one and do not, ask at your next appointment or speak to your community pharmacist.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/\" rel=\"noopener\">NHS: Common questions about prednisolone (steroid cards)</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/prednisolone/how-and-when-to-take-prednisolone-tablets-and-liquid/\" rel=\"noopener\">NHS: How and when to take prednisolone</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/steroids/\" rel=\"noopener\">NHS: Steroids</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/addisons-disease/\" rel=\"noopener\">NHS: Addison's disease (adrenal crisis signs)</a></li>\n<li><a href=\"https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/\" rel=\"noopener\">Society for Endocrinology: Adrenal crisis and the NHS Steroid Emergency Card</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/sepsis/\" rel=\"noopener\">NHS: Sepsis</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Everyone's situation is different, so always follow the advice of your own GP, pharmacist or rheumatology team. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">Steroids and infection with rheumatoid arthritis</a> — warning signs and who to call</li>\n      <li><a href=\"/guides/steroids-for-arthritis\">Steroids for arthritis</a> — how steroids are used and why they are tapered</li>\n      <li><a href=\"/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense\">Steroid injections or tablets</a> — when each makes sense</li>\n      <li><a href=\"/resources/flare-action-plan\">Printable flare action plan</a> — write your sick-day steps down</li>\n      <li><a href=\"/blog/covid-winter-arthritis-frailty-uk\">Winter viruses and arthritis medicines</a> — a sick-day plan</li>\n      <li><a href=\"/blog/chest-infection-arthritis-frailty-uk\">Chest infections and arthritis</a> — self-care and warning signs</li>\n      <li><a href=\"/guides/bone-density-osteoporosis\">Bone density</a> — bone protection on steroids</li>\n      <li><a href=\"/conditions/polymyalgia-rheumatica\">Polymyalgia rheumatica</a> — condition hub</li>\n      <li><a href=\"/arthritis-flare-ups\">Flare-up guide</a> — flare or something more serious</li>\n    </ul>\n  </section>\n",
       "date": "2026-09-03",
       "category": "Treatment",
       "image_url": "/openverse/cover-0471-20171027-ams-lsc-1562.webp",
       "cover": "cover-0471-20171027-ams-lsc-1562.webp",
-      "meta_title": "Steroid emergency cards when arthritis treatment meets frailty (UK)",
-      "meta_description": "Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next.",
-      "keywords": "inflammatory arthritis, frailty, several joints, Northern Ireland, arthritis, treatment, UK",
+      "meta_title": "Steroid Emergency Card With Arthritis: When to Show It (UK)",
+      "meta_description": "On prednisolone or steroid injections? The red NHS Steroid Emergency Card, the blue card, sick-day steps and adrenal crisis 999 signs for carers.",
+      "keywords": "steroid emergency card, NHS steroid emergency card red card, blue steroid treatment card, prednisolone sick day rules, adrenal crisis signs, steroids arthritis carers UK",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -48797,47 +48806,57 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4914,
-      "updated_at": "2026-09-05T11:02:30.642Z",
-      "direct_answer": "Living With Arthritis covers steroid emergency cards when arthritis treatment meets frailty without miracle claims — just safer movement and clearer next steps. This article is about carrying the right card if steroids are part of care, written for people and carers in Northern Ireland, especially around a home.",
+      "updated_at": "2026-10-15T09:00:00.000Z",
+      "direct_answer": "If you take steroid medicines such as prednisolone, your own adrenal glands may make less cortisol, the hormone your body needs when it is ill, injured or having surgery. Your doctor or pharmacist will decide whether you need the red NHS Steroid Emergency Card. If you have one, carry it all the time and show it to anyone treating you, so they know you may need extra steroids. Never stop steroid tablets suddenly.",
       "citations": [
         {
-          "label": "NHS – Steroids",
+          "label": "NHS: Common questions about prednisolone (steroid cards)",
+          "url": "https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: How and when to take prednisolone",
+          "url": "https://www.nhs.uk/medicines/prednisolone/how-and-when-to-take-prednisolone-tablets-and-liquid/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Steroids",
           "url": "https://www.nhs.uk/conditions/steroids/",
           "publisher": "NHS"
         },
         {
-          "label": "NHS – Rheumatoid arthritis",
-          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
+          "label": "NHS: Addison's disease (adrenal crisis signs)",
+          "url": "https://www.nhs.uk/conditions/addisons-disease/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
-          "publisher": "NICE"
+          "label": "Society for Endocrinology: Adrenal crisis and the NHS Steroid Emergency Card",
+          "url": "https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/",
+          "publisher": "Society for Endocrinology"
         },
         {
-          "label": "NHS – Polymyalgia rheumatica",
-          "url": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+          "label": "NHS: Sepsis",
+          "url": "https://www.nhs.uk/conditions/sepsis/",
           "publisher": "NHS"
         }
       ]
     },
     "faqs": [
       {
-        "q": "GP, 111 or 999?",
-        "a": "This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, your GP out-of-hours service or emergency services as directed on nidirect can help you choose. Living With Arthritis cannot triage you. Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the inflammatory arthritis nurse. A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advi"
+        "q": "Do I need a red card?",
+        "a": "Only your own prescriber can say. Ask your GP, pharmacist or rheumatology team if any of these apply and nobody has mentioned a card: you have taken steroid tablets for a long time, or at a high dose you have repeated steroid injections into joints or muscles, as well as other steroids you use several kinds of steroid together, such as tablets plus an inhaler or nasal spray you are coming off steroids slowly after a long course Bring a full list of your medicines, including inhalers, creams, nas"
       },
       {
-        "q": "Can frailty improve if I still have pain in several joints?",
-        "a": "Sometimes the frailty part can shift even if inflammatory arthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
+        "q": "Do steroid joint injections count?",
+        "a": "They can. The Society for Endocrinology says steroids given by any route, including joint injections, inhalers, nasal sprays and creams, can lower your own cortisol, especially when they add up. Ask your team whether your injections change your risk."
       },
       {
-        "q": "How do I tell an arthritis flare from a frailty slide?",
-        "a": "A flare of inflammatory arthritis is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel."
+        "q": "I have stopped steroids. Do I still need the card?",
+        "a": "Your adrenal glands can take time to recover after a long course. Ask your doctor how long you should keep carrying the card after your last dose."
       },
       {
-        "q": "Will I get PIP or Attendance Allowance because I have inflammatory arthritis and frailty?",
-        "a": "Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of carrying the right card if steroids are part of care on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims."
+        "q": "Where do I get a card?",
+        "a": "Your GP, hospital team or pharmacist can give you one. If you think you should have one and do not, ask at your next appointment or speak to your community pharmacist."
       }
     ],
     "relatedLinks": [
@@ -48850,16 +48869,16 @@
         "title": "Treatment guides"
       },
       {
-        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
-        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
-      },
-      {
         "path": "/blog/arthritis-treatment-hub",
         "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       },
       {
-        "path": "/blog/codeine-drowsiness-falls-arthritis-uk",
-        "title": "Codeine, drowsiness and falls when you have arthritis (UK)"
+        "path": "/blog/ra-steroids-frailty-infection-watch-uk",
+        "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
+      },
+      {
+        "path": "/blog/steroid-injections-vs-oral-steroids-when-each-makes-sense",
+        "title": "Steroid Injections vs Oral Steroids: When Each Makes Sense"
       }
     ]
   },
@@ -48924,7 +48943,7 @@
       },
       {
         "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
-        "title": "Steroid emergency cards when arthritis treatment meets frailty (UK)"
+        "title": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)"
       },
       {
         "path": "/blog/biologic-side-effects-infections-injections-and-monitoring",
@@ -52147,26 +52166,26 @@
     ]
   },
   "/blog/uti-confusion-arthritis-frailty-uk": {
-    "title": "UTIs, confusion and frailty in people with arthritis (UK)",
-    "description": "This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week.",
-    "question": "UTIs, confusion and frailty in people with arthritis (UK)",
-    "answer": "This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This guide covers a urine infection that unmasks frailty when arthritis with frailty affects several joints, with a focus on England and a home setting.",
-    "breadcrumb": "UTIs, confusion and frailty in people with arthritis (UK)",
+    "title": "UTI and Sudden Confusion With Arthritis: Who to Call (UK)",
+    "description": "NHS UTI signs in older or frail people, when sudden confusion means 999, when to call NHS 111, methotrexate and antibiotics, and easier toilet trips.",
+    "question": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)",
+    "answer": "In older or frail people, a urine infection (UTI) does not always cause the usual burning or needing to pee often. The NHS says it can show up as new agitation or confusion, leaking more urine than usual or new shivering. Anyone who suddenly becomes confused needs 999 or A&E. If you are 65 or over, have a weakened immune system from arthritis medicines or have kidney pain, ask for an urgent GP appointment or contact NHS 111.",
+    "breadcrumb": "UTI and Sudden Confusion With Arthritis: Who to Call (UK)",
     "about": "Health",
-    "updatedAt": "2026-10-11",
+    "updatedAt": "2026-10-15",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0453-uni-duo.webp",
     "article": {
       "slug": "uti-confusion-arthritis-frailty-uk",
-      "title": "UTIs, confusion and frailty in people with arthritis (UK)",
-      "excerpt": "This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week.",
-      "content": "<p>This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This guide covers a urine infection that unmasks frailty when arthritis with frailty affects several joints, with a focus on England and a home setting.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This guide covers a urine infection that unmasks frailty when arthritis with frailty affects several joints, with a focus on England and a home setting.</p>\n\n<p>In England, clinicians may talk about frailty as a syndrome. You may simply feel that arthritis with frailty has stolen bounce from ordinary home tasks. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with a urine infection that unmasks frailty, not a generic arthritis recap. It is written in UK English for people, families and carers in England.</p>\n<h2>Small, repeatable steps — not a reinvention</h2>\n<p>None of this is a gym challenge. The aim is to keep several joints moving, keep protein in the day, and keep a urine infection that unmasks frailty from becoming the only story in the home. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>If stairs are the bottleneck, get an occupational therapy conversation on the list while you temporarily live downstairs — drifting is how a camp-bed becomes a lifestyle.</li><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>Set an indoor walking loop with places to pause. Pain in several joints prefer several short bouts to one heroic corridor.</li><li>Carers: help the last 20 percent of a task, not the first 80, unless pain or safety says otherwise. Practice is treatment for frailty.</li><li>Book eye, foot and hearing checks as frailty care, not vanity. Arthritis with frailty already asks a lot of balance.</li><li>Use heat for stiffness if your skin is healthy, but protect thin skin. Never fall asleep on a hot water bottle.</li></ul>\n<h2>Pain, muscle and recovery: the England picture</h2>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual arthritis with frailty.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether a urine infection that unmasks frailty is shrinking your home life — and what you can change this week without pretending pain is imaginary.</p>\n<p>Living With Arthritis is an independent UK charity (1218461), not part of Arthritis UK. We write for patients and carers. We do not replace NHS England services via your GP.</p>\n<h2>Flare, fear and slowing down</h2>\n<p>In a home, a urine infection that unmasks frailty is rarely one dramatic collapse. It is usually a stack of small avoidances. People with arthritis with frailty already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>Skipping meals or drinks because getting to the kitchen with sore several joints feels like a project.</li><li>Carers doing the last steps of a task to be kind, which removes the last practice the muscles were getting.</li><li>Transfers that used to be boring — bed, chair, toilet, car — now need a pause, a push-up or a second person, especially when several joints are cold.</li></ul>\n<h2>Who to talk to locally in England</h2>\n<p>Start with your GP practice and NHS England services via your GP. For urgent but non-emergency advice use NHS 111. For chest pain, suspected hip fracture, sudden new weakness, or a fall with a bang to the head on blood thinners, use 999.</p>\n<p>In England, some areas have community frailty or neighbourhood teams. Your GP or a social prescriber can explain what exists locally. Pathways differ by integrated care board, so do not assume a named clinic in the next town is available to you.</p>\n<p>Ask about community physiotherapy, occupational therapy, reablement after hospital, podiatry, pharmacy reviews and your local council's adult social care team (the Care Act). Names of teams change. The functions do not: get you moving, get you equipped, get the medicines tidier, get a human being through the door if you cannot get out.</p>\n<h2>Frailty as a syndrome, not a single joint story</h2>\n<h2>Red flags — do not wait this out</h2>\n<ul><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the arthritis with frailty nurse.</li><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li></ul>\n<h2>Should I stop exercising during a urine infection that unmasks frailty?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>Will I get PIP or Attendance Allowance because I have arthritis and frailty?</h2>\n<p>Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of a urine infection that unmasks frailty on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims.</p>\n<h2>Are painkillers the main treatment for frail arthritis with frailty?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical England context for arthritis and frailty.</p>\n<ul><li><a href=\"https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/\">Age UK – Frailty</a> (Age UK)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng249\">NICE NG249 – Falls: assessment and prevention</a> (NICE)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/nhs-frailty-pathway-arthritis-england\">The NHS frailty pathway and arthritis in England</a> — Strength, protein and practised transfers will not cure arthritis, but they often give frailty less room to grow.</li>\n      <li><a href=\"/blog/skin-pressure-care-arthritis-frailty-uk\">Skin and pressure care if arthritis keeps you sitting (UK)</a> — Living With Arthritis covers skin and pressure care if arthritis keeps you sitting without miracle claims — just safer movement and.</li>\n      <li><a href=\"/blog/rockwood-clinical-frailty-scale-arthritis-uk\">What the Rockwood Clinical Frailty Scale means if you also have arthritis (UK)</a> — Frailty scales used in hospital are tools, not moral verdicts; painful joints can make you look slower even when arthritis is the main.</li>\n      <li><a href=\"/blog/comprehensive-geriatric-assessment-arthritis-uk\">Comprehensive geriatric assessment in plain English if you have arthritis (UK)</a> — Motion is lotion still applies when energy is low: short, honest movement usually beats waiting for a perfect pain-free day.</li>\n    </ul>\n  </section>\n",
+      "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)",
+      "excerpt": "NHS UTI signs in older or frail people, when sudden confusion means 999, when to call NHS 111, methotrexate and antibiotics, and easier toilet trips.",
+      "content": "<p>In older or frail people, a urine infection (UTI) does not always cause the usual burning or needing to pee often. The NHS says it can show up as new agitation or confusion, leaking more urine than usual or new shivering. Anyone who suddenly becomes confused needs 999 or A&amp;E. If you are 65 or over, have a weakened immune system from arthritis medicines or have kidney pain, ask for an urgent GP appointment or contact NHS 111.</p>\n<p>This guide is for people with arthritis and the family members and carers who notice when something is not right. It covers the signs to look out for, who to call, how arthritis can make UTIs more likely, and the medicines questions to ask. It does not replace a clinical assessment: confusion has many causes, and a UTI should not be assumed.</p>\n<h2>Signs of a UTI</h2>\n<p>The NHS lists the usual symptoms as:</p>\n<ul>\n<li>pain or burning when peeing</li>\n<li>needing to pee more often, more urgently or more at night</li>\n<li>cloudy pee or blood in your pee</li>\n<li>pain low in the tummy, or in the back just under the ribs</li>\n<li>a high temperature, feeling hot or cold and shivery, or a very low temperature below 36C</li>\n<li>feeling tired or weak</li>\n</ul>\n<p>In older, frail people, people with memory problems such as dementia and people with a catheter, the NHS says a UTI may <em>also</em> cause:</p>\n<ul>\n<li>changes in behaviour, such as acting agitated or confused (delirium)</li>\n<li>leaking pee that is worse than usual</li>\n<li>new shivering or shaking (rigors)</li>\n</ul>\n<p>Dark or smelly pee on its own is often a sign of not drinking enough, not an infection.</p>\n<h2>Sudden confusion is an emergency</h2>\n<p><strong>Call 999 or go to A&amp;E</strong> if someone suddenly becomes confused, drowsy or has difficulty speaking. The NHS says many causes of sudden confusion, including infection, stroke, low blood sugar, a head injury and some medicines, need to be assessed straight away. Do not drive them to A&amp;E yourself; ask someone else to drive or call 999. Take their medicines, or a list, and any steroid card.</p>\n<p>While you wait, the NHS suggests you stay with them, tell them who you are and where they are, use short simple sentences, avoid asking lots of questions and only stop them moving around if they are in danger. Signs of sepsis, such as fast breathing, blotchy or blue skin and a rash that does not fade, also need 999.</p>\n<h2>When to get an urgent GP appointment or NHS 111</h2>\n<p>The NHS advises an urgent GP appointment or NHS 111 if you think you or someone you care for has a UTI and any of these apply:</p>\n<ul>\n<li>you are 65 or older</li>\n<li>you are a man</li>\n<li>you have a weakened immune system, which can include steroids, methotrexate, biologics or JAK inhibitors</li>\n<li>you have diabetes, use a catheter or are pregnant</li>\n<li>you have a very high or low temperature, or shivers</li>\n<li>you have pain in the back just under the ribs, or blood in your pee</li>\n<li>symptoms get worse quickly or do not improve within 48 hours</li>\n<li>you keep getting UTIs (2 in 6 months or 3 in 12 months)</li>\n</ul>\n<p>The NHS says some of these can be signs of a kidney infection, which can lead to sepsis if it is not treated. Women aged 16 to 64 who are not pregnant can usually see a pharmacist first.</p>\n<h2>Arthritis medicines and UTI treatment</h2>\n<ul>\n<li><strong>Do not stop, skip or pause arthritis medicines yourself.</strong> If you take methotrexate, biologics, JAK inhibitors or steroids, ask your GP, pharmacist or rheumatology advice line what to do while you have an infection</li>\n<li><strong>Never stop steroid tablets suddenly.</strong> If you carry a steroid card, show it. See our <a href=\"/blog/steroid-emergency-card-frail-arthritis-uk\">steroid emergency card guide</a></li>\n<li><strong>Methotrexate and antibiotics:</strong> the NHS lists trimethoprim and co-trimoxazole among the medicines that affect methotrexate, and asks you to show your methotrexate card. Always tell the prescriber or pharmacist you take methotrexate before you start an antibiotic</li>\n<li><strong>Anti-inflammatory painkillers:</strong> if you are dehydrated or unwell, ask a pharmacist before taking ibuprofen or similar tablets. The NHS suggests paracetamol for UTI pain and temperature. Our <a href=\"/guides/painkillers-and-nsaids\">painkillers guide</a> explains why</li>\n<li>Take the whole antibiotic course you are prescribed, even if you feel better</li>\n</ul>\n<h2>Why arthritis can make UTIs more likely</h2>\n<p>Some links are practical rather than medical. Painful hips, knees or hands can make getting to the toilet slow or hard, so people sometimes drink less or hold on longer. Reduced movement can lead to constipation, and difficulty wiping or managing pads can make hygiene harder. All of these are worth tackling:</p>\n<ul>\n<li>drink enough so your pee is pale through the day, spread out rather than all at once. A jug or bottle within easy reach helps</li>\n<li>do not hold on when you feel the urge, and take your time to empty your bladder fully</li>\n<li>wipe from front to back, and change pads promptly</li>\n<li>ask your GP for an occupational therapy assessment for a raised toilet seat, grab rails, a commode or bottle at night, or wiping aids</li>\n<li>plan night-time toilet trips safely: a night light, clear path and walking aid by the bed. Our <a href=\"/guides/fall-prevention-older-adults\">falls prevention guide</a> has more</li>\n<li>if you take warfarin, the NHS says avoid cranberry products</li>\n</ul>\n<h2>After a UTI: recovering strength</h2>\n<p>An infection, especially with confusion, can leave someone weaker and less steady for days or weeks. Restart usual movement gently, keep eating and drinking regularly, and ask for physio or a falls service if walking has become harder. If confusion does not clear as the infection settles, tell the GP. NICE guidance on delirium (CG103) highlights that it can last and that it needs follow-up. Carers can ask for a <a href=\"/blog/carers-assessment-arthritis-frailty-uk\">carer's assessment</a> for extra support.</p>\n<h2>Frequently asked questions</h2>\n<h3>Is every bout of confusion in an older person a UTI?</h3>\n<p>No. The NHS lists many causes, including other infections such as a chest infection, stroke, low blood sugar, a head injury and medicines. That is why sudden confusion needs a proper assessment. Our <a href=\"/blog/chest-infection-arthritis-frailty-uk\">chest infection guide</a> covers another common winter cause.</p>\n<h3>Do cranberry drinks treat a UTI?</h3>\n<p>The NHS says there is no evidence that cranberry products ease symptoms or treat a UTI once it has started, though they may help some people prevent them. They can contain a lot of sugar.</p>\n<h3>Can I prepare for this in winter?</h3>\n<p>Yes. Write down your medicines, who to call and what to do on a sick day. Our <a href=\"/blog/covid-winter-arthritis-frailty-uk\">winter viruses guide</a> and <a href=\"/resources/flare-action-plan\">printable flare action plan</a> help you plan ahead.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/conditions/urinary-tract-infections-utis/\" rel=\"noopener\">NHS: Urinary tract infections (UTIs)</a></li>\n<li><a href=\"https://www.nhs.uk/symptoms/confusion/\" rel=\"noopener\">NHS: Sudden confusion (delirium)</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/kidney-infection/\" rel=\"noopener\">NHS: Kidney infection</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/sepsis/\" rel=\"noopener\">NHS: Sepsis</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/\" rel=\"noopener\">NHS: Taking methotrexate with other medicines</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/cg103\" rel=\"noopener\">NICE CG103: Delirium</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Everyone's situation is different, so always follow the advice of your own GP, pharmacist or rheumatology team. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/delirium-hospital-arthritis-frailty-uk\">Delirium and arthritis</a> — confusion in hospital</li>\n      <li><a href=\"/blog/steroid-emergency-card-frail-arthritis-uk\">Steroid emergency cards</a> — who needs one and when to show it</li>\n      <li><a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">Steroids and infection</a> — what to watch for</li>\n      <li><a href=\"/blog/chest-infection-arthritis-frailty-uk\">Chest infections and arthritis</a> — self-care and warning signs</li>\n      <li><a href=\"/blog/covid-winter-arthritis-frailty-uk\">Winter viruses and arthritis medicines</a> — a sick-day plan</li>\n      <li><a href=\"/guides/painkillers-and-nsaids\">Painkillers and NSAIDs</a> — safer pain relief</li>\n      <li><a href=\"/guides/fall-prevention-older-adults\">Falls prevention</a> — safer night-time trips</li>\n      <li><a href=\"/blog/carers-assessment-arthritis-frailty-uk\">Carer's assessment</a> — support if you care for someone</li>\n    </ul>\n  </section>\n",
       "date": "2026-09-03",
       "category": "Health",
       "image_url": "/openverse/cover-0453-uni-duo.webp",
       "cover": "cover-0453-uni-duo.webp",
-      "meta_title": "UTIs, confusion and frailty in people with arthritis (UK)",
-      "meta_description": "This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week.",
-      "keywords": "arthritis with frailty, frailty, several joints, England, arthritis, health, UK",
+      "meta_title": "UTI and Sudden Confusion With Arthritis: Who to Call (UK)",
+      "meta_description": "NHS UTI signs in older or frail people, when sudden confusion means 999, when to call NHS 111, methotrexate and antibiotics, and easier toilet trips.",
+      "keywords": "UTI confusion elderly, urine infection confusion older people, UTI arthritis, UTI methotrexate antibiotics, delirium UTI carers, UTI when to call 111 UK",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -52174,43 +52193,53 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4861,
-      "updated_at": "2026-10-11T10:14:23Z",
-      "direct_answer": "This guide stays with uTIs, confusion and frailty in people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This guide covers a urine infection that unmasks frailty when arthritis with frailty affects several joints, with a focus on England and a home setting.",
+      "updated_at": "2026-10-15T09:00:00.000Z",
+      "direct_answer": "In older or frail people, a urine infection (UTI) does not always cause the usual burning or needing to pee often. The NHS says it can show up as new agitation or confusion, leaking more urine than usual or new shivering. Anyone who suddenly becomes confused needs 999 or A&E. If you are 65 or over, have a weakened immune system from arthritis medicines or have kidney pain, ask for an urgent GP appointment or contact NHS 111.",
       "citations": [
         {
-          "label": "Age UK – Frailty",
-          "url": "https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/",
-          "publisher": "Age UK"
-        },
-        {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
-          "publisher": "NICE"
-        },
-        {
-          "label": "NHS – Falls",
-          "url": "https://www.nhs.uk/conditions/falls/",
+          "label": "NHS: Urinary tract infections (UTIs)",
+          "url": "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG249 – Falls: assessment and prevention",
-          "url": "https://www.nice.org.uk/guidance/ng249",
+          "label": "NHS: Sudden confusion (delirium)",
+          "url": "https://www.nhs.uk/symptoms/confusion/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Kidney infection",
+          "url": "https://www.nhs.uk/conditions/kidney-infection/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Sepsis",
+          "url": "https://www.nhs.uk/conditions/sepsis/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Taking methotrexate with other medicines",
+          "url": "https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NICE CG103: Delirium",
+          "url": "https://www.nice.org.uk/guidance/cg103",
           "publisher": "NICE"
         }
       ]
     },
     "faqs": [
       {
-        "q": "Should I stop exercising during a urine infection that unmasks frailty?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
+        "q": "Is every bout of confusion in an older person a UTI?",
+        "a": "No. The NHS lists many causes, including other infections such as a chest infection, stroke, low blood sugar, a head injury and medicines. That is why sudden confusion needs a proper assessment. Our chest infection guide covers another common winter cause."
       },
       {
-        "q": "Will I get PIP or Attendance Allowance because I have arthritis and frailty?",
-        "a": "Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of a urine infection that unmasks frailty on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims."
+        "q": "Do cranberry drinks treat a UTI?",
+        "a": "The NHS says there is no evidence that cranberry products ease symptoms or treat a UTI once it has started, though they may help some people prevent them. They can contain a lot of sugar."
       },
       {
-        "q": "Are painkillers the main treatment for frail arthritis with frailty?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
+        "q": "Can I prepare for this in winter?",
+        "a": "Yes. Write down your medicines, who to call and what to do on a sick day. Our winter viruses guide and printable flare action plan help you plan ahead."
       }
     ],
     "relatedLinks": [
@@ -52223,16 +52252,16 @@
         "title": "Health guides"
       },
       {
-        "path": "/blog/copd-arthritis-frailty-breathlessness-uk",
-        "title": "COPD, arthritis and frailty: breathlessness plus sore joints (UK)"
+        "path": "/blog/arthritis-and-travel-uk",
+        "title": "Travelling with Arthritis – UK & Abroad Guide"
       },
       {
-        "path": "/blog/eye-clinic-day-arthritis-frailty-uk",
-        "title": "Eye clinic days with arthritis and frailty (UK)"
+        "path": "/blog/arthritis-in-young-people-uk",
+        "title": "Arthritis in Young People – UK Guide"
       },
       {
-        "path": "/blog/frailty-older-people-arthritis-wales-uk",
-        "title": "Older people, arthritis and frailty services in Wales (UK)"
+        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
+        "title": "Getting to blood tests when you are frail with arthritis (UK)"
       }
     ]
   },
@@ -52334,8 +52363,8 @@
         "title": "DMARDs Explained: How Methotrexate Slows Rheumatoid Arthritis"
       },
       {
-        "path": "/blog/arthritis-treatment-hub",
-        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
+        "path": "/blog/steroid-emergency-card-frail-arthritis-uk",
+        "title": "Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)"
       }
     ]
   },
@@ -54334,12 +54363,12 @@
         "title": "Arthritis and Your Heart: Lowering Your Heart Disease Risk"
       },
       {
-        "path": "/blog/arthritis-and-travel-uk",
-        "title": "Travelling with Arthritis – UK & Abroad Guide"
+        "path": "/blog/shingles-vaccine-arthritis-frailty-uk",
+        "title": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)"
       },
       {
-        "path": "/blog/arthritis-pain-scale-explained",
-        "title": "Pain Scale Explained: How to Rate Your Arthritis Pain (UK)"
+        "path": "/blog/arthritis-and-travel-uk",
+        "title": "Travelling with Arthritis – UK & Abroad Guide"
       }
     ]
   },
