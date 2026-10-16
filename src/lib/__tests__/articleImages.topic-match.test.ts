@@ -66,15 +66,15 @@ describe("getArticleImages topic matching", () => {
     }
   });
 
-  it("returns fewer than 3 images rather than padding with unrelated stock", () => {
+  it("always returns the four-image standard from the approved corpus", () => {
     const images = getArticleImages(
       "Treatment",
       "Obscure Niche Topic Without Matching Tokens Zzz",
       "totally-unrelated-obscure-zzz-slug",
     );
-    // Always at least the cover; must not invent three forced bucket images
-    expect(images.length).toBeGreaterThanOrEqual(1);
-    expect(images.length).toBeLessThanOrEqual(3);
+    // Cover plus three deterministic fallback images; never empty or broken.
+    expect(images.length).toBe(4);
+    expect(new Set(images.map((image) => image.src)).size).toBe(4);
     expect(images[0].src).toMatch(/^\/openverse\//);
   });
 
