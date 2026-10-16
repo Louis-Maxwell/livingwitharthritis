@@ -1,41 +1,72 @@
-/** Run explicitly after publication: INDEXNOW=1 node scripts/indexnow-ping.mjs.
- * Notifications aid discovery; they do not guarantee indexing.
+/** Notify participating IndexNow engines only after the URLs are published.
+ * Explicit opt-in avoids announcing unpublished local builds.
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-const KEY = 'c98cc1e7f04d43b213d256e243f9ddd6';
-const HOST = 'livingwitharthritis.org.uk';
-const ORIGIN = `https://${HOST}`;
-export function sitemapPageUrls(xml) {
-  return [...new Set([...xml.matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)]
-    .map((m) => m[1].replace(/&amp;/g, '&')).filter((s) => {
-      try { const u = new URL(s); return u.origin === ORIGIN && !u.search && !u.hash; } catch { return false; }
-    }))];
+import { pathToFileURL } from 'node:url';
+
+export const KEY = 'c98cc1e7f04d43b213d256e243f9ddd6';
+export const HOST = 'livingwitharthritis.org.uk';
+export const ORIGIN = `https://${HOST}`;
+
+/** Use the canonical sitemap, not a hand-maintained list of aliases. */
+export function sitemapUrls(xml, since) {
+  if (since && !/^\d{4}-\d{2}-\d{2}$/.test(since)) throw new Error('INDEXNOW_SINCE must be YYYY-MM-DD');
+  const urls = new Set();
+  for (const entry of xml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/g)) {
+    const loc = entry[1].match(/<loc>\s*([^<]+)\s*<\/loc>/)?.[1]?.trim();
+    const modified = entry[1].match(/<lastmod>\s*([^<]+)\s*<\/lastmod>/)?.[1]?.trim();
+    if (since && (!modified || modified.slice(0, 10) < since)) continue;
+    if (!loc) continue;
+    try {
+      const url = new URL(loc.replace(/&amp;/g, '&'));
+      if (url.origin !== ORIGIN || url.username || url.password || url.search || url.hash) continue;
+      urls.add(url.href);
+    } catch { /* Ignore malformed sitemap locations. */ }
+  }
+  return [...urls];
 }
-async function main() {
-  const urls = sitemapPageUrls(readFileSync('public/sitemap.xml', 'utf8'));
-  if (process.argv.includes('--dry-run')) {
-    console.log(`[indexnow] dry run: ${urls.length} canonical sitemap page URLs; no network request`); return;
-  }
-  // A build is not a deployment. Never notify engines automatically before
-  // updated HTML is publicly available, even when NODE_ENV is production.
-  if (process.env.INDEXNOW !== '1') {
-    console.log('[indexnow] skipped; run npm run indexnow after publication'); return;
-  }
+
+export const sitemapPageUrls = sitemapUrls;
+
+export async function submitUrls(urls, request = fetch) {
+  if (!urls.length) return [];
   const keyLocation = `${ORIGIN}/${KEY}.txt`;
-  const keyResponse = await fetch(keyLocation, { signal: AbortSignal.timeout(15000) });
-  if (!keyResponse.ok || (await keyResponse.text()).trim() !== KEY) throw new Error('Published IndexNow key file could not be verified');
-  for (let offset = 0; offset < urls.length; offset += 10000) {
-    const urlList = urls.slice(offset, offset + 10000);
-    const res = await fetch('https://api.indexnow.org/indexnow', {
-      method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({ host: HOST, key: KEY, keyLocation, urlList }), signal: AbortSignal.timeout(20000),
-    });
-    if (![200, 202].includes(res.status)) throw new Error(`IndexNow rejected notification: HTTP ${res.status}`);
-    console.log(`[indexnow] ${urlList.length} URLs notified — HTTP ${res.status}; indexing is not guaranteed`);
+  const keyResponse = await request(keyLocation, { redirect: 'error', signal: AbortSignal.timeout(15000) });
+  if (!keyResponse.ok || (await keyResponse.text()).trim() !== KEY) {
+    throw new Error('Live IndexNow key file is missing or invalid; publish it before submitting');
   }
+  const statuses = [];
+  for (let i = 0; i < urls.length; i += 10000) {
+    const batch = urls.slice(i, i + 10000);
+    const response = await request('https://api.indexnow.org/indexnow', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      signal: AbortSignal.timeout(20000),
+      body: JSON.stringify({ host: HOST, key: KEY, keyLocation, urlList: batch }),
+    });
+    if (![200, 202].includes(response.status)) throw new Error(`IndexNow rejected ${batch.length} URLs: HTTP ${response.status}`);
+    statuses.push(response.status);
+    console.log(`[indexnow] ${batch.length} URLs accepted for processing — HTTP ${response.status} (indexing is not guaranteed)`);
+  }
+  return statuses;
 }
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
-  main().catch((err) => { console.error('[indexnow]', err.message); process.exitCode = 1; });
+
+async function main() {
+  const dryRun = process.env.INDEXNOW_DRY_RUN === '1' || process.argv.includes('--dry-run');
+  if (process.env.INDEXNOW !== '1' && !dryRun) {
+    console.log('[indexnow] skipped; run INDEXNOW=1 after publication');
+    return;
+  }
+  const xml = readFileSync(resolve(process.env.INDEXNOW_SITEMAP || 'public/sitemap.xml'), 'utf8');
+  const urls = sitemapUrls(xml, process.env.INDEXNOW_SINCE);
+  if (dryRun) {
+    console.log(JSON.stringify({ host: HOST, count: urls.length, urlList: urls }, null, 2));
+    return;
+  }
+  await submitUrls(urls);
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  main().catch((error) => { console.error('[indexnow]', error.message); process.exitCode = 1; });
 }

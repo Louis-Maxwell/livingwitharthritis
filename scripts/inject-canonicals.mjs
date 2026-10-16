@@ -26,6 +26,7 @@
 // and re-running this script refreshes crawler meta without a full vite build.
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
@@ -623,6 +624,11 @@ export function rewriteHead(html, route, dataOverride) {
     `<meta name="twitter:url" content="${url}" />`,
   );
 
+  // Static language signals must match the English catch-all in SeoDefaults.
+  if (!isNoindexRoute(route) && !headMeta?.noindex) {
+    out = patchEnglishAlternates(out, route, BASE);
+  }
+
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url, dataOverride);
   return out;
@@ -643,6 +649,8 @@ function writeRouteFiles() {
     console.warn("[inject-canonicals] dist/index.html missing — skipping");
     return;
   }
+  // collectRoutes excludes the root: enrich its English signals separately.
+  writeFileAtomicSync(SRC, patchEnglishAlternates(template, "/", BASE));
   const routes = collectRoutes();
   let written = 0;
   let skipped = 0;
@@ -660,8 +668,12 @@ function writeRouteFiles() {
       // still look like the homepage or only have a short answer teaser.
       // Still refresh title / description / og:image from head-data so
       // social crawlers pick up cover images after blog-head-data regen.
-      if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data)) {
+      const hasSupportDiscovery = !data?.article?.slug || existing.includes('aria-label="Arthritis support and guides"');
+      if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data) && hasSupportDiscovery) {
         let patched = data ? patchShareMeta(existing, data) : existing;
+        if (!isNoindexRoute(route) && !data?.noindex) {
+          patched = patchEnglishAlternates(patched, route, BASE);
+        }
         if (isNoindexRoute(route) || data?.noindex) {
           patched = applyNoindexMeta(patched);
         }

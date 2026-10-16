@@ -15,6 +15,12 @@ URL: https://livingwitharthritis.org.uk/about
 Q: Who is Living With Arthritis?
 A: Living With Arthritis is a Charitable Incorporated Organisation registered in England and Wales (no. 1218461). We publish free, clinically reviewed guidance on exercise, diet, pain management and UK benefits for people living with arthritis. We are independent of Arthritis UK and the US Arthritis Foundation. Clinical review is led by Maxwell, a First Contact Practitioner registered with the HCPC (PH128483).
 
+## Editorial claims policy | Living With Arthritis
+URL: https://livingwitharthritis.org.uk/about/editorial-claims-policy
+Last updated: 2026-10-09
+Q: How does Living With Arthritis support its public claims?
+A: Public content counts reflect published guides, not people supported or clinical outcomes. Pages show whether clinical review is complete or pending. Review claims should have a named reviewer and a recorded date. Patient stories must come from real consenting contributors. Survey reports explain recruitment, dates, per-question response counts and limitations. Partnerships and endorsements are described only when agreed. An editorial update is not a clinical review.
+
 ## UK Arthritis Support Directory | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/arthritis-support
 Last updated: 2026-09-19
@@ -2295,6 +2301,14 @@ Author: Maxwell (HCPC PH128483, CSP Member)
 Clinical review: pending; this guide has not completed clinical review.
 Q: Arthritis Support Groups Near Me Wales
 A: Arthritis support groups Wales: search arthritis-uk.org by postcode, call 0800 5200 520, ask GP for NHS community connector referral. Welsh-language materials available from Arthritis UK (formerly Versus Arthritis) on request. NRAS Wales: 0800 298 7650.
+
+## Living With Arthritis in the UK: A Guide for Refugees, Asylum Seekers and Diverse Communities
+URL: https://livingwitharthritis.org.uk/blog/arthritis-support-refugees-diverse-communities
+Last updated: 2026-10-10
+Author: Living With Arthritis Editorial Team
+Clinical review: pending; this guide has not completed clinical review.
+Q: Living With Arthritis in the UK: A Guide for Refugees, Asylum Seekers and Diverse Communities
+A: If you are new to the UK and living with arthritis, registering with a GP is a useful first step. Ask for an interpreter if needed and seek help for persistent joint pain or swelling.
 
 ## Arthritis Symptoms: What Could It Be and What to Do Next (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-symptoms-what-to-do-next

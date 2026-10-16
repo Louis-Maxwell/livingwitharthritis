@@ -48,7 +48,6 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import {
-  PENDING_REVIEW_TEXT,
   blogReviewSchemaFields,
   resolveBlogReviewStatus,
 } from "@/lib/blog/review";
@@ -532,11 +531,13 @@ const BlogPost = () => {
                       className="text-sm font-medium text-foreground leading-snug max-w-[46ch]"
                       data-testid="blog-review-pending"
                     >
-                      {PENDING_REVIEW_TEXT}
+                      Clinical review status: not yet recorded
                     </p>
                   ) : (
                     <div>
-                      <p className="text-sm font-semibold text-foreground leading-tight">{authorName}</p>
+                      <p className="text-sm font-semibold text-foreground leading-tight">
+                        <Link to={isMaxwellAuthor ? "/authors/maxwell" : "/authors"} className="underline underline-offset-2">{authorName}</Link>
+                      </p>
                       <p className="text-xs text-muted-foreground">{authorCreds}</p>
                     </div>
                   )}
@@ -615,7 +616,7 @@ const BlogPost = () => {
               </div>
             )}
             {isPendingReview && (
-              <div className="text-[10px] mt-1">{PENDING_REVIEW_TEXT}</div>
+              <div className="text-[10px] mt-1">Clinical review status: not yet recorded</div>
             )}
           </div>
 
@@ -715,6 +716,16 @@ const BlogPost = () => {
           </section>
 
           <ArticleFaqSection faqs={faqs} />
+            {slug && (
+              <ClusterRelatedLinks
+                slug={slug}
+                title={article.title}
+                excerpt={article.excerpt}
+                category={article.category}
+                keywords={article.keywords}
+              />
+            )}
+
 
           {slug && (
             <ViewportSection>
@@ -731,15 +742,6 @@ const BlogPost = () => {
           )}
           <ViewportSection>
             {slug && <EndNextArticleCard currentSlug={slug} />}
-            {slug && (
-              <ClusterRelatedLinks
-                slug={slug}
-                title={article.title}
-                excerpt={article.excerpt}
-                category={article.category}
-                keywords={article.keywords}
-              />
-            )}
             <ArticleClosingCTA title={article.title} category={article.category} slug={slug} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
           </ViewportSection>

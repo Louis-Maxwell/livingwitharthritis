@@ -64,7 +64,7 @@
     "test:route-smoke": "playwright test e2e/route-smoke.spec.ts",
     "test:a11y-smoke": "playwright test e2e/a11y-smoke.spec.ts",
     "seo:foundations": "node scripts/check-live-foundations.mjs",
-    "test:dependency-security": "node --test scripts/test-braces-security.cjs",
+    "test:dependency-security": "node --test scripts/test-braces-security.cjs scripts/tests/braces-security.test.mjs",
     "seo:enterprise": "node scripts/enterprise-audit.mjs",
     "seo:growth": "node scripts/generate-growth-map.mjs",
     "seo:keywords": "node scripts/generate-keyword-coverage.mjs",

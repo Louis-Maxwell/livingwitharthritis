@@ -63,10 +63,9 @@ export default function EditorialClaimsPolicy() {
         <section className="mb-10 space-y-3 text-foreground/85">
           <h2 className="font-display text-2xl font-bold">Source of truth</h2>
           <p>
-            Public content counts come from{" "}
-            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">CONTENT_INVENTORY</code>{" "}
-            in code (updated from checked-in catalogues), not from slogans. As of this
-            site build that includes approximately{" "}
+            Public content counts reflect the guides currently published on this website.
+            They are not counts of people supported or proof of clinical outcomes.
+            Our current collection includes{" "}
             <strong>{formatInventoryCount(CONTENT_INVENTORY.blogArticles)} articles</strong>,{" "}
             <strong>{formatInventoryCount(CONTENT_INVENTORY.pillarGuides)} pillar guides</strong>,{" "}
             and{" "}
@@ -91,8 +90,44 @@ export default function EditorialClaimsPolicy() {
           <h2 className="font-display text-2xl font-bold">Educational, not diagnostic</h2>
           <p>
             {CHARITY.shortName} (charity {CHARITY.number}) publishes plain-English UK education.
-            Content is reviewed by an HCPC-registered physiotherapist where clinical claims appear.
+            Pages show whether clinical review is complete or pending. A completed-review
+            claim should be supported by a named reviewer and a recorded review date.
             It does not replace your GP, rheumatology team or pharmacist.
+          </p>
+        </section>
+
+        <section className="mb-10 space-y-3 text-foreground/85">
+          <h2 className="font-display text-2xl font-bold">Patient stories and original research</h2>
+          <p>
+            Patient stories must come from real contributors who have agreed to publication.
+            Personal experiences are identified as experiences, not evidence that a treatment
+            will work for everyone. We do not invent testimonials, quotes or survey responses.
+          </p>
+          <p>
+            When publishing a survey, we explain how participants were recruited, when the
+            survey ran, how many people answered each question and the limitations of the
+            sample. An open online survey is not presented as representative of everyone
+            living with arthritis. Planned research is not described as completed research.
+          </p>
+        </section>
+
+        <section className="mb-10 space-y-3 text-foreground/85">
+          <h2 className="font-display text-2xl font-bold">Independence and partnerships</h2>
+          <p>
+            Living With Arthritis has its own identity and governance. We only describe an
+            organisation as a partner, sponsor or endorser when that relationship has been
+            agreed. A link to another organisation is a reference, not an endorsement.
+            Claims such as “largest”, “leading” or “most trusted” need published evidence.
+          </p>
+        </section>
+
+        <section className="mb-10 space-y-3 text-foreground/85">
+          <h2 className="font-display text-2xl font-bold">Corrections and review dates</h2>
+          <p>
+            Please <Link to="/contact" className="text-primary underline underline-offset-2">contact us</Link>{" "}
+            with the page address and details of any suspected error. An editorial update
+            is not the same as a clinical review: changing wording or a page date does not
+            establish that a clinician has checked the advice.
           </p>
         </section>
 

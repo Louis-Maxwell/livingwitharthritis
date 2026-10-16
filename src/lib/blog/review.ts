@@ -9,7 +9,7 @@ export const DEFAULT_BLOG_REVIEW_STATUS: BlogReviewStatus = "pending";
 
 /** Exact byline shown on a guide awaiting clinical review. */
 export const PENDING_REVIEW_TEXT =
-  "Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)";
+  "Clinical review status: not yet recorded";
 
 type MaybeReviewStatus = { reviewStatus?: string | null } | null | undefined;
 
