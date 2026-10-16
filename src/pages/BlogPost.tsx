@@ -713,6 +713,22 @@ const BlogPost = () => {
                 </figcaption>
               </figure>
             )}
+            {relatedImages[2] && (
+              <figure className="not-prose my-8">
+                <img
+                  src={safeCoverSrc(relatedImages[2].src)}
+                  alt={relatedImages[2].alt}
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
+                />
+                <figcaption className="text-xs text-muted-foreground/70 mt-2">
+                  {relatedImages[2].credit}
+                </figcaption>
+              </figure>
+            )}
           </section>
 
           <ArticleFaqSection faqs={faqs} />
