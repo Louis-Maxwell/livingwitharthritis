@@ -295,8 +295,8 @@ const Header = () => {
       >
 
 
-        <aside aria-label="Clinical review commitment" className="w-full border-b border-primary/20 bg-accent text-foreground">
-          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Our clinical team reviews and updates this website daily to ensure all content remains accurate, reliable, and informed by the latest evidence.</p>
+        <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
+          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
         </aside>
 
         {/* Donation Quick Bar — top of sticky header */}
