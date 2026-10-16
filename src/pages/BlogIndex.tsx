@@ -362,7 +362,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           }
           subtitle={
             heroSubtitle ??
-            `${formatInventoryCount(CONTENT_INVENTORY.blogArticles)} articles for UK readers; clinical-review status is shown on each guide — practical help when living with arthritis feels exhausting. You are not alone.`
+            `${formatInventoryCount(blogPosts.length)} articles for UK readers; review details are shown on each guide — practical help when living with arthritis feels exhausting. You are not alone.`
           }
         />
 
