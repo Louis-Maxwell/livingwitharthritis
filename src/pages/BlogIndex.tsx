@@ -33,6 +33,12 @@ import {
   type BlogTopicFilter,
 } from "@/lib/blog/topics";
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
+import {
+  BLOG_SORT_OPTIONS,
+  effectiveUpdated,
+  filterBlogRows,
+  type BlogSortMode,
+} from "@/lib/blog/blogIndexFilter";
 import BlogCard from "@/components/blog/BlogCard";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import { getBookmarks } from "@/lib/bookmarkedArticles";
@@ -40,13 +46,8 @@ import { getLastRead, type LastReadArticle } from "@/lib/lastReadArticle";
 
 type Category = BlogTopicFilter;
 
-type SortMode = "newest" | "updated" | "az";
-
-const SORT_OPTIONS: { id: SortMode; label: string }[] = [
-  { id: "newest", label: "Newest" },
-  { id: "updated", label: "Recently updated" },
-  { id: "az", label: "A–Z" },
-];
+type SortMode = BlogSortMode;
+const SORT_OPTIONS = BLOG_SORT_OPTIONS;
 
 const categories: Category[] = BLOG_TOPIC_FILTERS;
 const POSTS_PER_PAGE = 24;
@@ -81,9 +82,6 @@ const postMatchesCategory = postMatchesTopic;
 const countInCategory = countInTopic;
 const slugToCategory = topicFilterFromSlug;
 
-function effectiveUpdated(post: { date: string; updated_at?: string | null }): string {
-  return post.updated_at || post.date || "";
-}
 
 function collectTags(posts: { tags?: string[] | null }[]): string[] {
   const set = new Set<string>();
@@ -206,26 +204,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
       posts = posts.filter((p) => (p.author || "").trim() === activeAuthor);
     }
 
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      posts = posts.filter(
-        (p) =>
-          p.title.toLowerCase().includes(q) ||
-          p.excerpt.toLowerCase().includes(q) ||
-          (p.author && p.author.toLowerCase().includes(q)) ||
-          (p.category && p.category.toLowerCase().includes(q)),
-      );
-    }
-
-    const sorted = [...posts];
-    if (sortMode === "newest") {
-      sorted.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-    } else if (sortMode === "updated") {
-      sorted.sort((a, b) => effectiveUpdated(b).localeCompare(effectiveUpdated(a)));
-    } else {
-      sorted.sort((a, b) => a.title.localeCompare(b.title, "en-GB", { sensitivity: "base" }));
-    }
-    return sorted;
+    return filterBlogRows(posts, { topic: "All", query: searchQuery, sort: sortMode });
   }, [activeCategory, searchQuery, blogPosts, featuredSlugs, sortMode, activeTag, activeAuthor]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
@@ -439,7 +418,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               <input
                 id="blog-search"
                 type="search"
-                placeholder="Search by title, topic or author…"
+                placeholder="Search guides, e.g. knee exercises"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -642,7 +621,11 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                 role="status"
                 aria-live="polite"
               >
-                <p className="font-semibold text-foreground text-lg">No articles match that filter</p>
+                <p className="font-semibold text-foreground text-lg">
+                  {searchQuery.trim()
+                    ? `No guides found for \u201c${searchQuery.trim()}\u201d`
+                    : "No articles match that filter"}
+                </p>
                 <p className="mx-auto mt-2 max-w-md text-sm md:text-base text-muted-foreground">
                   Try another topic, clear your search, or head back to all articles.
                 </p>
