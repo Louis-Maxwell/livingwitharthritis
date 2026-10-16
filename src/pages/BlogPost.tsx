@@ -85,6 +85,17 @@ function stripQuestionHeadings(html: string): string {
   );
 }
 
+/** Remove accidental consecutive duplicate paragraphs introduced by imports. */
+function dedupeAdjacentParagraphs(html: string): string {
+  let previous = "";
+  return html.replace(/<p([^>]*)>([\s\S]*?)<\/p>/gi, (full, attrs, body) => {
+    const normalized = htmlToPlainText(body).replace(/\s+/g, " ").trim().toLowerCase();
+    if (normalized.length >= 40 && normalized === previous) return "";
+    previous = normalized;
+    return `<p${attrs}>${body}</p>`;
+  });
+}
+
 /** Build a fallback direct-answer sentence from the first substantive paragraph. */
 function firstParagraphSummary(html: string): string {
   const m = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
@@ -232,7 +243,7 @@ const BlogPost = () => {
     return <NotFound />;
   }
 
-  const htmlContent = markdownToHtml(article.content);
+  const htmlContent = dedupeAdjacentParagraphs(markdownToHtml(article.content));
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
@@ -278,8 +289,8 @@ const BlogPost = () => {
   // Normalise any legacy placeholder credentials to the verified clinician
   const isPlaceholderReviewer =
     /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
-  const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
-  const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
+  const reviewerName = isPlaceholderReviewer || !rawReviewerName.trim() ? MAXWELL_NAME : rawReviewerName;
+  const reviewerCreds = isPlaceholderReviewer || !rawReviewerCreds.trim() ? MAXWELL_CREDS : rawReviewerCreds;
   // Guides awaiting clinical review (reviewStatus: "pending") never show or
   // emit a completed review, whatever reviewed_by says.
   const reviewStatus = resolveBlogReviewStatus(
