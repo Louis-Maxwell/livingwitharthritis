@@ -1,4 +1,6 @@
 import BlogPdfDownload from '@/components/BlogPdfDownload';
+import ArticleFigure from '@/components/blog/ArticleFigure';
+import { splitMidH2, tailoredDisclaimer } from '@/lib/blog/articleLayout';
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
@@ -240,7 +242,11 @@ const BlogPost = () => {
   const firstH2End = htmlWithIds.search(/<\/h2>/i);
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
-  const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  const htmlAfterStripFull = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  // Second split at the H2 nearest the middle of the rest, for a mid figure.
+  const midSplit = splitMidH2(htmlAfterStripFull);
+  const htmlAfterStrip = midSplit[0];
+  const htmlLate = midSplit[1];
   // The loaded guide carries its own cover file (the same value the listing
   // cover map is generated from), so the article page never needs that map.
   const cover = coverFromFile(article.cover);
@@ -272,7 +278,6 @@ const BlogPost = () => {
     ? "Editorial content"
     : rawAuthorCreds;
   const MAXWELL_NAME = "Maxwell";
-  const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
   const rawReviewerName = article.reviewed_by || "";
   const rawReviewerCreds = article.reviewer_credentials || "";
   // Normalise any legacy placeholder credentials to the verified clinician
@@ -621,7 +626,16 @@ const BlogPost = () => {
           </div>
 
           <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
-            <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
+            <BlogPdfDownload
+              title={article.title}
+              html={htmlContent}
+              slug={slug ?? "article"}
+              directAnswer={directAnswer}
+              faqs={faqs}
+              citations={citations}
+              reviewLine={isPendingReview ? "Clinical review status: not yet recorded" : hasVerifiedReviewer ? `Reviewed by ${reviewerName}, ${reviewerCreds}` : ""}
+              disclaimer={tailoredDisclaimer(article.category, article.title)}
+            />
             <Button
               variant="outline"
               size="sm"
@@ -667,22 +681,7 @@ const BlogPost = () => {
               prose-ul:my-4 prose-ol:my-4"
           >
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
-            {htmlAfterStrip && relatedImages[0] && (
-              <figure className="not-prose my-8">
-                <img
-                  src={safeCoverSrc(relatedImages[0].src)}
-                  alt={relatedImages[0].alt}
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
-                />
-                <figcaption className="text-xs text-muted-foreground/70 mt-2">
-                  {relatedImages[0].credit}
-                </figcaption>
-              </figure>
-            )}
+            {htmlAfterStrip && relatedImages[0] && <ArticleFigure image={relatedImages[0]} />}
             {slug && htmlAfterStrip && (
               <ViewportSection>
                 <MidArticleNextSteps
@@ -696,23 +695,12 @@ const BlogPost = () => {
             {htmlAfterStrip && (
               <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
             )}
-
-            {relatedImages[1] && (
-              <figure className="not-prose my-8">
-                <img
-                  src={safeCoverSrc(relatedImages[1].src)}
-                  alt={relatedImages[1].alt}
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto rounded-xl shadow-sm object-cover aspect-[3/2]"
-                />
-                <figcaption className="text-xs text-muted-foreground/70 mt-2">
-                  {relatedImages[1].credit}
-                </figcaption>
-              </figure>
+            {htmlLate && relatedImages[2] && <ArticleFigure image={relatedImages[2]} />}
+            {htmlLate && (
+              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlLate) }} />
             )}
+
+            {relatedImages[1] && <ArticleFigure image={relatedImages[1]} />}
           </section>
 
           <ArticleFaqSection faqs={faqs} />
