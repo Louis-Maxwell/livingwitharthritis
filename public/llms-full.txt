@@ -2684,17 +2684,19 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
 
-## Bone protection on steroids when you also have arthritis and frailty (UK)
+## Bone protection on steroids with arthritis: scans, vitamin D and falls (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/bone-protection-steroids-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Bone protection on steroids when you also have arthritis and frailty (UK)
-A: For bone protection on steroids when you also have arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This article is about steroids, bone and falls in one conversation, written for people and carers in Wales, especially around a GP surgery.
-Reference: NHS – Steroids — https://www.nhs.uk/conditions/steroids/
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NHS – Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+Q: Bone protection on steroids with arthritis: scans, vitamin D and falls (UK guide)
+A: Long-term use of high-dose steroid tablets is a recognised risk factor for osteoporosis (thinner bones that break more easily), and rheumatoid arthritis itself also raises that risk. Ask your GP or rheumatology team about bone protection, whether you need a bone density (DEXA) scan, vitamin D and calcium, and falls prevention. Never stop, skip or lower steroid tablets yourself — that can be dangerous. Follow your team's plan for any bone-strengthening medicines they prescribe.
+Reference: NHS: Causes of osteoporosis (steroids and rheumatoid arthritis) — https://www.nhs.uk/conditions/osteoporosis/causes/
+Reference: NHS: Osteoporosis overview — https://www.nhs.uk/conditions/osteoporosis/
+Reference: NHS: Preventing osteoporosis — https://www.nhs.uk/conditions/osteoporosis/prevention/
+Reference: NHS: Side effects of prednisolone (thinner bones) — https://www.nhs.uk/medicines/prednisolone/side-effects-of-prednisolone-tablets-and-liquid/
+Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Building Strength and Resilience: Exercise for Frailty Prevention
 URL: https://livingwitharthritis.org.uk/blog/building-strength-resilience-exercise-frailty-prevention
@@ -7804,17 +7806,18 @@ Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteo
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 
-## Sleep apnoea, arthritis and daytime frailty (UK)
+## Sleep apnoea and arthritis: signs, referral and why tired days hurt more (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sleep-apnoea-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sleep apnoea, arthritis and daytime frailty (UK)
-A: UK home life shapes sleep apnoea, arthritis and daytime frailty as much as any clinic score — kettle, bathroom, stairs and night trips count. This guide covers unrefreshing sleep on top of joint pain when arthritis with frailty affects several joints, with a focus on England and a home setting.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Q: Sleep apnoea and arthritis: signs, referral and why tired days hurt more (UK guide)
+A: Sleep apnoea is when your breathing stops and starts while you sleep. The main signs are breathing that stops and starts, gasping, snorting or choking noises, loud snoring, waking a lot, and feeling very tired in the day. See a GP if you have these signs. They may refer you to a sleep clinic for overnight tests. Many people need a CPAP machine on the NHS. Untreated sleep apnoea can leave you exhausted, which often makes arthritis pain and concentration feel worse. Do not take sleeping pills for this unless a doctor recommends them — the NHS says they can make sleep apnoea worse.
+Reference: NHS: Sleep apnoea — https://www.nhs.uk/conditions/sleep-apnoea/
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: GOV.UK: Sleep apnoea and driving — https://www.gov.uk/obstructive-sleep-apnoea-and-driving
+Reference: NICE MTG70: Sleepio to treat insomnia and insomnia symptoms — https://www.nice.org.uk/guidance/mtg70
 
 ## Sleep, night pain and frailty in arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk
@@ -7842,17 +7845,19 @@ Reference: NHS Talking Therapies — https://www.nhs.uk/mental-health/talking-th
 Reference: NHS: Why am I tired all the time? — https://www.nhs.uk/live-well/sleep-and-tiredness/why-am-i-tired-all-the-time/
 Reference: NHS: Sleep apnoea — https://www.nhs.uk/conditions/sleep-apnoea/
 
-## Sleeping tablets, night falls and arthritis (UK)
+## Sleeping tablets, night falls and arthritis: safer options first (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sleeping-tablets-falls-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sleeping tablets, night falls and arthritis (UK)
-A: When sore joints and low reserve share a house, small avoidances stack: fewer walks, fewer meals, fewer visits. Here we focus on why extra night sedation is a falls conversation, for readers in Northern Ireland, with self-management ideas and when to contact a GP, your GP out-of-hours service or emergency services as directed on nidirect or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Q: Sleeping tablets, night falls and arthritis: safer options first (UK guide)
+A: The NHS says insomnia usually improves by changing sleep habits, and GPs now rarely prescribe sleeping pills because they can have serious side effects and you can become dependent on them. When they are used, it is only for a few days or weeks if insomnia is very bad and other treatments have not worked. Sleeping medicines can leave you drowsy the next day and raise the risk of falls, especially at night on the way to the toilet. Prefer sleep hygiene and CBT for insomnia first, keep night lights and a clear path, and never stop or change prescribed medicines yourself.
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: How to get to sleep — https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/
+Reference: NICE MTG70: Sleepio to treat insomnia and insomnia symptoms — https://www.nice.org.uk/guidance/mtg70
+Reference: NHS: Side effects of zolpidem (falls risk) — https://www.nhs.uk/medicines/zolpidem/side-effects-of-zolpidem/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.org.uk/guidance/ng249
 
 ## Slow walking groups for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frailty-uk
