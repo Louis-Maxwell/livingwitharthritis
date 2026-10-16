@@ -14,6 +14,13 @@ import { FeedbackButtons } from "@/components/chat/FeedbackButtons";
 import { loadChatProfile, saveChatProfile, type ChatProfile } from "@/lib/chatProfile";
 import { extractResources, stripStreamingResourceFence } from "@/lib/chatResources";
 import { trackChatStart } from "@/lib/ga-events";
+import {
+  COUNTRY_SAFETY,
+  loadChatCountry,
+  saveChatCountry,
+  isChatCountry,
+  type ChatCountry,
+} from "@/lib/chatbot/emergencyContacts";
 
 const quickSuggestions = [
   { icon: Stethoscope, label: "What is rheumatoid arthritis?", image: chatRheumatoid },
@@ -150,6 +157,7 @@ export function ChatBot() {
   const [historyOpen, setHistoryOpen] = useState(false);
   const [profile, setProfile] = useState<ChatProfile>({});
   const [sessionKey, setSessionKey] = useState("");
+  const [country, setCountry] = useState<ChatCountry>("UK");
   const [emergency, setEmergency] = useState<{ open: boolean; category: string | null }>({
     open: false,
     category: null,
@@ -166,7 +174,7 @@ export function ChatBot() {
     loadConversations,
     selectConversation,
     deleteConversation,
-  } = useStreamingChat();
+  } = useStreamingChat(country);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const chatStarted = useRef(false);
@@ -174,6 +182,7 @@ export function ChatBot() {
   useEffect(() => {
     setProfile(loadChatProfile());
     setSessionKey(getOrCreateSessionKey());
+    setCountry(loadChatCountry());
   }, []);
 
   useEffect(() => {
@@ -245,6 +254,7 @@ export function ChatBot() {
       <EmergencyRedirectDialog
         open={emergency.open}
         category={emergency.category}
+        country={country}
         onClose={() => setEmergency({ open: false, category: null })}
       />
 
@@ -474,6 +484,7 @@ export function ChatBot() {
             disabled={isLoading}
             rows={1}
             aria-busy={isLoading}
+            aria-describedby="chat-safety-note"
             className="flex-1 bg-transparent text-[15px] resize-none outline-none placeholder:text-muted-foreground max-h-[100px] py-2 leading-relaxed disabled:opacity-60"
           />
           <Button
@@ -490,11 +501,30 @@ export function ChatBot() {
             )}
           </Button>
         </div>
-        <div className="flex items-center justify-center gap-1 mt-1.5">
-          <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
-          <p className="text-[10px] text-muted-foreground">
-            Educational only — not a diagnosis. GP / rheumatology for personal advice. 999 emergency · NHS 111 urgent
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 mt-1.5">
+          <ShieldCheck className="h-3 w-3 text-muted-foreground" aria-hidden="true" />
+          <p className="text-xs text-muted-foreground" id="chat-safety-note">
+            Educational only — not a diagnosis or prescription. For personal advice speak to{" "}
+            {COUNTRY_SAFETY[country].routineCare}. {COUNTRY_SAFETY[country].summary}
           </p>
+          <label htmlFor="chat-country" className="sr-only">
+            Country for emergency numbers
+          </label>
+          <select
+            id="chat-country"
+            value={country}
+            onChange={(e) => {
+              if (isChatCountry(e.target.value)) {
+                setCountry(e.target.value);
+                saveChatCountry(e.target.value);
+              }
+            }}
+            className="min-h-8 rounded border border-border bg-background px-1 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <option value="UK">UK</option>
+            <option value="IN">India</option>
+            <option value="US">USA</option>
+          </select>
         </div>
       </form>
     </div>

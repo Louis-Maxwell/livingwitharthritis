@@ -4,6 +4,7 @@ import { chatService } from "@/lib/chatbot/optimizedChatService";
 import { type ChatProfile } from "@/lib/chatProfile";
 import { loadAnonChatHistory, saveAnonChatHistory, clearAnonChatHistory } from "@/lib/chatHistory";
 import { CONTACT_EMAILS } from "@/config/contact";
+import { serviceUnavailableMessage, type ChatCountry } from "@/lib/chatbot/emergencyContacts";
 
 export type Message = {
   role: "user" | "assistant";
@@ -88,7 +89,9 @@ async function tryRemoteThenLocal(
 /**
  * Local UK-safe chat with streaming UX — Cloudflare Worker not required.
  */
-export function useStreamingChat() {
+export function useStreamingChat(country: ChatCountry = "UK") {
+  const countryRef = useRef<ChatCountry>(country);
+  countryRef.current = country;
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [statusLabel, setStatusLabel] = useState<string | null>(null);
@@ -173,8 +176,13 @@ export function useStreamingChat() {
         appendToAssistant(EMAIL_NOTE);
       }
     } catch {
-      const fallback = getFallbackAnswer(userMsg.content) + EMAIL_NOTE;
-      replaceAssistant(fallback);
+      // Engine failed: use offline answers; if those fail too, say so plainly
+      // with the emergency number rather than leaving an empty bubble.
+      try {
+        replaceAssistant(getFallbackAnswer(userMsg.content) + EMAIL_NOTE);
+      } catch {
+        replaceAssistant(serviceUnavailableMessage(countryRef.current) + EMAIL_NOTE);
+      }
     } finally {
       isLoadingRef.current = false;
       setIsLoading(false);
