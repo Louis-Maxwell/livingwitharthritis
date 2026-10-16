@@ -274,6 +274,9 @@ function scoreCandidate(
   return score;
 }
 
+/** Inline figures per guide (plus the cover = up to 4 pictures). */
+export const MAX_INLINE_FIGURES = 3;
+
 export interface ArticleImage {
   src: string;
   alt: string;
@@ -324,12 +327,12 @@ export function pickArticleImages(
   for (const { file } of candidates) {
     if (picked.includes(file)) continue;
     picked.push(file);
-    if (picked.length >= 2) break;
+    if (picked.length >= MAX_INLINE_FIGURES) break;
   }
 
   // Diet / nutrition posts must reliably show food imagery mid/end-article,
   // even when historical covers were mis-mapped to exercise/clinical stock.
-  if (allowNutrition && picked.length < 2) {
+  if (allowNutrition && picked.length < MAX_INLINE_FIGURES) {
     const nutritionPool = CATEGORY_FILES.nutrition.filter(
       (f) => f !== coverFile && !picked.includes(f),
     );
@@ -338,7 +341,7 @@ export function pickArticleImages(
     );
     for (const file of nutritionPool) {
       picked.push(file);
-      if (picked.length >= 2) break;
+      if (picked.length >= MAX_INLINE_FIGURES) break;
     }
   }
 
