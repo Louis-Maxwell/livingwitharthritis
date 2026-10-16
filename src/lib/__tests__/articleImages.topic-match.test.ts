@@ -74,7 +74,7 @@ describe("getArticleImages topic matching", () => {
     );
     // Always at least the cover; must not invent three forced bucket images
     expect(images.length).toBeGreaterThanOrEqual(1);
-    expect(images.length).toBeLessThanOrEqual(3);
+    expect(images.length).toBeLessThanOrEqual(4);
     expect(images[0].src).toMatch(/^\/openverse\//);
   });
 

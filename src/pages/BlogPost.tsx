@@ -278,8 +278,8 @@ const BlogPost = () => {
   // Normalise any legacy placeholder credentials to the verified clinician
   const isPlaceholderReviewer =
     /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
-  const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
-  const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
+  const reviewerName = isPlaceholderReviewer ? "" : rawReviewerName;
+  const reviewerCreds = isPlaceholderReviewer ? "" : rawReviewerCreds;
   // Guides awaiting clinical review (reviewStatus: "pending") never show or
   // emit a completed review, whatever reviewed_by says.
   const reviewStatus = resolveBlogReviewStatus(
