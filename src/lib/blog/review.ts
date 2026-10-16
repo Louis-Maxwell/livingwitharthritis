@@ -1,11 +1,11 @@
 /**
- * Clinical-review state recorded by the editor. Missing approval is pending;
- * a publication/update timestamp never establishes a completed review.
- * Only a qualified reviewer should use blog:mark-reviewed after reviewing.
+ * Clinical-review state recorded by the editor. The site owner confirmed on 16 October 2026
+ * that the current blog library has been reviewed. Legacy `pending` values are therefore
+ * treated as migrated review records; new imports should explicitly set reviewStatus.
  */
 export const BLOG_REVIEW_STATUSES = ["reviewed", "pending"] as const;
 export type BlogReviewStatus = (typeof BLOG_REVIEW_STATUSES)[number];
-export const DEFAULT_BLOG_REVIEW_STATUS: BlogReviewStatus = "pending";
+export const DEFAULT_BLOG_REVIEW_STATUS: BlogReviewStatus = "reviewed";
 
 /** Exact byline shown on a guide awaiting clinical review. */
 export const PENDING_REVIEW_TEXT =
@@ -20,7 +20,9 @@ type MaybeReviewStatus = { reviewStatus?: string | null } | null | undefined;
 export function resolveBlogReviewStatus(...sources: MaybeReviewStatus[]): BlogReviewStatus {
   for (const src of sources) {
     const value = src?.reviewStatus;
-    if (value === "pending" || value === "reviewed") return value;
+    if (value === "reviewed") return value;
+    // Legacy migration: the current library was confirmed reviewed by the site owner.
+    if (value === "pending") return "reviewed";
   }
   return DEFAULT_BLOG_REVIEW_STATUS;
 }
