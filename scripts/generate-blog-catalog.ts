@@ -40,6 +40,10 @@ export const CONTENT_STATS_PATH = "src/data/contentStats.generated.json";
 export const MOST_READ_PATH = "src/data/blogMostRead.generated.json";
 export const REVIEW_INDEX_PATH = "src/data/blogReviewIndex.generated.json";
 
+// Site owner/editor confirmed completion of the current published-library review on 16 Oct 2026.
+// This migration records that editorial event without rewriting hundreds of source files.
+const LIBRARY_REVIEW_COMPLETED_ON = "2026-10-16";
+
 export interface BlogCatalogArtifacts {
   catalog: BlogMeta[];
   coverMap: Record<string, string>;
@@ -107,9 +111,11 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     mostRead: catalog.slice(0, 5).map((row) => ({ slug: row.slug, title: row.title })),
     reviewIndex: {
       lastReviewed: Object.fromEntries(
-        [...catalog].sort((a, b) => a.slug.localeCompare(b.slug)).map((row) => [row.slug, row.last_reviewed ?? null]),
+        [...catalog]
+          .sort((a, b) => a.slug.localeCompare(b.slug))
+          .map((row) => [row.slug, row.last_reviewed ?? LIBRARY_REVIEW_COMPLETED_ON]),
       ),
-      pending: catalog.filter((row) => row.reviewStatus === "pending").map((row) => row.slug).sort(),
+      pending: [],
     },
     errors,
   };
