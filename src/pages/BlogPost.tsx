@@ -596,6 +596,9 @@ const BlogPost = () => {
                 />
                 <figcaption className="text-xs text-muted-foreground mt-1.5">
                   {cover.credit}
+                  {cover.credit.toLowerCase().includes("openverse") ? (
+                    <> · <a href="https://openverse.org/" rel="noopener noreferrer" className="underline underline-offset-2">Openverse source catalogue</a></>
+                  ) : null}
                 </figcaption>
               </figure>
             </div>
@@ -691,6 +694,9 @@ const BlogPost = () => {
                 />
                 <figcaption className="text-xs text-muted-foreground/70 mt-2">
                   {relatedImages[0].credit}
+                  {relatedImages[0].credit.toLowerCase().includes("openverse") ? (
+                    <> · <a href="https://openverse.org/" rel="noopener noreferrer" className="underline underline-offset-2">Openverse source catalogue</a></>
+                  ) : null}
                 </figcaption>
               </figure>
             )}
