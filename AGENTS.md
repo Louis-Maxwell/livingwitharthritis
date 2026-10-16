@@ -50,3 +50,14 @@ Token-thrift on **this** repo:
 
 Hosting moves, dashboard clicks (GSC, Stripe, Lovable billing), merging,
 force-pushing, and anything that spends money.
+
+## Blog article layout
+
+- Every guide renders through `src/pages/BlogPost.tsx` with shared helpers in
+  `src/lib/blog/articleLayout.ts`: one unique cover plus up to 3 inline
+  figures, and a figure is shown only if `isStrictTopicMatch` passes — never pad
+  with generic stock. Why: unrelated pictures on medical guides harm trust.
+- The PDF button builds the full guide via `src/lib/blog/articlePdfText.ts`
+  (answer, body, FAQs, recorded citations only, review status, notice).
+- `bun run scripts/audit-blog-image-gaps.ts` writes the non-destructive gap list
+  to `docs/audits/blog-image-gaps.json`; add real licensed pictures from it.
