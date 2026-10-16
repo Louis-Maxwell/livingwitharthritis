@@ -54,6 +54,16 @@ describe("backendSubmit newsletter + mailto", () => {
     expect(hrefs.some((h) => h.startsWith("mailto:"))).toBe(false);
   });
 
+  it("rejects header injection and overlong addresses before submitting", async () => {
+    for (const email of ["jane@example.com\\r\\nBcc: attacker@example.com", "a".repeat(243) + "@example.com"]) {
+      const result = await subscribeNewsletter({ email });
+      expect(result.ok).toBe(false);
+      expect(result.via).toBe("none");
+    }
+    expect(fetch).not.toHaveBeenCalled();
+    expect(hrefs).toHaveLength(0);
+  });
+
   it("throttles repeated successful newsletter submissions for 60 seconds", async () => {
     await subscribeNewsletter({ email: "jane@example.com" });
     const result = await subscribeNewsletter({ email: "other@example.com" });

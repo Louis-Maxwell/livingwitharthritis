@@ -1337,3 +1337,6 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-hows-life-living-with-arthritis /blog/arthritis-hows-life-living-with-arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-support-refugees-diverse-communities /blog/arthritis-support-refugees-diverse-communities 301

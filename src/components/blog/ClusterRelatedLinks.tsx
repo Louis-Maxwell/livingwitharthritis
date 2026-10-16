@@ -52,7 +52,14 @@ const ClusterRelatedLinks = ({
 }: ClusterRelatedLinksProps) => {
   const hay = [title, excerpt, category, keywords].filter(Boolean).join(" ");
   const cluster: TopicCluster | null = getClusterForSlug(slug, hay);
-  if (!cluster) return null;
+  if (!cluster) return (
+    <aside aria-label="Arthritis support and guides" className={`mt-8 rounded-xl border border-border p-5 ${className}`}>
+      <h2 className="text-lg font-semibold mb-2">Find arthritis support</h2>
+      <p className="text-sm text-muted-foreground mb-3">Explore practical guidance and support from Living With Arthritis.</p>
+      <Link to="/arthritis-support" className="inline-flex min-h-11 items-center text-primary underline mr-5">Arthritis support</Link>
+      <Link to="/guides/newly-diagnosed" className="inline-flex min-h-11 items-center text-primary underline">Newly diagnosed guide</Link>
+    </aside>
+  );
 
   const sibling = nextClusterSibling(cluster, slug);
   const journey = [
@@ -126,6 +133,10 @@ const ClusterRelatedLinks = ({
           );
         })}
       </ol>
+
+      <p className="text-sm mb-4">
+        <Link to="/arthritis-support" className="inline-flex min-h-11 items-center text-primary underline">Explore arthritis support</Link>
+      </p>
 
       {extra.length > 0 && (
         <>

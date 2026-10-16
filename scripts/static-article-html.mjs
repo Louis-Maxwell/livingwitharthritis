@@ -84,7 +84,7 @@ export function escText(value) {
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
 export const STATIC_PENDING_REVIEW_TEXT =
-  "Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)";
+  "Clinical review status: not yet recorded";
 
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
@@ -119,6 +119,10 @@ export function buildStaticArticleInner(data) {
   const related = links.length
     ? `<nav aria-label="Related guides"><h2>Related guides</h2><ul>${links.map((link) => `<li><a href="${escText(link.path).replace(/"/g, "&quot;")}">${escText(link.title)}</a></li>`).join("")}</ul></nav>` : "";
 
+  const supportLinks = data?.article?.slug
+    ? `<nav aria-label="Arthritis support and guides"><a href="/arthritis-support">Arthritis support</a> · <a href="/guides">Arthritis guides</a> · <a href="/authors">Authors and editorial team</a></nav>`
+    : "";
+
   return (
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
@@ -128,7 +132,7 @@ export function buildStaticArticleInner(data) {
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
-    references + related +
+    references + related + supportLinks +
     conditionTopicLinks(data?.article) +
     keywordRelatedLinks(data?.article) +
     `</article>`
