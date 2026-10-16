@@ -39,3 +39,11 @@ describe('shared article layout', () => {
     expect(text).toContain('Notice');
   });
 });
+
+describe('strict picture relevance', () => {
+  it('rejects generic stock with no shared topic word', async () => {
+    const { isStrictTopicMatch } = await import('@/lib/blog/articleLayout');
+    expect(isStrictTopicMatch('/openverse/arthritis-hands-01.webp', 'knee-exercises-uk', 'Knee exercises')).toBe(false);
+    expect(isStrictTopicMatch('/openverse/knee-brace-02.webp', 'knee-exercises-uk', 'Knee exercises')).toBe(true);
+  });
+});

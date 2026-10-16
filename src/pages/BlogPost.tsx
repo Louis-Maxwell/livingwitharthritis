@@ -1,6 +1,6 @@
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import ArticleFigure from '@/components/blog/ArticleFigure';
-import { splitMidH2, tailoredDisclaimer } from '@/lib/blog/articleLayout';
+import { isStrictTopicMatch, splitMidH2, tailoredDisclaimer } from '@/lib/blog/articleLayout';
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
@@ -251,7 +251,9 @@ const BlogPost = () => {
   // cover map is generated from), so the article page never needs that map.
   const cover = coverFromFile(article.cover);
   // Topic-matched body figures only (may be empty). Hero always uses unique cover.
-  const relatedImages = pickArticleImages(cover, article.category, article.title, slug || article.title, article.keywords).slice(1);
+  const relatedImages = pickArticleImages(cover, article.category, article.title, slug || article.title, article.keywords)
+    .slice(1)
+    .filter((img) => isStrictTopicMatch(img.src, slug || '', article.title));
   const coverAbsolute = cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;

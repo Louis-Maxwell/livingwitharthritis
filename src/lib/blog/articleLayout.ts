@@ -50,3 +50,16 @@ export function tailoredDisclaimer(category: string, title: string): string {
   }
   return BASE;
 }
+
+const GENERIC_WORDS = new Set(['arthritis', 'living', 'guide', 'with', 'your', 'what', 'from', 'that', 'this']);
+
+/**
+ * True only when a picture's filename shares a real topic word with the
+ * guide's slug or title, so generic stock never fills a slot on its own.
+ */
+export function isStrictTopicMatch(src: string, slug: string, title: string): boolean {
+  const words = new Set(
+    `${slug} ${title}`.toLowerCase().split(/[^a-z]+/).filter((w) => w.length >= 4 && !GENERIC_WORDS.has(w)),
+  );
+  return src.toLowerCase().split(/[^a-z]+/).some((w) => words.has(w));
+}

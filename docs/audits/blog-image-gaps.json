@@ -2,18 +2,18 @@
   "generated": "2026-10-16",
   "published": 692,
   "withThreeInline": 46,
-  "withTwoInline": 38,
-  "withOneInline": 107,
-  "withNoInline": 501,
+  "withTwoInline": 31,
+  "withOneInline": 63,
+  "withNoInline": 552,
   "panelCovers": 0,
   "gapsByCategory": {
     "Work & Career": 14,
-    "Lifestyle": 91,
+    "Lifestyle": 92,
     "Health": 129,
     "Social & Leisure": 3,
-    "Mental Health": 25,
-    "Nutrition": 36,
+    "Mental Health": 26,
     "Treatment": 51,
+    "Nutrition": 40,
     "Finances & Benefits": 24,
     "Exercise": 67,
     "Supplements": 6,
@@ -33,7 +33,7 @@
     "Conditions": 18,
     "Surgery & Recovery": 5,
     "Inflammatory": 1,
-    "Diet": 9,
+    "Diet": 10,
     "Exercise Guides": 3
   },
   "gaps": [
@@ -68,6 +68,13 @@
     {
       "slug": "allotment-identity-arthritis-frailty-uk",
       "category": "Mental Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "anaesthetic-risk-arthritis-frailty-uk",
+      "category": "Treatment",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -220,6 +227,13 @@
       "panelCover": false
     },
     {
+      "slug": "arthritis-and-travel-uk",
+      "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "arthritis-and-work-uk",
       "category": "Work & Career",
       "inline": 0,
@@ -292,6 +306,13 @@
     {
       "slug": "arthritis-friendly-recipes-uk",
       "category": "Nutrition",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "arthritis-hows-life-living-with-arthritis",
+      "category": "Health",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -570,6 +591,13 @@
       "panelCover": false
     },
     {
+      "slug": "blue-badge-frailty-arthritis-uk",
+      "category": "Finances & Benefits",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "bone-clinic-arthritis-frailty-uk",
       "category": "Health",
       "inline": 0,
@@ -635,6 +663,20 @@
     {
       "slug": "carers-allowance-help-if-you-care-for-someone",
       "category": "Finances & Benefits",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "carers-assessment-arthritis-frailty-uk",
+      "category": "Finances & Benefits",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "carers-how-to-help-without-taking-over-uk",
+      "category": "Lifestyle",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -773,6 +815,13 @@
       "panelCover": false
     },
     {
+      "slug": "cooking-with-arthritis-uk",
+      "category": "Living Well",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "copd-arthritis-frailty-breathlessness-uk",
       "category": "Health",
       "inline": 0,
@@ -824,6 +873,13 @@
     {
       "slug": "dating-with-arthritis-confidence",
       "category": "Family & Relationships",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "day-centres-arthritis-frailty-uk",
+      "category": "Lifestyle",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -920,6 +976,20 @@
       "panelCover": false
     },
     {
+      "slug": "downstairs-living-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "driving-with-arthritis-uk",
+      "category": "Living Well",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "early-arthritis-intervention-uk",
       "category": "Prevention & Longevity",
       "inline": 0,
@@ -957,6 +1027,13 @@
     {
       "slug": "evening-routine-arthritis-frailty-uk",
       "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "exam-adjustments-for-students-with-arthritis",
+      "category": "Work & Career",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1123,6 +1200,13 @@
       "panelCover": false
     },
     {
+      "slug": "eye-clinic-day-arthritis-frailty-uk",
+      "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "faith-groups-arthritis-frailty-access-uk",
       "category": "Lifestyle",
       "inline": 0,
@@ -1131,6 +1215,13 @@
     },
     {
       "slug": "falls-clinic-arthritis-what-to-expect-uk",
+      "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "falls-response-service-arthritis-uk",
       "category": "Health",
       "inline": 0,
       "shown": 3,
@@ -1188,6 +1279,13 @@
     {
       "slug": "food-drink-and-arthritis-medicines-interactions",
       "category": "Treatment Guides",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "foods-to-avoid-with-arthritis",
+      "category": "Nutrition",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1256,6 +1354,13 @@
       "panelCover": false
     },
     {
+      "slug": "garden-raised-beds-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "gene-therapy-and-arthritis-where-are-we-in-2026",
       "category": "Treatment Guides",
       "inline": 0,
@@ -1312,6 +1417,13 @@
       "panelCover": false
     },
     {
+      "slug": "goal-setting-tiny-wins-arthritis-frailty-uk",
+      "category": "Mental Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "gout-flare-up-diet-foods-avoid",
       "category": "Nutrition",
       "inline": 0,
@@ -1361,6 +1473,20 @@
       "panelCover": false
     },
     {
+      "slug": "grandparenting-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "grants-for-adapting-your-home-with-arthritis",
+      "category": "Finances & Benefits",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "grief-and-loss-after-arthritis-diagnosis",
       "category": "Mental Health",
       "inline": 0,
@@ -1398,6 +1524,13 @@
     {
       "slug": "heat-or-ice-for-arthritis",
       "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "heat-packs-frail-arthritis-uk",
+      "category": "Lifestyle",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1508,6 +1641,13 @@
       "panelCover": false
     },
     {
+      "slug": "hotel-rooms-accessibility-arthritis",
+      "category": "Travel",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "housing-support-arthritis-uk",
       "category": "Finances & Benefits",
       "inline": 0,
@@ -1559,6 +1699,13 @@
     {
       "slug": "hydrotherapy-pools-uk",
       "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "ice-snow-arthritis-frailty-uk",
+      "category": "Lifestyle",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1676,8 +1823,36 @@
       "panelCover": false
     },
     {
+      "slug": "libraries-arthritis-frailty-getting-out-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "living-alone-falls-plan-arthritis-uk",
+      "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "local-wheelchair-service-arthritis-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "loneliness-arthritis-frailty-social-contact-uk",
       "category": "Mental Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "longevity-habits-arthritis-patients",
+      "category": "Prevention & Longevity",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1858,8 +2033,22 @@
       "panelCover": false
     },
     {
+      "slug": "lwa-archive-driving-with-arthritis",
+      "category": "Living Well",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "lwa-archive-early-signs-of-arthritis",
       "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "lwa-archive-employment-rights-for-people-with-arthritis",
+      "category": "Finances & Benefits",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1881,6 +2070,13 @@
     {
       "slug": "lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment",
       "category": "Conditions",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "lwa-archive-foods-to-avoid-with-arthritis",
+      "category": "Diet",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -1949,7 +2145,21 @@
       "panelCover": false
     },
     {
+      "slug": "lwa-archive-how-to-apply-for-pip-with-arthritis",
+      "category": "Finances & Benefits",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "lwa-archive-hydrotherapy-for-arthritis",
+      "category": "Treatment",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "lwa-archive-improving-sleep-with-arthritis",
       "category": "Treatment",
       "inline": 0,
       "shown": 3,
@@ -1986,6 +2196,13 @@
     {
       "slug": "lwa-archive-knee-exercises-for-arthritis",
       "category": "Exercise",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "lwa-archive-living-well-with-arthritis",
+      "category": "Health",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -2362,6 +2579,13 @@
       "panelCover": false
     },
     {
+      "slug": "medication-management-travel-arthritis",
+      "category": "Travel",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "medication-supplement-interactions-arthritis",
       "category": "Supplements",
       "inline": 0,
@@ -2565,6 +2789,13 @@
       "panelCover": false
     },
     {
+      "slug": "orthotics-insoles-arthritis-frailty-uk",
+      "category": "Treatment",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "osteoporosis-arthritis-frailty-bone-joint-uk",
       "category": "Health",
       "inline": 0,
@@ -2600,8 +2831,36 @@
       "panelCover": false
     },
     {
+      "slug": "painkillers-older-adults-arthritis-caution-uk",
+      "category": "Treatment",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "palindromic-rheumatism-joint-attacks-come-and-go",
       "category": "Conditions",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "paracetamol-older-frail-arthritis-uk",
+      "category": "Treatment",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "parenting-with-arthritis-hacks-for-babies-and-toddlers",
+      "category": "Family & Relationships",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "parenting-with-arthritis-uk",
+      "category": "Family & Relationships",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -2700,6 +2959,13 @@
     {
       "slug": "pmr-steroid-taper-frailty-weakness-uk",
       "category": "Exercise",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "podiatry-footcare-arthritis-frailty-uk",
+      "category": "Health",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -2964,6 +3230,13 @@
       "panelCover": false
     },
     {
+      "slug": "rural-living-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "safe-daily-stretching-routine-arthritis",
       "category": "Exercise",
       "inline": 0,
@@ -3014,6 +3287,27 @@
     },
     {
       "slug": "sheltered-housing-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "shingles-vaccine-arthritis-frailty-uk",
+      "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "shopping-online-arthritis-frailty-uk",
+      "category": "Nutrition",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "short-breaks-accessible-arthritis-frailty-uk",
       "category": "Lifestyle",
       "inline": 0,
       "shown": 3,
@@ -3146,6 +3440,13 @@
       "panelCover": false
     },
     {
+      "slug": "stair-assessments-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "stairlifts-arthritis-frailty-uk-home",
       "category": "Lifestyle",
       "inline": 0,
@@ -3230,6 +3531,13 @@
       "panelCover": false
     },
     {
+      "slug": "supporting-a-partner-with-arthritis-strategies",
+      "category": "Family & Relationships",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "swelling-legs-arthritis-frailty-uk",
       "category": "Health",
       "inline": 0,
@@ -3307,8 +3615,22 @@
       "panelCover": false
     },
     {
+      "slug": "tens-machine-older-frail-arthritis-uk",
+      "category": "Treatment",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "tens-machines-arthritis-uk",
       "category": "Treatment",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "threshold-ramps-arthritis-frailty-uk",
+      "category": "Lifestyle",
       "inline": 0,
       "shown": 3,
       "panelCover": false
@@ -3335,7 +3657,21 @@
       "panelCover": false
     },
     {
+      "slug": "transfer-board-arthritis-frailty-uk",
+      "category": "Lifestyle",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "travel-insurance-arthritis-uk",
+      "category": "Travel",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
+      "slug": "travelling-with-arthritis-uk",
       "category": "Travel",
       "inline": 0,
       "shown": 3,
@@ -3419,6 +3755,13 @@
       "panelCover": false
     },
     {
+      "slug": "vitamin-d-winter-arthritis-frailty-uk",
+      "category": "Nutrition",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "volunteering-seated-arthritis-frailty-uk",
       "category": "Lifestyle",
       "inline": 0,
@@ -3496,6 +3839,13 @@
       "panelCover": false
     },
     {
+      "slug": "working-with-arthritis-uk-rights",
+      "category": "Health",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "workplace-adjustment-letter-templates-arthritis",
       "category": "Work & Career",
       "inline": 0,
@@ -3545,6 +3895,13 @@
       "panelCover": false
     },
     {
+      "slug": "your-workplace-rights-with-arthritis-the-equality-act-2010",
+      "category": "Work & Career",
+      "inline": 0,
+      "shown": 3,
+      "panelCover": false
+    },
+    {
       "slug": "30-day-arthritis-pain-reduction-challenge",
       "category": "Health",
       "inline": 1,
@@ -3554,27 +3911,6 @@
     {
       "slug": "adult-children-as-caregivers-arthritis",
       "category": "Family & Relationships",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "anaesthetic-risk-arthritis-frailty-uk",
-      "category": "Treatment",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "arthritis-and-travel-uk",
-      "category": "Health",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "arthritis-hows-life-living-with-arthritis",
-      "category": "Health",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3643,28 +3979,7 @@
       "panelCover": false
     },
     {
-      "slug": "blue-badge-frailty-arthritis-uk",
-      "category": "Finances & Benefits",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "care-home-life-arthritis-pain-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "carers-assessment-arthritis-frailty-uk",
-      "category": "Finances & Benefits",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "carers-how-to-help-without-taking-over-uk",
       "category": "Lifestyle",
       "inline": 1,
       "shown": 3,
@@ -3699,29 +4014,8 @@
       "panelCover": false
     },
     {
-      "slug": "cooking-with-arthritis-uk",
-      "category": "Living Well",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "day-centres-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "downstairs-living-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "driving-with-arthritis-uk",
-      "category": "Living Well",
+      "slug": "cooking-with-hand-oa-frailty-uk",
+      "category": "Nutrition",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3734,29 +4028,8 @@
       "panelCover": false
     },
     {
-      "slug": "exam-adjustments-for-students-with-arthritis",
-      "category": "Work & Career",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "expert-qa-how-do-i-know-if-surgery-is-right-for-me",
       "category": "Expert Q&A",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "eye-clinic-day-arthritis-frailty-uk",
-      "category": "Health",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "falls-response-service-arthritis-uk",
-      "category": "Health",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3776,43 +4049,8 @@
       "panelCover": false
     },
     {
-      "slug": "garden-raised-beds-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "goal-setting-tiny-wins-arthritis-frailty-uk",
-      "category": "Mental Health",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "grandparenting-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "grants-for-adapting-your-home-with-arthritis",
-      "category": "Finances & Benefits",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "hand-oa-frailty-opening-packaging-uk",
       "category": "Nutrition",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "heat-packs-frail-arthritis-uk",
-      "category": "Lifestyle",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3825,15 +4063,15 @@
       "panelCover": false
     },
     {
-      "slug": "hospital-parking-walking-frail-arthritis-uk",
+      "slug": "hoist-conversations-family-carers-uk",
       "category": "Lifestyle",
       "inline": 1,
       "shown": 3,
       "panelCover": false
     },
     {
-      "slug": "hotel-rooms-accessibility-arthritis",
-      "category": "Travel",
+      "slug": "hospital-parking-walking-frail-arthritis-uk",
+      "category": "Lifestyle",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3846,43 +4084,8 @@
       "panelCover": false
     },
     {
-      "slug": "ice-snow-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "knee-arthritis-exercises-uk",
       "category": "Exercise",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "libraries-arthritis-frailty-getting-out-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "living-alone-falls-plan-arthritis-uk",
-      "category": "Health",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "local-wheelchair-service-arthritis-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "longevity-habits-arthritis-patients",
-      "category": "Prevention & Longevity",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3895,43 +4098,8 @@
       "panelCover": false
     },
     {
-      "slug": "lwa-archive-driving-with-arthritis",
-      "category": "Living Well",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "lwa-archive-employment-rights-for-people-with-arthritis",
-      "category": "Finances & Benefits",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "lwa-archive-how-to-apply-for-pip-with-arthritis",
-      "category": "Finances & Benefits",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "lwa-archive-improving-sleep-with-arthritis",
-      "category": "Treatment",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "lwa-archive-joint-pain-and-arthritis",
       "category": "Symptoms",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "lwa-archive-living-well-with-arthritis",
-      "category": "Health",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -3960,13 +4128,6 @@
     {
       "slug": "manage-arthritis-pain-flare-ups-night",
       "category": "Sleep",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "medication-management-travel-arthritis",
-      "category": "Travel",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -4014,13 +4175,6 @@
       "panelCover": false
     },
     {
-      "slug": "orthotics-insoles-arthritis-frailty-uk",
-      "category": "Treatment",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "osteoarthritis-symptoms-uk",
       "category": "Health",
       "inline": 1,
@@ -4049,22 +4203,8 @@
       "panelCover": false
     },
     {
-      "slug": "painkillers-older-adults-arthritis-caution-uk",
-      "category": "Treatment",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "paracetamol-for-arthritis-pain-what-the-evidence-says",
       "category": "Treatment Guides",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "paracetamol-older-frail-arthritis-uk",
-      "category": "Treatment",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -4077,29 +4217,8 @@
       "panelCover": false
     },
     {
-      "slug": "parenting-with-arthritis-hacks-for-babies-and-toddlers",
-      "category": "Family & Relationships",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "parenting-with-arthritis-uk",
-      "category": "Family & Relationships",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "pets-arthritis-frailty-walking-dogs-uk",
       "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "podiatry-footcare-arthritis-frailty-uk",
-      "category": "Health",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -4133,29 +4252,8 @@
       "panelCover": false
     },
     {
-      "slug": "rural-living-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
       "slug": "sex-and-intimacy-with-arthritis",
       "category": "Family & Relationships",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "shingles-vaccine-arthritis-frailty-uk",
-      "category": "Health",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "short-breaks-accessible-arthritis-frailty-uk",
-      "category": "Lifestyle",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -4196,43 +4294,8 @@
       "panelCover": false
     },
     {
-      "slug": "stair-assessments-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "supporting-a-partner-with-arthritis-strategies",
-      "category": "Family & Relationships",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "tens-machine-older-frail-arthritis-uk",
-      "category": "Treatment",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "threshold-ramps-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "transfer-board-arthritis-frailty-uk",
-      "category": "Lifestyle",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "travelling-with-arthritis-uk",
-      "category": "Travel",
+      "slug": "talking-therapies-pain-older-arthritis-uk",
+      "category": "Mental Health",
       "inline": 1,
       "shown": 3,
       "panelCover": false
@@ -4275,20 +4338,6 @@
     {
       "slug": "weather-and-arthritis-pain-explained",
       "category": "Weather & Season",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "working-with-arthritis-uk-rights",
-      "category": "Health",
-      "inline": 1,
-      "shown": 3,
-      "panelCover": false
-    },
-    {
-      "slug": "your-workplace-rights-with-arthritis-the-equality-act-2010",
-      "category": "Work & Career",
       "inline": 1,
       "shown": 3,
       "panelCover": false
