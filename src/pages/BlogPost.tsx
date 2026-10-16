@@ -309,7 +309,7 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed = (article as { last_reviewed?: string }).last_reviewed;
+  const blogLastReviewed =\n    (article as { last_reviewed?: string }).last_reviewed ?? getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
@@ -349,7 +349,7 @@ const BlogPost = () => {
         ...maxwellSchemaFields,
       }
     : null;
-  const reviewSchemaFields = blogReviewSchemaFields({ reviewStatus, reviewedBy: reviewedBySchema });
+  const reviewSchemaFields = blogReviewSchemaFields({\n    reviewStatus,\n    reviewedBy: reviewedBySchema,\n    lastReviewed: blogLastReviewed,\n  });
   const citationSchema = citations.map((citation) => ({
     "@type": "CreativeWork",
     "name": citation.label,
@@ -654,7 +654,7 @@ const BlogPost = () => {
               title="First Contact Practitioner"
               credential="HCPC PH128483"
               authorSlug="maxwell"
-              date={updatedDate ?? publishDate}
+              date={blogLastReviewed\n                ? new Date(blogLastReviewed).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })\n                : updatedDate ?? publishDate}
             />
           )}
 
