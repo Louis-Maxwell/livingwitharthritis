@@ -6,8 +6,12 @@ import { coverFromFile, pickArticleImages } from '../src/lib/articleImagePicks';
 
 const posts = readAllBlogPosts().filter((p: { is_published?: boolean }) => p.is_published);
 const rows = posts.map((p: any) => {
-  const inline = pickArticleImages(coverFromFile(p.cover), p.category, p.title, p.slug, p.keywords).length - 1;
-  return { slug: p.slug, category: p.category, inline, panelCover: /lwa-panel-/.test(p.cover ?? '') };
+  const picks = pickArticleImages(coverFromFile(p.cover), p.category, p.title, p.slug, p.keywords).slice(1);
+  // Strict relevance: picture filename must share a 4+ letter word with the
+  // guide's slug/title (category-bucket matches alone do not count).
+  const words = new Set(`${p.slug} ${p.title}`.toLowerCase().split(/[^a-z]+/).filter((w: string) => w.length >= 4 && !['arthritis', 'living', 'guide'].includes(w)));
+  const strict = picks.filter((i) => i.src.toLowerCase().split(/[^a-z]+/).some((w) => words.has(w)));
+  return { slug: p.slug, category: p.category, inline: strict.length, shown: picks.length, panelCover: /lwa-panel-/.test(p.cover ?? '') };
 });
 const gaps = rows.filter((r: any) => r.inline < 2).sort((a: any, b: any) => a.inline - b.inline);
 const summary = {
