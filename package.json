@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Living With Arthritis \u2014 frontend built with Vite, React, TypeScript, and TailwindCSS",
+  "description": "Living With Arthritis — frontend built with Vite, React, TypeScript, and TailwindCSS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Louis-Maxwell/livingwitharthritis.git"
@@ -68,7 +68,9 @@
     "seo:enterprise": "node scripts/enterprise-audit.mjs",
     "seo:growth": "node scripts/generate-growth-map.mjs",
     "seo:keywords": "node scripts/generate-keyword-coverage.mjs",
-    "seo:built-audit": "node scripts/audit-built-site.mjs"
+    "seo:built-audit": "node scripts/audit-built-site.mjs",
+    "blog:editorial-audit": "node scripts/audit-blog-editorial.mjs",
+    "blog:editorial-audit:strict": "node scripts/audit-blog-editorial.mjs --strict"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
