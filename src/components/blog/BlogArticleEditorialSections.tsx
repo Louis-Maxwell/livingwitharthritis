@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Citation } from "@/components/blog/ArticleCitations";
+import type { BlogReviewStatus } from "@/lib/blog/review";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -25,7 +26,7 @@ export default function BlogArticleEditorialSections({
 }: {
   faqs: BlogArticleFaq[];
   citations: Citation[];
-  reviewStatus: string;
+  reviewStatus: BlogReviewStatus;
   lastReviewed?: string;
   children?: ReactNode;
 }) {
