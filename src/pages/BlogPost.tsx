@@ -111,12 +111,17 @@ function firstParagraphSummary(html: string): string {
 
 function looksLikeMarkdown(src: string): boolean {
   // ATX headings, emphasis lists, or bold lines that CMS rows sometimes leave unparsed
-  return /(?:^|\n)#{1,6}\s+\S/.test(src) || /(?:^|\n)(?:[-*+]|\d+\.)\s+\S/.test(src);
+  return /(?:^|
+)#{1,6}\s+\S/.test(src) || /(?:^|
+)(?:[-*+]|\d+\.)\s+\S/.test(src);
 }
 
 function prepareArticleSource(md: string): string {
-  // Database may store literal \n instead of real newlines
-  const normalized = md.replace(/\\n/g, "\n");
+  // Database may store literal 
+ instead of real newlines
+  const normalized = md.replace(/\
+/g, "
+");
   // Already-stored escaped HTML inside <pre><code> (legacy marked bug) → real HTML.
   return unwrapEscapedHtmlCodeBlocks(normalized.trim());
 }
@@ -309,7 +314,8 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed =\n    (article as { last_reviewed?: string }).last_reviewed ?? getBlogReviewMeta(slug)?.last_reviewed;
+  const blogLastReviewed =
+    (article as { last_reviewed?: string }).last_reviewed ?? getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
@@ -349,7 +355,11 @@ const BlogPost = () => {
         ...maxwellSchemaFields,
       }
     : null;
-  const reviewSchemaFields = blogReviewSchemaFields({\n    reviewStatus,\n    reviewedBy: reviewedBySchema,\n    lastReviewed: blogLastReviewed,\n  });
+  const reviewSchemaFields = blogReviewSchemaFields({
+    reviewStatus,
+    reviewedBy: reviewedBySchema,
+    lastReviewed: blogLastReviewed,
+  });
   const citationSchema = citations.map((citation) => ({
     "@type": "CreativeWork",
     "name": citation.label,
@@ -654,7 +664,9 @@ const BlogPost = () => {
               title="First Contact Practitioner"
               credential="HCPC PH128483"
               authorSlug="maxwell"
-              date={blogLastReviewed\n                ? new Date(blogLastReviewed).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })\n                : updatedDate ?? publishDate}
+              date={blogLastReviewed
+                ? new Date(blogLastReviewed).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+                : updatedDate ?? publishDate}
             />
           )}
 
