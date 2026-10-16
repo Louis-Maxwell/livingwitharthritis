@@ -1,19 +1,52 @@
 import { useState } from 'react';
-export default function BlogPdfDownload({ title, html, slug }: { title: string; html: string; slug: string }) {
-  const [busy, setBusy] = useState(false);
+import { Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { buildArticlePdfText, type PdfCitation } from '@/lib/blog/articlePdfText';
+
+interface Props {
+  title: string;
+  html: string;
+  slug: string;
+  directAnswer?: string;
+  faqs?: { question: string; answer: string }[];
+  citations?: PdfCitation[];
+  reviewLine?: string;
+  disclaimer?: string;
+}
+
+/** Downloads the complete guide (answer, body, FAQs, sources, notice). */
+export default function BlogPdfDownload(props: Props) {
+  const [isBusy, setIsBusy] = useState(false);
   const [status, setStatus] = useState('');
+
   async function download() {
-    setBusy(true); setStatus('Preparing article PDF...');
+    setIsBusy(true);
+    setStatus('Preparing article PDF...');
     try {
-      const parsed = new DOMParser().parseFromString(html, 'text/html');
-      parsed.querySelectorAll('script, style, iframe').forEach(n => n.remove());
-      parsed.querySelectorAll('p,h1,h2,h3,h4,li,tr,figcaption').forEach(n => n.append('\n'));
-      const citations = Array.from(parsed.querySelectorAll('a[href]')).map(a => `${a.textContent}: ${new URL(a.getAttribute('href') ?? '', window.location.origin).href}`).join('\n');
+      const text = buildArticlePdfText({ ...props, origin: window.location.origin });
       const { saveTextPdf } = await import('@/lib/pagePdf');
-      await saveTextPdf(title, (parsed.body.textContent ?? '') + '\nLinks and sources\n' + citations, `${slug}.pdf`);
+      await saveTextPdf(props.title, text, `${props.slug}.pdf`);
       setStatus('Article PDF downloaded.');
-    } catch { setStatus('PDF download failed. Please use Print / save PDF.'); }
-    finally { setBusy(false); }
+    } catch {
+      setStatus('PDF download failed. Please use Print / save PDF.');
+    } finally {
+      setIsBusy(false);
+    }
   }
-  return <div><button type="button" disabled={busy} onClick={download} className="min-h-11 rounded-md border px-3 text-sm disabled:opacity-50">Download article PDF (text)</button><span role="status" className="block text-xs">{status}</span></div>;
+
+  return (
+    <div>
+      <Button
+        type="button"
+        size="sm"
+        disabled={isBusy}
+        onClick={download}
+        className="min-h-11"
+      >
+        <Download className="w-4 h-4 mr-2" aria-hidden="true" />
+        Download full article (PDF)
+      </Button>
+      <span role="status" className="block text-xs">{status}</span>
+    </div>
+  );
 }
