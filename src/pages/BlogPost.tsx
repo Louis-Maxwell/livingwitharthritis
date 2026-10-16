@@ -1,9 +1,8 @@
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import ArticleFigure from '@/components/blog/ArticleFigure';
 import { isStrictTopicMatch, splitMidH2, tailoredDisclaimer } from '@/lib/blog/articleLayout';
-import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import { Helmet } from "react-helmet-async";
@@ -38,7 +37,6 @@ import {
 import type { Citation } from "@/components/blog/ArticleCitations";
 import AnswerBox from "@/components/seo/AnswerBox";
 import KeyTakeaways from "@/components/article/KeyTakeaways";
-import ArticleVoiceover from "@/components/article/ArticleVoiceover";
 import { renderCallouts } from "@/components/article/Callouts";
 import { markVisited } from "@/lib/visitedArticles";
 import { setLastRead } from "@/lib/lastReadArticle";
@@ -67,6 +65,9 @@ const HealthToolsCTA = lazyWithRetry(() => import("@/components/HealthToolsCTA")
 const CrossLinkBanner = lazyWithRetry(() => import("@/components/CrossLinkBanner"));
 const InternalLinks = lazyWithRetry(() => import("@/components/InternalLinks"));
 const NextReadStrip = lazyWithRetry(() => import("@/components/NextReadStrip"));
+// Interactive extras that do not carry SEO text: split out of the article chunk.
+const ArticleVoiceover = lazyWithRetry(() => import("@/components/article/ArticleVoiceover"));
+const CaudaEquinaQuestions = lazyWithRetry(() => import("@/components/CaudaEquinaQuestions"));
 const FeedbackPoll = lazyWithRetry(() => import("@/components/article/FeedbackPoll"));
 const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/InlineRelatedStrip"));
 const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
@@ -569,7 +570,9 @@ const BlogPost = () => {
                 )}
               </div>
 
-              <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-4 max-w-[640px]" />
+              <Suspense fallback={<div className="mt-4 h-14 max-w-[640px]" aria-hidden="true" />}>
+                <ArticleVoiceover slug={article.slug} text={htmlContent} className="mt-4 max-w-[640px]" />
+              </Suspense>
 
               {slug && (
                 <div className="no-print print:hidden mt-4">
@@ -660,7 +663,11 @@ const BlogPost = () => {
             />
           )}
 
-          {slug === 'cauda-equina-warning-signs-uk' && <CaudaEquinaQuestions />}
+          {slug === 'cauda-equina-warning-signs-uk' && (
+            <Suspense fallback={null}>
+              <CaudaEquinaQuestions />
+            </Suspense>
+          )}
           <KeyTakeaways html={htmlContent} title={article.title} />
           <div className="lg:hidden">
             <TableOfContents html={htmlWithIds} variant="inline" />
