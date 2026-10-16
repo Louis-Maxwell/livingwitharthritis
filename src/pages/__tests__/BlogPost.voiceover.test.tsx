@@ -115,7 +115,7 @@ beforeAll(async () => {
 });
 
 describe("BlogPost ArticleVoiceover", () => {
-  it("mounts a Listen player for a sample article", () => {
+  it("mounts a Listen player for a sample article", async () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: mockArticle,
       isLoading: false,
@@ -123,6 +123,8 @@ describe("BlogPost ArticleVoiceover", () => {
       isError: false,
     });
     renderBlogPost("test-article");
+    // The player is split into its own chunk, so it appears after a tick.
+    await screen.findByRole("button", { name: /play article audio|pause article audio/i }, { timeout: 5000 });
     const player = document.getElementById("listen");
     expect(player).toBeTruthy();
     expect(player).toHaveAttribute("aria-label", "Listen to this article");

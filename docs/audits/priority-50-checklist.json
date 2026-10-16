@@ -1,0 +1,1316 @@
+{
+  "generated": "2026-10-16",
+  "note": "Work list only. Do not mark done without real licences, real sources and a named reviewer with date.",
+  "items": [
+    {
+      "rank": 1,
+      "slug": "anti-inflammatory-shopping-list-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/anti-inflammatory-shopping-list-uk",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 2,
+      "slug": "back-arthritis-exercises-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/back-arthritis-exercises-uk",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 3,
+      "slug": "exercise-for-hip-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/exercise-for-hip-arthritis",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 4,
+      "slug": "hip-pain-climbing-stairs-causes-relief",
+      "url": "https://livingwitharthritis.org.uk/blog/hip-pain-climbing-stairs-causes-relief",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 5,
+      "slug": "hotel-rooms-accessibility-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/hotel-rooms-accessibility-arthritis",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 6,
+      "slug": "medication-management-travel-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/medication-management-travel-arthritis",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 7,
+      "slug": "understanding-frailty-older-adults",
+      "url": "https://livingwitharthritis.org.uk/blog/understanding-frailty-older-adults",
+      "score": 17,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 8,
+      "slug": "vitamin-d-arthritis-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/vitamin-d-arthritis-uk",
+      "score": 16,
+      "riskFlags": [
+        "medication",
+        "supplementDose",
+        "redFlag",
+        "pregnancy",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": false,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 9,
+      "slug": "alcohol-arthritis-uk-guidance",
+      "url": "https://livingwitharthritis.org.uk/blog/alcohol-arthritis-uk-guidance",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 10,
+      "slug": "anti-inflammatory-herbs-spices-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/anti-inflammatory-herbs-spices-arthritis",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 11,
+      "slug": "anxiety-arthritis-uk-guide",
+      "url": "https://livingwitharthritis.org.uk/blog/anxiety-arthritis-uk-guide",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 12,
+      "slug": "arthritis-and-pregnancy-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/arthritis-and-pregnancy-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "pregnancy",
+        "surgery"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 13,
+      "slug": "arthritis-and-travel-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/arthritis-and-travel-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "pregnancy",
+        "surgery"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 14,
+      "slug": "arthritis-flare-management",
+      "url": "https://livingwitharthritis.org.uk/blog/arthritis-flare-management",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 15,
+      "slug": "arthritis-friendly-recipes-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/arthritis-friendly-recipes-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 16,
+      "slug": "arthritis-in-older-adults",
+      "url": "https://livingwitharthritis.org.uk/blog/arthritis-in-older-adults",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "pregnancy",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 17,
+      "slug": "arthritis-support-refugees-diverse-communities",
+      "url": "https://livingwitharthritis.org.uk/blog/arthritis-support-refugees-diverse-communities",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "pregnancy",
+        "surgery"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 18,
+      "slug": "bedtime-routine-arthritis-relief",
+      "url": "https://livingwitharthritis.org.uk/blog/bedtime-routine-arthritis-relief",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 19,
+      "slug": "best-diet-for-joint-pain-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/best-diet-for-joint-pain-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 20,
+      "slug": "best-supplements-arthritis-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/best-supplements-arthritis-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 21,
+      "slug": "biologics-for-ra-a-realistic-year-one-roadmap",
+      "url": "https://livingwitharthritis.org.uk/blog/biologics-for-ra-a-realistic-year-one-roadmap",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 22,
+      "slug": "circadian-rhythm-arthritis-inflammation",
+      "url": "https://livingwitharthritis.org.uk/blog/circadian-rhythm-arthritis-inflammation",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 23,
+      "slug": "desk-setup-arthritis-uk-workers",
+      "url": "https://livingwitharthritis.org.uk/blog/desk-setup-arthritis-uk-workers",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 24,
+      "slug": "disability-rights-workplace-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/disability-rights-workplace-arthritis",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 25,
+      "slug": "early-arthritis-intervention-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/early-arthritis-intervention-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 26,
+      "slug": "expert-brief-activity-safety-knee-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/expert-brief-activity-safety-knee-arthritis",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 27,
+      "slug": "expert-brief-exercise-order-pain-relief",
+      "url": "https://livingwitharthritis.org.uk/blog/expert-brief-exercise-order-pain-relief",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 28,
+      "slug": "expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
+      "url": "https://livingwitharthritis.org.uk/blog/expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 29,
+      "slug": "expert-qa-why-did-my-arthritis-come-back",
+      "url": "https://livingwitharthritis.org.uk/blog/expert-qa-why-did-my-arthritis-come-back",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 30,
+      "slug": "fatty-fish-omega-3-arthritis-evidence",
+      "url": "https://livingwitharthritis.org.uk/blog/fatty-fish-omega-3-arthritis-evidence",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 31,
+      "slug": "fibromyalgia-flare-ups-without-medication",
+      "url": "https://livingwitharthritis.org.uk/blog/fibromyalgia-flare-ups-without-medication",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 32,
+      "slug": "flexible-working-arthritis-pacing",
+      "url": "https://livingwitharthritis.org.uk/blog/flexible-working-arthritis-pacing",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 33,
+      "slug": "free-arthritis-support-northern-ireland",
+      "url": "https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 34,
+      "slug": "ginger-vs-turmeric-for-arthritis",
+      "url": "https://livingwitharthritis.org.uk/blog/ginger-vs-turmeric-for-arthritis",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "supplementDose",
+        "pregnancy",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 35,
+      "slug": "glucosamine-vs-collagen",
+      "url": "https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 36,
+      "slug": "hobbies-arthritis-friendly-uk",
+      "url": "https://livingwitharthritis.org.uk/blog/hobbies-arthritis-friendly-uk",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 37,
+      "slug": "joint-replacement-surgery",
+      "url": "https://livingwitharthritis.org.uk/blog/joint-replacement-surgery",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 38,
+      "slug": "longevity-habits-arthritis-patients",
+      "url": "https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 39,
+      "slug": "lower-back-stiffness-worse-after-sitting",
+      "url": "https://livingwitharthritis.org.uk/blog/lower-back-stiffness-worse-after-sitting",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 40,
+      "slug": "managing-methotrexate-side-effects-practical-tips",
+      "url": "https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 41,
+      "slug": "mindfulness-arthritis-beginners",
+      "url": "https://livingwitharthritis.org.uk/blog/mindfulness-arthritis-beginners",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 42,
+      "slug": "mindfulness-for-arthritis-pain",
+      "url": "https://livingwitharthritis.org.uk/blog/mindfulness-for-arthritis-pain",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 1,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 43,
+      "slug": "nhs-access-to-biologics-how-the-approval-pathway-works",
+      "url": "https://livingwitharthritis.org.uk/blog/nhs-access-to-biologics-how-the-approval-pathway-works",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 44,
+      "slug": "packing-list-arthritis-traveller",
+      "url": "https://livingwitharthritis.org.uk/blog/packing-list-arthritis-traveller",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 45,
+      "slug": "pip-fibromyalgia-uk-apply",
+      "url": "https://livingwitharthritis.org.uk/blog/pip-fibromyalgia-uk-apply",
+      "score": 15,
+      "riskFlags": [
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 46,
+      "slug": "pregnancy-and-arthritis-what-uk-guidelines-recommend",
+      "url": "https://livingwitharthritis.org.uk/blog/pregnancy-and-arthritis-what-uk-guidelines-recommend",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "pregnancy",
+        "surgery"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 47,
+      "slug": "prescription-costs-and-arthritis-nhs-prepayment-certificates",
+      "url": "https://livingwitharthritis.org.uk/blog/prescription-costs-and-arthritis-nhs-prepayment-certificates",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 48,
+      "slug": "private-rheumatology-in-the-uk-when-its-worth-considering",
+      "url": "https://livingwitharthritis.org.uk/blog/private-rheumatology-in-the-uk-when-its-worth-considering",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 49,
+      "slug": "resistance-training-arthritis-longevity",
+      "url": "https://livingwitharthritis.org.uk/blog/resistance-training-arthritis-longevity",
+      "score": 15,
+      "riskFlags": [
+        "medication",
+        "redFlag",
+        "surgery",
+        "quantifiedClaim"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    },
+    {
+      "rank": 50,
+      "slug": "sarcopenia-muscle-loss-how-to-combat",
+      "url": "https://livingwitharthritis.org.uk/blog/sarcopenia-muscle-loss-how-to-combat",
+      "score": 15,
+      "riskFlags": [
+        "redFlag",
+        "surgery",
+        "quantifiedClaim",
+        "cureLanguage"
+      ],
+      "needs": {
+        "licensedImages": 2,
+        "coverLicenceRecord": true,
+        "sourceCitations": true,
+        "clinicalReview": true
+      },
+      "done": {
+        "images": false,
+        "citations": false,
+        "review": false
+      },
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": ""
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-﻿import {
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -8,20 +8,23 @@
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Phone, AlertCircle } from "lucide-react";
+import { COUNTRY_SAFETY, type ChatCountry } from "@/lib/chatbot/emergencyContacts";
 
 interface EmergencyRedirectDialogProps {
   open: boolean;
   onClose: () => void;
   /** Optional category for tailored copy. */
   category?: string | null;
+  /** Country whose numbers to show; defaults to the UK. */
+  country?: ChatCountry;
 }
 
 const COPY: Record<string, string> = {
   self_harm: "It sounds like you're going through something incredibly difficult. You are not alone — please reach out now.",
-  cardiac: "These symptoms can indicate a heart problem. Please get help immediately.",
-  stroke: "These symptoms can indicate a stroke. Time is critical — call 999 now.",
-  septic_joint: "A hot, swollen joint with fever needs urgent assessment — please contact 999 or 112 or your GP today.",
-  anaphylaxis: "These symptoms may indicate a severe allergic reaction. Call 999 immediately.",
+  cardiac: "These symptoms can indicate a heart problem. Please get emergency help immediately.",
+  stroke: "These symptoms can indicate a stroke. Time is critical — call the emergency number now.",
+  septic_joint: "A hot, swollen joint with fever needs urgent same-day assessment. Please get urgent medical help now.",
+  anaphylaxis: "These symptoms may indicate a severe allergic reaction. Call the emergency number immediately.",
   severe_bleed: "Please get urgent medical help.",
   default: "Some of what you described needs a real person, not online information. Please use one of the contacts below.",
 };
@@ -30,8 +33,10 @@ export default function EmergencyRedirectDialog({
   open,
   onClose,
   category,
+  country = "UK",
 }: EmergencyRedirectDialogProps) {
   const message = COPY[category || "default"] ?? COPY.default;
+  const safety = COUNTRY_SAFETY[country];
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
@@ -41,44 +46,36 @@ export default function EmergencyRedirectDialog({
             <AlertCircle className="h-6 w-6 text-destructive" aria-hidden="true" />
           </div>
           <DialogTitle className="text-center text-xl">Get help now</DialogTitle>
-          <DialogDescription className="text-center">{message}</DialogDescription>
+          <DialogDescription className="text-center">
+            {message} Numbers shown for {safety.name}.
+          </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-2">
-          <a
-            href="tel:999"
-            className="flex items-center justify-between rounded-xl border border-destructive/30 bg-destructive/5 p-4 transition-colors hover:bg-destructive/10"
-          >
-            <div>
-              <div className="font-semibold text-destructive">999</div>
-              <div className="text-xs text-muted-foreground">Life-threatening emergency</div>
-            </div>
-            <Phone className="h-5 w-5 text-destructive" aria-hidden="true" />
-          </a>
-          <a
-            href="tel:111"
-            className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:bg-muted/40"
-          >
-            <div>
-              <div className="font-semibold text-foreground">999 or 112</div>
-              <div className="text-xs text-muted-foreground">Urgent but not life-threatening</div>
-            </div>
-            <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
-          </a>
-          <a
-            href="tel:116123"
-            className="flex items-center justify-between rounded-xl border border-border bg-card p-4 transition-colors hover:bg-muted/40"
-          >
-            <div>
-              <div className="font-semibold text-foreground">Samaritans 116 123</div>
-              <div className="text-xs text-muted-foreground">Free, 24/7 mental-health support</div>
-            </div>
-            <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
-          </a>
-        </div>
+        <ul className="space-y-2">
+          {safety.lines.map((line) => (
+            <li key={line.dial}>
+              <a
+                href={`tel:${line.dial}`}
+                className={`flex min-h-11 items-center justify-between rounded-xl border p-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                  line.kind === "emergency"
+                    ? "border-destructive/30 bg-destructive/5 hover:bg-destructive/10"
+                    : "border-border bg-card hover:bg-muted/40"
+                }`}
+              >
+                <div>
+                  <div className={`font-semibold ${line.kind === "emergency" ? "text-destructive" : "text-foreground"}`}>
+                    {line.number}
+                  </div>
+                  <div className="text-xs text-muted-foreground">{line.label}</div>
+                </div>
+                <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
 
         <DialogFooter>
-          <Button variant="ghost" onClick={onClose} className="w-full">
+          <Button variant="ghost" onClick={onClose} className="w-full min-h-11">
             Close
           </Button>
         </DialogFooter>

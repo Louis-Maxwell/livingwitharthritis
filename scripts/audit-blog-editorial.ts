@@ -103,7 +103,35 @@ const qa = {
   rows: qaRows,
 };
 
+// Top 50 combined checklist: needs pictures AND/OR sources AND/OR review.
+// Score = editorial priority + 2 per missing inline picture. Nothing is
+// pre-filled; every "done" field stays false until a person does the work.
+const assetBySlug = new Map((assetRows as any[]).map((r) => [r.slug, r]));
+const top50 = qaRows
+  .map((q) => {
+    const a: any = assetBySlug.get(q.slug);
+    const needs = {
+      licensedImages: a.gap,
+      coverLicenceRecord: a.cover.provenance !== 'verified-licence',
+      sourceCitations: q.citationCount === 0 || q.citationIssues.length > 0,
+      clinicalReview: !q.datedReviewEvidence,
+    };
+    return { slug: q.slug, url: `https://livingwitharthritis.org.uk/blog/${q.slug}`, score: q.priority + a.gap * 2, riskFlags: q.riskFlags, needs };
+  })
+  .filter((r) => r.needs.licensedImages > 0 || r.needs.sourceCitations || r.needs.clinicalReview)
+  .sort((x, y) => y.score - x.score || x.slug.localeCompare(y.slug))
+  .slice(0, 50)
+  .map((r, i) => ({
+    rank: i + 1,
+    ...r,
+    done: { images: false, citations: false, review: false },
+    reviewer: null,
+    reviewedOn: null,
+    notes: '',
+  }));
+
 mkdirSync('docs/audits', { recursive: true });
+writeFileSync('docs/audits/priority-50-checklist.json', JSON.stringify({ generated: asset.generated, note: 'Work list only. Do not mark done without real licences, real sources and a named reviewer with date.', items: top50 }, null, 2) + '\n');
 writeFileSync('docs/audits/blog-asset-provenance.json', JSON.stringify(asset, null, 2) + '\n');
 writeFileSync('docs/audits/editorial-qa.json', JSON.stringify(qa, null, 2) + '\n');
 const { rows: _a, ...aSum } = asset;

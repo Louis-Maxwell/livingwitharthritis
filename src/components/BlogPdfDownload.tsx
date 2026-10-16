@@ -28,7 +28,7 @@ export default function BlogPdfDownload(props: Props) {
       await saveTextPdf(props.title, text, `${props.slug}.pdf`);
       setStatus('Article PDF downloaded.');
     } catch {
-      setStatus('PDF download failed. Please use Print / save PDF.');
+      setStatus('PDF download failed. Please try again, or use your browser\'s Print > Save as PDF.');
     } finally {
       setIsBusy(false);
     }
@@ -40,13 +40,18 @@ export default function BlogPdfDownload(props: Props) {
         type="button"
         size="sm"
         disabled={isBusy}
+        aria-busy={isBusy}
+        aria-describedby={`pdf-note-${props.slug}`}
         onClick={download}
-        className="min-h-11"
+        className="min-h-11 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         <Download className="w-4 h-4 mr-2" aria-hidden="true" />
-        Download full article (PDF)
+        {isBusy ? 'Preparing PDF…' : 'Download full article (PDF)'}
       </Button>
-      <span role="status" className="block text-xs">{status}</span>
+      <p id={`pdf-note-${props.slug}`} className="mt-1 text-xs text-muted-foreground">
+        Text-only PDF: the full guide, FAQs and sources. Pictures are not included.
+      </p>
+      <span role="status" aria-live="polite" className="block text-xs">{status}</span>
     </div>
   );
 }
