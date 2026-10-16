@@ -52,11 +52,11 @@ test.describe("Blog browsing smoke", () => {
       "href",
       "https://livingwitharthritis.org.uk/blog/vitamin-d-arthritis-uk",
     );
-    const img = page.locator("main img").first();
+    const img = page.locator("img").filter({ visible: true }).first();
     await expect(img).toBeVisible();
     await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
     // Every image has an alt attribute (empty is fine for decorative ones).
-    expect(await page.locator("main img:not([alt])").count()).toBe(0);
+    expect(await page.locator("img:not([alt])").count()).toBe(0);
     expect(errors, errors.join("\n")).toEqual([]);
   });
 
