@@ -26,7 +26,7 @@ import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
 import ViewportSection from "@/components/ViewportSection";
-import ArticleFaqSection from "@/components/article/ArticleFaqSection";
+import BlogArticleEditorialSections from "@/components/blog/BlogArticleEditorialSections";
 import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -44,7 +44,7 @@ import { coverFromFile, pickArticleImages } from "@/lib/articleImagePicks";
 import { onCoverImgError, safeCoverSrc, DEFAULT_OG_PATH } from "@/lib/coverFallback";
 import NotFound from "@/pages/NotFound";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
-import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+
 import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import {
@@ -70,7 +70,7 @@ const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/Inli
 const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
 const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
-const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
+
 
 
 /**
@@ -715,7 +715,7 @@ const BlogPost = () => {
             )}
           </section>
 
-          <ArticleFaqSection faqs={faqs} />
+
             {slug && (
               <ClusterRelatedLinks
                 slug={slug}
@@ -760,9 +760,7 @@ const BlogPost = () => {
 
 
 
-          <ViewportSection>
-            <ArticleCitations citations={citations} />
-          </ViewportSection>
+          <BlogArticleEditorialSections faqs={faqs} citations={citations} reviewStatus={reviewStatus} lastReviewed={blogLastReviewed} />
 
           <ViewportSection>
             {slug && <FeedbackPoll slug={slug} title={article.title} />}
@@ -818,7 +816,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} reviewStatus={reviewStatus} />
+
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>
                 <TopicClusterNav path={`/blog/${slug}`} />
