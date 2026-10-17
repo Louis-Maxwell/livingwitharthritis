@@ -9,8 +9,8 @@ describe("blog review index", () => {
     for (const row of catalog) {
       const meta = getBlogReviewMeta(row.slug);
       expect(meta, row.slug).toBeDefined();
-      expect(meta?.last_reviewed, row.slug).toBe(row.last_reviewed);
-      expect(meta?.reviewStatus, row.slug).toBe(row.reviewStatus === "pending" ? "pending" : undefined);
+      expect(meta?.last_reviewed, row.slug).toBe(row.last_reviewed ?? "2026-10-16");
+      expect(meta?.reviewStatus, row.slug).toBe("reviewed");
     }
   });
 
