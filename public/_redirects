@@ -176,6 +176,8 @@
 /waiting-list /arthritis-waiting-list-help 301
 /waiting-list-help /arthritis-waiting-list-help 301
 /diet-hub /diet 301
+/glossary/passive-vs-active-movement /glossary 301
+/blog/best-plantar-fasciitis-shoes-women-uk /library/plantar-fasciitis 301
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-support/london/osteoarthritis /arthritis-support/london 301
