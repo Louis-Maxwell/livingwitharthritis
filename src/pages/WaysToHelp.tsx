@@ -294,7 +294,7 @@ export default function WaysToHelp() {
                         </ul>
                         <div>
                           <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md">
-                            <a href={way.href} target={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "_blank"} rel={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "noopener noreferrer"} onClick={way.title === "Make a Donation" ? () => trackDonationClick({ source: "ways_to_help_donation_card", method: "gofundme" }) : undefined}>
+                            <a href={way.href} target={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "_blank"} rel={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "noopener noreferrer"} onClick={way.title === "Make a Donation" ? () => trackDonationClick({ source: "ways_to_help_donation_card", method: "external_fundraising_platform" }) : way.title === "Fundraise for Us" ? () => trackFundraiserInterest("ways_to_help_fundraising_card") : undefined}>
                               {way.cta}
                               <span className="sr-only"> (opens in a new tab)</span>
                             </a>
