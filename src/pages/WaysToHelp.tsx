@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
-import { trackContactFormSubmit, trackDonationClick, trackFundraiserInterest } from "@/lib/ga-events";
+import { trackContactFormSubmit, trackDonationClick, trackFundraiserInterest, trackVolunteerInterest } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { reportFormFailure } from "@/lib/errorReporting";
@@ -147,11 +147,11 @@ export default function WaysToHelp() {
   return (
     <>
       <Helmet>
-        <title>Ways to Help | Living With Arthritis</title>
-        <meta name="description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
+        <title>Donate, Volunteer or Fundraise for Arthritis Support | Living With Arthritis</title>
+        <meta name="description" content="Support people living with arthritis: donate to our charity, volunteer, fundraise, or explore a corporate partnership. Choose a practical way to help today." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
-      <meta property="og:title" content="Ways to Help | Living With Arthritis" />
-      <meta property="og:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
+      <meta property="og:title" content="Donate, Volunteer or Fundraise for Arthritis Support | Living With Arthritis" />
+      <meta property="og:description" content="Support people living with arthritis: donate to our charity, volunteer, fundraise, or explore a corporate partnership. Choose a practical way to help today." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/ways-to-help" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -188,7 +188,7 @@ export default function WaysToHelp() {
                 </div>
 
                 <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1] mb-5">
-                  Every action helps someone live{" "}
+                  Donate, volunteer or fundraise to support people with arthritis{" "}
                   <span className="relative">
                     <span className="relative z-10">a fuller life</span>
                     <span className="absolute bottom-1 left-0 right-0 h-3 bg-background/15 -skew-x-2 rounded" />
@@ -208,7 +208,10 @@ export default function WaysToHelp() {
                     </a>
                   </Button>
                   <Button
-                    onClick={() => document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() => {
+                      trackVolunteerInterest("ways_to_help_hero");
+                      document.getElementById("volunteer-form")?.scrollIntoView({ behavior: "smooth" });
+                    }}
                     size="lg"
                     variant="outline"
                     className="rounded-full border-background/30 text-primary-foreground hover:bg-background/10 font-bold h-12 px-8"
@@ -294,7 +297,7 @@ export default function WaysToHelp() {
                         </ul>
                         <div>
                           <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md">
-                            <a href={way.href} target={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "_blank"} rel={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "noopener noreferrer"} onClick={way.title === "Make a Donation" ? () => trackDonationClick({ source: "ways_to_help_donation_card", method: "external_fundraising_platform" }) : way.title === "Fundraise for Us" ? () => trackFundraiserInterest("ways_to_help_fundraising_card") : undefined}>
+                            <a href={way.href} target={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "_blank"} rel={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "noopener noreferrer"} onClick={way.title === "Make a Donation" ? () => trackDonationClick({ source: "ways_to_help_donation_card", method: "external_fundraising_platform" }) : way.title === "Fundraise for Us" ? () => trackFundraiserInterest("ways_to_help_fundraising_card") : way.title === "Volunteer With Us" ? () => trackVolunteerInterest("ways_to_help_volunteer_card") : undefined}>
                               {way.cta}
                               <span className="sr-only"> (opens in a new tab)</span>
                             </a>

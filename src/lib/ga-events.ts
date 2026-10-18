@@ -97,3 +97,8 @@ export function trackChatStart(source: string = "chat_page") {
 export function trackFundraiserInterest(source = "ways_to_help") {
   trackEvent("fundraiser_interest", { source, event_category: "engagement" });
 }
+
+/** Fired when a visitor chooses to explore volunteering; not a submitted enquiry. */
+export function trackVolunteerInterest(source = "ways_to_help") {
+  trackEvent("volunteer_interest", { source, event_category: "engagement" });
+}
