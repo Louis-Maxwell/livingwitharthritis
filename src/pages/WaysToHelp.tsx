@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
-import { trackContactFormSubmit } from "@/lib/ga-events";
+import { trackDonationClick, trackVolunteerEnquiry } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { reportFormFailure } from "@/lib/errorReporting";
@@ -128,7 +128,7 @@ export default function WaysToHelp() {
         message: formData.message.trim() || undefined,
       });
       if (result.via === "mailto") {
-        trackContactFormSubmit("volunteer");
+        trackVolunteerEnquiry("ways_to_help_email_draft");
         toast.message(result.message);
         setSubmitted(true);
       } else if (result.via === "throttled") {
@@ -147,11 +147,11 @@ export default function WaysToHelp() {
   return (
     <>
       <Helmet>
-        <title>Ways to Help | Living With Arthritis</title>
-        <meta name="description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
+        <title>Support an Arthritis Charity in the UK | Living With Arthritis</title>
+        <meta name="description" content="Support people living with arthritis in the UK. Donate, volunteer, fundraise or explore a partnership with Living With Arthritis, registered charity CIO 1218461." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
       <meta property="og:title" content="Ways to Help | Living With Arthritis" />
-      <meta property="og:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
+      <meta property="og:description" content="Support people living with arthritis in the UK. Donate, volunteer, fundraise or explore a partnership with Living With Arthritis, registered charity CIO 1218461." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/ways-to-help" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -162,7 +162,7 @@ export default function WaysToHelp() {
         <meta property="og:image:alt" content="Ways To Help | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Ways to Help | Living With Arthritis" />
-      <meta name="twitter:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
+      <meta name="twitter:description" content="Support people living with arthritis in the UK. Donate, volunteer, fundraise or explore a partnership with Living With Arthritis, registered charity CIO 1218461." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -294,7 +294,7 @@ export default function WaysToHelp() {
                         </ul>
                         <div>
                           <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md">
-                            <a href={way.href} target="_blank" rel="noopener noreferrer">
+                            <a href={way.href} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "ways_to_help_featured_donation", method: "gofundme" })}>
                               {way.cta}
                               <span className="sr-only"> (opens in a new tab)</span>
                             </a>
