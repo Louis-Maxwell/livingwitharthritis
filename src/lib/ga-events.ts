@@ -17,7 +17,7 @@ import { trackEvent } from "@/lib/analytics";
 export function trackDonationClick(
   sourceOrOpts:
     | string
-    | { source?: string; amount?: number; currency?: string; method?: string } = {},
+    | { source?: string; amount?: number; currency?: string; method?: string; frequency?: "one-time" | "monthly" } = {},
 ) {
   const opts = typeof sourceOrOpts === "string" ? { source: sourceOrOpts } : sourceOrOpts;
   trackEvent("donation_click", {
@@ -25,6 +25,7 @@ export function trackDonationClick(
     amount: opts.amount ?? 0,
     currency: opts.currency ?? "GBP",
     method: opts.method ?? "external_fundraising_platform",
+    frequency: opts.frequency ?? "unspecified",
   });
 }
 
