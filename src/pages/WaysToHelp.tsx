@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
-import { trackContactFormSubmit } from "@/lib/ga-events";
+import { trackContactFormSubmit, trackDonationClick, trackFundraiserInterest } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { reportFormFailure } from "@/lib/errorReporting";
