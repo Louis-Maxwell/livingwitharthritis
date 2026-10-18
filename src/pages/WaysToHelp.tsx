@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { submitVolunteerEnquiry } from "@/lib/backendSubmit";
-import { trackContactFormSubmit, trackDonationClick, trackVolunteerEnquiry } from "@/lib/ga-events";
+import { trackDonationClick, trackVolunteerEnquiry } from "@/lib/ga-events";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { reportFormFailure } from "@/lib/errorReporting";
@@ -128,8 +128,7 @@ export default function WaysToHelp() {
         message: formData.message.trim() || undefined,
       });
       if (result.via === "mailto") {
-        trackContactFormSubmit("volunteer");
-        trackVolunteerEnquiry("ways_to_help_form");
+        trackVolunteerEnquiry("ways_to_help_email_draft");
         toast.message(result.message);
         setSubmitted(true);
       } else if (result.via === "throttled") {
