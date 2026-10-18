@@ -4,7 +4,7 @@
  *
  * Fires distinct, easy-to-mark-as-key-event GA4 events:
  *   - donation_click
- *   - contact_form_submit
+ *   - volunteer_enquiry_draft_open (engagement only; not a submitted enquiry)
  *   - file_download
  *   - scroll_80        (fired once per page once a visitor passes 80% depth)
  */
@@ -16,7 +16,7 @@ import { trackEvent } from "@/lib/analytics";
 export function trackDonationClick(
   sourceOrOpts:
     | string
-    | { source?: string; amount?: number; currency?: string; method?: string } = {},
+    | { source?: string; amount?: number; currency?: string; method?: string; frequency?: "one-time" | "monthly" } = {},
 ) {
   const opts = typeof sourceOrOpts === "string" ? { source: sourceOrOpts } : sourceOrOpts;
   trackEvent("donation_click", {
