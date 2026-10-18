@@ -1,0 +1,3227 @@
+{
+  "generatedAt": "2026-10-16T19:01:30.311Z",
+  "expectedBlogCount": 692,
+  "blogCount": 692,
+  "mappedCoverCount": 692,
+  "approvedImageMetadataCount": 50,
+  "localImageCount": 700,
+  "fourImageStandard": "cover + 3 related images",
+  "failures": [
+    {
+      "slug": "sex-and-intimacy-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-sex-and-intimacy-with-arthritis.webp"
+    },
+    {
+      "slug": "arthritis-medications-and-sexual-function",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-medications-and-sexual-function.webp"
+    },
+    {
+      "slug": "rebuilding-intimacy-after-arthritis-diagnosis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-rebuilding-intimacy-after-arthritis-diagnosis.webp"
+    },
+    {
+      "slug": "talking-to-your-partner-about-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-talking-to-your-partner-about-arthritis.webp"
+    },
+    {
+      "slug": "supporting-a-partner-with-arthritis-strategies",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-supporting-a-partner-with-arthritis-strategies.webp"
+    },
+    {
+      "slug": "caregiver-burnout-warning-signs-prevention",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-caregiver-burnout-warning-signs-prevention.webp"
+    },
+    {
+      "slug": "adult-children-as-caregivers-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for adult-daughter-with-elderly-mother-48181ce1.webp"
+    },
+    {
+      "slug": "arthritis-fatigue-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-fatigue-explained.webp"
+    },
+    {
+      "slug": "energy-management-and-pacing-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-energy-management-and-pacing-arthritis.webp"
+    },
+    {
+      "slug": "sleep-and-pain-management-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for bedroom-bed-pillows-morning-light-4a482059.webp"
+    },
+    {
+      "slug": "exercise-for-energy-arthritis-fatigue",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-exercise-for-energy-arthritis-fatigue.webp"
+    },
+    {
+      "slug": "turmeric-and-methotrexate-interaction",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0466-virgie-s-peruvian-seafood-ceviche.webp"
+    },
+    {
+      "slug": "medication-supplement-interactions-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-medication-supplement-interactions-arthritis.webp"
+    },
+    {
+      "slug": "anxiety-and-arthritis-management",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-anxiety-and-arthritis-management.webp"
+    },
+    {
+      "slug": "grief-and-loss-after-arthritis-diagnosis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-grief-and-loss-after-arthritis-diagnosis.webp"
+    },
+    {
+      "slug": "psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments.webp"
+    },
+    {
+      "slug": "access-to-work-scheme-arthritis-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for office-desk-ergonomic-chair-laptop-a4bf6b00.webp"
+    },
+    {
+      "slug": "knee-osteoarthritis-frailty-staying-steady-home-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0202-busy-park.webp"
+    },
+    {
+      "slug": "hand-osteoarthritis-frailty-dressing-cooking-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0349-out-on-the-town.webp"
+    },
+    {
+      "slug": "spinal-osteoarthritis-frailty-standing-pacing-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0472-old-woman-sitting-in-a-square-granada.webp"
+    },
+    {
+      "slug": "shoulder-osteoarthritis-frailty-washing-dressing-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0173-0524071143-jpg.webp"
+    },
+    {
+      "slug": "foot-ankle-osteoarthritis-frailty-indoor-walking-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0310-senior-woman-practicing-yoga-indoors-while-tr.webp"
+    },
+    {
+      "slug": "neck-osteoarthritis-frailty-balance-looking-down-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0400-img-2792.webp"
+    },
+    {
+      "slug": "thumb-base-osteoarthritis-frailty-daily-grip-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0160-siem-reap-s-celebrated-pub-street.webp"
+    },
+    {
+      "slug": "wrist-osteoarthritis-frailty-walking-aids-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0270-stretching-exercises.webp"
+    },
+    {
+      "slug": "elbow-osteoarthritis-frailty-kitchen-tasks-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0478-mixed-beans-sprouted.webp"
+    },
+    {
+      "slug": "big-toe-osteoarthritis-frailty-shoes-balance-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0153-apr-28-2014-camino-de-santiago-tour-frescotou.webp"
+    },
+    {
+      "slug": "polyarticular-oa-frailty-pacing-several-joints-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0462-20171027-ams-lsc-1300.webp"
+    },
+    {
+      "slug": "hip-and-knee-oa-frailty-transfers-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0352-d9c9a523-5b84-440f-bf53-e60f260e6d95.webp"
+    },
+    {
+      "slug": "midfoot-osteoarthritis-frailty-standing-time-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0457-summer-peach-cake.webp"
+    },
+    {
+      "slug": "hip-oa-frailty-getting-into-car-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0132-old-runner-b2.webp"
+    },
+    {
+      "slug": "hand-oa-frailty-opening-packaging-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0067-old-woman-s-walk-plaza-corredera-cordoba.webp"
+    },
+    {
+      "slug": "spine-oa-frailty-gardening-pacing-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0466-cup-of-tea-by-a-lake.webp"
+    },
+    {
+      "slug": "shoulder-oa-frailty-high-cupboards-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0307-an-elderly-chinese-man-practices-tai-chi-jard.webp"
+    },
+    {
+      "slug": "knee-oa-frailty-rising-from-low-sofa-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0148-children-s-grand-park.webp"
+    },
+    {
+      "slug": "late-onset-ra-frailty-first-months-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0269-stretching-exercises.webp"
+    },
+    {
+      "slug": "ra-frailty-older-adults-daily-rhythm-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0086-i-don-t-understand-you.webp"
+    },
+    {
+      "slug": "ra-fatigue-frailty-energy-envelope-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0451-mushroom-salad-slices-of-tomato-and-lettuce.webp"
+    },
+    {
+      "slug": "ra-steroids-frailty-infection-watch-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0457-broad-bean-almond-fetta-salad.webp"
+    },
+    {
+      "slug": "ra-monitoring-older-frail-adults-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0182-walking.webp"
+    },
+    {
+      "slug": "pmr-frailty-morning-stiffness-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0082-elderly-in-brighton.webp"
+    },
+    {
+      "slug": "gout-older-people-frailty-hydration-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0481-white-bean-salad.webp"
+    },
+    {
+      "slug": "gout-winter-dehydration-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0408-keith-on-walk.webp"
+    },
+    {
+      "slug": "cppd-pseudogout-frailty-sudden-hot-joint-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0209-at-full-stretch.webp"
+    },
+    {
+      "slug": "psoriatic-arthritis-later-life-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0322-close-elderly-person-hand-holding.webp"
+    },
+    {
+      "slug": "inflammatory-arthritis-frailty-flare-week-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0140-tashkent-4176rt.webp"
+    },
+    {
+      "slug": "osteoporosis-arthritis-frailty-bone-joint-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0429-granite-reef-senior-center.webp"
+    },
+    {
+      "slug": "post-knee-replacement-frailty-rehab-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0095-it-s-been-a-long-rainy-life.webp"
+    },
+    {
+      "slug": "post-hip-replacement-frailty-home-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0441-dinner-salad-from-the-templeton.webp"
+    },
+    {
+      "slug": "generalised-oa-frailty-whole-body-day-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0131-pondering-man-and-laughing-lady-siena-italy.webp"
+    },
+    {
+      "slug": "wrist-hand-oa-frailty-self-care-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0191-zam072509238.webp"
+    },
+    {
+      "slug": "knee-oa-frailty-outdoor-pavements-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0395-img-8513.webp"
+    },
+    {
+      "slug": "hip-oa-frailty-bed-mobility-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0401-painting-under-a-sakura-tree.webp"
+    },
+    {
+      "slug": "rockwood-clinical-frailty-scale-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0107-older-wiser-and-more-in-love.webp"
+    },
+    {
+      "slug": "fried-frailty-phenotype-painful-joints-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0457-silly-mom-silly-dad.webp"
+    },
+    {
+      "slug": "prefrailty-osteoarthritis-early-action-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0406-tree-top-walk.webp"
+    },
+    {
+      "slug": "flare-versus-frailty-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0462-detail-of-lobby-mural.webp"
+    },
+    {
+      "slug": "deconditioning-after-arthritis-flare-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0420-learning-to-swim.webp"
+    },
+    {
+      "slug": "hospital-deconditioning-arthritis-stay-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0414-berkeley-lake-park.webp"
+    },
+    {
+      "slug": "multimorbidity-arthritis-frailty-whole-picture-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0453-elderly-people-napping.webp"
+    },
+    {
+      "slug": "comprehensive-geriatric-assessment-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0119-out-for-morning-walk.webp"
+    },
+    {
+      "slug": "nhs-frailty-pathway-arthritis-england",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0203-dil-chora-hospital-dire-dawa-ethiopia-2010.webp"
+    },
+    {
+      "slug": "frailty-older-people-arthritis-wales-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0326-the-art-of-cursive.webp"
+    },
+    {
+      "slug": "older-adults-arthritis-frailty-northern-ireland-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0432-170813-z-vd276-007.webp"
+    },
+    {
+      "slug": "sarcopenia-knee-oa-frailty-overlap-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0417-po-hong-park-pebble-walking-trail-and-elderly.webp"
+    },
+    {
+      "slug": "fear-of-falling-hip-oa-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0176-c-mon-let-s-go.webp"
+    },
+    {
+      "slug": "falls-clinic-arthritis-what-to-expect-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0432-some-male-residents-century-village.webp"
+    },
+    {
+      "slug": "sit-to-stand-practice-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0449-20171027-ams-lsc-0131.webp"
+    },
+    {
+      "slug": "balance-painful-feet-frailty-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0080-buenos-aires-botanical-garden.webp"
+    },
+    {
+      "slug": "vision-falls-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0416-learning-to-swim.webp"
+    },
+    {
+      "slug": "continence-night-trips-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0291-female-physiotherapist-with-elderly-female-pa.webp"
+    },
+    {
+      "slug": "night-lights-arthritis-falls-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0185-street-photography-barnes-bridge-station.webp"
+    },
+    {
+      "slug": "chair-based-exercise-ra-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0318-fitness-programming-greenville-aquatics.webp"
+    },
+    {
+      "slug": "tai-chi-balance-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0472-20171027-ams-lsc-1082.webp"
+    },
+    {
+      "slug": "hydrotherapy-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0207-dil-chora-hospital-dire-dawa-ethiopia-2010.webp"
+    },
+    {
+      "slug": "community-physio-wait-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0381-cold-steel-triathlon.webp"
+    },
+    {
+      "slug": "slow-walking-groups-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0465-20171027-ams-lsc-1227.webp"
+    },
+    {
+      "slug": "resistance-bands-seated-frail-oa-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0418-learning-to-swim.webp"
+    },
+    {
+      "slug": "bed-exercises-hospital-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0315-emily-malugen.webp"
+    },
+    {
+      "slug": "reablement-after-discharge-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0077-marika.webp"
+    },
+    {
+      "slug": "walking-stick-vs-frame-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0306-yoga-class.webp"
+    },
+    {
+      "slug": "protein-painful-joints-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0455-simple-salad-honey-mustard-vinaigrette.webp"
+    },
+    {
+      "slug": "vitamin-d-winter-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0446-hearty-autumn-salad.webp"
+    },
+    {
+      "slug": "appetite-loss-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0479-salad.webp"
+    },
+    {
+      "slug": "cooking-with-hand-oa-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0438-natural-fruit-salad-bowls-34699.webp"
+    },
+    {
+      "slug": "meal-times-care-home-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0450-glory-foods-skillet-steamed-vegetables.webp"
+    },
+    {
+      "slug": "hydration-gout-frailty-older-adults-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0487-sauteed-spinach.webp"
+    },
+    {
+      "slug": "constipation-pain-medicines-frailty-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0170-1699-cidade-de-lugo.webp"
+    },
+    {
+      "slug": "polypharmacy-arthritis-frailty-review-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0423-141002-d-db155-024.webp"
+    },
+    {
+      "slug": "codeine-drowsiness-falls-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0411-generations.webp"
+    },
+    {
+      "slug": "gabapentinoids-unsteadiness-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0463-while-our-pilgrims-walked-with-another-guide-.webp"
+    },
+    {
+      "slug": "paracetamol-older-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0422-elderly-man-walking-on-a-dirt-road-constructi.webp"
+    },
+    {
+      "slug": "steroid-emergency-card-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0471-20171027-ams-lsc-1562.webp"
+    },
+    {
+      "slug": "methotrexate-older-frail-adults-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0411-think-outside-photo-contest-first-landing-sta.webp"
+    },
+    {
+      "slug": "bone-protection-steroids-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0088-the-three-amigos.webp"
+    },
+    {
+      "slug": "pharmacist-medication-review-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0308-on-lok-senior-health-services-in-san-francisc.webp"
+    },
+    {
+      "slug": "dosette-boxes-arthritis-frailty-hands-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0427-learning-to-swim.webp"
+    },
+    {
+      "slug": "grab-rails-arthritis-frailty-home-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0470-fresh-blueberries.webp"
+    },
+    {
+      "slug": "stairlifts-arthritis-frailty-uk-home",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0447-20171027-ams-lsc-1212.webp"
+    },
+    {
+      "slug": "wet-rooms-arthritis-frailty-washing-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0141-senior-citizen-walking-club-at-alki-playgroun.webp"
+    },
+    {
+      "slug": "rise-recline-chair-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0483-perfect-garden.webp"
+    },
+    {
+      "slug": "kitchen-adaptations-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0441-32e86270-4007-4d1f-8d8a-65d6c40e16f5.webp"
+    },
+    {
+      "slug": "ot-assessment-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0454-wilted-kale-salad-with-deep-fried-garlic-lemo.webp"
+    },
+    {
+      "slug": "disabled-facilities-grant-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0152-2-elderly-women-walking-the-trail.webp"
+    },
+    {
+      "slug": "care-home-life-arthritis-pain-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0293-tai-chi-uncle-2.webp"
+    },
+    {
+      "slug": "sheltered-housing-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0060-not-all-seniors-are-senile.webp"
+    },
+    {
+      "slug": "pip-arthritis-frailty-honest-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0482-20171027-ams-lsc-0876.webp"
+    },
+    {
+      "slug": "attendance-allowance-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0398-cancun-diving-c-58-wreck.webp"
+    },
+    {
+      "slug": "carers-assessment-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0164-christmas.webp"
+    },
+    {
+      "slug": "blue-badge-frailty-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0464-hk-tsuen-wan-tsuen-king-circuit-allway-garden.webp"
+    },
+    {
+      "slug": "social-care-needs-assessment-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0346-the-great-unconformity.webp"
+    },
+    {
+      "slug": "depression-osteoarthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0184-two-women-walking-down-a-sidewalk.webp"
+    },
+    {
+      "slug": "loneliness-arthritis-frailty-social-contact-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0101-old-women-gathering-in-plaza-corredera-cordob.webp"
+    },
+    {
+      "slug": "sleep-arthritis-frailty-night-pain-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0296-the-tai-chi-lesson-had-already-started.webp"
+    },
+    {
+      "slug": "anxiety-about-falling-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0069-an-elderly-walking-at-a-once-a-railway-park-i.webp"
+    },
+    {
+      "slug": "confidence-after-fall-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0428-learning-to-swim.webp"
+    },
+    {
+      "slug": "hospital-stay-arthritis-frailty-what-to-pack-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0476-support-for-japan.webp"
+    },
+    {
+      "slug": "discharge-planning-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0384-vale-youth-art-project-094.webp"
+    },
+    {
+      "slug": "rural-living-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0475-20120106-oc-amw-0754.webp"
+    },
+    {
+      "slug": "high-rise-flat-arthritis-frailty-lifts-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0481-20171027-ams-lsc-0757.webp"
+    },
+    {
+      "slug": "winter-arthritis-frailty-cold-houses-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0416-feeding-time.webp"
+    },
+    {
+      "slug": "heatwave-arthritis-frailty-hydration-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0415-trans-pennine-trail-21st-anniversary-3.webp"
+    },
+    {
+      "slug": "community-alarm-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0319-fitness-programming-greenville-aquatics.webp"
+    },
+    {
+      "slug": "podiatry-footcare-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0437-greek-salad.webp"
+    },
+    {
+      "slug": "hearing-balance-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0159-elderly-couple-walk-together.webp"
+    },
+    {
+      "slug": "dental-care-arthritis-frailty-hands-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0487-20171027-ams-lsc-0268.webp"
+    },
+    {
+      "slug": "skin-pressure-care-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0163-new-york-city-street-scenes-elderly-woman-wal.webp"
+    },
+    {
+      "slug": "chair-yoga-frailty-inflammatory-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0445-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "community-strength-classes-frail-oa-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0317-fitness-programming-greenville-aquatics.webp"
+    },
+    {
+      "slug": "community-matron-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0342-walk-into-the-sunshine.webp"
+    },
+    {
+      "slug": "intermediate-care-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0116-alone-in-the-world.webp"
+    },
+    {
+      "slug": "day-centres-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0201-walking.webp"
+    },
+    {
+      "slug": "pets-arthritis-frailty-walking-dogs-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0330-i-hope-this-is-me-in-40-years.webp"
+    },
+    {
+      "slug": "faith-groups-arthritis-frailty-access-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0451-couples-and-ponds.webp"
+    },
+    {
+      "slug": "libraries-arthritis-frailty-getting-out-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0461-hk-tsuen-wan-tsuen-king-circuit-allway-garden.webp"
+    },
+    {
+      "slug": "community-transport-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0110-hombre-con-galabiya-giza-egipto.webp"
+    },
+    {
+      "slug": "hospital-appointments-frailty-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0471-mirepoix-called-also-soffritto.webp"
+    },
+    {
+      "slug": "flu-jab-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0162-ben-the-greyhound.webp"
+    },
+    {
+      "slug": "shingles-vaccine-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0448-monster-salad.webp"
+    },
+    {
+      "slug": "covid-winter-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0401-tai-chi-in-the-park-0a44b633.webp"
+    },
+    {
+      "slug": "delirium-hospital-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0309-bethany.webp"
+    },
+    {
+      "slug": "cognition-arthritis-frailty-remembering-tablets-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0410-14-fox-mountain-trailhead-parking-for-spring-.webp"
+    },
+    {
+      "slug": "uti-confusion-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0453-uni-duo.webp"
+    },
+    {
+      "slug": "chest-infection-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0343-hudson-river-park-views.webp"
+    },
+    {
+      "slug": "heart-failure-arthritis-frailty-overlap-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0409-tai-chi-cannon-beach.webp"
+    },
+    {
+      "slug": "copd-arthritis-frailty-breathlessness-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0458-harm-nia-swimming-pool-bicycles-in-gy-mr-pest-3ae74262.webp"
+    },
+    {
+      "slug": "diabetes-arthritis-frailty-feet-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0456-support-for-japan.webp"
+    },
+    {
+      "slug": "ckd-nsaids-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0108-old-runner-a3.webp"
+    },
+    {
+      "slug": "blood-pressure-tablets-falls-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0147-old-runner-b1.webp"
+    },
+    {
+      "slug": "sleeping-tablets-falls-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0444-file-learning-to-swim-8812288262-jpg.webp"
+    },
+    {
+      "slug": "anticholinergic-load-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0076-img-7743-jpg.webp"
+    },
+    {
+      "slug": "direct-payments-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0085-untitled.webp"
+    },
+    {
+      "slug": "extra-care-housing-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0411-cold-steel-triathlon.webp"
+    },
+    {
+      "slug": "nursing-home-arthritis-pain-review-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0081-julio-shepherd-drive-bridge-over-white-oak-ba.webp"
+    },
+    {
+      "slug": "reablement-team-arthritis-home-practice-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0452-potato-salad.webp"
+    },
+    {
+      "slug": "community-ot-waiting-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0452-jelly-donuts.webp"
+    },
+    {
+      "slug": "falls-response-service-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0409-think-outside-photo-contest-first-landing-sta.webp"
+    },
+    {
+      "slug": "gp-home-visit-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0157-this-lady-shows-off-her-wares.webp"
+    },
+    {
+      "slug": "paramedic-fall-lift-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0481-20140918-nrcs-lsc-0350.webp"
+    },
+    {
+      "slug": "occupational-therapist-kitchen-visit-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0393-stinky-hotel-in-cancun-fiest-americana-villa.webp"
+    },
+    {
+      "slug": "physiotherapy-home-visit-frail-oa-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0448-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "speech-swallowing-meals-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0300-roy-wilkins-park-td-2019-01-13-025-outdoor-fi.webp"
+    },
+    {
+      "slug": "vitamin-d-and-falls-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0459-lunchtime-salad.webp"
+    },
+    {
+      "slug": "calcium-foods-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0469-organic-olive-oil-salad.webp"
+    },
+    {
+      "slug": "oily-fish-arthritis-frailty-simple-meals-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0474-salad.webp"
+    },
+    {
+      "slug": "shopping-online-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0484-bordesley-middleway-camp-hill-site-of-the-shi.webp"
+    },
+    {
+      "slug": "meal-delivery-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0435-400kcal-diet-020.webp"
+    },
+    {
+      "slug": "kettle-safety-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0106-wwpw-2014-drizzico-6.webp"
+    },
+    {
+      "slug": "toilet-frame-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0435-birla-senior-secondary-school-swimming-pool.webp"
+    },
+    {
+      "slug": "commode-night-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0111-photos-and-walking-sticks.webp"
+    },
+    {
+      "slug": "bed-lever-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0127-contrast.webp"
+    },
+    {
+      "slug": "sofa-height-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0426-oha-386-appliances-for-hand-exercises.webp"
+    },
+    {
+      "slug": "threshold-ramps-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0348-older-muslim-couple.webp"
+    },
+    {
+      "slug": "outdoor-steps-handrails-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0431-swimming-pool-1961.webp"
+    },
+    {
+      "slug": "ice-snow-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0292-tai-chi-uncle.webp"
+    },
+    {
+      "slug": "heat-packs-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0420-the-great-hospital-norwich-the-swan-pit.webp"
+    },
+    {
+      "slug": "pacing-housework-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0424-chesnut-road-looking-eastward-july-2012-cropp.webp"
+    },
+    {
+      "slug": "pacing-visitors-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0165-gillie-in-the-morning.webp"
+    },
+    {
+      "slug": "activity-diary-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0175-a-wooden-bridge-at-the-beginning-of-the-kbal-.webp"
+    },
+    {
+      "slug": "goal-setting-tiny-wins-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0121-4-4.webp"
+    },
+    {
+      "slug": "motivation-after-setback-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0430-aquatint-satirising-exercise-therapy-for-gout.webp"
+    },
+    {
+      "slug": "carers-how-to-help-without-taking-over-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0274-stretching-exercises.webp"
+    },
+    {
+      "slug": "carer-burnout-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0062-elegance.webp"
+    },
+    {
+      "slug": "family-meetings-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0377-stinky-hotel-in-cancun-fiesta-americana-villa.webp"
+    },
+    {
+      "slug": "lasting-power-of-attorney-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0179-elderly-man.webp"
+    },
+    {
+      "slug": "advance-care-planning-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0479-20171027-ams-lsc-0725.webp"
+    },
+    {
+      "slug": "dnacpr-conversations-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0189-the-walk.webp"
+    },
+    {
+      "slug": "end-of-life-joint-pain-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0329-shipping-containers-and-runes.webp"
+    },
+    {
+      "slug": "spiritual-care-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0437-file-minh-khai-s-swimming-pool-jpg.webp"
+    },
+    {
+      "slug": "bereavement-arthritis-frailty-living-alone-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0177-tipped-kerbstone-outside-82a-white-hart-lane.webp"
+    },
+    {
+      "slug": "widowhood-meals-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0486-steamed-kale.webp"
+    },
+    {
+      "slug": "living-alone-falls-plan-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0206-ballet-and-macs-at-pleasantview-care-facility.webp"
+    },
+    {
+      "slug": "pendant-alarm-arthritis-swollen-fingers-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0488-autumn-chick-pea-salad.webp"
+    },
+    {
+      "slug": "smart-speakers-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0469-20171027-ams-lsc-1375.webp"
+    },
+    {
+      "slug": "remote-gp-apps-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0403-img-8515-1.webp"
+    },
+    {
+      "slug": "repeat-prescriptions-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0419-learning-to-swim.webp"
+    },
+    {
+      "slug": "blood-test-transport-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0333-makes-a-wonderful-park.webp"
+    },
+    {
+      "slug": "eye-clinic-day-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0388-jennifer.webp"
+    },
+    {
+      "slug": "rheumatology-clinic-frail-older-adult-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0336-rednotebook2009-pg-20.webp"
+    },
+    {
+      "slug": "geriatric-clinic-plus-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0473-grandfather-reading.webp"
+    },
+    {
+      "slug": "bone-clinic-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0382-the-dip-iii-la-baignade-iii.webp"
+    },
+    {
+      "slug": "pain-clinic-older-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0098-german-man-walking-down-a-wooded-path.webp"
+    },
+    {
+      "slug": "injections-knee-frail-adults-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0078-ford-park-old-man-walks-redlands-ca-7-12.webp"
+    },
+    {
+      "slug": "joint-replacement-decision-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0403-chesnut-road-looking-eastward-july-2012-cropp.webp"
+    },
+    {
+      "slug": "anaesthetic-risk-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0450-william-cooper.webp"
+    },
+    {
+      "slug": "prehabilitation-frail-arthritis-before-surgery-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0135-old-runner-a1.webp"
+    },
+    {
+      "slug": "post-op-constipation-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0417-cancun-wreck-dive-c-58.webp"
+    },
+    {
+      "slug": "wound-care-reaching-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0405-07-santa-barbara-canyon-road-views-7-walk-2-4.webp"
+    },
+    {
+      "slug": "swelling-legs-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0478-the-trentham-estate-barlaston-community-first.webp"
+    },
+    {
+      "slug": "lymphoedema-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0441-2014-us-open-synchronized-swimming-championsh.webp"
+    },
+    {
+      "slug": "sleep-apnoea-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0136-old-runner-b3.webp"
+    },
+    {
+      "slug": "restless-nights-joint-pain-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0437-warm-spinach-mushroom-salad.webp"
+    },
+    {
+      "slug": "naps-versus-inactivity-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0430-elderly-sitting-on-a-chair-holding-a-cane-nin.webp"
+    },
+    {
+      "slug": "morning-stiffness-frailty-routine-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0460-harm-nia-swimming-pool-in-gy-mr-pest-county-h-81879b28.webp"
+    },
+    {
+      "slug": "evening-routine-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0103-grandpa-and-granddaughter.webp"
+    },
+    {
+      "slug": "holiday-at-home-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0422-beijing-china-017.webp"
+    },
+    {
+      "slug": "short-breaks-accessible-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0314-dorchester-senior-center.webp"
+    },
+    {
+      "slug": "hospital-parking-walking-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0463-b-guinage-of-bruges.webp"
+    },
+    {
+      "slug": "wheelchair-for-distance-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0375-10070021.webp"
+    },
+    {
+      "slug": "mobility-scooter-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0459-20171027-ams-lsc-0383.webp"
+    },
+    {
+      "slug": "transfer-board-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0397-water-exercise.webp"
+    },
+    {
+      "slug": "hoist-conversations-family-carers-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0415-learning-to-swim.webp"
+    },
+    {
+      "slug": "pressure-cushion-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0075-painting-of-one-of-your-creative-commons-phot.webp"
+    },
+    {
+      "slug": "footwear-indoor-slippers-frailty-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0091-who-s-that-in-the-bushes.webp"
+    },
+    {
+      "slug": "podiatry-nails-diabetes-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0124-with-gaia-holmes.webp"
+    },
+    {
+      "slug": "bunions-arthritis-frailty-shoes-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0445-birthday-boy-bento.webp"
+    },
+    {
+      "slug": "calluses-pressure-spots-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0417-elderly-man-with-a-cane-nino-f-scholten-photo.webp"
+    },
+    {
+      "slug": "two-walking-aids-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0204-141202-d-fw736-005.webp"
+    },
+    {
+      "slug": "stair-assessments-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0439-file-learning-to-swim-8801703203-jpg.webp"
+    },
+    {
+      "slug": "downstairs-living-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0429-deer-park-evening-walk.webp"
+    },
+    {
+      "slug": "second-hand-equipment-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0063-an-elderly-walking-at-a-once-a-railway-park-i.webp"
+    },
+    {
+      "slug": "short-term-equipment-loans-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0477-20171027-ams-lsc-1188.webp"
+    },
+    {
+      "slug": "local-wheelchair-service-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0150-melaka.webp"
+    },
+    {
+      "slug": "hand-therapy-frail-ra-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0144-walking-up-to-the-st-john-s-church.webp"
+    },
+    {
+      "slug": "splints-night-hand-oa-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0367-deployed-386th-firefighters-train-to-survive-.webp"
+    },
+    {
+      "slug": "tens-machine-older-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0339-colourful-art.webp"
+    },
+    {
+      "slug": "mindfulness-pain-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0410-party-harder-31.webp"
+    },
+    {
+      "slug": "talking-therapies-pain-older-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0350-walking-the-grandkid-birkdale-village.webp"
+    },
+    {
+      "slug": "social-prescribing-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0455-clementines.webp"
+    },
+    {
+      "slug": "walking-sport-too-much-frail-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0414-learning-to-swim.webp"
+    },
+    {
+      "slug": "swimming-frail-arthritis-changing-rooms-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0385-img-8520.webp"
+    },
+    {
+      "slug": "static-bike-frail-osteoarthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0214-141202-d-fw736-007.webp"
+    },
+    {
+      "slug": "nordic-poles-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0454-20171027-ams-lsc-0019.webp"
+    },
+    {
+      "slug": "garden-raised-beds-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0451-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "allotment-identity-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0073-he-used-to-walk-to-his-office-every-day.webp"
+    },
+    {
+      "slug": "volunteering-seated-arthritis-frailty-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0442-roasted-brussels-sprouts.webp"
+    },
+    {
+      "slug": "arthritis-hows-life-living-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0484-seaweed-cucumber-sunomono.webp"
+    },
+    {
+      "slug": "physiotherapy-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0461-20171027-ams-lsc-0093.webp"
+    },
+    {
+      "slug": "arthritis-pain-management",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0143-02141239.webp"
+    },
+    {
+      "slug": "oa-vs-ra-comparison",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0443-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "arthritis-flare-management",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0151-32.webp"
+    },
+    {
+      "slug": "best-supplement-for-knee-joint",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0174-looking-through-a-view-finder-can-be-hazardou.webp"
+    },
+    {
+      "slug": "gout-medication-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0180-lady-herbert-s-homes-coventry.webp"
+    },
+    {
+      "slug": "joint-replacement-surgery",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0416-with-zena-larry-broad-walk-regent-s-park.webp"
+    },
+    {
+      "slug": "arthritis-treatment-hub",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0368-water-exercise-class-a-reflection.webp"
+    },
+    {
+      "slug": "foods-to-avoid-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0436-mid-morning-salad-snack.webp"
+    },
+    {
+      "slug": "managing-arthritis-flare-ups-at-home",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0294-file-tai-chi-young-and-old-jpg.webp"
+    },
+    {
+      "slug": "lwa-archive-what-is-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-001.webp"
+    },
+    {
+      "slug": "rheumatoid-arthritis-diet-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0440-tomato-bread-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-early-signs-of-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-002.webp"
+    },
+    {
+      "slug": "lwa-archive-symptoms-of-arthritis-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-003.webp"
+    },
+    {
+      "slug": "strength-training-arthritis-beginners",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0459-elderly-in-shanklin.webp"
+    },
+    {
+      "slug": "lwa-archive-types-of-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-004.webp"
+    },
+    {
+      "slug": "gut-joint-connection-microbiome-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0458-dont-worry-about-a-thing-bob-marley.webp"
+    },
+    {
+      "slug": "lwa-archive-what-causes-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-005.webp"
+    },
+    {
+      "slug": "mindfulness-chronic-pain-arthritis-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0125-chungking-mansions.webp"
+    },
+    {
+      "slug": "lwa-archive-is-arthritis-hereditary",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-006.webp"
+    },
+    {
+      "slug": "arthritis-and-pregnancy-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0297-roy-wilkins-park-td-2019-01-13-026-outdoor-fi.webp"
+    },
+    {
+      "slug": "lwa-archive-can-arthritis-be-prevented",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-007.webp"
+    },
+    {
+      "slug": "working-with-arthritis-uk-rights",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0059-elderly-walking.webp"
+    },
+    {
+      "slug": "lwa-archive-arthritis-statistics-in-the-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-008.webp"
+    },
+    {
+      "slug": "lwa-archive-living-well-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-009.webp"
+    },
+    {
+      "slug": "lwa-archive-arthritis-myths-vs-facts",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-010.webp"
+    },
+    {
+      "slug": "best-supplements-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0338-faith-in-humanity.webp"
+    },
+    {
+      "slug": "lwa-archive-what-is-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-011.webp"
+    },
+    {
+      "slug": "arthritis-and-mental-health-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-and-mental-health-uk.webp"
+    },
+    {
+      "slug": "lwa-archive-early-symptoms-of-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-012.webp"
+    },
+    {
+      "slug": "aquatic-therapy-arthritis-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0412-morning-tai-chi.webp"
+    },
+    {
+      "slug": "lwa-archive-rheumatoid-arthritis-diagnosis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-013.webp"
+    },
+    {
+      "slug": "lwa-archive-rheumatoid-arthritis-blood-tests",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-014.webp"
+    },
+    {
+      "slug": "anti-inflammatory-smoothie-recipes",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0461-korean-food.webp"
+    },
+    {
+      "slug": "lwa-archive-rheumatoid-arthritis-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-015.webp"
+    },
+    {
+      "slug": "lwa-archive-best-exercise-for-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-016.webp"
+    },
+    {
+      "slug": "lwa-archive-diet-for-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-017.webp"
+    },
+    {
+      "slug": "lwa-archive-fatigue-and-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-018.webp"
+    },
+    {
+      "slug": "arthritis-exercises-uk-clinical",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0276-stretching-exercises.webp"
+    },
+    {
+      "slug": "lwa-archive-managing-rheumatoid-arthritis-flare-ups",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-019.webp"
+    },
+    {
+      "slug": "arthritis-flare-up-what-to-do",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0138-old-runner-a2.webp"
+    },
+    {
+      "slug": "lwa-archive-long-term-outlook-for-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-020.webp"
+    },
+    {
+      "slug": "arthritis-friendly-recipes-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0470-egg-salad-bento.webp"
+    },
+    {
+      "slug": "lwa-archive-what-is-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-021.webp"
+    },
+    {
+      "slug": "best-diet-for-joint-pain-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0443-are-you-eating-fruits.webp"
+    },
+    {
+      "slug": "lwa-archive-knee-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-022.webp"
+    },
+    {
+      "slug": "lwa-archive-hip-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-023.webp"
+    },
+    {
+      "slug": "cycling-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0331-up-she-goes.webp"
+    },
+    {
+      "slug": "lwa-archive-shoulder-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-024.webp"
+    },
+    {
+      "slug": "exercise-for-hip-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0480-20171027-ams-lsc-1597.webp"
+    },
+    {
+      "slug": "lwa-archive-hand-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-025.webp"
+    },
+    {
+      "slug": "gadgets-aids-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-gadgets-aids-arthritis-uk.webp"
+    },
+    {
+      "slug": "lwa-archive-neck-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-026.webp"
+    },
+    {
+      "slug": "glucosamine-vs-collagen",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0429-learning-to-swim.webp"
+    },
+    {
+      "slug": "lwa-archive-spinal-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-027.webp"
+    },
+    {
+      "slug": "hand-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0455-the-coopers.webp"
+    },
+    {
+      "slug": "lwa-archive-foot-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-028.webp"
+    },
+    {
+      "slug": "knee-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-turmeric-and-methotrexate-interaction.webp"
+    },
+    {
+      "slug": "lwa-archive-best-exercises-for-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-029.webp"
+    },
+    {
+      "slug": "managing-arthritis-at-work",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0146-adelaide-street-brisbane-between-creek-and-ed.webp"
+    },
+    {
+      "slug": "lwa-archive-when-is-surgery-needed-for-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-030.webp"
+    },
+    {
+      "slug": "lwa-archive-joint-pain-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-031.webp"
+    },
+    {
+      "slug": "omega-3-foods-for-joints",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0439-watermelon-mint-raspberry-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-joint-swelling",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-032.webp"
+    },
+    {
+      "slug": "seasonal-arthritis-guide-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0407-05-santa-barbara-canyon-road-views-5-fox-moun.webp"
+    },
+    {
+      "slug": "lwa-archive-morning-stiffness",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-033.webp"
+    },
+    {
+      "slug": "swimming-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0130-squishy-feet-rain-closed-stores-but-i-still-l.webp"
+    },
+    {
+      "slug": "lwa-archive-clicking-joints",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-034.webp"
+    },
+    {
+      "slug": "tai-chi-for-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0328-my-left-knee.webp"
+    },
+    {
+      "slug": "lwa-archive-muscle-weakness-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-035.webp"
+    },
+    {
+      "slug": "travelling-with-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-travelling-with-arthritis-uk.webp"
+    },
+    {
+      "slug": "lwa-archive-reduced-mobility",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-036.webp"
+    },
+    {
+      "slug": "turmeric-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0438-spinach-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-fatigue-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-037.webp"
+    },
+    {
+      "slug": "yoga-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0432-grilled-chicken-salad-with-strawberries-apple.webp"
+    },
+    {
+      "slug": "lwa-archive-inflammation-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-038.webp"
+    },
+    {
+      "slug": "arthritis-in-young-people-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0134-elderly.webp"
+    },
+    {
+      "slug": "lwa-archive-balance-problems-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-039.webp"
+    },
+    {
+      "slug": "arthritis-relationships-honest-conversations",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0196-water-aerobics.webp"
+    },
+    {
+      "slug": "lwa-archive-walking-difficulties-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-040.webp"
+    },
+    {
+      "slug": "best-walking-shoes-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0351-walkers.webp"
+    },
+    {
+      "slug": "lwa-archive-arthritis-treatment-options",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-041.webp"
+    },
+    {
+      "slug": "pip-for-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0186-the-long-journey.webp"
+    },
+    {
+      "slug": "lwa-archive-pain-medication-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-042.webp"
+    },
+    {
+      "slug": "lwa-archive-anti-inflammatory-medicines",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-043.webp"
+    },
+    {
+      "slug": "hydrotherapy-pools-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0316-senior-members-of-morning-yoga-group-rc-mohan.webp"
+    },
+    {
+      "slug": "lwa-archive-steroid-injections-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-044.webp"
+    },
+    {
+      "slug": "lwa-archive-physiotherapy-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-045.webp"
+    },
+    {
+      "slug": "arthritis-and-alcohol-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0471-support-for-japan.webp"
+    },
+    {
+      "slug": "lwa-archive-occupational-therapy-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-046.webp"
+    },
+    {
+      "slug": "lwa-archive-hydrotherapy-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-047.webp"
+    },
+    {
+      "slug": "occupational-therapy-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0307-on-lok-senior-health-services-day-care-progra.webp"
+    },
+    {
+      "slug": "lwa-archive-surgery-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-048.webp"
+    },
+    {
+      "slug": "arthritis-and-sleep-problems",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0475-boroma.webp"
+    },
+    {
+      "slug": "lwa-archive-biologic-drugs-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-049.webp"
+    },
+    {
+      "slug": "yoga-for-arthritis-beginners",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0379-old-man-taking-a-dip-in-the-sea-vieil-homme-s.webp"
+    },
+    {
+      "slug": "lwa-archive-new-treatments-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-050.webp"
+    },
+    {
+      "slug": "arthritis-fatigue-management-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0083-help.webp"
+    },
+    {
+      "slug": "lwa-archive-best-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-051.webp"
+    },
+    {
+      "slug": "osteoarthritis-symptoms-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0353-looking-up-from-the-vegetable-patch-towards-t.webp"
+    },
+    {
+      "slug": "lwa-archive-knee-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-052.webp"
+    },
+    {
+      "slug": "arthritis-and-cycling-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0313-dorchester-senior-center.webp"
+    },
+    {
+      "slug": "lwa-archive-hip-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-053.webp"
+    },
+    {
+      "slug": "rheumatology-waiting-times-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0431-benching-freight-wall-graffiti-in-socal-may-1.webp"
+    },
+    {
+      "slug": "lwa-archive-hand-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-054.webp"
+    },
+    {
+      "slug": "arthritis-and-omega-3-fish-oil",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0477-bean-salad-over-lettuce.webp"
+    },
+    {
+      "slug": "lwa-archive-shoulder-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-055.webp"
+    },
+    {
+      "slug": "lwa-archive-spine-exercises-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-056.webp"
+    },
+    {
+      "slug": "arthritis-and-weight-loss-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0440-edamame-and-radish-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-home-exercise-programme-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-057.webp"
+    },
+    {
+      "slug": "arthritis-and-work-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0427-broken-paving-park-view-road.webp"
+    },
+    {
+      "slug": "lwa-archive-stretching-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-058.webp"
+    },
+    {
+      "slug": "lwa-archive-strength-training-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-059.webp"
+    },
+    {
+      "slug": "lwa-archive-balance-training-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-060.webp"
+    },
+    {
+      "slug": "knee-arthritis-exercises-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0450-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "lwa-archive-heat-vs-ice-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-061.webp"
+    },
+    {
+      "slug": "arthritis-pain-relief-natural",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0423-learning-to-swim.webp"
+    },
+    {
+      "slug": "lwa-archive-tens-machines-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-062.webp"
+    },
+    {
+      "slug": "assistive-devices-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0414-slippery-rocks-and-no-hand-holds-was-what-spo.webp"
+    },
+    {
+      "slug": "lwa-archive-massage-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-063.webp"
+    },
+    {
+      "slug": "hip-arthritis-symptoms-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0418-om-yoga-mat-bag-6dc653e8.webp"
+    },
+    {
+      "slug": "lwa-archive-walking-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-064.webp"
+    },
+    {
+      "slug": "lwa-archive-swimming-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-065.webp"
+    },
+    {
+      "slug": "lwa-archive-yoga-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-066.webp"
+    },
+    {
+      "slug": "knee-replacement-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0199-dil-chora-hospital-dire-dawa-ethiopia-2010.webp"
+    },
+    {
+      "slug": "lwa-archive-pilates-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-067.webp"
+    },
+    {
+      "slug": "lwa-archive-acupuncture-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-068.webp"
+    },
+    {
+      "slug": "walking-aids-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0421-group-of-elderly-men-one-has-a-cane-nino-f-sc.webp"
+    },
+    {
+      "slug": "lwa-archive-improving-sleep-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-069.webp"
+    },
+    {
+      "slug": "lwa-archive-mindfulness-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-070.webp"
+    },
+    {
+      "slug": "juvenile-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0084-completion-of-improvements-at-murray-hill-com.webp"
+    },
+    {
+      "slug": "lwa-archive-anti-inflammatory-diet-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-071.webp"
+    },
+    {
+      "slug": "shoulder-arthritis-exercises-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0456-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-mediterranean-diet-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-072.webp"
+    },
+    {
+      "slug": "lwa-archive-turmeric-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-073.webp"
+    },
+    {
+      "slug": "hip-replacement-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0284-stretching-exercises.webp"
+    },
+    {
+      "slug": "lwa-archive-ginger-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-074.webp"
+    },
+    {
+      "slug": "anti-inflammatory-herbs-spices-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0464-garlicy-lacinato-kale.webp"
+    },
+    {
+      "slug": "lwa-archive-omega-3-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-075.webp"
+    },
+    {
+      "slug": "lwa-archive-vitamin-d-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-076.webp"
+    },
+    {
+      "slug": "staying-active-arthritis-winter-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0434-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-calcium-and-bone-health",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-077.webp"
+    },
+    {
+      "slug": "tens-machines-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0458-green-salad-3.webp"
+    },
+    {
+      "slug": "lwa-archive-weight-loss-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-078.webp"
+    },
+    {
+      "slug": "arthritis-and-gardening-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-and-gardening-uk.webp"
+    },
+    {
+      "slug": "lwa-archive-foods-to-avoid-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-079.webp"
+    },
+    {
+      "slug": "spinal-arthritis-back-pain-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0213-back-step-stretch.webp"
+    },
+    {
+      "slug": "lwa-archive-supplements-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-080.webp"
+    },
+    {
+      "slug": "arthritis-support-refugees-diverse-communities",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0341-060415couples.webp"
+    },
+    {
+      "slug": "gut-health-arthritis-connection",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0462-bowl-of-kale.webp"
+    },
+    {
+      "slug": "lwa-archive-pip-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-081.webp"
+    },
+    {
+      "slug": "hydrotherapy-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0142-pat.webp"
+    },
+    {
+      "slug": "lwa-archive-how-to-apply-for-pip-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-082.webp"
+    },
+    {
+      "slug": "arthritis-and-pets-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0458-20171027-ams-lsc-0124.webp"
+    },
+    {
+      "slug": "lwa-archive-disability-living-allowance-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-083.webp"
+    },
+    {
+      "slug": "arthritis-meal-planning-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0476-potato-salad.webp"
+    },
+    {
+      "slug": "lwa-archive-universal-credit-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-084.webp"
+    },
+    {
+      "slug": "lwa-archive-blue-badge-scheme-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-085.webp"
+    },
+    {
+      "slug": "arthritis-and-travel-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0340-two-people-enjoying-a-walk-in-the-sunshine.webp"
+    },
+    {
+      "slug": "lwa-archive-access-to-work-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-086.webp"
+    },
+    {
+      "slug": "lwa-archive-arthritis-at-work",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-087.webp"
+    },
+    {
+      "slug": "lwa-archive-reasonable-adjustments-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-088.webp"
+    },
+    {
+      "slug": "lwa-archive-sick-leave-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-089.webp"
+    },
+    {
+      "slug": "lwa-archive-employment-rights-for-people-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-090.webp"
+    },
+    {
+      "slug": "lwa-archive-daily-living-tips-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-091.webp"
+    },
+    {
+      "slug": "lwa-archive-mental-health-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-092.webp"
+    },
+    {
+      "slug": "lwa-archive-relationships-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-093.webp"
+    },
+    {
+      "slug": "lwa-archive-travelling-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-094.webp"
+    },
+    {
+      "slug": "lwa-archive-driving-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-095.webp"
+    },
+    {
+      "slug": "lwa-archive-gardening-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-096.webp"
+    },
+    {
+      "slug": "lwa-archive-holidays-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-097.webp"
+    },
+    {
+      "slug": "lwa-archive-sleep-and-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-098.webp"
+    },
+    {
+      "slug": "lwa-archive-choosing-footwear-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-099.webp"
+    },
+    {
+      "slug": "lwa-archive-assistive-equipment-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-100.webp"
+    },
+    {
+      "slug": "lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-101.webp"
+    },
+    {
+      "slug": "lwa-archive-gout-causes-symptoms-and-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-102.webp"
+    },
+    {
+      "slug": "lwa-archive-psoriatic-arthritis-early-signs-and-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-103.webp"
+    },
+    {
+      "slug": "lwa-archive-ankylosing-spondylitis-symptoms-and-management",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-104.webp"
+    },
+    {
+      "slug": "lwa-archive-reactive-arthritis-causes-symptoms-and-recovery",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-105.webp"
+    },
+    {
+      "slug": "lwa-archive-septic-arthritis-symptoms-and-emergency-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-106.webp"
+    },
+    {
+      "slug": "lwa-archive-juvenile-idiopathic-arthritis-arthritis-in-children",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-107.webp"
+    },
+    {
+      "slug": "lwa-archive-lupus-and-arthritis-understanding-joint-symptoms",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-108.webp"
+    },
+    {
+      "slug": "lwa-archive-polymyalgia-rheumatica-symptoms-and-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-109.webp"
+    },
+    {
+      "slug": "lwa-archive-osteoporosis-vs-arthritis-what-s-the-difference",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-110.webp"
+    },
+    {
+      "slug": "lwa-archive-cauda-equina-syndrome-symptoms-red-flags-and-emergency-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-111.webp"
+    },
+    {
+      "slug": "lwa-archive-septic-joint-recognising-a-joint-infection",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-112.webp"
+    },
+    {
+      "slug": "lwa-archive-fractures-and-arthritis-understanding-bone-injury-risks",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-113.webp"
+    },
+    {
+      "slug": "lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-114.webp"
+    },
+    {
+      "slug": "lwa-archive-when-should-you-see-a-gp-about-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-115.webp"
+    },
+    {
+      "slug": "lwa-archive-when-should-you-go-to-a-e-for-joint-or-back-pain",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-116.webp"
+    },
+    {
+      "slug": "lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-117.webp"
+    },
+    {
+      "slug": "lwa-archive-arthritis-medication-safety-preventing-side-effects-and-interactions",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-118.webp"
+    },
+    {
+      "slug": "lwa-archive-falls-prevention-for-people-living-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-119.webp"
+    },
+    {
+      "slug": "lwa-archive-frailty-and-arthritis-maintaining-strength-mobility-and-independence",
+      "status": "fail",
+      "detail": "No provenance metadata for imported-article-120.webp"
+    },
+    {
+      "slug": "expert-qa-track-progress-without-measuring",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0064-older-then-younger-now.webp"
+    },
+    {
+      "slug": "weight-management-arthritis-evidence",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0447-pasta-salad.webp"
+    },
+    {
+      "slug": "pacing-techniques-arthritis-pain",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0312-dorchester-senior-center.webp"
+    },
+    {
+      "slug": "flare-management-pain-spikes",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0424-learning-to-swim.webp"
+    },
+    {
+      "slug": "expert-brief-exercise-order-pain-relief",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0112-013942-haymarket-hotel-percy-street-1964.webp"
+    },
+    {
+      "slug": "anti-inflammatory-shopping-list-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0446-seared-scallops-with-edamame-garlic-pur-e-and.webp"
+    },
+    {
+      "slug": "swimming-full-body-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0324-cane.webp"
+    },
+    {
+      "slug": "morning-routine-multi-joint-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0478-20171027-ams-lsc-1286.webp"
+    },
+    {
+      "slug": "expert-qa-spinal-injections-vs-exercise",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0128-two-colorful-elderly-women.webp"
+    },
+    {
+      "slug": "core-strengthening-spinal-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0428-20120628-oc-lsc-0461.webp"
+    },
+    {
+      "slug": "lower-back-stiffness-worse-after-sitting",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0161-haringey-dog-buggy.webp"
+    },
+    {
+      "slug": "expert-brief-frozen-shoulder-vs-ra",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0126-one-giant-visit-for-balad.webp"
+    },
+    {
+      "slug": "berries-antioxidants-inflammation",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0453-kale-salad.webp"
+    },
+    {
+      "slug": "pendulum-swings-wall-slides-shoulder",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0216-141202-d-fw736-006.webp"
+    },
+    {
+      "slug": "shoulder-pain-reaching-ra-vs-oa",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0100-the-walk-la-promenade.webp"
+    },
+    {
+      "slug": "ginger-root-natural-anti-inflammatory",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0467-lentil-salad-kci-1361.webp"
+    },
+    {
+      "slug": "grip-strength-exercises-hand-oa",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0456-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "thumb-base-pain-early-hand-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0472-salad-greens-two-ways.webp"
+    },
+    {
+      "slug": "expert-brief-12-week-hip-exercise-protocol",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0183-walking-the-queen-s-walk.webp"
+    },
+    {
+      "slug": "fatty-fish-omega-3-arthritis-evidence",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0449-grilled-chicken-fattoush-salad.webp"
+    },
+    {
+      "slug": "glute-bridges-hip-osteoarthritis-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0465-support-for-japan.webp"
+    },
+    {
+      "slug": "hip-pain-climbing-stairs-causes-relief",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0335-everything.webp"
+    },
+    {
+      "slug": "expert-brief-activity-safety-knee-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0486-20171027-ams-lsc-0689.webp"
+    },
+    {
+      "slug": "straight-leg-raises-knee-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0473-20171027-ams-lsc-1634.webp"
+    },
+    {
+      "slug": "building-strength-resilience-exercise-frailty-prevention",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0320-fitness-programming-greenville-aquatics.webp"
+    },
+    {
+      "slug": "nutrition-strategies-reduce-frailty-risk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0407-070630-n-8110k-014.webp"
+    },
+    {
+      "slug": "sarcopenia-muscle-loss-how-to-combat",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0288-senior-active.webp"
+    },
+    {
+      "slug": "preventing-falls-guide-frail-adults",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0145-img-2419.webp"
+    },
+    {
+      "slug": "understanding-frailty-older-adults",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0465-elderly-man-with-a-cane-nino-f-scholten-tel-a.webp"
+    },
+    {
+      "slug": "ginger-vs-turmeric-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0485-kale-and-pomegranate-salad.webp"
+    },
+    {
+      "slug": "best-plantar-fasciitis-shoes-women-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0210-ballet-and-macs-at-pleasantview-care-facility.webp"
+    },
+    {
+      "slug": "cauda-equina-warning-signs-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cauda-equina-education.webp"
+    },
+    {
+      "slug": "inclusive-arthritis-frailty-support-plan-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for inclusive-support-plan.webp"
+    },
+    {
+      "slug": "arthritis-flare-early-warning-signs",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-flare-early-warning-signs.webp"
+    },
+    {
+      "slug": "arthritis-roadmaps-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-roadmaps-uk.webp"
+    },
+    {
+      "slug": "arthritis-symptoms-what-to-do-next",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-symptoms-what-to-do-next.webp"
+    },
+    {
+      "slug": "ask-the-physio-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-ask-the-physio-arthritis.webp"
+    },
+    {
+      "slug": "best-mattress-for-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-best-mattress-for-arthritis-uk.webp"
+    },
+    {
+      "slug": "daily-arthritis-planner-printable",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-daily-arthritis-planner-printable.webp"
+    },
+    {
+      "slug": "30-day-arthritis-pain-reduction-challenge",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-30-day-arthritis-pain-reduction-challenge.webp"
+    },
+    {
+      "slug": "arthritis-blood-tests-explained-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-blood-tests-explained-uk.webp"
+    },
+    {
+      "slug": "arthritis-fatigue-recovery-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-fatigue-recovery-guide.webp"
+    },
+    {
+      "slug": "arthritis-friendly-gym-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-friendly-gym-guide.webp"
+    },
+    {
+      "slug": "arthritis-pain-map-by-joint",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-pain-map-by-joint.webp"
+    },
+    {
+      "slug": "arthritis-pain-scale-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-pain-scale-explained.webp"
+    },
+    {
+      "slug": "arthritis-pain-tracking-journal-template",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-pain-tracking-journal-template.webp"
+    },
+    {
+      "slug": "arthritis-red-flag-symptoms",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-red-flag-symptoms.webp"
+    },
+    {
+      "slug": "balance-training-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-balance-training-arthritis.webp"
+    },
+    {
+      "slug": "best-breakfast-for-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-best-breakfast-for-arthritis-uk.webp"
+    },
+    {
+      "slug": "chair-exercises-older-adults-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-chair-exercises-older-adults-arthritis.webp"
+    },
+    {
+      "slug": "cooking-with-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-cooking-with-arthritis-uk.webp"
+    },
+    {
+      "slug": "daily-mobility-routine-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-daily-mobility-routine-arthritis.webp"
+    },
+    {
+      "slug": "emergency-arthritis-flare-checklist",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-emergency-arthritis-flare-checklist.webp"
+    },
+    {
+      "slug": "exercise-progression-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-exercise-progression-arthritis.webp"
+    },
+    {
+      "slug": "heat-or-ice-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-heat-or-ice-for-arthritis.webp"
+    },
+    {
+      "slug": "housing-support-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-housing-support-arthritis-uk.webp"
+    },
+    {
+      "slug": "how-nhs-referrals-work-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-how-nhs-referrals-work-arthritis.webp"
+    },
+    {
+      "slug": "how-to-choose-the-right-exercise-for-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-how-to-choose-the-right-exercise-for-arthritis.webp"
+    },
+    {
+      "slug": "motability-scheme-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-motability-scheme-arthritis-uk.webp"
+    },
+    {
+      "slug": "mri-scan-arthritis-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-mri-scan-arthritis-explained.webp"
+    },
+    {
+      "slug": "nhs-arthritis-pathways-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-nhs-arthritis-pathways-explained.webp"
+    },
+    {
+      "slug": "parenting-with-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-parenting-with-arthritis-uk.webp"
+    },
+    {
+      "slug": "physio-mistakes-to-avoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-physio-mistakes-to-avoid-arthritis.webp"
+    },
+    {
+      "slug": "plant-based-diet-arthritis-evidence",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-plant-based-diet-arthritis-evidence.webp"
+    },
+    {
+      "slug": "preparing-for-joint-replacement-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-preparing-for-joint-replacement-uk.webp"
+    },
+    {
+      "slug": "private-treatment-costs-uk-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-private-treatment-costs-uk-arthritis.webp"
+    },
+    {
+      "slug": "protein-requirements-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-protein-requirements-arthritis-uk.webp"
+    },
+    {
+      "slug": "questions-to-ask-your-consultant-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-questions-to-ask-your-consultant-arthritis.webp"
+    },
+    {
+      "slug": "resistance-band-workouts-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-resistance-band-workouts-arthritis.webp"
+    },
+    {
+      "slug": "retirement-planning-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-retirement-planning-arthritis-uk.webp"
+    },
+    {
+      "slug": "rheumatology-appointment-what-to-expect-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-rheumatology-appointment-what-to-expect-uk.webp"
+    },
+    {
+      "slug": "safe-daily-stretching-routine-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-safe-daily-stretching-routine-arthritis.webp"
+    },
+    {
+      "slug": "travel-insurance-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-travel-insurance-arthritis-uk.webp"
+    },
+    {
+      "slug": "weather-and-arthritis-pain-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-weather-and-arthritis-pain-explained.webp"
+    },
+    {
+      "slug": "weight-loss-exercise-plan-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-weight-loss-exercise-plan-arthritis.webp"
+    },
+    {
+      "slug": "workplace-adjustment-letter-templates-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-workplace-adjustment-letter-templates-arthritis.webp"
+    },
+    {
+      "slug": "x-ray-arthritis-explained",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-x-ray-arthritis-explained.webp"
+    },
+    {
+      "slug": "arthritis-and-your-heart-lowering-risk",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-arthritis-and-your-heart-lowering-risk.webp"
+    },
+    {
+      "slug": "carers-allowance-help-if-you-care-for-someone",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-carers-allowance-help-if-you-care-for-someone.webp"
+    },
+    {
+      "slug": "food-drink-and-arthritis-medicines-interactions",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-food-drink-and-arthritis-medicines-interactions.webp"
+    },
+    {
+      "slug": "giant-cell-arteritis-headache-warning-signs",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-giant-cell-arteritis-headache-warning-signs.webp"
+    },
+    {
+      "slug": "how-arthritis-is-diagnosed-tests-scans-results",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-how-arthritis-is-diagnosed-tests-scans-results.webp"
+    },
+    {
+      "slug": "joint-protection-easier-everyday-tasks",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-joint-protection-easier-everyday-tasks.webp"
+    },
+    {
+      "slug": "leflunomide-for-arthritis-blood-tests-side-effects",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-leflunomide-for-arthritis-blood-tests-side-effects.webp"
+    },
+    {
+      "slug": "menopause-hrt-and-joint-pain",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-menopause-hrt-and-joint-pain.webp"
+    },
+    {
+      "slug": "palindromic-rheumatism-joint-attacks-come-and-go",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-palindromic-rheumatism-joint-attacks-come-and-go.webp"
+    },
+    {
+      "slug": "pseudogout-cppd-sudden-hot-swollen-joints",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-pseudogout-cppd-sudden-hot-swollen-joints.webp"
+    },
+    {
+      "slug": "running-with-arthritis-knees-and-hips",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-running-with-arthritis-knees-and-hips.webp"
+    },
+    {
+      "slug": "septic-arthritis-hot-swollen-joint-emergency",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-septic-arthritis-hot-swollen-joint-emergency.webp"
+    },
+    {
+      "slug": "sick-pay-fit-notes-time-off-work-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-sick-pay-fit-notes-time-off-work-arthritis.webp"
+    },
+    {
+      "slug": "starting-a-new-arthritis-medicine-questions-to-ask",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-starting-a-new-arthritis-medicine-questions-to-ask.webp"
+    },
+    {
+      "slug": "sulfasalazine-for-arthritis-what-to-expect",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-sulfasalazine-for-arthritis-what-to-expect.webp"
+    },
+    {
+      "slug": "vaccines-on-dmards-and-biologics-uk-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-vaccines-on-dmards-and-biologics-uk-guide.webp"
+    },
+    {
+      "slug": "walking-with-arthritis-start-build-up-keep-going",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-walking-with-arthritis-start-build-up-keep-going.webp"
+    },
+    {
+      "slug": "weight-loss-injections-arthritis-wegovy-mounjaro",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-weight-loss-injections-arthritis-wegovy-mounjaro.webp"
+    },
+    {
+      "slug": "your-arthritis-care-team-who-does-what",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-your-arthritis-care-team-who-does-what.webp"
+    },
+    {
+      "slug": "arthritis-in-older-adults",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0200-fallen-blossom.webp"
+    },
+    {
+      "slug": "arthritis-in-young-adults",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0311-dorchester-senior-center.webp"
+    },
+    {
+      "slug": "inflammatory-arthritis-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0422-140930-d-db155-003.webp"
+    },
+    {
+      "slug": "appeal-rejected-pip-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0178-p1223956-bw-jpg.webp"
+    },
+    {
+      "slug": "arthritis-physiotherapy-nhs-waiting-list",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0129-neighbor.webp"
+    },
+    {
+      "slug": "arthritis-support-groups-glasgow",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0195-a-selfie-on-the-walk-to-the-boat-station-cour.webp"
+    },
+    {
+      "slug": "arthritis-support-groups-manchester",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0426-learning-to-swim.webp"
+    },
+    {
+      "slug": "arthritis-support-groups-wales",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0061-grand-canyon-trail-of-time-dedication-0101013.webp"
+    },
+    {
+      "slug": "best-exercises-osteoarthritis-knee-pain-home",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0298-senior-woman-practicing-self-care-and-stretch.webp"
+    },
+    {
+      "slug": "best-supplements-joint-pain",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0332-holding-hands-10-10-10.webp"
+    },
+    {
+      "slug": "blue-badge-arthritis-scotland",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0282-fitness-programming-greenville-aquatics.webp"
+    },
+    {
+      "slug": "caring-for-parent-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-caring-for-parent-with-arthritis.webp"
+    },
+    {
+      "slug": "early-signs-gout-big-toe",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0402-swimming-for-the-elderly.webp"
+    },
+    {
+      "slug": "exercises-rheumatoid-arthritis-hands-wrists",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0413-cancun-manchones-la-cruz.webp"
+    },
+    {
+      "slug": "explain-juvenile-arthritis-school-teachers",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0415-portrait-of-a-plump-elderly-man-sitting-facin-b46402ee.webp"
+    },
+    {
+      "slug": "free-arthritis-exercise-classes-england",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0334-older-couple-walking-the-aquila-loop-trail.webp"
+    },
+    {
+      "slug": "free-arthritis-support-northern-ireland",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0468-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "juvenile-arthritis-school-support-parents",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0065-untitled.webp"
+    },
+    {
+      "slug": "manage-arthritis-pain-flare-ups-night",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0295-tai-chi.webp"
+    },
+    {
+      "slug": "mediterranean-diet-shopping-list-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0442-salad-days.webp"
+    },
+    {
+      "slug": "nhs-rheumatologist-northern-ireland",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0482-profiled.webp"
+    },
+    {
+      "slug": "pip-fibromyalgia-denied-reapply",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0383-michelle-bristol-sciencewoman.webp"
+    },
+    {
+      "slug": "pip-fibromyalgia-uk-apply",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0423-file-ford-park-old-man-walks-redlands-ca-7-12.webp"
+    },
+    {
+      "slug": "pip-osteoarthritis-both-knees",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0464-frozen-yogurt-cups-sunshine-cups.webp"
+    },
+    {
+      "slug": "psoriatic-vs-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0419-park-crescent-geograph-org-uk-973806.webp"
+    },
+    {
+      "slug": "signs-rheumatoid-arthritis-early-stages",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0418-balboa-park-san-diego-ca-usa-near-future-comi.webp"
+    },
+    {
+      "slug": "support-friend-diagnosed-lupus",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0474-antique-zinia.webp"
+    },
+    {
+      "slug": "swimming-exercises-hip-osteoarthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0413-free-walking-aid-image.webp"
+    },
+    {
+      "slug": "tai-chi-arthritis-joint-pain",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0347-walkers.webp"
+    },
+    {
+      "slug": "talk-employer-rheumatoid-arthritis-work",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0169-the-visit-to-a-local-family-turned-out-to-be-.webp"
+    },
+    {
+      "slug": "yoga-ankylosing-spondylitis-stiffness",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0467-20171027-ams-lsc-1627.webp"
+    },
+    {
+      "slug": "expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0321-elderly-shanghai-woman-practices-tai-chi.webp"
+    },
+    {
+      "slug": "grants-for-adapting-your-home-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0105-elderly-man-gives-a-v-for-victory-sign-on-the.webp"
+    },
+    {
+      "slug": "pip-for-arthritis-how-to-build-a-strong-application",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0475-20171027-ams-lsc-1150.webp"
+    },
+    {
+      "slug": "universal-credit-and-arthritis-limited-capability-for-work",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0405-phoenix-az-45.webp"
+    },
+    {
+      "slug": "apprenticeships-and-arthritis-a-realistic-look",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0171-a-corner-of-chinatown.webp"
+    },
+    {
+      "slug": "exam-adjustments-for-students-with-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0399-confident-birds-feeding-from-hand.webp"
+    },
+    {
+      "slug": "expert-qa-choosing-a-career-friendly-to-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0327-an-elderly-person-using-a-cane-and-pulling-a-.webp"
+    },
+    {
+      "slug": "university-with-arthritis-disability-support-and-dsa",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0460-20171027-ams-lsc-0065.webp"
+    },
+    {
+      "slug": "expert-qa-returning-to-work-after-a-bad-flare",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0397-friendly-staff-of-the-kopi-luwak-centre-hope-.webp"
+    },
+    {
+      "slug": "reasonable-adjustments-that-actually-help",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0120-olive-oil-seller.webp"
+    },
+    {
+      "slug": "should-you-tell-your-employer-about-your-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0433-salad.webp"
+    },
+    {
+      "slug": "your-workplace-rights-with-arthritis-the-equality-act-2010",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0460-macrobiotic-food.webp"
+    },
+    {
+      "slug": "expert-qa-will-my-children-inherit-my-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0299-good-morning-sf.webp"
+    },
+    {
+      "slug": "parenting-with-arthritis-hacks-for-babies-and-toddlers",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0479-navidad.webp"
+    },
+    {
+      "slug": "pregnancy-and-arthritis-what-uk-guidelines-recommend",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0325-elderly-man-walks-along-foggy-park-path-with-.webp"
+    },
+    {
+      "slug": "caregiver-burnout-in-arthritis-families-spot-it-early",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0172-andes-in-bloom.webp"
+    },
+    {
+      "slug": "expert-qa-how-to-ask-for-help-without-feeling-guilty",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0198-dil-chora-hospital-dire-dawa-ethiopia-2010.webp"
+    },
+    {
+      "slug": "supporting-a-partner-with-arthritis-a-practical-handbook",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0344-bathing.webp"
+    },
+    {
+      "slug": "talking-to-children-about-your-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0087-strolling.webp"
+    },
+    {
+      "slug": "joint-fusion-vs-replacement-how-surgeons-choose",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0474-recipe-for-pumpkin-stuffed-with-everything-go.webp"
+    },
+    {
+      "slug": "knee-arthroscopy-for-osteoarthritis-helpful-or-hype",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0369-stages-of-life.webp"
+    },
+    {
+      "slug": "shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0466-20171027-ams-lsc-0014.webp"
+    },
+    {
+      "slug": "expert-qa-is-it-too-soon-for-joint-replacement",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0410-100328-f-7713a-031.webp"
+    },
+    {
+      "slug": "prehabilitation-how-pre-op-exercise-speeds-recovery",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0070-old-women-gathering-in-plaza-corredera-cordob.webp"
+    },
+    {
+      "slug": "total-knee-replacement-a-uk-patients-guide-for-2026",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0476-20171027-ams-lsc-1630.webp"
+    },
+    {
+      "slug": "clinical-trials-for-arthritis-how-to-find-and-join-one",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0470-old-man-reading.webp"
+    },
+    {
+      "slug": "expert-qa-how-to-evaluate-a-clinical-trial-invitation",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0413-elderly-man-and-woman-with-canes-walking-down.webp"
+    },
+    {
+      "slug": "gene-therapy-and-arthritis-where-are-we-in-2026",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0118-twigged-chesnut-road-1.webp"
+    },
+    {
+      "slug": "jak-inhibitors-the-next-wave-of-ra-treatment",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0483-buffalo-wing-bento.webp"
+    },
+    {
+      "slug": "expert-qa-is-it-worth-paying-for-a-second-opinion",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0155-broken-paving-park-view-road.webp"
+    },
+    {
+      "slug": "nhs-access-to-biologics-how-the-approval-pathway-works",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0402-tree-face.webp"
+    },
+    {
+      "slug": "prescription-costs-and-arthritis-nhs-prepayment-certificates",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0104-beach-walk.webp"
+    },
+    {
+      "slug": "private-rheumatology-in-the-uk-when-its-worth-considering",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0137-this-is-us.webp"
+    },
+    {
+      "slug": "expert-qa-exercising-through-a-flare-up",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0376-senior-swimmer-3-months-later.webp"
+    },
+    {
+      "slug": "strength-training-on-biologics-is-it-safe",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0460-the-trentham-estate-west-midlands-ambulance-s.webp"
+    },
+    {
+      "slug": "walking-30-minutes-a-day-while-on-dmards-a-practical-plan",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0473-kale-salad.webp"
+    },
+    {
+      "slug": "why-exercise-makes-your-arthritis-medication-work-better",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0380-the-dip-ii-la-baignade-ii.webp"
+    },
+    {
+      "slug": "expert-qa-why-did-my-arthritis-come-back",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0372-351ad46d-16e2-4427-997c-2b0e1957b0d7.webp"
+    },
+    {
+      "slug": "stopping-arthritis-medication-safely-a-step-by-step-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0398-the-stars-aren-t-looking-too-good-for-this-ge.webp"
+    },
+    {
+      "slug": "tapering-biologics-what-the-latest-trials-show",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0373-very-nice-view-from-the-room-overlooking-riu.webp"
+    },
+    {
+      "slug": "what-sustained-remission-means-in-ra",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0193-dsc-0463.webp"
+    },
+    {
+      "slug": "biologic-side-effects-infections-injections-and-monitoring",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0302-roy-wilkins-park-td-2019-01-13-024-outdoor-fi.webp"
+    },
+    {
+      "slug": "expert-qa-how-to-talk-to-your-gp-about-medication-worries",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0301-yes-teacher-varanasi.webp"
+    },
+    {
+      "slug": "managing-methotrexate-side-effects-practical-tips",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0117-elderly-woman-walking-with-a-cane.webp"
+    },
+    {
+      "slug": "expert-qa-are-steroid-tapers-always-necessary",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0488-20171027-ams-lsc-0273.webp"
+    },
+    {
+      "slug": "nsaids-and-arthritis-benefits-risks-and-safer-use",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0168-elderly-woman-with-dog-in-stroller.webp"
+    },
+    {
+      "slug": "paracetamol-for-arthritis-pain-what-the-evidence-says",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0337-love-by-the-bridge.webp"
+    },
+    {
+      "slug": "topical-nsaids-often-overlooked-often-effective",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0480-quinoa-salad.webp"
+    },
+    {
+      "slug": "dmards-explained-how-methotrexate-slows-rheumatoid-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0394-cancun-manchones.webp"
+    },
+    {
+      "slug": "expert-qa-should-you-start-dmards-at-diagnosis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0485-20171027-ams-lsc-0317.webp"
+    },
+    {
+      "slug": "steroid-injections-vs-oral-steroids-when-each-makes-sense",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0166-nordic-walking-groentenmarkt-gent.webp"
+    },
+    {
+      "slug": "early-arthritis-intervention-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0139-part-is-missing.webp"
+    },
+    {
+      "slug": "longevity-habits-arthritis-patients",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0467-everything-comes-to-those-who-sit-and-wait.webp"
+    },
+    {
+      "slug": "preventing-knee-osteoarthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0371-woman-the-sea-and-the-castle-peniscola.webp"
+    },
+    {
+      "slug": "resistance-training-arthritis-longevity",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0482-20120905-fns-lsc-0156.webp"
+    },
+    {
+      "slug": "flying-with-arthritis-uk-airports",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-flying-with-arthritis-uk-airports.webp"
+    },
+    {
+      "slug": "hotel-rooms-accessibility-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0469-refugee.webp"
+    },
+    {
+      "slug": "medication-management-travel-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0187-green-with-envy.webp"
+    },
+    {
+      "slug": "packing-list-arthritis-traveller",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0425-hk-skd-hang-hau-wan-lung-road-po-hong-park-ju.webp"
+    },
+    {
+      "slug": "alcohol-arthritis-uk-guidance",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0094-walk.webp"
+    },
+    {
+      "slug": "dating-with-arthritis-confidence",
+      "status": "fail",
+      "detail": "No provenance metadata for lwa-dating-with-arthritis-confidence.webp"
+    },
+    {
+      "slug": "hobbies-arthritis-friendly-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0433-fitness-programming-greenville-aquatics.webp"
+    },
+    {
+      "slug": "relationships-chronic-pain-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0072-human-walking-cane.webp"
+    },
+    {
+      "slug": "cold-weather-arthritis-uk-winter",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0190-barriers-are-down.webp"
+    },
+    {
+      "slug": "seasonal-affective-disorder-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0468-tortellini-salad.webp"
+    },
+    {
+      "slug": "vitamin-d-arthritis-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0066-elderly-walk.webp"
+    },
+    {
+      "slug": "desk-setup-arthritis-uk-workers",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0079-walking-ii-la-marche-ii.webp"
+    },
+    {
+      "slug": "disability-rights-workplace-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0425-learning-to-swim.webp"
+    },
+    {
+      "slug": "flexible-working-arthritis-pacing",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0123-max-and-erin-photobomb.webp"
+    },
+    {
+      "slug": "bedtime-routine-arthritis-relief",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0158-bureau-chief-gordon-cole.webp"
+    },
+    {
+      "slug": "best-sleep-positions-joint-pain",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0484-20171027-ams-lsc-1278.webp"
+    },
+    {
+      "slug": "anxiety-arthritis-uk-guide",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0156-painted-for-prayer-2.webp"
+    },
+    {
+      "slug": "cbt-chronic-pain-arthritis",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0114-keep-in-mind-the-many-beings-who-are-sufferin.webp"
+    },
+    {
+      "slug": "depression-arthritis-when-to-seek-help",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0133-xoka3965bs.webp"
+    },
+    {
+      "slug": "back-arthritis-exercises-uk",
+      "status": "fail",
+      "detail": "No provenance metadata for cover-0290-female-physiotherapist-with-elderly-female-pa.webp"
+    }
+  ],
+  "passed": false
+}

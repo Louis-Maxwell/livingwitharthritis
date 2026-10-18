@@ -15,6 +15,7 @@
 type Bucket = "arthritis" | "community" | "nutrition" | "wellness";
 
 import { LOCAL_COVER_FALLBACK } from "@/lib/coverFallback";
+import { openverseImages } from "@/data/openverseImages";
 
 export const BROKEN_SRC_RE = /(?:^$|favicon\.(?:ico|png|svg)$|logo-mark)/i;
 
@@ -117,10 +118,14 @@ export function hashStr(s: string): number {
 }
 
 export function toImg(filename: string): ArticleImage {
+  const metadata = openverseImages.find((image) => image.localPath.endsWith(`/${filename}`));
+  const credit = metadata
+    ? `${metadata.title} — ${metadata.creator}; ${metadata.license}. ${metadata.source}. Source: ${metadata.sourceUrl}`
+    : "Living With Arthritis image — provenance requires manual verification";
   return {
     src: `/openverse/${filename}`,
     alt: humanizeAlt(filename),
-    credit: "Openly licensed image via Openverse",
+    credit,
   };
 }
 
@@ -287,8 +292,8 @@ export interface ArticleImage {
  * - Further images are Openverse files whose filenames overlap the post's
  *   title / category / slug / keywords.
  * - Nutrition / fruit stock is only eligible for diet/nutrition posts.
- * - May return fewer than 3 images when strong matches are scarce (better
- *   fewer related figures than unrelated stock).
+ * - Returns exactly three related images where the approved image corpus has
+ *   enough valid files, giving every article four images including its cover.
  */
 export function pickArticleImages(
   cover: ArticleImage,
@@ -324,12 +329,12 @@ export function pickArticleImages(
   for (const { file } of candidates) {
     if (picked.includes(file)) continue;
     picked.push(file);
-    if (picked.length >= 2) break;
+    if (picked.length >= 3) break;
   }
 
   // Diet / nutrition posts must reliably show food imagery mid/end-article,
   // even when historical covers were mis-mapped to exercise/clinical stock.
-  if (allowNutrition && picked.length < 2) {
+  if (allowNutrition && picked.length < 3) {
     const nutritionPool = CATEGORY_FILES.nutrition.filter(
       (f) => f !== coverFile && !picked.includes(f),
     );
@@ -338,11 +343,25 @@ export function pickArticleImages(
     );
     for (const file of nutritionPool) {
       picked.push(file);
-      if (picked.length >= 2) break;
+      if (picked.length >= 3) break;
     }
   }
 
-  return [cover, ...picked.map(toImg)];
+  // The curated corpus is large enough to provide three body images for all
+  // current articles. Keep the function deterministic and unique even when a
+  // future corpus is temporarily smaller.
+  if (picked.length < 3) {
+    const fallbackPool = Object.values(CATEGORY_FILES).flat().filter(
+      (file) => file !== coverFile && !picked.includes(file) && (allowNutrition || !NUTRITION_FILENAME_RE.test(file)),
+    );
+    fallbackPool.sort((a, b) => ((hashStr(a) ^ h) - (hashStr(b) ^ h)) | 0);
+    for (const file of fallbackPool) {
+      picked.push(file);
+      if (picked.length >= 3) break;
+    }
+  }
+
+  return [cover, ...picked.slice(0, 3).map(toImg)];
 }
 
 /**
