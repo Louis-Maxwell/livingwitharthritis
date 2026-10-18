@@ -317,7 +317,7 @@ function previousBlogLastmods(): Map<string, string> {
 function staticCatalogBlogPosts(): BlogPostEntry[] {
   try {
     return readBlogCatalog()
-      .filter((r) => r.slug && BLOG_SLUG_PATTERN.test(r.slug))
+      .filter((r) => r.slug && BLOG_SLUG_PATTERN.test(r.slug) && !exactRedirectPathSet().has(`/blog/${r.slug}`))
       .map((r) => ({
         slug: r.slug,
         lastmod: String(r.updated_at || r.date || "").slice(0, 10) || undefined,
@@ -352,7 +352,8 @@ function checkedInBlogSlugs(): string[] {
       (slug): slug is string =>
         typeof slug === "string" &&
         BLOG_SLUG_PATTERN.test(slug) &&
-        !redirects.has(slug),
+        !redirects.has(slug) &&
+        !exactRedirectPathSet().has(`/blog/${slug}`),
     );
 }
 
