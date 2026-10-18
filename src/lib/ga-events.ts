@@ -4,7 +4,8 @@
  *
  * Fires distinct, easy-to-mark-as-key-event GA4 events:
  *   - donation_click
- *   - contact_form_submit
+ *   - volunteer_enquiry_draft_open (engagement only; not a submitted enquiry)
+ *   - fundraising_interest (engagement; outbound handoff)
  *   - file_download
  *   - scroll_80        (fired once per page once a visitor passes 80% depth)
  */
