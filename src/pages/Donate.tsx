@@ -319,7 +319,7 @@ export default function Donate() {
             )}
 
             <Button asChild size="lg" className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form", method: "gofundme" })}>
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form", amount: activeAmount, method: "gofundme", frequency })}>
                 <Heart className="w-5 h-5 mr-2 fill-current/20" />
                 Donate on GoFundMe
                 <span className="sr-only"> (opens in a new tab)</span>
@@ -327,7 +327,7 @@ export default function Donate() {
             </Button>
 
             <p className="text-[11px] text-muted-foreground text-center mt-4">
-              The amount is chosen on GoFundMe. This page does not take card payments.
+              Your selected amount and frequency are for planning only; GoFundMe handles the actual amount and any recurring option. This page does not take card payments.
             </p>
           </div>
           <p className="text-xs text-muted-foreground text-center mt-6 max-w-xl mx-auto leading-relaxed">
