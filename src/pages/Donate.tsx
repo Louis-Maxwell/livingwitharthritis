@@ -136,11 +136,11 @@ export default function Donate() {
   return (
     <>
       <Helmet>
-        <title>Donate to Living With Arthritis | CIO 1218461</title>
-        <meta name="description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
+        <title>Donate to an Arthritis Charity in the UK | Living With Arthritis</title>
+        <meta name="description" content={`Support ${CHARITY.shortName}, registered charity CIO 1218461. Your gift helps keep free UK arthritis exercises, practical guides and support available. Gift Aid is not yet live.`} />
         <meta name="keywords" content="donate to arthritis charity, arthritis charity, arthritis foundation, arthritis research, arthritis helpline, fundraising ideas for health charity, arthritis events, arthritis advocacy, financial help for arthritis patients, joint pain charity, arthritis support, arthritis awareness, volunteer for charity" />
       <meta property="og:title" content="Donate to Living With Arthritis | CIO 1218461" />
-      <meta property="og:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
+      <meta property="og:description" content={`Support ${CHARITY.shortName}, registered charity CIO 1218461. Your gift helps keep free UK arthritis exercises, practical guides and support available. Gift Aid is not yet live.`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${CHARITY.siteUrl}/donate`} />
       <meta property="og:site_name" content={CHARITY.shortName} />
@@ -151,7 +151,7 @@ export default function Donate() {
         <meta property="og:image:alt" content="Donate | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Donate to Living With Arthritis | CIO 1218461" />
-      <meta name="twitter:description" content={`Give to ${CHARITY.shortName} (CIO 1218461): your donation funds free UK arthritis exercises, diet guides and a real helpline. Gift Aid reclaim is not live yet — we will confirm when HMRC registration is complete.`} />
+      <meta name="twitter:description" content={`Support ${CHARITY.shortName}, registered charity CIO 1218461. Your gift helps keep free UK arthritis exercises, practical guides and support available. Gift Aid is not yet live.`} />
       <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
     </Helmet>
       <Header />
@@ -173,7 +173,7 @@ export default function Donate() {
               Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.
             </p>
             <Button asChild size="lg" className="btn-primary-cta px-10 h-14 rounded-full text-sm font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_hero", method: "gofundme" })}>
                 <Heart className="w-5 h-5 mr-2 fill-current/20 group-hover:scale-110 transition-transform" />
                 Donate Now
                 <span className="sr-only"> (opens in a new tab)</span>
@@ -211,7 +211,7 @@ export default function Donate() {
                 href={GOFUNDME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackDonationClick({ source: "donate_page_gaza_card" })}
+                onClick={() => trackDonationClick({ source: "donate_page_gaza_card", method: "gofundme" })}
                 className="mt-6 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-bold hover:bg-primary/90 transition-colors"
               >
                 Give to the appeal <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -319,7 +319,7 @@ export default function Donate() {
             )}
 
             <Button asChild size="lg" className="btn-primary-cta w-full min-h-14 h-16 rounded-full text-base font-bold tracking-wide group">
-              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form" })}>
+              <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackDonationClick({ source: "donate_page_form", method: "gofundme" })}>
                 <Heart className="w-5 h-5 mr-2 fill-current/20" />
                 Donate on GoFundMe
                 <span className="sr-only"> (opens in a new tab)</span>
