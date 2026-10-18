@@ -91,7 +91,7 @@ export function trackChatStart(source: string = "chat_page") {
   trackEvent("chat_start", { source });
 }
 
-/** Fired after a volunteer enquiry is accepted by the selected submission flow. */
+/** Fired when the volunteer email draft opens; the visitor still needs to press Send. */
 export function trackVolunteerEnquiry(source = "ways_to_help") {
-  trackEvent("volunteer_enquiry_submit", { source, event_category: "conversion" });
+  trackEvent("volunteer_enquiry_draft_open", { source, event_category: "engagement" });
 }
