@@ -26,7 +26,7 @@ const WAYS = [
     icon: Heart,
     title: "Make a Donation",
     description: "Your gift directly funds physiotherapy sessions, exercise programmes and community support for people living with arthritis across the UK.",
-    impact: "£10 funds a virtual physio session",
+    impact: "Your contribution helps keep free arthritis information and practical support available.",
     cta: "Donate Now",
     href: GOFUNDME_URL,
     gradient: "from-primary to-secondary",
@@ -38,7 +38,7 @@ const WAYS = [
     icon: Users,
     title: "Volunteer With Us",
     description: "Share your time and skills — from peer mentoring to event support, there are many ways to get involved in your community.",
-    impact: "200+ volunteers across the UK",
+    impact: "Choose an activity that fits your time, skills and availability.",
     cta: "Sign Up Below",
     href: "#volunteer-form",
     gradient: "from-primary to-secondary",
@@ -50,7 +50,7 @@ const WAYS = [
     icon: Trophy,
     title: "Fundraise for Us",
     description: "Run a marathon, host a bake sale, or organise a sponsored event. We'll provide everything you need to get started.",
-    impact: "£50K+ raised by supporters in 2025",
+    impact: "Invite friends or colleagues to support free arthritis resources.",
     cta: "Start Fundraising",
     href: "/corporate-giving",
     gradient: "from-secondary to-primary",
@@ -61,7 +61,7 @@ const WAYS = [
     icon: Building2,
     title: "Corporate Partnerships",
     description: "Partner with us for sponsorship, employee engagement programmes, and cause-related marketing that makes a real difference.",
-    impact: "Join 15+ corporate partners",
+    impact: "Explore a partnership, sponsorship or workplace fundraising idea.",
     cta: "Partner With Us",
     href: "/corporate-giving",
     gradient: "from-primary to-secondary",
@@ -72,7 +72,7 @@ const WAYS = [
     icon: ScrollText,
     title: "Leave a Legacy",
     description: "A gift in your will ensures future generations of people with arthritis receive the support they need to live well.",
-    impact: "Legacies fund 30% of our work",
+    impact: "Ask us about leaving a gift in your will.",
     cta: "Learn about leaving a legacy",
     href: "/about",
     gradient: "from-secondary to-primary",
@@ -82,10 +82,10 @@ const WAYS = [
 ];
 
 const IMPACT_STATS = [
-  { number: "10M+", label: "People with arthritis in the UK", icon: Users },
-  { number: "5,000+", label: "People supported through our services", icon: Heart },
-  { number: "200+", label: "Volunteers across the UK", icon: HandHeart },
-  { number: "£0", label: "Cost to access our services", icon: Gift },
+  { number: "Free", label: "Public arthritis information", icon: Users },
+  { number: "Practical", label: "Guides and self-management resources", icon: Heart },
+  { number: "Flexible", label: "Ways to contribute your time or skills", icon: HandHeart },
+  { number: "Open", label: "Ways to support the charity", icon: Gift },
 ];
 
 const INTEREST_OPTIONS = [
@@ -294,7 +294,7 @@ export default function WaysToHelp() {
                         </ul>
                         <div>
                           <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 px-8 shadow-md">
-                            <a href={way.href} target="_blank" rel="noopener noreferrer">
+                            <a href={way.href} target={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "_blank"} rel={way.href.startsWith("/") || way.href.startsWith("#") ? undefined : "noopener noreferrer"} onClick={way.title === "Make a Donation" ? () => trackDonationClick({ source: "ways_to_help_donation_card", method: "gofundme" }) : undefined}>
                               {way.cta}
                               <span className="sr-only"> (opens in a new tab)</span>
                             </a>
