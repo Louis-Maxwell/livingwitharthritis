@@ -6,11 +6,11 @@
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "PIP for Arthritis: Complete UK Guide (2026/27)";
+export const PIP_GUIDE_META_TITLE = "Can You Claim PIP for Arthritis While Working? (UK)";
 
-export const PIP_GUIDE_DESCRIPTION = "Complete UK guide to PIP for arthritis: who can claim, 2026/27 rates, how points work, the form, assessment, decisions, challenges and free help.";
+export const PIP_GUIDE_DESCRIPTION = "Can you claim PIP for arthritis while working? Check UK eligibility, daily living and mobility points, 2026/27 rates, the form, assessment and appeal steps.";
 
-export const PIP_GUIDE_QUICK_ANSWER = "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
+export const PIP_GUIDE_QUICK_ANSWER = "Can you claim PIP for arthritis while working? Yes. PIP is not means-tested or an out-of-work benefit. Eligibility depends on how a long-term condition affects daily living or mobility. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
 
 export const PIP_GUIDE_CHECKED = "10 October 2026";
 
@@ -170,6 +170,8 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <li><strong>Scope</strong> and <strong>Disability Rights UK</strong> for disability benefits information</li>
 <li>Your council's <strong>welfare rights service</strong>, if it has one</li>
 </ul>
+
+<p>If this guide helped you, you can help keep free arthritis information available: <a href="/ways-to-help">volunteer, fundraise or partner with us</a>, or <a href="/donate">support our charity with a donation</a>.</p>
 <p>If you are not sure whether to apply, our guide to <a href="/blog/pip-for-arthritis-uk">claiming PIP for arthritis</a> covers eligibility in more detail.</p>
 <h2 id="sources">Sources and further reading</h2>
 <ul>

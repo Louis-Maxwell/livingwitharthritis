@@ -4,7 +4,8 @@
  *
  * Fires distinct, easy-to-mark-as-key-event GA4 events:
  *   - donation_click
- *   - contact_form_submit
+ *   - volunteer_enquiry_draft_open (engagement only; not a submitted enquiry)
+ *   - fundraiser_interest (outbound intent; not funds raised)
  *   - file_download
  *   - scroll_80        (fired once per page once a visitor passes 80% depth)
  */
@@ -16,14 +17,15 @@ import { trackEvent } from "@/lib/analytics";
 export function trackDonationClick(
   sourceOrOpts:
     | string
-    | { source?: string; amount?: number; currency?: string; method?: string } = {},
+    | { source?: string; amount?: number; currency?: string; method?: string; frequency?: "one-time" | "monthly" } = {},
 ) {
   const opts = typeof sourceOrOpts === "string" ? { source: sourceOrOpts } : sourceOrOpts;
   trackEvent("donation_click", {
     source: opts.source ?? "donate_page",
     amount: opts.amount ?? 0,
     currency: opts.currency ?? "GBP",
-    method: opts.method ?? "stripe",
+    method: opts.method ?? "external_fundraising_platform",
+    frequency: opts.frequency ?? "unspecified",
   });
 }
 
@@ -89,4 +91,9 @@ export function trackPillarClick(pillar: string, path: string) {
 
 export function trackChatStart(source: string = "chat_page") {
   trackEvent("chat_start", { source });
+}
+
+/** Fired when a visitor chooses to explore fundraising; not a completed fundraiser. */
+export function trackFundraiserInterest(source = "ways_to_help") {
+  trackEvent("fundraiser_interest", { source, event_category: "engagement" });
 }

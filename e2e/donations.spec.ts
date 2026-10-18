@@ -83,7 +83,7 @@ test.describe("Donation page", () => {
     expect(context.pages()).toHaveLength(pagesBefore + 1);
     await expect(page.getByRole("dialog")).toHaveCount(0);
     await expect(page).toHaveURL(/\/donate$/);
-    await expect(picker).toContainText("The amount is chosen on GoFundMe.");
+    await expect(picker).toContainText("Your selected amount and frequency are for planning only; GoFundMe handles the actual amount");
     await popup.close();
   });
 });
