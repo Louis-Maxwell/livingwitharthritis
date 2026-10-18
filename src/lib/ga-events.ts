@@ -23,7 +23,7 @@ export function trackDonationClick(
     source: opts.source ?? "donate_page",
     amount: opts.amount ?? 0,
     currency: opts.currency ?? "GBP",
-    method: opts.method ?? "stripe",
+    method: opts.method ?? "external_fundraising_platform",
   });
 }
 
@@ -89,4 +89,9 @@ export function trackPillarClick(pillar: string, path: string) {
 
 export function trackChatStart(source: string = "chat_page") {
   trackEvent("chat_start", { source });
+}
+
+/** Fired after a volunteer enquiry is accepted by the selected submission flow. */
+export function trackVolunteerEnquiry(source = "ways_to_help") {
+  trackEvent("volunteer_enquiry_submit", { source, event_category: "conversion" });
 }
