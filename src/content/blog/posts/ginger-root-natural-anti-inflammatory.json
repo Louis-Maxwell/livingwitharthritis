@@ -19,11 +19,6 @@
   "is_published": true,
   "citations": [
     {
-      "label": "Arthritis UK: Ginger",
-      "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/complementary-and-alternative-treatments/types-of-complementary-treatments/ginger/",
-      "publisher": "Arthritis UK"
-    },
-    {
       "label": "Bartels EM et al. Efficacy and safety of ginger in osteoarthritis patients: a meta-analysis of randomized placebo-controlled trials. Osteoarthritis Cartilage 2015 (PMID 25300574)",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25300574/",
       "publisher": "Osteoarthritis and Cartilage"
@@ -32,11 +27,6 @@
       "label": "NCCIH (US National Institutes of Health): Ginger",
       "url": "https://www.nccih.nih.gov/health/ginger",
       "publisher": "NCCIH"
-    },
-    {
-      "label": "Arthritis UK: How food and drink can affect your medication",
-      "url": "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/how-food-and-drink-can-affect-your-medication/",
-      "publisher": "Arthritis UK"
     },
     {
       "label": "NICE NG226: Osteoarthritis in over 16s",
