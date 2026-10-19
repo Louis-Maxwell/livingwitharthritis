@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Download } from 'lucide-react';
 export default function BlogPdfDownload({ title, html, slug }: { title: string; html: string; slug: string }) {
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState('');
@@ -15,5 +16,21 @@ export default function BlogPdfDownload({ title, html, slug }: { title: string; 
     } catch { setStatus('PDF download failed. Please use Print / save PDF.'); }
     finally { setBusy(false); }
   }
-  return <div><button type="button" disabled={busy} onClick={download} className="min-h-11 rounded-md border px-3 text-sm disabled:opacity-50">Download article PDF (text)</button><span role="status" className="block text-xs">{status}</span></div>;
+  return (
+    <div className="space-y-1">
+      <button
+        type="button"
+        disabled={busy}
+        onClick={download}
+        aria-label={`Download ${title} as a PDF`}
+        className="inline-flex min-h-11 items-center gap-2 rounded-md border border-primary/30 px-3 text-sm font-medium text-primary transition-colors hover:bg-primary/5 disabled:cursor-wait disabled:opacity-50"
+      >
+        <Download className="h-4 w-4" aria-hidden="true" />
+        {busy ? 'Preparing PDF…' : 'Download article PDF'}
+      </button>
+      <span role="status" aria-live="polite" className="block text-xs text-muted-foreground">
+        {status}
+      </span>
+    </div>
+  );
 }
