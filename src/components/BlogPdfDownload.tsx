@@ -1,19 +1,31 @@
 import { useState } from 'react';
+import { Download } from 'lucide-react';
+
+/** Shared article PDF action. Uses browser print to retain article images, links and styles. */
 export default function BlogPdfDownload({ title, html, slug }: { title: string; html: string; slug: string }) {
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState('');
-  async function download() {
-    setBusy(true); setStatus('Preparing article PDF...');
+  function download() {
+    setBusy(true);
+    setStatus('Choose “Save as PDF” in the print destination.');
     try {
-      const parsed = new DOMParser().parseFromString(html, 'text/html');
-      parsed.querySelectorAll('script, style, iframe').forEach(n => n.remove());
-      parsed.querySelectorAll('p,h1,h2,h3,h4,li,tr,figcaption').forEach(n => n.append('\n'));
-      const citations = Array.from(parsed.querySelectorAll('a[href]')).map(a => `${a.textContent}: ${new URL(a.getAttribute('href') ?? '', window.location.origin).href}`).join('\n');
-      const { saveTextPdf } = await import('@/lib/pagePdf');
-      await saveTextPdf(title, (parsed.body.textContent ?? '') + '\nLinks and sources\n' + citations, `${slug}.pdf`);
-      setStatus('Article PDF downloaded.');
-    } catch { setStatus('PDF download failed. Please use Print / save PDF.'); }
-    finally { setBusy(false); }
+      // Print the actual article page rather than reducing its contents to plain text.
+      // Existing @media print rules control the article layout and hide navigation.
+      window.print();
+    } catch {
+      setStatus('Unable to open the print dialog. Use your browser Print command.');
+    } finally {
+      setBusy(false);
+    }
   }
-  return <div><button type="button" disabled={busy} onClick={download} className="min-h-11 rounded-md border px-3 text-sm disabled:opacity-50">Download article PDF (text)</button><span role="status" className="block text-xs">{status}</span></div>;
+  return (
+    <div className="no-print">
+      <button type="button" disabled={busy} onClick={download}
+        aria-label={`Download ${title} as PDF using browser print`}
+        className="inline-flex min-h-11 items-center gap-2 rounded-md border px-3 text-sm font-medium disabled:opacity-50">
+        <Download aria-hidden="true" className="h-4 w-4" /> Download PDF
+      </button>
+      <span role="status" className="block text-xs">{status}</span>
+    </div>
+  );
 }
