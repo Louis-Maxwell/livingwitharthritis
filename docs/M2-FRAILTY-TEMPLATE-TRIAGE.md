@@ -90,7 +90,7 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 
 ## Recommended next 10 (Champions 79–88)
 
-**Progress:** 82–84 done 16 Oct 2026 (pending clinical review); 239 template posts left. Next: 85–86.
+**Progress:** 85–87 done 19 Oct 2026 (pending clinical review); 236 template posts left (repo scan for the main "a smaller group also live with frailty" fingerprint, 19 Oct). Next: 88, then re-rank and pick the next 10.
 
 | # | Slug | Why now | Suggested job |
 |---|---|---|---|
@@ -100,9 +100,9 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 | 82 ✅ 16 Oct | `sleeping-tablets-falls-arthritis-frailty-uk` | 6 inbound, including gold-pass `arthritis-and-sleep-problems` and `best-sleep-positions-joint-pain`; long nights | Sleeping tablets and night falls, CBT for insomnia first, never stop prescribed medicines yourself |
 | 83 ✅ 16 Oct | `sleep-apnoea-arthritis-frailty-uk` | 4 inbound from three gold-pass sleep posts | NHS sleep apnoea signs, referral, how it links to daytime tiredness and pain |
 | 84 ✅ 16 Oct | `bone-protection-steroids-arthritis-frailty-uk` | Linked from gold-pass vitamin D winter guide; pairs with 78 | Bone protection on steroids, vitamin D/calcium, bone scans, falls |
-| 85 | `deconditioning-after-arthritis-flare-uk` | 7 inbound (most-linked template post); winter illness and flare recovery | Rebuilding strength after a flare or illness week; pacing; physio routes |
-| 86 | `confidence-after-fall-arthritis-frailty-uk` | Winter falls; pairs with Champion 77 | Fear of falling after a fall, falls services, graded return to walking |
-| 87 | `pharmacist-medication-review-frail-arthritis-uk` | 5 inbound; medicines safety | NHS Structured Medication Review / New Medicine Service, what to bring, questions to ask |
+| 85 ✅ 19 Oct | `deconditioning-after-arthritis-flare-uk` | 7 inbound (most-linked template post); winter illness and flare recovery | Rebuilding strength after a flare or illness week; pacing; physio routes |
+| 86 ✅ 19 Oct | `confidence-after-fall-arthritis-frailty-uk` | Winter falls; pairs with Champion 77 | Fear of falling after a fall, falls services, graded return to walking |
+| 87 ✅ 19 Oct | `pharmacist-medication-review-frail-arthritis-uk` | 5 inbound; medicines safety | NHS Structured Medication Review / New Medicine Service, what to bring, questions to ask |
 | 88 | `vitamin-d-and-falls-arthritis-uk` | Linked from both vitamin D posts; overlaps the gold-pass winter vitamin D guide | Narrow to vitamin D and falls/bones; hand off early to `vitamin-d-winter-arthritis-frailty-uk` |
 
 **Reserves:** `chair-yoga-elderly-arthritis-stiffness` (6 inbound; the only template post with more than 3 B₁ impressions), `delirium-hospital-arthritis-frailty-uk`, `copd-arthritis-frailty-breathlessness-uk`, `painkillers-older-adults-arthritis-caution-uk`, `living-alone-falls-plan-arthritis-uk`, `knee-oa-frailty-outdoor-pavements-uk` (could merge into Champion 77).

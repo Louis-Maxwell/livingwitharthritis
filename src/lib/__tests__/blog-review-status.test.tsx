@@ -98,6 +98,10 @@ const PENDING_CHAMPIONS_62_73 = [
   "sleeping-tablets-falls-arthritis-frailty-uk",
   "sleep-apnoea-arthritis-frailty-uk",
   "bone-protection-steroids-arthritis-frailty-uk",
+  // Champions 85–87 (19 Oct)
+  "deconditioning-after-arthritis-flare-uk",
+  "confidence-after-fall-arthritis-frailty-uk",
+  "pharmacist-medication-review-frail-arthritis-uk",
 ];
 
 /**
@@ -225,7 +229,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "30-day-arthritis-pain-reduction-challenge",
 ];
 
-describe("Champions 62–84 guides awaiting clinical review", () => {
+describe("Champions 62–87 guides awaiting clinical review", () => {
   it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
