@@ -14,7 +14,7 @@ for (const file of files) {
     if (words < 400) flags.push('thin-content-review');
     if (!p.last_reviewed) flags.push('clinical-review-not-recorded');
     if (!p.cover) flags.push('missing-cover');
-    if (!/https?:\/\/|\[[^\]]+\]\(https?:/i.test(content)) flags.push('check-evidence-citations');
+    if (!((Array.isArray(p.citations) && p.citations.some(c => c && /^https?:\/\//.test(c.url || ''))) || /https?:\/\/|\[[^\]]+\]\(https?:/i.test(content))) flags.push('check-evidence-citations');
     if (!p.meta_description) flags.push('missing-meta-description');
     if (!p.excerpt) flags.push('missing-excerpt');
     rows.push({slug:p.slug||file.replace(/\.json$/,''),title:p.title||'',published:!!p.is_published,words,flags});
