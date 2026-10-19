@@ -51,19 +51,16 @@ const SORT_OPTIONS: { id: SortMode; label: string }[] = [
 const categories: Category[] = BLOG_TOPIC_FILTERS;
 const POSTS_PER_PAGE = 24;
 
-/**
- * Posts already earning UK impressions in Semrush — they lead Editor's Picks
- * so the strongest pages are linked from the first screen of /blog.
+/** Editorial selection informed by recorded search demand and hosting analytics.
+ * These are useful starting points, not a live popularity ranking.
  */
 const PRIORITY_SLUGS = [
+  "pip-for-arthritis-uk",
   "knee-arthritis-exercises-uk",
-  "turmeric-for-arthritis",
+  "anti-inflammatory-diet-rheumatoid-arthritis",
   "omega-3-foods-for-joints",
   "mediterranean-diet-arthritis-14-day-plan",
-  "pip-for-arthritis-uk",
-  "expert-qa-should-i-apply-for-pip-if-my-arthritis-is-mild",
-  "best-supplement-for-knee-joint",
-  "best-walking-shoes-arthritis-uk",
+  "turmeric-for-arthritis",
 ] as const;
 
 /** Real, crawlable topic hubs surfaced above the grid. */
