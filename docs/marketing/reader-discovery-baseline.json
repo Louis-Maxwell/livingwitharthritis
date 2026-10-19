@@ -1,0 +1,105 @@
+{
+  "source": "Lovable hosting analytics (legacy channel; not GA4 or GSC)",
+  "start": "2026-10-12T00:00:00Z",
+  "end": "2026-10-18T23:59:59Z",
+  "reportedVisitors": 3120,
+  "pageviews": 5040,
+  "sourceTable": [
+    {
+      "label": "Direct",
+      "value": 914
+    },
+    {
+      "label": "bing.com",
+      "value": 773
+    },
+    {
+      "label": "duckduckgo.com",
+      "value": 569
+    },
+    {
+      "label": "uk.search.yahoo.com",
+      "value": 191
+    },
+    {
+      "label": "google.com",
+      "value": 112
+    },
+    {
+      "label": "ecosia.org",
+      "value": 64
+    },
+    {
+      "label": "facebook.com",
+      "value": 34
+    },
+    {
+      "label": "search.yahoo.com",
+      "value": 26
+    },
+    {
+      "label": "m.facebook.com",
+      "value": 23
+    },
+    {
+      "label": "teams.public.onecdn.static.microsoft",
+      "value": 10
+    }
+  ],
+  "pageTable": [
+    {
+      "label": "/",
+      "value": 156
+    },
+    {
+      "label": "/blog/hip-replacement-recovery-week-by-week",
+      "value": 139
+    },
+    {
+      "label": "/community",
+      "value": 48
+    },
+    {
+      "label": "/exercises",
+      "value": 48
+    },
+    {
+      "label": "/guides/benefits-pip",
+      "value": 48
+    },
+    {
+      "label": "/diet",
+      "value": 45
+    },
+    {
+      "label": "/blog/best-supplements-arthritis-uk",
+      "value": 43
+    },
+    {
+      "label": "/supplements/turmeric",
+      "value": 42
+    },
+    {
+      "label": "/conditions/hand-arthritis",
+      "value": 41
+    },
+    {
+      "label": "/about",
+      "value": 40
+    }
+  ],
+  "caveats": [
+    "Hosting report visitors are not assumed to be deduplicated people or Google organic clicks.",
+    "Breakdown values are reproduced as returned; page-table value units are not specified by the API.",
+    "Top-ten breakdowns are truncated; not all pages or sources are returned.",
+    "No ranking increase, causation or completed donation is inferred."
+  ],
+  "review": [
+    "Confirm landing-page clinical and welfare content is suitable before distributing campaign drafts.",
+    "Publish at most one selected channel post per day initially, then adjust using engaged visits and verified outcomes.",
+    "Use consistent GSC filters and matched periods; use verified donation completion separately from outbound clicks.",
+    "Hip-recovery article had generic content and no recorded clinical review in public retrieval on 19 October. Hold campaign sequence 1; do not promote until revised and checked."
+  ],
+  "campaign": "practical_arthritis_guides_20261019",
+  "status": "drafts prepared; not scheduled or published"
+}
