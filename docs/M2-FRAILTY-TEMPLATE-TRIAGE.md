@@ -90,7 +90,7 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 
 ## Recommended next 10 (Champions 79–88)
 
-**Progress:** 85–87 done 19 Oct 2026 (pending clinical review); 236 template posts left (repo scan for the main "a smaller group also live with frailty" fingerprint, 19 Oct). Next: 88, then re-rank and pick the next 10.
+**Progress:** all ten done. 88 done 20 Oct 2026 (pending clinical review), alongside 89–90 from the re-ranked list below; 233 template posts left (repo scan for the main "a smaller group also live with frailty" fingerprint, 20 Oct).
 
 | # | Slug | Why now | Suggested job |
 |---|---|---|---|
@@ -103,9 +103,28 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 | 85 ✅ 19 Oct | `deconditioning-after-arthritis-flare-uk` | 7 inbound (most-linked template post); winter illness and flare recovery | Rebuilding strength after a flare or illness week; pacing; physio routes |
 | 86 ✅ 19 Oct | `confidence-after-fall-arthritis-frailty-uk` | Winter falls; pairs with Champion 77 | Fear of falling after a fall, falls services, graded return to walking |
 | 87 ✅ 19 Oct | `pharmacist-medication-review-frail-arthritis-uk` | 5 inbound; medicines safety | NHS Structured Medication Review / New Medicine Service, what to bring, questions to ask |
-| 88 | `vitamin-d-and-falls-arthritis-uk` | Linked from both vitamin D posts; overlaps the gold-pass winter vitamin D guide | Narrow to vitamin D and falls/bones; hand off early to `vitamin-d-winter-arthritis-frailty-uk` |
+| 88 ✅ 20 Oct | `vitamin-d-and-falls-arthritis-uk` | Linked from both vitamin D posts; overlaps the gold-pass winter vitamin D guide | Narrow to vitamin D and falls/bones; hand off early to `vitamin-d-winter-arthritis-frailty-uk` |
 
 **Reserves:** `chair-yoga-elderly-arthritis-stiffness` (6 inbound; the only template post with more than 3 B₁ impressions), `delirium-hospital-arthritis-frailty-uk`, `copd-arthritis-frailty-breathlessness-uk`, `painkillers-older-adults-arthritis-caution-uk`, `living-alone-falls-plan-arthritis-uk`, `knee-oa-frailty-outdoor-pavements-uk` (could merge into Champion 77).
+
+## Re-ranked next 10 (Champions 89–98), 20 Oct 2026
+
+**Method (honest limit):** still no fresh GSC export, so this ranking uses inbound links from non-template pages (repo scan, 20 Oct), then October–February season, then harm (medicines first). Nation pages stay out of the one-by-one queue (see below). Re-rank again when a fresh GSC Pages export lands.
+
+| # | Slug | Inbound (non-template) | Why now | Suggested job |
+|---|---|---|---|---|
+| 89 ✅ 20 Oct | `chair-yoga-elderly-arthritis-stiffness` | 6 | Most-linked template post left; the only one with more than 3 B₁ impressions | Gentle seated routine from NHS sitting exercises, cautions after hip replacement / RA neck / osteoporosis, finding a class |
+| 90 ✅ 20 Oct | `sit-to-stand-practice-frail-arthritis-uk` | 4 | Pairs with Champions 85–86 (strength after a flare, confidence after a fall) | NHS sit-to-stand step by step, easier / harder versions, chair height and OT equipment, carer safety |
+| 91 | `knee-osteoarthritis-frailty-staying-steady-home-uk` | 4 (+7 template) | Winter falls at home; heavily cross-linked | Staying steady at home with knee OA: strength, balance, home hazards, walking aids |
+| 92 | `seated-strength-frail-osteoarthritis-uk` | 4 | Overlaps chair exercises; risk of duplicate intent | Narrow to seated strength progressions or consolidate into `chair-exercises-older-adults-arthritis` |
+| 93 | `painkillers-older-adults-arthritis-caution-uk` | 3 | Medicines harm | Paracetamol / NSAID / codeine cautions in later life, falls and constipation, medication review, never change doses yourself |
+| 94 | `methotrexate-older-frail-adults-uk` | 3 | Medicines harm; winter infections | Monitoring blood tests, infection and sick-day questions, vaccines, never change your dose yourself |
+| 95 | `late-onset-ra-frailty-first-months-uk` | 3 (+8 template) | Newly-diagnosed customer job | First months after an RA diagnosis later in life: what to expect, monitoring, staying active |
+| 96 | `ra-monitoring-older-frail-adults-uk` | 3 | Pairs with 94–95 | Blood tests, reviews, what to report between appointments |
+| 97 | `night-lights-arthritis-falls-frailty-uk` | 3 | Dark evenings; linked from gold-pass falls posts | Night-time route to the toilet, lighting, getting up slowly, continence |
+| 98 | `topical-nsaids-frail-hand-knee-oa-uk` | 3 | NICE first-line option for knee and hand OA | Topical NSAIDs: who they suit, how to use, skin and safety, ask a pharmacist |
+
+**Reserves:** `delirium-hospital-arthritis-frailty-uk`, `copd-arthritis-frailty-breathlessness-uk`, `living-alone-falls-plan-arthritis-uk`, `flare-versus-frailty-arthritis-uk`, `community-physio-wait-frail-arthritis-uk`, `protein-painful-joints-frailty-uk`, `disabled-facilities-grant-arthritis-frailty-uk`.
 
 ## Not to rewrite one by one
 
