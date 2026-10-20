@@ -1,7 +1,9 @@
 /**
- * Clinical-review state recorded by the editor. Missing approval is pending;
- * a publication/update timestamp never establishes a completed review.
- * Only a qualified reviewer should use blog:mark-reviewed after reviewing.
+ * Clinical-review state recorded by the editor.
+ *
+ * Safety rule: missing or explicit pending review metadata stays pending. A site-wide
+ * owner confirmation must not silently convert individual article records to reviewed;
+ * use the review workflow to stamp a documented reviewer/date on each verified guide.
  */
 export const BLOG_REVIEW_STATUSES = ["reviewed", "pending"] as const;
 export type BlogReviewStatus = (typeof BLOG_REVIEW_STATUSES)[number];
@@ -14,13 +16,13 @@ export const PENDING_REVIEW_TEXT =
 type MaybeReviewStatus = { reviewStatus?: string | null } | null | undefined;
 
 /**
- * Resolve a guide's review state. The first source that sets the field wins
- * (e.g. the full post, then its catalog row); anything else is "pending".
+ * Resolve a guide's review state. The first source that explicitly sets the field wins
+ * (e.g. the full post, then its catalog row); missing/invalid metadata is pending.
  */
 export function resolveBlogReviewStatus(...sources: MaybeReviewStatus[]): BlogReviewStatus {
   for (const src of sources) {
     const value = src?.reviewStatus;
-    if (value === "pending" || value === "reviewed") return value;
+    if (value === "reviewed" || value === "pending") return value;
   }
   return DEFAULT_BLOG_REVIEW_STATUS;
 }
@@ -32,8 +34,8 @@ export function isBlogReviewPending(...sources: MaybeReviewStatus[]): boolean {
 /**
  * Review-related JSON-LD fields for a blog guide. Pending guides get none, so
  * structured data never claims a review that has not happened. Reviewed guides
- * keep the existing behaviour: `reviewedBy` only for the verified clinician,
- * plus `lastReviewed` when a real review date is passed in.
+ * keep the existing behaviour: reviewedBy only for the verified clinician,
+ * plus lastReviewed when a real review date is passed in.
  */
 export function blogReviewSchemaFields<R extends object>(opts: {
   reviewStatus: BlogReviewStatus;

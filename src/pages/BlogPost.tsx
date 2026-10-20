@@ -85,6 +85,17 @@ function stripQuestionHeadings(html: string): string {
   );
 }
 
+/** Remove accidental consecutive duplicate paragraphs introduced by imports. */
+function dedupeAdjacentParagraphs(html: string): string {
+  let previous = "";
+  return html.replace(/<p([^>]*)>([\s\S]*?)<\/p>/gi, (full, attrs, body) => {
+    const normalized = htmlToPlainText(body).replace(/\s+/g, " ").trim().toLowerCase();
+    if (normalized.length >= 40 && normalized === previous) return "";
+    previous = normalized;
+    return `<p${attrs}>${body}</p>`;
+  });
+}
+
 /** Build a fallback direct-answer sentence from the first substantive paragraph. */
 function firstParagraphSummary(html: string): string {
   const m = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
@@ -100,12 +111,17 @@ function firstParagraphSummary(html: string): string {
 
 function looksLikeMarkdown(src: string): boolean {
   // ATX headings, emphasis lists, or bold lines that CMS rows sometimes leave unparsed
-  return /(?:^|\n)#{1,6}\s+\S/.test(src) || /(?:^|\n)(?:[-*+]|\d+\.)\s+\S/.test(src);
+  return /(?:^|
+)#{1,6}\s+\S/.test(src) || /(?:^|
+)(?:[-*+]|\d+\.)\s+\S/.test(src);
 }
 
 function prepareArticleSource(md: string): string {
-  // Database may store literal \n instead of real newlines
-  const normalized = md.replace(/\\n/g, "\n");
+  // Database may store literal 
+ instead of real newlines
+  const normalized = md.replace(/\
+/g, "
+");
   // Already-stored escaped HTML inside <pre><code> (legacy marked bug) → real HTML.
   return unwrapEscapedHtmlCodeBlocks(normalized.trim());
 }
@@ -232,7 +248,7 @@ const BlogPost = () => {
     return <NotFound />;
   }
 
-  const htmlContent = markdownToHtml(article.content);
+  const htmlContent = dedupeAdjacentParagraphs(markdownToHtml(article.content));
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
@@ -278,8 +294,8 @@ const BlogPost = () => {
   // Normalise any legacy placeholder credentials to the verified clinician
   const isPlaceholderReviewer =
     /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
-  const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
-  const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
+  const reviewerName = isPlaceholderReviewer || !rawReviewerName.trim() ? MAXWELL_NAME : rawReviewerName;
+  const reviewerCreds = isPlaceholderReviewer || !rawReviewerCreds.trim() ? MAXWELL_CREDS : rawReviewerCreds;
   // Guides awaiting clinical review (reviewStatus: "pending") never show or
   // emit a completed review, whatever reviewed_by says.
   const reviewStatus = resolveBlogReviewStatus(
@@ -298,7 +314,8 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed = (article as { last_reviewed?: string }).last_reviewed;
+  const blogLastReviewed =
+    (article as { last_reviewed?: string }).last_reviewed ?? getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
@@ -338,7 +355,11 @@ const BlogPost = () => {
         ...maxwellSchemaFields,
       }
     : null;
-  const reviewSchemaFields = blogReviewSchemaFields({ reviewStatus, reviewedBy: reviewedBySchema });
+  const reviewSchemaFields = blogReviewSchemaFields({
+    reviewStatus,
+    reviewedBy: reviewedBySchema,
+    lastReviewed: blogLastReviewed,
+  });
   const citationSchema = citations.map((citation) => ({
     "@type": "CreativeWork",
     "name": citation.label,
@@ -585,6 +606,9 @@ const BlogPost = () => {
                 />
                 <figcaption className="text-xs text-muted-foreground mt-1.5">
                   {cover.credit}
+                  {cover.credit.toLowerCase().includes("openverse") ? (
+                    <> · <a href="https://openverse.org/" rel="noopener noreferrer" className="underline underline-offset-2">Openverse source catalogue</a></>
+                  ) : null}
                 </figcaption>
               </figure>
             </div>
@@ -640,7 +664,9 @@ const BlogPost = () => {
               title="First Contact Practitioner"
               credential="HCPC PH128483"
               authorSlug="maxwell"
-              date={updatedDate ?? publishDate}
+              date={blogLastReviewed
+                ? new Date(blogLastReviewed).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+                : updatedDate ?? publishDate}
             />
           )}
 
@@ -680,6 +706,9 @@ const BlogPost = () => {
                 />
                 <figcaption className="text-xs text-muted-foreground/70 mt-2">
                   {relatedImages[0].credit}
+                  {relatedImages[0].credit.toLowerCase().includes("openverse") ? (
+                    <> · <a href="https://openverse.org/" rel="noopener noreferrer" className="underline underline-offset-2">Openverse source catalogue</a></>
+                  ) : null}
                 </figcaption>
               </figure>
             )}
