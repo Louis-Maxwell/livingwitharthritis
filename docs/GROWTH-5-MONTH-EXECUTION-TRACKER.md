@@ -45,6 +45,7 @@
 | Champions 79–81 steroid emergency card + shingles vaccine + UTI confusion | **done** | Gold-pass `/blog/steroid-emergency-card-frail-arthritis-uk`, `/blog/shingles-vaccine-arthritis-frailty-uk`, `/blog/uti-confusion-arthritis-frailty-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", England / Northern Ireland filler, OA advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS prednisolone (red vs blue steroid cards), NHS Addison's (adrenal crisis 999 signs), Society for Endocrinology, NHS shingles vaccine and shingles, NHS UTIs, sudden confusion, kidney infection, sepsis, NHS methotrexate interactions and NICE CG103. No steroid doses given; never stop or change medicines yourself. Treatments cluster fronting + chatbot KB; Vitest `gsc-champions-79-81-15-oct.test.ts` |
 | Champions 82–84 sleeping tablets/falls + sleep apnoea + bone protection on steroids | **done** | Gold-pass `/blog/sleeping-tablets-falls-arthritis-frailty-uk`, `/blog/sleep-apnoea-arthritis-frailty-uk`, `/blog/bone-protection-steroids-arthritis-frailty-uk`: full rewrites of broken frailty-template copy. Each has CTR meta and is **pending clinical review**. Cites NHS insomnia / Sleepio / zolpidem falls risk / sleep apnoea / osteoporosis causes & prevention / prednisolone long-term bone thinning / vitamin D / falls, NICE MTG70 / NG249, GOV.UK driving. Never stop or change medicines yourself; no public steroid or sleeping-tablet dosing. Pain/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-82-84-16-oct.test.ts` |
 | Champions 85–87 strength after a flare + confidence after a fall + medication reviews | **done** | Gold-pass `/blog/deconditioning-after-arthritis-flare-uk`, `/blog/confidence-after-fall-arthritis-frailty-uk`, `/blog/pharmacist-medication-review-frail-arthritis-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", random-nation filler, empty headings, OA advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS physiotherapy (MSK self-referral) / older-adult activity guidelines / sitting, strength and balance exercises / DVT / RA treatment / falls / head injury / broken hip / walking aids / Talking Therapies / paracetamol, NHS England Structured Medication Reviews, NHS New Medicine Service, NICE NG226 / NG249 / NG5, Age UK falls prevention, Arthritis UK (formerly Versus Arthritis) exercise and MHRA Yellow Card. Never stop or change medicines yourself; no doses. Flare-ups/exercises/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-85-87-19-oct.test.ts` |
+| Champions 88–90 vitamin D and falls + chair yoga + sit-to-stand | **done** | Gold-pass `/blog/vitamin-d-and-falls-arthritis-uk`, `/blog/chair-yoga-elderly-arthritis-stiffness`, `/blog/sit-to-stand-practice-frail-arthritis-uk`: full rewrites of broken frailty-template copy (and, on chair yoga, an unverifiable trial claim and a made-up website). Each has CTR meta and is **pending clinical review**. Cites NHS vitamin D / calcium / osteoporosis / falls / physiotherapy / older-adult activity guidelines / sitting and strength exercises, NICE NG249 (vitamin D not proven to prevent falls on its own) / NG226, Royal Osteoporosis Society, Age UK and Arthritis UK (formerly Versus Arthritis) exercise. No doses beyond NHS public vitamin D advice. Diet/exercises cluster fronting + chatbot KB; Vitest `gsc-champions-88-90-20-oct.test.ts`; triage list re-ranked for 89–98 |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -103,7 +104,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 87 (Champions 85–87 shipped 19 Oct, after 82–84 on 16 Oct); Champion 88 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`, then re-rank and pick the next 10 (236 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 90 (Champions 88–90 shipped 20 Oct, after 85–87 on 19 Oct); triage list re-ranked 20 Oct with Champions 91–98 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (233 template posts left) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -114,6 +115,39 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 | HCP clinic-pack distribution prep | **done** (13 Oct) | `docs/HCP-CLINIC-PACK-DISTRIBUTION.md` (#189); sends are Louis-owned |
 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 20 Oct 2026 (M2 day 7, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 19 Oct: Champion 88, then re-rank the triage list. Champion 88 shipped, the list was re-ranked (still no fresh GSC export, so by inbound links, season and harm), and the top two re-ranked posts shipped as Champions 89–90 because they pair with the falls and strength work from 19 Oct. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 88 — `/blog/vitamin-d-and-falls-arthritis-uk`:** full rewrite into "vitamin D and falls: what it can and cannot do". NHS vitamin D role (calcium, phosphate, bones and muscles), NHS 10 microgram autumn/winter advice and all-year advice if frail, housebound, in a care home or with dark skin, the 100 microgram (4,000 IU) upper limit and why too much harms, follow a prescribed dose and check kidney problems. NICE NG249 stated plainly: not enough evidence that vitamin D alone lowers falls. What does help (falls service, strength and balance at least 2 days a week, medicines review, eyes and feet, home hazard assessment, winter extras), bones after a minor fall, steroid / RA bone questions, DEXA, calcium food-first. Hands off early to the gold-pass winter vitamin D guide. **Pending clinical review**
+- **Champion 89 — `/blog/chair-yoga-elderly-arthritis-stiffness`:** full rewrite into "chair yoga for older adults with stiff joints". Removed an unverifiable trial claim, a made-up website and unsupported "measurable improvement in 4–6 weeks" copy. NHS chair set-up, a gentle routine built from NHS sitting exercises (chest stretch, upper-body twist, hip marching, ankle stretch, neck turn, no full neck circles), extra care after hip replacement, RA/AS in the neck, osteoporosis or spinal fracture and dizziness, finding a class, stop / 999 / NHS 111 routes; honest that chair yoga is mainly flexibility, so pair it with strength and balance. Hands off early to chair exercises, yoga for beginners and seated tai chi. **Pending clinical review**
+- **Champion 90 — `/blog/sit-to-stand-practice-frail-arthritis-uk`:** full rewrite into "sit-to-stand practice with arthritis". NHS sit-to-stand steps (5 slow repetitions), easier and harder versions, chair safety, hip/knee replacement chair-height advice, discomfort guidance, NHS physio self-referral, OT equipment and free council care needs assessment, carers must not pull or lift, dizziness on standing and medicines review. Hands off early to strength training, chair exercises and strength after a flare. **Pending clinical review**
+- **Triage re-rank:** `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` now lists Champions 89–98 with inbound-link counts and reasons (91 knee OA staying steady at home, 92 seated strength (consolidation check), 93 painkillers in later life, 94 methotrexate, 95 late-onset RA, 96 RA monitoring, 97 night lights, 98 topical NSAIDs) plus reserves; 233 template posts left
+- **`topicClusters.ts`:** exercises fronts sit-to-stand and chair yoga; diet fronts vitamin D and falls (+ search triggers)
+- **Chatbot KB:** exercise-general `related` + chair yoga / sit-to-stand keywords; supplements `related` + vitamin D and falls keywords
+- Sitemap `lastmod` **2026-10-20** on the three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–90 pending
+- **Tests:** `src/lib/__tests__/gsc-champions-88-90-20-oct.test.ts` (also blocks the removed trial claim and any "vitamin D prevents falls" wording); full Vitest suite green (121 files / 802 tests) + dependency-security node tests; lint, typecheck and blog catalog check clean (the local blog HTML gate script fails to start on this box's Node 20 on `main` too, a jsdom/parse5 loader issue, so it is left to CI)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–90 (esp. today's vitamin D all-year and kidney wording, the chair yoga cautions for hip replacement, RA neck and osteoporosis, and the sit-to-stand "mild aching that settles within a day" guidance), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 233 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank the triage list on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 91–93 from the re-ranked list: `knee-osteoarthritis-frailty-staying-steady-home-uk`, `seated-strength-frail-osteoarthritis-uk` (check overlap with chair exercises first; consolidate if it duplicates) and `painkillers-older-adults-arthritis-caution-uk`
+2. Champions 94–96 (methotrexate, late-onset RA, RA monitoring) as a medicines-safety and newly-diagnosed RA set
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
 
 ---
 
