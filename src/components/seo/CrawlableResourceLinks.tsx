@@ -9,7 +9,7 @@ const RESOURCE_LINKS = [
   { href: "/exercises", label: "Arthritis exercise hub" },
   { href: "/diet", label: "Diet and nutrition hub" },
   { href: "/benefits-pip", label: "Benefits and PIP hub" },
-  { href: "/resources", label: "Free arthritis resources" },
+  { href: "/resource-centre", label: "Free arthritis resources" },
   { href: "/about", label: "About Living With Arthritis" },
   { href: "/sources", label: "Clinical sources" },
   { href: "/contact", label: "Contact Living With Arthritis" },
