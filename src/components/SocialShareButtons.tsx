@@ -104,7 +104,7 @@ const SocialShareButtons = ({
 
   return (
     <section
-      aria-label="Share this article"
+      aria-label={compact ? "Quick share" : "Share this article"}
       className={
         compact
           ? "rounded-xl border border-border/50 bg-muted/20 p-3 sm:p-3.5"
@@ -162,7 +162,7 @@ const SocialShareButtons = ({
               variant="outline"
               size="sm"
               onClick={() => writeClipboard(shareText, "group")}
-              aria-label={groupCopied ? "Copied for groups" : "Copy title, summary and link for groups"}
+              title="Copy title, summary and link for groups"
               className="min-h-11 gap-2 rounded-full px-3 col-span-1"
             >
               {groupCopied ? (

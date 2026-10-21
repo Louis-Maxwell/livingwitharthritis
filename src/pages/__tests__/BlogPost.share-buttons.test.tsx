@@ -86,7 +86,7 @@ const FOOTER_ID = "share-url-footer-test-article";
 const EXPECTED_URL = "https://livingwitharthritis.org.uk/blog/test-article";
 
 function shareBlocks() {
-  return screen.getAllByRole("region", { name: "Share this article" });
+  return screen.getAllByRole("region", { name: /^(Share this article|Quick share)$/ });
 }
 
 describe("BlogPost SocialShareButtons regression", () => {
