@@ -71,7 +71,7 @@ const tailIndex: SearchItem[] = [
   { label: "Meal Planning for Arthritis (UK)", href: "/blog/arthritis-meal-planning-uk", category: "Blog", icon: Utensils },
   { label: "Arthritis Supplements UK", href: "/blog/best-supplements-arthritis-uk", category: "Blog", icon: FileText },
   { label: "Cold Weather & Joint Pain", href: "/blog/cold-weather-arthritis-uk-winter", category: "Blog", icon: FileText },
-  { label: "Cycling for Arthritis (UK)", href: "/blog/cycling-with-arthritis", category: "Blog", icon: Dumbbell },
+  { label: "Cycling for Arthritis (UK)", href: "/blog/arthritis-and-cycling-uk", category: "Blog", icon: Dumbbell },
   { label: "Tai Chi for Arthritis (UK)", href: "/blog/tai-chi-for-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Hydrotherapy for Arthritis (UK)", href: "/blog/hydrotherapy-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Morning Stretches", href: "/daily-tips/morning-stretches", category: "Tips", icon: Sun },

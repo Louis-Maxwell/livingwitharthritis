@@ -1,34 +1,27 @@
 /**
  * Shared topic (category) helpers for /blog, /blog/category/:key and /blog/archive.
- * Raw post categories (25 editorial labels) collapse onto 8 canonical topics
+ * Each post carries one of 9 primary categories
  * via src/data/blogCategories.ts.
  */
 import {
   BLOG_CATEGORY_KEYS,
+  BLOG_CATEGORY_LABELS,
   canonicalBlogCategoryKey,
   type BlogCategoryKey,
 } from "@/data/blogCategories";
 
-export const BLOG_TOPIC_LABELS: Record<BlogCategoryKey, string> = {
-  exercise: "Exercise",
-  nutrition: "Nutrition",
-  lifestyle: "Lifestyle",
-  health: "Health",
-  "mental-health": "Mental Health",
-  supplements: "Supplements",
-  treatment: "Treatment",
-  frailty: "Frailty",
-};
+export const BLOG_TOPIC_LABELS: Record<BlogCategoryKey, string> = BLOG_CATEGORY_LABELS;
 
 export const BLOG_TOPIC_BLURBS: Record<BlogCategoryKey, string> = {
-  exercise: "Physio routines, yoga, swimming & cycling",
-  nutrition: "Anti-inflammatory diet, meal plans & recipes",
-  lifestyle: "Work, travel, gardening & daily living",
-  health: "Symptoms, diagnosis & condition guides",
-  "mental-health": "Mood, anxiety & coping with chronic pain",
-  supplements: "Turmeric, omega-3, glucosamine & collagen",
-  treatment: "Medication, TENS, hydrotherapy & relief",
-  frailty: "Falls prevention, sarcopenia & longevity",
+  "pain-flares": "Flare plans, pain relief and when to get help",
+  exercise: "Physio routines, walking, swimming, yoga and falls prevention",
+  conditions: "Symptoms, diagnosis and condition guides",
+  "benefits-work": "PIP, benefits, grants and your rights at work",
+  "diet-lifestyle": "Diet, supplements, home, travel and daily living",
+  treatments: "Medicines, injections, physio and NHS care",
+  "surgery-recovery": "Joint replacement, preparing for surgery and rehab",
+  "carers-family": "Carers, partners, parenting and pregnancy",
+  "mental-health-fatigue": "Mood, anxiety, sleep and fatigue",
 };
 
 export type BlogTopicFilter = "All" | (typeof BLOG_TOPIC_LABELS)[BlogCategoryKey];

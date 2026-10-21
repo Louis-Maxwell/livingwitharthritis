@@ -268,7 +268,7 @@ const ShoulderArthritis = () => (
               links: [
                 { label: "Best diet for arthritis", to: "/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
-                { label: "Glucosamine, collagen, turmeric", to: "/blog/category/supplements" },
+                { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],
             },
             {

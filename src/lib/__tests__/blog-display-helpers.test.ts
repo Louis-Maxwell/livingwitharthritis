@@ -34,12 +34,15 @@ describe("displayTitle", () => {
 });
 
 describe("blog topic helpers", () => {
-  it("maps category slugs and editorial labels onto the 8 topics", () => {
+  it("maps category slugs and editorial labels onto the 9 topics", () => {
     expect(BLOG_TOPIC_FILTERS[0]).toBe("All");
-    expect(topicFilterFromSlug("mental-health")).toBe("Mental Health");
+    expect(BLOG_TOPIC_FILTERS).toHaveLength(10);
+    expect(topicFilterFromSlug("mental-health-fatigue")).toBe("Mental health & fatigue");
+    // Legacy keys still resolve to the new topics.
+    expect(topicFilterFromSlug("mental-health")).toBe("Mental health & fatigue");
     expect(topicFilterFromSlug("nope")).toBe("All");
-    expect(postMatchesTopic("Surgery & Recovery", "Treatment")).toBe(true);
-    expect(postMatchesTopic("Surgery & Recovery", "Exercise")).toBe(false);
+    expect(postMatchesTopic("Surgery & Recovery", "Surgery & recovery")).toBe(true);
+    expect(postMatchesTopic("Surgery & Recovery", "Exercise & movement")).toBe(false);
     expect(postMatchesTopic("Anything", "All")).toBe(true);
   });
 

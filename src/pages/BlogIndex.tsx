@@ -69,7 +69,7 @@ const TOPIC_HUBS: { label: string; to: string; blurb: string }[] = [
   { label: "Diet hub", to: "/diet", blurb: "Anti-inflammatory & Mediterranean eating" },
   { label: "Conditions", to: "/conditions/osteoarthritis", blurb: "OA, RA and joint-specific guides" },
   { label: "Benefits & PIP", to: "/benefits-pip", blurb: "Claims, evidence and appeals" },
-  { label: "Treatments", to: "/blog/category/treatment", blurb: "Medication, physio and surgery" },
+  { label: "Treatments", to: "/blog/category/treatments", blurb: "Medicines, physio and NHS care" },
   { label: "Flare-ups", to: "/blog/arthritis-flare-up-what-to-do", blurb: "What to do when pain spikes" },
   { label: "Full archive", to: "/blog/archive", blurb: "All guides by date and topic" },
 ];
@@ -254,6 +254,18 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
     Boolean(activeTag) ||
     Boolean(activeAuthor) ||
     sortMode !== "newest";
+
+  const startHere = useMemo(
+    () =>
+      BLOG_CATEGORY_KEYS.map((key) => {
+        const label = BLOG_TOPIC_LABELS[key];
+        const inCat = blogPosts.filter((p) => postMatchesCategory(p.category, label));
+        const reviewed = inCat.filter((p) => (p as { reviewStatus?: string }).reviewStatus === "reviewed");
+        const posts = [...reviewed, ...inCat.filter((p) => !reviewed.includes(p))].slice(0, 3);
+        return { key, label, posts };
+      }).filter((c) => c.posts.length > 0),
+    [blogPosts],
+  );
 
   const showDiscovery =
     activeCategory === "All" &&
@@ -595,6 +607,39 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
             </section>
           )}
 
+          {/* Start here — the first few guides in each primary category (catalog order) */}
+          {showDiscovery && startHere.length > 0 && (
+            <section aria-labelledby="start-here-heading" className="mb-14">
+              <h2 id="start-here-heading" className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
+                Start here
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">Good first reads for each topic.</p>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {startHere.map(({ key, label, posts }) => (
+                  <div key={key} className="rounded-2xl border border-border/60 bg-card p-5">
+                    <h3 className="font-semibold text-foreground mb-3">
+                      <Link to={`/blog/category/${key}`} className="hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
+                        {label}
+                      </Link>
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      {posts.map((p) => (
+                        <li key={p.slug}>
+                          <Link to={`/blog/${p.slug}`} className="text-foreground/90 hover:text-primary underline-offset-2 hover:underline">
+                            {p.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link to={`/blog/category/${key}`} className="mt-3 inline-block text-sm font-medium text-primary">
+                      All {label.toLowerCase()} guides <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Saved for later — local bookmarks only; hidden until something is saved */}
           {savedPosts.length > 0 && (
             <section aria-labelledby="saved-heading" className="mb-14">
@@ -768,7 +813,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
                         >
                           <span>
                             <span className="block font-medium text-foreground group-hover:text-primary">
-                              {label} Articles
+                              {label}
                             </span>
                             <span className="block text-sm text-muted-foreground">{BLOG_TOPIC_BLURBS[key]}</span>
                           </span>

@@ -593,8 +593,8 @@ const DietHub = () => {
                   { label: "Mediterranean diet for arthritis — 7-day UK plan", to: "/diet/mediterranean-diet-for-arthritis" },
                   { label: "Mediterranean diet for arthritis — full guide", to: "/guides/diet" },
                   { label: "How to reduce joint inflammation", to: "/arthritis-flare-ups" },
-                  { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                  { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                  { label: "Foods to avoid with arthritis", to: "/blog/category/diet-lifestyle" },
+                  { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
                 ],
               },
               {
@@ -612,7 +612,7 @@ const DietHub = () => {
                   { label: "Arthritis-friendly exercises", to: "/exercises" },
                   { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
                   { label: "Self-help joint tool", to: "/self-help" },
-                  { label: "All Nutrition articles", to: "/blog/category/nutrition" },
+                  { label: "All Nutrition articles", to: "/blog/category/diet-lifestyle" },
                 ],
               },
             ]}

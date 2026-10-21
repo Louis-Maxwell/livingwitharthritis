@@ -1,0 +1,38 @@
+{
+  "pain-flares": {
+    "title": "Arthritis Pain & Flares: UK Guides",
+    "description": "What to do in a flare, everyday pain relief, pacing, and the warning signs that mean you should call NHS 111, your GP or 999."
+  },
+  "exercise": {
+    "title": "Exercise & Movement for Arthritis: UK Guides",
+    "description": "Safe exercise for arthritis: strength, walking, swimming, yoga and tai chi, plus falls prevention and staying mobile as you get older."
+  },
+  "conditions": {
+    "title": "Arthritis Conditions & Symptoms: UK Guides",
+    "description": "Plain-English guides to osteoarthritis, rheumatoid arthritis, gout and other conditions: symptoms, diagnosis, tests and what to expect."
+  },
+  "benefits-work": {
+    "title": "PIP, Benefits & Work With Arthritis: UK Guides",
+    "description": "How PIP and other UK benefits work with arthritis, the evidence to send, appeals, grants, and your rights and adjustments at work."
+  },
+  "diet-lifestyle": {
+    "title": "Diet & Lifestyle With Arthritis: UK Guides",
+    "description": "Anti-inflammatory and Mediterranean eating, supplements and the evidence, weight, and practical tips for home, travel and daily life."
+  },
+  "treatments": {
+    "title": "Arthritis Treatments & Medicines: UK Guides",
+    "description": "Medicines, injections, physiotherapy and other treatments for arthritis, how NHS care works, and questions to ask your care team."
+  },
+  "surgery-recovery": {
+    "title": "Arthritis Surgery & Recovery: UK Guides",
+    "description": "Joint replacement and other surgery for arthritis: deciding, preparing, the operation and rehab at home afterwards."
+  },
+  "carers-family": {
+    "title": "Carers & Family Life With Arthritis: UK Guides",
+    "description": "Support for carers and families: caring for someone with arthritis, relationships, parenting, pregnancy and talking to children."
+  },
+  "mental-health-fatigue": {
+    "title": "Mental Health, Sleep & Fatigue With Arthritis",
+    "description": "Coping with the emotional side of arthritis: low mood, anxiety, poor sleep and fatigue, and where to find support in the UK."
+  }
+}

@@ -141,7 +141,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/guides/knee-exercises-for-osteoarthritis",
       "/library/shoulder-exercises",
       "/faq/best-exercises-arthritis",
-      "/blog/cycling-with-arthritis",
+      "/blog/arthritis-and-cycling-uk",
       "/exercises/tai-chi-for-arthritis",
       "/exercises/tai-chi-for-balance",
       "/exercises/seated-tai-chi-for-arthritis",
