@@ -46,6 +46,7 @@
 | Champions 82–84 sleeping tablets/falls + sleep apnoea + bone protection on steroids | **done** | Gold-pass `/blog/sleeping-tablets-falls-arthritis-frailty-uk`, `/blog/sleep-apnoea-arthritis-frailty-uk`, `/blog/bone-protection-steroids-arthritis-frailty-uk`: full rewrites of broken frailty-template copy. Each has CTR meta and is **pending clinical review**. Cites NHS insomnia / Sleepio / zolpidem falls risk / sleep apnoea / osteoporosis causes & prevention / prednisolone long-term bone thinning / vitamin D / falls, NICE MTG70 / NG249, GOV.UK driving. Never stop or change medicines yourself; no public steroid or sleeping-tablet dosing. Pain/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-82-84-16-oct.test.ts` |
 | Champions 85–87 strength after a flare + confidence after a fall + medication reviews | **done** | Gold-pass `/blog/deconditioning-after-arthritis-flare-uk`, `/blog/confidence-after-fall-arthritis-frailty-uk`, `/blog/pharmacist-medication-review-frail-arthritis-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", random-nation filler, empty headings, OA advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS physiotherapy (MSK self-referral) / older-adult activity guidelines / sitting, strength and balance exercises / DVT / RA treatment / falls / head injury / broken hip / walking aids / Talking Therapies / paracetamol, NHS England Structured Medication Reviews, NHS New Medicine Service, NICE NG226 / NG249 / NG5, Age UK falls prevention, Arthritis UK (formerly Versus Arthritis) exercise and MHRA Yellow Card. Never stop or change medicines yourself; no doses. Flare-ups/exercises/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-85-87-19-oct.test.ts` |
 | Champions 88–90 vitamin D and falls + chair yoga + sit-to-stand | **done** | Gold-pass `/blog/vitamin-d-and-falls-arthritis-uk`, `/blog/chair-yoga-elderly-arthritis-stiffness`, `/blog/sit-to-stand-practice-frail-arthritis-uk`: full rewrites of broken frailty-template copy (and, on chair yoga, an unverifiable trial claim and a made-up website). Each has CTR meta and is **pending clinical review**. Cites NHS vitamin D / calcium / osteoporosis / falls / physiotherapy / older-adult activity guidelines / sitting and strength exercises, NICE NG249 (vitamin D not proven to prevent falls on its own) / NG226, Royal Osteoporosis Society, Age UK and Arthritis UK (formerly Versus Arthritis) exercise. No doses beyond NHS public vitamin D advice. Diet/exercises cluster fronting + chatbot KB; Vitest `gsc-champions-88-90-20-oct.test.ts`; triage list re-ranked for 89–98 |
+| Champions 91–93 knee OA steady at home + seated strength + painkillers in later life | **done** | Gold-pass `/blog/knee-osteoarthritis-frailty-staying-steady-home-uk`, `/blog/seated-strength-frail-osteoarthritis-uk`, `/blog/painkillers-older-adults-arthritis-caution-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", random-nation filler, Rockwood scale filler). Each has CTR meta and is **pending clinical review**. Cites NHS falls / preventing falls / getting up after a fall / strength, balance and sitting exercises / older-adult activity guidelines / walking aids / paracetamol / ibuprofen / NSAIDs / co-codamol / codeine / gabapentin / stomach ulcer, NICE NG226 (pain-medicine recommendations 1.4.2–1.4.7, walking aids 1.3.10–1.3.11) / NG249, Age UK falls prevention, Arthritis UK (formerly Versus Arthritis) exercise and MHRA Yellow Card. No doses; never stop or change medicines yourself. Seated strength narrowed to effort and progression so it does not duplicate the chair routine. Exercises/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-91-93-21-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -104,7 +105,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 90 (Champions 88–90 shipped 20 Oct, after 85–87 on 19 Oct); triage list re-ranked 20 Oct with Champions 91–98 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (233 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 93 (Champions 91–93 shipped 21 Oct, after 88–90 on 20 Oct); Champions 94–98 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (230 template posts left) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -115,6 +116,39 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 | HCP clinic-pack distribution prep | **done** (13 Oct) | `docs/HCP-CLINIC-PACK-DISTRIBUTION.md` (#189); sends are Louis-owned |
 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 21 Oct 2026 (M2 day 8, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 20 Oct: Champions 91–93 from the re-ranked list. All three shipped. Seated strength was checked against the 20-minute chair routine first and narrowed (not consolidated) to a distinct job, because it had 4 inbound links and a different search intent ("how to make chair exercise build strength"). Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 91 — `/blog/knee-osteoarthritis-frailty-staying-steady-home-uk`:** full rewrite into "knee osteoarthritis: staying steady at home". Why sore knees make you less steady (quadriceps weakness), five home changes (clear and light the main route, proper indoor shoes, things within reach, somewhere to hold), strength and balance on at least 2 days a week (sit-to-stand, seated knee straightening, heel raises, supported balance), NICE NG226 walking-aid advice and the "not routinely" line on braces and insoles, night-time and toilet trips, the NHS get-up-after-a-fall steps (with a cushion under sore knees) and what to do if you cannot get up, GP / NHS 111 / 999 routes. **Pending clinical review**
+- **Champion 92 — `/blog/seated-strength-frail-osteoarthritis-uk`:** full rewrite into "seated strength exercises: how to make chair exercise build strength". Hands off in the first paragraph to the 20-minute chair routine and sit-to-stand. How hard it should feel (last two or three repetitions hard, no breath-holding), five seated moves for the big muscle groups, one-change-at-a-time progression (repetitions, slower lowering, holds, light weights, bands, then standing work), joint care (comfortable range, next-day pain rule, flare days, hand OA grip, joint replacement), when to get help. **Pending clinical review**
+- **Champion 93 — `/blog/painkillers-older-adults-arthritis-caution-uk`:** full rewrite into "painkillers in later life: safer use and what to check". Why age changes things, what NICE NG226 actually says (exercise first, topical NSAID for knee OA, oral NSAID lowest dose shortest time with a PPI, paracetamol and weak opioids not routinely offered, no strong opioids for OA), RA painkillers do not control disease, NHS "ask first" list for NSAIDs, hidden paracetamol in combination products and the A&E-even-if-you-feel-well overdose rule, codeine / opioid drowsiness, constipation, falls and do-not-stop-suddenly, gabapentinoid unsteadiness, ways to need fewer tablets, NHS 111 / 999 routes and Yellow Card. No doses. **Pending clinical review**
+- **`topicClusters.ts`:** exercises fronts knee steady-at-home and seated strength; treatments fronts painkillers in later life (+ search triggers)
+- **Chatbot KB:** exercise-general `related` + seated strength / knee giving way keywords; pain `related` + painkillers-in-later-life keywords
+- Sitemap `lastmod` **2026-10-21** on the three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–93 pending
+- **Triage doc:** 91–93 ticked, topical NSAIDs (98) flagged for an overlap check against the existing topical NSAIDs guide; 230 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-91-93-21-oct.test.ts` (also blocks any dose wording on the painkillers page); full Vitest suite green (122 files / 816 tests); lint, typecheck and blog catalog check clean (blog HTML gate left to CI, as on 20 Oct)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–93 (esp. today's NICE NG226 medicines summary on the painkillers page, the "weigh under 50kg" paracetamol caution, and the get-up-after-a-fall advice for people with painful knees), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 230 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank the triage list on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 94–96 (methotrexate in later life, late-onset RA first months, RA monitoring) as a medicines-safety and newly-diagnosed RA set
+2. Champions 97–98 (night lights, topical NSAIDs after an overlap check), then re-rank the next 10
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
 
 ---
 
