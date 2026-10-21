@@ -48,7 +48,7 @@ export default function BenefitsPIPGuide() {
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
-        <title>{`${PIP_GUIDE_META_TITLE} | Living With Arthritis`}</title>
+        <title>{PIP_GUIDE_META_TITLE}</title>
         <meta name="description" content={PIP_GUIDE_DESCRIPTION} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />

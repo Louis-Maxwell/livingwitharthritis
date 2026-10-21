@@ -6,9 +6,9 @@
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "Can You Claim PIP for Arthritis While Working? (UK)";
+export const PIP_GUIDE_META_TITLE = "Can You Get PIP for Arthritis? UK Guide 2026/27";
 
-export const PIP_GUIDE_DESCRIPTION = "Can you claim PIP for arthritis while working? Check UK eligibility, daily living and mobility points, 2026/27 rates, the form, assessment and appeal steps.";
+export const PIP_GUIDE_DESCRIPTION = "Yes, if arthritis affects daily living or mobility, even if you work. 2026/27 rates, how the points work, the form, assessment and appeals.";
 
 export const PIP_GUIDE_QUICK_ANSWER = "Can you claim PIP for arthritis while working? Yes. PIP is not means-tested or an out-of-work benefit. Eligibility depends on how a long-term condition affects daily living or mobility. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
 

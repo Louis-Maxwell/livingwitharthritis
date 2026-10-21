@@ -241,9 +241,9 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
     ],
   },
   "access-to-work": {
-    title: "Access to Work UK for arthritis: grants, eligibility & how to apply",
+    title: "Access to Work for Arthritis: What It Pays For (UK)",
     description:
-      "What Access to Work can fund for people with arthritis in England, Scotland and Wales — equipment, travel, support workers — plus Equality Act adjustments, PIP links and how to apply on GOV.UK.",
+      "Access to Work can fund equipment, travel and support workers if arthritis affects your job. Who can apply in England, Scotland and Wales, and how.",
     h1: "Access to Work for arthritis: UK workplace support explained",
     related: [
       { label: "Benefits & PIP hub", href: "/benefits-pip" },
