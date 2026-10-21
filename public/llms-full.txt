@@ -2684,17 +2684,19 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
 
-## Bone protection on steroids when you also have arthritis and frailty (UK)
+## Bone protection on steroids with arthritis: scans, vitamin D and falls (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/bone-protection-steroids-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Bone protection on steroids when you also have arthritis and frailty (UK)
-A: For bone protection on steroids when you also have arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This article is about steroids, bone and falls in one conversation, written for people and carers in Wales, especially around a GP surgery.
-Reference: NHS – Steroids — https://www.nhs.uk/conditions/steroids/
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NHS – Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+Q: Bone protection on steroids with arthritis: scans, vitamin D and falls (UK guide)
+A: Long-term use of high-dose steroid tablets is a recognised risk factor for osteoporosis (thinner bones that break more easily), and rheumatoid arthritis itself also raises that risk. Ask your GP or rheumatology team about bone protection, whether you need a bone density (DEXA) scan, vitamin D and calcium, and falls prevention. Never stop, skip or lower steroid tablets yourself — that can be dangerous. Follow your team's plan for any bone-strengthening medicines they prescribe.
+Reference: NHS: Causes of osteoporosis (steroids and rheumatoid arthritis) — https://www.nhs.uk/conditions/osteoporosis/causes/
+Reference: NHS: Osteoporosis overview — https://www.nhs.uk/conditions/osteoporosis/
+Reference: NHS: Preventing osteoporosis — https://www.nhs.uk/conditions/osteoporosis/prevention/
+Reference: NHS: Side effects of prednisolone (thinner bones) — https://www.nhs.uk/medicines/prednisolone/side-effects-of-prednisolone-tablets-and-liquid/
+Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Building Strength and Resilience: Exercise for Frailty Prevention
 URL: https://livingwitharthritis.org.uk/blog/building-strength-resilience-exercise-frailty-prevention
@@ -2883,13 +2885,20 @@ Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249: Falls: assessment and prevention in older people and in people 50 and over at higher risk — https://www.nice.org.uk/guidance/ng249
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Chair Yoga for Elderly Arthritis Stiffness Beginners
+## Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/chair-yoga-elderly-arthritis-stiffness
-Last updated: 2026-09-05
-Author: Maxwell (HCPC PH128483, CSP Member)
+Last updated: 2026-10-20
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Chair Yoga for Elderly Arthritis Stiffness Beginners
-A: Chair yoga for elderly arthritis: seated cat-cow, shoulder rolls, ankle circles, seated forward fold, seated twist and chair pigeon pose. Practise 15-20 minutes daily or 3-4x/week. Uses a sturdy chair for support. Clinical trial evidence confirms benefits for pain, fatigue and balance in OA.
+Q: Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)
+A: Chair yoga is gentle stretching, movement and slow breathing done sitting on, or holding, a sturdy chair, so you never need to get down to the floor. Many people with arthritis find it a kind way to ease stiffness. Use a solid chair without wheels, move only as far as is comfortable, keep breathing and stop if you get sharp pain. Chair yoga mostly helps flexibility and relaxation, so pair it with some strength and balance work. If you have had a hip replacement, have osteoporosis, or have rheumatoid arthritis affecting your neck, ask your physiotherapist or rheumatology team which movements suit you.
+Reference: NHS: Sitting exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/
+Reference: NHS: Flexibility exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/flexibility-exercises/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: A guide to yoga — https://www.nhs.uk/live-well/exercise/guide-to-yoga/
+Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management — https://www.nice.org.uk/guidance/ng226
+Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
+Reference: Age UK: Exercise and staying active — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/
 
 ## Chair yoga for frailty and inflammatory arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/chair-yoga-frailty-inflammatory-arthritis-uk
@@ -3094,17 +3103,22 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS 111 Wales — https://111.wales.nhs.uk
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Rebuilding confidence after a fall if you have arthritis (UK)
+## Scared of falling again? Rebuilding confidence after a fall with arthritis (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/confidence-after-fall-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-19
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Rebuilding confidence after a fall if you have arthritis (UK)
-A: Ask for help with the hardest 20 percent of a task so the rest still counts as movement practice. This page explains the week after a fall when joints hurt more if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Scared of falling again? Rebuilding confidence after a fall with arthritis (UK guide)
+A: Feeling shaky or scared after a fall is common and understandable, but moving less usually leaves you weaker and less steady. See a GP after any fall, even if you were not hurt — they can check your balance and may refer you to a falls service for strength and balance training, a home safety check and a review of your medicines. In some areas you can refer yourself. Rebuild walking in small, planned steps, keep a phone or personal alarm on you, and practise what you would do if you fell again. Call 999 if someone has fallen and cannot get up, or may have hurt their head, neck, back or hip.
+Reference: NHS: Falls (what to do, falls services and prevention) — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/balance-exercises/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: Age UK: Preventing falls — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/
+Reference: NHS: Head injury and concussion — https://www.nhs.uk/conditions/head-injury-and-concussion/
+Reference: NHS: Broken hip — https://www.nhs.uk/conditions/broken-hip/
+Reference: NHS: Walking aids, wheelchairs and mobility scooters — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/walking-aids-wheelchairs-and-mobility-scooters/
+Reference: NHS Talking Therapies — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
 
 ## Constipation, pain medicines and frailty in arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/constipation-pain-medicines-frailty-arthritis-uk
@@ -3264,17 +3278,21 @@ Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-mine
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Deconditioning after an arthritis flare: getting moving again (UK)
+## Getting your strength back after an arthritis flare or illness week (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/deconditioning-after-arthritis-flare-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-19
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Deconditioning after an arthritis flare: getting moving again (UK)
-A: Arthritis plus frailty can turn ordinary home tasks into projects — kettle, bathroom, stairs — long before anyone plans ahead. Here we focus on restarting movement after days on the sofa, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Q: Getting your strength back after an arthritis flare or illness week (UK guide)
+A: After a flare or a week ill in bed, days of much less movement can leave your muscles weaker and your stamina lower, so stairs, the kettle and the walk to the shop can feel harder even once the pain settles. Start with small, frequent movement you can manage today — standing up from a chair a few times, short walks around your home, gentle joint movements — and build up a little at a time rather than waiting to feel back to normal. Pace your day, keep eating and drinking, and ask about NHS physiotherapy: in many areas you can refer yourself to community MSK physio without seeing a GP. Get urgent help for a hot, swollen joint with a high temperature, a painful swollen leg, chest pain or breathlessness.
+Reference: NHS: Physiotherapy (including self-referral to MSK services) — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Sitting exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/
+Reference: NHS: DVT (deep vein thrombosis) — https://www.nhs.uk/conditions/deep-vein-thrombosis-dvt/
+Reference: NHS: Rheumatoid arthritis treatment (physiotherapy and occupational therapy) — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: Arthritis UK (formerly Versus Arthritis): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
 
 ## Delirium in hospital when you also have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/delirium-hospital-arthritis-frailty-uk
@@ -4975,17 +4993,22 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Knee osteoarthritis and frailty: staying steady at home (UK)
+## Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/knee-osteoarthritis-frailty-staying-steady-home-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-21
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Knee osteoarthritis and frailty: staying steady at home (UK)
-A: When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking and sit-to-stand when knees hurt, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)
+A: If knee osteoarthritis makes you feel wobbly at home, the most useful things are usually stronger thigh muscles, a clutter-free and well-lit route between the rooms you use most, supportive shoes rather than loose slippers, and a walking aid that has been checked for your height. NICE recommends exercise for everyone with osteoarthritis and says walking aids such as a stick are worth considering for knee and hip osteoarthritis. Practise getting up from a chair and simple balance exercises on at least 2 days a week. If your knee keeps giving way, or you have had a fall, see a GP or ask about NHS physiotherapy or a falls service.
+Reference: NHS: Falls (what to do if you fall, getting up safely) — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Preventing falls — https://www.nhs.uk/conditions/falls/prevention/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/
+Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/balance-exercises/
+Reference: NHS: Walking aids, wheelchairs and mobility scooters — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/walking-aids-wheelchairs-and-mobility-scooters/
+Reference: Age UK: Falls prevention exercises — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/
 
 ## Knee Replacement for Arthritis – UK Guide
 URL: https://livingwitharthritis.org.uk/blog/knee-replacement-arthritis-uk
@@ -6693,17 +6716,23 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS Inform — https://www.nhsinform.scot
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Painkillers in older adults with arthritis: caution, not dosing (UK)
+## Painkillers in later life with arthritis: safer use and what to check (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/painkillers-older-adults-arthritis-caution-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-21
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Painkillers in older adults with arthritis: caution, not dosing (UK)
-A: Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need extra care as we age if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Q: Painkillers in later life with arthritis: safer use and what to check (UK guide)
+A: Painkillers can still help arthritis in later life, but they need more care as you get older, because the body clears medicines more slowly, you are more likely to take other medicines that interact, and side effects such as drowsiness, constipation, stomach bleeding and kidney strain matter more. For osteoarthritis, NICE puts exercise first, recommends an anti-inflammatory gel for knee osteoarthritis, and says oral anti-inflammatories should be used at the lowest effective dose for the shortest time, with stomach protection. NICE also says paracetamol and weak opioids such as codeine should not be offered routinely. Check every label for hidden paracetamol or ibuprofen, and ask a pharmacist before adding anything new.
+Reference: NICE NG226: Osteoarthritis in over 16s — recommendations on pain medicines — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
+Reference: NHS: Paracetamol for adults — https://www.nhs.uk/medicines/paracetamol-for-adults/
+Reference: NHS: Ibuprofen for adults — https://www.nhs.uk/medicines/ibuprofen-for-adults/
+Reference: NHS: NSAIDs — https://www.nhs.uk/conditions/nsaids/
+Reference: NHS: Co-codamol for adults — https://www.nhs.uk/medicines/co-codamol-for-adults/
+Reference: NHS: Codeine — https://www.nhs.uk/medicines/codeine/
+Reference: NHS: Gabapentin — https://www.nhs.uk/medicines/gabapentin/
+Reference: NHS: Stomach ulcer — https://www.nhs.uk/conditions/stomach-ulcer/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: MHRA Yellow Card: report a side effect — https://yellowcard.mhra.gov.uk/
 
 ## Palindromic Rheumatism: Joint Attacks That Come and Go
 URL: https://livingwitharthritis.org.uk/blog/palindromic-rheumatism-joint-attacks-come-and-go
@@ -6803,17 +6832,20 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Pharmacist medication reviews for frail adults with arthritis (UK)
+## Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/pharmacist-medication-review-frail-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-19
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Pharmacist medication reviews for frail adults with arthritis (UK)
-A: Joint protection and frailty care are the same conversation in a UK home: keep moving, keep fuelled, keep safer routes. This UK guide looks at using the pharmacist when the GP list is long in a community pharmacy setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Q: Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)
+A: A medication review is a planned conversation with a pharmacist, GP or nurse to check that each medicine you take is still right for you. In England, GP practices offer Structured Medication Reviews, usually with a clinical pharmacist, and prioritise people who take many medicines, are severely frail or housebound, or have recently had falls or a hospital stay. Community pharmacies also run the free New Medicine Service for some newly prescribed medicines, including for gout and osteoporosis. Bring every medicine you use, including creams, injections, supplements and shop-bought painkillers. Never stop or change a prescribed medicine yourself — ask first.
+Reference: NHS England: Structured medication reviews and medicines optimisation — https://www.england.nhs.uk/primary-care/pharmacy/smr/
+Reference: NHS: Get help with newly prescribed medicines (New Medicine Service) — https://www.nhs.uk/nhs-services/pharmacies/get-help-with-newly-prescribed-medicines/
+Reference: NICE NG5: Medicines optimisation — https://www.nice.org.uk/guidance/ng5
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Taking paracetamol with other medicines — https://www.nhs.uk/medicines/paracetamol-for-adults/how-and-when-to-take-paracetamol-for-adults/
+Reference: MHRA: Yellow Card scheme (report side effects) — https://yellowcard.mhra.gov.uk/
 
 ## Physio Mistakes to Avoid With Arthritis: 15 Common Pitfalls and What to Do Instead
 URL: https://livingwitharthritis.org.uk/blog/physio-mistakes-to-avoid-arthritis
@@ -7577,17 +7609,19 @@ Clinical review: pending; this guide has not completed clinical review.
 Q: Seasonal Arthritis Guide: Managing Symptoms Through the UK Year
 A: Managing arthritis symptoms year-round involves adapting to seasonal changes. In spring and autumn, layer clothing to combat fluctuating temperatures. Stay hydrated in summer, aiming for 2 litres daily, and protect sun-sensitive skin. To ease winter stiffness, use heated blankets and warm showers. Consistent medication and tracking symptoms are important year-round to pre-empt flare-ups.
 
-## Seated strength training for frail adults with osteoarthritis (UK)
+## Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/seated-strength-frail-osteoarthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-21
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Seated strength training for frail adults with osteoarthritis (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength that still counts, written for people and carers in Wales, especially around a home. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
+Q: Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)
+A: Seated exercise can build real strength with osteoarthritis if the muscles work hard enough. Pick a few moves that work your legs, arms and trunk, do them slowly, and stop each set when the last few repetitions feel hard but your form is still good. The NHS says older adults should do strength activities on at least 2 days a week. To keep getting stronger, change one thing at a time every week or two: a few more repetitions, a slower lowering, a pause at the top, or a light weight such as a water bottle or a resistance band. Some joint discomfort is common; if pain is clearly worse the next day, ease back a level.
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Sitting exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/
+Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
 
 ## Second-hand equipment for arthritis and frailty: safety checks (UK)
 URL: https://livingwitharthritis.org.uk/blog/second-hand-equipment-arthritis-frailty-uk
@@ -7767,17 +7801,21 @@ Clinical review: pending; this guide has not completed clinical review.
 Q: Signs of Rheumatoid Arthritis in Early Stages
 A: Early signs of RA include: symmetrical swelling in small hand/foot joints, morning stiffness lasting over 30-60 minutes, profound fatigue and flu-like malaise. See your GP urgently if symptoms persist over 6 weeks — NICE recommends rheumatology referral within 3 working days.
 
-## Sit-to-stand practice for frail adults with arthritis (UK)
+## Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sit-to-stand-practice-frail-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-20
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sit-to-stand practice for frail adults with arthritis (UK)
-A: The home test is practical: can you still manage the bathroom, the kitchen and the front door without boom-and-bust? Here we focus on the most useful strength pattern when chairs feel high, for readers in Northern Ireland, with self-management ideas and when to contact a GP, your GP out-of-hours service or emergency services as directed on nidirect or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+Q: Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)
+A: Practising standing up from a chair is one of the most useful exercises you can do with sore hips or knees, because it trains the muscles you need for the toilet, the bed and the car. Sit near the front of a sturdy chair with your feet hip-width apart, lean slightly forwards and stand up slowly using your legs, then sit back down with control. The NHS suggests aiming for 5 slow repetitions. Using your hands or a higher seat to start with is fine. Build up over weeks, on at least 2 days a week. If getting up is becoming harder quickly, or you have had a fall, see a GP or ask about NHS physiotherapy.
+Reference: NHS: Strength exercises (sit-to-stand) — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Sitting exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/
+Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Falls (what to do, falls services and prevention) — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
 
 ## Skin and pressure care if arthritis keeps you sitting (UK)
 URL: https://livingwitharthritis.org.uk/blog/skin-pressure-care-arthritis-frailty-uk
@@ -7804,17 +7842,18 @@ Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteo
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 
-## Sleep apnoea, arthritis and daytime frailty (UK)
+## Sleep apnoea and arthritis: signs, referral and why tired days hurt more (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sleep-apnoea-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sleep apnoea, arthritis and daytime frailty (UK)
-A: UK home life shapes sleep apnoea, arthritis and daytime frailty as much as any clinic score — kettle, bathroom, stairs and night trips count. This guide covers unrefreshing sleep on top of joint pain when arthritis with frailty affects several joints, with a focus on England and a home setting.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Q: Sleep apnoea and arthritis: signs, referral and why tired days hurt more (UK guide)
+A: Sleep apnoea is when your breathing stops and starts while you sleep. The main signs are breathing that stops and starts, gasping, snorting or choking noises, loud snoring, waking a lot, and feeling very tired in the day. See a GP if you have these signs. They may refer you to a sleep clinic for overnight tests. Many people need a CPAP machine on the NHS. Untreated sleep apnoea can leave you exhausted, which often makes arthritis pain and concentration feel worse. Do not take sleeping pills for this unless a doctor recommends them — the NHS says they can make sleep apnoea worse.
+Reference: NHS: Sleep apnoea — https://www.nhs.uk/conditions/sleep-apnoea/
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: GOV.UK: Sleep apnoea and driving — https://www.gov.uk/obstructive-sleep-apnoea-and-driving
+Reference: NICE MTG70: Sleepio to treat insomnia and insomnia symptoms — https://www.nice.org.uk/guidance/mtg70
 
 ## Sleep, night pain and frailty in arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk
@@ -7842,17 +7881,19 @@ Reference: NHS Talking Therapies — https://www.nhs.uk/mental-health/talking-th
 Reference: NHS: Why am I tired all the time? — https://www.nhs.uk/live-well/sleep-and-tiredness/why-am-i-tired-all-the-time/
 Reference: NHS: Sleep apnoea — https://www.nhs.uk/conditions/sleep-apnoea/
 
-## Sleeping tablets, night falls and arthritis (UK)
+## Sleeping tablets, night falls and arthritis: safer options first (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sleeping-tablets-falls-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-16
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Sleeping tablets, night falls and arthritis (UK)
-A: When sore joints and low reserve share a house, small avoidances stack: fewer walks, fewer meals, fewer visits. Here we focus on why extra night sedation is a falls conversation, for readers in Northern Ireland, with self-management ideas and when to contact a GP, your GP out-of-hours service or emergency services as directed on nidirect or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Q: Sleeping tablets, night falls and arthritis: safer options first (UK guide)
+A: The NHS says insomnia usually improves by changing sleep habits, and GPs now rarely prescribe sleeping pills because they can have serious side effects and you can become dependent on them. When they are used, it is only for a few days or weeks if insomnia is very bad and other treatments have not worked. Sleeping medicines can leave you drowsy the next day and raise the risk of falls, especially at night on the way to the toilet. Prefer sleep hygiene and CBT for insomnia first, keep night lights and a clear path, and never stop or change prescribed medicines yourself.
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: How to get to sleep — https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/
+Reference: NICE MTG70: Sleepio to treat insomnia and insomnia symptoms — https://www.nice.org.uk/guidance/mtg70
+Reference: NHS: Side effects of zolpidem (falls risk) — https://www.nhs.uk/medicines/zolpidem/side-effects-of-zolpidem/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.org.uk/guidance/ng249
 
 ## Slow walking groups for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frailty-uk
@@ -8552,17 +8593,22 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Vitamin D, falls conversations and arthritis (UK)
+## Vitamin D and falls with arthritis: what it can and cannot do (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/vitamin-d-and-falls-arthritis-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-20
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Vitamin D, falls conversations and arthritis (UK)
-A: Families dealing with vitamin D, falls conversations and arthritis usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at linking bone, muscle and winter in one GP chat in a GP surgery setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Q: Vitamin D and falls with arthritis: what it can and cannot do (UK guide)
+A: Vitamin D helps keep bones and muscles healthy, and the NHS says most adults should consider a daily 10 microgram supplement in autumn and winter — and all year if you are frail, housebound or live in a care home. But NICE says there is not enough evidence that vitamin D on its own lowers the risk of falls. What does help is strength and balance exercise, a medicines review, eyesight checks and a safer home. If you have fallen, see a GP, and ask about your bones too, especially if you broke a bone in a minor fall.
+Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Falls (what to do, falls services and prevention) — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
+Reference: NHS: Preventing osteoporosis — https://www.nhs.uk/conditions/osteoporosis/prevention/
+Reference: NHS: Calcium — https://www.nhs.uk/conditions/vitamins-and-minerals/calcium/
+Reference: Royal Osteoporosis Society: Vitamin D for bones — https://theros.org.uk/information-and-support/bone-health/vitamin-d-for-bones/
+Reference: Age UK: Preventing falls — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/
 
 ## Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)
 URL: https://livingwitharthritis.org.uk/blog/vitamin-d-arthritis-uk
