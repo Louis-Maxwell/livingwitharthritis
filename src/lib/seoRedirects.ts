@@ -137,6 +137,9 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/finances": "/benefits-pip",
   "/lived-experiences": "/community",
   "/impact-stories": "/community",
+  // GSC soft-404 URLs with no published glossary/article record.
+  "/glossary/passive-vs-active-movement": "/glossary",
+  "/blog/best-plantar-fasciitis-shoes-women-uk": "/library/plantar-fasciitis",
 };
 
 function normalizePath(pathname: string): string {
