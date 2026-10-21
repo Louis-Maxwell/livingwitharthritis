@@ -4332,8 +4332,8 @@
         "title": "Hydrotherapy for Arthritis: Benefits, Access and What to Expect (UK)"
       },
       {
-        "path": "/blog/ra-steroids-frailty-infection-watch-uk",
-        "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       }
     ]
   },
@@ -6296,8 +6296,8 @@
         "title": "Best Exercises for Knee Arthritis: A Complete UK Physiotherapy Guide"
       },
       {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
+        "path": "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk",
+        "title": "Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)"
       }
     ]
   },
@@ -10030,8 +10030,8 @@
         "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       },
       {
-        "path": "/blog/sit-to-stand-practice-frail-arthritis-uk",
-        "title": "Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)"
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
       }
     ]
   },
@@ -11289,16 +11289,16 @@
         "title": "Exercise guides"
       },
       {
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
+      },
+      {
         "path": "/blog/aquatic-therapy-arthritis-guide",
         "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
       },
       {
         "path": "/blog/chair-based-exercise-ra-frailty-uk",
         "title": "Chair-based exercise for rheumatoid arthritis and frailty (UK)"
-      },
-      {
-        "path": "/blog/free-arthritis-exercise-classes-england",
-        "title": "Free Arthritis Exercise Classes Near Me England"
       }
     ]
   },
@@ -15289,8 +15289,8 @@
         "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       },
       {
-        "path": "/blog/sit-to-stand-practice-frail-arthritis-uk",
-        "title": "Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)"
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
       }
     ]
   },
@@ -18170,8 +18170,8 @@
         "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
       },
       {
-        "path": "/blog/paracetamol-older-frail-arthritis-uk",
-        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       }
     ]
   },
@@ -18984,16 +18984,16 @@
         "title": "Treatment guides"
       },
       {
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
+      },
+      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
         "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
-      },
-      {
-        "path": "/blog/arthritis-treatment-hub",
-        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
       }
     ]
   },
@@ -20828,16 +20828,16 @@
         "title": "Exercises guides"
       },
       {
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
+      },
+      {
         "path": "/blog/aquatic-therapy-arthritis-guide",
         "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
       },
       {
         "path": "/blog/exercise-progression-arthritis",
         "title": "Exercise Progression for Arthritis: When and How to Do More (Decision Guide)"
-      },
-      {
-        "path": "/blog/hand-exercises-for-arthritis",
-        "title": "Hand Exercises for Arthritis: 10 Moves for Fingers, Thumbs and Wrists (UK)"
       }
     ]
   },
@@ -26076,26 +26076,26 @@
     ]
   },
   "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk": {
-    "title": "Knee osteoarthritis and frailty: staying steady at home (UK)",
-    "description": "When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking.",
-    "question": "Knee osteoarthritis and frailty: staying steady at home (UK)",
-    "answer": "When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking and sit-to-stand when knees hurt, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.",
-    "breadcrumb": "Knee osteoarthritis and frailty: staying steady at home (UK)",
+    "title": "Knee Osteoarthritis: Staying Steady at Home (UK)",
+    "description": "Wobbly on sore knees at home? Safer rooms, strength and balance exercises, walking aids, night tips and what to do if you fall with knee osteoarthritis.",
+    "question": "Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)",
+    "answer": "If knee osteoarthritis makes you feel wobbly at home, the most useful things are usually stronger thigh muscles, a clutter-free and well-lit route between the rooms you use most, supportive shoes rather than loose slippers, and a walking aid that has been checked for your height. NICE recommends exercise for everyone with osteoarthritis and says walking aids such as a stick are worth considering for knee and hip osteoarthritis. Practise getting up from a chair and simple balance exercises on at least 2 days a week. If your knee keeps giving way, or you have had a fall, see a GP or ask about…",
+    "breadcrumb": "Knee Osteoarthritis: Staying Steady at Home (UK)",
     "about": "Exercise",
-    "updatedAt": "2026-10-11",
+    "updatedAt": "2026-10-21",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0202-busy-park.webp",
     "article": {
       "slug": "knee-osteoarthritis-frailty-staying-steady-home-uk",
-      "title": "Knee osteoarthritis and frailty: staying steady at home (UK)",
-      "excerpt": "When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking.",
-      "content": "<p>When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking and sit-to-stand when knees hurt, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking and sit-to-stand when knees hurt, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.</p>\n\n<p>Families often notice knee osteoarthritis first as a slower walk across a home, then as a person who starts declining invitations. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with indoor walking and sit-to-stand when knees hurt, not a generic arthritis recap. It is written in UK English for people, families and carers in England.</p>\n<h2>Not 'just getting old': indoor walking and sit-to-stand when knees hurt</h2>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's knees and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Painful knees can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual knee osteoarthritis.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether indoor walking and sit-to-stand when knees hurt is shrinking your home life — and what you can change this week without pretending pain is imaginary.</p>\n<h2>Flare, fear and slowing down</h2>\n<p>In a home, indoor walking and sit-to-stand when knees hurt is rarely one dramatic collapse. It is usually a stack of small avoidances. People with knee osteoarthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>A flare of knee osteoarthritis that lasts, then a slower baseline even when the flare eases.</li><li>Night toilet trips, poor lighting and stiff knees stacking into a falls risk that nobody named.</li><li>New fear after a near-miss, even if you did not hit the floor. Fear of falling is itself a reason people sit more.</li><li>Skipping meals or drinks because getting to the kitchen with sore knees feels like a project.</li><li>Shorter outdoor range, then shorter indoor range, then a home that has quietly rearranged itself around the chair.</li></ul>\n<h2>Practical self-management for indoor walking and sit-to-stand when knees hurt</h2>\n<p>None of this is a gym challenge. The aim is to keep knees moving, keep protein in the day, and keep indoor walking and sit-to-stand when knees hurt from becoming the only story in the home. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>After a flare, restart the smallest version of your usual movement within comfort, rather than waiting to feel back to normal. Normal rarely sends an email.</li><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>Set an indoor walking loop with places to pause. Painful knees prefer several short bouts to one heroic corridor.</li><li>Keep a sit-to-stand practice at the height you actually use. A higher chair is not cheating if it lets knees work without a panic haul.</li><li>If stairs are the bottleneck, get an occupational therapy conversation on the list while you temporarily live downstairs — drifting is how a camp-bed becomes a lifestyle.</li><li>Plan the scariest transfer of the day — often the bathroom — with lighting, a rail conversation and unhurried time. Rushing with stiff knees is how near-misses happen.</li></ul>\n<h2>Strength and steady steps for frail knees</h2>\n<h2>Help in England if knee osteoarthritis and frailty overlap</h2>\n<h2>GP, 111 or 999?</h2>\n<p>This is not personal medical advice. When knees and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 can help you choose. Living With Arthritis cannot triage you.</p>\n<ul><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li><li>Unplanned weight loss, repeated falls, or indoor walking and sit-to-stand when knees hurt that is clearly worsening week by week — book the GP and say you are worried about frailty as well as knees.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>If you cannot get to the surgery because of knee osteoarthritis, ask about a home visit or a proper phone review. Silence is not a care plan.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li></ul>\n<h2>Can frailty improve if I still have painful knees?</h2>\n<p>Sometimes the frailty part can shift even if knee osteoarthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>Is a walking aid giving in if I have knee osteoarthritis?</h2>\n<p>No. An aid that matches your knees can protect joints, reduce fear and keep you walking far enough to keep muscle. A poorly fitted stick that hurts a wrist is the problem, not the concept. Ask physiotherapy or occupational therapy to look at height and grip.</p>\n<h2>Are painkillers the main treatment for frail knee osteoarthritis?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical England context for knee osteoarthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng249\">NICE NG249 – Falls: assessment and prevention</a> (NICE)</li><li><a href=\"https://www.nhs.uk/live-well/exercise/\">NHS – Exercise</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng226\">NICE NG226 – Osteoarthritis in over 16s</a> (NICE)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111. Call 999 in an emergency.</em></p>\n<section class=\"key-takeaways\" aria-labelledby=\"key-takeaways\">\n    <h2 id=\"key-takeaways\">Key takeaways</h2>\n    <ul>\n      <li>Not 'just getting old': indoor walking and sit-to-stand when knees hurt</li>\n      <li>Flare, fear and slowing down</li>\n      <li>Practical self-management for indoor walking and sit-to-stand when knees hurt</li>\n      <li>Strength and steady steps for frail knees</li>\n      <li>Help in England if knee osteoarthritis and frailty overlap</li>\n    </ul>\n  </section>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk\">Foot and ankle osteoarthritis and frailty: safer indoor walking (UK)</a> — Painful feet plus slower recovery is a common UK picture in later life.</li>\n      <li><a href=\"/blog/hip-and-knee-oa-frailty-transfers-uk\">Hip and knee osteoarthritis together: frailty-friendly transfers (UK)</a> — When hip and knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n      <li><a href=\"/blog/knee-oa-frailty-rising-from-low-sofa-uk\">Knee osteoarthritis and frailty: rising from a low sofa (UK)</a> — Knee osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover.</li>\n      <li><a href=\"/blog/spinal-stenosis-oa-frailty-walking-stops-uk\">Spinal stenosis, osteoarthritis and frailty: walking with planned stops (UK)</a> — When spinal stenosis with osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n    </ul>\n  </section>\n",
+      "title": "Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)",
+      "excerpt": "Wobbly on sore knees at home? Safer rooms, strength and balance exercises, walking aids, night tips and what to do if you fall with knee osteoarthritis.",
+      "content": "<p>If knee osteoarthritis makes you feel wobbly at home, the most useful things are usually stronger thigh muscles, a clutter-free and well-lit route between the rooms you use most, supportive shoes rather than loose slippers, and a walking aid that has been checked for your height. NICE recommends exercise for everyone with osteoarthritis and says walking aids such as a stick are worth considering for knee and hip osteoarthritis. Practise getting up from a chair and simple balance exercises on at least 2 days a week. If your knee keeps giving way, or you have had a fall, see a GP or ask about NHS physiotherapy or a falls service.</p>\n<p>This guide is about staying steady indoors when your knees are sore. For the exercises themselves, see our <a href=\"/guides/knee-exercises-for-osteoarthritis\">knee exercises for osteoarthritis</a> and <a href=\"/blog/sit-to-stand-practice-frail-arthritis-uk\">sit-to-stand practice</a>. If you have already had a fall, start with <a href=\"/blog/confidence-after-fall-arthritis-frailty-uk\">rebuilding confidence after a fall</a>.</p>\n<h2>Why sore knees make you less steady</h2>\n<p>When a knee hurts, it is natural to move it less and to take shorter, more careful steps. Over time the big thigh muscles (the quadriceps) get weaker, and those are the muscles that stop the knee buckling when you stand, turn or go down a step. Stiffness first thing, a knee that feels like it might give way, and tiredness later in the day can all add up. The good news is that muscle strength and balance can improve at any age with regular practice.</p>\n<h2>Five changes that help most at home</h2>\n<ul>\n<li><strong>Clear your main route.</strong> Walk the path you use most (chair to kitchen, bed to toilet) and move cables, loose rugs and clutter. The NHS also suggests mopping up spills straight away and using non-slip mats in the bathroom</li>\n<li><strong>Light it.</strong> Use bright bulbs on stairs and in hallways and a light you can reach from bed, or a plug-in night light on the way to the toilet</li>\n<li><strong>Wear proper shoes indoors.</strong> Well-fitting shoes or slippers with a back and a grippy sole are steadier than backless or worn-out slippers or socks on a hard floor</li>\n<li><strong>Put things within reach.</strong> Keep everyday items between waist and shoulder height so you are not bending low or stretching on tiptoe with sore knees</li>\n<li><strong>Have somewhere to hold.</strong> A grab rail by the toilet or bath, a second banister, or a sturdy piece of furniture at the turn of a room can make a big difference. An occupational therapist can advise</li>\n</ul>\n<h2>Strength and balance, a little and often</h2>\n<p>NICE guidance puts exercise at the centre of osteoarthritis care, and the NHS says adults aged 65 and over should do activities that improve strength, balance and flexibility on at least 2 days a week. For wobbly knees, the most useful are:</p>\n<ul>\n<li><strong>Sit-to-stand</strong> from a firm chair, using your hands at first if you need to — see <a href=\"/blog/sit-to-stand-practice-frail-arthritis-uk\">sit-to-stand practice</a></li>\n<li><strong>Seated knee straightening</strong> — sit tall, slowly straighten one knee, hold for a moment, then lower</li>\n<li><strong>Heel raises and sideways leg lifts</strong> while holding a kitchen worktop</li>\n<li><strong>Simple balance practice</strong> with a worktop in reach, such as standing with one foot slightly in front of the other</li>\n</ul>\n<p>Some discomfort while exercising is common with osteoarthritis and does not mean you are damaging your knee. If pain is clearly worse the next day, do a little less and build up more slowly. Our <a href=\"/blog/best-exercises-osteoarthritis-knee-pain-home\">home exercises for knee pain</a> and <a href=\"/blog/balance-training-arthritis\">balance training guide</a> have more ideas, and the Age UK falls prevention exercises are a good printed routine.</p>\n<h2>Walking aids and knee supports</h2>\n<p>NICE says walking aids such as walking sticks are worth considering for osteoarthritis in the hip or knee. A stick is usually held in the hand on the opposite side to the sore knee, and it needs to be the right height. A physiotherapist or occupational therapist can check this for you, and some NHS services lend walking aids. See <a href=\"/blog/walking-aids-arthritis-uk\">choosing mobility aids</a>. NICE does not recommend braces, supports or insoles for everyone with osteoarthritis, but they can help some people whose knee is unstable, so ask a physiotherapist before buying one.</p>\n<h2>Night-time and the toilet</h2>\n<p>Many wobbles happen at night, when knees are stiff and you are half asleep. Sit on the edge of the bed for a moment before you stand, put a light on, keep your walking aid by the bed, and leave the route to the toilet clear. If you get up several times a night to pass urine, mention it to your GP, as there may be things that help.</p>\n<h2>If you do fall</h2>\n<p>The NHS advises staying calm and taking a couple of minutes to check for pain or injury. If you feel able to get up, take your time: roll onto your side, push up onto your hands and knees, crawl to something stable such as a heavy chair, put one foot flat on the floor and stand up slowly, then sit and rest. Kneeling may be painful with knee osteoarthritis, so a cushion or folded towel under your knees can help. If you cannot get up, use a phone or personal alarm, or shout or bang on the floor for help, keep warm with anything you can reach, and keep moving your body. Our <a href=\"/guides/fall-prevention-older-adults\">falls prevention guide</a> explains personal alarms and planning ahead.</p>\n<h2>When to get help</h2>\n<ul>\n<li><strong>See a GP</strong> after any fall, if your knee keeps giving way, or if you feel unsteady for no clear reason. Ask whether a falls service or NHS physiotherapy could help — in many areas you can refer yourself. See <a href=\"/blog/arthritis-physiotherapy-nhs-waiting-list\">NHS physiotherapy and waiting lists</a></li>\n<li><strong>Ask for a medicines review</strong> if you feel dizzy or drowsy, as some tablets can affect balance. Do not stop prescribed medicines yourself — see <a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">medication reviews</a></li>\n<li><strong>Contact NHS 111</strong> if your knee is suddenly hot, red and swollen, especially with a high temperature or feeling unwell</li>\n<li><strong>Call 999</strong> if someone has fallen and cannot get up, may have hurt their head, neck, back or hip, cannot put weight on their leg, or is very unwell</li>\n</ul>\n<h2>Frequently asked questions</h2>\n<h3>My knee gives way. Is it the arthritis?</h3>\n<p>Weak thigh muscles and pain are common reasons a knee with osteoarthritis feels like it is giving way, and strengthening often helps. A knee that locks, gives way after a twist or injury, or keeps buckling should be checked by a GP or physiotherapist.</p>\n<h3>Should I rest my knee to avoid falling?</h3>\n<p>Not completely. Resting a lot makes muscles weaker, which can make you less steady. Short rests during a bad day are fine, but keep up gentle movement and build up strength and balance over time.</p>\n<h3>Is it safe to use the stairs?</h3>\n<p>For most people, yes, with a rail and good lighting. Going up, lead with your stronger leg; coming down, lead with the sorer leg. If stairs feel unsafe, ask your council for a free care needs assessment, which can look at rails or other equipment.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/conditions/falls/\" rel=\"noopener\">NHS: Falls (what to do if you fall, getting up safely)</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/falls/prevention/\" rel=\"noopener\">NHS: Preventing falls</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/osteoarthritis/treatment/\" rel=\"noopener\">NHS: Osteoarthritis treatment</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/ng226\" rel=\"noopener\">NICE NG226: Osteoarthritis in over 16s — diagnosis and management</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/ng249\" rel=\"noopener\">NICE NG249: Falls — assessment and prevention in older people</a></li>\n<li><a href=\"https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/\" rel=\"noopener\">NHS: Strength exercises</a></li>\n<li><a href=\"https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/balance-exercises/\" rel=\"noopener\">NHS: Balance exercises</a></li>\n<li><a href=\"https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/walking-aids-wheelchairs-and-mobility-scooters/\" rel=\"noopener\">NHS: Walking aids, wheelchairs and mobility scooters</a></li>\n<li><a href=\"https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/\" rel=\"noopener\">Age UK: Falls prevention exercises</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, physiotherapist or rheumatology team. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/guides/knee-exercises-for-osteoarthritis\">Knee exercises</a> — for knee osteoarthritis</li>\n      <li><a href=\"/blog/sit-to-stand-practice-frail-arthritis-uk\">Sit-to-stand practice</a> — getting up from a chair</li>\n      <li><a href=\"/blog/confidence-after-fall-arthritis-frailty-uk\">Confidence after a fall</a> — step-by-step return to walking</li>\n      <li><a href=\"/blog/balance-training-arthritis\">Balance training</a> — simple daily practice</li>\n      <li><a href=\"/blog/walking-aids-arthritis-uk\">Mobility aids</a> — sticks, frames and rollators</li>\n      <li><a href=\"/guides/fall-prevention-older-adults\">Falls prevention</a> — alarms and planning ahead</li>\n      <li><a href=\"/blog/ice-snow-arthritis-frailty-uk\">Ice and snow</a> — staying safe outdoors in winter</li>\n    </ul>\n  </section>\n\n",
       "date": "2026-09-03",
       "category": "Exercise",
       "image_url": "/openverse/cover-0202-busy-park.webp",
       "cover": "cover-0202-busy-park.webp",
-      "meta_title": "Knee osteoarthritis and frailty: staying steady at home (UK)",
-      "meta_description": "When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking.",
-      "keywords": "knee osteoarthritis, frailty, knees, England, arthritis, exercise, UK",
+      "meta_title": "Knee Osteoarthritis: Staying Steady at Home (UK)",
+      "meta_description": "Wobbly on sore knees at home? Safer rooms, strength and balance exercises, walking aids, night tips and what to do if you fall with knee osteoarthritis.",
+      "keywords": "knee osteoarthritis falls at home, knee giving way older adults, staying steady with knee arthritis, preventing falls knee pain UK, walking stick knee osteoarthritis",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -26103,47 +26103,68 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 5000,
-      "updated_at": "2026-10-11T10:14:23Z",
-      "direct_answer": "When knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on indoor walking and sit-to-stand when knees hurt, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.",
+      "updated_at": "2026-10-21T09:00:00.000Z",
+      "direct_answer": "If knee osteoarthritis makes you feel wobbly at home, the most useful things are usually stronger thigh muscles, a clutter-free and well-lit route between the rooms you use most, supportive shoes rather than loose slippers, and a walking aid that has been checked for your height. NICE recommends exercise for everyone with osteoarthritis and says walking aids such as a stick are worth considering for knee and hip osteoarthritis. Practise getting up from a chair and simple balance exercises on at least 2 days a week. If your knee keeps giving way, or you have had a fall, see a GP or ask about NHS physiotherapy or a falls service.",
       "citations": [
         {
-          "label": "NHS – Falls",
+          "label": "NHS: Falls (what to do if you fall, getting up safely)",
           "url": "https://www.nhs.uk/conditions/falls/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG249 – Falls: assessment and prevention",
+          "label": "NHS: Preventing falls",
+          "url": "https://www.nhs.uk/conditions/falls/prevention/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Osteoarthritis treatment",
+          "url": "https://www.nhs.uk/conditions/osteoarthritis/treatment/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NICE NG226: Osteoarthritis in over 16s — diagnosis and management",
+          "url": "https://www.nice.org.uk/guidance/ng226",
+          "publisher": "NICE"
+        },
+        {
+          "label": "NICE NG249: Falls — assessment and prevention in older people",
           "url": "https://www.nice.org.uk/guidance/ng249",
           "publisher": "NICE"
         },
         {
-          "label": "NHS – Exercise",
-          "url": "https://www.nhs.uk/live-well/exercise/",
+          "label": "NHS: Strength exercises",
+          "url": "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG226 – Osteoarthritis in over 16s",
-          "url": "https://www.nice.org.uk/guidance/ng226",
-          "publisher": "NICE"
+          "label": "NHS: Balance exercises",
+          "url": "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/balance-exercises/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Walking aids, wheelchairs and mobility scooters",
+          "url": "https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/walking-aids-wheelchairs-and-mobility-scooters/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "Age UK: Falls prevention exercises",
+          "url": "https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/",
+          "publisher": "Age UK"
         }
       ]
     },
     "faqs": [
       {
-        "q": "GP, 111 or 999?",
-        "a": "This is not personal medical advice. When knees and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 can help you choose. Living With Arthritis cannot triage you. A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency. Unplanned weight loss, repeated falls, or indoor walking and sit-to-stand when knees hurt that is clearly worsening week by week — book the GP an"
+        "q": "My knee gives way. Is it the arthritis?",
+        "a": "Weak thigh muscles and pain are common reasons a knee with osteoarthritis feels like it is giving way, and strengthening often helps. A knee that locks, gives way after a twist or injury, or keeps buckling should be checked by a GP or physiotherapist."
       },
       {
-        "q": "Can frailty improve if I still have painful knees?",
-        "a": "Sometimes the frailty part can shift even if knee osteoarthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
+        "q": "Should I rest my knee to avoid falling?",
+        "a": "Not completely. Resting a lot makes muscles weaker, which can make you less steady. Short rests during a bad day are fine, but keep up gentle movement and build up strength and balance over time."
       },
       {
-        "q": "Is a walking aid giving in if I have knee osteoarthritis?",
-        "a": "No. An aid that matches your knees can protect joints, reduce fear and keep you walking far enough to keep muscle. A poorly fitted stick that hurts a wrist is the problem, not the concept. Ask physiotherapy or occupational therapy to look at height and grip."
-      },
-      {
-        "q": "Are painkillers the main treatment for frail knee osteoarthritis?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
+        "q": "Is it safe to use the stairs?",
+        "a": "For most people, yes, with a rail and good lighting. Going up, lead with your stronger leg; coming down, lead with the sorer leg. If stairs feel unsafe, ask your council for a free care needs assessment, which can look at rails or other equipment."
       }
     ],
     "relatedLinks": [
@@ -26156,16 +26177,16 @@
         "title": "Exercise guides"
       },
       {
-        "path": "/blog/aquatic-therapy-arthritis-guide",
-        "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
+        "path": "/blog/arthritis-friendly-gym-guide",
+        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       },
       {
         "path": "/blog/best-exercises-osteoarthritis-knee-pain-home",
         "title": "Best Exercises for Osteoarthritis Knee Pain at Home"
       },
       {
-        "path": "/blog/chair-based-exercise-ra-frailty-uk",
-        "title": "Chair-based exercise for rheumatoid arthritis and frailty (UK)"
+        "path": "/blog/chair-exercises-older-adults-arthritis",
+        "title": "Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)"
       }
     ]
   },
@@ -38453,26 +38474,26 @@
     ]
   },
   "/blog/painkillers-older-adults-arthritis-caution-uk": {
-    "title": "Painkillers in older adults with arthritis: caution, not dosing (UK)",
-    "description": "Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need.",
-    "question": "Painkillers in older adults with arthritis: caution, not dosing (UK)",
-    "answer": "Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need extra care as we age if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.",
-    "breadcrumb": "Painkillers in older adults with arthritis: caution, not dosing (UK)",
+    "title": "Painkillers in Later Life With Arthritis: Safer Use (UK)",
+    "description": "Why painkillers need more care with age and arthritis: what NICE says, anti-inflammatory and codeine risks, hidden paracetamol and when to get help.",
+    "question": "Painkillers in later life with arthritis: safer use and what to check (UK guide)",
+    "answer": "Painkillers can still help arthritis in later life, but they need more care as you get older, because the body clears medicines more slowly, you are more likely to take other medicines that interact, and side effects such as drowsiness, constipation, stomach bleeding and kidney strain matter more. For osteoarthritis, NICE puts exercise first, recommends an anti-inflammatory gel for knee osteoarthritis, and says oral anti-inflammatories should be used at the lowest effective dose for the shortest time, with stomach protection. NICE also says paracetamol and weak opioids such as codeine should…",
+    "breadcrumb": "Painkillers in Later Life With Arthritis: Safer Use (UK)",
     "about": "Treatment",
-    "updatedAt": "2026-10-11",
+    "updatedAt": "2026-10-21",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/arthritis-07-patellofemoral-osteoarthritis-severe-2.webp",
     "article": {
       "slug": "painkillers-older-adults-arthritis-caution-uk",
-      "title": "Painkillers in older adults with arthritis: caution, not dosing (UK)",
-      "excerpt": "Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need.",
-      "content": "<p>Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need extra care as we age if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need extra care as we age if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.</p>\n\n<p>Picture the moment in a home when your several joints refuse a simple transfer and you feel your confidence drop faster than the pain score. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with why pain tablets need extra care as we age, not a generic arthritis recap. It is written in UK English for people, families and carers in Wales.</p>\n<h2>The overlap: pain in several joints and a frailer body</h2>\n<p>Arthritis is about joints, tendons and the way pain changes movement. Frailty is about the whole system — muscle, stamina, appetite, mood, medicines and how quickly you bounce back after a setback. Arthritis with frailty sits in the middle because sore several joints quietly train you to sit more, shorten your stride and skip the movements that keep muscle.</p>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's several joints and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual arthritis with frailty.</p>\n<h2>How why pain tablets need extra care as we age shows up in real rooms</h2>\n<p>In a home, why pain tablets need extra care as we age is rarely one dramatic collapse. It is usually a stack of small avoidances. People with arthritis with frailty already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>Carers doing the last steps of a task to be kind, which removes the last practice the muscles were getting.</li><li>A flare of arthritis with frailty that lasts, then a slower baseline even when the flare eases.</li><li>New fear after a near-miss, even if you did not hit the floor. Fear of falling is itself a reason people sit more.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li></ul>\n<h2>Things you can try this week in a home</h2>\n<ul><li>Ask a pharmacist to look at the whole list if dizziness, constipation or night sedation have arrived with the pain tablets. Do not add a new painkiller just in case.</li><li>Plan the scariest transfer of the day — often the bathroom — with lighting, a rail conversation and unhurried time. Rushing with stiff several joints is how near-misses happen.</li><li>Treat a walking aid as joint protection and falls kit, not as a verdict. Wrist-friendly handles matter if several joints include hands.</li><li>Carers: help the last 20 percent of a task, not the first 80, unless pain or safety says otherwise. Practice is treatment for frailty.</li><li>Put the items you use at dawn — tablets, glasses, walking aid, phone — where you can reach them without a stretch that wrenches several joints.</li><li>If cooking is the barrier, use tinned fish, eggs, yoghurt, beans or leftover protein foods rather than skipping meals. Muscle needs raw material as well as movement.</li></ul>\n<h2>Medicines, reviews and arthritis with frailty in later life</h2>\n<h2>Wales services, without inventing a clinic</h2>\n<h2>GP, 111 or 999?</h2>\n<p>This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 Wales can help you choose. Living With Arthritis cannot triage you.</p>\n<ul><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>Unplanned weight loss, repeated falls, or why pain tablets need extra care as we age that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li></ul>\n<h2>Should I stop exercising during why pain tablets need extra care as we age?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>Are painkillers the main treatment for frail arthritis with frailty?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Can frailty improve if I still have pain in several joints?</h2>\n<p>Sometimes the frailty part can shift even if arthritis with frailty remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical Wales context for arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\">NHS 111</a> (NHS)</li><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng249\">NICE NG249 – Falls: assessment and prevention</a> (NICE)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111 Wales. Call 999 in an emergency.</em></p>\n<section class=\"key-takeaways\" aria-labelledby=\"key-takeaways\">\n    <h2 id=\"key-takeaways\">Key takeaways</h2>\n    <ul>\n      <li>The overlap: pain in several joints and a frailer body</li>\n      <li>How why pain tablets need extra care as we age shows up in real rooms</li>\n      <li>Things you can try this week in a home</li>\n      <li>Medicines, reviews and arthritis with frailty in later life</li>\n      <li>Wales services, without inventing a clinic</li>\n    </ul>\n  </section>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/codeine-drowsiness-falls-arthritis-uk\">Codeine, drowsiness and falls when you have arthritis (UK)</a> — A frailty-aware note on codeine, drowsiness and falls when you have arthritis: protect joints, keep muscle working, and plan the hardest.</li>\n      <li><a href=\"/blog/paracetamol-older-frail-arthritis-uk\">Paracetamol for frail older adults with arthritis: what to check (UK)</a> — Several painful joints make every transfer a negotiation; frailty grows when those negotiations end in the chair all afternoon.</li>\n      <li><a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">Pharmacist medication reviews for frail adults with arthritis (UK)</a> — Joint protection and frailty care are the same conversation in a UK home: keep moving, keep fuelled, keep safer routes.</li>\n      <li><a href=\"/blog/ckd-nsaids-arthritis-frailty-uk\">Kidney disease, NSAIDs and frail arthritis (UK)</a> — Multi-joint pain rarely stays in the clinic notes — it changes cooking, washing and whether you answer the door.</li>\n    </ul>\n  </section>\n",
+      "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)",
+      "excerpt": "Why painkillers need more care with age and arthritis: what NICE says, anti-inflammatory and codeine risks, hidden paracetamol and when to get help.",
+      "content": "<p>Painkillers can still help arthritis in later life, but they need more care as you get older, because the body clears medicines more slowly, you are more likely to take other medicines that interact, and side effects such as drowsiness, constipation, stomach bleeding and kidney strain matter more. For osteoarthritis, NICE puts exercise first, recommends an anti-inflammatory gel for knee osteoarthritis, and says oral anti-inflammatories should be used at the lowest effective dose for the shortest time, with stomach protection. NICE also says paracetamol and weak opioids such as codeine should not be offered routinely. Check every label for hidden paracetamol or ibuprofen, and ask a pharmacist before adding anything new.</p>\n<p>This page explains why pain medicines need extra care with age. It does not give doses — always follow the leaflet and your prescriber. For how each medicine works, see our <a href=\"/guides/painkillers-and-nsaids\">painkillers and NSAIDs guide</a>. For a full check of everything you take, see <a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">pharmacist medication reviews</a>.</p>\n<h2>Why age changes things</h2>\n<ul>\n<li><strong>Kidneys and liver work more slowly</strong>, so some medicines stay in the body longer</li>\n<li><strong>More medicines means more interactions</strong> — blood thinners, blood pressure tablets, steroids and some antidepressants all matter when choosing a painkiller</li>\n<li><strong>Side effects hit harder</strong> — drowsiness or dizziness can lead to a fall, constipation can be severe, and confusion can be mistaken for something else</li>\n<li><strong>Stomach bleeding risk from anti-inflammatories rises with age</strong>, and it can happen without warning signs</li>\n</ul>\n<p>None of this means you should put up with pain. Untreated pain makes people move less, sleep badly and lose strength. It means choosing carefully and reviewing regularly.</p>\n<h2>What NICE says for osteoarthritis</h2>\n<ul>\n<li>Exercise, and weight management where relevant, are the core treatments; pain medicines should support exercise, not replace it</li>\n<li>Offer an anti-inflammatory gel (a topical NSAID) for knee osteoarthritis, and consider one for other joints — gels put much less medicine into the bloodstream than tablets. See <a href=\"/blog/topical-nsaids-often-overlooked-often-effective\">topical NSAIDs</a></li>\n<li>If gels do not work or are unsuitable, consider an anti-inflammatory tablet at the lowest effective dose for the shortest time, with stomach protection such as a proton pump inhibitor. See <a href=\"/blog/nsaid-stomach-protection-when-you-need-a-ppi\">when you need stomach protection</a></li>\n<li>Do not routinely offer paracetamol or weak opioids, unless only used now and then for short-term relief and other medicines are unsuitable. NICE says there is no strong evidence of benefit for paracetamol in osteoarthritis. See <a href=\"/blog/paracetamol-for-arthritis-pain-what-the-evidence-says\">paracetamol: what the evidence says</a></li>\n<li>Do not offer strong opioids for osteoarthritis, because the risks outweigh the benefits</li>\n</ul>\n<p>Inflammatory arthritis such as rheumatoid arthritis is different: painkillers ease symptoms but do not control the disease. If pain or swelling is building up, contact your rheumatology team rather than just taking more painkillers.</p>\n<h2>Anti-inflammatories (NSAIDs): who should ask first</h2>\n<p>The NHS advises checking with a pharmacist or doctor before taking ibuprofen or other NSAID tablets if you have:</p>\n<ul>\n<li>had a stomach ulcer or bleeding</li>\n<li>kidney, liver or heart problems, including heart failure, or high blood pressure</li>\n<li>asthma that has been made worse by anti-inflammatories before</li>\n<li>a blood thinner such as warfarin or apixaban, or a steroid tablet</li>\n</ul>\n<p>Do not take two anti-inflammatories together, and remember that some cold and flu remedies contain ibuprofen. If you take low-dose aspirin for your heart, ask a pharmacist before adding an NSAID. More detail: <a href=\"/blog/nsaids-and-arthritis-benefits-risks-and-safer-use\">NSAIDs: benefits, risks and safer use</a>.</p>\n<h2>Paracetamol: check for hidden doubles</h2>\n<p>Paracetamol is in many combination products, including co-codamol and lots of cold and flu remedies. Taking two of these together is a common way to take too much by accident. Read every label, and ask a pharmacist if you weigh under 50kg (about 8 stone), have liver problems or drink alcohol regularly, as you may need a lower dose. If you think you have taken too much, go to A&amp;E straight away, even if you feel well.</p>\n<h2>Codeine and other opioids</h2>\n<p>Codeine (including in co-codamol), tramadol and stronger opioids can cause drowsiness, dizziness, confusion and constipation, all of which raise the risk of a fall. They can also lead to dependence. Do not drive if you feel drowsy. If you have taken them regularly for a while, do not stop suddenly — ask your GP how to reduce them safely. See <a href=\"/blog/stopping-arthritis-medication-safely-a-step-by-step-guide\">stopping medicines safely</a>.</p>\n<h2>Nerve pain medicines</h2>\n<p>Gabapentin and pregabalin are sometimes prescribed for nerve-type pain. They can cause dizziness, sleepiness and unsteadiness, especially when you start or when the dose goes up. Tell your GP if you feel wobbly, and do not stop them suddenly.</p>\n<h2>Ways to need fewer tablets</h2>\n<ul>\n<li>Regular strength and movement — see <a href=\"/guides/arthritis-pain-relief\">arthritis pain relief</a></li>\n<li>Heat or cold packs used safely, and pacing your day</li>\n<li>Physiotherapy, which can be self-referred in many areas</li>\n<li>A plan for flare days — see <a href=\"/blog/arthritis-flare-up-what-to-do\">what to do in a flare-up</a></li>\n</ul>\n<h2>When to get help</h2>\n<ul>\n<li><strong>Ask a pharmacist</strong> before buying any new painkiller or remedy, and for a review if you take five or more medicines</li>\n<li><strong>See a GP</strong> if you feel dizzy, drowsy or confused, are constipated for more than a few days, or your pain is not controlled. Do not stop or change prescribed medicines yourself. If sleep is a problem too, see <a href=\"/blog/sleeping-tablets-falls-arthritis-frailty-uk\">sleeping tablets and falls</a></li>\n<li><strong>Contact NHS 111</strong> for new stomach pain or indigestion while taking anti-inflammatories, or new confusion</li>\n<li><strong>Call 999 or go to A&amp;E</strong> if you are vomiting blood or have black, sticky poo, have severe breathing problems or drowsiness after taking an opioid, or think you have taken too much paracetamol</li>\n</ul>\n<p>You can report suspected side effects to the MHRA Yellow Card scheme.</p>\n<h2>Frequently asked questions</h2>\n<h3>Is paracetamol the safest painkiller for older people?</h3>\n<p>Paracetamol has fewer side effects than many painkillers, but NICE says there is no strong evidence that it helps osteoarthritis pain. For knee or hand osteoarthritis an anti-inflammatory gel is often tried first. Ask your GP or pharmacist what suits you.</p>\n<h3>Can I use ibuprofen gel if I cannot take ibuprofen tablets?</h3>\n<p>Often, because much less reaches the bloodstream, but check with a pharmacist first, especially if you have had a reaction to an anti-inflammatory before.</p>\n<h3>Why does my GP want to reduce my painkillers?</h3>\n<p>Usually because the risks have grown or the benefit is small. A good review agrees a plan with you and adds other ways to manage pain. You can ask for a review at any time.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nice.org.uk/guidance/ng226/chapter/Recommendations\" rel=\"noopener\">NICE NG226: Osteoarthritis in over 16s — recommendations on pain medicines</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/paracetamol-for-adults/\" rel=\"noopener\">NHS: Paracetamol for adults</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/ibuprofen-for-adults/\" rel=\"noopener\">NHS: Ibuprofen for adults</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/nsaids/\" rel=\"noopener\">NHS: NSAIDs</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/co-codamol-for-adults/\" rel=\"noopener\">NHS: Co-codamol for adults</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/codeine/\" rel=\"noopener\">NHS: Codeine</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/gabapentin/\" rel=\"noopener\">NHS: Gabapentin</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/stomach-ulcer/\" rel=\"noopener\">NHS: Stomach ulcer</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/falls/\" rel=\"noopener\">NHS: Falls</a></li>\n<li><a href=\"https://yellowcard.mhra.gov.uk/\" rel=\"noopener\">MHRA Yellow Card: report a side effect</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, physiotherapist or rheumatology team. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/guides/painkillers-and-nsaids\">Painkillers and NSAIDs</a> — how each medicine works</li>\n      <li><a href=\"/blog/topical-nsaids-often-overlooked-often-effective\">Topical NSAIDs</a> — gels for knee and hand pain</li>\n      <li><a href=\"/blog/nsaids-and-arthritis-benefits-risks-and-safer-use\">NSAIDs</a> — benefits, risks and safer use</li>\n      <li><a href=\"/blog/paracetamol-for-arthritis-pain-what-the-evidence-says\">Paracetamol</a> — what the evidence says</li>\n      <li><a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">Medication reviews</a> — a pharmacist check of everything you take</li>\n      <li><a href=\"/blog/stopping-arthritis-medication-safely-a-step-by-step-guide\">Stopping medicines safely</a> — step by step</li>\n      <li><a href=\"/guides/arthritis-pain-relief\">Pain relief</a> — non-drug options</li>\n    </ul>\n  </section>\n\n",
       "date": "2026-09-03",
       "category": "Treatment",
       "image_url": "/openverse/arthritis-07-patellofemoral-osteoarthritis-severe-2.webp",
       "cover": "arthritis-07-patellofemoral-osteoarthritis-severe-2.webp",
-      "meta_title": "Painkillers in older adults with arthritis: caution, not dosing (UK)",
-      "meta_description": "Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need.",
-      "keywords": "arthritis with frailty, frailty, several joints, Wales, arthritis, treatment, UK",
+      "meta_title": "Painkillers in Later Life With Arthritis: Safer Use (UK)",
+      "meta_description": "Why painkillers need more care with age and arthritis: what NICE says, anti-inflammatory and codeine risks, hidden paracetamol and when to get help.",
+      "keywords": "painkillers older adults arthritis, safest painkiller for elderly arthritis UK, NSAIDs older people risks, codeine falls older adults, paracetamol osteoarthritis NICE",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -38480,47 +38501,73 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4920,
-      "updated_at": "2026-10-11T10:14:23Z",
-      "direct_answer": "Pain in several joints can look like 'just ageing' until a quiet weekend costs you the following Thursday. This page explains why pain tablets need extra care as we age if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.",
+      "updated_at": "2026-10-21T09:00:00.000Z",
+      "direct_answer": "Painkillers can still help arthritis in later life, but they need more care as you get older, because the body clears medicines more slowly, you are more likely to take other medicines that interact, and side effects such as drowsiness, constipation, stomach bleeding and kidney strain matter more. For osteoarthritis, NICE puts exercise first, recommends an anti-inflammatory gel for knee osteoarthritis, and says oral anti-inflammatories should be used at the lowest effective dose for the shortest time, with stomach protection. NICE also says paracetamol and weak opioids such as codeine should not be offered routinely. Check every label for hidden paracetamol or ibuprofen, and ask a pharmacist before adding anything new.",
       "citations": [
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
+          "label": "NICE NG226: Osteoarthritis in over 16s — recommendations on pain medicines",
+          "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations",
           "publisher": "NICE"
         },
         {
-          "label": "NHS 111",
-          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+          "label": "NHS: Paracetamol for adults",
+          "url": "https://www.nhs.uk/medicines/paracetamol-for-adults/",
           "publisher": "NHS"
         },
         {
-          "label": "NHS – Falls",
+          "label": "NHS: Ibuprofen for adults",
+          "url": "https://www.nhs.uk/medicines/ibuprofen-for-adults/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: NSAIDs",
+          "url": "https://www.nhs.uk/conditions/nsaids/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Co-codamol for adults",
+          "url": "https://www.nhs.uk/medicines/co-codamol-for-adults/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Codeine",
+          "url": "https://www.nhs.uk/medicines/codeine/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Gabapentin",
+          "url": "https://www.nhs.uk/medicines/gabapentin/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Stomach ulcer",
+          "url": "https://www.nhs.uk/conditions/stomach-ulcer/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Falls",
           "url": "https://www.nhs.uk/conditions/falls/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG249 – Falls: assessment and prevention",
-          "url": "https://www.nice.org.uk/guidance/ng249",
-          "publisher": "NICE"
+          "label": "MHRA Yellow Card: report a side effect",
+          "url": "https://yellowcard.mhra.gov.uk/",
+          "publisher": "MHRA"
         }
       ]
     },
     "faqs": [
       {
-        "q": "GP, 111 or 999?",
-        "a": "This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 Wales can help you choose. Living With Arthritis cannot triage you. A knock to the head, especially if you take blood thinners — do not sleep it off as a plan. Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis. Unplanned weight loss, repeated falls, or wh"
+        "q": "Is paracetamol the safest painkiller for older people?",
+        "a": "Paracetamol has fewer side effects than many painkillers, but NICE says there is no strong evidence that it helps osteoarthritis pain. For knee or hand osteoarthritis an anti-inflammatory gel is often tried first. Ask your GP or pharmacist what suits you."
       },
       {
-        "q": "Should I stop exercising during why pain tablets need extra care as we age?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
+        "q": "Can I use ibuprofen gel if I cannot take ibuprofen tablets?",
+        "a": "Often, because much less reaches the bloodstream, but check with a pharmacist first, especially if you have had a reaction to an anti-inflammatory before."
       },
       {
-        "q": "Are painkillers the main treatment for frail arthritis with frailty?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
-      },
-      {
-        "q": "Can frailty improve if I still have pain in several joints?",
-        "a": "Sometimes the frailty part can shift even if arthritis with frailty remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
+        "q": "Why does my GP want to reduce my painkillers?",
+        "a": "Usually because the risks have grown or the benefit is small. A good review agrees a plan with you and adds other ways to manage pain. You can ask for a review at any time."
       }
     ],
     "relatedLinks": [
@@ -38533,16 +38580,16 @@
         "title": "Treatment guides"
       },
       {
+        "path": "/blog/paracetamol-older-frail-arthritis-uk",
+        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+      },
+      {
         "path": "/blog/methotrexate-older-frail-adults-uk",
         "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
       },
       {
-        "path": "/blog/pain-clinic-older-frail-arthritis-uk",
-        "title": "Pain clinics for older frail adults with arthritis (UK)"
-      },
-      {
-        "path": "/blog/paracetamol-older-frail-arthritis-uk",
-        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+        "path": "/blog/nsaids-and-arthritis-benefits-risks-and-safer-use",
+        "title": "NSAIDs and Arthritis: Benefits, Risks and Safer Use"
       }
     ]
   },
@@ -39413,12 +39460,12 @@
         "title": "Arthritis Medication — What Works, What to Expect"
       },
       {
-        "path": "/blog/ra-steroids-frailty-infection-watch-uk",
-        "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       },
       {
-        "path": "/blog/arthritis-treatment-hub",
-        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
+        "path": "/blog/ra-steroids-frailty-infection-watch-uk",
+        "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
       }
     ]
   },
@@ -40380,8 +40427,8 @@
         "title": "Chair-based exercise for rheumatoid arthritis and frailty (UK)"
       },
       {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
       }
     ]
   },
@@ -42955,12 +43002,12 @@
         "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
       },
       {
-        "path": "/blog/paracetamol-older-frail-arthritis-uk",
-        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       },
       {
-        "path": "/blog/pharmacist-medication-review-frail-arthritis-uk",
-        "title": "Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)"
+        "path": "/blog/paracetamol-older-frail-arthritis-uk",
+        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
       }
     ]
   },
@@ -45247,26 +45294,26 @@
     ]
   },
   "/blog/seated-strength-frail-osteoarthritis-uk": {
-    "title": "Seated strength training for frail adults with osteoarthritis (UK)",
-    "description": "Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength.",
-    "question": "Seated strength training for frail adults with osteoarthritis (UK)",
-    "answer": "Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength that still counts, written for people and carers in Wales, especially around a home. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.",
-    "breadcrumb": "Seated strength training for frail adults with osteoarthritis (UK)",
+    "title": "Seated Strength Exercises for Osteoarthritis (UK)",
+    "description": "Can chair exercise build strength with osteoarthritis? How hard it should feel, five seated moves, how to progress safely and when to get help (UK guide).",
+    "question": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)",
+    "answer": "Seated exercise can build real strength with osteoarthritis if the muscles work hard enough. Pick a few moves that work your legs, arms and trunk, do them slowly, and stop each set when the last few repetitions feel hard but your form is still good. The NHS says older adults should do strength activities on at least 2 days a week. To keep getting stronger, change one thing at a time every week or two: a few more repetitions, a slower lowering, a pause at the top, or a light weight such as a water bottle or a resistance band. Some joint discomfort is common; if pain is clearly worse the next…",
+    "breadcrumb": "Seated Strength Exercises for Osteoarthritis (UK)",
     "about": "Exercise",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-21",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
     "article": {
       "slug": "seated-strength-frail-osteoarthritis-uk",
-      "title": "Seated strength training for frail adults with osteoarthritis (UK)",
-      "excerpt": "Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength.",
-      "content": "<p>Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength that still counts, written for people and carers in Wales, especially around a home. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength that still counts, written for people and carers in Wales, especially around a home. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.</p>\n\n<p>Families often notice osteoarthritis first as a slower walk across a home, then as a person who starts declining invitations. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with chair-based strength that still counts, not a generic arthritis recap. It is written in UK English for people, families and carers in Wales.</p>\n<h2>Movement that still counts with osteoarthritis</h2>\n<p>Strength work for frail adults is usually sit-to-stand, pushing through the feet, and gentle resistance — not lunges on a glossy video. With osteoarthritis, the joint may complain at the bottom of a movement. Shorten the range, slow the lowering, and keep breathing.</p>\n<p>Balance practice can be as modest as standing with a worktop in reach, or a community Tai Chi-style class that will not rush you. If several joints will not tolerate standing today, seated marching and seated rows still tell muscle it is wanted.</p>\n<p>Hydrotherapy or a warm leisure pool can help some people, but changing rooms, steps and hair-washing are part of the energy budget. A class you cannot get dressed after is not a class.</p>\n<p>NICE treats exercise as core osteoarthritis care. That does not mean no pain, no gain. Extra pain which settles within a day or so is different from pain that spirals. If you are unsure, ask community physiotherapy — and while you wait, keep the gentle version going.</p>\n<h2>The overlap: pain in several joints and a frailer body</h2>\n<p>Arthritis is about joints, tendons and the way pain changes movement. Frailty is about the whole system — muscle, stamina, appetite, mood, medicines and how quickly you bounce back after a setback. Osteoarthritis sits in the middle because sore several joints quietly train you to sit more, shorten your stride and skip the movements that keep muscle.</p>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's several joints and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<h2>Things you can try this week in a home</h2>\n<ul><li>Put the items you use at dawn — tablets, glasses, walking aid, phone — where you can reach them without a stretch that wrenches several joints.</li><li>Plan the scariest transfer of the day — often the bathroom — with lighting, a rail conversation and unhurried time. Rushing with stiff several joints is how near-misses happen.</li><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>If cooking is the barrier, use tinned fish, eggs, yoghurt, beans or leftover protein foods rather than skipping meals. Muscle needs raw material as well as movement.</li><li>Set an indoor walking loop with places to pause. Pain in several joints prefer several short bouts to one heroic corridor.</li><li>Carers: help the last 20 percent of a task, not the first 80, unless pain or safety says otherwise. Practice is treatment for frailty.</li></ul>\n<h2>How chair-based strength that still counts shows up in real rooms</h2>\n<ul><li>Transfers that used to be boring — bed, chair, toilet, car — now need a pause, a push-up or a second person, especially when several joints are cold.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>Shorter outdoor range, then shorter indoor range, then a home that has quietly rearranged itself around the chair.</li><li>A flare of osteoarthritis that lasts, then a slower baseline even when the flare eases.</li></ul>\n<h2>When to get help</h2>\n<ul><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the osteoarthritis nurse.</li><li>If you cannot get to the surgery because of osteoarthritis, ask about a home visit or a proper phone review. Silence is not a care plan.</li><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li></ul>\n<h2>Wales services, without inventing a clinic</h2>\n<h2>Should I stop exercising during chair-based strength that still counts?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>Can frailty improve if I still have pain in several joints?</h2>\n<p>Sometimes the frailty part can shift even if osteoarthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>Are painkillers the main treatment for frail osteoarthritis?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical Wales context for osteoarthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/live-well/exercise/\">NHS – Exercise</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng226\">NICE NG226 – Osteoarthritis in over 16s</a> (NICE)</li><li><a href=\"https://www.nhs.uk/conditions/osteoarthritis/\">NHS – Osteoarthritis</a> (NHS)</li><li><a href=\"https://111.wales.nhs.uk\">NHS 111 Wales</a> (NHS Wales)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111 Wales. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/pmr-steroid-taper-frailty-weakness-uk\">PMR steroid tapering and frailty: rebuilding strength slowly (UK)</a> — Frailty is a clinical syndrome — not a personality trait — and polymyalgia rheumatica can make it more visible.</li>\n      <li><a href=\"/blog/knee-oa-frailty-outdoor-pavements-uk\">Knee osteoarthritis and frailty: pavements, kerbs and outdoor confidence (UK)</a> — Frailty is a clinical syndrome — not a personality trait — and knee osteoarthritis can make it more visible.</li>\n      <li><a href=\"/blog/chair-based-exercise-ra-frailty-uk\">Chair-based exercise for rheumatoid arthritis and frailty (UK)</a> — Frailty is a clinical syndrome — not a personality trait — and rheumatoid arthritis can make it more visible.</li>\n      <li><a href=\"/blog/community-strength-classes-frail-oa-uk\">Community strength classes for frail osteoarthritis (UK)</a> — Here is a plain-English take on community strength classes for frail osteoarthritis when arthritis and lower reserve share the same week.</li>\n    </ul>\n  </section>\n",
+      "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)",
+      "excerpt": "Can chair exercise build strength with osteoarthritis? How hard it should feel, five seated moves, how to progress safely and when to get help (UK guide).",
+      "content": "<p>Seated exercise can build real strength with osteoarthritis if the muscles work hard enough. Pick a few moves that work your legs, arms and trunk, do them slowly, and stop each set when the last few repetitions feel hard but your form is still good. The NHS says older adults should do strength activities on at least 2 days a week. To keep getting stronger, change one thing at a time every week or two: a few more repetitions, a slower lowering, a pause at the top, or a light weight such as a water bottle or a resistance band. Some joint discomfort is common; if pain is clearly worse the next day, ease back a level.</p>\n<p>This guide is about how to make chair-based exercise build strength over time. If you want a ready-made routine, start with our <a href=\"/blog/chair-exercises-older-adults-arthritis\">20-minute chair exercise routine</a>, then use this page to make it gradually harder. For the single most useful leg exercise, see <a href=\"/blog/sit-to-stand-practice-frail-arthritis-uk\">sit-to-stand practice</a>.</p>\n<h2>Does seated exercise count as strength training?</h2>\n<p>Yes, if the muscles are challenged. Strength comes from asking a muscle to do a bit more than it is used to, then repeating that regularly. NICE recommends exercise, including muscle strengthening, as a core treatment for osteoarthritis, and the NHS says older adults should do activities that improve strength on at least 2 days a week. Sitting down simply takes balance and standing pain out of the picture so you can focus on the muscles. It is a sensible place to start if standing for long is hard, and you can add standing work when you are ready.</p>\n<h2>How hard should it feel?</h2>\n<p>Gentle movement is good for stiffness, but strength needs effort. A simple guide:</p>\n<ul>\n<li>the first few repetitions feel fairly easy</li>\n<li>the last two or three feel hard, and you would need a short rest before doing more</li>\n<li>you can still breathe and talk, and you are not holding your breath or straining your neck</li>\n<li>you can keep the movement slow and controlled — if you start swinging or jerking, the set is over</li>\n</ul>\n<p>Many people begin with one set of 8 to 12 slow repetitions of each move, then build to two or three sets with a rest in between.</p>\n<h2>Five seated moves that work the big muscles</h2>\n<ul>\n<li><strong>Knee straightening (thighs)</strong> — sit tall, slowly straighten one knee until the leg is level, hold for a moment, then lower slowly. Good for knee osteoarthritis</li>\n<li><strong>Hip marching (hips and trunk)</strong> — from the NHS sitting exercises: lift one knee towards your chest, lower with control, then the other</li>\n<li><strong>Heel and toe raises (calves and shins)</strong> — feet flat, lift your heels as high as you can, lower slowly, then lift your toes</li>\n<li><strong>Arm raises or pushes (shoulders and arms)</strong> — push your hands up towards the ceiling, or forwards, holding a light weight if comfortable</li>\n<li><strong>Seated press into the chair (legs and buttocks)</strong> — lean forward slightly and push down through your feet as if starting to stand, hold briefly, then relax. This is a step towards a full sit-to-stand</li>\n</ul>\n<h2>Making it harder, one step at a time</h2>\n<p>Change one thing at a time and stay at each level for a week or two before moving on:</p>\n<ul>\n<li>add a few more repetitions</li>\n<li>slow down the lowering part of each movement</li>\n<li>pause and hold at the hardest point</li>\n<li>add a light weight — a tin, a bottle of water, or ankle weights once your joints are happy</li>\n<li>use a resistance band — see our <a href=\"/blog/resistance-band-workouts-arthritis\">resistance band workouts</a></li>\n<li>add standing exercises, holding a worktop, as you get stronger — see <a href=\"/blog/strength-training-arthritis-beginners\">beginner's strength training</a></li>\n</ul>\n<h2>Looking after sore joints</h2>\n<ul>\n<li>Work in a comfortable range: you do not need to move a sore joint as far as it will go</li>\n<li>Some discomfort during or after exercise is common when you start. As a general guide, aching that settles within a day is usually fine; if a joint is more swollen or clearly worse the next day, go back a level</li>\n<li>On a flare day, swap to gentle movement and come back to strength when it settles — see <a href=\"/blog/arthritis-flare-up-what-to-do\">what to do in a flare-up</a></li>\n<li>For hand or wrist osteoarthritis, use a loop band round the forearm or a weight you can hold without gripping tightly</li>\n<li>After a hip or knee replacement, follow your surgical team's exercise advice</li>\n</ul>\n<h2>Fitting it into the week</h2>\n<p>Two or three sessions a week, with a rest day between, is plenty for strength. Many people pair it with something they already do, such as after breakfast or during a TV programme. Keep a simple note of what you did and how it felt, so you can see progress. If you are rebuilding after a bad spell, see <a href=\"/blog/deconditioning-after-arthritis-flare-uk\">getting your strength back after a flare</a>.</p>\n<h2>When to get help</h2>\n<ul>\n<li><strong>See a GP or physiotherapist</strong> if pain stops you exercising, if you are getting weaker over weeks, or if you are not sure what is safe. In many areas you can refer yourself to NHS physiotherapy — see <a href=\"/blog/arthritis-physiotherapy-nhs-waiting-list\">NHS physiotherapy and waiting lists</a></li>\n<li><strong>Contact NHS 111</strong> for a hot, red, swollen joint, especially with a high temperature or feeling unwell</li>\n<li><strong>Stop and call 999</strong> if you get chest pain, severe breathlessness, or feel faint during exercise</li>\n</ul>\n<h2>Frequently asked questions</h2>\n<h3>Can I get stronger just sitting down?</h3>\n<p>Yes, especially in the legs and arms, if you gradually make the exercises harder. Practising standing up from a chair and some standing balance work, with support, adds the most for everyday tasks.</p>\n<h3>Do I need special equipment?</h3>\n<p>No. A sturdy chair without wheels is enough to start. Water bottles, tins and a resistance band are cheap ways to add challenge later.</p>\n<h3>How is this different from chair yoga?</h3>\n<p>Chair yoga is mainly about flexibility and relaxation. Strength exercises ask the muscles to work hard enough to tire. Both are useful, and they work well together — see <a href=\"/blog/chair-yoga-elderly-arthritis-stiffness\">chair yoga for stiff joints</a>.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/\" rel=\"noopener\">NHS: Physical activity guidelines for older adults</a></li>\n<li><a href=\"https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/\" rel=\"noopener\">NHS: Sitting exercises</a></li>\n<li><a href=\"https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/\" rel=\"noopener\">NHS: Strength exercises</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/ng226\" rel=\"noopener\">NICE NG226: Osteoarthritis in over 16s — diagnosis and management</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/osteoarthritis/treatment/\" rel=\"noopener\">NHS: Osteoarthritis treatment</a></li>\n<li><a href=\"https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/\" rel=\"noopener\">Versus Arthritis (now Arthritis UK): Exercising with arthritis</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, physiotherapist or rheumatology team. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/chair-exercises-older-adults-arthritis\">Chair exercises</a> — a 20-minute seated routine</li>\n      <li><a href=\"/blog/sit-to-stand-practice-frail-arthritis-uk\">Sit-to-stand practice</a> — getting up from a chair</li>\n      <li><a href=\"/blog/strength-training-arthritis-beginners\">Strength training</a> — a safe beginner programme</li>\n      <li><a href=\"/blog/resistance-band-workouts-arthritis\">Resistance bands</a> — adding gentle resistance</li>\n      <li><a href=\"/blog/chair-yoga-elderly-arthritis-stiffness\">Chair yoga</a> — gentle seated stretches</li>\n      <li><a href=\"/blog/deconditioning-after-arthritis-flare-uk\">Strength after a flare</a> — build back up</li>\n      <li><a href=\"/guides/knee-exercises-for-osteoarthritis\">Knee exercises</a> — for knee osteoarthritis</li>\n    </ul>\n  </section>\n\n",
       "date": "2026-09-03",
       "category": "Exercise",
       "image_url": "/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
       "cover": "arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
-      "meta_title": "Seated strength training for frail adults with osteoarthritis (UK)",
-      "meta_description": "Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength.",
-      "keywords": "osteoarthritis, frailty, several joints, Wales, arthritis, exercise, UK",
+      "meta_title": "Seated Strength Exercises for Osteoarthritis (UK)",
+      "meta_description": "Can chair exercise build strength with osteoarthritis? How hard it should feel, five seated moves, how to progress safely and when to get help (UK guide).",
+      "keywords": "seated strength exercises osteoarthritis, chair strength exercises older adults, seated leg strengthening arthritis, how to progress chair exercises, strength training sitting down UK",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -45274,43 +45321,61 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4939,
-      "updated_at": "2026-09-05T11:02:30.639Z",
-      "direct_answer": "Frailty is a clinical syndrome — not a personality trait — and osteoarthritis can make it more visible. This article is about chair-based strength that still counts, written for people and carers in Wales, especially around a home. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.",
+      "updated_at": "2026-10-21T09:00:00.000Z",
+      "direct_answer": "Seated exercise can build real strength with osteoarthritis if the muscles work hard enough. Pick a few moves that work your legs, arms and trunk, do them slowly, and stop each set when the last few repetitions feel hard but your form is still good. The NHS says older adults should do strength activities on at least 2 days a week. To keep getting stronger, change one thing at a time every week or two: a few more repetitions, a slower lowering, a pause at the top, or a light weight such as a water bottle or a resistance band. Some joint discomfort is common; if pain is clearly worse the next day, ease back a level.",
       "citations": [
         {
-          "label": "NHS – Exercise",
-          "url": "https://www.nhs.uk/live-well/exercise/",
+          "label": "NHS: Physical activity guidelines for older adults",
+          "url": "https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG226 – Osteoarthritis in over 16s",
+          "label": "NHS: Sitting exercises",
+          "url": "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/sitting-exercises/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Strength exercises",
+          "url": "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NICE NG226: Osteoarthritis in over 16s — diagnosis and management",
           "url": "https://www.nice.org.uk/guidance/ng226",
           "publisher": "NICE"
         },
         {
-          "label": "NHS – Osteoarthritis",
-          "url": "https://www.nhs.uk/conditions/osteoarthritis/",
+          "label": "NHS: Osteoarthritis treatment",
+          "url": "https://www.nhs.uk/conditions/osteoarthritis/treatment/",
           "publisher": "NHS"
         },
         {
-          "label": "NHS 111 Wales",
-          "url": "https://111.wales.nhs.uk",
-          "publisher": "NHS Wales"
+          "label": "Versus Arthritis (now Arthritis UK): Exercising with arthritis",
+          "url": "https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/",
+          "publisher": "Versus Arthritis"
         }
       ]
     },
     "faqs": [
       {
-        "q": "Should I stop exercising during chair-based strength that still counts?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
+        "q": "Does seated exercise count as strength training?",
+        "a": "Yes, if the muscles are challenged. Strength comes from asking a muscle to do a bit more than it is used to, then repeating that regularly. NICE recommends exercise, including muscle strengthening, as a core treatment for osteoarthritis, and the NHS says older adults should do activities that improve strength on at least 2 days a week. Sitting down simply takes balance and standing pain out of the picture so you can focus on the muscles. It is a sensible place to start if standing for long is ha"
       },
       {
-        "q": "Can frailty improve if I still have pain in several joints?",
-        "a": "Sometimes the frailty part can shift even if osteoarthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
+        "q": "How hard should it feel?",
+        "a": "Gentle movement is good for stiffness, but strength needs effort. A simple guide: the first few repetitions feel fairly easy the last two or three feel hard, and you would need a short rest before doing more you can still breathe and talk, and you are not holding your breath or straining your neck you can keep the movement slow and controlled — if you start swinging or jerking, the set is over Many people begin with one set of 8 to 12 slow repetitions of each move, then build to two or three set"
       },
       {
-        "q": "Are painkillers the main treatment for frail osteoarthritis?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
+        "q": "Can I get stronger just sitting down?",
+        "a": "Yes, especially in the legs and arms, if you gradually make the exercises harder. Practising standing up from a chair and some standing balance work, with support, adds the most for everyday tasks."
+      },
+      {
+        "q": "Do I need special equipment?",
+        "a": "No. A sturdy chair without wheels is enough to start. Water bottles, tins and a resistance band are cheap ways to add challenge later."
+      },
+      {
+        "q": "How is this different from chair yoga?",
+        "a": "Chair yoga is mainly about flexibility and relaxation. Strength exercises ask the muscles to work hard enough to tire. Both are useful, and they work well together — see chair yoga for stiff joints ."
       }
     ],
     "relatedLinks": [
@@ -45323,16 +45388,16 @@
         "title": "Exercise guides"
       },
       {
+        "path": "/blog/chair-exercises-older-adults-arthritis",
+        "title": "Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)"
+      },
+      {
         "path": "/blog/chair-yoga-elderly-arthritis-stiffness",
         "title": "Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)"
       },
       {
-        "path": "/blog/hydrotherapy-frail-arthritis-uk",
-        "title": "Hydrotherapy for frail adults with arthritis (UK)"
-      },
-      {
-        "path": "/blog/prehabilitation-frail-arthritis-before-surgery-uk",
-        "title": "Prehabilitation for frail adults with arthritis facing surgery (UK)"
+        "path": "/blog/aquatic-therapy-arthritis-guide",
+        "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
       }
     ]
   },
@@ -46838,16 +46903,16 @@
         "title": "Exercise guides"
       },
       {
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
+      },
+      {
         "path": "/blog/chair-exercises-older-adults-arthritis",
         "title": "Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)"
       },
       {
         "path": "/blog/chair-yoga-elderly-arthritis-stiffness",
         "title": "Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)"
-      },
-      {
-        "path": "/blog/aquatic-therapy-arthritis-guide",
-        "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
       }
     ]
   },
@@ -47412,12 +47477,12 @@
         "title": "Codeine, drowsiness and falls when you have arthritis (UK)"
       },
       {
-        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
-        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       },
       {
-        "path": "/blog/arthritis-treatment-hub",
-        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
+        "path": "/blog/anticholinergic-load-arthritis-frailty-uk",
+        "title": "Anticholinergic load, arthritis medicines and frailty (UK)"
       }
     ]
   },
@@ -49510,7 +49575,7 @@
       },
       {
         "path": "/blog/seated-strength-frail-osteoarthritis-uk",
-        "title": "Seated strength training for frail adults with osteoarthritis (UK)"
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
       }
     ]
   },
@@ -49574,16 +49639,16 @@
         "title": "Exercise Guides guides"
       },
       {
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
+      },
+      {
         "path": "/blog/strength-training-arthritis-beginners",
         "title": "Strength Training With Arthritis: A Safe Beginner's Programme (UK)"
       },
       {
         "path": "/blog/aquatic-therapy-arthritis-guide",
         "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
-      },
-      {
-        "path": "/blog/balance-training-arthritis",
-        "title": "Balance Training for Arthritis: Safe Exercises to Stay Steady (UK Guide)"
       }
     ]
   },
@@ -50047,12 +50112,12 @@
         "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
       },
       {
-        "path": "/blog/arthritis-exercises-uk-clinical",
-        "title": "Clinically recommended Arthritis Exercises"
+        "path": "/blog/seated-strength-frail-osteoarthritis-uk",
+        "title": "Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)"
       },
       {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
+        "path": "/blog/arthritis-exercises-uk-clinical",
+        "title": "Clinically recommended Arthritis Exercises"
       }
     ]
   },
