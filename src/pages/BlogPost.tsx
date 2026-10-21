@@ -4,6 +4,9 @@ import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
+import blogNoindex from "@/data/blog-noindex.json";
+
+const BLOG_NOINDEX = new Set<string>(blogNoindex as string[]);
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
@@ -375,7 +378,7 @@ const BlogPost = () => {
         <meta property="article:section" content={article.category || "Health"} />
         <meta property="article:tag" content="arthritis" />
 
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+        <meta name="robots" content={slug && BLOG_NOINDEX.has(slug) ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />

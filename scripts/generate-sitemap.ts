@@ -615,10 +615,15 @@ async function main() {
     /^\/arthritis-support\/[^/]+\/[^/]+/,
   ];
   const redirectSources = exactRedirectPathSet();
+  // Thin, pending-review archive posts stay reachable but are noindex,follow.
+  const blogNoindex = new Set<string>(
+    (JSON.parse(read("src/data/blog-noindex.json")) as string[]).map((slug) => `/blog/${slug}`),
+  );
   const cleaned = entries.filter(
     (e) =>
       !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)) &&
-      !redirectSources.has(e.path),
+      !redirectSources.has(e.path) &&
+      !blogNoindex.has(e.path),
   );
 
   const xml = build(cleaned);

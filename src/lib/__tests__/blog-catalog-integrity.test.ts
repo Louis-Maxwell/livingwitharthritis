@@ -1,3 +1,4 @@
+import blogNoindexSlugs from "@/data/blog-noindex.json";
 /// <reference types="node" />
 /**
  * Blog catalog integrity (never-break). Run by CI "Keep green (integrity)".
@@ -177,8 +178,9 @@ describe("generated surfaces agree with the catalog", () => {
   });
 
   it("includes every published slug in public/sitemap.xml", () => {
+    const noindex = new Set<string>(blogNoindexSlugs as string[]);
     const missing = catalogSlugs.filter(
-      (slug) => !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
+      (slug) => !noindex.has(slug) && !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
     );
     expect(missing, missing.slice(0, 10).join("\n")).toEqual([]);
   });

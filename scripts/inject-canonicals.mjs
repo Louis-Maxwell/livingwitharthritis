@@ -340,7 +340,13 @@ const NOINDEX_PREFIXES = [
   "/unsubscribe",
 ];
 
+const BLOG_NOINDEX = new Set(
+  existsSync(resolve("src/data/blog-noindex.json")) ? JSON.parse(readFileSync(resolve("src/data/blog-noindex.json"), "utf8")) : [],
+);
+
 export function isNoindexRoute(route) {
+  const blog = /^\/blog\/([^/]+)$/.exec(route);
+  if (blog && BLOG_NOINDEX.has(blog[1])) return true;
   return NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
 }
 
