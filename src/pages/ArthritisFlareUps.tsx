@@ -585,8 +585,8 @@ export default function ArthritisFlareUps() {
               title: "Calm inflammation through food",
               links: [
                 { label: "Anti-inflammatory diet for arthritis", to: "/diet" },
-                { label: "Foods to avoid during a flare-up", to: "/blog/category/nutrition" },
-                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                { label: "Foods to avoid during a flare-up", to: "/blog/category/diet-lifestyle" },
+                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
               ],
             },

@@ -38,7 +38,7 @@ const SUPPLEMENTS = [
     available: true,
   },
   {
-    to: "/blog/category/supplements",
+    to: "/blog/category/diet-lifestyle",
     label: "Omega-3 fish oil",
     desc: "Best evidence is in rheumatoid arthritis: 2.7 g+ EPA/DHA per day reduces morning stiffness and tender joints.",
     available: false,
@@ -57,7 +57,7 @@ const SUPPLEMENTS = [
   },
 
   {
-    to: "/blog/category/supplements",
+    to: "/blog/category/diet-lifestyle",
     label: "Ginger",
     desc: "Plant-based anti-inflammatory. 500–1,000 mg extract per day modestly eases knee OA pain and stiffness.",
     available: false,

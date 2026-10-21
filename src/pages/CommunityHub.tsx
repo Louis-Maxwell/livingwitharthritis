@@ -369,10 +369,10 @@ const CommunityHub = () => {
               {
                 title: "Living well with arthritis",
                 links: [
-                  { label: "Arthritis and mental health", to: "/blog/category/lifestyle" },
-                  { label: "Working with arthritis", to: "/blog/category/lifestyle" },
+                  { label: "Arthritis and mental health", to: "/blog/category/mental-health-fatigue" },
+                  { label: "Working with arthritis", to: "/blog/category/benefits-work" },
                   { label: "How to support someone with chronic pain", to: "/community" },
-                  { label: "Arthritis in cold weather — practical tips", to: "/blog/category/lifestyle" },
+                  { label: "Arthritis in cold weather — practical tips", to: "/blog/category/diet-lifestyle" },
                 ],
               },
               {

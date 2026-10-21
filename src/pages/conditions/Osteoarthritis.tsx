@@ -376,7 +376,7 @@ const Osteoarthritis = () => (
                 { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
                 { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
                 { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },
-                { label: "Cycling with arthritis", to: "/blog/cycling-with-arthritis" },
+                { label: "Cycling with arthritis", to: "/blog/arthritis-and-cycling-uk" },
                 { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
               ],
             },

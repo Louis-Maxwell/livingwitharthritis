@@ -197,7 +197,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Foot & Ankle Arthritis", href: "/blog/foot-and-ankle-arthritis-uk" },
   { label: "Swimming for Arthritis", href: "/blog/swimming-for-arthritis" },
   { label: "Yoga for Arthritis Beginners", href: "/blog/yoga-for-arthritis-beginners" },
-  { label: "Cycling for Arthritis", href: "/blog/cycling-with-arthritis" },
+  { label: "Cycling for Arthritis", href: "/blog/arthritis-and-cycling-uk" },
   { label: "Tai Chi for Arthritis (Article)", href: "/blog/tai-chi-for-arthritis-uk" },
   { label: "Hydrotherapy for Arthritis", href: "/blog/hydrotherapy-arthritis-uk" },
   { label: "Staying Active in Winter", href: "/blog/staying-active-arthritis-winter-uk" },

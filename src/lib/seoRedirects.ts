@@ -88,6 +88,14 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/library/exercise-hub": "/exercises",
   "/library/nutrition-hub": "/diet",
   // Duplicate without canonical — keep one clear glucosamine URL.
+  // Blog taxonomy v2 (Oct 2026): old category hubs -> new primary categories.
+  "/blog/category/nutrition": "/blog/category/diet-lifestyle",
+  "/blog/category/lifestyle": "/blog/category/diet-lifestyle",
+  "/blog/category/supplements": "/blog/category/diet-lifestyle",
+  "/blog/category/health": "/blog/category/conditions",
+  "/blog/category/mental-health": "/blog/category/mental-health-fatigue",
+  "/blog/category/treatment": "/blog/category/treatments",
+  "/blog/category/frailty": "/blog/category/exercise",
   "/library/glucosamine": "/supplements/glucosamine",
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",

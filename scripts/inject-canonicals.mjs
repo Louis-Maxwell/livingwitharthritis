@@ -210,9 +210,49 @@ const NOT_FOUND_HEAD = {
   noindex: true,
 };
 
+const BLOG_CATEGORY_META = readJson(resolve("src/data/blogCategoryMeta.json"));
+const BLOG_CATEGORY_LABEL_TO_KEY = {
+  "Pain & flares": "pain-flares",
+  "Exercise & movement": "exercise",
+  Conditions: "conditions",
+  "Benefits, PIP & work": "benefits-work",
+  "Diet & lifestyle": "diet-lifestyle",
+  "Treatments & medicines": "treatments",
+  "Surgery & recovery": "surgery-recovery",
+  "Carers & family": "carers-family",
+  "Mental health & fatigue": "mental-health-fatigue",
+};
+
+/** Crawlable category hub: intro + every guide in the category + ItemList. */
+function blogCategoryHeadData(key) {
+  const meta = BLOG_CATEGORY_META[key];
+  if (!meta) return null;
+  const posts = readJson(resolve("src/content/blog/catalog.generated.json"));
+  const guides = (Array.isArray(posts) ? posts : []).filter(
+    (post) => BLOG_SLUGS.has(post.slug) && BLOG_CATEGORY_LABEL_TO_KEY[post.category] === key,
+  );
+  const label = Object.entries(BLOG_CATEGORY_LABEL_TO_KEY).find(([, k]) => k === key)?.[0] ?? key;
+  const others = Object.entries(BLOG_CATEGORY_LABEL_TO_KEY).filter(([, k]) => k !== key);
+  return {
+    title: `${meta.title} | Living With Arthritis`,
+    description: meta.description,
+    question: meta.title,
+    answer: meta.description,
+    breadcrumb: label,
+    breadcrumbParent: { name: "Blog", item: "/blog" },
+    itemList: guides.map((post) => ({ name: post.title, url: `/blog/${post.slug}` })),
+    bodyHtml: `<p>${escText(meta.description)}</p><ul>${guides.map((post) =>
+      `<li><a href="/blog/${escAttr(post.slug)}">${escText(post.title)}</a></li>`
+    ).join("")}</ul><p>More topics: ${others.map(([l, k]) => `<a href="/blog/category/${k}">${escText(l)}</a>`).join(" · ")}</p>`,
+    noindex: false,
+  };
+}
+
 function baseHeadDataFor(route, override) {
   if (override) return override;
   if (route === "/blog/archive") return blogArchiveHeadData();
+  const catMatch = /^\/blog\/category\/([^/]+)$/.exec(route);
+  if (catMatch && BLOG_CATEGORY_META[catMatch[1]]) return blogCategoryHeadData(catMatch[1]);
   // Soft-404: /blog/:slug not in the published catalog must not ship
   // homepage OG or a fabricated article title.
   const blogMatch = /^\/blog\/([^/]+)$/.exec(route);
@@ -479,9 +519,20 @@ export function buildJsonLd(route, url, d) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
       ...(article ? [{ "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` }] : []),
-      { "@type": "ListItem", position: article ? 3 : 2, name: article?.title || d.breadcrumb || d.about || d.title, item: url },
+      ...(!article && d.breadcrumbParent ? [{ "@type": "ListItem", position: 2, name: d.breadcrumbParent.name, item: `${BASE}${d.breadcrumbParent.item}` }] : []),
+      { "@type": "ListItem", position: article || d.breadcrumbParent ? 3 : 2, name: article?.title || d.breadcrumb || d.about || d.title, item: url },
     ],
   });
+  if (Array.isArray(d.itemList) && d.itemList.length > 0) {
+    graphs.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${url}#itemlist`,
+      name: d.question || d.title,
+      numberOfItems: d.itemList.length,
+      itemListElement: d.itemList.map((it, i) => ({ "@type": "ListItem", position: i + 1, url: `${BASE}${it.url}`, name: it.name })),
+    });
+  }
 
   // 3) FAQPage — the primary Q&A plus any configured FAQs. This is the
   //    highest-value block for answer engines: it hands them a quotable,

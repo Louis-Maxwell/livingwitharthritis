@@ -1340,3 +1340,60 @@
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /arthritis-support-refugees-diverse-communities /blog/arthritis-support-refugees-diverse-communities 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/category/nutrition /blog/category/diet-lifestyle 301
+/blog/category/lifestyle /blog/category/diet-lifestyle 301
+/blog/category/supplements /blog/category/diet-lifestyle 301
+/blog/category/health /blog/category/conditions 301
+/blog/category/mental-health /blog/category/mental-health-fatigue 301
+/blog/category/treatment /blog/category/treatments 301
+/blog/category/frailty /blog/category/exercise 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/lwa-archive-pip-and-arthritis /blog/pip-for-arthritis-uk 301
+/blog/lwa-archive-sleep-and-arthritis /blog/how-to-sleep-with-arthritis-uk 301
+/blog/lwa-archive-shoulder-exercises-for-arthritis /blog/shoulder-arthritis-exercises-uk 301
+/blog/lwa-archive-improving-sleep-with-arthritis /blog/how-to-sleep-with-arthritis-uk 301
+/blog/lwa-archive-anti-inflammatory-diet-for-arthritis /blog/anti-inflammatory-diet 301
+/blog/lwa-archive-mental-health-and-arthritis /blog/arthritis-and-mental-health-uk 301
+/blog/lwa-archive-pain-medication-for-arthritis /blog/arthritis-medication-guide 301
+/blog/lwa-archive-turmeric-for-arthritis /blog/turmeric-for-arthritis 301
+/blog/lwa-archive-anti-inflammatory-medicines /blog/arthritis-medication-guide 301
+/blog/lwa-archive-managing-rheumatoid-arthritis-flare-ups /blog/managing-arthritis-flare-ups-at-home 301
+/blog/lwa-archive-gardening-with-arthritis /blog/arthritis-and-gardening-uk 301
+/blog/lwa-archive-driving-with-arthritis /blog/driving-with-arthritis-uk 301
+/blog/lwa-archive-early-signs-of-arthritis /blog/arthritis-symptoms-what-to-do-next 301
+/blog/lwa-archive-arthritis-at-work /blog/managing-arthritis-at-work 301
+/blog/lwa-archive-hip-osteoarthritis /blog/hip-arthritis-symptoms-uk 301
+/blog/lwa-archive-fatigue-and-arthritis /blog/arthritis-fatigue-explained 301
+/blog/lwa-archive-access-to-work-and-arthritis /blog/access-to-work-scheme-arthritis-guide 301
+/blog/lwa-archive-how-to-apply-for-pip-with-arthritis /blog/pip-for-arthritis-uk 301
+/blog/lwa-archive-hydrotherapy-for-arthritis /blog/hydrotherapy-arthritis-uk 301
+/blog/lwa-archive-diet-for-rheumatoid-arthritis /blog/rheumatoid-arthritis-diet-uk 301
+/blog/lwa-archive-supplements-for-arthritis /blog/best-supplements-arthritis-uk 301
+/blog/lwa-archive-travelling-with-arthritis /blog/travelling-with-arthritis-uk 301
+/blog/lwa-archive-what-is-osteoarthritis /blog/osteoarthritis-symptoms-uk 301
+/blog/lwa-archive-best-exercises-for-osteoarthritis /blog/best-exercises-osteoarthritis-knee-pain-home 301
+/blog/lwa-archive-physiotherapy-for-arthritis /blog/physiotherapy-arthritis 301
+/blog/lwa-archive-knee-exercises-for-arthritis /blog/knee-exercises-for-arthritis 301
+/blog/lwa-archive-vitamin-d-and-arthritis /blog/vitamin-d-arthritis-uk 301
+/blog/lwa-archive-tens-machines-for-arthritis /blog/tens-machines-arthritis-uk 301
+/blog/lwa-archive-strength-training-for-arthritis /blog/strength-training-arthritis-beginners 301
+/blog/lwa-archive-fatigue-and-rheumatoid-arthritis /blog/arthritis-fatigue-explained 301
+/blog/lwa-archive-mindfulness-for-arthritis /blog/mindfulness-for-arthritis-pain 301
+/blog/lwa-archive-occupational-therapy-for-arthritis /blog/occupational-therapy-arthritis-uk 301
+/blog/lwa-archive-rheumatoid-arthritis-blood-tests /blog/arthritis-blood-tests-explained-uk 301
+/blog/lwa-archive-heat-vs-ice-for-arthritis /blog/heat-or-ice-for-arthritis 301
+/blog/lwa-archive-symptoms-of-arthritis-explained /blog/arthritis-symptoms-what-to-do-next 301
+/blog/lwa-archive-hand-exercises-for-arthritis /blog/hand-exercises-for-arthritis 301
+/blog/lwa-archive-balance-training-for-arthritis /blog/balance-training-arthritis 301
+/blog/lwa-archive-weight-loss-and-arthritis /blog/arthritis-and-weight-loss-uk 301
+/blog/lwa-archive-foods-to-avoid-with-arthritis /blog/foods-to-avoid-with-arthritis 301
+/blog/lwa-archive-omega-3-and-arthritis /blog/arthritis-and-omega-3-fish-oil 301
+/blog/lwa-archive-yoga-for-arthritis /blog/yoga-for-arthritis 301
+/blog/lwa-archive-swimming-for-arthritis /blog/swimming-for-arthritis 301
+/blog/cycling-with-arthritis /blog/arthritis-and-cycling-uk 301
+/blog/arthritis-in-young-people-uk /blog/arthritis-in-young-adults 301
+/blog/psoriatic-vs-rheumatoid-arthritis /blog/psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments 301
+/blog/gout-older-people-frailty-hydration-uk /blog/hydration-gout-frailty-older-adults-uk 301
