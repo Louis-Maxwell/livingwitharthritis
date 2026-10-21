@@ -58,6 +58,9 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-employment-rights-uk',
     title: 'Arthritis and Employment Rights in the UK',
     question: 'What are my employment rights with arthritis in the UK?',
+    seoTitle: 'Arthritis at Work: Your Employment Rights (UK)',
+    metaDescription:
+      'The Equality Act 2010 protects you from discrimination at work and means employers must make reasonable adjustments for arthritis.',
     quickAnswer:
       "The Equality Act 2010 protects you from discrimination and requires employers to make 'reasonable adjustments' for your arthritis.",
     sections: [
@@ -77,9 +80,9 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-disability-benefits-uk',
     title: 'Arthritis and Disability Benefits in the UK',
     question: 'Is arthritis a disability? UK PIP and claim guide',
-    seoTitle: 'Is Arthritis a Disability? UK PIP & Claim Guide',
+    seoTitle: 'Is Arthritis a Disability in the UK? PIP & Rights',
     metaDescription:
-      'Is arthritis classified as a disability in the UK? How PIP works for adults, who Disability Living Allowance is still for, and Equality Act adjustments.',
+      'It can be under the Equality Act if it has a long-term effect on daily life. How PIP works for adults, who DLA is for, and your rights at work.',
     lastReviewed: '2026-09-24',
     quickAnswer:
       'Arthritis is not automatically a disability. Under the Equality Act 2010 it can be, if a physical impairment has a substantial and long-term adverse effect on normal day-to-day activities. PIP is not awarded from the diagnosis alone. This is educational orientation, not legal advice.',
