@@ -453,6 +453,7 @@ const BlogPost = () => {
         <div className="no-print print:hidden"><ScrollProgress /></div>
         <div className="no-print print:hidden"><Header /></div>
 
+        <main id="main-content" tabIndex={-1} className="outline-none">
         <article itemScope itemType="https://schema.org/MedicalWebPage">
 
 
@@ -592,7 +593,7 @@ const BlogPost = () => {
           </div>
         </header>
 
-        <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-5 sm:px-6 md:px-10 py-6 md:py-8 max-w-[1100px] outline-none">
+        <div className="container mx-auto px-5 sm:px-6 md:px-10 py-6 md:py-8 max-w-[1100px]">
           <div className="mb-6 print:hidden"><MedicalDisclaimerStrip variant="short" /></div>
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
           <div className="min-w-0 max-w-[760px]">
@@ -626,7 +627,6 @@ const BlogPost = () => {
               variant="outline"
               size="sm"
               onClick={() => window.print()}
-              aria-label="Download this article as PDF"
               className="min-h-11"
             >
               <Download className="w-4 h-4 mr-2" aria-hidden="true" />
@@ -814,7 +814,7 @@ const BlogPost = () => {
               {slug && <BlogComments slug={slug} />}
             </ViewportSection>
           </footer>
-        </main>
+        </div>
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
@@ -828,6 +828,7 @@ const BlogPost = () => {
           </DisclaimerStripShown>
         )}
         </article>
+        </main>
         <div className="no-print">
           <ViewportSection>
             {slug && <ContinueReadingBar currentSlug={slug} />}
