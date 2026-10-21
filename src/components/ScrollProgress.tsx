@@ -34,7 +34,7 @@ const ScrollProgress = memo(() => {
   return (
     <div
       className="fixed top-0 left-0 right-0 z-[100] h-[3px] pointer-events-none"
-      role="progressbar"
+      aria-hidden="true"
       aria-label="Reading progress"
       aria-valuemin={0}
       aria-valuemax={100}

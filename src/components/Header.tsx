@@ -304,11 +304,13 @@ const Header = () => {
             viewport width so the lazy bar mounting doesn't shift the page
             (was a fixed 52px → CLS ~0.12 on phones). See
             .donation-quickbar-placeholder in index.css. */}
-        <ErrorBoundary fallback={null} resetKey={pathname}>
-          <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
-            <DonationQuickBar />
-          </Suspense>
-        </ErrorBoundary>
+        <aside aria-label="Support the charity">
+          <ErrorBoundary fallback={null} resetKey={pathname}>
+            <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
+              <DonationQuickBar />
+            </Suspense>
+          </ErrorBoundary>
+        </aside>
 
         {/* Logo Bar */}
         <div
@@ -323,8 +325,8 @@ const Header = () => {
             <button
               onClick={() => navigate("/")}
               className="group cursor-pointer select-none shrink-0 transition-opacity hover:opacity-80"
-              aria-label="Living With Arthritis — Go to homepage"
             >
+              <span className="sr-only">Go to homepage: </span>
               <span className="flex flex-col items-start leading-none">
                 <SiteLogo
                   variant="full"
