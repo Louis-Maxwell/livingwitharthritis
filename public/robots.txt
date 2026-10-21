@@ -557,8 +557,7 @@ Disallow: /dashboard
 Disallow: /checkout
 Disallow: /callback
 
-
-Sitemap: https://livingwitharthritis.org.uk/sitemap.xml
+Sitemap: https://livingwitharthritis.org.uk/sitemap-index.xml
 
 # Team / E-E-A-T
 # https://livingwitharthritis.org.uk/humans.txt
