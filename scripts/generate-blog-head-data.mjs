@@ -248,6 +248,14 @@ async function main() {
     return pairs;
   };
 
+  // Static related/prev/next index (scripts/generate-article-discovery.mjs):
+  // excludes noindexed posts, so crawlers are never pointed at thin pages.
+  let discovery = null;
+  try {
+    const d = JSON.parse(readFileSync(resolve(process.cwd(), 'src/data/articleDiscovery.generated.json'), 'utf8'));
+    discovery = { d, idx: new Map(d.s.map((r, i) => [r[0], i])) };
+  } catch { /* fall back to title-overlap peers */ }
+
   const data = {};
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
@@ -260,9 +268,14 @@ async function main() {
       const peers = rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
         .map((p) => ({ post: p, score: (p.title.toLowerCase().match(/[a-z]{4,}/g) || []).filter((t) => terms.has(t)).length }))
         .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3);
+      const di = discovery?.idx.get(row.slug);
+      const discoveryLinks = di === undefined ? null : (() => {
+        const [p, n, r] = discovery.d.l[di];
+        return [...r, p, n].filter((i) => i >= 0).map((i) => ({ path: `/blog/${discovery.d.s[i][0]}`, title: discovery.d.s[i][1] }));
+      })();
       entry.relatedLinks = [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
         ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
-        ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+        ...(discoveryLinks ?? peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title })))];
       data[`/blog/${row.slug}`] = entry;
     }
   }
