@@ -1070,7 +1070,7 @@ On flare days, reduce intensity rather than stopping completely. Browse **/exerc
   },
   {
     id: "ra",
-    keywords: ["rheumatoid", "what is ra", "rheumatoid arthritis", "ra symptoms"],
+    keywords: ["rheumatoid", "what is ra", "rheumatoid arthritis", "ra symptoms", "late onset rheumatoid", "ra diagnosed later in life", "ra monitoring", "das28"],
     synonyms: ["autoimmune arthritis", "inflammatory arthritis ra", "ra diagnosis"],
     priority: 13,
     chips: ["DMARDs overview", "Flare tips", "Exercise with RA"],
@@ -1092,6 +1092,8 @@ Only a clinician can diagnose RA. We do not prescribe. Learn more: **/conditions
     nextSteps: ["See GP promptly for suspected inflammatory arthritis", "Use /exercises for paced movement"],
     related: [
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
+      { type: "article", title: "RA later in life: the first months", url: "/blog/late-onset-ra-frailty-first-months-uk" },
+      { type: "article", title: "RA monitoring in later life", url: "/blog/ra-monitoring-older-frail-adults-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
@@ -1574,8 +1576,8 @@ We do not name personal regimens or doses. Condition pages (**/conditions/rheuma
   },
   {
     id: "methotrexate",
-    keywords: ["methotrexate", "mtx"],
-    synonyms: ["methotrexate weekly", "mtx side effects"],
+    keywords: ["methotrexate", "mtx", "methotrexate blood tests", "methotrexate infection", "methotrexate vaccines"],
+    synonyms: ["methotrexate weekly", "mtx side effects", "methotrexate older people"],
     requireAny: ["methotrexate", "mtx"],
     priority: 14,
     chips: ["DMARDs overview", "RA overview", "When to seek care"],
@@ -1596,6 +1598,8 @@ Missed dose or feeling unwell → rheumatology advice line, GP or pharmacist —
 We do not provide doses. Confirm everything with your clinical team.`,
     nextSteps: ["Use your rheumatology advice line for medicine queries", "Keep monitoring appointments"],
     related: [
+      { type: "article", title: "Methotrexate in later life: safety checks", url: "/blog/methotrexate-older-frail-adults-uk" },
+      { type: "article", title: "RA monitoring in later life", url: "/blog/ra-monitoring-older-frail-adults-uk" },
       { type: "guide", title: "Guides hub", url: "/guides" },
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
       { type: "guide", title: "Contact", url: "/contact" },

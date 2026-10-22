@@ -2995,12 +2995,12 @@
         "title": "How Arthritis Is Diagnosed: Blood Tests, Scans and Results"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
+        "path": "/blog/ra-monitoring-older-frail-adults-uk",
+        "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       },
       {
-        "path": "/blog/mri-scan-arthritis-explained",
-        "title": "MRI Scans for Arthritis Explained: When You Need One and What Results Mean"
+        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
+        "title": "Getting to blood tests when you are frail with arthritis (UK)"
       }
     ]
   },
@@ -3856,8 +3856,8 @@
         "title": "Temporary downstairs living with arthritis and frailty (UK)"
       },
       {
-        "path": "/blog/rural-living-arthritis-frailty-uk",
-        "title": "Rural living with arthritis and frailty (UK)"
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -4986,16 +4986,16 @@
         "title": "Conditions guides"
       },
       {
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
+      },
+      {
         "path": "/blog/arthritis-and-your-heart-lowering-risk",
         "title": "Arthritis and Your Heart: Lowering Your Heart Disease Risk"
       },
       {
         "path": "/blog/arthritis-hows-life-living-with-arthritis",
         "title": "Arthritis - How's Life Living With Arthritis?"
-      },
-      {
-        "path": "/blog/arthritis-support-refugees-diverse-communities",
-        "title": "Living With Arthritis in the UK: A Guide for Refugees, Asylum Seekers and Diverse Communities"
       }
     ]
   },
@@ -5287,8 +5287,8 @@
         "title": "Temporary downstairs living with arthritis and frailty (UK)"
       },
       {
-        "path": "/blog/rural-living-arthritis-frailty-uk",
-        "title": "Rural living with arthritis and frailty (UK)"
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -9615,8 +9615,8 @@
         "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
+        "path": "/blog/pain-clinic-older-frail-arthritis-uk",
+        "title": "Pain clinics for older frail adults with arthritis (UK)"
       }
     ]
   },
@@ -13346,16 +13346,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments",
         "title": "Psoriatic Arthritis vs Rheumatoid Arthritis: Tests, Treatments and Prognosis"
       },
       {
         "path": "/blog/anti-inflammatory-diet-rheumatoid-arthritis",
         "title": "Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits"
+      },
+      {
+        "path": "/blog/arthritis-fatigue-explained",
+        "title": "Arthritis Fatigue Explained: Why It Happens and What Helps"
       }
     ]
   },
@@ -18246,8 +18246,8 @@
         "title": "Arthritis - How's Life Living With Arthritis?"
       },
       {
-        "path": "/blog/day-centres-arthritis-frailty-uk",
-        "title": "Day centres for people with arthritis and frailty (UK)"
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -20472,16 +20472,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/heat-packs-frail-arthritis-uk",
         "title": "Heat packs for frail adults with arthritis: safe use (UK)"
       },
       {
         "path": "/blog/heat-versus-ice-frail-arthritis-uk",
         "title": "Heat versus ice for frail adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/hydrotherapy-frail-arthritis-uk",
+        "title": "Hydrotherapy for frail adults with arthritis (UK)"
       }
     ]
   },
@@ -22669,12 +22669,12 @@
         "title": "Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
+        "path": "/blog/ra-monitoring-older-frail-adults-uk",
+        "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       },
       {
-        "path": "/blog/mri-scan-arthritis-explained",
-        "title": "MRI Scans for Arthritis Explained: When You Need One and What Results Mean"
+        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
+        "title": "Getting to blood tests when you are frail with arthritis (UK)"
       }
     ]
   },
@@ -23097,12 +23097,12 @@
         "title": "Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/nhs-arthritis-pathways-explained",
         "title": "NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout"
+      },
+      {
+        "path": "/blog/pain-clinic-older-frail-arthritis-uk",
+        "title": "Pain clinics for older frail adults with arthritis (UK)"
       }
     ]
   },
@@ -25260,26 +25260,26 @@
     ]
   },
   "/blog/late-onset-ra-frailty-first-months-uk": {
-    "title": "Late-onset rheumatoid arthritis and frailty: the first months (UK)",
-    "description": "When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA.",
-    "question": "Late-onset rheumatoid arthritis and frailty: the first months (UK)",
-    "answer": "When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA in later life when energy and muscle are already low, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.",
-    "breadcrumb": "Late-onset rheumatoid arthritis and frailty: the first months (UK)",
+    "title": "Rheumatoid Arthritis Later in Life: First Months (UK)",
+    "description": "Diagnosed with RA later in life? What happens in the first months: tests, starting a DMARD, monthly checks, staying active and when to get help.",
+    "question": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)",
+    "answer": "Rheumatoid arthritis can start at any age, including in your 60s, 70s or later, and it is treated in the same way as at a younger age. In the first months you can expect blood tests and X-rays, a disease-modifying medicine (DMARD) such as methotrexate started as soon as possible, sometimes with a short course of steroids to help while it starts working, and regular checks — NICE recommends monthly checks of inflammation and disease activity until the arthritis is under control. DMARDs can take up to 12 weeks to work, so keep taking them. Keep moving gently every day, ask for a named contact…",
+    "breadcrumb": "Rheumatoid Arthritis Later in Life: First Months (UK)",
     "about": "Conditions",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-22",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0269-stretching-exercises.webp",
     "article": {
       "slug": "late-onset-ra-frailty-first-months-uk",
-      "title": "Late-onset rheumatoid arthritis and frailty: the first months (UK)",
-      "excerpt": "When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA.",
-      "content": "<p>When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA in later life when energy and muscle are already low, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA in later life when energy and muscle are already low, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.</p>\n\n<p>Families often notice late-onset rheumatoid arthritis first as a slower walk across a home, then as a person who starts declining invitations. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with new RA in later life when energy and muscle are already low, not a generic arthritis recap. It is written in UK English for people, families and carers in England.</p>\n<h2>What 'frailty' means when you already have late-onset rheumatoid arthritis</h2>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual late-onset rheumatoid arthritis.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether new RA in later life when energy and muscle are already low is shrinking your home life — and what you can change this week without pretending pain is imaginary.</p>\n<p>Living With Arthritis is an independent UK charity (1218461), not part of Arthritis UK. We write for patients and carers. We do not replace NHS England services via your GP.</p>\n<h2>A England day with late-onset rheumatoid arthritis and less reserve</h2>\n<p>In a home, new RA in later life when energy and muscle are already low is rarely one dramatic collapse. It is usually a stack of small avoidances. People with late-onset rheumatoid arthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>New fear after a near-miss, even if you did not hit the floor. Fear of falling is itself a reason people sit more.</li><li>A flare of late-onset rheumatoid arthritis that lasts, then a slower baseline even when the flare eases.</li><li>Shorter outdoor range, then shorter indoor range, then a home that has quietly rearranged itself around the chair.</li><li>Transfers that used to be boring — bed, chair, toilet, car — now need a pause, a push-up or a second person, especially when several joints are cold.</li></ul>\n<h2>England services, without inventing a clinic</h2>\n<p>Start with your GP practice and NHS England services via your GP. For urgent but non-emergency advice use NHS 111. For chest pain, suspected hip fracture, sudden new weakness, or a fall with a bang to the head on blood thinners, use 999.</p>\n<p>In England, some areas have community frailty or neighbourhood teams. Your GP or a social prescriber can explain what exists locally. Pathways differ by integrated care board, so do not assume a named clinic in the next town is available to you.</p>\n<h2>Small, repeatable steps — not a reinvention</h2>\n<ul><li>Book eye, foot and hearing checks as frailty care, not vanity. Late-onset rheumatoid arthritis already asks a lot of balance.</li><li>Carers: help the last 20 percent of a task, not the first 80, unless pain or safety says otherwise. Practice is treatment for frailty.</li><li>In England, ask your local council's adult social care team (the Care Act) about equipment and care options. Descriptions of grants and benefits here are not predictions of an award.</li><li>Use heat for stiffness if your skin is healthy, but protect thin skin. Never fall asleep on a hot water bottle.</li><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>Keep a sit-to-stand practice at the height you actually use. A higher chair is not cheating if it lets several joints work without a panic haul.</li></ul>\n<h2>What to put on the problem list besides several joints</h2>\n<h2>Red flags — do not wait this out</h2>\n<ul><li>If you cannot get to the surgery because of late-onset rheumatoid arthritis, ask about a home visit or a proper phone review. Silence is not a care plan.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>Unplanned weight loss, repeated falls, or new RA in later life when energy and muscle are already low that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li></ul>\n<h2>Should I stop exercising during new RA in later life when energy and muscle are already low?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>Is a walking aid giving in if I have late-onset rheumatoid arthritis?</h2>\n<p>No. An aid that matches your several joints can protect joints, reduce fear and keep you walking far enough to keep muscle. A poorly fitted stick that hurts a wrist is the problem, not the concept. Ask physiotherapy or occupational therapy to look at height and grip.</p>\n<h2>Are painkillers the main treatment for frail late-onset rheumatoid arthritis?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical England context for late-onset rheumatoid arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/\">Age UK – Frailty</a> (Age UK)</li><li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\">NHS 111</a> (NHS)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111. Call 999 in an emergency.</em></p>\n<section class=\"key-takeaways\" aria-labelledby=\"key-takeaways\">\n    <h2 id=\"key-takeaways\">Key takeaways</h2>\n    <ul>\n      <li>What 'frailty' means when you already have late-onset rheumatoid arthritis</li>\n      <li>A England day with late-onset rheumatoid arthritis and less reserve</li>\n      <li>England services, without inventing a clinic</li>\n      <li>Small, repeatable steps — not a reinvention</li>\n      <li>What to put on the problem list besides several joints</li>\n    </ul>\n  </section>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/shoulder-oa-frailty-high-cupboards-uk\">Shoulder osteoarthritis and frailty: high cupboards and safer reaching (UK)</a> — When shoulder osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n      <li><a href=\"/blog/osteoporosis-arthritis-frailty-bone-joint-uk\">Osteoporosis, arthritis and frailty: protecting bone and joint together (UK)</a> — When osteoarthritis with osteoporosis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n      <li><a href=\"/blog/hydration-gout-frailty-older-adults-uk\">Hydration, gout and frailty in older adults (UK)</a> — When gout meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n      <li><a href=\"/blog/rheumatology-waiting-times-uk\">Rheumatology Waiting Times UK – How to Cope While Waiting</a> — NHS rheumatology waiting times can be months long.</li>\n    </ul>\n  </section>\n",
+      "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)",
+      "excerpt": "Diagnosed with RA later in life? What happens in the first months: tests, starting a DMARD, monthly checks, staying active and when to get help.",
+      "content": "<p>Rheumatoid arthritis can start at any age, including in your 60s, 70s or later, and it is treated in the same way as at a younger age. In the first months you can expect blood tests and X-rays, a disease-modifying medicine (DMARD) such as methotrexate started as soon as possible, sometimes with a short course of steroids to help while it starts working, and regular checks — NICE recommends monthly checks of inflammation and disease activity until the arthritis is under control. DMARDs can take up to 12 weeks to work, so keep taking them. Keep moving gently every day, ask for a named contact and advice line number, and bring a full list of your other medicines to every appointment.</p>\n<p>This guide is for people diagnosed with rheumatoid arthritis (RA) later in life, and for the family members and carers supporting them, covering roughly the first 3 to 6 months. For a general starting point, see our <a href=\"/guides/newly-diagnosed\">newly diagnosed guide</a>. For the medicine most people start on, see <a href=\"/blog/methotrexate-older-frail-adults-uk\">methotrexate in later life</a>; for long-term check-ups, see <a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a>.</p>\n<h2>A diagnosis later in life is common, and treatable</h2>\n<p>Many people assume aching, stiff joints in later life are simply wear and tear. RA is different: the immune system attacks the lining of the joints, causing pain, swelling and stiffness, often with tiredness and feeling generally unwell. Being older does not mean you will be offered less. NICE recommends the same treat-to-target approach for every adult with RA: get the inflammation down to remission, or to low activity if remission is not possible, as early as you can, because that protects the joints.</p>\n<p>It is normal to feel shocked, relieved, angry or low after a diagnosis — sometimes all in the same week. See <a href=\"/blog/grief-and-loss-after-arthritis-diagnosis\">feelings after an arthritis diagnosis</a>.</p>\n<h2>What usually happens in the first weeks</h2>\n<ul>\n<li><strong>Tests to set a baseline.</strong> NICE recommends a blood test for anti-CCP antibodies (if not already done), X-rays of the hands and feet, and a short questionnaire about everyday tasks, so later improvement can be measured. See <a href=\"/blog/how-arthritis-is-diagnosed-tests-scans-results\">how arthritis is diagnosed</a></li>\n<li><strong>Starting a DMARD.</strong> NICE recommends starting one disease-modifying medicine — methotrexate, leflunomide or sulfasalazine — as soon as possible, ideally within 3 months of persistent symptoms starting. Hydroxychloroquine may be used for milder RA</li>\n<li><strong>A short steroid &quot;bridge&quot;.</strong> Your team may suggest a short course of steroid tablets or an injection to ease symptoms while the DMARD starts working</li>\n<li><strong>Safety checks before methotrexate.</strong> Blood tests of your blood count, liver and kidneys, and sometimes a chest X-ray and breathing test</li>\n</ul>\n<p>Your first rheumatology appointments can feel rushed. Our guide to <a href=\"/blog/rheumatology-appointment-what-to-expect-uk\">what to expect at a rheumatology appointment</a> helps you prepare.</p>\n<h2>The first three months: checks and patience</h2>\n<p>NICE recommends that people with active RA have their CRP (a blood marker of inflammation) and a disease activity score such as DAS28 checked monthly by the specialist team until the target is reached. If the first medicine is not enough, the dose is usually increased, then another DMARD added. The NHS notes that some people try 2 or 3 medicines before finding the right one — this is normal, not a failure.</p>\n<ul>\n<li>DMARDs can take up to 12 weeks to work. Keep taking them, even if you do not feel different yet</li>\n<li>You will have regular blood tests to check the medicine is safe. If getting to them is hard, see <a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">getting to blood tests</a></li>\n<li>Ask for a named contact (often a specialist nurse) and the advice line number — NICE says everyone with RA should know how to get rapid help for a flare</li>\n</ul>\n<h2>Your other medicines matter more now</h2>\n<p>Many people diagnosed later in life already take tablets for blood pressure, the heart, diabetes or bones. Bring a full, up-to-date list to every appointment, including things you buy yourself. Check with a pharmacist before taking any over-the-counter painkiller or supplement, as some interact with RA medicines — see <a href=\"/blog/painkillers-older-adults-arthritis-caution-uk\">painkillers in later life</a>. If you are prescribed steroids for more than a short time, ask about protecting your bones; see <a href=\"/blog/bone-protection-steroids-arthritis-frailty-uk\">bone protection on steroids</a>. Never stop or change a prescribed medicine yourself.</p>\n<h2>Staying active from day one</h2>\n<p>Movement keeps joints mobile and muscles strong, and losing strength in the months around a diagnosis can make it harder to stay independent. The NHS advice for RA is to find a balance: rest inflamed joints when they are hot and swollen, but keep moving, because without movement joints stiffen and muscles weaken.</p>\n<ul>\n<li>Try low-impact activity such as walking, swimming, cycling or chair-based exercise, and build up gradually. See <a href=\"/blog/chair-based-exercise-ra-frailty-uk\">chair-based exercise for RA</a> and <a href=\"/blog/walking-30-minutes-a-day-while-on-dmards-a-practical-plan\">walking while on DMARDs</a></li>\n<li>The NHS says older adults should also do activities that improve strength, balance and flexibility on at least 2 days a week. <a href=\"/blog/sit-to-stand-practice-frail-arthritis-uk\">Sit-to-stand practice</a> is a good start</li>\n<li>If an activity makes your joints warm and swollen or causes severe pain, stop and rest, and try a gentler version next time</li>\n<li>NICE says people with RA should have access to specialist physiotherapy, occupational therapy for everyday tasks and hand problems, and podiatry for foot problems. Ask your team for a referral</li>\n</ul>\n<h2>Tiredness, mood and pacing</h2>\n<p>Fatigue is one of the hardest parts of RA and often improves as the inflammation comes under control. Pacing — spreading tasks through the day and the week — helps. See <a href=\"/blog/ra-fatigue-frailty-energy-envelope-uk\">managing RA fatigue in later life</a>. If you feel low or anxious most days, tell your team or GP: NICE recommends psychological support to help people adjust to living with RA.</p>\n<h2>For family and carers</h2>\n<ul>\n<li>Come to the first few appointments if you can, and write down what is said</li>\n<li>Help keep a simple diary of good and bad days, medicines and side effects</li>\n<li>Help with transport to blood tests and reviews</li>\n<li>Encourage daily movement rather than doing everything for the person — it protects their strength</li>\n</ul>\n<h2>Support and money</h2>\n<p>The NHS signposts two free helplines: the National Rheumatoid Arthritis Society (NRAS) on 0800 298 7650 and Arthritis UK (formerly Versus Arthritis) on 0800 5200 520. If you are over State Pension age and need help with personal care, you may be able to claim Attendance Allowance — see GOV.UK. In England, prescriptions are free from age 60.</p>\n<h2>When to get help</h2>\n<ul>\n<li><strong>A flare</strong> that does not settle: phone your rheumatology advice line — see <a href=\"/blog/arthritis-flare-up-what-to-do\">what to do in a flare</a></li>\n<li><strong>Signs of infection while on DMARDs</strong> (high temperature, sore throat, new cough): contact your GP, advice line or NHS 111 the same day</li>\n<li><strong>A single hot, very swollen joint with fever</strong>, or feeling very unwell: get urgent same-day help from NHS 111</li>\n<li><strong>Call 999</strong> for chest pain, difficulty breathing, signs of a serious allergic reaction, or sudden confusion with being very unwell</li>\n</ul>\n<h2>Frequently asked questions</h2>\n<h3>Is rheumatoid arthritis different when it starts later in life?</h3>\n<p>The condition and its treatment are the same. What is often different is that you may have other health conditions and medicines to fit around it, so a full medicines list and good communication with your GP matter more.</p>\n<h3>Am I too old for methotrexate or biologic medicines?</h3>\n<p>Age alone is not a reason to rule them out. Your team will weigh up your kidneys, liver, lungs, other medicines and preferences with you. Ask them to explain the options in a way that makes sense to you — NICE says they should.</p>\n<h3>How long until I feel better?</h3>\n<p>Some people feel steroid relief within days; DMARDs can take up to 12 weeks. Many people find the first few months the hardest, and things improve once the right treatment is found.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nice.org.uk/guidance/ng100/chapter/Recommendations\" rel=\"noopener\">NICE NG100: Rheumatoid arthritis in adults — recommendations</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\" rel=\"noopener\">NHS: Rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/diagnosis/\" rel=\"noopener\">NHS: Rheumatoid arthritis — diagnosis</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/\" rel=\"noopener\">NHS: Rheumatoid arthritis — treatment</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/\" rel=\"noopener\">NHS: Living with rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/\" rel=\"noopener\">NHS: Physical activity guidelines for older adults</a></li>\n<li><a href=\"https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/\" rel=\"noopener\">Arthritis UK (formerly Versus Arthritis): Rheumatoid arthritis</a></li>\n<li><a href=\"https://nras.org.uk/resource/what-is-ra/\" rel=\"noopener\">NRAS: What is RA?</a></li>\n<li><a href=\"https://nras.org.uk/resource/exercise/\" rel=\"noopener\">NRAS: Exercise and RA</a></li>\n<li><a href=\"https://www.gov.uk/attendance-allowance\" rel=\"noopener\">GOV.UK: Attendance Allowance</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Living With Arthritis is an independent charity and is not part of Arthritis UK (formerly Versus Arthritis) or the NRAS. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, rheumatology nurse or rheumatologist, and never stop or change a prescribed medicine yourself. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/guides/newly-diagnosed\">Newly diagnosed</a> — a starting point</li>\n      <li><a href=\"/blog/methotrexate-older-frail-adults-uk\">Methotrexate in later life</a> — blood tests, infections and vaccines</li>\n      <li><a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a> — tests, reviews and what to report</li>\n      <li><a href=\"/blog/rheumatology-appointment-what-to-expect-uk\">Rheumatology appointments</a> — what to expect</li>\n      <li><a href=\"/blog/chair-based-exercise-ra-frailty-uk\">Chair-based exercise for RA</a> — gentle strength</li>\n      <li><a href=\"/blog/ra-fatigue-frailty-energy-envelope-uk\">RA fatigue</a> — pacing your energy</li>\n      <li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis</a> — condition guide</li>\n    </ul>\n  </section>\n",
       "date": "2026-09-03",
       "category": "Conditions",
       "image_url": "/openverse/cover-0269-stretching-exercises.webp",
       "cover": "cover-0269-stretching-exercises.webp",
-      "meta_title": "Late-onset rheumatoid arthritis and frailty: the first months (UK)",
-      "meta_description": "When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA.",
-      "keywords": "late-onset rheumatoid arthritis, frailty, several joints, England, arthritis, health, UK",
+      "meta_title": "Rheumatoid Arthritis Later in Life: First Months (UK)",
+      "meta_description": "Diagnosed with RA later in life? What happens in the first months: tests, starting a DMARD, monthly checks, staying active and when to get help.",
+      "keywords": "late onset rheumatoid arthritis, rheumatoid arthritis diagnosed over 65, newly diagnosed rheumatoid arthritis older adults, first months RA treatment UK, RA diagnosis later in life",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -25287,43 +25287,73 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4980,
-      "updated_at": "2026-09-05T11:02:30.633Z",
-      "direct_answer": "When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA in later life when energy and muscle are already low, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.",
+      "updated_at": "2026-10-22T09:00:00.000Z",
+      "direct_answer": "Rheumatoid arthritis can start at any age, including in your 60s, 70s or later, and it is treated in the same way as at a younger age. In the first months you can expect blood tests and X-rays, a disease-modifying medicine (DMARD) such as methotrexate started as soon as possible, sometimes with a short course of steroids to help while it starts working, and regular checks — NICE recommends monthly checks of inflammation and disease activity until the arthritis is under control. DMARDs can take up to 12 weeks to work, so keep taking them. Keep moving gently every day, ask for a named contact and advice line number, and bring a full list of your other medicines to every appointment.",
       "citations": [
         {
-          "label": "NHS – Rheumatoid arthritis",
+          "label": "NICE NG100: Rheumatoid arthritis in adults — recommendations",
+          "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+          "publisher": "NICE"
+        },
+        {
+          "label": "NHS: Rheumatoid arthritis",
           "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
-          "publisher": "NICE"
-        },
-        {
-          "label": "Age UK – Frailty",
-          "url": "https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/",
-          "publisher": "Age UK"
-        },
-        {
-          "label": "NHS 111",
-          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+          "label": "NHS: Rheumatoid arthritis — diagnosis",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/diagnosis/",
           "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Rheumatoid arthritis — treatment",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Living with rheumatoid arthritis",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Physical activity guidelines for older adults",
+          "url": "https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "Arthritis UK (formerly Versus Arthritis): Rheumatoid arthritis",
+          "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/",
+          "publisher": "Arthritis UK"
+        },
+        {
+          "label": "NRAS: What is RA?",
+          "url": "https://nras.org.uk/resource/what-is-ra/",
+          "publisher": "NRAS"
+        },
+        {
+          "label": "NRAS: Exercise and RA",
+          "url": "https://nras.org.uk/resource/exercise/",
+          "publisher": "NRAS"
+        },
+        {
+          "label": "GOV.UK: Attendance Allowance",
+          "url": "https://www.gov.uk/attendance-allowance",
+          "publisher": "GOV.UK"
         }
       ]
     },
     "faqs": [
       {
-        "q": "Should I stop exercising during new RA in later life when energy and muscle are already low?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
+        "q": "Is rheumatoid arthritis different when it starts later in life?",
+        "a": "The condition and its treatment are the same. What is often different is that you may have other health conditions and medicines to fit around it, so a full medicines list and good communication with your GP matter more."
       },
       {
-        "q": "Is a walking aid giving in if I have late-onset rheumatoid arthritis?",
-        "a": "No. An aid that matches your several joints can protect joints, reduce fear and keep you walking far enough to keep muscle. A poorly fitted stick that hurts a wrist is the problem, not the concept. Ask physiotherapy or occupational therapy to look at height and grip."
+        "q": "Am I too old for methotrexate or biologic medicines?",
+        "a": "Age alone is not a reason to rule them out. Your team will weigh up your kidneys, liver, lungs, other medicines and preferences with you. Ask them to explain the options in a way that makes sense to you — NICE says they should."
       },
       {
-        "q": "Are painkillers the main treatment for frail late-onset rheumatoid arthritis?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
+        "q": "How long until I feel better?",
+        "a": "Some people feel steroid relief within days; DMARDs can take up to 12 weeks. Many people find the first few months the hardest, and things improve once the right treatment is found."
       }
     ],
     "relatedLinks": [
@@ -25336,16 +25366,16 @@
         "title": "Conditions guides"
       },
       {
-        "path": "/blog/psoriatic-arthritis-later-life-frailty-uk",
-        "title": "Psoriatic arthritis in later life: joints, skin and frailty (UK)"
+        "path": "/blog/ra-monitoring-older-frail-adults-uk",
+        "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       },
       {
-        "path": "/blog/ra-frailty-older-adults-daily-rhythm-uk",
-        "title": "Rheumatoid arthritis and frailty in older adults: a gentler daily rhythm (UK)"
+        "path": "/blog/arthritis-hows-life-living-with-arthritis",
+        "title": "Arthritis - How's Life Living With Arthritis?"
       },
       {
-        "path": "/blog/activity-diary-arthritis-frailty-uk",
-        "title": "A simple activity diary for arthritis and frailty (UK)"
+        "path": "/blog/arthritis-in-older-adults",
+        "title": "Arthritis in Older Adults: What Changes and What Helps (UK Guide)"
       }
     ]
   },
@@ -28001,7 +28031,7 @@
       },
       {
         "path": "/blog/late-onset-ra-frailty-first-months-uk",
-        "title": "Late-onset rheumatoid arthritis and frailty: the first months (UK)"
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -29845,8 +29875,8 @@
         "title": "Arthritis Symptoms: What Could It Be and What to Do Next (UK)"
       },
       {
-        "path": "/blog/arthritis-blood-tests-explained-uk",
-        "title": "Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More"
+        "path": "/blog/ra-monitoring-older-frail-adults-uk",
+        "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       }
     ]
   },
@@ -31035,26 +31065,26 @@
     ]
   },
   "/blog/methotrexate-older-frail-adults-uk": {
-    "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)",
-    "description": "Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan.",
-    "question": "Methotrexate in older frail adults with rheumatoid arthritis (UK)",
-    "answer": "Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan. This guide covers practical monitoring and infection awareness when rheumatoid arthritis affects several joints, with a focus on England and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.",
-    "breadcrumb": "Methotrexate in older frail adults with rheumatoid arthritis (UK)",
+    "title": "Methotrexate in Later Life: Safety Checks (UK) | Living With Arthritis",
+    "description": "On methotrexate in later life? Why blood tests matter, what to do with an infection, which vaccines to have and why never to change the dose yourself.",
+    "question": "Methotrexate in later life: blood tests, infections, vaccines and safety (UK guide)",
+    "answer": "Methotrexate is a common and usually well-tolerated medicine for rheumatoid arthritis and other inflammatory arthritis, and age alone is not a reason to avoid it. In later life the main safety habits are: take it once a week on the same day (never daily), keep every blood test appointment, because the tests check your blood count, liver and kidneys, tell your team straight away about signs of infection such as a high temperature or sore throat, have the vaccines you are invited for and say you take methotrexate, and check with a pharmacist before taking any new medicine. Never change your…",
+    "breadcrumb": "Methotrexate in Later Life: Safety Checks (UK)",
     "about": "Treatments & medicines",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-22",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0411-think-outside-photo-contest-first-landing-sta.webp",
     "article": {
       "slug": "methotrexate-older-frail-adults-uk",
-      "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)",
-      "excerpt": "Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan.",
-      "content": "<p>Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan. This guide covers practical monitoring and infection awareness when rheumatoid arthritis affects several joints, with a focus on England and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan. This guide covers practical monitoring and infection awareness when rheumatoid arthritis affects several joints, with a focus on England and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.</p>\n\n<p>Picture the moment in a home when your several joints refuse a simple transfer and you feel your confidence drop faster than the pain score. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with practical monitoring and infection awareness, not a generic arthritis recap. It is written in UK English for people, families and carers in England.</p>\n<h2>What 'frailty' means when you already have rheumatoid arthritis</h2>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's several joints and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual rheumatoid arthritis.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether practical monitoring and infection awareness is shrinking your home life — and what you can change this week without pretending pain is imaginary.</p>\n<h2>Practical self-management for practical monitoring and infection awareness</h2>\n<p>None of this is a gym challenge. The aim is to keep several joints moving, keep protein in the day, and keep practical monitoring and infection awareness from becoming the only story in the home. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>If stairs are the bottleneck, get an occupational therapy conversation on the list while you temporarily live downstairs — drifting is how a camp-bed becomes a lifestyle.</li><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>Book eye, foot and hearing checks as frailty care, not vanity. Rheumatoid arthritis already asks a lot of balance.</li><li>If cooking is the barrier, use tinned fish, eggs, yoghurt, beans or leftover protein foods rather than skipping meals. Muscle needs raw material as well as movement.</li><li>Use heat for stiffness if your skin is healthy, but protect thin skin. Never fall asleep on a hot water bottle.</li><li>Set an indoor walking loop with places to pause. Pain in several joints prefer several short bouts to one heroic corridor.</li></ul>\n<h2>Flare, fear and slowing down</h2>\n<p>In a home, practical monitoring and infection awareness is rarely one dramatic collapse. It is usually a stack of small avoidances. People with rheumatoid arthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>Shorter outdoor range, then shorter indoor range, then a home that has quietly rearranged itself around the chair.</li><li>Carers doing the last steps of a task to be kind, which removes the last practice the muscles were getting.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li><li>Skipping meals or drinks because getting to the kitchen with sore several joints feels like a project.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li></ul>\n<h2>Medicines, reviews and rheumatoid arthritis in later life</h2>\n<p>Do not start, stop or double painkillers because a neighbour swears by them. Some anti-inflammatory tablets are a poor fit with kidney, heart or stomach problems. Some stronger pain medicines increase falls risk. A pharmacist or GP can look at the whole list. This page will not give doses.</p>\n<h2>When to get help</h2>\n<ul><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>Unplanned weight loss, repeated falls, or practical monitoring and infection awareness that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li></ul>\n<h2>Help in England if rheumatoid arthritis and frailty overlap</h2>\n<h2>Can frailty improve if I still have pain in several joints?</h2>\n<p>Sometimes the frailty part can shift even if rheumatoid arthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>Should I stop exercising during practical monitoring and infection awareness?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>How do I tell an arthritis flare from a frailty slide?</h2>\n<p>A flare of rheumatoid arthritis is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical England context for rheumatoid arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\">NHS 111</a> (NHS)</li><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/topical-nsaids-frail-hand-knee-oa-uk\">Topical NSAIDs for frail adults with hand or knee osteoarthritis (UK)</a> — If you are navigating topical NSAIDs for frail adults with hand or knee osteoarthritis, small steady habits usually beat all-or-nothing.</li>\n      <li><a href=\"/blog/hand-therapy-frail-ra-uk\">Hand therapy for frail adults with rheumatoid arthritis (UK)</a> — When hand therapy for frail adults with rheumatoid arthritis is on your mind, treat shrinking range as useful information, not a personal.</li>\n      <li><a href=\"/blog/inflammatory-arthritis-guide\">Inflammatory Arthritis: Types, Causes and Treatment</a> — Inflammatory arthritis covers conditions like rheumatoid, psoriatic and reactive arthritis, where the immune system — not wear and tear —.</li>\n      <li><a href=\"/blog/gout-medication-uk\">Gout Medication UK: Complete Guide to Drugs for Gout</a> — From managing a gout attack to long-term uric acid control — everything you need to know about gout treatment in the UK.</li>\n    </ul>\n  </section>\n",
+      "title": "Methotrexate in later life: blood tests, infections, vaccines and safety (UK guide)",
+      "excerpt": "On methotrexate in later life? Why blood tests matter, what to do with an infection, which vaccines to have and why never to change the dose yourself.",
+      "content": "<p>Methotrexate is a common and usually well-tolerated medicine for rheumatoid arthritis and other inflammatory arthritis, and age alone is not a reason to avoid it. In later life the main safety habits are: take it once a week on the same day (never daily), keep every blood test appointment, because the tests check your blood count, liver and kidneys, tell your team straight away about signs of infection such as a high temperature or sore throat, have the vaccines you are invited for and say you take methotrexate, and check with a pharmacist before taking any new medicine. Never change your dose or stop it yourself; your rheumatology team or GP will tell you what to do.</p>\n<p>This guide is about taking methotrexate safely in later life — the weekly routine, blood tests, infections, vaccines and other medicines. It does not give doses: always follow your prescription, the leaflet and your rheumatology team. For how methotrexate works, see <a href=\"/blog/dmards-explained-how-methotrexate-slows-rheumatoid-arthritis\">DMARDs explained</a>; for coping with sickness, mouth ulcers and tiredness, see <a href=\"/blog/managing-methotrexate-side-effects-practical-tips\">managing methotrexate side effects</a>. For how rheumatoid arthritis itself is checked over the years, see <a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a>.</p>\n<h2>Once a week, on the same day</h2>\n<p>For arthritis, methotrexate is taken <strong>once a week</strong>, on the same day each week. The medicines regulator, the MHRA, warns that taking it daily by mistake can cause serious and sometimes fatal harm, and these mix-ups are more likely when someone takes lots of other tablets, or when care changes hands, for example on a hospital admission. Simple habits help:</p>\n<ul>\n<li>Agree your methotrexate day with your team and write it on the box and on the patient card that comes with the medicine</li>\n<li>Carry the card and show it to anyone who treats you who does not know your usual care, such as a hospital doctor or out-of-hours service</li>\n<li>Store methotrexate away from the medicines you take every day. If you use a pill organiser or your pharmacy prepares blister packs, ask the pharmacist how to keep the weekly medicine clearly separate</li>\n<li>Folic acid is often prescribed alongside methotrexate to reduce side effects. It is <strong>not</strong> taken on the same day as methotrexate — follow the days your team gives you</li>\n<li>If you forget, the NHS advises taking it as soon as you remember the next day or the day after; if it is more than 2 days late, contact your doctor or clinic. Never take 2 doses together</li>\n</ul>\n<p>If you think you, or the person you care for, have taken more than prescribed or taken it daily instead of weekly, contact NHS 111 straight away. If you need to go to A&amp;E, do not drive yourself, and take the packet and your other medicines with you.</p>\n<h2>Why the blood tests matter</h2>\n<p>Methotrexate can affect your blood cells and liver, and it is cleared by the kidneys, so regular blood tests are part of taking it safely. The NHS says that when you start, you will usually have blood tests to check your blood, liver and kidneys every 1 to 2 weeks; once the dose is settled and working, this usually drops to every 2 to 3 months for as long as you take it. Your team may change your dose based on the results — that decision is theirs, not yours.</p>\n<ul>\n<li><strong>Keep every appointment.</strong> If you cannot get there, tell your GP surgery or rheumatology team before the date rather than just missing it. Our guide to <a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">getting blood tests done when travel is hard</a> has practical options</li>\n<li><strong>Keep your record.</strong> You will usually be given a booklet or app to record your dose and results. Bring it to appointments</li>\n<li><strong>Know who looks after the results.</strong> Often the hospital starts methotrexate and your GP takes over prescribing and blood tests once you are stable. Ask who will contact you if a result is not right</li>\n<li><strong>Alcohol and test day.</strong> Alcohol is also processed by the liver. NRAS suggests avoiding drinking the night before a blood test, as it can affect the results. Ask your team what is sensible for you; see <a href=\"/blog/arthritis-and-alcohol-uk\">arthritis and alcohol</a></li>\n</ul>\n<h2>Infections and sick days: ask, do not guess</h2>\n<p>Methotrexate calms the immune system, so infections can be more likely and sometimes more serious. The NHS advises telling your doctor if you think you are getting a sore throat or have a high temperature. Arthritis UK advises that if you get an infection or are prescribed antibiotics, you ask your nurse specialist or doctor whether it affects your weekly methotrexate. Many teams have a sick-day plan — ask for yours <em>before</em> you need it, and write it down.</p>\n<ul>\n<li><strong>Do not decide alone</strong> whether to skip or restart a dose when you are unwell. Phone your rheumatology advice line, GP or pharmacist and follow what they say</li>\n<li><strong>Tell every prescriber you take methotrexate</strong>, including out-of-hours and urgent care. Some antibiotics, including trimethoprim and co-trimoxazole, must not be taken with methotrexate</li>\n<li><strong>Older people do not always get a high temperature.</strong> New confusion, being much more unsteady, or simply being far less well than usual can be the first sign of an infection such as a <a href=\"/blog/uti-confusion-arthritis-frailty-uk\">urine infection</a> or <a href=\"/blog/chest-infection-arthritis-frailty-uk\">chest infection</a></li>\n<li><strong>Chickenpox and shingles:</strong> contact your doctor urgently if you develop either, or are in contact with someone who has them</li>\n<li><strong>Being sick or having diarrhoea:</strong> take small, frequent sips of water and contact your team if it does not settle, because dehydration can affect how your kidneys clear the medicine</li>\n</ul>\n<p>Sepsis is a medical emergency. Call 999 or go to A&amp;E if someone is confused, has slurred speech or is not making sense, has blue, grey, pale or blotchy skin, lips or tongue, a rash that does not fade when you press a glass on it, or is struggling to breathe.</p>\n<h2>Vaccines while taking methotrexate</h2>\n<p>The NHS advises having the vaccines you are invited for and telling the person giving them that you take methotrexate, because some vaccines may not be suitable. In general:</p>\n<ul>\n<li><strong>Flu:</strong> the yearly flu injection is recommended; the nasal spray is a live vaccine and is not used for adults taking methotrexate. See <a href=\"/blog/flu-jab-arthritis-frailty-uk\">the flu jab and arthritis</a></li>\n<li><strong>Pneumococcal:</strong> a one-off injection that protects against a serious kind of chest infection; it is not live</li>\n<li><strong>Shingles:</strong> the shingles vaccine used for people with a weakened immune system is not live. See <a href=\"/blog/shingles-vaccine-arthritis-frailty-uk\">shingles vaccine and arthritis medicines</a></li>\n<li><strong>COVID-19:</strong> the vaccines are not live and are generally recommended — check your eligibility with your GP surgery</li>\n<li><strong>Live vaccines</strong> (for example some travel vaccines) usually need to be avoided — always ask your rheumatology team first</li>\n</ul>\n<p>Vaccines for the people you live with can help protect you too. Our <a href=\"/blog/vaccines-on-dmards-and-biologics-uk-guide\">vaccines on DMARDs and biologics guide</a> explains more.</p>\n<h2>Other medicines, supplements and painkillers</h2>\n<p>Methotrexate interacts with a number of common medicines. Arthritis UK advises not taking anti-inflammatory painkillers such as ibuprofen, or aspirin at painkiller strength, including cold and flu remedies that contain them, without speaking to your doctor first. Herbal remedies and supplements can interact too — see <a href=\"/blog/turmeric-and-methotrexate-interaction\">turmeric and methotrexate</a>. Before you buy or are prescribed anything new, tell the pharmacist you take methotrexate. For pain relief choices with age, see <a href=\"/blog/painkillers-older-adults-arthritis-caution-uk\">painkillers in later life</a>, and ask for a <a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">medication review</a> if you take several medicines.</p>\n<h2>Never change your dose yourself</h2>\n<p>It can take up to 12 weeks to notice methotrexate working, and the NHS says it is important to keep taking it even if you do not feel different at first. If side effects bother you, or you are worried about taking it as you get older, talk to your team — they can change the dose, the form (tablets, liquid or injection) or the medicine. Stopping or cutting down on your own risks a flare. See <a href=\"/blog/stopping-arthritis-medication-safely-a-step-by-step-guide\">stopping arthritis medicines safely</a>.</p>\n<h2>When to get help</h2>\n<p>The NHS says to tell your doctor or call NHS 111 straight away if you get:</p>\n<ul>\n<li>yellowing of the whites of the eyes or the skin</li>\n<li>a cough that will not go away, chest pain, or new breathlessness</li>\n<li>swollen hands, ankles or feet, or a change in how often you pee</li>\n<li>a high temperature, feeling hot, cold or shivery, muscle aches or a sore throat</li>\n<li>bleeding gums, blood in your pee, vomiting blood or unexplained bruising</li>\n</ul>\n<p>Call 999 for signs of a serious allergic reaction, such as sudden swelling of the lips, mouth or throat or struggling to breathe, or for any signs of sepsis. You can report suspected side effects to the MHRA Yellow Card scheme.</p>\n<h2>For family and carers</h2>\n<ul>\n<li>Know the methotrexate day and where the patient card is</li>\n<li>Help keep blood test dates in the diary and arrange transport early</li>\n<li>Watch for quiet signs of infection — confusion, not eating, being more unsteady — and phone for advice early</li>\n<li>Keep an up-to-date list of all medicines to show any doctor, especially out of hours</li>\n</ul>\n<h2>Frequently asked questions</h2>\n<h3>Should I stop methotrexate when I have a cold or infection?</h3>\n<p>Do not stop or skip it on your own. Ask your rheumatology advice line, GP or pharmacist — they will tell you whether to pause your weekly dose and when to restart, based on how unwell you are.</p>\n<h3>Can I have the flu jab while taking methotrexate?</h3>\n<p>Yes, the flu injection is recommended. Tell the person giving it that you take methotrexate, as the nasal spray version is a live vaccine and is not suitable.</p>\n<h3>Why do I still need blood tests after years on methotrexate?</h3>\n<p>Because problems with the blood count, liver or kidneys can develop at any time, often without symptoms, and kidney function can change with age. Regular tests let your team spot a change early.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/\" rel=\"noopener\">NHS: Methotrexate</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/\" rel=\"noopener\">NHS: How and when to take methotrexate</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/\" rel=\"noopener\">NHS: Side effects of methotrexate</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/common-questions-about-methotrexate/\" rel=\"noopener\">NHS: Common questions about methotrexate</a></li>\n<li><a href=\"https://www.gov.uk/drug-safety-update/methotrexate-once-weekly-for-autoimmune-diseases-new-measures-to-reduce-risk-of-fatal-overdose-due-to-inadvertent-daily-instead-of-weekly-dosing\" rel=\"noopener\">MHRA Drug Safety Update: methotrexate once-weekly — reducing the risk of daily dosing errors</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/ng100\" rel=\"noopener\">NICE NG100: Rheumatoid arthritis in adults — management</a></li>\n<li><a href=\"https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/drugs/methotrexate/\" rel=\"noopener\">Arthritis UK (formerly Versus Arthritis): Methotrexate</a></li>\n<li><a href=\"https://nras.org.uk/resource/methotrexate/\" rel=\"noopener\">NRAS: Methotrexate</a></li>\n<li><a href=\"https://www.nhs.uk/vaccinations/flu-vaccine/\" rel=\"noopener\">NHS: Flu vaccine</a></li>\n<li><a href=\"https://www.nhs.uk/vaccinations/shingles-vaccine/\" rel=\"noopener\">NHS: Shingles vaccine</a></li>\n<li><a href=\"https://www.nhs.uk/vaccinations/pneumococcal-vaccine/\" rel=\"noopener\">NHS: Pneumococcal vaccine</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/sepsis/\" rel=\"noopener\">NHS: Sepsis</a></li>\n<li><a href=\"https://yellowcard.mhra.gov.uk/\" rel=\"noopener\">MHRA Yellow Card: report a side effect</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Living With Arthritis is an independent charity and is not part of Arthritis UK (formerly Versus Arthritis) or the NRAS. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, rheumatology nurse or rheumatologist, and never stop or change a prescribed medicine yourself. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/dmards-explained-how-methotrexate-slows-rheumatoid-arthritis\">DMARDs explained</a> — how methotrexate slows rheumatoid arthritis</li>\n      <li><a href=\"/blog/managing-methotrexate-side-effects-practical-tips\">Methotrexate side effects</a> — practical tips</li>\n      <li><a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a> — tests, reviews and what to report</li>\n      <li><a href=\"/blog/vaccines-on-dmards-and-biologics-uk-guide\">Vaccines on DMARDs</a> — what is safe and when</li>\n      <li><a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">Getting to blood tests</a> — when travel is hard</li>\n      <li><a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">Medication reviews</a> — a pharmacist check of everything you take</li>\n      <li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis</a> — condition guide</li>\n    </ul>\n  </section>\n",
       "date": "2026-09-03",
       "category": "Treatments & medicines",
       "image_url": "/openverse/cover-0411-think-outside-photo-contest-first-landing-sta.webp",
       "cover": "cover-0411-think-outside-photo-contest-first-landing-sta.webp",
-      "meta_title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)",
-      "meta_description": "Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan.",
-      "keywords": "rheumatoid arthritis, frailty, several joints, England, arthritis, treatment, UK",
+      "meta_title": "Methotrexate in Later Life: Safety Checks (UK)",
+      "meta_description": "On methotrexate in later life? Why blood tests matter, what to do with an infection, which vaccines to have and why never to change the dose yourself.",
+      "keywords": "methotrexate older adults, methotrexate blood tests how often, methotrexate infection what to do, vaccines on methotrexate UK, methotrexate once a week safety",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -31062,43 +31092,88 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4913,
-      "updated_at": "2026-09-05T11:02:30.642Z",
-      "direct_answer": "Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan. This guide covers practical monitoring and infection awareness when rheumatoid arthritis affects several joints, with a focus on England and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.",
+      "updated_at": "2026-10-22T09:00:00.000Z",
+      "direct_answer": "Methotrexate is a common and usually well-tolerated medicine for rheumatoid arthritis and other inflammatory arthritis, and age alone is not a reason to avoid it. In later life the main safety habits are: take it once a week on the same day (never daily), keep every blood test appointment, because the tests check your blood count, liver and kidneys, tell your team straight away about signs of infection such as a high temperature or sore throat, have the vaccines you are invited for and say you take methotrexate, and check with a pharmacist before taking any new medicine. Never change your dose or stop it yourself; your rheumatology team or GP will tell you what to do.",
       "citations": [
         {
-          "label": "NHS – Rheumatoid arthritis",
-          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
+          "label": "NHS: Methotrexate",
+          "url": "https://www.nhs.uk/medicines/methotrexate/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
+          "label": "NHS: How and when to take methotrexate",
+          "url": "https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Side effects of methotrexate",
+          "url": "https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Common questions about methotrexate",
+          "url": "https://www.nhs.uk/medicines/methotrexate/common-questions-about-methotrexate/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "MHRA Drug Safety Update: methotrexate once-weekly — reducing the risk of daily dosing errors",
+          "url": "https://www.gov.uk/drug-safety-update/methotrexate-once-weekly-for-autoimmune-diseases-new-measures-to-reduce-risk-of-fatal-overdose-due-to-inadvertent-daily-instead-of-weekly-dosing",
+          "publisher": "MHRA / GOV.UK"
+        },
+        {
+          "label": "NICE NG100: Rheumatoid arthritis in adults — management",
+          "url": "https://www.nice.org.uk/guidance/ng100",
           "publisher": "NICE"
         },
         {
-          "label": "NHS 111",
-          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+          "label": "Arthritis UK (formerly Versus Arthritis): Methotrexate",
+          "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/drugs/methotrexate/",
+          "publisher": "Arthritis UK"
+        },
+        {
+          "label": "NRAS: Methotrexate",
+          "url": "https://nras.org.uk/resource/methotrexate/",
+          "publisher": "NRAS"
+        },
+        {
+          "label": "NHS: Flu vaccine",
+          "url": "https://www.nhs.uk/vaccinations/flu-vaccine/",
           "publisher": "NHS"
         },
         {
-          "label": "NHS – Falls",
-          "url": "https://www.nhs.uk/conditions/falls/",
+          "label": "NHS: Shingles vaccine",
+          "url": "https://www.nhs.uk/vaccinations/shingles-vaccine/",
           "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Pneumococcal vaccine",
+          "url": "https://www.nhs.uk/vaccinations/pneumococcal-vaccine/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Sepsis",
+          "url": "https://www.nhs.uk/conditions/sepsis/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "MHRA Yellow Card: report a side effect",
+          "url": "https://yellowcard.mhra.gov.uk/",
+          "publisher": "MHRA"
         }
       ]
     },
     "faqs": [
       {
-        "q": "Can frailty improve if I still have pain in several joints?",
-        "a": "Sometimes the frailty part can shift even if rheumatoid arthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
+        "q": "Should I stop methotrexate when I have a cold or infection?",
+        "a": "Do not stop or skip it on your own. Ask your rheumatology advice line, GP or pharmacist — they will tell you whether to pause your weekly dose and when to restart, based on how unwell you are."
       },
       {
-        "q": "Should I stop exercising during practical monitoring and infection awareness?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
+        "q": "Can I have the flu jab while taking methotrexate?",
+        "a": "Yes, the flu injection is recommended. Tell the person giving it that you take methotrexate, as the nasal spray version is a live vaccine and is not suitable."
       },
       {
-        "q": "How do I tell an arthritis flare from a frailty slide?",
-        "a": "A flare of rheumatoid arthritis is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel."
+        "q": "Why do I still need blood tests after years on methotrexate?",
+        "a": "Because problems with the blood count, liver or kidneys can develop at any time, often without symptoms, and kidney function can change with age. Regular tests let your team spot a change early."
       }
     ],
     "relatedLinks": [
@@ -31107,12 +31182,12 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/hand-therapy-frail-ra-uk",
-        "title": "Hand therapy for frail adults with rheumatoid arthritis (UK)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       },
       {
-        "path": "/blog/pain-clinic-older-frail-arthritis-uk",
-        "title": "Pain clinics for older frail adults with arthritis (UK)"
+        "path": "/blog/chair-yoga-elderly-arthritis-stiffness",
+        "title": "Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)"
       },
       {
         "path": "/blog/paracetamol-older-frail-arthritis-uk",
@@ -33420,7 +33495,7 @@
       },
       {
         "path": "/blog/late-onset-ra-frailty-first-months-uk",
-        "title": "Late-onset rheumatoid arthritis and frailty: the first months (UK)"
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -34670,16 +34745,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/paracetamol-older-frail-arthritis-uk",
         "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
       },
       {
         "path": "/blog/talking-therapies-pain-older-arthritis-uk",
         "title": "Talking therapies for pain in older adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/tens-machine-older-frail-arthritis-uk",
+        "title": "TENS machines for older frail adults with arthritis (UK)"
       }
     ]
   },
@@ -35035,16 +35110,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/pain-clinic-older-frail-arthritis-uk",
         "title": "Pain clinics for older frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/tens-machine-older-frail-arthritis-uk",
         "title": "TENS machines for older frail adults with arthritis (UK)"
+      },
+      {
+        "path": "/blog/chair-exercises-older-adults-arthritis",
+        "title": "Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)"
       }
     ]
   },
@@ -38820,26 +38895,26 @@
     ]
   },
   "/blog/ra-monitoring-older-frail-adults-uk": {
-    "title": "Blood monitoring for RA in older frail adults (UK)",
-    "description": "You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use.",
-    "question": "Blood monitoring for RA in older frail adults (UK)",
-    "answer": "You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use. This guide covers getting blood tests done when travel is exhausting because rheumatoid arthritis affects several joints, with a focus on England and a home setting.",
-    "breadcrumb": "Blood monitoring for RA in older frail adults (UK)",
+    "title": "RA Monitoring in Later Life: Tests and Reviews (UK)",
+    "description": "How RA is monitored in later life: disease activity checks, safety blood tests, the annual review and what to report between appointments (UK).",
+    "question": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)",
+    "answer": "Monitoring rheumatoid arthritis (RA) in later life has two jobs: checking the arthritis is controlled, and checking your medicines are safe. Disease checks usually combine a count of tender and swollen joints, a blood test for inflammation (CRP or ESR) and how you feel; NICE recommends these monthly until RA is controlled, a review 6 months after that, then a review at least once a year. Medicine safety blood tests check your blood count, liver and kidneys at intervals set by your team. Between appointments, report new swollen joints, a flare that will not settle, infection signs, new…",
+    "breadcrumb": "RA Monitoring in Later Life: Tests and Reviews (UK)",
     "about": "Conditions",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-22",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0182-walking.webp",
     "article": {
       "slug": "ra-monitoring-older-frail-adults-uk",
-      "title": "Blood monitoring for RA in older frail adults (UK)",
-      "excerpt": "You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use.",
-      "content": "<p>You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use. This guide covers getting blood tests done when travel is exhausting because rheumatoid arthritis affects several joints, with a focus on England and a home setting.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use. This guide covers getting blood tests done when travel is exhausting because rheumatoid arthritis affects several joints, with a focus on England and a home setting.</p>\n\n<p>Picture the moment in a home when your several joints refuse a simple transfer and you feel your confidence drop faster than the pain score. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with getting blood tests done when travel is exhausting, not a generic arthritis recap. It is written in UK English for people, families and carers in England.</p>\n<h2>Not 'just getting old': getting blood tests done when travel is exhausting</h2>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual rheumatoid arthritis.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether getting blood tests done when travel is exhausting is shrinking your home life — and what you can change this week without pretending pain is imaginary.</p>\n<p>Living With Arthritis is an independent UK charity (1218461), not part of Arthritis UK. We write for patients and carers. We do not replace NHS England services via your GP.</p>\n<h2>Signs the overlap is affecting several joints</h2>\n<p>In a home, getting blood tests done when travel is exhausting is rarely one dramatic collapse. It is usually a stack of small avoidances. People with rheumatoid arthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>Skipping meals or drinks because getting to the kitchen with sore several joints feels like a project.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>New fear after a near-miss, even if you did not hit the floor. Fear of falling is itself a reason people sit more.</li><li>A flare of rheumatoid arthritis that lasts, then a slower baseline even when the flare eases.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li></ul>\n<h2>A frailty-aware plan for several joints</h2>\n<p>None of this is a gym challenge. The aim is to keep several joints moving, keep protein in the day, and keep getting blood tests done when travel is exhausting from becoming the only story in the home. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>Set an indoor walking loop with places to pause. Pain in several joints prefer several short bouts to one heroic corridor.</li><li>Keep a sit-to-stand practice at the height you actually use. A higher chair is not cheating if it lets several joints work without a panic haul.</li><li>Ask a pharmacist to look at the whole list if dizziness, constipation or night sedation have arrived with the pain tablets. Do not add a new painkiller just in case.</li><li>If you live in a home, tell one other person the plan for a fall: who to call, where the spare key sits, whether you wear a pendant you can actually press.</li><li>Use heat for stiffness if your skin is healthy, but protect thin skin. Never fall asleep on a hot water bottle.</li><li>In England, ask your local council's adult social care team (the Care Act) about equipment and care options. Descriptions of grants and benefits here are not predictions of an award.</li></ul>\n<h2>Tablets, topical options and what not to DIY</h2>\n<h2>Help in England if rheumatoid arthritis and frailty overlap</h2>\n<h2>GP, 111 or 999?</h2>\n<p>This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 can help you choose. Living With Arthritis cannot triage you.</p>\n<ul><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>If you cannot get to the surgery because of rheumatoid arthritis, ask about a home visit or a proper phone review. Silence is not a care plan.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li><li>Unplanned weight loss, repeated falls, or getting blood tests done when travel is exhausting that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li></ul>\n<h2>Do I need a geriatrician as well as a rheumatologist?</h2>\n<p>Not always. Many people are supported by GP, community physio and, where it exists, a frailty team. If medicines are stacking, falls are repeating, or memory and continence are changing alongside rheumatoid arthritis, ask whether a comprehensive older-person assessment would help.</p>\n<h2>What should a carer do in the home without taking over?</h2>\n<p>Stand nearby for the risky bit, set the environment up (chair height, shoes, light), and leave the bits the person can still do. Taking over every transfer trains both of you into a hoist-by-default life. If moving and handling is already unsafe, stop DIY lifting and ask for a proper care and OT review.</p>\n<h2>How do I tell an arthritis flare from a frailty slide?</h2>\n<p>A flare of rheumatoid arthritis is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical England context for rheumatoid arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li><li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\">NHS 111</a> (NHS)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111. Call 999 in an emergency.</em></p>\n<section class=\"key-takeaways\" aria-labelledby=\"key-takeaways\">\n    <h2 id=\"key-takeaways\">Key takeaways</h2>\n    <ul>\n      <li>Not 'just getting old': getting blood tests done when travel is exhausting</li>\n      <li>Signs the overlap is affecting several joints</li>\n      <li>A frailty-aware plan for several joints</li>\n      <li>Tablets, topical options and what not to DIY</li>\n      <li>Help in England if rheumatoid arthritis and frailty overlap</li>\n    </ul>\n  </section>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/hand-oa-frailty-opening-packaging-uk\">Hand osteoarthritis and frailty: opening packaging without giving up cooking (UK)</a> — Families often notice the change as skipped invitations and slower rooms long before anyone uses the word frailty in clinic.</li>\n      <li><a href=\"/blog/post-hip-replacement-frailty-home-uk\">After hip replacement: coming home frail (UK)</a> — A quieter week after a flare is common; the worry is when quieter becomes the new normal and reserve does not return.</li>\n      <li><a href=\"/blog/polypharmacy-arthritis-frailty-review-uk\">Polypharmacy, arthritis and frailty: asking for a medicines review (UK)</a> — UK home life shapes polypharmacy, arthritis and frailty: asking for a medicines review as much as any clinic score — kettle, bathroom.</li>\n      <li><a href=\"/blog/anticholinergic-load-arthritis-frailty-uk\">Anticholinergic load, arthritis medicines and frailty (UK)</a> — Readers asking about anticholinergic load, arthritis medicines and frailty often need pacing, protein and practised transfers more than a.</li>\n    </ul>\n  </section>\n",
+      "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)",
+      "excerpt": "How RA is monitored in later life: disease activity checks, safety blood tests, the annual review and what to report between appointments (UK).",
+      "content": "<p>Monitoring rheumatoid arthritis (RA) in later life has two jobs: checking the arthritis is controlled, and checking your medicines are safe. Disease checks usually combine a count of tender and swollen joints, a blood test for inflammation (CRP or ESR) and how you feel; NICE recommends these monthly until RA is controlled, a review 6 months after that, then a review at least once a year. Medicine safety blood tests check your blood count, liver and kidneys at intervals set by your team. Between appointments, report new swollen joints, a flare that will not settle, infection signs, new breathlessness or cough, eye pain, or numbness or weakness in the hands — and never miss a safety blood test without telling your team.</p>\n<p>This guide explains the check-ups that come with rheumatoid arthritis over the years — what is measured, what the annual review should cover, and what to report between appointments. For the methotrexate-specific routine (weekly dosing, infections, sick days and vaccines), see <a href=\"/blog/methotrexate-older-frail-adults-uk\">methotrexate in later life</a>. If you have only just been diagnosed, start with <a href=\"/blog/late-onset-ra-frailty-first-months-uk\">the first months after an RA diagnosis</a>.</p>\n<h2>Two kinds of monitoring</h2>\n<ul>\n<li><strong>Is the arthritis under control?</strong> Disease activity checks tell your team whether treatment is working, or needs increasing or changing</li>\n<li><strong>Is the medicine safe for you?</strong> Safety blood tests pick up effects on the blood count, liver or kidneys before they cause symptoms</li>\n</ul>\n<p>NRAS explains that some blood tests track disease activity and others watch for medicine side effects, and both matter. Many people have the two done from the same blood sample.</p>\n<h2>Disease activity checks: what is measured</h2>\n<p>A common measure is the DAS28 disease activity score. It combines:</p>\n<ul>\n<li>a count of tender and swollen joints from 28 joints in the hands, wrists, elbows, shoulders and knees</li>\n<li>a blood test for inflammation — CRP or ESR</li>\n<li>your own rating of how you are overall</li>\n</ul>\n<p>NICE gives examples of the targets: a DAS28 below 2.6 for remission, or below 3.2 for low disease activity. NICE recommends monthly CRP and disease activity checks in specialist care while RA is active, until the target is reached; a review about 6 months after reaching it to make sure it has held; and then an annual review for everyone with RA. Ask your team what your latest score means and what your target is.</p>\n<h2>Medicine safety blood tests</h2>\n<p>Most DMARDs need regular blood tests for as long as you take them — typically a full blood count, liver tests and kidney tests. They are more frequent when a medicine is new or the dose has changed, then spaced out once you are stable; for methotrexate the NHS describes every 1 to 2 weeks at first and every 2 to 3 months once settled. Other medicines have their own schedules: see <a href=\"/blog/leflunomide-for-arthritis-blood-tests-side-effects\">leflunomide</a> and <a href=\"/blog/sulfasalazine-for-arthritis-what-to-expect\">sulfasalazine</a>. For what common blood test results mean, see <a href=\"/blog/arthritis-blood-tests-explained-uk\">arthritis blood tests explained</a>.</p>\n<ul>\n<li>Often the hospital starts the medicine and your GP surgery then prescribes it and arranges the blood tests. Ask who checks the results and how you will hear if one is not right — do not assume no news is good news</li>\n<li>If you cannot get to a test, tell the GP surgery or rheumatology team in advance; do not just carry on taking a medicine that needs monitoring without checking with them. See <a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">getting to blood tests when travel is hard</a></li>\n<li>Keep your monitoring booklet or app up to date and take it to appointments</li>\n</ul>\n<h2>What the annual review should cover</h2>\n<p>NICE recommends that everyone with RA, including people whose arthritis is well controlled, is offered an annual review to:</p>\n<ul>\n<li>check disease activity and joint damage, and measure how you are managing everyday tasks</li>\n<li>look for other conditions that are more common with RA, such as high blood pressure, heart disease, osteoporosis and depression</li>\n<li>ask about symptoms that could suggest complications affecting the blood vessels, neck, lungs or eyes</li>\n<li>arrange referrals to physiotherapy, occupational therapy, podiatry or a surgeon if needed</li>\n<li>talk about the effect RA is having on your life</li>\n</ul>\n<p>In later life, it is also a good moment to raise falls, weight loss, memory worries or difficulty managing medicines. Write down your top three questions before you go; see <a href=\"/blog/rheumatology-clinic-frail-older-adult-uk\">making the most of a rheumatology clinic</a>.</p>\n<h2>What to report between appointments</h2>\n<p>NICE says everyone with RA should have rapid access to specialist help for flares and know how to reach it. Contact your rheumatology advice line or GP if you notice:</p>\n<ul>\n<li>new swollen or painful joints, or a flare that does not settle with your usual plan — see <a href=\"/blog/arthritis-flare-up-what-to-do\">what to do in a flare</a></li>\n<li>morning stiffness lasting much longer than usual, or losing the ability to do everyday tasks</li>\n<li>a new cough or breathlessness that does not go away</li>\n<li>a red, painful or gritty eye, or changes in your vision</li>\n<li>new numbness, tingling or weakness in the hands, or feeling unsteady on your feet</li>\n<li>side effects from your medicines, such as mouth ulcers, unexplained bruising or feeling sick</li>\n<li>a fall, or feeling much weaker than usual</li>\n</ul>\n<p>For signs of infection while on DMARDs or steroids, such as a high temperature or sore throat, contact your GP, advice line or NHS 111 the same day; see <a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">infection watch on steroids</a>. Call 999 for chest pain, severe breathlessness, signs of a serious allergic reaction or sudden confusion with being very unwell. You can report suspected medicine side effects to the MHRA Yellow Card scheme.</p>\n<h2>Making monitoring easier</h2>\n<ul>\n<li><strong>Keep a simple diary</strong> of good and bad days, flares, side effects and falls — a few lines a week is enough</li>\n<li><strong>Bring a full medicines list</strong>, including anything you buy yourself, and ask for a <a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">medication review</a> if you take several</li>\n<li><strong>Ask about telephone or video reviews</strong> if travelling is exhausting, and whether you can contact the team yourself when you need to rather than waiting for the next booked appointment</li>\n<li><strong>Bring someone with you</strong> if it helps — a family member or carer can take notes</li>\n</ul>\n<h2>For family and carers</h2>\n<p>You can help by keeping track of blood test dates, noticing changes the person may not mention, such as a new cough, more falls or not eating, and making sure every doctor knows about their RA medicines.</p>\n<h2>Frequently asked questions</h2>\n<h3>Do I still need check-ups if my RA is in remission?</h3>\n<p>Yes. NICE recommends an annual review for everyone with RA, and safety blood tests continue for as long as you take a medicine that needs them.</p>\n<h3>What is a good DAS28 score?</h3>\n<p>NICE gives below 2.6 as an example of remission and below 3.2 as low disease activity. Your team will agree the right target with you.</p>\n<h3>Can my medicines be reduced if I am doing well?</h3>\n<p>Possibly. NICE says that once the target has been held for at least a year without steroids, your team may consider cautiously reducing doses. This must be planned and monitored by them — never reduce or stop on your own.</p>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nice.org.uk/guidance/ng100/chapter/Recommendations\" rel=\"noopener\">NICE NG100: Rheumatoid arthritis in adults — recommendations (monitoring and annual review)</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/\" rel=\"noopener\">NHS: Living with rheumatoid arthritis — regular reviews</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/\" rel=\"noopener\">NHS: Rheumatoid arthritis — treatment</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/complications/\" rel=\"noopener\">NHS: Rheumatoid arthritis — complications</a></li>\n<li><a href=\"https://www.nhs.uk/tests-and-treatments/blood-tests/\" rel=\"noopener\">NHS: Blood tests</a></li>\n<li><a href=\"https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/\" rel=\"noopener\">NHS: How and when to take methotrexate (tests during treatment)</a></li>\n<li><a href=\"https://nras.org.uk/resource/monitoring-ra/\" rel=\"noopener\">NRAS: Monitoring RA</a></li>\n<li><a href=\"https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/\" rel=\"noopener\">Arthritis UK (formerly Versus Arthritis): Rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\" rel=\"noopener\">NHS: When to use 111</a></li>\n<li><a href=\"https://yellowcard.mhra.gov.uk/\" rel=\"noopener\">MHRA Yellow Card: report a side effect</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review. Living With Arthritis is an independent charity and is not part of Arthritis UK (formerly Versus Arthritis) or the NRAS. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, rheumatology nurse or rheumatologist, and never stop or change a prescribed medicine yourself. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/methotrexate-older-frail-adults-uk\">Methotrexate in later life</a> — weekly routine, infections and vaccines</li>\n      <li><a href=\"/blog/late-onset-ra-frailty-first-months-uk\">RA later in life: the first months</a> — newly diagnosed</li>\n      <li><a href=\"/blog/arthritis-blood-tests-explained-uk\">Arthritis blood tests</a> — what results mean</li>\n      <li><a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">Getting to blood tests</a> — when travel is hard</li>\n      <li><a href=\"/blog/rheumatology-clinic-frail-older-adult-uk\">Rheumatology clinics</a> — making the most of appointments</li>\n      <li><a href=\"/blog/arthritis-flare-up-what-to-do\">Flares</a> — what to do</li>\n      <li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis</a> — condition guide</li>\n    </ul>\n  </section>\n",
       "date": "2026-09-03",
       "category": "Conditions",
       "image_url": "/openverse/cover-0182-walking.webp",
       "cover": "cover-0182-walking.webp",
-      "meta_title": "Blood monitoring for RA in older frail adults (UK)",
-      "meta_description": "You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use.",
-      "keywords": "rheumatoid arthritis, frailty, several joints, England, arthritis, treatment, UK",
+      "meta_title": "RA Monitoring in Later Life: Tests and Reviews (UK)",
+      "meta_description": "How RA is monitored in later life: disease activity checks, safety blood tests, the annual review and what to report between appointments (UK).",
+      "keywords": "rheumatoid arthritis monitoring older adults, RA blood tests how often, DAS28 score explained, RA annual review NICE, what to report rheumatology advice line",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
       "reviewed_by": null,
@@ -38847,47 +38922,73 @@
       "reviewStatus": "pending",
       "is_published": true,
       "display_order": 4976,
-      "updated_at": "2026-09-05T11:02:30.634Z",
-      "direct_answer": "You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use. This guide covers getting blood tests done when travel is exhausting because rheumatoid arthritis affects several joints, with a focus on England and a home setting.",
+      "updated_at": "2026-10-22T09:00:00.000Z",
+      "direct_answer": "Monitoring rheumatoid arthritis (RA) in later life has two jobs: checking the arthritis is controlled, and checking your medicines are safe. Disease checks usually combine a count of tender and swollen joints, a blood test for inflammation (CRP or ESR) and how you feel; NICE recommends these monthly until RA is controlled, a review 6 months after that, then a review at least once a year. Medicine safety blood tests check your blood count, liver and kidneys at intervals set by your team. Between appointments, report new swollen joints, a flare that will not settle, infection signs, new breathlessness or cough, eye pain, or numbness or weakness in the hands — and never miss a safety blood test without telling your team.",
       "citations": [
         {
-          "label": "NHS – Rheumatoid arthritis",
-          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
-          "publisher": "NHS"
-        },
-        {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
+          "label": "NICE NG100: Rheumatoid arthritis in adults — recommendations (monitoring and annual review)",
+          "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
           "publisher": "NICE"
         },
         {
-          "label": "NHS – Falls",
-          "url": "https://www.nhs.uk/conditions/falls/",
+          "label": "NHS: Living with rheumatoid arthritis — regular reviews",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/",
           "publisher": "NHS"
         },
         {
-          "label": "NHS 111",
+          "label": "NHS: Rheumatoid arthritis — treatment",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Rheumatoid arthritis — complications",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/complications/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Blood tests",
+          "url": "https://www.nhs.uk/tests-and-treatments/blood-tests/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: How and when to take methotrexate (tests during treatment)",
+          "url": "https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NRAS: Monitoring RA",
+          "url": "https://nras.org.uk/resource/monitoring-ra/",
+          "publisher": "NRAS"
+        },
+        {
+          "label": "Arthritis UK (formerly Versus Arthritis): Rheumatoid arthritis",
+          "url": "https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/",
+          "publisher": "Arthritis UK"
+        },
+        {
+          "label": "NHS: When to use 111",
           "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
           "publisher": "NHS"
+        },
+        {
+          "label": "MHRA Yellow Card: report a side effect",
+          "url": "https://yellowcard.mhra.gov.uk/",
+          "publisher": "MHRA"
         }
       ]
     },
     "faqs": [
       {
-        "q": "GP, 111 or 999?",
-        "a": "This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 can help you choose. Living With Arthritis cannot triage you. A knock to the head, especially if you take blood thinners — do not sleep it off as a plan. If you cannot get to the surgery because of rheumatoid arthritis, ask about a home visit or a proper phone review. Silence is not a care plan. Sudden confusion, new incontinence, "
+        "q": "Do I still need check-ups if my RA is in remission?",
+        "a": "Yes. NICE recommends an annual review for everyone with RA, and safety blood tests continue for as long as you take a medicine that needs them."
       },
       {
-        "q": "Do I need a geriatrician as well as a rheumatologist?",
-        "a": "Not always. Many people are supported by GP, community physio and, where it exists, a frailty team. If medicines are stacking, falls are repeating, or memory and continence are changing alongside rheumatoid arthritis, ask whether a comprehensive older-person assessment would help."
+        "q": "What is a good DAS28 score?",
+        "a": "NICE gives below 2.6 as an example of remission and below 3.2 as low disease activity. Your team will agree the right target with you."
       },
       {
-        "q": "What should a carer do in the home without taking over?",
-        "a": "Stand nearby for the risky bit, set the environment up (chair height, shoes, light), and leave the bits the person can still do. Taking over every transfer trains both of you into a hoist-by-default life. If moving and handling is already unsafe, stop DIY lifting and ask for a proper care and OT review."
-      },
-      {
-        "q": "How do I tell an arthritis flare from a frailty slide?",
-        "a": "A flare of rheumatoid arthritis is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel."
+        "q": "Can my medicines be reduced if I am doing well?",
+        "a": "Possibly. NICE says that once the target has been held for at least a year without steroids, your team may consider cautiously reducing doses. This must be planned and monitored by them — never reduce or stop on your own."
       }
     ],
     "relatedLinks": [
@@ -38900,16 +39001,16 @@
         "title": "Conditions guides"
       },
       {
-        "path": "/blog/ra-frailty-older-adults-daily-rhythm-uk",
-        "title": "Rheumatoid arthritis and frailty in older adults: a gentler daily rhythm (UK)"
+        "path": "/blog/arthritis-in-older-adults",
+        "title": "Arthritis in Older Adults: What Changes and What Helps (UK Guide)"
       },
       {
-        "path": "/blog/older-adults-arthritis-frailty-northern-ireland-uk",
-        "title": "Arthritis and frailty support for older adults in Northern Ireland (UK)"
+        "path": "/blog/arthritis-blood-tests-explained-uk",
+        "title": "Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More"
       },
       {
-        "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
-        "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -40346,16 +40447,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/pain-clinic-older-frail-arthritis-uk",
         "title": "Pain clinics for older frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/hand-therapy-frail-ra-uk",
         "title": "Hand therapy for frail adults with rheumatoid arthritis (UK)"
+      },
+      {
+        "path": "/blog/paracetamol-older-frail-arthritis-uk",
+        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
       }
     ]
   },
@@ -45551,16 +45652,16 @@
         "title": "Conditions guides"
       },
       {
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
+      },
+      {
         "path": "/blog/longevity-habits-arthritis-patients",
         "title": "5 Longevity Habits That Help People With Arthritis Live Longer"
       },
       {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
-      },
-      {
-        "path": "/blog/arthritis-hows-life-living-with-arthritis",
-        "title": "Arthritis - How's Life Living With Arthritis?"
       }
     ]
   },
@@ -46665,16 +46766,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
-      },
-      {
         "path": "/blog/pain-clinic-older-frail-arthritis-uk",
         "title": "Pain clinics for older frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/paracetamol-older-frail-arthritis-uk",
         "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+      },
+      {
+        "path": "/blog/chair-exercises-older-adults-arthritis",
+        "title": "Chair Exercises for Older Adults With Arthritis: A Safe 20-Minute Routine (UK)"
       }
     ]
   },
@@ -48299,8 +48400,8 @@
         "title": "Hoist conversations for family carers of people with arthritis (UK)"
       },
       {
-        "path": "/blog/methotrexate-older-frail-adults-uk",
-        "title": "Methotrexate in older frail adults with rheumatoid arthritis (UK)"
+        "path": "/blog/ra-steroids-frailty-infection-watch-uk",
+        "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
       }
     ]
   },
