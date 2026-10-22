@@ -175,6 +175,18 @@ describe("BlogPost Page", () => {
     expect(screen.getByText("Blog")).toBeInTheDocument();
   });
 
+  it("provides an article PDF download button on every blog article", () => {
+    (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: mockArticle,
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
+    });
+
+    renderBlogPost("test-article");
+    expect(screen.getByRole("button", { name: /download article pdf/i })).toBeInTheDocument();
+  });
+
   it("renders related articles and comments sections", async () => {
     (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
       data: mockArticle,
