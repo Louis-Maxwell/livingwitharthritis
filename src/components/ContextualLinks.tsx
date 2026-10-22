@@ -61,7 +61,7 @@ export default function ContextualLinks({
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {groups.map((group) => (
           <div key={group.title}>
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-3">
               {group.title}
             </h3>
             <ul className="space-y-2">

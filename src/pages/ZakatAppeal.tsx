@@ -272,7 +272,7 @@ const ZakatAppeal = () => {
                     </a>
                   </Button>
 
-                  <p className="text-[11px] text-muted-foreground text-center">
+                  <p className="text-xs text-muted-foreground text-center">
                     The amount is chosen on GoFundMe. This page does not take card payments.
                   </p>
                 </div>

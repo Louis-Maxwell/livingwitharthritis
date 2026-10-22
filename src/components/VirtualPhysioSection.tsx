@@ -55,14 +55,14 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
             <div className="absolute top-4 left-4 flex items-center gap-2">
-              <span className="text-[10px] font-bold text-primary-foreground bg-primary px-3 py-1.5 rounded-full uppercase tracking-[0.15em] shadow-md">
+              <span className="text-xs font-bold text-primary-foreground bg-primary px-3 py-1.5 rounded-full uppercase tracking-[0.15em] shadow-md">
                 Myth #{index + 1}
               </span>
             </div>
             {/* Key stat floating badge */}
             <div className="absolute bottom-4 right-4 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-2.5 shadow-md border border-border/20">
               <p className="text-xl font-bold text-primary leading-none">{stat.stat}</p>
-              <p className="text-[10px] text-muted-foreground mt-0.5">{stat.label}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{stat.label}</p>
             </div>
           </div>
         )}
@@ -74,7 +74,7 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
               <X className="w-4.5 h-4.5 text-destructive" strokeWidth={2.5} />
             </div>
             <div className="flex-1">
-              <span className="text-[10px] font-semibold text-destructive uppercase tracking-[0.15em] mb-1 block">
+              <span className="text-xs font-semibold text-destructive uppercase tracking-[0.15em] mb-1 block">
                 Common Myth
               </span>
               <p className="text-foreground font-semibold text-[15px] leading-snug">
@@ -91,7 +91,7 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
               <Check className="w-4.5 h-4.5 text-primary" strokeWidth={2.5} />
             </div>
             <div className="flex-1">
-              <span className="text-[10px] font-semibold text-primary uppercase tracking-[0.15em] mb-1 block">
+              <span className="text-xs font-semibold text-primary uppercase tracking-[0.15em] mb-1 block">
                 Evidence-Based Reality
               </span>
               <p className="text-muted-foreground text-sm leading-[1.8]">{item.fact}</p>
@@ -101,7 +101,7 @@ const MythCard = memo(({ item, index }: { item: PhysioMyth; index: number }) => 
           {/* Source citation */}
           <div className="flex items-center gap-2 pt-2 border-t border-border/20">
             <ShieldCheck className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-            <p className="text-[11px] text-muted-foreground italic">
+            <p className="text-xs text-muted-foreground italic">
               Source: {sourceLabels[index % sourceLabels.length]}
             </p>
           </div>

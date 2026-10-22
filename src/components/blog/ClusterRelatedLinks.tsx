@@ -95,7 +95,7 @@ const ClusterRelatedLinks = ({
       aria-label={`Your reading journey — ${cluster.label}`}
       className={`mt-12 rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/[0.07] via-card to-muted/40 p-5 md:p-8 shadow-sm dark:border-primary/30 dark:from-primary/10 ${className}`}
     >
-      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-1.5 inline-flex items-center gap-1.5">
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5 inline-flex items-center gap-1.5">
         <Compass className="w-3.5 h-3.5" aria-hidden="true" /> {cluster.label}
       </p>
       <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
@@ -115,8 +115,8 @@ const ClusterRelatedLinks = ({
                 to={item.to}
                 className="group flex h-full min-h-[5.5rem] flex-col justify-between rounded-xl border border-border/50 bg-card/90 px-4 py-3.5 hover:border-primary/40 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:border-border/60 dark:hover:border-primary/45"
               >
-                <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-[11px] font-bold">
+                <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
                     {i + 1}
                   </span>
                   <Icon className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
@@ -151,7 +151,7 @@ const ClusterRelatedLinks = ({
                   className="group flex min-h-11 items-center justify-between gap-2 rounded-xl border border-border/40 bg-card px-3.5 py-2.5 text-sm hover:border-primary/30 hover:shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:border-border/55"
                 >
                   <span className="min-w-0">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground">
                       {item.kind}
                     </span>
                     <span className="font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">

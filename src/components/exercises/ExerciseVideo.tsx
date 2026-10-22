@@ -43,11 +43,11 @@ const DemoUnavailable = ({ label, className }: { label?: string; className?: str
         <span>Demonstration unavailable</span>
       </div>
       {label ? (
-        <p className="text-[11px] text-muted-foreground text-center leading-snug">
+        <p className="text-xs text-muted-foreground text-center leading-snug">
           {label} — written steps below still apply.
         </p>
       ) : (
-        <p className="text-[11px] text-muted-foreground text-center leading-snug">
+        <p className="text-xs text-muted-foreground text-center leading-snug">
           Follow the written exercise list on this page.
         </p>
       )}
@@ -126,7 +126,7 @@ export const ExerciseVideo = ({ src, poster, label, className, hideDisclaimer }:
       )}
 
       {!hideDisclaimer && (
-        <div className="absolute bottom-2 left-2 right-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-background/85 backdrop-blur-sm border border-border/40 text-[10px] leading-tight text-muted-foreground">
+        <div className="absolute bottom-2 left-2 right-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-background/85 backdrop-blur-sm border border-border/40 text-xs leading-tight text-muted-foreground">
           <Sparkles className="w-3 h-3 text-primary shrink-0" aria-hidden />
           <span><strong className="text-foreground">Illustrative demonstration</strong> — illustrative only, not medical guidance.</span>
         </div>

@@ -70,7 +70,7 @@ const MidArticleNextSteps = memo(
         aria-label="Helpful next steps"
         className="my-10 not-prose rounded-xl border border-primary/15 bg-primary/[0.03] p-5 md:p-6"
       >
-        <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1">
+        <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1">
           While you read
         </p>
         <p className="text-sm text-muted-foreground mb-4">

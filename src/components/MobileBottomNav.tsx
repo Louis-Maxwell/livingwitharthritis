@@ -31,7 +31,7 @@ const MobileBottomNav = () => {
               aria-current={isActive ? "page" : undefined}
             >
               <Icon className={`w-5 h-5 ${isActive ? "stroke-[2.5]" : ""}`} />
-              <span className="text-[10px] font-semibold leading-none">{label}</span>
+              <span className="text-xs font-semibold leading-none">{label}</span>
               {isActive && (
                 <div className="w-1 h-1 rounded-full bg-primary mt-0.5" />
               )}

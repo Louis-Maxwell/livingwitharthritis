@@ -301,7 +301,7 @@ const InteractiveStartPath = memo(() => {
       className="scroll-mt-24 w-full max-w-full overflow-x-hidden border-y border-border/40 bg-secondary/30 py-10 lg:py-12"
     >
       <div className="container mx-auto max-w-3xl px-4 sm:px-6">
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-2">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">
           Start here
         </p>
         <h2

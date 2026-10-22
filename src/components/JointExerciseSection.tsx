@@ -278,7 +278,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
           <h3 className="text-xl font-display font-bold">
             {joint.label}
             {side && PAIRED.has(joint.id) && (
-              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-background/25 text-primary-foreground">
+              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide bg-background/25 text-primary-foreground">
                 {side === "left" ? "Left side" : "Right side"}
               </span>
             )}
@@ -317,10 +317,10 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
           </div>
           <p className="text-muted-foreground text-xs leading-relaxed mb-2 ml-8">{ex.description}</p>
           <div className="flex gap-3 ml-8">
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ color: "hsl(180 70% 35%)", background: "hsl(180 70% 45% / 0.1)" }}>
+            <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full" style={{ color: "hsl(180 70% 35%)", background: "hsl(180 70% 45% / 0.1)" }}>
               <Clock className="w-3 h-3" /> {ex.duration}
             </span>
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
+            <span className="inline-flex items-center gap-1 text-xs font-medium text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
               <RotateCcw className="w-3 h-3" /> {ex.reps}
             </span>
           </div>
@@ -329,7 +329,7 @@ const ExercisePanel = memo(({ joint, side, onClose }: { joint: JointData; side: 
     </div>
 
     <div className="p-4 border-t border-border/50 bg-accent/30">
-      <p className="text-[11px] text-muted-foreground text-center">
+      <p className="text-xs text-muted-foreground text-center">
         Always consult your physiotherapist before starting a new exercise programme.
       </p>
     </div>

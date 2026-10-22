@@ -445,7 +445,7 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
         style={{ top: `${((max - goal) / max) * height}px` }}
         aria-hidden="true"
       >
-        <span className="absolute right-0 -top-4 text-[10px] tracking-wider text-primary font-semibold">
+        <span className="absolute right-0 -top-4 text-xs tracking-wider text-primary font-semibold">
           GOAL {fmt(goal)}
         </span>
       </div>
@@ -481,7 +481,7 @@ function BarChart({ data, goal, height = 140, ariaLabel }: {
                 }}
               />
               <span className={cn(
-                'text-[10px]',
+                'text-xs',
                 d.isToday ? 'text-primary font-bold' : 'text-muted-foreground font-normal',
               )}>{d.label}</span>
             </div>
@@ -527,8 +527,8 @@ function MetricCard({ icon, label, value, unit, sub, accent = 'primary', delay =
         {value}
         {unit && <span className="text-sm font-normal text-muted-foreground ml-0.5">{unit}</span>}
       </div>
-      <div className="text-[11px] text-muted-foreground tracking-wider uppercase">{label}</div>
-      {sub && <div className={cn('text-[11px] mt-0.5 font-medium', accentClass)}>{sub}</div>}
+      <div className="text-xs text-muted-foreground tracking-wider uppercase">{label}</div>
+      {sub && <div className={cn('text-xs mt-0.5 font-medium', accentClass)}>{sub}</div>}
     </div>
   );
 }
@@ -580,9 +580,9 @@ function AchievementBadge({ ach, unlocked, delay = 0 }: { ach: Achievement; unlo
       <div className={cn('font-bold text-xs', unlocked ? 'text-foreground' : 'text-muted-foreground')}>
         {ach.title}
       </div>
-      <div className="text-[10px] text-muted-foreground leading-tight">{ach.desc}</div>
+      <div className="text-xs text-muted-foreground leading-tight">{ach.desc}</div>
       {unlocked && (
-        <div className="text-[9px] bg-primary/15 text-primary rounded px-1.5 py-0.5 font-bold tracking-wider">
+        <div className="text-xs bg-primary/15 text-primary rounded px-1.5 py-0.5 font-bold tracking-wider">
           UNLOCKED
         </div>
       )}
@@ -812,7 +812,7 @@ function StreakWidget({
           {'✦'}
         </span>
         <div className="min-w-0">
-          <div className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
+          <div className="text-xs tracking-[0.18em] uppercase text-muted-foreground font-medium">
             Goal streak
           </div>
           <div className="flex items-baseline gap-1.5">
@@ -826,13 +826,13 @@ function StreakWidget({
       </div>
       <dl className="text-right text-xs space-y-1.5 shrink-0">
         <div>
-          <dt className="text-muted-foreground tracking-wider uppercase text-[10px]">Best</dt>
+          <dt className="text-muted-foreground tracking-wider uppercase text-xs">Best</dt>
           <dd className="font-semibold text-foreground tabular-nums">
             {bestStreak} {bestStreak === 1 ? 'day' : 'days'}
           </dd>
         </div>
         <div>
-          <dt className="text-muted-foreground tracking-wider uppercase text-[10px]">Last goal</dt>
+          <dt className="text-muted-foreground tracking-wider uppercase text-xs">Last goal</dt>
           <dd
             className="font-semibold text-foreground"
             title={last.full ?? undefined}
@@ -869,7 +869,7 @@ function GoalProgressBar({
       className="rounded-2xl border border-primary/20 bg-card px-5 py-4"
     >
       <div className="flex items-baseline justify-between gap-3 mb-2">
-        <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground font-medium">
+        <span className="text-xs tracking-[0.18em] uppercase text-muted-foreground font-medium">
           Today’s goal progress
         </span>
         <span
@@ -1120,7 +1120,7 @@ function HistoryTab({ ped }: { ped: PedoState }) {
             aria-label={s.full}
           >
             <div className="font-bold text-xl text-foreground">{s.value}</div>
-            <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wider">{s.label}</div>
+            <div className="text-xs text-muted-foreground mt-0.5 uppercase tracking-wider">{s.label}</div>
           </div>
         ))}
       </div>
@@ -1134,14 +1134,14 @@ function HistoryTab({ ped }: { ped: PedoState }) {
             <div className="font-bold text-3xl text-foreground">
               {(allTimeSteps / 1000).toFixed(1)}k
             </div>
-            <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Total Steps</div>
+            <div className="text-xs text-muted-foreground uppercase tracking-wider">Total Steps</div>
             <div className="text-xs text-primary mt-0.5 font-medium">
               ≈ {(allTimeSteps * STEP_LENGTH_M / 1000).toFixed(0)} km walked
             </div>
           </div>
           <div aria-label={`Best day: ${fmtFull(bestDay)} steps. Personal record.`}>
             <div className="font-bold text-3xl text-foreground">{fmtFull(bestDay)}</div>
-            <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Best Day</div>
+            <div className="text-xs text-muted-foreground uppercase tracking-wider">Best Day</div>
             <div className="text-xs text-primary mt-0.5 font-medium">Personal record</div>
           </div>
         </div>
@@ -1201,7 +1201,7 @@ function AchievementsTab({ ped }: { ped: PedoState }) {
             <li key={a.id} className="flex items-center gap-3">
               <div>
                 <div className="text-[13px] text-foreground font-semibold">{a.title}</div>
-                <div className="text-[11px] text-muted-foreground">{a.desc}</div>
+                <div className="text-xs text-muted-foreground">{a.desc}</div>
               </div>
             </li>
           ))}
@@ -1257,7 +1257,7 @@ export default function PedometerApp() {
     >
       <header className="flex justify-between items-center mb-5">
         <div>
-          <div className="text-[11px] text-muted-foreground tracking-[0.18em] uppercase font-semibold">
+          <div className="text-xs text-muted-foreground tracking-[0.18em] uppercase font-semibold">
             Pedometer
           </div>
           <div className="font-bold text-lg mt-0.5" aria-label={fullDateStr}>{dateStr}</div>

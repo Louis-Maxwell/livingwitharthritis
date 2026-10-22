@@ -53,7 +53,7 @@ const HealthToolsCTA = memo(() => (
               <p className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors">
                 {t.label}
               </p>
-              <p className="text-[10px] text-muted-foreground">{t.desc}</p>
+              <p className="text-xs text-muted-foreground">{t.desc}</p>
             </div>
           </Link>
         );

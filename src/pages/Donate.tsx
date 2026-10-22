@@ -196,7 +196,7 @@ export default function Donate() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
             <div className="relative p-8 md:p-12 max-w-2xl">
-              <p className="inline-block bg-primary text-primary-foreground px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]">
+              <p className="inline-block bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]">
                 Urgent appeal
               </p>
               <h2 className="mt-4 text-2xl md:text-3xl font-extrabold text-white leading-tight">
@@ -326,7 +326,7 @@ export default function Donate() {
               </a>
             </Button>
 
-            <p className="text-[11px] text-muted-foreground text-center mt-4">
+            <p className="text-xs text-muted-foreground text-center mt-4">
               Your selected amount and frequency are for planning only; GoFundMe handles the actual amount and any recurring option. This page does not take card payments.
             </p>
           </div>
@@ -348,7 +348,7 @@ export default function Donate() {
               </div>
             ))}
           </div>
-          <p className="text-[10px] text-muted-foreground text-center mt-4">Illustrative units of care based on typical session and programme costs. Not a guarantee of a named recipient.</p>
+          <p className="text-xs text-muted-foreground text-center mt-4">Illustrative units of care based on typical session and programme costs. Not a guarantee of a named recipient.</p>
         </section>
 
         {/* Ways to Give */}

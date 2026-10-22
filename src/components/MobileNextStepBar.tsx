@@ -187,7 +187,7 @@ const MobileNextStepBar = memo(() => {
       <div className="mx-2 mb-2 pointer-events-auto">
         <div className="rounded-2xl border border-border/40 bg-card/95 backdrop-blur-xl shadow-lg overflow-hidden">
           <div className="flex items-center justify-between px-3 pt-2">
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground truncate">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground truncate">
               {eyebrow}
             </span>
             <button

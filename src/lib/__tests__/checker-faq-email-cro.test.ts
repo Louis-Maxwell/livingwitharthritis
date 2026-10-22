@@ -10,13 +10,12 @@ function read(rel: string) {
 }
 
 describe("M1 checker→email + FAQ hub CRO (21 Sep 2026)", () => {
-  it("symptom quiz results include PECR email CTA with symptom-checker sequence", () => {
+  it("symptom quiz results offer next guides, not an email signup", () => {
     const quiz = read("src/components/tools/SymptomQuiz.tsx");
-    expect(quiz).toContain('from "@/components/EmailSignupForm"');
-    expect(quiz).toContain('sequence="symptom-checker"');
-    expect(quiz).toContain("checker-email-heading");
+    // Oct 2026 policy: no newsletter/signup prompts; offer next guides instead.
+    expect(quiz).not.toContain("EmailSignupForm");
+    expect(quiz).toContain('aria-label="Useful next guides"');
     expect(quiz).toMatch(/Educational only|not a diagnosis/i);
-    expect(quiz).toContain("1218461");
   });
 
   it("symptom checker page bumps clinical review to 2026-09-21", () => {
@@ -25,10 +24,10 @@ describe("M1 checker→email + FAQ hub CRO (21 Sep 2026)", () => {
     expect(page).toMatch(/not a diagnosis/i);
   });
 
-  it("FAQ hub surfaces customer-job paths, email CTA, and fresh review date", () => {
+  it("FAQ hub surfaces customer-job paths, no email signup, and fresh review date", () => {
     const faq = read("src/pages/FAQ.tsx");
     expect(faq).toContain('lastReviewed="2026-09-21"');
-    expect(faq).toContain('sequence="faq-hub"');
+    expect(faq).not.toContain("EmailSignupForm");
     for (const href of [
       "/guides/arthritis-pain-relief",
       "/guides/newly-diagnosed",

@@ -268,7 +268,7 @@ export function ChatBot() {
             <h2 className="font-semibold text-sm text-primary-foreground leading-tight">Help & Support</h2>
             <div className="flex items-center gap-1">
               <div className={`w-1.5 h-1.5 rounded-full ${isLoading ? "bg-amber-300 animate-pulse" : "bg-emerald-300"}`} aria-hidden="true" />
-              <span className="text-[10px] text-primary-foreground/70" aria-live="polite">
+              <span className="text-xs text-primary-foreground/70" aria-live="polite">
                 {isLoading ? (statusLabel || "Searching guidance…") : "Online"}
               </span>
             </div>
@@ -421,7 +421,7 @@ export function ChatBot() {
                           <Icon className="h-3 w-3 text-primary-foreground" />
                         </div>
                       </div>
-                      <span className="text-[11px] text-muted-foreground group-hover:text-foreground transition-colors font-medium px-2.5 py-2 leading-snug">
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors font-medium px-2.5 py-2 leading-snug">
                         {s.label}
                       </span>
                     </motion.button>
@@ -492,7 +492,7 @@ export function ChatBot() {
         </div>
         <div className="flex items-center justify-center gap-1 mt-1.5">
           <ShieldCheck className="h-2.5 w-2.5 text-muted-foreground" />
-          <p className="text-[10px] text-muted-foreground">
+          <p className="text-xs text-muted-foreground">
             Educational only — not a diagnosis. GP / rheumatology for personal advice. 999 emergency · NHS 111 urgent
           </p>
         </div>

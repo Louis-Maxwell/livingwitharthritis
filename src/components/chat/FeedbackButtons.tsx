@@ -37,7 +37,7 @@ export function FeedbackButtons({
 
   if (submitted) {
     return (
-      <div className="flex items-center gap-1 mt-1.5 text-[11px] text-muted-foreground">
+      <div className="flex items-center gap-1 mt-1.5 text-xs text-muted-foreground">
         <Check className="h-3 w-3 text-primary" />
         <span>Thanks — your feedback helps us improve.</span>
       </div>
@@ -78,7 +78,7 @@ export function FeedbackButtons({
       {showComment && (
         <div className="mt-1.5 rounded-lg border border-border/50 bg-background p-2">
           <div className="flex items-center justify-between mb-1">
-            <span className="text-[11px] font-medium text-foreground">What was wrong?</span>
+            <span className="text-xs font-medium text-foreground">What was wrong?</span>
             <button
               type="button"
               onClick={() => setShowComment(false)}
@@ -100,7 +100,7 @@ export function FeedbackButtons({
               type="button"
               disabled={saving}
               onClick={() => submit(-1, comment)}
-              className="text-[11px] font-medium bg-primary text-primary-foreground rounded px-2.5 py-1 hover:bg-primary/90 disabled:opacity-50"
+              className="text-xs font-medium bg-primary text-primary-foreground rounded px-2.5 py-1 hover:bg-primary/90 disabled:opacity-50"
             >
               {saving ? "Sending…" : "Send feedback"}
             </button>

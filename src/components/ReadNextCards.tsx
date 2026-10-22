@@ -28,7 +28,7 @@ const ReadNextCards = memo(({ items, heading = "Read Next", subheading = "Hand-p
   return (
     <section className="mt-14 mb-10" aria-label="Read next">
       <div className="mb-6">
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-2">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">
           Continue Reading
         </p>
         <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">
@@ -59,7 +59,7 @@ const ReadNextCards = memo(({ items, heading = "Read Next", subheading = "Hand-p
                   <Icon className="w-5 h-5" />
                 </div>
 
-                <p className="relative text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
+                <p className="relative text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1.5">
                   {item.eyebrow}
                 </p>
                 <h3 className="relative font-display text-base md:text-lg font-bold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">

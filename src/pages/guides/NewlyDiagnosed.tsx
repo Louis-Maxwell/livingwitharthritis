@@ -267,7 +267,7 @@ export default function NewlyDiagnosed() {
         {/* Sticky progress strip */}
         <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-sm border-b border-border print:hidden">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl py-2 flex items-center gap-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground hidden sm:inline">
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground hidden sm:inline">
               Your progress
             </span>
             <div
@@ -282,7 +282,7 @@ export default function NewlyDiagnosed() {
                 style={{ width: `${progressPct}%` }}
               />
             </div>
-            <span className="text-[10px] font-bold text-foreground tabular-nums">
+            <span className="text-xs font-bold text-foreground tabular-nums">
               {SECTIONS.findIndex((s) => s.id === activeId) + 1}/{SECTIONS.length}
             </span>
           </div>
@@ -432,7 +432,7 @@ export default function NewlyDiagnosed() {
             aria-label="Guide sections"
             className="hidden lg:block sticky top-16 float-right ml-8 w-60 print:hidden"
           >
-            <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">
               On this page
             </p>
             <ol className="space-y-1">

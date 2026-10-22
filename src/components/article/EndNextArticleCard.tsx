@@ -46,7 +46,7 @@ const EndNextArticleCard = memo(({ currentSlug }: EndNextArticleCardProps) => {
         </div>
         <div className="flex flex-1 items-center justify-between gap-4 p-5 md:p-6">
           <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5 inline-flex items-center gap-1.5">
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5 inline-flex items-center gap-1.5">
               <BookOpen className="w-3 h-3" aria-hidden="true" />
               Keep reading
             </p>

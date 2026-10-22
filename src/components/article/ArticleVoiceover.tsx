@@ -617,7 +617,7 @@ export default function ArticleVoiceover({ slug, className, text }: ArticleVoice
                 <span className="truncate">Listen to this article</span>
               </p>
               {statusLabel && (
-                <span className="inline-flex shrink-0 items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary ring-1 ring-primary/15">
+                <span className="inline-flex shrink-0 items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-primary ring-1 ring-primary/15">
                   {statusLabel}
                 </span>
               )}

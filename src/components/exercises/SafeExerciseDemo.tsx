@@ -38,12 +38,12 @@ export function SafeExerciseDemo({ animKey, caption, className }: SafeExerciseDe
       >
         <VideoOff className="w-5 h-5 text-muted-foreground" aria-hidden />
         <p className="text-sm font-medium text-foreground">{label}</p>
-        <p className="text-[11px] text-muted-foreground leading-snug">
+        <p className="text-xs text-muted-foreground leading-snug">
           Use the written steps on this page. Video demonstrations will return once the files are hosted.
         </p>
       </div>
       {caption ? (
-        <p className="text-[11px] text-muted-foreground text-center mt-1.5 italic">{caption}</p>
+        <p className="text-xs text-muted-foreground text-center mt-1.5 italic">{caption}</p>
       ) : null}
     </div>
   );

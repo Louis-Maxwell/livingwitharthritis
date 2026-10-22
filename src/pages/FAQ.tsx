@@ -11,7 +11,6 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import RelatedGuides from "@/components/faq/RelatedGuides";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_FAQ_HUB } from "@/data/clinical/ukCitations";
-import EmailSignupForm from "@/components/EmailSignupForm";
 
 const FAQSection = lazyWithRetry(() => import("@/components/landing/FAQSection"));
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -155,23 +154,14 @@ const FAQ = () => {
                 </ul>
               </div>
             ))}
-            <aside
-              aria-label="Optional email updates"
-              className="mb-10 rounded-2xl border border-primary/20 bg-primary/[0.04] p-5 sm:p-6"
-            >
-              <h3 className="font-display text-lg font-bold text-foreground mb-2">
-                Prefer answers by email?
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xl">
-                Free PECR-consent updates when we publish useful UK arthritis guides.
-                Educational only — not medical advice. Charity 1218461.
-              </p>
-              <EmailSignupForm
-                sequence="faq-hub"
-                buttonText="Request guides by email"
-                label="Email for practical arthritis FAQs"
-              />
-            </aside>
+            <nav aria-label="Useful next guides" className="mb-10 rounded-2xl border border-primary/20 bg-primary/[0.04] p-5 sm:p-6">
+                <h3 className="font-display text-lg font-bold text-foreground mb-3">Useful next guides</h3>
+                <ul className="flex flex-wrap gap-2 text-sm">
+                  <li><Link to="/guides" className="inline-flex min-h-11 items-center rounded-full border border-primary/30 px-4 font-semibold text-primary hover:bg-primary/5">Health guides</Link></li>
+                  <li><Link to="/blog" className="inline-flex min-h-11 items-center rounded-full border border-primary/30 px-4 font-semibold text-primary hover:bg-primary/5">All articles</Link></li>
+                  <li><Link to="/chat" className="inline-flex min-h-11 items-center rounded-full border border-primary/30 px-4 font-semibold text-primary hover:bg-primary/5">Help &amp; support</Link></li>
+                </ul>
+              </nav>
 
             <p className="text-sm text-muted-foreground">
               Looking for a condition overview instead? Start with{" "}

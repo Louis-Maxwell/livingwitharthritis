@@ -104,7 +104,7 @@ export default function HelplineWidget() {
                 >
                   <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
                 </span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                <span className="text-xs font-bold uppercase tracking-[0.15em] text-muted-foreground">
                   {eyebrow}
                 </span>
                 <span className="w-full min-w-0 font-bold text-sm md:text-base text-foreground [overflow-wrap:anywhere] leading-snug">

@@ -1,7 +1,6 @@
 import { memo, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Activity, Apple, Users, Dumbbell, Heart, BookOpen, Stethoscope, Search, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
 import { getClusterForPath } from "@/data/topicClusters";
 
 interface SitePage {
@@ -167,13 +166,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
           {links.map((page, i) => {
             const Icon = page.icon;
             return (
-              <motion.div
-                key={page.path}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.08, duration: 0.35 }}
-              >
+              <div key={page.path}>
                 {page.path.startsWith("http") ? (
                 <a
                   href={page.path}
@@ -217,7 +210,7 @@ const InternalLinks = memo(({ tags, keywords, count = 4 }: InternalLinksProps) =
                   </span>
                 </Link>
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>

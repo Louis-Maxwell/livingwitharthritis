@@ -26,7 +26,7 @@ const FooterMostRead = memo(() => {
           <TrendingUp className="w-4 h-4 text-primary" aria-hidden="true" />
           <h2
             id="footer-most-read-heading"
-            className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground"
+            className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground"
           >
             Most read this week
           </h2>
@@ -38,7 +38,7 @@ const FooterMostRead = memo(() => {
                 to={`/blog/${a.slug}`}
                 className="group block rounded-lg p-3 -m-3 hover:bg-card transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
-                <span className="text-[11px] font-bold text-primary tabular-nums">
+                <span className="text-xs font-bold text-primary tabular-nums">
                   0{i + 1}
                 </span>
                 <p className="mt-1 text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">

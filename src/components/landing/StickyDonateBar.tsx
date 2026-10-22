@@ -80,7 +80,7 @@ const StickyDonateBar = memo(() => {
           href="https://register-of-charities.charitycommission.gov.uk/charity-search?search=1218461"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-background border border-border shadow-md px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground/70 hover:text-primary hover:border-primary/40 transition-colors"
+          className="rounded-full bg-background border border-border shadow-md px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-foreground/70 hover:text-primary hover:border-primary/40 transition-colors"
         >
           Registered Charity <span className="text-foreground">No. 1218461</span>
         </a>

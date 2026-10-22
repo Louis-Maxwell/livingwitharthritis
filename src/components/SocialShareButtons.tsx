@@ -114,7 +114,7 @@ const SocialShareButtons = ({
       <div className="flex items-center justify-between gap-3 mb-2 sm:mb-3">
         <p
           className={`font-semibold uppercase tracking-widest text-muted-foreground ${
-            compact ? "text-[11px]" : "text-xs"
+            compact ? "text-xs" : "text-xs"
           }`}
         >
           Share this article
