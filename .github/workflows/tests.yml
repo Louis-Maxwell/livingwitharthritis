@@ -29,6 +29,11 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
+      # Blog posts are the source of truth. Refresh generated metadata before
+      # running source-integrity tests so title edits cannot leave a stale
+      # checked-in head-data snapshot behind.
+      - name: Refresh generated blog metadata
+        run: bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs
       - name: Run Vitest
         run: bunx vitest run
 

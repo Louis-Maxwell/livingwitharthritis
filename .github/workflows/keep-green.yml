@@ -44,6 +44,11 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      # The guide JSON files are canonical; regenerate their derived catalog
+      # and head metadata before testing the integrity contract.
+      - name: Refresh generated blog metadata
+        run: npx --yes -p bun bun scripts/generate-blog-catalog.ts && node scripts/generate-blog-head-data.mjs
+
       - name: Integrity vitest slices
         run: |
           npx vitest run \
