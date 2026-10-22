@@ -6814,5 +6814,33 @@
     "breadcrumb": "Editorial claims policy",
     "updatedAt": "2026-10-09",
     "bodyHtml": "<p>Living With Arthritis publishes plain-English educational resources. Public content counts describe published guides, not people supported or clinical outcomes.</p><h2>Clinical review claims</h2><p>Pages show whether clinical review is complete or pending. A completed-review claim should be supported by a named reviewer and a recorded review date. An editorial update is not a clinical review.</p><h2>Patient stories and original research</h2><p>Patient stories must come from real contributors who have agreed to publication. Personal experiences are identified as experiences, not evidence that a treatment will work for everyone. We do not invent testimonials, quotes or survey responses.</p><p>When publishing a survey, we explain how participants were recruited, when the survey ran, how many people answered each question and the limitations of the sample. An open online survey is not presented as representative of everyone living with arthritis. Planned research is not described as completed research.</p><h2>Independence and partnerships</h2><p>Living With Arthritis has its own identity and governance. We only describe an organisation as a partner, sponsor or endorser when that relationship has been agreed. A link to another organisation is a reference, not an endorsement. Claims such as largest, leading or most trusted need published evidence.</p><h2>Corrections and review dates</h2><p>Contact us with the page address and details of any suspected error. Changing wording or a page date does not establish that a clinician has checked the advice.</p><p><a href=\"/contact\">Contact us</a> · <a href=\"/editorial-standards\">Editorial standards</a> · <a href=\"/trust\">Trust and credibility</a> · <a href=\"/about/ai-transparency\">AI transparency</a></p>"
+  },
+  "/living-with-arthritis": {
+    "title": "Living With Arthritis: A Practical Guide | Living With Arthritis",
+    "description": "Practical, evidence-based help for living with arthritis: managing pain and flares, staying active, work, sleep, mood, daily tasks and when to see your GP.",
+    "question": "How can I live well with arthritis?",
+    "answer": "Experiences vary by condition and person, but many people continue meaningful activities with the right treatment, regular movement, pacing and practical support. This guide covers what arthritis is, how symptoms may affect daily life, and questions to discuss with your GP or healthcare team.",
+    "breadcrumb": "Living with arthritis"
+  },
+  "/guides/uk-arthritis": {
+    "title": "Complete UK Arthritis Guide | Living With Arthritis",
+    "description": "A plain-English guide to arthritis in the UK: common types, symptoms, NHS diagnosis and treatment, self-management and where to find support near you.",
+    "question": "What is arthritis and how is it treated in the UK?",
+    "answer": "Arthritis is an umbrella term for more than 100 conditions that cause joint pain, swelling and stiffness. Around 10 million people in the UK live with arthritis. The most common type is osteoarthritis, followed by rheumatoid arthritis and gout. Diagnosis usually starts with your GP, and treatment combines exercise, weight management, medicines and, for some, specialist care.",
+    "breadcrumb": "UK Arthritis Guide"
+  },
+  "/guides/diet": {
+    "title": "Arthritis Diet UK | Mediterranean Eating Guide",
+    "description": "What to eat with arthritis: a Mediterranean-style plan, omega-3 sources, foods to limit, what the evidence says on supplements and a sample UK meal plan.",
+    "question": "What is the best diet for arthritis?",
+    "answer": "An anti-inflammatory Mediterranean pattern, built on vegetables, oily fish, olive oil, wholegrains and pulses, is the best-evidenced approach. It may support joint comfort for some people but does not replace prescribed treatment. Check with your GP or pharmacist before starting supplements.",
+    "breadcrumb": "Diet Guide"
+  },
+  "/guides/knee-replacement-surgery": {
+    "title": "Knee Replacement Surgery UK — Guide | Living With Arthritis",
+    "description": "UK patient guide to knee replacement: when to consider it, prehab, hospital stay, recovery timeline, exercises, risks and waiting-list options.",
+    "question": "What should I know before knee replacement surgery in the UK?",
+    "answer": "Knee replacement is usually considered when osteoarthritis pain and stiffness seriously affect daily life despite exercise, weight management and medicines. Preparing with prehab exercises, understanding the hospital stay and recovery timeline, and knowing the risks helps you make a shared decision with your surgeon.",
+    "breadcrumb": "Knee Replacement Surgery"
   }
 }
