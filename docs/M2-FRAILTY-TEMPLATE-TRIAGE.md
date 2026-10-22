@@ -118,13 +118,13 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 | 91 ✅ 21 Oct | `knee-osteoarthritis-frailty-staying-steady-home-uk` | 4 (+7 template) | Winter falls at home; heavily cross-linked | Staying steady at home with knee OA: strength, balance, home hazards, walking aids |
 | 92 ✅ 21 Oct | `seated-strength-frail-osteoarthritis-uk` | 4 | Overlaps chair exercises; risk of duplicate intent | Narrowed (not consolidated): how to make seated exercise build strength (effort, five moves, progression), handing off early to the 20-minute chair routine for the routine itself |
 | 93 ✅ 21 Oct | `painkillers-older-adults-arthritis-caution-uk` | 3 | Medicines harm | Paracetamol / NSAID / codeine cautions in later life, falls and constipation, medication review, never change doses yourself |
-| 94 | `methotrexate-older-frail-adults-uk` | 3 | Medicines harm; winter infections | Monitoring blood tests, infection and sick-day questions, vaccines, never change your dose yourself |
-| 95 | `late-onset-ra-frailty-first-months-uk` | 3 (+8 template) | Newly-diagnosed customer job | First months after an RA diagnosis later in life: what to expect, monitoring, staying active |
-| 96 | `ra-monitoring-older-frail-adults-uk` | 3 | Pairs with 94–95 | Blood tests, reviews, what to report between appointments |
+| 94 ✅ 22 Oct | `methotrexate-older-frail-adults-uk` | 3 | Medicines harm; winter infections | Monitoring blood tests, infection and sick-day questions, vaccines, never change your dose yourself (once-weekly safety from the MHRA; no doses) |
+| 95 ✅ 22 Oct | `late-onset-ra-frailty-first-months-uk` | 3 (+8 template) | Newly-diagnosed customer job | First months after an RA diagnosis later in life: what to expect (NICE NG100), monitoring, staying active |
+| 96 ✅ 22 Oct | `ra-monitoring-older-frail-adults-uk` | 3 | Pairs with 94–95 | Blood tests, reviews, what to report between appointments; kept distinct from 94 (disease activity / annual review vs the methotrexate routine) and cross-linked |
 | 97 | `night-lights-arthritis-falls-frailty-uk` | 3 | Dark evenings; linked from gold-pass falls posts | Night-time route to the toilet, lighting, getting up slowly, continence |
 | 98 | `topical-nsaids-frail-hand-knee-oa-uk` | 3 | NICE first-line option for knee and hand OA | Topical NSAIDs: who they suit, how to use, skin and safety, ask a pharmacist. Check overlap with `topical-nsaids-often-overlooked-often-effective` first (narrow to hands and frail skin, or consolidate) |
 
-**Progress (21 Oct):** 89–93 done (pending clinical review); 230 template posts left (repo scan for the main fingerprint, 21 Oct).
+**Progress (22 Oct):** 89–96 done (pending clinical review); 227 template posts left (repo scan for the main fingerprint, 22 Oct; #247 consolidated none of 94–96). Next re-rank should start with the RA template posts 94–96 now link to: `blood-test-transport-arthritis-frailty-uk`, `rheumatology-clinic-frail-older-adult-uk`, `chair-based-exercise-ra-frailty-uk`, `ra-fatigue-frailty-energy-envelope-uk`.
 
 **Reserves:** `delirium-hospital-arthritis-frailty-uk`, `copd-arthritis-frailty-breathlessness-uk`, `living-alone-falls-plan-arthritis-uk`, `flare-versus-frailty-arthritis-uk`, `community-physio-wait-frail-arthritis-uk`, `protein-painful-joints-frailty-uk`, `disabled-facilities-grant-arthritis-frailty-uk`.
 
