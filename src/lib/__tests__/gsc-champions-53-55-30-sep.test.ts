@@ -109,7 +109,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
   it("Carer's Allowance blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta and customer-job links", () => {
     expect(carersJson.reviewStatus).toBe("pending");
     expect(carersJson.last_reviewed).toBeUndefined();
-    expect(carersJson.meta_title).toMatch(/Carer's Allowance UK for Arthritis Care/i);
+    expect(carersJson.meta_title).toMatch(/Carer's Allowance for Arthritis Care/i);
     const urls = (carersJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
       expect.arrayContaining([

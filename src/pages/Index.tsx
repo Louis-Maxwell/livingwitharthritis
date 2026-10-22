@@ -12,6 +12,7 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 import Header from "@/components/Header";
 import MotivationMarquee from "@/components/landing/MotivationMarquee";
@@ -137,6 +138,37 @@ function HomePage() {
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+
+          {/* A simple care journey helps visitors decide what to do next after
+              they find an article, without turning the homepage into a quiz. */}
+          <section aria-labelledby="next-step-heading" className="border-y border-border/60 bg-muted/30 py-10 md:py-12">
+            <div className="container mx-auto max-w-6xl px-5 md:px-10">
+              <div className="max-w-2xl">
+                <h2 id="next-step-heading" className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+                  A practical next step
+                </h2>
+                <p className="mt-2 text-base text-muted-foreground">
+                  Use the information at your own pace. Start by understanding your symptoms, then choose one small action and seek support when you need it.
+                </p>
+              </div>
+              <ol className="mt-6 grid gap-4 md:grid-cols-3">
+                {[
+                  ["1", "Understand", "Read a plain-English guide about your symptoms or condition.", "/conditions/arthritis"],
+                  ["2", "Try one action", "Choose a gentle exercise, pacing idea or practical self-help tool.", "/exercises"],
+                  ["3", "Get support", "Bring questions to your GP, physiotherapist or another trusted professional.", "/healthcare-professionals"],
+                ].map(([number, title, description, href]) => (
+                  <li key={title} className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
+                    <Link to={href} className="group block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground" aria-hidden="true">{number}</span>
+                      <h3 className="mt-3 text-lg font-bold group-hover:text-primary">{title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                      <span className="mt-3 inline-block text-sm font-semibold text-primary underline underline-offset-2">Explore this step</span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />

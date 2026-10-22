@@ -183,7 +183,7 @@
        fixed while only headings responded. */
     font-size: 1.125rem;
     /* Readable default spacing; WCAG 1.4.12 also requires supporting user overrides. */
-    letter-spacing: 0.03em;
+    letter-spacing: 0.01em;
     /* Keep 200% zoom free of horizontal scrolling */
     overflow-x: hidden;
   }
@@ -202,8 +202,8 @@
     word-wrap: break-word;
   }
 
-  p { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; }
-  li { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.03em; }
+  p { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.01em; }
+  li { font-size: 1.125rem; line-height: 1.7; letter-spacing: 0.01em; }
   /* Links inside running text must not rely on colour alone (WCAG 1.4.1). */
   p a:not([role="button"]) { text-decoration-line: underline; text-underline-offset: 0.15em; }
   small, .text-small { font-size: 1rem; line-height: 1.6; }
@@ -214,7 +214,7 @@
     font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-size: 1.125rem;
     line-height: 1.6;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.01em;
   }
 
   /* Comfortable measure: 60–70 characters per line in long-form body copy */
@@ -1118,6 +1118,31 @@
   .hover-icon-bounce:hover .icon-target { animation: none; }
   .link-underline::after { transition: none; }
   .page-transition-enter { animation: none; }
+}
+
+/* Shared visual rhythm for the public site. These defaults make mixed page
+   templates feel like one system without changing their content or routes. */
+@layer components {
+  .container { width: min(100% - 2rem, 78rem); }
+  @media (min-width: 640px) { .container { width: min(100% - 3rem, 78rem); } }
+  @media (min-width: 1024px) { .container { width: min(100% - 4rem, 82rem); } }
+
+  main h1, main h2, main h3 { letter-spacing: -0.025em; line-height: 1.15; }
+  main h1 { text-wrap: balance; }
+  main h2, main h3 { text-wrap: pretty; }
+
+  /* A calm, consistent surface for cards used across pages. */
+  main .rounded-xl.border, main .rounded-2xl.border,
+  main .rounded-xl.shadow-sm, main .rounded-2xl.shadow-sm {
+    border-color: hsl(var(--border) / 0.72);
+    box-shadow: var(--shadow-soft);
+  }
+  main .rounded-xl.border:hover, main .rounded-2xl.border:hover {
+    box-shadow: var(--shadow-medium);
+    transition: box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  :focus-visible { outline: 3px solid hsl(var(--ring) / 0.55); outline-offset: 3px; }
 }
 
 /* ─── High Contrast Mode ─── */
