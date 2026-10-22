@@ -197,7 +197,7 @@ function pageSourceLastmods(): Map<string, string> {
   }
 
   const dateRe =
-    /\b(?:dateModified|lastReviewed|datePublished)\s*[:=]\s*["'](\d{4}-\d{2}-\d{2})["']/g;
+    /\b(?:dateModified|lastReviewed|datePublished)["']?\s*[:=]\s*["'](\d{4}-\d{2}-\d{2})["']/g;
   for (const [route, file] of routeFiles) {
     try {
       const body = read(file);

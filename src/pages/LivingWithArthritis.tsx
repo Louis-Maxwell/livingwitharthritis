@@ -19,7 +19,7 @@ export default function LivingWithArthritis() {
         'Evidence-based guide to living with arthritis in the UK. Symptoms, types, management, exercises, diet, mental health, work and benefits.',
       author: {
         '@type': 'Person',
-        name: 'Maxwell',
+        name: 'Louis Maxwell',
         jobTitle: 'First Contact Practitioner',
         identifier: 'HCPC PH128483',
       },
@@ -28,7 +28,7 @@ export default function LivingWithArthritis() {
         name: 'Living With Arthritis',
       },
       datePublished: '2026-06-18',
-      dateModified: new Date().toISOString().slice(0, 10),
+      dateModified: '2026-10-15',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/living-with-arthritis',
     };
     const breadcrumb = buildBreadcrumb([
@@ -83,7 +83,7 @@ export default function LivingWithArthritis() {
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
         title="Living With Arthritis: UK Guide"
-        description="Living with arthritis in the UK: complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
+        description="Practical, evidence-based help for living with arthritis: managing pain and flares, staying active, work, sleep, mood, daily tasks and when to see your GP."
         path="/living-with-arthritis"
         type="article"
         keywords="living with arthritis, arthritis management, arthritis guide UK"

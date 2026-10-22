@@ -201,22 +201,22 @@ export default function UKArthritisGuide() {
   return (
     <>
       <Helmet>
-        <title>Complete UK Arthritis Guide 2025 | Living With Arthritis</title>
-        <meta name="description" content="Definitive UK arthritis guide: types (OA, RA, PsA), symptoms, treatments, self-management and support for the 10 million affected." />
+        <title>Complete UK Arthritis Guide | Living With Arthritis</title>
+        <meta name="description" content="A plain-English guide to arthritis in the UK: common types, symptoms, NHS diagnosis and treatment, self-management and where to find support near you." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",
-          "name": "Complete UK Arthritis Guide 2025",
+          "name": "Complete UK Arthritis Guide",
           "description": "Comprehensive guide to arthritis in the UK covering types, symptoms, standard treatment and support.",
           "url": "https://livingwitharthritis.org.uk/guides/uk-arthritis",
           "inLanguage": "en-GB",
           "medicalAudience": { "@type": "PatientAudience" },
           "lastReviewed": "2025-01-15"
         })}</script>
-      <meta property="og:title" content="Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support" />
-      <meta property="og:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
+      <meta property="og:title" content="Complete UK Arthritis Guide – Types, Symptoms, Treatment &amp; Support" />
+      <meta property="og:description" content="A plain-English guide to arthritis in the UK: common types, symptoms, NHS diagnosis and treatment, self-management and where to find support near you." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/uk-arthritis" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -225,14 +225,14 @@ export default function UKArthritisGuide() {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Complete UK Arthritis Guide 2025 – Types, Symptoms, Treatment &amp; Support" />
-      <meta name="twitter:description" content="The definitive UK guide to arthritis: types (OA, RA, PsA), symptoms, standard treatment options, self-management strategies, and support resources. Covers 100+ types affecting 10 million people." />
+      <meta name="twitter:title" content="Complete UK Arthritis Guide – Types, Symptoms, Treatment &amp; Support" />
+      <meta name="twitter:description" content="A plain-English guide to arthritis in the UK: common types, symptoms, NHS diagnosis and treatment, self-management and where to find support near you." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <PageSchema
         url="/guides/uk-arthritis"
         name="The Complete UK Arthritis Guide"
-        description="Everything you need to know about arthritis in the UK — types, symptoms, treatments, services and support."
+        description="A plain-English guide to arthritis in the UK: common types, symptoms, NHS diagnosis and treatment, self-management and where to find support near you."
         medical={{ condition: "Arthritis" }}
         speakableSelector=".speakable-intro"
         breadcrumbs={[

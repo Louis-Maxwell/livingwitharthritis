@@ -187,11 +187,11 @@ export default function DietGuide() {
     <>
       <Helmet>
         <title>Arthritis Diet UK | Mediterranean Eating Guide</title>
-        <meta name="description" content="Explore UK arthritis diet guidance: Mediterranean meals, omega-3, foods to limit, supplement evidence and a sample meal plan from Living With Arthritis." />
+        <meta name="description" content="What to eat with arthritis: a Mediterranean-style plan, omega-3 sources, foods to limit, what the evidence says on supplements and a sample UK meal plan." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Best arthritis diet advice UK – Anti-inflammatory Mediterranean diet" />
-      <meta property="og:description" content="Evidence-based guide to the best diet for arthritis: Mediterranean diet, anti-inflammatory foods, omega-3s, turmeric, supplements, sample meal plans and weight management tips for UK patients." />
+      <meta property="og:description" content="What to eat with arthritis: a Mediterranean-style plan, omega-3 sources, foods to limit, what the evidence says on supplements and a sample UK meal plan." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://livingwitharthritis.org.uk/guides/diet" />
       <meta property="og:site_name" content="Living With Arthritis" />
@@ -201,7 +201,7 @@ export default function DietGuide() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Best arthritis diet advice UK – Anti-inflammatory Mediterranean diet" />
-      <meta name="twitter:description" content="Evidence-based guide to the best diet for arthritis: Mediterranean diet, anti-inflammatory foods, omega-3s, turmeric, supplements, sample meal plans and weight management tips for UK patients." />
+      <meta name="twitter:description" content="What to eat with arthritis: a Mediterranean-style plan, omega-3 sources, foods to limit, what the evidence says on supplements and a sample UK meal plan." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
       <PageSchema
