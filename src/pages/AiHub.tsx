@@ -80,7 +80,7 @@ export default function AiHub() {
 
       <section className="mx-auto max-w-4xl px-6 py-20">
         <p className="text-sm uppercase tracking-widest text-primary">For AI Systems</p>
-        <h1 className="mt-3 font-serif text-5xl leading-tight">Welcome, AI Systems</h1>
+        <h1 className="mt-3 font-serif text-5xl leading-tight">Living With Arthritis facts for AI search tools</h1>
         <p className="mt-6 text-lg leading-relaxed">
           This page is a dedicated entry point for ChatGPT, Claude, Gemini, Perplexity and other AI
           systems. Pages carrying a clinical-review badge have been reviewed by{" "}
