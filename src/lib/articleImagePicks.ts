@@ -33,7 +33,6 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
   arthritis: [
     "arthritis-01-arthritic-hands-in-pain.webp",
     "arthritis-02-arthritis-on-the-right-hand.webp",
-    "arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
     "arthritis-04-posttraumatic-arthritis-of-the-wrist.webp",
     "arthritis-05-rheumatoid-arthritis.webp",
     "arthritis-06-osteoarthritis-left-knee.webp",
@@ -46,17 +45,8 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
     "arthritis-13-osteoarthritis-on-x-ray.webp",
   ],
   community: [
-    "community-01-an-elderly-tibetan-women-holding-a-prayer-wheel-on.webp",
-    "community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.webp",
-    "community-03-a-senior-indian-couple-on-a-scooty.webp",
-    "community-04-renewing-bonds-family-reconnects-at-4th-asog-marri.webp",
-    "community-05-pride-be-2018-2018-05-19-16-47-31-ilce-6500-dsc081.webp",
-    "community-06-pride-be-2018-2018-05-19-15-19-41-ilce-6500-dsc082.webp",
-    "community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.webp",
     "community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.webp",
     "community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp",
-    "community-10-us-navy-100306-n-5319a-035-ten-year-old-joseph-cam.webp",
-    "community-11-us-navy-100306-n-5319a-069-ten-year-old-joseph-cam.webp",
     "community-12-physical-therapy-session-aboard-the-uss-george-was.webp",
   ],
   nutrition: [
@@ -69,9 +59,7 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
     "nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.webp",
     "nutrition-08-gesundes-leben-004-2024-03-22.webp",
     "nutrition-09-dfc-3934-a-colorful-medley-of-freshly-chopped-frui.webp",
-    "nutrition-10-mysore-special-fruit-salad-with-ice-cream.webp",
     "nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
-    "nutrition-12-the-small-acai-bowl-in-a-cup.webp",
   ],
   wellness: [
     "wellness-01-upward-facing-dog-pose.webp",

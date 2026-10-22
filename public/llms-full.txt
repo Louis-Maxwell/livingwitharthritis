@@ -5002,17 +5002,23 @@ Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-res
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Late-onset rheumatoid arthritis and frailty: the first months (UK)
+## Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/late-onset-ra-frailty-first-months-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-22
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Late-onset rheumatoid arthritis and frailty: the first months (UK)
-A: When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on new RA in later life when energy and muscle are already low, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Q: Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)
+A: Rheumatoid arthritis can start at any age, including in your 60s, 70s or later, and it is treated in the same way as at a younger age. In the first months you can expect blood tests and X-rays, a disease-modifying medicine (DMARD) such as methotrexate started as soon as possible, sometimes with a short course of steroids to help while it starts working, and regular checks — NICE recommends monthly checks of inflammation and disease activity until the arthritis is under control. DMARDs can take up to 12 weeks to work, so keep taking them. Keep moving gently every day, ask for a named contact and advice line number, and bring a full list of your other medicines to every appointment.
+Reference: NICE NG100: Rheumatoid arthritis in adults — recommendations — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Rheumatoid arthritis — diagnosis — https://www.nhs.uk/conditions/rheumatoid-arthritis/diagnosis/
+Reference: NHS: Rheumatoid arthritis — treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: Living with rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: Arthritis UK (formerly Versus Arthritis): Rheumatoid arthritis — https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/
+Reference: NRAS: What is RA? — https://nras.org.uk/resource/what-is-ra/
+Reference: NRAS: Exercise and RA — https://nras.org.uk/resource/exercise/
+Reference: GOV.UK: Attendance Allowance — https://www.gov.uk/attendance-allowance
 
 ## Leflunomide for Arthritis: Blood Tests, Side Effects and Tips
 URL: https://livingwitharthritis.org.uk/blog/leflunomide-for-arthritis-blood-tests-side-effects
@@ -5851,17 +5857,26 @@ Reference: NHS: Hormone replacement therapy (HRT) — https://www.nhs.uk/medicin
 Reference: NICE NG23: Menopause: identification and management — https://www.nice.org.uk/guidance/ng23
 Reference: NHS: HRT prescription prepayment certificate — https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc
 
-## Methotrexate in older frail adults with rheumatoid arthritis (UK)
+## Methotrexate in later life: blood tests, infections, vaccines and safety (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/methotrexate-older-frail-adults-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-22
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Methotrexate in older frail adults with rheumatoid arthritis (UK)
-A: Readers asking about methotrexate in older frail adults with rheumatoid arthritis often need pacing, protein and practised transfers more than a gym plan. This guide covers practical monitoring and infection awareness when rheumatoid arthritis affects several joints, with a focus on England and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+Q: Methotrexate in later life: blood tests, infections, vaccines and safety (UK guide)
+A: Methotrexate is a common and usually well-tolerated medicine for rheumatoid arthritis and other inflammatory arthritis, and age alone is not a reason to avoid it. In later life the main safety habits are: take it once a week on the same day (never daily), keep every blood test appointment, because the tests check your blood count, liver and kidneys, tell your team straight away about signs of infection such as a high temperature or sore throat, have the vaccines you are invited for and say you take methotrexate, and check with a pharmacist before taking any new medicine. Never change your dose or stop it yourself; your rheumatology team or GP will tell you what to do.
+Reference: NHS: Methotrexate — https://www.nhs.uk/medicines/methotrexate/
+Reference: NHS: How and when to take methotrexate — https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/
+Reference: NHS: Side effects of methotrexate — https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/
+Reference: NHS: Common questions about methotrexate — https://www.nhs.uk/medicines/methotrexate/common-questions-about-methotrexate/
+Reference: MHRA Drug Safety Update: methotrexate once-weekly — reducing the risk of daily dosing errors — https://www.gov.uk/drug-safety-update/methotrexate-once-weekly-for-autoimmune-diseases-new-measures-to-reduce-risk-of-fatal-overdose-due-to-inadvertent-daily-instead-of-weekly-dosing
+Reference: NICE NG100: Rheumatoid arthritis in adults — management — https://www.nice.org.uk/guidance/ng100
+Reference: Arthritis UK (formerly Versus Arthritis): Methotrexate — https://www.arthritis-uk.org/information-and-support/understanding-arthritis/arthritis-treatments/drugs/methotrexate/
+Reference: NRAS: Methotrexate — https://nras.org.uk/resource/methotrexate/
+Reference: NHS: Flu vaccine — https://www.nhs.uk/vaccinations/flu-vaccine/
+Reference: NHS: Shingles vaccine — https://www.nhs.uk/vaccinations/shingles-vaccine/
+Reference: NHS: Pneumococcal vaccine — https://www.nhs.uk/vaccinations/pneumococcal-vaccine/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
+Reference: MHRA Yellow Card: report a side effect — https://yellowcard.mhra.gov.uk/
 
 ## Midfoot osteoarthritis and frailty: standing time in the kitchen (UK)
 URL: https://livingwitharthritis.org.uk/blog/midfoot-osteoarthritis-frailty-standing-time-uk
@@ -6912,17 +6927,23 @@ Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng5
 Reference: NHS 111 Wales — https://111.wales.nhs.uk
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Blood monitoring for RA in older frail adults (UK)
+## Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/ra-monitoring-older-frail-adults-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-22
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Clinical review: pending; this guide has not completed clinical review.
-Q: Blood monitoring for RA in older frail adults (UK)
-A: You do not need a frailty label to benefit from frailty-aware habits: protect muscle, keep protein in the day, and practise the transfers you actually use. This guide covers getting blood tests done when travel is exhausting because rheumatoid arthritis affects several joints, with a focus on England and a home setting.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Q: Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)
+A: Monitoring rheumatoid arthritis (RA) in later life has two jobs: checking the arthritis is controlled, and checking your medicines are safe. Disease checks usually combine a count of tender and swollen joints, a blood test for inflammation (CRP or ESR) and how you feel; NICE recommends these monthly until RA is controlled, a review 6 months after that, then a review at least once a year. Medicine safety blood tests check your blood count, liver and kidneys at intervals set by your team. Between appointments, report new swollen joints, a flare that will not settle, infection signs, new breathlessness or cough, eye pain, or numbness or weakness in the hands — and never miss a safety blood test without telling your team.
+Reference: NICE NG100: Rheumatoid arthritis in adults — recommendations (monitoring and annual review) — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
+Reference: NHS: Living with rheumatoid arthritis — regular reviews — https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/
+Reference: NHS: Rheumatoid arthritis — treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: Rheumatoid arthritis — complications — https://www.nhs.uk/conditions/rheumatoid-arthritis/complications/
+Reference: NHS: Blood tests — https://www.nhs.uk/tests-and-treatments/blood-tests/
+Reference: NHS: How and when to take methotrexate (tests during treatment) — https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/
+Reference: NRAS: Monitoring RA — https://nras.org.uk/resource/monitoring-ra/
+Reference: Arthritis UK (formerly Versus Arthritis): Rheumatoid arthritis — https://www.arthritis-uk.org/information-and-support/understanding-arthritis/conditions/rheumatoid-arthritis/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Reference: MHRA Yellow Card: report a side effect — https://yellowcard.mhra.gov.uk/
 
 ## Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/ra-steroids-frailty-infection-watch-uk
