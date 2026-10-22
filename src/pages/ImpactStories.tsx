@@ -172,7 +172,7 @@ const ImpactStories = () => {
                           <p className="text-sm text-muted-foreground leading-relaxed mb-4">{cs.text}</p>
                           <div className="flex flex-wrap gap-1.5 mb-3">
                             {cs.links.map((s) => (
-                              <Badge key={s} variant="secondary" className="text-[10px] font-medium">{s}</Badge>
+                              <Badge key={s} variant="secondary" className="text-xs font-medium">{s}</Badge>
                             ))}
                           </div>
                           <Link to={cs.href} className="text-sm font-semibold text-primary hover:underline">Open the guide</Link>

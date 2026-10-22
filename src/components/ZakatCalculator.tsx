@@ -169,7 +169,7 @@ const ZakatCalculator = () => {
 
               <div className="flex items-start gap-2 pt-2">
                 <Info className="w-3.5 h-3.5 text-muted-foreground mt-0.5 shrink-0" />
-                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   This calculator provides an estimate based on approximate nisab values. For precise calculations, consult a qualified Islamic scholar. Nisab is based on the gold standard (approx. 87.48g of gold).
                 </p>
               </div>

@@ -101,7 +101,7 @@ export default function SelfHelpTool() {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-foreground block leading-tight">{f.label}</span>
-                  <span className="text-[10px] text-muted-foreground leading-tight">{f.desc}</span>
+                  <span className="text-xs text-muted-foreground leading-tight">{f.desc}</span>
                 </div>
               </div>
             ))}

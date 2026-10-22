@@ -333,7 +333,7 @@ const Header = () => {
                   markClassName="h-7 sm:h-8 md:h-10"
                   textClassName="text-[15px] sm:text-xl md:text-2xl"
                 />
-                <span className="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
+                <span className="mt-1 ms-9 sm:ms-11 md:ms-[3.25rem] text-[8px] sm:text-xs md:text-xs font-bold tracking-[0.18em] uppercase text-primary">
                   Motion is Lotion
                 </span>
               </span>
@@ -499,7 +499,7 @@ const Header = () => {
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
-                                  <span className="block text-[11px] text-muted-foreground leading-snug">{sub.desc}</span>
+                                  <span className="block text-xs text-muted-foreground leading-snug">{sub.desc}</span>
                                 </div>
                                 <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover/item:opacity-100 group-hover/item:text-primary transition-all duration-150 group-hover/item:translate-x-0.5 rtl:rotate-180 rtl:group-hover/item:-translate-x-0.5" />
                               </>
@@ -545,7 +545,7 @@ const Header = () => {
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <span className="block text-[13px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{sub.label}</span>
-                                  <span className="block text-[11px] text-muted-foreground leading-snug">{sub.desc}</span>
+                                  <span className="block text-xs text-muted-foreground leading-snug">{sub.desc}</span>
                                 </div>
                                 <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover/item:opacity-100 group-hover/item:text-primary transition-all duration-150 group-hover/item:translate-x-0.5 rtl:rotate-180 rtl:group-hover/item:-translate-x-0.5" />
                               </Link>
@@ -655,7 +655,7 @@ const Header = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="block truncate">{item.label}{isExternalItem && <span className="sr-only"> (opens in a new tab)</span>}</span>
-                      <span className="text-[11px] font-normal text-muted-foreground truncate block">{item.desc}</span>
+                      <span className="text-xs font-normal text-muted-foreground truncate block">{item.desc}</span>
                     </div>
                   </>
                 );

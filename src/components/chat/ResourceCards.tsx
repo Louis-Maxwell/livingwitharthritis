@@ -38,13 +38,13 @@ export function ResourceCards({ resources }: { resources: ChatResource[] }) {
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] uppercase tracking-wide text-primary font-medium">
+                <span className="text-xs uppercase tracking-wide text-primary font-medium">
                   {LABELS[r.type]}
                 </span>
               </div>
               <p className="text-xs font-medium text-foreground leading-tight truncate">{r.title}</p>
               {r.description && (
-                <p className="text-[11px] text-muted-foreground leading-snug line-clamp-2 mt-0.5">
+                <p className="text-xs text-muted-foreground leading-snug line-clamp-2 mt-0.5">
                   {r.description}
                 </p>
               )}
@@ -62,13 +62,13 @@ export function ResourceCards({ resources }: { resources: ChatResource[] }) {
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] uppercase tracking-wide text-primary font-medium">
+                <span className="text-xs uppercase tracking-wide text-primary font-medium">
                   {LABELS[r.type]}
                 </span>
               </div>
               <p className="text-xs font-medium text-foreground leading-tight truncate">{r.title}</p>
               {r.description && (
-                <p className="text-[11px] text-muted-foreground leading-snug line-clamp-2 mt-0.5">
+                <p className="text-xs text-muted-foreground leading-snug line-clamp-2 mt-0.5">
                   {r.description}
                 </p>
               )}

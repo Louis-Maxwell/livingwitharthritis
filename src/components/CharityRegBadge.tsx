@@ -27,7 +27,7 @@ const CharityRegBadge = ({ variant = 'inline', className }: CharityRegBadgeProps
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-1">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-1">
               Verified UK Charity
             </p>
             <p className="text-base font-bold text-foreground">

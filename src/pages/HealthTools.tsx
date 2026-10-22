@@ -76,7 +76,7 @@ export default function HealthTools() {
                   >
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span className="font-semibold leading-tight">{tool.label}</span>
-                    <span className="text-[10px] text-muted-foreground hidden sm:block">{tool.desc}</span>
+                    <span className="text-xs text-muted-foreground hidden sm:block">{tool.desc}</span>
                   </TabsTrigger>
                 );
               })}

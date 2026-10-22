@@ -179,7 +179,7 @@ export default function SupplementsHub() {
                 <span className="text-base font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
                   {s.label} <ArrowRight className="w-3.5 h-3.5" />
                   {!s.available && (
-                    <span className="ml-auto text-[10px] uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
+                    <span className="ml-auto text-xs uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
                       Coming soon
                     </span>
                   )}

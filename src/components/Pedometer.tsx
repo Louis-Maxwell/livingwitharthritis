@@ -191,17 +191,17 @@ const Pedometer = () => {
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
                   <Flame className="w-4 h-4 text-primary mx-auto mb-1" />
                   <p className="stat-number text-lg">{calories}</p>
-                  <p className="text-[10px] text-muted-foreground">kcal</p>
+                  <p className="text-xs text-muted-foreground">kcal</p>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
                   <TrendingUp className="w-4 h-4 text-primary mx-auto mb-1" />
                   <p className="stat-number text-lg">{distance}</p>
-                  <p className="text-[10px] text-muted-foreground">km</p>
+                  <p className="text-xs text-muted-foreground">km</p>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-background/60 border border-border/30">
                   <Target className="w-4 h-4 text-primary mx-auto mb-1" />
                   <p className="stat-number text-lg">{goalPercent}%</p>
-                  <p className="text-[10px] text-muted-foreground">of goal</p>
+                  <p className="text-xs text-muted-foreground">of goal</p>
                 </div>
               </div>
 

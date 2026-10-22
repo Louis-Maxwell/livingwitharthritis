@@ -194,7 +194,7 @@ export const ComparisonCard = ({
           <p className="text-xs text-foreground">{row.left}</p>
         </div>
         <div className="px-3 py-3 bg-muted/20 flex items-center">
-          <span className="text-[10px] font-semibold text-muted-foreground uppercase">{row.label}</span>
+          <span className="text-xs font-semibold text-muted-foreground uppercase">{row.label}</span>
         </div>
         <div className="px-4 py-3">
           <p className="text-xs text-foreground">{row.right}</p>

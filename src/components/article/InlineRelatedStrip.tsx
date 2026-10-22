@@ -50,7 +50,7 @@ const InlineRelatedStrip = memo(
         aria-label={heading}
         className="my-10 not-prose rounded-xl border border-border/50 bg-muted/20 p-5"
       >
-        <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-3">
+        <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-3">
           {heading}
         </p>
         <div className={`grid gap-3 ${picks.length > 1 ? "sm:grid-cols-2" : ""}`}>

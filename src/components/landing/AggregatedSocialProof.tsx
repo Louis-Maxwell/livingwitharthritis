@@ -70,7 +70,7 @@ const AggregatedSocialProof = memo(() => {
       <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
         <div className="py-6 sm:py-7">
           {/* Editorial dateline */}
-          <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.28em] uppercase text-primary text-center mb-5">
+          <p className="text-xs sm:text-xs font-bold tracking-[0.28em] uppercase text-primary text-center mb-5">
             This week ·{" "}
             <span>
               Week ending{" "}

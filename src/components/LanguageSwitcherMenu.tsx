@@ -63,7 +63,7 @@ export default function LanguageSwitcherMenu({ defaultOpen = false }: { defaultO
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[180px]">
-        <DropdownMenuLabel className="text-[11px] uppercase tracking-wide text-muted-foreground">
+        <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">
           Language / Idioma
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

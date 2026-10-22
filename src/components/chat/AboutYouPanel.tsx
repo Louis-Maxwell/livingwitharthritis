@@ -40,13 +40,13 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
           <User2 className="h-3.5 w-3.5 text-primary" />
           <span className="font-medium text-foreground">About you</span>
           {filled && (
-            <span className="inline-flex items-center gap-0.5 text-[10px] text-primary bg-primary/8 px-1.5 py-0.5 rounded">
+            <span className="inline-flex items-center gap-0.5 text-xs text-primary bg-primary/8 px-1.5 py-0.5 rounded">
               <Check className="h-2.5 w-2.5" />
               Personalised
             </span>
           )}
           {!filled && (
-            <span className="text-[10px] text-muted-foreground">Optional — for tailored answers</span>
+            <span className="text-xs text-muted-foreground">Optional — for tailored answers</span>
           )}
         </div>
         <ChevronDown
@@ -65,7 +65,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
           >
             <div className="px-4 pb-3 pt-1 space-y-3 text-xs">
               <div>
-                <label className="block text-[11px] font-medium text-foreground/80 mb-1">
+                <label className="block text-xs font-medium text-foreground/80 mb-1">
                   Arthritis type
                 </label>
                 <select
@@ -84,7 +84,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-[11px] font-medium text-foreground/80 mb-1">Age</label>
+                  <label className="block text-xs font-medium text-foreground/80 mb-1">Age</label>
                   <select
                     value={profile.ageRange ?? ""}
                     onChange={(e) => onChange({ ...profile, ageRange: e.target.value || undefined })}
@@ -99,7 +99,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[11px] font-medium text-foreground/80 mb-1">Severity</label>
+                  <label className="block text-xs font-medium text-foreground/80 mb-1">Severity</label>
                   <select
                     value={profile.severity ?? ""}
                     onChange={(e) => onChange({ ...profile, severity: e.target.value || undefined })}
@@ -116,7 +116,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-foreground/80 mb-1">
+                <label className="block text-xs font-medium text-foreground/80 mb-1">
                   Most affected joints
                 </label>
                 <div className="flex flex-wrap gap-1">
@@ -128,7 +128,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
                         type="button"
                         onClick={() => toggleJoint(joint)}
                         className={cn(
-                          "px-2 py-1 rounded-full text-[11px] border transition-colors",
+                          "px-2 py-1 rounded-full text-xs border transition-colors",
                           selected
                             ? "bg-primary text-primary-foreground border-primary"
                             : "bg-background text-foreground/70 border-border/50 hover:border-primary/40",
@@ -141,7 +141,7 @@ export function AboutYouPanel({ profile, onChange }: AboutYouPanelProps) {
                 </div>
               </div>
 
-              <p className="text-[10px] text-muted-foreground pt-1">
+              <p className="text-xs text-muted-foreground pt-1">
                 Saved only on this device. Not shared with anyone.
               </p>
             </div>

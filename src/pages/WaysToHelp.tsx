@@ -558,7 +558,7 @@ export default function WaysToHelp() {
                         )}
                       </Button>
 
-                      <p className="text-[10px] text-muted-foreground text-center leading-relaxed pt-1">
+                      <p className="text-xs text-muted-foreground text-center leading-relaxed pt-1">
                         By sending the draft, you agree to our{" "}
                         <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
                         We only use your details to reply about volunteering.

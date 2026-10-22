@@ -43,7 +43,7 @@ const FeatureCard = ({ a }: { a: CardArticle }) => (
       />
     </div>
     <div className="flex flex-col flex-1 p-5">
-      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-2">
+      <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-2">
         {a.category}
       </span>
       <h3 className="font-display text-lg font-bold text-foreground leading-snug mb-2 group-hover:text-primary transition-colors">
@@ -63,7 +63,7 @@ const RecentRow = ({ a }: { a: CardArticle }) => (
     className="group flex items-center justify-between gap-4 rounded-xl border border-border/40 px-5 py-4 hover:bg-accent transition-colors"
   >
     <div className="min-w-0">
-      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+      <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
         {a.category}
       </span>
       <span className="block text-sm font-semibold text-foreground group-hover:text-primary transition-colors mt-0.5 line-clamp-1">
@@ -108,7 +108,7 @@ export default function ConditionBlogStrip({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 pb-6 border-b border-border/40">
         <div>
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary mb-3">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary mb-3">
             <BookOpen className="w-3.5 h-3.5" />
             Blog &amp; Stories
           </span>

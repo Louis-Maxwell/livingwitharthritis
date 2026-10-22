@@ -220,7 +220,7 @@ const AboutUs = () => {
               <div key={stat.label} className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
                 <stat.icon className={`w-5 h-5 mx-auto mb-2 ${stat.color}`} />
                 <div className="text-xl font-extrabold text-foreground">{stat.value}</div>
-                <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+                <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -408,7 +408,7 @@ const AboutUs = () => {
                         <p className="text-xs text-primary font-medium">{member.role}</p>
                       </div>
                     </div>
-                    <p className="text-[10px] font-bold text-muted-foreground tracking-[0.15em] uppercase mb-3">{member.credentials}</p>
+                    <p className="text-xs font-bold text-muted-foreground tracking-[0.15em] uppercase mb-3">{member.credentials}</p>
                     <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
                   </div>
                 </motion.div>
@@ -504,7 +504,7 @@ const AboutUs = () => {
                       <div className={`relative ${isLatest ? "animate-pulse" : ""}`}>
                         <div className="absolute inset-0 rounded-full bg-primary/30 blur-md" />
                         <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-large">
-                          <span className="text-[11px] md:text-xs font-extrabold text-primary tracking-tight">{c.year}</span>
+                          <span className="text-xs md:text-xs font-extrabold text-primary tracking-tight">{c.year}</span>
                         </div>
                       </div>
                     </div>
@@ -513,11 +513,11 @@ const AboutUs = () => {
                     <div className={`ml-24 md:ml-0 md:w-[calc(50%-3rem)] ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                       <div className="group relative bg-card border border-border/30 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-large hover:-translate-y-1 transition-all duration-500">
                         {isLatest && (
-                          <span className="absolute -top-3 right-6 md:right-auto md:left-6 inline-flex items-center gap-1 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full shadow-sm">
+                          <span className="absolute -top-3 right-6 md:right-auto md:left-6 inline-flex items-center gap-1 bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-2.5 py-1 rounded-full shadow-sm">
                             <Sparkles className="w-2.5 h-2.5" /> The Year Ahead
                           </span>
                         )}
-                        <span className="block text-[10px] font-extrabold text-primary tracking-[0.25em] uppercase mb-2">
+                        <span className="block text-xs font-extrabold text-primary tracking-[0.25em] uppercase mb-2">
                           Chapter {String(i + 1).padStart(2, "0")} · {c.year}
                         </span>
                         <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">

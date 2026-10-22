@@ -202,7 +202,7 @@ export default function SiteSearch() {
         <Search className="w-3.5 h-3.5" aria-hidden="true" />
         <span className="hidden sm:inline">Search</span>
         <span className="sr-only sm:hidden">Search the site</span>
-        <kbd aria-hidden="true" className="hidden sm:inline text-[10px] bg-background/60 border border-border/40 px-1 py-0.5 rounded font-mono ml-1">⌘K</kbd>
+        <kbd aria-hidden="true" className="hidden sm:inline text-xs bg-background/60 border border-border/40 px-1 py-0.5 rounded font-mono ml-1">⌘K</kbd>
       </button>
     );
   }

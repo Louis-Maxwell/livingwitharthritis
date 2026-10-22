@@ -94,7 +94,7 @@ const RelatedArticles = memo(
     return (
       <aside className="mt-16 pt-12 border-t border-border/50" aria-label="Related articles">
         <div className="mb-6">
-          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5">
             Next clicks
           </p>
           <h2 className="font-display text-2xl font-bold text-foreground m-0">
@@ -118,7 +118,7 @@ const RelatedArticles = memo(
               }
               className="group rounded-xl border border-primary/25 bg-primary/[0.04] p-4 hover:border-primary/40 transition-colors min-h-[44px]"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5 inline-flex items-center gap-1.5">
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5 inline-flex items-center gap-1.5">
                 <Compass className="w-3 h-3" aria-hidden="true" /> Parent pillar · {seoCluster.label}
               </span>
               <p className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors m-0">
@@ -139,7 +139,7 @@ const RelatedArticles = memo(
               }
               className="group rounded-xl border border-border/60 bg-card p-4 hover:border-primary/30 transition-colors min-h-[44px]"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-1.5 block">
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-1.5 block">
                 Practical next step
               </span>
               <p className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors m-0">
@@ -176,7 +176,7 @@ const RelatedArticles = memo(
               />
             </div>
             <div className="flex flex-1 flex-col justify-center p-5 md:p-6">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2">
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-2">
                 {preferUnvisited && unvisitedSet.has(featured.slug)
                   ? "New to you · Up next"
                   : "Up next"}
@@ -226,7 +226,7 @@ const RelatedArticles = memo(
                   />
                 </div>
                 <div className="p-5">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-2 block">
                     {eyebrow}
                   </span>
                   <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
@@ -248,7 +248,7 @@ const RelatedArticles = memo(
               to={bestGuide.to}
               className="group rounded-xl border border-primary/30 bg-primary/[0.04] p-5 hover:shadow-medium hover:border-primary/50 transition-all duration-300 flex flex-col min-h-[44px]"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary mb-2 inline-flex items-center gap-1.5">
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-2 inline-flex items-center gap-1.5">
                 <Compass className="w-3 h-3" aria-hidden="true" /> Best supporting guide
               </span>
               <h3 className="font-display text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">

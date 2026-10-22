@@ -173,7 +173,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
                   </div>
                   <div className="flex-1 text-left">
                     <span className="text-sm font-semibold text-foreground">{cat.category}</span>
-                    <span className="text-[10px] text-muted-foreground ml-2">({cat.items.length})</span>
+                    <span className="text-xs text-muted-foreground ml-2">({cat.items.length})</span>
                   </div>
                   <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
                 </button>
@@ -190,8 +190,8 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
                       >
                         <div className="flex-1 min-w-0">
                           <span className="text-[13px] font-medium text-foreground block truncate">{item.name}</span>
-                          {item.desc && <span className="text-[11px] text-muted-foreground block mt-0.5 leading-snug">{item.desc}</span>}
-                          <Badge variant="secondary" className="text-[9px] mt-1 font-medium">{item.type}</Badge>
+                          {item.desc && <span className="text-xs text-muted-foreground block mt-0.5 leading-snug">{item.desc}</span>}
+                          <Badge variant="secondary" className="text-xs mt-1 font-medium">{item.type}</Badge>
                         </div>
                         {item.url.startsWith("http") ? (
                           <a
@@ -228,7 +228,7 @@ const ResourceLibraryDrawer = memo(({ open, onOpenChange }: ResourceLibraryDrawe
         </div>
 
         {/* Bottom trust strip */}
-        <div className="px-6 py-4 border-t border-border/30 flex flex-wrap items-center justify-center gap-4 text-[11px] text-muted-foreground">
+        <div className="px-6 py-4 border-t border-border/30 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <Heart className="h-3 w-3 text-primary" />
             Healthcare-Complementary

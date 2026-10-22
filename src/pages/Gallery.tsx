@@ -111,7 +111,7 @@ const Gallery = () => {
                     >
                       Source
                     </a>
-                    <Badge variant="outline" className="ml-auto text-[10px] uppercase tracking-wider">
+                    <Badge variant="outline" className="ml-auto text-xs uppercase tracking-wider">
                       {img.theme}
                     </Badge>
                   </p>
