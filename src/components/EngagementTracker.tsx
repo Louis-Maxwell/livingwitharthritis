@@ -14,7 +14,7 @@ import { trackEvent, isLandingPage } from "@/lib/analytics";
  *  - engagement_60s     → fired at 60s active time
  *  - engagement_180s    → fired at 180s active time
  *  - engagement_240s    → fired at 240s active time
- *  - scroll_depth       → fired at 25 / 50 / 75 / 100 %
+ *  - scroll_depth       → fired at 25 / 50 / 75 / 90 / 100 %
  *  - first_click        → fired on the first internal interaction
  *
  * Notes:
@@ -140,7 +140,7 @@ const EngagementTracker = () => {
         if (max <= 0) return;
         const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
         const marks = stateRef.current.scrollMarks;
-        for (const t of [25, 50, 75, 100]) {
+        for (const t of [25, 50, 75, 90, 100]) {
           if (pct >= t && !marks.has(t)) {
             marks.add(t);
             trackEvent("scroll_depth", { percent_scrolled: t, page_path: path, is_landing_page: landing });

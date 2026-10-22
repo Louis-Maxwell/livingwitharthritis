@@ -1,7 +1,8 @@
 import BlogPdfDownload from '@/components/BlogPdfDownload';
+import WhatYoullLearn from "@/components/discovery/WhatYoullLearn";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
 import blogNoindex from "@/data/blog-noindex.json";
@@ -54,7 +55,8 @@ import {
   blogReviewSchemaFields,
   resolveBlogReviewStatus,
 } from "@/lib/blog/review";
-import { canonicalBlogCategoryKey } from "@/data/blogCategories";
+import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
+import { trackEvent } from "@/lib/analytics";
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
@@ -72,7 +74,10 @@ const FeedbackPoll = lazyWithRetry(() => import("@/components/article/FeedbackPo
 const InlineRelatedStrip = lazyWithRetry(() => import("@/components/article/InlineRelatedStrip"));
 const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/ArticleClosingCTA"));
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
-const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
+// Discovery index (~26 KB gz) loads in its own chunk straight after the article,
+// not viewport-gated, so it never delays first paint of the article text.
+const ArticleDiscovery = lazyWithRetry(() => import("@/components/discovery/ArticleDiscovery"));
+const SocialLandingStrip = lazyWithRetry(() => import("@/components/discovery/SocialLandingStrip"));
 const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
 
 
@@ -434,7 +439,10 @@ const BlogPost = () => {
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" },
-            { "@type": "ListItem", "position": 3, "name": article.title, "item": pageUrl }
+            ...(topicKey
+              ? [{ "@type": "ListItem", "position": 3, "name": BLOG_CATEGORY_LABELS[topicKey], "item": `https://livingwitharthritis.org.uk/blog/category/${topicKey}` }]
+              : []),
+            { "@type": "ListItem", "position": topicKey ? 4 : 3, "name": article.title, "item": pageUrl }
           ]
         })}</script>
         {faqs.length >= 2 && (
@@ -468,6 +476,12 @@ const BlogPost = () => {
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
               <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
+              {topicKey && (
+                <>
+                  <Link to={`/blog/category/${topicKey}`} className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm whitespace-nowrap">{BLOG_CATEGORY_LABELS[topicKey]}</Link>
+                  <ChevronRight className="w-3 h-3" aria-hidden="true" />
+                </>
+              )}
               <span className="text-foreground/70 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
@@ -600,6 +614,7 @@ const BlogPost = () => {
           <div className="mb-6 print:hidden"><MedicalDisclaimerStrip variant="short" /></div>
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
           <div className="min-w-0 max-w-[760px]">
+          <Suspense fallback={null}><SocialLandingStrip currentSlug={slug} /></Suspense>
           {directAnswer && (
             <AnswerBox
               question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
@@ -607,6 +622,8 @@ const BlogPost = () => {
               {directAnswer}
             </AnswerBox>
           )}
+
+          <WhatYoullLearn html={htmlWithIds} minutes={readingTime} />
 
           {/* Print header: only visible when saving to PDF / printing */}
           <div className="print-only mb-6 pb-4 border-b border-black">
@@ -624,7 +641,9 @@ const BlogPost = () => {
             )}
           </div>
 
-          <div className="no-print mb-6 flex flex-wrap justify-end gap-2">
+          <div className="no-print mb-6 flex flex-wrap justify-end gap-2" onClickCapture={(e) => {
+            if ((e.target as Element).closest("button")) trackEvent("article_download", { method: (e.target as Element).closest("button")?.textContent?.includes("Print") ? "print_pdf" : "text_pdf", article_slug: slug, placement: "article_top" });
+          }}>
             <BlogPdfDownload title={article.title} html={htmlContent} slug={slug ?? "article"} />
             <Button
               variant="outline"
@@ -743,8 +762,8 @@ const BlogPost = () => {
               />
             </ViewportSection>
           )}
+          {slug && <Suspense fallback={null}><ArticleDiscovery slug={slug} category={article.category} /></Suspense>}
           <ViewportSection>
-            {slug && <EndNextArticleCard currentSlug={slug} />}
             <ArticleClosingCTA title={article.title} category={article.category} slug={slug} />
             <BlogSoftCTAs variant="inline" className="mt-10" />
           </ViewportSection>

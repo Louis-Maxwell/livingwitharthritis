@@ -1,4 +1,5 @@
 import { analyticsUrl } from "@/lib/analytics-url";
+import { initDiscoveryTracking } from "@/lib/discoveryTracking";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
@@ -264,6 +265,9 @@ function withRouteBoundary(node: ReactNode) {
 
 function AnimatedRoutes() {
   const location = useLocation();
+  useEffect(() => {
+    initDiscoveryTracking();
+  }, []);
 
   // GA4 SPA pageview tracker. GA4 is loaded with send_page_view:false and only
   // after analytics consent, so this sends every pageview — including the first
