@@ -22,6 +22,8 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AnswerBox from "@/components/seo/AnswerBox";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import MedicalPageSchema from "@/components/seo/MedicalPageSchema";
+import JumpToContents from "@/components/navigation/JumpToContents";
+import ConditionsAZ from "@/components/navigation/ConditionsAZ";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
@@ -201,6 +203,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         </div>
 
         <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+          <JumpToContents />
           {data.aeoAnswer ? (
             <AnswerBox question={data.aeoAnswer.question} reviewed={data.aeoAnswer.reviewed}>
               {data.aeoAnswer.answer}
@@ -418,6 +421,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           </div>
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
+          <ConditionsAZ />
         </main>
         <Suspense fallback={null}>
           <InternalLinks />

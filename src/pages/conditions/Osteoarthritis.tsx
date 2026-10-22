@@ -1,3 +1,5 @@
+import JumpToContents from "@/components/navigation/JumpToContents";
+import ConditionsAZ from "@/components/navigation/ConditionsAZ";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -178,6 +180,7 @@ const Osteoarthritis = () => (
       <WaveDivider color="hsl(var(--background))" />
 
       <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+          <JumpToContents />
         <div className="mb-6"><MedicalDisclaimerStrip variant="short" /></div>
 
         <Section icon={Activity} title="What Is Osteoarthritis?">
@@ -462,7 +465,8 @@ const Osteoarthritis = () => (
             heading="Related arthritis reading"
           />
         </div>
-      </main>
+        <ConditionsAZ />
+        </main>
       <InternalLinks />
       <NextReadStrip currentPath="/conditions/osteoarthritis" />
       <Footer />
