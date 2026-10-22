@@ -91,7 +91,7 @@ export default function FaqAccordion({
             >
               <span className="pr-2">{item.question}</span>
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground leading-relaxed">
+            <AccordionContent forceMount className="text-muted-foreground leading-relaxed">
               {item.answer}
               {/* The direct link lives in the answer, not the trigger: a link inside
                   a <button> is a nested interactive control (WCAG 4.1.2). */}

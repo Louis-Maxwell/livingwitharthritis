@@ -44,12 +44,12 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
       aria-label="Cookie consent"
     >
       <div className="bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl overflow-hidden">
-        <div className="p-4 sm:p-5">
+        <div className="p-3 sm:p-5">
           <div className="flex items-start gap-3">
-            <Lock className="w-6 h-6 text-primary mt-0.5 shrink-0" aria-hidden="true" />
+            <Lock className="hidden sm:block w-6 h-6 text-primary mt-0.5 shrink-0" aria-hidden="true" />
             <div>
-              <h2 className="font-bold text-foreground text-base">We value your privacy</h2>
-              <p className="text-sm text-muted-foreground mt-1">
+              <h2 className="font-bold text-foreground text-sm sm:text-base">We value your privacy</h2>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-snug">
                 Essential cookies keep this site working. Analytics (optional) help us improve.{" "}
                 <Link to="/privacy" className="text-primary underline underline-offset-2">
                   Privacy Policy
@@ -81,24 +81,24 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
             </div>
           )}
 
-          <div className="mt-3 sm:mt-5 flex flex-wrap gap-2">
+          <div className="mt-2 sm:mt-5 flex flex-nowrap sm:flex-wrap gap-2">
             {!open ? (
               <>
                 <button
                   onClick={() => save({ a: true, p: true, m: true })}
-                  className="flex-1 bg-primary text-primary-foreground py-2.5 rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
+                  className="flex-1 bg-primary text-primary-foreground py-2 sm:py-2.5 min-h-11 rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Accept All
                 </button>
                 <button
                   onClick={() => save({ a: false, p: false, m: false })}
-                  className="flex-1 bg-accent text-foreground py-2.5 rounded-xl text-sm font-semibold hover:bg-accent/80 transition-colors"
+                  className="flex-1 bg-accent text-foreground py-2 sm:py-2.5 min-h-11 rounded-xl text-sm font-semibold hover:bg-accent/80 transition-colors"
                 >
                   Essential Only
                 </button>
                 <button
                   onClick={() => setOpen(true)}
-                  className="py-2.5 px-4 text-sm font-medium text-muted-foreground underline hover:text-foreground transition-colors"
+                  className="py-2 sm:py-2.5 min-h-11 px-2 sm:px-4 text-sm font-medium text-muted-foreground underline hover:text-foreground transition-colors"
                 >
                   Customise
                 </button>
@@ -107,13 +107,13 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
               <>
                 <button
                   onClick={() => save(local)}
-                  className="flex-1 bg-primary text-primary-foreground py-2.5 rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
+                  className="flex-1 bg-primary text-primary-foreground py-2 sm:py-2.5 min-h-11 rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Save My Preferences
                 </button>
                 <button
                   onClick={() => setOpen(false)}
-                  className="py-2.5 px-4 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="py-2 sm:py-2.5 min-h-11 px-2 sm:px-4 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Cancel
                 </button>

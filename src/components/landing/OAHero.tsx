@@ -38,21 +38,21 @@ const HERO_SRCSET = `${hero400} 400w, ${hero800} 800w`;
 const HERO_SIZES = "(min-width: 1024px) 300px, (min-width: 640px) 240px, 160px";
 
 const OAHero = memo(() => (
-  <section aria-labelledby="oa-hero" className="band-red relative w-full max-w-full overflow-hidden">
+  <section aria-labelledby="oa-hero" className="relative w-full max-w-full overflow-hidden bg-accent text-foreground border-b border-primary/15">
     <div className="container mx-auto px-5 sm:px-8 lg:px-16 max-w-7xl py-7 sm:py-9 lg:py-12">
       <div className="grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] gap-6 lg:gap-12 items-center w-full">
         <div className="min-w-0">
           <h1 id="oa-hero" className="text-balance break-words leading-[1.12]">
-            <span className="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] opacity-95">
+            <span className="block text-[0.7rem] sm:text-sm font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] text-primary">
               Living With Arthritis — evidence-based health guides
             </span>
-            <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)]">
+            <span className="mt-2 sm:mt-3 block text-[clamp(1.6rem,4.2vw,3rem)] text-foreground">
               Providing practical advice, support and evidence-based guidance for people living
               with arthritis and frailty.
             </span>
           </h1>
 
-          <p className="mt-3 sm:mt-4 text-base lg:text-lg font-medium max-w-xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-base lg:text-lg font-medium max-w-[65ch] leading-relaxed text-foreground/90">
             Stiff mornings, cancelled plans, the feeling that nobody quite gets it. Find
             practical help with pain, exercise, benefits and everyday life — written for UK
             readers.
@@ -64,8 +64,7 @@ const OAHero = memo(() => (
               onClick={() =>
                 trackStartHereCard("Hero: I'm in pain — help now", "/guides/arthritis-pain-relief")
               }
-              className="btn-map group w-full sm:w-auto justify-center min-h-12 shadow-md focus-visible:outline-white"
-              style={{ background: "white", color: "hsl(var(--foreground))" }}
+              className="btn-map group w-full sm:w-auto justify-center min-h-12 shadow-md bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-primary"
             >
               <HeartPulse className="w-4 h-4 mr-2" aria-hidden="true" />
               I&apos;m in pain — help now
@@ -80,14 +79,14 @@ const OAHero = memo(() => (
                 trackStartHereCard("Hero: find help for my situation", `#${ROUTER_ID}`);
                 scrollToRouter(e);
               }}
-              className="btn-map w-full sm:w-auto justify-center min-h-12 border-2 border-white/90 bg-transparent text-white hover:bg-white/10 focus-visible:outline-white"
+              className="btn-map w-full sm:w-auto justify-center min-h-12 border-2 border-foreground/80 bg-background text-foreground hover:bg-background/70 focus-visible:outline-primary"
             >
               Find help for my situation
               <ArrowDown className="w-4 h-4 ml-2" aria-hidden="true" />
             </a>
           </div>
 
-          <p className="mt-4 text-sm opacity-95 max-w-xl">
+          <p className="mt-4 text-sm text-foreground/85 max-w-[65ch]">
             Educational information only — not a diagnosis or personal medical advice. If
             you have an emergency, call 999. For urgent non-emergency advice contact your GP or NHS 111.
           </p>

@@ -1,10 +1,11 @@
-import { Home, MessageCircle, BookOpen } from "lucide-react";
+import { Home, MessageCircle, BookOpen, LifeBuoy } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "Home", icon: Home, href: "/" },
   { label: "Chat", icon: MessageCircle, href: "/chat" },
   { label: "Blog", icon: BookOpen, href: "/blog" },
+  { label: "Helpline", icon: LifeBuoy, href: "/helpline" },
 ];
 
 const MobileBottomNav = () => {
@@ -30,7 +31,7 @@ const MobileBottomNav = () => {
               }`}
               aria-current={isActive ? "page" : undefined}
             >
-              <Icon className={`w-5 h-5 ${isActive ? "stroke-[2.5]" : ""}`} />
+              <Icon aria-hidden="true" className={`w-5 h-5 ${isActive ? "stroke-[2.5]" : ""}`} />
               <span className="text-[10px] font-semibold leading-none">{label}</span>
               {isActive && (
                 <div className="w-1 h-1 rounded-full bg-primary mt-0.5" />

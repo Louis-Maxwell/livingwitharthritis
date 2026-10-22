@@ -13,7 +13,6 @@ const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
-const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -114,7 +113,7 @@ const Header = () => {
 
   const navLinks: NavLink[] = [
     {
-      label: "About Arthritis",
+      label: "Conditions",
       href: "/conditions/arthritis",
       action: () => navigate("/conditions/arthritis"),
       subs: [
@@ -127,11 +126,10 @@ const Header = () => {
         { label: "Juvenile Arthritis", desc: "Arthritis in children", icon: Stethoscope, href: "/conditions/juvenile-arthritis", action: () => navigate("/conditions/juvenile-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Fibromyalgia", desc: "Widespread pain & fatigue", icon: Stethoscope, href: "/conditions/fibromyalgia", action: () => navigate("/conditions/fibromyalgia"), color: "text-primary bg-primary/10" },
         { label: "Lupus (SLE)", desc: "Autoimmune disease", icon: Stethoscope, href: "/conditions/lupus", action: () => navigate("/conditions/lupus"), color: "text-primary bg-primary/10" },
-        { label: "Trust & Credibility", desc: "Our evidence, authors & governance", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-primary bg-primary/10" },
       ],
     },
     {
-      label: "Managing Arthritis",
+      label: "Treatments & self-care",
       href: "/living-with-arthritis",
       action: () => navigate("/living-with-arthritis"),
       subs: [
@@ -151,12 +149,14 @@ const Header = () => {
       ],
     },
     {
-      label: "Community & Support",
+      label: "Support & helpline",
       href: "/community",
       action: () => navigate("/community"),
       subs: [
-        { label: "Connect Groups", desc: "Free peer-support communities", icon: HandHeart, href: "/community/connect-groups", action: () => navigate("/community/connect-groups"), color: "text-primary bg-primary/10" },
         { label: "Helpline & Support", desc: "Real people, 2-day response", icon: MessageCircle, href: "/helpline", action: () => navigate("/helpline"), color: "text-primary bg-primary/10" },
+        { label: "Contact us", desc: "Email, phone and response times", icon: MessageCircle, href: "/contact", action: () => navigate("/contact"), color: "text-primary bg-primary/10" },
+        { label: "Resources", desc: "Care pathways, benefits & guides", icon: BookOpen, href: "#resources", action: () => setResourceDrawerOpen(true), color: "text-primary bg-primary/10" },
+        { label: "Connect Groups", desc: "Free peer-support communities", icon: HandHeart, href: "/community/connect-groups", action: () => navigate("/community/connect-groups"), color: "text-primary bg-primary/10" },
         { label: "Events & Webinars", desc: "Free monthly online events", icon: Globe, href: "/events", action: () => navigate("/events"), color: "text-primary bg-primary/10" },
         { label: "Patient Stories", desc: "Lived experience from real people", icon: Heart, href: "/stories", action: () => navigate("/stories"), color: "text-primary bg-primary/10" },
         { label: "Guides Hub", desc: "PIP, exercise, diet & pain relief", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
@@ -169,7 +169,7 @@ const Header = () => {
       ],
     },
     {
-      label: "Get Involved",
+      label: "Get involved",
       href: "/ways-to-help",
       action: () => navigate("/ways-to-help"),
       subs: [
@@ -180,14 +180,16 @@ const Header = () => {
         { label: "Corporate Partnerships", desc: "Formal partnership programme", icon: Globe, href: "/corporate-partnerships", action: () => navigate("/corporate-partnerships"), color: "text-primary bg-primary/10" },
         { label: "Zakat Appeal", desc: "Give your Zakat to joint health", icon: Globe, href: "/zakat-appeal", action: () => navigate("/zakat-appeal"), color: "text-primary bg-primary/10" },
         { label: "Ways to Help", desc: "All the ways you can support us", icon: Heart, href: "/ways-to-help", action: () => navigate("/ways-to-help"), color: "text-primary bg-primary/10" },
+        { label: "Shop", desc: "Merchandise that funds our work", icon: ShoppingBag, href: SHOP_URL, color: "text-primary bg-primary/10" },
       ],
     },
-    { label: "Shop", href: SHOP_URL },
     {
-      label: "Research",
-      href: "/research",
-      action: () => navigate("/research"),
+      label: "About & research",
+      href: "/about",
+      action: () => navigate("/about"),
       subs: [
+        { label: "About us", desc: "Who we are and how we work", icon: Heart, href: "/about", action: () => navigate("/about"), color: "text-primary bg-primary/10" },
+        { label: "Trust & Credibility", desc: "Our evidence, authors & governance", icon: ShieldCheck, href: "/trust", action: () => navigate("/trust"), color: "text-primary bg-primary/10" },
         { label: "Our Research", desc: "Patient-priority studies", icon: BookOpen, href: "/research", action: () => navigate("/research"), color: "text-primary bg-primary/10" },
         { label: "Clinical Trials", desc: "Find UK trials you can join", icon: Stethoscope, href: "/research/clinical-trials", action: () => navigate("/research/clinical-trials"), color: "text-primary bg-primary/10" },
         { label: "Grant Opportunities", desc: "Seed funding for UK researchers", icon: Sparkles, href: "/research/grants", action: () => navigate("/research/grants"), color: "text-primary bg-primary/10" },
@@ -195,7 +197,6 @@ const Header = () => {
         { label: "Clinical Sources", desc: "Our evidence base", icon: BookOpen, href: "/sources", action: () => navigate("/sources"), color: "text-primary bg-primary/10" },
       ],
     },
-    { label: "Resources", href: "#resources", action: () => setResourceDrawerOpen(true) },
   ];
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -299,18 +300,6 @@ const Header = () => {
           <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
         </aside>
 
-        {/* Donation Quick Bar — top of sticky header */}
-        {/* Placeholder reserves the bar's real (flex-wrapped) height per
-            viewport width so the lazy bar mounting doesn't shift the page
-            (was a fixed 52px → CLS ~0.12 on phones). See
-            .donation-quickbar-placeholder in index.css. */}
-        <aside aria-label="Support the charity">
-          <ErrorBoundary fallback={null} resetKey={pathname}>
-            <Suspense fallback={<div className="bg-primary donation-quickbar-placeholder" aria-hidden="true" />}>
-              <DonationQuickBar />
-            </Suspense>
-          </ErrorBoundary>
-        </aside>
 
         {/* Logo Bar */}
         <div
@@ -343,12 +332,37 @@ const Header = () => {
             {/* Desktop: search + theme on right of logo */}
             <div className="hidden lg:flex items-center gap-2 flex-1 justify-end">
               <Suspense fallback={null}><SiteSearch /></Suspense>
+              <Link
+                to="/helpline"
+                className="inline-flex items-center gap-1.5 min-h-11 px-3 rounded-lg text-sm font-semibold text-foreground hover:bg-accent focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <MessageCircle className="w-4 h-4 text-primary" aria-hidden="true" />
+                Helpline &amp; contact
+              </Link>
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-10 px-4 rounded-full bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                Donate
+                <span className="sr-only"> on GoFundMe (opens in a new tab)</span>
+              </a>
               <LanguageSwitcher />
               <ThemeToggle />
             </div>
 
             {/* Mobile: search icon + hamburger */}
             <div className="flex items-center gap-1.5 lg:hidden min-w-0">
+              <a
+                href={GOFUNDME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-11 px-3 rounded-full border border-primary/40 text-primary text-sm font-bold"
+              >
+                Donate
+                <span className="sr-only"> on GoFundMe (opens in a new tab)</span>
+              </a>
               {/* Language + theme move into the drawer on narrow phones so the
                   header row never overflows the viewport. */}
               <span className="hidden sm:flex items-center gap-1.5">
