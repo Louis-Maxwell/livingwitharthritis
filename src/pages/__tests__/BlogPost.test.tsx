@@ -278,3 +278,8 @@ describe("BlogPost Page", () => {
     );
     expect(articleSchema.reviewedBy).toBeUndefined();
     expect(articleSchema.citation).toBeUndefined();
+    expect(
+      readSchemas().some((schema) => schema["@type"] === "FAQPage"),
+    ).toBe(false);
+  });
+});
