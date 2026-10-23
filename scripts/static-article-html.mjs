@@ -83,8 +83,6 @@ export function escText(value) {
 }
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
-export const STATIC_PENDING_REVIEW_TEXT =
-  "Clinical review status: not yet recorded";
 
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
@@ -101,14 +99,10 @@ export function buildStaticArticleInner(data) {
         .join("")}</section>`
     : "";
   const updated = data?.updatedAt ? `Last updated ${escText(data.updatedAt)}. ` : "";
-  // Keep in sync with PENDING_REVIEW_TEXT in src/lib/blog/review.ts.
-  const pending = data?.article?.reviewStatus === "pending"
-    ? `<p class="review-status-pending">${escText(STATIC_PENDING_REVIEW_TEXT)}</p>`
-    : "";
   const article = data?.article;
   const author = article?.author && !/placeholder/i.test(article.author)
     ? `<p class="article-byline">Written by ${escText(article.author)}${article.author_credentials ? ` — ${escText(article.author_credentials)}` : ""}.</p>` : "";
-  const reviewer = article?.reviewStatus !== "pending" && article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
+  const reviewer = article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
     ? `<p>Reviewed by ${escText(article.reviewed_by)}${article.reviewer_credentials ? ` — ${escText(article.reviewer_credentials)}` : ""}.</p>` : "";
   const citations = (article?.citations || data?.sources || [])
     .map((c) => ({ ...c, label: c.label || c.name }))
@@ -127,7 +121,6 @@ export function buildStaticArticleInner(data) {
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
     author + reviewer +
-    pending +
     answer +
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +

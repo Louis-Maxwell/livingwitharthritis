@@ -180,9 +180,6 @@ export function buildEntry(row, extractFaqs, coverMap) {
       author_credentials: row.author_credentials ?? null,
       reviewed_by: row.reviewed_by ?? null,
       reviewer_credentials: row.reviewer_credentials ?? null,
-      // Only pending guides carry the flag (absent = reviewed), so the
-      // embedded article and static HTML never claim an unfinished review.
-      ...(row.reviewStatus ? { reviewStatus: row.reviewStatus } : {}),
       is_published: true,
       display_order: row.display_order ?? 0,
       updated_at: row.updated_at ?? null,

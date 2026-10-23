@@ -72,7 +72,6 @@ function readLocalBlogArticles() {
       author_credentials: a.author_credentials,
       reviewed_by: a.reviewed_by,
       reviewer_credentials: a.reviewer_credentials,
-      reviewStatus: a.reviewStatus,
       last_reviewed: a.last_reviewed,
       citations: a.citations,
     }));
@@ -98,9 +97,7 @@ function buildBlogSections(rows) {
         `URL: ${BASE}/blog/${r.slug}`,
         `Last updated: ${(r.updated_at || r.date || "2026-07-01").slice(0, 10)}`,
         ...(r.author ? [`Author: ${r.author}${r.author_credentials ? ` (${r.author_credentials})` : ''}`] : []),
-        ...(r.reviewStatus === 'pending'
-          ? ['Clinical review: pending; this guide has not completed clinical review.']
-          : r.reviewed_by ? [`Reviewer: ${r.reviewed_by}${r.reviewer_credentials ? ` (${r.reviewer_credentials})` : ''}`,
+        ...(r.reviewed_by ? [`Reviewer: ${r.reviewed_by}${r.reviewer_credentials ? ` (${r.reviewer_credentials})` : ''}`,
               ...(r.last_reviewed ? [`Last clinically reviewed: ${r.last_reviewed}`] : [])] : ['Clinical review: no named reviewer recorded.']),
         `Q: ${r.title ?? r.slug}`,
         `A: ${answer}`,

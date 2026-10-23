@@ -1061,3 +1061,8 @@ Update this tracker at each monthly close with honest A vs B traffic multiples f
 - First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
 - Live social posting per SOP; clinical spot-check of treatment champions
 - Optional Scenario C moonshot media budget paper
+
+
+### 23 Oct 2026 — blog clinical audit complete
+
+- Louis Maxwell (HCPC PH128483) clinically audited all published blog guides. The blog pending-review state and `blog:mark-reviewed` script were removed; every guide shows Louis Maxwell as author and reviewer, and a "Download this guide (PDF)" button sits under every post. Earlier "then `npm run blog:mark-reviewed`" notes above are historical.

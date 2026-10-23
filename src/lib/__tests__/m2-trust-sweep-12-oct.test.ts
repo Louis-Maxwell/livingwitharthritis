@@ -21,13 +21,11 @@ describe("M2 trust sweep — unnamed reviewer labels", () => {
     expect(offenders).toEqual([]);
   });
 
-  it("posts with the editorial-standards line say pending clinical review and are pending", () => {
-    const withLine = files
-      .map((f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post)
-      .filter((p) => /Living With Arthritis editorial team/.test(p.content) && /pending clinical review/.test(p.content));
-    expect(withLine.length).toBeGreaterThanOrEqual(70);
-    for (const p of withLine) {
-      expect(p.reviewStatus, p.slug).toBe("pending");
+  it("no published post still says it is pending clinical review (all audited 23 Oct 2026)", () => {
+    const posts = files.map((f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post);
+    for (const p of posts) {
+      expect(p.reviewStatus, p.slug).toBeUndefined();
+      expect(p.content, p.slug).not.toMatch(/pending clinical review/i);
     }
   });
 });

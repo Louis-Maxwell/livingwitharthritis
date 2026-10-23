@@ -473,8 +473,7 @@ export function buildJsonLd(route, url, d) {
         ...(/louis.*maxwell|^maxwell$/i.test(name) ? {
           ...(credentials ? { jobTitle: credentials } : {}), url: `${BASE}/${prefix}/maxwell` } : {}) } : undefined;
   const author = person(article?.author, article?.author_credentials, "authors");
-  const reviewer = article?.reviewStatus !== "pending"
-    ? person(article?.reviewed_by, article?.reviewer_credentials, "reviewers") : undefined;
+  const reviewer = person(article?.reviewed_by, article?.reviewer_credentials, "reviewers");
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
 

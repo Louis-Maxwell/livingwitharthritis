@@ -3,14 +3,13 @@ import { getBlogCatalog } from "@/lib/blog/catalog";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 
 describe("blog review index", () => {
-  it("matches the catalog's review date and pending flag for every guide", () => {
+  it("matches the catalog's review date for every guide", () => {
     const catalog = getBlogCatalog();
     expect(catalog.length).toBeGreaterThan(0);
     for (const row of catalog) {
       const meta = getBlogReviewMeta(row.slug);
       expect(meta, row.slug).toBeDefined();
       expect(meta?.last_reviewed, row.slug).toBe(row.last_reviewed);
-      expect(meta?.reviewStatus, row.slug).toBe(row.reviewStatus === "pending" ? "pending" : undefined);
     }
   });
 

@@ -133,9 +133,9 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     expect(getClusterForPath("/guides/newly-diagnosed")?.id).toBe("symptoms");
   });
 
-  it("Access to Work blog (rewritten in Benefits batch 3, pending re-review) keeps GOV.UK citations and customer-job links", () => {
-    expect(accessJson.reviewStatus).toBe("pending");
-    expect(accessJson.last_reviewed).toBeUndefined();
+  it("Access to Work blog (rewritten in Benefits batch 3, clinically reviewed by Louis Maxwell) keeps GOV.UK citations and customer-job links", () => {
+    expect(accessJson.reviewStatus).toBeUndefined();
+    expect(accessJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(accessJson.meta_title).toMatch(/Access to Work for Arthritis: .*\(UK\)/i);
     const urls = (accessJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -159,12 +159,11 @@ describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Wo
     expect(access).not.toMatch(/Oswestry/i);
   });
 
-  // Rewritten as the 8-week beginner programme in the Exercise & Physiotherapy
-  // batch 2 (Oct 2026), so it is pending clinical review again until Louis
-  // re-reviews it (`npm run blog:mark-reviewed -- walking-with-arthritis-start-build-up-keep-going`).
-  it("Walking with arthritis blog is pending re-review after the batch 2 rewrite and keeps customer-job links", () => {
-    expect(walkingJson.last_reviewed).toBeUndefined();
-    expect(walkingJson.reviewStatus).toBe("pending");
+  // Rewritten as the 8-week beginner programme in batch 2 (Oct 2026); clinically
+  // reviewed by Louis Maxwell in the 23 Oct 2026 audit.
+  it("Walking with arthritis blog is clinically reviewed by Louis Maxwell after the batch 2 rewrite and keeps customer-job links", () => {
+    expect(walkingJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(walkingJson.reviewStatus).toBeUndefined();
     for (const href of WALKING_LINKS) {
       expect(walkingJson.content.includes(`href="${href}"`), `Walking missing ${href}`).toBe(true);
     }

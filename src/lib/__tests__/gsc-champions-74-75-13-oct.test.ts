@@ -66,15 +66,14 @@ const cases: Array<{ name: string; slug: string; title: RegExp; cites: string[];
 
 describe("GSC Champions 74–75 (13 Oct): gout winter dehydration + night pain toolkit", () => {
   for (const c of cases) {
-    it(`${c.name} blog is pending clinical review with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} blog is clinically reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
-      expect(json.reviewed_by).toBeNull();
-      expect(json.reviewer_credentials).toBeNull();
-      expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      expect(json.reviewStatus).toBeUndefined();
+      expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(json.reviewed_by).toMatch(/Louis Maxwell/);
+      expect(json.reviewer_credentials).toMatch(/PH128483/);
+            expect(json.content).not.toMatch(/Pending clinical review/i);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);
