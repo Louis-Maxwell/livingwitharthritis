@@ -1616,8 +1616,8 @@
         "title": "Hoist conversations for family carers of people with arthritis (UK)"
       },
       {
-        "path": "/blog/lwa-archive-falls-prevention-for-people-living-with-arthritis",
-        "title": "Falls Prevention for People Living with Arthritis"
+        "path": "/blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know",
+        "title": "Steroid Side Effects: What People with Arthritis Should Know"
       }
     ]
   },
@@ -3494,16 +3494,16 @@
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/lwa-archive-living-well-with-arthritis",
-        "title": "Living Well with Arthritis"
-      },
-      {
         "path": "/blog/anxiety-and-arthritis-management",
         "title": "Anxiety and Arthritis: Why It Happens and How to Manage It"
       },
       {
         "path": "/blog/arthritis-flare-up-what-to-do",
         "title": "Arthritis Flare-Up: What to Do When Symptoms Get Worse"
+      },
+      {
+        "path": "/blog/arthritis-friendly-gym-guide",
+        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       }
     ]
   },
@@ -7832,12 +7832,12 @@
         "title": "Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation"
       },
       {
-        "path": "/blog/lwa-archive-blue-badge-scheme-and-arthritis",
-        "title": "Blue Badge Scheme and Arthritis"
-      },
-      {
         "path": "/blog/arthritis-friendly-gym-guide",
         "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
+      },
+      {
+        "path": "/blog/nhs-arthritis-pathways-explained",
+        "title": "NHS Arthritis Pathways Simplified: Osteoarthritis, Inflammatory Arthritis and Gout"
       }
     ]
   },
@@ -9198,7 +9198,7 @@
       "slug": "cauda-equina-warning-signs-uk",
       "title": "Cauda Equina Warning Signs: When to Go to A&E (UK)",
       "excerpt": "New bladder or bowel changes, numbness around the genitals or anus, or symptoms in both legs with back pain need emergency assessment. Do not wait.",
-      "content": "<p><strong>Emergency advice:</strong> With back pain, new difficulty passing urine, loss of bladder or bowel control, altered feeling around your genitals or anus, or pain, tingling, weakness or numbness in both legs: call 999 or go to A&amp;E now. Do not wait to complete a questionnaire or for a routine appointment. Do not drive yourself if unsafe.</p>\n<p>This is education, not a diagnosis. A symptom checklist cannot confirm or exclude cauda equina syndrome.</p>\n<h2>What is cauda equina syndrome?</h2><p>The cauda equina is a bundle of nerve roots below the end of the spinal cord. Compression can disrupt leg movement, bladder and bowel function, and sensation around the genitals and anus. It is uncommon but can cause permanent disability. Prompt hospital assessment matters.</p>\n<figure><img src=\"/cauda-equina-education.svg\" width=\"1000\" height=\"640\" alt=\"Simplified diagram showing the spinal cord ending above the cauda equina nerve roots in the lower spinal canal\" /><figcaption>Educational schematic, not to scale. This is not a diagnostic scan.</figcaption></figure>\n<h2>Bladder and bowel warning signs</h2><p>Do not wait for incontinence. Difficulty starting urine, inability to pass urine, altered awareness of bladder fullness or urine flow, or new leakage can be warning signs. Bowel symptoms include new leakage or reduced awareness of passing a bowel movement. Tell the emergency team what changed and when.</p>\n<h2>Numbness in the private or saddle area</h2><p>The saddle area includes your genitals, inner thighs, buttocks and around the anus. New numbness, pins and needles, or different feeling when wiping with toilet paper can be warning signs. You do not need to test yourself with a sharp object or perform an intimate examination.</p>\n<h2>Leg and sexual symptoms</h2><p>Back pain with pain, tingling, weakness or numbness in both legs needs emergency assessment. Changes in genital sensation during sex, erection or orgasm can also matter. Symptoms may evolve; not everyone has every warning sign or severe pain.</p>\n<h2>What about unexplained weight loss?</h2><p>Losing weight without trying is not a specific cauda equina symptom. With back pain it can suggest another underlying problem and should be discussed promptly with your GP. If emergency symptoms described above are also present, seek emergency care immediately.</p>\n<h2>How is it assessed?</h2><p>Hospital clinicians assess your history, nerve function and bladder function. Urgent imaging, usually MRI, may be needed. Treatment depends on the cause and may involve urgent surgery. Online answers, home tests and absence of one symptom cannot replace this assessment.</p>\n<h2>Prepare for assessment without delaying care</h2><p>Tell the team when symptoms started, whether they are changing, and about medicines, previous spine procedures and other conditions. Ask for a professional interpreter, privacy, or a female clinician if preferred, but do not delay emergency assessment while arranging these.</p>\n<h2>Sources and related help</h2><ul><li><a href=\"https://www.nhs.uk/conditions/back-pain/\">NHS: back pain and emergency symptoms</a></li><li><a href=\"https://www.chesterfieldroyal.nhs.uk/all-services-and-wards/physiotherapy-services/musculoskeletal-and-rheumatology-services/cauda-equina\">Chesterfield Royal Hospital: cauda equina warning signs</a></li><li><a href=\"https://www.buckshealthcare.nhs.uk/pifs/cauda-equina-syndrome/\">Buckinghamshire Healthcare: cauda equina syndrome</a></li><li><a href=\"/blog/inclusive-arthritis-frailty-support-plan-uk\">Inclusive arthritis and frailty support</a></li></ul>\n<h2>Medical disclaimer</h2><p>General educational information for UK readers. It does not diagnose, rule out illness or give an individual treatment plan. With suspected cauda equina symptoms, seek emergency assessment now. For other urgent concerns contact your GP or NHS 111 where available.</p>",
+      "content": "<p><strong>Emergency advice:</strong> With back pain, new difficulty passing urine, loss of bladder or bowel control, altered feeling around your genitals or anus, or pain, tingling, weakness or numbness in both legs: call 999 or go to A&amp;E now. Do not wait to complete a questionnaire or for a routine appointment. Do not drive yourself if unsafe.</p>\n<p>This is education, not a diagnosis. A symptom checklist cannot confirm or exclude cauda equina syndrome.</p>\n<h2>What is cauda equina syndrome?</h2><p>The cauda equina is a bundle of nerve roots below the end of the spinal cord. Compression can disrupt leg movement, bladder and bowel function, and sensation around the genitals and anus. It is uncommon but can cause permanent disability. Prompt hospital assessment matters.</p>\n<figure><img src=\"/cauda-equina-education.svg\" width=\"1000\" height=\"640\" alt=\"Simplified diagram showing the spinal cord ending above the cauda equina nerve roots in the lower spinal canal\" /><figcaption>Educational schematic, not to scale. This is not a diagnostic scan.</figcaption></figure>\n<h2>Bladder and bowel warning signs</h2><p>Do not wait for incontinence. Difficulty starting urine, inability to pass urine, altered awareness of bladder fullness or urine flow, or new leakage can be warning signs. Bowel symptoms include new leakage or reduced awareness of passing a bowel movement. Tell the emergency team what changed and when.</p>\n<h2>Numbness in the private or saddle area</h2><p>The saddle area includes your genitals, inner thighs, buttocks and around the anus. New numbness, pins and needles, or different feeling when wiping with toilet paper can be warning signs. You do not need to test yourself with a sharp object or perform an intimate examination.</p>\n<h2>Leg and sexual symptoms</h2><p>Back pain with pain, tingling, weakness or numbness in both legs needs emergency assessment. Changes in genital sensation during sex, erection or orgasm can also matter. Symptoms may evolve; not everyone has every warning sign or severe pain.</p>\n<h2>What about unexplained weight loss?</h2><p>Losing weight without trying is not a specific cauda equina symptom. With back pain it can suggest another underlying problem and should be discussed promptly with your GP. If emergency symptoms described above are also present, seek emergency care immediately.</p>\n<h2>How is it assessed?</h2><p>Hospital clinicians assess your history, nerve function and bladder function. Urgent imaging, usually MRI, may be needed. Treatment depends on the cause and may involve urgent surgery. Online answers, home tests and absence of one symptom cannot replace this assessment.</p>\n<h2>Prepare for assessment without delaying care</h2><p>Tell the team when symptoms started, whether they are changing, and about medicines, previous spine procedures and other conditions. Ask for a professional interpreter, privacy, or a female clinician if preferred, but do not delay emergency assessment while arranging these.</p>\n<h2>Sources and related help</h2><ul><li><a href=\"https://www.nhs.uk/conditions/back-pain/\">NHS: back pain and emergency symptoms</a></li><li><a href=\"https://www.chesterfieldroyal.nhs.uk/all-services-and-wards/physiotherapy-services/musculoskeletal-and-rheumatology-services/cauda-equina\">Chesterfield Royal Hospital: cauda equina warning signs</a></li><li><a href=\"https://www.buckshealthcare.nhs.uk/pifs/cauda-equina-syndrome/\">Buckinghamshire Healthcare: cauda equina syndrome</a></li><li><a href=\"/blog/arthritis-support-refugees-diverse-communities\">Inclusive arthritis and frailty support</a></li></ul>\n<h2>Medical disclaimer</h2><p>General educational information for UK readers. It does not diagnose, rule out illness or give an individual treatment plan. With suspected cauda equina symptoms, seek emergency assessment now. For other urgent concerns contact your GP or NHS 111 where available.</p>",
       "date": "2026-10-12",
       "category": "Pain & flares",
       "image_url": "/openverse/cauda-equina-education.webp",
@@ -24415,16 +24415,16 @@
         "title": "Surgery & recovery guides"
       },
       {
-        "path": "/blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis",
-        "title": "When Is Surgery Needed for Osteoarthritis?"
-      },
-      {
         "path": "/blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me",
         "title": "Expert Q&A: How Do I Know If Surgery Is Right for Me?"
       },
       {
         "path": "/blog/joint-replacement-surgery",
         "title": "Joint Replacement Surgery for Arthritis — A Complete UK Guide"
+      },
+      {
+        "path": "/blog/knee-replacement-arthritis-uk",
+        "title": "Knee Replacement for Arthritis – UK Guide"
       }
     ]
   },
@@ -25906,112 +25906,6 @@
       }
     ]
   },
-  "/blog/lwa-archive-arthritis-statistics-in-the-uk": {
-    "title": "Arthritis Statistics in the UK | Living With Arthritis",
-    "description": "Arthritis Statistics in the UK: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Arthritis Statistics in the UK",
-    "answer": "Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.",
-    "breadcrumb": "Arthritis Statistics in the UK | Living With Arthritis",
-    "about": "Conditions",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-008.webp",
-    "article": {
-      "slug": "lwa-archive-arthritis-statistics-in-the-uk",
-      "title": "Arthritis Statistics in the UK",
-      "excerpt": "Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nArthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [A simple activity diary for arthritis and frailty (UK)](/blog/activity-diary-arthritis-frailty-uk)\n- [Advance care planning if arthritis and frailty are both progressing (UK)](/blog/advance-care-planning-arthritis-frailty-uk)\n- [Allotments, identity and frailty if arthritis takes the digging (UK)](/blog/allotment-identity-arthritis-frailty-uk)\n",
-      "date": "2026-10-14",
-      "category": "Conditions",
-      "image_url": "/openverse/imported-article-008.webp",
-      "cover": "imported-article-008.webp",
-      "meta_title": "Arthritis Statistics in the UK | Living With Arthritis",
-      "meta_description": "Arthritis Statistics in the UK: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "8. arthritis statistics in the uk",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 992,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/category/health",
-        "title": "Conditions guides"
-      },
-      {
-        "path": "/blog/arthritis-hows-life-living-with-arthritis",
-        "title": "Arthritis - How's Life Living With Arthritis?"
-      },
-      {
-        "path": "/blog/activity-diary-arthritis-frailty-uk",
-        "title": "A simple activity diary for arthritis and frailty (UK)"
-      },
-      {
-        "path": "/blog/advance-care-planning-arthritis-frailty-uk",
-        "title": "Advance care planning if arthritis and frailty are both progressing (UK)"
-      }
-    ]
-  },
-  "/blog/lwa-archive-arthritis-treatment-options": {
-    "title": "Arthritis Treatment Options | Living With Arthritis",
-    "description": "Arthritis Treatment Options: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Arthritis Treatment Options",
-    "answer": "Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely benefits, practical demands and possible harms; specialist treatment may be necessary for inflammatory disease.",
-    "breadcrumb": "Arthritis Treatment Options | Living With Arthritis",
-    "about": "Treatments & medicines",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-041.webp",
-    "article": {
-      "slug": "lwa-archive-arthritis-treatment-options",
-      "title": "Arthritis Treatment Options",
-      "excerpt": "Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely benefits, practical…",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nTreatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely benefits, practical demands and possible harms; specialist treatment may be necessary for inflammatory disease.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options](/blog/hip-arthritis-symptoms-uk)\n- [Anticholinergic load, arthritis medicines and frailty (UK)](/blog/anticholinergic-load-arthritis-frailty-uk)\n- [Arthritis Treatment — Your Complete Guide to Managing Joint Pain](/blog/arthritis-treatment-hub)\n",
-      "date": "2026-10-14",
-      "category": "Treatments & medicines",
-      "image_url": "/openverse/imported-article-041.webp",
-      "cover": "imported-article-041.webp",
-      "meta_title": "Arthritis Treatment Options | Living With Arthritis",
-      "meta_description": "Arthritis Treatment Options: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "41. arthritis treatment options",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 959,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely benefits, practical demands and possible harms; specialist treatment may be necessary for inflammatory disease.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/hip-arthritis-symptoms-uk",
-        "title": "Hip Arthritis Symptoms UK: Signs, Diagnosis and Treatment Options"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
-      },
-      {
-        "path": "/blog/arthritis-treatment-hub",
-        "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
-      }
-    ]
-  },
   "/blog/lwa-archive-best-exercise-for-rheumatoid-arthritis": {
     "title": "Best Exercise for Rheumatoid Arthritis: A Safe UK Guide",
     "description": "The best exercise for rheumatoid arthritis: strength, aerobic, flexibility and hand exercises, how to exercise around flares, and NHS physio support.",
@@ -26091,159 +25985,6 @@
       {
         "path": "/blog/aquatic-therapy-arthritis-guide",
         "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
-      }
-    ]
-  },
-  "/blog/lwa-archive-best-exercises-for-arthritis": {
-    "title": "Best Exercises for Arthritis | Living With Arthritis",
-    "description": "Best Exercises for Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Best Exercises for Arthritis",
-    "answer": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.",
-    "breadcrumb": "Best Exercises for Arthritis | Living With Arthritis",
-    "about": "Exercise & movement",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-051.webp",
-    "article": {
-      "slug": "lwa-archive-best-exercises-for-arthritis",
-      "title": "Best Exercises for Arthritis",
-      "excerpt": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nRegular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)](/blog/arthritis-friendly-gym-guide)\n- [Best Exercises for Back Arthritis: A Complete UK Physiotherapy Guide](/blog/back-arthritis-exercises-uk)\n- [Best Exercises for Osteoarthritis Knee Pain at Home](/blog/best-exercises-osteoarthritis-knee-pain-home)\n",
-      "date": "2026-10-14",
-      "category": "Exercise & movement",
-      "image_url": "/openverse/imported-article-051.webp",
-      "cover": "imported-article-051.webp",
-      "meta_title": "Best Exercises for Arthritis | Living With Arthritis",
-      "meta_description": "Best Exercises for Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "51. best exercises for arthritis",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 949,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/back-arthritis-exercises-uk",
-        "title": "Best Exercises for Back Arthritis: A Complete UK Physiotherapy Guide"
-      },
-      {
-        "path": "/blog/exercise-for-hip-arthritis",
-        "title": "Best Exercises for Hip Arthritis: A Physiotherapist-Approved Guide"
-      },
-      {
-        "path": "/blog/exercises-rheumatoid-arthritis-hands-wrists",
-        "title": "Best Exercises for Rheumatoid Arthritis in Hands and Wrists"
-      }
-    ]
-  },
-  "/blog/lwa-archive-blue-badge-scheme-and-arthritis": {
-    "title": "Blue Badge Scheme and Arthritis | Living With Arthritis",
-    "description": "Blue Badge Scheme and Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Blue Badge Scheme and Arthritis",
-    "answer": "Blue Badge eligibility depends on qualifying mobility difficulties and relevant criteria, not an arthritis diagnosis alone. Applications generally go through the relevant local authority or national scheme, with evidence of walking difficulties.",
-    "breadcrumb": "Blue Badge Scheme and Arthritis | Living With Arthritis",
-    "about": "Benefits, PIP & work",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-085.webp",
-    "article": {
-      "slug": "lwa-archive-blue-badge-scheme-and-arthritis",
-      "title": "Blue Badge Scheme and Arthritis",
-      "excerpt": "Blue Badge eligibility depends on qualifying mobility difficulties and relevant criteria, not an arthritis diagnosis alone.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nBlue Badge eligibility depends on qualifying mobility difficulties and relevant criteria, not an arthritis diagnosis alone. Applications generally go through the relevant local authority or national scheme, with evidence of walking difficulties.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [How to Get a Blue Badge for Arthritis in Scotland](/blog/blue-badge-arthritis-scotland)\n- [Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation](/blog/blue-badge-frailty-arthritis-uk)\n- [Access to Work and Arthritis: A Complete UK Guide to Grants for Equipment, Travel and Support](/blog/access-to-work-scheme-arthritis-guide)\n",
-      "date": "2026-10-14",
-      "category": "Benefits, PIP & work",
-      "image_url": "/openverse/imported-article-085.webp",
-      "cover": "imported-article-085.webp",
-      "meta_title": "Blue Badge Scheme and Arthritis | Living With Arthritis",
-      "meta_description": "Blue Badge Scheme and Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "85. blue badge scheme and arthritis",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 915,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Blue Badge eligibility depends on qualifying mobility difficulties and relevant criteria, not an arthritis diagnosis alone. Applications generally go through the relevant local authority or national scheme, with evidence of walking difficulties.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/blue-badge-arthritis-scotland",
-        "title": "How to Get a Blue Badge for Arthritis in Scotland"
-      },
-      {
-        "path": "/blog/blue-badge-frailty-arthritis-uk",
-        "title": "Blue Badge With Arthritis: Who Qualifies, How to Apply and the Rules in Each UK Nation"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
-      }
-    ]
-  },
-  "/blog/lwa-archive-calcium-and-bone-health": {
-    "title": "Calcium and Bone Health | Living With Arthritis",
-    "description": "Calcium and Bone Health: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Calcium and Bone Health",
-    "answer": "A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and supplements can interact with prescribed medicines. Discuss deficiencies, supplements or major dietary changes with a clinician or pharmacist.",
-    "breadcrumb": "Calcium and Bone Health | Living With Arthritis",
-    "about": "Diet & lifestyle",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-077.webp",
-    "article": {
-      "slug": "lwa-archive-calcium-and-bone-health",
-      "title": "Calcium and Bone Health",
-      "excerpt": "A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and supplements can interact…",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nA varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and supplements can interact with prescribed medicines. Discuss deficiencies, supplements or major dietary changes with a clinician or pharmacist.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Bone protection on steroids with arthritis: scans, vitamin D and falls (UK guide)](/blog/bone-protection-steroids-arthritis-frailty-uk)\n- [Vitamin D and falls with arthritis: what it can and cannot do (UK guide)](/blog/vitamin-d-and-falls-arthritis-uk)\n- [Anti-Inflammatory Recipes: Easy UK Meals for Joint Health](/blog/arthritis-friendly-recipes-uk)\n",
-      "date": "2026-10-14",
-      "category": "Diet & lifestyle",
-      "image_url": "/openverse/imported-article-077.webp",
-      "cover": "imported-article-077.webp",
-      "meta_title": "Calcium and Bone Health | Living With Arthritis",
-      "meta_description": "Calcium and Bone Health: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "77. calcium and bone health",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 923,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and supplements can interact with prescribed medicines. Discuss deficiencies, supplements or major dietary changes with a clinician or pharmacist.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/arthritis-and-mental-health-uk",
-        "title": "Arthritis and Mental Health: Signs, Self-Help and NHS Support in the UK"
-      },
-      {
-        "path": "/blog/arthritis-friendly-recipes-uk",
-        "title": "Anti-Inflammatory Recipes: Easy UK Meals for Joint Health"
-      },
-      {
-        "path": "/blog/bone-clinic-arthritis-frailty-uk",
-        "title": "Bone clinics, arthritis and frailty (UK)"
       }
     ]
   },
@@ -26487,57 +26228,6 @@
       {
         "path": "/blog/carers-allowance-help-if-you-care-for-someone",
         "title": "Carer's Allowance Explained: Help If You Care for Someone With Arthritis (UK)"
-      }
-    ]
-  },
-  "/blog/lwa-archive-falls-prevention-for-people-living-with-arthritis": {
-    "title": "Falls Prevention for People Living with Arthritis",
-    "description": "Falls Prevention for People Living with Arthritis: practical UK arthritis advice from Living With Arthritis. Pending clinical review.",
-    "question": "Falls Prevention for People Living with Arthritis",
-    "answer": "Falls prevention combines balance and strength training with assessment of vision, medicines, footwear and home hazards. Repeated falls or new unsteadiness deserve professional assessment.",
-    "breadcrumb": "Falls Prevention for People Living with Arthritis",
-    "about": "Exercise & movement",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-119.webp",
-    "article": {
-      "slug": "lwa-archive-falls-prevention-for-people-living-with-arthritis",
-      "title": "Falls Prevention for People Living with Arthritis",
-      "excerpt": "Falls prevention combines balance and strength training with assessment of vision, medicines, footwear and home hazards.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nFalls prevention combines balance and strength training with assessment of vision, medicines, footwear and home hazards. Repeated falls or new unsteadiness deserve professional assessment.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Balance Training for Arthritis: Safe Exercises to Stay Steady (UK Guide)](/blog/balance-training-arthritis)\n- [Ice and snow with arthritis: staying steady and what to do if you fall (UK guide)](/blog/ice-snow-arthritis-frailty-uk)\n- [Building Strength and Resilience: Exercise for Frailty Prevention](/blog/building-strength-resilience-exercise-frailty-prevention)\n",
-      "date": "2026-10-14",
-      "category": "Exercise & movement",
-      "image_url": "/openverse/imported-article-119.webp",
-      "cover": "imported-article-119.webp",
-      "meta_title": "Falls Prevention for People Living with Arthritis",
-      "meta_description": "Falls Prevention for People Living with Arthritis: practical UK arthritis advice from Living With Arthritis. Pending clinical review.",
-      "keywords": "119. falls prevention for people living with arthritis",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 881,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Falls prevention combines balance and strength training with assessment of vision, medicines, footwear and home hazards. Repeated falls or new unsteadiness deserve professional assessment.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
-      },
-      {
-        "path": "/blog/bone-protection-steroids-arthritis-frailty-uk",
-        "title": "Bone protection on steroids with arthritis: scans, vitamin D and falls (UK guide)"
-      },
-      {
-        "path": "/blog/falls-clinic-arthritis-what-to-expect-uk",
-        "title": "Falls clinic with arthritis: what to expect (UK)"
       }
     ]
   },
@@ -26902,57 +26592,6 @@
       }
     ]
   },
-  "/blog/lwa-archive-home-exercise-programme-for-arthritis": {
-    "title": "Home Exercise Programme for Arthritis | Living With Arthritis",
-    "description": "Home Exercise Programme for Arthritis: practical UK arthritis advice from Living With Arthritis. Pending clinical review.",
-    "question": "Home Exercise Programme for Arthritis",
-    "answer": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.",
-    "breadcrumb": "Home Exercise Programme for Arthritis",
-    "about": "Exercise & movement",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-057.webp",
-    "article": {
-      "slug": "lwa-archive-home-exercise-programme-for-arthritis",
-      "title": "Home Exercise Programme for Arthritis",
-      "excerpt": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nRegular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Best Exercises for Osteoarthritis Knee Pain at Home](/blog/best-exercises-osteoarthritis-knee-pain-home)\n- [Shoulder Arthritis Exercises: A Safe UK Home Programme](/blog/shoulder-arthritis-exercises-uk)\n- [Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise](/blog/aquatic-therapy-arthritis-guide)\n",
-      "date": "2026-10-14",
-      "category": "Exercise & movement",
-      "image_url": "/openverse/imported-article-057.webp",
-      "cover": "imported-article-057.webp",
-      "meta_title": "Home Exercise Programme for Arthritis",
-      "meta_description": "Home Exercise Programme for Arthritis: practical UK arthritis advice from Living With Arthritis. Pending clinical review.",
-      "keywords": "57. home exercise programme for arthritis",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 943,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/aquatic-therapy-arthritis-guide",
-        "title": "Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise"
-      },
-      {
-        "path": "/blog/shoulder-arthritis-exercises-uk",
-        "title": "Shoulder Arthritis Exercises: A Safe UK Home Programme"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
-      }
-    ]
-  },
   "/blog/lwa-archive-inflammation-and-arthritis": {
     "title": "Inflammation and Arthritis: What It Means and What Helps",
     "description": "What inflammation means in arthritis, how inflammatory arthritis and osteoarthritis differ, blood tests, treatments and lifestyle steps that help.",
@@ -27181,61 +26820,6 @@
       }
     ]
   },
-  "/blog/lwa-archive-joint-swelling": {
-    "title": "Joint Swelling | Living With Arthritis | Living With Arthritis",
-    "description": "Joint Swelling: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Joint Swelling",
-    "answer": "Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.",
-    "breadcrumb": "Joint Swelling | Living With Arthritis",
-    "about": "Conditions",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-032.webp",
-    "article": {
-      "slug": "lwa-archive-joint-swelling",
-      "title": "Joint Swelling",
-      "excerpt": "Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may…",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nSymptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Anti-Inflammatory Herbs and Spices for Arthritis: A Complete Guide](/blog/anti-inflammatory-herbs-spices-arthritis)\n- [An Anti-Inflammatory Shopping List for UK Supermarkets](/blog/anti-inflammatory-shopping-list-uk)\n- [Arthritis in Older Adults: What Changes and What Helps (UK Guide)](/blog/arthritis-in-older-adults)\n",
-      "date": "2026-10-14",
-      "category": "Conditions",
-      "image_url": "/openverse/imported-article-032.webp",
-      "cover": "imported-article-032.webp",
-      "meta_title": "Joint Swelling | Living With Arthritis",
-      "meta_description": "Joint Swelling: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "32. joint swelling",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 968,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/category/health",
-        "title": "Conditions guides"
-      },
-      {
-        "path": "/blog/lwa-archive-lupus-and-arthritis-understanding-joint-symptoms",
-        "title": "Lupus and Arthritis: Understanding Joint Symptoms"
-      },
-      {
-        "path": "/blog/osteoporosis-arthritis-frailty-bone-joint-uk",
-        "title": "Osteoporosis, arthritis and frailty: protecting bone and joint together (UK)"
-      },
-      {
-        "path": "/blog/palindromic-rheumatism-joint-attacks-come-and-go",
-        "title": "Palindromic Rheumatism: Joint Attacks That Come and Go"
-      }
-    ]
-  },
   "/blog/lwa-archive-knee-osteoarthritis": {
     "title": "Knee Osteoarthritis | Living With Arthritis | Living With Arthritis",
     "description": "Knee Osteoarthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
@@ -27288,57 +26872,6 @@
       {
         "path": "/blog/knee-oa-frailty-rising-from-low-sofa-uk",
         "title": "Knee osteoarthritis and frailty: rising from a low sofa (UK)"
-      }
-    ]
-  },
-  "/blog/lwa-archive-living-well-with-arthritis": {
-    "title": "Living Well with Arthritis | Living With Arthritis",
-    "description": "Living Well with Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Living Well with Arthritis",
-    "answer": "Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.",
-    "breadcrumb": "Living Well with Arthritis | Living With Arthritis",
-    "about": "Diet & lifestyle",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-009.webp",
-    "article": {
-      "slug": "lwa-archive-living-well-with-arthritis",
-      "title": "Living Well with Arthritis",
-      "excerpt": "Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nArthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Alcohol and Arthritis: What the UK Evidence Says](/blog/alcohol-arthritis-uk-guidance)\n- [Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)](/blog/anti-inflammatory-diet)\n- [Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits](/blog/anti-inflammatory-diet-rheumatoid-arthritis)\n",
-      "date": "2026-10-14",
-      "category": "Diet & lifestyle",
-      "image_url": "/openverse/imported-article-009.webp",
-      "cover": "imported-article-009.webp",
-      "meta_title": "Living Well with Arthritis | Living With Arthritis",
-      "meta_description": "Living Well with Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "9. living well with arthritis",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 991,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
-      },
-      {
-        "path": "/blog/lwa-archive-falls-prevention-for-people-living-with-arthritis",
-        "title": "Falls Prevention for People Living with Arthritis"
-      },
-      {
-        "path": "/blog/respite-care-arthritis-frailty-carers-uk",
-        "title": "Respite care for families living with arthritis and frailty (UK)"
       }
     ]
   },
@@ -27557,57 +27090,6 @@
       {
         "path": "/blog/arthritis-treatment-hub",
         "title": "Arthritis Treatment — Your Complete Guide to Managing Joint Pain"
-      }
-    ]
-  },
-  "/blog/lwa-archive-morning-stiffness": {
-    "title": "Morning Stiffness | Living With Arthritis | Living With Arthritis",
-    "description": "Morning Stiffness: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Morning Stiffness",
-    "answer": "Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.",
-    "breadcrumb": "Morning Stiffness | Living With Arthritis",
-    "about": "Pain & flares",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-033.webp",
-    "article": {
-      "slug": "lwa-archive-morning-stiffness",
-      "title": "Morning Stiffness",
-      "excerpt": "Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may…",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nSymptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Why Morning Knee Stiffness Lasts 30+ Minutes](/blog/morning-knee-stiffness-30-minutes)\n- [Morning Stiffness Fix: A 15-Minute Arthritis Routine (UK)](/blog/morning-routine-multi-joint-arthritis)\n- [Morning stiffness and frailty: a slower start that still starts (UK)](/blog/morning-stiffness-frailty-routine-uk)\n",
-      "date": "2026-10-14",
-      "category": "Pain & flares",
-      "image_url": "/openverse/imported-article-033.webp",
-      "cover": "imported-article-033.webp",
-      "meta_title": "Morning Stiffness | Living With Arthritis",
-      "meta_description": "Morning Stiffness: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "33. morning stiffness",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 967,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/morning-knee-stiffness-30-minutes",
-        "title": "Why Morning Knee Stiffness Lasts 30+ Minutes"
-      },
-      {
-        "path": "/blog/morning-routine-multi-joint-arthritis",
-        "title": "Morning Stiffness Fix: A 15-Minute Arthritis Routine (UK)"
-      },
-      {
-        "path": "/blog/morning-stiffness-frailty-routine-uk",
-        "title": "Morning stiffness and frailty: a slower start that still starts (UK)"
       }
     ]
   },
@@ -28404,57 +27886,6 @@
       }
     ]
   },
-  "/blog/lwa-archive-spine-exercises-for-arthritis": {
-    "title": "Spine Exercises for Arthritis | Living With Arthritis",
-    "description": "Spine Exercises for Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-    "question": "Spine Exercises for Arthritis",
-    "answer": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.",
-    "breadcrumb": "Spine Exercises for Arthritis | Living With Arthritis",
-    "about": "Exercise & movement",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-056.webp",
-    "article": {
-      "slug": "lwa-archive-spine-exercises-for-arthritis",
-      "title": "Spine Exercises for Arthritis",
-      "excerpt": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually.",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nRegular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Best Exercises for Back Arthritis: A Complete UK Physiotherapy Guide](/blog/back-arthritis-exercises-uk)\n- [Water-Based Exercise for Arthritis: A Complete UK Guide to Pool Exercise](/blog/aquatic-therapy-arthritis-guide)\n- [Clinically recommended Arthritis Exercises](/blog/arthritis-exercises-uk-clinical)\n",
-      "date": "2026-10-14",
-      "category": "Exercise & movement",
-      "image_url": "/openverse/imported-article-056.webp",
-      "cover": "imported-article-056.webp",
-      "meta_title": "Spine Exercises for Arthritis | Living With Arthritis",
-      "meta_description": "Spine Exercises for Arthritis: practical UK advice for people living with arthritis. Written for Living With Arthritis readers. Pending clinical review.",
-      "keywords": "56. spine exercises for arthritis",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 944,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/arthritis-exercises-uk-clinical",
-        "title": "Clinically recommended Arthritis Exercises"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
-      },
-      {
-        "path": "/blog/back-arthritis-exercises-uk",
-        "title": "Best Exercises for Back Arthritis: A Complete UK Physiotherapy Guide"
-      }
-    ]
-  },
   "/blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know": {
     "title": "Steroid Side Effects: What People With Arthritis Should Know",
     "description": "Steroid tablets and injections for arthritis: short- and long-term side effects, bone protection, steroid cards, never stopping suddenly, and when to get…",
@@ -28831,61 +28262,6 @@
       {
         "path": "/blog/lwa-archive-reactive-arthritis-causes-symptoms-and-recovery",
         "title": "Reactive Arthritis: Causes, Symptoms and Recovery"
-      }
-    ]
-  },
-  "/blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis": {
-    "title": "When Is Surgery Needed for Osteoarthritis? | Living With Arthritis",
-    "description": "When Is Surgery Needed for Osteoarthritis?: practical UK arthritis advice from Living With Arthritis. Pending clinical review.",
-    "question": "When Is Surgery Needed for Osteoarthritis?",
-    "answer": "Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.",
-    "breadcrumb": "When Is Surgery Needed for Osteoarthritis?",
-    "about": "Surgery & recovery",
-    "updatedAt": "2026-10-14",
-    "ogImage": "https://livingwitharthritis.org.uk/openverse/imported-article-030.webp",
-    "article": {
-      "slug": "lwa-archive-when-is-surgery-needed-for-osteoarthritis",
-      "title": "When Is Surgery Needed for Osteoarthritis?",
-      "excerpt": "Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness…",
-      "content": "**Living With Arthritis | Patient information (UK)**\n\n## Understanding the topic\n\nOsteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.\n\nThe impact on everyday life varies from person to person. Symptoms may change over time and can affect work, family responsibilities, exercise and sleep. Avoid assuming that a familiar symptom always has the same cause; a new or clearly different problem may need a fresh assessment.\n\n## Practical steps\n\nStart by noting what happens, when it happens and which activities are most affected. Record any swelling, stiffness, fatigue or change in walking or hand function. This information can help a GP, physiotherapist or specialist understand your priorities. Where suitable, keep moving with comfortable, progressive activity, pace demanding tasks and make simple changes to your environment. Treatments and exercises should be tailored to your health conditions rather than copied from someone else's plan.\n\n## When to get medical help\n\nArrange a GP review if symptoms persist, worsen or interfere with normal activities. Seek emergency assessment for a suddenly hot, very painful swollen joint; new bladder or bowel changes with back pain; or rapidly worsening weakness. Call 999 for life-threatening emergencies.\n\n**Further reading:** NHS (nhs.uk), NICE guidance (nice.org.uk), and your treating clinical team.\n\n*Disclaimer: General education only. It does not replace individual medical assessment, diagnosis or treatment.*\n\n## Related guides\n\n- [Knee Arthroscopy for Osteoarthritis: Helpful or Hype?](/blog/knee-arthroscopy-for-osteoarthritis-helpful-or-hype)\n- [Expert Q&A: How Do I Know If Surgery Is Right for Me?](/blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me)\n- [Expert Q&A: Is It Too Soon for Joint Replacement?](/blog/expert-qa-is-it-too-soon-for-joint-replacement)\n",
-      "date": "2026-10-14",
-      "category": "Surgery & recovery",
-      "image_url": "/openverse/imported-article-030.webp",
-      "cover": "imported-article-030.webp",
-      "meta_title": "When Is Surgery Needed for Osteoarthritis?",
-      "meta_description": "When Is Surgery Needed for Osteoarthritis?: practical UK arthritis advice from Living With Arthritis. Pending clinical review.",
-      "keywords": "30. when is surgery needed for osteoarthritis?",
-      "author": "Louis Maxwell",
-      "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
-      "is_published": true,
-      "display_order": 970,
-      "updated_at": "2026-10-14",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.",
-      "citations": []
-    },
-    "relatedLinks": [
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      },
-      {
-        "path": "/blog/category/treatment",
-        "title": "Surgery & recovery guides"
-      },
-      {
-        "path": "/blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me",
-        "title": "Expert Q&A: How Do I Know If Surgery Is Right for Me?"
-      },
-      {
-        "path": "/blog/joint-replacement-decision-frailty-uk",
-        "title": "Joint replacement decisions when frailty is already present (UK)"
-      },
-      {
-        "path": "/blog/joint-replacement-surgery",
-        "title": "Joint Replacement Surgery for Arthritis — A Complete UK Guide"
       }
     ]
   },
@@ -34678,8 +34054,8 @@
         "title": "Exercise During a Flare-Up: What to Do, What to Avoid and How to Restart"
       },
       {
-        "path": "/blog/lwa-archive-home-exercise-programme-for-arthritis",
-        "title": "Home Exercise Programme for Arthritis"
+        "path": "/blog/sit-to-stand-practice-frail-arthritis-uk",
+        "title": "Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)"
       }
     ]
   },

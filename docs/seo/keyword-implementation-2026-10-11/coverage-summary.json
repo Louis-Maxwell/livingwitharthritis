@@ -11,15 +11,15 @@
     "keywords_for_import.csv": 10000,
     "docs/seo/growth-2026-10-11/keyword-map.csv": 1480
   },
-  "authoredPagesAudited": 745,
+  "authoredPagesAudited": 733,
   "statusCounts": {
-    "phrase_present": 492,
+    "phrase_present": 490,
     "intent_review": 27680,
-    "content_gap": 76431
+    "content_gap": 76433
   },
   "invalidDeclaredTargetKeywords": 10163,
-  "searchAliases": 438,
-  "linkedBlogPages": 552,
+  "searchAliases": 436,
+  "linkedBlogPages": 548,
   "notes": [
     "Stored/generated candidates are not measured organic rankings.",
     "Literal presence and token co-occurrence do not prove intent satisfaction.",
