@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 243 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 253 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 35 posts still use the branded placeholder card and are queued for AI covers.
+- 25 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -617,19 +617,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | splints-night-hand-oa-frailty-uk | AI-generated: `ai-splints-night-hand-oa-frailty-uk.webp` |
 | stair-assessments-arthritis-frailty-uk | AI-generated: `ai-stair-assessments-arthritis-frailty-uk.webp` |
 | stairlifts-arthritis-frailty-uk-home | AI-generated: `ai-stairlifts-arthritis-frailty-uk-home.webp` |
+| static-bike-frail-osteoarthritis-uk | AI-generated: `ai-static-bike-frail-osteoarthritis-uk.webp` |
+| staying-active-arthritis-winter-uk | AI-generated: `ai-staying-active-arthritis-winter-uk.webp` |
+| steroid-emergency-card-frail-arthritis-uk | AI-generated: `ai-steroid-emergency-card-frail-arthritis-uk.webp` |
+| steroid-injections-vs-oral-steroids-when-each-makes-sense | AI-generated: `ai-steroid-injections-vs-oral-steroids-when-each-makes-sense.webp` |
+| stopping-arthritis-medication-safely-a-step-by-step-guide | AI-generated: `ai-stopping-arthritis-medication-safely-a-step-by-step-guide.webp` |
+| straight-leg-raises-knee-osteoarthritis | AI-generated: `ai-straight-leg-raises-knee-osteoarthritis.webp` |
+| strength-training-on-biologics-is-it-safe | AI-generated: `ai-strength-training-on-biologics-is-it-safe.webp` |
+| support-friend-diagnosed-lupus | AI-generated: `ai-support-friend-diagnosed-lupus.webp` |
+| supporting-a-partner-with-arthritis-a-practical-handbook | AI-generated: `ai-supporting-a-partner-with-arthritis-a-practical-handbook.webp` |
+| swelling-legs-arthritis-frailty-uk | AI-generated: `ai-swelling-legs-arthritis-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- static-bike-frail-osteoarthritis-uk
-- staying-active-arthritis-winter-uk
-- steroid-emergency-card-frail-arthritis-uk
-- steroid-injections-vs-oral-steroids-when-each-makes-sense
-- stopping-arthritis-medication-safely-a-step-by-step-guide
-- straight-leg-raises-knee-osteoarthritis
-- strength-training-on-biologics-is-it-safe
-- support-friend-diagnosed-lupus
-- supporting-a-partner-with-arthritis-a-practical-handbook
-- swelling-legs-arthritis-frailty-uk
 - tai-chi-balance-arthritis-frailty-uk
 - tai-chi-for-arthritis-uk
 - talk-employer-rheumatoid-arthritis-work
