@@ -1435,3 +1435,17 @@
 /blog/lwa-archive-reasonable-adjustments-for-arthritis /blog/reasonable-adjustments-that-actually-help 301
 /blog/lwa-archive-muscle-weakness-and-arthritis /blog/sarcopenia-muscle-loss-how-to-combat 301
 /blog/lwa-archive-ginger-for-arthritis /blog/ginger-root-natural-anti-inflammatory 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/lwa-archive-falls-prevention-for-people-living-with-arthritis /blog/preventing-falls-guide-frail-adults 301
+/blog/lwa-archive-blue-badge-scheme-and-arthritis /blog/blue-badge-frailty-arthritis-uk 301
+/blog/lwa-archive-calcium-and-bone-health /blog/calcium-foods-arthritis-frailty-uk 301
+/blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis /blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me 301
+/blog/lwa-archive-best-exercises-for-arthritis /blog/how-to-choose-the-right-exercise-for-arthritis 301
+/blog/lwa-archive-morning-stiffness /blog/morning-routine-multi-joint-arthritis 301
+/blog/lwa-archive-spine-exercises-for-arthritis /blog/back-arthritis-exercises-uk 301
+/blog/lwa-archive-home-exercise-programme-for-arthritis /blog/arthritis-exercises-uk-clinical 301
+/blog/lwa-archive-arthritis-statistics-in-the-uk /blog/lwa-archive-what-is-arthritis 301
+/blog/lwa-archive-living-well-with-arthritis /blog/lwa-archive-daily-living-tips-for-arthritis 301
+/blog/lwa-archive-joint-swelling /blog/lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help 301
+/blog/lwa-archive-arthritis-treatment-options /blog/arthritis-treatment-hub 301
