@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 123 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 133 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 155 posts still use the branded placeholder card and are queued for AI covers.
+- 145 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -497,19 +497,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | hip-pain-climbing-stairs-causes-relief | AI-generated: `ai-hip-pain-climbing-stairs-causes-relief.webp` |
 | hip-replacement-arthritis-uk | AI-generated: `ai-hip-replacement-arthritis-uk.webp` |
 | hobbies-arthritis-friendly-uk | AI-generated: `ai-hobbies-arthritis-friendly-uk.webp` |
+| hoist-conversations-family-carers-uk | AI-generated: `ai-hoist-conversations-family-carers-uk.webp` |
+| holiday-at-home-arthritis-frailty-uk | AI-generated: `ai-holiday-at-home-arthritis-frailty-uk.webp` |
+| hospital-appointments-frailty-arthritis-uk | AI-generated: `ai-hospital-appointments-frailty-arthritis-uk.webp` |
+| hospital-deconditioning-arthritis-stay-uk | AI-generated: `ai-hospital-deconditioning-arthritis-stay-uk.webp` |
+| hospital-parking-walking-frail-arthritis-uk | AI-generated: `ai-hospital-parking-walking-frail-arthritis-uk.webp` |
+| hospital-stay-arthritis-frailty-what-to-pack-uk | AI-generated: `ai-hospital-stay-arthritis-frailty-what-to-pack-uk.webp` |
+| hotel-rooms-accessibility-arthritis | AI-generated: `ai-hotel-rooms-accessibility-arthritis.webp` |
+| inflammatory-arthritis-frailty-flare-week-uk | AI-generated: `ai-inflammatory-arthritis-frailty-flare-week-uk.webp` |
+| inflammatory-arthritis-guide | AI-generated: `ai-inflammatory-arthritis-guide.webp` |
+| intermediate-care-arthritis-frailty-uk | AI-generated: `ai-intermediate-care-arthritis-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- hoist-conversations-family-carers-uk
-- holiday-at-home-arthritis-frailty-uk
-- hospital-appointments-frailty-arthritis-uk
-- hospital-deconditioning-arthritis-stay-uk
-- hospital-parking-walking-frail-arthritis-uk
-- hospital-stay-arthritis-frailty-what-to-pack-uk
-- hotel-rooms-accessibility-arthritis
-- inflammatory-arthritis-frailty-flare-week-uk
-- inflammatory-arthritis-guide
-- intermediate-care-arthritis-frailty-uk
 - jak-inhibitors-the-next-wave-of-ra-treatment
 - joint-fusion-vs-replacement-how-surgeons-choose
 - joint-replacement-decision-frailty-uk

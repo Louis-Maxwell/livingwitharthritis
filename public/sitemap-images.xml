@@ -105,6 +105,9 @@
   <url><loc>https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-later-life-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0322-close-elderly-person-hand-holding.webp</image:loc>
     </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-frailty-flare-week-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-inflammatory-arthritis-frailty-flare-week-uk.webp</image:loc>
+    </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/osteoporosis-arthritis-frailty-bone-joint-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0429-granite-reef-senior-center.webp</image:loc>
     </image:image></url>
@@ -131,6 +134,9 @@
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/deconditioning-after-arthritis-flare-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-deconditioning-after-arthritis-flare-uk.webp</image:loc>
+    </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/hospital-deconditioning-arthritis-stay-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-hospital-deconditioning-arthritis-stay-uk.webp</image:loc>
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/multimorbidity-arthritis-frailty-whole-picture-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0453-elderly-people-napping.webp</image:loc>
@@ -264,6 +270,9 @@
   <url><loc>https://livingwitharthritis.org.uk/blog/confidence-after-fall-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-confidence-after-fall-arthritis-frailty-uk.webp</image:loc>
     </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/hospital-stay-arthritis-frailty-what-to-pack-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-hospital-stay-arthritis-frailty-what-to-pack-uk.webp</image:loc>
+    </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/discharge-planning-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-discharge-planning-arthritis-frailty-uk.webp</image:loc>
     </image:image></url>
@@ -297,6 +306,9 @@
   <url><loc>https://livingwitharthritis.org.uk/blog/community-matron-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0342-walk-into-the-sunshine.webp</image:loc>
     </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/intermediate-care-arthritis-frailty-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-intermediate-care-arthritis-frailty-uk.webp</image:loc>
+    </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/day-centres-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0201-walking.webp</image:loc>
     </image:image></url>
@@ -311,6 +323,9 @@
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/community-transport-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-community-transport-arthritis-frailty-uk.webp</image:loc>
+    </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-hospital-appointments-frailty-arthritis-uk.webp</image:loc>
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/flu-jab-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-flu-jab-arthritis-frailty-uk.webp</image:loc>
@@ -480,8 +495,17 @@
   <url><loc>https://livingwitharthritis.org.uk/blog/weekend-plan-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-02-tai-chi-young-and-old.webp</image:loc>
     </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/holiday-at-home-arthritis-frailty-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-holiday-at-home-arthritis-frailty-uk.webp</image:loc>
+    </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/short-breaks-accessible-arthritis-frailty-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0314-dorchester-senior-center.webp</image:loc>
+    </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/hospital-parking-walking-frail-arthritis-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-hospital-parking-walking-frail-arthritis-uk.webp</image:loc>
+    </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/hoist-conversations-family-carers-uk</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-hoist-conversations-family-carers-uk.webp</image:loc>
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/footwear-indoor-slippers-frailty-arthritis-uk</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-footwear-indoor-slippers-frailty-arthritis-uk.webp</image:loc>
@@ -1113,6 +1137,9 @@
   <url><loc>https://livingwitharthritis.org.uk/blog/arthritis-in-young-adults</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-arthritis-in-young-adults.webp</image:loc>
     </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-guide</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-inflammatory-arthritis-guide.webp</image:loc>
+    </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/anti-inflammatory-diet-rheumatoid-arthritis</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.webp</image:loc>
     </image:image></url>
@@ -1280,6 +1307,9 @@
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/flying-with-arthritis-uk-airports</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-flying-with-arthritis-uk-airports.webp</image:loc>
+    </image:image></url>
+  <url><loc>https://livingwitharthritis.org.uk/blog/hotel-rooms-accessibility-arthritis</loc><image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/ai-hotel-rooms-accessibility-arthritis.webp</image:loc>
     </image:image></url>
   <url><loc>https://livingwitharthritis.org.uk/blog/alcohol-arthritis-uk-guidance</loc><image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/ai-alcohol-arthritis-uk-guidance.webp</image:loc>
