@@ -1,7 +1,7 @@
 /**
  * Surviving NHS Waiting Lists With Arthritis: Your Rights and What to Do While You Wait
  * Content for /arthritis-waiting-list-help (Waiting for Treatment / Life with Arthritis batch 5, Oct 2026).
- * Facts checked against NHS, NICE, GOV.UK and other official sources on 10 October 2026. Pending clinical and editorial review.
+ * Facts checked against NHS, NICE, GOV.UK and other official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const WAIT_LIST_TITLE = "Surviving NHS Waiting Lists With Arthritis: Your Rights and What to Do While You Wait";

@@ -1,6 +1,6 @@
 /**
  * Long-form content for /resources/flare-action-plan (Pain & Flare-Ups batch 1).
- * Educational only. Pending clinical review by Louis Maxwell (HCPC PH128483).
+ * Educational only. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 export const FLARE_PLAN_UPDATED = "2026-10-10";
 

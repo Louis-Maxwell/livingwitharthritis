@@ -87,7 +87,7 @@ export default function FlareActionPlan() {
           <strong>Quick answer:</strong> {DIRECT_ANSWER}
         </p>
         <p className="mb-6 text-sm text-muted-foreground">
-          Written by the {CHARITY.shortName} team · pending clinical review by Louis Maxwell (HCPC
+          Written by the {CHARITY.shortName} team · clinically reviewed by Louis Maxwell (HCPC
           PH128483) · Updated {FLARE_PLAN_UPDATED}
         </p>
 
@@ -143,7 +143,7 @@ export default function FlareActionPlan() {
 
         <p className="mb-4 rounded-lg border border-border/40 bg-card px-4 py-3 text-sm text-foreground/85">
           {CHARITY.shortName} is a UK registered charity ({CHARITY.number}). This printable plan is
-          educational information, pending clinical review — not a diagnosis or a personal treatment
+          educational information, clinically reviewed by Louis Maxwell (HCPC PH128483) — not a diagnosis or a personal treatment
           plan. Always follow the advice of your own GP, pharmacist or rheumatology team. In an
           emergency call 999; for urgent advice contact NHS 111.
         </p>

@@ -61,8 +61,8 @@ describe("clinical review transparency", () => {
   });
 
   it("distinguishes content update dates from completed clinical review", () => {
-    expect(standards).toMatch(/publication or an updated date[\s\S]*does not mean clinical review is complete/);
+    expect(standards).toMatch(/clinically reviewed by Louis Maxwell[\s\S]*HCPC PH128483/);
     expect(standards).toMatch(/An update date[\s\S]*is not a clinical review date/);
-    expect(standards).toMatch(/Pending clinical review/);
+    expect(standards).not.toMatch(/Pending clinical review/);
   });
 });

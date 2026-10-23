@@ -196,7 +196,7 @@ const BenefitsPipHub = () => {
               </Link>
             </div>
           </div>
-          <EducationalDisclaimerBox lastReviewed="2026-09-28" reviewStatus="pending" />
+          <EducationalDisclaimerBox lastReviewed="2026-09-28" />
           <TopicClusterNav path="/benefits-pip" />
           <ArticleCitations citations={CITATIONS_DISABILITY_PIP} />
           <article

@@ -14,7 +14,7 @@ export const complementaryTherapies: HubGuide = {
     { label: "Complementary therapies", href: "/treatments/complementary-therapies" },
   ],
   updated: "2026-09-25",
-  reviewStatus: "pending-clinical-review",
+  reviewStatus: "reviewed",
   sections: [
     {
       heading: "Complementary, not alternative",

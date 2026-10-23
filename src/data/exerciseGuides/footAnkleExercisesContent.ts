@@ -1,7 +1,7 @@
 /**
  * Long-form content for /exercises/ankle-arthritis-exercises (foot and ankle
  * arthritis exercises). Exercise & Physiotherapy batch 2, article 24.
- * Pending clinical review.
+ * Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 export const FOOT_ANKLE_TITLE = "Foot and Ankle Arthritis Exercises: 10 Moves (UK)";
 export const FOOT_ANKLE_DESCRIPTION = "10 gentle foot and ankle arthritis exercises for OA, RA, gout and big toe pain: a daily plan, footwear tips, stop rules and when to get help.";

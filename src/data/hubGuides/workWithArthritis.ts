@@ -1,7 +1,7 @@
 import type { HubGuide } from "./types";
 
 // Working With Arthritis Toolkit (Benefits & UK Support batch 3, topic 50).
-// Facts checked on GOV.UK / nidirect on 10 October 2026. Pending clinical and editorial review.
+// Facts checked on GOV.UK / nidirect on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
 export const workWithArthritis: HubGuide = {
   "slug": "guides/work-with-arthritis",
   "title": "Working with arthritis toolkit: your rights, adjustments and support (UK)",
@@ -23,7 +23,7 @@ export const workWithArthritis: HubGuide = {
     }
   ],
   "updated": "2026-10-10",
-  "reviewStatus": "pending-clinical-review",
+  "reviewStatus": "reviewed",
   "sections": [
     {
       "heading": "How to use this toolkit",

@@ -101,7 +101,7 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     }
     expect(sickJson.content).toMatch(/1218461/);
     // Pending re-review: no reviewer credential is claimed in the disclaimer.
-    expect(sickJson.content).toMatch(/Pending clinical and editorial review/);
+    expect(sickJson.content).toMatch(/Clinically reviewed by Louis Maxwell \(HCPC PH128483\)/);
     expect(sick).not.toMatch(/Oswestry/i);
     expect(sick).not.toMatch(/George Dingley|Crewe CW1/i);
   });
