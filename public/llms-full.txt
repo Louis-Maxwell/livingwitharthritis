@@ -5386,21 +5386,32 @@ A: Lower back stiffness after sitting can stem from various factors, including t
 
 ## Acupuncture for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-acupuncture-for-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Acupuncture for Arthritis
-A: Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function, monitor their effects and review persistent symptoms with a healthcare professional.
+A: Acupuncture is not recommended by NICE as a treatment for osteoarthritis, and it is not usually offered on the NHS for arthritis. Some people say it eases pain for a short time, and NICE does allow a single course of acupuncture to be considered for chronic primary pain. But exercise, weight management and good pain-relief planning remain the treatments with the strongest backing.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG193: Chronic pain in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: NICE NG59: Low back pain and sciatica in over 16s — https://www.nice.org.uk/guidance/ng59
+Reference: NHS: Herbal medicines and complementary therapies — https://www.nhs.uk/tests-and-treatments/herbal-medicines-and-complementary-therapies/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Ankylosing Spondylitis: Symptoms and Management
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-ankylosing-spondylitis-symptoms-and-management
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Ankylosing Spondylitis: Symptoms and Management
-A: Axial spondyloarthritis may cause back pain and stiffness that improve with movement, often beginning before age 45. Exercise and rheumatology treatment can help; a painful red eye with light sensitivity needs urgent review.
+A: Ankylosing spondylitis (AS), now often called axial spondyloarthritis, is a long-term inflammatory condition that mainly affects the spine and the joints where the spine meets the pelvis. The classic sign is back pain and stiffness that started before 45, has lasted more than three months, is worse at rest and in the morning, and improves with movement. Daily exercise and medicines can control it well.
+Reference: NHS: Ankylosing spondylitis — https://www.nhs.uk/conditions/ankylosing-spondylitis/
+Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65
+Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Arthritis Myths vs Facts
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-myths-vs-facts
@@ -5420,12 +5431,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Best Exercise for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercise-for-rheumatoid-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Best Exercise for Rheumatoid Arthritis
-A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
+A: The best exercise for rheumatoid arthritis is a mix: regular low-impact aerobic activity such as walking, swimming or cycling, strengthening exercises two or more days a week, and daily gentle stretches for stiff joints. Exercise does not make RA worse. It reduces pain, stiffness and fatigue and protects your heart. During a flare, scale it back rather than stopping completely.
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: UK Chief Medical Officers' physical activity guidelines — https://www.gov.uk/government/publications/physical-activity-guidelines-uk-chief-medical-officers-report
+Reference: NHS: Exercise — https://www.nhs.uk/live-well/exercise/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Can Arthritis Be Prevented?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-can-arthritis-be-prevented
@@ -5461,12 +5478,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Daily Living Tips for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-daily-living-tips-for-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Daily Living Tips for Arthritis
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: The biggest wins for daily life with arthritis come from three habits. Spread demanding tasks across the day and week, use your largest and strongest joints rather than small ones, and use simple aids that take the strain. An NHS or council occupational therapist can assess you for free and suggest equipment and changes that suit your home.
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Disability Living Allowance and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-disability-living-allowance-and-arthritis
@@ -5486,30 +5509,49 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment
-A: Fibromyalgia involves widespread persistent pain, fatigue, sleep disturbance and changes in pain processing. There is no single diagnostic blood test. Gradually paced activity, sleep support and appropriate psychological or medical treatment can help.
+A: Fibromyalgia is a long-term condition that causes pain all over the body, along with extreme tiredness, poor sleep and problems with memory and concentration, often called "fibro fog". It does not damage joints, and it is not arthritis, though the two can occur together. There is no cure, but exercise, pacing, psychological support and some medicines can help people live well.
+Reference: NHS: Fibromyalgia — https://www.nhs.uk/conditions/fibromyalgia/
+Reference: NHS: Fibromyalgia treatment — https://www.nhs.uk/conditions/fibromyalgia/treatment/
+Reference: NICE NG193: Chronic pain in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: GOV.UK: Personal Independence Payment — https://www.gov.uk/pip
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Fractures and Arthritis: Understanding Bone Injury Risks
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fractures-and-arthritis-understanding-bone-injury-risks
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Fractures and Arthritis: Understanding Bone Injury Risks
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Arthritis itself does not make bones break, but several things that come with it can raise your fracture risk. These include falls from pain, stiffness or weak muscles, long-term steroid tablets, inflammatory conditions such as rheumatoid arthritis, and being less active. The good news is that much of that risk can be reduced, and your GP can assess it.
+Reference: NICE CG146: Osteoporosis — assessing the risk of fragility fracture — https://www.nice.org.uk/guidance/cg146
+Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Broken hip — https://www.nhs.uk/conditions/broken-hip/
+Reference: NHS: Broken arm or wrist — https://www.nhs.uk/conditions/broken-arm-or-wrist/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Frailty and Arthritis: Maintaining Strength, Mobility and Independence
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-frailty-and-arthritis-maintaining-strength-mobility-and-independence
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Frailty and Arthritis: Maintaining Strength, Mobility and Independence
-A: Frailty means reduced resilience to illness and stressors; it is not an inevitable part of ageing. Progressive strength and balance activity, adequate nutrition and medication review may help maintain independence.
+A: Frailty is not a normal or inevitable part of ageing. It means your body has less reserve, so a small illness, fall or change in medicines can knock you back more than expected. Arthritis can push people towards frailty by making it harder to stay active. Regular strength and balance exercise, good nutrition, a medicines review and the right support at home can slow or even reverse it.
+Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: UK Chief Medical Officers' physical activity guidelines — https://www.gov.uk/government/publications/physical-activity-guidelines-uk-chief-medical-officers-report
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Gout: Causes, Symptoms and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-gout-causes-symptoms-and-treatment
@@ -5543,12 +5585,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Inflammation and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-inflammation-and-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Inflammation and Arthritis
-A: Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.
+A: Inflammation is the body's natural response to injury or infection, causing heat, redness, swelling and pain. In inflammatory arthritis, such as rheumatoid or psoriatic arthritis, the immune system wrongly triggers this response in the joints and it keeps going, which can damage them. Osteoarthritis involves much less inflammation. Inflammatory arthritis needs specialist treatment with medicines that calm the immune system.
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Is Arthritis Hereditary?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-is-arthritis-hereditary
@@ -5568,12 +5616,19 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Joint Pain and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-joint-pain-and-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Joint Pain and Arthritis
-A: Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function, monitor their effects and review persistent symptoms with a healthcare professional.
+A: Joint pain is not always arthritis. Short-lived pain after overuse or a minor injury usually settles in a few weeks with rest, gentle movement and simple painkillers. Pain that lasts longer, comes with swelling or long morning stiffness, or affects several joints may be arthritis and is worth discussing with your GP. A single hot, red, swollen joint with fever needs urgent help.
+Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Knee Osteoarthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-knee-osteoarthritis
@@ -5593,12 +5648,17 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Long-Term Outlook for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-long-term-outlook-for-rheumatoid-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Long-Term Outlook for Rheumatoid Arthritis
-A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
+A: The outlook for rheumatoid arthritis is much better than it was a generation ago. With early diagnosis and modern treatment, many people reach remission or low disease activity, keep working and live full lives. RA is a long-term condition that usually needs ongoing treatment, and it does raise the risk of heart disease and some other problems, but most of these risks can be reduced.
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Lupus and Arthritis: Understanding Joint Symptoms
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-lupus-and-arthritis-understanding-joint-symptoms
@@ -5616,12 +5676,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Massage for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-massage-for-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Massage for Arthritis
-A: Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function, monitor their effects and review persistent symptoms with a healthcare professional.
+A: Massage can help some people with arthritis feel less stiff and more relaxed for a short time, but it does not treat the arthritis itself. NICE says manual therapy such as massage should only be used alongside exercise for osteoarthritis, not on its own. Gentle massage is usually safe, but avoid pressing on a joint that is hot, red and swollen.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Herbal medicines and complementary therapies — https://www.nhs.uk/tests-and-treatments/herbal-medicines-and-complementary-therapies/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Neck Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-neck-arthritis
@@ -5640,12 +5706,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## New Treatments for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-new-treatments-for-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: New Treatments for Arthritis
-A: Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely benefits, practical demands and possible harms; specialist treatment may be necessary for inflammatory disease.
+A: The biggest advances have been in inflammatory arthritis, such as rheumatoid, psoriatic and axial spondyloarthritis. Biologic medicines, cheaper biosimilar versions and JAK inhibitor tablets now give many people good control. For osteoarthritis there is still no medicine that reverses joint damage, so exercise and weight management remain the main treatments. Research is active, and you can volunteer for UK trials.
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65
+Reference: NIHR: Be Part of Research — https://bepartofresearch.nihr.ac.uk/
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Osteoporosis vs Arthritis: What's the Difference?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-osteoporosis-vs-arthritis-what-s-the-difference
@@ -5664,48 +5736,77 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Pilates for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-pilates-for-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Pilates for Arthritis
-A: Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.
+A: Pilates can be a good choice for many people with arthritis. It builds core and muscle strength, improves posture, flexibility and balance, and is low impact. It counts as the kind of therapeutic exercise NICE recommends for osteoarthritis and low back pain. Choose a beginners' or clinical class, tell the instructor about your joints, and adapt moves that cause pain.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG59: Low back pain and sciatica in over 16s — https://www.nice.org.uk/guidance/ng59
+Reference: NHS: Exercise — https://www.nhs.uk/live-well/exercise/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: UK Chief Medical Officers' physical activity guidelines — https://www.gov.uk/government/publications/physical-activity-guidelines-uk-chief-medical-officers-report
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Polymyalgia Rheumatica: Symptoms and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-polymyalgia-rheumatica-symptoms-and-treatment
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Polymyalgia Rheumatica: Symptoms and Treatment
-A: Polymyalgia rheumatica mainly affects people over 50 and causes marked shoulder and hip stiffness. Treatment often involves corticosteroids. New headache, jaw pain when chewing or visual changes can indicate giant cell arteritis and need urgent assessment.
+A: Polymyalgia rheumatica (PMR) is an inflammatory condition that causes pain and stiffness in the shoulders, neck and hips, usually in people over 50. Stiffness is worst in the morning and can make it hard to get out of bed or lift your arms. It is treated with steroid tablets, which usually work quickly. Treatment often lasts one to two years before it can be stopped.
+Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
+Reference: NHS: Temporal arteritis (giant cell arteritis) — https://www.nhs.uk/conditions/temporal-arteritis/
+Reference: NHS: Steroids — https://www.nhs.uk/medicines/steroids/
+Reference: NHS: Prednisolone — https://www.nhs.uk/medicines/prednisolone/
+Reference: NICE CG146: Osteoporosis — assessing the risk of fragility fracture — https://www.nice.org.uk/guidance/cg146
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Psoriatic Arthritis: Early Signs and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-psoriatic-arthritis-early-signs-and-treatment
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Psoriatic Arthritis: Early Signs and Treatment
-A: Psoriatic arthritis may affect joints, tendon attachments and the spine. Look for swollen fingers or toes, morning stiffness, nail pitting and psoriasis. Early assessment matters because untreated inflammation can damage joints.
+A: Psoriatic arthritis causes painful, swollen joints in some people who have psoriasis. Early signs include a whole finger or toe swelling up like a sausage, heel or foot pain, stiffness in the morning, and pitted or lifting nails. It can start before skin psoriasis appears. If you notice these, see your GP, because early treatment can prevent joint damage.
+Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
+Reference: NHS: Psoriasis — https://www.nhs.uk/conditions/psoriasis/
+Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Reactive Arthritis: Causes, Symptoms and Recovery
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-reactive-arthritis-causes-symptoms-and-recovery
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Reactive Arthritis: Causes, Symptoms and Recovery
-A: Reactive arthritis may occur after gastrointestinal or sexually transmitted infection. Knees, ankles and feet are commonly affected. Treatment addresses inflammation and any active infection; persistent swelling needs assessment.
+A: Reactive arthritis is joint inflammation that develops after an infection elsewhere in the body, usually a sexually transmitted infection such as chlamydia or a bowel infection such as food poisoning. It often affects the knees, ankles or feet, and can also cause sore eyes and pain when weeing. Most people recover fully within a few months to a year.
+Reference: NHS: Reactive arthritis — https://www.nhs.uk/conditions/reactive-arthritis/
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65
+Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Reduced Mobility
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-reduced-mobility
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Reduced Mobility
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Reduced mobility with arthritis is common, but it is often improvable. Pain, stiffness, weak muscles and fear of falling all play a part, and each can be worked on. A physiotherapist can build an exercise plan. The right walking aid and home changes can make getting around safer. If your mobility drops suddenly, see your GP, as this may need checking.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: GOV.UK: Personal Independence Payment — https://www.gov.uk/pip
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Rheumatoid Arthritis Diagnosis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-diagnosis
@@ -5722,12 +5823,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Rheumatoid Arthritis Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-treatment
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Rheumatoid Arthritis Treatment
-A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
+A: Rheumatoid arthritis (RA) is treated with disease-modifying medicines called DMARDs, which calm the immune system and help prevent joint damage. Treatment should start as early as possible, ideally soon after diagnosis by a rheumatologist. The aim is remission or very low disease activity, and many people now reach it. Physiotherapy, occupational therapy and self-care support the medicines.
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Shoulder Osteoarthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-shoulder-osteoarthritis
@@ -5746,12 +5853,18 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Steroid Side Effects: What People with Arthritis Should Know
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Steroid Side Effects: What People with Arthritis Should Know
-A: Corticosteroids reduce inflammation but can cause sleep changes, raised glucose, infection risk and, with prolonged use, bone loss. Do not stop long-term oral steroids abruptly without medical advice.
+A: Steroids such as prednisolone work quickly to calm inflammation, but they can cause side effects. Short courses usually cause mild, temporary effects such as raised appetite, poor sleep or mood changes. Long-term use can thin bones, raise blood sugar and blood pressure, and increase infection risk. Never stop steroid tablets suddenly after more than a few weeks; your doctor will reduce them gradually.
+Reference: NHS: Steroids — https://www.nhs.uk/medicines/steroids/
+Reference: NHS: Prednisolone — https://www.nhs.uk/medicines/prednisolone/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NICE CG146: Osteoporosis — assessing the risk of fragility fracture — https://www.nice.org.uk/guidance/cg146
+Reference: MHRA: Yellow Card scheme — https://yellowcard.mhra.gov.uk/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Sudden Joint Swelling: Causes and When to Seek Help
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help
@@ -5818,12 +5931,17 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## What Is Rheumatoid Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-is-rheumatoid-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: What Is Rheumatoid Arthritis?
-A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
+A: Rheumatoid arthritis (RA) is a long-term autoimmune condition where the immune system attacks the lining of the joints, causing pain, swelling and stiffness. It often affects the small joints of the hands and feet on both sides of the body. It can affect people of any adult age. Early treatment with disease-modifying medicines can control it and prevent joint damage.
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## When Should You See a GP About Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-should-you-see-a-gp-about-arthritis
