@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 104 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 113 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 174 posts still use the branded placeholder card and are queued for AI covers.
+- 165 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -478,18 +478,18 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | fried-frailty-phenotype-painful-joints-uk | AI-generated: `ai-fried-frailty-phenotype-painful-joints-uk.webp` |
 | gabapentinoids-unsteadiness-arthritis-frailty-uk | AI-generated: `ai-gabapentinoids-unsteadiness-arthritis-frailty-uk.webp` |
 | gene-therapy-and-arthritis-where-are-we-in-2026 | AI-generated: `ai-gene-therapy-and-arthritis-where-are-we-in-2026.webp` |
+| generalised-oa-frailty-whole-body-day-uk | AI-generated: `ai-generalised-oa-frailty-whole-body-day-uk.webp` |
+| geriatric-clinic-plus-arthritis-uk | AI-generated: `ai-geriatric-clinic-plus-arthritis-uk.webp` |
+| glucosamine-vs-collagen | AI-generated: `ai-glucosamine-vs-collagen.webp` |
+| glute-bridges-hip-osteoarthritis-guide | AI-generated: `ai-glute-bridges-hip-osteoarthritis-guide.webp` |
+| gout-medication-uk | AI-generated: `ai-gout-medication-uk.webp` |
+| gp-home-visit-arthritis-frailty-uk | AI-generated: `ai-gp-home-visit-arthritis-frailty-uk.webp` |
+| grab-rails-arthritis-frailty-home-uk | AI-generated: `ai-grab-rails-arthritis-frailty-home-uk.webp` |
+| grip-strength-exercises-hand-oa | AI-generated: `ai-grip-strength-exercises-hand-oa.webp` |
+| gut-joint-connection-microbiome-arthritis | AI-generated: `ai-gut-joint-connection-microbiome-arthritis.webp` |
 
 Posts still on the placeholder:
 
-- generalised-oa-frailty-whole-body-day-uk
-- geriatric-clinic-plus-arthritis-uk
-- glucosamine-vs-collagen
-- glute-bridges-hip-osteoarthritis-guide
-- gout-medication-uk
-- gp-home-visit-arthritis-frailty-uk
-- grab-rails-arthritis-frailty-home-uk
-- grip-strength-exercises-hand-oa
-- gut-joint-connection-microbiome-arthritis
 - hand-exercises-for-arthritis
 - hand-osteoarthritis-frailty-dressing-cooking-uk
 - heat-packs-frail-arthritis-uk
