@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 263 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 271 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 15 posts still use the branded placeholder card and are queued for AI covers.
+- 7 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -637,17 +637,17 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | thumb-base-pain-early-hand-arthritis | AI-generated: `ai-thumb-base-pain-early-hand-arthritis.webp` |
 | toilet-frame-arthritis-frailty-uk | AI-generated: `ai-toilet-frame-arthritis-frailty-uk.webp` |
 | topical-nsaids-often-overlooked-often-effective | AI-generated: `ai-topical-nsaids-often-overlooked-often-effective.webp` |
+| total-knee-replacement-a-uk-patients-guide-for-2026 | AI-generated: `ai-total-knee-replacement-a-uk-patients-guide-for-2026.webp` |
+| transfer-board-arthritis-frailty-uk | AI-generated: `ai-transfer-board-arthritis-frailty-uk.webp` |
+| universal-credit-and-arthritis-limited-capability-for-work | AI-generated: `ai-universal-credit-and-arthritis-limited-capability-for-work.webp` |
+| university-with-arthritis-disability-support-and-dsa | AI-generated: `ai-university-with-arthritis-disability-support-and-dsa.webp` |
+| uti-confusion-arthritis-frailty-uk | AI-generated: `ai-uti-confusion-arthritis-frailty-uk.webp` |
+| vision-falls-arthritis-frailty-uk | AI-generated: `ai-vision-falls-arthritis-frailty-uk.webp` |
+| volunteering-seated-arthritis-frailty-uk | AI-generated: `ai-volunteering-seated-arthritis-frailty-uk.webp` |
+| walking-30-minutes-a-day-while-on-dmards-a-practical-plan | AI-generated: `ai-walking-30-minutes-a-day-while-on-dmards-a-practical-plan.webp` |
 
 Posts still on the placeholder:
 
-- total-knee-replacement-a-uk-patients-guide-for-2026
-- transfer-board-arthritis-frailty-uk
-- universal-credit-and-arthritis-limited-capability-for-work
-- university-with-arthritis-disability-support-and-dsa
-- uti-confusion-arthritis-frailty-uk
-- vision-falls-arthritis-frailty-uk
-- volunteering-seated-arthritis-frailty-uk
-- walking-30-minutes-a-day-while-on-dmards-a-practical-plan
 - walking-sport-too-much-frail-arthritis-uk
 - what-sustained-remission-means-in-ra
 - wheelchair-for-distance-arthritis-frailty-uk
