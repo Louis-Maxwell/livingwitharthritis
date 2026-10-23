@@ -119,4 +119,17 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "lwa-archive-reasonable-adjustments-for-arthritis": "reasonable-adjustments-that-actually-help",
   "lwa-archive-muscle-weakness-and-arthritis": "sarcopenia-muscle-loss-how-to-combat",
   "lwa-archive-ginger-for-arthritis": "ginger-root-natural-anti-inflammatory",
+  // Thin-post follow-up (23 Oct 2026): short archive posts merged into the fuller guide on the same question.
+  "lwa-archive-falls-prevention-for-people-living-with-arthritis": "preventing-falls-guide-frail-adults",
+  "lwa-archive-blue-badge-scheme-and-arthritis": "blue-badge-frailty-arthritis-uk",
+  "lwa-archive-calcium-and-bone-health": "calcium-foods-arthritis-frailty-uk",
+  "lwa-archive-when-is-surgery-needed-for-osteoarthritis": "expert-qa-how-do-i-know-if-surgery-is-right-for-me",
+  "lwa-archive-best-exercises-for-arthritis": "how-to-choose-the-right-exercise-for-arthritis",
+  "lwa-archive-morning-stiffness": "morning-routine-multi-joint-arthritis",
+  "lwa-archive-spine-exercises-for-arthritis": "back-arthritis-exercises-uk",
+  "lwa-archive-home-exercise-programme-for-arthritis": "arthritis-exercises-uk-clinical",
+  "lwa-archive-arthritis-statistics-in-the-uk": "lwa-archive-what-is-arthritis",
+  "lwa-archive-living-well-with-arthritis": "lwa-archive-daily-living-tips-for-arthritis",
+  "lwa-archive-joint-swelling": "lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help",
+  "lwa-archive-arthritis-treatment-options": "arthritis-treatment-hub",
 };

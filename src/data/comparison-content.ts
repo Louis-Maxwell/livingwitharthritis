@@ -822,6 +822,92 @@ export const COMPARISON_CONTENT: Record<string, ComparisonArticle> = {
       "Do not stop urate-lowering therapy during an early flare — that's when it's starting to work.",
     ],
   },
+  "/guides/yoga-vs-pilates-arthritis": {
+    path: "/guides/yoga-vs-pilates-arthritis",
+    title: "Yoga vs Pilates for Arthritis",
+    metaDescription:
+      "Yoga vs Pilates for arthritis: how each helps joint pain, stiffness, strength and balance, which is gentler on knees, hips and backs, and how to choose a safe UK class.",
+    intro:
+      "Both yoga and Pilates can help arthritis, and for most people the better choice is simply the one you will keep doing. As a rough guide, yoga suits you if stiffness, balance and stress are your main problems, while Pilates suits you if you want to build core and hip strength for back, hip or knee pain. Either works best as a gentle, adapted class taught by someone who understands arthritis, and both can be done on a chair. NICE recommends exercise as a core treatment for osteoarthritis, and yoga and Pilates are two good ways of doing it.",
+    optionA: {
+      name: "Yoga",
+      howItWorks:
+        "Combines held postures, slow movement between positions, breathing and relaxation. It mainly improves flexibility, balance and body awareness, with some strengthening from holding positions.",
+      bestFor:
+        "Stiffness, reduced range of movement, balance worries, stress and poor sleep linked to pain. Gentle, chair or 'yoga for arthritis' classes suit beginners.",
+      sideEffects:
+        "Deep twists, deep knee bends, inversions and pushing into end-of-range stretches can irritate sore joints. People with a hip replacement, osteoporosis or rheumatoid arthritis affecting the neck need specific adaptations.",
+      nhs: "Not usually prescribed directly, but some NHS physiotherapy, falls and social prescribing services link to local gentle yoga or chair yoga classes.",
+      cost: "Community and leisure-centre classes are often cheaper than private studios; free online chair yoga sessions are widely available.",
+    },
+    optionB: {
+      name: "Pilates",
+      howItWorks:
+        "Slow, controlled exercises focused on deep abdominal and back muscles, hip control, posture and breathing. Mat Pilates uses body weight; studio Pilates adds spring-based equipment.",
+      bestFor:
+        "Low back pain, hip and knee osteoarthritis where muscle control is weak, posture concerns and rebuilding confidence in movement. Clinical Pilates is often run by physiotherapists.",
+      sideEffects:
+        "Some classic mat exercises involve lying flat, rolling or repeated forward bending, which may not suit osteoporosis, a recent hip replacement or a painful back. Getting up and down from the floor can be a barrier.",
+      nhs: "Some NHS and community physiotherapy services run Pilates-based exercise classes, especially for back pain. Private clinical Pilates is common.",
+      cost: "Mat classes cost similar to yoga; one-to-one or equipment-based studio sessions cost considerably more.",
+    },
+    sections: [
+      {
+        heading: "The short answer",
+        paragraphs: [
+          "There is no strong evidence that one is better than the other for arthritis. Both are low-impact, can be scaled to your ability, and combine strength, flexibility and control. Research reviews suggest both can modestly improve pain and function in osteoarthritis and back pain, and that the benefit depends far more on doing it regularly than on which method you pick.",
+          "If you have never done either, try a beginners' class of each and ask yourself afterwards: did my joints feel better or worse the next day, did I enjoy it, and could I get to this class every week? Those three answers matter more than the label on the class.",
+        ],
+      },
+      {
+        heading: "How they differ in practice",
+        paragraphs: [
+          "Yoga tends to move you through a wider range of positions and spends more time on stretching, balance and relaxation. A typical gentle class includes standing balance work, seated or lying stretches and a calm ending. That makes it a good fit if you feel stiff and tense, or if worry about falling is creeping in.",
+          "Pilates tends to stay in smaller, more controlled movements and focuses on switching on the deep muscles around the trunk and hips before you move. That makes it a good fit if your back or hips feel unstable or weak, or if you have been told your knee pain is linked to weak hip and thigh muscles.",
+          "Many modern classes blend the two, and a good teacher of either will adapt the session to you.",
+        ],
+      },
+      {
+        heading: "By joint and condition",
+        paragraphs: [
+          "Knee osteoarthritis: both help, but avoid deep kneeling and deep squats. Use a cushion under the knees and keep bends within a comfortable range. Pilates-style hip and thigh strengthening is particularly useful.",
+          "Hip osteoarthritis or hip replacement: after a hip replacement, follow your surgical team's movement precautions, which often mean avoiding deep bending, crossing the legs and twisting on the operated leg for a period. Tell the teacher before the class. Pilates side-lying hip work is often a good fit once you are cleared.",
+          "Back pain and spinal arthritis: Pilates has the most research behind it for long-term low back pain, though yoga also helps. Avoid forcing deep forward bends or twists.",
+          "Rheumatoid arthritis, psoriatic arthritis and ankylosing spondylitis: gentle movement helps stiffness. If rheumatoid arthritis affects your neck, avoid putting weight through the head and neck, such as in headstands, shoulder stands or 'plough'. For ankylosing spondylitis, yoga and Pilates that work on posture and spinal extension are often encouraged by rheumatology physiotherapists.",
+          "Osteoporosis: avoid repeated or loaded forward bending and deep twisting of the spine, as in roll-ups and toe-touches. Ask for back-extension and balance work instead.",
+        ],
+      },
+      {
+        heading: "Making either one safe",
+        paragraphs: [
+          "Choose a beginners', gentle or arthritis-specific class, or chair-based yoga or Pilates if getting to the floor is hard. Tell the teacher about your arthritis, any joint replacements, osteoporosis and any recent flare. Move within a comfortable range: mild aching that settles within a day is normal, but sharp pain or pain that is worse the next day means you did too much, so do less next time rather than stop altogether.",
+          "During a flare, rest the inflamed joint from loaded exercise but keep the rest of your body gently moving. Return to classes gradually as the flare settles.",
+          "Check the teacher's training. Clinical Pilates and many yoga for health classes are run by physiotherapists or teachers with extra training in long-term conditions. You can also ask your GP or physiotherapist whether a local NHS, leisure-centre or charity class is available.",
+        ],
+      },
+      {
+        heading: "When to stop and get help",
+        paragraphs: [
+          "Stop and seek medical advice if a joint becomes hot, red and swollen, if you get new numbness or weakness, or if pain is severe and does not ease with rest. Call 999 for chest pain, sudden breathlessness or signs of a stroke. For a single hot, swollen joint with fever, get same-day help, as this can be a joint infection: call NHS 111 or go to A&E. For other worries, NHS 111 can advise.",
+        ],
+      },
+    ],
+    table: [
+      { label: "Main focus", a: "Flexibility, balance, relaxation", b: "Core and hip strength, control, posture" },
+      { label: "Best for", a: "Stiffness, balance, stress", b: "Back pain, weak hips and thighs" },
+      { label: "Chair-based option", a: "Yes, widely available", b: "Yes, less common" },
+      { label: "Watch out for", a: "Deep twists, inversions, kneeling", b: "Roll-ups and loaded forward bending" },
+      { label: "Evidence for arthritis", a: "Modest benefit for pain and function", b: "Modest benefit, strongest for back pain" },
+      { label: "Typical cost", a: "Low to moderate; free online sessions", b: "Moderate; one-to-one studio sessions cost more" },
+    ],
+    takeaways: [
+      "Both yoga and Pilates are safe, low-impact options for most people with arthritis.",
+      "Yoga leans towards flexibility and balance; Pilates leans towards core and hip strength.",
+      "The best choice is the one you enjoy and will do every week.",
+      "Tell the teacher about joint replacements, osteoporosis or neck involvement in rheumatoid arthritis.",
+      "Mild aching that settles within a day is normal; pain worse the next day means ease off, not give up.",
+    ],
+  },
 };
 
 export function getComparisonArticle(path: string): ComparisonArticle | undefined {

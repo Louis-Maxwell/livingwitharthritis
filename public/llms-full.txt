@@ -5406,24 +5406,6 @@ Last clinically reviewed: 2026-10-23
 Q: Arthritis Myths vs Facts
 A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
 
-## Arthritis Statistics in the UK
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-statistics-in-the-uk
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Statistics in the UK
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
-
-## Arthritis Treatment Options
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-treatment-options
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Treatment Options
-A: Treatment should be matched to the diagnosis, symptoms, medical history and personal goals. Shared decision-making helps weigh likely benefits, practical demands and possible harms; specialist treatment may be necessary for inflammatory disease.
-
 ## Best Exercise for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercise-for-rheumatoid-arthritis
 Last updated: 2026-10-14
@@ -5432,33 +5414,6 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Best Exercise for Rheumatoid Arthritis
 A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
-
-## Best Exercises for Arthritis
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercises-for-arthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Best Exercises for Arthritis
-A: Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.
-
-## Blue Badge Scheme and Arthritis
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-blue-badge-scheme-and-arthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Blue Badge Scheme and Arthritis
-A: Blue Badge eligibility depends on qualifying mobility difficulties and relevant criteria, not an arthritis diagnosis alone. Applications generally go through the relevant local authority or national scheme, with evidence of walking difficulties.
-
-## Calcium and Bone Health
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-calcium-and-bone-health
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Calcium and Bone Health
-A: A varied, balanced diet supports overall health, but no food or supplement cures arthritis. Evidence differs between products, and supplements can interact with prescribed medicines. Discuss deficiencies, supplements or major dietary changes with a clinician or pharmacist.
 
 ## Can Arthritis Be Prevented?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-can-arthritis-be-prevented
@@ -5495,15 +5450,6 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Disability Living Allowance and Arthritis
 A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
-
-## Falls Prevention for People Living with Arthritis
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-falls-prevention-for-people-living-with-arthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Falls Prevention for People Living with Arthritis
-A: Falls prevention combines balance and strength training with assessment of vision, medicines, footwear and home hazards. Repeated falls or new unsteadiness deserve professional assessment.
 
 ## Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment
@@ -5550,15 +5496,6 @@ Last clinically reviewed: 2026-10-23
 Q: Hand Osteoarthritis
 A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
 
-## Home Exercise Programme for Arthritis
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-home-exercise-programme-for-arthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Home Exercise Programme for Arthritis
-A: Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.
-
 ## Inflammation and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-inflammation-and-arthritis
 Last updated: 2026-10-14
@@ -5586,15 +5523,6 @@ Last clinically reviewed: 2026-10-23
 Q: Joint Pain and Arthritis
 A: Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function, monitor their effects and review persistent symptoms with a healthcare professional.
 
-## Joint Swelling
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-joint-swelling
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Joint Swelling
-A: Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.
-
 ## Knee Osteoarthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-knee-osteoarthritis
 Last updated: 2026-10-14
@@ -5603,15 +5531,6 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Knee Osteoarthritis
 A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
-
-## Living Well with Arthritis
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-living-well-with-arthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Living Well with Arthritis
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
 
 ## Long-Term Outlook for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-long-term-outlook-for-rheumatoid-arthritis
@@ -5639,15 +5558,6 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Massage for Arthritis
 A: Pain-management approaches can be combined rather than relying on one treatment. Choose techniques that improve comfort and function, monitor their effects and review persistent symptoms with a healthcare professional.
-
-## Morning Stiffness
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-morning-stiffness
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Morning Stiffness
-A: Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.
 
 ## Neck Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-neck-arthritis
@@ -5748,15 +5658,6 @@ Last clinically reviewed: 2026-10-23
 Q: Shoulder Osteoarthritis
 A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
 
-## Spine Exercises for Arthritis
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-spine-exercises-for-arthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Spine Exercises for Arthritis
-A: Regular, individually adapted movement helps preserve strength, mobility and confidence. Begin with manageable amounts and progress gradually. Mild muscle effort is expected, but worsening swelling or persistent severe pain should prompt adjustment and clinical advice.
-
 ## Steroid Side Effects: What People with Arthritis Should Know
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know
 Last updated: 2026-10-14
@@ -5810,15 +5711,6 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: What Is Rheumatoid Arthritis?
 A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
-
-## When Is Surgery Needed for Osteoarthritis?
-URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis
-Last updated: 2026-10-14
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: When Is Surgery Needed for Osteoarthritis?
-A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
 
 ## When Should You See a GP About Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-should-you-see-a-gp-about-arthritis
