@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 40 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 60 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 238 posts still use the branded placeholder card and are queued for AI covers.
+- 218 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -414,29 +414,29 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | biologic-side-effects-infections-injections-and-monitoring | AI-generated: `ai-biologic-side-effects-infections-injections-and-monitoring.webp` |
 | blood-test-transport-arthritis-frailty-uk | AI-generated: `ai-blood-test-transport-arthritis-frailty-uk.webp` |
 | blue-badge-arthritis-scotland | AI-generated: `ai-blue-badge-arthritis-scotland.webp` |
+| bone-clinic-arthritis-frailty-uk | AI-generated: `ai-bone-clinic-arthritis-frailty-uk.webp` |
+| bone-protection-steroids-arthritis-frailty-uk | AI-generated: `ai-bone-protection-steroids-arthritis-frailty-uk.webp` |
+| building-strength-resilience-exercise-frailty-prevention | AI-generated: `ai-building-strength-resilience-exercise-frailty-prevention.webp` |
+| caregiver-burnout-in-arthritis-families-spot-it-early | AI-generated: `ai-caregiver-burnout-in-arthritis-families-spot-it-early.webp` |
+| carer-burnout-arthritis-frailty-uk | AI-generated: `ai-carer-burnout-arthritis-frailty-uk.webp` |
+| carers-assessment-arthritis-frailty-uk | AI-generated: `ai-carers-assessment-arthritis-frailty-uk.webp` |
+| cbt-chronic-pain-arthritis | AI-generated: `ai-cbt-chronic-pain-arthritis.webp` |
+| chair-based-exercise-ra-frailty-uk | AI-generated: `ai-chair-based-exercise-ra-frailty-uk.webp` |
+| chest-infection-arthritis-frailty-uk | AI-generated: `ai-chest-infection-arthritis-frailty-uk.webp` |
+| cognition-arthritis-frailty-remembering-tablets-uk | AI-generated: `ai-cognition-arthritis-frailty-remembering-tablets-uk.webp` |
+| cold-weather-arthritis-uk-winter | AI-generated: `ai-cold-weather-arthritis-uk-winter.webp` |
+| community-alarm-arthritis-frailty-uk | AI-generated: `ai-community-alarm-arthritis-frailty-uk.webp` |
+| community-ot-waiting-arthritis-frailty-uk | AI-generated: `ai-community-ot-waiting-arthritis-frailty-uk.webp` |
+| community-physio-wait-frail-arthritis-uk | AI-generated: `ai-community-physio-wait-frail-arthritis-uk.webp` |
+| community-strength-classes-frail-oa-uk | AI-generated: `ai-community-strength-classes-frail-oa-uk.webp` |
+| community-transport-arthritis-frailty-uk | AI-generated: `ai-community-transport-arthritis-frailty-uk.webp` |
+| confidence-after-fall-arthritis-frailty-uk | AI-generated: `ai-confidence-after-fall-arthritis-frailty-uk.webp` |
+| constipation-pain-medicines-frailty-arthritis-uk | AI-generated: `ai-constipation-pain-medicines-frailty-arthritis-uk.webp` |
+| copd-arthritis-frailty-breathlessness-uk | AI-generated: `ai-copd-arthritis-frailty-breathlessness-uk.webp` |
+| core-strengthening-spinal-arthritis | AI-generated: `ai-core-strengthening-spinal-arthritis.webp` |
 
 Posts still on the placeholder:
 
-- bone-clinic-arthritis-frailty-uk
-- bone-protection-steroids-arthritis-frailty-uk
-- building-strength-resilience-exercise-frailty-prevention
-- caregiver-burnout-in-arthritis-families-spot-it-early
-- carer-burnout-arthritis-frailty-uk
-- carers-assessment-arthritis-frailty-uk
-- cbt-chronic-pain-arthritis
-- chair-based-exercise-ra-frailty-uk
-- chest-infection-arthritis-frailty-uk
-- cognition-arthritis-frailty-remembering-tablets-uk
-- cold-weather-arthritis-uk-winter
-- community-alarm-arthritis-frailty-uk
-- community-ot-waiting-arthritis-frailty-uk
-- community-physio-wait-frail-arthritis-uk
-- community-strength-classes-frail-oa-uk
-- community-transport-arthritis-frailty-uk
-- confidence-after-fall-arthritis-frailty-uk
-- constipation-pain-medicines-frailty-arthritis-uk
-- copd-arthritis-frailty-breathlessness-uk
-- core-strengthening-spinal-arthritis
 - deconditioning-after-arthritis-flare-uk
 - delirium-hospital-arthritis-frailty-uk
 - dental-care-arthritis-frailty-hands-uk
