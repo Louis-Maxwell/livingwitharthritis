@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 173 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 183 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 105 posts still use the branded placeholder card and are queued for AI covers.
+- 95 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -547,19 +547,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | nursing-home-arthritis-pain-review-uk | AI-generated: `ai-nursing-home-arthritis-pain-review-uk.webp` |
 | nutrition-strategies-reduce-frailty-risk | AI-generated: `ai-nutrition-strategies-reduce-frailty-risk.webp` |
 | oa-vs-ra-comparison | AI-generated: `ai-oa-vs-ra-comparison.webp` |
+| occupational-therapist-kitchen-visit-frailty-uk | AI-generated: `ai-occupational-therapist-kitchen-visit-frailty-uk.webp` |
+| older-adults-arthritis-frailty-northern-ireland-uk | AI-generated: `ai-older-adults-arthritis-frailty-northern-ireland-uk.webp` |
+| osteoarthritis-symptoms-uk | AI-generated: `ai-osteoarthritis-symptoms-uk.webp` |
+| ot-assessment-arthritis-frailty-uk | AI-generated: `ai-ot-assessment-arthritis-frailty-uk.webp` |
+| outdoor-steps-handrails-arthritis-uk | AI-generated: `ai-outdoor-steps-handrails-arthritis-uk.webp` |
+| pacing-housework-arthritis-frailty-uk | AI-generated: `ai-pacing-housework-arthritis-frailty-uk.webp` |
+| pacing-visitors-arthritis-frailty-uk | AI-generated: `ai-pacing-visitors-arthritis-frailty-uk.webp` |
+| packing-list-arthritis-traveller | AI-generated: `ai-packing-list-arthritis-traveller.webp` |
+| paracetamol-for-arthritis-pain-what-the-evidence-says | AI-generated: `ai-paracetamol-for-arthritis-pain-what-the-evidence-says.webp` |
+| paramedic-fall-lift-arthritis-uk | AI-generated: `ai-paramedic-fall-lift-arthritis-uk.webp` |
 
 Posts still on the placeholder:
 
-- occupational-therapist-kitchen-visit-frailty-uk
-- older-adults-arthritis-frailty-northern-ireland-uk
-- osteoarthritis-symptoms-uk
-- ot-assessment-arthritis-frailty-uk
-- outdoor-steps-handrails-arthritis-uk
-- pacing-housework-arthritis-frailty-uk
-- pacing-visitors-arthritis-frailty-uk
-- packing-list-arthritis-traveller
-- paracetamol-for-arthritis-pain-what-the-evidence-says
-- paramedic-fall-lift-arthritis-uk
 - parenting-with-arthritis-hacks-for-babies-and-toddlers
 - pendant-alarm-arthritis-swollen-fingers-uk
 - pendulum-swings-wall-slides-shoulder
