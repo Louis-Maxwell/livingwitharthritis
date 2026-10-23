@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 153 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 163 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 125 posts still use the branded placeholder card and are queued for AI covers.
+- 115 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -527,19 +527,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | lower-back-stiffness-worse-after-sitting | AI-generated: `ai-lower-back-stiffness-worse-after-sitting.webp` |
 | lymphoedema-arthritis-frailty-uk | AI-generated: `ai-lymphoedema-arthritis-frailty-uk.webp` |
 | manage-arthritis-pain-flare-ups-night | AI-generated: `ai-manage-arthritis-pain-flare-ups-night.webp` |
+| managing-arthritis-at-work | AI-generated: `ai-managing-arthritis-at-work.webp` |
+| meal-delivery-arthritis-frailty-uk | AI-generated: `ai-meal-delivery-arthritis-frailty-uk.webp` |
+| medication-management-travel-arthritis | AI-generated: `ai-medication-management-travel-arthritis.webp` |
+| methotrexate-older-frail-adults-uk | AI-generated: `ai-methotrexate-older-frail-adults-uk.webp` |
+| midfoot-osteoarthritis-frailty-standing-time-uk | AI-generated: `ai-midfoot-osteoarthritis-frailty-standing-time-uk.webp` |
+| mindfulness-chronic-pain-arthritis-guide | AI-generated: `ai-mindfulness-chronic-pain-arthritis-guide.webp` |
+| mindfulness-pain-arthritis-frailty-uk | AI-generated: `ai-mindfulness-pain-arthritis-frailty-uk.webp` |
+| mobility-scooter-arthritis-frailty-uk | AI-generated: `ai-mobility-scooter-arthritis-frailty-uk.webp` |
+| morning-routine-multi-joint-arthritis | AI-generated: `ai-morning-routine-multi-joint-arthritis.webp` |
+| morning-stiffness-frailty-routine-uk | AI-generated: `ai-morning-stiffness-frailty-routine-uk.webp` |
 
 Posts still on the placeholder:
 
-- managing-arthritis-at-work
-- meal-delivery-arthritis-frailty-uk
-- medication-management-travel-arthritis
-- methotrexate-older-frail-adults-uk
-- midfoot-osteoarthritis-frailty-standing-time-uk
-- mindfulness-chronic-pain-arthritis-guide
-- mindfulness-pain-arthritis-frailty-uk
-- mobility-scooter-arthritis-frailty-uk
-- morning-routine-multi-joint-arthritis
-- morning-stiffness-frailty-routine-uk
 - neck-osteoarthritis-frailty-balance-looking-down-uk
 - nhs-access-to-biologics-how-the-approval-pathway-works
 - nhs-frailty-pathway-arthritis-england
