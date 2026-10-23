@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 133 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 143 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 145 posts still use the branded placeholder card and are queued for AI covers.
+- 135 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -507,19 +507,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | inflammatory-arthritis-frailty-flare-week-uk | AI-generated: `ai-inflammatory-arthritis-frailty-flare-week-uk.webp` |
 | inflammatory-arthritis-guide | AI-generated: `ai-inflammatory-arthritis-guide.webp` |
 | intermediate-care-arthritis-frailty-uk | AI-generated: `ai-intermediate-care-arthritis-frailty-uk.webp` |
+| jak-inhibitors-the-next-wave-of-ra-treatment | AI-generated: `ai-jak-inhibitors-the-next-wave-of-ra-treatment.webp` |
+| joint-fusion-vs-replacement-how-surgeons-choose | AI-generated: `ai-joint-fusion-vs-replacement-how-surgeons-choose.webp` |
+| joint-replacement-decision-frailty-uk | AI-generated: `ai-joint-replacement-decision-frailty-uk.webp` |
+| joint-replacement-surgery | AI-generated: `ai-joint-replacement-surgery.webp` |
+| juvenile-arthritis-school-support-parents | AI-generated: `ai-juvenile-arthritis-school-support-parents.webp` |
+| juvenile-arthritis-uk | AI-generated: `ai-juvenile-arthritis-uk.webp` |
+| kettle-safety-arthritis-frailty-uk | AI-generated: `ai-kettle-safety-arthritis-frailty-uk.webp` |
+| kitchen-adaptations-arthritis-frailty-uk | AI-generated: `ai-kitchen-adaptations-arthritis-frailty-uk.webp` |
+| knee-arthritis-exercises-uk | AI-generated: `ai-knee-arthritis-exercises-uk.webp` |
+| knee-arthroscopy-for-osteoarthritis-helpful-or-hype | AI-generated: `ai-knee-arthroscopy-for-osteoarthritis-helpful-or-hype.webp` |
 
 Posts still on the placeholder:
 
-- jak-inhibitors-the-next-wave-of-ra-treatment
-- joint-fusion-vs-replacement-how-surgeons-choose
-- joint-replacement-decision-frailty-uk
-- joint-replacement-surgery
-- juvenile-arthritis-school-support-parents
-- juvenile-arthritis-uk
-- kettle-safety-arthritis-frailty-uk
-- kitchen-adaptations-arthritis-frailty-uk
-- knee-arthritis-exercises-uk
-- knee-arthroscopy-for-osteoarthritis-helpful-or-hype
 - knee-oa-frailty-outdoor-pavements-uk
 - knee-oa-frailty-rising-from-low-sofa-uk
 - knee-osteoarthritis-frailty-staying-steady-home-uk
