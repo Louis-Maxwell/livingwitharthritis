@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 84 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 94 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 194 posts still use the branded placeholder card and are queued for AI covers.
+- 184 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -458,19 +458,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | expert-qa-how-to-talk-to-your-gp-about-medication-worries | AI-generated: `ai-expert-qa-how-to-talk-to-your-gp-about-medication-worries.webp` |
 | expert-qa-is-it-too-soon-for-joint-replacement | AI-generated: `ai-expert-qa-is-it-too-soon-for-joint-replacement.webp` |
 | expert-qa-is-it-worth-paying-for-a-second-opinion | AI-generated: `ai-expert-qa-is-it-worth-paying-for-a-second-opinion.webp` |
+| expert-qa-returning-to-work-after-a-bad-flare | AI-generated: `ai-expert-qa-returning-to-work-after-a-bad-flare.webp` |
+| expert-qa-should-you-start-dmards-at-diagnosis | AI-generated: `ai-expert-qa-should-you-start-dmards-at-diagnosis.webp` |
+| expert-qa-why-did-my-arthritis-come-back | AI-generated: `ai-expert-qa-why-did-my-arthritis-come-back.webp` |
+| expert-qa-will-my-children-inherit-my-arthritis | AI-generated: `ai-expert-qa-will-my-children-inherit-my-arthritis.webp` |
+| explain-juvenile-arthritis-school-teachers | AI-generated: `ai-explain-juvenile-arthritis-school-teachers.webp` |
+| extra-care-housing-arthritis-frailty-uk | AI-generated: `ai-extra-care-housing-arthritis-frailty-uk.webp` |
+| eye-clinic-day-arthritis-frailty-uk | AI-generated: `ai-eye-clinic-day-arthritis-frailty-uk.webp` |
+| falls-response-service-arthritis-uk | AI-generated: `ai-falls-response-service-arthritis-uk.webp` |
+| family-meetings-arthritis-frailty-uk | AI-generated: `ai-family-meetings-arthritis-frailty-uk.webp` |
+| fear-of-falling-hip-oa-frailty-uk | AI-generated: `ai-fear-of-falling-hip-oa-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- expert-qa-returning-to-work-after-a-bad-flare
-- expert-qa-should-you-start-dmards-at-diagnosis
-- expert-qa-why-did-my-arthritis-come-back
-- expert-qa-will-my-children-inherit-my-arthritis
-- explain-juvenile-arthritis-school-teachers
-- extra-care-housing-arthritis-frailty-uk
-- eye-clinic-day-arthritis-frailty-uk
-- falls-response-service-arthritis-uk
-- family-meetings-arthritis-frailty-uk
-- fear-of-falling-hip-oa-frailty-uk
 - flare-management-pain-spikes
 - flare-versus-frailty-arthritis-uk
 - flexible-working-arthritis-pacing
