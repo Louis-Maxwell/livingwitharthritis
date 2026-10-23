@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 60 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 74 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 218 posts still use the branded placeholder card and are queued for AI covers.
+- 204 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -434,23 +434,23 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | constipation-pain-medicines-frailty-arthritis-uk | AI-generated: `ai-constipation-pain-medicines-frailty-arthritis-uk.webp` |
 | copd-arthritis-frailty-breathlessness-uk | AI-generated: `ai-copd-arthritis-frailty-breathlessness-uk.webp` |
 | core-strengthening-spinal-arthritis | AI-generated: `ai-core-strengthening-spinal-arthritis.webp` |
+| deconditioning-after-arthritis-flare-uk | AI-generated: `ai-deconditioning-after-arthritis-flare-uk.webp` |
+| delirium-hospital-arthritis-frailty-uk | AI-generated: `ai-delirium-hospital-arthritis-frailty-uk.webp` |
+| dental-care-arthritis-frailty-hands-uk | AI-generated: `ai-dental-care-arthritis-frailty-hands-uk.webp` |
+| depression-arthritis-when-to-seek-help | AI-generated: `ai-depression-arthritis-when-to-seek-help.webp` |
+| desk-setup-arthritis-uk-workers | AI-generated: `ai-desk-setup-arthritis-uk-workers.webp` |
+| diabetes-arthritis-frailty-feet-uk | AI-generated: `ai-diabetes-arthritis-frailty-feet-uk.webp` |
+| direct-payments-arthritis-frailty-uk | AI-generated: `ai-direct-payments-arthritis-frailty-uk.webp` |
+| disability-rights-workplace-arthritis | AI-generated: `ai-disability-rights-workplace-arthritis.webp` |
+| discharge-planning-arthritis-frailty-uk | AI-generated: `ai-discharge-planning-arthritis-frailty-uk.webp` |
+| dmards-explained-how-methotrexate-slows-rheumatoid-arthritis | AI-generated: `ai-dmards-explained-how-methotrexate-slows-rheumatoid-arthritis.webp` |
+| early-arthritis-intervention-uk | AI-generated: `ai-early-arthritis-intervention-uk.webp` |
+| early-signs-gout-big-toe | AI-generated: `ai-early-signs-gout-big-toe.webp` |
+| elbow-osteoarthritis-frailty-kitchen-tasks-uk | AI-generated: `ai-elbow-osteoarthritis-frailty-kitchen-tasks-uk.webp` |
+| end-of-life-joint-pain-frailty-uk | AI-generated: `ai-end-of-life-joint-pain-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- deconditioning-after-arthritis-flare-uk
-- delirium-hospital-arthritis-frailty-uk
-- dental-care-arthritis-frailty-hands-uk
-- depression-arthritis-when-to-seek-help
-- desk-setup-arthritis-uk-workers
-- diabetes-arthritis-frailty-feet-uk
-- direct-payments-arthritis-frailty-uk
-- disability-rights-workplace-arthritis
-- discharge-planning-arthritis-frailty-uk
-- dmards-explained-how-methotrexate-slows-rheumatoid-arthritis
-- early-arthritis-intervention-uk
-- early-signs-gout-big-toe
-- elbow-osteoarthritis-frailty-kitchen-tasks-uk
-- end-of-life-joint-pain-frailty-uk
 - exam-adjustments-for-students-with-arthritis
 - expert-brief-activity-safety-knee-arthritis
 - expert-brief-exercise-order-pain-relief
