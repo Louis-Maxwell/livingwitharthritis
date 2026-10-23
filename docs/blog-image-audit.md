@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 223 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 233 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 55 posts still use the branded placeholder card and are queued for AI covers.
+- 45 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -597,19 +597,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | seasonal-affective-disorder-arthritis | AI-generated: `ai-seasonal-affective-disorder-arthritis.webp` |
 | seasonal-arthritis-guide-uk | AI-generated: `ai-seasonal-arthritis-guide-uk.webp` |
 | shingles-vaccine-arthritis-frailty-uk | AI-generated: `ai-shingles-vaccine-arthritis-frailty-uk.webp` |
+| shopping-online-arthritis-frailty-uk | AI-generated: `ai-shopping-online-arthritis-frailty-uk.webp` |
+| short-term-equipment-loans-arthritis-uk | AI-generated: `ai-short-term-equipment-loans-arthritis-uk.webp` |
+| should-you-tell-your-employer-about-your-arthritis | AI-generated: `ai-should-you-tell-your-employer-about-your-arthritis.webp` |
+| shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix | AI-generated: `ai-shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix.webp` |
+| shoulder-osteoarthritis-frailty-washing-dressing-uk | AI-generated: `ai-shoulder-osteoarthritis-frailty-washing-dressing-uk.webp` |
+| shoulder-pain-reaching-ra-vs-oa | AI-generated: `ai-shoulder-pain-reaching-ra-vs-oa.webp` |
+| signs-rheumatoid-arthritis-early-stages | AI-generated: `ai-signs-rheumatoid-arthritis-early-stages.webp` |
+| sit-to-stand-practice-frail-arthritis-uk | AI-generated: `ai-sit-to-stand-practice-frail-arthritis-uk.webp` |
+| sleeping-tablets-falls-arthritis-frailty-uk | AI-generated: `ai-sleeping-tablets-falls-arthritis-frailty-uk.webp` |
+| slow-walking-groups-arthritis-frailty-uk | AI-generated: `ai-slow-walking-groups-arthritis-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- shopping-online-arthritis-frailty-uk
-- short-term-equipment-loans-arthritis-uk
-- should-you-tell-your-employer-about-your-arthritis
-- shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix
-- shoulder-osteoarthritis-frailty-washing-dressing-uk
-- shoulder-pain-reaching-ra-vs-oa
-- signs-rheumatoid-arthritis-early-stages
-- sit-to-stand-practice-frail-arthritis-uk
-- sleeping-tablets-falls-arthritis-frailty-uk
-- slow-walking-groups-arthritis-frailty-uk
 - smart-speakers-arthritis-frailty-uk
 - social-care-needs-assessment-arthritis-uk
 - social-prescribing-arthritis-frailty-uk
