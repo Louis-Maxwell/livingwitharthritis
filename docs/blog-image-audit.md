@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 74 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 84 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 204 posts still use the branded placeholder card and are queued for AI covers.
+- 194 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -448,19 +448,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | early-signs-gout-big-toe | AI-generated: `ai-early-signs-gout-big-toe.webp` |
 | elbow-osteoarthritis-frailty-kitchen-tasks-uk | AI-generated: `ai-elbow-osteoarthritis-frailty-kitchen-tasks-uk.webp` |
 | end-of-life-joint-pain-frailty-uk | AI-generated: `ai-end-of-life-joint-pain-frailty-uk.webp` |
+| exam-adjustments-for-students-with-arthritis | AI-generated: `ai-exam-adjustments-for-students-with-arthritis.webp` |
+| expert-brief-activity-safety-knee-arthritis | AI-generated: `ai-expert-brief-activity-safety-knee-arthritis.webp` |
+| expert-brief-exercise-order-pain-relief | AI-generated: `ai-expert-brief-exercise-order-pain-relief.webp` |
+| expert-brief-frozen-shoulder-vs-ra | AI-generated: `ai-expert-brief-frozen-shoulder-vs-ra.webp` |
+| expert-qa-are-steroid-tapers-always-necessary | AI-generated: `ai-expert-qa-are-steroid-tapers-always-necessary.webp` |
+| expert-qa-exercising-through-a-flare-up | AI-generated: `ai-expert-qa-exercising-through-a-flare-up.webp` |
+| expert-qa-how-to-ask-for-help-without-feeling-guilty | AI-generated: `ai-expert-qa-how-to-ask-for-help-without-feeling-guilty.webp` |
+| expert-qa-how-to-talk-to-your-gp-about-medication-worries | AI-generated: `ai-expert-qa-how-to-talk-to-your-gp-about-medication-worries.webp` |
+| expert-qa-is-it-too-soon-for-joint-replacement | AI-generated: `ai-expert-qa-is-it-too-soon-for-joint-replacement.webp` |
+| expert-qa-is-it-worth-paying-for-a-second-opinion | AI-generated: `ai-expert-qa-is-it-worth-paying-for-a-second-opinion.webp` |
 
 Posts still on the placeholder:
 
-- exam-adjustments-for-students-with-arthritis
-- expert-brief-activity-safety-knee-arthritis
-- expert-brief-exercise-order-pain-relief
-- expert-brief-frozen-shoulder-vs-ra
-- expert-qa-are-steroid-tapers-always-necessary
-- expert-qa-exercising-through-a-flare-up
-- expert-qa-how-to-ask-for-help-without-feeling-guilty
-- expert-qa-how-to-talk-to-your-gp-about-medication-worries
-- expert-qa-is-it-too-soon-for-joint-replacement
-- expert-qa-is-it-worth-paying-for-a-second-opinion
 - expert-qa-returning-to-work-after-a-bad-flare
 - expert-qa-should-you-start-dmards-at-diagnosis
 - expert-qa-why-did-my-arthritis-come-back
