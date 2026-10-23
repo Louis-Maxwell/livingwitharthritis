@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 213 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 223 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 65 posts still use the branded placeholder card and are queued for AI covers.
+- 55 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -587,19 +587,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | reasonable-adjustments-that-actually-help | AI-generated: `ai-reasonable-adjustments-that-actually-help.webp` |
 | remote-gp-apps-arthritis-frailty-uk | AI-generated: `ai-remote-gp-apps-arthritis-frailty-uk.webp` |
 | repeat-prescriptions-arthritis-frailty-uk | AI-generated: `ai-repeat-prescriptions-arthritis-frailty-uk.webp` |
+| resistance-bands-seated-frail-oa-uk | AI-generated: `ai-resistance-bands-seated-frail-oa-uk.webp` |
+| resistance-training-arthritis-longevity | AI-generated: `ai-resistance-training-arthritis-longevity.webp` |
+| restless-nights-joint-pain-frailty-uk | AI-generated: `ai-restless-nights-joint-pain-frailty-uk.webp` |
+| rheumatology-clinic-frail-older-adult-uk | AI-generated: `ai-rheumatology-clinic-frail-older-adult-uk.webp` |
+| rheumatology-waiting-times-uk | AI-generated: `ai-rheumatology-waiting-times-uk.webp` |
+| rise-recline-chair-arthritis-frailty-uk | AI-generated: `ai-rise-recline-chair-arthritis-frailty-uk.webp` |
+| rural-living-arthritis-frailty-uk | AI-generated: `ai-rural-living-arthritis-frailty-uk.webp` |
+| seasonal-affective-disorder-arthritis | AI-generated: `ai-seasonal-affective-disorder-arthritis.webp` |
+| seasonal-arthritis-guide-uk | AI-generated: `ai-seasonal-arthritis-guide-uk.webp` |
+| shingles-vaccine-arthritis-frailty-uk | AI-generated: `ai-shingles-vaccine-arthritis-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- resistance-bands-seated-frail-oa-uk
-- resistance-training-arthritis-longevity
-- restless-nights-joint-pain-frailty-uk
-- rheumatology-clinic-frail-older-adult-uk
-- rheumatology-waiting-times-uk
-- rise-recline-chair-arthritis-frailty-uk
-- rural-living-arthritis-frailty-uk
-- seasonal-affective-disorder-arthritis
-- seasonal-arthritis-guide-uk
-- shingles-vaccine-arthritis-frailty-uk
 - shopping-online-arthritis-frailty-uk
 - short-term-equipment-loans-arthritis-uk
 - should-you-tell-your-employer-about-your-arthritis
