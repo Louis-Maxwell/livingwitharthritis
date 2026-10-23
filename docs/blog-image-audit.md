@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 113 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 123 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 165 posts still use the branded placeholder card and are queued for AI covers.
+- 155 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -487,19 +487,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | grab-rails-arthritis-frailty-home-uk | AI-generated: `ai-grab-rails-arthritis-frailty-home-uk.webp` |
 | grip-strength-exercises-hand-oa | AI-generated: `ai-grip-strength-exercises-hand-oa.webp` |
 | gut-joint-connection-microbiome-arthritis | AI-generated: `ai-gut-joint-connection-microbiome-arthritis.webp` |
+| hand-exercises-for-arthritis | AI-generated: `ai-hand-exercises-for-arthritis.webp` |
+| hand-osteoarthritis-frailty-dressing-cooking-uk | AI-generated: `ai-hand-osteoarthritis-frailty-dressing-cooking-uk.webp` |
+| heat-packs-frail-arthritis-uk | AI-generated: `ai-heat-packs-frail-arthritis-uk.webp` |
+| high-rise-flat-arthritis-frailty-lifts-uk | AI-generated: `ai-high-rise-flat-arthritis-frailty-lifts-uk.webp` |
+| hip-and-knee-oa-frailty-transfers-uk | AI-generated: `ai-hip-and-knee-oa-frailty-transfers-uk.webp` |
+| hip-arthritis-symptoms-uk | AI-generated: `ai-hip-arthritis-symptoms-uk.webp` |
+| hip-oa-frailty-bed-mobility-uk | AI-generated: `ai-hip-oa-frailty-bed-mobility-uk.webp` |
+| hip-pain-climbing-stairs-causes-relief | AI-generated: `ai-hip-pain-climbing-stairs-causes-relief.webp` |
+| hip-replacement-arthritis-uk | AI-generated: `ai-hip-replacement-arthritis-uk.webp` |
+| hobbies-arthritis-friendly-uk | AI-generated: `ai-hobbies-arthritis-friendly-uk.webp` |
 
 Posts still on the placeholder:
 
-- hand-exercises-for-arthritis
-- hand-osteoarthritis-frailty-dressing-cooking-uk
-- heat-packs-frail-arthritis-uk
-- high-rise-flat-arthritis-frailty-lifts-uk
-- hip-and-knee-oa-frailty-transfers-uk
-- hip-arthritis-symptoms-uk
-- hip-oa-frailty-bed-mobility-uk
-- hip-pain-climbing-stairs-causes-relief
-- hip-replacement-arthritis-uk
-- hobbies-arthritis-friendly-uk
 - hoist-conversations-family-carers-uk
 - holiday-at-home-arthritis-frailty-uk
 - hospital-appointments-frailty-arthritis-uk
