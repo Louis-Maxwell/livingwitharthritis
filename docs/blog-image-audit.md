@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 143 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 153 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 135 posts still use the branded placeholder card and are queued for AI covers.
+- 125 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -517,19 +517,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | kitchen-adaptations-arthritis-frailty-uk | AI-generated: `ai-kitchen-adaptations-arthritis-frailty-uk.webp` |
 | knee-arthritis-exercises-uk | AI-generated: `ai-knee-arthritis-exercises-uk.webp` |
 | knee-arthroscopy-for-osteoarthritis-helpful-or-hype | AI-generated: `ai-knee-arthroscopy-for-osteoarthritis-helpful-or-hype.webp` |
+| knee-oa-frailty-outdoor-pavements-uk | AI-generated: `ai-knee-oa-frailty-outdoor-pavements-uk.webp` |
+| knee-oa-frailty-rising-from-low-sofa-uk | AI-generated: `ai-knee-oa-frailty-rising-from-low-sofa-uk.webp` |
+| knee-osteoarthritis-frailty-staying-steady-home-uk | AI-generated: `ai-knee-osteoarthritis-frailty-staying-steady-home-uk.webp` |
+| knee-replacement-arthritis-uk | AI-generated: `ai-knee-replacement-arthritis-uk.webp` |
+| libraries-arthritis-frailty-getting-out-uk | AI-generated: `ai-libraries-arthritis-frailty-getting-out-uk.webp` |
+| local-wheelchair-service-arthritis-uk | AI-generated: `ai-local-wheelchair-service-arthritis-uk.webp` |
+| longevity-habits-arthritis-patients | AI-generated: `ai-longevity-habits-arthritis-patients.webp` |
+| lower-back-stiffness-worse-after-sitting | AI-generated: `ai-lower-back-stiffness-worse-after-sitting.webp` |
+| lymphoedema-arthritis-frailty-uk | AI-generated: `ai-lymphoedema-arthritis-frailty-uk.webp` |
+| manage-arthritis-pain-flare-ups-night | AI-generated: `ai-manage-arthritis-pain-flare-ups-night.webp` |
 
 Posts still on the placeholder:
 
-- knee-oa-frailty-outdoor-pavements-uk
-- knee-oa-frailty-rising-from-low-sofa-uk
-- knee-osteoarthritis-frailty-staying-steady-home-uk
-- knee-replacement-arthritis-uk
-- libraries-arthritis-frailty-getting-out-uk
-- local-wheelchair-service-arthritis-uk
-- longevity-habits-arthritis-patients
-- lower-back-stiffness-worse-after-sitting
-- lymphoedema-arthritis-frailty-uk
-- manage-arthritis-pain-flare-ups-night
 - managing-arthritis-at-work
 - meal-delivery-arthritis-frailty-uk
 - medication-management-travel-arthritis
