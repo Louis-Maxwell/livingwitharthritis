@@ -15,6 +15,8 @@ const AWKWARD_TITLE_RE =
 describe("blog share / cover regression guards", () => {
   const slugs = blogSlugs as string[];
   const map = blogCoverMap as Record<string, string>;
+  // "" = unrelated photo removed; listings/og use the branded placeholder card.
+  const fileFor = (slug: string) => map[slug] || "lwa-blog-cover-placeholder.webp";
   const heads = JSON.parse(readFileSync(HEAD_PATH, "utf8")) as Record<
     string,
     { title?: string; ogImage?: string }
@@ -27,10 +29,11 @@ describe("blog share / cover regression guards", () => {
     const missingFile: string[] = [];
     for (const slug of slugs) {
       const file = map[slug];
-      if (!file) {
+      if (file === undefined) {
         missingMap.push(slug);
         continue;
       }
+      if (!file) continue;
       if (!existsSync(join(OPENVERSE_DIR, file))) missingFile.push(`${slug} => ${file}`);
     }
     expect(missingMap).toEqual([]);
@@ -48,8 +51,8 @@ describe("blog share / cover regression guards", () => {
         missing.push(path);
         continue;
       }
-      const expectedAbs = `${SITE}/openverse/${map[slug]}`;
-      const expectedRel = `/openverse/${map[slug]}`;
+      const expectedAbs = `${SITE}/openverse/${fileFor(slug)}`;
+      const expectedRel = `/openverse/${fileFor(slug)}`;
       const og = String(entry.ogImage ?? "");
       if (!og || og.includes("/og/home.png") || (og !== expectedAbs && og !== expectedRel)) {
         badOg.push(`${path}: ${og || "(empty)"}`);
@@ -70,7 +73,7 @@ describe("blog share / cover regression guards", () => {
       if (map[post.slug] !== post.cover) bad.push(`${post.slug}: cover map ${map[post.slug]} !== ${post.cover}`);
     }
     for (const row of catalog) {
-      const expected = `/openverse/${map[row.slug]}`;
+      const expected = `/openverse/${fileFor(row.slug)}`;
       if (row.image_url !== expected) bad.push(`${row.slug}: ${row.image_url} !== ${expected}`);
     }
     expect(catalog.length).toBe(slugs.length);

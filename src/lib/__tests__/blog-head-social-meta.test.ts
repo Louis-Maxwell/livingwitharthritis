@@ -33,12 +33,13 @@ describe("blog-head-data social meta (share preview)", () => {
     for (const [path, entry] of Object.entries(data)) {
       if (!path.startsWith("/blog/")) continue;
       const slug = path.slice("/blog/".length);
-      const expected = `https://livingwitharthritis.org.uk/openverse/${map[slug]}`;
+      const file = map[slug] || "lwa-blog-cover-placeholder.webp";
+      const expected = `https://livingwitharthritis.org.uk/openverse/${file}`;
       const og = entry?.ogImage ?? "";
       const title = entry?.title ?? "";
       if (
         !og.includes("/openverse/") ||
-        (map[slug] && og !== expected && og !== `/openverse/${map[slug]}`)
+        (og !== expected && og !== `/openverse/${file}`)
       ) {
         bad.push(`${path} ogImage=${og}`);
       }

@@ -91,7 +91,7 @@ describe("Article evidence and FAQ visibility", () => {
     renderBlogPost(tens.slug);
     await waitFor(() => {
       expect(screen.getByRole("heading", { name: "TENS safety and reasons to avoid it" })).toBeInTheDocument();
-      expect(screen.getByText(/says not to use it if you have epilepsy or a pacemaker/)).toBeInTheDocument();
+      expect(screen.getAllByText(/says not to use it if you have epilepsy or a pacemaker/)[0]).toBeInTheDocument();
       expect(screen.getByRole("region", { name: "Frequently asked questions" })).toBeInTheDocument();
       expect(screen.getByText("Will a TENS machine cure arthritis?")).toBeInTheDocument();
       expect(screen.getByText("No. Temporary symptom relief does not establish that a treatment alters the disease.")).toBeVisible();

@@ -58,11 +58,11 @@ describe("getArticleImages topic matching", () => {
 
   it("keeps cover unique per slug (map still 1:1)", () => {
     const map = blogCoverMap as Record<string, string>;
-    const slugs = ["arthritis-treatment-hub", "anti-inflammatory-diet", "gout-medication-uk"];
+    const slugs = ["rheumatoid-arthritis-diet-uk", "anti-inflammatory-diet", "arthritis-and-work-uk"];
     const paths = slugs.map((slug) => coverImage("x", "y", slug).src);
     expect(new Set(paths).size).toBe(slugs.length);
     for (const slug of slugs) {
-      expect(coverImage("x", "y", slug).src).toBe(`/openverse/${map[slug]}`);
+      expect(coverImage("x", "y", slug).src).toBe(`/openverse/${map[slug] || "lwa-blog-cover-placeholder.webp"}`);
     }
   });
 

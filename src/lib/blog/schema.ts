@@ -40,8 +40,15 @@ export const blogPostSchema = z
     /** Explicit clinical-review date. Never inferred from publication or updates. */
     last_reviewed: z.string().regex(ISO_DATE_PATTERN, "last_reviewed must be YYYY-MM-DD").optional(),
     category: nonEmpty("category"),
-    /** Unique cover file under public/openverse/ (1:1 per slug). */
-    cover: z.string().regex(/^[\w.-]+\.(?:webp|jpe?g|png|avif)$/i, "cover must be a file name in public/openverse/"),
+    /**
+     * Unique cover file under public/openverse/ (1:1 per slug), or "" when no
+     * topic-relevant photo exists yet (listings show the branded placeholder,
+     * the article page shows no hero photo). See docs/blog-image-audit.md.
+     */
+    cover: z.union([
+      z.literal(""),
+      z.string().regex(/^[\w.-]+\.(?:webp|jpe?g|png|avif)$/i, "cover must be a file name in public/openverse/"),
+    ]),
     author: nullableText,
     author_credentials: nullableText,
     reviewed_by: nullableText,

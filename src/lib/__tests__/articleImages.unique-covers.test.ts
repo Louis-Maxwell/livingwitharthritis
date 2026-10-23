@@ -20,17 +20,21 @@ describe("coverImage uniqueness", () => {
 
   it("gives unique coverImage paths for unique slugs", () => {
     const slugs = blogSlugs as string[];
-    const paths = slugs.map((slug) => coverImage("general", slug, slug).src);
-    expect(new Set(paths).size).toBe(slugs.length);
+    // Posts whose unrelated photo was removed (map value "") share the branded
+    // placeholder card; every real photo must still be unique.
+    const map = blogCoverMap as Record<string, string>;
+    const withPhoto = slugs.filter((slug) => map[slug]);
+    const paths = withPhoto.map((slug) => coverImage("general", slug, slug).src);
+    expect(new Set(paths).size).toBe(withPhoto.length);
   });
 
   it("keeps the generated cover map 1:1 and deterministic", () => {
     const map = blogCoverMap as Record<string, string>;
     const slugs = blogSlugs as string[];
     expect(Object.keys(map).sort()).toEqual([...slugs].sort());
-    const files = Object.values(map);
+    const files = Object.values(map).filter(Boolean);
     expect(new Set(files).size).toBe(files.length);
-    const sample = slugs[0];
+    const sample = slugs.find((s) => map[s]) as string;
     expect(coverImage("x", "y", sample).src).toBe(coverImage("x", "y", sample).src);
     expect(coverImage("x", "y", sample).src).toBe(`/openverse/${map[sample]}`);
   });
@@ -39,6 +43,7 @@ describe("coverImage uniqueness", () => {
     const map = blogCoverMap as Record<string, string>;
     const missing: string[] = [];
     for (const [slug, file] of Object.entries(map)) {
+      if (!file) continue; // removed unrelated photo -> placeholder card
       // Map stores bare filenames; coverImage prefixes /openverse/
       expect(file).not.toMatch(/^\/|^openverse\//);
       const full = join(OPENVERSE_DIR, file);
@@ -49,7 +54,7 @@ describe("coverImage uniqueness", () => {
 
   it("never resolves listing covers through category-bucket fallback for mapped slugs", () => {
     const map = blogCoverMap as Record<string, string>;
-    const slug = Object.keys(map)[0];
+    const slug = Object.keys(map).find((s) => map[s]) as string;
     const cover = coverImage("Exercise", "Totally Unrelated Title That Would Hash Differently", slug);
     expect(cover.src).toBe(`/openverse/${map[slug]}`);
   });

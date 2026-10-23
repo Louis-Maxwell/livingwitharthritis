@@ -35,6 +35,8 @@ import {
   type BlogPost,
 } from "../src/lib/blog/schema";
 
+/** Branded, photo-free card used where a post has no topic-relevant photo. */
+export const BLOG_COVER_PLACEHOLDER = "lwa-blog-cover-placeholder.webp";
 export const COVER_MAP_PATH = "src/data/blog-cover-map.generated.json";
 export const CONTENT_STATS_PATH = "src/data/contentStats.generated.json";
 export const MOST_READ_PATH = "src/data/blogMostRead.generated.json";
@@ -54,7 +56,7 @@ export function toBlogMeta(post: BlogPost): BlogMeta {
   for (const key of BLOG_META_FIELDS) meta[key] = post[key];
   const words = countWords(post.content);
   meta.last_reviewed = post.last_reviewed;
-  meta.image_url = `/openverse/${post.cover}`;
+  meta.image_url = `/openverse/${post.cover || BLOG_COVER_PLACEHOLDER}`;
   meta.word_count = words;
   meta.reading_minutes = readingMinutes(words);
   return meta as BlogMeta;
@@ -83,6 +85,7 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     const t = p.title.trim().toLowerCase();
     if (seenTitle.has(t)) errors.push(`${p.slug}: duplicate title with ${seenTitle.get(t)}`);
     else seenTitle.set(t, p.slug);
+    if (!p.cover) continue; // no relevant photo yet — placeholder, no uniqueness rule
     if (!existsSync(resolve(root, "public/openverse", p.cover))) {
       errors.push(`${p.slug}: cover file public/openverse/${p.cover} does not exist`);
     }
