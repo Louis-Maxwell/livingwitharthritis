@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 183 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 193 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 95 posts still use the branded placeholder card and are queued for AI covers.
+- 85 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -557,19 +557,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | packing-list-arthritis-traveller | AI-generated: `ai-packing-list-arthritis-traveller.webp` |
 | paracetamol-for-arthritis-pain-what-the-evidence-says | AI-generated: `ai-paracetamol-for-arthritis-pain-what-the-evidence-says.webp` |
 | paramedic-fall-lift-arthritis-uk | AI-generated: `ai-paramedic-fall-lift-arthritis-uk.webp` |
+| parenting-with-arthritis-hacks-for-babies-and-toddlers | AI-generated: `ai-parenting-with-arthritis-hacks-for-babies-and-toddlers.webp` |
+| pendant-alarm-arthritis-swollen-fingers-uk | AI-generated: `ai-pendant-alarm-arthritis-swollen-fingers-uk.webp` |
+| pendulum-swings-wall-slides-shoulder | AI-generated: `ai-pendulum-swings-wall-slides-shoulder.webp` |
+| pets-arthritis-frailty-walking-dogs-uk | AI-generated: `ai-pets-arthritis-frailty-walking-dogs-uk.webp` |
+| physiotherapy-arthritis | AI-generated: `ai-physiotherapy-arthritis.webp` |
+| physiotherapy-home-visit-frail-oa-uk | AI-generated: `ai-physiotherapy-home-visit-frail-oa-uk.webp` |
+| pip-arthritis-frailty-honest-uk | AI-generated: `ai-pip-arthritis-frailty-honest-uk.webp` |
+| pip-fibromyalgia-denied-reapply | AI-generated: `ai-pip-fibromyalgia-denied-reapply.webp` |
+| pip-for-arthritis-how-to-build-a-strong-application | AI-generated: `ai-pip-for-arthritis-how-to-build-a-strong-application.webp` |
+| pip-for-arthritis-uk | AI-generated: `ai-pip-for-arthritis-uk.webp` |
 
 Posts still on the placeholder:
 
-- parenting-with-arthritis-hacks-for-babies-and-toddlers
-- pendant-alarm-arthritis-swollen-fingers-uk
-- pendulum-swings-wall-slides-shoulder
-- pets-arthritis-frailty-walking-dogs-uk
-- physiotherapy-arthritis
-- physiotherapy-home-visit-frail-oa-uk
-- pip-arthritis-frailty-honest-uk
-- pip-fibromyalgia-denied-reapply
-- pip-for-arthritis-how-to-build-a-strong-application
-- pip-for-arthritis-uk
 - pip-osteoarthritis-both-knees
 - podiatry-footcare-arthritis-frailty-uk
 - podiatry-nails-diabetes-arthritis-uk
