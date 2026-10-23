@@ -191,7 +191,7 @@ const ExerciseHub = () => {
   return (
     <>
       <Helmet>
-        <title>Free Arthritis Exercises at Home UK | Exercise Hub</title>
+        <title>Free Physiotherapy Exercises for Arthritis at Home UK</title>
         <meta name="description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="keywords" content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />

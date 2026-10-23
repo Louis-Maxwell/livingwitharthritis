@@ -172,6 +172,8 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /pain-relief /guides/arthritis-pain-relief 301
 /guides/pain-relief /guides/arthritis-pain-relief 301
+/guides/arthritis-diet /diet 301
+/guides/anti-inflammatory-diet /diet 301
 /disability-support /guides/disability-support 301
 /waiting-list /arthritis-waiting-list-help 301
 /waiting-list-help /arthritis-waiting-list-help 301
