@@ -26,7 +26,7 @@ const cases: Array<{ name: string; slug: string; title: RegExp; cites: string[];
     title: /Steroid Emergency Card With Arthritis.*\(UK\)/i,
     cites: [
       "https://www.nhs.uk/medicines/prednisolone/common-questions-about-prednisolone-tablets-and-liquid/",
-      "https://www.nhs.uk/medicines/prednisolone/how-and-when-to-take-prednisolone-tablets-and-liquid/",
+      "https://www.nhs.uk/medicines/prednisolone/",
       "https://www.nhs.uk/conditions/addisons-disease/",
       "https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/",
       "https://www.nhs.uk/conditions/sepsis/",
@@ -86,15 +86,14 @@ const cases: Array<{ name: string; slug: string; title: RegExp; cites: string[];
 
 describe("GSC Champions 79–81 (15 Oct): steroid emergency card + shingles vaccine + UTI confusion", () => {
   for (const c of cases) {
-    it(`${c.name} blog is pending clinical review with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} blog is clinically reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
-      expect(json.reviewed_by).toBeNull();
-      expect(json.reviewer_credentials).toBeNull();
-      expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      expect(json.reviewStatus).toBeUndefined();
+      expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(json.reviewed_by).toMatch(/Louis Maxwell/);
+      expect(json.reviewer_credentials).toMatch(/PH128483/);
+            expect(json.content).not.toMatch(/Pending clinical review/i);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);

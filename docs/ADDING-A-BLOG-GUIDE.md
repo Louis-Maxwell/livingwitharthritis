@@ -22,7 +22,6 @@ search index are all generated from it during `npm run build` (and `npm run dev`
      "direct_answer": "One or two sentences that answer the headline question, or null.",
      "date": "2026-09-25",
      "updated_at": "2026-09-25T09:00:00.000Z",
-     "reviewStatus": "pending",
      "category": "Exercise",
      "cover": "lwa-my-new-guide-uk.webp",
      "author": "Louis Maxwell",
@@ -49,14 +48,13 @@ search index are all generated from it during `npm run build` (and `npm run dev`
    | `date` | `YYYY-MM-DD` publish date |
    | `updated_at` | ISO 8601 timestamp |
    | `last_reviewed` | optional `YYYY-MM-DD`; when omitted the site shows `updated_at` as the review date |
-| `reviewStatus` | optional `"reviewed"` \| `"pending"`; omitted means `"reviewed"`. Use `"pending"` for any new or substantially rewritten guide until Louis has reviewed it (see below) |
    | `category` | must map to a topic in `src/data/blogCategories.ts` (e.g. Exercise, Nutrition, Health, Treatment…) |
    | `cover` | a file in `public/openverse/`, not used by any other guide |
    | `content` | real body, ≥ 200 characters |
    | `citations` | optional; absolute `http(s)` URLs only |
 
-   Only publish real content — no invented statistics. A new guide starts as
-   `"reviewStatus": "pending"` until Louis Maxwell has clinically reviewed it.
+   Only publish real content — no invented statistics. Do not publish a new guide
+   until Louis Maxwell has clinically reviewed it.
 
    If the cover image is new, add it to `public/openverse/` in the same commit.
 
@@ -75,39 +73,15 @@ search index are all generated from it during `npm run build` (and `npm run dev`
    `scripts/blog-head-data.json`, `src/data/blog-slugs.generated.json`,
    `public/sitemap.xml`, `public/llms-full.txt`, `public/_redirects`), open a PR, merge when green.
 
-## Clinical review status
+## Clinical review
 
-Every guide page shows who stands behind it. By default (no `reviewStatus`, or
-`"reviewed"`) the page says **"Clinically reviewed · Louis Maxwell, HCPC PH128483 · <date>"**
-and the JSON-LD carries `reviewedBy` for the verified reviewer.
+Every published guide is clinically reviewed by Louis Maxwell (HCPC PH128483) before
+it goes live (all existing guides were audited on 23 Oct 2026). Set `"author": "Louis Maxwell"`,
+`"reviewed_by": "Louis Maxwell"` and `"last_reviewed"` (YYYY-MM-DD) on every guide. There is
+no pending-review state for blog guides; do not publish a guide until Louis has reviewed it.
 
-A guide with `"reviewStatus": "pending"` instead shows:
-
-> Written by the Living With Arthritis team · pending clinical review by Louis Maxwell (HCPC PH128483)
-
-in the byline, the print header, the review box at the foot of the article and the
-prerendered HTML. Its JSON-LD keeps `author` and `publisher` but has **no**
-`reviewedBy` or `lastReviewed`, so search engines are never told a review happened.
-Do not set `last_reviewed` on a pending guide.
-
-Set `"pending"` on any new guide, and on an existing guide when you substantially
-rewrite the clinical content (a meta-title/description tweak does not count).
-
-### Marking a guide as reviewed
-
-Once Louis has reviewed a guide:
-
-```bash
-npm run blog:mark-reviewed -- <slug> [<slug> ...]
-# optional: --date YYYY-MM-DD (defaults to today, UK time), --no-catalog
-npm run build
-```
-
-This sets `"reviewStatus": "reviewed"` and `"last_reviewed"` to today in each
-`src/content/blog/posts/<slug>.json`, then regenerates the catalog. Commit the post
-files with the regenerated files (as in step 3), open a PR, merge when green. Also
-remove the slug from `PENDING_SINCE_25_SEP` in
-`src/lib/__tests__/blog-review-status.test.tsx` if it is listed there.
+Every guide page also shows a "Download this guide (PDF)" button under the article, which
+builds a PDF in the browser with the title, URL, review/download date and the disclaimer.
 
 ### Library topics (`/library/<slug>`)
 
@@ -139,8 +113,8 @@ in `src/pages/__tests__/LibraryTopic.review-status.test.tsx`.
 
 ## Editing, renaming or removing a guide
 
-- **Edit:** change the post file, bump `updated_at` (and `last_reviewed` after a
-  clinical review — `npm run blog:mark-reviewed` does this), rebuild, commit.
+- **Edit:** change the post file, bump `updated_at` (and `last_reviewed` after Louis
+  re-reviews it), rebuild, commit.
 - **Rename a slug:** never delete the old URL. Rename the file/slug, then add
   `"old-slug": "new-slug"` to `src/data/blogRedirects.ts` so the old link keeps working.
   The integrity test fails if a redirect points at a missing guide or shadows a live one.

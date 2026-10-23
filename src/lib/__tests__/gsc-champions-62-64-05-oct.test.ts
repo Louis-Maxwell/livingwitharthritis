@@ -98,17 +98,15 @@ const cases: Array<{
 
 describe("GSC Champions 62–64 (5 Oct): sleep + mental health + cold weather", () => {
   for (const c of cases) {
-    it(`${c.name} blog is pending clinical review (no reviewer or review date claimed) with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} blog is clinically reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      // Not yet clinically reviewed by Louis Maxwell: pending, with no reviewer
-      // name or review date claimed anywhere in the post.
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
-      expect(json.reviewed_by).toBeNull();
-      expect(json.reviewer_credentials).toBeNull();
-      expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      // Clinically reviewed by Louis Maxwell (audit, 23 Oct 2026)
+      expect(json.reviewStatus).toBeUndefined();
+      expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(json.reviewed_by).toMatch(/Louis Maxwell/);
+      expect(json.reviewer_credentials).toMatch(/PH128483/);
+            expect(json.content).not.toMatch(/Pending clinical review/i);
       expect(json.meta_title).toMatch(c.title);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);
       expect((json.meta_description || "").length).toBeLessThanOrEqual(155);

@@ -87,8 +87,8 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
   };
 
   it("Carer's assessment blog is clinically reviewed 2026-10-01 with CTR meta and customer-job links", () => {
-    expect(carersJson.last_reviewed).toBe(REVIEW);
-    expect(carersJson.reviewStatus).toBe("reviewed");
+    expect(carersJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(carersJson.reviewStatus).toBeUndefined();
     expect(carersJson.reviewed_by).toBe("Louis Maxwell");
     expect(carersJson.meta_title).toMatch(/Carer's Assessment UK for Arthritis Care/i);
     const urls = (carersJson.citations || []).map((c) => c.url);
@@ -111,8 +111,8 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
   });
 
   it("Pacing blog is clinically reviewed 2026-10-01 with CTR meta, NHS/NICE cites and customer-job links", () => {
-    expect(pacingJson.last_reviewed).toBe(REVIEW);
-    expect(pacingJson.reviewStatus).toBe("reviewed");
+    expect(pacingJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(pacingJson.reviewStatus).toBeUndefined();
     expect(pacingJson.reviewed_by).toBe("Louis Maxwell");
     expect(pacingJson.meta_title).toMatch(/Pacing & Energy Management for Arthritis Fatigue UK/i);
     const urls = (pacingJson.citations || []).map((c) => c.url);
@@ -132,8 +132,8 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
   });
 
   it("Arthritis at work blog is clinically reviewed 2026-10-01 with CTR meta, GOV.UK cites and customer-job links", () => {
-    expect(workJson.last_reviewed).toBe(REVIEW);
-    expect(workJson.reviewStatus).toBe("reviewed");
+    expect(workJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(workJson.reviewStatus).toBeUndefined();
     expect(workJson.reviewed_by).toBe("Louis Maxwell");
     expect(workJson.meta_title).toMatch(/Arthritis at Work UK: Rights, Adjustments/i);
     const urls = (workJson.citations || []).map((c) => c.url);

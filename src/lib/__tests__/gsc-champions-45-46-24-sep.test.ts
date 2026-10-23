@@ -91,11 +91,7 @@ describe("GSC Champions 45–46 (24 Sep): disability benefits FAQ + RA anti-infl
     expect((row!.updated_at?.slice(0, 10) ?? "") >= "2026-09-24").toBe(true);
     expect(row!.direct_answer && row!.direct_answer.length > 80).toBe(true);
     expect(row!.author).toMatch(/Louis Maxwell/i);
-    if (row!.reviewStatus === "pending") {
-        expect(row!.reviewed_by).toBeNull();
-      } else {
-        expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
-      }
+    expect(row!.reviewed_by).toMatch(/Louis Maxwell/i);
 
     const cites = row!.citations ?? [];
     expect(cites.length).toBeGreaterThanOrEqual(3);

@@ -50,10 +50,7 @@ import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
-import {
-  blogReviewSchemaFields,
-  resolveBlogReviewStatus,
-} from "@/lib/blog/review";
+import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey } from "@/data/blogCategories";
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
@@ -283,15 +280,8 @@ const BlogPost = () => {
     /sarah\s+jennings/i.test(rawReviewerName) || /PH123456/i.test(rawReviewerCreds);
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
-  // Guides awaiting clinical review (reviewStatus: "pending") never show or
-  // emit a completed review, whatever reviewed_by says.
-  const reviewStatus = resolveBlogReviewStatus(
-    article as { reviewStatus?: string | null },
-    getBlogReviewMeta(slug),
-  );
-  const isPendingReview = reviewStatus === "pending";
+  // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
   const hasVerifiedReviewer =
-    !isPendingReview &&
     reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
@@ -301,7 +291,8 @@ const BlogPost = () => {
     : [];
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
-  const blogLastReviewed = (article as { last_reviewed?: string }).last_reviewed;
+  const blogLastReviewed =
+    (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
   const maxwellSchemaFields = {
@@ -341,7 +332,7 @@ const BlogPost = () => {
         ...maxwellSchemaFields,
       }
     : null;
-  const reviewSchemaFields = blogReviewSchemaFields({ reviewStatus, reviewedBy: reviewedBySchema });
+  const reviewSchemaFields = blogReviewSchemaFields({ reviewedBy: reviewedBySchema, lastReviewed: blogLastReviewed });
   const citationSchema = citations.map((citation) => ({
     "@type": "CreativeWork",
     "name": citation.label,
@@ -530,21 +521,12 @@ const BlogPost = () => {
                   <Avatar className="h-10 w-10 border-2 border-primary/15">
                     <AvatarFallback className="bg-primary/8 text-primary font-bold text-xs">LWA</AvatarFallback>
                   </Avatar>
-                  {isPendingReview ? (
-                    <p
-                      className="text-sm font-medium text-foreground leading-snug max-w-[46ch]"
-                      data-testid="blog-review-pending"
-                    >
-                      Clinical review status: not yet recorded
-                    </p>
-                  ) : (
-                    <div>
+                  <div>
                       <p className="text-sm font-semibold text-foreground leading-tight">
                         <Link to={isMaxwellAuthor ? "/authors/maxwell" : "/authors"} className="underline underline-offset-2">{authorName}</Link>
                       </p>
                       <p className="text-xs text-muted-foreground">{authorCreds}</p>
                     </div>
-                  )}
                 </div>
 
                 {hasVerifiedReviewer && (
@@ -618,9 +600,6 @@ const BlogPost = () => {
               <div className="text-[10px] mt-1">
                 Reviewed by {reviewerName}, {reviewerCreds}
               </div>
-            )}
-            {isPendingReview && (
-              <div className="text-[10px] mt-1">Clinical review status: not yet recorded</div>
             )}
           </div>
 
@@ -763,6 +742,26 @@ const BlogPost = () => {
 
 
 
+          <section
+            aria-labelledby="download-guide-heading"
+            className="no-print print:hidden my-8 rounded-xl border border-primary/20 bg-primary/5 p-4 sm:p-5"
+            data-testid="blog-download-guide"
+          >
+            <h2 id="download-guide-heading" className="text-base font-semibold text-foreground mb-1">
+              Download this guide
+            </h2>
+            <p className="text-sm text-muted-foreground mb-3">
+              Save a copy to read offline, print or share with family, carers or your GP.
+            </p>
+            <BlogPdfDownload
+              title={article.title}
+              html={htmlContent}
+              slug={slug ?? "article"}
+              label="Download this guide (PDF)"
+              dateLine={`Last reviewed: ${blogLastReviewed || dateModifiedIso || article.date} · Downloaded: ${new Date().toLocaleDateString("en-GB")}`}
+            />
+          </section>
+
           <ViewportSection>
             <ArticleCitations citations={citations} />
           </ViewportSection>
@@ -821,7 +820,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} reviewStatus={reviewStatus} />
+            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>
                 <TopicClusterNav path={`/blog/${slug}`} />

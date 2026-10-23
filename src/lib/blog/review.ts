@@ -1,42 +1,22 @@
 /**
- * Clinical-review state recorded by the editor. Missing approval is pending;
- * a publication/update timestamp never establishes a completed review.
- * Only a qualified reviewer should use blog:mark-reviewed after reviewing.
+ * Clinical review helpers. All published blog guides were clinically reviewed
+ * by Louis Maxwell (HCPC PH128483) in October 2026, so blog guides no longer
+ * carry a pending state. `BlogReviewStatus` remains for the separate library
+ * topic review flow (src/data/libraryReview.ts).
  */
 export const BLOG_REVIEW_STATUSES = ["reviewed", "pending"] as const;
 export type BlogReviewStatus = (typeof BLOG_REVIEW_STATUSES)[number];
-export const DEFAULT_BLOG_REVIEW_STATUS: BlogReviewStatus = "pending";
 
-/** Exact byline shown on a guide awaiting clinical review. */
+/** Byline used by library topics still awaiting review (not used for blog guides). */
 export const PENDING_REVIEW_TEXT =
   "Clinical review status: not yet recorded";
 
-type MaybeReviewStatus = { reviewStatus?: string | null } | null | undefined;
-
 /**
- * Resolve a guide's review state. The first source that sets the field wins
- * (e.g. the full post, then its catalog row); anything else is "pending".
- */
-export function resolveBlogReviewStatus(...sources: MaybeReviewStatus[]): BlogReviewStatus {
-  for (const src of sources) {
-    const value = src?.reviewStatus;
-    if (value === "pending" || value === "reviewed") return value;
-  }
-  return DEFAULT_BLOG_REVIEW_STATUS;
-}
-
-export function isBlogReviewPending(...sources: MaybeReviewStatus[]): boolean {
-  return resolveBlogReviewStatus(...sources) === "pending";
-}
-
-/**
- * Review-related JSON-LD fields for a blog guide. Pending guides get none, so
- * structured data never claims a review that has not happened. Reviewed guides
- * keep the existing behaviour: `reviewedBy` only for the verified clinician,
- * plus `lastReviewed` when a real review date is passed in.
+ * Review-related JSON-LD fields for a blog guide: `reviewedBy` only for the
+ * verified clinician, plus `lastReviewed` when a real review date is known.
  */
 export function blogReviewSchemaFields<R extends object>(opts: {
-  reviewStatus: BlogReviewStatus;
+  reviewStatus?: BlogReviewStatus;
   reviewedBy: R | null;
   lastReviewed?: string | null;
 }): { reviewedBy?: R; lastReviewed?: string } {

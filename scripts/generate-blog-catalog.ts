@@ -45,7 +45,7 @@ export interface BlogCatalogArtifacts {
   coverMap: Record<string, string>;
   contentStats: { blogArticleCount: number; wordCounts: Record<string, number> };
   mostRead: { slug: string; title: string }[];
-  reviewIndex: { lastReviewed: Record<string, string | null>; pending: string[] };
+  reviewIndex: { lastReviewed: Record<string, string | null> };
   errors: string[];
 }
 
@@ -57,8 +57,6 @@ export function toBlogMeta(post: BlogPost): BlogMeta {
   meta.image_url = `/openverse/${post.cover}`;
   meta.word_count = words;
   meta.reading_minutes = readingMinutes(words);
-  // Only pending guides carry the flag, so reviewed rows stay byte-identical.
-  if (post.reviewStatus) meta.reviewStatus = post.reviewStatus;
   return meta as BlogMeta;
 }
 
@@ -109,7 +107,6 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
       lastReviewed: Object.fromEntries(
         [...catalog].sort((a, b) => a.slug.localeCompare(b.slug)).map((row) => [row.slug, row.last_reviewed ?? null]),
       ),
-      pending: catalog.filter((row) => row.reviewStatus === "pending").map((row) => row.slug).sort(),
     },
     errors,
   };

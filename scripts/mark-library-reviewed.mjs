@@ -14,7 +14,7 @@
  */
 import { closeSync, ftruncateSync, openSync, readFileSync, writeSync } from "node:fs";
 import { resolve } from "node:path";
-import { todayInLondon } from "./lib/blog-review.mjs";
+import { todayInLondon } from "./lib/london-date.mjs";
 import {
   LIBRARY_REVIEW_STATUS_PATH,
   markLibraryTopicReviewed,

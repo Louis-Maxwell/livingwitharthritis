@@ -6,7 +6,7 @@ function safeFilename(slug: string) {
   return `${cleaned || 'article'}.pdf`;
 }
 
-export default function BlogPdfDownload({ title, html, slug }: { title: string; html: string; slug: string }) {
+export default function BlogPdfDownload({ title, html, slug, label = 'Download article PDF', dateLine }: { title: string; html: string; slug: string; label?: string; dateLine?: string }) {
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState('');
   async function download() {
@@ -17,7 +17,7 @@ export default function BlogPdfDownload({ title, html, slug }: { title: string; 
       parsed.querySelectorAll('p,h1,h2,h3,h4,li,tr,figcaption').forEach(n => n.append('\n'));
       const citations = Array.from(parsed.querySelectorAll('a[href]')).map(a => `${a.textContent}: ${new URL(a.getAttribute('href') ?? '', window.location.origin).href}`).join('\n');
       const { saveTextPdf } = await import('@/lib/pagePdf');
-      await saveTextPdf(title, (parsed.body.textContent ?? '') + '\nLinks and sources\n' + citations, safeFilename(slug));
+      await saveTextPdf(title, (dateLine ? dateLine + '\n' : '') + (parsed.body.textContent ?? '') + '\nLinks and sources\n' + citations, safeFilename(slug));
       setStatus('Article PDF downloaded.');
     } catch { setStatus('PDF download failed. Please use Print / save PDF.'); }
     finally { setBusy(false); }
@@ -29,10 +29,11 @@ export default function BlogPdfDownload({ title, html, slug }: { title: string; 
         disabled={busy}
         onClick={download}
         aria-busy={busy}
-        className="inline-flex min-h-11 items-center rounded-md border border-primary/40 bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted disabled:cursor-wait disabled:opacity-50"
+        aria-label={busy ? undefined : `${label}: ${title}`}
+        className="inline-flex min-h-11 w-full sm:w-auto justify-center items-center rounded-md border border-primary/40 bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted disabled:cursor-wait disabled:opacity-50"
       >
         <Download className="mr-2 h-4 w-4" aria-hidden="true" />
-        {busy ? 'Preparing PDF…' : 'Download article PDF'}
+        {busy ? 'Preparing PDF…' : label}
       </button>
       <span role="status" aria-live="polite" className="text-xs text-muted-foreground">{status}</span>
     </div>
