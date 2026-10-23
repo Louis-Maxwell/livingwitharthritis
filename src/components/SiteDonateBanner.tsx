@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Heart, X } from "lucide-react";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 import { trackDonationClick } from "@/lib/ga-events";
@@ -11,15 +11,17 @@ export const DONATE_BANNER_DISMISS_KEY = "lwa-donate-banner-dismissed";
  * and we avoid pressure tactics. Dismissal is remembered on this device.
  */
 const SiteDonateBanner = () => {
-  const [dismissed, setDismissed] = useState(true);
-
-  useEffect(() => {
+  // Read dismissal synchronously on first render. Previously the banner
+  // started hidden and appeared after an effect, pushing the page down
+  // (Lighthouse CLS failure from #260).
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window === "undefined") return false;
     try {
-      setDismissed(window.localStorage.getItem(DONATE_BANNER_DISMISS_KEY) === "1");
+      return window.localStorage.getItem(DONATE_BANNER_DISMISS_KEY) === "1";
     } catch {
-      setDismissed(false);
+      return false;
     }
-  }, []);
+  });
 
   if (dismissed) return null;
 

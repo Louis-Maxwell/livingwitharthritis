@@ -25,4 +25,9 @@ describe("SiteDonateBanner", () => {
     render(<SiteDonateBanner />);
     expect(screen.queryByRole("link")).toBeNull();
   });
+
+  it("is visible on the very first render (no late layout shift)", () => {
+    const { container } = render(<SiteDonateBanner />);
+    expect(container.querySelector("section")).not.toBeNull();
+  });
 });
