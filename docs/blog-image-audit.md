@@ -364,3 +364,307 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Covers kept
 
 303 covers were checked and kept as relevant to their post.
+
+## Follow-up: AI-generated covers, internal links, CTA and link check
+
+### AI-generated covers
+- 40 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
+- 238 posts still use the branded placeholder card and are queued for AI covers.
+
+| Post | Cover |
+|---|---|
+| activity-diary-arthritis-frailty-uk | AI-generated: `ai-activity-diary-arthritis-frailty-uk.webp` |
+| advance-care-planning-arthritis-frailty-uk | AI-generated: `ai-advance-care-planning-arthritis-frailty-uk.webp` |
+| alcohol-arthritis-uk-guidance | AI-generated: `ai-alcohol-arthritis-uk-guidance.webp` |
+| anaesthetic-risk-arthritis-frailty-uk | AI-generated: `ai-anaesthetic-risk-arthritis-frailty-uk.webp` |
+| anticholinergic-load-arthritis-frailty-uk | AI-generated: `ai-anticholinergic-load-arthritis-frailty-uk.webp` |
+| anxiety-arthritis-uk-guide | AI-generated: `ai-anxiety-arthritis-uk-guide.webp` |
+| appeal-rejected-pip-arthritis | AI-generated: `ai-appeal-rejected-pip-arthritis.webp` |
+| apprenticeships-and-arthritis-a-realistic-look | AI-generated: `ai-apprenticeships-and-arthritis-a-realistic-look.webp` |
+| arthritis-and-alcohol-uk | AI-generated: `ai-arthritis-and-alcohol-uk.webp` |
+| arthritis-and-pets-uk | AI-generated: `ai-arthritis-and-pets-uk.webp` |
+| arthritis-and-pregnancy-uk | AI-generated: `ai-arthritis-and-pregnancy-uk.webp` |
+| arthritis-and-sleep-problems | AI-generated: `ai-arthritis-and-sleep-problems.webp` |
+| arthritis-hows-life-living-with-arthritis | AI-generated: `ai-arthritis-hows-life-living-with-arthritis.webp` |
+| arthritis-in-older-adults | AI-generated: `ai-arthritis-in-older-adults.webp` |
+| arthritis-in-young-adults | AI-generated: `ai-arthritis-in-young-adults.webp` |
+| arthritis-pain-management | AI-generated: `ai-arthritis-pain-management.webp` |
+| arthritis-pain-relief-natural | AI-generated: `ai-arthritis-pain-relief-natural.webp` |
+| arthritis-physiotherapy-nhs-waiting-list | AI-generated: `ai-arthritis-physiotherapy-nhs-waiting-list.webp` |
+| arthritis-relationships-honest-conversations | AI-generated: `ai-arthritis-relationships-honest-conversations.webp` |
+| arthritis-support-groups-glasgow | AI-generated: `ai-arthritis-support-groups-glasgow.webp` |
+| arthritis-support-groups-manchester | AI-generated: `ai-arthritis-support-groups-manchester.webp` |
+| arthritis-support-groups-wales | AI-generated: `ai-arthritis-support-groups-wales.webp` |
+| arthritis-support-refugees-diverse-communities | AI-generated: `ai-arthritis-support-refugees-diverse-communities.webp` |
+| arthritis-treatment-hub | AI-generated: `ai-arthritis-treatment-hub.webp` |
+| assistive-devices-arthritis-uk | AI-generated: `ai-assistive-devices-arthritis-uk.webp` |
+| attendance-allowance-arthritis-frailty-uk | AI-generated: `ai-attendance-allowance-arthritis-frailty-uk.webp` |
+| balance-painful-feet-frailty-arthritis-uk | AI-generated: `ai-balance-painful-feet-frailty-arthritis-uk.webp` |
+| bed-exercises-hospital-arthritis-frailty-uk | AI-generated: `ai-bed-exercises-hospital-arthritis-frailty-uk.webp` |
+| bed-lever-arthritis-frailty-uk | AI-generated: `ai-bed-lever-arthritis-frailty-uk.webp` |
+| bedtime-routine-arthritis-relief | AI-generated: `ai-bedtime-routine-arthritis-relief.webp` |
+| bereavement-arthritis-frailty-living-alone-uk | AI-generated: `ai-bereavement-arthritis-frailty-living-alone-uk.webp` |
+| best-plantar-fasciitis-shoes-women-uk | AI-generated: `ai-best-plantar-fasciitis-shoes-women-uk.webp` |
+| best-sleep-positions-joint-pain | AI-generated: `ai-best-sleep-positions-joint-pain.webp` |
+| best-supplement-for-knee-joint | AI-generated: `ai-best-supplement-for-knee-joint.webp` |
+| best-supplements-arthritis-uk | AI-generated: `ai-best-supplements-arthritis-uk.webp` |
+| best-supplements-joint-pain | AI-generated: `ai-best-supplements-joint-pain.webp` |
+| big-toe-osteoarthritis-frailty-shoes-balance-uk | AI-generated: `ai-big-toe-osteoarthritis-frailty-shoes-balance-uk.webp` |
+| biologic-side-effects-infections-injections-and-monitoring | AI-generated: `ai-biologic-side-effects-infections-injections-and-monitoring.webp` |
+| blood-test-transport-arthritis-frailty-uk | AI-generated: `ai-blood-test-transport-arthritis-frailty-uk.webp` |
+| blue-badge-arthritis-scotland | AI-generated: `ai-blue-badge-arthritis-scotland.webp` |
+
+Posts still on the placeholder:
+
+- bone-clinic-arthritis-frailty-uk
+- bone-protection-steroids-arthritis-frailty-uk
+- building-strength-resilience-exercise-frailty-prevention
+- caregiver-burnout-in-arthritis-families-spot-it-early
+- carer-burnout-arthritis-frailty-uk
+- carers-assessment-arthritis-frailty-uk
+- cbt-chronic-pain-arthritis
+- chair-based-exercise-ra-frailty-uk
+- chest-infection-arthritis-frailty-uk
+- cognition-arthritis-frailty-remembering-tablets-uk
+- cold-weather-arthritis-uk-winter
+- community-alarm-arthritis-frailty-uk
+- community-ot-waiting-arthritis-frailty-uk
+- community-physio-wait-frail-arthritis-uk
+- community-strength-classes-frail-oa-uk
+- community-transport-arthritis-frailty-uk
+- confidence-after-fall-arthritis-frailty-uk
+- constipation-pain-medicines-frailty-arthritis-uk
+- copd-arthritis-frailty-breathlessness-uk
+- core-strengthening-spinal-arthritis
+- deconditioning-after-arthritis-flare-uk
+- delirium-hospital-arthritis-frailty-uk
+- dental-care-arthritis-frailty-hands-uk
+- depression-arthritis-when-to-seek-help
+- desk-setup-arthritis-uk-workers
+- diabetes-arthritis-frailty-feet-uk
+- direct-payments-arthritis-frailty-uk
+- disability-rights-workplace-arthritis
+- discharge-planning-arthritis-frailty-uk
+- dmards-explained-how-methotrexate-slows-rheumatoid-arthritis
+- early-arthritis-intervention-uk
+- early-signs-gout-big-toe
+- elbow-osteoarthritis-frailty-kitchen-tasks-uk
+- end-of-life-joint-pain-frailty-uk
+- exam-adjustments-for-students-with-arthritis
+- expert-brief-activity-safety-knee-arthritis
+- expert-brief-exercise-order-pain-relief
+- expert-brief-frozen-shoulder-vs-ra
+- expert-qa-are-steroid-tapers-always-necessary
+- expert-qa-exercising-through-a-flare-up
+- expert-qa-how-to-ask-for-help-without-feeling-guilty
+- expert-qa-how-to-talk-to-your-gp-about-medication-worries
+- expert-qa-is-it-too-soon-for-joint-replacement
+- expert-qa-is-it-worth-paying-for-a-second-opinion
+- expert-qa-returning-to-work-after-a-bad-flare
+- expert-qa-should-you-start-dmards-at-diagnosis
+- expert-qa-why-did-my-arthritis-come-back
+- expert-qa-will-my-children-inherit-my-arthritis
+- explain-juvenile-arthritis-school-teachers
+- extra-care-housing-arthritis-frailty-uk
+- eye-clinic-day-arthritis-frailty-uk
+- falls-response-service-arthritis-uk
+- family-meetings-arthritis-frailty-uk
+- fear-of-falling-hip-oa-frailty-uk
+- flare-management-pain-spikes
+- flare-versus-frailty-arthritis-uk
+- flexible-working-arthritis-pacing
+- flu-jab-arthritis-frailty-uk
+- footwear-indoor-slippers-frailty-arthritis-uk
+- frailty-older-people-arthritis-wales-uk
+- free-arthritis-support-northern-ireland
+- fried-frailty-phenotype-painful-joints-uk
+- gabapentinoids-unsteadiness-arthritis-frailty-uk
+- gene-therapy-and-arthritis-where-are-we-in-2026
+- generalised-oa-frailty-whole-body-day-uk
+- geriatric-clinic-plus-arthritis-uk
+- glucosamine-vs-collagen
+- glute-bridges-hip-osteoarthritis-guide
+- gout-medication-uk
+- gp-home-visit-arthritis-frailty-uk
+- grab-rails-arthritis-frailty-home-uk
+- grip-strength-exercises-hand-oa
+- gut-joint-connection-microbiome-arthritis
+- hand-exercises-for-arthritis
+- hand-osteoarthritis-frailty-dressing-cooking-uk
+- heat-packs-frail-arthritis-uk
+- high-rise-flat-arthritis-frailty-lifts-uk
+- hip-and-knee-oa-frailty-transfers-uk
+- hip-arthritis-symptoms-uk
+- hip-oa-frailty-bed-mobility-uk
+- hip-pain-climbing-stairs-causes-relief
+- hip-replacement-arthritis-uk
+- hobbies-arthritis-friendly-uk
+- hoist-conversations-family-carers-uk
+- holiday-at-home-arthritis-frailty-uk
+- hospital-appointments-frailty-arthritis-uk
+- hospital-deconditioning-arthritis-stay-uk
+- hospital-parking-walking-frail-arthritis-uk
+- hospital-stay-arthritis-frailty-what-to-pack-uk
+- hotel-rooms-accessibility-arthritis
+- inflammatory-arthritis-frailty-flare-week-uk
+- inflammatory-arthritis-guide
+- intermediate-care-arthritis-frailty-uk
+- jak-inhibitors-the-next-wave-of-ra-treatment
+- joint-fusion-vs-replacement-how-surgeons-choose
+- joint-replacement-decision-frailty-uk
+- joint-replacement-surgery
+- juvenile-arthritis-school-support-parents
+- juvenile-arthritis-uk
+- kettle-safety-arthritis-frailty-uk
+- kitchen-adaptations-arthritis-frailty-uk
+- knee-arthritis-exercises-uk
+- knee-arthroscopy-for-osteoarthritis-helpful-or-hype
+- knee-oa-frailty-outdoor-pavements-uk
+- knee-oa-frailty-rising-from-low-sofa-uk
+- knee-osteoarthritis-frailty-staying-steady-home-uk
+- knee-replacement-arthritis-uk
+- libraries-arthritis-frailty-getting-out-uk
+- local-wheelchair-service-arthritis-uk
+- longevity-habits-arthritis-patients
+- lower-back-stiffness-worse-after-sitting
+- lymphoedema-arthritis-frailty-uk
+- manage-arthritis-pain-flare-ups-night
+- managing-arthritis-at-work
+- meal-delivery-arthritis-frailty-uk
+- medication-management-travel-arthritis
+- methotrexate-older-frail-adults-uk
+- midfoot-osteoarthritis-frailty-standing-time-uk
+- mindfulness-chronic-pain-arthritis-guide
+- mindfulness-pain-arthritis-frailty-uk
+- mobility-scooter-arthritis-frailty-uk
+- morning-routine-multi-joint-arthritis
+- morning-stiffness-frailty-routine-uk
+- neck-osteoarthritis-frailty-balance-looking-down-uk
+- nhs-access-to-biologics-how-the-approval-pathway-works
+- nhs-frailty-pathway-arthritis-england
+- nhs-rheumatologist-northern-ireland
+- night-lights-arthritis-falls-frailty-uk
+- nordic-poles-arthritis-frailty-uk
+- nsaids-and-arthritis-benefits-risks-and-safer-use
+- nursing-home-arthritis-pain-review-uk
+- nutrition-strategies-reduce-frailty-risk
+- oa-vs-ra-comparison
+- occupational-therapist-kitchen-visit-frailty-uk
+- older-adults-arthritis-frailty-northern-ireland-uk
+- osteoarthritis-symptoms-uk
+- ot-assessment-arthritis-frailty-uk
+- outdoor-steps-handrails-arthritis-uk
+- pacing-housework-arthritis-frailty-uk
+- pacing-visitors-arthritis-frailty-uk
+- packing-list-arthritis-traveller
+- paracetamol-for-arthritis-pain-what-the-evidence-says
+- paramedic-fall-lift-arthritis-uk
+- parenting-with-arthritis-hacks-for-babies-and-toddlers
+- pendant-alarm-arthritis-swollen-fingers-uk
+- pendulum-swings-wall-slides-shoulder
+- pets-arthritis-frailty-walking-dogs-uk
+- physiotherapy-arthritis
+- physiotherapy-home-visit-frail-oa-uk
+- pip-arthritis-frailty-honest-uk
+- pip-fibromyalgia-denied-reapply
+- pip-for-arthritis-how-to-build-a-strong-application
+- pip-for-arthritis-uk
+- pip-osteoarthritis-both-knees
+- podiatry-footcare-arthritis-frailty-uk
+- podiatry-nails-diabetes-arthritis-uk
+- polyarticular-oa-frailty-pacing-several-joints-uk
+- polypharmacy-arthritis-frailty-review-uk
+- post-hip-replacement-frailty-home-uk
+- post-knee-replacement-frailty-rehab-uk
+- post-op-constipation-arthritis-frailty-uk
+- prescription-costs-and-arthritis-nhs-prepayment-certificates
+- pressure-cushion-arthritis-frailty-uk
+- preventing-falls-guide-frail-adults
+- preventing-knee-osteoarthritis-uk
+- private-rheumatology-in-the-uk-when-its-worth-considering
+- ra-fatigue-frailty-energy-envelope-uk
+- ra-frailty-older-adults-daily-rhythm-uk
+- ra-steroids-frailty-infection-watch-uk
+- reablement-after-discharge-arthritis-uk
+- reasonable-adjustments-that-actually-help
+- remote-gp-apps-arthritis-frailty-uk
+- repeat-prescriptions-arthritis-frailty-uk
+- resistance-bands-seated-frail-oa-uk
+- resistance-training-arthritis-longevity
+- restless-nights-joint-pain-frailty-uk
+- rheumatology-clinic-frail-older-adult-uk
+- rheumatology-waiting-times-uk
+- rise-recline-chair-arthritis-frailty-uk
+- rural-living-arthritis-frailty-uk
+- seasonal-affective-disorder-arthritis
+- seasonal-arthritis-guide-uk
+- shingles-vaccine-arthritis-frailty-uk
+- shopping-online-arthritis-frailty-uk
+- short-term-equipment-loans-arthritis-uk
+- should-you-tell-your-employer-about-your-arthritis
+- shoulder-arthroscopy-and-arthritis-what-it-can-and-cant-fix
+- shoulder-osteoarthritis-frailty-washing-dressing-uk
+- shoulder-pain-reaching-ra-vs-oa
+- signs-rheumatoid-arthritis-early-stages
+- sit-to-stand-practice-frail-arthritis-uk
+- sleeping-tablets-falls-arthritis-frailty-uk
+- slow-walking-groups-arthritis-frailty-uk
+- smart-speakers-arthritis-frailty-uk
+- social-care-needs-assessment-arthritis-uk
+- social-prescribing-arthritis-frailty-uk
+- speech-swallowing-meals-arthritis-frailty-uk
+- spinal-arthritis-back-pain-uk
+- spine-oa-frailty-gardening-pacing-uk
+- spiritual-care-arthritis-frailty-uk
+- splints-night-hand-oa-frailty-uk
+- stair-assessments-arthritis-frailty-uk
+- stairlifts-arthritis-frailty-uk-home
+- static-bike-frail-osteoarthritis-uk
+- staying-active-arthritis-winter-uk
+- steroid-emergency-card-frail-arthritis-uk
+- steroid-injections-vs-oral-steroids-when-each-makes-sense
+- stopping-arthritis-medication-safely-a-step-by-step-guide
+- straight-leg-raises-knee-osteoarthritis
+- strength-training-on-biologics-is-it-safe
+- support-friend-diagnosed-lupus
+- supporting-a-partner-with-arthritis-a-practical-handbook
+- swelling-legs-arthritis-frailty-uk
+- tai-chi-balance-arthritis-frailty-uk
+- tai-chi-for-arthritis-uk
+- talk-employer-rheumatoid-arthritis-work
+- tapering-biologics-what-the-latest-trials-show
+- tens-machine-older-frail-arthritis-uk
+- tens-machines-arthritis-uk
+- thumb-base-osteoarthritis-frailty-daily-grip-uk
+- thumb-base-pain-early-hand-arthritis
+- toilet-frame-arthritis-frailty-uk
+- topical-nsaids-often-overlooked-often-effective
+- total-knee-replacement-a-uk-patients-guide-for-2026
+- transfer-board-arthritis-frailty-uk
+- universal-credit-and-arthritis-limited-capability-for-work
+- university-with-arthritis-disability-support-and-dsa
+- uti-confusion-arthritis-frailty-uk
+- vision-falls-arthritis-frailty-uk
+- volunteering-seated-arthritis-frailty-uk
+- walking-30-minutes-a-day-while-on-dmards-a-practical-plan
+- walking-sport-too-much-frail-arthritis-uk
+- what-sustained-remission-means-in-ra
+- wheelchair-for-distance-arthritis-frailty-uk
+- why-exercise-makes-your-arthritis-medication-work-better
+- winter-arthritis-frailty-cold-houses-uk
+- wrist-hand-oa-frailty-self-care-uk
+- yoga-ankylosing-spondylitis-stiffness
+
+### Internal links
+- Added a short "Related reading" line (1 to 3 links to closely related posts, matched on title and keywords) before the second section heading of 326 posts, 601 links in total. Existing text and medical content were not changed.
+
+### Call to action
+- New `src/components/blog/PostSupportCTA.tsx`, shown after the sources on every post: "You don't have to manage arthritis alone" with links to `/arthritis-support`, `/contact` and `/donate`.
+
+### Link check
+- Internal: every `/blog/` link resolves to a published post. Two links pointed at redirects and now go to the canonical page: `/finances` became `/benefits-pip` and `/exercise-hub` became `/exercises` (15 posts).
+- External: 454 unique URLs checked. Two were dead (404) and were replaced:
+  - `nhsinform.scot/waiting-times/outpatient-waiting-times/` became `https://www.nhsinform.scot/waiting-times/`
+  - `gov.uk/government/publications/nhs-entitlements-migrant-health-guide` became `https://www.gov.uk/guidance/nhs-entitlements-migrant-health-guide`
+- 14 URLs (BNF and CKS at NICE, CSP, RCOA, Relate and others) returned 403 to the automated checker. These sites block bots, so the links were kept.

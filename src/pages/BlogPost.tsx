@@ -25,6 +25,7 @@ import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
 import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
+import PostSupportCTA from "@/components/blog/PostSupportCTA";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -782,6 +783,8 @@ const BlogPost = () => {
           <ViewportSection>
             <ArticleCitations citations={citations} />
           </ViewportSection>
+
+          <PostSupportCTA />
 
           <ViewportSection>
             {slug && <FeedbackPoll slug={slug} title={article.title} />}
