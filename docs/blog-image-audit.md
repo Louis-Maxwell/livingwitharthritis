@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 203 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 213 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 75 posts still use the branded placeholder card and are queued for AI covers.
+- 65 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -577,19 +577,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | post-op-constipation-arthritis-frailty-uk | AI-generated: `ai-post-op-constipation-arthritis-frailty-uk.webp` |
 | prescription-costs-and-arthritis-nhs-prepayment-certificates | AI-generated: `ai-prescription-costs-and-arthritis-nhs-prepayment-certificates.webp` |
 | pressure-cushion-arthritis-frailty-uk | AI-generated: `ai-pressure-cushion-arthritis-frailty-uk.webp` |
+| preventing-falls-guide-frail-adults | AI-generated: `ai-preventing-falls-guide-frail-adults.webp` |
+| preventing-knee-osteoarthritis-uk | AI-generated: `ai-preventing-knee-osteoarthritis-uk.webp` |
+| private-rheumatology-in-the-uk-when-its-worth-considering | AI-generated: `ai-private-rheumatology-in-the-uk-when-its-worth-considering.webp` |
+| ra-fatigue-frailty-energy-envelope-uk | AI-generated: `ai-ra-fatigue-frailty-energy-envelope-uk.webp` |
+| ra-frailty-older-adults-daily-rhythm-uk | AI-generated: `ai-ra-frailty-older-adults-daily-rhythm-uk.webp` |
+| ra-steroids-frailty-infection-watch-uk | AI-generated: `ai-ra-steroids-frailty-infection-watch-uk.webp` |
+| reablement-after-discharge-arthritis-uk | AI-generated: `ai-reablement-after-discharge-arthritis-uk.webp` |
+| reasonable-adjustments-that-actually-help | AI-generated: `ai-reasonable-adjustments-that-actually-help.webp` |
+| remote-gp-apps-arthritis-frailty-uk | AI-generated: `ai-remote-gp-apps-arthritis-frailty-uk.webp` |
+| repeat-prescriptions-arthritis-frailty-uk | AI-generated: `ai-repeat-prescriptions-arthritis-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- preventing-falls-guide-frail-adults
-- preventing-knee-osteoarthritis-uk
-- private-rheumatology-in-the-uk-when-its-worth-considering
-- ra-fatigue-frailty-energy-envelope-uk
-- ra-frailty-older-adults-daily-rhythm-uk
-- ra-steroids-frailty-infection-watch-uk
-- reablement-after-discharge-arthritis-uk
-- reasonable-adjustments-that-actually-help
-- remote-gp-apps-arthritis-frailty-uk
-- repeat-prescriptions-arthritis-frailty-uk
 - resistance-bands-seated-frail-oa-uk
 - resistance-training-arthritis-longevity
 - restless-nights-joint-pain-frailty-uk
