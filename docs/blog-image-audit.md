@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 271 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 278 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 7 posts still use the branded placeholder card and are queued for AI covers.
+- 0 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -645,16 +645,16 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | vision-falls-arthritis-frailty-uk | AI-generated: `ai-vision-falls-arthritis-frailty-uk.webp` |
 | volunteering-seated-arthritis-frailty-uk | AI-generated: `ai-volunteering-seated-arthritis-frailty-uk.webp` |
 | walking-30-minutes-a-day-while-on-dmards-a-practical-plan | AI-generated: `ai-walking-30-minutes-a-day-while-on-dmards-a-practical-plan.webp` |
+| walking-sport-too-much-frail-arthritis-uk | AI-generated: `ai-walking-sport-too-much-frail-arthritis-uk.webp` |
+| what-sustained-remission-means-in-ra | AI-generated: `ai-what-sustained-remission-means-in-ra.webp` |
+| wheelchair-for-distance-arthritis-frailty-uk | AI-generated: `ai-wheelchair-for-distance-arthritis-frailty-uk.webp` |
+| why-exercise-makes-your-arthritis-medication-work-better | AI-generated: `ai-why-exercise-makes-your-arthritis-medication-work-better.webp` |
+| winter-arthritis-frailty-cold-houses-uk | AI-generated: `ai-winter-arthritis-frailty-cold-houses-uk.webp` |
+| wrist-hand-oa-frailty-self-care-uk | AI-generated: `ai-wrist-hand-oa-frailty-self-care-uk.webp` |
+| yoga-ankylosing-spondylitis-stiffness | AI-generated: `ai-yoga-ankylosing-spondylitis-stiffness.webp` |
 
 Posts still on the placeholder:
 
-- walking-sport-too-much-frail-arthritis-uk
-- what-sustained-remission-means-in-ra
-- wheelchair-for-distance-arthritis-frailty-uk
-- why-exercise-makes-your-arthritis-medication-work-better
-- winter-arthritis-frailty-cold-houses-uk
-- wrist-hand-oa-frailty-self-care-uk
-- yoga-ankylosing-spondylitis-stiffness
 
 ### Internal links
 - Added a short "Related reading" line (1 to 3 links to closely related posts, matched on title and keywords) before the second section heading of 326 posts, 601 links in total. Existing text and medical content were not changed.
