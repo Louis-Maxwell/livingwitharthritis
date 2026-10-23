@@ -14,6 +14,7 @@ const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
+import SiteDonateBanner from "@/components/SiteDonateBanner";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -294,6 +295,8 @@ const Header = () => {
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
 
+
+        <SiteDonateBanner />
 
         <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
           <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
