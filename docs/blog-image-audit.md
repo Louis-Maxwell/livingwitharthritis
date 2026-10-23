@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 253 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 263 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 25 posts still use the branded placeholder card and are queued for AI covers.
+- 15 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -627,19 +627,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | support-friend-diagnosed-lupus | AI-generated: `ai-support-friend-diagnosed-lupus.webp` |
 | supporting-a-partner-with-arthritis-a-practical-handbook | AI-generated: `ai-supporting-a-partner-with-arthritis-a-practical-handbook.webp` |
 | swelling-legs-arthritis-frailty-uk | AI-generated: `ai-swelling-legs-arthritis-frailty-uk.webp` |
+| tai-chi-balance-arthritis-frailty-uk | AI-generated: `ai-tai-chi-balance-arthritis-frailty-uk.webp` |
+| tai-chi-for-arthritis-uk | AI-generated: `ai-tai-chi-for-arthritis-uk.webp` |
+| talk-employer-rheumatoid-arthritis-work | AI-generated: `ai-talk-employer-rheumatoid-arthritis-work.webp` |
+| tapering-biologics-what-the-latest-trials-show | AI-generated: `ai-tapering-biologics-what-the-latest-trials-show.webp` |
+| tens-machine-older-frail-arthritis-uk | AI-generated: `ai-tens-machine-older-frail-arthritis-uk.webp` |
+| tens-machines-arthritis-uk | AI-generated: `ai-tens-machines-arthritis-uk.webp` |
+| thumb-base-osteoarthritis-frailty-daily-grip-uk | AI-generated: `ai-thumb-base-osteoarthritis-frailty-daily-grip-uk.webp` |
+| thumb-base-pain-early-hand-arthritis | AI-generated: `ai-thumb-base-pain-early-hand-arthritis.webp` |
+| toilet-frame-arthritis-frailty-uk | AI-generated: `ai-toilet-frame-arthritis-frailty-uk.webp` |
+| topical-nsaids-often-overlooked-often-effective | AI-generated: `ai-topical-nsaids-often-overlooked-often-effective.webp` |
 
 Posts still on the placeholder:
 
-- tai-chi-balance-arthritis-frailty-uk
-- tai-chi-for-arthritis-uk
-- talk-employer-rheumatoid-arthritis-work
-- tapering-biologics-what-the-latest-trials-show
-- tens-machine-older-frail-arthritis-uk
-- tens-machines-arthritis-uk
-- thumb-base-osteoarthritis-frailty-daily-grip-uk
-- thumb-base-pain-early-hand-arthritis
-- toilet-frame-arthritis-frailty-uk
-- topical-nsaids-often-overlooked-often-effective
 - total-knee-replacement-a-uk-patients-guide-for-2026
 - transfer-board-arthritis-frailty-uk
 - universal-credit-and-arthritis-limited-capability-for-work
