@@ -1,3 +1,4 @@
+import { BLOG_COVER_PLACEHOLDER_IMG } from "@/lib/coverFallback";
 /**
  * Image picking without the slug → cover map, so the article page does not
  * download every guide's cover mapping. The map-based API lives in
@@ -33,7 +34,6 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
   arthritis: [
     "arthritis-01-arthritic-hands-in-pain.webp",
     "arthritis-02-arthritis-on-the-right-hand.webp",
-    "arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp",
     "arthritis-04-posttraumatic-arthritis-of-the-wrist.webp",
     "arthritis-05-rheumatoid-arthritis.webp",
     "arthritis-06-osteoarthritis-left-knee.webp",
@@ -47,12 +47,8 @@ const CATEGORY_FILES: Record<Bucket, string[]> = {
   ],
   community: [
     "community-01-an-elderly-tibetan-women-holding-a-prayer-wheel-on.webp",
-    "community-02-wolf-creek-nfh-2022-13th-annual-catch-a-smile-seni.webp",
     "community-03-a-senior-indian-couple-on-a-scooty.webp",
     "community-04-renewing-bonds-family-reconnects-at-4th-asog-marri.webp",
-    "community-05-pride-be-2018-2018-05-19-16-47-31-ilce-6500-dsc081.webp",
-    "community-06-pride-be-2018-2018-05-19-15-19-41-ilce-6500-dsc082.webp",
-    "community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.webp",
     "community-08-physical-therapy-teaching-lab-at-cu-anschutz-octob.webp",
     "community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp",
     "community-10-us-navy-100306-n-5319a-035-ten-year-old-joseph-cam.webp",
@@ -365,6 +361,8 @@ export function pickArticleImages(
  */
 export function coverFromFile(file: string | null | undefined): ArticleImage {
   if (file && file.trim() && !BROKEN_SRC_RE.test(file)) return toImg(file);
+  // "" = unrelated photo removed in the image audit: branded placeholder card.
+  if (file === "") return { ...BLOG_COVER_PLACEHOLDER_IMG };
   return {
     src: LOCAL_COVER_FALLBACK,
     alt: "People walking together",

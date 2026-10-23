@@ -4918,7 +4918,7 @@ Reference: NICE NG100: Rheumatoid arthritis in adults – referral — https://w
 Reference: NICE QS33: Rheumatoid arthritis in over 16s – quality statements — https://www.nice.org.uk/guidance/qs33/chapter/Quality-statements
 Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/guidance/ng65/chapter/Recommendations
 Reference: NICE NG59: Low back pain and sciatica in over 16s — https://www.nice.org.uk/guidance/ng59/chapter/Recommendations
-Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/
+Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/
 Reference: Welsh Government: Planned care waiting times guidance (April 2025) — https://www.gov.wales/sites/default/files/publications/2025-04/planned-care-waiting-times-guidance-april-2025.pdf
 Reference: GOV.UK: Northern Ireland waiting time statistics – outpatient waiting times June 2026 — https://www.gov.uk/government/statistics/northern-ireland-waiting-time-statistics-outpatient-waiting-times-june-2026
 Reference: NHS: Temporal arteritis (giant cell arteritis) — https://www.nhs.uk/conditions/temporal-arteritis/
@@ -6266,7 +6266,7 @@ Reference: NICE NG59: Low back pain and sciatica in over 16s — https://www.nic
 Reference: NHS: Rheumatoid arthritis – diagnosis — https://www.nhs.uk/conditions/rheumatoid-arthritis/diagnosis/
 Reference: Englund M et al. Incidental meniscal findings on knee MRI in middle-aged and elderly persons. N Engl J Med 2008 — https://pubmed.ncbi.nlm.nih.gov/18784100/
 Reference: Brinjikji W et al. Imaging features of spinal degeneration in asymptomatic populations. AJNR 2015 — https://pubmed.ncbi.nlm.nih.gov/25430861/
-Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/
+Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/
 Reference: NHS England: Community diagnostic centres — https://www.england.nhs.uk/long-read/community-diagnostic-centres/
 
 ## Multimorbidity, arthritis and frailty: looking at the whole picture (UK)
@@ -7089,7 +7089,7 @@ Reference: NHS: Complications of a hip replacement — https://www.nhs.uk/tests-
 Reference: NHS: Having an operation – before surgery — https://www.nhs.uk/tests-and-treatments/having-surgery/preparation/
 Reference: Royal College of Anaesthetists: Preparing for surgery – Fitter Better Sooner — https://www.rcoa.ac.uk/patient-information/preparing-surgery-fitter-better-sooner
 Reference: NICE NG226: Osteoarthritis in over 16s – referral for joint replacement — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
-Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/
+Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/
 Reference: NHS: Healthcare Travel Costs Scheme (HTCS) — https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/
 Reference: NHS: Alcohol units — https://www.nhs.uk/live-well/alcohol-advice/calculating-alcohol-units/
 

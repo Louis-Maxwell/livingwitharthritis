@@ -10,6 +10,8 @@ const OPENVERSE_DIR = join(process.cwd(), "public", "openverse");
 
 describe("published blog covers (single source: post.cover)", () => {
   const map = blogCoverMap as Record<string, string>;
+  // "" = unrelated photo removed; listings/og use the branded placeholder card.
+  const fileFor = (slug: string) => map[slug] || "lwa-blog-cover-placeholder.webp";
   const slugs = blogSlugs as string[];
 
   it("has a cover-map entry and on-disk file for every published slug", () => {
@@ -19,10 +21,11 @@ describe("published blog covers (single source: post.cover)", () => {
     const missingFile: string[] = [];
     for (const slug of slugs) {
       const file = map[slug];
-      if (!file) {
+      if (file === undefined) {
         missingMap.push(slug);
         continue;
       }
+      if (!file) continue;
       if (!existsSync(join(OPENVERSE_DIR, file))) missingFile.push(`${slug} => ${file}`);
     }
     expect(missingMap).toEqual([]);
@@ -36,7 +39,7 @@ describe("published blog covers (single source: post.cover)", () => {
 
   it("exposes a non-null /openverse image_url for every catalog row", () => {
     const bad = getBlogCatalog()
-      .filter((row) => row.image_url !== `/openverse/${map[row.slug]}`)
+      .filter((row) => row.image_url !== `/openverse/${fileFor(row.slug)}`)
       .map((row) => `${row.slug}: ${row.image_url}`);
     expect(bad, bad.slice(0, 10).join("\n")).toEqual([]);
   });

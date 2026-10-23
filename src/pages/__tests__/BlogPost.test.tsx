@@ -268,7 +268,7 @@ describe("BlogPost Page", () => {
       ).map((script) => JSON.parse(script.textContent || "{}"));
     const articleSchema = await waitFor(() => {
       const schema = readSchemas().find(
-        (candidate) => candidate["@type"] === "Article",
+        (candidate) => candidate["@type"] === "BlogPosting",
       );
       expect(schema).toBeDefined();
       return schema;

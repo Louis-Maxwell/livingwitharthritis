@@ -6,7 +6,7 @@
  * article page uses directly with the cover file from the loaded guide.
  */
 import blogCoverMap from "@/data/blog-cover-map.generated.json";
-import { LOCAL_COVER_FALLBACK } from "@/lib/coverFallback";
+import { BLOG_COVER_PLACEHOLDER_IMG, LOCAL_COVER_FALLBACK } from "@/lib/coverFallback";
 import {
   BROKEN_SRC_RE,
   hashStr,
@@ -56,6 +56,8 @@ export function coverImage(
   slug: string,
 ): ArticleImage {
   const mapped = slug ? COVER_MAP[slug] : undefined;
+  // "" = unrelated photo removed in the image audit; show the branded card, not a random photo.
+  if (slug && mapped === "") return { ...BLOG_COVER_PLACEHOLDER_IMG };
   if (mapped && mapped.trim() && !BROKEN_SRC_RE.test(mapped)) {
     return toImg(mapped);
   }

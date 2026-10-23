@@ -70,6 +70,7 @@ describe("blog source of truth: src/content/blog/posts/*.json", () => {
       const seen = new Map<string, string>();
       for (const post of PUBLISHED_BLOG_POSTS) {
         const value = String(post[key]).trim().toLowerCase();
+        if (key === "cover" && !value) continue; // "" = photo removed (placeholder card)
         const prior = seen.get(value);
         if (prior) dupes.push(`duplicate ${key} "${value}" on ${prior} and ${post.slug}`);
         else seen.set(value, post.slug);
@@ -95,7 +96,7 @@ describe("blog source of truth: src/content/blog/posts/*.json", () => {
       else if (!canonicalBlogCategoryKey(row.category)) {
         bad.push(`${row.slug}: category "${row.category}" has no topic in src/data/blogCategories.ts`);
       }
-      if (!row.cover) bad.push(`${row.slug}: cover`);
+      if (row.cover == null) bad.push(`${row.slug}: cover`);
     }
     expect(bad, bad.slice(0, 15).join("\n")).toEqual([]);
   });

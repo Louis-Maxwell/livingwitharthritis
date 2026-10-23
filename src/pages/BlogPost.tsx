@@ -1,3 +1,4 @@
+import { BLOG_COVER_PLACEHOLDER_SRC } from "@/lib/coverFallback";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
@@ -24,6 +25,7 @@ import SocialShareButtons from "@/components/SocialShareButtons";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
 import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
+import PostSupportCTA from "@/components/blog/PostSupportCTA";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -246,10 +248,13 @@ const BlogPost = () => {
   const cover = coverFromFile(article.cover);
   // Topic-matched body figures only (may be empty). Hero always uses unique cover.
   const relatedImages = pickArticleImages(cover, article.category, article.title, slug || article.title, article.keywords).slice(1);
-  const coverAbsolute = cover?.src
+  // Posts whose unrelated photo was removed (cover "") show no hero photo.
+  const hasCover = Boolean(article.cover && String(article.cover).trim());
+  const coverAbsolute = hasCover && cover?.src
     ? `https://livingwitharthritis.org.uk${cover.src}`
-    : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
+    : `https://livingwitharthritis.org.uk${BLOG_COVER_PLACEHOLDER_SRC}`;
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
+  const keyTakeaways = extractKeyTakeaways(htmlContent);
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
@@ -399,7 +404,7 @@ const BlogPost = () => {
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Article",
+          "@type": "BlogPosting",
           "@id": `${pageUrl}#article`,
           "headline": article.title,
           "description": metaDesc,
@@ -556,6 +561,7 @@ const BlogPost = () => {
                 </div>
               )}
 
+              {hasCover && (
               <figure className="mt-4 mb-0">
                 <img
                   src={safeCoverSrc(cover.src)}
@@ -573,6 +579,7 @@ const BlogPost = () => {
                   {cover.credit}
                 </figcaption>
               </figure>
+              )}
             </div>
           </div>
           </div>
@@ -588,6 +595,17 @@ const BlogPost = () => {
             >
               {directAnswer}
             </AnswerBox>
+          )}
+
+          {keyTakeaways.length >= 3 && (
+            <aside aria-labelledby="key-takeaways-heading" className="speakable-takeaways mb-8 rounded-lg border border-primary/20 bg-primary/5 p-5">
+              <h2 id="key-takeaways-heading" className="font-display text-lg font-bold text-foreground mb-3">Key takeaways</h2>
+              <ul className="list-disc pl-5 space-y-1.5 text-sm text-foreground/90">
+                {keyTakeaways.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+            </aside>
           )}
 
           {/* Print header: only visible when saving to PDF / printing */}
@@ -766,6 +784,8 @@ const BlogPost = () => {
             <ArticleCitations citations={citations} />
           </ViewportSection>
 
+          <PostSupportCTA />
+
           <ViewportSection>
             {slug && <FeedbackPoll slug={slug} title={article.title} />}
             <HealthToolsCTA />
@@ -858,5 +878,24 @@ const BlogPost = () => {
     </>
   );
 };
+
+/**
+ * Key takeaways for readers and answer engines: the first sentence of the
+ * opening paragraph under each main section (verbatim, so medical meaning is
+ * unchanged). FAQ / references / disclaimer sections are skipped.
+ */
+function extractKeyTakeaways(html: string, max = 5): string[] {
+  const out: string[] = [];
+  const re = /<h2[^>]*>([\s\S]*?)<\/h2>\s*(?:<[^p][^>]*>[\s\S]*?<\/[^>]+>\s*)?<p[^>]*>([\s\S]*?)<\/p>/gi;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html)) && out.length < max) {
+    const heading = m[1].replace(/<[^>]+>/g, "").toLowerCase();
+    if (/faq|question|reference|source|disclaimer|further reading|related/.test(heading)) continue;
+    const text = m[2].replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+    const first = (text.match(/^.+?[.!?](?=\s|$)/) || [text])[0].trim();
+    if (first.length >= 30 && first.length <= 260 && !out.includes(first)) out.push(first);
+  }
+  return out;
+}
 
 export default BlogPost;
