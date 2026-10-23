@@ -1,7 +1,7 @@
 /**
  * Financial help directory for arthritis (UK): benefits, grants, discounts and where to apply
  * Content for /benefits-pip (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 10 October 2026. Pending clinical and editorial review.
+ * Facts checked on GOV.UK / official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const FIN_DIR_TITLE = "Financial help directory for arthritis (UK): benefits, grants, discounts and where to apply";

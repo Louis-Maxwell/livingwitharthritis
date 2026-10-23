@@ -21,7 +21,7 @@ import {
  * /supplements/collagen (Diet & Nutrition batch 4, topic 63). Content lives in
  * src/data/dietGuides/collagenContent.ts. Checked against Arthritis UK, NICE
  * NG226/NG100, NHS medicines pages and PubMed-indexed reviews on 10 October
- * 2026. Pending clinical and editorial review, so no reviewer is claimed.
+ * 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 const BASE = 'https://livingwitharthritis.org.uk';
@@ -105,7 +105,7 @@ export default function Collagen() {
       </div>
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(COLLAGEN_HTML) }} />
 
         <section className="my-12">

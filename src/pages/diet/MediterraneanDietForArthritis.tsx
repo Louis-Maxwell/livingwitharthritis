@@ -27,8 +27,8 @@ import {
  * /diet/mediterranean-diet-for-arthritis (Diet & Nutrition batch 4, topic 56).
  * Content lives in src/data/dietGuides/mediterraneanDietContent.ts. Claims
  * checked against NICE NG100/NG226, the NHS Eatwell Guide, Arthritis UK and
- * PubMed-indexed reviews on 10 October 2026. Pending clinical and editorial
- * review, so no reviewer is claimed in schema or on the page.
+ * PubMed-indexed reviews on 10 October 2026. Clinically reviewed by Louis Maxwell
+ * (HCPC PH128483).
  */
 
 const heroImage = "/openverse/cover-0469-organic-olive-oil-salad.webp";
@@ -117,7 +117,7 @@ export default function MediterraneanDietForArthritis() {
           <strong>Quick answer:</strong> {MED_DIET_QUICK_ANSWER}
         </p>
         <AeoEnhancement route={PATH} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
       </div>
 
       <section className="bg-secondary/30 border-y border-border/15">

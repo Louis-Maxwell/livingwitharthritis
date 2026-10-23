@@ -81,10 +81,9 @@ export default function EditorialStandards() {
               Our editorial standards
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Pages carrying a clinically reviewed badge have been reviewed by a
-              qualified healthcare professional. Pages still awaiting review are
-              labelled “Pending clinical review”; publication or an updated date
-              alone does not mean clinical review is complete. We identify sources
+              All published guides have been clinically reviewed by Louis Maxwell,
+              First Contact Practitioner (HCPC PH128483). Each guide shows its
+              reviewer and review date, and is re-reviewed when guidance changes. We identify sources
               for clinical recommendations and material factual claims, and link to
               relevant guidance or research where available. We also follow a clear
               content framework so answers stay readable and useful for UK readers.
@@ -98,10 +97,9 @@ export default function EditorialStandards() {
 
           <Section icon={UserCheck} title="Medical review process">
             <p>
-              Clinically reviewed pages are reviewed by a qualified clinician
-              before publication and re-checked when guidance changes. New or
-              expanding pages remain clearly marked as pending until that review
-              is complete.
+              All published guides are clinically reviewed by Louis Maxwell,
+              First Contact Practitioner (HCPC PH128483), before publication
+              and re-checked when guidance changes.
             </p>
             <ul>
               <li>

@@ -1,7 +1,7 @@
 /**
  * Mediterranean Diet for Arthritis: Evidence, UK Shopping List and 7-Day Plan
  * Content for /diet/mediterranean-diet-for-arthritis (Diet & Nutrition batch 4, Oct 2026).
- * Evidence checked against NHS, NICE, BDA and Cochrane sources on 10 October 2026. Pending clinical and editorial review.
+ * Evidence checked against NHS, NICE, BDA and Cochrane sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const MED_DIET_TITLE = "Mediterranean Diet for Arthritis: Evidence, UK Shopping List and 7-Day Plan";

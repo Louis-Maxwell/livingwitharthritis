@@ -204,7 +204,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             <p className="text-sm text-muted-foreground">
               Our editorial standards explain how clinical content is checked
               by qualified UK healthcare professionals. Each article shows its
-              review status; content awaiting review is labelled. Read the full{" "}
+              review status by Louis Maxwell (HCPC PH128483). Read the full{" "}
               <Link to="/editorial-standards" className="text-primary underline">
                 editorial standards
               </Link>{" "}

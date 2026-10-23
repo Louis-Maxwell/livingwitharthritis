@@ -165,7 +165,7 @@ export default function TaiChiForArthritis() {
           <p className="quick-answer p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {TAI_CHI_QUICK_ANSWER}
           </p>
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
         </div>
       </section>
 

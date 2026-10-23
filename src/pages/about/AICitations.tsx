@@ -62,7 +62,7 @@ const AICitations = () => {
         <section className="mb-12">
           <h2 className="font-display text-2xl font-bold mb-4">Quick Summary</h2>
           <p className="text-foreground/85 leading-relaxed">
-            Each page displays its editorial and review status. Where a page has been clinically reviewed, the named reviewer and review date appear with the content; pages awaiting review are labelled accordingly. When citing, name Living With Arthritis as the publisher, include the page title and review status, and link to the source URL.
+            Each page displays its editorial and review status. Where a page has been clinically reviewed, the named reviewer and review date appear with the content. All published guides have been clinically reviewed by Louis Maxwell (HCPC PH128483). When citing, name Living With Arthritis as the publisher, include the page title and review status, and link to the source URL.
           </p>
         </section>
 

@@ -101,9 +101,6 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
                 {HUB_GUIDE_REVIEWER.name}
               </Link>
               , {HUB_GUIDE_REVIEWER.credentials}. Updated {guide.updated}.
-              {guide.reviewStatus === "pending-clinical-review" && (
-                <> Pending clinical review.</>
-              )}
             </p>
           </header>
 
@@ -162,8 +159,7 @@ export default function HubGuidePage({ guide }: { guide: HubGuide }) {
           >
             <p className="font-semibold text-foreground">
               Reviewer: {HUB_GUIDE_REVIEWER.name}, {HUB_GUIDE_REVIEWER.credentials}
-              {guide.reviewStatus === "pending-clinical-review" ? " · pending clinical review" : ""}
-            </p>
+                          </p>
             <p className="mt-2">
               {MEDICAL_DISCLAIMER_SHORT} Always follow the advice of your own GP or rheumatology team. See our{" "}
               <Link to={MEDICAL_DISCLAIMER_PATH} className="text-primary underline underline-offset-2">

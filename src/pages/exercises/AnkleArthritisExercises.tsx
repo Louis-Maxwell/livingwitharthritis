@@ -103,7 +103,7 @@ export default function AnkleArthritisExercises() {
             </p>
           </aside>
 
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
 
           <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(FOOT_ANKLE_BEFORE_HTML) }} />
 
@@ -140,7 +140,7 @@ export default function AnkleArthritisExercises() {
           <p className="text-xs text-muted-foreground bg-muted/40 rounded-xl p-4 mb-12">
             <strong>Medical disclaimer:</strong> Educational information for
             people in the UK, not a diagnosis or personal treatment plan.
-            Pending clinical review. Sources: NICE NG226 and NG100, NHS foot
+            Clinically reviewed by Louis Maxwell (HCPC PH128483). Sources: NICE NG226 and NG100, NHS foot
             pain and osteoarthritis guidance, Arthritis UK exercise information.
           </p>
 

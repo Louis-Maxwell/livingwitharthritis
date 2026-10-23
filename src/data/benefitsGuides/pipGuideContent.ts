@@ -1,7 +1,7 @@
 /**
  * Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)
  * Content for /guides/benefits-pip (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 10 October 2026. Pending clinical and editorial review.
+ * Facts checked on GOV.UK / official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";

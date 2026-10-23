@@ -23,7 +23,7 @@ import {
  * /arthritis-waiting-list-help (Waiting for Treatment batch 5, topic 71).
  * Content lives in src/data/waitingGuides/waitingListHelpContent.ts. Checked
  * against NHS.uk, NHS inform, GOV.WALES, My Waiting Times NI and NICE on
- * 10 October 2026. Pending clinical review, so no reviewer is claimed.
+ * 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 const BASE = "https://livingwitharthritis.org.uk";
@@ -84,7 +84,7 @@ const WaitingListHelp = () => {
           <strong>Quick answer:</strong> {WAIT_LIST_QUICK_ANSWER}
         </p>
         <AeoEnhancement route={PATH} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+        <EducationalDisclaimerBox lastReviewed="2026-09-16" />
         <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(WAIT_LIST_HTML) }} />
 
         <section className="my-12">

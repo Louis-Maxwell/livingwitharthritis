@@ -21,8 +21,8 @@ import {
  * /guides/disability-support — "Your disability rights in the UK: the
  * Equality Act 2010" (Benefits & UK Support batch 3, topic 53). Content lives
  * in src/data/benefitsGuides/disabilityRightsContent.ts. Facts checked on
- * GOV.UK / legislation.gov.uk on 10 October 2026; pending clinical and
- * editorial review, so no reviewer is claimed in schema or on the page.
+ * GOV.UK / legislation.gov.uk on 10 October 2026; clinically reviewed by
+ * Louis Maxwell (HCPC PH128483). 
  */
 export default function DisabilitySupport() {
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function DisabilitySupport() {
         <strong>Quick answer:</strong> {DIS_RIGHTS_QUICK_ANSWER}
       </p>
       <AeoEnhancement route="/guides/disability-support" />
-      <EducationalDisclaimerBox lastReviewed="2026-09-16" reviewStatus="pending" />
+      <EducationalDisclaimerBox lastReviewed="2026-09-16" />
 
       <div
         className="prose prose-neutral dark:prose-invert max-w-none prose-a:text-primary"

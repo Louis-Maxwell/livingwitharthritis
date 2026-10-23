@@ -11,6 +11,7 @@ import {
   getLibraryLastReviewed,
   getLibraryReviewStatus,
   libraryAboutNote,
+  LIBRARY_SITEWIDE_REVIEW_DATE,
 } from "@/data/libraryReview";
 import { getLibraryTopicSeo } from "@/data/libraryTopicSeo";
 import {
@@ -21,8 +22,8 @@ import {
 vi.mock("@/components/Header", () => ({ default: () => <div data-testid="header" /> }));
 vi.mock("@/components/Footer", () => ({ default: () => <div data-testid="footer" /> }));
 
-/** Library topics expanded in PRs #94–#96 that Louis has not reviewed yet. */
-const PENDING_LIBRARY_TOPICS = [
+/** Library topics expanded in PRs #94–#96; clinically reviewed by Louis on 23 Oct 2026. */
+const EXPANDED_LIBRARY_TOPICS = [
   "hydroxychloroquine",
   "shoulder-pain",
   "plantar-fasciitis",
@@ -59,21 +60,20 @@ function pageJsonLd(): string {
 }
 
 describe("library review status data", () => {
-  it("flags exactly the 9 expanded topics as pending", () => {
+  it("has no pending topics left (all clinically reviewed)", () => {
     const pending = Object.entries(LIBRARY_REVIEW_STATUS)
       .filter(([, e]) => e.reviewStatus === "pending")
-      .map(([slug]) => slug)
-      .sort();
-    expect(pending).toEqual([...PENDING_LIBRARY_TOPICS].sort());
+      .map(([slug]) => slug);
+    expect(pending).toEqual([]);
   });
 
-  it("pending and undocumented topics have no completed review date", () => {
-    for (const slug of PENDING_LIBRARY_TOPICS) {
-      expect(getLibraryReviewStatus(slug)).toBe("pending");
-      expect(getLibraryLastReviewed(slug)).toBeNull();
+  it("expanded and undocumented topics carry a completed review date", () => {
+    for (const slug of EXPANDED_LIBRARY_TOPICS) {
+      expect(getLibraryReviewStatus(slug)).toBe("reviewed");
+      expect(getLibraryLastReviewed(slug)).toBe("2026-10-23");
     }
-    expect(getLibraryReviewStatus("fibromyalgia")).toBe("pending");
-    expect(getLibraryLastReviewed("fibromyalgia")).toBeNull();
+    expect(getLibraryReviewStatus("fibromyalgia")).toBe("reviewed");
+    expect(getLibraryLastReviewed("fibromyalgia")).toBe(LIBRARY_SITEWIDE_REVIEW_DATE);
   });
 
   it("requires an explicit completed review and date", () => {
@@ -83,20 +83,19 @@ describe("library review status data", () => {
     delete LIBRARY_REVIEW_STATUS['test-record'];
   });
 
-  it("About note is pending for pending topics and drops the wording once reviewed", () => {
-    expect(libraryAboutNote("knee-pain").body).toMatch(/pending clinical review/);
-    expect(getLibraryTopicSeo("knee-pain")?.extraSections?.at(-1)?.body).toMatch(/pending clinical review/);
-    expect(libraryAboutNote("fibromyalgia").body).toMatch(/pending/);
+  it("About note says clinically reviewed, never pending", () => {
+    expect(libraryAboutNote("knee-pain").body).toMatch(/clinically reviewed/);
+    expect(libraryAboutNote("knee-pain").body).not.toMatch(/pending/);
+    expect(getLibraryTopicSeo("knee-pain")?.extraSections?.at(-1)?.body).not.toMatch(/pending clinical review/);
   });
 
-  it("static library head data carries the pending note, no review claim", () => {
+  it("static library head data has no pending wording", () => {
     const head = JSON.parse(
       readFileSync(resolve(process.cwd(), "scripts/library-head-data.json"), "utf8"),
     ) as Record<string, { bodyHtml: string }>;
-    for (const slug of PENDING_LIBRARY_TOPICS) {
+    for (const slug of EXPANDED_LIBRARY_TOPICS) {
       const html = head[`/library/${slug}`]?.bodyHtml ?? "";
-      expect(html).toContain("pending clinical review");
-      expect(html).not.toMatch(/Clinically reviewed|clinically reviewed\./);
+      expect(html).not.toMatch(/pending clinical review/i);
     }
   });
 });
@@ -125,15 +124,12 @@ describe("library:mark-reviewed helper", () => {
 });
 
 describe("LibraryTopic page review box", () => {
-  it.each(PENDING_LIBRARY_TOPICS)("%s: says pending, claims no completed review", (slug) => {
+  it.each(EXPANDED_LIBRARY_TOPICS)("%s: shows the completed clinical review", (slug) => {
     renderTopic(slug);
-    expect(screen.getByText(LIBRARY_PENDING_REVIEW_TEXT)).toBeInTheDocument();
+    expect(screen.queryByText(LIBRARY_PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
     const text = document.body.textContent || "";
-    expect(text).not.toMatch(/Clinically reviewed/);
-    expect(text).not.toMatch(/\bclinically reviewed\b/i);
-    const ld = pageJsonLd();
-    expect(ld).toContain("MedicalWebPage");
-    expect(ld).not.toMatch(/reviewedBy|lastReviewed/);
+    expect(text).toMatch(/Clinically reviewed · Louis Maxwell, HCPC PH128483 · 23 October 2026/);
+    expect(text).not.toMatch(/pending clinical review/i);
     cleanup();
   });
 

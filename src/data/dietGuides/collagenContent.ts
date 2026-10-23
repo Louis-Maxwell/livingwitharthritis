@@ -1,7 +1,7 @@
 /**
  * Collagen Supplements for Arthritis: What the Evidence Really Shows (UK Guide)
  * Content for /supplements/collagen (Diet & Nutrition batch 4, Oct 2026).
- * Evidence checked against NHS, NICE, BDA and Cochrane sources on 10 October 2026. Pending clinical and editorial review.
+ * Evidence checked against NHS, NICE, BDA and Cochrane sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const COLLAGEN_TITLE = "Collagen Supplements for Arthritis: What the Evidence Really Shows (UK Guide)";
