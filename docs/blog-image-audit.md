@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 193 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 203 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 85 posts still use the branded placeholder card and are queued for AI covers.
+- 75 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -567,19 +567,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | pip-fibromyalgia-denied-reapply | AI-generated: `ai-pip-fibromyalgia-denied-reapply.webp` |
 | pip-for-arthritis-how-to-build-a-strong-application | AI-generated: `ai-pip-for-arthritis-how-to-build-a-strong-application.webp` |
 | pip-for-arthritis-uk | AI-generated: `ai-pip-for-arthritis-uk.webp` |
+| pip-osteoarthritis-both-knees | AI-generated: `ai-pip-osteoarthritis-both-knees.webp` |
+| podiatry-footcare-arthritis-frailty-uk | AI-generated: `ai-podiatry-footcare-arthritis-frailty-uk.webp` |
+| podiatry-nails-diabetes-arthritis-uk | AI-generated: `ai-podiatry-nails-diabetes-arthritis-uk.webp` |
+| polyarticular-oa-frailty-pacing-several-joints-uk | AI-generated: `ai-polyarticular-oa-frailty-pacing-several-joints-uk.webp` |
+| polypharmacy-arthritis-frailty-review-uk | AI-generated: `ai-polypharmacy-arthritis-frailty-review-uk.webp` |
+| post-hip-replacement-frailty-home-uk | AI-generated: `ai-post-hip-replacement-frailty-home-uk.webp` |
+| post-knee-replacement-frailty-rehab-uk | AI-generated: `ai-post-knee-replacement-frailty-rehab-uk.webp` |
+| post-op-constipation-arthritis-frailty-uk | AI-generated: `ai-post-op-constipation-arthritis-frailty-uk.webp` |
+| prescription-costs-and-arthritis-nhs-prepayment-certificates | AI-generated: `ai-prescription-costs-and-arthritis-nhs-prepayment-certificates.webp` |
+| pressure-cushion-arthritis-frailty-uk | AI-generated: `ai-pressure-cushion-arthritis-frailty-uk.webp` |
 
 Posts still on the placeholder:
 
-- pip-osteoarthritis-both-knees
-- podiatry-footcare-arthritis-frailty-uk
-- podiatry-nails-diabetes-arthritis-uk
-- polyarticular-oa-frailty-pacing-several-joints-uk
-- polypharmacy-arthritis-frailty-review-uk
-- post-hip-replacement-frailty-home-uk
-- post-knee-replacement-frailty-rehab-uk
-- post-op-constipation-arthritis-frailty-uk
-- prescription-costs-and-arthritis-nhs-prepayment-certificates
-- pressure-cushion-arthritis-frailty-uk
 - preventing-falls-guide-frail-adults
 - preventing-knee-osteoarthritis-uk
 - private-rheumatology-in-the-uk-when-its-worth-considering
