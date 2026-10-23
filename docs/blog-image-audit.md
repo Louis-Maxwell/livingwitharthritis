@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 233 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 243 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 45 posts still use the branded placeholder card and are queued for AI covers.
+- 35 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -607,19 +607,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | sit-to-stand-practice-frail-arthritis-uk | AI-generated: `ai-sit-to-stand-practice-frail-arthritis-uk.webp` |
 | sleeping-tablets-falls-arthritis-frailty-uk | AI-generated: `ai-sleeping-tablets-falls-arthritis-frailty-uk.webp` |
 | slow-walking-groups-arthritis-frailty-uk | AI-generated: `ai-slow-walking-groups-arthritis-frailty-uk.webp` |
+| smart-speakers-arthritis-frailty-uk | AI-generated: `ai-smart-speakers-arthritis-frailty-uk.webp` |
+| social-care-needs-assessment-arthritis-uk | AI-generated: `ai-social-care-needs-assessment-arthritis-uk.webp` |
+| social-prescribing-arthritis-frailty-uk | AI-generated: `ai-social-prescribing-arthritis-frailty-uk.webp` |
+| speech-swallowing-meals-arthritis-frailty-uk | AI-generated: `ai-speech-swallowing-meals-arthritis-frailty-uk.webp` |
+| spinal-arthritis-back-pain-uk | AI-generated: `ai-spinal-arthritis-back-pain-uk.webp` |
+| spine-oa-frailty-gardening-pacing-uk | AI-generated: `ai-spine-oa-frailty-gardening-pacing-uk.webp` |
+| spiritual-care-arthritis-frailty-uk | AI-generated: `ai-spiritual-care-arthritis-frailty-uk.webp` |
+| splints-night-hand-oa-frailty-uk | AI-generated: `ai-splints-night-hand-oa-frailty-uk.webp` |
+| stair-assessments-arthritis-frailty-uk | AI-generated: `ai-stair-assessments-arthritis-frailty-uk.webp` |
+| stairlifts-arthritis-frailty-uk-home | AI-generated: `ai-stairlifts-arthritis-frailty-uk-home.webp` |
 
 Posts still on the placeholder:
 
-- smart-speakers-arthritis-frailty-uk
-- social-care-needs-assessment-arthritis-uk
-- social-prescribing-arthritis-frailty-uk
-- speech-swallowing-meals-arthritis-frailty-uk
-- spinal-arthritis-back-pain-uk
-- spine-oa-frailty-gardening-pacing-uk
-- spiritual-care-arthritis-frailty-uk
-- splints-night-hand-oa-frailty-uk
-- stair-assessments-arthritis-frailty-uk
-- stairlifts-arthritis-frailty-uk-home
 - static-bike-frail-osteoarthritis-uk
 - staying-active-arthritis-winter-uk
 - steroid-emergency-card-frail-arthritis-uk
