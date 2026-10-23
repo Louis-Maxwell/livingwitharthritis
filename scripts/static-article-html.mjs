@@ -202,4 +202,4 @@ export function embedArticleJson(html, article) {
 }
 
 export const HOME_SHELL_HEADING =
-  "Living With Arthritis — UK charity for people with joint pain";
+  "Living With Arthritis — charity for people with joint pain in the UK";
