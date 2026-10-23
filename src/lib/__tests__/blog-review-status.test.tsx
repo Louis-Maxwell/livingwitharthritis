@@ -114,6 +114,9 @@ const PENDING_CHAMPIONS_62_73 = [
   "methotrexate-older-frail-adults-uk",
   "late-onset-ra-frailty-first-months-uk",
   "ra-monitoring-older-frail-adults-uk",
+  // Champions 97–98 (23 Oct)
+  "night-lights-arthritis-falls-frailty-uk",
+  "topical-nsaids-frail-hand-knee-oa-uk",
 ];
 
 /**
@@ -241,7 +244,7 @@ const PENDING_PAIN_FLARE_BATCH_1 = [
   "30-day-arthritis-pain-reduction-challenge",
 ];
 
-describe("Champions 62–96 guides awaiting clinical review", () => {
+describe("Champions 62–98 guides awaiting clinical review", () => {
   it.each([...PENDING_CHAMPIONS_62_73, ...PENDING_UNIQUE_BATCH_6, ...PENDING_WAITING_LIFE_BATCH_5, ...PENDING_DIET_NUTRITION_BATCH_4, ...PENDING_BENEFITS_SUPPORT_BATCH_3, ...PENDING_EXERCISE_PHYSIO_BATCH_2])("%s is pending in the post, catalog, review index and head data", (slug) => {
     const post = bySlug.get(slug)!;
     expect(post.reviewStatus).toBe("pending");
