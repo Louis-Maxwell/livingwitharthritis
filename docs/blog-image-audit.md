@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 163 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 173 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 115 posts still use the branded placeholder card and are queued for AI covers.
+- 105 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -537,19 +537,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | mobility-scooter-arthritis-frailty-uk | AI-generated: `ai-mobility-scooter-arthritis-frailty-uk.webp` |
 | morning-routine-multi-joint-arthritis | AI-generated: `ai-morning-routine-multi-joint-arthritis.webp` |
 | morning-stiffness-frailty-routine-uk | AI-generated: `ai-morning-stiffness-frailty-routine-uk.webp` |
+| neck-osteoarthritis-frailty-balance-looking-down-uk | AI-generated: `ai-neck-osteoarthritis-frailty-balance-looking-down-uk.webp` |
+| nhs-access-to-biologics-how-the-approval-pathway-works | AI-generated: `ai-nhs-access-to-biologics-how-the-approval-pathway-works.webp` |
+| nhs-frailty-pathway-arthritis-england | AI-generated: `ai-nhs-frailty-pathway-arthritis-england.webp` |
+| nhs-rheumatologist-northern-ireland | AI-generated: `ai-nhs-rheumatologist-northern-ireland.webp` |
+| night-lights-arthritis-falls-frailty-uk | AI-generated: `ai-night-lights-arthritis-falls-frailty-uk.webp` |
+| nordic-poles-arthritis-frailty-uk | AI-generated: `ai-nordic-poles-arthritis-frailty-uk.webp` |
+| nsaids-and-arthritis-benefits-risks-and-safer-use | AI-generated: `ai-nsaids-and-arthritis-benefits-risks-and-safer-use.webp` |
+| nursing-home-arthritis-pain-review-uk | AI-generated: `ai-nursing-home-arthritis-pain-review-uk.webp` |
+| nutrition-strategies-reduce-frailty-risk | AI-generated: `ai-nutrition-strategies-reduce-frailty-risk.webp` |
+| oa-vs-ra-comparison | AI-generated: `ai-oa-vs-ra-comparison.webp` |
 
 Posts still on the placeholder:
 
-- neck-osteoarthritis-frailty-balance-looking-down-uk
-- nhs-access-to-biologics-how-the-approval-pathway-works
-- nhs-frailty-pathway-arthritis-england
-- nhs-rheumatologist-northern-ireland
-- night-lights-arthritis-falls-frailty-uk
-- nordic-poles-arthritis-frailty-uk
-- nsaids-and-arthritis-benefits-risks-and-safer-use
-- nursing-home-arthritis-pain-review-uk
-- nutrition-strategies-reduce-frailty-risk
-- oa-vs-ra-comparison
 - occupational-therapist-kitchen-visit-frailty-uk
 - older-adults-arthritis-frailty-northern-ireland-uk
 - osteoarthritis-symptoms-uk
