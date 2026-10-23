@@ -5005,13 +5005,18 @@ Reference: Age UK: Falls prevention — https://www.ageuk.org.uk/information-adv
 
 ## Inclusive Arthritis and Frailty Support Plan (UK)
 URL: https://livingwitharthritis.org.uk/blog/inclusive-arthritis-frailty-support-plan-uk
-Last updated: 2026-10-12
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Inclusive Arthritis and Frailty Support Plan (UK)
-A: Our plan for practical arthritis and frailty education, including Asian communities, Muslim women, refugees and asylum seekers, with accessible NHS signposting.
-Reference: NHS: Register with a GP — https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/
+A: Everyone with arthritis or frailty should be able to understand their condition and get the right help, whatever their language, culture, faith, disability or immigration status. This page sets out how Living With Arthritis plans to make its information more accessible, and the practical rights you have now when using the NHS, such as a free interpreter.
+Reference: NHS England: Interpreting and translation — https://www.england.nhs.uk/interpreting/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Indoor walking with a frame when arthritis and frailty overlap (UK)
 URL: https://livingwitharthritis.org.uk/blog/indoor-walking-frame-arthritis-frailty-uk
@@ -5399,12 +5404,19 @@ A: Axial spondyloarthritis may cause back pain and stiffness that improve with m
 
 ## Arthritis Myths vs Facts
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-arthritis-myths-vs-facts
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Arthritis Myths vs Facts
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Many common beliefs about arthritis are wrong, and some stop people getting help. Arthritis is not just an old person's condition, exercise does not wear joints out, and there is a lot that can be done to reduce pain. Here we check ten common myths against NHS and NICE guidance.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Exercise — https://www.nhs.uk/live-well/exercise/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Best Exercise for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-best-exercise-for-rheumatoid-arthritis
@@ -5417,21 +5429,35 @@ A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent s
 
 ## Can Arthritis Be Prevented?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-can-arthritis-be-prevented
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Can Arthritis Be Prevented?
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: You cannot always prevent arthritis, because some risk factors such as age, genes and sex cannot be changed. But you can lower your risk of some types, especially osteoarthritis and gout, and reduce how much arthritis affects you if you do develop it. The most useful steps are keeping to a healthy weight, staying active, protecting your joints from injury and not smoking.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Healthy weight — https://www.nhs.uk/live-well/healthy-weight/
+Reference: UK Chief Medical Officers' physical activity guidelines — https://www.gov.uk/government/publications/physical-activity-guidelines-uk-chief-medical-officers-report
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Clicking Joints
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-clicking-joints
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Clicking Joints
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Clicking, cracking or popping joints are very common and are usually harmless if there is no pain or swelling. The noise often comes from gas bubbles in joint fluid or tendons moving over bone. Grinding or crunching with pain, called crepitus, can be a sign of osteoarthritis. See your GP or physiotherapist if clicking comes with pain, swelling, locking or the joint giving way.
+Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS: Knee pain — https://www.nhs.uk/symptoms/knee-pain/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Joint hypermobility syndrome — https://www.nhs.uk/conditions/joint-hypermobility-syndrome/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Daily Living Tips for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-daily-living-tips-for-arthritis
@@ -5444,12 +5470,19 @@ A: Arthritis affects people differently. A useful management plan considers pain
 
 ## Disability Living Allowance and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-disability-living-allowance-and-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Disability Living Allowance and Arthritis
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Disability Living Allowance (DLA) is now mainly for children under 16 in England, Wales and Northern Ireland, including children with juvenile arthritis. Most adults cannot make a new claim for DLA. Adults of working age claim Personal Independence Payment (PIP), or Adult Disability Payment in Scotland. People over State Pension age claim Attendance Allowance, or Pension Age Disability Payment in Scotland.
+Reference: GOV.UK: Disability Living Allowance for children — https://www.gov.uk/disability-living-allowance-children
+Reference: GOV.UK: DLA for adults — https://www.gov.uk/dla-disability-living-allowance-benefit
+Reference: GOV.UK: Personal Independence Payment — https://www.gov.uk/pip
+Reference: GOV.UK: Attendance Allowance — https://www.gov.uk/attendance-allowance
+Reference: mygov.scot: Child Disability Payment — https://www.mygov.scot/child-disability-payment
+Reference: mygov.scot: Adult Disability Payment — https://www.mygov.scot/adult-disability-payment
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Fibromyalgia: Symptoms, Causes, Diagnosis and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-fibromyalgia-symptoms-causes-diagnosis-and-treatment
@@ -5480,21 +5513,33 @@ A: Frailty means reduced resilience to illness and stressors; it is not an inevi
 
 ## Gout: Causes, Symptoms and Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-gout-causes-symptoms-and-treatment
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Gout: Causes, Symptoms and Treatment
-A: Gout is caused by monosodium urate crystals in joints. Attacks often cause sudden severe pain, redness and swelling, frequently in the big toe. Long-term urate-lowering treatment may be recommended for recurrent attacks; a hot swollen joint still needs urgent assessment to exclude infection.
+A: Gout is a type of arthritis caused by a build-up of uric acid in the blood, which forms crystals in joints. It causes sudden attacks of severe pain, swelling and redness, often in the big toe. Attacks are treated with anti-inflammatory medicines. If you have repeated attacks, long-term medicine to lower uric acid, such as allopurinol, can prevent them and protect your joints.
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NICE NG219: Gout — https://www.nice.org.uk/guidance/ng219
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NHS: Healthy weight — https://www.nhs.uk/live-well/healthy-weight/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Hand Osteoarthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-hand-osteoarthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Hand Osteoarthritis
-A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
+A: Hand osteoarthritis commonly affects the joints at the end and middle of the fingers and the base of the thumb. It causes pain, stiffness, knobbly swellings and weaker grip, and is most common in women over 50. It cannot be cured, but hand exercises, anti-inflammatory gels, splints and gadgets help most people. Surgery is occasionally needed for the thumb.
+Reference: NHS: Hand pain — https://www.nhs.uk/symptoms/hand-pain/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: NHS: Carpal tunnel syndrome — https://www.nhs.uk/conditions/carpal-tunnel-syndrome/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Inflammation and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-inflammation-and-arthritis
@@ -5507,12 +5552,19 @@ A: Symptoms alone cannot always identify the type of arthritis. A clinician cons
 
 ## Is Arthritis Hereditary?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-is-arthritis-hereditary
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Is Arthritis Hereditary?
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Arthritis can run in families, but it is rarely passed on directly from parent to child. Genes can raise your risk of several types, including osteoarthritis, rheumatoid arthritis, psoriatic arthritis, ankylosing spondylitis and gout. Having a relative with arthritis does not mean you will get it, and lifestyle factors such as weight, smoking and joint injury also play a big part.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
+Reference: NHS: Ankylosing spondylitis — https://www.nhs.uk/conditions/ankylosing-spondylitis/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Joint Pain and Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-joint-pain-and-arthritis
@@ -5525,12 +5577,19 @@ A: Pain-management approaches can be combined rather than relying on one treatme
 
 ## Knee Osteoarthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-knee-osteoarthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Knee Osteoarthritis
-A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
+A: Knee osteoarthritis is the most common type of arthritis in the UK. It causes knee pain that is worse with activity, short-lived stiffness, and sometimes swelling and grinding. Exercise to strengthen the leg muscles is the most important treatment, alongside weight loss if needed and simple pain relief. Knee replacement is considered when symptoms seriously affect your life despite these.
+Reference: NHS: Knee pain — https://www.nhs.uk/symptoms/knee-pain/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: Healthy weight — https://www.nhs.uk/live-well/healthy-weight/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Long-Term Outlook for Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-long-term-outlook-for-rheumatoid-arthritis
@@ -5543,12 +5602,17 @@ A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent s
 
 ## Lupus and Arthritis: Understanding Joint Symptoms
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-lupus-and-arthritis-understanding-joint-symptoms
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Lupus and Arthritis: Understanding Joint Symptoms
-A: Lupus is an autoimmune condition that may affect joints, skin, kidneys and blood. Joint symptoms can occur with fatigue, sun-sensitive rash or mouth ulcers. Specialist monitoring is important because organ involvement varies.
+A: Lupus (systemic lupus erythematosus, or SLE) is an autoimmune condition that commonly causes joint pain and stiffness, often in the hands, wrists and knees. Unlike rheumatoid arthritis, lupus joint pain rarely causes lasting joint damage. Lupus can also affect the skin, kidneys, blood and other organs, so it needs specialist care. Treatment can control it well for most people.
+Reference: NHS: Lupus — https://www.nhs.uk/conditions/lupus/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Sjögren's syndrome — https://www.nhs.uk/conditions/sjogrens-syndrome/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Massage for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-massage-for-arthritis
@@ -5561,12 +5625,18 @@ A: Pain-management approaches can be combined rather than relying on one treatme
 
 ## Neck Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-neck-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Neck Arthritis
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Neck arthritis, often called cervical spondylosis, is age-related wear in the joints and discs of the neck. It is very common after 40 and often causes no symptoms. When it does, it usually causes neck pain and stiffness that comes and goes. Most people improve with regular movement, good posture and simple pain relief. Rarely it presses on nerves, which needs medical assessment.
+Reference: NHS: Neck pain and stiff neck — https://www.nhs.uk/symptoms/neck-pain-and-stiff-neck/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## New Treatments for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-new-treatments-for-arthritis
@@ -5579,12 +5649,18 @@ A: Treatment should be matched to the diagnosis, symptoms, medical history and p
 
 ## Osteoporosis vs Arthritis: What's the Difference?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-osteoporosis-vs-arthritis-what-s-the-difference
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Osteoporosis vs Arthritis: What's the Difference?
-A: Osteoporosis reduces bone strength and increases fracture risk, often without symptoms until a fracture. Bone density testing and fracture-risk assessment guide treatment. It is different from arthritis, which primarily affects joints.
+A: Osteoporosis is a condition where bones lose strength and break more easily. Arthritis is a group of conditions that cause pain and inflammation in joints. Osteoporosis has no symptoms until a bone breaks, while arthritis causes pain, stiffness and sometimes swelling. They are different conditions, but many people have both, and some arthritis treatments can affect bone health.
+Reference: NHS: Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
+Reference: NHS: Preventing osteoporosis — https://www.nhs.uk/conditions/osteoporosis/prevention/
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE CG146: Osteoporosis — assessing the risk of fragility fracture — https://www.nice.org.uk/guidance/cg146
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Pilates for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-pilates-for-arthritis
@@ -5633,12 +5709,16 @@ A: Arthritis affects people differently. A useful management plan considers pain
 
 ## Rheumatoid Arthritis Diagnosis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-diagnosis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Rheumatoid Arthritis Diagnosis
-A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent swelling and morning stiffness, particularly in small hand and foot joints, deserve prompt rheumatology assessment. Early disease-modifying treatment reduces joint damage.
+A: Rheumatoid arthritis (RA) is diagnosed by a rheumatologist, based on your symptoms, an examination of your joints, blood tests and sometimes scans. There is no single test that proves or rules out RA. If your GP finds persistent joint swelling, NICE says you should be referred urgently to rheumatology, even if your blood tests are normal.
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Rheumatoid Arthritis Treatment
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-rheumatoid-arthritis-treatment
@@ -5651,12 +5731,18 @@ A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent s
 
 ## Shoulder Osteoarthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-shoulder-osteoarthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Shoulder Osteoarthritis
-A: Osteoarthritis affects the whole joint, including cartilage, bone and surrounding tissues. Symptoms often include activity-related pain and brief stiffness after rest. Tailored strengthening, activity and weight management where relevant are core treatments.
+A: Shoulder osteoarthritis causes a deep, aching pain in the shoulder, stiffness and grinding, and difficulty reaching up or behind your back. It is less common than knee or hip osteoarthritis and is often linked to age, past injury or long-standing rotator cuff problems. Most people are helped by exercise, pain relief and activity changes. Joint replacement is an option if symptoms are severe.
+Reference: NHS: Shoulder pain — https://www.nhs.uk/symptoms/shoulder-pain/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Steroid Side Effects: What People with Arthritis Should Know
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-steroid-side-effects-what-people-with-arthritis-should-know
@@ -5669,39 +5755,66 @@ A: Corticosteroids reduce inflammation but can cause sleep changes, raised gluco
 
 ## Sudden Joint Swelling: Causes and When to Seek Help
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-sudden-joint-swelling-causes-and-when-to-seek-help
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Sudden Joint Swelling: Causes and When to Seek Help
-A: Symptoms alone cannot always identify the type of arthritis. A clinician considers the pattern of pain, swelling, stiffness and general health, and may request targeted tests. Early assessment is particularly important when inflammatory arthritis is suspected.
+A: Sudden joint swelling is most often caused by an injury, gout, pseudogout or a flare of arthritis. A joint that is suddenly hot, red, swollen and very painful, especially with fever or feeling unwell, could be an infection called septic arthritis, which is an emergency. Get any unexplained swollen joint checked the same day by NHS 111 or your GP.
+Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
 ## Types of Arthritis
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-types-of-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Types of Arthritis
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: There are many types of arthritis, but most fall into a few groups. Osteoarthritis is by far the most common and develops gradually. Inflammatory types, such as rheumatoid arthritis, psoriatic arthritis and ankylosing spondylitis, are caused by the immune system. Crystal arthritis, such as gout, causes sudden severe attacks. Each type is treated differently, so getting the right diagnosis matters.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Ankylosing spondylitis — https://www.nhs.uk/conditions/ankylosing-spondylitis/
+Reference: NHS: Lupus — https://www.nhs.uk/conditions/lupus/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## What Causes Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-causes-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: What Causes Arthritis?
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Arthritis has different causes depending on the type. Osteoarthritis develops when joints cannot fully repair everyday wear and damage, with age, weight, injury and genes all playing a part. Inflammatory arthritis, such as rheumatoid arthritis, happens when the immune system attacks the joints. Gout is caused by crystals, and septic arthritis by infection. Often several factors combine.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NHS: Healthy weight — https://www.nhs.uk/live-well/healthy-weight/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## What Is Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-is-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: What Is Arthritis?
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: Arthritis is a common condition that causes pain and inflammation in joints. It is not one disease but a group of many different conditions. The most common in the UK are osteoarthritis and rheumatoid arthritis. Arthritis can affect people of any age, including children. There is usually no cure, but treatment can reduce pain, keep you moving and, for inflammatory types, prevent damage.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## What Is Rheumatoid Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-what-is-rheumatoid-arthritis
@@ -5714,12 +5827,18 @@ A: Rheumatoid arthritis is an immune-mediated inflammatory disease. Persistent s
 
 ## When Should You See a GP About Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/lwa-archive-when-should-you-see-a-gp-about-arthritis
-Last updated: 2026-10-14
+Last updated: 2026-10-23
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: When Should You See a GP About Arthritis?
-A: Arthritis affects people differently. A useful management plan considers pain, physical function, sleep, mood and personal goals. Combining appropriate medical care with sustainable self-management can support independence and quality of life.
+A: See your GP if joint pain, swelling or stiffness lasts more than a few weeks, if stiffness lasts more than 30 minutes in the morning, or if pain is stopping you working, sleeping or doing everyday tasks. Ask for an urgent appointment if several joints are swollen. A single hot, red, swollen joint with fever needs same-day help.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
 
 ## Lymphoedema, arthritis and frailty: heavy limbs (UK)
 URL: https://livingwitharthritis.org.uk/blog/lymphoedema-arthritis-frailty-uk

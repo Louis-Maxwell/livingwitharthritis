@@ -13,13 +13,13 @@
   },
   "authoredPagesAudited": 733,
   "statusCounts": {
-    "phrase_present": 484,
-    "intent_review": 27550,
-    "content_gap": 76569
+    "phrase_present": 494,
+    "intent_review": 27777,
+    "content_gap": 76332
   },
   "invalidDeclaredTargetKeywords": 10163,
-  "searchAliases": 430,
-  "linkedBlogPages": 538,
+  "searchAliases": 440,
+  "linkedBlogPages": 547,
   "notes": [
     "Stored/generated candidates are not measured organic rankings.",
     "Literal presence and token co-occurrence do not prove intent satisfaction.",
