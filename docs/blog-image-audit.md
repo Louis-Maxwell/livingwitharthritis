@@ -368,9 +368,9 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 ## Follow-up: AI-generated covers, internal links, CTA and link check
 
 ### AI-generated covers
-- 94 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
+- 104 of the 278 posts left without a cover now use an **AI-generated** illustration (warm, realistic, topic-matched; no text, no logos, no real or named people).
 - Files: `public/openverse/ai-<slug>.webp` (1024x576 WebP, quality 80). Each is listed in `public/openverse/ATTRIBUTION.json` with `"source": "ai-generated"`, and `scripts/generate-cover-credits.mjs` credits them as "AI-generated illustration".
-- 184 posts still use the branded placeholder card and are queued for AI covers.
+- 174 posts still use the branded placeholder card and are queued for AI covers.
 
 | Post | Cover |
 |---|---|
@@ -468,19 +468,19 @@ Every blog cover and inline image was checked against the post topic. Unrelated 
 | falls-response-service-arthritis-uk | AI-generated: `ai-falls-response-service-arthritis-uk.webp` |
 | family-meetings-arthritis-frailty-uk | AI-generated: `ai-family-meetings-arthritis-frailty-uk.webp` |
 | fear-of-falling-hip-oa-frailty-uk | AI-generated: `ai-fear-of-falling-hip-oa-frailty-uk.webp` |
+| flare-management-pain-spikes | AI-generated: `ai-flare-management-pain-spikes.webp` |
+| flare-versus-frailty-arthritis-uk | AI-generated: `ai-flare-versus-frailty-arthritis-uk.webp` |
+| flexible-working-arthritis-pacing | AI-generated: `ai-flexible-working-arthritis-pacing.webp` |
+| flu-jab-arthritis-frailty-uk | AI-generated: `ai-flu-jab-arthritis-frailty-uk.webp` |
+| footwear-indoor-slippers-frailty-arthritis-uk | AI-generated: `ai-footwear-indoor-slippers-frailty-arthritis-uk.webp` |
+| frailty-older-people-arthritis-wales-uk | AI-generated: `ai-frailty-older-people-arthritis-wales-uk.webp` |
+| free-arthritis-support-northern-ireland | AI-generated: `ai-free-arthritis-support-northern-ireland.webp` |
+| fried-frailty-phenotype-painful-joints-uk | AI-generated: `ai-fried-frailty-phenotype-painful-joints-uk.webp` |
+| gabapentinoids-unsteadiness-arthritis-frailty-uk | AI-generated: `ai-gabapentinoids-unsteadiness-arthritis-frailty-uk.webp` |
+| gene-therapy-and-arthritis-where-are-we-in-2026 | AI-generated: `ai-gene-therapy-and-arthritis-where-are-we-in-2026.webp` |
 
 Posts still on the placeholder:
 
-- flare-management-pain-spikes
-- flare-versus-frailty-arthritis-uk
-- flexible-working-arthritis-pacing
-- flu-jab-arthritis-frailty-uk
-- footwear-indoor-slippers-frailty-arthritis-uk
-- frailty-older-people-arthritis-wales-uk
-- free-arthritis-support-northern-ireland
-- fried-frailty-phenotype-painful-joints-uk
-- gabapentinoids-unsteadiness-arthritis-frailty-uk
-- gene-therapy-and-arthritis-where-are-we-in-2026
 - generalised-oa-frailty-whole-body-day-uk
 - geriatric-clinic-plus-arthritis-uk
 - glucosamine-vs-collagen
