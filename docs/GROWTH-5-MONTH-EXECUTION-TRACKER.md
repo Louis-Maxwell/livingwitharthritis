@@ -120,6 +120,38 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 
 ---
 
+## Daily log — 23 Oct 2026 (M2 day 10, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 22 Oct: Champions 97–98, then re-rank 99–108. Both Champions shipped and the re-rank is done. Topical NSAIDs (98) was checked against `topical-nsaids-often-overlooked-often-effective` first: both have inbound links and different jobs, so 98 was narrowed (not consolidated) to the later-life safety job with an opening handoff to the general explainer. Night lights (97) was narrowed to lighting and the route at night, handing off to the continence and commode posts. Rewrites, not redirects; no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent. Yesterday's Security Audit vitest advisory is already fixed on `main` (#249, vitest 5.0.5); Louis's 23 Oct commit (accessible PDF download buttons + DOMPurify patch) is noted, no action needed.
+
+### Shipped
+- **Champion 97 — `/blog/night-lights-arthritis-falls-frailty-uk`:** full rewrite into "night lights and safer night-time trips to the toilet with arthritis". Why night-time is risky (stiff joints on waking, low light, standing up quickly, half-asleep), lighting the whole route (plug-in and motion-sensor lights, switches within reach), getting up in stages (sit on the edge of the bed first), clearing the route, when it is more than lighting (getting up more often than you used to, dizziness on standing, water tablets and sleeping tablets, new confusion), council needs assessment for equipment, living alone, what to do after a fall at night, carers. Cites NHS falls prevention, NICE NG249, Guy's and St Thomas' NHS nocturia guidance, NHS low blood pressure, Age UK. **Pending clinical review**
+- **Champion 98 — `/blog/topical-nsaids-frail-hand-knee-oa-uk`:** full rewrite into "topical NSAIDs in later life: safer pain relief for knee and hand osteoarthritis". Who they suit (NICE NG226 offer for knee OA, consider for other joints), how to use a gel, NHS naked-flame fire warning, older skin and diclofenac sunlight advice, check with a pharmacist first (blood thinners, asthma, kidney / heart / stomach problems, not alongside NSAID tablets), hands, other options (heat or cold, capsaicin, exercise), NHS 111 / 999 and Yellow Card. No doses. **Pending clinical review**
+- **`topicClusters.ts`:** exercises (falls) fronts night lights; treatments fronts topical NSAIDs in later life (+ search triggers)
+- **Chatbot KB:** sleep entry `related` + night-time toilet keywords; NSAIDs entry `related` + topical / gel keywords
+- Sitemap `lastmod` **2026-10-23** on both URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–98 pending
+- **Triage doc:** 97–98 ticked; **re-ranked Champions 99–108** (inbound links + pairing with recent gold-pass posts; still no GSC export), led by the four RA template posts; 225 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-97-98-23-oct.test.ts` (also checks 98 stays distinct from the general topical NSAIDs guide and blocks dose wording); full Vitest suite, lint, typecheck and build run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–98 (esp. today's topical NSAID "check with a pharmacist first" list and the night-time "when it is more than lighting" GP triggers), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 225 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the two URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 99–101 (RA fatigue, blood-test transport, rheumatology clinic) from the 23 Oct re-rank
+2. Champions 102–103 (chair-based exercise with RA after an overlap check against Champions 89 and 92; continence at night, paired with 97)
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
+
+---
+
 ## Daily log — 22 Oct 2026 (M2 day 9, weekday run)
 
 **Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 21 Oct: Champions 94–96 as a medicines-safety and newly-diagnosed RA set. All three shipped. Each was checked against yesterday's #247 blog reorganisation first: none was consolidated or noindexed, so URLs and #247 categories are unchanged (methotrexate stays in Treatments & medicines; the two RA posts stay in Conditions). Methotrexate (94) and RA monitoring (96) were split into distinct jobs and cross-linked so they do not compete. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
