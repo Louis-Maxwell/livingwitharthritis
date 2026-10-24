@@ -35,6 +35,7 @@ import {
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
 import BlogCard from "@/components/blog/BlogCard";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
+import BlogTopicShelves from "@/components/blog/BlogTopicShelves";
 import { getBookmarks } from "@/lib/bookmarkedArticles";
 import { getLastRead, type LastReadArticle } from "@/lib/lastReadArticle";
 
@@ -639,6 +640,9 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
               </div>
             </section>
           )}
+
+          {/* Topic shelves — Arthritis, Pain, Diet, Exercise, Supplements, More guides (see src/lib/blog/shelves.ts) */}
+          {showDiscovery && !isLoading && blogPosts.length > 0 && <BlogTopicShelves posts={blogPosts} />}
 
           {/* Saved for later — local bookmarks only; hidden until something is saved */}
           {savedPosts.length > 0 && (
