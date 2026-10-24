@@ -12,7 +12,7 @@ interface NextReadItem {
 interface NextReadStripProps {
   /** Route this strip is rendered on — used to filter out self-links. */
   currentPath?: string;
-  /** Optional override; defaults to a curated 6-item pool. */
+  /** Optional override; defaults to a curated 7-item pool. */
   items?: NextReadItem[];
   /** Heading shown above the cards. */
   heading?: string;
@@ -30,6 +30,12 @@ const DEFAULT_POOL: NextReadItem[] = [
     eyebrow: "Movement",
     title: "Exercises for arthritis",
     blurb: "Low-impact routines for knees, hips and hands. Clinically reviewed.",
+  },
+  {
+    to: "/blog/cooking-with-arthritis-uk",
+    eyebrow: "Daily living",
+    title: "Cooking with arthritis",
+    blurb: "Joint-friendly kitchen tips, helpful tools and easier meals for flare days.",
   },
   {
     to: "/diet",
