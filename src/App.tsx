@@ -18,6 +18,7 @@ import { ThemeProvider } from "next-themes";
 import { DeferredMount } from "@/components/DeferredMount";
 import SeoDefaults from "@/components/SeoDefaults";
 import RootOrganizationSchema from "@/components/seo/RootOrganizationSchema";
+import CrawlableResourceLinks from "@/components/seo/CrawlableResourceLinks";
 import SkipToContent from "@/components/SkipToContent";
 import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
@@ -563,6 +564,7 @@ function AppWithSync() {
       <SkipToContent />
       <RouteFocus />
       <RootOrganizationSchema />
+      <CrawlableResourceLinks />
       <AnimatedRoutes />
     </>
   );
