@@ -67,7 +67,9 @@
     "seo:enterprise": "node scripts/enterprise-audit.mjs",
     "seo:growth": "node scripts/generate-growth-map.mjs",
     "seo:keywords": "node scripts/generate-keyword-coverage.mjs",
-    "seo:built-audit": "node scripts/audit-built-site.mjs"
+    "seo:built-audit": "node scripts/audit-built-site.mjs",
+    "blog:editorial-audit": "node scripts/audit-blog-editorial.mjs",
+    "blog:editorial-audit:strict": "node scripts/audit-blog-editorial.mjs --strict"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
