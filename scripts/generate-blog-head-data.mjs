@@ -126,6 +126,10 @@ export function loadCoverMap(path = COVER_MAP_PATH) {
 export function resolveOgImage(slug, imageUrl, coverMap = {}) {
   const file = coverMap?.[slug];
   if (file) return `${SITE}/openverse/${String(file).replace(/^\//, '')}`;
+  // Cover "" = unrelated photo removed; share the branded placeholder card.
+  if (coverMap && Object.prototype.hasOwnProperty.call(coverMap, slug)) {
+    return `${SITE}/openverse/lwa-blog-cover-placeholder.webp`;
+  }
 
   const img = String(imageUrl ?? '').trim();
   if (img) {

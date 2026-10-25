@@ -7,6 +7,13 @@
 /** Local files that exist under public/. Never the red favicon or an empty src. */
 export const LOCAL_COVER_FALLBACK = "/openverse/hero-friends-800.webp";
 export const DEFAULT_OG_PATH = "/og/landing-share.png";
+/** Branded, photo-free blog card for posts without a topic-relevant photo. */
+export const BLOG_COVER_PLACEHOLDER_SRC = "/openverse/lwa-blog-cover-placeholder.webp";
+export const BLOG_COVER_PLACEHOLDER_IMG = {
+  src: BLOG_COVER_PLACEHOLDER_SRC,
+  alt: "",
+  credit: "Living With Arthritis UK",
+} as const;
 
 const BROKEN_SRC_RE = /(?:^$|favicon\.(?:ico|png|svg)$|logo-mark)/i;
 
