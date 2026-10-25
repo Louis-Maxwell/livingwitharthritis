@@ -269,7 +269,7 @@ const Sitemap = () => {
     <>
       <Helmet>
         <title>Site Index (A–Z) | Living With Arthritis</title>
-        {/* This public index is intentionally crawlable and indexable. */}
+        <meta name="robots" content="noindex, follow" />
         <meta
           name="description"
           content="A–Z index of every page on Living With Arthritis — condition guides, exercises, daily tips, regional support and more, listed alphabetically."

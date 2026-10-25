@@ -50,3 +50,8 @@ Token-thrift on **this** repo:
 
 Hosting moves, dashboard clicks (GSC, Stripe, Lovable billing), merging,
 force-pushing, and anything that spends money.
+
+## Standalone exercise resources
+
+- Keep the ankle HTML resource self-contained in `public/resources` so its
+  instructions and browser printing work without a downloadable PDF asset.
