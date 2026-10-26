@@ -6,9 +6,9 @@
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "How to Claim PIP for Arthritis in the UK: Steps & Evidence";
+export const PIP_GUIDE_META_TITLE = "PIP for Arthritis UK: Who Qualifies and How to Claim";
 
-export const PIP_GUIDE_DESCRIPTION = "How to claim PIP for arthritis: call 0800 917 2222, fill in the How your disability affects you form, send evidence, prepare for the assessment and appeal if refused.";
+export const PIP_GUIDE_DESCRIPTION = "Can you get PIP for arthritis? See who qualifies, how the points work, how to fill in the form, what evidence to send and how to challenge a refusal.";
 
 export const PIP_GUIDE_QUICK_ANSWER = "How do you claim PIP for arthritis? In England and Wales, call the PIP new claims line on 0800 917 2222 (Mon to Fri, 8am to 5pm), then fill in the How your disability affects you form within one month, describing your typical and flare days, and send supporting evidence. Can you claim while working? Yes. PIP is not means-tested or an out-of-work benefit. Eligibility depends on how a long-term condition affects daily living or mobility. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
 
