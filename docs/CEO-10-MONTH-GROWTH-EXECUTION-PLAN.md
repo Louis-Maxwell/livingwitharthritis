@@ -7,7 +7,8 @@
 | **Organisation** | Living With Arthritis (registered charity no. **1218461**, registered 15 June 2026) |
 | **Website** | [livingwitharthritis.org.uk](https://livingwitharthritis.org.uk) |
 | **Tagline** | Motion is Lotion |
-| **Founder / clinical lead** | Louis Maxwell — FCP, HCPC PH128483, CSP member |
+| **Founder** | David Williams |
+| **Clinical lead** | Louis Maxwell — FCP, HCPC PH128483, CSP member |
 | **Contact** | info@livingwitharthritis.org.uk · 07760 512 084 |
 | **Status** | Early-stage UK charity — not a mature national brand |
 | **Independence** | Independent of Versus Arthritis / Arthritis UK branding and Arthritis Foundation (US) |
@@ -671,7 +672,7 @@ Aligned under Year 1 of `BOARD-3-YEAR-TRANSFORMATION-STRATEGY.md` (Y1 Foundation
 
 | Role | M1–M3 | M4–M6 | M7–M10 |
 |---|---:|---:|---:|
-| Founder / clinical lead (Louis) | 0.6–0.8 | 0.5–0.7 | 0.5–0.7 |
+| Clinical lead (Louis) | 0.6–0.8 | 0.5–0.7 | 0.5–0.7 |
 | Digital/SEO eng (GitHub) | 0.3–0.5 | 0.4–0.6 | 0.3–0.5 |
 | Content writer/editor | 0.2–0.4 | 0.5–1.0 (B) | 0.5–1.0 (B) |
 | Community / social | 0.2 | 0.3–0.5 | 0.4–0.6 |

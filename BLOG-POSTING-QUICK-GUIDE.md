@@ -171,7 +171,7 @@ Hi [Name],
 
 This week's guide is about arthritis exercises for knee pain.
 
-Our founder Louis (HCPC physiotherapist) created a 7-move routine
+Our clinical lead Louis (HCPC physiotherapist) created a 7-move routine
 you can do at home. It takes 10 minutes and requires no equipment.
 
 >>> Read the full guide with videos <<<
@@ -248,7 +248,7 @@ No "My charity has a guide: [LINK]"
 ```
 Yes User: "Does anyone have good knee arthritis exercises?"
 
-You: "Our founder Louis (HCPC physio) created a guide with
+You: "Our clinical lead Louis (HCPC physio) created a guide with
 step-by-step videos for exactly this. Completely free:
 
 [LINK TO BLOG]

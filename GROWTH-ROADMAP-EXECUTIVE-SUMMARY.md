@@ -149,7 +149,7 @@
 1. **Consistency over perfection** — 3 posts/week beats 1 perfect post/month
 2. **Quality + quantity** — 500 good guides beats 50 great ones
 3. **Community as moat** — Forum/email keeps people coming back
-4. **Founder authority** — Louis's HCPC credentials are your edge; use them
+4. **Clinical authority** — Louis's HCPC credentials are your edge; use them
 5. **Data-driven** — Track rankings, conversions, donations weekly
 6. **SEO first, ads second** — Organic scales cheaper and compounds
 
@@ -254,7 +254,7 @@ All documents on GitHub:
 You have:
 - Yes 20k organic social followers (real audience)
 - Yes Independent charity credibility (1218461)
-- Yes HCPC-registered founder (Louis Maxwell, PH128483)
+- Yes HCPC-registered clinical lead (Louis Maxwell, PH128483); founder David Williams
 - Yes Free resources (exercises, guides, community)
 - Yes Grant funding (active grant writer)
 

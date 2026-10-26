@@ -167,7 +167,7 @@ export default function Donate() {
               Give so someone with arthritis can walk, work, and hold the people they love
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-4">
-              When our founder, David Williams, was 28, a GP handed him a sheet of home exercises and nothing else. No plan. No follow-up. That gap is why this charity exists.
+              When our clinical lead, Louis Maxwell, was 28, a GP handed him a sheet of home exercises and nothing else. No plan. No follow-up. That gap is why this charity exists.
             </p>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               Your gift keeps free, clinician-reviewed exercises, diet guidance and a real person on the end of the phone — for a neighbour in the UK living with joint pain, and for survivors who need rehabilitation after war injuries.

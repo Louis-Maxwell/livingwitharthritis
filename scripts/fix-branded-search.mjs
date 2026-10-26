@@ -75,7 +75,7 @@ function generateFaqSchema() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Living With Arthritis is an independent UK registered charity (1218461) founded by Louis Maxwell, an HCPC-registered First Contact Practitioner. We provide free virtual physiotherapy, NICE-aligned exercises, and peer support. We are separate from and independent of Arthritis UK.',
+            'Living With Arthritis is an independent UK registered charity (1218461) founded by David Williams, with clinical review by Louis Maxwell, an HCPC-registered First Contact Practitioner. We provide free virtual physiotherapy, NICE-aligned exercises, and peer support. We are separate from and independent of Arthritis UK.',
         },
       },
       {
@@ -93,7 +93,7 @@ function generateFaqSchema() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Living With Arthritis was founded by Louis Maxwell, an HCPC-registered First Contact Practitioner (registration PH128483). We combine clinical expertise with peer support.',
+            'Living With Arthritis was founded by David Williams. Clinical review is led by Louis Maxwell, an HCPC-registered First Contact Practitioner (registration PH128483). We combine clinical expertise with peer support.',
         },
       },
     ],

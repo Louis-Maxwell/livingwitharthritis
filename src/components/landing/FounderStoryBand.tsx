@@ -21,7 +21,7 @@ const FounderStoryBand = memo(() => {
             id="founder-story-heading"
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
           >
-            Founded by a clinician who lived the lonely bit too
+            Shaped by a clinician who lived the lonely bit too
           </h2>
 
           {/* Body copy */}
@@ -46,7 +46,7 @@ const FounderStoryBand = memo(() => {
 
             <p>
               We are a young charity (registered 15 June 2026, no.&nbsp;1218461), serving people across the UK
-              and independent of Arthritis UK. We will not invent a large clinical board. Louis
+              and independent of Arthritis UK, founded by David Williams. We will not invent a large clinical board. Louis
               reviews our content. Motion is lotion — and we are building this with you.
             </p>
 

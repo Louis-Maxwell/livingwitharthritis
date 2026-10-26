@@ -82,7 +82,7 @@ Sunday: Story reminder + link to blog
   ```
   "New guide: 7 Arthritis Exercises for Knee Pain Relief
 
-  Our founder Louis (HCPC physiotherapist) shows step-by-step
+  Our clinical lead Louis (HCPC physiotherapist) shows step-by-step
   video demonstrations. Free, no signup required.
 
   [Link to blog post]"
@@ -202,7 +202,7 @@ https://livingwitharthritis.org.uk/blog/arthritis-exercises-knee-pain
 ```
 User: "Does anyone have good knee arthritis exercises?"
 
-You reply: "Our founder Louis (HCPC physio) created a guide with
+You reply: "Our clinical lead Louis (HCPC physio) created a guide with
 step-by-step videos for exactly this. Completely free:
 [link to blog]
 
@@ -490,7 +490,7 @@ export default function ArthritisExercisesKneeBlog() {
 | Email newsletter | You or VA (automation) |
 | Publish to website | You |
 | Reddit/community | Louis (authenticity) |
-| Media pitching | Louis (founder) |
+| Media pitching | David Williams (founder) |
 
 ---
 

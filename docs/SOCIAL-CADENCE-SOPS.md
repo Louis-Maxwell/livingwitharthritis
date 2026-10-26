@@ -1,6 +1,6 @@
 # Social cadence SOPs — Facebook, Instagram, LinkedIn
 
-**Owner:** Louis Maxwell (founder) + GTM digital support  
+**Owner:** David Williams (founder) + GTM digital support  
 **Charity:** Living With Arthritis · 1218461  
 **Tagline:** Motion is Lotion  
 **Horizon:** Month 2 operating pack (brought forward 14 Sep 2026)  

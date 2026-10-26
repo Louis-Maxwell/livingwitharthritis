@@ -51,7 +51,7 @@ Scoring: **1 = weak / missing**, **5 = category-leading**. Scores are qualitativ
 
 ## Differentiating wedge (defend this)
 
-1. **Clinician with lived experience** (Louis Maxwell) — rare honest founder story when not over-claimed.  
+1. **Clinician with lived experience** (Louis Maxwell) — rare honest clinician story when not over-claimed.  
 2. **UK practical pathways** — PIP, FCP, MSK self-referral, waiting-list help.  
 3. **Motion-is-lotion exercise productisation** — joint picker + exercise library.  
 4. **Independence** — clearly *not* Arthritis UK / US Foundation.  
