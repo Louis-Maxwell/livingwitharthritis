@@ -534,9 +534,12 @@ const BlogPost = () => {
                     <div className="hidden sm:block w-px h-8 bg-border/40" />
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
-                      <span className="text-xs font-medium text-primary">
-                        Reviewed by {reviewerName}
-                      </span>
+                      <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
+                        Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
+                      </Link>
+                      {blogLastReviewed && (
+                        <span className="text-xs text-muted-foreground">· Last reviewed {blogLastReviewed}</span>
+                      )}
                     </div>
                   </>
                 )}

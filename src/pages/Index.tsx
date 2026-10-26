@@ -80,7 +80,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | Exercises & PIP Advice</title>
+        <title>Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help</title>
         <meta
           name="description"
           content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
@@ -93,11 +93,11 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | Exercises & PIP Advice"
+          content="Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | Exercises & PIP Advice"
+          content="Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help"
         />
         <meta
           property="og:description"

@@ -17,5 +17,12 @@
   "reviewed_by": "Louis Maxwell",
   "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
   "display_order": 920,
-  "last_reviewed": "2026-10-23"
+  "last_reviewed": "2026-10-23",
+  "citations": [
+    {
+      "label": "NHS: Arthritis",
+      "url": "https://www.nhs.uk/conditions/arthritis/",
+      "publisher": "NHS"
+    }
+  ]
 }
