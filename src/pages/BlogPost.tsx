@@ -537,8 +537,8 @@ const BlogPost = () => {
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
                         Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
                       </Link>
-                      {blogLastReviewed && (
-                        <span className="text-xs text-muted-foreground">· Last reviewed {blogLastReviewed}</span>
+                      {(blogLastReviewed || dateModifiedIso) && (
+                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)}</span>
                       )}
                     </div>
                   </>

@@ -29,7 +29,7 @@ const cityPage = readFileSync(resolve("src/pages/CityArthritisPage.tsx"), "utf8"
 const schemaTs = readFileSync(resolve("src/lib/rootOrganizationSchema.ts"), "utf8");
 
 const BRAND_STRING = "Living With Arthritis (charity 1218461)";
-const HOME_TITLE = "Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help";
+const HOME_TITLE = "Living With Arthritis: Pain Relief & Flare-Up Help";
 const OFFICIAL_SAME_AS = [
   ...getSchemaOrgSameAs(),
   "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
