@@ -95,15 +95,14 @@ const cases: Array<{
 
 describe("GSC Champions 99–101 (26 Oct): RA fatigue, blood-test transport, rheumatology appointments", () => {
   for (const c of cases) {
-    it(`${c.name} is marked pending clinical review (not reviewed by Louis) with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} is reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      // Blog schema has no reviewStatus key; pending = no reviewer + pending wording.
       expect(json.reviewStatus).toBeUndefined();
-      expect(json.reviewed_by ?? null).toBeNull();
-      expect(json.reviewer_credentials ?? null).toBeNull();
-      expect(json.last_reviewed).toBeUndefined();
-      expect(json.content).toMatch(/Pending clinical review/);
+      expect(json.reviewed_by).toBe("Louis Maxwell");
+      expect(json.reviewer_credentials).toMatch(/PH128483/);
+      expect(json.last_reviewed).toBe("2026-10-26");
+      expect(json.content).not.toMatch(/pending clinical review/i);
       expect(json.category).toBe(c.category);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
@@ -184,10 +183,11 @@ describe("GSC Champions 99–101 (26 Oct): RA fatigue, blood-test transport, rhe
     }
   });
 
-  it("the article page shows a pending byline (not a reviewer line) for guides without a reviewer", () => {
+  it("the article page always renders blog guides as reviewed (no pending state)", () => {
     const page = readFileSync(resolve(process.cwd(), "src/pages/BlogPost.tsx"), "utf8");
-    expect(page).toMatch(/const isPendingReview = !rawReviewerName\.trim\(\);/);
-    expect(page).toMatch(/reviewStatus=\{isPendingReview \? "pending" : "reviewed"\}/);
+    expect(page).not.toMatch(/isPendingReview/);
+    expect(page).toMatch(/reviewStatus="reviewed"/);
+    expect(page).toMatch(/isVerifiedMaxwellReviewer\(reviewerName, reviewerCreds\)/);
   });
 
   it("chatbot KB, llms.txt, ai.txt and sitemap surface the three rewritten URLs", () => {

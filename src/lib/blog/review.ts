@@ -26,3 +26,16 @@ export function blogReviewSchemaFields<R extends object>(opts: {
     ...(opts.lastReviewed ? { lastReviewed: opts.lastReviewed } : {}),
   };
 }
+
+/**
+ * True when a recorded reviewer is Louis Maxwell with his HCPC number. Posts store
+ * "Louis Maxwell" while older code compared against "Maxwell", so match on the
+ * surname (case/whitespace-insensitive) rather than an exact string.
+ */
+export function isVerifiedMaxwellReviewer(
+  name: string | null | undefined,
+  credentials: string | null | undefined,
+): boolean {
+  const n = (name || "").replace(/\s+/g, " ").trim();
+  return /\bmaxwell\b/i.test(n) && /\bPH128483\b/i.test(credentials || "");
+}
