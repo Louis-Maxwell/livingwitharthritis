@@ -99,7 +99,7 @@ const CorporateGiving = () => {
     e.preventDefault();
     const parsed = inquirySchema.safeParse(formData);
     if (!parsed.success) {
-      toast.error(parsed.error.errors[0]?.message || "Please check your input");
+      toast.error(parsed.error.issues[0]?.message || "Please check your input");
       return;
     }
 

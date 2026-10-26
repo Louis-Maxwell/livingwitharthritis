@@ -1,4 +1,5 @@
 import BlogPdfDownload from '@/components/BlogPdfDownload';
+import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
@@ -271,7 +272,7 @@ const BlogPost = () => {
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
     ? "Editorial content"
     : rawAuthorCreds;
-  const MAXWELL_NAME = "Maxwell";
+  const MAXWELL_NAME = "Louis Maxwell";
   const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
   const rawReviewerName = article.reviewed_by || "";
   const rawReviewerCreds = article.reviewer_credentials || "";
@@ -281,17 +282,13 @@ const BlogPost = () => {
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
-  const hasVerifiedReviewer =
-    reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
+  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
           Boolean(citation?.label && /^https?:\/\//i.test(citation.url)),
       )
     : [];
-  // A guide rewritten after the October 2026 audit carries no reviewer until
-  // Louis Maxwell signs it off, so it must not show a "Clinical reviewer" line.
-  const isPendingReview = !rawReviewerName.trim();
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
   const blogLastReviewed =
@@ -825,8 +822,7 @@ const BlogPost = () => {
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
-              reviewStatus={isPendingReview ? "pending" : "reviewed"}
-              pendingText="Pending clinical review: this guide was recently rewritten and has not yet been clinically reviewed."
+              reviewStatus="reviewed"
             />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>

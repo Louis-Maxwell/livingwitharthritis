@@ -2737,7 +2737,8 @@ Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care
 URL: https://livingwitharthritis.org.uk/blog/blood-test-transport-arthritis-frailty-uk
 Last updated: 2026-10-26
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Clinical review: no named reviewer recorded.
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-26
 Q: Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)
 A: If getting to your monitoring blood tests is hard, tell your GP practice or rheumatology team early rather than missing a test, because these tests check that your medicine is safe for you. Ask whether the test can be done closer to home (for example at your GP surgery rather than the hospital), at a time of day that suits your joints, or at home if you are housebound; what is available varies by area. If you have a medical or mobility need, you may qualify for free NHS non-emergency patient transport to hospital appointments, so ask your healthcare team or local patient transport service. In England, if you get certain benefits or have a low income, you may be able to claim back the cost of travel to hospital tests through the Healthcare Travel Costs Scheme. If you do miss a test, call your team for advice; never stop a medicine yourself.
 Reference: NHS: How to organise transport to and from hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/
@@ -7249,7 +7250,8 @@ Reference: Healthwatch: Getting a second opinion about your care — https://www
 URL: https://livingwitharthritis.org.uk/blog/ra-fatigue-frailty-energy-envelope-uk
 Last updated: 2026-10-26
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Clinical review: no named reviewer recorded.
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-26
 Q: RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)
 A: Fatigue is one of the most common and hardest symptoms of rheumatoid arthritis (RA), and in later life it can be harder to tell apart from other causes of tiredness. It often eases when the RA itself is better controlled, so tell your rheumatology team if it is getting worse. Day to day, what helps most is pacing (spreading tasks out and resting before you are exhausted), regular gentle activity, a steady sleep routine and support with low mood or stress. See a GP if your tiredness is new, has lasted a few weeks without a clear reason, or comes with weight loss, breathlessness, a pounding heart, pale skin or mood changes, because simple blood tests can look for treatable causes such as anaemia or thyroid problems. Never stop or change an RA medicine yourself because of tiredness.
 Reference: NRAS: Rheumatoid arthritis and fatigue — https://nras.org.uk/resource/fatigue/
@@ -7503,7 +7505,8 @@ Reference: Healthwatch: Getting a second opinion about your care — https://www
 URL: https://livingwitharthritis.org.uk/blog/rheumatology-clinic-frail-older-adult-uk
 Last updated: 2026-10-26
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Clinical review: no named reviewer recorded.
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-26
 Q: Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)
 A: To get the most from a rheumatology appointment later in life, write down your two or three most important concerns, bring an up-to-date list of all your medicines (including ones you buy yourself), and note how your joints, morning stiffness, fatigue, falls and everyday tasks have been since your last visit. Bring someone with you if that helps, and tell the clinic beforehand about any hearing, sight, memory or mobility needs. Ask what your treatment target is, which blood tests you need and where they can be done, and how to contact the team if you flare between appointments: NICE says everyone with RA should have rapid access to specialist care for flares. Before you leave, check you understand the plan, and never stop or change a medicine yourself without talking to the team.
 Reference: NICE NG100: Rheumatoid arthritis in adults — recommendations — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations

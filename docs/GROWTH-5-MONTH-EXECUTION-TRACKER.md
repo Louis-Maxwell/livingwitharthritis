@@ -1,5 +1,7 @@
 # Growth execution tracker — Months 1–5
 
+> **Clinical review (26 Oct 2026):** Louis Maxwell decided every new or rewritten guide is reviewed by him by default. Older rows below that say "pending clinical review" are historical; no blog post is pending now.
+
 **Window:** 11 Sep 2026 – 11 Feb 2027 (M1–M5)  
 **Plan:** CEO Scenario **B** working envelope with Scenario **A** funded floor  
 **Sources:** `docs/CEO-10-MONTH-GROWTH-EXECUTION-PLAN.md`, `docs/SEO-90-DAY-VISIBILITY-PLAN.md`  
