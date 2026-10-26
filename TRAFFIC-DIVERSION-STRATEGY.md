@@ -72,7 +72,7 @@
 **Instagram/Facebook:**
 - Weekly "5-min exercise" carousel posts → link to full guide
 - "DM for free physio chat" CTA → funnel to chatbot
-- Behind-the-scenes with Louis (founder) → humanize brand
+- Behind-the-scenes with David Williams (founder) → humanize brand
 - Patient stories/testimonials → social proof
 - "Trending in arthritis" trend-jacking posts
 - Carousel: "5 mistakes people make with arthritis"
@@ -215,7 +215,7 @@ Best,
    - Target: 50k subscribers in 6 months
 
 2. **Community chat/forum** (medium effort)
-   - Live chat with Louis (founder) — 1x/week
+   - Live chat with Louis (clinical lead) — 1x/week
    - Forum for peer support (self-moderated)
    - "Ask a Physio" office hours
    - Target: 1000+ active members
@@ -411,7 +411,7 @@ Track these in Google Analytics + Search Console:
 1. **SEO first** — Organic traffic is free, repeating, and compounds
 2. **Community moat** — Hard for competitors to copy
 3. **Local focus** — You're the only independent UK charity doing this depth
-4. **Founder authority** — Louis's HCPC credentials + personal story = trust
+4. **Clinical authority** — Louis's HCPC credentials + personal story = trust
 5. **Content at scale** — 200 → 500 guides = "best damn arthritis site on the web"
 6. **Direct traffic** — Email + social followers = predictable, owned audience
 

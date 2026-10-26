@@ -9,7 +9,8 @@ On-site Phase 1–2 (titles, About entity block, Organization JSON-LD, `sameAs`)
 - Charity number (England & Wales): **1218461**
 - Website: **https://livingwitharthritis.org.uk**
 - Independent of Arthritis UK
-- Founder: Louis Maxwell, HCPC PH128483
+- Founder: David Williams
+- Clinical lead: Louis Maxwell, HCPC PH128483
 - Phone: 07760 512 084 (+44 7760 512084)
 - Email: info@livingwitharthritis.org.uk
 - **Do not publish** the Oswestry registered address (Oswestry Primary Care Centre / Thomas Savin Road / SY11 1GA) on the website, social About tabs, or schema.

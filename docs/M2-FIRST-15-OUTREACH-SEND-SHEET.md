@@ -15,7 +15,7 @@
 
 Hello [Name / team],
 
-I’m Louis Maxwell, HCPC-registered physiotherapist and founder of Living With Arthritis (registered charity 1218461). We’re independent of Arthritis UK and publish practical, plain-English educational guides for people living with arthritis.
+I’m Louis Maxwell, HCPC-registered physiotherapist and clinical lead at Living With Arthritis (registered charity 1218461), founded by David Williams. We’re independent of Arthritis UK and publish practical, plain-English educational guides for people living with arthritis.
 
 Could we share a free printable clinic pack (QR links to exercises, flare guidance, PIP education, and newly diagnosed support) for your [waiting room / student cohort / social prescribing list / member network]? No cost, no patient data shared with us.
 

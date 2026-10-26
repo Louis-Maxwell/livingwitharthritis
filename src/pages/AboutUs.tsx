@@ -119,9 +119,9 @@ const impactStats = [
 const teamMembers = [
   {
     name: "Louis Maxwell",
-    role: "Founder · First Contact Practitioner",
+    role: "Clinical lead · First Contact Practitioner",
     credentials: "HCPC PH128483 · Chartered Society of Physiotherapy",
-    bio: "Founded Living With Arthritis after his own diagnosis at 28 left him with a photocopied exercise sheet and little else. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
+    bio: "Helped shape Living With Arthritis after his own diagnosis at 28 left him with a photocopied exercise sheet and little else. He reviews our clinical content and replies to many of the messages that come in — we are still a small charity, building this with you.",
   },
 ];
 
@@ -586,13 +586,13 @@ const AboutUs = () => {
               <div className="border border-border rounded-lg p-6 bg-background">
                 <h3 className="text-xl font-bold mb-1">Louis Maxwell</h3>
                 <p className="text-primary font-semibold mb-3 text-sm">
-                  Founder · First Contact Practitioner · HCPC PH128483 · CSP Member
+                  Clinical lead · First Contact Practitioner · HCPC PH128483 · CSP Member
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
                   Clinical review &amp; a human reply when you write in
                 </p>
                 <p className="leading-relaxed mb-4">
-                  Louis founded Living With Arthritis after living the gap between a
+                  Louis helped shape Living With Arthritis after living the gap between a
                   diagnosis and real support. He leads clinical review for our guides
                   and often answers messages himself. We will not invent extra clinicians
                   to look bigger than we are.

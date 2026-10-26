@@ -1,7 +1,8 @@
 # Living With Arthritis — 12-month digital strategy pack
 
 **Organisation:** Living With Arthritis (Charity Commission England & Wales **1218461**)  
-**Founder / clinical lead:** Louis Maxwell, HCPC **PH128483**, CSP member, First Contact Practitioner  
+**Founder:** David Williams  
+**Clinical lead:** Louis Maxwell, HCPC **PH128483**, CSP member, First Contact Practitioner  
 **Site:** https://livingwitharthritis.org.uk/  
 **Stack today:** Vite + React on Lovable + GitHub (CI deploy gate shipped)  
 **Document date:** 15 September 2026 (Europe/London)  

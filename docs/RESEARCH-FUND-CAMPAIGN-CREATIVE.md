@@ -47,7 +47,7 @@ Do **not** invent reach, follower, or visitor metrics. Report only from GA4 / na
 ### B — Founder FCP angle
 
 **Headline:** Built by a First Contact Practitioner. Funded by people who care.  
-**Body:** Founder Louis Maxwell (HCPC PH128483, First Contact Practitioner) started Living With Arthritis so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
+**Body:** Living With Arthritis was founded by David Williams, with clinical review by Louis Maxwell (HCPC PH128483, First Contact Practitioner), so people get clear, UK-centred education — not jargon and not false promises. We’re raising a research fund from ~£5k toward £50k. If you believe in clinician-led charity work, chip in.  
 **CTA:** Donate → `/donate`
 
 ### C — Honest small-charity

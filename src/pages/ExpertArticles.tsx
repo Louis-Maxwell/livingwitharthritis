@@ -260,7 +260,7 @@ export default function ExpertArticles() {
             <div className="container mx-auto px-4 max-w-3xl text-center space-y-3">
               <h2 id="who-writes" className="text-lg font-semibold text-foreground">Who writes these articles</h2>
               <p className="text-sm text-muted-foreground">
-                These articles are prepared by the Living With Arthritis editorial team. Living With Arthritis is a UK charity (registered charity 1218461) founded by Louis Maxwell, an HCPC-registered physiotherapist (PH128483). These articles have been clinically reviewed. They are general information, not a diagnosis or personal medical advice.
+                These articles are prepared by the Living With Arthritis editorial team. Living With Arthritis is a UK charity (registered charity 1218461) founded by David Williams, with clinical review by Louis Maxwell, an HCPC-registered physiotherapist (PH128483). These articles have been clinically reviewed. They are general information, not a diagnosis or personal medical advice.
               </p>
               <p className="text-sm">
                 <Link to="/about/editorial-claims-policy" className="text-primary underline underline-offset-4">Read our editorial and claims policy</Link>

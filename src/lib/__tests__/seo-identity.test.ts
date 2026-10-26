@@ -56,7 +56,7 @@ describe("public SEO / AEO identity", () => {
     expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(CONTACT_PHONE_E164).toBe("+447760512084");
     expect(FACEBOOK_PAGE_ID).toBe("61583723925315");
-    expect(ORGANIZATION_PAYLOAD.founder.identifier.value).toBe("PH128483");
+    expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
     expect(ORGANIZATION_PAYLOAD.contactPoint[0].telephone.replace(/\D/g, "")).toBe(
       "447760512084",
     );
@@ -97,9 +97,8 @@ describe("public SEO / AEO identity", () => {
         "Living With Arthritis (charity 1218461)",
       ]),
     );
-    expect(org.founder.name).toBe("Louis Maxwell");
-    expect(org.founder.identifier.value).toBe("PH128483");
-    expect(ORGANIZATION_PAYLOAD.founder.identifier.value).toBe("PH128483");
+    expect(org.founder.name).toBe("David Williams");
+    expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
     expect(org.sameAs).toEqual(OFFICIAL_SAME_AS);
     expect(org.sameAs).toEqual(ORGANIZATION_PAYLOAD.sameAs);
     expect(org).not.toHaveProperty("address");
