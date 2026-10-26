@@ -10,7 +10,7 @@
  */
 
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
@@ -27,6 +27,7 @@ import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
 import TopicClusterLinksHome from "@/components/seo/TopicClusterLinks";
 import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
+const HomeGuidesShowcase = lazy(() => import("@/components/blog/HomeGuidesShowcase"));
 
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
@@ -138,6 +139,11 @@ function HomePage() {
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+          <ViewportSection>
+            <Suspense fallback={null}>
+              <HomeGuidesShowcase />
+            </Suspense>
+          </ViewportSection>
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />

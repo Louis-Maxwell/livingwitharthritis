@@ -52,7 +52,8 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
-import { canonicalBlogCategoryKey } from "@/data/blogCategories";
+import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
+import TopicPrevNext from "@/components/blog/TopicPrevNext";
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
@@ -424,8 +425,9 @@ const BlogPost = () => {
           "@id": `${pageUrl}#breadcrumb`,
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" },
-            { "@type": "ListItem", "position": 3, "name": article.title, "item": pageUrl }
+            { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/blog" },
+            ...(topicKey ? [{ "@type": "ListItem", "position": 3, "name": BLOG_CATEGORY_LABELS[topicKey], "item": `https://livingwitharthritis.org.uk/blog/category/${topicKey}` }] : []),
+            { "@type": "ListItem", "position": topicKey ? 4 : 3, "name": article.title, "item": pageUrl }
           ]
         })}</script>
         {faqs.length >= 2 && (
@@ -457,8 +459,14 @@ const BlogPost = () => {
             <nav aria-label="Breadcrumb" className="pt-4 pb-2 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
               <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
+              <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Guides</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
+              {topicKey && (
+                <>
+                  <Link to={`/blog/category/${topicKey}`} className="hover:text-primary transition-colors rounded-sm">{BLOG_CATEGORY_LABELS[topicKey]}</Link>
+                  <ChevronRight className="w-3 h-3" aria-hidden="true" />
+                </>
+              )}
               <span className="text-foreground/70 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
@@ -805,6 +813,7 @@ const BlogPost = () => {
               {slug && <BlogHelpfulness slug={slug} />}
               {slug && <KeywordRelatedLinks path={`/blog/${slug}`} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
+              {slug && <TopicPrevNext slug={slug} />}
               {slug && (
                 <RelatedArticles
                   currentSlug={slug}

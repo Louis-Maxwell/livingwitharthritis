@@ -172,7 +172,7 @@ describe("BlogPost Page", () => {
 
     renderBlogPost("test-article");
     expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Blog")).toBeInTheDocument();
+    expect(screen.getAllByText("Guides")[0]).toBeInTheDocument();
   });
 
   it("provides an article PDF download button on every blog article", () => {

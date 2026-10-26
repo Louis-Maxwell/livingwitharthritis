@@ -115,6 +115,21 @@ const Header = () => {
 
   const navLinks: NavLink[] = [
     {
+      label: "Guides",
+      href: "/guides",
+      action: () => navigate("/guides"),
+      subs: [
+        { label: "Guides hub", desc: "Start here: every topic", icon: BookOpen, href: "/guides", action: () => navigate("/guides"), color: "text-primary bg-primary/10" },
+        { label: "All guides A–Z", desc: "Browse the full archive", icon: BookOpen, href: "/blog/archive", action: () => navigate("/blog/archive"), color: "text-primary bg-primary/10" },
+        { label: "Pain & flares", desc: "Flare plans and pain relief", icon: BookOpen, href: "/blog/category/pain-flares", action: () => navigate("/blog/category/pain-flares"), color: "text-primary bg-primary/10" },
+        { label: "Exercise & movement", desc: "Physio routines and walking", icon: BookOpen, href: "/blog/category/exercise", action: () => navigate("/blog/category/exercise"), color: "text-primary bg-primary/10" },
+        { label: "Conditions", desc: "OA, RA, PsA, gout and more", icon: BookOpen, href: "/blog/category/conditions", action: () => navigate("/blog/category/conditions"), color: "text-primary bg-primary/10" },
+        { label: "Diet & daily living", desc: "Food, aids and home", icon: BookOpen, href: "/blog/category/diet-lifestyle", action: () => navigate("/blog/category/diet-lifestyle"), color: "text-primary bg-primary/10" },
+        { label: "Benefits, PIP & work", desc: "Claims and your rights", icon: BookOpen, href: "/blog/category/benefits-work", action: () => navigate("/blog/category/benefits-work"), color: "text-primary bg-primary/10" },
+        { label: "Symptom & flare tracker", desc: "Free printable PDF", icon: BookOpen, href: "/resources/symptom-flare-tracker", action: () => navigate("/resources/symptom-flare-tracker"), color: "text-primary bg-primary/10" },
+      ],
+    },
+    {
       label: "About Arthritis",
       href: "/conditions/arthritis",
       action: () => navigate("/conditions/arthritis"),
