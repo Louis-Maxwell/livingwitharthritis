@@ -2,6 +2,9 @@ import PageDownloads from '@/components/PageDownloads';
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
+import { lazy, Suspense } from "react";
+import DeferredMount from "@/components/DeferredMount";
+const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
 import SocialLinks from "@/components/SocialLinks";
@@ -46,6 +49,23 @@ const columns = [
     ],
   },
   {
+    title: "Guides",
+    links: [
+      { label: "Guides hub", href: "/guides" },
+      { label: "All guides (A–Z archive)", href: "/blog/archive" },
+      { label: "Pain & flares", href: "/blog/category/pain-flares" },
+      { label: "Exercise & movement", href: "/blog/category/exercise" },
+      { label: "Conditions", href: "/blog/category/conditions" },
+      { label: "Treatments & medicines", href: "/blog/category/treatments" },
+      { label: "Diet & daily living", href: "/blog/category/diet-lifestyle" },
+      { label: "Benefits, PIP & work", href: "/blog/category/benefits-work" },
+      { label: "Mental health & fatigue", href: "/blog/category/mental-health-fatigue" },
+      { label: "Carers & family", href: "/blog/category/carers-family" },
+      { label: "Surgery & recovery", href: "/blog/category/surgery-recovery" },
+      { label: "Symptom & flare tracker", href: "/resources/symptom-flare-tracker" },
+    ],
+  },
+  {
     title: "Organisation",
     links: [
       { label: "Our Mission", href: "/about" },
@@ -87,6 +107,11 @@ const Footer = () => {
   return (
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
+      <DeferredMount>
+        <Suspense fallback={null}>
+          <RelatedGuidesBlock />
+        </Suspense>
+      </DeferredMount>
       <HelplineWidget />
 
       <FooterMostRead />
