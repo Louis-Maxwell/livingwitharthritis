@@ -319,7 +319,7 @@ export default function NotArthritisUk() {
           </p>
 
           <p>
-            Our founder, Louis Maxwell, established Living With Arthritis to provide direct physiotherapy support
+            Our founder, David Williams, established Living With Arthritis to provide direct physiotherapy support
             and community-led peer care — complementing the excellent advocacy work Arthritis UK does.
           </p>
         </div>
