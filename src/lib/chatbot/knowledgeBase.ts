@@ -559,6 +559,7 @@ See energy and exercise articles via **/exercises** and **/guides**. Seek GP rev
     related: [
       { type: "article", title: "Arthritis fatigue UK guide", url: "/blog/arthritis-fatigue-management-uk" },
       { type: "article", title: "Pacing & energy management", url: "/blog/energy-management-and-pacing-arthritis" },
+      { type: "article", title: "RA fatigue in later life: pacing and when to get checked", url: "/blog/ra-fatigue-frailty-energy-envelope-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
@@ -1098,6 +1099,7 @@ Only a clinician can diagnose RA. We do not prescribe. Learn more: **/conditions
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
       { type: "article", title: "RA later in life: the first months", url: "/blog/late-onset-ra-frailty-first-months-uk" },
       { type: "article", title: "RA monitoring in later life", url: "/blog/ra-monitoring-older-frail-adults-uk" },
+      { type: "article", title: "Preparing for a rheumatology appointment later in life", url: "/blog/rheumatology-clinic-frail-older-adult-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
     ],
@@ -1608,6 +1610,7 @@ We do not provide doses. Confirm everything with your clinical team.`,
     related: [
       { type: "article", title: "Methotrexate in later life: safety checks", url: "/blog/methotrexate-older-frail-adults-uk" },
       { type: "article", title: "RA monitoring in later life", url: "/blog/ra-monitoring-older-frail-adults-uk" },
+      { type: "article", title: "Getting to blood tests when travel is hard", url: "/blog/blood-test-transport-arthritis-frailty-uk" },
       { type: "guide", title: "Guides hub", url: "/guides" },
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
       { type: "guide", title: "Contact", url: "/contact" },
