@@ -106,7 +106,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 96 (Champions 94–96 shipped 22 Oct, after 91–93 on 21 Oct); Champions 97–98 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`, then a re-rank (227 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 101 (Champions 99–101 shipped 26 Oct, after 97–98 on 23 Oct); Champions 102–108 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (222 template posts left) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -117,6 +117,40 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 | HCP clinic-pack distribution prep | **done** (13 Oct) | `docs/HCP-CLINIC-PACK-DISTRIBUTION.md` (#189); sends are Louis-owned |
 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 26 Oct 2026 (M2 day 11, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 23 Oct: Champions 99–101 (RA fatigue, blood-test transport, rheumatology clinic). All three shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Since 23 Oct, `main` gained Louis's sitewide clinical-review sign-off (#262, #268), the 301 merges (#264, #265) and the thin-archive expansions (#266, #267); none of today's three URLs was merged or redirected.
+
+**Review status (needs Louis):** Louis's 23 Oct audit covered the text that existed then. Today's three guides are new text, so they carry **no reviewer** (`reviewed_by` empty, no `last_reviewed`) and a "Pending clinical review" line in the disclaimer. The article page now shows a pending byline instead of "Clinical reviewer: … Review date not recorded" when a guide has no reviewer (`src/pages/BlogPost.tsx`), and the sitewide "no pending" test has an explicit allowlist of these three slugs only. When Louis signs them off: restore `reviewed_by` / `reviewer_credentials` / `last_reviewed`, drop the pending sentence and remove the slugs from the allowlist.
+
+### Shipped
+- **Champion 99 — `/blog/ra-fatigue-frailty-energy-envelope-uk`:** full rewrite into "RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking". Why it can hit harder (disease activity, pain and sleep, mood, deconditioning, other conditions and medicines), NHS GP triggers and blood tests (anaemia, diabetes, thyroid), sleep apnoea, medication review, NICE NG100 periodic assessment and annual review, pacing the energy envelope, gentle activity and physio / OT, NHS sleep habits and CBT, mood (NICE psychological support, NHS Talking Therapies, 111 mental health option, Samaritans 116 123, 999), questions for the team, carers, red flags. Opening handoff to the general fatigue and pacing guides. **Pending clinical review**
+- **Champion 100 — `/blog/blood-test-transport-arthritis-frailty-uk`:** full rewrite into "getting to monitoring blood tests when travel is hard". Why tests matter (NICE drug monitoring), telling the team early, tests nearer home / better time / home visits if housebound (varies by area), NHS non-emergency patient transport (NHS page + NHS England 2022 eligibility criteria; other nations run their own), the Healthcare Travel Costs Scheme in England (qualifying benefits, Low Income Scheme, taxi agreed in advance, escorts, HC5(T) within 3 months), community transport, Blue Badge, PIP, on the day, results in the NHS App, missed tests (call the team, never stop a medicine yourself), carers, infection red flags. **Pending clinical review**
+- **Champion 101 — `/blog/rheumatology-clinic-frail-older-adult-uk`:** full rewrite into "preparing for a rheumatology appointment later in life". What to bring (top concerns, full medicines list, symptom and function notes, falls), telling the clinic about hearing / sight / memory / mobility needs, getting there, bringing someone, questions to ask, what NICE NG100 says care should include (shared decisions, written information, named coordinator, physio / OT / podiatry, rapid flare access, annual review), before you leave, after (clinic letter, NHS App, PALS, patient-initiated follow-up), carers, when not to wait. **Pending clinical review**
+- **`topicClusters.ts`:** flare-ups fronts RA fatigue; treatments fronts blood-test transport and rheumatology appointments
+- **Chatbot KB:** fatigue entry, RA entry and methotrexate entry `related` links to the three URLs
+- Sitemap `lastmod` **2026-10-26** on all three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 99–101 ticked; 222 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-99-101-26-oct.test.ts` (pending status, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, cluster, KB / llms / ai / sitemap, pending byline on the article page); `m2-trust-sweep-12-oct.test.ts` narrowed to an explicit three-slug allowlist. Full Vitest suite, lint and typecheck run before push (results in the PR)
+
+### Still blocked on Louis
+- Clinical review sign-off for Champions 99–101 (esp. the NHS patient transport / travel costs summary in 100 and the "when not to wait" lists)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 222 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 102–103 (chair-based exercise with RA after an overlap check against Champions 89 and 92; continence at night, paired with 97)
+2. Champions 104–105 (heat versus ice with thin skin or poor sensation; living alone falls plan) for winter
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
 
 ---
 

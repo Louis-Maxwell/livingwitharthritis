@@ -2733,18 +2733,22 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Getting to blood tests when you are frail with arthritis (UK)
+## Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/blood-test-transport-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-26
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Getting to blood tests when you are frail with arthritis (UK)
-A: A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking and recovery afterwards, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
+Clinical review: no named reviewer recorded.
+Q: Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)
+A: If getting to your monitoring blood tests is hard, tell your GP practice or rheumatology team early rather than missing a test, because these tests check that your medicine is safe for you. Ask whether the test can be done closer to home (for example at your GP surgery rather than the hospital), at a time of day that suits your joints, or at home if you are housebound; what is available varies by area. If you have a medical or mobility need, you may qualify for free NHS non-emergency patient transport to hospital appointments, so ask your healthcare team or local patient transport service. In England, if you get certain benefits or have a low income, you may be able to claim back the cost of travel to hospital tests through the Healthcare Travel Costs Scheme. If you do miss a test, call your team for advice; never stop a medicine yourself.
+Reference: NHS: How to organise transport to and from hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/
+Reference: NHS England: Non-emergency patient transport services — eligibility criteria (2022) — https://www.england.nhs.uk/wp-content/uploads/2022/05/B1244-nepts-eligibility-criteria.pdf
+Reference: NHS: Healthcare Travel Costs Scheme (HTCS) — https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/
+Reference: NHS: NHS Low Income Scheme — https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
+Reference: NHS: Blood tests — https://www.nhs.uk/tests-and-treatments/blood-tests/
+Reference: NHS: The NHS App — https://www.nhs.uk/nhs-app/
+Reference: GOV.UK: Apply for or renew a Blue Badge — https://www.gov.uk/apply-blue-badge
+Reference: NICE NG100: Rheumatoid arthritis in adults — recommendations — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## How to Get a Blue Badge for Arthritis in Scotland
 URL: https://livingwitharthritis.org.uk/blog/blue-badge-arthritis-scotland
@@ -7241,18 +7245,24 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
 Reference: Healthwatch: Getting a second opinion about your care — https://www.healthwatch.co.uk/advice-and-information/2025-09-29/getting-second-opinion-about-your-care
 
-## RA fatigue and frailty: protecting your energy envelope (UK)
+## RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/ra-fatigue-frailty-energy-envelope-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-26
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: RA fatigue and frailty: protecting your energy envelope (UK)
-A: UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue that looks like slowing down rather than laziness when rheumatoid arthritis affects several joints, with a focus on Scotland and a home setting.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Clinical review: no named reviewer recorded.
+Q: RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)
+A: Fatigue is one of the most common and hardest symptoms of rheumatoid arthritis (RA), and in later life it can be harder to tell apart from other causes of tiredness. It often eases when the RA itself is better controlled, so tell your rheumatology team if it is getting worse. Day to day, what helps most is pacing (spreading tasks out and resting before you are exhausted), regular gentle activity, a steady sleep routine and support with low mood or stress. See a GP if your tiredness is new, has lasted a few weeks without a clear reason, or comes with weight loss, breathlessness, a pounding heart, pale skin or mood changes, because simple blood tests can look for treatable causes such as anaemia or thyroid problems. Never stop or change an RA medicine yourself because of tiredness.
+Reference: NRAS: Rheumatoid arthritis and fatigue — https://nras.org.uk/resource/fatigue/
+Reference: NHS: Tiredness and fatigue — https://www.nhs.uk/conditions/tiredness-and-fatigue/
+Reference: NICE NG100: Rheumatoid arthritis in adults — recommendations — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Living with rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/
+Reference: NHS: Iron deficiency anaemia — https://www.nhs.uk/conditions/iron-deficiency-anaemia/
+Reference: NHS: Underactive thyroid — https://www.nhs.uk/conditions/underactive-thyroid-hypothyroidism/
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: Find NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/nhs-services/mental-health-services/find-nhs-talking-therapies-for-anxiety-and-depression/
+Reference: NHS: Where to get urgent help for mental health — https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Rheumatoid arthritis and frailty in older adults: a gentler daily rhythm (UK)
 URL: https://livingwitharthritis.org.uk/blog/ra-frailty-older-adults-daily-rhythm-uk
@@ -7489,18 +7499,22 @@ Reference: NHS England: Patient initiated follow-up — https://www.england.nhs.
 Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
 Reference: Healthwatch: Getting a second opinion about your care — https://www.healthwatch.co.uk/advice-and-information/2025-09-29/getting-second-opinion-about-your-care
 
-## Rheumatology clinics for frail older adults (UK)
+## Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/rheumatology-clinic-frail-older-adult-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-26
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Rheumatology clinics for frail older adults (UK)
-A: Families dealing with rheumatology clinics for frail older adults usually notice skipped invitations and slower rooms before any clinic label. This page explains a clinic day that respects stamina if you live with rheumatoid arthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: nidirect — https://www.nidirect.gov.uk
+Clinical review: no named reviewer recorded.
+Q: Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)
+A: To get the most from a rheumatology appointment later in life, write down your two or three most important concerns, bring an up-to-date list of all your medicines (including ones you buy yourself), and note how your joints, morning stiffness, fatigue, falls and everyday tasks have been since your last visit. Bring someone with you if that helps, and tell the clinic beforehand about any hearing, sight, memory or mobility needs. Ask what your treatment target is, which blood tests you need and where they can be done, and how to contact the team if you flare between appointments: NICE says everyone with RA should have rapid access to specialist care for flares. Before you leave, check you understand the plan, and never stop or change a medicine yourself without talking to the team.
+Reference: NICE NG100: Rheumatoid arthritis in adults — recommendations — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
+Reference: NRAS: How to approach your rheumatology consultation — https://nras.org.uk/resource/how-to-approach-your-rheumatology-consultation/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Living with rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/
+Reference: NHS: Rheumatoid arthritis — treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: How to organise transport to and from hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/
+Reference: NHS: What is PALS (Patient Advice and Liaison Service)? — https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/
+Reference: NHS: The NHS App — https://www.nhs.uk/nhs-app/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Rheumatology Waiting Times – What You Can Do
 URL: https://livingwitharthritis.org.uk/blog/rheumatology-waiting-times-uk

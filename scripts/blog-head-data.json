@@ -616,8 +616,8 @@
         "title": "Befriending services when arthritis and frailty isolate you (UK)"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
+        "path": "/blog/day-centres-arthritis-frailty-uk",
+        "title": "Day centres for people with arthritis and frailty (UK)"
       }
     ]
   },
@@ -2521,8 +2521,8 @@
         "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
       },
       {
-        "path": "/blog/sleep-apnoea-arthritis-frailty-uk",
-        "title": "Sleep apnoea and arthritis: signs, referral and why tired days hurt more (UK guide)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       }
     ]
   },
@@ -2996,8 +2996,8 @@
         "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
+        "path": "/blog/mri-scan-arthritis-explained",
+        "title": "MRI Scans for Arthritis Explained: When You Need One and What Results Mean"
       }
     ]
   },
@@ -3116,16 +3116,16 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
+      },
+      {
         "path": "/blog/weather-and-arthritis-pain-explained",
         "title": "Weather and Arthritis Pain Explained: What Helps (UK)"
       },
       {
         "path": "/blog/arthritis-medication-guide",
         "title": "Arthritis Medication — What Works, What to Expect"
-      },
-      {
-        "path": "/blog/vitamin-d-arthritis-uk",
-        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
       }
     ]
   },
@@ -3207,16 +3207,16 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/ra-fatigue-frailty-energy-envelope-uk",
+        "title": "RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)"
+      },
+      {
         "path": "/blog/anxiety-arthritis-uk-guide",
         "title": "Managing Anxiety When You Have Arthritis: A UK Guide"
       },
       {
         "path": "/blog/arthritis-fatigue-recovery-guide",
         "title": "Arthritis Fatigue Recovery Guide: A 4-Week Plan to Rebuild Energy (UK)"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       }
     ]
   },
@@ -3328,8 +3328,8 @@
         "title": "Steroids and infection with rheumatoid arthritis: what to watch for (UK guide)"
       },
       {
-        "path": "/blog/weight-loss-exercise-plan-arthritis",
-        "title": "Weight Loss Exercise Plan for Arthritis: A Joint-Friendly 12-Week Guide (UK)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       }
     ]
   },
@@ -4115,12 +4115,12 @@
         "title": "Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)"
       },
       {
-        "path": "/blog/anti-inflammatory-diet",
-        "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       },
       {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
+        "path": "/blog/anti-inflammatory-diet",
+        "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)"
       }
     ]
   },
@@ -6335,12 +6335,12 @@
         "title": "Arthritis - How's Life Living With Arthritis?"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
-      },
-      {
         "path": "/blog/day-centres-arthritis-frailty-uk",
         "title": "Day centres for people with arthritis and frailty (UK)"
+      },
+      {
+        "path": "/blog/direct-payments-arthritis-frailty-uk",
+        "title": "Direct Payments for care when arthritis and frailty overlap (UK)"
       }
     ]
   },
@@ -7697,76 +7697,82 @@
     ]
   },
   "/blog/blood-test-transport-arthritis-frailty-uk": {
-    "title": "Getting to blood tests when you are frail with arthritis (UK)",
-    "description": "A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking.",
-    "question": "Getting to blood tests when you are frail with arthritis (UK)",
-    "answer": "A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking and recovery afterwards, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.",
-    "breadcrumb": "Getting to blood tests when you are frail with arthritis (UK)",
+    "title": "Getting to Blood Tests When Travel Is Hard (UK)",
+    "description": "Struggling to get to arthritis blood tests? NHS patient transport, help with travel costs, tests nearer home and what to tell your team (UK).",
+    "question": "Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)",
+    "answer": "If getting to your monitoring blood tests is hard, tell your GP practice or rheumatology team early rather than missing a test, because these tests check that your medicine is safe for you. Ask whether the test can be done closer to home (for example at your GP surgery rather than the hospital), at a time of day that suits your joints, or at home if you are housebound; what is available varies by area. If you have a medical or mobility need, you may qualify for free NHS non-emergency patient transport to hospital appointments, so ask your healthcare team or local patient transport service…",
+    "breadcrumb": "Getting to Blood Tests When Travel Is Hard (UK)",
     "about": "Conditions",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-26",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0333-makes-a-wonderful-park.webp",
     "article": {
       "slug": "blood-test-transport-arthritis-frailty-uk",
-      "title": "Getting to blood tests when you are frail with arthritis (UK)",
-      "excerpt": "A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking.",
-      "content": "<p>A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking and recovery afterwards, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking and recovery afterwards, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.</p>\n\n<p>Picture the moment in a hospital when your several joints refuse a simple transfer and you feel your confidence drop faster than the pain score. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with phlebotomy, parking and recovery afterwards, not a generic arthritis recap. It is written in UK English for people, families and carers in Wales.</p>\n<h2>Why arthritis and frailty so often meet</h2>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's several joints and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual arthritis with frailty.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether phlebotomy, parking and recovery afterwards is shrinking your hospital life — and what you can change this week without pretending pain is imaginary.</p>\n<h2>What this can look like in a hospital</h2>\n<p>In a hospital, phlebotomy, parking and recovery afterwards is rarely one dramatic collapse. It is usually a stack of small avoidances. People with arthritis with frailty already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>Skipping meals or drinks because getting to the kitchen with sore several joints feels like a project.</li><li>Shorter outdoor range, then shorter indoor range, then a hospital that has quietly rearranged itself around the chair.</li><li>Transfers that used to be boring — bed, chair, toilet, car — now need a pause, a push-up or a second person, especially when several joints are cold.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li><li>Carers doing the last steps of a task to be kind, which removes the last practice the muscles were getting.</li></ul>\n<h2>Who to talk to locally in Wales</h2>\n<p>Start with your GP practice and NHS Wales services via your GP and local health board. For urgent but non-emergency advice use NHS 111 Wales. For chest pain, suspected hip fracture, sudden new weakness, or a fall with a bang to the head on blood thinners, use 999.</p>\n<p>In Wales, Dewis Cymru can help you browse local support. Rural travel, hills and limited buses matter as much as the joint diagnosis. Ask whether a community hospital, pharmacy service or home visit can cut the journey.</p>\n<h2>Practical self-management for phlebotomy, parking and recovery afterwards</h2>\n<ul><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>Ask a pharmacist to look at the whole list if dizziness, constipation or night sedation have arrived with the pain tablets. Do not add a new painkiller just in case.</li><li>Book eye, foot and hearing checks as frailty care, not vanity. Arthritis with frailty already asks a lot of balance.</li><li>Put the items you use at dawn — tablets, glasses, walking aid, phone — where you can reach them without a stretch that wrenches several joints.</li><li>If you live in a hospital, tell one other person the plan for a fall: who to call, where the spare key sits, whether you wear a pendant you can actually press.</li><li>Carers: help the last 20 percent of a task, not the first 80, unless pain or safety says otherwise. Practice is treatment for frailty.</li></ul>\n<h2>Frailty as a syndrome, not a single joint story</h2>\n<h2>GP, 111 or 999?</h2>\n<p>This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 Wales can help you choose. Living With Arthritis cannot triage you.</p>\n<ul><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li></ul>\n<h2>Should I stop exercising during phlebotomy, parking and recovery afterwards?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>How do I tell an arthritis flare from a frailty slide?</h2>\n<p>A flare of arthritis with frailty is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel.</p>\n<h2>Can frailty improve if I still have pain in several joints?</h2>\n<p>Sometimes the frailty part can shift even if arthritis with frailty remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical Wales context for arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://111.wales.nhs.uk\">NHS 111 Wales</a> (NHS Wales)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 111 Wales. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/frailty-services-arthritis-scotland-uk\">Frailty services and arthritis in Scotland (UK)</a> — When arthritis meets frailty, everyday tasks in a GP surgery can shrink faster than the joints alone would suggest.</li>\n      <li><a href=\"/blog/living-alone-falls-plan-arthritis-uk\">A falls plan if you live alone with arthritis (UK)</a> — A practical UK guide to a falls plan if you live alone with arthritis, written for days when energy and joints both feel limited.</li>\n      <li><a href=\"/blog/rheumatology-waiting-times-uk\">Rheumatology Waiting Times UK – How to Cope While Waiting</a> — NHS rheumatology waiting times can be months long.</li>\n      <li><a href=\"/blog/late-onset-ra-frailty-first-months-uk\">Late-onset rheumatoid arthritis and frailty: the first months (UK)</a> — When late-onset rheumatoid arthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest.</li>\n    </ul>\n  </section>\n",
+      "title": "Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)",
+      "excerpt": "Struggling to get to arthritis blood tests? NHS patient transport, help with travel costs, tests nearer home and what to tell your team (UK).",
+      "content": "<p>If getting to your monitoring blood tests is hard, tell your GP practice or rheumatology team early rather than missing a test, because these tests check that your medicine is safe for you. Ask whether the test can be done closer to home (for example at your GP surgery rather than the hospital), at a time of day that suits your joints, or at home if you are housebound; what is available varies by area. If you have a medical or mobility need, you may qualify for free NHS non-emergency patient transport to hospital appointments, so ask your healthcare team or local patient transport service. In England, if you get certain benefits or have a low income, you may be able to claim back the cost of travel to hospital tests through the Healthcare Travel Costs Scheme. If you do miss a test, call your team for advice; never stop a medicine yourself.</p>\n<p>This guide is about the practical problem of getting to regular monitoring blood tests when arthritis, stiffness or other health problems make travel hard. To understand why the tests matter and what they check, see <a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a> and <a href=\"/blog/arthritis-blood-tests-explained-uk\">arthritis blood tests explained</a>. If you take methotrexate, see <a href=\"/blog/methotrexate-older-frail-adults-uk\">methotrexate in later life</a>.</p>\n<h2>Why it is worth solving, not skipping</h2>\n<p>Many medicines used for inflammatory arthritis need regular safety blood tests, for example to check your blood count, liver and kidneys. NICE says everyone with RA should have ongoing drug monitoring. Missing tests without telling anyone can mean your prescription is delayed or a problem is picked up late. The answer is to make the tests easier to get to, not to drop them.</p>\n<h2>Step 1: tell your team early</h2>\n<p>Ring your GP practice or rheumatology nurse before the next test is due and explain the problem plainly. For example: \"I am struggling to get to the hospital for my blood tests because of my hips and I no longer drive. What are my options?\" It helps to say:</p>\n<ul>\n<li>how far you can walk and whether you can manage buses or steps</li>\n<li>whether anyone can take you, and when</li>\n<li>whether you have fallen recently or feel unsteady</li>\n<li>if you are housebound, or caring for someone else</li>\n</ul>\n<h2>Step 2: ask where and when the test can be done</h2>\n<ul>\n<li><strong>Closer to home.</strong> Many monitoring tests can be taken at a GP surgery or a local clinic rather than the hospital. Ask whether this is possible for yours</li>\n<li><strong>A better time of day.</strong> If morning stiffness makes early appointments hard, ask for a later slot</li>\n<li><strong>Combined visits.</strong> Ask whether the test can be done on the same day as another appointment</li>\n<li><strong>Booking.</strong> The NHS says some GP surgeries and hospitals let you book blood tests online</li>\n<li><strong>At home.</strong> If you are housebound, ask your GP practice whether a home visit for blood tests is possible. Arrangements differ between areas, so ask what your local service offers</li>\n</ul>\n<h2>NHS non-emergency patient transport</h2>\n<p>The NHS says some people can get free non-emergency patient transport to and from hospital, including people whose condition means they need extra support on the journey and people who find it difficult to walk. To find out if you are eligible and how to book, speak to your healthcare team or your local patient transport service.</p>\n<p>In England, NHS England's eligibility criteria say most people are expected to travel independently or with help from family and friends, and that transport is for people who need it for their safety, safe mobility or condition. People likely to qualify include those with a significant mobility need, a medical need for support during the journey, or a cognitive or sensory impairment (such as dementia, or severe sight or hearing loss) that means they cannot travel safely another way. The appointment usually needs to be a hospital or specialist service you have been referred to, rather than a routine GP surgery visit.</p>\n<p>Scotland, Wales and Northern Ireland run their own patient transport services with their own rules, so ask your clinic or health board.</p>\n<h2>Help with travel costs</h2>\n<p>In England, the NHS Healthcare Travel Costs Scheme can refund reasonable travel costs to hospital or other NHS premises for specialist tests or treatment if:</p>\n<ul>\n<li>you or your partner get a qualifying benefit (such as Pension Credit Guarantee Credit, income-related Employment and Support Allowance, or Universal Credit if you meet the criteria), or you qualify through the NHS Low Income Scheme</li>\n<li>you have been referred for specialist NHS care or tests</li>\n<li>the appointment is a separate visit from the one where you were referred</li>\n</ul>\n<p>Refunds are normally based on the cheapest suitable way to travel for you, taking account of your age and medical condition. If you need a taxi, agree it with the hospital or your local integrated care board before you travel. You can also claim for an escort if a healthcare professional says it is medically necessary for someone to come with you. Claims are made at the hospital cashier's office with your receipts, appointment letter and proof of benefits, or by post on form HC5(T) within 3 months. Routine visits to a GP surgery are not covered. Other UK nations have their own schemes; ask your clinic.</p>\n<h2>Other ways to get there</h2>\n<ul>\n<li><strong>Community transport</strong> schemes, often run by local charities, may offer door-to-door lifts. See <a href=\"/blog/community-transport-arthritis-frailty-uk\">community transport</a></li>\n<li><strong>A Blue Badge</strong> can make parking nearer the entrance possible. See <a href=\"/blog/blue-badge-frailty-arthritis-uk\">Blue Badge with arthritis</a></li>\n<li><strong>Family, friends or neighbours</strong> may be glad to help if you ask for a specific day and time</li>\n<li><strong>Benefits:</strong> if travel and getting around are hard because of your arthritis, you may be eligible for disability benefits. See <a href=\"/guides/benefits-pip\">benefits and PIP</a></li>\n</ul>\n<h2>On the day</h2>\n<ul>\n<li>Wear loose sleeves you can roll up easily</li>\n<li>Follow any instructions you were given about fasting or medicines before the test; if you were not given any, ask</li>\n<li>Bring your appointment letter or form, a list of your medicines, and your glasses and hearing aids</li>\n<li>Tell staff if you are worried about needles, find it hard to straighten your elbow, or need to sit or lie down. The NHS says you can bring someone with you for support</li>\n<li>Allow time to rest before the journey home</li>\n</ul>\n<p>Results can take a few days or longer. You may be able to see them in the NHS App. If you have heard nothing after a few weeks, contact the surgery or your specialist team.</p>\n<h2>If you miss a test</h2>\n<p>Call your GP practice or rheumatology advice line as soon as you can to rebook and ask what to do about your medicine in the meantime. Do not stop or change a prescribed medicine yourself; your team will tell you what is safe.</p>\n<h2>For family and carers</h2>\n<p>If you help someone to their tests, keep a simple calendar of when each test is due and who is taking them. Ask the team whether you can be the contact for appointments if the person agrees. If caring is becoming a lot, see <a href=\"/blog/carers-assessment-arthritis-frailty-uk\">carer's assessments</a>.</p>\n<h2>When not to wait</h2>\n<ul>\n<li><strong>Get urgent advice (your rheumatology advice line, GP or NHS 111)</strong> if you take a medicine that affects the immune system and get a high temperature, chills, a sore throat, mouth ulcers, unusual bruising or bleeding, or yellowing of the skin or eyes</li>\n<li><strong>Call 999</strong> for chest pain, severe breathlessness, signs of a stroke, or if someone collapses</li>\n</ul>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/\" rel=\"noopener\">NHS: How to organise transport to and from hospital</a></li>\n<li><a href=\"https://www.england.nhs.uk/wp-content/uploads/2022/05/B1244-nepts-eligibility-criteria.pdf\" rel=\"noopener\">NHS England: Non-emergency patient transport services — eligibility criteria (2022)</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/\" rel=\"noopener\">NHS: Healthcare Travel Costs Scheme (HTCS)</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/\" rel=\"noopener\">NHS: NHS Low Income Scheme</a></li>\n<li><a href=\"https://www.nhs.uk/tests-and-treatments/blood-tests/\" rel=\"noopener\">NHS: Blood tests</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-app/\" rel=\"noopener\">NHS: The NHS App</a></li>\n<li><a href=\"https://www.gov.uk/apply-blue-badge\" rel=\"noopener\">GOV.UK: Apply for or renew a Blue Badge</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/ng100/chapter/Recommendations\" rel=\"noopener\">NICE NG100: Rheumatoid arthritis in adults — recommendations</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\" rel=\"noopener\">NHS: When to use 111</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review: this guide was rewritten on 26 October 2026 and has not yet been clinically reviewed. Living With Arthritis is an independent charity and is not part of Arthritis UK (formerly Versus Arthritis) or the NRAS. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, rheumatology nurse or rheumatologist, and never stop or change a prescribed medicine yourself. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a> — why the tests matter</li>\n      <li><a href=\"/blog/methotrexate-older-frail-adults-uk\">Methotrexate in later life</a> — weekly routine and tests</li>\n      <li><a href=\"/blog/arthritis-blood-tests-explained-uk\">Arthritis blood tests</a> — what results mean</li>\n      <li><a href=\"/blog/rheumatology-clinic-frail-older-adult-uk\">Rheumatology appointments</a> — how to prepare</li>\n      <li><a href=\"/blog/community-transport-arthritis-frailty-uk\">Community transport</a> — local lifts</li>\n      <li><a href=\"/blog/blue-badge-frailty-arthritis-uk\">Blue Badge</a> — who qualifies</li>\n      <li><a href=\"/guides/benefits-pip\">Benefits and PIP</a> — money help</li>\n    </ul>\n  </section>\n<p><em>Living With Arthritis is independent of Arthritis UK, formerly Versus Arthritis.</em></p>\n",
       "date": "2026-09-03",
       "category": "Conditions",
       "image_url": "/openverse/cover-0333-makes-a-wonderful-park.webp",
       "cover": "cover-0333-makes-a-wonderful-park.webp",
-      "meta_title": "Getting to blood tests when you are frail with arthritis",
-      "meta_description": "A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking.",
-      "keywords": "getting to blood tests when you are frail with arthritis, arthritis with frailty, frailty, several joints, Wales, arthritis, health, UK",
+      "meta_title": "Getting to Blood Tests When Travel Is Hard (UK)",
+      "meta_description": "Struggling to get to arthritis blood tests? NHS patient transport, help with travel costs, tests nearer home and what to tell your team (UK).",
+      "keywords": "getting to blood tests arthritis, NHS patient transport eligibility, healthcare travel costs scheme, home blood test housebound, DMARD blood test transport",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
+      "reviewed_by": null,
+      "reviewer_credentials": null,
       "is_published": true,
       "display_order": 4804,
-      "updated_at": "2026-09-05T11:02:30.660Z",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "A hospital spell can unmask frailty even when arthritis was the reason for admission — muscles lose fitness fast. Here we focus on phlebotomy, parking and recovery afterwards, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.",
+      "updated_at": "2026-10-26T09:00:00.000Z",
+      "direct_answer": "If getting to your monitoring blood tests is hard, tell your GP practice or rheumatology team early rather than missing a test, because these tests check that your medicine is safe for you. Ask whether the test can be done closer to home (for example at your GP surgery rather than the hospital), at a time of day that suits your joints, or at home if you are housebound; what is available varies by area. If you have a medical or mobility need, you may qualify for free NHS non-emergency patient transport to hospital appointments, so ask your healthcare team or local patient transport service. In England, if you get certain benefits or have a low income, you may be able to claim back the cost of travel to hospital tests through the Healthcare Travel Costs Scheme. If you do miss a test, call your team for advice; never stop a medicine yourself.",
       "citations": [
         {
-          "label": "NHS – Falls",
-          "url": "https://www.nhs.uk/conditions/falls/",
+          "label": "NHS: How to organise transport to and from hospital",
+          "url": "https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
+          "label": "NHS England: Non-emergency patient transport services — eligibility criteria (2022)",
+          "url": "https://www.england.nhs.uk/wp-content/uploads/2022/05/B1244-nepts-eligibility-criteria.pdf",
+          "publisher": "NHS England"
+        },
+        {
+          "label": "NHS: Healthcare Travel Costs Scheme (HTCS)",
+          "url": "https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: NHS Low Income Scheme",
+          "url": "https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Blood tests",
+          "url": "https://www.nhs.uk/tests-and-treatments/blood-tests/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: The NHS App",
+          "url": "https://www.nhs.uk/nhs-app/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "GOV.UK: Apply for or renew a Blue Badge",
+          "url": "https://www.gov.uk/apply-blue-badge",
+          "publisher": "GOV.UK"
+        },
+        {
+          "label": "NICE NG100: Rheumatoid arthritis in adults — recommendations",
+          "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
           "publisher": "NICE"
         },
         {
-          "label": "NHS – Rheumatoid arthritis",
-          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
+          "label": "NHS: When to use 111",
+          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
           "publisher": "NHS"
-        },
-        {
-          "label": "NHS 111 Wales",
-          "url": "https://111.wales.nhs.uk",
-          "publisher": "NHS Wales"
         }
       ]
     },
-    "faqs": [
-      {
-        "q": "GP, 111 or 999?",
-        "a": "This is not personal medical advice. When several joints and frailty overlap, wait until Monday is sometimes right and sometimes dangerous. If you are unsure, NHS 111 Wales can help you choose. Living With Arthritis cannot triage you. A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency. Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis. A"
-      },
-      {
-        "q": "Should I stop exercising during phlebotomy, parking and recovery afterwards?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
-      },
-      {
-        "q": "How do I tell an arthritis flare from a frailty slide?",
-        "a": "A flare of arthritis with frailty is usually more joint pain, stiffness or swelling in a known pattern. A frailty slide is broader: weaker recovery, smaller meals, more time in the chair, maybe confusion or falls. They can happen together. If the whole person is changing, do not only increase pain gel."
-      },
-      {
-        "q": "Can frailty improve if I still have pain in several joints?",
-        "a": "Sometimes the frailty part can shift even if arthritis with frailty remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
-      }
-    ],
     "relatedLinks": [
       {
         "path": "/blog/archive",
@@ -7777,16 +7783,16 @@
         "title": "Conditions guides"
       },
       {
-        "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
-        "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
+        "path": "/blog/ra-monitoring-older-frail-adults-uk",
+        "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       },
       {
         "path": "/blog/arthritis-blood-tests-explained-uk",
         "title": "Arthritis Blood Tests Explained: CRP, ESR, Rheumatoid Factor, Anti-CCP and More"
       },
       {
-        "path": "/blog/arthritis-hows-life-living-with-arthritis",
-        "title": "Arthritis - How's Life Living With Arthritis?"
+        "path": "/blog/how-arthritis-is-diagnosed-tests-scans-results",
+        "title": "How Arthritis Is Diagnosed: Blood Tests, Scans and Results"
       }
     ]
   },
@@ -19054,12 +19060,12 @@
         "title": "Exercise During a Flare-Up: What to Do, What to Avoid and How to Restart"
       },
       {
-        "path": "/blog/anti-inflammatory-diet",
-        "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       },
       {
-        "path": "/blog/anti-inflammatory-diet-rheumatoid-arthritis",
-        "title": "Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits"
+        "path": "/blog/anti-inflammatory-diet",
+        "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)"
       }
     ]
   },
@@ -22488,8 +22494,8 @@
         "title": "Rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report (UK guide)"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
+        "path": "/blog/late-onset-ra-frailty-first-months-uk",
+        "title": "Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)"
       }
     ]
   },
@@ -30073,16 +30079,16 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
+      },
+      {
         "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
         "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       },
       {
         "path": "/blog/chair-yoga-elderly-arthritis-stiffness",
         "title": "Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)"
-      },
-      {
-        "path": "/blog/paracetamol-older-frail-arthritis-uk",
-        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
       }
     ]
   },
@@ -33721,12 +33727,12 @@
         "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
       },
       {
-        "path": "/blog/topical-nsaids-frail-hand-knee-oa-uk",
-        "title": "Topical NSAIDs in later life: safer pain relief for knee and hand osteoarthritis (UK guide)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       },
       {
-        "path": "/blog/uti-confusion-arthritis-frailty-uk",
-        "title": "UTIs and sudden confusion with arthritis: signs in older people and who to call (UK guide)"
+        "path": "/blog/topical-nsaids-frail-hand-knee-oa-uk",
+        "title": "Topical NSAIDs in later life: safer pain relief for knee and hand osteoarthritis (UK guide)"
       }
     ]
   },
@@ -34556,16 +34562,16 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
+      },
+      {
         "path": "/blog/shingles-vaccine-arthritis-frailty-uk",
         "title": "Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)"
       },
       {
         "path": "/blog/vitamin-d-and-falls-arthritis-uk",
         "title": "Vitamin D and falls with arthritis: what it can and cannot do (UK guide)"
-      },
-      {
-        "path": "/blog/arthritis-friendly-gym-guide",
-        "title": "Arthritis-Friendly Gym Guide: How to Use a Gym Safely With Arthritis (UK)"
       }
     ]
   },
@@ -36255,12 +36261,12 @@
         "title": "Arthritis Medication — What Works, What to Expect"
       },
       {
-        "path": "/blog/vitamin-d-arthritis-uk",
-        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       },
       {
-        "path": "/blog/alcohol-arthritis-uk-guidance",
-        "title": "Alcohol and Arthritis: What the UK Evidence Says"
+        "path": "/blog/vitamin-d-arthritis-uk",
+        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
       }
     ]
   },
@@ -37587,88 +37593,108 @@
     ]
   },
   "/blog/ra-fatigue-frailty-energy-envelope-uk": {
-    "title": "RA fatigue and frailty: protecting your energy envelope (UK)",
-    "description": "UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue.",
-    "question": "RA fatigue and frailty: protecting your energy envelope (UK)",
-    "answer": "UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue that looks like slowing down rather than laziness when rheumatoid arthritis affects several joints, with a focus on Scotland and a home setting.",
-    "breadcrumb": "RA fatigue and frailty: protecting your energy envelope (UK)",
+    "title": "RA Fatigue in Later Life: Pacing and Checks (UK)",
+    "description": "Why rheumatoid arthritis fatigue can hit harder in later life, how to pace energy, sleep and mood, and when tiredness needs a GP check (UK).",
+    "question": "RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)",
+    "answer": "Fatigue is one of the most common and hardest symptoms of rheumatoid arthritis (RA), and in later life it can be harder to tell apart from other causes of tiredness. It often eases when the RA itself is better controlled, so tell your rheumatology team if it is getting worse. Day to day, what helps most is pacing (spreading tasks out and resting before you are exhausted), regular gentle activity, a steady sleep routine and support with low mood or stress. See a GP if your tiredness is new, has lasted a few weeks without a clear reason, or comes with weight loss, breathlessness, a pounding…",
+    "breadcrumb": "RA Fatigue in Later Life: Pacing and Checks (UK)",
     "about": "Mental health & fatigue",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-26",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0451-mushroom-salad-slices-of-tomato-and-lettuce.webp",
     "article": {
       "slug": "ra-fatigue-frailty-energy-envelope-uk",
-      "title": "RA fatigue and frailty: protecting your energy envelope (UK)",
-      "excerpt": "UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue.",
-      "content": "<p>UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue that looks like slowing down rather than laziness when rheumatoid arthritis affects several joints, with a focus on Scotland and a home setting.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue that looks like slowing down rather than laziness when rheumatoid arthritis affects several joints, with a focus on Scotland and a home setting.</p>\n\n<p>Picture the moment in a home when your several joints refuse a simple transfer and you feel your confidence drop faster than the pain score. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with fatigue that looks like slowing down rather than laziness, not a generic arthritis recap. It is written in UK English for people, families and carers in Scotland.</p>\n<h2>A Scotland day with rheumatoid arthritis and less reserve</h2>\n<p>In a home, fatigue that looks like slowing down rather than laziness is rarely one dramatic collapse. It is usually a stack of small avoidances. People with rheumatoid arthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>A flare of rheumatoid arthritis that lasts, then a slower baseline even when the flare eases.</li><li>Night toilet trips, poor lighting and stiff several joints stacking into a falls risk that nobody named.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>Transfers that used to be boring — bed, chair, toilet, car — now need a pause, a push-up or a second person, especially when several joints are cold.</li><li>Carers doing the last steps of a task to be kind, which removes the last practice the muscles were getting.</li></ul>\n<h2>Self-management that respects rheumatoid arthritis</h2>\n<p>None of this is a gym challenge. The aim is to keep several joints moving, keep protein in the day, and keep fatigue that looks like slowing down rather than laziness from becoming the only story in the home. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>Write three daily anchors: a meal, a movement, a conversation. Frailty grows in unstructured days.</li><li>Book eye, foot and hearing checks as frailty care, not vanity. Rheumatoid arthritis already asks a lot of balance.</li><li>After a flare, restart the smallest version of your usual movement within comfort, rather than waiting to feel back to normal. Normal rarely sends an email.</li><li>Put the items you use at dawn — tablets, glasses, walking aid, phone — where you can reach them without a stretch that wrenches several joints.</li><li>Use heat for stiffness if your skin is healthy, but protect thin skin. Never fall asleep on a hot water bottle.</li><li>Treat a walking aid as joint protection and falls kit, not as a verdict. Wrist-friendly handles matter if several joints include hands.</li></ul>\n<h2>Pain, muscle and recovery: the Scotland picture</h2>\n<p>Arthritis is about joints, tendons and the way pain changes movement. Frailty is about the whole system — muscle, stamina, appetite, mood, medicines and how quickly you bounce back after a setback. Rheumatoid arthritis sits in the middle because sore several joints quietly train you to sit more, shorten your stride and skip the movements that keep muscle.</p>\n<p>NICE is clear that exercise is core care for osteoarthritis, not an optional extra after tablets. That still holds if you are becoming frailer, but the dose must respect today's several joints and today's energy. Rest has a place in a flare; rest as a lifestyle is how deconditioning joins the diagnosis.</p>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual rheumatoid arthritis.</p>\n<h2>Mood, fear and identity when several joints slow the week</h2>\n<p>After a fall or a flare of rheumatoid arthritis, people often need a deliberate confidence plan: one accompanied walk, one visitor, one practised transfer, not a lecture about positive thinking.</p>\n<h2>Who to talk to locally in Scotland</h2>\n<h2>Red flags — do not wait this out</h2>\n<ul><li>Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the rheumatoid arthritis nurse.</li><li>Unplanned weight loss, repeated falls, or fatigue that looks like slowing down rather than laziness that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>A hot, very swollen joint with fever, or feeling systemically unwell — seek urgent clinical advice. A joint infection is an emergency.</li><li>Sudden confusion, new incontinence, or a crash in mobility over hours to days — think infection or delirium, not only arthritis.</li></ul>\n<h2>Should I stop exercising during fatigue that looks like slowing down rather than laziness?</h2>\n<p>Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice.</p>\n<h2>What should a carer do in the home without taking over?</h2>\n<p>Stand nearby for the risky bit, set the environment up (chair height, shoes, light), and leave the bits the person can still do. Taking over every transfer trains both of you into a hoist-by-default life. If moving and handling is already unsafe, stop DIY lifting and ask for a proper care and OT review.</p>\n<h2>Are painkillers the main treatment for frail rheumatoid arthritis?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical Scotland context for rheumatoid arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhsinform.scot\">NHS Inform</a> (NHS Inform)</li><li><a href=\"https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/\">Age UK – Frailty</a> (Age UK)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or NHS 24 on 111. Call 999 in an emergency.</em></p>\n<section class=\"key-takeaways\" aria-labelledby=\"key-takeaways\">\n    <h2 id=\"key-takeaways\">Key takeaways</h2>\n    <ul>\n      <li>A Scotland day with rheumatoid arthritis and less reserve</li>\n      <li>Self-management that respects rheumatoid arthritis</li>\n      <li>Pain, muscle and recovery: the Scotland picture</li>\n      <li>Mood, fear and identity when several joints slow the week</li>\n      <li>Who to talk to locally in Scotland</li>\n    </ul>\n  </section>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/fear-of-falling-hip-oa-frailty-uk\">Fear of falling with hip osteoarthritis and frailty (UK)</a> — This guide stays practical: what still moves safely, what to ask a clinician, and how to keep a home week steadier.</li>\n      <li><a href=\"/blog/sleep-arthritis-frailty-night-pain-uk\">Sleep, night pain and frailty in arthritis (UK)</a> — Arthritis and frailty often arrive as a pair of habits — sitting more, eating less, declining invitations — not as a single diagnosis.</li>\n      <li><a href=\"/blog/pacing-visitors-arthritis-frailty-uk\">Pacing visitors and family days with arthritis and frailty (UK)</a> — When pacing visitors and family days with arthritis and frailty is on your mind, treat shrinking range as useful information, not a.</li>\n      <li><a href=\"/blog/restless-nights-joint-pain-frailty-uk\">Restless nights, joint pain and next-day frailty (UK)</a> — This guide stays with restless nights, joint pain and next-day frailty: what still moves safely, what to ask, and how to keep a steadier.</li>\n    </ul>\n  </section>\n",
+      "title": "RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)",
+      "excerpt": "Why rheumatoid arthritis fatigue can hit harder in later life, how to pace energy, sleep and mood, and when tiredness needs a GP check (UK).",
+      "content": "<p>Fatigue is one of the most common and hardest symptoms of rheumatoid arthritis (RA), and in later life it can be harder to tell apart from other causes of tiredness. It often eases when the RA itself is better controlled, so tell your rheumatology team if it is getting worse. Day to day, what helps most is pacing (spreading tasks out and resting before you are exhausted), regular gentle activity, a steady sleep routine and support with low mood or stress. See a GP if your tiredness is new, has lasted a few weeks without a clear reason, or comes with weight loss, breathlessness, a pounding heart, pale skin or mood changes, because simple blood tests can look for treatable causes such as anaemia or thyroid problems. Never stop or change an RA medicine yourself because of tiredness.</p>\n<p>This guide is about one job: living with rheumatoid arthritis fatigue in later life, and knowing when tiredness needs checking rather than just putting up with it. For a general explainer on arthritis fatigue, see <a href=\"/blog/arthritis-fatigue-management-uk\">managing arthritis fatigue</a>. For a detailed daily planning method, see <a href=\"/blog/energy-management-and-pacing-arthritis\">energy management and pacing</a>.</p>\n<h2>Why RA fatigue can hit harder in later life</h2>\n<p>RA fatigue is not ordinary tiredness. The national RA charity NRAS describes it as a level of tiredness that a good night's sleep does not always fix, and it can be worse during a flare. Common reasons it builds up include:</p>\n<ul>\n<li><strong>The RA itself:</strong> active inflammation (more swollen and tender joints) often brings more fatigue</li>\n<li><strong>Pain and broken sleep:</strong> painful joints can wake you when you turn over at night</li>\n<li><strong>Low mood and stress:</strong> they make fatigue heavier, and fatigue makes mood lower</li>\n<li><strong>Doing less:</strong> resting a lot to save energy can slowly weaken muscles, so ordinary jobs cost more</li>\n<li><strong>Other health conditions and medicines:</strong> in later life there are often more of both, and some medicines can add to drowsiness</li>\n</ul>\n<p>Recovery after a flare, an infection or a hospital stay can also take longer as we get older. If a bad week has left you weaker, see <a href=\"/blog/deconditioning-after-arthritis-flare-uk\">rebuilding strength after a flare</a>.</p>\n<h2>Is it RA fatigue or something else? When to get it checked</h2>\n<p>Do not assume all tiredness is \"just the RA\". The NHS advises seeing a GP if:</p>\n<ul>\n<li>you have felt tired for a few weeks and are not sure why</li>\n<li>tiredness is affecting your daily life</li>\n<li>you feel tired and have other symptoms, such as weight loss or mood changes, or someone has noticed you gasp, snort or choke in your sleep</li>\n</ul>\n<p>A GP may suggest blood tests, for example to look for anaemia (low iron or a low blood count), diabetes or a thyroid problem. These are treatable, and anaemia is something your rheumatology team will also want to know about. Loud snoring with pauses in breathing can be a sign of sleep apnoea: see <a href=\"/blog/sleep-apnoea-arthritis-frailty-uk\">sleep apnoea and arthritis</a>.</p>\n<p>Ask your pharmacist or GP whether any of your medicines could be adding to drowsiness, especially if you have started something new. A <a href=\"/blog/pharmacist-medication-review-frail-arthritis-uk\">medication review</a> is the right place for this. Do not stop or cut down any medicine yourself.</p>\n<p>Also tell your rheumatology team. NICE guidance on RA says people should have access to a team that periodically assesses how the disease affects their life, including fatigue, mood, sleep and everyday activities, and an annual review. Fatigue that is getting worse can be a sign the RA needs a treatment review. See <a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a>.</p>\n<h2>Your energy envelope: pacing in practice</h2>\n<p>Think of each day's energy as a fixed budget. Pacing means spending it on purpose rather than all at once. NRAS suggests a fatigue and activity diary to help you spot your own patterns.</p>\n<ul>\n<li><strong>Plan the week, not just the day.</strong> Spread big jobs (shopping, washing, visitors, appointments) across the week instead of stacking them</li>\n<li><strong>Prioritise.</strong> Decide what must be done, what can wait and what someone else could do</li>\n<li><strong>Break tasks up.</strong> Change the bed one side at a time; prepare vegetables sitting down; do one room, not the whole house</li>\n<li><strong>Rest before you are exhausted,</strong> not after. A short planned sit-down is worth more than a long crash later</li>\n<li><strong>Avoid boom and bust.</strong> On a good day, do a little more than usual, not everything you have been putting off</li>\n<li><strong>Protect what matters to you.</strong> Save some energy for a visit, a hobby or a walk you enjoy, not only chores</li>\n</ul>\n<p>For step-by-step methods, see <a href=\"/blog/pacing-techniques-arthritis-pain\">how to pace activities properly</a> and <a href=\"/blog/pacing-housework-arthritis-frailty-uk\">pacing housework</a>.</p>\n<h2>Gentle activity usually helps more than rest alone</h2>\n<p>It sounds backwards, but regular gentle movement is one of the things NRAS lists as helping fatigue, alongside a healthy diet, relaxation and better control of the RA. Total rest for days on end tends to make muscles weaker and fatigue worse.</p>\n<ul>\n<li>Start small: a few minutes of movement, two or three times a day</li>\n<li>Seated exercise counts. See <a href=\"/blog/chair-based-exercise-ra-frailty-uk\">chair-based exercise with RA</a></li>\n<li>During a flare, keep a smaller version going and ease off the sore joints rather than stopping completely</li>\n<li>See <a href=\"/blog/exercise-for-energy-arthritis-fatigue\">exercise for energy</a> for why movement can ease fatigue</li>\n</ul>\n<p>NICE says adults with RA should have access to specialist physiotherapy and occupational therapy. An occupational therapist can help you find easier ways to do daily tasks and suggest equipment. Ask your rheumatology team or GP for a referral.</p>\n<h2>Sleep: small habits that add up</h2>\n<p>The NHS suggests getting up at the same time every day, only going to bed when you feel sleepy, relaxing for at least an hour before bed, keeping the bedroom dark and quiet, and moving regularly during the day. It also advises avoiding alcohol, tea and coffee in the 6 hours before bed, big meals late at night and screens right before bed, and not napping during the day. If fatigue means you need to rest in the day, try sitting with your feet up rather than sleeping.</p>\n<p>If pain wakes you at night, talk to your team about pain relief and RA control. If you have had poor sleep for a long time, ask your GP about cognitive behavioural therapy for insomnia (CBT-I), which the NHS says may be offered face to face or through an online self-help programme. More help: <a href=\"/blog/how-to-sleep-with-arthritis-uk\">how to sleep better with arthritis</a>.</p>\n<h2>Mood and fatigue feed each other</h2>\n<p>Feeling low, worried or stressed makes fatigue heavier, and constant tiredness can make anyone feel low. NICE recommends offering psychological support such as relaxation, stress management and coping skills to help people adjust to living with RA. You can ask your GP, or in England you can refer yourself to NHS Talking Therapies.</p>\n<p>See <a href=\"/blog/depression-arthritis-when-to-seek-help\">depression and arthritis: when to ask for help</a>.</p>\n<p><strong>If you are struggling to cope or having thoughts of harming yourself,</strong> call NHS 111 and choose the mental health option, or ask for an urgent GP appointment. You can call Samaritans free on 116 123, day or night. If you do not feel you can keep yourself safe, call 999 or go to A&amp;E.</p>\n<h2>Questions to take to your rheumatology team</h2>\n<ul>\n<li>Could my fatigue mean my RA is not as well controlled as it could be?</li>\n<li>Should I have blood tests to check for anaemia or anything else?</li>\n<li>Could any of my medicines be adding to tiredness?</li>\n<li>Can I see a physiotherapist or occupational therapist about pacing and daily tasks?</li>\n<li>Is there a fatigue or self-management programme locally?</li>\n</ul>\n<p>For help preparing for appointments, see <a href=\"/blog/rheumatology-clinic-frail-older-adult-uk\">preparing for a rheumatology appointment later in life</a>.</p>\n<h2>For family and carers</h2>\n<p>RA fatigue is invisible, so people often misread it as laziness or low motivation. It helps to ask \"what would make today easier?\" rather than taking over. Help plan the week, offer to do the heaviest job, and leave the person the parts they can still do. See <a href=\"/blog/carers-how-to-help-without-taking-over-uk\">how to help without taking over</a>.</p>\n<h2>When not to wait</h2>\n<ul>\n<li><strong>Call 999</strong> for chest pain, severe difficulty breathing, signs of a stroke, or if someone collapses</li>\n<li><strong>Get urgent advice (your rheumatology advice line, GP or NHS 111)</strong> if you feel suddenly very unwell, have a high temperature, chills or a sore throat while taking RA medicines that affect the immune system, or become newly confused</li>\n<li><strong>See your GP soon</strong> if tiredness keeps getting worse week by week, or comes with weight loss, breathlessness or night sweats</li>\n</ul>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://nras.org.uk/resource/fatigue/\" rel=\"noopener\">NRAS: Rheumatoid arthritis and fatigue</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/tiredness-and-fatigue/\" rel=\"noopener\">NHS: Tiredness and fatigue</a></li>\n<li><a href=\"https://www.nice.org.uk/guidance/ng100/chapter/Recommendations\" rel=\"noopener\">NICE NG100: Rheumatoid arthritis in adults — recommendations</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\" rel=\"noopener\">NHS: Rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/\" rel=\"noopener\">NHS: Living with rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/iron-deficiency-anaemia/\" rel=\"noopener\">NHS: Iron deficiency anaemia</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/underactive-thyroid-hypothyroidism/\" rel=\"noopener\">NHS: Underactive thyroid</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/insomnia/\" rel=\"noopener\">NHS: Insomnia</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/mental-health-services/find-nhs-talking-therapies-for-anxiety-and-depression/\" rel=\"noopener\">NHS: Find NHS Talking Therapies for anxiety and depression</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/\" rel=\"noopener\">NHS: Where to get urgent help for mental health</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\" rel=\"noopener\">NHS: When to use 111</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review: this guide was rewritten on 26 October 2026 and has not yet been clinically reviewed. Living With Arthritis is an independent charity and is not part of Arthritis UK (formerly Versus Arthritis) or the NRAS. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, rheumatology nurse or rheumatologist, and never stop or change a prescribed medicine yourself. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/arthritis-fatigue-management-uk\">Managing arthritis fatigue</a> — the general guide</li>\n      <li><a href=\"/blog/energy-management-and-pacing-arthritis\">Energy management and pacing</a> — daily planning</li>\n      <li><a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a> — tests and reviews</li>\n      <li><a href=\"/blog/sleep-apnoea-arthritis-frailty-uk\">Sleep apnoea and arthritis</a> — when tired days hurt more</li>\n      <li><a href=\"/blog/depression-arthritis-when-to-seek-help\">Depression and arthritis</a> — when to ask for help</li>\n      <li><a href=\"/blog/chair-based-exercise-ra-frailty-uk\">Chair-based exercise with RA</a> — gentle movement</li>\n      <li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis</a> — condition guide</li>\n    </ul>\n  </section>\n<p><em>Living With Arthritis is independent of Arthritis UK, formerly Versus Arthritis.</em></p>\n",
       "date": "2026-09-03",
       "category": "Mental health & fatigue",
       "image_url": "/openverse/cover-0451-mushroom-salad-slices-of-tomato-and-lettuce.webp",
       "cover": "cover-0451-mushroom-salad-slices-of-tomato-and-lettuce.webp",
-      "meta_title": "RA fatigue and frailty: protecting your energy envelope (UK)",
-      "meta_description": "UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue.",
-      "keywords": "ra fatigue and frailty protecting your energy envelope, rheumatoid arthritis, frailty, several joints, Scotland, arthritis, mental health, UK",
+      "meta_title": "RA Fatigue in Later Life: Pacing and Checks (UK)",
+      "meta_description": "Why rheumatoid arthritis fatigue can hit harder in later life, how to pace energy, sleep and mood, and when tiredness needs a GP check (UK).",
+      "keywords": "rheumatoid arthritis fatigue older adults, RA tiredness pacing, RA fatigue when to see GP, energy envelope pacing, tired all the time rheumatoid arthritis",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
+      "reviewed_by": null,
+      "reviewer_credentials": null,
       "is_published": true,
       "display_order": 4978,
-      "updated_at": "2026-09-05T11:02:30.633Z",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "UK home life is where arthritis and frailty show their cost — kettle, bathroom, stairs — more clearly than any clinic score. This guide covers fatigue that looks like slowing down rather than laziness when rheumatoid arthritis affects several joints, with a focus on Scotland and a home setting.",
+      "updated_at": "2026-10-26T09:00:00.000Z",
+      "direct_answer": "Fatigue is one of the most common and hardest symptoms of rheumatoid arthritis (RA), and in later life it can be harder to tell apart from other causes of tiredness. It often eases when the RA itself is better controlled, so tell your rheumatology team if it is getting worse. Day to day, what helps most is pacing (spreading tasks out and resting before you are exhausted), regular gentle activity, a steady sleep routine and support with low mood or stress. See a GP if your tiredness is new, has lasted a few weeks without a clear reason, or comes with weight loss, breathlessness, a pounding heart, pale skin or mood changes, because simple blood tests can look for treatable causes such as anaemia or thyroid problems. Never stop or change an RA medicine yourself because of tiredness.",
       "citations": [
         {
-          "label": "NHS – Rheumatoid arthritis",
+          "label": "NRAS: Rheumatoid arthritis and fatigue",
+          "url": "https://nras.org.uk/resource/fatigue/",
+          "publisher": "NRAS"
+        },
+        {
+          "label": "NHS: Tiredness and fatigue",
+          "url": "https://www.nhs.uk/conditions/tiredness-and-fatigue/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NICE NG100: Rheumatoid arthritis in adults — recommendations",
+          "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+          "publisher": "NICE"
+        },
+        {
+          "label": "NHS: Rheumatoid arthritis",
           "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
-          "publisher": "NICE"
+          "label": "NHS: Living with rheumatoid arthritis",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/",
+          "publisher": "NHS"
         },
         {
-          "label": "NHS Inform",
-          "url": "https://www.nhsinform.scot",
-          "publisher": "NHS Inform"
+          "label": "NHS: Iron deficiency anaemia",
+          "url": "https://www.nhs.uk/conditions/iron-deficiency-anaemia/",
+          "publisher": "NHS"
         },
         {
-          "label": "Age UK – Frailty",
-          "url": "https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/",
-          "publisher": "Age UK"
+          "label": "NHS: Underactive thyroid",
+          "url": "https://www.nhs.uk/conditions/underactive-thyroid-hypothyroidism/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Insomnia",
+          "url": "https://www.nhs.uk/conditions/insomnia/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Find NHS Talking Therapies for anxiety and depression",
+          "url": "https://www.nhs.uk/nhs-services/mental-health-services/find-nhs-talking-therapies-for-anxiety-and-depression/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: Where to get urgent help for mental health",
+          "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: When to use 111",
+          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+          "publisher": "NHS"
         }
       ]
     },
-    "faqs": [
-      {
-        "q": "Should I stop exercising during fatigue that looks like slowing down rather than laziness?",
-        "a": "Complete rest for more than a short flare period usually makes several joints and muscle worse. Keep a smaller version: seated strength, indoor loops, or the two sit-to-stands you can still do. If exercise causes pain that spirals or a joint that will not settle, get clinical advice."
-      },
-      {
-        "q": "What should a carer do in the home without taking over?",
-        "a": "Stand nearby for the risky bit, set the environment up (chair height, shoes, light), and leave the bits the person can still do. Taking over every transfer trains both of you into a hoist-by-default life. If moving and handling is already unsafe, stop DIY lifting and ask for a proper care and OT review."
-      },
-      {
-        "q": "Are painkillers the main treatment for frail rheumatoid arthritis?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
-      }
-    ],
     "relatedLinks": [
       {
         "path": "/blog/archive",
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/arthritis-and-mental-health-uk",
-        "title": "Arthritis and Mental Health: Signs, Self-Help and NHS Support in the UK"
-      },
-      {
-        "path": "/blog/arthritis-and-weight-loss-uk",
-        "title": "Healthy Weight and Arthritis: A Practical UK Guide to Losing Weight Safely When Your Joints Hurt"
-      },
-      {
         "path": "/blog/arthritis-fatigue-recovery-guide",
         "title": "Arthritis Fatigue Recovery Guide: A 4-Week Plan to Rebuild Energy (UK)"
+      },
+      {
+        "path": "/blog/energy-management-and-pacing-arthritis",
+        "title": "Energy Management and Pacing: Daily Planning for Arthritis Fatigue"
+      },
+      {
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       }
     ]
   },
@@ -39229,102 +39255,112 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
+      },
+      {
         "path": "/blog/arthritis-medication-guide",
         "title": "Arthritis Medication — What Works, What to Expect"
       },
       {
         "path": "/blog/falls-clinic-arthritis-what-to-expect-uk",
         "title": "Falls clinic with arthritis: what to expect (UK)"
-      },
-      {
-        "path": "/blog/pharmacist-medication-review-frail-arthritis-uk",
-        "title": "Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)"
       }
     ]
   },
   "/blog/rheumatology-clinic-frail-older-adult-uk": {
-    "title": "Rheumatology clinics for frail older adults (UK)",
-    "description": "Rheumatology clinics for frail older adults (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a…",
-    "question": "Rheumatology clinics for frail older adults (UK)",
-    "answer": "Families dealing with rheumatology clinics for frail older adults usually notice skipped invitations and slower rooms before any clinic label. This page explains a clinic day that respects stamina if you live with rheumatoid arthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.",
-    "breadcrumb": "Rheumatology clinics for frail older adults (UK)",
+    "title": "Rheumatology Appointments in Later Life (UK) | Living With Arthritis",
+    "description": "How to prepare for a rheumatology appointment later in life: what to bring, questions to ask, bringing someone with you and what happens next (UK).",
+    "question": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)",
+    "answer": "To get the most from a rheumatology appointment later in life, write down your two or three most important concerns, bring an up-to-date list of all your medicines (including ones you buy yourself), and note how your joints, morning stiffness, fatigue, falls and everyday tasks have been since your last visit. Bring someone with you if that helps, and tell the clinic beforehand about any hearing, sight, memory or mobility needs. Ask what your treatment target is, which blood tests you need and where they can be done, and how to contact the team if you flare between appointments: NICE says…",
+    "breadcrumb": "Rheumatology Appointments in Later Life (UK)",
     "about": "Treatments & medicines",
-    "updatedAt": "2026-09-05",
+    "updatedAt": "2026-10-26",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0336-rednotebook2009-pg-20.webp",
     "article": {
       "slug": "rheumatology-clinic-frail-older-adult-uk",
-      "title": "Rheumatology clinics for frail older adults (UK)",
-      "excerpt": "Rheumatology clinics for frail older adults (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a diagnosis).",
-      "content": "<p>Families dealing with rheumatology clinics for frail older adults usually notice skipped invitations and slower rooms before any clinic label. This page explains a clinic day that respects stamina if you live with rheumatoid arthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Families dealing with rheumatology clinics for frail older adults usually notice skipped invitations and slower rooms before any clinic label. This page explains a clinic day that respects stamina if you live with rheumatoid arthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.</p>\n\n<p>Picture the moment in a hospital when your several joints refuse a simple transfer and you feel your confidence drop faster than the pain score. Around 10 million people in the UK live with arthritis; a smaller group also live with frailty as a clinical syndrome. This article stays with a clinic day that respects stamina, not a generic arthritis recap. It is written in UK English for people, families and carers in Northern Ireland.</p>\n<h2>What this can look like in a hospital</h2>\n<p>In a hospital, a clinic day that respects stamina is rarely one dramatic collapse. It is usually a stack of small avoidances. People with rheumatoid arthritis already know boom-and-bust. Frailty adds a longer payback: a quiet weekend can cost the following Thursday.</p>\n<ul><li>Shorter outdoor range, then shorter indoor range, then a hospital that has quietly rearranged itself around the chair.</li><li>A flare of rheumatoid arthritis that lasts, then a slower baseline even when the flare eases.</li><li>A hospital or infection week that ends with clothes feeling looser and stairs feeling taller.</li><li>Skipping meals or drinks because getting to the kitchen with sore several joints feels like a project.</li></ul>\n<h2>Small, repeatable steps — not a reinvention</h2>\n<p>None of this is a gym challenge. The aim is to keep several joints moving, keep protein in the day, and keep a clinic day that respects stamina from becoming the only story in the hospital. If a physiotherapist, occupational therapist or frailty team has already given you a plan, follow that ahead of a webpage.</p>\n<ul><li>Keep a sit-to-stand practice at the height you actually use. A higher chair is not cheating if it lets several joints work without a panic haul.</li><li>If stairs are the bottleneck, get an occupational therapy conversation on the list while you temporarily live downstairs — drifting is how a camp-bed becomes a lifestyle.</li><li>Plan the scariest transfer of the day — often the bathroom — with lighting, a rail conversation and unhurried time. Rushing with stiff several joints is how near-misses happen.</li><li>Treat a walking aid as joint protection and falls kit, not as a verdict. Wrist-friendly handles matter if several joints include hands.</li><li>Ask a pharmacist to look at the whole list if dizziness, constipation or night sedation have arrived with the pain tablets. Do not add a new painkiller just in case.</li><li>After a flare, restart the smallest version of your usual movement within comfort, rather than waiting to feel back to normal. Normal rarely sends an email.</li></ul>\n<h2>Not 'just getting old': a clinic day that respects stamina</h2>\n<p>Clinicians sometimes use tools such as the Rockwood Clinical Frailty Scale in hospital. It is not a DIY label and it is not a moral judgement. Pain in several joints can make you look slower on a scale even when the driver is arthritis, so tell staff what is new this week versus what is your usual rheumatoid arthritis.</p>\n<p>Around 10 million people in the UK live with arthritis. Only some also live with frailty. The practical question is not the label. It is whether a clinic day that respects stamina is shrinking your hospital life — and what you can change this week without pretending pain is imaginary.</p>\n<p>Living With Arthritis is an independent UK charity (1218461), not part of Arthritis UK. We write for patients and carers. We do not replace Health and Social Care in Northern Ireland via your GP and local Trust.</p>\n<h2>Medicines, reviews and rheumatoid arthritis in later life</h2>\n<p>Do not start, stop or double painkillers because a neighbour swears by them. Some anti-inflammatory tablets are a poor fit with kidney, heart or stomach problems. Some stronger pain medicines increase falls risk. A pharmacist or GP can look at the whole list. This page will not give doses.</p>\n<h2>Who to talk to locally in Northern Ireland</h2>\n<h2>Red flags — do not wait this out</h2>\n<ul><li>A knock to the head, especially if you take blood thinners — do not sleep it off as a plan.</li><li>Unplanned weight loss, repeated falls, or a clinic day that respects stamina that is clearly worsening week by week — book the GP and say you are worried about frailty as well as several joints.</li><li>Chest pain, trouble breathing, or signs of a stroke — 999, not a wait for the rheumatoid arthritis nurse.</li><li>A fall with a new inability to weight-bear, a shortened or rotated leg, or severe hip or groin pain — 999.</li></ul>\n<h2>Will I get PIP or Attendance Allowance because I have rheumatoid arthritis and frailty?</h2>\n<p>Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of a clinic day that respects stamina on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims.</p>\n<h2>Are painkillers the main treatment for frail rheumatoid arthritis?</h2>\n<p>No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines.</p>\n<h2>Can frailty improve if I still have pain in several joints?</h2>\n<p>Sometimes the frailty part can shift even if rheumatoid arthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge.</p>\n<h2>Sources and further reading</h2>\n<p>Use these organisations for the underlying clinical framing. They are not copied here. Living With Arthritis adds practical Northern Ireland context for rheumatoid arthritis and frailty.</p>\n<ul><li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\">NHS – Rheumatoid arthritis</a> (NHS)</li><li><a href=\"https://www.nice.org.uk/guidance/ng56\">NICE NG56 – Multimorbidity</a> (NICE)</li><li><a href=\"https://www.nhs.uk/conditions/falls/\">NHS – Falls</a> (NHS)</li><li><a href=\"https://www.nidirect.gov.uk\">nidirect</a> (nidirect)</li></ul>\n<p><em>Living With Arthritis is a UK charity (registered charity 1218461), independent of Arthritis UK. This page is general information, not personal medical advice. Speak to your GP, pharmacist, or your GP out-of-hours service or emergency services as directed on nidirect. Call 999 in an emergency.</em></p>\n\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/ra-steroids-frailty-infection-watch-uk\">Steroids, rheumatoid arthritis and frailty: watching for infection (UK)</a> — UK readers managing pain in several joints often need smaller doses of movement more than a heroic gym restart.</li>\n      <li><a href=\"/blog/prefrailty-osteoarthritis-early-action-uk\">Prefrailty and osteoarthritis: early action before a crisis (UK)</a> — A diary of bad days, not best Tuesdays, helps clinicians see how several joints and slower recovery really interact.</li>\n      <li><a href=\"/blog/orthotics-insoles-arthritis-frailty-uk\">Insoles and orthotics for frail adults with arthritis (UK)</a> — A frailty-aware note on insoles and orthotics for frail adults with arthritis: protect joints, keep muscle working, and plan the hardest.</li>\n      <li><a href=\"/blog/hand-therapy-frail-ra-uk\">Hand therapy for frail adults with rheumatoid arthritis (UK)</a> — When hand therapy for frail adults with rheumatoid arthritis is on your mind, treat shrinking range as useful information, not a personal.</li>\n    </ul>\n  </section>\n",
+      "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)",
+      "excerpt": "How to prepare for a rheumatology appointment later in life: what to bring, questions to ask, bringing someone with you and what happens next (UK).",
+      "content": "<p>To get the most from a rheumatology appointment later in life, write down your two or three most important concerns, bring an up-to-date list of all your medicines (including ones you buy yourself), and note how your joints, morning stiffness, fatigue, falls and everyday tasks have been since your last visit. Bring someone with you if that helps, and tell the clinic beforehand about any hearing, sight, memory or mobility needs. Ask what your treatment target is, which blood tests you need and where they can be done, and how to contact the team if you flare between appointments: NICE says everyone with RA should have rapid access to specialist care for flares. Before you leave, check you understand the plan, and never stop or change a medicine yourself without talking to the team.</p>\n<p>This guide helps you prepare for a rheumatology appointment, whether it is your first visit, a follow-up or your annual review, so that a short appointment covers what matters most to you. For what is measured at check-ups, see <a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a>. If you were diagnosed recently, also read <a href=\"/blog/late-onset-ra-frailty-first-months-uk\">the first months after an RA diagnosis</a>.</p>\n<h2>In the week before</h2>\n<p>Appointments can feel rushed, and it is easy to forget things once you are in the room. A little preparation helps:</p>\n<ul>\n<li><strong>Your top two or three concerns,</strong> written down in order of importance</li>\n<li><strong>A medicines list:</strong> everything you take, including dose times, anything you buy from a pharmacy or shop, herbal remedies and creams. Note any side effects and any doses you have missed</li>\n<li><strong>Symptom notes since your last visit:</strong> which joints have been swollen or painful, how long morning stiffness lasts, flares and how long they lasted, fatigue, sleep and mood</li>\n<li><strong>What you can and cannot do now:</strong> for example dressing, opening jars, stairs, walking to the shop, getting out of a chair. These everyday examples tell the team a lot</li>\n<li><strong>Falls or near-falls,</strong> and any new health problems, hospital stays or new medicines from other doctors</li>\n<li><strong>Your own goals:</strong> what you would most like to be able to do again</li>\n</ul>\n<p>NRAS, the national RA charity, has free resources on getting the best out of a rheumatology consultation.</p>\n<h2>Tell the clinic about your needs beforehand</h2>\n<p>Ring the number on your appointment letter if you have hearing or sight loss, memory problems, need an interpreter, use a wheelchair or walking aid, or find long waits on hard chairs very painful. Ask whether the appointment is face to face, by phone or by video, and prepare the same way for all three.</p>\n<h2>Getting there</h2>\n<p>If travel is hard, ask early about NHS non-emergency patient transport or help with travel costs. See <a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">getting to appointments and blood tests when travel is hard</a>. Allow extra time, take your medicines with you, and bring a drink and a snack in case of a long wait.</p>\n<h2>Bring someone with you</h2>\n<p>A family member, friend or carer can help you remember what was said, take notes and ask the questions you forget. Agree beforehand what you want them to do, and that you will do the talking unless you ask for help.</p>\n<h2>Questions worth asking</h2>\n<ul>\n<li>Is my arthritis under control? What is my treatment target?</li>\n<li>What are the benefits and risks of my treatment, and are there other options?</li>\n<li>Which blood tests do I need, how often, and can they be done nearer home?</li>\n<li>What should I do if I flare between appointments? What is the advice line number and when is it open?</li>\n<li>What should I do if I get an infection or feel unwell while on my medicines?</li>\n<li>Could any of my medicines be adding to dizziness, tiredness or falls?</li>\n<li>Can I see a physiotherapist, occupational therapist or podiatrist?</li>\n<li>Are my bones, heart and mood being checked as part of my review?</li>\n<li>When will I be seen next, and who books it?</li>\n</ul>\n<h2>What NICE says your care should include</h2>\n<p>NICE's guideline on rheumatoid arthritis in adults says people with RA should:</p>\n<ul>\n<li>have treatment risks and benefits explained in ways they can understand, be able to discuss and agree all aspects of their care, and have their decisions respected</li>\n<li>be offered spoken and written information about RA and its management</li>\n<li>have a named member of the team (for example a specialist nurse) who co-ordinates their care</li>\n<li>have access to specialist physiotherapy and occupational therapy, and to a podiatrist if they have foot problems</li>\n<li>have rapid access to specialist care for flares, information about how to get it, and ongoing drug monitoring</li>\n<li>be offered an annual review, which checks disease activity and everyday function, looks for other conditions such as high blood pressure, heart disease, osteoporosis and depression, and considers how the disease is affecting their life</li>\n</ul>\n<p>Services are organised differently in different places, but these points are a useful checklist for your own care.</p>\n<h2>Before you leave the room</h2>\n<ul>\n<li>Repeat the plan back in your own words: \"So I am going to... and the next blood test is...\"</li>\n<li>Ask for anything important to be written down, including any changes to your medicines</li>\n<li>Check how you will hear about results and your next appointment</li>\n<li>Ask for a copy of the clinic letter if you do not usually get one</li>\n</ul>\n<h2>After the appointment</h2>\n<p>Write down what you remember as soon as you can. When the clinic letter arrives, check it matches what you understood, and ask your GP or the rheumatology nurse if anything is unclear. You may be able to see letters and test results in the NHS App. If you have a problem with your care that you cannot sort out with the team, the hospital's Patient Advice and Liaison Service (PALS) in England can help.</p>\n<p>Some teams use \"patient-initiated follow-up\", where you ask for an appointment when you need one rather than being given a fixed date. If you are offered this, make sure you know exactly how and when to get in touch.</p>\n<h2>For family and carers</h2>\n<p>If you attend with someone, help them prepare their list, but let them lead the conversation as much as they want to. If the person has memory problems, ask the team how you can be kept informed with their agreement. If the hospital day itself is exhausting, see <a href=\"/blog/hospital-appointments-frailty-arthritis-uk\">hospital appointment days</a>.</p>\n<h2>Do not wait for your next appointment if</h2>\n<ul>\n<li>a joint suddenly becomes hot, very swollen and painful and you feel feverish or unwell: get same-day advice from your rheumatology advice line, GP or NHS 111, because a joint infection is an emergency</li>\n<li>you get new tingling or numbness, weakness in your arms or legs, or new unsteadiness, especially with neck pain: contact your team or GP urgently</li>\n<li>you have a high temperature or signs of infection while on medicines that affect the immune system: contact your team or NHS 111</li>\n<li>you have chest pain, severe breathlessness or signs of a stroke: call 999</li>\n</ul>\n<h2>Sources and further reading</h2>\n<ul>\n<li><a href=\"https://www.nice.org.uk/guidance/ng100/chapter/Recommendations\" rel=\"noopener\">NICE NG100: Rheumatoid arthritis in adults — recommendations</a></li>\n<li><a href=\"https://nras.org.uk/resource/how-to-approach-your-rheumatology-consultation/\" rel=\"noopener\">NRAS: How to approach your rheumatology consultation</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/\" rel=\"noopener\">NHS: Rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/\" rel=\"noopener\">NHS: Living with rheumatoid arthritis</a></li>\n<li><a href=\"https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/\" rel=\"noopener\">NHS: Rheumatoid arthritis — treatment</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/\" rel=\"noopener\">NHS: How to organise transport to and from hospital</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/\" rel=\"noopener\">NHS: What is PALS (Patient Advice and Liaison Service)?</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-app/\" rel=\"noopener\">NHS: The NHS App</a></li>\n<li><a href=\"https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/\" rel=\"noopener\">NHS: When to use 111</a></li>\n</ul>\n<p class=\"educational-disclaimer\"><em>Educational information for people in the United Kingdom — not a diagnosis or personal medical advice. Charity no. 1218461. Pending clinical review: this guide was rewritten on 26 October 2026 and has not yet been clinically reviewed. Living With Arthritis is an independent charity and is not part of Arthritis UK (formerly Versus Arthritis) or the NRAS. Everyone's situation is different, so always follow the advice of your own GP, pharmacist, rheumatology nurse or rheumatologist, and never stop or change a prescribed medicine yourself. If you feel very unwell, call 999 or go to A&amp;E. For urgent advice, contact NHS 111.</em></p>\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue with related help</h2>\n    <ul>\n      <li><a href=\"/blog/ra-monitoring-older-frail-adults-uk\">RA monitoring in later life</a> — what is checked</li>\n      <li><a href=\"/blog/late-onset-ra-frailty-first-months-uk\">RA later in life: the first months</a> — newly diagnosed</li>\n      <li><a href=\"/blog/blood-test-transport-arthritis-frailty-uk\">Getting to blood tests</a> — when travel is hard</li>\n      <li><a href=\"/blog/ra-fatigue-frailty-energy-envelope-uk\">RA fatigue in later life</a> — pacing and checks</li>\n      <li><a href=\"/blog/methotrexate-older-frail-adults-uk\">Methotrexate in later life</a> — weekly routine</li>\n      <li><a href=\"/blog/arthritis-flare-up-what-to-do\">Flares</a> — what to do</li>\n      <li><a href=\"/guides/newly-diagnosed\">Newly diagnosed</a> — where to start</li>\n    </ul>\n  </section>\n<p><em>Living With Arthritis is independent of Arthritis UK, formerly Versus Arthritis.</em></p>\n",
       "date": "2026-09-03",
       "category": "Treatments & medicines",
       "image_url": "/openverse/cover-0336-rednotebook2009-pg-20.webp",
       "cover": "cover-0336-rednotebook2009-pg-20.webp",
-      "meta_title": "Rheumatology clinics for frail older adults (UK)",
-      "meta_description": "Rheumatology clinics for frail older adults (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a diagnosis).",
-      "keywords": "rheumatology clinics for frail older adults, rheumatoid arthritis, frailty, several joints, Northern Ireland, arthritis, treatment, UK",
+      "meta_title": "Rheumatology Appointments in Later Life (UK)",
+      "meta_description": "How to prepare for a rheumatology appointment later in life: what to bring, questions to ask, bringing someone with you and what happens next (UK).",
+      "keywords": "preparing for rheumatology appointment, questions to ask rheumatologist, rheumatology annual review NICE, what to bring to rheumatology clinic, RA appointment older adults",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
-      "reviewed_by": "Louis Maxwell",
-      "reviewer_credentials": "First Contact Practitioner, HCPC PH128483, CSP member",
+      "reviewed_by": null,
+      "reviewer_credentials": null,
       "is_published": true,
       "display_order": 4802,
-      "updated_at": "2026-09-05T11:02:30.660Z",
-      "last_reviewed": "2026-10-23",
-      "direct_answer": "Families dealing with rheumatology clinics for frail older adults usually notice skipped invitations and slower rooms before any clinic label. This page explains a clinic day that respects stamina if you live with rheumatoid arthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.",
+      "updated_at": "2026-10-26T09:00:00.000Z",
+      "direct_answer": "To get the most from a rheumatology appointment later in life, write down your two or three most important concerns, bring an up-to-date list of all your medicines (including ones you buy yourself), and note how your joints, morning stiffness, fatigue, falls and everyday tasks have been since your last visit. Bring someone with you if that helps, and tell the clinic beforehand about any hearing, sight, memory or mobility needs. Ask what your treatment target is, which blood tests you need and where they can be done, and how to contact the team if you flare between appointments: NICE says everyone with RA should have rapid access to specialist care for flares. Before you leave, check you understand the plan, and never stop or change a medicine yourself without talking to the team.",
       "citations": [
         {
-          "label": "NHS – Rheumatoid arthritis",
+          "label": "NICE NG100: Rheumatoid arthritis in adults — recommendations",
+          "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations",
+          "publisher": "NICE"
+        },
+        {
+          "label": "NRAS: How to approach your rheumatology consultation",
+          "url": "https://nras.org.uk/resource/how-to-approach-your-rheumatology-consultation/",
+          "publisher": "NRAS"
+        },
+        {
+          "label": "NHS: Rheumatoid arthritis",
           "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/",
           "publisher": "NHS"
         },
         {
-          "label": "NICE NG56 – Multimorbidity",
-          "url": "https://www.nice.org.uk/guidance/ng56",
-          "publisher": "NICE"
-        },
-        {
-          "label": "NHS – Falls",
-          "url": "https://www.nhs.uk/conditions/falls/",
+          "label": "NHS: Living with rheumatoid arthritis",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/",
           "publisher": "NHS"
         },
         {
-          "label": "nidirect",
-          "url": "https://www.nidirect.gov.uk",
-          "publisher": "nidirect"
+          "label": "NHS: Rheumatoid arthritis — treatment",
+          "url": "https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: How to organise transport to and from hospital",
+          "url": "https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: What is PALS (Patient Advice and Liaison Service)?",
+          "url": "https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: The NHS App",
+          "url": "https://www.nhs.uk/nhs-app/",
+          "publisher": "NHS"
+        },
+        {
+          "label": "NHS: When to use 111",
+          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+          "publisher": "NHS"
         }
       ]
     },
-    "faqs": [
-      {
-        "q": "Will I get PIP or Attendance Allowance because I have rheumatoid arthritis and frailty?",
-        "a": "Nobody honest can promise that. These are legal tests about how your difficulties affect daily living or personal care, not about a diagnosis name. Keep a diary of a clinic day that respects stamina on typical and bad days. Use GOV.UK and independent advice. Living With Arthritis does not decide claims."
-      },
-      {
-        "q": "Are painkillers the main treatment for frail rheumatoid arthritis?",
-        "a": "No. For osteoarthritis, NICE puts exercise, weight management where relevant, and topical options at the centre. Tablets may help some people some of the time, but in frail adults they need a hard look at stomach, kidneys, heart, constipation and falls. Never share someone else's medicines."
-      },
-      {
-        "q": "Can frailty improve if I still have pain in several joints?",
-        "a": "Sometimes the frailty part can shift even if rheumatoid arthritis remains. Strength, protein, reviewing dizzy medicines, treating a flare, and practising transfers can return reserve. Improvement is not guaranteed and it is rarely dramatic, but frailer this month is not always a one-way door. Work with clinicians rather than copying an online challenge."
-      }
-    ],
     "relatedLinks": [
       {
         "path": "/blog/archive",
         "title": "Browse all arthritis guides"
       },
       {
-        "path": "/blog/pain-clinic-older-frail-arthritis-uk",
-        "title": "Pain clinics for older frail adults with arthritis (UK)"
+        "path": "/blog/rheumatology-appointment-what-to-expect-uk",
+        "title": "What Happens at a Rheumatology Appointment? A UK Guide to Your First Visit"
       },
       {
-        "path": "/blog/hand-therapy-frail-ra-uk",
-        "title": "Hand therapy for frail adults with rheumatoid arthritis (UK)"
+        "path": "/blog/painkillers-older-adults-arthritis-caution-uk",
+        "title": "Painkillers in later life with arthritis: safer use and what to check (UK guide)"
       },
       {
-        "path": "/blog/paracetamol-older-frail-arthritis-uk",
-        "title": "Paracetamol for frail older adults with arthritis: what to check (UK)"
+        "path": "/blog/chair-yoga-elderly-arthritis-stiffness",
+        "title": "Chair yoga for older adults with stiff joints: a gentle seated start (UK guide)"
       }
     ]
   },
@@ -39366,16 +39402,16 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
+      },
+      {
         "path": "/blog/arthritis-medication-guide",
         "title": "Arthritis Medication — What Works, What to Expect"
       },
       {
         "path": "/blog/arthritis-physiotherapy-nhs-waiting-list",
         "title": "How to Get Arthritis Physiotherapy on the NHS Waiting List"
-      },
-      {
-        "path": "/blog/vitamin-d-arthritis-uk",
-        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
       }
     ]
   },
@@ -45544,16 +45580,16 @@
         "title": "Browse all arthritis guides"
       },
       {
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
+      },
+      {
         "path": "/blog/arthritis-medication-guide",
         "title": "Arthritis Medication — What Works, What to Expect"
       },
       {
         "path": "/blog/expert-qa-exercising-through-a-flare-up",
         "title": "Exercise During a Flare-Up: What to Do, What to Avoid and How to Restart"
-      },
-      {
-        "path": "/blog/vitamin-d-arthritis-uk",
-        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
       }
     ]
   },
@@ -47027,12 +47063,12 @@
         "title": "Arthritis Medication — What Works, What to Expect"
       },
       {
-        "path": "/blog/vitamin-d-arthritis-uk",
-        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       },
       {
-        "path": "/blog/access-to-work-scheme-arthritis-guide",
-        "title": "Access to Work and Arthritis: A Complete UK Guide to Grants for Equipment, Travel and Support"
+        "path": "/blog/vitamin-d-arthritis-uk",
+        "title": "Vitamin D and Arthritis: What You Need, Who Should Supplement and What the Evidence Shows (UK)"
       }
     ]
   },
@@ -48451,8 +48487,8 @@
         "title": "Befriending services when arthritis and frailty isolate you (UK)"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
+        "path": "/blog/day-centres-arthritis-frailty-uk",
+        "title": "Day centres for people with arthritis and frailty (UK)"
       }
     ]
   },
@@ -48790,16 +48826,16 @@
         "title": "Conditions guides"
       },
       {
-        "path": "/blog/blood-test-transport-arthritis-frailty-uk",
-        "title": "Getting to blood tests when you are frail with arthritis (UK)"
-      },
-      {
         "path": "/blog/anaesthetic-risk-arthritis-frailty-uk",
         "title": "Anaesthetic conversations for frail adults with arthritis (UK)"
       },
       {
         "path": "/blog/arthritis-hows-life-living-with-arthritis",
         "title": "Arthritis - How's Life Living With Arthritis?"
+      },
+      {
+        "path": "/blog/befriending-arthritis-frailty-uk",
+        "title": "Befriending services when arthritis and frailty isolate you (UK)"
       }
     ]
   },
@@ -50017,12 +50053,12 @@
         "title": "What Happens at a Rheumatology Appointment? A UK Guide to Your First Visit"
       },
       {
-        "path": "/blog/arthritis-medication-guide",
-        "title": "Arthritis Medication — What Works, What to Expect"
+        "path": "/blog/rheumatology-clinic-frail-older-adult-uk",
+        "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)"
       },
       {
-        "path": "/blog/ask-the-physio-arthritis",
-        "title": "Ask the Physio: Your Arthritis Exercise and Physiotherapy Questions"
+        "path": "/blog/arthritis-medication-guide",
+        "title": "Arthritis Medication — What Works, What to Expect"
       }
     ]
   },

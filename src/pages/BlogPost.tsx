@@ -289,6 +289,9 @@ const BlogPost = () => {
           Boolean(citation?.label && /^https?:\/\//i.test(citation.url)),
       )
     : [];
+  // A guide rewritten after the October 2026 audit carries no reviewer until
+  // Louis Maxwell signs it off, so it must not show a "Clinical reviewer" line.
+  const isPendingReview = !rawReviewerName.trim();
   const dateModifiedIso = updatedAtRaw || article.date;
   // Only an explicitly recorded date establishes when clinical review occurred.
   const blogLastReviewed =
@@ -820,7 +823,11 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} />
+            <EducationalDisclaimerBox
+              lastReviewed={blogLastReviewed}
+              reviewStatus={isPendingReview ? "pending" : "reviewed"}
+              pendingText="Pending clinical review: this guide was recently rewritten and has not yet been clinically reviewed."
+            />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>
                 <TopicClusterNav path={`/blog/${slug}`} />
