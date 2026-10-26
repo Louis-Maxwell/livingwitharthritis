@@ -25,6 +25,7 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
+import TopicClusterLinksHome from "@/components/seo/TopicClusterLinks";
 import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
 
 // Everything below the router mounts only when scrolled near, so it never
@@ -80,7 +81,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help</title>
+        <title>Living With Arthritis: Pain Relief & Flare-Up Help</title>
         <meta
           name="description"
           content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
@@ -93,11 +94,11 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help"
+          content="Living With Arthritis: Pain Relief & Flare-Up Help"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis: Daily Management, Pain Relief & Flare-Up Help"
+          content="Living With Arthritis: Pain Relief & Flare-Up Help"
         />
         <meta
           property="og:description"
@@ -140,6 +141,7 @@ function HomePage() {
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />
+          <TopicClusterLinksHome />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>

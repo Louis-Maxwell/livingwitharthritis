@@ -46,6 +46,7 @@ const faqLd = {
 };
 
 const RELATED = [
+  { to: "/resources/symptom-flare-tracker", label: "Free printable symptom and flare tracker" },
   { to: "/arthritis-flare-ups", label: "Arthritis flare-ups guide" },
   { to: "/blog/arthritis-flare-up-what-to-do", label: "What to do in a flare-up" },
   { to: "/guides/arthritis-pain-relief", label: "Arthritis pain relief" },

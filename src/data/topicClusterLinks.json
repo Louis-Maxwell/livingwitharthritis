@@ -1,0 +1,91 @@
+[
+  {
+    "label": "Knee arthritis",
+    "slugs": [
+      "anti-inflammatory-diet-for-knee-and-hip-arthritis",
+      "best-exercises-osteoarthritis-knee-pain-home",
+      "best-supplement-for-knee-joint",
+      "expert-brief-activity-safety-knee-arthritis",
+      "good-exercises-for-knee-arthritis"
+    ]
+  },
+  {
+    "label": "Hip arthritis",
+    "slugs": [
+      "anti-inflammatory-diet-for-knee-and-hip-arthritis",
+      "exercise-for-hip-arthritis",
+      "expert-brief-12-week-hip-exercise-protocol",
+      "fear-of-falling-hip-oa-frailty-uk",
+      "glute-bridges-hip-osteoarthritis-guide"
+    ]
+  },
+  {
+    "label": "Hand and thumb arthritis",
+    "slugs": [
+      "compression-stockings-hand-oa-frailty-uk",
+      "cooking-with-hand-oa-frailty-uk",
+      "dental-care-arthritis-frailty-hands-uk",
+      "dosette-boxes-arthritis-frailty-hands-uk",
+      "exercises-rheumatoid-arthritis-hands-wrists"
+    ]
+  },
+  {
+    "label": "Rheumatoid arthritis",
+    "slugs": [
+      "anti-inflammatory-diet-rheumatoid-arthritis",
+      "biologics-for-rheumatoid-arthritis-in-the-uk",
+      "dmards-explained-how-methotrexate-slows-rheumatoid-arthritis",
+      "exercises-rheumatoid-arthritis-hands-wrists",
+      "psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments"
+    ]
+  },
+  {
+    "label": "Psoriatic arthritis",
+    "slugs": [
+      "psoriatic-arthritis-in-the-uk-symptoms-and-support",
+      "psoriatic-arthritis-later-life-frailty-uk",
+      "psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments",
+      "psoriatic-vs-rheumatoid-arthritis"
+    ]
+  },
+  {
+    "label": "Flare-ups",
+    "slugs": [
+      "arthritis-flare-early-warning-signs",
+      "arthritis-flare-management",
+      "arthritis-flare-up-what-to-do",
+      "deconditioning-after-arthritis-flare-uk",
+      "emergency-arthritis-flare-checklist"
+    ]
+  },
+  {
+    "label": "Kitchen and daily-living aids",
+    "slugs": [
+      "ckd-nsaids-arthritis-frailty-uk",
+      "elbow-osteoarthritis-frailty-kitchen-tasks-uk",
+      "gadgets-aids-arthritis-uk",
+      "kitchen-adaptations-arthritis-frailty-uk",
+      "nsaids-and-arthritis-benefits-risks-and-safer-use"
+    ]
+  },
+  {
+    "label": "Morning stiffness",
+    "slugs": [
+      "chair-yoga-elderly-arthritis-stiffness",
+      "lower-back-stiffness-worse-after-sitting",
+      "morning-knee-stiffness-30-minutes",
+      "morning-stiffness-frailty-routine-uk",
+      "pmr-frailty-morning-stiffness-uk"
+    ]
+  },
+  {
+    "label": "Anti-inflammatory eating",
+    "slugs": [
+      "anti-inflammatory-diet",
+      "anti-inflammatory-diet-for-knee-and-hip-arthritis",
+      "anti-inflammatory-diet-rheumatoid-arthritis",
+      "anti-inflammatory-herbs-spices-arthritis",
+      "anti-inflammatory-shopping-list-uk"
+    ]
+  }
+]

@@ -7,6 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import TopicClusterLinks from "@/components/seo/TopicClusterLinks";
 import { ArrowRight, BookOpen } from "lucide-react";
 import {
   GUIDE_REGISTRY,
@@ -212,6 +213,7 @@ const GuidesHub = () => {
             );
           })}
         </section>
+        <div className="container mx-auto px-4"><TopicClusterLinks /></div>
       </main>
       <InternalLinks />
       <Footer />

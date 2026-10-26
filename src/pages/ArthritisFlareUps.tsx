@@ -225,6 +225,9 @@ export default function ArthritisFlareUps() {
           >
             Open the flare action plan <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
+          <Link to="/resources/symptom-flare-tracker" className="ml-3 text-sm font-semibold text-primary underline underline-offset-2">
+            Free symptom and flare tracker (PDF)
+          </Link>
         </div>
         <AnswerBox
           question="How do you stop an arthritis flare-up fast?"

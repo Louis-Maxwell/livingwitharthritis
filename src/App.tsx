@@ -60,6 +60,7 @@ const AIGuidelines = lazyWithRetry(() => import("./pages/about/AIGuidelines"));
 const AiHub = lazyWithRetry(() => import("./pages/AiHub"));
 const AccessibilityForAi = lazyWithRetry(() => import("./pages/about/AccessibilityForAi"));
 const EditorialClaimsPolicy = lazyWithRetry(() => import("./pages/about/EditorialClaimsPolicy"));
+const SymptomFlareTracker = lazyWithRetry(() => import("./pages/resources/SymptomFlareTracker"));
 const FlareActionPlan = lazyWithRetry(() => import("./pages/resources/FlareActionPlan"));
 const PipEvidenceDiary = lazyWithRetry(() => import("./pages/resources/PipEvidenceDiary"));
 const ClinicPack = lazyWithRetry(() => import("./pages/resources/ClinicPack"));
@@ -327,6 +328,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/about/ai-transparency" element={<AITransparency />} />
         <Route path="/about/editorial-claims-policy" element={<EditorialClaimsPolicy />} />
+        <Route path="/resources/symptom-flare-tracker" element={<SymptomFlareTracker />} />
         <Route path="/resources/flare-action-plan" element={<FlareActionPlan />} />
         <Route path="/resources/pip-evidence-diary" element={<PipEvidenceDiary />} />
         <Route path="/resources/clinic-pack" element={<ClinicPack />} />
