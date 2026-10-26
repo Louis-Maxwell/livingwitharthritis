@@ -1,3 +1,4 @@
+/resources/ankle-exercise-programme.pdf /resources/ankle-exercise-programme.html 301
 # HTTP 301s for Google Search Console clean-up (host redirects).
 # Honoured by Netlify and similar static hosts (first matching rule wins).
 # The live Lovable CDN ignores this file and serves the SPA shell as 200 —
