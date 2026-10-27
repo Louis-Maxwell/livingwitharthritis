@@ -3,11 +3,11 @@
  * arthritis exercises). Exercise & Physiotherapy batch 2, article 24.
  * Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
-export const FOOT_ANKLE_TITLE = "Foot and Ankle Arthritis Exercises: 10 Moves (UK)";
-export const FOOT_ANKLE_DESCRIPTION = "10 gentle foot and ankle arthritis exercises for OA, RA, gout and big toe pain: a daily plan, footwear tips, stop rules and when to get help.";
+export const FOOT_ANKLE_TITLE = "Ankle Exercise PDF: 10 Foot and Ankle Strengthening Exercises";
+export const FOOT_ANKLE_DESCRIPTION = "Free ankle exercise PDF with 10 gentle foot and ankle strengthening exercises for arthritis, ankle stiffness and joint pain. Download the printable plan with clear instructions, repetitions and safety guidance.";
 export const FOOT_ANKLE_INTRO = "Arthritis in the foot or ankle can make every step stiff and sore and leave you feeling unsteady. These ten gentle exercises, based on standard physiotherapy practice and NICE advice, keep the joints moving, strengthen the muscles that support your arches and ankle, and rebuild balance. You only need a chair, a towel, a ball and an optional resistance band.";
 export const FOOT_ANKLE_QUICK_ANSWER = "Gentle foot and ankle arthritis exercises include ankle alphabet and circles, big toe mobilisation, toe spreads, towel scrunches, heel raises, band work, calf stretches and single-leg balance. Do the movement exercises daily and strength and balance work 3 or 4 days a week. Mild discomfort that settles within 2 hours is fine; sharp pain or new swelling means stop.";
-export const FOOT_ANKLE_DATE_MODIFIED = "2026-10-10";
+export const FOOT_ANKLE_DATE_MODIFIED = "2026-10-27";
 
 export interface FootAnkleExercise { name: string; purpose: string; how: string; reps: string }
 
