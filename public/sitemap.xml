@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -42,12 +42,12 @@
     <lastmod>2026-10-09</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/resources/flare-action-plan</loc>
-    <lastmod>2026-10-10</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/resources/symptom-flare-tracker</loc>
     <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/resources/flare-action-plan</loc>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/resources/pip-evidence-diary</loc>
@@ -1872,7 +1872,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/continence-night-trips-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0291-female-physiotherapist-with-elderly-female-pa.webp</image:loc>
     </image:image>
@@ -1893,7 +1893,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/chair-based-exercise-ra-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0318-fitness-programming-greenville-aquatics.webp</image:loc>
     </image:image>
@@ -5573,7 +5573,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/conditions</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/treatments</loc>
@@ -5585,7 +5585,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/pain-flares</loc>

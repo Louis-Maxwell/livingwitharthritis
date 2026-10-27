@@ -108,7 +108,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 101 (Champions 99–101 shipped 26 Oct, after 97–98 on 23 Oct); Champions 102–108 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (222 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 103 (Champions 102–103 shipped 27 Oct, after 99–101 on 26 Oct); Champions 104–108 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (220 template posts left) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -121,6 +121,38 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
 
 ---
+
+## Daily log — 27 Oct 2026 (M2 day 12, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 26 Oct: Champions 102–103, then 104–105. Two PRs today, both through the GitHub API only (no clone, no Lovable credits / CloudAgent / other AI tools). PR #286 (trust labelling) merged first; Champions 102–103 shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims.
+
+**Review status:** Louis's 26 Oct decision applies: every new or rewritten guide is reviewed by Louis Maxwell (HCPC PH128483). The `hasVerifiedReviewer` check on the article page had already been fixed on `main` by #279 (`isVerifiedMaxwellReviewer` matches "Louis Maxwell" plus PH128483); today's gate locks that in.
+
+### Shipped
+- **PR #286 — trust labelling:** last "pending clinical review" wording removed from llms.txt / ai.txt (Champions 99–101 lines), the enterprise audit script and audit doc, the blog-guide how-to, the triage doc, this tracker's M2 row and three condition-page code comments. New gate `src/lib/__tests__/review-labelling-27-oct.test.ts`: no "pending clinical review" in site source or public text files; every published post reviewed by Louis Maxwell with PH128483 and no pending status; `isVerifiedMaxwellReviewer` true for every published post; article page keeps the fixed reviewer check
+- **Champion 102 — `/blog/chair-based-exercise-ra-frailty-uk`:** full rewrite into "Seated exercise with rheumatoid arthritis: flare days and good days". Flare-day range-of-movement moves, building up between flares, hands and feet (hand exercise programme, podiatrist), what NICE NG100 says about physiotherapy and rapid access for flares, when to stop and get help (possible joint infection: same day / NHS 111 / 999). Early handoff to Champion 89 (chair yoga routine) and Champion 92 (seated strength). Cites NRAS, NICE NG100 and NHS pages
+- **Champion 103 — `/blog/continence-night-trips-arthritis-frailty-uk`:** full rewrite into "Waking at night to pee with arthritis: causes, what helps and when to see a GP". Common causes, drink and medicine timing (ask the pharmacist or GP, never stop a prescribed medicine yourself), bladder diary, pelvic floor muscle training and bladder training, NHS continence service, red flags (blood in pee, cannot pee at all, fever / confusion with possible UTI). Handoff to Champion 97 for lighting and the route. Cites Guy's and St Thomas' nocturia leaflet, NHS and NICE NG123 / CG97
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 27 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** both in the exercises cluster (with triggers "exercise during an ra flare", "waking at night to pee")
+- **Chatbot KB:** exercise entry and sleep entry `related` links
+- Sitemap `lastmod` **2026-10-27** (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / review index / content stats / keyword files / search index / llms-full / prerender routes regenerated. The regeneration also brought `scripts/blog-head-data.json` back in line with the citations already in the post JSON on `main` and added `/resources/symptom-flare-tracker` to the prerender list (both already on `main` in source)
+- **Triage doc:** 102–103 ticked; 220 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-102-103-27-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, cluster, KB / llms / ai / sitemap). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 220 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the two URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 104–105 (`heat-versus-ice-frail-arthritis-uk`, `living-alone-falls-plan-arthritis-uk`), reviewed by Louis Maxwell
+2. Champions 106–108 (flare versus something else, waiting for community physio, protein when cooking is hard)
+3. Re-rank the next 10 after 108 from inbound links, or from real demand if a GSC export arrives
 
 ## Daily log — 26 Oct 2026 (M2 day 11, weekday run)
 
