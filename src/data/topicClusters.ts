@@ -137,6 +137,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/blog/chair-yoga-elderly-arthritis-stiffness",
       "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk",
       "/blog/seated-strength-frail-osteoarthritis-uk",
+      "/blog/chair-based-exercise-ra-frailty-uk",
+      "/blog/continence-night-trips-arthritis-frailty-uk",
       "/guides/exercise",
       "/guides/hip-exercises-for-osteoarthritis",
       "/guides/knee-exercises-for-osteoarthritis",
@@ -181,6 +183,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "night lights",
       "motion sensor light",
       "getting up at night",
+      "exercise during an ra flare",
+      "waking at night to pee",
     ],
   },
   {

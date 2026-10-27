@@ -116,8 +116,8 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 | 99 ✅ 26 Oct | `ra-fatigue-frailty-energy-envelope-uk` | 11 | Most-linked RA template post; linked from Champions 94–96 | RA fatigue in later life: pacing, sleep, mood, when tiredness needs a blood test |
 | 100 ✅ 26 Oct | `blood-test-transport-arthritis-frailty-uk` | 5 | Linked from methotrexate and RA monitoring guides | Getting to monitoring blood tests: NHS patient transport, home visits, carers |
 | 101 ✅ 26 Oct | `rheumatology-clinic-frail-older-adult-uk` | 4 | RA journey after 94–96 | Preparing for a rheumatology appointment later in life: what to bring, what to ask |
-| 102 | `chair-based-exercise-ra-frailty-uk` | 3 | RA plus seated exercise; check overlap with Champions 89 and 92 | Seated exercise during and between RA flares; hand off to the chair routine |
-| 103 | `continence-night-trips-arthritis-frailty-uk` | 3 | Pairs with Champion 97 | Bladder at night: NHS continence service, pelvic floor, medicines review |
+| 102 ✅ 27 Oct | `chair-based-exercise-ra-frailty-uk` | 3 | RA plus seated exercise; check overlap with Champions 89 and 92 | Seated exercise during and between RA flares; hand off to the chair routine |
+| 103 ✅ 27 Oct | `continence-night-trips-arthritis-frailty-uk` | 3 | Pairs with Champion 97 | Bladder at night: NHS continence service, pelvic floor, medicines review |
 | 104 | `heat-versus-ice-frail-arthritis-uk` | 3 | Linked from Champion 98; winter | Heat or cold safely with thin skin, poor sensation or diabetes |
 | 105 | `living-alone-falls-plan-arthritis-uk` | 3 | Winter falls; linked from Champion 97 | Living alone: alarms, key safes, a falls plan |
 | 106 | `flare-versus-frailty-arthritis-uk` | 3 | Common confusion for carers | Is it a flare or something else: red flags, who to call |
@@ -127,6 +127,8 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 **Progress (23 Oct):** 89–98 done (pending clinical review); 225 template posts left on the 22 Oct count.
 
 **Progress (26 Oct):** 99–101 done. Overlap checked: 99 narrowed (not consolidated) to RA fatigue in later life and when tiredness needs checking, with an opening handoff to `arthritis-fatigue-management-uk` and `energy-management-and-pacing-arthritis`; 100 kept distinct from `community-transport-arthritis-frailty-uk` (still template) by focusing on monitoring blood tests, NHS patient transport and travel costs; 101 kept distinct from `hospital-appointments-frailty-arthritis-uk` (still template) by focusing on preparing for the rheumatology consultation itself. All three are reviewed by Louis Maxwell (last_reviewed 2026-10-26; Louis's 26 Oct decision that every new/rewritten guide is reviewed by him by default). **222 template posts left** (repo scan for the main fingerprint, 26 Oct). Next: 102 (overlap check against Champions 89 and 92 first) and 103.
+
+**Progress (27 Oct):** 102–103 done. Overlap checked: 102 narrowed to seated exercise *with RA* (flare days versus good days, hands and feet, NICE NG100 physiotherapy and flare access, when to stop) and hands off in its first section to Champion 89 (`chair-yoga-elderly-arthritis-stiffness`, the routine) and Champion 92 (`seated-strength-frail-osteoarthritis-uk`, building strength); 103 is the bladder job (causes of waking at night to pee, drink and medicine timing, bladder diary, pelvic floor and bladder training, NHS continence service, red flags) and hands off to Champion 97 (`night-lights-arthritis-falls-frailty-uk`) for the route and lighting. Both reviewed by Louis Maxwell (last_reviewed 2026-10-27). **220 template posts left** (repo scan for the main fingerprint, 27 Oct). Next: 104 (heat versus ice) and 105 (living alone falls plan).
 
 ## Re-ranked next 10 (Champions 89–98), 20 Oct 2026
 
