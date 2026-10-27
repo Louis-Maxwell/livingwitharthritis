@@ -9,7 +9,7 @@ The baseline covered every first-response HTML page in the live sitemap (1,030 U
 |---|---|---|---|---|
 | Critical | Confirm provenance of 448 records whose omitted review status defaults to reviewed | Healthcare trust | Clinical/editorial | Owner verification required |
 | High | Publish validated crawler HTML and sitemap changes | Discovery / duplicate content | Low | Review branch; not yet deployed |
-| High | Complete 99 pending clinical reviews; address 202 posts without structured references | Evidence quality | High | Per-post backlog identified |
+| High | ~~Complete 99 pending clinical reviews~~ (superseded 26 Oct 2026: every published guide is reviewed by Louis Maxwell, HCPC PH128483); address 202 posts without structured references | Evidence quality | High | Review done; references backlog identified |
 | High | Clinically align 64 falls articles with NG249 after replacing CG161 references | Factual currency | High | References updated; advice review outstanding |
 | High | Reduce measured mobile LCP on condition/blog templates | Speed | Medium | Initial lab warnings around 5.9s / 5.1s; headline visibility fixed, new measurement required |
 | Medium | Assess short first-response copy, overlap and repetitive introductions against actual intent | Content usefulness | Medium/high | Screening, not proof of thinness |
@@ -38,7 +38,7 @@ Output: `artifacts/enterprise-seo/enterprise-audit.json`.
 The validated implementation had one H1, correct canonicals, titles/descriptions, no sitemap noindex flags and no missing image alt attributes on all 1,048 URLs. All were reachable from the built homepage within four link steps; zero measured orphans. Alt-attribute presence is not a claim that every description is appropriate. First-response word-count screening identified 327 short pages; definitions and interactive tools may legitimately be concise. Review rendered intent before expansion.
 
 ## 4. Every-blog audit
-568 published posts: 99 explicitly pending; 21 explicitly reviewed; 448 unspecified with an existing reviewed default. 114 have no named reviewer field; 202 lack structured citations. Inline references may still exist. 47 bodies contain a repeated generic introductory phrase; this is a similarity candidate, not a duplicate-content verdict.
+568 published posts at audit time (historical; superseded 26 Oct 2026, when Louis Maxwell recorded review of every published guide): 99 explicitly pending; 21 explicitly reviewed; 448 unspecified with an existing reviewed default. 114 have no named reviewer field; 202 lack structured citations. Inline references may still exist. 47 bodies contain a repeated generic introductory phrase; this is a similarity candidate, not a duplicate-content verdict.
 
 Full source H1s, word-boundary metadata clipping, Article relationships, references and topic/peer navigation are implemented. FAQ markup reuses supported visible questions. Content should be rewritten only after factual verification, with specific answer-first openings, primary claim-level evidence and authentic review provenance. No fabricated medical statistics, physician credentials, ratings or completed reviews were added.
 

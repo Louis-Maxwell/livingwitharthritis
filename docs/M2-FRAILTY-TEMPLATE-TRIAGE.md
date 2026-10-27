@@ -24,7 +24,7 @@ These posts all came from the same generator in early September 2026. They share
 | OA "core care" paragraph | 154 |
 | "If you live in a GP surgery" | 8 |
 
-All 245 are already `reviewStatus: pending`, so none of them claims a clinical review. Since 12 Oct no post carries an unnamed review board or panel. The 14 Oct spot-check also removed "reviewed by our clinical team" from 23 pending posts that are not template posts.
+At 14 Oct all 245 were `reviewStatus: pending` (historical). Since 26 Oct 2026 Louis Maxwell has recorded review of every published guide, and every Champion rewrite is marked "Reviewed by Louis Maxwell" with its publish date. Since 12 Oct no post carries an unnamed review board or panel. The 14 Oct spot-check also removed "reviewed by our clinical team" from 23 pending posts that are not template posts.
 
 ## GSC signal (honest limit)
 
@@ -162,7 +162,7 @@ At 3 Champions a weekday, the 245 posts take about 16 weeks. A **mechanical trus
 - delete the "Around 10 million … smaller group also live with frailty" sentence
 - delete the random-nation sentence in the intro
 
-The OA "core care" paragraph on non-OA pages (154) needs judgement, so it should stay with the Champion rewrites. Everything in the sweep stays `pending clinical review`. Not done on 14 Oct (routine scope: no mass edits). **Proposed for a later routine day once Louis agrees.**
+The OA "core care" paragraph on non-OA pages (154) needs judgement, so it should stay with the Champion rewrites. Any sweep edit keeps the post's "Reviewed by Louis Maxwell" record (Louis's decision, 26 Oct 2026). Not done on 14 Oct (routine scope: no mass edits). **Proposed for a later routine day once Louis agrees.**
 
 ## Rewrite checklist (same as Champions 62–78)
 
