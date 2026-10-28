@@ -4735,18 +4735,23 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Heat versus ice for frail adults with arthritis (UK)
+## Heat and cold packs with thin skin, numbness or diabetes: using them safely (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/heat-versus-ice-frail-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-28
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Heat versus ice for frail adults with arthritis (UK)
-A: A frailty-aware note on heat versus ice for frail adults with arthritis: protect joints, keep muscle working, and plan the hardest transfer of the day. This page explains simple soothing without damaging thin skin if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-10-28
+Q: Heat and cold packs with thin skin, numbness or diabetes: using them safely (UK guide)
+A: Heat and cold can both ease arthritis pain, but thin skin, numbness, diabetes or poor circulation make burns and cold injuries more likely, often without you feeling them happen. Heat usually suits stiffness and aching; cold usually suits a hot, swollen joint. Whichever you use, wrap the pack in a towel, keep sessions short, never sleep with it on, and look at your skin before and after. If you cannot feel hot and cold properly in that area, for example in numb feet from diabetes or nerve damage, do not use heat or ice there without checking with your GP, practice nurse or podiatrist first. Avoid cold packs on hands or feet affected by Raynaud's. Cool any burn under cool running water for 20 minutes and get help if it is large, deep or blistered. A single joint that is suddenly hot, swollen and very painful with fever needs same-day help, not a heat pack. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Osteoarthritis — treatment (hot or cold packs) — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NHS: Burns and scalds — https://www.nhs.uk/conditions/burns-and-scalds/
+Reference: NHS: Peripheral neuropathy — https://www.nhs.uk/conditions/peripheral-neuropathy/
+Reference: NHS: Diabetes — https://www.nhs.uk/conditions/diabetes/
+Reference: NHS: Raynaud's — https://www.nhs.uk/conditions/raynauds/
+Reference: NHS: Cellulitis — https://www.nhs.uk/conditions/cellulitis/
+Reference: NHS: Frostbite — https://www.nhs.uk/conditions/frostbite/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Heatwaves, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/heatwave-arthritis-frailty-hydration-uk
@@ -5453,18 +5458,23 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## A falls plan if you live alone with arthritis (UK)
+## Living alone with arthritis: your falls plan, alarms and getting help in (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/living-alone-falls-plan-arthritis-uk
-Last updated: 2026-10-11
+Last updated: 2026-10-28
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: A falls plan if you live alone with arthritis (UK)
-A: A practical UK guide to a falls plan if you live alone with arthritis, written for days when energy and joints both feel limited. Here we focus on who you call, what you wear, what sits by the chair, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-10-28
+Q: Living alone with arthritis: your falls plan, alarms and getting help in (UK guide)
+A: If you live alone with arthritis, a falls plan means that if you do fall, someone knows quickly and can get in. Keep a way to call for help on you at all times, such as a personal alarm you can press with stiff or swollen fingers, or a mobile phone in a pocket rather than on a table. Arrange a daily check-in with someone, and make sure responders can get into your home, for example with a key safe or a trusted neighbour who has a key. Practise how you would get up from the floor while you are well, ideally with a physiotherapist. If you fall, stay calm, check for injury, and only get up if you feel able to; if not, call for help, keep warm and change position about every 30 minutes. Call 999 if you may have hurt your head, neck, back or hip or cannot get up. After any fall, tell your GP, who can refer you to a falls service. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Falls — what to do if you fall, and prevention — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Preventing falls — https://www.nhs.uk/conditions/falls/prevention/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: Age UK: Falls prevention — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/falls-prevention/
+Reference: Age UK: Adapting your home — https://www.ageuk.org.uk/information-advice/care/housing-options/adapting-home/
+Reference: NHS: Hypothermia — https://www.nhs.uk/conditions/hypothermia/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Local wheelchair services for frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/local-wheelchair-service-arthritis-uk

@@ -122,6 +122,35 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 
 ---
 
+## Daily log — 28 Oct 2026 (M2 day 13, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 27 Oct: Champions 104–105. Both shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Both reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision.
+
+### Shipped
+- **Champion 104 — `/blog/heat-versus-ice-frail-arthritis-uk`:** full rewrite into "Heat and cold packs with thin skin, numbness or diabetes: using them safely (UK guide)". Who needs extra care, safe-heat and safe-cold checklists, numb feet and diabetes (ask the diabetes team or podiatrist), never sleeping with a heat pack or hot-water bottle, checking skin, burn first aid (cool running water for 20 minutes), Raynaud's, when heat or cold is the wrong answer (hot swollen joint with fever: possible joint infection, same day / NHS 111 / 999). Early handoff to the general heat-or-ice guide and the heat packs guide. Category moved to Pain & flares. Cites NHS (osteoarthritis treatment, burns and scalds, peripheral neuropathy, diabetes, Raynaud's, cellulitis, frostbite, when to use 111) and NICE NG226
+- **Champion 105 — `/blog/living-alone-falls-plan-arthritis-uk`:** full rewrite into "Living alone with arthritis: your falls plan, alarms and getting help in (UK guide)". An alarm or phone kept on you, daily check-in, key safe or neighbour's key, practising getting up with a physiotherapist, NHS steps for getting up and what to do if you cannot (keep warm, change position about every 30 minutes, 999 for head, neck, back or hip injury), falls service and free care needs assessment, home adaptations. Early handoff to Champion 97 (night lights) and the falls prevention guide. Cites NHS falls pages, NICE NG249, GOV.UK needs assessment, NHS care services and Age UK
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 28 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** 104 in the pain cluster (triggers "heat pack diabetes", "hot water bottle numb feet"); 105 in the exercises cluster (trigger "fall when living alone")
+- **Chatbot KB:** falls/exercise entry and cold-weather entry `related` links
+- Sitemap `lastmod` **2026-10-28** (from real `updated_at`); llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 104–105 ticked; 218 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-104-105-28-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, clusters, KB / llms / ai / sitemap). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 218 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the two URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 106–108 (flare or something else, waiting for community physio, protein when cooking is hard), reviewed by Louis Maxwell
+2. Re-rank the next 10 after 108 from inbound links, or from real demand if a GSC export arrives
+3. Champions 109–110 from the new ranking
+
 ## Daily log — 27 Oct 2026 (M2 day 12, weekday run)
 
 **Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 26 Oct: Champions 102–103, then 104–105. Two PRs today, both through the GitHub API only (no clone, no Lovable credits / CloudAgent / other AI tools). PR #286 (trust labelling) merged first; Champions 102–103 shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims.
