@@ -3,6 +3,12 @@
  * Keeps inbound links and shared URLs working after the UK healthcare system-reference clean-up.
  */
 export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
+  // Preserve links to incomplete drafts until they pass the editorial gate.
+  "arthritis-exercise-for-beginners": "how-to-choose-the-right-exercise-for-arthritis",
+  "arthritis-exercise-programme": "arthritis-exercises-uk-clinical",
+  "arthritis-health-guides": "arthritis-treatment-hub",
+  "gentle-exercises-for-arthritis": "how-to-choose-the-right-exercise-for-arthritis",
+  "what-is-arthritis": "lwa-archive-what-is-arthritis",
   "nhs-arthritis-exercises": "arthritis-exercises-uk-clinical",
   "nhs-rheumatology-waiting-times-uk": "rheumatology-waiting-times-uk",
   // Knee-exercise content consolidated onto /guides/knee-exercises-for-osteoarthritis.
