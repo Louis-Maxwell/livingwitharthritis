@@ -71,24 +71,18 @@ export const setUserProperties = (properties: EventParams): void => {
 
 // ============ Conversion Events ============
 
+// Canonical conversion events: emit one GA4 event per completed outcome.
+// Keeping one event per outcome prevents inflated key-event counts when GA4
+// reports and downstream dashboards are joined together.
 export const trackContactSubmit = (opts: { topic?: string } = {}): void => {
-  const params = {
+  trackEvent("generate_lead", {
     method: "contact_form",
     topic: opts.topic ?? "general",
-    value: 1,
-    currency: "GBP",
-  };
-  trackEvent("contact_form_submit", params);
-  trackEvent("generate_lead", { ...params, method: "contact" });
+  });
 };
 
 export const trackNewsletterSignup = (): void => {
-  trackEvent("newsletter_signup", {
-    event_category: "conversion",
-    value: 0,
-  });
   trackEvent("sign_up", { method: "newsletter" });
-  trackEvent("generate_lead", { method: "newsletter", value: 1, currency: "GBP" });
 };
 
 export const trackBuddySchemeSignup = (): void => {
@@ -127,12 +121,8 @@ export const trackDonationComplete = (opts: {
   amount: number;
   donationType?: "one-time" | "monthly";
 }): void => {
-  trackEvent("donate", {
-    transaction_id: opts.transactionId,
-    value: opts.amount,
-    currency: "GBP",
-    donation_type: opts.donationType ?? "one-time",
-  });
+  // Treat a verified donation as one GA4 purchase/key event. The payment
+  // provider transaction ID provides idempotency for reconciliation.
   trackEvent("purchase", {
     transaction_id: opts.transactionId,
     value: opts.amount,
