@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Living With Arthritis guide">
+  <rect width="1600" height="900" fill="#FFF5F5"/>
+  <rect x="0" y="0" width="1600" height="18" fill="#D60000"/>
+  <circle cx="1380" cy="700" r="260" fill="#D60000" opacity="0.06"/>
+  <circle cx="200" cy="160" r="180" fill="#D60000" opacity="0.05"/>
+  <text x="800" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" fill="#D60000">Living With Arthritis</text>
+  <text x="800" y="515" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#5b2a2a">Free, clinically reviewed guides</text>
+  <text x="800" y="580" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#7a5a5a">Registered charity no. 1218461</text>
+</svg>
