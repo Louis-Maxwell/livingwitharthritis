@@ -368,7 +368,12 @@ const BlogPost = () => {
         <meta property="article:published_time" content={article.date} />
         <meta property="article:modified_time" content={dateModifiedIso} />
         <meta property="article:section" content={article.category || "Health"} />
+        <meta property="article:author" content={authorName} />
         <meta property="article:tag" content="arthritis" />
+        {(article.keywords || "arthritis").split(",").map((keyword) => keyword.trim()).filter(Boolean).slice(0, 8).map((keyword) => (
+          <meta key={`article-tag-${keyword}`} property="article:tag" content={keyword} />
+        ))}
+        <link rel="canonical" href={pageUrl} />
 
         <meta name="robots" content={slug && BLOG_NOINDEX.has(slug) ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
         <meta name="twitter:card" content="summary_large_image" />
