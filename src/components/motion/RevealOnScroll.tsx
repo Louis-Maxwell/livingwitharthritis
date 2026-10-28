@@ -5,7 +5,7 @@ interface RevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   direction?: "up" | "left" | "right" | "fade";
 }
 
