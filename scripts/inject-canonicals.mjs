@@ -715,6 +715,8 @@ function writeRouteFiles() {
   let headPatched = 0;
 
   for (const route of routes) {
+    // Sitemap entries may include downloadable assets; keep them as files.
+    if (/\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(route)) continue;
     const dir = join(DIST, route.replace(/^\//, ""));
     const file = join(dir, "index.html");
     const data = headDataFor(route);

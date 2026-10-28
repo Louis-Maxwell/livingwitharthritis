@@ -14,6 +14,17 @@ interface EventParams {
   [key: string]: string | number | boolean | string[] | undefined;
 }
 
+// Error text can originate from browser APIs, form handlers or third-party
+// responses. Keep GA4 telemetry useful without sending email addresses,
+// URLs/query strings or large user-provided values.
+const redactAnalyticsText = (value: string): string =>
+  value
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[redacted-email]")
+    .replace(/https?:\/\/[^\s]+/gi, "[redacted-url]")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 240);
+
 export const LANDING_PAGES = [
   "/",
   "/about",
@@ -276,9 +287,9 @@ export const trackAppError = (
   errorPage?: string,
 ): void => {
   trackEvent("app_error", {
-    error_type: errorType,
-    error_message: errorMessage,
-    error_page: errorPage,
+    error_type: redactAnalyticsText(errorType),
+    error_message: redactAnalyticsText(errorMessage),
+    error_page: errorPage ? redactAnalyticsText(errorPage.split(/[?#]/, 1)[0]) : undefined,
     event_category: "error",
   });
 };
