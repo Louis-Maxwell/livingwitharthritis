@@ -6,6 +6,8 @@
 
 /** Local files that exist under public/. Never the red favicon or an empty src. */
 export const LOCAL_COVER_FALLBACK = "/openverse/hero-friends-800.webp";
+/** Branded card (logo + charity name) used when a guide image fails to load. */
+export const GUIDE_IMAGE_FALLBACK = "/images/guide-fallback.svg";
 export const DEFAULT_OG_PATH = "/og/landing-share.png";
 
 const BROKEN_SRC_RE = /(?:^$|favicon\.(?:ico|png|svg)$|logo-mark)/i;
@@ -21,5 +23,6 @@ export function onCoverImgError(event: { currentTarget: HTMLImageElement }) {
   const img = event.currentTarget;
   if (!img || img.dataset.coverFallback === "1") return;
   img.dataset.coverFallback = "1";
-  img.src = LOCAL_COVER_FALLBACK;
+  img.removeAttribute("srcset");
+  img.src = GUIDE_IMAGE_FALLBACK;
 }

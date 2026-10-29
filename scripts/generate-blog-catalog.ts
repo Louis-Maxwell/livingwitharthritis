@@ -19,6 +19,7 @@
  *   bun scripts/generate-blog-catalog.ts --check  # fail if committed files are stale
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { checkGuideImages } from "../src/lib/blog/imagePolicy";
 import { resolve } from "node:path";
 import {
   BLOG_CATALOG_PATH,
@@ -85,6 +86,9 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     else seenTitle.set(t, p.slug);
     if (!existsSync(resolve(root, "public/openverse", p.cover))) {
       errors.push(`${p.slug}: cover file public/openverse/${p.cover} does not exist`);
+    }
+    for (const issue of checkGuideImages(p.slug, p.cover, p.content ?? "", (pp) => existsSync(resolve(root, "public", `.${pp}`)))) {
+      errors.push(`${p.slug}: image ${issue.problem} ${issue.src}`);
     }
     if (seenCover.has(p.cover)) errors.push(`${p.slug}: cover ${p.cover} already used by ${seenCover.get(p.cover)}`);
     else seenCover.set(p.cover, p.slug);
