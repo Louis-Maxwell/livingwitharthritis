@@ -200,6 +200,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     supportingPaths: [
       "/guides/diet",
       "/blog/turmeric-for-arthritis",
+      "/blog/protein-painful-joints-frailty-uk",
       "/library/turmeric",
       "/supplements/turmeric",
       "/blog/best-supplement-for-knee-joint",
@@ -230,6 +231,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "meal plan",
       "weight management",
       "vitamin d and falls",
+      "protein when cooking is hard",
+      "easy protein",
     ],
   },
   {
@@ -301,6 +304,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/arthritis-waiting-list-help",
       "/supplements",
       "/conditions/rheumatoid-arthritis",
+      "/blog/community-physio-wait-frail-arthritis-uk",
       "/conditions/ankylosing-spondylitis",
     ],
     toolPath: "/guides/health-services",
@@ -343,6 +347,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "methotrexate infection",
       "ra monitoring",
       "das28",
+      "waiting for physio",
+      "physio waiting list",
     ],
   },
   {
@@ -358,6 +364,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/blog/arthritis-fatigue-management-uk",
       "/blog/ra-fatigue-frailty-energy-envelope-uk",
       "/arthritis-mental-health",
+      "/blog/flare-versus-frailty-arthritis-uk",
       "/blog/arthritis-and-mental-health-uk",
       "/blog/depression-arthritis-when-to-seek-help",
       "/blog/how-to-sleep-with-arthritis-uk",
@@ -378,6 +385,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "deconditioning",
       "rebuilding strength",
       "after a flare",
+      "flare or something else",
+      "flare or infection",
     ],
   },
   {

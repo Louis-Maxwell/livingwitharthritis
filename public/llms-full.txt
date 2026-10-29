@@ -2053,6 +2053,24 @@ Reference: NICE NG65: Spondyloarthritis in over 16s — https://www.nice.org.uk/
 Reference: NICE NG219: Gout – diagnosis and management — https://www.nice.org.uk/guidance/ng219/chapter/Recommendations
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
 
+## Arthritis Exercise for Beginners: Safe First Steps
+URL: https://livingwitharthritis.org.uk/blog/arthritis-exercise-for-beginners
+Last updated: 2026-10-25
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-29
+Q: Arthritis Exercise for Beginners: Safe First Steps
+A: Beginner-friendly arthritis exercises to improve confidence, movement and strength with practical pacing tips.
+
+## Arthritis Exercise Programme: A Gentle 4-Week Plan
+URL: https://livingwitharthritis.org.uk/blog/arthritis-exercise-programme
+Last updated: 2026-10-25
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-29
+Q: Arthritis Exercise Programme: A Gentle 4-Week Plan
+A: A practical arthritis exercise programme with gentle movement, strength and pacing ideas for beginners.
+
 ## Clinically recommended Arthritis Exercises
 URL: https://livingwitharthritis.org.uk/blog/arthritis-exercises-uk-clinical
 Last updated: 2026-09-05
@@ -2167,6 +2185,15 @@ Last clinically reviewed: 2026-10-23
 Q: Anti-Inflammatory Recipes: Easy UK Meals for Joint Health
 A: Anti-inflammatory recipes for joint health use ingredients that help reduce inflammation in the body. The Mediterranean diet, rich in omega-3 fats, antioxidants, and fibre, has strong evidence for reducing arthritis symptoms. Examples include salmon, turmeric, ginger, beetroot, berries, lentils, mackerel, and oats, which provide compounds like omega-3 fatty acids, curcumin, betalains, and fibre.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+
+## Arthritis Health Guides: Where to Start
+URL: https://livingwitharthritis.org.uk/blog/arthritis-health-guides
+Last updated: 2026-10-25
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-29
+Q: Arthritis Health Guides: Where to Start
+A: A plain-English starting point for arthritis symptoms, movement, treatment questions and practical UK support.
 
 ## Arthritis - How's Life Living With Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/arthritis-hows-life-living-with-arthritis
@@ -3225,18 +3252,24 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS Inform — https://www.nhsinform.scot
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Community physiotherapy waits when you are frail with arthritis (UK)
+## Waiting for community physio with arthritis: what to do while you wait (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/community-physio-wait-frail-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-29
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Community physiotherapy waits when you are frail with arthritis (UK)
-A: Keep one social appointment that does not depend on a heroic walk — isolation feeds frailty as surely as skipped meals. Here we focus on what to do while you wait for community physio, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-10-29
+Q: Waiting for community physio with arthritis: what to do while you wait (UK guide)
+A: NHS physiotherapy is free but there may be a long waiting list. While you wait for community or home-visit physio, you can usually start safe, gentle exercise yourself, keep moving little and often, and use your pain relief as agreed with your GP or pharmacist. Check whether your area lets you refer yourself to the NHS musculoskeletal (MSK) service, ask about telephone, video or group sessions, and ask whether a physiotherapist can visit you at home if you cannot get out. Contact the service or your GP if you are getting worse, falling, or can no longer manage at home, as they may be able to review your priority. Get urgent help for a hot, swollen joint with fever, new weakness or numbness, or loss of bladder or bowel control. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
+Reference: NHS: Osteoarthritis — treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Strength and flexibility exercises — https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/
+Reference: ESCAPE-pain — https://escape-pain.org/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: GOV.UK: Apply for a needs assessment — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Age UK: Exercise — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Community strength classes for frail osteoarthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-strength-classes-frail-oa-uk
@@ -4151,18 +4184,25 @@ Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
 Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
-## Flare versus frailty: telling a bad joint week from a slower body (UK)
+## Is it an arthritis flare or something else? Warning signs and who to call (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/flare-versus-frailty-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-29
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Flare versus frailty: telling a bad joint week from a slower body (UK)
-A: Night toilet trips with stiff joints are a classic home flashpoint — lighting and unhurried time are clinical, not decorative. Here we focus on why a flare can look like sudden frailty, for readers in Northern Ireland, with self-management ideas and when to contact a GP, your GP out-of-hours service or emergency services as directed on nidirect or 999.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-10-29
+Q: Is it an arthritis flare or something else? Warning signs and who to call (UK guide)
+A: When someone with arthritis suddenly cannot get out of a chair, walk or manage the stairs, it is easy to blame a flare. Often it is a flare, but sometimes the joints are not the real problem. An infection such as a urine or chest infection, a joint infection, gout, polymyalgia rheumatica, a medicine side effect, dehydration, a fall or a stroke can all look like 'arthritis playing up' in an older person. A flare usually affects joints you already know about, in a familiar way, and slowly settles with your flare plan. Get help quickly if someone becomes suddenly confused, has a fever or feels shivery, has one hot, swollen and very painful joint, cannot put weight on a leg, has new weakness on one side or slurred speech, or simply seems much more unwell than usual. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Sudden confusion (delirium) — https://www.nhs.uk/symptoms/confusion/
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
+Reference: NHS: Urinary tract infections (UTIs) — https://www.nhs.uk/conditions/urinary-tract-infections-utis/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
+Reference: NHS: Giant cell arteritis — https://www.nhs.uk/conditions/giant-cell-arteritis/
+Reference: NHS: Stroke — https://www.nhs.uk/conditions/stroke/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## How to Pitch Flexible Working Because of Arthritis
 URL: https://livingwitharthritis.org.uk/blog/flexible-working-arthritis-pacing
@@ -4398,6 +4438,15 @@ Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthrit
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+
+## Gentle Exercises for Arthritis: Movement Without Overdoing It
+URL: https://livingwitharthritis.org.uk/blog/gentle-exercises-for-arthritis
+Last updated: 2026-10-25
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-29
+Q: Gentle Exercises for Arthritis: Movement Without Overdoing It
+A: Gentle exercises for arthritis including walking, water exercise, mobility and light strength work.
 
 ## Geriatric clinics that also take arthritis seriously (UK)
 URL: https://livingwitharthritis.org.uk/blog/geriatric-clinic-plus-arthritis-uk
@@ -7327,18 +7376,25 @@ Reference: GOV.UK: The NHS Choice Framework — https://www.gov.uk/government/pu
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations
 
-## Protein, painful joints and frailty (UK)
+## Getting enough protein when arthritis makes cooking and eating hard (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/protein-painful-joints-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-29
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Protein, painful joints and frailty (UK)
-A: This page looks at protein, painful joints and frailty with a frailty-aware lens for UK readers at home. This guide covers protein foods when cooking and chewing take more effort because arthritis with frailty affects several joints, with a focus on England and a home setting.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Last clinically reviewed: 2026-10-29
+Q: Getting enough protein when arthritis makes cooking and eating hard (UK guide)
+A: When arthritis makes cooking, opening packets or chewing hard work, protein is often the first thing to drop, and muscle strength goes with it. You do not need to cook from scratch: eggs, tinned fish, beans and lentils, cheese, yoghurt, milk, nut butters, ready-cooked chicken and frozen ready meals all count. Aim for some protein at every meal and snack, little and often. If you are eating less or losing weight without trying, ask your GP to check your weight and refer you to a dietitian. Do not start protein shakes or supplements without checking first if you have kidney disease or swallowing problems. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
+Reference: NHS: The Eatwell Guide — https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/the-eatwell-guide/
+Reference: British Dietetic Association: Malnutrition food fact sheet — https://www.bda.uk.com/resource/malnutrition.html
+Reference: NICE CG32: Nutrition support for adults — https://www.nice.org.uk/guidance/cg32
+Reference: NHS: Swallowing problems (dysphagia) — https://www.nhs.uk/conditions/swallowing-problems-dysphagia/
+Reference: NHS: Chronic kidney disease — https://www.nhs.uk/conditions/kidney-disease/
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: GOV.UK: Apply for a needs assessment — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Age UK: Healthy eating — https://www.ageuk.org.uk/information-advice/health-wellbeing/healthy-eating/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Protein and Arthritis: How Much You Need and Easy Ways to Get It (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/protein-requirements-arthritis-uk
@@ -9106,6 +9162,15 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+
+## What Is Arthritis? Symptoms, Types and Next Steps
+URL: https://livingwitharthritis.org.uk/blog/what-is-arthritis
+Last updated: 2026-10-25
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-29
+Q: What Is Arthritis? Symptoms, Types and Next Steps
+A: What arthritis means, the main types, common symptoms and when to seek advice.
 
 ## What Sustained Remission Means in RA
 URL: https://livingwitharthritis.org.uk/blog/what-sustained-remission-means-in-ra

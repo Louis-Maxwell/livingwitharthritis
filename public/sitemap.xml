@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -1760,7 +1760,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/flare-versus-frailty-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0462-detail-of-lobby-mural.webp</image:loc>
     </image:image>
@@ -1907,7 +1907,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/community-physio-wait-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0381-cold-steel-triathlon.webp</image:loc>
     </image:image>
@@ -1949,7 +1949,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/protein-painful-joints-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0455-simple-salad-honey-mustard-vinaigrette.webp</image:loc>
     </image:image>
@@ -3184,6 +3184,41 @@
     <lastmod>2026-09-05</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0442-roasted-brussels-sprouts.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-exercise-for-beginners</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-best-exercise-for-rheumatoid-arthritis-c26cdc.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-exercise-programme</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-home-exercise-programme-for-arthritis-b1248e.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-health-guides</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-reablement-team-arthritis-home-practice-uk-3ec3ac.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/gentle-exercises-for-arthritis</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-yoga-for-arthritis-45851b.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/what-is-arthritis</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-is-arthritis-hereditary-364ae6.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -5569,7 +5604,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/diet-lifestyle</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/conditions</loc>
@@ -5577,7 +5612,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/treatments</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/benefits-work</loc>
@@ -5589,7 +5624,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/pain-flares</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/surgery-recovery</loc>
