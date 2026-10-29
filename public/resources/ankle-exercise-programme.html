@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ankle strengthening exercises PDF | Living With Arthritis</title>
 <meta name="description" content="Ankle strengthening exercises PDF from Living With Arthritis. Evidence-based ankle strengthening and mobility exercises with clear instructions, repetitions and safety guidance.">
-<link rel="canonical" href="https://livingwitharthritis.org.uk/exercises/ankle-arthritis-exercises">\n<link rel="alternate" type="application/pdf" href="https://livingwitharthritis.org.uk/resources/ankle-exercise-programme.pdf">
+<link rel="canonical" href="https://livingwitharthritis.org.uk/exercises/ankle-arthritis-exercises">
+<link rel="alternate" type="application/pdf" href="https://livingwitharthritis.org.uk/resources/ankle-exercise-programme.pdf">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="Ankle strengthening exercises PDF">
 <meta property="og:description" content="Evidence-based ankle strengthening and mobility exercises with clear instructions and safety guidance.">
@@ -22,10 +23,12 @@ h2{color:var(--red);font-size:1.5rem;margin:0 0 12px}
 .exercise ol{padding-left:28px}.exercise li{margin:7px 0}
 .dose{background:var(--pale);border-radius:10px;padding:12px 16px;font-weight:bold}
 .notice{background:#fff1f2;border-left:6px solid var(--red);padding:18px;margin-top:24px}
-a.button{display:inline-block;background:var(--red);color:#fff;padding:13px 18px;border-radius:8px;text-decoration:none;font-weight:bold;margin:6px 8px 6px 0}
-a.button.secondary{background:var(--navy)}
+.button{display:inline-block;background:var(--red);color:#fff;padding:13px 18px;border:0;border-radius:8px;text-decoration:none;font:inherit;font-weight:bold;margin:6px 8px 6px 0;cursor:pointer}
+.button.secondary{background:var(--navy)}
+.button:focus-visible{outline:3px solid var(--navy);outline-offset:4px}
 footer{font-size:.9rem;border-top:2px solid #f2a5ad;margin-bottom:30px}
-@media print{header,main,footer{margin:0;max-width:none}.button{display:none}.exercise{break-inside:avoid}}
+@page{size:A4;margin:16mm}
+@media print{body{font-size:11pt;line-height:1.4}header,main,footer{margin:0;max-width:none;padding:12pt}h1{font-size:25pt}h2{font-size:15pt}.intro{font-size:11pt}.button,.print-help{display:none}.exercise{break-inside:avoid;padding:12pt;margin:10pt 0}.exercise h2{padding:6pt 10pt;margin-bottom:8pt}.exercise li{margin:3pt 0}.exercise ol{margin:6pt 0}.dose{padding:7pt 10pt;margin:8pt 0 0}.notice{break-inside:avoid;padding:10pt;margin-top:12pt}}
 </style>
 </head>
 <body>
@@ -33,8 +36,10 @@ footer{font-size:.9rem;border-top:2px solid #f2a5ad;margin-bottom:30px}
 <h1>Ankle strengthening exercises PDF</h1>
 <p class="intro">An evidence-based ankle strengthening and mobility programme from Living With Arthritis.</p>
 <p>Use a comfortable range, build up gradually and follow your clinician's advice. Stop if an exercise causes new or worsening pain.</p>
-<a class="button" href="#exercises">Start the exercises</a>\n<a class="button secondary" href="https://livingwitharthritis.org.uk/resources/ankle-exercise-programme.pdf" download>Download the ankle exercise PDF</a>
-<a class="button secondary" href="javascript:window.print()">Print or save as PDF</a>
+<a class="button" href="#exercises">Start the exercises</a>
+<a class="button secondary" href="/resources/ankle-exercise-programme.pdf" download>Download the ankle exercise PDF</a>
+<button class="button secondary" id="print-guide" type="button">Print or save as PDF</button>
+<p class="print-help">You can also use your browser's Print menu and select Save as PDF.</p>
 </header>
 <main id="exercises">
 <section class="exercise">
@@ -68,5 +73,6 @@ footer{font-size:.9rem;border-top:2px solid #f2a5ad;margin-bottom:30px}
 </section>
 </main>
 <footer><a href="https://livingwitharthritis.org.uk/">Living With Arthritis</a> | Evidence-based education and awareness</footer>
+<script>document.getElementById('print-guide').addEventListener('click', function () { window.print(); });</script>
 </body>
 </html>
