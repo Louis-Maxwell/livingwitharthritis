@@ -30,8 +30,7 @@ const FORBIDDEN_LIVE = [
 ];
 
 const FORBIDDEN_PACKAGE_DEPS = [
-  // The SDK is installed for preview tooling only. The import and runtime
-  // checks above still prevent a public client or authentication integration.
+  "@supabase/supabase-js",
   "@supabase/auth-js",
   "wrangler",
   "@cloudflare/workers-types",

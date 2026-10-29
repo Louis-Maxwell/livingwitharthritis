@@ -262,7 +262,9 @@ describe("BlogPost Page", () => {
 
     const readSchemas = () =>
       Array.from(
-        document.head.querySelectorAll<HTMLScriptElement>(
+        // react-helmet-async 3 on React 19 renders JSON-LD inline (not hoisted
+        // to <head>); Google reads it from either, so search the whole document.
+        document.querySelectorAll<HTMLScriptElement>(
           'script[type="application/ld+json"]',
         ),
       ).map((script) => JSON.parse(script.textContent || "{}"));

@@ -17,6 +17,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import { withImageDefaults } from "@/lib/imageFallback";
 import { htmlToPlainText } from "@/lib/sanitize";
 
 import { useBlogArticle } from "@/hooks/useBlogArticle";
@@ -664,12 +665,13 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-4 prose-ol:my-4"
           >
-            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
+            <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlBeforeStrip)) }} />
             {htmlAfterStrip && relatedImages[0] && (
               <figure className="not-prose my-8">
                 <img
                   src={safeCoverSrc(relatedImages[0].src)}
                   alt={relatedImages[0].alt}
+                  onError={onCoverImgError}
                   width={1200}
                   height={800}
                   loading="lazy"
@@ -692,7 +694,7 @@ const BlogPost = () => {
               </ViewportSection>
             )}
             {htmlAfterStrip && (
-              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterStrip)) }} />
             )}
 
             {relatedImages[1] && (
@@ -700,6 +702,7 @@ const BlogPost = () => {
                 <img
                   src={safeCoverSrc(relatedImages[1].src)}
                   alt={relatedImages[1].alt}
+                  onError={onCoverImgError}
                   width={1200}
                   height={800}
                   loading="lazy"

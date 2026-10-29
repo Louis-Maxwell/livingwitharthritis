@@ -122,6 +122,38 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 
 ---
 
+## Daily log — 29 Oct 2026 (M2 day 14, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 28 Oct: Champions 106–108. All three shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision.
+
+**Main build fix:** PR #274 (merged overnight, exercise search topic cluster) added five posts (`what-is-arthritis`, `arthritis-exercise-for-beginners`, `arthritis-exercise-programme`, `arthritis-health-guides`, `gentle-exercises-for-arthritis`) with no author/reviewer credentials, reviewed_by "editorial team" and one shared cover image. That broke the blog catalog step in `prebuild` (so a publish of `main` would fail) and Louis's "reviewed by Louis Maxwell" rule. Fixed here: Louis Maxwell as author and reviewer with PH128483, last_reviewed 2026-10-29, and a unique unused cover for each (the original owner `arthritis-exercises-uk-clinical` keeps its cover). Content of those five posts was not otherwise changed.
+
+### Shipped
+- **Champion 106 — `/blog/flare-versus-frailty-arthritis-uk`:** full rewrite into "Is it an arthritis flare or something else? Warning signs and who to call (UK guide)". What a usual flare looks like, signs it may be something else (sudden confusion, infection and sepsis signs, UTIs, one hot swollen joint with fever, gout, new shoulder and hip stiffness, headache or jaw pain, stroke signs, a fall), who to call (999, same-day GP, NHS 111, rheumatology advice line), what to write down, getting strength back afterwards. Early handoff to the general flare guide and the inflammatory flare-week guide. Cites NHS (confusion, septic arthritis, sepsis, UTIs, gout, PMR, GCA, stroke, falls, 111) and NICE NG100
+- **Champion 107 — `/blog/community-physio-wait-frail-arthritis-uk`:** full rewrite into "Waiting for community physio with arthritis: what to do while you wait (UK guide)". Check the referral, self-referral, home visits, phone/video and classes, safe things to start now (seated strength, sit-to-stand, walking), what to write down for the physio, when to chase, when not to wait. Early handoff to the NHS waiting list guide and the physio home visit guide. Category Treatments & medicines. Cites NHS physiotherapy, NHS osteoarthritis treatment, NICE NG226, NHS activity guidance for older adults, ESCAPE-pain, NHS falls, GOV.UK needs assessment, Age UK
+- **Champion 108 — `/blog/protein-painful-joints-frailty-uk`:** full rewrite into "Getting enough protein when arthritis makes cooking and eating hard (UK guide)". Why protein matters, no-cook and low-effort protein, easier ways with painful hands, softer options if chewing or swallowing is hard, little and often, check before shakes or supplements (kidney disease, swallowing problems, gout), when to get help (weight loss, GP, dietitian). Early handoff to the protein needs guide and the appetite loss guide. Cites NHS malnutrition, Eatwell Guide, BDA, NICE CG32, NHS dysphagia, kidney disease, gout, vitamin D, GOV.UK needs assessment, Age UK
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 29 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** 106 in flare-ups, 107 in treatments, 108 in diet (with triggers)
+- **Chatbot KB:** flare entry, waiting-lists entry and general diet entry `related` links
+- Sitemap `lastmod` **2026-10-29** (from real `updated_at`); llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / cover map / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 106–108 ticked; 215 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-106-108-29-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, clusters, KB / llms / ai / sitemap, plus the five #274 posts' reviewer and unique covers). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 215 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Re-rank the next 10 (Champions 109–118) from inbound links, or from real demand if a GSC export arrives
+2. Champions 109–110 from the new ranking, reviewed by Louis Maxwell
+3. Champions 111–112
+
 ## Daily log — 28 Oct 2026 (M2 day 13, weekday run)
 
 **Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 27 Oct: Champions 104–105. Both shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Both reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision.

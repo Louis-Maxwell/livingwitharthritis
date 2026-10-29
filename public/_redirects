@@ -1451,8 +1451,8 @@
 /blog/lwa-archive-arthritis-treatment-options /blog/arthritis-treatment-hub 301
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
-/blog/arthritis-exercise-for-beginners /blog/how-to-choose-the-right-exercise-for-arthritis 301
-/blog/arthritis-exercise-programme /blog/arthritis-exercises-uk-clinical 301
-/blog/arthritis-health-guides /blog/arthritis-treatment-hub 301
-/blog/gentle-exercises-for-arthritis /blog/how-to-choose-the-right-exercise-for-arthritis 301
-/blog/what-is-arthritis /blog/lwa-archive-what-is-arthritis 301
+/arthritis-exercise-for-beginners /blog/arthritis-exercise-for-beginners 301
+/arthritis-exercise-programme /blog/arthritis-exercise-programme 301
+/arthritis-health-guides /blog/arthritis-health-guides 301
+/gentle-exercises-for-arthritis /blog/gentle-exercises-for-arthritis 301
+/what-is-arthritis /blog/what-is-arthritis 301
