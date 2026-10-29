@@ -396,6 +396,7 @@ We cannot shorten official waiting times, but self-management and primary-care p
       "Contact GP if symptoms escalate",
     ],
     related: [
+      { type: "article", title: "Waiting for community physio", url: "/blog/community-physio-wait-frail-arthritis-uk" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "guide", title: "Guides", url: "/guides" },
       { type: "guide", title: "Contact", url: "/contact" },
@@ -483,6 +484,7 @@ Full guide: **/arthritis-flare-ups**`,
       { type: "guide", title: "Flare-up guide", url: "/arthritis-flare-ups" },
       { type: "article", title: "Flare-up: what to do", url: "/blog/arthritis-flare-up-what-to-do" },
       { type: "article", title: "Getting your strength back after a flare", url: "/blog/deconditioning-after-arthritis-flare-uk" },
+      { type: "article", title: "Flare or something else? Warning signs", url: "/blog/flare-versus-frailty-arthritis-uk" },
       { type: "guide", title: "Flare action plan", url: "/resources/flare-action-plan" },
       { type: "exercise", title: "Gentle exercises", url: "/exercises" },
       { type: "guide", title: "Diet hub", url: "/diet" },
@@ -935,6 +937,7 @@ Hydration and fibre support overall health. Personal medical diets (gout low-pur
 Explore **/diet** and **/guides/diet**.`,
     nextSteps: ["Browse /diet", "Pair nutrition changes with /exercises"],
     related: [
+      { type: "article", title: "Protein when cooking is hard", url: "/blog/protein-painful-joints-frailty-uk" },
       { type: "guide", title: "Diet hub", url: "/diet" },
       { type: "guide", title: "Diet guide", url: "/guides/diet" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
