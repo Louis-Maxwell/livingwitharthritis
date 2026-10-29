@@ -59,22 +59,36 @@ const MANAGED_META = [
 ] as const;
 
 
+/**
+ * A tag rendered by the app, either by Helmet's legacy dispatcher (data-rh) or
+ * by react-helmet-async 3 on React 19, which renders native <meta>/<link>
+ * that React hoists into <head> (those carry React's internal __react* keys).
+ * Anything else came from the static index.html template and may be pruned.
+ */
+function isAppManaged(el: Element): boolean {
+  if (el.hasAttribute("data-rh")) return true;
+  return Object.keys(el).some((key) => key.startsWith("__react"));
+}
+
 function pruneStaticMetaDuplicates() {
   for (const { attr, value } of MANAGED_META) {
     const matches = document.head.querySelectorAll(`meta[${attr}="${value}"]`);
     if (matches.length < 2) continue;
-    const hasHelmetVersion = Array.from(matches).some((el) => el.hasAttribute("data-rh"));
+    const hasHelmetVersion = Array.from(matches).some(isAppManaged);
     if (!hasHelmetVersion) continue;
     for (const el of Array.from(matches)) {
-      if (!el.hasAttribute("data-rh")) el.remove();
+      if (!isAppManaged(el)) el.remove();
     }
   }
 
   // A page may only override og:image. Remove the template's secure URL
   // as well, otherwise social readers can prefer the homepage image.
-  const managedImage = document.head.querySelector('meta[property="og:image"][data-rh]');
+  const managedImage = Array.from(
+    document.head.querySelectorAll('meta[property="og:image"]'),
+  ).find(isAppManaged);
   if (managedImage) {
-    for (const el of document.head.querySelectorAll('meta[property="og:image:secure_url"]:not([data-rh])')) {
+    for (const el of document.head.querySelectorAll('meta[property="og:image:secure_url"]')) {
+      if (isAppManaged(el)) continue;
       if (el.getAttribute("content") !== managedImage.getAttribute("content")) el.remove();
     }
   }
@@ -86,9 +100,9 @@ function pruneStaticMetaDuplicates() {
   const canonicals = Array.from(
     document.head.querySelectorAll('link[rel="canonical"]'),
   );
-  if (canonicals.length > 1 && canonicals.some((el) => el.hasAttribute("data-rh"))) {
+  if (canonicals.length > 1 && canonicals.some(isAppManaged)) {
     for (const el of canonicals) {
-      if (!el.hasAttribute("data-rh")) el.remove();
+      if (!isAppManaged(el)) el.remove();
     }
   }
 }
