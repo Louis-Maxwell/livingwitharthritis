@@ -35,7 +35,7 @@ jobs:
 
   test-e2e:
     name: E2E Tests (Playwright)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: Playwright browser deps track the runner image
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
@@ -91,7 +91,7 @@ jobs:
 
   blog-smoke:
     name: Blog smoke (Playwright, must pass)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: Playwright browser deps track the runner image
     timeout-minutes: 20
     env:
       PLAYWRIGHT_BASE_URL: http://localhost:4173
