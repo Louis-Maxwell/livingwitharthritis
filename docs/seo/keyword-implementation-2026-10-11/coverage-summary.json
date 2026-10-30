@@ -14,8 +14,8 @@
   "authoredPagesAudited": 738,
   "statusCounts": {
     "phrase_present": 503,
-    "intent_review": 27942,
-    "content_gap": 76158
+    "intent_review": 27980,
+    "content_gap": 76120
   },
   "invalidDeclaredTargetKeywords": 10163,
   "searchAliases": 449,

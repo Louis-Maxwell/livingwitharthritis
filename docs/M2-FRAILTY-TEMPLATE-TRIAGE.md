@@ -107,6 +107,25 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 
 **Reserves:** `chair-yoga-elderly-arthritis-stiffness` (6 inbound; the only template post with more than 3 B₁ impressions), `delirium-hospital-arthritis-frailty-uk`, `copd-arthritis-frailty-breathlessness-uk`, `painkillers-older-adults-arthritis-caution-uk`, `living-alone-falls-plan-arthritis-uk`, `knee-oa-frailty-outdoor-pavements-uk` (could merge into Champion 77).
 
+## Re-ranked next 10 (Champions 109–118), 30 Oct 2026
+
+**Method (honest limit):** still no fresh GSC export, so this ranks by inbound links from non-template (gold-pass) posts, then all inbound blog links (repo scan, 30 Oct), then harm and the October–February season. Nation pages stay out of the one-by-one queue (`free-arthritis-support-northern-ireland` has 5 inbound but is a nation page). Off-topic template posts with links (`arthritis-relationships-honest-conversations`, the gene therapy post) are left as consolidation candidates, not Champions.
+
+| # | Slug | Inbound (all / from gold-pass) | Why now | Suggested job |
+|---|---|---|---|---|
+| 109 ✅ 30 Oct | `inflammatory-arthritis-frailty-flare-week-uk` | 9 / 3 | Linked in Champion 106's opening handoff; winter flares | A plan for a bad inflammatory arthritis flare week in later life |
+| 110 ✅ 30 Oct | `dosette-boxes-arthritis-frailty-hands-uk` | 7 / 3 | Medicines safety with painful hands | Easy-open tops, dosette boxes and pharmacy packs, when they are not suitable, weekly methotrexate |
+| 111 ✅ 30 Oct | `hand-osteoarthritis-frailty-dressing-cooking-uk` | 21 / 2 | Most-linked template post overall | Easier dressing, washing, kitchen tasks and grip with hand OA |
+| 112 | `activity-diary-arthritis-frailty-uk` | 8 / 5 | Most gold-pass inbound links | Using an activity diary to pace and to show your GP or physio |
+| 113 | `advance-care-planning-arthritis-frailty-uk` | 7 / 4 | Planning ahead; links from carer guides | Advance care planning, LPA and talking about wishes (no legal advice) |
+| 114 | `disabled-facilities-grant-arthritis-frailty-uk` | 6 / 3 | Home adaptations before winter | Disabled Facilities Grant: who it is for, how to apply, nation differences |
+| 115 | `copd-arthritis-frailty-breathlessness-uk` | 5 / 2 | Winter; reserve since 16 Oct | Exercising with arthritis and breathlessness; pulmonary rehab |
+| 116 | `hip-osteoarthritis-frailty-chair-rise-uk` | 10 / 2 | Pairs with sit-to-stand guides | Getting out of chairs with hip OA: chair height, technique, practice |
+| 117 | `short-term-equipment-loans-arthritis-uk` | 6 / 3 | Linked from 110/111 needs-assessment sections | Borrowing equipment: community equipment services, Red Cross loans |
+| 118 | `carers-how-to-help-without-taking-over-uk` | 6 / 3 | Carers job | Helping without taking over; keeping independence |
+
+**Progress (30 Oct):** 109–111 done. Overlap checked: 109 is the flare-week plan for inflammatory arthritis (flare plan and advice line, keep usual DMARDs and biologics unless told otherwise, short rests and moving every hour, food and drink, falls, infection signs on DMARDs, red flags, rebuilding afterwards, treatment review if flares are frequent) and hands off in its first section to Champion 106 (`flare-versus-frailty-arthritis-uk`) and `arthritis-flare-up-what-to-do`; 110 is the physical side of taking tablets with sore hands (easy-open tops, labels, other forms via the prescriber, dosette boxes and pharmacy packs with suitability checks, blister openers, weekly methotrexate kept separate, missed or extra doses) and hands off to Champion 87 (`pharmacist-medication-review-frail-arthritis-uk`) and the painkillers guide; 111 is daily tasks with hand OA (dressing, washing, kitchen, joint protection, exercise, splints, gels via a pharmacist, OT and needs assessment, GP red flags including carpal tunnel and inflammatory arthritis) and hands off to `cooking-with-arthritis-uk` and `thumb-base-pain-early-hand-arthritis`. All three reviewed by Louis Maxwell (last_reviewed 2026-10-30). **212 template posts left** (repo scan for the main fingerprint, 30 Oct). Next: 112–113, then 114–115.
+
 ## Re-ranked next 10 (Champions 99–108), 23 Oct 2026
 
 **Method (honest limit):** still no fresh GSC export, so this uses inbound blog links (repo scan, 23 Oct), pairing with recent gold-pass posts, then harm and the October–February season. Nation pages stay out of the one-by-one queue.

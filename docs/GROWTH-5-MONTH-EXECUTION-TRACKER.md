@@ -108,7 +108,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 103 (Champions 102–103 shipped 27 Oct, after 99–101 on 26 Oct); Champions 104–108 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (220 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | Now at 111 (Champions 109–111 shipped 30 Oct, after 106–108 on 29 Oct); Champions 112–118 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (212 template posts left) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -121,6 +121,39 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
 
 ---
+
+## Daily log — 30 Oct 2026 (M2 day 15, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 29 Oct: re-rank Champions 109–118, then ship from the new ranking. Re-rank done and Champions 109–111 shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision. Covers unchanged.
+
+**Main tests:** the 8 Vitest failures noted on 29 Oct no longer reproduce on `main`; the full suite passes locally, so no test fixes were needed.
+
+### Shipped
+- **Re-rank (triage doc):** Champions 109–118 ranked by inbound links from gold-pass posts, then all inbound links, then harm and season (no fresh GSC export). Nation and off-topic posts kept out of the queue
+- **Champion 109 — `/blog/inflammatory-arthritis-frailty-flare-week-uk`:** full rewrite into "Getting through a flare week with inflammatory arthritis in later life (UK guide)". Flare plan and advice line (NICE NG100 rapid access), keep usual medicines unless the team says otherwise, short rests and moving every hour, food and drink, staying safe at home, infection signs on DMARDs and biologics, steroid card, NSAID caution, red flags, rebuilding afterwards, treatment review if flares are frequent, carers. Early handoff to Champion 106 and the general flare guide. Cites NICE NG100, NHS RA treatment, psoriatic arthritis, axial SpA, methotrexate side effects, prednisolone, NSAIDs, septic arthritis, sepsis, falls prevention, needs assessment, 111
+- **Champion 110 — `/blog/dosette-boxes-arthritis-frailty-hands-uk`:** full rewrite into "Dosette boxes, blister packs and tablets when arthritis affects your hands (UK guide)". Start with the pharmacist (easy-open tops, large print, other forms via the prescriber, New Medicine Service, Equality Act reasonable adjustments), dosette boxes and pharmacy packs with what to check first (not every medicine can go in a box, changes, weekly methotrexate kept separate), small aids, reminders and carers, missed or extra doses. Category moved from Conditions to Treatments & medicines. Cites NICE NG5 and NG67, NHS pharmacies, newly prescribed medicines, prescriptions, methotrexate, GOV.UK Equality Act guidance, NHS household equipment, hand pain, 111
+- **Champion 111 — `/blog/hand-osteoarthritis-frailty-dressing-cooking-uk`:** full rewrite into "Hand osteoarthritis: easier dressing, cooking and grip day to day (UK guide)". Starting the day gently, dressing and grooming aids, kitchen tips, joint protection, hand exercises (NICE NG226), warmth, gels via a pharmacist, thumb splints, OT and council needs assessment, when to see a GP (hot swollen joint, carpal tunnel signs, signs of inflammatory arthritis), carers. Early handoff to the cooking and thumb base guides. Cites NICE NG226, NHS osteoarthritis, living with OA, hand pain, OT, household equipment, carpal tunnel, RA, GOV.UK needs assessment, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 30 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** 109 in flare-ups, 110 in treatments, 111 in osteoarthritis (with triggers)
+- **Chatbot KB:** flare entry, painkillers/NSAIDs entry and hand exercise entry `related` links
+- Sitemap `lastmod` **2026-10-30** (from real `updated_at`); llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 109–118 re-ranked, 109–111 ticked; 212 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-109-111-30-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, clusters, KB / llms / ai / sitemap). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 212 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 112–113 (activity diary, advance care planning), reviewed by Louis Maxwell
+2. Champions 114–115 (Disabled Facilities Grant, COPD and breathlessness)
+3. Champions 116–118 (hip OA chair rise, short-term equipment loans, carers helping without taking over)
 
 ## Daily log — 29 Oct 2026 (M2 day 14, weekday run)
 
