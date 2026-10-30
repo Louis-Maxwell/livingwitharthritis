@@ -655,6 +655,17 @@ function enrichHead(html, route, url, override) {
 
 // ---------- head rewrite (og:url + self-referencing canonical; keep AEO injection) ----------
 
+/** Preserve completed browser snapshots instead of replacing their React body. */
+export function patchPrerenderedRoute(html, route, data = headDataFor(route)) {
+  if (!html.includes(`data-lwa-prerender-route="${escAttr(route)}"`)) return null;
+  const url = `${BASE}${route}`;
+  let out = data ? patchShareMeta(html, data) : html;
+  out = out.replace(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>\s*/gi, "");
+  out = out.replace(/<\/head>/i, `<link rel="canonical" href="${url}" />\n</head>`);
+  if (isNoindexRoute(route) || data?.noindex) return applyNoindexMeta(out);
+  return patchEnglishAlternates(out, route, BASE);
+}
+
 export function rewriteHead(html, route, dataOverride) {
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
@@ -722,6 +733,15 @@ function writeRouteFiles() {
     const data = headDataFor(route);
     if (existsSync(file)) {
       const existing = readFileSync(file, "utf8");
+      const snapshot = patchPrerenderedRoute(existing, route, data);
+      if (snapshot) {
+        if (snapshot !== existing) {
+          writeFileAtomicSync(file, snapshot);
+          headPatched++;
+        }
+        skipped++;
+        continue;
+      }
       // Keep a successful Puppeteer snapshot. Rebuild thin shells that
       // still look like the homepage or only have a short answer teaser.
       // Still refresh title / description / og:image from head-data so

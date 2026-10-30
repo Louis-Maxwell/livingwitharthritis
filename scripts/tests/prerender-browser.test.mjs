@@ -13,6 +13,7 @@ test('Chromium snapshots each route and preserves intentional noindex', async ()
     await writeFile(join(root, 'index.html'), `<!doctype html><html><head><title>Shell</title></head><body>
       <script type="module" src="/app.js"></script></body></html>`);
     await writeFile(join(root, 'app.js'), `
+      async function render() {
       const route = location.pathname;
       if (route === '/') await fetch('/guide');
       document.title = 'Guide ' + route;
@@ -24,6 +25,8 @@ test('Chromium snapshots each route and preserves intentional noindex', async ()
         robots.name = 'robots'; robots.content = 'noindex,follow'; document.head.append(robots);
       }
       document.dispatchEvent(new Event('prerender-ready'));
+      }
+      void render();
     `);
     await build({
       configFile: false, root, logLevel: 'silent',
@@ -43,6 +46,7 @@ test('Chromium snapshots each route and preserves intentional noindex', async ()
       const html = await readFile(join(root, 'dist', route, 'index.html'), 'utf8');
       assert.ok(html.includes(`<title>Guide /${route}</title>`));
       assert.ok(html.includes(`<h1>Answer for /${route}</h1>`));
+      assert.ok(html.includes(`data-lwa-prerender-route="/${route}"`));
       if (route === 'utility') assert.ok(html.includes('content="noindex,follow"'));
     }
   } finally {

@@ -76,7 +76,13 @@ export default function prerender({ routes, rendererOptions = {} }) {
               if (actual !== (route.replace(/\/$/, '') || '/')) {
                 throw new Error(`Redirected to ${actual}; exclude redirect sources from prerender routes`);
               }
+              await page.evaluate(path => {
+                document.documentElement.setAttribute('data-lwa-prerender-route', path);
+              }, route);
               snapshots.push({ file, html: await page.content() });
+              if (snapshots.length % 100 === 0) {
+                config.logger.info(`[prerender] Captured ${snapshots.length} routes`);
+              }
             } catch (cause) {
               failed = true;
               throw new Error(`[prerender] Failed ${route}: ${cause.message}`, { cause });

@@ -6,11 +6,24 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { enrichSitemapImages } from '../enrich-sitemap-images.mjs';
-import { headDataFor } from '../inject-canonicals.mjs';
+import { headDataFor, patchPrerenderedRoute } from '../inject-canonicals.mjs';
 
 const SITE = 'https://livingwitharthritis.org.uk';
 const audit = resolve('scripts/audit-sitemap.mjs');
 const html = (path, extra = '') => `<html><head><title>Unique guide ${path}</title><link rel="canonical" href="${SITE}${path}">${extra}</head><body><h1>Guide ${path}</h1></body></html>`;
+
+test('postbuild preserves the browser-rendered article and repairs only its head', () => {
+  const route = '/blog/test-guide';
+  const body = '<main><article><h1>Actual guide</h1><p>Rendered article body.</p></article></main>';
+  const snapshot = `<html data-lwa-prerender-route="${route}"><head><title>Actual guide</title><link href="${SITE}/" rel="canonical"><link rel="canonical" href="${SITE}/wrong"></head><body>${body}</body></html>`;
+  const result = patchPrerenderedRoute(snapshot, route, { title: 'Updated guide', description: 'A specific guide.' });
+  assert.ok(result.includes(body));
+  assert.ok(result.includes('<title>Updated guide</title>'));
+  assert.equal((result.match(/rel="canonical"/g) || []).length, 1);
+  assert.ok(result.includes(`href="${SITE}${route}"`));
+  assert.ok(!result.includes('seo-fallback'));
+  assert.equal(patchPrerenderedRoute(snapshot, '/blog/another-guide'), null);
+});
 
 test('blog archive is an indexable collection while unknown article slugs stay noindex', () => {
   const archive = headDataFor('/blog/archive');
