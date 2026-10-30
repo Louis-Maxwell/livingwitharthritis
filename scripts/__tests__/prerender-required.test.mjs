@@ -7,10 +7,10 @@ import { afterAll, describe, expect, it } from 'vitest';
 const temporary = mkdtempSync(join(tmpdir(), 'lwa-prerender-'));
 afterAll(() => rmSync(temporary, { recursive: true, force: true }));
 
-function loadProductionConfig(prerender) {
+function loadProductionConfig(prerender, executablePath = join(temporary, 'missing-chromium')) {
   const env = {
     ...process.env,
-    PUPPETEER_EXECUTABLE_PATH: join(temporary, 'missing-chromium'),
+    PUPPETEER_EXECUTABLE_PATH: executablePath,
   };
   if (prerender === undefined) delete env.PRERENDER;
   else env.PRERENDER = prerender;
@@ -21,6 +21,14 @@ function loadProductionConfig(prerender) {
 }
 
 describe('requested production prerender', () => {
+  it('initializes the prerender plugin when an executable is available', () => {
+    // Config loading only: this regression catches plugin initialization errors
+    // without launching a browser in unit-test environments.
+    const result = loadProductionConfig('1', process.execPath);
+    expect(result.error).toBeUndefined();
+    expect(result.status, result.stderr).toBe(0);
+  }, 25000);
+
   it('fails instead of emitting a SPA shell when Chromium is unavailable', () => {
     const result = loadProductionConfig('1');
     expect(result.error).toBeUndefined();

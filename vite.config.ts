@@ -1,23 +1,21 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, type UserConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs from "node:fs";
-import { createRequire } from "node:module";
+import puppeteer from "puppeteer";
 import { componentTagger } from "lovable-tagger";
-import Prerender from "@prerenderer/rollup-plugin";
+import Prerender from "./scripts/vite-prerender.mjs";
 import { visualizer } from "rollup-plugin-visualizer";
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
 // PRERENDER=1 is an explicit contract: a requested prerender build must
 // fail if Chromium is unavailable, rather than successfully publish a SPA shell.
 // Plain Vite builds and PRERENDER=0 remain available for local development.
-function chromiumExecutable(): string | undefined {
+async function chromiumExecutable(): Promise<string | undefined> {
   if (process.env.PRERENDER !== "1") return undefined;
   try {
-    const req = createRequire(import.meta.url);
-    const puppeteer = req("puppeteer");
     const executable =
-      process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
+      process.env.PUPPETEER_EXECUTABLE_PATH || await puppeteer.executablePath();
     if (!executable) throw new Error("Chromium executable path is empty");
     fs.accessSync(executable, fs.constants.X_OK);
     return executable;
@@ -29,14 +27,6 @@ function chromiumExecutable(): string | undefined {
       { cause },
     );
   }
-}
-
-const PRERENDER_EXECUTABLE = chromiumExecutable();
-const ENABLE_PRERENDER = Boolean(PRERENDER_EXECUTABLE);
-if (!ENABLE_PRERENDER) {
-  console.warn(
-    "[prerender] disabled — use PRERENDER=1 with Chromium installed for static page HTML.",
-  );
 }
 
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
@@ -77,7 +67,14 @@ function preloadInterFont() {
   };
 }
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ mode }): Promise<UserConfig> => {
+  const PRERENDER_EXECUTABLE = await chromiumExecutable();
+  const ENABLE_PRERENDER = Boolean(PRERENDER_EXECUTABLE);
+  if (!ENABLE_PRERENDER) {
+    console.warn(
+      "[prerender] disabled — use PRERENDER=1 with Chromium installed for static page HTML.",
+    );
+  }
   return ({
   server: {
     host: "::",
@@ -91,12 +88,10 @@ export default defineConfig(({ mode }) => {
       mode === "production" &&
       Prerender({
         routes: PRERENDER_ROUTES,
-        renderer: "@prerenderer/renderer-puppeteer",
         rendererOptions: {
           renderAfterDocumentEvent: "prerender-ready",
           // Keep prerender concurrency modest so Chromium stays stable.
           maxConcurrentRoutes: 2,
-          headless: true,
           // react-helmet-async flushes title/meta changes inside a
           // requestAnimationFrame. Chromium throttles rAF in backgrounded /
           // occluded renderers, so without these flags most prerendered
@@ -111,26 +106,6 @@ export default defineConfig(({ mode }) => {
               "--no-sandbox",
             ],
           },
-          // The renderer does not reliably apply this UA before the
-          // document's inline scripts run, so it is only the first of
-          // three defences against self-noindexing (see below).
-          userAgent: "Mozilla/5.0 (compatible; LWAPrerenderer/1.0; +https://livingwitharthritis.org.uk)",
-          // Defence 2: injected via evaluateOnNewDocument, so it exists
-          // BEFORE index.html's bot-detection script executes. That script
-          // bails out entirely when it sees this flag, so it can never
-          // append <meta name="robots" content="noindex"> into the HTML we
-          // are about to ship as static files.
-          inject: { prerender: true },
-          injectProperty: "__PRERENDER_INJECTED__",
-        },
-        // Defence 3: strip any noindex/nofollow robots meta that still made
-        // it into the snapshot. Shipping one on every prerendered page would
-        // de-index the whole site.
-        postProcess(renderedRoute: { html: string; route: string }) {
-          renderedRoute.html = renderedRoute.html.replace(
-            /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex[^"']*["'][^>]*>/gi,
-            "",
-          );
         },
       }),
 
