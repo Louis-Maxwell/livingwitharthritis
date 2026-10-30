@@ -55,7 +55,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Install Chromium for requested prerender
-        run: npx puppeteer browsers install chrome --install-deps
+        run: npx puppeteer browsers install chrome
 
       - name: Technical SEO regression checks
         run: node --test scripts/tests/technical-seo.test.mjs scripts/tests/growth-seo.test.mjs scripts/tests/built-site-audit.test.mjs scripts/tests/prerender-browser.test.mjs
