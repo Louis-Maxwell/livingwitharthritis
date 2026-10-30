@@ -44,25 +44,25 @@ const toc = [
 const faqs = [
   {
     q: "How long does an arthritis flare-up last?",
-    a: "Most flare-ups last between a few days and two weeks. If symptoms persist beyond two weeks or worsen rapidly, contact your GP or rheumatology team for advice.",
-  },
-  {
-    q: "Can weather trigger arthritis flare-ups?",
-    a: "Many people in the UK report increased joint pain and stiffness during cold, damp weather. While research is mixed, barometric pressure changes may affect joint fluid pressure. Keeping warm and staying active indoors can help.",
+    a: "The NHS says a flare-up can last several days. The length varies between people and types of arthritis. Contact your GP if symptoms do not settle or keep worsening.",
   },
   {
     q: "Should I rest or exercise during a flare-up?",
-    a: "A combination is best. Rest the most affected joints but keep moving gently. Low-impact activities like swimming, walking, or chair-based stretches help maintain mobility without aggravating inflammation.",
+    a: "Reduce activities that aggravate your symptoms, but avoid complete inactivity unless a healthcare professional has advised it. Gentle movement within your comfort can help maintain function.",
   },
   {
-    q: "What foods make arthritis flare-ups worse?",
-    a: "Pro-inflammatory foods such as processed meats, refined sugar, fried foods, excess alcohol, and foods high in saturated fat can worsen inflammation. An anti-inflammatory Mediterranean-style diet is widely recommended.",
+    q: "When should I seek urgent help?",
+    a: "Ask for an urgent GP appointment or contact NHS 111 if you have severe pain and swelling in one joint that started suddenly, a red or hot joint, or joint symptoms with a high or low temperature or shivering.",
   },
   {
-    q: "Is turmeric effective for arthritis flare-ups?",
-    a: "Research supports curcumin (the active compound in turmeric) at around 500–1000 mg/day with piperine for improved absorption. Studies show it can reduce pain and inflammation, sometimes comparable to NSAIDs. Always consult your GP before starting supplements.",
+    q: "Can arthritis symptoms suddenly get worse?",
+    a: "Yes. The NHS describes a sudden worsening of arthritis symptoms as a flare-up. New, severe or unusual symptoms should be assessed by a healthcare professional.",
   },
-];
+  {
+    q: "What sources were used for this guide?",
+    a: "This guide links to NHS arthritis information and relevant NICE guidance. It is general education and does not replace personalised advice.",
+  },
+
 
 /* ---------- Section heading ---------- */
 const SectionHeading = ({ id, icon: Icon, children }: { id: string; icon: React.ElementType; children: React.ReactNode }) => (
@@ -231,7 +231,7 @@ export default function ArthritisFlareUps() {
         </div>
         <AnswerBox
           question="How do you stop an arthritis flare-up fast?"
-          reviewed="2026-06-13"
+          reviewed="2026-09-17"
         >
           <p>
             Rest the joint for 24–48 hours, apply an ice pack for 15–20 minutes every few hours
@@ -577,6 +577,16 @@ export default function ArthritisFlareUps() {
           <strong>Medical disclaimer:</strong> This guide is for educational purposes only and does not replace professional medical advice. Content is aligned with publicly available national clinical and NICE guidance as of March 2026. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment plan. In an emergency, call 999.
         </p>
         
+      <section aria-labelledby="clinical-review" className="mt-10 border-t border-border pt-8">
+        <h2 id="clinical-review" className="text-xl font-bold text-foreground mb-3">Clinical review and sources</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+          Reviewed by Louis Maxwell, Clinical Lead and First Contact Practitioner (HCPC PH128483). Last reviewed: 17 September 2026.
+        </p>
+        <ul className="text-sm text-muted-foreground space-y-2">
+          <li><a className="text-primary underline" href="https://www.nhs.uk/conditions/arthritis/" rel="noopener noreferrer">NHS: Arthritis</a></li>
+          <li><a className="text-primary underline" href="https://www.nice.org.uk/guidance/NG226/chapter/recommendations" rel="noopener noreferrer">NICE NG226: Osteoarthritis recommendations</a></li>
+        </ul>
+      </section>
       <EducationalDisclaimerBox lastReviewed="2026-09-17" />
       <TopicClusterNav path="/arthritis-flare-ups" />
 <CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />
