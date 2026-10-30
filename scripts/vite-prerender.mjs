@@ -62,7 +62,11 @@ export default function prerender({ routes, rendererOptions = {} }) {
                 });
               }, rendererOptions.renderAfterDocumentEvent ?? 'prerender-ready');
               const response = await page.goto(`${origin}${route}`, { waitUntil: 'domcontentloaded' });
-              if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
+              // Chromium may revalidate HTML warmed by a previous route's
+              // prefetch. A 304 uses the cached document and is not an error.
+              if (!response || (!response.ok() && response.status() !== 304)) {
+                throw new Error(`HTTP ${response?.status()}`);
+              }
               await page.waitForFunction(() => window.__LWA_PRERENDER_READY__ === true);
               // Allow Helmet and requestAnimationFrame callbacks to flush.
               await page.evaluate(() => new Promise(resolve => {

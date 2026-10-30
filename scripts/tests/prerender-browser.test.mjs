@@ -14,6 +14,7 @@ test('Chromium snapshots each route and preserves intentional noindex', async ()
       <script type="module" src="/app.js"></script></body></html>`);
     await writeFile(join(root, 'app.js'), `
       const route = location.pathname;
+      if (route === '/') await fetch('/guide');
       document.title = 'Guide ' + route;
       const heading = document.createElement('h1');
       heading.textContent = 'Answer for ' + route;
@@ -30,6 +31,7 @@ test('Chromium snapshots each route and preserves intentional noindex', async ()
         routes: ['/', '/guide', '/utility'],
         rendererOptions: {
           timeout: 5000,
+          maxConcurrentRoutes: 1,
           launchOptions: {
             executablePath: await puppeteer.executablePath(),
             args: ['--no-sandbox', '--disable-background-timer-throttling', '--disable-renderer-backgrounding'],
