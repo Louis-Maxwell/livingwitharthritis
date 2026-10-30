@@ -2,8 +2,9 @@
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
-import { pillarScaffolds, tier2OutlinesByPillar } from '@/data/tier2Outlines';
+import { pillarScaffolds } from '@/data/tier2Outlines';
 import FaqAccordion from '@/components/faq/FaqAccordion';
+import { getBlogMeta } from '@/lib/blog/catalog';
 import EducationalDisclaimerBox from '@/components/seo/EducationalDisclaimerBox';
 import TopicClusterNav from '@/components/seo/TopicClusterNav';
 
@@ -57,7 +58,16 @@ const sectionCopy: Record<string, string[]> = {
 export default function ArthritisMentalHealth() {
 
   const pillar = pillarScaffolds.find((p) => p.id === 'mental-health')!;
-  const clusters = tier2OutlinesByPillar('mental-health');
+  const clusters = [
+    'depression-arthritis-when-to-seek-help',
+    'anxiety-and-arthritis-management',
+    'mindfulness-chronic-pain-arthritis-guide',
+    'arthritis-relationships-honest-conversations',
+    'sleep-and-pain-management-arthritis',
+  ].flatMap(slug => {
+    const article = getBlogMeta(slug);
+    return article ? [article] : [];
+  });
 
   const faqs = [
     {
@@ -168,7 +178,7 @@ export default function ArthritisMentalHealth() {
                 {c.title}
               </Link>
               <p className="text-sm text-muted-foreground mt-1">
-                {c.targetKeywords.slice(0, 2).join(' Â· ')}
+                {c.excerpt}
               </p>
             </li>
           ))}

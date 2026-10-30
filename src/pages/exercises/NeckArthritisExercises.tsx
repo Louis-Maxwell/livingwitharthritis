@@ -215,7 +215,7 @@ export default function NeckArthritisExercises() {
               {[
                 { to: "/conditions/osteoarthritis", label: "Osteoarthritis guide" },
                 { to: "/conditions/rheumatoid-arthritis", label: "Rheumatoid arthritis guide" },
-                { to: "/exercises/shoulder-arthritis-exercises", label: "Shoulder arthritis exercises" },
+                { to: "/conditions/shoulder-arthritis/exercises", label: "Shoulder arthritis exercises" },
                 { to: "/exercises/tai-chi-for-arthritis", label: "Tai chi for arthritis" },
                 { to: "/conditions/osteoarthritis", label: "About osteoarthritis" },
                 { to: "/guides/arthritis-pain-relief", label: "Arthritis pain-relief tips" },

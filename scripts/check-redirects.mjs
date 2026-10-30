@@ -32,6 +32,7 @@ const csvRedirects = new Map(
 );
 
 const failures = [];
+const exactTargets = new Map(exactRedirects().map(({ from, to }) => [from, to]));
 for (const [from, to] of redirects) {
   if (from === to) failures.push(`${from}: self-redirect`);
   if (redirects.has(to)) {
@@ -39,7 +40,16 @@ for (const [from, to] of redirects) {
   }
 
   const fromUrl = `${SITE}/blog/${from}`;
-  const toUrl = `${SITE}/blog/${to}`;
+  // A retained source article may itself have an approved redirect to a guide.
+  // Check the final live destination instead of requiring its alias in sitemap.
+  let destination = `/blog/${to}`;
+  const visited = new Set();
+  while (exactTargets.has(destination) && !visited.has(destination)) {
+    visited.add(destination);
+    destination = exactTargets.get(destination);
+  }
+  if (visited.has(destination)) failures.push(`${from}: destination redirect loop`);
+  const toUrl = `${SITE}${destination}`;
   if (sitemapUrls.has(fromUrl)) {
     failures.push(`${from}: redirect source is present in sitemap`);
   }

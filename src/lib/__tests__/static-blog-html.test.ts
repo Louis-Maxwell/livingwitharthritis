@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
+import { exactRedirectPathSet } from "../../../scripts/seo-redirect-map.mjs";
 import { patchShareMeta, rewriteHead } from "../../../scripts/inject-canonicals.mjs";
 import {
   HOME_SHELL_HEADING,
@@ -103,9 +104,10 @@ describe("static blog HTML for Soft 404s", () => {
     expect(second).toContain('<header><a href="/">Living With Arthritis</a></header>');
   });
 
-  it("prerenders every published blog slug and the hand-arthritis exercises page", () => {
+  it("prerenders every published canonical blog slug and the hand-arthritis exercises page", () => {
+    const redirects = exactRedirectPathSet();
     const missing = (blogSlugs as string[]).filter(
-      (slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`),
+      (slug) => !redirects.has(`/blog/${slug}`) && !PRERENDER_ROUTES.includes(`/blog/${slug}`),
     );
     expect(missing).toEqual([]);
     expect(PRERENDER_ROUTES).toContain("/blog/arthritis-and-work-uk");

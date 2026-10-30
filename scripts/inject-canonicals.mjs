@@ -408,50 +408,42 @@ function escText(s) {
  * has a full article — so regenerating blog-head-data.json + re-running this
  * script can fix crawler meta without a full vite build.
  */
+function setMeta(html, attribute, key, value) {
+  const pattern = new RegExp(`<meta\\b(?=[^>]*\\s${attribute}=["']${key}["'])[^>]*>`, 'gi');
+  const matches = html.match(pattern) ?? [];
+  const managed = matches.some(tag => /\bdata-rh=/.test(tag)) ? ' data-rh="true"' : '';
+  const tag = `<meta ${attribute}="${key}" content="${escAttr(value)}"${managed} />`;
+  let replaced = false;
+  const out = html.replace(pattern, () => {
+    if (replaced) return '';
+    replaced = true;
+    return tag;
+  });
+  return replaced ? out : out.replace(/<\/head>/i, `${tag}\n</head>`);
+}
+
 export function patchShareMeta(html, d) {
   if (!d) return html;
   d = normalizeStaticMeta(d);
   let out = html;
   if (d.title) {
-    out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
-    out = out.replace(
-      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
-      `<meta property="og:title" content="${escAttr(d.title)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="twitter:title" content="${escAttr(d.title)}" />`,
-    );
+    out = out.replace(/<title\b([^>]*)>[^<]*<\/title>/i, (_tag, attributes) =>
+      `<title${/\bdata-rh=/.test(attributes) ? ' data-rh="true"' : ''}>${escText(d.title)}</title>`);
+    out = setMeta(out, 'property', 'og:title', d.title);
+    out = setMeta(out, 'name', 'twitter:title', d.title);
   }
   if (d.description) {
-    out = out.replace(
-      /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="description" content="${escAttr(d.description)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
-      `<meta property="og:description" content="${escAttr(d.description)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="twitter:description" content="${escAttr(d.description)}" />`,
-    );
+    out = setMeta(out, 'name', 'description', d.description);
+    out = setMeta(out, 'property', 'og:description', d.description);
+    out = setMeta(out, 'name', 'twitter:description', d.description);
   }
   if (d.ogImage) {
-    // Prerendered templates can carry a homepage secure image. Keep the
-    // optional HTTPS image URL consistent with the route's actual cover.
     out = out.replace(/<meta\b[^>]*property=["']og:image:secure_url["'][^>]*>\s*/gi, "");
-    if (d.ogImage.startsWith("https://")) {
-      out = out.replace(/<\/head>/i, `<meta property="og:image:secure_url" content="${escAttr(d.ogImage)}" />\n</head>`);
+    if (d.ogImage.startsWith('https://')) {
+      out = setMeta(out, 'property', 'og:image:secure_url', d.ogImage);
     }
-    out = out.replace(
-      /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
-      `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
-    );
+    out = setMeta(out, 'property', 'og:image', d.ogImage);
+    out = setMeta(out, 'name', 'twitter:image', d.ogImage);
   }
   return d.article?.slug ? ensureArticleJsonLd(out, `${BASE}/blog/${d.article.slug}`, d) : out;
 }
@@ -572,52 +564,9 @@ function enrichHead(html, route, url, override) {
   const d = normalizeStaticMeta(headDataFor(route, override));
   if (!d) return html;
 
-  let out = html;
-
-  if (d.title) {
-    out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escText(d.title)}</title>`);
-    out = out.replace(
-      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
-      `<meta property="og:title" content="${escAttr(d.title)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="twitter:title" content="${escAttr(d.title)}" />`,
-    );
-  }
-
-  if (d.description) {
-    out = out.replace(
-      /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="description" content="${escAttr(d.description)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
-      `<meta property="og:description" content="${escAttr(d.description)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="twitter:description" content="${escAttr(d.description)}" />`,
-    );
-  }
-
-  // Per-route OG image (build-time satori output) when it exists.
-  if (d.ogImage) {
-    // Prerendered templates can carry a homepage secure image. Keep the
-    // optional HTTPS image URL consistent with the route's actual cover.
-    out = out.replace(/<meta\b[^>]*property=["']og:image:secure_url["'][^>]*>\s*/gi, "");
-    if (d.ogImage.startsWith("https://")) {
-      out = out.replace(/<\/head>/i, `<meta property="og:image:secure_url" content="${escAttr(d.ogImage)}" />\n</head>`);
-    }
-    out = out.replace(
-      /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
-      `<meta property="og:image" content="${escAttr(d.ogImage)}" />`,
-    );
-    out = out.replace(
-      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
-      `<meta name="twitter:image" content="${escAttr(d.ogImage)}" />`,
-    );
-  }
+  // Use the same attribute-order-independent rewrite for SPA shells and
+  // browser snapshots. Article JSON-LD is added below from the same record.
+  let out = patchShareMeta(html, { ...d, article: undefined });
 
   // Inject per-route JSON-LD just before </head>, after the sitewide
   // Organization/WebSite blocks (which stay untouched).
@@ -655,13 +604,22 @@ function enrichHead(html, route, url, override) {
 
 // ---------- head rewrite (og:url + self-referencing canonical; keep AEO injection) ----------
 
+/** Preserve completed browser snapshots instead of replacing their React body. */
+export function patchPrerenderedRoute(html, route, data = headDataFor(route)) {
+  if (!html.includes(`data-lwa-prerender-route="${escAttr(route)}"`)) return null;
+  const url = `${BASE}${route}`;
+  let out = data ? patchShareMeta(html, data) : html;
+  out = setMeta(out, 'property', 'og:url', url);
+  out = out.replace(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>\s*/gi, "");
+  out = out.replace(/<\/head>/i, `<link rel="canonical" href="${url}" />\n</head>`);
+  if (isNoindexRoute(route) || data?.noindex) return applyNoindexMeta(out);
+  return patchEnglishAlternates(out, route, BASE);
+}
+
 export function rewriteHead(html, route, dataOverride) {
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
-  let out = html.replace(
-    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:url" content="${url}" />`,
-  );
+  let out = setMeta(html, 'property', 'og:url', url);
   // Exactly one self-referencing canonical per route: drop the inherited
   // homepage canonical, then insert this URL's own.
   out = out.replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*\n?/gi, "");
@@ -722,6 +680,15 @@ function writeRouteFiles() {
     const data = headDataFor(route);
     if (existsSync(file)) {
       const existing = readFileSync(file, "utf8");
+      const snapshot = patchPrerenderedRoute(existing, route, data);
+      if (snapshot) {
+        if (snapshot !== existing) {
+          writeFileAtomicSync(file, snapshot);
+          headPatched++;
+        }
+        skipped++;
+        continue;
+      }
       // Keep a successful Puppeteer snapshot. Rebuild thin shells that
       // still look like the homepage or only have a short answer teaser.
       // Still refresh title / description / og:image from head-data so

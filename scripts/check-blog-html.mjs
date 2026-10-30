@@ -7,8 +7,9 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { JSDOM } from 'jsdom';
-import { HOME_SHELL_HEADING, stripToText } from './static-article-html.mjs';
+import { parse } from 'parse5';
+import { HOME_SHELL_HEADING } from './static-article-html.mjs';
+import { exactRedirects, SITE } from './seo-redirect-map.mjs';
 
 const ROOT = resolve('.');
 const DIST = resolve(process.argv.find((a) => a.startsWith('--dist='))?.slice(7) ?? 'dist');
@@ -41,6 +42,9 @@ const shell = [];
 const noOg = [];
 const noCanonical = [];
 const thinBody = [];
+const badRedirect = [];
+const redirects = new Map(exactRedirects().map(({ from, to }) => [from, to]));
+let canonicalArticles = 0;
 
 // Minimum words the first HTML response must carry inside #static-article.
 // Every published guide is several hundred words; a static body below this
@@ -48,13 +52,25 @@ const thinBody = [];
 // (the Sep 2026 head-data override bug served ~40 words for two guides).
 const MIN_STATIC_WORDS = 250;
 
-function staticArticleWords(html) {
-  // Prefer the baked static article; fall back to the whole <body> when a
-  // full Puppeteer snapshot was kept instead. Parsed with JSDOM, not regex.
-  const doc = new JSDOM(html).window.document;
-  const root = doc.querySelector('#static-article') || doc.body;
-  if (!root) return 0;
-  return stripToText(root.innerHTML).split(/\s+/).filter(Boolean).length;
+const attribute = (node, name) => node?.attrs?.find(a => a.name === name)?.value ?? '';
+function findNode(node, predicate) {
+  if (predicate(node)) return node;
+  for (const child of node.childNodes ?? []) {
+    const found = findNode(child, predicate);
+    if (found) return found;
+  }
+}
+function visibleText(node) {
+  if (!node || ['script', 'style', 'template'].includes(node.tagName)) return '';
+  if (node.nodeName === '#text') return node.value;
+  return (node.childNodes ?? []).map(visibleText).join(' ');
+}
+function staticArticleWords(doc) {
+  const main = findNode(doc, n => n.tagName === 'main');
+  const root = findNode(doc, n => attribute(n, 'id') === 'static-article') ||
+    (main && findNode(main, n => n.tagName === 'article')) ||
+    findNode(doc, n => n.tagName === 'body');
+  return visibleText(root).split(/\s+/).filter(Boolean).length;
 }
 
 for (const slug of slugs) {
@@ -64,6 +80,22 @@ for (const slug of slugs) {
     continue;
   }
   const html = readFileSync(file, 'utf8');
+  const doc = parse(html);
+  const destination = redirects.get(`/blog/${slug}`);
+  if (destination) {
+    const canonical = attribute(findNode(doc, n => n.tagName === 'link' && attribute(n, 'rel') === 'canonical'), 'href');
+    const robots = attribute(findNode(doc, n => n.tagName === 'meta' && attribute(n, 'name') === 'robots'), 'content');
+    const refresh = attribute(findNode(doc, n => n.tagName === 'meta' && attribute(n, 'http-equiv') === 'refresh'), 'content');
+    const linked = Boolean(findNode(doc, n => n.tagName === 'a' &&
+      [destination, `${SITE}${destination}`].includes(attribute(n, 'href'))));
+    if (canonical !== `${SITE}${destination}` ||
+        !robots.toLowerCase().split(/[,\s]+/).includes('noindex') ||
+        refresh !== `0;url=${destination}` || !linked) {
+      badRedirect.push(`${slug} => ${destination}`);
+    }
+    continue;
+  }
+  canonicalArticles++;
   const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   const title = titleMatch ? titleMatch[1].replace(/\s+/g, ' ').trim() : '';
   const isHomeShell =
@@ -75,7 +107,7 @@ for (const slug of slugs) {
     || /<meta\s+content=["']([^"']+)["'][^>]*property=["']og:title["']/i.exec(html);
   if (!ogTitle || !ogTitle[1].trim()) noOg.push(slug);
 
-  const words = staticArticleWords(html);
+  const words = staticArticleWords(doc);
   if (words < MIN_STATIC_WORDS) thinBody.push(`${slug} (${words} words)`);
 
   const canonical = /rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(html)
@@ -93,7 +125,8 @@ const fail =
   shell.length > 0 ||
   noOg.length > 0 ||
   noCanonical.length > 0 ||
-  thinBody.length > 0;
+  thinBody.length > 0 ||
+  badRedirect.length > 0;
 
 if (fail) {
   console.error(`✗ blog:html-gate failed for ${slugs.length} published slugs`);
@@ -114,7 +147,10 @@ if (fail) {
       `  static body under ${MIN_STATIC_WORDS} words (${thinBody.length}): ${thinBody.slice(0, 8).join(', ')}`,
     );
   }
+  if (badRedirect.length) {
+    console.error(`  invalid redirect documents (${badRedirect.length}): ${badRedirect.join('; ')}`);
+  }
   process.exit(1);
 }
 
-console.log(`✓ blog:html-gate — ${slugs.length} dist/blog/*/index.html files have article head`);
+console.log(`✓ blog:html-gate — ${canonicalArticles} canonical articles and ${slugs.length - canonicalArticles} retained redirects validated`);
