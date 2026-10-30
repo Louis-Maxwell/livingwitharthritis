@@ -83,6 +83,7 @@ const columns = [
       { label: "Corporate Giving", href: "/corporate-giving" },
       { label: "Press & Media", href: "/press" },
       { label: "Partners", href: "/partners" },
+      { label: "Trusted local services", href: "/trusted-local-services" },
       { label: "Sitemap", href: "/site-index" },
     ],
   },
