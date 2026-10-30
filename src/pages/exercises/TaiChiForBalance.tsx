@@ -228,7 +228,7 @@ export default function TaiChiForBalance() {
                         <p className="text-sm text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Why it helps:</span> {m.why}</p>
                       </div>
                       <div className="md:sticky md:top-4">
-                        <ExerciseVideoModal src={video.src} title={`${i + 1}. ${m.name}`} description={m.how}>
+                        <ExerciseVideoModal src={video.src} poster={video.poster} title={`${i + 1}. ${m.name}`} description={m.how}>
                           <button
                             type="button"
                             aria-label={`Play ${m.name}`}

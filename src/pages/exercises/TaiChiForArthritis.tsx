@@ -269,7 +269,7 @@ export default function TaiChiForArthritis() {
               const video = TAI_CHI_VIDEOS[m.key];
               return (
                 <Card key={m.key} className="overflow-hidden border border-border/40 flex flex-col">
-                  <ExerciseVideoModal src={video.src} title={m.name} description={m.brief}>
+                  <ExerciseVideoModal src={video.src} poster={video.poster} title={m.name} description={m.brief}>
                     <button
                       type="button"
                       aria-label={`Play ${m.name}`}
