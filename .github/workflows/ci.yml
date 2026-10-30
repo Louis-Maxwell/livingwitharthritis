@@ -83,33 +83,37 @@ jobs:
       # Prerendered build: this is the artefact that actually gets published,
       # so it is what the meta/indexing checks below must audit.
       - name: Build (prerendered)
+        id: prerender
         run: npm run build:prerender
+
+      - name: Upload rendered pages for HTML verification
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: rendered-page-html
+          path: dist/**/*.html
+          retention-days: 2
+          if-no-files-found: error
 
       # Fails if any built page still ships the generic homepage
       # title/description, or a noindex robots tag.
       - name: Prerender meta check
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: npm run seo:prerender-meta -- --json
 
       - name: Blog HTML gate
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: npm run blog:html-gate
 
       # Every internal link in the built HTML, sitemap, React source and guide
       # content must resolve to a route, a built page or a redirect.
       - name: Internal link check
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: npm run links:check
 
       - name: Built metadata and structure gate
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: npm run seo:built-audit
-
-      - name: Upload rendered HTML audit reports
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: rendered-html-audits
-          path: .preflight-reports/*.json
-          include-hidden-files: true
-          retention-days: 7
-          if-no-files-found: ignore
 
       - name: Upload prerender meta report
         if: always()
@@ -124,11 +128,13 @@ jobs:
       # Do NOT hit localhost here: nothing is served yet (seo:audit starts
       # serve later). DIST_DIR mode skips Puppeteer and finishes in seconds.
       - name: SEO schema check
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: npm run seo:schema
         env:
           DIST_DIR: dist
 
       - name: Redirect map check
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: npm run seo:redirects
 
       # ROOT CAUSE OF THE 20m HANG: the server was started with `&` and the
@@ -141,6 +147,7 @@ jobs:
       # the audit in `timeout 5m` so a hang fails fast and visibly, and
       # always kill the server even if the audit step fails.
       - name: SEO audit (against local build)
+        if: ${{ !cancelled() && steps.prerender.outcome == 'success' }}
         run: |
           npx serve -s dist -p 4173 &
           SERVER_PID=$!
@@ -160,3 +167,13 @@ jobs:
           SITE_URL: http://localhost:4173
           BASE_URL: http://localhost:4173
           DIST_DIR: dist
+
+      - name: Upload rendered HTML audit reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rendered-html-audits
+          path: .preflight-reports/*.json
+          include-hidden-files: true
+          retention-days: 7
+          if-no-files-found: ignore
