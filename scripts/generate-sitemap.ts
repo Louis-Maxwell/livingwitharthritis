@@ -592,6 +592,7 @@ async function main() {
   // Trust & partnerships hubs.
   push("/trust");
   push("/corporate-partnerships");
+  push("/trusted-local-services");
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
   push("/authors");

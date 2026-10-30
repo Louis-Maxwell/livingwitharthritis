@@ -94,6 +94,7 @@ const KneeOsteoarthritisExercises = lazyWithRetry(() => import("./pages/blog/Kne
 const DoesCrackingKnucklesCauseArthritis = lazyWithRetry(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
 const TrustCredibility = lazyWithRetry(() => import("./pages/TrustCredibility"));
 const CommunityHub = lazyWithRetry(() => import("./pages/CommunityHub"));
+const TrustedLocalServices = lazyWithRetry(() => import("./pages/TrustedLocalServices"));
 const PrivacyPolicy = lazyWithRetry(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazyWithRetry(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazyWithRetry(() => import("./pages/Accessibility"));
@@ -409,6 +410,7 @@ function AnimatedRoutes() {
         <Route path="/zakat" element={<Navigate to="/zakat-appeal" replace />} />
         <Route path="/trust" element={<TrustCredibility />} />
         <Route path="/community" element={<CommunityHub />} />
+        <Route path="/trusted-local-services" element={<TrustedLocalServices />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />
         <Route path="/accessibility" element={<AccessibilityPage />} />
