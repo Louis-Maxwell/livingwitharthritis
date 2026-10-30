@@ -26,7 +26,7 @@ interface EducationalDisclaimerBoxProps {
  */
 export default function EducationalDisclaimerBox({
   lastReviewed,
-  reviewer = "Louis Maxwell, HCPC PH128483",
+  reviewer = "Louis Maxwell, Clinical Lead, HCPC PH128483",
   reviewStatus = "reviewed",
   pendingText = PENDING_REVIEW_TEXT,
   className = "",
@@ -52,7 +52,7 @@ export default function EducationalDisclaimerBox({
             </p>
           ) : (
             <p className="font-semibold text-foreground">
-              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded`}
+              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded — update this page before publication`}
             </p>
           )}
           {copyMode === "full" ? (
