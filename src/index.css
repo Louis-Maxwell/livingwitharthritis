@@ -1749,3 +1749,23 @@
   .motivation-marquee__toggle { display: none; }
   .motivation-marquee__message { display: block; white-space: normal; text-align: center; padding: 1rem; }
 }
+
+
+/* Accessibility and interaction-performance baseline. Keep motion optional for
+   users who request reduced motion, and avoid transition/animation work that
+   can otherwise contribute to poor INP on low-powered devices. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 3px;
+}
