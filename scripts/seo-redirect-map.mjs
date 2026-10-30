@@ -92,11 +92,6 @@ export function exactRedirects() {
 
   for (const [from, to] of Object.entries(EXACT_SEO_REDIRECTS)) add(from, to);
 
-  // This published source record is retained, but App.tsx and the host already
-  // redirect it to the knee guide. It must not be prerendered or sitemapped.
-  add('/blog/knee-arthritis-exercises-uk', '/guides/knee-exercises-for-osteoarthritis');
-  add('/knee-arthritis-exercises-uk', '/guides/knee-exercises-for-osteoarthritis');
-
   for (const [slug, dest] of Object.entries(BLOG_SLUG_REDIRECTS)) {
     add(`/blog/${slug}`, `/blog/${dest}`);
   }

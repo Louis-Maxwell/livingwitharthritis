@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getBlogCatalog } from "@/lib/blog/catalog";
 import { topicNeighbours, relatedGuidesForPath, latestGuides, mostHelpfulGuides } from "@/lib/blog/guideLinks";
+import { exactRedirects } from "../../../scripts/seo-redirect-map.mjs";
 
 describe("guide discoverability", () => {
   const guides = getBlogCatalog();
@@ -25,11 +26,16 @@ describe("guide discoverability", () => {
     expect(orphans).toEqual([]);
   });
 
-  it("every published guide is in the sitemap and RSS feed", () => {
+  it("every published guide has a canonical sitemap destination and a source RSS entry", () => {
     const root = path.resolve(__dirname, "../../..");
     const sitemap = fs.readFileSync(path.join(root, "public/sitemap.xml"), "utf8");
     const rss = fs.readFileSync(path.join(root, "public/rss.xml"), "utf8");
-    const missing = guides.filter((g) => !sitemap.includes(`/blog/${g.slug}<`) || !rss.includes(`/blog/${g.slug}<`));
+    const destinations = new Map(exactRedirects().map(({ from, to }) => [from, to]));
+    const missing = guides.filter((g) => {
+      const source = `/blog/${g.slug}`;
+      const canonical = destinations.get(source) ?? source;
+      return !sitemap.includes(`${canonical}<`) || !rss.includes(`${source}<`);
+    });
     expect(missing.map((g) => g.slug)).toEqual([]);
   });
 

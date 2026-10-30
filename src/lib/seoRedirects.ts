@@ -103,9 +103,8 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   // Guessed diet guide URL served the homepage shell (soft 404); send to the diet hub.
   "/guides/arthritis-diet": "/diet",
   "/guides/anti-inflammatory-diet": "/diet",
-  // Published slug kept out of EXACT so prerender/catalog integrity still list it;
-  // App.tsx Navigate + public/_redirects 301 to the guide. Legacy variants below
-  // hop directly to the guide (no soft intermediate).
+  // Keep retained source records separate from canonical indexable destinations.
+  "/blog/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
   "/blog/knee-osteoarthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
   "/blog/knee-exercises-arthritis": "/guides/knee-exercises-for-osteoarthritis",
   "/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
