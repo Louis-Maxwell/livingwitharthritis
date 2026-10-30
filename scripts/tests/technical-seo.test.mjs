@@ -21,6 +21,7 @@ test('postbuild preserves the browser-rendered article and repairs only its head
   assert.ok(result.includes('<title>Updated guide</title>'));
   assert.equal((result.match(/rel="canonical"/g) || []).length, 1);
   assert.ok(result.includes(`href="${SITE}${route}"`));
+  assert.ok(result.includes(`property="og:url" content="${SITE}${route}"`));
   assert.ok(!result.includes('seo-fallback'));
   assert.equal(patchPrerenderedRoute(snapshot, '/blog/another-guide'), null);
 });

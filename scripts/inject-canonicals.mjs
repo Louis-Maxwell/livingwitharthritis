@@ -609,6 +609,7 @@ export function patchPrerenderedRoute(html, route, data = headDataFor(route)) {
   if (!html.includes(`data-lwa-prerender-route="${escAttr(route)}"`)) return null;
   const url = `${BASE}${route}`;
   let out = data ? patchShareMeta(html, data) : html;
+  out = setMeta(out, 'property', 'og:url', url);
   out = out.replace(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>\s*/gi, "");
   out = out.replace(/<\/head>/i, `<link rel="canonical" href="${url}" />\n</head>`);
   if (isNoindexRoute(route) || data?.noindex) return applyNoindexMeta(out);
@@ -618,10 +619,7 @@ export function patchPrerenderedRoute(html, route, data = headDataFor(route)) {
 export function rewriteHead(html, route, dataOverride) {
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
-  let out = html.replace(
-    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:url" content="${url}" />`,
-  );
+  let out = setMeta(html, 'property', 'og:url', url);
   // Exactly one self-referencing canonical per route: drop the inherited
   // homepage canonical, then insert this URL's own.
   out = out.replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*\n?/gi, "");
