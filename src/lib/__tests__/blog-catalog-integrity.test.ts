@@ -21,6 +21,7 @@ import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
 import { getSiteSearchCatalog } from "@/lib/siteSearchCatalog";
 import { ALL_BLOG_POSTS, BLOG_POSTS_BY_SLUG, PUBLISHED_BLOG_POSTS } from "@/test/blogPosts";
 import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
+import { exactRedirectPathSet } from "../../../scripts/seo-redirect-map.mjs";
 import {
   buildBlogCatalogArtifacts,
   serializeArtifacts,
@@ -176,17 +177,26 @@ describe("generated surfaces agree with the catalog", () => {
     expect(bad, bad.slice(0, 15).join("\n")).toEqual([]);
   });
 
-  it("includes every published slug in public/sitemap.xml", () => {
+  it("includes every published canonical slug in public/sitemap.xml", () => {
     const noindex = new Set<string>(blogNoindexSlugs as string[]);
+    const redirects = exactRedirectPathSet();
     const missing = catalogSlugs.filter(
-      (slug) => !noindex.has(slug) && !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
+      (slug) => !noindex.has(slug) && !redirects.has(`/blog/${slug}`) && !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
     );
     expect(missing, missing.slice(0, 10).join("\n")).toEqual([]);
   });
 
-  it("lists every published slug on PRERENDER_ROUTES", () => {
-    const missing = catalogSlugs.filter((slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`));
+  it("lists every published canonical slug on PRERENDER_ROUTES", () => {
+    const redirects = exactRedirectPathSet();
+    const missing = catalogSlugs.filter((slug) => !redirects.has(`/blog/${slug}`) && !PRERENDER_ROUTES.includes(`/blog/${slug}`));
     expect(missing).toEqual([]);
+  });
+
+  it("keeps the redirected knee article as a source record without indexing its alias", () => {
+    expect(catalogSlugs).toContain('knee-arthritis-exercises-uk');
+    expect(PRERENDER_ROUTES).not.toContain('/blog/knee-arthritis-exercises-uk');
+    expect(sitemapXml).not.toContain('https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk<');
+    expect(PRERENDER_ROUTES).toContain('/guides/knee-exercises-for-osteoarthritis');
   });
 
   it("includes every published slug in site search catalog blog hrefs", () => {
