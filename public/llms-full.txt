@@ -3652,18 +3652,24 @@ Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng5
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
-## Dosette boxes and blister packs when arthritis affects the hands (UK)
+## Dosette boxes, blister packs and tablets when arthritis affects your hands (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/dosette-boxes-arthritis-frailty-hands-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-30
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Dosette boxes and blister packs when arthritis affects the hands (UK)
-A: Families dealing with dosette boxes and blister packs when arthritis affects the hands usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at getting tablets out when thumbs are painful in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-10-30
+Q: Dosette boxes, blister packs and tablets when arthritis affects your hands (UK guide)
+A: If arthritis makes it hard to open bottles, pop tablets out of blister foil or handle small pills, start by talking to your pharmacist. They can often give you easy-open tops instead of child-resistant caps, larger labels, or check whether a different form of a medicine would suit you, and they can assess whether a dosette box or pharmacy-filled pack is right for you. These packs suit some people and some medicines but not all, so do not decant tablets into a box yourself without checking. Keep weekly medicines such as methotrexate clearly separate from daily ones, and contact your pharmacist or NHS 111 if you miss doses or take too many. Never stop or change a prescribed medicine yourself.
+Reference: NICE NG5: Medicines optimisation — https://www.nice.org.uk/guidance/ng5
+Reference: NICE NG67: Managing medicines for adults receiving social care in the community — https://www.nice.org.uk/guidance/ng67
+Reference: NHS: How pharmacies can help — https://www.nhs.uk/nhs-services/pharmacies/how-pharmacies-can-help/
+Reference: NHS: Get help with newly prescribed medicines — https://www.nhs.uk/nhs-services/pharmacies/get-help-with-newly-prescribed-medicines/
+Reference: NHS: Prescriptions — https://www.nhs.uk/nhs-services/prescriptions/
+Reference: NHS: How and when to take methotrexate — https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/
+Reference: GOV.UK: Equality Act 2010 guidance — https://www.gov.uk/guidance/equality-act-2010-guidance
+Reference: NHS: Household gadgets and equipment to make life easier — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/household-gadgets-and-equipment-to-make-life-easier/
+Reference: NHS: Hand pain — https://www.nhs.uk/symptoms/hand-pain/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Temporary downstairs living with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/downstairs-living-arthritis-frailty-uk
@@ -4704,18 +4710,24 @@ Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-mine
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Hand osteoarthritis and frailty: dressing, cooking and grip (UK)
+## Hand osteoarthritis: easier dressing, cooking and grip day to day (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/hand-osteoarthritis-frailty-dressing-cooking-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-30
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hand osteoarthritis and frailty: dressing, cooking and grip (UK)
-A: When hand osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on grip, jars and clothing when hands are sore, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Last clinically reviewed: 2026-10-30
+Q: Hand osteoarthritis: easier dressing, cooking and grip day to day (UK guide)
+A: Hand osteoarthritis can make buttons, zips, jars, taps and kettles hard work, but small changes usually help a lot. Warm your hands before you start, sit down to dress, choose looser clothes with front fastenings or elastic, and use simple aids such as a button hook, zip pull, jar opener, lever taps and thick-handled cutlery. Daily hand exercises and pacing keep your hands working, and a splint, a pharmacist's advice on pain relief or an occupational therapist can help when grip is getting harder. See your GP for a hot, swollen joint, numbness or tingling, or if your hands are getting worse quickly. Never stop or change a prescribed medicine yourself.
+Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Living with osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/living-with/
+Reference: NHS: Hand pain — https://www.nhs.uk/symptoms/hand-pain/
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: NHS: Household gadgets and equipment to make life easier — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/household-gadgets-and-equipment-to-make-life-easier/
+Reference: GOV.UK: Apply for a needs assessment — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Carpal tunnel syndrome — https://www.nhs.uk/conditions/carpal-tunnel-syndrome/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Hand therapy for frail adults with rheumatoid arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/hand-therapy-frail-ra-uk
@@ -5198,18 +5210,26 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Inflammatory arthritis and frailty: surviving a flare week (UK)
+## Getting through a flare week with inflammatory arthritis in later life (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-frailty-flare-week-uk
-Last updated: 2026-09-05
+Last updated: 2026-10-30
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Inflammatory arthritis and frailty: surviving a flare week (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and inflammatory arthritis can make it more visible. This article is about flare care that does not create a deconditioning spiral, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-10-30
+Q: Getting through a flare week with inflammatory arthritis in later life (UK guide)
+A: A flare of rheumatoid arthritis, psoriatic arthritis or axial spondyloarthritis can knock you off your feet for days, and in later life a week mostly in a chair or bed can cost strength that is slow to win back. Get through it with a plan: contact your rheumatology advice line early if the flare is not settling, keep taking your usual medicines unless your team tells you otherwise, use the pain relief and flare plan you have agreed, and keep moving a little every hour so you do not stiffen and weaken. Line up help with meals and shopping, keep your phone with you, and get urgent help for a fever, sudden confusion or one hot, very swollen joint. Never stop or change a prescribed medicine yourself.
+Reference: NICE NG100: Rheumatoid arthritis in adults — management — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Rheumatoid arthritis — treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
+Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
+Reference: NHS: Ankylosing spondylitis (axial spondyloarthritis) — https://www.nhs.uk/conditions/ankylosing-spondylitis/
+Reference: NHS: Side effects of methotrexate — https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/
+Reference: NHS: Prednisolone — https://www.nhs.uk/medicines/prednisolone/
+Reference: NHS: NSAIDs — https://www.nhs.uk/conditions/nsaids/
+Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthritis/
+Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
+Reference: NHS: Falls — prevention — https://www.nhs.uk/conditions/falls/prevention/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Inflammatory Arthritis: Types, Causes and Treatment (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-guide
