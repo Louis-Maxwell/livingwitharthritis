@@ -214,7 +214,7 @@ export default function TaiChiForBeginners() {
               return (
                 <Card key={d.day} className="overflow-hidden border border-border/40 flex flex-col">
                   {Anim && video ? (
-                    <ExerciseVideoModal src={video.src} title={`Day ${d.day}: ${d.title}`} description={d.what}>
+                    <ExerciseVideoModal src={video.src} poster={video.poster} title={`Day ${d.day}: ${d.title}`} description={d.what}>
                       <button
                         type="button"
                         aria-label={`Play Day ${d.day}: ${d.title}`}
