@@ -188,7 +188,7 @@ for (const url of urls) {
     keywords.slice(1).join("|"),
     parentFor(path),
     childrenFor(path),
-    "indexable",
+    "present-prerender-output",
     "",
     robots,
     canonicalUrl === url.replace(/\/$/, ""),
@@ -229,7 +229,7 @@ for (const line of redirectCsv.trim().split(/\r?\n/).slice(1)) {
 mkdirSync(dirname(OUTPUT), { recursive: true });
 writeFileAtomicSync(
   OUTPUT,
-  [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n") +
+  [headers, ...rows].map((row) => [...row, ...Array(Math.max(0, headers.length - row.length)).fill("")].map(csvCell).join(",")).join("\n") +
     "\n",
 );
 console.log(
