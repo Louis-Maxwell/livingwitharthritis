@@ -8,37 +8,36 @@ import Prerender from "@prerenderer/rollup-plugin";
 import { visualizer } from "rollup-plugin-visualizer";
 import { PRERENDER_ROUTES } from "./scripts/prerender-routes.mjs";
 
-// Prerender is ON by default for production builds so crawlers (Googlebot's
-// non-JS pass, Bing, LLM scrapers) receive real HTML instead of an empty SPA
-// shell. It is skipped automatically when no Chromium binary is available,
-// and can be forced off with PRERENDER=0.
-//
-// IMPORTANT: prerendering ~1,000 routes through headless Chromium takes far
-// longer than the hosted publish build's time limit, which made `npm run
-// build` (what publishing runs) hang until it was killed. It is therefore
-// OPT-IN via PRERENDER=1 (`npm run build:prerender`, CI, local audits) and
-// never runs during a plain production/publish build.
-function chromiumAvailable() {
-  if (process.env.PRERENDER !== "1") return false;
+// PRERENDER=1 is an explicit contract: a requested prerender build must
+// fail if Chromium is unavailable, rather than successfully publish a SPA shell.
+// Plain Vite builds and PRERENDER=0 remain available for local development.
+function chromiumExecutable(): string | undefined {
+  if (process.env.PRERENDER !== "1") return undefined;
   try {
     const req = createRequire(import.meta.url);
     const puppeteer = req("puppeteer");
-    const exe =
+    const executable =
       process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
-    return Boolean(exe) && fs.existsSync(exe);
-  } catch {
-    return false;
+    if (!executable) throw new Error("Chromium executable path is empty");
+    fs.accessSync(executable, fs.constants.X_OK);
+    return executable;
+  } catch (cause) {
+    throw new Error(
+      "[prerender] PRERENDER=1 requires an executable Chromium browser. " +
+        "Install Puppeteer's browser or set PUPPETEER_EXECUTABLE_PATH to a valid executable. " +
+        "Refusing to emit a non-prerendered build.",
+      { cause },
+    );
   }
 }
 
-const ENABLE_PRERENDER = chromiumAvailable();
+const PRERENDER_EXECUTABLE = chromiumExecutable();
+const ENABLE_PRERENDER = Boolean(PRERENDER_EXECUTABLE);
 if (!ENABLE_PRERENDER) {
   console.warn(
-    "[prerender] skipped — set PRERENDER=1 (npm run build:prerender) with a " +
-      "Chromium binary available to generate static HTML for crawlers.",
+    "[prerender] disabled — use PRERENDER=1 with Chromium installed for static page HTML.",
   );
 }
-
 
 // Bundle analyzer is opt-in via ANALYZE=1 npm run build → dist/stats.html
 const ENABLE_ANALYZE = process.env.ANALYZE === "1";
@@ -104,6 +103,7 @@ export default defineConfig(({ mode }) => {
           // pages froze with the static index.html <title> and description
           // instead of their own — ~850 pages of duplicate titles.
           launchOptions: {
+            executablePath: PRERENDER_EXECUTABLE,
             args: [
               "--disable-background-timer-throttling",
               "--disable-renderer-backgrounding",
