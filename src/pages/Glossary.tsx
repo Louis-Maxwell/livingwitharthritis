@@ -28,8 +28,8 @@ export default function Glossary() {
     () =>
       GLOSSARY_ROUTES.filter((r) => r !== "/glossary").map((r) => {
         const slug = r.replace("/glossary/", "");
-        return { slug, label: prettify(slug), href: r };
-      }),
+        return { slug, label: GLOSSARY_CONTENT[slug]?.label ?? prettify(slug), href: r };
+      }).filter(term => Boolean(GLOSSARY_CONTENT[term.slug]?.body)),
     [],
   );
 

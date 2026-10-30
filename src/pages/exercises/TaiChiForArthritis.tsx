@@ -39,8 +39,6 @@ const jointLinks = [
   { joint: "Shoulder", slug: "tai-chi-for-shoulder-arthritis", note: "Cloud Hands restores rotator-cuff range without overhead strain." },
   { joint: "Back", slug: "tai-chi-for-back-arthritis", note: "Encourages a tall spine and gentle rotation — ideal for spinal OA." },
   { joint: "Ankle", slug: "tai-chi-for-ankle-arthritis", note: "Builds proprioception and ankle confidence after a flare." },
-  { joint: "Wrist", slug: "tai-chi-for-wrist-arthritis", note: "Soft, circular wrist movement preserves grip and reduces stiffness." },
-  { joint: "Foot", slug: "tai-chi-for-foot-arthritis", note: "Slow stepping drills strengthen the foot arch and improve balance." },
 ];
 
 const movementLibrary: { key: keyof typeof TAI_CHI_ANIMATIONS; name: string; brief: string; cue: string; bestFor: string }[] = [
