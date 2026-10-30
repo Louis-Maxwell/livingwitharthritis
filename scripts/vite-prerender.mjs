@@ -75,7 +75,7 @@ export default function prerender({ routes, rendererOptions = {} }) {
               snapshots.push({ file, html: await page.content() });
             } catch (cause) {
               failed = true;
-              throw new Error(`[prerender] Failed ${route}`, { cause });
+              throw new Error(`[prerender] Failed ${route}: ${cause.message}`, { cause });
             } finally {
               await page.close();
             }
