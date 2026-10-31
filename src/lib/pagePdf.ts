@@ -13,7 +13,10 @@ export async function saveTextPdf(title: string, text: string, filename: string)
     y += 4;
   };
   write(title, 16);
-  write('Living With Arthritis | ' + window.location.origin + window.location.pathname, 10);
+  const htmlUrl = window.location.origin + window.location.pathname;
+  doc.setFontSize(10);
+  doc.textWithLink('Accessible HTML version: ' + htmlUrl, 15, y, { url: htmlUrl });
+  y += 9;
   write('Educational information only, not a diagnosis or personal treatment plan. For emergencies call 999. Text export; use Print / Save as PDF for diagrams and page layout.', 10);
   text.split(/\n+/).filter(Boolean).forEach(p => write(p, 11));
   for (let i = 1; i <= doc.getNumberOfPages(); i++) {
@@ -21,6 +24,8 @@ export async function saveTextPdf(title: string, text: string, filename: string)
     doc.text(`Living With Arthritis - ${i} / ${doc.getNumberOfPages()}`, 15, 290);
   }
   doc.save(filename);
+  const { trackFileDownload } = await import('@/lib/ga-events');
+  trackFileDownload({ file_name: filename, file_extension: 'pdf', file_url: htmlUrl, source: 'generated_pdf' });
 }
 
 export async function downloadUrlDirectory() {

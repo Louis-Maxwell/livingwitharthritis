@@ -6,7 +6,8 @@
  *   - donation_click
  *   - volunteer_enquiry_draft_open (engagement only; not a submitted enquiry)
  *   - fundraiser_interest (outbound intent; not funds raised)
- *   - file_download
+ *   - file_download (links, static PDFs and in-browser generated PDFs)
+ *   - tool_use (first interaction with an interactive tool; see auto-events)
  *   - scroll_80        (fired once per page once a visitor passes 80% depth)
  */
 import { trackEvent } from "@/lib/analytics";
