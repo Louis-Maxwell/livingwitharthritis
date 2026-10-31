@@ -12,8 +12,8 @@ describe("search tracking privacy", () => {
     trackAnalyticsSearch(privateText, 7);
     trackLegacySearch(privateText, 9);
     expect(gtag.mock.calls).toEqual([
-      ["event", "search", { search_result_count: 7, event_category: "engagement" }],
-      ["event", "search", { results_found: 9 }],
+      ["event", "search", { search_result_count: 7, event_category: "engagement", page_location: expect.any(String), page_title: expect.any(String) }],
+      ["event", "search", { results_found: 9, page_location: expect.any(String), page_title: expect.any(String) }],
     ]);
     expect(JSON.stringify(gtag.mock.calls)).not.toContain(privateText);
   });

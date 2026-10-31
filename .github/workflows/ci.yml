@@ -98,6 +98,10 @@ jobs:
       - name: Built metadata and structure gate
         run: npm run seo:built-audit
 
+      # Soft-404 guard: every sitemap route needs a real crawler body.
+      - name: Sitemap route word-count gate
+        run: npm run seo:route-words
+
       - name: Upload prerender meta report
         if: always()
         uses: actions/upload-artifact@v7

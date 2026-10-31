@@ -14,6 +14,11 @@ import { fileURLToPath } from "node:url";
 import { CITY_HUBS, SITE } from "./seo-redirect-map.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 
+// Each hub's own rendered content (scripts/snapshot-rendered-bodies.mjs).
+const RENDERED_BODIES_FILE = resolve("scripts/data/rendered-bodies.json");
+const RENDERED_BODIES = existsSync(RENDERED_BODIES_FILE)
+  ? JSON.parse(readFileSync(RENDERED_BODIES_FILE, "utf8")) : {};
+
 const DIST = resolve("dist");
 
 const DISCLAIMER =
@@ -99,7 +104,7 @@ ${assetTags}
     <div id="root">
       <main id="main-content" role="main" tabindex="-1" style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:Inter,system-ui,sans-serif;">
         <h1>Arthritis Support in ${escapeHtml(city.name)}</h1>
-        <p>${escapeHtml(description)}</p>
+        ${RENDERED_BODIES[`/arthritis-support/${city.slug}`] || `<p>${escapeHtml(description)}</p>`}
         <p>Living With Arthritis is a <strong>UK national charity</strong> offering free educational guides for people in ${escapeHtml(city.name)}${regionBit} and across the country. We do not run a local clinic list on this page — use the hubs below for evidence-based information, then speak with your GP or rheumatology team about local care.</p>
         <ul>
           <li><a href="/exercises">Exercise hub</a> — joint-friendly movement guides</li>

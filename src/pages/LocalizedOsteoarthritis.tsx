@@ -16,6 +16,8 @@ export default function LocalizedOsteoarthritis() {
   return (
     <>
       <Helmet>
+        {/* Machine translation, not reviewed: keep out of search until native review. */}
+        <meta name="robots" content="noindex, follow" />
         <title>{oa.title}</title>
         <meta name="description" content={oa.intro.slice(0, 155)} />
         <meta property="og:title" content={oa.title} />
