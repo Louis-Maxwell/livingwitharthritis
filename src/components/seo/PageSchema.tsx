@@ -1,3 +1,4 @@
+import { LOUIS_MAXWELL_REF, isLouisMaxwell } from "@/lib/louisMaxwell";
 /**
  * PageSchema — reusable JSON-LD injector for AEO / AI-visibility.
  *
@@ -148,7 +149,7 @@ export default function PageSchema({
       }
       if (lastReviewed && reviewedBy) {
         medicalPage.lastReviewed = lastReviewed;
-        medicalPage.reviewedBy = {
+        medicalPage.reviewedBy = isLouisMaxwell(reviewedBy.name, reviewedBy.identifier) ? { ...LOUIS_MAXWELL_REF } : {
           "@type": "Person",
           name: reviewedBy.name,
           jobTitle: reviewedBy.jobTitle,

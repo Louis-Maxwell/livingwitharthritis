@@ -594,6 +594,7 @@ async function main() {
   push("/corporate-partnerships");
   push("/trusted-local-services");
   push("/clinical-governance");
+  push("/evidence-register");
   push("/corrections-policy");
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).

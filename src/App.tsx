@@ -96,6 +96,7 @@ const TrustCredibility = lazyWithRetry(() => import("./pages/TrustCredibility"))
 const CommunityHub = lazyWithRetry(() => import("./pages/CommunityHub"));
 const TrustedLocalServices = lazyWithRetry(() => import("./pages/TrustedLocalServices"));
 const ClinicalGovernance = lazyWithRetry(() => import("./pages/ClinicalGovernance"));
+const EvidenceRegister = lazyWithRetry(() => import("./pages/EvidenceRegister"));
 const CorrectionsPolicy = lazyWithRetry(() => import("./pages/CorrectionsPolicy"));
 const PrivacyPolicy = lazyWithRetry(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazyWithRetry(() => import("./pages/CookiesPolicy"));
@@ -414,6 +415,7 @@ function AnimatedRoutes() {
         <Route path="/community" element={<CommunityHub />} />
         <Route path="/trusted-local-services" element={<TrustedLocalServices />} />
         <Route path="/clinical-governance" element={<ClinicalGovernance />} />
+        <Route path="/evidence-register" element={<EvidenceRegister />} />
         <Route path="/corrections-policy" element={<CorrectionsPolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />

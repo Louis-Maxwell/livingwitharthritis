@@ -1,3 +1,4 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -22,7 +23,7 @@ const pageLd = {
   datePublished: "2026-10-26",
   dateModified: "2026-10-26",
   lastReviewed: "2026-10-26",
-  reviewedBy: { "@type": "Person", name: "Louis Maxwell", jobTitle: "Physiotherapist", identifier: "HCPC PH128483", url: "https://livingwitharthritis.org.uk/authors/maxwell" },
+  reviewedBy: { ...LOUIS_MAXWELL_REF },
   publisher: { "@type": "NGO", name: "Living With Arthritis", url: "https://livingwitharthritis.org.uk" },
 };
 

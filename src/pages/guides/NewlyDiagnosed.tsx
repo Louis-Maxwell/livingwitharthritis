@@ -1,3 +1,4 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -178,11 +179,7 @@ export default function NewlyDiagnosed() {
           jobTitle: "HCPC-registered First Contact Practitioner (PH128483)",
         },
         lastReviewed: "2026-09-29",
-        reviewedBy: {
-          "@type": "Person",
-          name: "Louis Maxwell",
-          jobTitle: "HCPC-registered First Contact Practitioner (PH128483)",
-        },
+        reviewedBy: { ...LOUIS_MAXWELL_REF },
       },
       // FAQPage intentionally not emitted here — <FaqAccordion> below covers it.
       {

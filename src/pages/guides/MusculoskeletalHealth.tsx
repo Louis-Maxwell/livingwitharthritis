@@ -1,4 +1,5 @@
-﻿import { useEffect } from 'react';
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
 import MedicalReviewBadge from '@/components/MedicalReviewBadge';
@@ -30,7 +31,7 @@ export default function MusculoskeletalHealth() {
       author: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
       publisher: { '@type': 'MedicalOrganization', name: 'Living With Arthritis' },
       datePublished: '2026-06-22', dateModified: new Date().toISOString().slice(0, 10),
-      reviewedBy: { '@type': 'Person', name: 'Maxwell', jobTitle: 'First Contact Practitioner', identifier: 'HCPC PH128483' },
+      reviewedBy: { ...LOUIS_MAXWELL_REF },
       lastReviewed: '2026-06-22',
       mainEntityOfPage: 'https://livingwitharthritis.org.uk/guides/musculoskeletal-health',
     };
