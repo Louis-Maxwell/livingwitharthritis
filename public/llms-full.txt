@@ -294,13 +294,19 @@ A: Reactive arthritis is triggered by a recent infection, usually affects one or
 URL: https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis
 Last updated: 2026-07-01
 Q: What is rheumatoid arthritis?
-A: Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the lining of your joints, causing pain, swelling and stiffness — usually symmetrical (both hands, both feet). Early treatment with DMARDs (disease-modifying drugs) within 3 months of symptoms starting can prevent joint damage. It affects about 400,000 adults in the UK.
-Q: Is rheumatoid arthritis a disability?
-A: It can qualify as a disability under the Equality Act 2010 if it substantially affects daily activities. Many people with RA are eligible for PIP.
-Q: What's the difference between OA and RA?
-A: OA is wear-and-tear cartilage loss. RA is an autoimmune inflammatory disease. RA usually affects joints symmetrically and causes prolonged morning stiffness (>1 hour).
-Q: Can diet help RA?
-A: A Mediterranean-style diet rich in oily fish, olive oil and vegetables can reduce inflammatory markers. It doesn't replace DMARDs but supports overall control.
+A: Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually first in the small joints of the hands and feet (NHS). If you are newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.
+Q: How is rheumatoid arthritis different from osteoarthritis?
+A: Osteoarthritis involves gradual cartilage loss in particular joints. RA is an autoimmune disease: it usually affects joints on both sides of the body, often causes morning stiffness lasting longer than 30 minutes, and can affect other parts of the body.
+Q: I've just been diagnosed with RA. What treatment should I be offered?
+A: NICE NG100 recommends one conventional DMARD (methotrexate, leflunomide or sulfasalazine) as soon as possible, ideally within 3 months of persistent symptoms, with the dose increased as tolerated. A short course of steroids may be offered while the DMARD takes effect, which can take 2 to 3 months.
+Q: How will my RA be checked after diagnosis?
+A: NICE NG100 recommends monthly CRP blood tests and a disease activity score in specialist care until your RA reaches remission or low disease activity, then a review about 6 months later and an annual review every year.
+Q: Who do I contact if my RA flares?
+A: NICE NG100 says everyone with RA should have rapid access to specialist care for flares and a named member of their team, often a specialist nurse, who coordinates their care. Ask for the advice line number at your first appointment.
+Q: Can rheumatoid arthritis be cured?
+A: There is currently no cure. NICE NG100 sets treatment to aim for remission or low disease activity, and starting a DMARD early gives the best chance of reaching that target.
+Q: Does diet affect rheumatoid arthritis?
+A: NICE NG100 says there is no strong evidence that diet changes will improve RA, but you could follow the principles of a Mediterranean diet: more bread, fruit, vegetables and fish, less meat, and plant oils instead of butter and cheese.
 
 ## Shoulder Arthritis UK | Symptoms & Exercises
 URL: https://livingwitharthritis.org.uk/conditions/shoulder-arthritis
@@ -321,7 +327,15 @@ A: Shoulder replacement is considered when night pain is severe, function is lim
 ## Best Arthritis Diet UK | Anti-Inflammatory Foods
 URL: https://livingwitharthritis.org.uk/diet
 Q: What is the best diet for arthritis?
-A: A Mediterranean-style pattern has the strongest evidence: plenty of vegetables, fruit, wholegrains, beans, olive oil, nuts and oily fish twice a week, with less red and processed meat, added sugar and ultra-processed food. For weight-bearing joints, losing excess weight lowers the load through the joint. No food cures arthritis.
+A: The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.
+Q: Can diet cure arthritis?
+A: No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends.
+Q: How much weight should I lose for knee or hip osteoarthritis?
+A: NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support.
+Q: What is a Mediterranean diet for arthritis?
+A: NICE NG100 describes it as more bread, fruit, vegetables and fish, less meat, and replacing butter and cheese with products based on vegetable and plant oils.
+Q: Should I cut out alcohol?
+A: The NHS advises people with arthritis not to drink too much alcohol and not to smoke. If you take methotrexate, follow the alcohol limits your rheumatology team gives you.
 
 ## Diet & Nutrition Hub for Arthritis | UK
 URL: https://livingwitharthritis.org.uk/diet-hub
@@ -365,7 +379,15 @@ A: Combine aerobic (walking, swimming, cycling) with strength training 2-3 times
 ## Free Physiotherapy Exercises for Arthritis at Home UK
 URL: https://livingwitharthritis.org.uk/exercises
 Q: What are good free physiotherapy exercises for arthritis at home?
-A: NICE recommends exercise as a core treatment for osteoarthritis: a mix of strengthening (sit-to-stands, straight-leg raises, step-ups), range-of-movement and general activity such as walking or swimming. Keep effort around 4 out of 10, start with a few repetitions daily and build slowly; next-day soreness means do less, not more. Free joint-by-joint routines from Living With Arthritis, registered charity 1218461.
+A: NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis. The NHS advises regular low-impact activity like walking, swimming or yoga. Start with a few gentle repetitions, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.
+Q: Can I do physio exercises at home without a referral?
+A: Yes, for most people with stable joint pain. The NHS says that in many areas you can refer yourself to community musculoskeletal (MSK) physiotherapy without seeing a GP, and you can start gentle home exercise while you wait.
+Q: How often should I do arthritis exercises?
+A: Strength exercises are usually done two or three times a week, with gentle range-of-movement exercises daily, as in our knee routine. NICE NG226 advises exercise tailored to you, so build up slowly and adjust to how your joints respond.
+Q: When should I stop and get urgent help?
+A: The NHS advises an urgent GP appointment or NHS 111 if one joint suddenly becomes severely painful and swollen, the skin around it is red or hot, or you have sore joints with a high temperature or feel hot, cold or shivery.
+Q: Are exercises different for rheumatoid arthritis?
+A: NICE NG100 says adults with rheumatoid arthritis should have access to specialist physiotherapy to improve fitness, joint flexibility and muscle strength. During a flare, keep to gentle range-of-movement and follow your rheumatology team's advice.
 
 ## Best Exercises for Arthritis | UK FAQ
 URL: https://livingwitharthritis.org.uk/faq/best-exercises-arthritis
@@ -1062,7 +1084,7 @@ A: Widespread body pain; tenderness on touch; fatigue; sleep issues; 'fibro fog'
 Q: What should I be careful about?
 A: Both respond to graded exercise, sleep hygiene and CBT — different medications from your GP.
 
-## How to Claim PIP for Arthritis in the UK: Steps & Evidence
+## How to Claim PIP for Arthritis: Step-by-Step Guide (2026)
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
 Last updated: 2026-10-23
 Q: How do I claim PIP for arthritis in the UK?
@@ -1158,7 +1180,7 @@ A: Persistent limping; night pain; reduced quality of life; supplements alone ar
 Q: What should I be careful about?
 A: Never give a dog human painkillers — paracetamol and ibuprofen can be fatal. Always consult your vet.
 
-## Arthritis Exercises at Home UK | Living With Arthritis
+## Arthritis Exercises at Home: Free Knee, Hip & Hand Routines
 URL: https://livingwitharthritis.org.uk/guides/exercise
 Q: What exercise is best for arthritis?
 A: Exercise is first-line care for osteoarthritis in the UK. Combine low-impact aerobic activity (walking, cycling, swimming), strengthening work for the muscles around the affected joint, and flexibility or balance work. Build up gradually; some discomfort that settles within 24 hours is expected and does not mean harm.
@@ -1231,13 +1253,19 @@ A: Evidence-based hip OA exercises include glute bridges, clamshells, standing h
 URL: https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis
 Last updated: 2026-09-23
 Q: What are the best free knee exercises for osteoarthritis in the UK?
-A: NICE NG226 recommends structured exercise as first-line for knee osteoarthritis. A practical home routine includes quad sets, straight-leg raises, sit-to-stands, mini squats, step-ups, hamstring curls, calf raises and gentle range-of-motion — 2–3 sessions weekly with a 4/10 pain rule.
-Q: How many reps should I do?
-A: Typically 2–3 sets of 8–12 reps, two to three times a week on non-consecutive days. Progress by about 10% per week.
-Q: When should I stop?
-A: Stop if pain is sharp, catching, or stays above about 4/10 overnight. Mild ache that settles within 24 hours is usually fine.
-Q: Can I start while waiting for NHS physio?
-A: Yes for most stable knee OA — begin gently at home and ask about MSK self-referral. Seek urgent care for red-flag symptoms.
+A: NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.
+Q: How many reps of knee exercises for osteoarthritis should I do?
+A: Aim for 2 to 3 sets of 8 to 12 repetitions of each strength exercise, two or three times a week on non-consecutive days. For quad sets, hold for 5 to 10 seconds and build up to 10 holds. If you are new to exercise, start with one set and build up over a few weeks. Regular practice over 6 to 12 weeks matters more than doing a lot in one session.
+Q: When should I stop knee exercises?
+A: Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine. Stop that session and do less next time if you get sharp or catching pain, the knee locks or gives way, new swelling lasts overnight, or pain stays higher the next day. Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.
+Q: Can I start knee OA exercises at home without seeing a physio?
+A: Most people with stable knee osteoarthritis can start a gentle home routine like this safely. See a GP or physiotherapist first after a recent fall or injury, if your knee is suddenly hot and swollen, locks or gives way, or after recent surgery. In many UK areas you can self-refer to NHS physiotherapy.
+Q: What if I am on an NHS physiotherapy waiting list?
+A: You can usually start gentle strengthening and movement at home while you wait. Begin at the gentle level, use the 4/10 pain rule, and take notes on what helps to show your physiotherapist. If your symptoms change suddenly or you develop red flag symptoms, do not wait for the routine appointment; contact your GP or NHS 111.
+Q: Does walking help knee osteoarthritis?
+A: Yes, for most people. Regular walking is a good way to build general fitness, which NICE recommends alongside strengthening for osteoarthritis. Start with short walks on flat ground at a comfortable pace, wear supportive shoes, and add a few minutes each week. Cycling and swimming are good alternatives if walking is painful.
+Q: Should I use a knee brace or support for exercise?
+A: Braces and insoles are not needed by everyone with osteoarthritis, but they can help some people, particularly if the knee feels unstable. A physiotherapist can advise whether a support is likely to help you. A brace should not replace strengthening exercises.
 
 ## Magnesium vs Vitamin D for Arthritis
 URL: https://livingwitharthritis.org.uk/guides/magnesium-vs-vitamin-d
@@ -2137,16 +2165,6 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 Reference: Dixon WG et al. How the weather affects the pain of citizen scientists using a smartphone app. npj Digital Medicine 2019 — https://pubmed.ncbi.nlm.nih.gov/31667359/
 Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
 
-## Arthritis Flare-Ups — How to Recognise, Manage, and Recover
-URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-management
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Flare-Ups — How to Recognise, Manage, and Recover
-A: An arthritis flare-up is a temporary worsening of arthritis symptoms, which can vary depending on the type of arthritis. It may involve increased pain, stiffness, swelling, and fatigue, lasting from days to several weeks. Early signs include unusual tiredness or increased stiffness. Managing a flare involves resting the affected joint(s), using heat or ice, and taking prescribed medications.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
 ## Arthritis Flare-Up: What to Do When Symptoms Get Worse
 URL: https://livingwitharthritis.org.uk/blog/arthritis-flare-up-what-to-do
 Last updated: 2026-10-02
@@ -2208,13 +2226,13 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NHS: Exercise — https://www.nhs.uk/live-well/exercise/
 
-## Arthritis in Older Adults: What Changes and What Helps (UK Guide)
+## Arthritis in Older Adults: What Changes & What Helps
 URL: https://livingwitharthritis.org.uk/blog/arthritis-in-older-adults
 Last updated: 2026-09-05
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Arthritis in Older Adults: What Changes and What Helps (UK Guide)
+Q: Arthritis in Older Adults: What Changes & What Helps
 A: Arthritis risk rises with age due to cartilage changes, muscle loss and conditions like polymyalgia rheumatica and gout becoming more common — but it is not inevitable. Treatment often needs extra care around kidney/liver function and drug interactions, and joint pain is closely linked to falls risk, making strength and balance exercise a genuinely protective measure.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
@@ -2725,7 +2743,7 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Best Supplements for Arthritis in the UK
-A: Omega-3 fish oil and turmeric are recommended for arthritis, with omega-3s reducing inflammation, especially in rheumatoid arthritis, at 2-3g EPA/DHA daily. Turmeric, specifically 1000mg/day curcumin with piperine, can provide pain relief comparable to NSAIDs. Vitamin D at 10mcg (400 IU) daily supports bone health, addressing common deficiencies. Always consult a GP or pharmacist before starting any supplement, especially with other medications.
+A: Omega-3 fish oil and turmeric have the most research behind them, but benefits are modest and vary. Trials of omega-3 in rheumatoid arthritis used high doses, and some small trials of curcumin in knee osteoarthritis reported pain relief, but evidence is mixed. Check with your GP or pharmacist before starting either. Vitamin D at 10mcg (400 IU) daily supports bone health, addressing common deficiencies. Always consult a GP or pharmacist before starting any supplement, especially with other medications.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Best Supplements for Joint Pain: What Actually Works
@@ -2735,7 +2753,7 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Best Supplements for Joint Pain: What Actually Works
-A: Best supplements for joint pain with good evidence: omega-3 fish oil (2.7g EPA+DHA daily for RA), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Always tell your GP what you are taking.
+A: Supplements with the most research for joint pain: omega-3 fish oil (high doses were used in rheumatoid arthritis trials), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Check with your GP or pharmacist before starting any supplement.
 
 ## Best Shoes for Arthritis: How to Choose (UK Buying Guide)
 URL: https://livingwitharthritis.org.uk/blog/best-walking-shoes-arthritis-uk
@@ -4502,7 +4520,7 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Ginger vs Turmeric for Arthritis: Which Actually Works?
-A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement at around 1,000 mg/day for 8–12 weeks) has the stronger evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
+A: For most people with arthritis, turmeric (as a properly absorbed curcumin supplement) has somewhat stronger, but still limited, evidence for reducing pain and stiffness. Ginger at 500–1,000 mg/day is a well-tolerated adjunct, especially if you also have morning stiffness or nausea. Check with your GP before starting.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Glucosamine vs Collagen: Which Is Better for Joints?
@@ -7102,13 +7120,13 @@ Q: PIP for Arthritis: How to Build a Strong Application
 A: The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It advises tracking symptoms, describing good and bad days, linking pain to specific tasks, gathering clinical evidence, avoiding blank sections, starting early, and speaking to a GP or rheumatology team when symptoms or support needs change.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Can You Claim PIP for Arthritis? Eligibility and Evidence
+## Does Arthritis Qualify for PIP? Points, Rates & Evidence
 URL: https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk
 Last updated: 2026-10-10
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Can You Claim PIP for Arthritis? Eligibility and Evidence
+Q: Does Arthritis Qualify for PIP? Points, Rates & Evidence
 A: Arthritis does not automatically qualify you for PIP. Eligibility depends on how your condition affects daily living or mobility, including whether you can do tasks reliably and how often difficulties occur. You can claim while working. Describe better and worse days honestly; use the application guide for the practical claim steps.
 Reference: Personal Independence Payment (PIP) — https://www.gov.uk/pip
 Reference: How to claim PIP — https://www.gov.uk/pip/how-to-claim

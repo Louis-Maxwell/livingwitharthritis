@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -362,6 +363,7 @@ const PsoriaticArthritis = () => (
             heading="Related arthritis reading"
           />
         </div>
+      <UrgentHelpAndSources path="/conditions/psoriatic-arthritis" />
       </main>
       <InternalLinks />
       <Footer />

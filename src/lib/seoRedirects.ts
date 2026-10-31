@@ -109,6 +109,9 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/blog/knee-osteoarthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
   "/blog/knee-exercises-arthritis": "/guides/knee-exercises-for-osteoarthritis",
   "/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
+  // Flare-up consolidation (31 Oct 2026): duplicate flare guides 301 to the pillar.
+  "/blog/arthritis-flare-management": "/arthritis-flare-ups",
+  "/faq/arthritis-flare-management": "/arthritis-flare-ups",
   "/guides/sarcopenia-muscle-control": "/guides/sarcopenia-muscle-loss",
   // Thin GSC city doorway — send to the RA hub, do not promote city×condition pages.
   "/arthritis-support/sheffield/rheumatoid-arthritis": "/conditions/rheumatoid-arthritis",

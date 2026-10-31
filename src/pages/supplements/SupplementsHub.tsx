@@ -40,7 +40,7 @@ const SUPPLEMENTS = [
   {
     to: "/blog/category/diet-lifestyle",
     label: "Omega-3 fish oil",
-    desc: "Best evidence is in rheumatoid arthritis: 2.7 g+ EPA/DHA per day reduces morning stiffness and tender joints.",
+    desc: "Most evidence is in rheumatoid arthritis, where high-dose trials suggest it may ease morning stiffness. Check with your GP or pharmacist first.",
     available: false,
   },
   {
@@ -73,12 +73,12 @@ const SUPPLEMENT_FAQS = [
   {
     question: "Which arthritis supplement has the best evidence?",
     answer:
-      "For knee osteoarthritis, glucosamine sulfate and turmeric/curcumin have the most consistent positive trials. For rheumatoid arthritis, high-dose omega-3 fish oil (2.7 g+ EPA/DHA per day) has good evidence for reducing morning stiffness and tender joints.",
+      "For knee osteoarthritis, some trials of turmeric/curcumin and glucosamine sulfate report small benefits, but results are mixed and NICE advises against glucosamine on the NHS. For rheumatoid arthritis, trials of high-dose omega-3 fish oil suggest it may reduce morning stiffness and tender joints. Check with your GP or pharmacist before starting any of them.",
   },
   {
     question: "Are joint supplements safe?",
     answer:
-      "Most are well tolerated, but they can interact with prescription medication. Glucosamine may interact with warfarin, turmeric thins the blood, and high-dose fish oil increases bleeding risk. Always check with your GP or pharmacist before starting one, especially if you take blood-thinners or have diabetes.",
+      "Most are well tolerated, but they can interact with prescription medication. Glucosamine may interact with warfarin, turmeric may add to the effect of blood thinners, and high-dose fish oil increases bleeding risk. Always check with your GP or pharmacist before starting one, especially if you take blood-thinners or have diabetes.",
   },
   {
     question: "How long do supplements take to work for arthritis?",

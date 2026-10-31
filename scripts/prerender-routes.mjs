@@ -102,7 +102,6 @@ const CURATED = [
   "/faq/is-arthritis-a-disability",
   "/faq/arthritis-and-pregnancy",
   "/faq/arthritis-and-sleep",
-  "/faq/arthritis-flare-management",
   "/faq/returning-to-work-arthritis",
   "/faq/arthritis-support-groups-uk",
   "/faq/arthritis-pain-management",

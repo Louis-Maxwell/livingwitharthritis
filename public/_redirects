@@ -645,7 +645,7 @@
 /best-diet-for-joint-pain-uk /blog/best-diet-for-joint-pain-uk 301
 /hand-exercises-for-arthritis /blog/hand-exercises-for-arthritis 301
 /anti-inflammatory-diet /blog/anti-inflammatory-diet 301
-/arthritis-flare-management /blog/arthritis-flare-management 301
+/arthritis-flare-management /arthritis-flare-ups 301
 /tai-chi-for-arthritis-uk /blog/tai-chi-for-arthritis-uk 301
 /travelling-with-arthritis-uk /blog/travelling-with-arthritis-uk 301
 /gout-medication-uk /blog/gout-medication-uk 301
@@ -1456,3 +1456,7 @@
 /arthritis-health-guides /blog/arthritis-health-guides 301
 /gentle-exercises-for-arthritis /blog/gentle-exercises-for-arthritis 301
 /what-is-arthritis /blog/what-is-arthritis 301
+
+# --- Flare-up consolidation (31 Oct 2026): canonical is /arthritis-flare-ups ---
+/blog/arthritis-flare-management /arthritis-flare-ups 301
+/faq/arthritis-flare-management /arthritis-flare-ups 301

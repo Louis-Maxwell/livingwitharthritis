@@ -1,4 +1,5 @@
 ﻿import { Helmet } from "react-helmet-async";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -348,6 +349,7 @@ const HipArthritis = () => (
             </Link>
           </div>
           <ArticleCitations citations={CITATIONS_HIP} />
+          <UrgentHelpAndSources path="/conditions/hip-arthritis" />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/hip-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />

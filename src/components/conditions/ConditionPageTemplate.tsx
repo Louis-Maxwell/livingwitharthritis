@@ -1,4 +1,5 @@
 ﻿import { Suspense, type ReactNode, type ElementType } from "react";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -416,6 +417,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               />
             </Suspense>
           </div>
+          <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
         </main>

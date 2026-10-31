@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -450,6 +451,7 @@ const Osteoarthritis = () => (
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
+      <UrgentHelpAndSources path="/conditions/osteoarthritis" />
       <EducationalDisclaimerBox lastReviewed="2026-09-28" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
