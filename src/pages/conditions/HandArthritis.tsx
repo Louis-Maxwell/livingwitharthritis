@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -334,6 +335,7 @@ const HandArthritis = () => (
             </Link>
           </div>
 
+      <UrgentHelpAndSources path="/conditions/hand-arthritis" />
       <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
       <TopicClusterNav path="/conditions/hand-arthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/hand-arthritis" title="Explore related resources" />

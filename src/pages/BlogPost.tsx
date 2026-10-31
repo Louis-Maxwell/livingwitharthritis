@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
@@ -841,6 +842,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
+            <UrgentHelpAndSources path={`/blog/${slug}`} />
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
               reviewStatus="reviewed"

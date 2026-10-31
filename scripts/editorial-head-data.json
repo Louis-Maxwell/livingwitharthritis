@@ -324,31 +324,6 @@
       }
     ]
   },
-  "/faq/arthritis-flare-management": {
-    "title": "What should I do when I have an arthritis flare? | Living With Arthritis",
-    "description": "Rest affected joints, use ice, take pain relief, maintain some gentle movement, rest more than usual, and contact your doctor if it worsens.",
-    "question": "What should I do when I have an arthritis flare?",
-    "answer": "Rest affected joints, use ice, take pain relief, maintain some gentle movement, rest more than usual, and contact your doctor if it worsens.",
-    "breadcrumb": "What to Do During an Arthritis Flare",
-    "bodyHtml": "<h2>Recognising a Flare Early</h2><p>A flare is a sudden worsening of joint pain, swelling, stiffness and fatigue that lasts more than 24 hours and is clearly out of pattern for you. Early warning signs include heavier morning stiffness, low-grade fever, sleep disturbance, brain fog and a 'flu-ish' malaise the day before joints swell. Keeping a simple symptom diary — sleep, steps, mood, stress, food, weather — helps you spot triggers and intervene 24-48 hours earlier each time, which shortens flare duration significantly.</p><h2>Common Triggers to Audit</h2><p>The most reported triggers are viral infections, emotional stress, missed or late medication, sudden weather changes, sleep loss, alcohol binges, ultra-processed food, dehydration and overdoing activity on a good day. Hormonal shifts and travel are also frequent. You cannot avoid every trigger, but identifying your top two or three lets you build prevention into normal life rather than reacting after the flare has started.</p><h2>The First 48 Hours: Rest, Ice, Elevate</h2><p>Reduce load on the affected joints — sit when possible, swap a long walk for pool work or none at all. Apply a wrapped ice pack for 15-20 minutes every 2-3 hours for the first day to settle acute swelling, then switch to heat for morning stiffness. Take regular pain relief as prescribed rather than waiting for pain to peak. Aim for 8-9 hours of sleep and prioritise hydration.</p><h2>48-72 Hour Protocol</h2><p>Begin gentle range-of-motion movement every couple of hours — even five slow circles or stretches stops joints stiffening. Eat anti-inflammatory meals (oily fish, leafy greens, berries, olive oil) and avoid alcohol. Use splints only briefly to rest very painful hands or wrists; prolonged immobilisation weakens muscle and worsens recovery. Cancel non-essential commitments without guilt — recovery is the priority.</p><h2>When to Contact Your GP or Rheumatology Team</h2><p>Call within 24 hours if you develop a fever above 38°C, a new hot swollen joint that could indicate infection, chest pain, breathlessness, a new rash, or if symptoms are not improving after 72 hours of self-care. Septic arthritis is an emergency. If you are on biologics or DMARDs, your rheumatology helpline can often adjust medication or arrange a steroid injection or short oral steroid course.</p><h2>Activity Pacing and the Return to Normal</h2><p>Reintroduce activity at 50% of your pre-flare baseline and add roughly 10% per day. Use the 'two-day rule' — if pain is worse two days after an activity, the dose was too high. Our best exercises for arthritis guide includes gentle resumption plans for knees, hips and hands.</p><h2>Preventing the Next Flare</h2><p>After every flare, review what came before it and pick one change for next time — earlier medication, better sleep, more hydration, or saying no to one extra commitment. Long-term, consistent low-impact exercise, anti-inflammatory eating, stress management and never skipping DMARDs cut flare frequency by 30-50% in most studies.</p>",
-    "faqs": [
-      {
-        "q": "What should I do when I have an arthritis flare?",
-        "a": "Rest affected joints, use ice, take pain relief, maintain some gentle movement, rest more than usual, and contact your doctor if it worsens."
-      }
-    ],
-    "sources": [],
-    "relatedLinks": [
-      {
-        "path": "/faq",
-        "title": "More arthritis questions and answers"
-      },
-      {
-        "path": "/blog/archive",
-        "title": "Browse all arthritis guides"
-      }
-    ]
-  },
   "/faq/returning-to-work-arthritis": {
     "title": "How do I return to work after arthritis diagnosis? | Living With Arthritis",
     "description": "Work with occupational health, request reasonable adjustments, plan gradual return, communicate with your manager, and take breaks as needed.",
@@ -850,8 +825,8 @@
     ]
   },
   "/faq/when-to-see-a-rheumatologist": {
-    "title": "When to See a Rheumatologist: Signs to Ask Your GP About",
-    "description": "Ask your GP for an urgent rheumatology referral if joint swelling lasts over six weeks, morning stiffness passes an hour, or several joints are affected.",
+    "title": "When should I ask my GP for a rheumatology referral? | Living With Arthritis",
+    "description": "Ask for urgent referral if you have joint swelling lasting more than six weeks, morning stiffness over an hour, or multiple symmetrical joints affected — early specialist review prevents permanent damage.",
     "question": "When should I ask my GP for a rheumatology referral?",
     "answer": "Ask for urgent referral if you have joint swelling lasting more than six weeks, morning stiffness over an hour, or multiple symmetrical joints affected — early specialist review prevents permanent damage.",
     "breadcrumb": "When to Ask for a Rheumatology Referral",

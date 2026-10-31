@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: 'What should I take instead of collagen for knee osteoarthritis?',
-    a: 'For knees specifically, the options with usable trial data are curcumin at about 1,000 mg/day, glucosamine sulfate at 1,500 mg/day, and MSM at 1.5–3 g/day. Effects are modest at best. A progressive quadriceps and glute strengthening programme reliably outperforms any of them.',
+    a: 'For knees specifically, some trials have looked at curcumin, glucosamine sulfate and MSM. Effects are modest at best, and NICE advises against glucosamine on the NHS. Check with your GP or pharmacist before starting any of them. A progressive quadriceps and glute strengthening programme reliably outperforms any of them.',
   },
   {
     q: 'Can diet replace a collagen supplement?',

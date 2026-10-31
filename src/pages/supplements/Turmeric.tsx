@@ -13,7 +13,7 @@ const URL = `${BASE}/supplements/turmeric`;
 
 const META_TITLE = "Is Turmeric Good for Arthritis? UK Curcumin Guide";
 const META_DESC =
-  "Honest UK guide to turmeric and curcumin for arthritis: the evidence, the right dose (around 1,000 mg/day), why black pepper matters for absorption, side effects and interactions.";
+  "Honest UK guide to turmeric and curcumin for arthritis: the evidence, doses used in studies, why black pepper matters for absorption, side effects and interactions.";
 
 const FAQS = [
   {
@@ -200,9 +200,10 @@ export default function Turmeric() {
                   over 28 days, with significantly better tolerability.
                 </li>
                 <li>
-                  <strong>Daily 2016 systematic review and meta-analysis</strong> — around
-                  1,000 mg/day curcumin produces clinically meaningful pain and function
-                  improvements in arthritis, comparable to NSAIDs short-term.
+                  <strong>Daily 2016 systematic review and meta-analysis</strong> — pooled
+                  small, short trials (often around 1,000 mg/day curcumin) and found some
+                  improvement in arthritis pain, but the trials were few and of limited quality.
+                  Check with your GP or pharmacist before starting it.
                 </li>
                 <li>
                   <strong>Wang 2021</strong> — curcumin reduced knee OA pain and improved WOMAC

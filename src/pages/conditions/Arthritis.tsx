@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '@/components/SeoHead';
@@ -139,6 +140,7 @@ export default function Arthritis() {
         ))}
       </section>
 
+      <UrgentHelpAndSources path="/conditions/arthritis" />
       <EducationalDisclaimerBox lastReviewed="2026-09-16" />
       <TopicClusterNav path="/conditions/arthritis" />
     </article>

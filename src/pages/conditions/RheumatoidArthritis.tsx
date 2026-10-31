@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -394,6 +395,7 @@ const RheumatoidArthritis = () => (
             ]}
           />
           <ArticleCitations citations={CITATIONS_RA} />
+          <UrgentHelpAndSources path="/conditions/rheumatoid-arthritis" />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/rheumatoid-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/rheumatoid-arthritis" title="Explore related resources" />

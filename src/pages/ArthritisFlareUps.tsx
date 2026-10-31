@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -572,11 +573,31 @@ export default function ArthritisFlareUps() {
           </CardContent>
         </Card>
 
+        {/* ────── Early warning signs (merged from /blog/arthritis-flare-management) ────── */}
+        <section aria-labelledby="flare-early-warning" className="mt-12">
+          <h2 id="flare-early-warning" className="text-2xl font-bold text-foreground mb-3">Early warning signs of a flare</h2>
+          <p className="text-muted-foreground mb-3">
+            Many people notice clues before a full flare. Spotting them early gives you time to ease off and start your flare plan:
+          </p>
+          <ul className="list-disc pl-6 space-y-1 text-foreground mb-3">
+            <li>stiffness, especially in the morning, that lasts longer than usual</li>
+            <li>unusual tiredness or feeling drained</li>
+            <li>a joint that looks puffier or feels warmer than yesterday</li>
+            <li>trouble concentrating or a &ldquo;foggy&rdquo; feeling (common in inflammatory arthritis)</li>
+            <li>low mood or irritability without a clear reason</li>
+            <li>a joint that will not bend or straighten as far as usual</li>
+          </ul>
+          <p className="text-muted-foreground">
+            Contact your GP or rheumatology advice line if a flare is not settling with your usual plan, or if you are unsure about your medicines. A hot, swollen joint with a high temperature needs urgent help &ndash; see below.
+          </p>
+        </section>
+
         {/* ────── Medical Disclaimer ────── */}
         <p className="text-xs text-muted-foreground mt-8 leading-relaxed">
           <strong>Medical disclaimer:</strong> This guide is for educational purposes only and does not replace professional medical advice. Content is aligned with publicly available national clinical and NICE guidance as of March 2026. Always consult your GP, rheumatologist, or physiotherapist before making changes to your treatment plan. In an emergency, call 999.
         </p>
         
+      <UrgentHelpAndSources path="/arthritis-flare-ups" />
       <EducationalDisclaimerBox lastReviewed="2026-09-17" />
       <TopicClusterNav path="/arthritis-flare-ups" />
 <CrossLinkBanner preset="flareup" exclude="/arthritis-flare-ups" title="More arthritis resources" />

@@ -1,3 +1,4 @@
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -320,6 +321,7 @@ const KneeArthritis = () => (
             </Link>
           </div>
 
+      <UrgentHelpAndSources path="/conditions/knee-arthritis" />
       <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
       <TopicClusterNav path="/conditions/knee-arthritis" />
 <CrossLinkBanner

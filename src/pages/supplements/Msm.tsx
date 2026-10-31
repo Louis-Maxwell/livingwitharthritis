@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: "What is the correct MSM dosage?",
-    a: "Most trials use 1,500–3,000 mg per day, split into two or three doses with food. Doses up to 6,000 mg have been used safely short term but offer no clear extra benefit.",
+    a: "Most trials use 1,500–3,000 mg per day, split into two or three doses with food. Higher doses have been studied only briefly and show no clear extra benefit. Check with your GP or pharmacist before starting it.",
   },
   {
     q: "How long does MSM take to work?",
