@@ -69,7 +69,8 @@
     "seo:keywords": "node scripts/generate-keyword-coverage.mjs",
     "seo:built-audit": "node scripts/audit-built-site.mjs",
     "seo:route-words": "node scripts/check-route-words.mjs",
-    "seo:snapshot-bodies": "node scripts/snapshot-rendered-bodies.mjs"
+    "seo:snapshot-bodies": "node scripts/snapshot-rendered-bodies.mjs",
+    "seo:sitemap-html": "node scripts/check-sitemap-html.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.3.1",
