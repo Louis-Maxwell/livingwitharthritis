@@ -397,7 +397,7 @@ const Osteoarthritis = () => (
                 { label: "Joint protection — easier everyday tasks", to: "/blog/joint-protection-easier-everyday-tasks" },
                 { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
                 { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
-                { label: "Benefits & PIP hub", to: "/benefits-pip" },
+                { label: "Benefits & PIP hub", to: "/guides/benefits-pip" },
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
                 { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 { label: "Community & peer support", to: "/community" },
@@ -447,7 +447,7 @@ const Osteoarthritis = () => (
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes (UK)</Link> — footwear that reduces load</li>
           <li><Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline underline-offset-2">Knee supplements</Link> — honest evidence; no joint-rebuild claims</li>
           <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link> — easier everyday tasks</li>
-          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />

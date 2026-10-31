@@ -268,7 +268,7 @@ const PsoriaticArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for psoriatic arthritis", to: "/diet" },
+                { label: "Best diet for psoriatic arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                 { label: "Foods to avoid with arthritis", to: "/blog/category/diet-lifestyle" },
                 { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
@@ -332,7 +332,7 @@ const PsoriaticArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/diet",
+                to: "/guides/diet",
                 eyebrow: "Nutrition",
                 title: "Anti-inflammatory diet for PsA",
                 description: "Foods that may calm both joint and skin inflammation in psoriatic disease.",

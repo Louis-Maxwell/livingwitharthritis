@@ -11,6 +11,7 @@ import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_PAIN_RELIEF } from "@/data/clinical/ukCitations";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
@@ -23,8 +24,9 @@ const jsonLd = {
   "url": URL,
   "inLanguage": "en-GB",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
-  "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
+  "dateModified": "2026-10-31",
+  "author": LOUIS_MAXWELL_REF,
+  "reviewedBy": LOUIS_MAXWELL_REF,
   "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
   "about": { "@type": "MedicalCondition", "name": "Arthritis" },
   "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
@@ -36,8 +38,8 @@ const faqLd = {
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "What is the fastest way to relieve arthritis pain?", "acceptedAnswer": { "@type": "Answer", "text": "For an acute flare, the quickest practical relief is a 15–20 minute application of cold (for hot, swollen joints) or heat (for stiff, aching joints), combined with a short course of topical NSAID gel and gentle range-of-motion movement. Avoid full rest — joints stiffen quickly when immobilised." } },
-    { "@type": "Question", "name": "What is the best painkiller for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "UK guidance (NICE) suggests starting with topical NSAID gels (e.g. ibuprofen or diclofenac) for knee and hand osteoarthritis. Oral NSAIDs are added if needed at the lowest effective dose for the shortest time. Paracetamol alone is now considered less effective than previously believed. Always check with your GP or pharmacist before regular use." } },
-    { "@type": "Question", "name": "Does exercise really help arthritis pain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — supervised exercise is the single most evidence-supported treatment for osteoarthritis pain and function, with effect sizes comparable to NSAIDs but without the side effects. Walking, cycling, swimming, tai chi and strength work all help when done consistently for 8–12 weeks." } },
+    { "@type": "Question", "name": "What is the best painkiller for arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "UK guidance (NICE) suggests starting with topical NSAID gels (e.g. ibuprofen or diclofenac) for knee and hand osteoarthritis. Oral NSAIDs are added if needed at the lowest effective dose for the shortest time. NICE says paracetamol should not be routinely offered for osteoarthritis because there is no strong evidence that it helps. Always check with your GP or pharmacist before regular use." } },
+    { "@type": "Question", "name": "Does exercise really help arthritis pain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — supervised exercise is the single most evidence-supported treatment for osteoarthritis pain and function, NICE recommends therapeutic exercise as a core treatment for osteoarthritis. Walking, cycling, swimming, tai chi and strength work can all help when done regularly and built up gradually." } },
     { "@type": "Question", "name": "What foods reduce arthritis pain?", "acceptedAnswer": { "@type": "Answer", "text": "A Mediterranean-style diet rich in oily fish, olive oil, vegetables, beans, nuts and whole grains is associated with lower pain and stiffness scores. Cutting ultra-processed food, sugary drinks and excess alcohol reduces systemic inflammation." } },
     { "@type": "Question", "name": "When should I see a GP about arthritis pain?", "acceptedAnswer": { "@type": "Answer", "text": "See your GP if pain lasts more than six weeks, wakes you at night, is associated with joint swelling, redness or warmth, or limits daily activities. Early review is especially important if you suspect an inflammatory arthritis (morning stiffness lasting over an hour, multiple joints affected)." } }
   ]
@@ -110,7 +112,7 @@ const ArthritisPainRelief = () => (
             <Link to="/guides/newly-diagnosed" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/5 transition-colors">
               Newly diagnosed?
             </Link>
-            <Link to="/benefits-pip" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-semibold hover:bg-muted/40 transition-colors">
+            <Link to="/guides/benefits-pip" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-semibold hover:bg-muted/40 transition-colors">
               Money &amp; PIP help
             </Link>
           </div>
@@ -143,7 +145,7 @@ const ArthritisPainRelief = () => (
           <ul>
             <li><strong>Topical NSAID gel first</strong> — ibuprofen or diclofenac, applied 3× a day to the painful joint. Fewer side effects than tablets.</li>
             <li><strong>Oral NSAIDs</strong> — short courses with food, at the lowest effective dose. Always check with your pharmacist if you take blood thinners, have asthma, or have stomach problems.</li>
-            <li><strong>Paracetamol</strong> — useful as an add-on, less effective on its own than once thought.</li>
+            <li><strong>Paracetamol</strong> — NICE says there is no strong evidence that it helps osteoarthritis, so it is not routinely offered. Ask your pharmacist or GP whether it is right for you.</li>
             <li><strong>Capsaicin cream</strong> — derived from chilli; NICE evidence supports a possible benefit for knee osteoarthritis, but it can sting at first and is not a routine first-line option.</li>
             <li><strong>Corticosteroid injections</strong> — your GP can refer for these for a single severely painful joint.</li>
           </ul>
@@ -159,7 +161,7 @@ const ArthritisPainRelief = () => (
             <li>Plenty of beans, lentils and whole grains</li>
             <li>Less than 14 units of alcohol a week; ideally less</li>
           </ul>
-          <p>Losing even 5% of body weight measurably reduces knee and hip pain.</p>
+          <p>If you are overweight, NICE says any weight loss is likely to help osteoarthritis, and losing 10% of your body weight is likely to be better than 5%. See the full <Link to="/guides/diet" className="text-primary underline">arthritis diet guide</Link>.</p>
         </Section>
 
         <Section icon={Moon} title="5. Protect your sleep">
@@ -183,6 +185,47 @@ const ArthritisPainRelief = () => (
           </ul>
         </Section>
 
+        <Section icon={Activity} title="7. Pace your day">
+          <p>Pacing means spreading activity through the day so you avoid a cycle of overdoing it on good days and paying for it afterwards. It is one of the simplest ways to keep pain more predictable.</p>
+          <ul>
+            <li><strong>Break big jobs into smaller ones</strong> — hoover one room, then sit down for a few minutes</li>
+            <li><strong>Plan your week</strong> — spread heavier tasks such as shopping, cleaning and gardening across different days</li>
+            <li><strong>Use a baseline</strong> — find an amount of activity you can manage on a bad day, then build up slowly from there</li>
+            <li><strong>Notice your patterns</strong> — a short pain and activity diary can show what helps and what flares your joints</li>
+          </ul>
+        </Section>
+
+        <Section icon={Heart} title="8. Use aids and protect your joints">
+          <p>Small changes at home and on the move can take load off painful joints.</p>
+          <ul>
+            <li><strong>Walking aids</strong> — NICE says walking aids such as a walking stick can be considered for people with hip or knee osteoarthritis. A physiotherapist can check the right height and which hand to use.</li>
+            <li><strong>Footwear</strong> — comfortable, supportive shoes can make walking easier; see <Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline">walking shoes for arthritis</Link>.</li>
+            <li><strong>Gadgets</strong> — jar openers, tap turners, perching stools and long-handled reachers reduce strain on hands, hips and knees.</li>
+            <li><strong>Occupational therapy</strong> — your GP or council can refer you for an assessment if daily tasks are getting hard.</li>
+          </ul>
+        </Section>
+
+        <Section icon={Moon} title="9. Look after your mood">
+          <p>Long-term pain and low mood often feed each other. Feeling stressed, anxious or low can make pain feel worse, and pain can make it harder to do the things you enjoy. This is a normal response, not a sign of weakness.</p>
+          <ul>
+            <li>Keep in touch with friends and family, and keep doing activities you enjoy where you can</li>
+            <li>Try relaxation, breathing exercises or mindfulness to help with tension</li>
+            <li>Talk to your GP if your mood is low most days; you can also refer yourself to NHS Talking Therapies in England</li>
+          </ul>
+          <p>To learn why pain can persist even when a joint is not getting more damaged, read <Link to="/guides/understanding-pain" className="text-primary underline">understanding pain</Link>.</p>
+        </Section>
+
+        <Section icon={Pill} title="Treatments NICE does not recommend for osteoarthritis">
+          <p>Some treatments are widely advertised but are not recommended by NICE for osteoarthritis, because there is not enough evidence that they help:</p>
+          <ul>
+            <li><strong>Acupuncture and dry needling</strong></li>
+            <li><strong>Electrotherapy</strong>, including TENS machines</li>
+            <li><strong>Glucosamine</strong> — see our <Link to="/supplements" className="text-primary underline">supplements hub</Link></li>
+            <li><strong>Strong opioids</strong> for long-term osteoarthritis pain</li>
+          </ul>
+          <p>Some people still find these helpful. Talk to your GP or physiotherapist before spending money on them, and do not stop prescribed treatment.</p>
+        </Section>
+
         <Section icon={Heart} title="When to see your GP">
           <p>Book an appointment if:</p>
           <ul>
@@ -193,6 +236,7 @@ const ArthritisPainRelief = () => (
             <li>You're taking regular painkillers more than 2–3 times a week</li>
             <li>You're losing weight, feeling feverish or generally unwell alongside joint pain</li>
           </ul>
+          <p><strong>Get help the same day</strong> (GP or NHS 111) if one joint suddenly becomes hot, red, swollen and very painful, especially with a fever. Call 999 in an emergency.</p>
           <p>If you're already on a waiting list, our <Link to="/arthritis-waiting-list-help" className="text-primary underline">waiting-list help guide</Link> covers what you can do in the meantime.</p>
         </Section>
 
@@ -219,8 +263,8 @@ const ArthritisPainRelief = () => (
           <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes for arthritis</Link> — footwear that reduces load</li>
           <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> — symptoms, management and next steps</li>
-          <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link> · <Link to="/blog/omega-3-foods-for-joints" className="text-primary underline underline-offset-2">Omega-3 foods</Link> · <Link to="/blog/anti-inflammatory-diet-rheumatoid-arthritis" className="text-primary underline underline-offset-2">RA anti-inflammatory diet</Link></li>
-          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li><Link to="/guides/diet" className="text-primary underline underline-offset-2">Diet hub</Link> · <Link to="/blog/omega-3-foods-for-joints" className="text-primary underline underline-offset-2">Omega-3 foods</Link> · <Link to="/blog/anti-inflammatory-diet-rheumatoid-arthritis" className="text-primary underline underline-offset-2">RA anti-inflammatory diet</Link></li>
+          <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
           <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link> — first-week checklist</li>
           <li><Link to="/supplements/turmeric" className="text-primary underline underline-offset-2">Turmeric / curcumin</Link> — evidence, dose and safety</li>
         </ul>

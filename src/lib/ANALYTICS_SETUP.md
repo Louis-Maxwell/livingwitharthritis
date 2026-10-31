@@ -237,7 +237,7 @@ if (isLandingPage(location.pathname)) {
 **Current landing pages:**
 - `/` (home)
 - `/about`
-- `/diet`
+- `/guides/diet`
 - `/exercises`
 - `/arthritis-flare-ups`
 - `/guides/exercise`

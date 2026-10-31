@@ -337,16 +337,6 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
-  "/guides/diet": withDefaults({
-    question: "What is the best anti-inflammatory diet for arthritis?",
-    answer:
-      "A Mediterranean-style pattern — vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses, with less ultra-processed food — has the strongest evidence for supporting joint health. It does not replace prescribed treatment.",
-    faqs: [
-      { q: "Does turmeric cure arthritis?", a: "No. Curcumin supplements show modest pain benefits in some trials but are not a cure and can interact with medicines — ask a pharmacist." },
-      { q: "Will diet replace my medicines?", a: "No. Food patterns support care; they do not replace DMARDs, biologics or GP advice." },
-      { q: "Where is the Mediterranean meal plan?", a: "See our Mediterranean diet for arthritis page for a practical UK-focused plan." },
-    ],
-  }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
@@ -406,7 +396,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "What is the charity number?", a: "1218461 (England and Wales)." },
     ],
   }),
-  "/diet": withDefaults({
+  "/guides/diet": withDefaults({
     question: "What is the best diet for arthritis?",
     answer:
       "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",

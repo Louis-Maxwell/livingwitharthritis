@@ -225,7 +225,7 @@ const KneeArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet helps knee arthritis?">
-          <p>Weight loss is the single most powerful non-surgical treatment for knee arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in knee pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
+          <p>Weight loss is the single most powerful non-surgical treatment for knee arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in knee pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
             <li>Plenty of vegetables, berries, nuts, olive oil and whole grains</li>
@@ -284,7 +284,7 @@ const KneeArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],

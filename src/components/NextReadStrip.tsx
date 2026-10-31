@@ -32,7 +32,7 @@ const DEFAULT_POOL: NextReadItem[] = [
     blurb: "Low-impact routines for knees, hips and hands. Clinically reviewed.",
   },
   {
-    to: "/diet",
+    to: "/guides/diet",
     eyebrow: "Nutrition",
     title: "Anti-inflammatory diet",
     blurb: "Mediterranean eating that helps stiffness and joint pain.",

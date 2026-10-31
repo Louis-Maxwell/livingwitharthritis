@@ -375,7 +375,7 @@ export default function CollagenAlternatives() {
                 <li>
                   <strong>An anti-inflammatory eating pattern.</strong> Mediterranean-style
                   eating lowers pain and stiffness scores and supports weight control.{' '}
-                  <Link to="/diet" className="text-primary underline">
+                  <Link to="/guides/diet" className="text-primary underline">
                     Diet guide
                   </Link>
                   .
@@ -421,7 +421,7 @@ export default function CollagenAlternatives() {
                 Read the collagen guide
               </Link>
               <Link
-                to="/diet"
+                to="/guides/diet"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
               >
                 Anti-inflammatory diet

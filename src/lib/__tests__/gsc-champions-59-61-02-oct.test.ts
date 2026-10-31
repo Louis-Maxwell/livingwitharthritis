@@ -7,7 +7,7 @@ import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 const REVIEW = "2026-10-02";
 
 const AA_LINKS = [
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/carers-allowance-help-if-you-care-for-someone",
@@ -27,7 +27,7 @@ const FLARE_LINKS = [
   "/exercises",
   "/blog/walking-with-arthritis-start-build-up-keep-going",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 const FATIGUE_LINKS = [
@@ -38,7 +38,7 @@ const FATIGUE_LINKS = [
   "/blog/joint-protection-easier-everyday-tasks",
   "/guides/newly-diagnosed",
   "/blog/access-to-work-scheme-arthritis-guide",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 describe("GSC Champions 59–61 (2 Oct): attendance-allowance + flare-up + fatigue", () => {

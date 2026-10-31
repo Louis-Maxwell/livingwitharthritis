@@ -129,7 +129,7 @@ export const VISITOR_JOBS: VisitorJob[] = [
 /** Quieter "everything else" links under the grid — all real routes. */
 export const MORE_TOPICS: JobLink[] = [
   { label: "Search all guides", href: "/search" },
-  { label: "Diet & nutrition", href: "/diet" },
+  { label: "Diet & nutrition", href: "/guides/diet" },
   { label: "Medicines explained", href: "/treatments/drug-guide" },
   { label: "Arthritis blog", href: "/blog" },
   { label: "Resource centre", href: "/resource-centre" },

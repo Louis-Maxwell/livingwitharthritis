@@ -188,7 +188,7 @@ const data: ConditionPageData = {
     },
     {
       label: "Anti-inflammatory diet",
-      to: "/diet",
+      to: "/guides/diet",
       desc: "Mediterranean meal plans that work alongside gout treatment",
     },
     {

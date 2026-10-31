@@ -28,7 +28,7 @@ const redactAnalyticsText = (value: string): string =>
 export const LANDING_PAGES = [
   "/",
   "/about",
-  "/diet",
+  "/guides/diet",
   "/exercises",
   "/arthritis-flare-ups",
   "/guides/exercise",

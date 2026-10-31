@@ -19,7 +19,7 @@ const TOP_ARTICLES = [
     blurb: "Low-impact routines for knees, hips and hands, clinically reviewed.",
   },
   {
-    to: "/diet",
+    to: "/guides/diet",
     title: "Anti-inflammatory diet for arthritis",
     blurb: "Mediterranean eating that helps stiffness and joint pain.",
   },

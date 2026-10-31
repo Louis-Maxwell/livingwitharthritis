@@ -51,12 +51,6 @@ Last updated: 2026-08-29
 Q: Who writes Living With Arthritis content?
 A: Living With Arthritis content is written by our editorial team and led clinically by Louis Maxwell (Maxwell), a First Contact Practitioner registered with the HCPC (PH128483) and a CSP member. Every clinical page is reviewed against NHS and NICE guidance before publication.
 
-## Benefits & PIP for Arthritis: UK Financial Help Directory
-URL: https://livingwitharthritis.org.uk/benefits-pip
-Last updated: 2026-10-10
-Q: What financial help can I get with arthritis in the UK?
-A: If arthritis affects your daily life or work, you may be able to get disability benefits (PIP, or Adult Disability Payment in Scotland, or Attendance Allowance over State Pension age), income support (Universal Credit, ESA, Pension Credit), help for carers, grants for home adaptations, council tax reductions, energy and health cost help, and travel concessions. Rules differ across the UK nations.
-
 ## Arthritis blog UK | Exercise, diet, PIP and pain guides
 URL: https://livingwitharthritis.org.uk/blog
 Q: Where can I read UK arthritis guides on exercise, diet and PIP?
@@ -323,19 +317,6 @@ Q: Should I get an injection in my shoulder?
 A: Corticosteroid injections can give 6–12 weeks of meaningful pain relief and are useful to bridge a flare or to allow physiotherapy to progress. Most clinicians limit injections to 2–3 per year.
 Q: When is shoulder replacement needed?
 A: Shoulder replacement is considered when night pain is severe, function is limited despite physiotherapy and injections, and X-rays confirm advanced joint changes. The reverse total shoulder replacement is the most common option in the UK.
-
-## Best Arthritis Diet UK | Anti-Inflammatory Foods
-URL: https://livingwitharthritis.org.uk/diet
-Q: What is the best diet for arthritis?
-A: The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.
-Q: Can diet cure arthritis?
-A: No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends.
-Q: How much weight should I lose for knee or hip osteoarthritis?
-A: NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support.
-Q: What is a Mediterranean diet for arthritis?
-A: NICE NG100 describes it as more bread, fruit, vegetables and fish, less meat, and replacing butter and cheese with products based on vegetable and plant oils.
-Q: Should I cut out alcohol?
-A: The NHS advises people with arthritis not to drink too much alcohol and not to smoke. If you take methotrexate, follow the alcohol limits your rheumatology team gives you.
 
 ## Diet & Nutrition Hub for Arthritis | UK
 URL: https://livingwitharthritis.org.uk/diet-hub

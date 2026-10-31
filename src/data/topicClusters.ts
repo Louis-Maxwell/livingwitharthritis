@@ -198,7 +198,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
   {
     id: "diet",
     label: "Arthritis diet",
-    pillarPath: "/diet",
+    pillarPath: "/guides/diet",
     pillarTitle: "Diet hub",
     supportingPaths: [
       "/guides/diet",
@@ -374,7 +374,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/blog/depression-arthritis-when-to-seek-help",
       "/blog/how-to-sleep-with-arthritis-uk",
       "/exercises",
-      "/diet",
+      "/guides/diet",
       "/chat",
       "/resources/flare-action-plan",
     ],
@@ -404,7 +404,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     supportingPaths: [
       "/faq/arthritis-disability-benefits-uk",
       "/blog/pip-for-arthritis-uk",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/blog/sick-pay-fit-notes-time-off-work-arthritis",
       "/blog/carers-allowance-help-if-you-care-for-someone",
       "/blog/carers-assessment-arthritis-frailty-uk",
@@ -418,7 +418,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/guides/work-with-arthritis",
       "/guides/insurance-coverage",
     ],
-    toolPath: "/benefits-pip",
+    toolPath: "/guides/benefits-pip",
     toolLabel: "Benefits & PIP hub",
     triggers: [
       "pip",

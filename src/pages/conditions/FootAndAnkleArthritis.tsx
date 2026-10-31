@@ -229,7 +229,7 @@ const FootAndAnkleArthritis = () => (
             <li><strong>Rocker or stiff sole</strong> for big toe arthritis to reduce joint bend at push-off</li>
             <li><strong>Removable insoles</strong> so NHS or private orthotics can fit</li>
             <li><strong>Low heel</strong> — under about 2.5 cm reduces forefoot pressure</li>
-            <li>Pair footwear changes with the same anti-inflammatory pattern in our <Link to="/diet" className="text-primary underline">Diet Hub</Link></li>
+            <li>Pair footwear changes with the same anti-inflammatory pattern in our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link></li>
           </ul>
         </Section>
 
@@ -302,7 +302,7 @@ const FootAndAnkleArthritis = () => (
             {
               title: "Diet & daily life",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Pain relief guide", to: "/guides/arthritis-pain-relief" },
                 { label: "Best walking shoes (blog)", to: "/blog/best-walking-shoes-arthritis-uk" },
               ],

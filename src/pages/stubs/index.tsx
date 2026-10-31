@@ -26,7 +26,7 @@ const home = { label: "Home", href: "/" };
 const sharedRelated = [
   { label: "All conditions", href: "/conditions/arthritis" },
   { label: "Exercise hub", href: "/exercises" },
-  { label: "Diet & nutrition", href: "/diet" },
+  { label: "Diet & nutrition", href: "/guides/diet" },
   { label: "Supplements", href: "/supplements" },
 ];
 

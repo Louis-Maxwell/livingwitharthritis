@@ -699,7 +699,7 @@ const ExerciseHub = () => {
               {
                 title: "Support your training",
                 links: [
-                  { label: "Anti-inflammatory diet", to: "/diet" },
+                  { label: "Anti-inflammatory diet", to: "/guides/diet" },
                   { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
                   { label: "Self-help joint tool", to: "/self-help" },
                   { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },

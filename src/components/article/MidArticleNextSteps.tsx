@@ -24,7 +24,7 @@ function pickSteps(category?: string, title?: string, keywords?: string): Step[]
   const guideFirst = /pip|benefit|diagnos|flare|treatment|medication/.test(hay);
 
   const diet: Step = {
-    to: "/diet",
+    to: "/guides/diet",
     label: "Diet & nutrition",
     blurb: "Anti-inflammatory eating for joint pain",
     Icon: Apple,

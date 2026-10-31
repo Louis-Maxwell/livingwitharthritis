@@ -113,7 +113,7 @@ ${assetTags}
           <li><a href="/exercises">Exercise hub</a> — joint-friendly movement guides</li>
           <li><a href="/conditions/rheumatoid-arthritis">Rheumatoid arthritis</a></li>
           <li><a href="/conditions/osteoarthritis">Osteoarthritis</a></li>
-          <li><a href="/benefits-pip">PIP &amp; benefits guidance</a></li>
+          <li><a href="/guides/benefits-pip">PIP &amp; benefits guidance</a></li>
           <li><a href="/arthritis-support">All city support hubs</a></li>
           <li><a href="/contact">Contact the charity</a></li>
         </ul>

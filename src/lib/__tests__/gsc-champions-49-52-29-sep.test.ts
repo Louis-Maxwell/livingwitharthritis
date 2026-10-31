@@ -11,16 +11,16 @@ const ABOUT_LINKS = [
   "/guides/arthritis-pain-relief",
   "/conditions/osteoarthritis",
   "/exercises",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/symptom-checker",
-  "/diet",
+  "/guides/diet",
 ];
 
 const NEWLY_LINKS = [
   "/guides/arthritis-pain-relief",
   "/conditions/osteoarthritis",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/access-to-work-scheme-arthritis-guide",
   "/exercises",
@@ -31,7 +31,7 @@ const NEWLY_LINKS = [
 ];
 
 const ACCESS_LINKS = [
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/sick-pay-fit-notes-time-off-work-arthritis",
@@ -49,7 +49,7 @@ const WALKING_LINKS = [
   "/guides/arthritis-pain-relief",
   "/guides/newly-diagnosed",
   "/blog/joint-protection-easier-everyday-tasks",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 describe("GSC Champions 49–52 (29 Sep): about + newly-diagnosed + Access to Work + walking", () => {

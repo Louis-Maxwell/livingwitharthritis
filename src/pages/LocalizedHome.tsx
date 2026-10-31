@@ -68,7 +68,7 @@ export default function LocalizedHome() {
           {[
             { label: t.home.sectionConditions, to: buildLangUrl(lang, "/conditions/osteoarthritis") },
             { label: t.home.sectionExercises, to: "/exercises" },
-            { label: t.home.sectionDiet, to: "/diet" },
+            { label: t.home.sectionDiet, to: "/guides/diet" },
           ].map((card) => (
             <Link
               key={card.label}

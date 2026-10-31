@@ -23,7 +23,7 @@ const CURATED = [
   "/",
   "/about",
   "/guides",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/search",
   "/authors/maxwell",
   // Correction (2026-07-23): a previous pass here added several routes
@@ -63,7 +63,7 @@ const CURATED = [
   "/blog",
   "/blog/archive",
   "/blog-hub",
-  "/diet",
+  "/guides/diet",
   "/diet/mediterranean-diet-for-arthritis",
   "/exercises",
   "/exercises/tai-chi-for-balance",

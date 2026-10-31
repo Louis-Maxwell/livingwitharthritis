@@ -135,7 +135,7 @@ const data: ConditionPageData = {
     },
     {
       label: "Anti-inflammatory diet",
-      to: "/diet",
+      to: "/guides/diet",
       desc: "Mediterranean meal plans to support recovery",
     },
     {

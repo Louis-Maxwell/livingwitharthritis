@@ -202,7 +202,7 @@ const Library = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-primary hover:underline font-medium" to="/benefits-pip">
+                  <Link className="text-primary hover:underline font-medium" to="/guides/benefits-pip">
                     Benefits &amp; PIP
                   </Link>
                 </li>

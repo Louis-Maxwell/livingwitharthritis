@@ -109,7 +109,7 @@ describe("resolveSeoRedirect", () => {
       "/guides/arthritis-pain-relief",
     );
     expect(resolveSeoRedirect("/library/exercise-hub")).toBe("/exercises");
-    expect(resolveSeoRedirect("/library/nutrition-hub")).toBe("/diet");
+    expect(resolveSeoRedirect("/library/nutrition-hub")).toBe("/guides/diet");
   });
 
   it("does not redirect real library or FAQ articles that still have copy", () => {
@@ -130,7 +130,7 @@ describe("resolveSeoRedirect", () => {
     expect(resolveSeoRedirect("/regions/northern-ireland")).toBe(
       "/blog/free-arthritis-support-northern-ireland",
     );
-    expect(resolveSeoRedirect("/finances")).toBe("/benefits-pip");
+    expect(resolveSeoRedirect("/finances")).toBe("/guides/benefits-pip");
     expect(resolveSeoRedirect("/lived-experiences")).toBe("/community");
     expect(resolveSeoRedirect("/impact-stories")).toBe("/community");
     expect(resolveSeoRedirect("/privacy-policy")).toBe("/privacy");

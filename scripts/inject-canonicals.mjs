@@ -337,7 +337,7 @@ function withLinkedSummaries(route, data) {
     ...[...String(data.bodyHtml || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
     ...(data.relatedLinks || []).map((l) => l.path),
     ...SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(`${route.split('/').slice(0, 2).join('/')}/`)),
-    '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/diet', '/guides/benefits-pip', '/helpline', '/arthritis-waiting-list-help', '/living-with-arthritis', '/guides/arthritis-pain-relief',
+    '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/guides/diet', '/guides/benefits-pip', '/helpline', '/arthritis-waiting-list-help', '/living-with-arthritis', '/guides/arthritis-pain-relief',
   ];
   const items = [];
   let words = have;

@@ -13,7 +13,7 @@ const OA_LINKS = [
   "/blog/best-supplement-for-knee-joint",
   "/blog/walking-with-arthritis-start-build-up-keep-going",
   "/blog/best-walking-shoes-arthritis-uk",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/joint-protection-easier-everyday-tasks",
 ];
@@ -24,7 +24,7 @@ const PAIN_LINKS = [
   "/blog/best-walking-shoes-arthritis-uk",
   "/conditions/osteoarthritis",
   "/exercises",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/omega-3-foods-for-joints",
 ];
@@ -58,7 +58,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
     "utf8",
   );
   const pip = readFileSync(
-    resolve(process.cwd(), "src/pages/BenefitsPipHub.tsx"),
+    resolve(process.cwd(), "src/pages/pillar/BenefitsPIPGuide.tsx"),
     "utf8",
   );
   const kb = readFileSync(
@@ -101,13 +101,13 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   });
 
   it("PIP hub has review 2026-09-28 and work/carer support blogs", () => {
-    expect(pip).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
+    expect(pip).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|10-23)"/);
     for (const href of PIP_LINKS) {
       expect(pip.includes(`"${href}"`) || pip.includes(`href: "${href}"`), `PIP missing ${href}`).toBe(true);
     }
     expect(pip.toLowerCase()).toContain("gov.uk");
     expect(pip).not.toMatch(/Oswestry/i);
-    expect(getClusterForPath("/benefits-pip")?.id).toBe("pip");
+    expect(getClusterForPath("/guides/benefits-pip")?.id).toBe("pip");
   });
 
   it("topicClusters fronts gold-pass / walking / joint-protection / PIP work blogs", () => {

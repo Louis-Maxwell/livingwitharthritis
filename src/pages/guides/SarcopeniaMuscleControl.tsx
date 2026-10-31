@@ -94,7 +94,7 @@ export default function SarcopeniaMuscleControl() {
       <section id="protein" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">3. Protein: how much and which sources work best</h2>
         <p className="leading-relaxed mb-4">Aim for 1.0–1.2 g/kg body weight daily. A 70 kg adult needs 70–84 g. Split across 3 meals — 25–30 g each — to maximise muscle protein synthesis. Leucine-rich sources (whey, eggs, dairy, fish, chicken, soya) are most effective.</p>
-        <p className="leading-relaxed">Plant-based? Combine legumes, tofu, tempeh, quinoa and a leucine-rich protein powder. See our <Link to="/diet" className="text-primary underline">diet hub</Link>.</p>
+        <p className="leading-relaxed">Plant-based? Combine legumes, tofu, tempeh, quinoa and a leucine-rich protein powder. See our <Link to="/guides/diet" className="text-primary underline">diet hub</Link>.</p>
       </section>
 
       <section id="strength" className="mb-12">

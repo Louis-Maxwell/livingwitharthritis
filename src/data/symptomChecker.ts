@@ -255,7 +255,7 @@ export const NEXT_STEP_RESOURCES: ResourceLink[] = [
   },
   {
     label: "Benefits & PIP hub",
-    href: "/benefits-pip",
+    href: "/guides/benefits-pip",
     description: "UK Personal Independence Payment guidance.",
   },
   {

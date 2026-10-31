@@ -407,7 +407,7 @@ export default function Glucosamine() {
                 Osteoarthritis guide
               </Link>
               <Link
-                to="/diet"
+                to="/guides/diet"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
               >
                 Anti-inflammatory diet
