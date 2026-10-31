@@ -102,6 +102,10 @@ jobs:
       - name: Sitemap route word-count gate
         run: npm run seo:route-words
 
+      # Soft-404 guard: h1, body, self canonical, unique meta, no not-found text.
+      - name: Sitemap HTML soft-404 gate
+        run: npm run seo:sitemap-html
+
       - name: Upload prerender meta report
         if: always()
         uses: actions/upload-artifact@v7
