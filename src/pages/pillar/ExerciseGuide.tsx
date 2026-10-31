@@ -203,8 +203,8 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Arthritis Exercises at Home UK | Living With Arthritis</title>
-        <meta name="description" content="Free arthritis exercises at home in the UK: explore knee, hip, hand and chair routines, safe progression and practical guidance from Living With Arthritis." />
+        <title>Arthritis Exercises at Home: Free Knee, Hip &amp; Hand Routines</title>
+        <meta name="description" content="Free physio-written arthritis exercises at home: knee, hip, hand and chair routines with safe progression tips and clear advice on when to stop." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />
       <meta property="og:title" content="Free physiotherapy exercises for arthritis at home UK – Knee, Hip, Hand &amp; Chair" />
