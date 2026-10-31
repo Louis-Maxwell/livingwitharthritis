@@ -98,9 +98,9 @@ export function pickHeadline(row) {
  */
 export function buildPageTitle(headline) {
   const h = String(headline ?? '')
-    .replace(/Living\\s+With\\s+Arthritis\\s+UK/gi, BRAND)
-    .replace(/Arthritis\\s*\\(UK\\)/gi, 'Arthritis')
-    .replace(/\\s+/g, ' ')
+    .replace(/Living\s+With\s+Arthritis\s+UK/gi, BRAND)
+    .replace(/Arthritis\s*\(UK\)/gi, 'Arthritis')
+    .replace(/\s+/g, ' ')
     .trim();
   if (!h) return BRAND;
   const withBrand = `${h} | ${BRAND}`;
