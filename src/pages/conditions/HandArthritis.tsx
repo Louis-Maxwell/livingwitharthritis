@@ -334,7 +334,7 @@ const HandArthritis = () => (
             </Link>
           </div>
 
-      <EducationalDisclaimerBox />
+      <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
       <TopicClusterNav path="/conditions/hand-arthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/hand-arthritis" title="Explore related resources" />
         </div>

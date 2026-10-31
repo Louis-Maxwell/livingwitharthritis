@@ -1,3 +1,4 @@
+import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
@@ -394,7 +395,7 @@ const BlogPost = () => {
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
-          "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+          "publisher": GUIDE_PUBLISHER_SCHEMA,
           "inLanguage": "en-GB",
           "mainEntity": { "@id": `${pageUrl}#article` },
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
@@ -552,7 +553,7 @@ const BlogPost = () => {
                         Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
-                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)}</span>
+                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
                       )}
                     </div>
                   </>

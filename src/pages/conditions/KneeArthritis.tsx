@@ -320,7 +320,7 @@ const KneeArthritis = () => (
             </Link>
           </div>
 
-      <EducationalDisclaimerBox />
+      <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
       <TopicClusterNav path="/conditions/knee-arthritis" />
 <CrossLinkBanner
           links={["guide-knee-oa", "flare-action-plan", "exercises", "guide-benefits"]}

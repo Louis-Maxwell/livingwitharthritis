@@ -75,6 +75,8 @@
   "/trust",
   "/community",
   "/trusted-local-services",
+  "/clinical-governance",
+  "/corrections-policy",
   "/privacy",
   "/cookies",
   "/accessibility",
