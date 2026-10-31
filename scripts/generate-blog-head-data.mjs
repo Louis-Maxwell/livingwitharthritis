@@ -97,7 +97,11 @@ export function pickHeadline(row) {
  * "Supporting a Partner With | …".
  */
 export function buildPageTitle(headline) {
-  const h = String(headline ?? '').replace(/\s+/g, ' ').trim();
+  const h = String(headline ?? '')
+    .replace(/Living\\s+With\\s+Arthritis\\s+UK/gi, BRAND)
+    .replace(/Arthritis\\s*\\(UK\\)/gi, 'Arthritis')
+    .replace(/\\s+/g, ' ')
+    .trim();
   if (!h) return BRAND;
   const withBrand = `${h} | ${BRAND}`;
   // Soft SERP-friendly target ~60–70 when we can keep a complete branded phrase.
