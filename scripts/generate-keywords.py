@@ -107,7 +107,7 @@ ex_templates = [
 ]
 for j in joints:
     for t in ex_templates:
-        add(t.format(j=j), "informational", "exercise", f"{j} exercise", "/exercise-hub")
+        add(t.format(j=j), "informational", "exercise", f"{j} exercise", "/exercises")
 
 # ---------- diet cluster ----------
 diet_terms = [
