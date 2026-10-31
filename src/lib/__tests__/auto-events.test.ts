@@ -34,7 +34,7 @@ describe("classifyLink", () => {
   });
 });
 
-type GtagWindow = Window & { gtag: ReturnType<typeof vi.fn> };
+type GtagWindow = { gtag: ReturnType<typeof vi.fn> };
 const w = () => window as unknown as GtagWindow;
 
 describe("installAutoEvents", () => {
