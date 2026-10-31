@@ -9,7 +9,7 @@
 //   npm run build && node scripts/snapshot-rendered-bodies.mjs [--all]
 import { chromium } from "playwright";
 import { spawn } from "node:child_process";
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { routeFile, wordCount } from "./lib/route-words.mjs";
 
 const OUT = "scripts/data/rendered-bodies.json";
@@ -22,7 +22,8 @@ let routes = only.length ? only : [...sitemap.matchAll(/<loc>https?:\/\/[^/]+([^
 if (!all && !only.length) routes = routes.filter((r) => { const f = routeFile(r); return f && wordCount(readFileSync(f, "utf8")) < MIN; });
 console.log(`[snapshot] ${routes.length} routes`);
 
-const store = existsSync(OUT) ? JSON.parse(readFileSync(OUT, "utf8")) : {};
+let store = {};
+try { store = JSON.parse(readFileSync(OUT, "utf8")); } catch { store = {}; }
 const server = spawn("npx", ["vite", "preview", "--port", "4179", "--strictPort"], { stdio: "ignore" });
 await new Promise((r) => setTimeout(r, 4000));
 const browser = await chromium.launch();
