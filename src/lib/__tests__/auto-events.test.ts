@@ -34,8 +34,11 @@ describe("classifyLink", () => {
   });
 });
 
+type GtagWindow = Window & { gtag: ReturnType<typeof vi.fn> };
+const w = () => window as unknown as GtagWindow;
+
 describe("installAutoEvents", () => {
-  beforeEach(() => { (window as any).gtag = vi.fn(); });
+  beforeEach(() => { w().gtag = vi.fn(); });
   it("sends events with page_location on a real click and video end", () => {
     installAutoEvents();
     const link = a("tel:0800");
@@ -45,9 +48,9 @@ describe("installAutoEvents", () => {
     const v = document.createElement("video");
     document.body.appendChild(v);
     v.dispatchEvent(new Event("ended"));
-    const names = (window as any).gtag.mock.calls.map((c: unknown[]) => c[1]);
+    const names = w().gtag.mock.calls.map((c: unknown[]) => c[1]);
     expect(names).toEqual(expect.arrayContaining(["phone_click", "generate_lead", "video_complete"]));
-    const params = (window as any).gtag.mock.calls[0][2];
+    const params = w().gtag.mock.calls[0][2];
     expect(params.page_location).toMatch(/^https?:\/\//);
   });
 });
