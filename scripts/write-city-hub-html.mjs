@@ -12,6 +12,9 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CITY_HUBS, SITE } from "./seo-redirect-map.mjs";
+
+// Near-duplicate city templates Google never crawled: noindex,follow and out of the sitemap.
+const ROUTE_NOINDEX = new Set(JSON.parse(readFileSync(resolve("src/data/route-noindex.json"), "utf8")));
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 
 // Each hub's own rendered content (scripts/snapshot-rendered-bodies.mjs).
@@ -82,7 +85,7 @@ export function buildCityHubHtml(city, assetTags = "") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="${ROUTE_NOINDEX.has(`/arthritis-support/${city.slug}`) ? "noindex, follow" : "index, follow"}" />
     <link rel="canonical" href="${abs}" />
     <meta property="og:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />

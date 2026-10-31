@@ -7,6 +7,7 @@ import DeferredMount from "@/components/DeferredMount";
 const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
+import HubSpotlight from "@/components/HubSpotlight";
 import SocialLinks from "@/components/SocialLinks";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
 
@@ -106,6 +107,8 @@ const columns = [
 
 const Footer = () => {
   return (
+    <>
+    <HubSpotlight />
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
       <DeferredMount>
@@ -233,6 +236,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

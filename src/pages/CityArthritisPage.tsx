@@ -1,6 +1,7 @@
 ﻿import { useParams, Link } from "react-router-dom";
 import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet-async";
+import routeNoindex from "@/data/route-noindex.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -70,7 +71,7 @@ const CityArthritisPage = () => {
       <Helmet>
         <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
         <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content={routeNoindex.includes(`/arthritis-support/${cityData.slug}`) ? "noindex, follow" : "index, follow"} />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta property="og:description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:url" content={`${BASE}/arthritis-support/${cityData.slug}`} />

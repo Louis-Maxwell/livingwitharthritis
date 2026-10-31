@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import routeNoindex from "@/data/route-noindex.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -94,6 +95,7 @@ const LibraryTopic = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        {routeNoindex.includes(`/library/${topic.slug}`) && <meta name="robots" content="noindex,follow" />}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />

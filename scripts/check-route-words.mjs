@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
  * Soft-404 gate: every sitemap route must ship crawler HTML with at least
- * MIN_ROUTE_WORDS (default 250) visible words. Run after a build.
+ * MIN_ROUTE_WORDS (default 300) visible words. Run after a build.
  */
 import { readFileSync } from "node:fs";
 import { routeFile, wordCount } from "./lib/route-words.mjs";
 
-const MIN = Number(process.env.MIN_ROUTE_WORDS || 250);
+const MIN = Number(process.env.MIN_ROUTE_WORDS || 300);
 const dist = process.argv[2] || "dist";
 const routes = [...readFileSync(`${dist}/sitemap.xml`, "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)]
   .map((m) => new URL(m[1]).pathname);
