@@ -257,9 +257,19 @@ async function main() {
       const peers = rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
         .map((p) => ({ post: p, score: (p.title.toLowerCase().match(/[a-z]{4,}/g) || []).filter((t) => terms.has(t)).length }))
         .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3);
-      entry.relatedLinks = [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
-        ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
-        ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
+      // Keep generated links crawl-safe: archive is stable and peer links are
+      // selected only from the published local inventory. Do not invent
+      // /blog/category/* URLs unless a route is explicitly published.
+      const related = [
+        { path: '/blog/archive', title: 'Browse all arthritis guides' },
+        ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title })),
+      ];
+      const seenPaths = new Set();
+      entry.relatedLinks = related.filter((link) => {
+        if (seenPaths.has(link.path)) return false;
+        seenPaths.add(link.path);
+        return true;
+      });
       data[`/blog/${row.slug}`] = entry;
     }
   }
