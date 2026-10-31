@@ -164,7 +164,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Osteoarthritis guide", href: "/conditions/osteoarthritis" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
       { label: "Understanding pain", href: "/guides/understanding-pain" },
-      { label: "Benefits & PIP", href: "/benefits-pip" },
+      { label: "Benefits & PIP", href: "/guides/benefits-pip" },
     ],
     extraSections: [
       {
@@ -237,7 +237,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       { label: "Exercise for arthritis", href: "/guides/exercise" },
       { label: "Arthritis pain relief", href: "/guides/arthritis-pain-relief" },
       { label: "Understanding pain", href: "/guides/understanding-pain" },
-      { label: "Benefits & PIP", href: "/benefits-pip" },
+      { label: "Benefits & PIP", href: "/guides/benefits-pip" },
     ],
   },
   "access-to-work": {
@@ -246,7 +246,7 @@ export const LIBRARY_TOPIC_SEO: Record<string, LibraryTopicSeo> = {
       "Access to Work can fund equipment, travel and support workers if arthritis affects your job. Who can apply in England, Scotland and Wales, and how.",
     h1: "Access to Work for arthritis: UK workplace support explained",
     related: [
-      { label: "Benefits & PIP hub", href: "/benefits-pip" },
+      { label: "Benefits & PIP hub", href: "/guides/benefits-pip" },
       { label: "Full PIP & benefits guide", href: "/guides/benefits-pip" },
       { label: "Disability support", href: "/guides/disability-support" },
       { label: "Working with arthritis (rights)", href: "/blog/working-with-arthritis-uk-rights" },
@@ -357,7 +357,7 @@ export function getLibraryPillarRelated(
 
   if (category === "Support" || slug.includes("pip") || slug.includes("access-to-work") || slug.includes("benefit")) {
     return [
-      { label: "Benefits & PIP hub", href: "/benefits-pip" },
+      { label: "Benefits & PIP hub", href: "/guides/benefits-pip" },
       { label: "PIP guide", href: "/guides/benefits-pip" },
       { label: "Disability support", href: "/guides/disability-support" },
       { label: "Exercise for arthritis", href: "/guides/exercise" },

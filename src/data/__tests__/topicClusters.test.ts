@@ -62,7 +62,7 @@ describe("topicClusters", () => {
     expect(getClusterForPath("/blog/best-supplement-for-knee-joint")?.id).toBe("diet");
     expect(getClusterForPath("/faq/arthritis-disability-benefits-uk")?.id).toBe("pip");
     expect(getClusterForPath("/blog/pip-for-arthritis-uk")?.id).toBe("pip");
-    expect(getClusterForPath("/benefits-pip")?.id).toBe("pip");
+    expect(getClusterForPath("/guides/benefits-pip")?.id).toBe("pip");
     expect(getClusterForPath("/supplements")?.id).toBe("diet");
     expect(getClusterForPath("/supplements/glucosamine")?.id).toBe("diet");
     expect(getClusterForPath("/symptom-checker")?.id).toBe("symptoms");
@@ -88,7 +88,7 @@ describe("topicClusters", () => {
       expect.arrayContaining([
         "/faq/arthritis-disability-benefits-uk",
         "/blog/pip-for-arthritis-uk",
-        "/benefits-pip",
+        "/guides/benefits-pip",
       ]),
     );
   });

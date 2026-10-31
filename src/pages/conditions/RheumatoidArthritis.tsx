@@ -307,7 +307,7 @@ const RheumatoidArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for rheumatoid arthritis", to: "/diet" },
+                { label: "Best diet for rheumatoid arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                 { label: "Foods to avoid with arthritis", to: "/blog/category/diet-lifestyle" },
                 { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
@@ -373,7 +373,7 @@ const RheumatoidArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/diet",
+                to: "/guides/diet",
                 eyebrow: "Nutrition",
                 title: "Anti-inflammatory diet for RA",
                 description: "Mediterranean and omega-3 rich foods that may reduce inflammation and stiffness.",

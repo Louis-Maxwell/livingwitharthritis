@@ -230,7 +230,7 @@ const HandArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet and lifestyle changes help hand arthritis?">
-          <p>The same anti-inflammatory pattern that helps every type of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For hands specifically:</p>
+          <p>The same anti-inflammatory pattern that helps every type of arthritis applies — see our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>. For hands specifically:</p>
           <ul>
             <li>Stay hydrated — joint cartilage is 70% water</li>
             <li>Oily fish twice a week for omega-3</li>
@@ -297,7 +297,7 @@ const HandArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],

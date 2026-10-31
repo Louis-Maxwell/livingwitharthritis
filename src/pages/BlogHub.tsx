@@ -50,11 +50,11 @@ const CLUSTERS: HubCluster[] = [
       "Mediterranean eating, foods that calm inflammation and supplements with real evidence — written for UK readers.",
     Icon: Apple,
     accent: "from-primary/15 to-primary/10",
-    primary: { label: "Visit the Diet Hub", to: "/diet" },
+    primary: { label: "Visit the Diet Hub", to: "/guides/diet" },
     questions: [
-      { label: "How to reduce joint inflammation through food", to: "/diet" },
+      { label: "How to reduce joint inflammation through food", to: "/guides/diet" },
       { label: "What is the best anti-inflammatory diet for arthritis?", to: "/guides/diet" },
-      { label: "Foods to avoid with arthritis", to: "/diet" },
+      { label: "Foods to avoid with arthritis", to: "/guides/diet" },
       { label: "Mediterranean diet for joint pain — UK guide", to: "/guides/diet" },
       { label: "Are turmeric, omega-3 and collagen worth taking?", to: "/blog/category/diet-lifestyle" },
     ],
@@ -152,7 +152,7 @@ const CLUSTERS: HubCluster[] = [
       "UK-focused guidance on PIP, Access to Work, reasonable adjustments and practical help with employment.",
     Icon: BriefcaseBusiness,
     accent: "from-primary/10 to-primary/5",
-    primary: { label: "Visit the Benefits & PIP hub", to: "/benefits-pip" },
+    primary: { label: "Visit the Benefits & PIP hub", to: "/guides/benefits-pip" },
     questions: [
       { label: "Can you claim PIP for arthritis?", to: "/blog/pip-for-arthritis-uk" },
       { label: "Access to Work grants and support", to: "/blog/access-to-work-scheme-arthritis-guide" },
@@ -340,7 +340,7 @@ const BlogHub = () => {
             </p>
             <nav aria-label="Main arthritis topic guides" className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
               <Link to="/living-with-arthritis" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Living with arthritis</Link>
-              <Link to="/diet" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Diet & nutrition</Link>
+              <Link to="/guides/diet" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Diet & nutrition</Link>
               <Link to="/exercises" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Exercise</Link>
               <Link to="/arthritis-flare-ups" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Flares & daily life</Link>
               <Link to="/blog/category/treatments" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Treatment</Link>

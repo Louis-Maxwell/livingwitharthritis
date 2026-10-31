@@ -299,7 +299,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("UK national charity");
     expect(html).toContain("/exercises");
     expect(html).toContain("/conditions/rheumatoid-arthritis");
-    expect(html).toContain("/benefits-pip");
+    expect(html).toContain("/guides/benefits-pip");
   });
 
   it("keeps city doorways out of the curated prerender list", () => {

@@ -66,9 +66,9 @@ const PRIORITY_SLUGS = [
 /** Real, crawlable topic hubs surfaced above the grid. */
 const TOPIC_HUBS: { label: string; to: string; blurb: string }[] = [
   { label: "Exercise hub", to: "/exercises", blurb: "Joint-by-joint NICE-aligned routines" },
-  { label: "Diet hub", to: "/diet", blurb: "Anti-inflammatory & Mediterranean eating" },
+  { label: "Diet hub", to: "/guides/diet", blurb: "Anti-inflammatory & Mediterranean eating" },
   { label: "Conditions", to: "/conditions/osteoarthritis", blurb: "OA, RA and joint-specific guides" },
-  { label: "Benefits & PIP", to: "/benefits-pip", blurb: "Claims, evidence and appeals" },
+  { label: "Benefits & PIP", to: "/guides/benefits-pip", blurb: "Claims, evidence and appeals" },
   { label: "Treatments", to: "/blog/category/treatments", blurb: "Medicines, physio and NHS care" },
   { label: "Flare-ups", to: "/blog/arthritis-flare-up-what-to-do", blurb: "What to do when pain spikes" },
   { label: "Full archive", to: "/blog/archive", blurb: "All guides by date and topic" },

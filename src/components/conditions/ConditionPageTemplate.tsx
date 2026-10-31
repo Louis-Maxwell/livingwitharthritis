@@ -320,7 +320,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                 {
                   title: "Anti-inflammatory diet",
                   links: [
-                    { label: `Best diet for ${data.name.toLowerCase()}`, to: "/diet" },
+                    { label: `Best diet for ${data.name.toLowerCase()}`, to: "/guides/diet" },
                     { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                     { label: "Foods to avoid with arthritis", to: "/blog/category/diet-lifestyle" },
                     { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },

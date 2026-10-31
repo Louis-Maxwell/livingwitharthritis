@@ -29,7 +29,7 @@ const SAMPLE: SearchCatalogItem[] = [
   {
     id: "3",
     title: "Mediterranean diet hub",
-    href: "/diet",
+    href: "/guides/diet",
     excerpt: "Anti-inflammatory eating for joint health.",
     topic: "Guides & hubs",
     wordCount: 900,

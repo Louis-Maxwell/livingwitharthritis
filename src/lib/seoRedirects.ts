@@ -61,6 +61,11 @@ const JOINT_EXERCISE_HUB: Record<string, string> = {
 };
 
 export const EXACT_SEO_REDIRECTS: Record<string, string> = {
+  // Pillar consolidation 2026-10-31: thin duplicate hubs merged into the
+  // full pillar guides; the old OA blog slug never had a post.
+  "/diet": "/guides/diet",
+  "/benefits-pip": "/guides/benefits-pip",
+  "/blog/osteoarthritis-guide": "/conditions/osteoarthritis",
   // Paused placeholder pages removed 2026-09 (shop never launched, buddy
   // matching and podcast not running). 301 to the closest live page.
   "/shop": "/supplements",
@@ -86,7 +91,7 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/library/rheumatoid-arthritis-hub": "/conditions/rheumatoid-arthritis",
   "/library/pain-management-hub": "/guides/arthritis-pain-relief",
   "/library/exercise-hub": "/exercises",
-  "/library/nutrition-hub": "/diet",
+  "/library/nutrition-hub": "/guides/diet",
   // Duplicate without canonical — keep one clear glucosamine URL.
   // Blog taxonomy v2 (Oct 2026): old category hubs -> new primary categories.
   "/blog/category/nutrition": "/blog/category/diet-lifestyle",
@@ -101,8 +106,8 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
   "/exercises/knee": "/guides/knee-exercises-for-osteoarthritis",
   // Guessed diet guide URL served the homepage shell (soft 404); send to the diet hub.
-  "/guides/arthritis-diet": "/diet",
-  "/guides/anti-inflammatory-diet": "/diet",
+  "/guides/arthritis-diet": "/guides/diet",
+  "/guides/anti-inflammatory-diet": "/guides/diet",
   // Published slug kept out of EXACT so prerender/catalog integrity still list it;
   // App.tsx Navigate + public/_redirects 301 to the guide. Legacy variants below
   // hop directly to the guide (no soft intermediate).
@@ -141,14 +146,14 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/disability-support": "/guides/disability-support",
   "/waiting-list": "/arthritis-waiting-list-help",
   "/waiting-list-help": "/arthritis-waiting-list-help",
-  "/diet-hub": "/diet",
+  "/diet-hub": "/guides/diet",
   "/de/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
   // Semrush soft-404 / duplicate-homepage-title URLs (still live as SPA shell).
   "/self-help-tool": "/self-help",
   "/sitemap": "/site-index",
   "/regions/england": "/arthritis-support",
   "/regions/northern-ireland": "/blog/free-arthritis-support-northern-ireland",
-  "/finances": "/benefits-pip",
+  "/finances": "/guides/benefits-pip",
   "/lived-experiences": "/community",
   "/impact-stories": "/community",
 };

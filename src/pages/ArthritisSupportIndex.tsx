@@ -59,7 +59,7 @@ const ArthritisSupportIndex = () => {
             Looking for exercises or diet instead? Visit the{" "}
             <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>
             ,{" "}
-            <Link to="/diet" className="text-primary underline underline-offset-2">diet hub</Link>
+            <Link to="/guides/diet" className="text-primary underline underline-offset-2">diet hub</Link>
             , or{" "}
             <Link to="/blog" className="text-primary underline underline-offset-2">arthritis blog</Link>.
           </p>

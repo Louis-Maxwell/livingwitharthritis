@@ -32,8 +32,8 @@ const ALLOWED_HOSTS = [
 const CUSTOMER_JOB_HREFS = [
   "/guides/arthritis-pain-relief",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
-  "/diet",
+  "/guides/benefits-pip",
+  "/guides/diet",
 ];
 
 describe("GSC next B₁ thin blogs gold-pass (23 Sep evening): PIP + omega-3 foods", () => {

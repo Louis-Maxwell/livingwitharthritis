@@ -71,7 +71,7 @@ describe("symptomChecker educational ranking", () => {
     expect(hrefs).toContain("/conditions/osteoarthritis");
     expect(hrefs).toContain("/exercises");
     expect(hrefs).toContain("/guides/hip-exercises-for-osteoarthritis");
-    expect(hrefs).toContain("/benefits-pip");
+    expect(hrefs).toContain("/guides/benefits-pip");
     expect(NEXT_STEP_RESOURCES.every((r) => r.href.startsWith("/"))).toBe(true);
   });
 });

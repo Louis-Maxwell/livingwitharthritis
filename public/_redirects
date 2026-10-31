@@ -1662,3 +1662,13 @@
 /articles/218-back-arthritis-exercises-uk.pdf /blog/back-arthritis-exercises-uk 301
 /articles/* /blog 301
 /downloads/arthritis-starter-guide-preview.pdf /arthritis-starter-guide 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/diet /guides/diet 301
+/benefits-pip /guides/benefits-pip 301
+/blog/osteoarthritis-guide /conditions/osteoarthritis 301
+/library/nutrition-hub /guides/diet 301
+/guides/arthritis-diet /guides/diet 301
+/guides/anti-inflammatory-diet /guides/diet 301
+/diet-hub /guides/diet 301
+/finances /guides/benefits-pip 301

@@ -37,7 +37,7 @@ const cases: Array<{ name: string; slug: string; title: RegExp; cites: string[];
       "/conditions/rheumatoid-arthritis",
       "/guides/fall-prevention-older-adults",
       "/exercises",
-      "/diet",
+      "/guides/diet",
       "/blog/carers-assessment-arthritis-frailty-uk",
       "/blog/winter-arthritis-frailty-cold-houses-uk",
     ],

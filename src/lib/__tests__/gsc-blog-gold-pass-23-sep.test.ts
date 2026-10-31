@@ -35,8 +35,8 @@ const ALLOWED_HOSTS = [
 const CUSTOMER_JOB_HREFS = [
   "/guides/arthritis-pain-relief",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
-  "/diet",
+  "/guides/benefits-pip",
+  "/guides/diet",
 ];
 
 describe("GSC champions 43–44: swimming hip OA + knee supplements gold-pass (23 Sep)", () => {

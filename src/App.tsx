@@ -44,7 +44,6 @@ const BlogIndex = lazyWithRetry(() => import("./pages/BlogIndex"));
 const BlogArchive = lazyWithRetry(() => import("./pages/BlogArchive"));
 const Library = lazyWithRetry(() => import("./pages/Library"));
 const GuidesHub = lazyWithRetry(() => import("./pages/GuidesHub"));
-const BenefitsPipHub = lazyWithRetry(() => import("./pages/BenefitsPipHub"));
 const SearchPage = lazyWithRetry(() => import("./pages/SearchPage"));
 const LibraryTopic = lazyWithRetry(() => import("./pages/LibraryTopic"));
 const BlogHub = lazyWithRetry(() => import("./pages/BlogHub"));
@@ -87,7 +86,6 @@ const SelfHelpTool = lazyWithRetry(() => import("./pages/SelfHelpTool"));
 const SymptomChecker = lazyWithRetry(() => import("./pages/SymptomChecker"));
 const ZakatAppeal = lazyWithRetry(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazyWithRetry(() => import("./pages/ExerciseHub"));
-const DietHub = lazyWithRetry(() => import("./pages/DietHub"));
 const MediterraneanDietForArthritis = lazyWithRetry(() => import("./pages/diet/MediterraneanDietForArthritis"));
 const FoodsToAvoidWithArthritis = lazyWithRetry(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
 const KneeOsteoarthritisExercises = lazyWithRetry(() => import("./pages/blog/KneeOsteoarthritisExercises"));
@@ -320,7 +318,6 @@ function AnimatedRoutes() {
         <Route path="/blog" element={withRouteBoundary(<BlogIndex />)} />
         <Route path="/library" element={<Library />} />
         <Route path="/guides" element={<GuidesHub />} />
-        <Route path="/benefits-pip" element={<BenefitsPipHub />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={withRouteBoundary(<BlogHub />)} />
@@ -405,7 +402,6 @@ function AnimatedRoutes() {
         <Route path="/exercises/tai-chi-for-beginners" element={<TaiChiForBeginners />} />
         <Route path="/exercises/ankle-arthritis-exercises" element={<AnkleArthritisExercises />} />
         <Route path="/exercises/neck-arthritis-exercises" element={<NeckArthritisExercises />} />
-        <Route path="/diet" element={<DietHub />} />
         <Route path="/diet/mediterranean-diet-for-arthritis" element={<MediterraneanDietForArthritis />} />
         <Route path="/diet/foods-to-avoid-with-arthritis" element={<FoodsToAvoidWithArthritis />} />
         <Route path="/myths/does-cracking-knuckles-cause-arthritis" element={<DoesCrackingKnucklesCauseArthritis />} />

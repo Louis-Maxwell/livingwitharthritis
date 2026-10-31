@@ -92,7 +92,7 @@ export default function DisabilitySupport() {
         <ul className="space-y-2">
           <li><Link to="/guides/work-with-arthritis" className="text-primary underline">Working with arthritis toolkit</Link></li>
           <li><Link to="/guides/benefits-pip" className="text-primary underline">Complete PIP guide</Link></li>
-          <li><Link to="/benefits-pip" className="text-primary underline">Benefits and financial help directory</Link></li>
+          <li><Link to="/guides/benefits-pip" className="text-primary underline">Benefits and financial help directory</Link></li>
           <li><Link to="/library/access-to-work" className="text-primary underline">Access to Work</Link></li>
           <li><Link to="/living-with-arthritis" className="text-primary underline">Living with arthritis</Link></li>
           <li><Link to="/guides/fall-prevention-older-adults" className="text-primary underline">Fall prevention for older adults</Link></li>

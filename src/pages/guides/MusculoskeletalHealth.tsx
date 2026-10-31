@@ -118,7 +118,7 @@ export default function MusculoskeletalHealth() {
       <section id="exercise-diet" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">6. Exercise and diet for MSK health</h2>
         <p className="leading-relaxed mb-4">Movement — not rest — is the foundation of most MSK recovery plans. Graded strength training around the affected area, combined with general aerobic activity (walking, swimming or cycling), reduces pain and rebuilds capacity over time. Our <Link to="/exercises" className="text-primary underline">exercise hub</Link> has condition-specific routines to start from.</p>
-        <p className="leading-relaxed">There's no single "MSK diet", but maintaining a healthy weight measurably reduces load on weight-bearing joints (hips, knees, lower back), and a Mediterranean-style eating pattern — vegetables, oily fish, whole grains, olive oil and legumes — is generally associated with lower systemic inflammation. See our <Link to="/diet" className="text-primary underline">diet &amp; nutrition hub</Link> for practical guidance.</p>
+        <p className="leading-relaxed">There's no single "MSK diet", but maintaining a healthy weight measurably reduces load on weight-bearing joints (hips, knees, lower back), and a Mediterranean-style eating pattern — vegetables, oily fish, whole grains, olive oil and legumes — is generally associated with lower systemic inflammation. See our <Link to="/guides/diet" className="text-primary underline">diet &amp; nutrition hub</Link> for practical guidance.</p>
       </section>
 
       <section id="ergonomics" className="mb-12">
@@ -167,7 +167,7 @@ export default function MusculoskeletalHealth() {
         <h2 className="text-2xl font-bold mb-4">Related guides</h2>
         <ul className="space-y-2">
           <li><Link to="/exercises" className="text-primary underline">Exercise hub</Link></li>
-          <li><Link to="/diet" className="text-primary underline">Diet &amp; nutrition hub</Link></li>
+          <li><Link to="/guides/diet" className="text-primary underline">Diet &amp; nutrition hub</Link></li>
           <li><Link to="/self-assessment" className="text-primary underline">Self-assessment tool</Link></li>
           <li><Link to="/guides/preventative-msk-health" className="text-primary underline">Preventative MSK health</Link></li>
           <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management</Link></li>

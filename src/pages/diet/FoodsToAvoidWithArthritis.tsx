@@ -211,7 +211,7 @@ export default function FoodsToAvoidWithArthritis() {
 
       <PageBreadcrumb
         segments={[
-          { label: "Diet", href: "/diet" },
+          { label: "Diet", href: "/guides/diet" },
           { label: "Foods to Avoid With Arthritis" },
         ]}
       />

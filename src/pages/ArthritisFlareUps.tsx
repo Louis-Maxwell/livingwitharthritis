@@ -394,7 +394,7 @@ export default function ArthritisFlareUps() {
           <strong>Turmeric</strong> deserves special mention: a 2016 systematic review found that <strong>curcumin at around 1000 mg/day</strong> significantly reduced arthritis pain and inflammation, sometimes comparable to NSAIDs. Take it with piperine (black pepper extract) for better absorption. Always check with your GP if you're on blood thinners.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          For detailed meal plans and anti-inflammatory recipes, visit our <Link to="/diet" className="text-primary font-medium hover:underline">Diet & Nutrition Hub</Link>.
+          For detailed meal plans and anti-inflammatory recipes, visit our <Link to="/guides/diet" className="text-primary font-medium hover:underline">Diet & Nutrition Hub</Link>.
         </p>
 
         {/* ────── Section 6: Exercise ────── */}
@@ -608,7 +608,7 @@ export default function ArthritisFlareUps() {
             {
               title: "Calm inflammation through food",
               links: [
-                { label: "Anti-inflammatory diet for arthritis", to: "/diet" },
+                { label: "Anti-inflammatory diet for arthritis", to: "/guides/diet" },
                 { label: "Foods to avoid during a flare-up", to: "/blog/category/diet-lifestyle" },
                 { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },

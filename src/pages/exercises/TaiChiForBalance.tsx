@@ -332,7 +332,7 @@ export default function TaiChiForBalance() {
           <p className="text-primary-foreground max-w-2xl mx-auto mb-8 leading-relaxed">Combine tai chi with our other arthritis-friendly programmes — strength, mobility, and anti-inflammatory eating.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button asChild size="lg" variant="secondary"><Link to="/exercises">All exercises</Link></Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"><Link to="/diet">Anti-inflammatory diet</Link></Button>
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"><Link to="/guides/diet">Anti-inflammatory diet</Link></Button>
           </div>
         </div>
       </section>

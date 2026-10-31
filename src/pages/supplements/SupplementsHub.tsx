@@ -16,74 +16,92 @@ const URL = `${BASE}/supplements`;
 
 const META_TITLE = "Arthritis Supplements: What Works (UK Guide)";
 const META_DESC =
-  "Honest UK guides to the most popular arthritis supplements — glucosamine, MSM, turmeric, omega-3, collagen — what the evidence says, dosing and side effects.";
+  "UK hub for arthritis supplements: glucosamine, MSM, turmeric, omega-3, collagen, ginger and vitamin D. What the evidence and NICE say, and what to check first.";
 
 const SUPPLEMENTS = [
   {
     to: "/supplements/glucosamine",
     label: "Glucosamine",
-    desc: "Most-studied joint supplement. Glucosamine sulfate 1,500 mg/day gives modest knee OA pain relief for some people.",
-    available: true,
+    desc: "The best-known joint supplement. NICE (NG226) says it should not be offered for osteoarthritis because there is no strong evidence that it helps.",
   },
   {
     to: "/supplements/msm",
     label: "MSM (methylsulfonylmethane)",
-    desc: "Organic sulfur compound. Small trials show modest pain and stiffness improvements in knee OA, often stacked with glucosamine.",
-    available: true,
+    desc: "An organic sulfur compound. Only small, short trials exist, so the evidence is limited.",
   },
   {
     to: "/supplements/turmeric",
-    label: "Turmeric & curcumin",
-    desc: "Some small trials suggest curcumin may modestly ease knee OA pain and stiffness, but evidence is limited and it is not equivalent to an NSAID.",
-    available: true,
+    label: "Turmeric and curcumin",
+    desc: "Some small trials suggest curcumin may modestly ease knee OA pain, but evidence is limited and it can interact with medicines.",
   },
   {
-    to: "/blog/category/diet-lifestyle",
+    to: "/blog/arthritis-and-omega-3-fish-oil",
     label: "Omega-3 fish oil",
-    desc: "Most evidence is in rheumatoid arthritis, where high-dose trials suggest it may ease morning stiffness. Check with your GP or pharmacist first.",
-    available: false,
+    desc: "Most evidence is in rheumatoid arthritis. Eating oily fish is the food-first option. Check with your GP or pharmacist before taking capsules.",
   },
   {
     to: "/supplements/collagen",
     label: "Collagen peptides",
-    desc: "Hydrolysed peptides and undenatured type II collagen — mixed, limited evidence for osteoarthritis symptoms, safety and medicine checks.",
-    available: true,
+    desc: "Hydrolysed peptides and undenatured type II collagen. The evidence for osteoarthritis symptoms is mixed and limited.",
   },
   {
     to: "/supplements/collagen-alternatives",
     label: "Collagen alternatives",
-    desc: "Vegan, halal and allergy-safe options when collagen is off the table — turmeric, MSM, algal omega-3, vitamin C and D, with doses.",
-    available: true,
+    desc: "Vegan, halal and allergy-friendly options to discuss when collagen is not suitable for you.",
   },
-
   {
-    to: "/blog/category/diet-lifestyle",
+    to: "/blog/ginger-root-natural-anti-inflammatory",
     label: "Ginger",
-    desc: "Plant-based anti-inflammatory. 500–1,000 mg extract per day modestly eases knee OA pain and stiffness.",
-    available: false,
+    desc: "A common kitchen spice. Trial evidence for arthritis is limited, and supplements may interact with blood thinners.",
   },
+  {
+    to: "/blog/vitamin-d-arthritis-uk",
+    label: "Vitamin D",
+    desc: "The NHS advises everyone in the UK to consider 10 micrograms a day in autumn and winter. It is about general bone and muscle health, not treating arthritis.",
+  },
+];
+
+const FURTHER_READING = [
+  { to: "/blog/best-supplements-arthritis-uk", label: "Best supplements for arthritis in the UK: what the evidence says" },
+  { to: "/blog/best-supplements-joint-pain", label: "Supplements for joint pain" },
+  { to: "/blog/best-supplement-for-knee-joint", label: "Supplements for the knee joint" },
+  { to: "/blog/glucosamine-vs-collagen", label: "Glucosamine vs collagen" },
+  { to: "/blog/turmeric-for-arthritis", label: "Turmeric for arthritis" },
+  { to: "/blog/turmeric-curcumin-arthritis-evidence", label: "Turmeric and curcumin: the evidence" },
+  { to: "/blog/turmeric-and-methotrexate-interaction", label: "Turmeric and methotrexate" },
+  { to: "/blog/ginger-vs-turmeric-for-arthritis", label: "Ginger vs turmeric" },
+  { to: "/blog/omega-3-foods-for-joints", label: "Omega-3 foods for joints" },
+  { to: "/blog/fatty-fish-omega-3-arthritis-evidence", label: "Oily fish and omega-3: the evidence" },
+  { to: "/blog/vitamin-d-and-falls-arthritis-uk", label: "Vitamin D and falls" },
+  { to: "/blog/vitamin-d-winter-arthritis-frailty-uk", label: "Vitamin D in winter" },
+  { to: "/blog/medication-supplement-interactions-arthritis", label: "Medicine and supplement interactions" },
 ];
 
 const SUPPLEMENT_FAQS = [
   {
     question: "Do supplements really work for arthritis?",
     answer:
-      "Evidence is mixed. Glucosamine sulfate (1,500 mg/day), turmeric/curcumin and omega-3 fish oil have the strongest data — each can offer modest pain or stiffness improvement for some people. None are as effective as exercise, weight management or an anti-inflammatory diet, and none reverse joint damage.",
+      "The evidence is mixed, and for most supplements it is weak. Some people report small improvements, but none work as well as exercise and weight management, and none reverse joint damage. Check with your GP or pharmacist before starting one.",
+  },
+  {
+    question: "Does NICE recommend glucosamine?",
+    answer:
+      "No. NICE guideline NG226 says glucosamine should not be offered to manage osteoarthritis. If you ask about it, your clinician should explain that there is no strong evidence that it helps.",
   },
   {
     question: "Which arthritis supplement has the best evidence?",
     answer:
-      "For knee osteoarthritis, some trials of turmeric/curcumin and glucosamine sulfate report small benefits, but results are mixed and NICE advises against glucosamine on the NHS. For rheumatoid arthritis, trials of high-dose omega-3 fish oil suggest it may reduce morning stiffness and tender joints. Check with your GP or pharmacist before starting any of them.",
+      "None has strong evidence. For knee osteoarthritis, some small trials of curcumin report modest benefits. For rheumatoid arthritis, some trials of omega-3 fish oil suggest it may ease stiffness. NICE advises against glucosamine. Check with your GP or pharmacist before starting any of them.",
   },
   {
     question: "Are joint supplements safe?",
     answer:
-      "Most are well tolerated, but they can interact with prescription medication. Glucosamine may interact with warfarin, turmeric may add to the effect of blood thinners, and high-dose fish oil increases bleeding risk. Always check with your GP or pharmacist before starting one, especially if you take blood-thinners or have diabetes.",
+      "Many are well tolerated, but they can interact with prescription medicines. Turmeric, ginger and fish oil may add to the effect of blood thinners. Always check with your GP or pharmacist before starting one, especially if you take blood thinners, methotrexate or diabetes medicines.",
   },
   {
-    question: "How long do supplements take to work for arthritis?",
+    question: "How long should I try a supplement for?",
     answer:
-      "Allow 8–12 weeks of consistent daily use before judging whether a supplement is helping. If there's no benefit after 3 months, it is unlikely to work for you and you can stop.",
+      "Agree a trial period with your pharmacist and keep a simple symptom diary. If you notice no clear benefit by the end of it, it is reasonable to stop rather than keep paying for it.",
   },
 ];
 
@@ -157,10 +175,10 @@ export default function SupplementsHub() {
               Arthritis supplements: what actually works
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              The UK joint-supplement aisle is overwhelming. We've cut through the marketing with
-              honest, plain-English guides — covering glucosamine, MSM, turmeric, omega-3,
-              collagen and ginger. Each guide explains the evidence, the right dose and the
-              honest verdict.
+              The UK joint-supplement aisle is overwhelming. This hub links to every supplement
+              guide on our site, covering glucosamine, MSM, turmeric, omega-3, collagen, ginger and
+              vitamin D. Each one explains what the evidence says, what NICE and the NHS advise, and
+              what to check with a GP or pharmacist first.
             </p>
           </div>
         </div>
@@ -178,11 +196,6 @@ export default function SupplementsHub() {
               >
                 <span className="text-base font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
                   {s.label} <ArrowRight className="w-3.5 h-3.5" />
-                  {!s.available && (
-                    <span className="ml-auto text-[10px] uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
-                      Coming soon
-                    </span>
-                  )}
                 </span>
                 <span className="block text-sm text-muted-foreground mt-2 leading-relaxed">
                   {s.desc}
@@ -190,6 +203,135 @@ export default function SupplementsHub() {
               </Link>
             ))}
           </div>
+
+          <section className="prose prose-lg max-w-none mt-12 text-foreground/85 prose-headings:font-display prose-headings:text-foreground">
+            <h2 id="check-first">Check with a GP or pharmacist first</h2>
+            <p>
+              Supplements are sold as food products, not medicines, so they do not go through the same
+              checks on whether they work. Strength and quality can vary between brands. Before you
+              start any supplement, speak to your GP or a pharmacist, especially if you:
+            </p>
+            <ul>
+              <li>take blood thinners such as warfarin, apixaban or clopidogrel</li>
+              <li>take methotrexate or another disease-modifying medicine</li>
+              <li>have diabetes, liver or kidney disease, or a planned operation</li>
+              <li>are pregnant, trying to get pregnant or breastfeeding</li>
+              <li>already take several supplements, as ingredients can overlap</li>
+            </ul>
+            <p>
+              A pharmacist can check for interactions for free and without an appointment. Take the
+              packet, or a photo of the label, so they can see the exact ingredients and doses. Read our
+              guide to <Link to="/blog/medication-supplement-interactions-arthritis">medicine and supplement interactions</Link> before you go.
+            </p>
+
+            <h2 id="what-nice-says">What NICE says about glucosamine</h2>
+            <p>
+              The NICE guideline on osteoarthritis (NG226, 2022) says: "Do not offer glucosamine" to
+              manage osteoarthritis. It also says that if someone asks about it, clinicians should explain
+              that there is no strong evidence of benefit. This is why glucosamine is not prescribed on the
+              NHS for osteoarthritis.
+            </p>
+            <p>
+              Some people still choose to buy it. If you do, check with a pharmacist first, as some
+              products are made from shellfish and some may affect blood thinners. Our{" "}
+              <Link to="/supplements/glucosamine">glucosamine guide</Link> and our comparison of{" "}
+              <Link to="/blog/glucosamine-vs-collagen">glucosamine and collagen</Link> explain the evidence in more detail.
+            </p>
+
+            <h2 id="what-works-best">What has stronger evidence than supplements</h2>
+            <p>
+              NICE says the core treatments for osteoarthritis are therapeutic exercise and, if you are
+              overweight, weight management. Any weight loss is likely to help, and NICE notes that losing
+              10% of your body weight is likely to be better than 5%. For knee osteoarthritis, NICE
+              recommends offering a topical NSAID before other medicines.
+            </p>
+            <p>
+              Supplements, if you use them, should sit on top of these, not replace them. Start with our{" "}
+              <Link to="/guides/exercise">exercise guide</Link>, the{" "}
+              <Link to="/guides/diet">arthritis diet guide</Link> and the{" "}
+              <Link to="/conditions/osteoarthritis">osteoarthritis guide</Link>. For day-to-day pain,
+              see <Link to="/guides/arthritis-pain-relief">arthritis pain relief</Link>.
+            </p>
+
+            <h2 id="food-first">Food first: omega-3, vitamin D and spices</h2>
+            <p>
+              Many of the nutrients sold as joint supplements can come from food. The NHS recommends at
+              least 2 portions of fish a week, including 1 of oily fish such as salmon, mackerel or
+              sardines. If you eat oily fish regularly, you may not need a fish oil capsule. Read about{" "}
+              <Link to="/blog/omega-3-foods-for-joints">omega-3 foods for joints</Link> and the{" "}
+              <Link to="/blog/fatty-fish-omega-3-arthritis-evidence">evidence on oily fish</Link>.
+            </p>
+            <p>
+              Vitamin D is different, because it is hard to get enough from food. The NHS advises everyone
+              in the UK to consider taking 10 micrograms of vitamin D a day during autumn and winter, and
+              all year round for some people who get little sun. This supports general bone and muscle
+              health. It is not a treatment for arthritis. See{" "}
+              <Link to="/blog/vitamin-d-arthritis-uk">vitamin D and arthritis</Link>,{" "}
+              <Link to="/blog/vitamin-d-winter-arthritis-frailty-uk">vitamin D in winter</Link> and{" "}
+              <Link to="/blog/vitamin-d-and-falls-arthritis-uk">vitamin D and falls</Link>.
+            </p>
+            <p>
+              Turmeric and ginger are safe to cook with in normal amounts. Concentrated supplements are
+              different and can interact with medicines. Compare them in{" "}
+              <Link to="/blog/ginger-vs-turmeric-for-arthritis">ginger vs turmeric</Link>, and if you take
+              methotrexate, read <Link to="/blog/turmeric-and-methotrexate-interaction">turmeric and methotrexate</Link>{" "}
+              and talk to your rheumatology team before starting turmeric.
+            </p>
+
+            <h2 id="how-to-try">If you decide to try a supplement</h2>
+            <ol>
+              <li>Check with your GP or pharmacist that it is safe with your medicines and conditions.</li>
+              <li>Try one product at a time, so you can tell whether it makes a difference.</li>
+              <li>Write down your pain and stiffness each week in a simple diary.</li>
+              <li>Agree a trial period with your pharmacist, then stop if you see no clear benefit.</li>
+              <li>Tell your GP, rheumatology team and anyone treating you which supplements you take.</li>
+              <li>Be wary of products that promise to cure arthritis or rebuild cartilage. No supplement has been shown to do this.</li>
+            </ol>
+
+            <h2 id="questions-to-ask">Questions to ask your pharmacist</h2>
+            <p>
+              Community pharmacists can talk through supplements without an appointment. Taking the product
+              or a photo of its label helps them check the ingredients and the amount in each dose. Useful
+              questions include:
+            </p>
+            <ul>
+              <li>Is this safe to take with my prescribed medicines, including blood thinners and anti-inflammatories?</li>
+              <li>Is it suitable if I am pregnant, breastfeeding, have kidney or liver problems, or am waiting for an operation?</li>
+              <li>Does it contain anything I am allergic to, such as shellfish or fish?</li>
+              <li>How long would it be reasonable to try it before deciding whether it is helping?</li>
+              <li>Is there a treatment with better evidence that I should try first?</li>
+            </ul>
+            <p>
+              Supplements are sold as food products in the UK, so they are not tested for effectiveness in
+              the same way as medicines. A higher price or a bold claim on the label does not mean a product
+              works better. If a supplement seems to help, keep your GP or rheumatology team informed so it
+              stays part of your medicines record.
+            </p>
+
+            <h2 id="further-reading">All supplement articles</h2>
+            <ul>
+              {FURTHER_READING.map((r) => (
+                <li key={r.to}>
+                  <Link to={r.to}>{r.label}</Link>
+                </li>
+              ))}
+            </ul>
+
+            <h2 id="supplement-faqs">Frequently asked questions</h2>
+            {SUPPLEMENT_FAQS.map((f) => (
+              <div key={f.question}>
+                <h3>{f.question}</h3>
+                <p>{f.answer}</p>
+              </div>
+            ))}
+
+            <h2 id="urgent-help">When to get urgent help</h2>
+            <p>
+              Stop taking a supplement and contact a pharmacist, your GP or NHS 111 if you get unusual
+              bruising or bleeding, yellowing of your skin or eyes, or a rash. Call 999 if you have signs
+              of a severe allergic reaction, such as swelling of the lips or throat or difficulty breathing.
+            </p>
+          </section>
 
           <div className="mt-12 p-8 rounded-2xl bg-accent border border-border/30">
             <h2 className="font-display text-xl font-bold text-foreground mb-3">
@@ -203,10 +345,10 @@ export default function SupplementsHub() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                to="/diet"
+                to="/guides/diet"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
               >
-                Diet hub
+                Diet guide
               </Link>
               <Link
                 to="/exercises"

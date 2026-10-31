@@ -23,7 +23,7 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: 'Hip exercises for osteoarthritis', href: '/guides/hip-exercises-for-osteoarthritis' },
   ],
   'arthritis-disability-benefits-uk': [
-    { label: 'Benefits & PIP hub', href: '/benefits-pip' },
+    { label: 'Benefits & PIP hub', href: '/guides/benefits-pip' },
     { label: 'PIP for arthritis in the UK (blog)', href: '/blog/pip-for-arthritis-uk' },
     { label: 'Disability support guide', href: '/guides/disability-support' },
     { label: 'Access to Work', href: '/library/access-to-work' },
@@ -46,7 +46,7 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   'weight-management-osteoarthritis': [
     { label: 'Osteoarthritis guide', href: '/conditions/osteoarthritis' },
-    { label: 'Diet hub', href: '/diet' },
+    { label: 'Diet hub', href: '/guides/diet' },
   ],
 };
 

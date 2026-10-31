@@ -27,7 +27,7 @@ const HUBS = [
     titleIncludes: "Pain Relief",
     mustLink: [
       "/guides/newly-diagnosed",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/blog/best-walking-shoes-arthritis-uk",
       "/supplements/turmeric",
       "/diet/mediterranean-diet-for-arthritis",
@@ -39,20 +39,19 @@ const HUBS = [
     titleIncludes: "Newly Diagnosed",
     mustLink: [
       "/guides/arthritis-pain-relief",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/diet/mediterranean-diet-for-arthritis",
       "/blog/best-walking-shoes-arthritis-uk",
     ],
   },
   {
-    path: "/benefits-pip",
-    file: "src/pages/BenefitsPipHub.tsx",
+    path: "/guides/benefits-pip",
+    file: "src/pages/pillar/BenefitsPIPGuide.tsx",
     titleIncludes: "PIP",
     mustLink: [
       "/guides/newly-diagnosed",
       "/guides/arthritis-pain-relief",
-      "/blog/best-walking-shoes-arthritis-uk",
-      "/diet/mediterranean-diet-for-arthritis",
+      "/resources/pip-evidence-diary",
     ],
   },
   {
@@ -62,7 +61,7 @@ const HUBS = [
     mustLink: [
       "/guides/arthritis-pain-relief",
       "/guides/newly-diagnosed",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/supplements/turmeric",
     ],
   },
@@ -73,7 +72,7 @@ const HUBS = [
     mustLink: [
       "/guides/arthritis-pain-relief",
       "/guides/newly-diagnosed",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/diet/mediterranean-diet-for-arthritis",
       "/blog/turmeric-for-arthritis",
     ],
@@ -97,7 +96,8 @@ describe("evening visibility pass — unique heads", () => {
       expect(head!.title).not.toBe(homepageTitle);
       // Diet batch 4 (10 Oct 2026) refreshed the Mediterranean page content;
       // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
-      expect(["2026-09-20", "2026-09-29", "2026-10-10"]).toContain(head!.updatedAt);
+      // /benefits-pip merged into /guides/benefits-pip on 2026-10-31 (guide reviewed 2026-10-23).
+      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23"]).toContain(head!.updatedAt);
     });
   }
 
@@ -150,7 +150,7 @@ describe("evening visibility pass — crawl + AI discovery", () => {
       "/diet/mediterranean-diet-for-arthritis",
       "/supplements/turmeric",
       "/guides/arthritis-pain-relief",
-      "/benefits-pip",
+      "/guides/benefits-pip",
     ]) {
       expect(indexNowUrls).toContain(`https://livingwitharthritis.org.uk${path}`);
     }
@@ -162,7 +162,7 @@ describe("evening visibility pass — crawl + AI discovery", () => {
     expect(llms).toContain("/diet/mediterranean-diet-for-arthritis");
     expect(llms).toContain("/supplements/turmeric");
     expect(llms).toContain("/guides/arthritis-pain-relief");
-    expect(llms).toContain("/benefits-pip");
+    expect(llms).toContain("/guides/benefits-pip");
   });
 
   it("robots.txt allows the hubs (no Disallow on guides/diet/supplements/blog)", () => {

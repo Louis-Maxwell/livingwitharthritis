@@ -39,8 +39,8 @@ const ALLOWED_HOSTS = [
 const CUSTOMER_JOB_HREFS = [
   "/guides/arthritis-pain-relief",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
-  "/diet",
+  "/guides/benefits-pip",
+  "/guides/diet",
 ];
 
 describe("visibility sprint: walking shoes + turmeric gold-pass", () => {
@@ -107,14 +107,14 @@ describe("visibility sprint: customer-job hub polish", () => {
       "utf8",
     );
     const pip = readFileSync(
-      resolve(process.cwd(), "src/pages/BenefitsPipHub.tsx"),
+      resolve(process.cwd(), "src/pages/pillar/BenefitsPIPGuide.tsx"),
       "utf8",
     );
 
     // Pain + PIP deepened Champions 47–48 (28 Sep); newly diagnosed Champions 50 (29 Sep) or 20 Sep sprint.
     expect(pain).toMatch(/lastReviewed="2026-09-(20|28)"/);
     expect(pain).toContain("/guides/newly-diagnosed");
-    expect(pain).toContain("/benefits-pip");
+    expect(pain).toContain("/guides/benefits-pip");
     expect(pain).toMatch(/pain relief/i);
 
     expect(newly).toMatch(/lastReviewed="2026-09-(20|29)"/);
@@ -122,9 +122,10 @@ describe("visibility sprint: customer-job hub polish", () => {
     expect(newly).toContain("/guides/benefits-pip");
     expect(newly).toContain("/resources/pip-evidence-diary");
 
-    expect(pip).toMatch(/lastReviewed="2026-09-(20|28)"/);
+    expect(pip).toMatch(/lastReviewed="2026-(09-20|09-28|10-23)"/);
     expect(pip).toContain("/guides/benefits-pip");
-    expect(pip).toContain("How to claim PIP for arthritis in the UK");
-    expect(pip).toContain('rel="canonical"');
+    // /benefits-pip merged into the pillar guide (2026-10-31); canonical comes from PageSchema.
+    expect(pip).toContain("Complete PIP guide for arthritis");
+    expect(pip).toContain("PageSchema");
   });
 });

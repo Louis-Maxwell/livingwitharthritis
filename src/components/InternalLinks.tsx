@@ -30,7 +30,7 @@ const SITE_PAGES: SitePage[] = [  { path: "/conditions/osteoarthritis", title: "
   { path: "/conditions/reactive-arthritis", title: "Reactive Arthritis", description: "Joint inflammation triggered by a recent infection — symptoms, recovery and treatment.", icon: Activity, tags: ["condition", "reactive-arthritis", "infection"] },
   { path: "/conditions/calcific-periarthritis", title: "Calcific Periarthritis", description: "Sudden shoulder or joint pain from calcium deposits in a tendon — symptoms, X-ray findings and treatment.", icon: Activity, tags: ["condition", "shoulder", "calcific-tendinitis", "inflammatory"] },
   { path: "/exercises", title: "Exercise Hub", description: "Low-impact exercises, physio routines and activity trackers to strengthen joints and reduce stiffness.", icon: Dumbbell, tags: ["exercise", "physio", "movement", "strength", "blog", "articles"] },
-  { path: "/diet", title: "Diet & Nutrition Hub", description: "Anti-inflammatory recipes, Mediterranean diet plans and foods that help manage arthritis symptoms.", icon: Apple, tags: ["diet", "nutrition", "anti-inflammatory", "food", "blog", "articles"] },
+  { path: "/guides/diet", title: "Diet & Nutrition Hub", description: "Anti-inflammatory recipes, Mediterranean diet plans and foods that help manage arthritis symptoms.", icon: Apple, tags: ["diet", "nutrition", "anti-inflammatory", "food", "blog", "articles"] },
   { path: "/community", title: "Community Hub", description: "Connect with others living with arthritis through peer support forums and shared stories.", icon: Users, tags: ["community", "support", "forum", "stories"] },
   { path: "/blog", title: "Blog & Articles", description: "Expert articles on managing arthritis, from cold-weather tips to supplement reviews.", icon: BookOpen, tags: ["blog", "articles", "tips", "research"] },
   { path: "/guides", title: "Guides Hub", description: "Practical UK arthritis guides — benefits, exercise, diet, pain relief and NHS pathways.", icon: BookOpen, tags: ["guide", "arthritis", "UK", "blog", "articles"] },
@@ -101,7 +101,7 @@ function getRelated(
       const isCondition = (p: SitePage) => p.tags.includes("condition");
       const crossBonus =
         current && isCondition(current) !== isCondition(page) ? 0.5 : 0;
-      const hubBonus = ["/exercises", "/diet", "/guides", "/benefits-pip", "/blog"].includes(page.path)
+      const hubBonus = ["/exercises", "/guides/diet", "/guides", "/guides/benefits-pip", "/blog"].includes(page.path)
         ? 0.25
         : 0;
       return { page, score: shared + crossBonus + hubBonus };

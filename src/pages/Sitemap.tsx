@@ -98,7 +98,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Cookies Policy", href: "/cookies" },
   { label: "Corporate Giving", href: "/corporate-giving" },
   { label: "Credits", href: "/credits" },
-  { label: "Diet & Nutrition Hub", href: "/diet" },
+  { label: "Diet & Nutrition Hub", href: "/guides/diet" },
   { label: "Donate", href: "https://www.gofundme.com/f/help-fund-critical-arthritis-research", external: true },
   { label: "Exercise Hub", href: "/exercises" },
   { label: "Expert Articles", href: "/expert-articles" },

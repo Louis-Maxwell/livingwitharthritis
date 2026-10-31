@@ -1,6 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
@@ -26,7 +27,9 @@ const DIET_GUIDE_FAQS = [
   { question: "Does turmeric really help arthritis?", answer: "Some clinical trials of standardised curcumin extracts suggest modest pain benefit for knee osteoarthritis for some people. Cooking turmeric is healthy, but study products differ from kitchen spice. Supplements can interact with medicines (including blood-thinners) — ask a pharmacist or your clinician before starting any high-dose curcumin product." },
   { question: "How much oily fish should I eat with arthritis?", answer: "At least 2 portions per week, with one being oily (salmon, mackerel, sardines, trout). If you don't eat fish, a daily algae-based or fish-oil supplement providing 2–4 g of combined EPA and DHA is the closest equivalent." },
   { question: "Can losing weight reduce arthritis pain?", answer: "Yes — for knee osteoarthritis, losing 5–10% of body weight produces clinically meaningful pain and function gains. Every 1 kg lost reduces knee load by about 4 kg with each step. Combined with exercise, weight loss is the most effective non-drug treatment for knee OA." },
-  { question: "Are supplements like glucosamine and collagen worth taking?", answer: "Evidence is mixed and product quality varies. Some trials of glucosamine sulphate or hydrolysed collagen report modest joint comfort benefits; neither replaces diet, exercise, weight management or prescribed treatment. Discuss with a pharmacist if you take other medicines." },
+  { question: "Are supplements like glucosamine and collagen worth taking?", answer: "NICE guideline NG226 says glucosamine should not be offered to manage osteoarthritis because there is no strong evidence that it helps. Evidence for collagen is limited and product quality varies. No supplement replaces exercise, weight management or prescribed treatment. Check with a GP or pharmacist before starting one, especially if you take other medicines." },
+  { question: "Can diet cure arthritis?", answer: "No. No food, supplement or eating pattern cures arthritis. Diet is one part of self-management, alongside exercise, pacing, weight management and any treatment your GP or rheumatology team recommends." },
+  { question: "Should I speak to someone before changing my diet?", answer: "Yes, if you have other health conditions, take regular medicines, or plan to cut out whole food groups. Speak to your GP, pharmacist or a registered dietitian. Call NHS 111 for urgent advice, or 999 in an emergency." },
 ];
 
 const CONTENT = `
@@ -176,6 +179,30 @@ const CONTENT = `
 </ul>
 <p>Blend until smooth. This provides omega-3 (flaxseed), betalains (beetroot), anthocyanins (berries), gingerols (ginger) and curcumin (turmeric) — a powerhouse of anti-inflammatory compounds in one glass.</p>
 
+<h2 id="eat-more-eat-less">Eat more, eat less: a quick swap guide</h2>
+<p>This is a practical summary of everyday swaps, not a strict list. No single food causes or cures arthritis.</p>
+<table>
+<thead><tr><th>Food group</th><th>Eat more</th><th>Eat less</th></tr></thead>
+<tbody>
+<tr><td>Fats</td><td>Olive oil, oily fish, nuts</td><td>Fried food and foods with trans fats</td></tr>
+<tr><td>Protein</td><td>Fish, lentils, beans, eggs</td><td>Processed meats such as bacon and sausages</td></tr>
+<tr><td>Carbohydrates</td><td>Wholegrains and oats</td><td>White bread, pastries and sugary cereals</td></tr>
+<tr><td>Drinks</td><td>Water and unsweetened tea</td><td>Sugary drinks and too much alcohol</td></tr>
+</tbody>
+</table>
+<h2 id="nutrition-quick-tips">Nutrition quick tips</h2>
+<ul>
+<li><strong>Eat oily fish:</strong> the NHS recommends at least 2 portions of fish a week, one of them oily, such as salmon, mackerel or sardines. Tinned fish counts.</li>
+<li><strong>Use olive oil:</strong> choose olive or other plant oils instead of butter where you can.</li>
+<li><strong>Add fruit:</strong> frozen supermarket berries count towards your 5 A Day.</li>
+<li><strong>Go green:</strong> add a portion of vegetables, such as frozen spinach, to one meal today.</li>
+<li><strong>Cook with spices:</strong> turmeric or ginger can flavour food. Supplements are optional and are not a cure.</li>
+<li><strong>Drink well:</strong> water or unsweetened tea instead of sugary drinks.</li>
+</ul>
+<h2 id="condition-specific-diets">Diet for specific types of arthritis</h2>
+<p>Read the condition guides for advice that applies to your type of arthritis: <a href="/conditions/osteoarthritis">osteoarthritis</a>, <a href="/conditions/rheumatoid-arthritis">rheumatoid arthritis</a>, <a href="/conditions/gout">gout</a> and <a href="/conditions/lupus">lupus</a>. For meal ideas, see the <a href="/diet/mediterranean-diet-for-arthritis">7-day Mediterranean plan</a> and <a href="/diet/foods-to-avoid-with-arthritis">foods to limit</a>. For supplements, see the <a href="/supplements">supplements hub</a>.</p>
+<p>Speak to your GP, pharmacist or a registered dietitian before changing your diet if you have other health conditions, take regular medicines, or plan to cut out whole food groups.</p>
+
 <h2 id="sources-diet">Sources &amp; Disclaimer</h2>
 <p>This guide is based on evidence from NICE guidelines (NG226), systematic reviews published in <em>Nutrients</em>, <em>Annals of the Rheumatic Diseases</em>, <em>British Journal of Clinical Pharmacology</em>, <em>Journal of Medicinal Food</em>, and guidance from the British Dietetic Association. Statistics cited are from the most recent publications available as of 2024. This information is for educational purposes only. Always consult a registered dietitian or your GP before making significant dietary changes, especially if you take medication.</p>
 `;
@@ -220,6 +247,7 @@ export default function DietGuide() {
         idPrefix="diet-guide"
       />
       <Header />
+      <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "Diet" }]} />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Best arthritis diet advice UK: anti-inflammatory Mediterranean guide"
@@ -259,9 +287,9 @@ export default function DietGuide() {
                 <p className="text-xs text-primary font-bold mb-1">Next Guide →</p>
                 <p className="font-bold text-foreground">Exercise Guide for Arthritis</p>
               </Link>
-              <Link to="/diet" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
-                <p className="text-xs text-primary font-bold mb-1">Interactive →</p>
-                <p className="font-bold text-foreground">Visit the Diet Hub</p>
+              <Link to="/diet/mediterranean-diet-for-arthritis" className="p-5 rounded-xl border border-border/30 bg-card hover:shadow-md transition-all hover:-translate-y-0.5">
+                <p className="text-xs text-primary font-bold mb-1">Meal plan →</p>
+                <p className="font-bold text-foreground">7-day Mediterranean meal plan</p>
               </Link>
             </div>
           </div>

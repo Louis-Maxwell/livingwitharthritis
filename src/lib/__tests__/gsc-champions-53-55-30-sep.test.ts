@@ -8,7 +8,7 @@ const REVIEW = "2026-09-30";
 
 const SICK_LINKS = [
   "/blog/access-to-work-scheme-arthritis-guide",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/carers-allowance-help-if-you-care-for-someone",
@@ -18,7 +18,7 @@ const SICK_LINKS = [
 ];
 
 const CARERS_LINKS = [
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/carers-assessment-arthritis-frailty-uk",
@@ -36,7 +36,7 @@ const JOINT_LINKS = [
   "/blog/swimming-exercises-hip-osteoarthritis",
   "/blog/energy-management-and-pacing-arthritis",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection", () => {

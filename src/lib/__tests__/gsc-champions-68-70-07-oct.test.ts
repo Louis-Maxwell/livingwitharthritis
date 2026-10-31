@@ -55,7 +55,7 @@ const cases: Array<{ name: string; slug: string; title: RegExp; cites: string[];
       "/exercises",
       "/blog/staying-active-arthritis-winter-uk",
       "/guides/fall-prevention-older-adults",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/blog/attendance-allowance-arthritis-frailty-uk",
       "/blog/carers-allowance-help-if-you-care-for-someone",
       "/blog/cold-weather-arthritis-uk-winter",

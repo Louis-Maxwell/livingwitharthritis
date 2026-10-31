@@ -8,12 +8,12 @@ describe("Tony Jung checklist polish — 24 Sep evening (code-side)", () => {
   it("major visitor-job templates expose PageBreadcrumb (UI + BreadcrumbList)", () => {
     const mustHavePageBreadcrumb = [
       "src/pages/LibraryTopic.tsx",
-      "src/pages/BenefitsPipHub.tsx",
+      "src/pages/pillar/BenefitsPIPGuide.tsx",
       "src/pages/GuidesHub.tsx",
       "src/pages/Contact.tsx",
       "src/pages/FaqArticle.tsx",
       "src/pages/ExerciseHub.tsx",
-      "src/pages/DietHub.tsx",
+      "src/pages/pillar/DietGuide.tsx",
       "src/pages/SymptomChecker.tsx",
       "src/pages/ConditionSubpagePage.tsx",
       "src/components/conditions/ConditionPageTemplate.tsx",

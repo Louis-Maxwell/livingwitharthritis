@@ -227,7 +227,7 @@ const osteoarthritis: Tier2Outline[] = [
       { slug: 'knee-osteoarthritis-complete-guide', title: 'Knee Osteoarthritis Guide' },
       { slug: 'living-well-with-osteoarthritis', title: 'Living Well With Osteoarthritis' },
     ],
-    ['/diet', '/guides/diet', '/conditions/osteoarthritis'],
+    ['/guides/diet', '/guides/diet', '/conditions/osteoarthritis'],
   ),
   outline(
     'osteoarthritis',
@@ -436,7 +436,7 @@ const rheumatoid: Tier2Outline[] = [
       { title: 'Supplements', keyPoints: ['Omega-3', 'Vitamin D'] },
     ],
     [],
-    ['/diet', '/guides/diet'],
+    ['/guides/diet', '/guides/diet'],
   ),
   outline(
     'rheumatoid-arthritis',
