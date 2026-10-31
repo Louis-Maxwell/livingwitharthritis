@@ -77,6 +77,7 @@ const columns = [
       { label: "Editorial Standards", href: "/editorial-standards" },
       { label: "Claims Policy", href: "/about/editorial-claims-policy" },
       { label: "Clinical Governance", href: "/clinical-governance" },
+      { label: "Evidence Register", href: "/evidence-register" },
       { label: "Corrections Policy", href: "/corrections-policy" },
       { label: "UK Search Insights", href: "/about/uk-arthritis-search-insights" },
       { label: "Governance", href: "/governance" },

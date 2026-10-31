@@ -32,7 +32,9 @@ const ClinicalGovernance = () => (
         </li>
       </ul>
       <p>
-        Where a guide cites other sources, they are listed on the page. See our{" "}
+        Where a guide cites other sources, they are listed on the page. Our{" "}
+        <Link to="/evidence-register">evidence register</Link> lists every NHS, NICE and research source cited
+        across the site, with the pages that cite it. See also our{" "}
         <Link to="/sources">clinical sources</Link> and <Link to="/editorial-standards">editorial standards</Link>.
       </p>
     </section>

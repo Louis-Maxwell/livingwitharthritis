@@ -111,7 +111,7 @@ function authorHeadData() {
           ? `Medical reviewer profile`
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
-        title: `${record.name}, ${record.title} — ${label} | Living With Arthritis`.slice(0, 115),
+        title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
         description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
           .replace(/\s+/g, " ")
           .slice(0, 158),

@@ -1,3 +1,4 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
@@ -299,42 +300,16 @@ const BlogPost = () => {
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
-  const maxwellSchemaFields = {
-    "identifier": "HCPC PH128483",
-    "url": "https://livingwitharthritis.org.uk/authors/maxwell",
-    "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
-  };
   const isMaxwellAuthor =
     /\bmaxwell\b/i.test(authorName) && /\bPH128483\b/.test(authorCreds);
   const isNamedPersonAuthor =
     isMaxwellAuthor ||
     (/louis\s+maxwell/i.test(authorName) && authorName.length < 80);
-  const authorSchema = isMaxwellAuthor
-    ? {
-        "@type": "Person",
-        "name": authorName,
-        "jobTitle": authorCreds,
-        ...maxwellSchemaFields,
-      }
-    : isNamedPersonAuthor
-      ? {
-          "@type": "Person",
-          "name": authorName,
-          ...(authorCreds && authorCreds !== "Editorial content"
-            ? { "jobTitle": authorCreds }
-            : {}),
-        }
-      : {
-          "@type": "Organization",
-          "name": authorName,
-        };
+  const authorSchema = isNamedPersonAuthor
+    ? { ...LOUIS_MAXWELL_REF }
+    : { "@type": "Organization", "name": authorName };
   const reviewedBySchema = hasVerifiedReviewer
-    ? {
-        "@type": "Person",
-        "name": reviewerName,
-        "jobTitle": reviewerCreds,
-        ...maxwellSchemaFields,
-      }
+    ? { ...LOUIS_MAXWELL_REF }
     : null;
   const reviewSchemaFields = blogReviewSchemaFields({ reviewedBy: reviewedBySchema, lastReviewed: blogLastReviewed });
   const citationSchema = citations.map((citation) => ({
