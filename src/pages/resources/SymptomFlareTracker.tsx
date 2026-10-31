@@ -58,7 +58,7 @@ export default function SymptomFlareTracker() {
             Print this page
           </button>
         </div>
-        <EducationalDisclaimerBox />
+        <EducationalDisclaimerBox lastReviewed="2026-10-26" />
         <h2 className="font-display mt-8 mb-3 text-2xl font-bold text-foreground">What to record each day</h2>
         <ul className="list-disc pl-5 space-y-1">
           {COLUMNS.map((c) => <li key={c}>{c}</li>)}

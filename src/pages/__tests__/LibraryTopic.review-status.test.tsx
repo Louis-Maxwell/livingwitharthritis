@@ -128,7 +128,7 @@ describe("LibraryTopic page review box", () => {
     renderTopic(slug);
     expect(screen.queryByText(LIBRARY_PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
     const text = document.body.textContent || "";
-    expect(text).toMatch(/Clinically reviewed · Louis Maxwell, HCPC PH128483 · 23 October 2026/);
+    expect(text).toMatch(/Clinically reviewed by Louis Maxwell, HCPC PH128483 · Last reviewed 23 October 2026 · Next review 23 October 2027/);
     expect(text).not.toMatch(/pending clinical review/i);
     cleanup();
   });
@@ -137,7 +137,7 @@ describe("LibraryTopic page review box", () => {
     LIBRARY_REVIEW_STATUS.fibromyalgia = { reviewStatus: "reviewed", lastReviewed: "2026-09-18" };
     renderTopic("fibromyalgia");
     delete LIBRARY_REVIEW_STATUS.fibromyalgia;
-    expect(screen.getByText(/Clinically reviewed · Louis Maxwell, HCPC PH128483 · 18 September 2026/)).toBeInTheDocument();
+    expect(screen.getByTestId("review-dates").textContent).toMatch(/Clinically reviewed by Louis Maxwell, HCPC PH128483 · Last reviewed 18 September 2026 · Next review 18 September 2027/);
     expect(screen.queryByText(LIBRARY_PENDING_REVIEW_TEXT)).not.toBeInTheDocument();
   });
 });

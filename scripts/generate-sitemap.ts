@@ -593,6 +593,8 @@ async function main() {
   push("/trust");
   push("/corporate-partnerships");
   push("/trusted-local-services");
+  push("/clinical-governance");
+  push("/corrections-policy");
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
   push("/authors");

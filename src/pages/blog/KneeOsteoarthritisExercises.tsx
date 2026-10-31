@@ -273,7 +273,7 @@ export default function KneeOsteoarthritisExercises() {
             />
           </div>
           <AeoEnhancement route="/blog/knee-arthritis-exercises-uk" />
-          <EducationalDisclaimerBox />
+          <EducationalDisclaimerBox lastReviewed="2026-06-21" />
           <TopicClusterNav path="/blog/knee-arthritis-exercises-uk" />
           <AnswerBox
             question="What are the best exercises for knee arthritis?"
