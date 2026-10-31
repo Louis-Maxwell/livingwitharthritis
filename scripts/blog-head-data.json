@@ -724,11 +724,11 @@
     ]
   },
   "/blog/anti-inflammatory-diet-rheumatoid-arthritis": {
-    "title": "What to Eat With Rheumatoid Arthritis: Diet Guide",
-    "description": "Affordable Mediterranean-style meals for rheumatoid arthritis: foods to include, meal ideas and evidence limits. Diet won't replace treatment.",
+    "title": "Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits",
+    "description": "What to eat with rheumatoid arthritis: foods to eat more of, foods to limit, easy UK meal ideas, and what diet can and cannot do alongside treatment.",
     "question": "Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits",
     "answer": "A Mediterranean-style eating pattern can support a balanced diet for people with rheumatoid arthritis, but no diet cures RA or replaces disease-modifying treatment. Use affordable foods you enjoy and ask your clinical team about dietary changes or supplements.",
-    "breadcrumb": "What to Eat With Rheumatoid Arthritis: Diet Guide",
+    "breadcrumb": "Rheumatoid Arthritis Diet: Foods, Meal Ideas and Limits",
     "about": "Diet & lifestyle",
     "updatedAt": "2026-10-10",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.webp",
@@ -741,8 +741,8 @@
       "category": "Diet & lifestyle",
       "image_url": "/openverse/nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.webp",
       "cover": "nutrition-07-woman-writing-notes-while-enjoying-a-fresh-fruit-p.webp",
-      "meta_title": "What to Eat With Rheumatoid Arthritis: Diet Guide",
-      "meta_description": "Affordable Mediterranean-style meals for rheumatoid arthritis: foods to include, meal ideas and evidence limits. Diet won't replace treatment.",
+      "meta_title": "Rheumatoid Arthritis Diet UK: Foods to Eat & Limit",
+      "meta_description": "What to eat with rheumatoid arthritis: foods to eat more of, foods to limit, easy UK meal ideas, and what diet can and cannot do alongside treatment.",
       "keywords": "anti-inflammatory diet rheumatoid arthritis uk, ra diet plan uk, mediterranean diet ra, food-first arthritis",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
@@ -802,7 +802,7 @@
   },
   "/blog/anti-inflammatory-diet": {
     "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How…",
-    "description": "An honest UK guide to the anti-inflammatory diet for arthritis: what the evidence shows, what to eat more and less of, a sample day and supplement safety.",
+    "description": "Which foods may help arthritis? A UK anti-inflammatory food list, what to cut back on, a sample day of meals and what the evidence really shows.",
     "question": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)",
     "answer": "An anti-inflammatory diet for arthritis usually means a Mediterranean-style way of eating: plenty of vegetables, fruit, wholegrains, beans, nuts and olive or rapeseed oil, oily fish twice a week, and less red and processed meat, sugar and highly processed food. It will not replace your treatment, but it supports heart health, a healthy weight and overall wellbeing, which all matter with arthritis.",
     "breadcrumb": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)",
@@ -818,8 +818,8 @@
       "category": "Diet & lifestyle",
       "image_url": "/openverse/nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
       "cover": "nutrition-11-bowl-of-fresh-fruit-unsplash.webp",
-      "meta_title": "Anti-Inflammatory Diet for Arthritis: UK Evidence Guide",
-      "meta_description": "An honest UK guide to the anti-inflammatory diet for arthritis: what the evidence shows, what to eat more and less of, a sample day and supplement safety.",
+      "meta_title": "Anti-Inflammatory Diet for Arthritis: UK Food List",
+      "meta_description": "Which foods may help arthritis? A UK anti-inflammatory food list, what to cut back on, a sample day of meals and what the evidence really shows.",
       "keywords": "anti-inflammatory diet arthritis, anti inflammatory foods uk, mediterranean diet arthritis, diet for joint pain, eatwell guide arthritis",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
@@ -7117,12 +7117,12 @@
         "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)"
       },
       {
-        "path": "/blog/best-supplements-joint-pain",
-        "title": "Best Supplements for Joint Pain: What Actually Works"
-      },
-      {
         "path": "/blog/foods-to-avoid-with-arthritis",
         "title": "Foods That May Trigger Arthritis Symptoms: What the Evidence Says (UK)"
+      },
+      {
+        "path": "/blog/gut-health-arthritis-connection",
+        "title": "Gut Health and Arthritis: What the Microbiome Research Really Shows (UK Guide)"
       }
     ]
   },
@@ -7398,11 +7398,11 @@
     ]
   },
   "/blog/best-supplement-for-knee-joint": {
-    "title": "Best Supplement for Knee Joints? What the Evidence Says",
-    "description": "No supplement rebuilds knee cartilage, and NICE advises against glucosamine for OA. Glucosamine, collagen, turmeric and fish oil compared honestly.",
+    "title": "Best Supplement for Knee Joint Pain? UK Evidence",
+    "description": "Glucosamine, collagen, turmeric or fish oil for knees? What the evidence and NICE say, which have the most research, and what to ask a pharmacist.",
     "question": "Best Supplement for Knee Joints? Evidence and Safety",
     "answer": "There is no established best supplement for knee joints. NICE says not to offer glucosamine for osteoarthritis. Supplements do not restore damaged cartilage and should not replace an agreed care plan. Discuss any product with a pharmacist or clinician, especially if you take other medicines.",
-    "breadcrumb": "Best Supplement for Knee Joints? What the Evidence Says",
+    "breadcrumb": "Best Supplement for Knee Joint Pain? UK Evidence",
     "about": "Diet & lifestyle",
     "updatedAt": "2026-10-10",
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0174-looking-through-a-view-finder-can-be-hazardou.webp",
@@ -7415,8 +7415,8 @@
       "category": "Diet & lifestyle",
       "image_url": "/openverse/cover-0174-looking-through-a-view-finder-can-be-hazardou.webp",
       "cover": "cover-0174-looking-through-a-view-finder-can-be-hazardou.webp",
-      "meta_title": "Best Supplement for Knee Joints? What the Evidence Says",
-      "meta_description": "No supplement rebuilds knee cartilage, and NICE advises against glucosamine for OA. Glucosamine, collagen, turmeric and fish oil compared honestly.",
+      "meta_title": "Best Supplement for Knee Joint Pain? UK Evidence",
+      "meta_description": "Glucosamine, collagen, turmeric or fish oil for knees? What the evidence and NICE say, which have the most research, and what to ask a pharmacist.",
       "keywords": "best supplement for knee joint, glucosamine sulphate knee, UC-II collagen, Boswellia knee OA, curcumin knee pain",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
@@ -7470,7 +7470,7 @@
       },
       {
         "path": "/blog/best-supplements-joint-pain",
-        "title": "Best Supplements for Joint Pain: What Actually Works"
+        "title": "Best Supplements for Joint Pain (UK): What Works"
       }
     ]
   },
@@ -7533,8 +7533,8 @@
   },
   "/blog/best-supplements-joint-pain": {
     "title": "Best Supplements for Joint Pain: What Actually Works",
-    "description": "Supplements with the most research for joint pain: omega-3 fish oil, vitamin D and curcumin. What UK evidence shows, and why to check with a GP or pharmacist.",
-    "question": "Best Supplements for Joint Pain: What Actually Works",
+    "description": "Omega-3, vitamin D, turmeric, glucosamine: which joint pain supplements have real evidence, which don't, and safety checks to make with a pharmacist.",
+    "question": "Best Supplements for Joint Pain (UK): What Works",
     "answer": "Supplements with the most research for joint pain: omega-3 fish oil (high doses were used in rheumatoid arthritis trials), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Check with your GP or pharmacist before starting any supplement.",
     "breadcrumb": "Best Supplements for Joint Pain: What Actually Works",
     "about": "Diet & lifestyle",
@@ -7542,7 +7542,7 @@
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0332-holding-hands-10-10-10.webp",
     "article": {
       "slug": "best-supplements-joint-pain",
-      "title": "Best Supplements for Joint Pain: What Actually Works",
+      "title": "Best Supplements for Joint Pain (UK): What Works",
       "excerpt": "Supplements with the most research for joint pain: omega-3 fish oil (high doses were used in rheumatoid arthritis trials), vitamin D (especially UK autumn/winter), curcumin.",
       "content": "<p>Best supplements for joint pain — with hundreds of products making bold claims, knowing what actually works is genuinely difficult. This guide cuts through the marketing and reviews the evidence honestly, based on systematic reviews and clinical trials.</p>\n  <p class=\"quick-answer\"><strong>Quick answer:</strong> Supplements with the most research for joint pain: omega-3 fish oil (high doses were used in rheumatoid arthritis trials), vitamin D (especially UK autumn/winter), curcumin with piperine (moderate evidence for OA). Glucosamine has weak evidence and is not recommended by NICE. Check with your GP or pharmacist before starting any supplement.</p>\n<img src=\"/openverse/nutrition-12-the-small-acai-bowl-in-a-cup.webp\" alt=\"Supplements for joint pain\" loading=\"lazy\" class=\"w-full h-auto rounded-xl my-6 shadow-sm\" /><p class=\"text-xs text-center text-muted-foreground -mt-4 mb-6 italic\">Natural supplements — openly licensed via Openverse</p><h2>What Has the Best Evidence</h2><h3>Omega-3 Fatty Acids (Fish Oil)</h3><p><strong>Evidence: Moderate, mainly in rheumatoid arthritis.</strong> Several randomised trials suggest omega-3 (EPA+DHA) supplements may reduce morning stiffness and tender joints in rheumatoid arthritis. Trials used high doses (around 2.7g EPA+DHA a day, not total fish oil), which can raise bleeding risk, so check with your GP or pharmacist before taking a high dose. Take with food to reduce fishy aftertaste.</p><h3>Vitamin D</h3><p><strong>Evidence: Strong for deficiency, moderate for pain.</strong> UK residents are commonly deficient (especially autumn/winter). Vitamin D deficiency is associated with worse arthritis outcomes. The NHS recommends 10 micrograms (400 IU) daily for all adults October–March. People with arthritis may benefit from higher doses — discuss with your GP.</p><h3>Curcumin (from Turmeric)</h3><p><strong>Evidence: Moderate.</strong> Several RCTs show curcumin supplements (not just turmeric powder in food) reduce pain and inflammatory markers in OA. The challenge is bioavailability — look for formulations with black pepper extract (piperine) or phospholipid complexes. Speak to your GP or pharmacist about the right dose for you.</p><img src=\"/openverse/nutrition-08-gesundes-leben-004-2024-03-22.webp\" alt=\"Evidence-based supplements for arthritis\" loading=\"lazy\" class=\"w-full h-auto rounded-xl my-6 shadow-sm\" /><p class=\"text-xs text-center text-muted-foreground -mt-4 mb-6 italic\">Healthy living supplements — openly licensed via Openverse</p><h3>Glucosamine and Chondroitin</h3><p><strong>Evidence: Weak to moderate.</strong> Hugely popular but evidence is mixed. The large GAIT trial found no benefit over placebo for most OA patients. Some meta-analyses show modest pain reduction in knee OA. Current NICE guidance does not recommend them. If you try them, allow 3 months before judging effect.</p><h2>What to Skip</h2><ul><li><strong>Collagen supplements</strong> — insufficient evidence for joint pain specifically</li><li><strong>Magnesium for OA</strong> — no good evidence for pain reduction (despite widespread claims)</li><li><strong>Many herbal \"arthritis complex\" products</strong> — usually contain small amounts of multiple ingredients below therapeutic doses</li></ul><img src=\"/openverse/nutrition-01-oliven-v1.webp\" alt=\"Natural anti-inflammatory foods\" loading=\"lazy\" class=\"w-full h-auto rounded-xl my-6 shadow-sm\" /><p class=\"text-xs text-center text-muted-foreground -mt-4 mb-6 italic\">Anti-inflammatory nutrition — openly licensed via Openverse</p><h2>Q&A</h2><p><strong>Question:</strong> Should I tell my GP about supplements I'm taking?<br/><strong>Short answer:</strong> Yes, always. Some supplements interact with medications: fish oil can potentiate anticoagulants; high-dose vitamin D can affect calcium levels; St John's Wort interacts with many DMARDs.</p><p><strong>Question:</strong> Are expensive supplements better than cheaper ones?<br/><strong>Short answer:</strong> Not necessarily. Own-brand vitamin D and fish oil from supermarkets or pharmacies are equivalent to premium brands for the same dose. Check the EPA+DHA content on the label, not the total fish oil capsule weight.</p><h3>Practical next steps for Best Supplements for Joint Pain: What Actually Works</h3>\nIf you came here about <strong>Best Supplements for Joint Pain: What Actually Works</strong>, pick one change you can keep for a fortnight rather than overhauling everything at once. Note what hurts, what helps, and what you have already tried, then take that list to your GP, rheumatology nurse or physiotherapist so the conversation stays concrete.<p>In many areas you can ask community musculoskeletal services about self-referral to physiotherapy or lifestyle support without waiting for a hospital letter. Check your GP surgery website or the NHS App for the route that applies where you live.</p>\n<h3>Work, rights and practical adjustments</h3><p>Under the Equality Act 2010, employers in Great Britain should consider reasonable adjustments when arthritis has a substantial long-term effect. That can mean flexible hours, more breaks, seating, parking closer to the entrance, or software that reduces typing strain. Acas and Citizens Advice both publish plain-English guides you can take into a meeting.</p>\n<h3>Using evidence carefully</h3><p>Marketing claims for joint supplements often outrun the research. Look for products that state dose clearly, avoid miracle language, and fit alongside — never instead of — prescribed treatment. Stop and seek advice if you notice bruising, stomach pain, yellowing of the skin or new rashes.</p>\n<h3>Making information usable</h3><p>Treat articles like this as a starting map, not a personal care plan. Highlight one idea to try for two weeks, then review. If symptoms are new, rapidly worsening, or affecting several joints with fever or unexplained weight loss, contact your GP promptly rather than waiting on self-help alone.</p>\n<h3>Quick questions about Best Supplements Joint Pain</h3>\n<strong>Is this a substitute for seeing a clinician?</strong> No. Use it to prepare questions and understand options, then confirm decisions with your NHS team.<p><strong>How long before I judge whether a change helped?</strong> Give most habit or exercise changes at least two to four weeks, unless pain or swelling clearly worsens — in that case scale back sooner.</p>\n<p><strong>What should I track?</strong> Joint pain (0–10), morning stiffness time, sleep quality, and how far you can walk or how long you can type or stand. Patterns beat one-off ratings.</p>\n<h3>Safety and when to get urgent help</h3><p>This page is general information for people in the United Kingdom, not personal medical advice. Seek urgent help via NHS 111 or A&amp;E if you have sudden inability to move a joint, hot swollen joint with fever, chest pain, severe shortness of breath, or symptoms that feel immediately dangerous.</p>\n<h3>Keep learning with us</h3><p>Explore related guides on Living With Arthritis — try the <a href=\"/guides\">guides hub</a>, <a href=\"/diet\">diet hub</a>, <a href=\"/exercises\">exercise hub</a>, or <a href=\"/search\">site search</a> to filter by topic and length. If benefits or work questions are on your mind, start at the <a href=\"/benefits-pip\">Benefits &amp; PIP hub</a>.</p>\n<p>Keep expectations kind while you work on best supplements for joint pain: what actually works. Arthritis symptoms fluctuate; a quieter week does not mean you imagined earlier pain, and a flare does not mean every helpful habit has failed. Adjust one variable at a time so you can see what truly helps.</p>\n  <section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n    <h2 id=\"continue-reading\">Continue reading</h2>\n    <ul>\n      <li><a href=\"/blog/best-supplement-for-knee-joint\">Best Supplement for Knee Joint Health: UK Evidence Guide</a> — Knee pain from arthritis?</li>\n      <li><a href=\"/blog/turmeric-for-arthritis\">Turmeric for Arthritis: Does It Really Work?</a> — Explore the science behind turmeric and curcumin for arthritis pain relief.</li>\n      <li><a href=\"/blog/arthritis-pain-relief-natural\">Natural Pain Relief for Arthritis – Home Remedies UK</a> — Evidence-based natural pain relief methods for arthritis.</li>\n      <li><a href=\"/blog/tens-machines-arthritis-uk\">TENS Machines for Arthritis – Do They Work? UK Guide</a> — Complete UK guide to using TENS machines for arthritis pain.</li>\n    </ul>\n  </section>\n",
       "date": "2026-07-24",
@@ -7550,7 +7550,7 @@
       "image_url": "/openverse/cover-0332-holding-hands-10-10-10.webp",
       "cover": "cover-0332-holding-hands-10-10-10.webp",
       "meta_title": "Best Supplements for Joint Pain: What Actually Works",
-      "meta_description": "Supplements with the most research for joint pain: omega-3 fish oil, vitamin D and curcumin. What UK evidence shows, and why to check with a GP or pharmacist.",
+      "meta_description": "Omega-3, vitamin D, turmeric, glucosamine: which joint pain supplements have real evidence, which don't, and safety checks to make with a pharmacist.",
       "keywords": "best supplements joint pain, joint pain supplements uk, arthritis supplements what works",
       "author": "Louis Maxwell",
       "author_credentials": "First Contact Practitioner, HCPC PH128483",
@@ -19529,8 +19529,8 @@
         "title": "Anti-Inflammatory Diet for Arthritis: What the Evidence Says and How to Eat (UK Guide)"
       },
       {
-        "path": "/blog/best-supplements-joint-pain",
-        "title": "Best Supplements for Joint Pain: What Actually Works"
+        "path": "/blog/turmeric-curcumin-arthritis-evidence",
+        "title": "Turmeric and Curcumin for Arthritis: What the Evidence Really Shows (UK Guide)"
       }
     ]
   },
@@ -36247,7 +36247,7 @@
   "/blog/pip-for-arthritis-uk": {
     "title": "Does Arthritis Qualify for PIP? Points, Rates & Evidence",
     "description": "Arthritis alone doesn't qualify for PIP: how it affects daily tasks does. See the 12 activities, the 8 and 12 point thresholds and what evidence to send.",
-    "question": "Does Arthritis Qualify for PIP? Points, Rates & Evidence",
+    "question": "Can You Get PIP for Arthritis? UK Points & Evidence",
     "answer": "Arthritis does not automatically qualify you for PIP. Eligibility depends on how your condition affects daily living or mobility, including whether you can do tasks reliably and how often difficulties occur. You can claim while working. Describe better and worse days honestly; use the application guide for the practical claim steps.",
     "breadcrumb": "Does Arthritis Qualify for PIP? Points, Rates & Evidence",
     "about": "Benefits, PIP & work",
@@ -36255,7 +36255,7 @@
     "ogImage": "https://livingwitharthritis.org.uk/openverse/cover-0186-the-long-journey.webp",
     "article": {
       "slug": "pip-for-arthritis-uk",
-      "title": "Does Arthritis Qualify for PIP? Points, Rates & Evidence",
+      "title": "Can You Get PIP for Arthritis? UK Points & Evidence",
       "excerpt": "Can you claim PIP for arthritis while working? Learn how daily living, mobility and fluctuating symptoms are assessed, and what evidence to prepare.",
       "content": "<p class=\"pip-claim-callout\"><strong>Ready to claim?</strong> This page explains who qualifies. For the step-by-step claim (the phone call, the form, the assessment and appeals) use our <a href=\"/guides/benefits-pip\">complete PIP claim guide for arthritis</a>.</p>\n<p class=\"quick-answer\"><strong>Quick answer:</strong> Personal Independence Payment (PIP) is a non-means-tested UK benefit for people aged 16 to State Pension age whose long-term condition substantially affects daily living and/or mobility. Arthritis can qualify when flares, stiffness, fatigue or aids change how you cook, wash, dress, move or plan journeys — not because of the diagnosis name alone. Check your country’s official claim route, describe better and worse days and how often they occur, gather clinical evidence, and get free form help from Citizens Advice or a welfare rights service where you can.</p>\n\n<p>This page is for people with arthritis and carers in the United Kingdom who need a clear map of PIP — not a promise of an award. Rules and rates change; always check the current GOV.UK guidance and take personal advice from a welfare adviser if your situation is complex (Scotland’s Adult Disability Payment has a different pathway).</p>\n\n<p>For the wider benefits landscape see our <a href=\"/benefits-pip\">Benefits &amp; PIP hub</a>. Newly diagnosed and still finding your feet? Start at <a href=\"/guides/newly-diagnosed\">newly diagnosed</a>. Pain pacing sits in the <a href=\"/guides/arthritis-pain-relief\">pain-relief guide</a>. If work is the pressure point, also read <a href=\"/library/access-to-work\">Access to Work</a>.</p>\n\n<h2>What PIP is (and is not)</h2>\n<p>PIP has two components — <strong>Daily Living</strong> and <strong>Mobility</strong> — each with a standard and an enhanced rate. You can receive one or both. It is not means-tested and is not based solely on your arthritis type (OA, RA, PsA, AS and others can all be relevant when functional impact is high enough).</p>\n<ul>\n<li>Daily Living looks at activities such as preparing food, eating, managing treatments, washing, dressing, communicating and engaging with other people.</li>\n<li>Mobility looks at planning and following journeys, and moving around.</li>\n</ul>\n<p>Assessors score descriptors. Aids, prompting and the reliability test (safely, repeatedly, to an acceptable standard, in a reasonable time) matter as much as “can you do it once on a good day”.</p>\n\n<h2>Eligibility signals that matter for arthritis</h2><p>Examples below are prompts for your own evidence, not automatic qualifying conditions. Explain whether tasks are safe, repeatable, adequately completed and timely; record the frequency of difficulties across time.</p>\n<ul>\n<li>Morning stiffness that delays washing, dressing or leaving the house.</li>\n<li>Flare days when grip, stairs, standing to cook or carrying shopping fail.</li>\n<li>Fatigue after small tasks — how often you need to rest or get help.</li>\n<li>Aids you already use (perching stool, jar openers, sticks, rails) and why.</li>\n<li>Variability — record better and worse days and their frequency; do not present your worst day as every day.</li>\n</ul>\n\n<h2>Where to find the application steps</h2><p>For the practical claim sequence, forms and diary, use our <a href=\"/guides/benefits-pip\">step-by-step PIP application guide</a>. This article focuses on whether arthritis-related difficulties may meet the criteria. Northern Ireland uses its own claim service: <a href=\"https://www.nidirect.gov.uk/articles/personal-independence-payment-pip\">nidirect PIP information</a>.</p><h3>Claim preparation at a glance</h3>\n<ol>\n<li>Check the current claim route for where you live: GOV.UK for England and Wales, nidirect for Northern Ireland, or Adult Disability Payment in Scotland.</li>\n<li>Complete the “How your disability affects you” form — use concrete examples from a 2–4 week diary.</li>\n<li>Send supporting evidence: clinic letters, medication lists, OT/physio notes, flare diaries.</li>\n<li>Attend the assessment (telephone, video or face-to-face) if invited — explain your usual difficulties and how they vary.</li>\n</ol>\n<p>In Scotland, new claims usually go through <strong>Adult Disability Payment</strong> rather than PIP — check Social Security Scotland guidance.</p>\n\n<h2>Tips that improve clarity (not “hacks”)</h2>\n<ul>\n<li>Write what happens on better and worse days, and how often each occurs, how long tasks take, and what goes wrong without help.</li>\n<li>Name every joint that affects the activity (hands for buttons, knees for stairs, spine for washing hair).</li>\n<li>Ask your GP, rheumatology nurse or physiotherapist for a short functional letter if they can.</li>\n<li>Use Citizens Advice, local authority welfare rights or disability charities for free form checks.</li>\n</ul>\n\n<h2>If you disagree with the decision</h2>\n<p>You can usually ask for a <strong>mandatory reconsideration</strong> within the time limit on your decision letter, then appeal to a tribunal if needed. Many people succeed at appeal with clearer evidence — that is not a guarantee. Get advice early; deadlines are short.</p>\n\n<h2>PIP alongside work and other support</h2>\n<p>PIP can sit beside work. For workplace equipment and travel-to-work help, explore <a href=\"/library/access-to-work\">Access to Work</a> and Equality Act reasonable adjustments. Food patterns that support energy are covered on the <a href=\"/diet\">diet hub</a> — diet does not replace benefits advice.</p>\n\n<h2>Quick questions</h2>\n<p><strong>Does a diagnosis of arthritis automatically mean PIP?</strong> No. Awards turn on functional impact against the descriptors.</p>\n<p><strong>Should I apply on a good day?</strong> Describe your difficulties reliably across time, including flares — not only the hour you feel strongest.</p>\n<p><strong>Is this legal advice?</strong> No. It is educational information for UK readers. Confirm current rules on GOV.UK and with a welfare adviser.</p>\n\n<p><em>Educational information for people in the United Kingdom — not personal legal, financial or medical advice. Charity no. 1218461.</em></p>\n\n<section class=\"internal-links\" aria-labelledby=\"continue-reading\">\n<h2 id=\"continue-reading\">Continue with related help</h2>\n<ul>\n<li><a href=\"/benefits-pip\">Benefits &amp; PIP hub</a> — UK pathways at a glance</li>\n<li><a href=\"/library/access-to-work\">Access to Work</a> — work equipment and support</li>\n<li><a href=\"/guides/newly-diagnosed\">Newly diagnosed</a> — first steps after diagnosis</li>\n<li><a href=\"/guides/arthritis-pain-relief\">Arthritis pain relief</a> — pacing and movement</li>\n<li><a href=\"/guides/disability-support\">Disability support</a> — rights and practical help</li>\n<li><a href=\"/diet\">Diet hub</a> — food patterns beside benefits planning</li>\n<li><a href=\"/blog/appeal-rejected-pip-arthritis\">Appealing a refused PIP claim</a> — next steps if refused</li>\n</ul>\n</section>\n<h2>When to get urgent help</h2><p>Call <strong>999</strong> or go to A&amp;E if you have chest pain, sudden weakness or numbness, severe breathlessness, a suspected broken bone after a fall, or back pain with new loss of bladder or bowel control or numbness around your bottom or genitals.</p><p>Contact <strong>NHS 111</strong> or your GP urgently if a joint suddenly becomes hot, red, swollen and very painful, especially if you feel unwell or have a fever, or if your symptoms are getting rapidly worse.</p>",
       "date": "2026-03-01",

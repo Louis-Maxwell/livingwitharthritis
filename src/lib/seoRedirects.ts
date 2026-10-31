@@ -176,6 +176,16 @@ function resolveOnce(path: string): string | null {
   // Locale 404s must not stay as crawlable URLs.
   if (/^\/(es|fr|de|pt)\/404$/.test(path)) return "/";
 
+  // Retired legacy article PDFs: send readers to the accessible HTML guide.
+  const legacyPdf = path.match(/^\/articles\/(?:\d{3}-)?([a-z0-9-]+)\.pdf$/);
+  if (legacyPdf) {
+    const slug = BLOG_SLUG_REDIRECTS[legacyPdf[1]] ?? legacyPdf[1];
+    return PUBLISHED_BLOG_SLUGS.has(slug) ? `/blog/${slug}` : "/blog";
+  }
+  if (path === "/articles" || path === "/downloads/arthritis-starter-guide-preview.pdf") {
+    return path === "/articles" ? "/blog" : "/arthritis-starter-guide";
+  }
+
   // Shop never launched; old product links land on the supplements hub.
   if (/^\/product\/[^/]+$/.test(path)) return "/supplements";
 

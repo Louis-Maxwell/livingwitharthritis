@@ -55,6 +55,21 @@ export function classifyLink(a: Pick<HTMLAnchorElement, "getAttribute" | "textCo
   return [];
 }
 
+/** Interactive tools: first interaction per page view fires GA4 `tool_use`. */
+export const TOOL_PATHS: Record<string, string> = {
+  "/symptom-checker": "symptom_checker",
+  "/self-assessment": "self_assessment",
+  "/tools/waiting-time": "waiting_time_calculator",
+  "/tools/find-specialist": "find_specialist",
+  "/pedometer": "pedometer",
+  "/resources/symptom-flare-tracker": "symptom_flare_tracker",
+};
+
+export function toolNameForPath(pathname: string): string | null {
+  const p = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  return TOOL_PATHS[p] ?? null;
+}
+
 let installed = false;
 
 export function installAutoEvents(doc: Document = document): void {
@@ -65,6 +80,20 @@ export function installAutoEvents(doc: Document = document): void {
     if (!a) return;
     for (const ev of classifyLink(a, window.location.origin)) trackEvent(ev.name, ev.params);
   }, { capture: true });
+
+  // tool_use: once per tool per page view, on the first real interaction.
+  const usedTools = new Set<string>();
+  const onToolInteraction = (e: Event) => {
+    const tool = toolNameForPath(window.location.pathname);
+    if (!tool) return;
+    const target = e.target as Element | null;
+    if (e.type === "click" && !target?.closest?.("button, [role='button'], input, select, label")) return;
+    const key = `${window.location.pathname}|${tool}`;
+    if (usedTools.has(key)) return;
+    usedTools.add(key);
+    trackEvent("tool_use", { tool_name: tool, interaction: e.type, page_path: window.location.pathname });
+  };
+  for (const type of ["click", "change", "submit"]) doc.addEventListener(type, onToolInteraction, { capture: true });
 
   // Native Web Share button(s) mark themselves with data-share="native".
   doc.addEventListener("click", (e) => {

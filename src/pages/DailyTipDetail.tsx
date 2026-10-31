@@ -118,7 +118,7 @@ const DailyTipDetail = () => {
       <main id="main-content" className="flex-1">
         {/* Hero banner */}
         <section className="relative h-72 sm:h-80 md:h-[28rem] overflow-hidden">
-          <img src={image} alt={title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          <img src={image} alt={title} width={1200} height={800} className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
             <div className="container mx-auto max-w-4xl">
