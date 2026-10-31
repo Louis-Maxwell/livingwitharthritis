@@ -20,7 +20,7 @@ const RESEARCH_HOSTS = [
 ];
 function sourceType(host) {
   if (/(^|\.)nice\.org\.uk$/.test(host)) return "NICE";
-  if (/(^|\.)nhs\.uk$/.test(host) || host === "www.nhsinform.scot" || host.endsWith(".nhs.wales") || host.endsWith("hscni.net")) return "NHS";
+  if (/(^|\.)nhs\.uk$/.test(host) || host === "www.nhsinform.scot" || host.endsWith(".nhs.wales") || host === "hscni.net" || host.endsWith(".hscni.net")) return "NHS";
   if (RESEARCH_HOSTS.some((h) => host === h || host.endsWith("." + h))) return "Research";
   return null;
 }
@@ -156,6 +156,6 @@ const sources = [...register.values()]
   .sort((a, b) => a.topic.localeCompare(b.topic) || a.type.localeCompare(b.type) || a.label.localeCompare(b.label));
 
 const json = JSON.stringify({ sourceCount: sources.length, sources }, null, 0) + "\n";
-if (!fs.existsSync(OUT) || fs.readFileSync(OUT, "utf8") !== json) fs.writeFileSync(OUT, json);
+fs.writeFileSync(OUT, json);
 const byType = sources.reduce((a, s) => ((a[s.type] = (a[s.type] || 0) + 1), a), {});
 console.log(`evidence register: ${sources.length} sources`, byType);
