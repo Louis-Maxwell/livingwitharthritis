@@ -49,10 +49,17 @@ export const trackEvent = (
     if (import.meta.env.DEV) {
       console.debug('[GA4]', name, params);
     }
+    // Every event carries the clean page_location/title so sessions whose
+    // first hit is not page_view are not reported as landing page "(not set)".
+    const withPage = {
+      page_location: analyticsUrl(window.location.href),
+      page_title: document.title,
+      ...params,
+    };
     if (typeof window.gtag === "function") {
-      window.gtag("event", name, params);
+      window.gtag("event", name, withPage);
     } else if (Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({ event: name, ...params });
+      window.dataLayer.push({ event: name, ...withPage });
     }
   } catch {
     /* analytics must never break UX */

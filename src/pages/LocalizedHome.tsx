@@ -18,6 +18,8 @@ export default function LocalizedHome() {
   return (
     <>
       <Helmet>
+        {/* Machine translation, not reviewed: keep out of search until native review. */}
+        <meta name="robots" content="noindex, follow" />
         <title>{t.home.heroTitle}</title>
         <meta name="description" content={t.home.heroSubtitle} />
         <meta property="og:title" content={t.home.heroTitle} />

@@ -294,8 +294,53 @@ function baseHeadDataFor(route, override) {
 const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
   ? [...readFileSync(resolve('public/sitemap.xml'), 'utf8').matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)]
       .map((m) => new URL(m[1]).pathname) : [];
+// Rendered-body snapshots (scripts/snapshot-rendered-bodies.mjs): each page's
+// own rendered content, used when its static data body is thin (soft-404 fix).
+const RENDERED_BODIES = existsSync(resolve('scripts/data/rendered-bodies.json'))
+  ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {};
+const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+function withRenderedBody(route, data) {
+  const snap = RENDERED_BODIES[route];
+  if (!data || data.noindex) return data;
+  let out = data;
+  if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 250 && textWords(data.bodyHtml) >= textWords(snap))) {
+    out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
+  }
+  return withLinkedSummaries(route, out);
+}
+// Keep only internal links that resolve to a sitemap page; others become text.
+function unwrapUnknownLinks(html) {
+  return String(html).replace(/<a href="(\/[^"#?]*)[^"]*">([\s\S]*?)<\/a>/g, (all, path, inner) =>
+    SITEMAP_PATHS.includes(path.replace(/\/$/, '') || '/') ? all : inner);
+}
+// Still-thin pages (interactive tools, contact screens): describe the pages
+// they already link to, using each target's own meta description.
+function withLinkedSummaries(route, data) {
+  const have = textWords(data.bodyHtml) + textWords(data.answer);
+  if (have >= 250) return data;
+  const paths = [
+    ...[...String(data.bodyHtml || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
+    ...(data.relatedLinks || []).map((l) => l.path),
+    ...SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(`${route.split('/').slice(0, 2).join('/')}/`)),
+    '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/diet', '/guides/benefits-pip', '/helpline',
+  ];
+  const items = [];
+  let words = have;
+  for (const path of [...new Set(paths)]) {
+    if (words >= 260) break;
+    if (path === route || !SITEMAP_PATHS.includes(path)) continue;
+    const t = baseHeadDataFor(path);
+    if (!t || t.noindex || !t.description) continue;
+    const title = String(t.breadcrumb || t.question || t.title || path).split(' | ')[0];
+    const li = `<li><a href="${path}">${escText(title)}</a> — ${escText(t.description)}</li>`;
+    items.push(li); words += textWords(li);
+  }
+  if (!items.length) return data;
+  return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Where to go next</h2><ul>${items.join('')}</ul>` };
+}
+export { withRenderedBody };
 function headDataFor(route, override) {
-  const data = baseHeadDataFor(route, override);
+  const data = withRenderedBody(route, baseHeadDataFor(route, override));
   if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
   const children = SITEMAP_PATHS.filter((path) =>
     (path.startsWith(`${route}/`) && !path.slice(route.length + 1).includes('/')) ||
@@ -326,6 +371,11 @@ export function applyNoindexMeta(html) {
 // They still get a unique static title/description so no URL on the domain
 // serves the homepage head.
 const NOINDEX_PREFIXES = [
+  // Machine-translated locale landing pages (no reviewed translations yet).
+  "/es",
+  "/fr",
+  "/de",
+  "/pt",
   "/search",
   "/.lovable",
   "/account",
