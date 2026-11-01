@@ -3009,7 +3009,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Seated exercise with rheumatoid arthritis: flare days and good days (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/chair-based-exercise-ra-frailty-uk
-Last updated: 2026-10-27
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-27
@@ -3055,19 +3055,6 @@ Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management �
 Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
 Reference: Age UK: Exercise and staying active — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/
 
-## Chair yoga for frailty and inflammatory arthritis (UK)
-URL: https://livingwitharthritis.org.uk/blog/chair-yoga-frailty-inflammatory-arthritis-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Chair yoga for frailty and inflammatory arthritis (UK)
-A: When inflammatory arthritis meets frailty, everyday tasks in a community class can shrink faster than the joints alone would suggest. Here we focus on slow mobility without floor work, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-
 ## Chest infections and arthritis: self-care, warning signs and recovery (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/chest-infection-arthritis-frailty-uk
 Last updated: 2026-10-14
@@ -3093,19 +3080,6 @@ Q: Your Circadian Rhythm and Arthritis Inflammation
 A: Inflammatory markers peak overnight. Aligning meals, light and movement to your body clock can lower flare…
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Kidney disease, NSAIDs and frail arthritis (UK)
-URL: https://livingwitharthritis.org.uk/blog/ckd-nsaids-arthritis-frailty-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Kidney disease, NSAIDs and frail arthritis (UK)
-A: Multi-joint pain rarely stays in the clinic notes — it changes cooking, washing and whether you answer the door. This page explains why some pain tablets are off the table if you live with arthritis with kidney disease, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-
 ## Clinical Trials for Arthritis: How to Find and Join One
 URL: https://livingwitharthritis.org.uk/blog/clinical-trials-for-arthritis-how-to-find-and-join-one
 Last updated: 2026-09-05
@@ -3115,19 +3089,6 @@ Last clinically reviewed: 2026-10-23
 Q: Clinical Trials for Arthritis: How to Find and Join One
 A: Clinical trials for arthritis offer access to innovative treatments and close medical monitoring. While some participants might receive a placebo, the comprehensive care and regular assessments provide significant benefits. Trials adhere to ethical frameworks ensuring informed consent, patient safety, and data privacy. The data gathered helps advance understanding of arthritis, leading to improved diagnostics and therapies.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
-## Cognition, arthritis and remembering tablets (UK)
-URL: https://livingwitharthritis.org.uk/blog/cognition-arthritis-frailty-remembering-tablets-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Cognition, arthritis and remembering tablets (UK)
-A: Families dealing with cognition, arthritis and remembering tablets usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at memory, pain and medicine routines in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
 ## Managing Arthritis in Winter: A Practical Cold-Weather Guide (UK)
 URL: https://livingwitharthritis.org.uk/blog/cold-weather-arthritis-uk-winter
@@ -3290,7 +3251,7 @@ Reference: NHS Talking Therapies — https://www.nhs.uk/mental-health/talking-th
 
 ## Constipation, pain medicines and frailty in arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/constipation-pain-medicines-frailty-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -3601,7 +3562,7 @@ Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthrit
 
 ## Dosette boxes, blister packs and tablets when arthritis affects your hands (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/dosette-boxes-arthritis-frailty-hands-uk
-Last updated: 2026-10-30
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-30
@@ -5105,19 +5066,6 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Indoor walking with a frame when arthritis and frailty overlap (UK)
-URL: https://livingwitharthritis.org.uk/blog/indoor-walking-frame-arthritis-frailty-uk
-Last updated: 2026-10-11
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Indoor walking with a frame when arthritis and frailty overlap (UK)
-A: Home life is where arthritis and frailty collide most clearly — transfers, night trips, and the fear of a near-miss. Here we focus on frames, turning circles and sore hands, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-
 ## Getting through a flare week with inflammatory arthritis in later life (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-frailty-flare-week-uk
 Last updated: 2026-10-30
@@ -5426,19 +5374,6 @@ Reference: Age UK: Falls prevention — https://www.ageuk.org.uk/information-adv
 Reference: Age UK: Adapting your home — https://www.ageuk.org.uk/information-advice/care/housing-options/adapting-home/
 Reference: NHS: Hypothermia — https://www.nhs.uk/conditions/hypothermia/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-
-## Local wheelchair services for frail adults with arthritis (UK)
-URL: https://livingwitharthritis.org.uk/blog/local-wheelchair-service-arthritis-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Local wheelchair services for frail adults with arthritis (UK)
-A: UK home life shapes local wheelchair services for frail adults with arthritis as much as any clinic score — kettle, bathroom, stairs and night trips count. Here we focus on referral routes without promising a particular chair, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
 ## Loneliness, arthritis and frailty: rebuilding social contact (UK)
 URL: https://livingwitharthritis.org.uk/blog/loneliness-arthritis-frailty-social-contact-uk
@@ -6505,19 +6440,6 @@ Q: NSAIDs and Arthritis: Benefits, Risks and Safer Use
 A: NSAIDs effectively reduce arthritis pain and stiffness, with benefits often appearing within hours to days, though responses vary. Use the lowest effective dose for the shortest duration, as side effects on the digestive system and kidneys become more likely with higher doses and longer-term use. Topical NSAIDs may offer localised relief with fewer systemic side effects.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## NSAIDs, kidneys and heart problems in frail arthritis (UK)
-URL: https://livingwitharthritis.org.uk/blog/nsaids-kidneys-heart-frail-arthritis-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: NSAIDs, kidneys and heart problems in frail arthritis (UK)
-A: Calling frailty a clinical syndrome helps families ask better questions without blaming character or willpower. This article is about why anti-inflammatory tablets are not always the first step, written for people and carers in Scotland, especially around a GP surgery.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-
 ## Nutrition Strategies to Reduce Frailty Risk
 URL: https://livingwitharthritis.org.uk/blog/nutrition-strategies-reduce-frailty-risk
 Last updated: 2026-09-05
@@ -6737,7 +6659,7 @@ Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-res
 
 ## Painkillers in later life with arthritis: safer use and what to check (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/painkillers-older-adults-arthritis-caution-uk
-Last updated: 2026-10-21
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -6775,19 +6697,6 @@ Last clinically reviewed: 2026-10-23
 Q: Paracetamol for Arthritis Pain: What the Evidence Says
 A: Current evidence suggests paracetamol alone provides limited benefit for many with arthritis pain, especially for long-term conditions like osteoarthritis. While some studies show a small pain reduction compared to a placebo, this is often insufficient for daily life. It is generally recommended for mild pain or occasional flare-ups, usually in conjunction with other treatments, rather than as a primary, standalone solution.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
-## Paracetamol for frail older adults with arthritis: what to check (UK)
-URL: https://livingwitharthritis.org.uk/blog/paracetamol-older-frail-arthritis-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Paracetamol for frail older adults with arthritis: what to check (UK)
-A: Several painful joints make every transfer a negotiation; frailty grows when those negotiations end in the chair all afternoon. This page explains checking the whole medicine list, not adding quietly if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
 ## Parenting With Arthritis: Hacks for Babies and Toddlers
 URL: https://livingwitharthritis.org.uk/blog/parenting-with-arthritis-hacks-for-babies-and-toddlers
@@ -6838,7 +6747,7 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/pharmacist-medication-review-frail-arthritis-uk
-Last updated: 2026-10-19
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -7038,19 +6947,6 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS Inform — https://www.nhsinform.scot
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Polypharmacy, arthritis and frailty: asking for a medicines review (UK)
-URL: https://livingwitharthritis.org.uk/blog/polypharmacy-arthritis-frailty-review-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Polypharmacy, arthritis and frailty: asking for a medicines review (UK)
-A: UK home life shapes polypharmacy, arthritis and frailty: asking for a medicines review as much as any clinic score — kettle, bathroom, stairs and night trips count. This guide covers too many tablets when joints and balance are already fragile because arthritis with frailty affects several joints, with a focus on England and a GP surgery setting.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-
 ## After hip replacement: coming home frail (UK)
 URL: https://livingwitharthritis.org.uk/blog/post-hip-replacement-frailty-home-uk
 Last updated: 2026-09-05
@@ -7076,19 +6972,6 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
 Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-
-## Post-operative constipation, arthritis and frailty (UK)
-URL: https://livingwitharthritis.org.uk/blog/post-op-constipation-arthritis-frailty-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Post-operative constipation, arthritis and frailty (UK)
-A: For post-operative constipation, arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This UK guide looks at bowels after hospital that can stall walking in a home after discharge setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Prefrailty and osteoarthritis: early action before a crisis (UK)
 URL: https://livingwitharthritis.org.uk/blog/prefrailty-osteoarthritis-early-action-uk
@@ -7478,19 +7361,6 @@ Reference: NHS: Physical activity guidelines for adults aged 19 to 64 — https:
 Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
 Reference: Arthritis UK: Exercising with arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/
 
-## Seated resistance bands for frail osteoarthritis (UK)
-URL: https://livingwitharthritis.org.uk/blog/resistance-bands-seated-frail-oa-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Seated resistance bands for frail osteoarthritis (UK)
-A: When osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on light bands without heroic gym culture, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-
 ## Resistance Training: The Best-Kept Secret for Arthritis Longevity
 URL: https://livingwitharthritis.org.uk/blog/resistance-training-arthritis-longevity
 Last updated: 2026-09-25
@@ -7511,19 +7381,6 @@ Q: Respite care for families living with arthritis and frailty (UK)
 A: When arthritis and frailty overlap at home, kindness looks like smaller tasks and steadier practice, not all-or-nothing days. Here we focus on a break for the carer without abandoning the joints plan, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
 Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-
-## Restless nights, joint pain and next-day frailty (UK)
-URL: https://livingwitharthritis.org.uk/blog/restless-nights-joint-pain-frailty-uk
-Last updated: 2026-10-11
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Restless nights, joint pain and next-day frailty (UK)
-A: This guide stays with restless nights, joint pain and next-day frailty: what still moves safely, what to ask, and how to keep a steadier week. This article is about broken sleep as a falls risk the next morning, written for people and carers in Wales, especially around a home.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
@@ -7721,7 +7578,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/seated-strength-frail-osteoarthritis-uk
-Last updated: 2026-10-21
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -7733,19 +7590,6 @@ Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/str
 Reference: NICE NG226: Osteoarthritis in over 16s — diagnosis and management — https://www.nice.org.uk/guidance/ng226
 Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
-
-## Second-hand equipment for arthritis and frailty: safety checks (UK)
-URL: https://livingwitharthritis.org.uk/blog/second-hand-equipment-arthritis-frailty-uk
-Last updated: 2026-10-11
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Second-hand equipment for arthritis and frailty: safety checks (UK)
-A: Families dealing with second-hand equipment for arthritis and frailty: safety checks usually notice skipped invitations and slower rooms before any clinic label. Here we focus on borrowed frames that might not fit you, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
 ## Septic Arthritis: A Hot, Swollen Joint That Needs A&E
 URL: https://livingwitharthritis.org.uk/blog/septic-arthritis-hot-swollen-joint-emergency
@@ -7824,7 +7668,7 @@ Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-res
 
 ## Short-term equipment loans for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/short-term-equipment-loans-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -7994,7 +7838,7 @@ Reference: NICE MTG70: Sleepio to treat insomnia and insomnia symptoms — https
 
 ## Sleep, night pain and frailty in arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -8037,7 +7881,7 @@ Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.
 
 ## Slow walking groups for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -8123,22 +7967,9 @@ Q: Spinal Arthritis and Back Pain UK: Symptoms, Treatment and Self-Help
 A: Spinal arthritis, also known as spondylosis, affects the facet joints, discs, and vertebrae of the spine, causing chronic back and neck pain. Symptoms include stiffness, reduced flexibility, and pain that improves with gentle movement. Management involves exercises such as pelvic tilts and chin tucks, maintaining good posture, and sometimes physiotherapy or pain medication. Seek urgent medical attention for loss of bladder/bowel control or sudden weakness.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Spinal osteoarthritis and frailty: standing tall without overdoing it (UK)
-URL: https://livingwitharthritis.org.uk/blog/spinal-osteoarthritis-frailty-standing-pacing-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Spinal osteoarthritis and frailty: standing tall without overdoing it (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and spinal osteoarthritis can make it more visible. This article is about pacing standing tasks when the back is stiff, written for people and carers in Scotland, especially around a home.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS Inform — https://www.nhsinform.scot
-
 ## Spinal stenosis, osteoarthritis and frailty: walking with planned stops (UK)
 URL: https://livingwitharthritis.org.uk/blog/spinal-stenosis-oa-frailty-walking-stops-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -8392,26 +8223,13 @@ Reference: Hip pain — https://www.nhs.uk/conditions/hip-pain/
 
 ## Swimming for Arthritis: A Complete Guide
 URL: https://livingwitharthritis.org.uk/blog/swimming-for-arthritis
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Swimming for Arthritis: A Complete Guide
 A: Swimming is beneficial for arthritis as water's buoyancy supports up to 90% of body weight, reducing joint load and pain. Warm water, ideally 28–32°C, relaxes muscles and increases blood flow, while hydrostatic pressure can reduce joint swelling. Regular sessions, starting with 15–20 minutes and building to 30–45 minutes, two to three times weekly, can improve physical function and quality of life.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
-## Swimming with frail arthritis: the changing-room problem (UK)
-URL: https://livingwitharthritis.org.uk/blog/swimming-frail-arthritis-changing-rooms-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Swimming with frail arthritis: the changing-room problem (UK)
-A: Families dealing with swimming with frail arthritis: the changing-room problem usually notice skipped invitations and slower rooms before any clinic label. This page explains water helps, benches and hair-washing may not if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
 
 ## Full-Body Low-Impact Workout: Swimming for Arthritis
 URL: https://livingwitharthritis.org.uk/blog/swimming-full-body-arthritis
@@ -8509,22 +8327,9 @@ Last clinically reviewed: 2026-10-23
 Q: Tapering Biologics: What the Latest Trials Show
 A: For people with well-controlled inflammatory arthritis, reviews of randomised trials show that a gradual reduction in biologic medication dosage can be considered. This involves spacing out injections or reducing the dose while maintaining disease control. Any tapering strategy should be highly individualised, carefully monitored, and undertaken in close consultation with a specialist to balance disease control with reduced side effects and cost.
 
-## TENS machines for older frail adults with arthritis (UK)
-URL: https://livingwitharthritis.org.uk/blog/tens-machine-older-frail-arthritis-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: TENS machines for older frail adults with arthritis (UK)
-A: A practical UK guide to tENS machines for older frail adults with arthritis, written for days when energy and joints both feel limited. This page explains pads, batteries and realistic expectations if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-
 ## TENS for Arthritis: Does It Help and Is It Safe?
 URL: https://livingwitharthritis.org.uk/blog/tens-machines-arthritis-uk
-Last updated: 2026-10-10
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -8841,22 +8646,9 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
-## When walking sport is too much: frail arthritis alternatives (UK)
-URL: https://livingwitharthritis.org.uk/blog/walking-sport-too-much-frail-arthritis-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: When walking sport is too much: frail arthritis alternatives (UK)
-A: Here is a plain-English take on when walking sport is too much: frail arthritis alternatives, while arthritis and lower reserve share the same week. This page explains leaving the walking football WhatsApp without shame if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-
 ## Walking stick versus frame: arthritis, wrists and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/walking-stick-vs-frame-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -8981,7 +8773,7 @@ A: Sustained remission in rheumatoid arthritis means stable minimal or no diseas
 
 ## A wheelchair for distance, not for giving up: arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/wheelchair-for-distance-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
