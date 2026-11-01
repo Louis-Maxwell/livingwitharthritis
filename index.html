@@ -50,6 +50,38 @@
     <meta name="google-site-verification" content="8tQzVt9eFqNcL0z_C5wK4XmJ6pRvSdL9pM2nO0aP1bQ" />
     <meta name="google-site-verification" content="l-qVt5TBBgjYNFIo3al0voSLQYBkaRRwM899InNHcqw" />
 
+    <!-- Stable entity signals for search engines and answer engines. This static graph is available before JavaScript renders. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "NGO",
+            "@id": "https://livingwitharthritis.org.uk/#organization",
+            "name": "Living With Arthritis",
+            "url": "https://livingwitharthritis.org.uk/",
+            "logo": "https://livingwitharthritis.org.uk/favicon.svg",
+            "areaServed": { "@type": "Country", "name": "United Kingdom" },
+            "knowsAbout": ["arthritis", "frailty", "arthritis exercise", "PIP and benefits guidance"],
+            "sameAs": ["https://livingwitharthritis.org.uk/"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://livingwitharthritis.org.uk/#website",
+            "url": "https://livingwitharthritis.org.uk/",
+            "name": "Living With Arthritis",
+            "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+            "inLanguage": "en-GB",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://livingwitharthritis.org.uk/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+
     <!-- Consent-gated analytics loader.
          Nothing (GA4, Evarist) is requested until the visitor has explicitly
          accepted analytics cookies in the site cookie banner. On first visit,
