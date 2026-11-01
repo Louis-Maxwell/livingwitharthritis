@@ -4057,32 +4057,6 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Older people, arthritis and frailty services in Wales (UK)
-URL: https://livingwitharthritis.org.uk/blog/frailty-older-people-arthritis-wales-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Older people, arthritis and frailty services in Wales (UK)
-A: Clinicians talk about frailty as a whole-system issue; arthritis sits in the middle because sore joints train you to move less. This article is about Welsh pathways when joints and frailty overlap, written for people and carers in Wales, especially around a GP surgery.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-
-## Frailty services and arthritis in Scotland (UK)
-URL: https://livingwitharthritis.org.uk/blog/frailty-services-arthritis-scotland-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Frailty services and arthritis in Scotland (UK)
-A: When arthritis meets frailty, everyday tasks in a GP surgery can shrink faster than the joints alone would suggest. Here we focus on NHS Inform, GP and community rehab north of the border, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-
 ## Free Arthritis Exercise Classes Near Me England
 URL: https://livingwitharthritis.org.uk/blog/free-arthritis-exercise-classes-england
 Last updated: 2026-09-05
@@ -4095,7 +4069,7 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Free Arthritis Support Services Northern Ireland
 URL: https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
@@ -6057,18 +6031,22 @@ Reference: GOV.UK: The NHS Choice Framework — https://www.gov.uk/government/pu
 Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
 Reference: NICE NG59: Low back pain and sciatica in over 16s — https://www.nice.org.uk/guidance/ng59/chapter/Recommendations
 
-## The NHS frailty pathway and arthritis in England
+## Frailty services and arthritis across the UK: England, Wales, Scotland and NI
 URL: https://livingwitharthritis.org.uk/blog/nhs-frailty-pathway-arthritis-england
-Last updated: 2026-09-05
+Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: The NHS frailty pathway and arthritis in England
-A: Strength, protein and practised transfers will not cure arthritis, but they often give frailty less room to grow. This guide covers how community frailty teams may sit alongside rheumatology when arthritis with frailty affects several joints, with a focus on England and a GP surgery setting.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Q: Frailty services and arthritis across the UK: England, Wales, Scotland and NI
+A: Frailty services for older people with arthritis exist across the UK but are organised differently in England, Wales, Scotland and Northern Ireland. Start with your GP surgery; social care help is assessed by your council, or your Health and Social Care Trust in Northern Ireland.
+Reference: Age UK – Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG249 – Falls in older people — https://www.nice.org.uk/guidance/ng249
+Reference: GOV.UK – Apply for a needs assessment — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS 111 Wales — https://111.wales.nhs.uk/
+Reference: NHS inform — https://www.nhsinform.scot/
+Reference: nidirect – GP out-of-hours service — https://www.nidirect.gov.uk/articles/gp-out-hours-service
+Reference: NHS – When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## How to Find an NHS Rheumatologist Near Me Northern Ireland
 URL: https://livingwitharthritis.org.uk/blog/nhs-rheumatologist-northern-ireland
@@ -6170,19 +6148,6 @@ Last clinically reviewed: 2026-10-23
 Q: Occupational Therapy for Arthritis in the UK
 A: Occupational therapists (OTs) help people with arthritis maintain independence in daily activities. They teach techniques for joint protection, make custom splints, and recommend home adaptations such as grab rails and kitchen aids. OTs also assist with energy management, helping to balance activity and rest. You can access OT services through your GP, rheumatology department, or local council in the UK.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
-## Arthritis and frailty support for older adults in Northern Ireland (UK)
-URL: https://livingwitharthritis.org.uk/blog/older-adults-arthritis-frailty-northern-ireland-uk
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis and frailty support for older adults in Northern Ireland (UK)
-A: Carers can help the last 20 percent of a task so the first 80 percent stays practice, not a full takeover. This UK guide looks at nidirect, GP and community care when movement slows in a GP surgery setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Olive Oil Polyphenols: A Natural Pain Management Tool
 URL: https://livingwitharthritis.org.uk/blog/olive-oil-polyphenols-pain-management
