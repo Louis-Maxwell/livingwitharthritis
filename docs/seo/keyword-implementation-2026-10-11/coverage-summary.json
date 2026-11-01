@@ -13,12 +13,12 @@
   },
   "authoredPagesAudited": 651,
   "statusCounts": {
-    "phrase_present": 506,
-    "intent_review": 27944,
-    "content_gap": 76153
+    "phrase_present": 507,
+    "intent_review": 27981,
+    "content_gap": 76115
   },
   "invalidDeclaredTargetKeywords": 11191,
-  "searchAliases": 452,
+  "searchAliases": 453,
   "linkedBlogPages": 482,
   "notes": [
     "Stored/generated candidates are not measured organic rankings.",
