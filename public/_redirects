@@ -1439,7 +1439,7 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /blog/lwa-archive-falls-prevention-for-people-living-with-arthritis /blog/preventing-falls-guide-frail-adults 301
 /blog/lwa-archive-blue-badge-scheme-and-arthritis /blog/blue-badge-frailty-arthritis-uk 301
-/blog/lwa-archive-calcium-and-bone-health /blog/calcium-foods-arthritis-frailty-uk 301
+/blog/lwa-archive-calcium-and-bone-health /blog/osteoporosis-arthritis-frailty-bone-joint-uk 301
 /blog/lwa-archive-when-is-surgery-needed-for-osteoarthritis /blog/expert-qa-how-do-i-know-if-surgery-is-right-for-me 301
 /blog/lwa-archive-best-exercises-for-arthritis /blog/how-to-choose-the-right-exercise-for-arthritis 301
 /blog/lwa-archive-morning-stiffness /blog/morning-routine-multi-joint-arthritis 301
@@ -1709,3 +1709,25 @@
 /blog/swimming-frail-arthritis-changing-rooms-uk /blog/swimming-for-arthritis 301
 /blog/walking-sport-too-much-frail-arthritis-uk /blog/slow-walking-groups-arthritis-frailty-uk 301
 /blog/restless-nights-joint-pain-frailty-uk /blog/sleep-arthritis-frailty-night-pain-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/bed-exercises-hospital-arthritis-frailty-uk /blog/hospital-deconditioning-arthritis-stay-uk 301
+/blog/bone-clinic-arthritis-frailty-uk /blog/osteoporosis-arthritis-frailty-bone-joint-uk 301
+/blog/calcium-foods-arthritis-frailty-uk /blog/osteoporosis-arthritis-frailty-bone-joint-uk 301
+/blog/eye-clinic-day-arthritis-frailty-uk /blog/hospital-appointments-frailty-arthritis-uk 301
+/blog/hospital-parking-walking-frail-arthritis-uk /blog/hospital-appointments-frailty-arthritis-uk 301
+/blog/mediterranean-eating-frail-osteoarthritis-uk /blog/mediterranean-diet-arthritis-14-day-plan 301
+/blog/oily-fish-arthritis-frailty-simple-meals-uk /blog/fatty-fish-omega-3-arthritis-evidence 301
+/blog/widowhood-meals-arthritis-frailty-uk /blog/meal-delivery-arthritis-frailty-uk 301
+/blog/calluses-pressure-spots-frail-arthritis-uk /blog/podiatry-footcare-arthritis-frailty-uk 301
+/blog/midfoot-osteoarthritis-frailty-standing-time-uk /blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk 301
+/blog/podiatry-nails-diabetes-arthritis-uk /blog/diabetes-arthritis-frailty-feet-uk 301
+/blog/allotment-identity-arthritis-frailty-uk /blog/garden-raised-beds-arthritis-frailty-uk 301
+/blog/spine-oa-frailty-gardening-pacing-uk /blog/garden-raised-beds-arthritis-frailty-uk 301
+/blog/hand-oa-frailty-opening-packaging-uk /blog/hand-osteoarthritis-frailty-dressing-cooking-uk 301
+/blog/wrist-hand-oa-frailty-self-care-uk /blog/hand-osteoarthritis-frailty-dressing-cooking-uk 301
+/blog/kettle-safety-arthritis-frailty-uk /blog/kitchen-adaptations-arthritis-frailty-uk 301
+/blog/occupational-therapist-kitchen-visit-frailty-uk /blog/kitchen-adaptations-arthritis-frailty-uk 301
+/blog/shoulder-oa-frailty-high-cupboards-uk /blog/shoulder-osteoarthritis-frailty-washing-dressing-uk 301
+/blog/heat-packs-frail-arthritis-uk /blog/heat-versus-ice-frail-arthritis-uk 301
+/blog/anaesthetic-risk-arthritis-frailty-uk /blog/joint-replacement-decision-frailty-uk 301
