@@ -3121,11 +3121,12 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Comprehensive geriatric assessment in plain English if you have arthritis (UK)
-A: Motion is lotion still applies when energy is low: short, honest movement usually beats waiting for a perfect pain-free day. This guide covers what a full older-person check actually covers when arthritis with frailty affects several joints, with a focus on Northern Ireland and a hospital setting.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+A: A comprehensive geriatric assessment (CGA) is a detailed check of an older person's physical health, mobility, medicines, memory, mood, and support at home, leading to a shared care plan. If you have arthritis and frailty, it can bring your conditions and medicines together in one plan.
+Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
+Reference: NICE NG56: Multimorbidity — https://www.nice.org.uk/guidance/ng56
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
 ## Compression stockings when hand osteoarthritis is severe (UK)
 URL: https://livingwitharthritis.org.uk/blog/compression-stockings-hand-oa-frailty-uk
@@ -4084,11 +4085,12 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: The Fried frailty phenotype when joints are painful (UK)
-A: Fear after a near-miss can shrink life as much as pain — arthritis and frailty both feed on that fear if nobody names it. This UK guide looks at slowness, weakness and exhaustion that pain can mimic in a home setting, with practical steps, warning signs and Wales services. It is general information, not personal medical advice.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: The Fried frailty phenotype describes frailty using five signs: unintentional weight loss, exhaustion, weak grip, slow walking and low physical activity. Three or more suggest frailty and one or two suggest prefrailty. Arthritis pain can affect several of these, so tell clinicians what is due to your joints.
+Reference: Fried LP et al. Frailty in older adults: evidence for a phenotype. J Gerontol A 2001 — https://doi.org/10.1093/gerona/56.3.M146
+Reference: Rockwood K et al. A global clinical measure of fitness and frailty in elderly people. CMAJ 2005 — https://doi.org/10.1503/cmaj.050051
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NICE NG56: Multimorbidity — https://www.nice.org.uk/guidance/ng56
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
 ## Gabapentinoids, unsteadiness and arthritis in later life (UK)
 URL: https://livingwitharthritis.org.uk/blog/gabapentinoids-unsteadiness-arthritis-frailty-uk
@@ -4519,11 +4521,13 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Hip osteoarthritis and frailty: turning in bed and getting up (UK)
-A: Painful hips plus slower recovery is a common UK picture in later life. This page explains bed mobility when hips are stiff at night if you live with hip osteoarthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: With hip osteoarthritis and frailty, turning in bed and getting up are usually easier if you roll as one unit, use your arms and a firm mattress edge, and get up in stages. Bed height, a bed lever fitted after an occupational therapy assessment, and a clear, lit route to the toilet all help.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Hip osteoarthritis and frailty: getting into a car without a jolt (UK)
 URL: https://livingwitharthritis.org.uk/blog/hip-oa-frailty-getting-into-car-uk
@@ -4545,11 +4549,13 @@ Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Hip osteoarthritis and frailty: getting out of a chair more safely (UK)
-A: Plenty of people live with arthritis without becoming frail; this page is for the overlap, where recovery takes longer and rooms start to feel bigger. This guide covers chair-rise and stride length when hips are stiff because hip osteoarthritis affects hips, with a focus on England and a home setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: To get out of a chair more safely with hip osteoarthritis and frailty, use a firm chair with arms at the right height, shuffle forward, lean forward with your nose over your toes and push up through the armrests. Regular sit-to-stand practice builds the leg strength that makes it easier.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Hip Pain When Climbing Stairs: Causes and Relief
 URL: https://livingwitharthritis.org.uk/blog/hip-pain-climbing-stairs-causes-relief
@@ -6813,18 +6819,19 @@ Reference: NHS: Sepsis — https://www.nhs.uk/conditions/sepsis/
 Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
 Reference: Versus Arthritis: Steroids — https://www.versusarthritis.org/about-arthritis/treatments/drugs/steroids/
 
-## Reablement after hospital if arthritis slowed the admission (UK)
+## Reablement after hospital when you have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/reablement-after-discharge-arthritis-uk
 Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Reablement after hospital if arthritis slowed the admission (UK)
-A: When arthritis and frailty share a home, the bottleneck is rarely one dramatic collapse — it is a stack of small avoidances. This UK guide looks at short-term rehab at home after a stay in a home after discharge setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Reablement after hospital when you have arthritis (UK)
+A: Reablement is short-term help at home after a hospital stay or illness, aimed at helping you relearn daily tasks and regain independence. In England it is usually free for up to six weeks. Ask the ward team or your council about it before you leave hospital.
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: NHS: Leaving hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/leaving-hospital/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
 ## Reasonable Adjustments That Actually Help
 URL: https://livingwitharthritis.org.uk/blog/reasonable-adjustments-that-actually-help
