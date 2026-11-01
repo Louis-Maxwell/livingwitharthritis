@@ -2,17 +2,14 @@
   {
     "label": "Knee arthritis",
     "slugs": [
-      "anti-inflammatory-diet-for-knee-and-hip-arthritis",
       "best-exercises-osteoarthritis-knee-pain-home",
       "best-supplement-for-knee-joint",
-      "expert-brief-activity-safety-knee-arthritis",
-      "good-exercises-for-knee-arthritis"
+      "expert-brief-activity-safety-knee-arthritis"
     ]
   },
   {
     "label": "Hip arthritis",
     "slugs": [
-      "anti-inflammatory-diet-for-knee-and-hip-arthritis",
       "exercise-for-hip-arthritis",
       "expert-brief-12-week-hip-exercise-protocol",
       "fear-of-falling-hip-oa-frailty-uk",
@@ -33,7 +30,6 @@
     "label": "Rheumatoid arthritis",
     "slugs": [
       "anti-inflammatory-diet-rheumatoid-arthritis",
-      "biologics-for-rheumatoid-arthritis-in-the-uk",
       "dmards-explained-how-methotrexate-slows-rheumatoid-arthritis",
       "exercises-rheumatoid-arthritis-hands-wrists",
       "psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments"
@@ -42,7 +38,6 @@
   {
     "label": "Psoriatic arthritis",
     "slugs": [
-      "psoriatic-arthritis-in-the-uk-symptoms-and-support",
       "psoriatic-arthritis-later-life-frailty-uk",
       "psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments",
       "psoriatic-vs-rheumatoid-arthritis"
@@ -81,7 +76,6 @@
     "label": "Anti-inflammatory eating",
     "slugs": [
       "anti-inflammatory-diet",
-      "anti-inflammatory-diet-for-knee-and-hip-arthritis",
       "anti-inflammatory-diet-rheumatoid-arthritis",
       "anti-inflammatory-herbs-spices-arthritis",
       "anti-inflammatory-shopping-list-uk"

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import clusters from "@/data/topicClusterLinks.json";
+import { resolvedClusters } from "@/lib/topicClusterLinks";
 
 const pretty = (slug: string) =>
   slug.replace(/-uk$/, "").replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
@@ -12,7 +12,7 @@ export default function TopicClusterLinks() {
         Browse guides by topic
       </h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {clusters.map((c) => (
+        {resolvedClusters.map((c) => (
           <div key={c.label}>
             <h3 className="font-semibold text-foreground mb-2">{c.label}</h3>
             <ul className="space-y-1 list-disc pl-5">
