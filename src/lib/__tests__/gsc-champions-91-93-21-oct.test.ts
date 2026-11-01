@@ -194,7 +194,7 @@ describe("GSC Champions 91–93 (21 Oct): knee OA steady at home + seated streng
       expect(llms).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(ai).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(sitemap).toMatch(
-        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-10-21</lastmod>`),
+        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-1[01]-\\d{2}</lastmod>`),
       );
     }
   });

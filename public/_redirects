@@ -1672,3 +1672,22 @@
 /guides/anti-inflammatory-diet /guides/diet 301
 /diet-hub /guides/diet 301
 /finances /guides/benefits-pip 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/anxiety-about-falling-arthritis-uk /blog/confidence-after-fall-arthritis-frailty-uk 301
+/blog/fear-of-falling-hip-oa-frailty-uk /blog/confidence-after-fall-arthritis-frailty-uk 301
+/blog/big-toe-osteoarthritis-frailty-shoes-balance-uk /blog/balance-painful-feet-frailty-arthritis-uk 301
+/blog/codeine-drowsiness-falls-arthritis-uk /blog/sleeping-tablets-falls-arthritis-frailty-uk 301
+/blog/hearing-balance-arthritis-frailty-uk /blog/vision-falls-arthritis-frailty-uk 301
+/blog/knee-oa-frailty-outdoor-pavements-uk /blog/knee-osteoarthritis-frailty-staying-steady-home-uk 301
+/blog/threshold-ramps-arthritis-frailty-uk /blog/outdoor-steps-handrails-arthritis-uk 301
+/blog/paramedic-fall-lift-arthritis-uk /blog/falls-response-service-arthritis-uk 301
+/blog/pendant-alarm-arthritis-swollen-fingers-uk /blog/community-alarm-arthritis-frailty-uk 301
+/blog/knee-oa-frailty-rising-from-low-sofa-uk /blog/hip-osteoarthritis-frailty-chair-rise-uk 301
+/blog/sofa-height-arthritis-frailty-uk /blog/hip-osteoarthritis-frailty-chair-rise-uk 301
+/blog/bed-lever-arthritis-frailty-uk /blog/hip-oa-frailty-bed-mobility-uk 301
+/blog/transfer-board-arthritis-frailty-uk /blog/hip-and-knee-oa-frailty-transfers-uk 301
+/blog/extra-care-housing-arthritis-frailty-uk /blog/sheltered-housing-arthritis-frailty-uk 301
+/blog/meal-times-care-home-arthritis-uk /blog/care-home-life-arthritis-pain-frailty-uk 301
+/blog/nursing-home-arthritis-pain-review-uk /blog/care-home-life-arthritis-pain-frailty-uk 301
+/blog/stair-assessments-arthritis-frailty-uk /blog/stairlifts-arthritis-frailty-uk-home 301

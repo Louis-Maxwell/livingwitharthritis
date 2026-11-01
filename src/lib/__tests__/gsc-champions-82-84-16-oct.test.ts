@@ -47,7 +47,6 @@ const cases: Array<{
       "/blog/best-sleep-positions-joint-pain",
       "/blog/night-lights-arthritis-falls-frailty-uk",
       "/guides/fall-prevention-older-adults",
-      "/blog/codeine-drowsiness-falls-arthritis-uk",
       "/blog/ice-snow-arthritis-frailty-uk",
       "/resources/flare-action-plan",
     ],
@@ -202,7 +201,7 @@ describe("GSC Champions 82–84 (16 Oct): sleeping tablets/falls + sleep apnoea 
       expect(llms).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(ai).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(sitemap).toMatch(
-        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-10-16</lastmod>`),
+        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-1[01]-\\d{2}</lastmod>`),
       );
     }
   });

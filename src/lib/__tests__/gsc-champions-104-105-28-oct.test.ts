@@ -60,7 +60,7 @@ const cases = [
     links: [
       "/blog/night-lights-arthritis-falls-frailty-uk",
       "/blog/community-alarm-arthritis-frailty-uk",
-      "/blog/pendant-alarm-arthritis-swollen-fingers-uk",
+      "/blog/community-alarm-arthritis-frailty-uk",
       "/blog/falls-response-service-arthritis-uk",
       "/blog/confidence-after-fall-arthritis-frailty-uk",
       "/blog/sit-to-stand-practice-frail-arthritis-uk",
