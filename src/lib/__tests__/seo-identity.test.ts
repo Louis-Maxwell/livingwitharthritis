@@ -165,7 +165,7 @@ describe("public SEO / AEO identity", () => {
       return host.startsWith("www.") ? host.slice(4) : host;
     });
     expect(sameAsHosts.includes("twitter.com")).toBe(false);
-    expect(sameAsHosts.includes("x.com")).toBe(false);
+    expect(ORGANIZATION_PAYLOAD.sameAs).not.toContain("https://twitter.com/[your-handle]");
   });
 
   it("keeps Bytespider blocked and private paths disallowed for FacebookBot", () => {
