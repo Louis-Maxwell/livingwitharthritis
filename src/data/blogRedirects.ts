@@ -210,4 +210,8 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   "geriatric-clinic-plus-arthritis-uk": "comprehensive-geriatric-assessment-arthritis-uk",
   "prefrailty-osteoarthritis-early-action-uk": "fried-frailty-phenotype-painful-joints-uk",
   "rockwood-clinical-frailty-scale-arthritis-uk": "fried-frailty-phenotype-painful-joints-uk",
+  // Frailty merge plan (Frailty merge PR5: UK nations frailty services): duplicate-intent template posts merged into the canonical post.
+  "frailty-older-people-arthritis-wales-uk": "nhs-frailty-pathway-arthritis-england",
+  "frailty-services-arthritis-scotland-uk": "nhs-frailty-pathway-arthritis-england",
+  "older-adults-arthritis-frailty-northern-ireland-uk": "free-arthritis-support-northern-ireland",
 };

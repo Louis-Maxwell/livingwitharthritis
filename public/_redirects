@@ -1754,3 +1754,8 @@
 /blog/geriatric-clinic-plus-arthritis-uk /blog/comprehensive-geriatric-assessment-arthritis-uk 301
 /blog/prefrailty-osteoarthritis-early-action-uk /blog/fried-frailty-phenotype-painful-joints-uk 301
 /blog/rockwood-clinical-frailty-scale-arthritis-uk /blog/fried-frailty-phenotype-painful-joints-uk 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/blog/frailty-older-people-arthritis-wales-uk /blog/nhs-frailty-pathway-arthritis-england 301
+/blog/frailty-services-arthritis-scotland-uk /blog/nhs-frailty-pathway-arthritis-england 301
+/blog/older-adults-arthritis-frailty-northern-ireland-uk /blog/free-arthritis-support-northern-ireland 301
