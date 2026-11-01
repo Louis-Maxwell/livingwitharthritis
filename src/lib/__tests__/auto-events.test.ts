@@ -10,14 +10,14 @@ const a = (href: string, extra: Record<string, string> = {}) => {
 };
 
 describe("classifyLink", () => {
-  it("phone links fire phone_click + generate_lead without the number", () => {
+  it("phone links record engagement without counting an unconfirmed lead", () => {
     const ev = classifyLink(a("tel:08009172222"));
-    expect(ev.map((e) => e.name)).toEqual(["phone_click", "generate_lead"]);
+    expect(ev.map((e) => e.name)).toEqual(["phone_click"]);
     expect(JSON.stringify(ev)).not.toContain("0800");
   });
-  it("mailto fires email_click without the address; recipient-less mailto is a share", () => {
+  it("mailto records engagement without counting an unconfirmed lead; recipient-less mailto is a share", () => {
     const ev = classifyLink(a("mailto:hello@example.org"));
-    expect(ev.map((e) => e.name)).toEqual(["email_click", "generate_lead"]);
+    expect(ev.map((e) => e.name)).toEqual(["email_click"]);
     expect(JSON.stringify(ev)).not.toContain("@");
     expect(classifyLink(a("mailto:?subject=x"))[0].name).toBe("social_share");
   });
@@ -49,7 +49,8 @@ describe("installAutoEvents", () => {
     document.body.appendChild(v);
     v.dispatchEvent(new Event("ended"));
     const names = w().gtag.mock.calls.map((c: unknown[]) => c[1]);
-    expect(names).toEqual(expect.arrayContaining(["phone_click", "generate_lead", "video_complete"]));
+    expect(names).toEqual(expect.arrayContaining(["phone_click", "video_complete"]));
+    expect(names).not.toContain("generate_lead");
     const params = w().gtag.mock.calls[0][2];
     expect(params.page_location).toMatch(/^https?:\/\//);
   });
