@@ -251,7 +251,7 @@
   "display_order": 6003,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/lwa-grief-and-loss-after-arthritis-diagnosis.webp",
-  "word_count": 2938,
+  "word_count": 2912,
   "reading_minutes": 15
  },
  {
@@ -294,7 +294,7 @@
   "meta_title": "Knee Osteoarthritis: Staying Steady at Home (UK)",
   "excerpt": "Wobbly on sore knees at home? Safer rooms, strength and balance exercises, walking aids, night tips and what to do if you fall with knee osteoarthritis.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-21T09:00:00.000Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0202-busy-park.webp",
   "author": "Louis Maxwell",
@@ -302,8 +302,8 @@
   "display_order": 5000,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0202-busy-park.webp",
-  "word_count": 1299,
-  "reading_minutes": 7
+  "word_count": 1413,
+  "reading_minutes": 8
  },
  {
   "slug": "hip-osteoarthritis-frailty-chair-rise-uk",
@@ -311,7 +311,7 @@
   "meta_title": "Hip osteoarthritis and frailty | Living With Arthritis",
   "excerpt": "Plenty of people live with arthritis without becoming frail; this page is for the overlap, where recovery takes longer and rooms start to feel bigger.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.webp",
   "author": "Louis Maxwell",
@@ -319,8 +319,8 @@
   "display_order": 4999,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.webp",
-  "word_count": 1273,
-  "reading_minutes": 7
+  "word_count": 1488,
+  "reading_minutes": 8
  },
  {
   "slug": "hand-osteoarthritis-frailty-dressing-cooking-uk",
@@ -459,23 +459,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "big-toe-osteoarthritis-frailty-shoes-balance-uk",
-  "title": "Big-toe osteoarthritis and frailty: shoes, push-off and balance (UK)",
-  "meta_title": "Big-toe osteoarthritis and frailty: shoes",
-  "excerpt": "If arthritis has started to change how far you walk or how quickly you bounce back, frailty may be part of the picture worth naming kindly. This guide covers.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0153-apr-28-2014-camino-de-santiago-tour-frescotou.webp",
-  "author": "Louis Maxwell",
-  "keywords": "big-toe osteoarthritis, frailty, feet, Wales, arthritis, lifestyle, UK",
-  "display_order": 4990,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0153-apr-28-2014-camino-de-santiago-tour-frescotou.webp",
-  "word_count": 1205,
-  "reading_minutes": 7
- },
- {
   "slug": "polyarticular-oa-frailty-pacing-several-joints-uk",
   "title": "Polyarticular osteoarthritis and frailty: pacing several painful joints (UK)",
   "meta_title": "Polyarticular osteoarthritis and frailty",
@@ -498,7 +481,7 @@
   "meta_title": "Hip and knee osteoarthritis together | Living With Arthritis",
   "excerpt": "When hip and knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on bed.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Conditions",
   "cover": "cover-0352-d9c9a523-5b84-440f-bf53-e60f260e6d95.webp",
   "author": "Louis Maxwell",
@@ -506,7 +489,7 @@
   "display_order": 4988,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0352-d9c9a523-5b84-440f-bf53-e60f260e6d95.webp",
-  "word_count": 1243,
+  "word_count": 1324,
   "reading_minutes": 7
  },
  {
@@ -610,23 +593,6 @@
   "image_url": "/openverse/cover-0307-an-elderly-chinese-man-practices-tai-chi-jard.webp",
   "word_count": 1276,
   "reading_minutes": 7
- },
- {
-  "slug": "knee-oa-frailty-rising-from-low-sofa-uk",
-  "title": "Knee osteoarthritis and frailty: rising from a low sofa (UK)",
-  "meta_title": "Knee osteoarthritis and frailty: rising from a low sofa (UK)",
-  "excerpt": "Knee osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at furniture height.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.633Z",
-  "category": "Conditions",
-  "cover": "cover-0148-children-s-grand-park.webp",
-  "author": "Louis Maxwell",
-  "keywords": "knee osteoarthritis and frailty rising from a low sofa, knee osteoarthritis, frailty, knees, Scotland, arthritis, exercise, UK",
-  "display_order": 4981,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0148-children-s-grand-park.webp",
-  "word_count": 1192,
-  "reading_minutes": 6
  },
  {
   "slug": "late-onset-ra-frailty-first-months-uk",
@@ -901,29 +867,12 @@
   "reading_minutes": 7
  },
  {
-  "slug": "knee-oa-frailty-outdoor-pavements-uk",
-  "title": "Knee osteoarthritis and frailty: pavements, kerbs and outdoor confidence (UK)",
-  "meta_title": "Knee osteoarthritis and frailty: pavements",
-  "excerpt": "Frailty is a clinical syndrome — not a personality trait — and knee osteoarthritis can make it more visible. This article is about outdoor walking when paveme.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Conditions",
-  "cover": "cover-0395-img-8513.webp",
-  "author": "Louis Maxwell",
-  "keywords": "knee osteoarthritis and frailty pavements, knee osteoarthritis, frailty, knees, Scotland, arthritis, exercise, UK",
-  "display_order": 4962,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0395-img-8513.webp",
-  "word_count": 1188,
-  "reading_minutes": 6
- },
- {
   "slug": "hip-oa-frailty-bed-mobility-uk",
   "title": "Hip osteoarthritis and frailty: turning in bed and getting up (UK)",
   "meta_title": "Hip osteoarthritis and frailty | Living With Arthritis",
   "excerpt": "Painful hips plus slower recovery is a common UK picture in later life. This page explains bed mobility when hips are stiff at night if you live with hip.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.636Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0401-painting-under-a-sakura-tree.webp",
   "author": "Louis Maxwell",
@@ -931,7 +880,7 @@
   "display_order": 4961,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0401-painting-under-a-sakura-tree.webp",
-  "word_count": 1231,
+  "word_count": 1340,
   "reading_minutes": 7
  },
  {
@@ -1156,23 +1105,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "fear-of-falling-hip-oa-frailty-uk",
-  "title": "Fear of falling with hip osteoarthritis and frailty (UK)",
-  "meta_title": "Fear of falling with hip osteoarthritis and frailty (UK)",
-  "excerpt": "This guide stays practical: what still moves safely, what to ask a clinician, and how to keep a home week steadier. This guide covers confidence after.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Conditions",
-  "cover": "cover-0176-c-mon-let-s-go.webp",
-  "author": "Louis Maxwell",
-  "keywords": "fear of falling with hip osteoarthritis and frailty, hip osteoarthritis, frailty, hips, Wales, arthritis, mental health, UK",
-  "display_order": 4947,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0176-c-mon-let-s-go.webp",
-  "word_count": 1198,
-  "reading_minutes": 6
- },
- {
   "slug": "falls-clinic-arthritis-what-to-expect-uk",
   "title": "Falls clinic with arthritis: what to expect (UK)",
   "meta_title": "Falls clinic with arthritis: what to expect (UK)",
@@ -1229,7 +1161,7 @@
   "meta_title": "Balance practice with painful arthritic feet (UK)",
   "excerpt": "Frailty is a clinical syndrome — not a personality trait — and foot osteoarthritis can make it more visible. This article is about steadying yourself.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0080-buenos-aires-botanical-garden.webp",
   "author": "Louis Maxwell",
@@ -1237,8 +1169,8 @@
   "display_order": 4943,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0080-buenos-aires-botanical-garden.webp",
-  "word_count": 1186,
-  "reading_minutes": 6
+  "word_count": 1307,
+  "reading_minutes": 7
  },
  {
   "slug": "vision-falls-arthritis-frailty-uk",
@@ -1246,7 +1178,7 @@
   "meta_title": "Vision, falls and arthritis in frail adults (UK)",
   "excerpt": "A medicines review, a protein plan and a practised sit-to-stand are frailty tools that still respect arthritis pain. This UK guide looks at eyesight checks.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0416-learning-to-swim.webp",
   "author": "Louis Maxwell",
@@ -1254,7 +1186,7 @@
   "display_order": 4942,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0416-learning-to-swim.webp",
-  "word_count": 1247,
+  "word_count": 1360,
   "reading_minutes": 7
  },
  {
@@ -1513,23 +1445,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "meal-times-care-home-arthritis-uk",
-  "title": "Meal times in a care home when arthritis makes eating slow (UK)",
-  "meta_title": "Meal times in a care home when arthritis makes eating slow",
-  "excerpt": "Painful hands and jaw plus slower recovery is a common UK picture in later life. This page explains time, seating and help at the table if you live.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.640Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0450-glory-foods-skillet-steamed-vegetables.webp",
-  "author": "Louis Maxwell",
-  "keywords": "meal times in a care home when arthritis makes eating slow, arthritis with frailty, frailty, hands and jaw, Wales, arthritis, nutrition, UK",
-  "display_order": 4924,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0450-glory-foods-skillet-steamed-vegetables.webp",
-  "word_count": 1216,
-  "reading_minutes": 7
- },
- {
   "slug": "hydration-gout-frailty-older-adults-uk",
   "title": "Hydration, gout and frailty in older adults (UK)",
   "meta_title": "Hydration, gout and frailty in older adults (UK)",
@@ -1612,23 +1527,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/arthritis-06-osteoarthritis-left-knee.webp",
   "word_count": 1229,
-  "reading_minutes": 7
- },
- {
-  "slug": "codeine-drowsiness-falls-arthritis-uk",
-  "title": "Codeine, drowsiness and falls when you have arthritis (UK)",
-  "meta_title": "Codeine, drowsiness and falls when you have arthritis (UK)",
-  "excerpt": "Codeine, drowsiness and falls when you have arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0411-generations.webp",
-  "author": "Louis Maxwell",
-  "keywords": "codeine drowsiness and falls when you have arthritis, arthritis with frailty, frailty, several joints, Northern Ireland, arthritis, treatment, UK",
-  "display_order": 4918,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0411-generations.webp",
-  "word_count": 1236,
   "reading_minutes": 7
  },
  {
@@ -1790,7 +1688,7 @@
   "meta_title": "Stairlifts, arthritis and frailty: questions before you buy",
   "excerpt": "Painful hips and knees plus slower recovery is a common UK picture in later life. This page explains stairs, funding conversations and joint pain if you live.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.642Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0447-20171027-ams-lsc-1212.webp",
   "author": "Louis Maxwell",
@@ -1798,7 +1696,7 @@
   "display_order": 4908,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0447-20171027-ams-lsc-1212.webp",
-  "word_count": 1266,
+  "word_count": 1376,
   "reading_minutes": 7
  },
  {
@@ -1892,7 +1790,7 @@
   "meta_title": "Life in a care home with arthritis, pain and frailty (UK)",
   "excerpt": "In a care home, arthritis and frailty overlap in transfers, seating time and whether practice is still part of the day. Here we focus on asking for movement.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.643Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Pain & flares",
   "cover": "cover-0293-tai-chi-uncle-2.webp",
   "author": "Louis Maxwell",
@@ -1900,7 +1798,7 @@
   "display_order": 4902,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0293-tai-chi-uncle-2.webp",
-  "word_count": 1215,
+  "word_count": 1391,
   "reading_minutes": 7
  },
  {
@@ -1909,7 +1807,7 @@
   "meta_title": "Sheltered housing, arthritis and frailty (UK)",
   "excerpt": "UK services vary by nation, but the home pattern is shared: shorter range, longer recovery, fewer invitations answered. This UK guide looks at alarms.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Conditions",
   "cover": "cover-0060-not-all-seniors-are-senile.webp",
   "author": "Louis Maxwell",
@@ -1917,7 +1815,7 @@
   "display_order": 4901,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0060-not-all-seniors-are-senile.webp",
-  "word_count": 1227,
+  "word_count": 1305,
   "reading_minutes": 7
  },
  {
@@ -2057,29 +1955,12 @@
   "reading_minutes": 7
  },
  {
-  "slug": "anxiety-about-falling-arthritis-uk",
-  "title": "Anxiety about falling when you live with arthritis (UK)",
-  "meta_title": "Anxiety about falling when you live with arthritis (UK)",
-  "excerpt": "Anxiety about falling when you live with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Mental health & fatigue",
-  "cover": "cover-0069-an-elderly-walking-at-a-once-a-railway-park-i.webp",
-  "author": "Louis Maxwell",
-  "keywords": "anxiety about falling when you live with arthritis, arthritis with frailty, frailty, several joints, England, arthritis, mental health, UK",
-  "display_order": 4892,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0069-an-elderly-walking-at-a-once-a-railway-park-i.webp",
-  "word_count": 1211,
-  "reading_minutes": 7
- },
- {
   "slug": "confidence-after-fall-arthritis-frailty-uk",
   "title": "Scared of falling again? Rebuilding confidence after a fall with arthritis (UK guide)",
   "meta_title": "Fear of Falling After a Fall With Arthritis (UK)",
   "excerpt": "Scared of falling again? See a GP after any fall, ask about NHS falls services and strength and balance training, and rebuild walking step by step (UK).",
   "date": "2026-09-03",
-  "updated_at": "2026-10-19T09:00:00.000Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0428-learning-to-swim.webp",
   "author": "Louis Maxwell",
@@ -2087,8 +1968,8 @@
   "display_order": 4891,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0428-learning-to-swim.webp",
-  "word_count": 1541,
-  "reading_minutes": 8
+  "word_count": 1825,
+  "reading_minutes": 10
  },
  {
   "slug": "hospital-stay-arthritis-frailty-what-to-pack-uk",
@@ -2198,7 +2079,7 @@
   "meta_title": "Community alarms when arthritis and frailty raise falls risk",
   "excerpt": "This guide stays with community alarms when arthritis and frailty raise falls risk: what still moves safely, what to ask, and how to keep a steadier week.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0319-fitness-programming-greenville-aquatics.webp",
   "author": "Louis Maxwell",
@@ -2206,7 +2087,7 @@
   "display_order": 4884,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0319-fitness-programming-greenville-aquatics.webp",
-  "word_count": 1238,
+  "word_count": 1340,
   "reading_minutes": 7
  },
  {
@@ -2224,23 +2105,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0437-greek-salad.webp",
   "word_count": 1253,
-  "reading_minutes": 7
- },
- {
-  "slug": "hearing-balance-arthritis-frailty-uk",
-  "title": "Hearing, balance and arthritis in frail adults (UK)",
-  "meta_title": "Hearing, balance and arthritis in frail adults (UK)",
-  "excerpt": "Hearing, balance and arthritis in frail adults (UK). Practical educational UK guidance for people living with arthritis.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0159-elderly-couple-walk-together.webp",
-  "author": "Louis Maxwell",
-  "keywords": "hearing balance and arthritis in frail adults, arthritis with frailty, frailty, several joints, Scotland, arthritis, health, UK",
-  "display_order": 4882,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0159-elderly-couple-walk-together.webp",
-  "word_count": 1245,
   "reading_minutes": 7
  },
  {
@@ -2708,7 +2572,7 @@
   "meta_title": "Sleeping Tablets, Night Falls and Arthritis (UK)",
   "excerpt": "Why sleeping tablets raise night-fall risk with arthritis, NHS insomnia self-help and CBT first, and how to ask before stopping any sleep medicine.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-16T09:00:00.000Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Mental health & fatigue",
   "cover": "cover-0444-file-learning-to-swim-8812288262-jpg.webp",
   "author": "Louis Maxwell",
@@ -2716,8 +2580,8 @@
   "display_order": 4854,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0444-file-learning-to-swim-8812288262-jpg.webp",
-  "word_count": 1194,
-  "reading_minutes": 6
+  "word_count": 1299,
+  "reading_minutes": 7
  },
  {
   "slug": "anticholinergic-load-arthritis-frailty-uk",
@@ -2771,40 +2635,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "extra-care-housing-arthritis-frailty-uk",
-  "title": "Extra-care housing, arthritis and frailty (UK)",
-  "meta_title": "Extra-care housing, arthritis and frailty (UK)",
-  "excerpt": "Extra-care housing, arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a diagnosis).",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.653Z",
-  "category": "Conditions",
-  "cover": "cover-0411-cold-steel-triathlon.webp",
-  "author": "Louis Maxwell",
-  "keywords": "extra-care housing arthritis and frailty, arthritis with frailty, frailty, several joints, Northern Ireland, arthritis, lifestyle, UK",
-  "display_order": 4850,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0411-cold-steel-triathlon.webp",
-  "word_count": 1253,
-  "reading_minutes": 7
- },
- {
-  "slug": "nursing-home-arthritis-pain-review-uk",
-  "title": "Nursing homes and arthritis: asking for a pain and movement review (UK)",
-  "meta_title": "Nursing homes and arthritis | Living With Arthritis",
-  "excerpt": "Care-home life can protect safety while quietly reducing the movement arthritis and frailty both need — balance is the work. Here we focus on pain, stiffness.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.653Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0081-julio-shepherd-drive-bridge-over-white-oak-ba.webp",
-  "author": "Louis Maxwell",
-  "keywords": "nursing homes and arthritis, arthritis with frailty, frailty, several joints, England, arthritis, treatment, UK",
-  "display_order": 4849,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0081-julio-shepherd-drive-bridge-over-white-oak-ba.webp",
-  "word_count": 1200,
-  "reading_minutes": 6
- },
- {
   "slug": "reablement-team-arthritis-home-practice-uk",
   "title": "Working with a reablement team when arthritis flares at home (UK)",
   "meta_title": "Working with a reablement team when arthritis flares at home",
@@ -2844,7 +2674,7 @@
   "meta_title": "Community falls response if you live with arthritis (UK)",
   "excerpt": "Tell staff what is new this week versus your usual arthritis — scales cannot guess the difference. This article is about who to call if you fall and cannot.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0409-think-outside-photo-contest-first-landing-sta.webp",
   "author": "Louis Maxwell",
@@ -2852,7 +2682,7 @@
   "display_order": 4846,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0409-think-outside-photo-contest-first-landing-sta.webp",
-  "word_count": 1205,
+  "word_count": 1339,
   "reading_minutes": 7
  },
  {
@@ -2888,23 +2718,6 @@
   "image_url": "/openverse/cover-0157-this-lady-shows-off-her-wares.webp",
   "word_count": 1258,
   "reading_minutes": 7
- },
- {
-  "slug": "paramedic-fall-lift-arthritis-uk",
-  "title": "After paramedics lift you: arthritis pain and the next 48 hours (UK)",
-  "meta_title": "After paramedics lift you | Living With Arthritis",
-  "excerpt": "After paramedics lift you: arthritis pain and the next 48 hours (UK). Practical educational UK guidance for people living with arthritis. Information only.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0481-20140918-nrcs-lsc-0350.webp",
-  "author": "Louis Maxwell",
-  "keywords": "after paramedics lift you, arthritis with frailty, frailty, several joints, Scotland, arthritis, health, UK",
-  "display_order": 4843,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0481-20140918-nrcs-lsc-0350.webp",
-  "word_count": 1198,
-  "reading_minutes": 6
  },
  {
   "slug": "occupational-therapist-kitchen-visit-frailty-uk",
@@ -3111,63 +2924,12 @@
   "reading_minutes": 6
  },
  {
-  "slug": "bed-lever-arthritis-frailty-uk",
-  "title": "Bed levers and arthritis: turning without hauling on a partner (UK)",
-  "meta_title": "Bed levers and arthritis: turning without hauling",
-  "excerpt": "For bed levers and arthritis: turning without hauling on a partner, Motion is lotion still applies: short honest movement, then rest that does not become.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.656Z",
-  "category": "Carers & family",
-  "cover": "cover-0127-contrast.webp",
-  "author": "Louis Maxwell",
-  "keywords": "bed levers and arthritis turning without hauling, arthritis with frailty, frailty, hands and trunk, Northern Ireland, arthritis, lifestyle, UK",
-  "display_order": 4830,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0127-contrast.webp",
-  "word_count": 1240,
-  "reading_minutes": 7
- },
- {
-  "slug": "sofa-height-arthritis-frailty-uk",
-  "title": "Sofa height, osteoarthritis and frailty (UK)",
-  "meta_title": "Sofa height, osteoarthritis and frailty (UK)",
-  "excerpt": "Readers asking about sofa height, osteoarthritis and frailty often need pacing, protein and practised transfers more than a gym plan. This UK guide.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.656Z",
-  "category": "Conditions",
-  "cover": "cover-0426-oha-386-appliances-for-hand-exercises.webp",
-  "author": "Louis Maxwell",
-  "keywords": "sofa height osteoarthritis and frailty, osteoarthritis, frailty, hips and knees, England, arthritis, lifestyle, UK",
-  "display_order": 4829,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0426-oha-386-appliances-for-hand-exercises.webp",
-  "word_count": 1241,
-  "reading_minutes": 7
- },
- {
-  "slug": "threshold-ramps-arthritis-frailty-uk",
-  "title": "Threshold ramps for frail adults with arthritis (UK)",
-  "meta_title": "Threshold ramps for frail adults with arthritis (UK)",
-  "excerpt": "Threshold ramps for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Conditions",
-  "cover": "cover-0348-older-muslim-couple.webp",
-  "author": "Louis Maxwell",
-  "keywords": "threshold ramps for frail adults with arthritis, arthritis with frailty, frailty, several joints, Wales, arthritis, lifestyle, UK",
-  "display_order": 4828,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0348-older-muslim-couple.webp",
-  "word_count": 1236,
-  "reading_minutes": 7
- },
- {
   "slug": "outdoor-steps-handrails-arthritis-uk",
   "title": "Outdoor steps and handrails when arthritis meets frailty (UK)",
   "meta_title": "Outdoor steps and handrails when arthritis meets frailty",
   "excerpt": "For outdoor steps and handrails when arthritis meets frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:06:11.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0431-swimming-pool-1961.webp",
   "author": "Louis Maxwell",
@@ -3175,7 +2937,7 @@
   "display_order": 4827,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0431-swimming-pool-1961.webp",
-  "word_count": 1202,
+  "word_count": 1287,
   "reading_minutes": 7
  },
  {
@@ -3294,7 +3056,7 @@
   "display_order": 4820,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0430-aquatint-satirising-exercise-therapy-for-gout.webp",
-  "word_count": 1240,
+  "word_count": 1212,
   "reading_minutes": 7
  },
  {
@@ -3481,24 +3243,7 @@
   "display_order": 4809,
   "last_reviewed": "2026-10-28",
   "image_url": "/openverse/cover-0206-ballet-and-macs-at-pleasantview-care-facility.webp",
-  "word_count": 1362,
-  "reading_minutes": 7
- },
- {
-  "slug": "pendant-alarm-arthritis-swollen-fingers-uk",
-  "title": "Pendant alarms when fingers are swollen from arthritis (UK)",
-  "meta_title": "Pendant alarms when fingers are swollen from arthritis (UK)",
-  "excerpt": "Painful hands plus slower recovery is a common UK picture in later life. This page explains wearing an alarm you can actually press if you live with arthritis.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Pain & flares",
-  "cover": "cover-0488-autumn-chick-pea-salad.webp",
-  "author": "Louis Maxwell",
-  "keywords": "pendant alarms when fingers are swollen from arthritis, arthritis with frailty, frailty, hands, Wales, arthritis, lifestyle, UK",
-  "display_order": 4808,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0488-autumn-chick-pea-salad.webp",
-  "word_count": 1229,
+  "word_count": 1349,
   "reading_minutes": 7
  },
  {
@@ -3957,7 +3702,7 @@
   "display_order": 4781,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0463-b-guinage-of-bruges.webp",
-  "word_count": 1251,
+  "word_count": 1220,
   "reading_minutes": 7
  },
  {
@@ -3992,23 +3737,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0459-20171027-ams-lsc-0383.webp",
   "word_count": 1247,
-  "reading_minutes": 7
- },
- {
-  "slug": "transfer-board-arthritis-frailty-uk",
-  "title": "Transfer boards for frail adults with arthritis (UK)",
-  "meta_title": "Transfer boards for frail adults with arthritis (UK)",
-  "excerpt": "Transfer boards for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.663Z",
-  "category": "Conditions",
-  "cover": "cover-0397-water-exercise.webp",
-  "author": "Louis Maxwell",
-  "keywords": "transfer boards for frail adults with arthritis, arthritis with frailty, frailty, hips, Northern Ireland, arthritis, lifestyle, UK",
-  "display_order": 4778,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0397-water-exercise.webp",
-  "word_count": 1218,
   "reading_minutes": 7
  },
  {
@@ -4128,23 +3856,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0417-elderly-man-with-a-cane-nino-f-scholten-photo.webp",
   "word_count": 1207,
-  "reading_minutes": 7
- },
- {
-  "slug": "stair-assessments-arthritis-frailty-uk",
-  "title": "Stair assessments for frail adults with arthritis (UK)",
-  "meta_title": "Stair assessments for frail adults with arthritis (UK)",
-  "excerpt": "Here is a plain-English take on stair assessments for frail adults with arthritis when arthritis and lower reserve share the same week. This page explains.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Conditions",
-  "cover": "cover-0439-file-learning-to-swim-8801703203-jpg.webp",
-  "author": "Louis Maxwell",
-  "keywords": "stair assessments for frail adults with arthritis, arthritis with frailty, frailty, hips and knees, England, arthritis, lifestyle, UK",
-  "display_order": 4769,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0439-file-learning-to-swim-8801703203-jpg.webp",
-  "word_count": 1226,
   "reading_minutes": 7
  },
  {
@@ -7578,7 +7289,7 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/lwa-housing-support-arthritis-uk.webp",
-  "word_count": 2242,
+  "word_count": 2236,
   "reading_minutes": 12
  },
  {
@@ -8853,7 +8564,7 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0467-20171027-ams-lsc-1627.webp",
-  "word_count": 1123,
+  "word_count": 1097,
   "reading_minutes": 6
  },
  {
