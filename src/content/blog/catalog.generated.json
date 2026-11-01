@@ -328,7 +328,7 @@
   "meta_title": "Hand Osteoarthritis: Easier Dressing and Grip (UK)",
   "excerpt": "Practical help for hand osteoarthritis: easier dressing, washing and kitchen tasks, simple aids, hand exercises, splints and when to see a GP (UK).",
   "date": "2026-09-03",
-  "updated_at": "2026-10-30T09:00:00.000Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0349-out-on-the-town.webp",
   "author": "Louis Maxwell",
@@ -336,7 +336,7 @@
   "display_order": 4998,
   "last_reviewed": "2026-10-30",
   "image_url": "/openverse/cover-0349-out-on-the-town.webp",
-  "word_count": 1418,
+  "word_count": 1534,
   "reading_minutes": 8
  },
  {
@@ -345,7 +345,7 @@
   "meta_title": "Shoulder osteoarthritis and frailty: reaching",
   "excerpt": "Frailty is a clinical syndrome — not a personality trait — and shoulder osteoarthritis can make it more visible. This article is about overhead.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.630Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0173-0524071143-jpg.webp",
   "author": "Louis Maxwell",
@@ -353,7 +353,7 @@
   "display_order": 4996,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0173-0524071143-jpg.webp",
-  "word_count": 1223,
+  "word_count": 1245,
   "reading_minutes": 7
  },
  {
@@ -362,7 +362,7 @@
   "meta_title": "Foot and ankle osteoarthritis and frailty",
   "excerpt": "Painful feet plus slower recovery is a common UK picture in later life. This page explains indoor walking when feet and ankles ache if you live with foot.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Exercise & movement",
   "cover": "cover-0310-senior-woman-practicing-yoga-indoors-while-tr.webp",
   "author": "Louis Maxwell",
@@ -370,7 +370,7 @@
   "display_order": 4995,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0310-senior-woman-practicing-yoga-indoors-while-tr.webp",
-  "word_count": 1239,
+  "word_count": 1296,
   "reading_minutes": 7
  },
  {
@@ -421,7 +421,7 @@
   "display_order": 4992,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0270-stretching-exercises.webp",
-  "word_count": 1243,
+  "word_count": 1211,
   "reading_minutes": 7
  },
  {
@@ -476,23 +476,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "midfoot-osteoarthritis-frailty-standing-time-uk",
-  "title": "Midfoot osteoarthritis and frailty: standing time in the kitchen (UK)",
-  "meta_title": "Midfoot osteoarthritis and frailty | Living With Arthritis",
-  "excerpt": "When midfoot osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on perching.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.631Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0457-summer-peach-cake.webp",
-  "author": "Louis Maxwell",
-  "keywords": "midfoot osteoarthritis, frailty, feet, England, arthritis, lifestyle, UK",
-  "display_order": 4987,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0457-summer-peach-cake.webp",
-  "word_count": 1233,
-  "reading_minutes": 7
- },
- {
   "slug": "knee-oa-frailty-stairs-banisters-uk",
   "title": "Knee osteoarthritis and frailty: stairs, banisters and rest stops (UK)",
   "meta_title": "Knee osteoarthritis and frailty: stairs",
@@ -524,57 +507,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0132-old-runner-b2.webp",
   "word_count": 1208,
-  "reading_minutes": 7
- },
- {
-  "slug": "hand-oa-frailty-opening-packaging-uk",
-  "title": "Hand osteoarthritis and frailty: opening packaging without giving up cooking (UK)",
-  "meta_title": "Hand osteoarthritis and frailty | Living With Arthritis",
-  "excerpt": "Families often notice the change as skipped invitations and slower rooms long before anyone uses the word frailty in clinic. This guide covers adaptive.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.632Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0067-old-woman-s-walk-plaza-corredera-cordoba.webp",
-  "author": "Louis Maxwell",
-  "keywords": "hand osteoarthritis and frailty, hand osteoarthritis, frailty, hands, Northern Ireland, arthritis, nutrition, UK",
-  "display_order": 4984,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0067-old-woman-s-walk-plaza-corredera-cordoba.webp",
-  "word_count": 1240,
-  "reading_minutes": 7
- },
- {
-  "slug": "spine-oa-frailty-gardening-pacing-uk",
-  "title": "Spinal osteoarthritis and frailty: short spells in the garden (UK)",
-  "meta_title": "Spinal osteoarthritis and frailty | Living With Arthritis",
-  "excerpt": "Painful spine plus slower recovery is a common UK picture in later life. This page explains garden pacing when the back and legs tire quickly if you live.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.632Z",
-  "category": "Pain & flares",
-  "cover": "cover-0466-cup-of-tea-by-a-lake.webp",
-  "author": "Louis Maxwell",
-  "keywords": "spine oa frailty gardening pacing, spinal osteoarthritis, frailty, spine, England, arthritis, lifestyle, UK",
-  "display_order": 4983,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0466-cup-of-tea-by-a-lake.webp",
-  "word_count": 1226,
-  "reading_minutes": 7
- },
- {
-  "slug": "shoulder-oa-frailty-high-cupboards-uk",
-  "title": "Shoulder osteoarthritis and frailty: high cupboards and safer reaching (UK)",
-  "meta_title": "Shoulder osteoarthritis and frailty | Living With Arthritis",
-  "excerpt": "When shoulder osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on kitchen layout.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.633Z",
-  "category": "Conditions",
-  "cover": "cover-0307-an-elderly-chinese-man-practices-tai-chi-jard.webp",
-  "author": "Louis Maxwell",
-  "keywords": "shoulder osteoarthritis and frailty, shoulder osteoarthritis, frailty, shoulders, Wales, arthritis, lifestyle, UK",
-  "display_order": 4982,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0307-an-elderly-chinese-man-practices-tai-chi-jard.webp",
-  "word_count": 1276,
   "reading_minutes": 7
  },
  {
@@ -753,7 +685,7 @@
   "meta_title": "Osteoporosis, arthritis and frailty | Living With Arthritis",
   "excerpt": "Osteoporosis, arthritis and frailty: protecting bone and joint toge . Practical educational UK guidance for people living with arthritis. Information only.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Conditions",
   "cover": "cover-0429-granite-reef-senior-center.webp",
   "author": "Louis Maxwell",
@@ -761,7 +693,7 @@
   "display_order": 4968,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0429-granite-reef-senior-center.webp",
-  "word_count": 1261,
+  "word_count": 1389,
   "reading_minutes": 7
  },
  {
@@ -831,23 +763,6 @@
   "image_url": "/openverse/cover-0131-pondering-man-and-laughing-lady-siena-italy.webp",
   "word_count": 1197,
   "reading_minutes": 6
- },
- {
-  "slug": "wrist-hand-oa-frailty-self-care-uk",
-  "title": "Wrist and hand osteoarthritis and frailty: washing, teeth and hair (UK)",
-  "meta_title": "Wrist and hand osteoarthritis and frailty: washing",
-  "excerpt": "Wrist and hand osteoarthritis and frailty: washing, teeth and hair . Practical educational UK guidance for people living with arthritis. Information only.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.636Z",
-  "category": "Conditions",
-  "cover": "cover-0191-zam072509238.webp",
-  "author": "Louis Maxwell",
-  "keywords": "hand and wrist osteoarthritis, frailty, hands, Wales, arthritis, lifestyle, UK",
-  "display_order": 4963,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0191-zam072509238.webp",
-  "word_count": 1291,
-  "reading_minutes": 7
  },
  {
   "slug": "hip-oa-frailty-bed-mobility-uk",
@@ -957,7 +872,7 @@
   "meta_title": "Hospital deconditioning when you live with arthritis (UK)",
   "excerpt": "Hospital deconditioning when you live with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.637Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Conditions",
   "cover": "cover-0414-berkeley-lake-park.webp",
   "author": "Louis Maxwell",
@@ -965,7 +880,7 @@
   "display_order": 4955,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0414-berkeley-lake-park.webp",
-  "word_count": 1294,
+  "word_count": 1396,
   "reading_minutes": 7
  },
  {
@@ -1275,23 +1190,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "bed-exercises-hospital-arthritis-frailty-uk",
-  "title": "Bed exercises during a hospital stay with arthritis (UK)",
-  "meta_title": "Bed exercises during a hospital stay with arthritis (UK)",
-  "excerpt": "Hospital weeks are hard on joints and harder on reserve — arthritis and frailty can both worsen after a stay. Here we focus on keeping a little movement.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.639Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0315-emily-malugen.webp",
-  "author": "Louis Maxwell",
-  "keywords": "bed exercises during a hospital stay with arthritis, arthritis with frailty, frailty, several joints, Wales, arthritis, exercise, UK",
-  "display_order": 4932,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0315-emily-malugen.webp",
-  "word_count": 1196,
-  "reading_minutes": 6
- },
- {
   "slug": "reablement-after-discharge-arthritis-uk",
   "title": "Reablement after hospital if arthritis slowed the admission (UK)",
   "meta_title": "Reablement after hospital if arthritis slowed the admission",
@@ -1341,23 +1239,6 @@
   "image_url": "/openverse/cover-0455-simple-salad-honey-mustard-vinaigrette.webp",
   "word_count": 1108,
   "reading_minutes": 6
- },
- {
-  "slug": "mediterranean-eating-frail-osteoarthritis-uk",
-  "title": "Mediterranean-style eating for frail osteoarthritis (UK)",
-  "meta_title": "Mediterranean-style eating for frail osteoarthritis (UK)",
-  "excerpt": "A practical UK guide to mediterranean-style eating for frail osteoarthritis, written for days when energy and joints both feel limited. This article is about.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.640Z",
-  "category": "Diet & lifestyle",
-  "cover": "nutrition-09-dfc-3934-a-colorful-medley-of-freshly-chopped-frui.webp",
-  "author": "Louis Maxwell",
-  "keywords": "mediterranean-style eating for frail osteoarthritis, osteoarthritis, frailty, several joints, Wales, arthritis, nutrition, UK",
-  "display_order": 4928,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/nutrition-09-dfc-3934-a-colorful-medley-of-freshly-chopped-frui.webp",
-  "word_count": 1229,
-  "reading_minutes": 7
  },
  {
   "slug": "vitamin-d-winter-arthritis-frailty-uk",
@@ -1637,7 +1518,7 @@
   "meta_title": "Kitchen adaptations for arthritis and frailty",
   "excerpt": "A practical UK guide to kitchen adaptations when arthritis and frailty share the house, written for days when energy and joints both feel limited.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.643Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0441-32e86270-4007-4d1f-8d8a-65d6c40e16f5.webp",
   "author": "Louis Maxwell",
@@ -1645,7 +1526,7 @@
   "display_order": 4905,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0441-32e86270-4007-4d1f-8d8a-65d6c40e16f5.webp",
-  "word_count": 1250,
+  "word_count": 1388,
   "reading_minutes": 7
  },
  {
@@ -1994,7 +1875,7 @@
   "meta_title": "Podiatry and footcare for frail adults with arthritis (UK)",
   "excerpt": "Podiatry and footcare for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Treatments & medicines",
   "cover": "cover-0437-greek-salad.webp",
   "author": "Louis Maxwell",
@@ -2002,7 +1883,7 @@
   "display_order": 4883,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0437-greek-salad.webp",
-  "word_count": 1253,
+  "word_count": 1294,
   "reading_minutes": 7
  },
  {
@@ -2232,7 +2113,7 @@
   "meta_title": "Hospital appointments with frailty and arthritis",
   "excerpt": "Living With Arthritis covers hospital appointments when frailty and arthritis make the day huge without miracle claims — just safer movement and clearer next.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.649Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Treatments & medicines",
   "cover": "cover-0471-mirepoix-called-also-soffritto.webp",
   "author": "Louis Maxwell",
@@ -2240,7 +2121,7 @@
   "display_order": 4867,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0471-mirepoix-called-also-soffritto.webp",
-  "word_count": 1216,
+  "word_count": 1362,
   "reading_minutes": 7
  },
  {
@@ -2385,7 +2266,7 @@
   "meta_title": "Diabetes, arthritis and frailty: feet at the centre (UK)",
   "excerpt": "Frailty is a clinical syndrome — not a personality trait — and arthritis with diabetes can make it more visible. This article is about foot risk.",
   "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Conditions",
   "cover": "cover-0456-support-for-japan.webp",
   "author": "Louis Maxwell",
@@ -2393,7 +2274,7 @@
   "display_order": 4857,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0456-support-for-japan.webp",
-  "word_count": 1229,
+  "word_count": 1302,
   "reading_minutes": 7
  },
  {
@@ -2567,23 +2448,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "occupational-therapist-kitchen-visit-frailty-uk",
-  "title": "An OT kitchen visit for frail arthritis (UK)",
-  "meta_title": "An OT kitchen visit for frail arthritis (UK)",
-  "excerpt": "Motion is lotion at home means several short bouts, not one heroic corridor that costs tomorrow. Here we focus on watching how you make a cup of tea, then.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.653Z",
-  "category": "Treatments & medicines",
-  "cover": "cover-0393-stinky-hotel-in-cancun-fiest-americana-villa.webp",
-  "author": "Louis Maxwell",
-  "keywords": "an ot kitchen visit for frail arthritis, arthritis with frailty, frailty, hands and shoulders, Northern Ireland, arthritis, lifestyle, UK",
-  "display_order": 4842,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0393-stinky-hotel-in-cancun-fiest-americana-villa.webp",
-  "word_count": 1240,
-  "reading_minutes": 7
- },
- {
   "slug": "physiotherapy-home-visit-frail-oa-uk",
   "title": "Home-visit physiotherapy for frail osteoarthritis (UK)",
   "meta_title": "Home-visit physiotherapy for frail osteoarthritis (UK)",
@@ -2614,8 +2478,8 @@
   "display_order": 4840,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0300-roy-wilkins-park-td-2019-01-13-025-outdoor-fi.webp",
-  "word_count": 1214,
-  "reading_minutes": 7
+  "word_count": 1181,
+  "reading_minutes": 6
  },
  {
   "slug": "vitamin-d-and-falls-arthritis-uk",
@@ -2633,40 +2497,6 @@
   "image_url": "/openverse/cover-0459-lunchtime-salad.webp",
   "word_count": 1479,
   "reading_minutes": 8
- },
- {
-  "slug": "calcium-foods-arthritis-frailty-uk",
-  "title": "Calcium-rich foods when arthritis and frailty share the plate (UK)",
-  "meta_title": "Calcium-rich foods for arthritis and frailty",
-  "excerpt": "This guide stays with calcium-rich foods when arthritis and frailty share the plate: what still moves safely, what to ask, and how to keep a steadier week.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.654Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0469-organic-olive-oil-salad.webp",
-  "author": "Louis Maxwell",
-  "keywords": "calcium-rich foods for arthritis and frailty, arthritis with frailty, frailty, several joints, Northern Ireland, arthritis, nutrition, UK",
-  "display_order": 4838,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0469-organic-olive-oil-salad.webp",
-  "word_count": 1223,
-  "reading_minutes": 7
- },
- {
-  "slug": "oily-fish-arthritis-frailty-simple-meals-uk",
-  "title": "Oily fish, arthritis and frailty: simple meals (UK)",
-  "meta_title": "Oily fish, arthritis and frailty: simple meals (UK)",
-  "excerpt": "Oily fish, arthritis and frailty: simple meals (UK). Practical educational UK guidance for people living with arthritis.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.654Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0474-salad.webp",
-  "author": "Louis Maxwell",
-  "keywords": "oily fish arthritis and frailty simple meals, arthritis with frailty, frailty, several joints, England, arthritis, nutrition, UK",
-  "display_order": 4837,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0474-salad.webp",
-  "word_count": 1233,
-  "reading_minutes": 7
  },
  {
   "slug": "soft-foods-jaw-arthritis-frailty-uk",
@@ -2708,7 +2538,7 @@
   "meta_title": "Meal delivery when arthritis and frailty limit cooking",
   "excerpt": "When arthritis makes frailty more visible, the goal is not a perfect body — it is a steadier week at home. This article is about ready meals as a bridge.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.655Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0435-400kcal-diet-020.webp",
   "author": "Louis Maxwell",
@@ -2716,24 +2546,7 @@
   "display_order": 4834,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0435-400kcal-diet-020.webp",
-  "word_count": 1238,
-  "reading_minutes": 7
- },
- {
-  "slug": "kettle-safety-arthritis-frailty-uk",
-  "title": "Kettle safety with arthritis and frailty (UK)",
-  "meta_title": "Kettle safety with arthritis and frailty (UK)",
-  "excerpt": "Kettle safety with arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a diagnosis).",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Conditions",
-  "cover": "cover-0106-wwpw-2014-drizzico-6.webp",
-  "author": "Louis Maxwell",
-  "keywords": "kettle safety with arthritis and frailty, arthritis with frailty, frailty, hands and shoulders, England, arthritis, lifestyle, UK",
-  "display_order": 4833,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0106-wwpw-2014-drizzico-6.webp",
-  "word_count": 1211,
+  "word_count": 1286,
   "reading_minutes": 7
  },
  {
@@ -2802,23 +2615,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0292-tai-chi-uncle.webp",
   "word_count": 1270,
-  "reading_minutes": 7
- },
- {
-  "slug": "heat-packs-frail-arthritis-uk",
-  "title": "Heat packs for frail adults with arthritis: safe use (UK)",
-  "meta_title": "Heat packs for frail adults with arthritis: safe use (UK)",
-  "excerpt": "When heat packs for frail adults with arthritis: safe use is on your mind, treat shrinking range as useful information, not a personal failure.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.658Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0420-the-great-hospital-norwich-the-swan-pit.webp",
-  "author": "Louis Maxwell",
-  "keywords": "heat packs for frail adults with arthritis safe use, arthritis with frailty, frailty, several joints, England, arthritis, lifestyle, UK",
-  "display_order": 4825,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0420-the-great-hospital-norwich-the-swan-pit.webp",
-  "word_count": 1240,
   "reading_minutes": 7
  },
  {
@@ -3060,23 +2856,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "widowhood-meals-arthritis-frailty-uk",
-  "title": "Cooking for one after loss when arthritis and frailty remain (UK)",
-  "meta_title": "Cooking for one after loss when arthritis and frailty remain",
-  "excerpt": "A frailty-aware note on cooking for one after loss when arthritis and frailty remain: protect joints, keep muscle working, and plan the hardest transfer.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.660Z",
-  "category": "Diet & lifestyle",
-  "cover": "cover-0486-steamed-kale.webp",
-  "author": "Louis Maxwell",
-  "keywords": "cooking for one after loss when arthritis and frailty remain, arthritis with frailty, frailty, hands, Northern Ireland, arthritis, nutrition, UK",
-  "display_order": 4810,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0486-steamed-kale.webp",
-  "word_count": 1239,
-  "reading_minutes": 7
- },
- {
   "slug": "living-alone-falls-plan-arthritis-uk",
   "title": "Living alone with arthritis: your falls plan, alarms and getting help in (UK guide)",
   "meta_title": "Living Alone With Arthritis: Your Falls Plan (UK)",
@@ -3162,23 +2941,6 @@
   "reading_minutes": 8
  },
  {
-  "slug": "eye-clinic-day-arthritis-frailty-uk",
-  "title": "Eye clinic days with arthritis and frailty (UK)",
-  "meta_title": "Eye clinic days with arthritis and frailty (UK)",
-  "excerpt": "Eye clinic days with arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a diagnosis).",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Treatments & medicines",
-  "cover": "cover-0388-jennifer.webp",
-  "author": "Louis Maxwell",
-  "keywords": "eye clinic days with arthritis and frailty, arthritis with frailty, frailty, several joints, Scotland, arthritis, health, UK",
-  "display_order": 4803,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0388-jennifer.webp",
-  "word_count": 1220,
-  "reading_minutes": 7
- },
- {
   "slug": "rheumatology-clinic-frail-older-adult-uk",
   "title": "Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)",
   "meta_title": "Rheumatology Appointments in Later Life (UK)",
@@ -3210,23 +2972,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0473-grandfather-reading.webp",
   "word_count": 1266,
-  "reading_minutes": 7
- },
- {
-  "slug": "bone-clinic-arthritis-frailty-uk",
-  "title": "Bone clinics, arthritis and frailty (UK)",
-  "meta_title": "Bone clinics, arthritis and frailty (UK)",
-  "excerpt": "Frailty is a clinical syndrome — not a personality trait — and osteoarthritis with osteoporosis can make it more visible. This article is about.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Treatments & medicines",
-  "cover": "cover-0382-the-dip-iii-la-baignade-iii.webp",
-  "author": "Louis Maxwell",
-  "keywords": "bone clinics arthritis and frailty, osteoarthritis with osteoporosis, frailty, spine and hips, Wales, arthritis, health, UK",
-  "display_order": 4800,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0382-the-dip-iii-la-baignade-iii.webp",
-  "word_count": 1210,
   "reading_minutes": 7
  },
  {
@@ -3269,7 +3014,7 @@
   "meta_title": "Joint replacement decisions when frailty is already present",
   "excerpt": "If you are navigating joint replacement decisions when frailty is already present, small steady habits usually beat all-or-nothing restarts.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.661Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Surgery & recovery",
   "cover": "cover-0403-chesnut-road-looking-eastward-july-2012-cropp.webp",
   "author": "Louis Maxwell",
@@ -3277,24 +3022,7 @@
   "display_order": 4797,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0403-chesnut-road-looking-eastward-july-2012-cropp.webp",
-  "word_count": 1230,
-  "reading_minutes": 7
- },
- {
-  "slug": "anaesthetic-risk-arthritis-frailty-uk",
-  "title": "Anaesthetic conversations for frail adults with arthritis (UK)",
-  "meta_title": "Anaesthetic conversations for frail adults with arthritis",
-  "excerpt": "Anaesthetic conversations for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.661Z",
-  "category": "Conditions",
-  "cover": "cover-0450-william-cooper.webp",
-  "author": "Louis Maxwell",
-  "keywords": "anaesthetic conversations for frail adults with arthritis, arthritis with frailty, frailty, several joints, Wales, arthritis, treatment, UK",
-  "display_order": 4796,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0450-william-cooper.webp",
-  "word_count": 1212,
+  "word_count": 1304,
   "reading_minutes": 7
  },
  {
@@ -3502,23 +3230,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "hospital-parking-walking-frail-arthritis-uk",
-  "title": "Hospital parking, walking distance and frail arthritis (UK)",
-  "meta_title": "Hospital parking, walking distance and frail arthritis (UK)",
-  "excerpt": "Readers asking about hospital parking, walking distance and frail arthritis often need pacing, protein and practised transfers more than a gym plan.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.662Z",
-  "category": "Exercise & movement",
-  "cover": "cover-0463-b-guinage-of-bruges.webp",
-  "author": "Louis Maxwell",
-  "keywords": "hospital parking walking distance and frail arthritis, arthritis with frailty, frailty, several joints, England, arthritis, lifestyle, UK",
-  "display_order": 4781,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0463-b-guinage-of-bruges.webp",
-  "word_count": 1220,
-  "reading_minutes": 7
- },
- {
   "slug": "wheelchair-for-distance-arthritis-frailty-uk",
   "title": "A wheelchair for distance, not for giving up: arthritis and frailty (UK)",
   "meta_title": "A wheelchair for distance, not for giving up",
@@ -3621,23 +3332,6 @@
   "reading_minutes": 7
  },
  {
-  "slug": "podiatry-nails-diabetes-arthritis-uk",
-  "title": "Nail care, diabetes and arthritis-related frailty (UK)",
-  "meta_title": "Nail care, diabetes and arthritis-related frailty (UK)",
-  "excerpt": "A practical UK guide to nail care, diabetes and arthritis-related frailty, written for days when energy and joints both feel limited. This guide covers.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.664Z",
-  "category": "Treatments & medicines",
-  "cover": "cover-0124-with-gaia-holmes.webp",
-  "author": "Louis Maxwell",
-  "keywords": "arthritis with diabetes, frailty, feet, England, arthritis, health, UK",
-  "display_order": 4773,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0124-with-gaia-holmes.webp",
-  "word_count": 1237,
-  "reading_minutes": 7
- },
- {
   "slug": "bunions-arthritis-frailty-shoes-uk",
   "title": "Bunions, arthritis and frailty: shoes that still fit life (UK)",
   "meta_title": "Bunions, arthritis and frailty: shoes that still fit life",
@@ -3652,23 +3346,6 @@
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0445-birthday-boy-bento.webp",
   "word_count": 1208,
-  "reading_minutes": 7
- },
- {
-  "slug": "calluses-pressure-spots-frail-arthritis-uk",
-  "title": "Calluses and pressure spots in frail arthritic feet (UK)",
-  "meta_title": "Calluses and pressure spots in frail arthritic feet (UK)",
-  "excerpt": "Readers asking about calluses and pressure spots in frail arthritic feet often need pacing, protein and practised transfers more than a gym plan.",
-  "date": "2026-09-03",
-  "updated_at": "2026-10-11T10:14:23Z",
-  "category": "Conditions",
-  "cover": "cover-0417-elderly-man-with-a-cane-nino-f-scholten-photo.webp",
-  "author": "Louis Maxwell",
-  "keywords": "calluses and pressure spots in frail arthritic feet, foot osteoarthritis, frailty, feet, Scotland, arthritis, health, UK",
-  "display_order": 4771,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0417-elderly-man-with-a-cane-nino-f-scholten-photo.webp",
-  "word_count": 1207,
   "reading_minutes": 7
  },
  {
@@ -3745,7 +3422,7 @@
   "meta_title": "Heat or Ice With Thin Skin, Numbness or Diabetes (UK)",
   "excerpt": "Using heat or cold packs safely with arthritis when skin is thin, feet are numb or you have diabetes: checklists, burns and when to get help (UK).",
   "date": "2026-09-03",
-  "updated_at": "2026-10-28T09:00:00.000Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Pain & flares",
   "cover": "wellness-13-pilates-9956534863.webp",
   "author": "Louis Maxwell",
@@ -3753,7 +3430,7 @@
   "display_order": 4762,
   "last_reviewed": "2026-10-28",
   "image_url": "/openverse/wellness-13-pilates-9956534863.webp",
-  "word_count": 1437,
+  "word_count": 1487,
   "reading_minutes": 8
  },
  {
@@ -3847,7 +3524,7 @@
   "meta_title": "Raised beds and perch seating for frail gardeners",
   "excerpt": "Raised beds and perch seating for frail gardeners with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.",
   "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.667Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0451-frozen-yogurt-cups-sunshine-cups.webp",
   "author": "Louis Maxwell",
@@ -3855,24 +3532,7 @@
   "display_order": 4753,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0451-frozen-yogurt-cups-sunshine-cups.webp",
-  "word_count": 1235,
-  "reading_minutes": 7
- },
- {
-  "slug": "allotment-identity-arthritis-frailty-uk",
-  "title": "Allotments, identity and frailty if arthritis takes the digging (UK)",
-  "meta_title": "Allotments and frailty when arthritis takes the digging",
-  "excerpt": "This page looks at allotments, identity and frailty if arthritis takes the digging with a frailty-aware lens for UK readers at home. This page explains.",
-  "date": "2026-09-03",
-  "updated_at": "2026-09-05T11:02:30.667Z",
-  "category": "Conditions",
-  "cover": "cover-0073-he-used-to-walk-to-his-office-every-day.webp",
-  "author": "Louis Maxwell",
-  "keywords": "allotments and frailty when arthritis takes the digging, arthritis with frailty, frailty, several joints, Wales, arthritis, mental health, UK",
-  "display_order": 4752,
-  "last_reviewed": "2026-10-23",
-  "image_url": "/openverse/cover-0073-he-used-to-walk-to-his-office-every-day.webp",
-  "word_count": 1251,
+  "word_count": 1376,
   "reading_minutes": 7
  },
  {
@@ -4255,7 +3915,7 @@
   "meta_title": "Mediterranean Diet for Arthritis: A 14-Day UK Meal Plan",
   "excerpt": "A practical fortnight meal plan using affordable UK supermarket ingredients, designed to reduce inflammation and support joint health.",
   "date": "2026-04-07",
-  "updated_at": "2026-09-05T11:02:30.679Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "nutrition-01-oliven-v1.webp",
   "author": "Louis Maxwell",
@@ -4263,7 +3923,7 @@
   "display_order": 998,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/nutrition-01-oliven-v1.webp",
-  "word_count": 1416,
+  "word_count": 1486,
   "reading_minutes": 8
  },
  {
@@ -5300,7 +4960,7 @@
   "display_order": 946,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0477-bean-salad-over-lettuce.webp",
-  "word_count": 2260,
+  "word_count": 2254,
   "reading_minutes": 12
  },
  {
@@ -6363,7 +6023,7 @@
   "meta_title": "Fatty Fish and Omega-3s: The Evidence for Arthritis Pain",
   "excerpt": "Two portions of oily fish a week supplies the EPA and DHA that calm inflammatory pathways linked to joint pain. UK-friendly food sources and weekly targets.",
   "date": "2026-05-31",
-  "updated_at": "2026-09-05T11:02:30.689Z",
+  "updated_at": "2026-11-01T19:18:30.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0449-grilled-chicken-fattoush-salad.webp",
   "author": "Louis Maxwell",
@@ -6371,7 +6031,7 @@
   "display_order": 206,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0449-grilled-chicken-fattoush-salad.webp",
-  "word_count": 1089,
+  "word_count": 1158,
   "reading_minutes": 6
  },
  {
@@ -7000,7 +6660,7 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/lwa-heat-or-ice-for-arthritis.webp",
-  "word_count": 2158,
+  "word_count": 2149,
   "reading_minutes": 11
  },
  {

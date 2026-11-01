@@ -37,7 +37,6 @@ const cases = [
     ],
     links: [
       "/blog/heat-or-ice-for-arthritis",
-      "/blog/heat-packs-frail-arthritis-uk",
       "/blog/cold-weather-arthritis-uk-winter",
       "/blog/winter-arthritis-frailty-cold-houses-uk",
       "/blog/diabetes-arthritis-frailty-feet-uk",
