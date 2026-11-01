@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import clusters from "@/data/topicClusterLinks.json";
 import publishedSlugs from "@/data/blog-slugs.generated.json";
 import { BLOG_SLUG_REDIRECTS } from "@/data/blogRedirects";
-import { resolvedClusters } from "@/components/seo/TopicClusterLinks";
+import { resolvedClusters } from "@/lib/topicClusterLinks";
 
 const PUBLISHED = new Set<string>(publishedSlugs as string[]);
 
