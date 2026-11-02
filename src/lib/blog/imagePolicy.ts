@@ -5,6 +5,13 @@
  */
 export const ALLOWED_EXTERNAL_IMAGE_HOSTS: readonly string[] = [];
 
+/**
+ * Files smaller than this are treated as missing. A 46-byte blank WebP once
+ * shipped as 120 "covers" (HTTP 200 but nothing visible), so existence alone
+ * is not enough: a real raster photo is always well above 1 KB (SVGs are exempt).
+ */
+export const MIN_REAL_IMAGE_BYTES = 1024;
+
 export interface GuideImageProblem {
   slug: string;
   src: string;
