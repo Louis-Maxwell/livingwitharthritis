@@ -2523,16 +2523,14 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Bereavement, living alone, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/bereavement-arthritis-frailty-living-alone-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Bereavement, living alone, arthritis and frailty (UK)
-A: When bereavement, living alone, arthritis and frailty is on your mind, treat shrinking range as useful information, not a personal failure. This article is about grief that also changes who helps you stand, written for people and carers in Scotland, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Losing a partner or close person can bring grief alongside practical changes, such as living alone for the first time. With arthritis and frailty, everyday tasks and safety may need planning. Support is available from your GP, bereavement services and local groups.
+Reference: NHS: Grief after bereavement or loss — https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/grief-bereavement-loss/
+Reference: NHS: NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
 
 ## Berries and Antioxidants: Food Medicine for Inflammation
 URL: https://livingwitharthritis.org.uk/blog/berries-antioxidants-inflammation
@@ -3050,18 +3048,16 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Community matrons, arthritis and frailty (UK)
+## Community nurses and matrons, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-matron-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Community matrons, arthritis and frailty (UK)
-A: Families dealing with community matrons, arthritis and frailty usually notice skipped invitations and slower rooms before any clinic label. This guide covers home-visiting nursing when several conditions stack up because arthritis with frailty affects several joints, with a focus on Wales and a home setting.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Last clinically reviewed: 2026-11-02
+Q: Community nurses and matrons, arthritis and frailty (UK)
+A: Community nurses and community matrons support people with complex or several long-term conditions at home. They can help coordinate care, review symptoms and medicines, and reduce avoidable hospital visits. Access is usually through your GP practice. Roles and titles vary across the UK.
+Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Waiting for community OT with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-ot-waiting-arthritis-frailty-uk
@@ -3166,16 +3162,14 @@ Reference: NHS Talking Therapies — https://www.nhs.uk/mental-health/talking-th
 
 ## Constipation, pain medicines and frailty in arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/constipation-pain-medicines-frailty-arthritis-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Constipation, pain medicines and frailty in arthritis (UK)
-A: When several joints complain at once, boom-and-bust patterns get expensive — especially if recovery already takes days. This page explains bowels, pain tablets and mobility if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Some pain medicines, especially opioids such as codeine and morphine, commonly cause constipation. Frailty, less movement and lower fluid intake add to the risk. Fluids, fibre, movement and a laxative if advised can help. Talk to your pharmacist or GP before changing medicines.
+Reference: NHS: Constipation — https://www.nhs.uk/conditions/constipation/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Waking at night to pee with arthritis: causes, what helps and when to see a GP (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/continence-night-trips-arthritis-frailty-uk
@@ -3305,16 +3299,14 @@ Reference: Relate — https://www.relate.org.uk/
 
 ## Day centres for people with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/day-centres-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Day centres for people with arthritis and frailty (UK)
-A: Pain across several joints plus a slower bounce-back is a familiar later-life picture in the UK. This page explains company, a meal and a reason to get dressed if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Day centres offer company, meals, activities and sometimes personal care or therapy. They can also give carers a break. Some are run by councils, others by charities. A needs assessment may help with costs and transport.
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Carer breaks and respite care — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-breaks-and-respite-care/
 
 ## Getting your strength back after an arthritis flare or illness week (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/deconditioning-after-arthritis-flare-uk
@@ -8205,16 +8197,15 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Wet rooms and arthritis: washing when you are frail (UK)
 URL: https://livingwitharthritis.org.uk/blog/wet-rooms-arthritis-frailty-washing-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Wet rooms and arthritis: washing when you are frail (UK)
-A: Arthritis steers the joints; frailty steers recovery time. Together they can shrink a week faster than either alone. This UK guide looks at bathroom changes that reduce the scariest transfer of the day in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: A wet room or level-access shower removes the step into a bath or shower tray, one of the riskiest transfers at home. Seats, grab rails, lever taps and non-slip flooring help. An occupational therapist can assess your needs, and a Disabled Facilities Grant may help with costs.
+Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
+Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## What Is Arthritis? Symptoms, Types and Next Steps
 URL: https://livingwitharthritis.org.uk/blog/what-is-arthritis
