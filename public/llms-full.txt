@@ -1644,7 +1644,7 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 Reference: NICE NG193: Chronic pain (primary and secondary) in over 16s — https://www.nice.org.uk/guidance/ng193
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NHS: Pacing and fatigue — Royal College of Occupational Therapists: How to conserve your energy — https://www.rcot.co.uk/conserving-energy
-Reference: Versus Arthritis — https://www.versusarthritis.org/
+Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
 
 ## Adult Children as Carers: Managing Roles, Boundaries and Family Dynamics
 URL: https://livingwitharthritis.org.uk/blog/adult-children-as-caregivers-arthritis
@@ -3364,18 +3364,19 @@ Reference: NICE NG222 – Depression in adults — https://www.nice.org.uk/guida
 Reference: Samaritans — https://www.samaritans.org/
 Reference: Shout 85258 — https://giveusashout.org/
 
-## Depression, osteoarthritis and frailty (UK)
+## Low mood and depression with osteoarthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/depression-osteoarthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Depression, osteoarthritis and frailty (UK)
-A: Osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at low mood that shrinks activity and muscle in a home setting, with practical steps, warning signs and Wales services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Q: Low mood and depression with osteoarthritis and frailty (UK)
+A: Long-term osteoarthritis pain and frailty can lead to low mood, and depression can make pain feel worse and reduce activity. Signs include feeling low or hopeless most days and losing interest in things for two weeks or more. Depression is treatable: talk to your GP about talking therapies, activity, and medicines.
+Reference: NHS: Depression in adults — https://www.nhs.uk/mental-health/conditions/depression-in-adults/overview/
+Reference: NICE NG222: Depression in adults — https://www.nice.org.uk/guidance/ng222
+Reference: NHS: NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG193: Chronic pain (primary and secondary) in over 16s — https://www.nice.org.uk/guidance/ng193
 
 ## The Perfect Desk Setup for UK Workers with Arthritis
 URL: https://livingwitharthritis.org.uk/blog/desk-setup-arthritis-uk-workers
@@ -3423,18 +3424,19 @@ Q: Arthritis at Work: Your UK Disability Rights Explained
 A: The Equality Act 2010 protects employees with arthritis. What 'reasonable adjustments' you can request…
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Disabled Facilities Grants, arthritis and frailty (UK)
+## Disabled Facilities Grants for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/disabled-facilities-grant-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Disabled Facilities Grants, arthritis and frailty (UK)
-A: People with arthritis already know boom-and-bust; frailty lengthens the payback after a quiet spell. This UK guide looks at home adaptations funding without promising an award in a home setting, with practical steps, warning signs and England services. It is general information, not personal medical advice.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Disabled Facilities Grants for arthritis and frailty (UK)
+A: A Disabled Facilities Grant (DFG) can help pay for home adaptations such as stairlifts, level-access showers and ramps. You can get up to £30,000 in England, £36,000 in Wales and £25,000 in Northern Ireland, depending on income and savings. Scotland does not have DFGs but has its own adaptation support.
+Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
+Reference: nidirect: Disabled Facilities Grant — https://www.nidirect.gov.uk/articles/disabled-facilities-grant
+Reference: mygov.scot: Equipment and adaptations — https://www.mygov.scot/equipment-and-adaptations
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Discharge planning when arthritis and frailty delayed recovery (UK)
 URL: https://livingwitharthritis.org.uk/blog/discharge-planning-arthritis-frailty-uk
@@ -4072,15 +4074,19 @@ Q: Free Arthritis Exercise Classes Near Me England
 A: Free arthritis exercise classes in England: ask your GP about social prescribing, contact Arthritis UK (formerly Versus Arthritis; 0800 5200 520) for local groups, try Arthritis Action self-management groups, check your local leisure centre for concessionary memberships, or use NHS Fitness Studio online for free.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Free Arthritis Support Services Northern Ireland
+## Free arthritis and frailty support in Northern Ireland
 URL: https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Free Arthritis Support Services Northern Ireland
-A: Free arthritis support in Northern Ireland includes Arthritis UK (formerly Versus Arthritis) local groups (0800 5200 520), NHS social prescribing, NRAS helpline (0800 298 7650), and Healthunlocked online community — all free, no referral needed.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Q: Free arthritis and frailty support in Northern Ireland
+A: In Northern Ireland, free support includes the Arthritis UK helpline (0800 5200 520), the NRAS helpline for rheumatoid arthritis, peer and online groups, Age NI, and your Health and Social Care Trust, which arranges community care, occupational therapy, equipment and falls services. Your GP can refer you.
+Reference: Arthritis UK helpline — https://www.arthritis-uk.org/information-and-support/support-and-resources/arthritis-uk-helpline/
+Reference: National Rheumatoid Arthritis Society (NRAS) — https://nras.org.uk/
+Reference: Age NI — https://www.ageuk.org.uk/northern-ireland/
+Reference: nidirect: Health and Social Care Trusts — https://www.nidirect.gov.uk/contacts/health-and-social-care-trusts
+Reference: nidirect: Disabled Facilities Grant — https://www.nidirect.gov.uk/articles/disabled-facilities-grant
 
 ## The Fried frailty phenotype when joints are painful (UK)
 URL: https://livingwitharthritis.org.uk/blog/fried-frailty-phenotype-painful-joints-uk
@@ -4481,18 +4487,19 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: nidirect — https://www.nidirect.gov.uk
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## High-rise flats, lifts and arthritis-related frailty (UK)
+## Living in a high-rise flat with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/high-rise-flat-arthritis-frailty-lifts-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: High-rise flats, lifts and arthritis-related frailty (UK)
-A: You can have arthritis without frailty — and still benefit from frailty-aware habits when recovery feels slower than it used to. This article is about when the lift breaks and stairs are not realistic, written for people and carers in Wales, especially around a high-rise flat.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Living in a high-rise flat with arthritis and frailty (UK)
+A: If you live in a high-rise flat with arthritis and frailty, plan for lift breakdowns, tell your landlord about your needs, use deliveries for heavy shopping, and make sure your landlord knows you may need help in an evacuation. If stairs are no longer safe, ask about rehousing or adaptations.
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Hip and knee osteoarthritis together: frailty-friendly transfers (UK)
 URL: https://livingwitharthritis.org.uk/blog/hip-and-knee-oa-frailty-transfers-uk
@@ -4630,18 +4637,19 @@ Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng5
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Hospital deconditioning when you live with arthritis (UK)
+## Avoiding deconditioning in hospital when you have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/hospital-deconditioning-arthritis-stay-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Hospital deconditioning when you live with arthritis (UK)
-A: Naming arthritis and frailty together is not gloom — it is a way to ask for the right help for transfers, falls and energy. This UK guide looks at how a hospital stay can shrink muscle and confidence in a hospital setting, with practical steps, warning signs and Wales services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Avoiding deconditioning in hospital when you have arthritis (UK)
+A: Deconditioning is the loss of strength, stamina and independence that can happen quickly with bed rest in hospital, especially if you are older or frail. Getting up, dressed and moving as soon as it is safe, eating and drinking well, and doing simple bed and chair exercises can help.
+Reference: NHS: Leaving hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/leaving-hospital/
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
 
 ## Hospital stays with arthritis and frailty: what to pack and ask (UK)
 URL: https://livingwitharthritis.org.uk/blog/hospital-stay-arthritis-frailty-what-to-pack-uk
