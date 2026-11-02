@@ -1634,16 +1634,17 @@ Reference: nidirect: Access to Work (NI) – practical help at work — https://
 
 ## A simple activity diary for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/activity-diary-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: A simple activity diary for arthritis and frailty (UK)
-A: This page looks at a simple activity diary for arthritis and frailty with a frailty-aware lens for UK readers at home. This page explains seeing the boom-and-bust pattern on paper if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: An activity diary is a simple daily record of what you did, how long for, and how your pain and energy felt. Kept for one to two weeks, it can show boom-and-bust patterns, so you can pace activities, set small goals and share clear information with your GP or physiotherapist.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG193: Chronic pain (primary and secondary) in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NHS: Pacing and fatigue — Royal College of Occupational Therapists: How to conserve your energy — https://www.rcot.co.uk/conserving-energy
+Reference: Versus Arthritis — https://www.versusarthritis.org/
 
 ## Adult Children as Carers: Managing Roles, Boundaries and Family Dynamics
 URL: https://livingwitharthritis.org.uk/blog/adult-children-as-caregivers-arthritis
@@ -1655,18 +1656,19 @@ Q: Adult Children as Carers: Managing Roles, Boundaries and Family Dynamics
 A: As adult children caregivers, supporting a parent with arthritis brings emotional and practical challenges. Managing family caregiver roles requires adjusting to changing family dynamics, setting clear boundaries to protect your wellbeing, and accessing local council and health services for financial and physical support.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Advance care planning if arthritis and frailty are both progressing (UK)
+## Advance care planning when you live with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/advance-care-planning-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Advance care planning if arthritis and frailty are both progressing (UK)
-A: For advance care planning if arthritis and frailty are both progressing, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This UK guide looks at wishes for hospital, pain and home in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Q: Advance care planning when you live with arthritis and frailty (UK)
+A: Advance care planning means thinking about and writing down what matters to you about future care, so your wishes are known if you become too unwell to say. It can include an advance statement, an advance decision to refuse treatment, a lasting power of attorney and conversations about resuscitation.
+Reference: NHS: End of life care — advance statements and planning — https://www.nhs.uk/conditions/end-of-life-care/planning-ahead/advance-statement/
+Reference: NHS: Advance decision to refuse treatment — https://www.nhs.uk/conditions/end-of-life-care/planning-ahead/advance-decision-to-refuse-treatment/
+Reference: GOV.UK: Make, register or end a lasting power of attorney — https://www.gov.uk/power-of-attorney
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: Carers UK — https://www.carersuk.org/
 
 ## Alcohol and Arthritis: What the UK Evidence Says
 URL: https://livingwitharthritis.org.uk/blog/alcohol-arthritis-uk-guidance
@@ -2864,16 +2866,17 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## How carers can help with arthritis and frailty without taking over (UK)
 URL: https://livingwitharthritis.org.uk/blog/carers-how-to-help-without-taking-over-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: How carers can help with arthritis and frailty without taking over (UK)
-A: Readers asking about how carers can help with arthritis and frailty without taking over often need pacing, protein and practised transfers more than a gym plan. This UK guide looks at help that still leaves practice in the day in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS Inform — https://www.nhsinform.scot
+A: Carers help most by supporting, not replacing, what the person can still do. Doing tasks for someone can feel kind but may lead to weaker muscles and lost confidence. Agree what help is wanted, set up the task so they can do part of it, and get advice from an occupational therapist or physiotherapist.
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
+Reference: Carers UK — https://www.carersuk.org/
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Caring for an Elderly Parent With Arthritis: Practical Help and Support in the UK
 URL: https://livingwitharthritis.org.uk/blog/caring-for-parent-with-arthritis
@@ -3529,18 +3532,19 @@ A: Early gout in the big toe: intense pain developing over 6-12 hours, joint bec
 Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
 Reference: NICE NG219: Gout — https://www.nice.org.uk/guidance/ng219
 
-## Elbow osteoarthritis and frailty: kitchen tasks without a flare spiral (UK)
+## Elbow osteoarthritis and frailty: kitchen tasks with less pain (UK)
 URL: https://livingwitharthritis.org.uk/blog/elbow-osteoarthritis-frailty-kitchen-tasks-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Elbow osteoarthritis and frailty: kitchen tasks without a flare spiral (UK)
-A: Elbow osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at kitchen reaching and lifting with painful elbows in a home setting, with practical steps, warning signs and England services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Q: Elbow osteoarthritis and frailty: kitchen tasks with less pain (UK)
+A: With elbow osteoarthritis and frailty, kitchen tasks are usually easier if you keep heavy items at waist height, use two hands and lighter equipment, slide rather than lift, and pace tasks. An occupational therapist can suggest kitchen equipment and changes.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Emergency Arthritis Flare Checklist: Printable Step-by-Step (UK)
 URL: https://livingwitharthritis.org.uk/blog/emergency-arthritis-flare-checklist
@@ -6528,18 +6532,19 @@ Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## After hip replacement: coming home frail (UK)
+## After a hip replacement: coming home when you are frail (UK)
 URL: https://livingwitharthritis.org.uk/blog/post-hip-replacement-frailty-home-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: After hip replacement: coming home frail (UK)
-A: A quieter week after a flare is common; the worry is when quieter becomes the new normal and reserve does not return. This guide covers the first weeks at home after hip surgery when stamina is low because hip osteoarthritis after replacement affects hips, with a focus on Northern Ireland and a home setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: After a hip replacement: coming home when you are frail (UK)
+A: After a hip replacement, most people go home within a few days and recover over several weeks. If you are frail, plan ahead: get equipment fitted, follow your exercise plan, take pain relief so you can move, and get help with daily tasks. Contact your team urgently about signs of infection, a blood clot or dislocation.
+Reference: NHS: Hip replacement — recovery — https://www.nhs.uk/conditions/hip-replacement/recovery/
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: NHS: Leaving hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/leaving-hospital/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
 ## After knee replacement: frailty-aware rehabilitation (UK)
 URL: https://livingwitharthritis.org.uk/blog/post-knee-replacement-frailty-rehab-uk
