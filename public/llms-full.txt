@@ -7498,18 +7498,17 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 Reference: NICE NG197: Shared decision making — https://www.nice.org.uk/guidance/ng197
 Reference: BNF: British National Formulary — https://bnf.nice.org.uk/
 
-## Static bikes for frail osteoarthritis (UK)
+## Static exercise bikes for frailty and osteoarthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/static-bike-frail-osteoarthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Static bikes for frail osteoarthritis (UK)
-A: For static bikes for frail osteoarthritis, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. Here we focus on gentle cycling without outdoor traffic, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS Inform — https://www.nhsinform.scot
+Last clinically reviewed: 2026-11-02
+Q: Static exercise bikes for frailty and osteoarthritis (UK)
+A: A static bike or pedal exerciser can be a low-impact way to keep knees and hips moving with osteoarthritis. Start gently, set the seat at the right height and make getting on and off safe. Ask a physiotherapist if you are unsure.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
 
 ## Staying Active with Arthritis in Winter: A UK Guide
 URL: https://livingwitharthritis.org.uk/blog/staying-active-arthritis-winter-uk
@@ -7769,18 +7768,16 @@ Reference: Osteoarthritis: electrotherapy recommendations — https://www.nice.o
 Reference: TENS: safety and use — https://www.nhs.uk/tests-and-treatments/transcutaneous-electrical-nerve-stimulation-tens/
 Reference: Rheumatoid arthritis: treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
 
-## Thumb-base osteoarthritis and frailty: jars, taps and daily grip (UK)
+## Thumb base osteoarthritis, frailty and daily grip (UK)
 URL: https://livingwitharthritis.org.uk/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Thumb-base osteoarthritis and frailty: jars, taps and daily grip (UK)
-A: Living With Arthritis writes for the overlap of sore joints and slower recovery — the part that shrinks a home life week by week. This guide covers opening packaging when thumb-base joints hurt because thumb-base osteoarthritis affects thumbs, with a focus on Scotland and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Thumb base osteoarthritis, frailty and daily grip (UK)
+A: Thumb base osteoarthritis can make opening jars, turning keys and writing painful. Gadgets with bigger handles, splints, hand exercises and pain relief can help. Ask your GP about hand therapy if daily tasks are getting harder.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 
 ## Thumb Base Pain: Early Signs of Hand Arthritis
 URL: https://livingwitharthritis.org.uk/blog/thumb-base-pain-early-hand-arthritis
@@ -8037,16 +8034,14 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Seated volunteering with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/volunteering-seated-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Seated volunteering with arthritis and frailty (UK)
-A: A frailty-aware note on seated volunteering with arthritis and frailty: protect joints, keep muscle working, and plan the hardest transfer of the day. This article is about purpose without a physical overdraft, written for people and carers in Scotland, especially around a community class.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Volunteering can give purpose and company. Many roles can be done seated or from home, such as telephone befriending. Tell the organisation what adjustments help you, and pace your time.
+Reference: NHS: 5 steps to mental wellbeing — https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/
+Reference: NHS England: Social prescribing — https://www.england.nhs.uk/personalisedcare/social-prescribing/
 
 ## Walking 30 Minutes a Day While on DMARDs: A Practical Plan
 URL: https://livingwitharthritis.org.uk/blog/walking-30-minutes-a-day-while-on-dmards-a-practical-plan
@@ -8075,18 +8070,16 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
-## Walking stick versus frame: arthritis, wrists and frailty (UK)
+## Walking stick or frame with arthritis and frailty? (UK)
 URL: https://livingwitharthritis.org.uk/blog/walking-stick-vs-frame-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Walking stick versus frame: arthritis, wrists and frailty (UK)
-A: A frailty-aware note on walking stick versus frame: arthritis, wrists and frailty: protect joints, keep muscle working, and plan the hardest transfer of the day. This guide covers choosing an aid that matches joints and balance when arthritis with frailty affects wrists and legs, with a focus on Northern Ireland and a home setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Walking stick or frame with arthritis and frailty? (UK)
+A: Sticks give light support; frames give more stability. The right choice depends on your balance, strength and home. A physiotherapist or occupational therapist can assess you and set the height correctly.
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Walking With Arthritis: A Beginner's 8-Week Walking Programme (UK)
 URL: https://livingwitharthritis.org.uk/blog/walking-with-arthritis-start-build-up-keep-going
@@ -8252,18 +8245,15 @@ Reference: GOV.UK: Access to Work — https://www.gov.uk/access-to-work
 Reference: GOV.UK: Make a claim to an employment tribunal — https://www.gov.uk/employment-tribunals
 Reference: nidirect: Disability discrimination law – employment rights — https://www.nidirect.gov.uk/articles/disability-discrimination-law-employment-rights
 
-## Wound care you cannot reach: arthritis and frailty (UK)
+## Wound care when reaching is hard with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/wound-care-reaching-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Wound care you cannot reach: arthritis and frailty (UK)
-A: Painful shoulders and hands plus slower recovery is a common UK picture in later life. This page explains dressings when shoulders will not allow it if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Wound care when reaching is hard with arthritis and frailty (UK)
+A: Arthritis and frailty can make it hard to reach and clean wounds, especially on the legs and feet. Clean minor cuts, cover them, and ask for help from a pharmacist, practice nurse or community nurse. Report signs of infection.
+Reference: NHS: Cuts and grazes — https://www.nhs.uk/conditions/cuts-and-grazes/
 
 ## Wrist osteoarthritis and frailty: choosing a walking aid that does not hurt (UK)
 URL: https://livingwitharthritis.org.uk/blog/wrist-osteoarthritis-frailty-walking-aids-uk
