@@ -1637,7 +1637,7 @@ URL: https://livingwitharthritis.org.uk/blog/activity-diary-arthritis-frailty-uk
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: A simple activity diary for arthritis and frailty (UK)
 A: An activity diary is a simple daily record of what you did, how long for, and how your pain and energy felt. Kept for one to two weeks, it can show boom-and-bust patterns, so you can pace activities, set small goals and share clear information with your GP or physiotherapist.
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
@@ -1661,7 +1661,7 @@ URL: https://livingwitharthritis.org.uk/blog/advance-care-planning-arthritis-fra
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Advance care planning when you live with arthritis and frailty (UK)
 A: Advance care planning means thinking about and writing down what matters to you about future care, so your wishes are known if you become too unwell to say. It can include an advance statement, an advance decision to refuse treatment, a lasting power of attorney and conversations about resuscitation.
 Reference: NHS: End of life care — advance statements and planning — https://www.nhs.uk/conditions/end-of-life-care/planning-ahead/advance-statement/
@@ -2322,7 +2322,7 @@ URL: https://livingwitharthritis.org.uk/blog/arthritis-relationships-honest-conv
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Arthritis and relationships: honest conversations that help (UK)
 A: Arthritis can change roles, plans and intimacy in relationships. Talking honestly about how pain and fatigue vary, asking for specific help, and planning around better times can help. Couples counselling, such as Relate, and an occupational therapist or GP can offer further support.
 Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
@@ -2487,7 +2487,7 @@ URL: https://livingwitharthritis.org.uk/blog/balance-painful-feet-frailty-arthri
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Balance practice with painful arthritic feet (UK)
 A: Painful feet can make people walk less and less steadily, which raises falls risk. Supportive footwear, foot care, podiatry and gentle supported balance practice can help. Practise near a sturdy support and ask for a falls assessment if you have fallen or feel unsteady.
 Reference: NHS: Foot problems and podiatry — https://www.nhs.uk/conditions/foot-pain/
@@ -2787,7 +2787,7 @@ URL: https://livingwitharthritis.org.uk/blog/bunions-arthritis-frailty-shoes-uk
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Bunions, arthritis and frailty: shoes that still fit (UK)
 A: Bunions and big-toe arthritis can make shoes painful and walking less steady. Wide, deep, supportive shoes, padding and podiatry help many people. Surgery is an option for some, but recovery needs careful planning in frailty.
 Reference: NHS: Bunions — https://www.nhs.uk/conditions/bunions/
@@ -2800,7 +2800,7 @@ URL: https://livingwitharthritis.org.uk/blog/care-home-life-arthritis-pain-frail
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Life in a care home with arthritis, pain and frailty (UK)
 A: People living in care homes with arthritis should have their pain assessed and reviewed, including if they cannot easily say they are in pain. Staying active, comfortable seating, help at meal times and regular medicine review support comfort and dignity.
 Reference: CQC: Care homes — https://www.cqc.org.uk/care-services/care-homes
@@ -2832,7 +2832,7 @@ URL: https://livingwitharthritis.org.uk/blog/carer-burnout-arthritis-frailty-uk
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Carer burnout when arthritis and frailty fill the week (UK)
 A: Caring for someone with arthritis and frailty can be physically and emotionally tiring. Signs of burnout include exhaustion, poor sleep, low mood and irritability. A carer's assessment, respite, sharing tasks and looking after your own health can help.
 Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
@@ -2874,7 +2874,7 @@ URL: https://livingwitharthritis.org.uk/blog/carers-how-to-help-without-taking-o
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: How carers can help with arthritis and frailty without taking over (UK)
 A: Carers help most by supporting, not replacing, what the person can still do. Doing tasks for someone can feel kind but may lead to weaker muscles and lost confidence. Agree what help is wanted, set up the task so they can do part of it, and get advice from an occupational therapist or physiotherapist.
 Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
@@ -3030,7 +3030,7 @@ URL: https://livingwitharthritis.org.uk/blog/commode-night-arthritis-frailty-uk
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Commodes at night for arthritis and frailty (UK)
 A: Night-time trips to the toilet are a common time for falls. A bedside commode can shorten the walk. An occupational therapist can advise on the right type and height, and some areas provide commodes through community equipment services.
 Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
@@ -3125,7 +3125,7 @@ URL: https://livingwitharthritis.org.uk/blog/comprehensive-geriatric-assessment-
 Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Comprehensive geriatric assessment in plain English if you have arthritis (UK)
 A: A comprehensive geriatric assessment (CGA) is a detailed check of an older person's physical health, mobility, medicines, memory, mood, and support at home, leading to a shared care plan. If you have arthritis and frailty, it can bring your conditions and medicines together in one plan.
 Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
@@ -3377,7 +3377,7 @@ URL: https://livingwitharthritis.org.uk/blog/depression-osteoarthritis-frailty-u
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Low mood and depression with osteoarthritis and frailty (UK)
 A: Long-term osteoarthritis pain and frailty can lead to low mood, and depression can make pain feel worse and reduce activity. Signs include feeling low or hopeless most days and losing interest in things for two weeks or more. Depression is treatable: talk to your GP about talking therapies, activity, and medicines.
 Reference: NHS: Depression in adults — https://www.nhs.uk/mental-health/conditions/depression-in-adults/overview/
@@ -3436,7 +3436,7 @@ URL: https://livingwitharthritis.org.uk/blog/disabled-facilities-grant-arthritis
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Disabled Facilities Grants for arthritis and frailty (UK)
 A: A Disabled Facilities Grant (DFG) can help pay for home adaptations such as stairlifts, level-access showers and ramps. You can get up to £30,000 in England, £36,000 in Wales and £25,000 in Northern Ireland, depending on income and savings. Scotland does not have DFGs but has its own adaptation support.
 Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
@@ -3545,7 +3545,7 @@ URL: https://livingwitharthritis.org.uk/blog/elbow-osteoarthritis-frailty-kitche
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Elbow osteoarthritis and frailty: kitchen tasks with less pain (UK)
 A: With elbow osteoarthritis and frailty, kitchen tasks are usually easier if you keep heavy items at waist height, use two hands and lighter equipment, slide rather than lift, and pace tasks. An occupational therapist can suggest kitchen equipment and changes.
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
@@ -4083,7 +4083,7 @@ URL: https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ire
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Free arthritis and frailty support in Northern Ireland
 A: In Northern Ireland, free support includes the Arthritis UK helpline (0800 5200 520), the NRAS helpline for rheumatoid arthritis, peer and online groups, Age NI, and your Health and Social Care Trust, which arranges community care, occupational therapy, equipment and falls services. Your GP can refer you.
 Reference: Arthritis UK helpline — https://www.arthritis-uk.org/information-and-support/support-and-resources/arthritis-uk-helpline/
@@ -4097,7 +4097,7 @@ URL: https://livingwitharthritis.org.uk/blog/fried-frailty-phenotype-painful-joi
 Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: The Fried frailty phenotype when joints are painful (UK)
 A: The Fried frailty phenotype describes frailty using five signs: unintentional weight loss, exhaustion, weak grip, slow walking and low physical activity. Three or more suggest frailty and one or two suggest prefrailty. Arthritis pain can affect several of these, so tell clinicians what is due to your joints.
 Reference: Fried LP et al. Frailty in older adults: evidence for a phenotype. J Gerontol A 2001 — https://doi.org/10.1093/gerona/56.3.M146
@@ -4140,39 +4140,42 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 
 ## Raised beds and perch seating for frail gardeners with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/garden-raised-beds-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Raised beds and perch seating for frail gardeners with arthritis (UK)
-A: UK home life shapes raised beds and perch seating for frail gardeners with arthritis as much as any clinic score — kettle, bathroom, stairs and night trips count. This page explains ten-minute garden spells if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+A: Raised beds bring the soil closer so you bend and kneel less. Perch seats, kneelers with handles, long-handled and lightweight tools, and short sessions with rests can help people with arthritis and frailty keep gardening safely.
+Reference: Thrive: Gardening for health — https://www.thrive.org.uk/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
+Reference: NHS: Exercise for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
 
-## Gene Therapy and Arthritis: Where Are We in 2026?
+## Gene therapy and arthritis: where are we in 2026? (UK)
 URL: https://livingwitharthritis.org.uk/blog/gene-therapy-and-arthritis-where-are-we-in-2026
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Gene Therapy and Arthritis: Where Are We in 2026?
-A: Gene therapy for common forms of arthritis, such as osteoarthritis and rheumatoid arthritis, is not currently a standard treatment option in the UK. Research is in early stages, with most approaches being preclinical or in small human trials. Current robust evidence continues to support established treatments like appropriate drug therapies, regular physical activity, and supportive lifestyle measures for managing arthritis symptoms.
+Last clinically reviewed: 2026-11-02
+Q: Gene therapy and arthritis: where are we in 2026? (UK)
+A: Gene therapy for osteoarthritis or rheumatoid arthritis is not a standard treatment in the UK. Research is at an early stage, mostly in laboratories or small trials. Be cautious of clinics offering unproven treatments. You can look for genuine UK studies through NIHR Be Part of Research.
+Reference: NIHR Be Part of Research — https://bepartofresearch.nihr.ac.uk/
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
 ## Generalised osteoarthritis and frailty: planning a whole-body day (UK)
 URL: https://livingwitharthritis.org.uk/blog/generalised-oa-frailty-whole-body-day-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Generalised osteoarthritis and frailty: planning a whole-body day (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and generalised osteoarthritis can make it more visible. This article is about a day plan when many joints speak at once, written for people and carers in England, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: When osteoarthritis affects several joints, every task can involve a painful joint. Planning the day, pacing, spreading tasks, gentle exercise for the whole body and the right equipment can help. Ask for a review if pain or function is getting worse.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Pacing and fatigue — Royal College of Occupational Therapists: How to conserve your energy — https://www.rcot.co.uk/conserving-energy
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Gentle Exercises for Arthritis: Movement Without Overdoing It
 URL: https://livingwitharthritis.org.uk/blog/gentle-exercises-for-arthritis
@@ -4304,16 +4307,16 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Grab rails at home: arthritis, frailty and safer rooms (UK)
 URL: https://livingwitharthritis.org.uk/blog/grab-rails-arthritis-frailty-home-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Grab rails at home: arthritis, frailty and safer rooms (UK)
-A: This guide stays with grab rails at home: arthritis, frailty and safer rooms: what still moves safely, what to ask, and how to keep a steadier week. This guide covers where rails help when joints and balance are both limited because arthritis with frailty affects several joints, with a focus on England and a home setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Grab rails help with standing, sitting and moving in bathrooms, by steps and at doors. For painful hands, thicker or textured rails can be easier to hold. An OT can advise on positions. Councils often provide minor adaptations, such as rails, free after an assessment.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Grandparenting with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/grandparenting-arthritis-frailty-uk
@@ -4480,23 +4483,21 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Heatwaves, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/heatwave-arthritis-frailty-hydration-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Heatwaves, arthritis and frailty (UK)
-A: UK home life shapes heatwaves, arthritis and frailty as much as any clinic score — kettle, bathroom, stairs and night trips count. This UK guide looks at heat, swelling and low appetite in later life in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Older and frail people are more at risk in hot weather. Keeping cool, drinking regularly, planning activity for cooler times and checking on others help. Some medicines affect how the body handles heat. Heat exhaustion needs prompt cooling, and heatstroke is an emergency.
+Reference: NHS: Heatwave: how to cope in hot weather — https://www.nhs.uk/live-well/seasonal-health/heatwave-how-to-cope-in-hot-weather/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Living in a high-rise flat with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/high-rise-flat-arthritis-frailty-lifts-uk
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Living in a high-rise flat with arthritis and frailty (UK)
 A: If you live in a high-rise flat with arthritis and frailty, plan for lift breakdowns, tell your landlord about your needs, use deliveries for heavy shopping, and make sure your landlord knows you may need help in an evacuation. If stairs are no longer safe, ask about rehousing or adaptations.
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
@@ -4534,7 +4535,7 @@ URL: https://livingwitharthritis.org.uk/blog/hip-oa-frailty-bed-mobility-uk
 Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Hip osteoarthritis and frailty: turning in bed and getting up (UK)
 A: With hip osteoarthritis and frailty, turning in bed and getting up are usually easier if you roll as one unit, use your arms and a firm mattress edge, and get up in stages. Bed height, a bed lever fitted after an occupational therapy assessment, and a clear, lit route to the toilet all help.
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
@@ -4562,7 +4563,7 @@ URL: https://livingwitharthritis.org.uk/blog/hip-osteoarthritis-frailty-chair-ri
 Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Hip osteoarthritis and frailty: getting out of a chair more safely (UK)
 A: To get out of a chair more safely with hip osteoarthritis and frailty, use a firm chair with arms at the right height, shuffle forward, lean forward with your nose over your toes and push up through the armrests. Regular sit-to-stand practice builds the leg strength that makes it easier.
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
@@ -4646,10 +4647,10 @@ URL: https://livingwitharthritis.org.uk/blog/hospital-deconditioning-arthritis-s
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Avoiding deconditioning in hospital when you have arthritis (UK)
 A: Deconditioning is the loss of strength, stamina and independence that can happen quickly with bed rest in hospital, especially if you are older or frail. Getting up, dressed and moving as soon as it is safe, eating and drinking well, and doing simple bed and chair exercises can help.
-Reference: NHS: Leaving hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/leaving-hospital/
+Reference: NICE NG27: Transition between inpatient hospital settings and community or care home settings — https://www.nice.org.uk/guidance/ng27
 Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
@@ -6548,12 +6549,12 @@ URL: https://livingwitharthritis.org.uk/blog/post-hip-replacement-frailty-home-u
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: After a hip replacement: coming home when you are frail (UK)
 A: After a hip replacement, most people go home within a few days and recover over several weeks. If you are frail, plan ahead: get equipment fitted, follow your exercise plan, take pain relief so you can move, and get help with daily tasks. Contact your team urgently about signs of infection, a blood clot or dislocation.
 Reference: NHS: Hip replacement — recovery — https://www.nhs.uk/conditions/hip-replacement/recovery/
 Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
-Reference: NHS: Leaving hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/leaving-hospital/
+Reference: NICE NG27: Transition between inpatient hospital settings and community or care home settings — https://www.nice.org.uk/guidance/ng27
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
@@ -6748,7 +6749,7 @@ URL: https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-later-life-frai
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Psoriatic arthritis in later life and frailty (UK)
 A: Psoriatic arthritis can start or continue into later life, causing painful, swollen joints, tendon pain and fatigue alongside psoriasis. In older or frail people, treatment choices take account of other conditions, infection risk and medicines. Regular review, exercise and good skin and foot care help.
 Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
@@ -6841,11 +6842,11 @@ URL: https://livingwitharthritis.org.uk/blog/reablement-after-discharge-arthriti
 Last updated: 2026-11-01
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Reablement after hospital when you have arthritis (UK)
 A: Reablement is short-term help at home after a hospital stay or illness, aimed at helping you relearn daily tasks and regain independence. In England it is usually free for up to six weeks. Ask the ward team or your council about it before you leave hospital.
 Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
-Reference: NHS: Leaving hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/leaving-hospital/
+Reference: NICE NG27: Transition between inpatient hospital settings and community or care home settings — https://www.nice.org.uk/guidance/ng27
 Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
@@ -7023,7 +7024,7 @@ URL: https://livingwitharthritis.org.uk/blog/rise-recline-chair-arthritis-frailt
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Rise and recline chairs for arthritis and frailty (UK)
 A: A rise and recline chair tilts forward to help you stand and can recline for comfort. It can help some people with arthritis and frailty, but it may also reduce leg strength if it does all the work. Ask an occupational therapist for advice on size and features before buying.
 Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
@@ -7425,7 +7426,7 @@ URL: https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frail
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Slow walking groups for arthritis and frailty (UK)
 A: Short, slow walking groups such as some Walking for Health walks offer gentle exercise and company. Start with a short route, use your walking aid, and pace yourself. Mild discomfort that settles within a day or so is usually fine, but pain that is much worse the next day means you should do less.
 Reference: NHS: Exercise for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
@@ -7792,7 +7793,7 @@ URL: https://livingwitharthritis.org.uk/blog/talking-therapies-pain-older-arthri
 Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Talking therapies for arthritis pain in older age (UK)
 A: Talking therapies such as cognitive behavioural therapy (CBT) and acceptance and commitment therapy (ACT) do not remove arthritis pain but can help you cope, improve sleep and mood, and do more of what matters. NICE recommends them for chronic primary pain. In England you can refer yourself to NHS Talking Therapies.
 Reference: NHS: NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
