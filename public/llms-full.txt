@@ -7079,16 +7079,17 @@ Reference: NHS: Hip replacement – recovery — https://www.nhs.uk/conditions/h
 
 ## Sarcopenia and knee osteoarthritis: the frailty overlap (UK)
 URL: https://livingwitharthritis.org.uk/blog/sarcopenia-knee-oa-frailty-overlap-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Sarcopenia and knee osteoarthritis: the frailty overlap (UK)
-A: Painful knees plus slower recovery is a common UK picture in later life. This page explains muscle loss that makes knee osteoarthritis harder to live with if you live with knee osteoarthritis with sarcopenia, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+A: Sarcopenia is the loss of muscle strength and mass with age. Weak thigh muscles put more strain on the knee, and knee pain can lead to less activity and more muscle loss. Regular strengthening exercise, staying active and eating enough protein can help break this cycle.
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-exercises/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
 
 ## Sarcopenia: Muscle Loss and How to Combat It
 URL: https://livingwitharthritis.org.uk/blog/sarcopenia-muscle-loss-how-to-combat
@@ -7168,16 +7169,15 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Sheltered housing, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/sheltered-housing-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Sheltered housing, arthritis and frailty (UK)
-A: UK services vary by nation, but the home pattern is shared: shorter range, longer recovery, fewer invitations answered. This UK guide looks at alarms, neighbours and joint-bad days in a sheltered housing setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Sheltered housing offers self-contained homes for older people, often with a scheme manager and an alarm system. Extra care housing adds on-site care available when needed. Both can help people with arthritis and frailty stay independent. Councils and housing associations provide many schemes.
+Reference: Age UK: Housing options — https://www.ageuk.org.uk/information-advice/care/housing-options/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/shingles-vaccine-arthritis-frailty-uk
@@ -7493,16 +7493,15 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Slow meals, sore hands and frailty: keeping eating safe (UK)
 URL: https://livingwitharthritis.org.uk/blog/speech-swallowing-meals-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Slow meals, sore hands and frailty: keeping eating safe (UK)
-A: Ask what movement is encouraged each day — safety and practice can share a plan when joints and reserve are both limited. Here we focus on time, positioning and dignity at meals, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Painful hands can make cutting food and lifting cups difficult, and frailty can make meals slow and tiring. Adapted cutlery, good positioning and time help. Coughing, choking or a wet voice when eating may be signs of a swallowing problem and should be checked.
+Reference: NHS: Swallowing problems (dysphagia) — https://www.nhs.uk/conditions/swallowing-problems-dysphagia/
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Spinal Arthritis and Back Pain UK: Symptoms, Treatment and Self-Help
 URL: https://livingwitharthritis.org.uk/blog/spinal-arthritis-back-pain-uk
@@ -8056,16 +8055,16 @@ Reference: UKHSA: Immunisation against infectious disease (the Green Book) — h
 
 ## Vision, falls and arthritis in frail adults (UK)
 URL: https://livingwitharthritis.org.uk/blog/vision-falls-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Vision, falls and arthritis in frail adults (UK)
-A: A medicines review, a protein plan and a practised sit-to-stand are frailty tools that still respect arthritis pain. This UK guide looks at eyesight checks that also protect sore joints in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Poor eyesight makes it harder to spot hazards, and arthritis can make it harder to recover from a trip. Regular eye tests, good lighting, care with multifocal glasses and hearing checks help reduce falls risk. NHS eye tests are free for people aged 60 and over.
+Reference: NHS: Free NHS eye tests and optical vouchers — https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/
+Reference: NHS: Hearing loss — https://www.nhs.uk/conditions/hearing-loss/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Vitamin D and falls with arthritis: what it can and cannot do (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/vitamin-d-and-falls-arthritis-uk
@@ -8348,16 +8347,16 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Wrist osteoarthritis and frailty: choosing a walking aid that does not hurt (UK)
 URL: https://livingwitharthritis.org.uk/blog/wrist-osteoarthritis-frailty-walking-aids-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Wrist osteoarthritis and frailty: choosing a walking aid that does not hurt (UK)
-A: Wrist osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at walking aids when wrists cannot take a hard grip in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+A: Standard sticks and frames put weight through the wrist, which can hurt with wrist osteoarthritis. Shaped or padded handles, forearm support frames, wheeled walkers and correct height can reduce strain. A physiotherapist or occupational therapist can assess you.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## X-Rays for Arthritis Explained: What They Show, Radiation and Your Report
 URL: https://livingwitharthritis.org.uk/blog/x-ray-arthritis-explained
