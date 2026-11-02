@@ -31,6 +31,7 @@ import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
 import { stripTags } from './lib/strip-tags.mjs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildBlogMetadata, pickBlogHeadline, looksTruncatedBlogMeta, clipMetadataText } from '../src/lib/blogMetadata.mjs';
 
 const OUT = resolve('scripts/blog-head-data.json');
 const COVER_MAP_PATH = resolve('src/data/blog-cover-map.generated.json');
@@ -64,31 +65,11 @@ export function clipText(text, max) {
  * while `title` still holds the full headline. Prefer the full title in that case.
  */
 export function looksTruncatedMeta(meta, title) {
-  const m = String(meta ?? '').trim();
-  const t = String(title ?? '').trim();
-  if (!m) return true;
-  if (!t) return false;
-  // meta is a strict shorter prefix of the full title (common DB / CMS clip)
-  if (t.startsWith(m) && t.length > m.length + 3) return true;
-  // Suspiciously short vs title, no terminal punctuation
-  if (m.length < 40 && t.length > m.length + 10 && !/[.?!):]$/.test(m)) return true;
-  // ~60-char hard clip mid-word / mid-phrase
-  if (
-    m.length >= 50 &&
-    m.length <= 65 &&
-    t.length > m.length &&
-    !/[.?!)"'\u2019\u201d]$/.test(m)
-  ) {
-    return true;
-  }
-  return false;
+  return looksTruncatedBlogMeta(meta, title);
 }
 
 export function pickHeadline(row) {
-  const title = String(row?.title ?? '').trim();
-  const meta = String(row?.meta_title ?? '').trim();
-  if (meta && !looksTruncatedMeta(meta, title)) return meta;
-  return title || meta;
+  return pickBlogHeadline(row);
 }
 
 /**
@@ -97,16 +78,7 @@ export function pickHeadline(row) {
  * "Supporting a Partner With | …".
  */
 export function buildPageTitle(headline) {
-  const h = String(headline ?? '').replace(/\s+/g, ' ').trim();
-  if (!h) return BRAND;
-  const withBrand = `${h} | ${BRAND}`;
-  // Soft SERP-friendly target ~60–70 when we can keep a complete branded phrase.
-  if (withBrand.length <= 70) return withBrand;
-  // Prefer dropping the brand over shipping 90–110 char titles. Never chop
-  // mid-phrase like "Supporting a Partner With | …".
-  if (h.length <= 72) return h;
-  // Longer headlines: word-boundary clip under ~70 (no brand after a clip).
-  return clipText(h, 70);
+  return clipMetadataText(headline, 60) || BRAND;
 }
 
 export function loadCoverMap(path = COVER_MAP_PATH) {
@@ -154,10 +126,9 @@ export function buildEntry(row, extractFaqs, coverMap) {
   if (!headline || !description) return null;
 
   const entry = {
-    title: buildPageTitle(headline),
-    description: clipText(description, 158),
+    ...buildBlogMetadata(row),
     question: row.title,
-    answer: answer ? clipText(answer, 600) : undefined,
+    answer: answer ? String(answer).trim() : undefined,
     breadcrumb: headline,
     about: row.category || undefined,
     updatedAt: String(row.updated_at || row.date || '').slice(0, 10) || undefined,

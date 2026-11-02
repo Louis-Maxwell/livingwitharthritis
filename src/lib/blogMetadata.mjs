@@ -1,0 +1,6 @@
+const BRAND = 'Living With Arthritis';
+export function normaliseBlogText(value) { return String(value ?? '').replace(/Living\s+With\s+Arthritis\s+UK\b/gi, BRAND).replace(/Arthritis\s*\(UK\)/gi, 'Arthritis').replace(/\s+/g, ' ').trim(); }
+export function clipMetadataText(value, max) { const text = normaliseBlogText(value); if (text.length <= max) return text; const cut = text.slice(0, max - 1); const boundary = cut.lastIndexOf(' '); return `${(boundary > max * .6 ? cut.slice(0, boundary) : cut).replace(/[\s,;:.–—-]+$/, '')}…`; }
+export function looksTruncatedBlogMeta(meta, title) { const m = normaliseBlogText(meta), t = normaliseBlogText(title); if (!m || !t || m === t) return !m; if (t.startsWith(m) && /[\p{L}\p{N}]/u.test(t[m.length]) && /[\p{L}\p{N}]$/u.test(m)) return true; return t.startsWith(m) && /\b(?:a|an|the|and|or|of|for|with|to|in|at|by)$/i.test(m); }
+export function pickBlogHeadline(row) { const title = normaliseBlogText(row?.title), meta = normaliseBlogText(row?.meta_title); return meta && !looksTruncatedBlogMeta(meta, title) ? meta : title || meta; }
+export function buildBlogMetadata(row) { return { title: clipMetadataText(pickBlogHeadline(row), 60) || BRAND, description: clipMetadataText(row?.meta_description || row?.excerpt || row?.direct_answer || '', 160) }; }

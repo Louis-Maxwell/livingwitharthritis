@@ -1,0 +1,23 @@
+name: Blog visibility audit
+on:
+  pull_request:
+    paths: ['src/content/blog/**', 'src/lib/blogMetadata*', 'scripts/generate-blog-head-data.mjs', 'scripts/audit-blog-visibility.mjs', 'package*.json']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node scripts/generate-blog-head-data.mjs
+      - run: npm run seo:blog-visibility
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blog-visibility-audit
+          path: reports/blog-visibility-audit.json
