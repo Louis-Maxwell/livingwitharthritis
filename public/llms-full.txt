@@ -6840,18 +6840,17 @@ Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-res
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Repeat prescriptions when leaving the house is the hard part (UK)
+## Repeat prescriptions with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/repeat-prescriptions-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Repeat prescriptions when leaving the house is the hard part (UK)
-A: Here is a plain-English take on repeat prescriptions when leaving the house is the hard part, while arthritis and lower reserve share the same week. This page explains pharmacy delivery and nominating a chemist if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Last clinically reviewed: 2026-11-02
+Q: Repeat prescriptions with arthritis and frailty (UK)
+A: Repeat prescriptions can be ordered online, through the NHS App, or through your GP practice or pharmacy. Ask your pharmacy about delivery and easy-open caps if your hands are stiff, and ask for a medicines review if you take several medicines.
+Reference: NHS: Prescriptions and pharmacies — https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/
+Reference: NHS: The NHS App — https://www.nhs.uk/nhs-app/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Resistance Band Workouts for Arthritis: 3 Safe Routines for Home (UK)
 URL: https://livingwitharthritis.org.uk/blog/resistance-band-workouts-arthritis
@@ -6991,16 +6990,15 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Rural living with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/rural-living-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Rural living with arthritis and frailty (UK)
-A: Sore joints and a frailer body reinforce each other: less movement, less muscle, then even less confidence. This UK guide looks at distance, buses and bad-weather joints in a rural home setting, with practical steps, warning signs and England services. It is general information, not personal medical advice.
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Living in the countryside can make appointments, shopping and care harder to reach with arthritis and frailty. Planning transport, using phone or video appointments, asking for a needs assessment and keeping in touch with neighbours can help.
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: Community Transport Association — https://ctauk.org/
+Reference: NHS: Heatwave: how to cope in hot weather — https://www.nhs.uk/live-well/seasonal-health/heatwave-how-to-cope-in-hot-weather/
 
 ## Safe Daily Stretching Routine for Arthritis: 12 Gentle Stretches (UK)
 URL: https://livingwitharthritis.org.uk/blog/safe-daily-stretching-routine-arthritis
@@ -7375,18 +7373,15 @@ Reference: Walking for Health (Ramblers) — https://www.ramblers.org.uk/walking
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Smart speakers for frail adults with arthritis (UK)
+## Smart speakers and voice assistants with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/smart-speakers-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Smart speakers for frail adults with arthritis (UK)
-A: If you are navigating smart speakers for frail adults with arthritis, small steady habits usually beat all-or-nothing restarts. Arthritis can spend that capacity on pain and stiffness before breakfast is done. This article is about voice control when buttons and taps hurt, written for people and carers in Scotland, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Smart speakers and voice assistants with arthritis and frailty (UK)
+A: Smart speakers can help with reminders, calls, music and controlling lights or heating without using stiff hands. They are not a replacement for a community alarm or 999 in an emergency. Ask someone you trust to help set one up.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Social care needs assessments for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/social-care-needs-assessment-arthritis-uk
@@ -7457,31 +7452,28 @@ Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NHS: Physiotherapy — https://www.nhs.uk/conditions/physiotherapy/
 
-## Night splints for hand osteoarthritis in frail adults (UK)
+## Night splints for hand osteoarthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/splints-night-hand-oa-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Night splints for hand osteoarthritis in frail adults (UK)
-A: A frailty-aware note on night splints for hand osteoarthritis in frail adults: protect joints, keep muscle working, and plan the hardest transfer of the day. This page explains sleeping with a splint you can don alone if you live with hand osteoarthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Night splints for hand osteoarthritis and frailty (UK)
+A: Splints can support painful hand or thumb joints, particularly the base of the thumb. Some people wear them at night or during tasks. A hand therapist or occupational therapist can advise and fit them. Check skin and report swelling or numbness.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 
-## Stairlifts, arthritis and frailty: questions before you buy (UK)
+## Stairlifts for arthritis and frailty at home (UK)
 URL: https://livingwitharthritis.org.uk/blog/stairlifts-arthritis-frailty-uk-home
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Stairlifts, arthritis and frailty: questions before you buy (UK)
-A: Painful hips and knees plus slower recovery is a common UK picture in later life. This page explains stairs, funding conversations and joint pain if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Stairlifts for arthritis and frailty at home (UK)
+A: Stairlifts can help if stairs have become unsafe or exhausting. An occupational therapist can assess whether a stairlift, extra rails or other changes would work best. Funding may be available through a Disabled Facilities Grant, which is means tested.
+Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
+Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Standing Desks and Arthritis: Pros, Cons and How to Use One 
 URL: https://livingwitharthritis.org.uk/blog/standing-desk-arthritis-pros-cons
