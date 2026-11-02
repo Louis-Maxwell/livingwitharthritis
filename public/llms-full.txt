@@ -4994,18 +4994,17 @@ A: Knee exercises are beneficial for arthritis by strengthening muscles, particu
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Knee osteoarthritis and frailty: stairs, banisters and rest stops (UK)
+## Knee osteoarthritis and frailty: stairs and banisters (UK)
 URL: https://livingwitharthritis.org.uk/blog/knee-oa-frailty-stairs-banisters-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Knee osteoarthritis and frailty: stairs, banisters and rest stops (UK)
-A: Living With Arthritis covers knee osteoarthritis and frailty: stairs, banisters and rest stops without miracle claims — just safer movement and clearer next steps. Here we focus on stair strategy when knees and confidence are both low, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Knee osteoarthritis and frailty: stairs and banisters (UK)
+A: Stairs are a common challenge with knee osteoarthritis and frailty. Going up with the stronger leg first and down with the painful leg first, using banisters on both sides, good lighting and strength exercises can help. An occupational therapist can assess your stairs.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-exercises/
+Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
 
 ## Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/knee-osteoarthritis-frailty-staying-steady-home-uk
@@ -5954,44 +5953,39 @@ Reference: Brinjikji W et al. Imaging features of spinal degeneration in asympto
 Reference: NHS inform: NHS Scotland waiting times — https://www.nhsinform.scot/waiting-times/outpatient-waiting-times/
 Reference: NHS England: Community diagnostic centres — https://www.england.nhs.uk/long-read/community-diagnostic-centres/
 
-## Multimorbidity, arthritis and frailty: looking at the whole picture (UK)
+## Multimorbidity: arthritis, frailty and several conditions together (UK)
 URL: https://livingwitharthritis.org.uk/blog/multimorbidity-arthritis-frailty-whole-picture-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Multimorbidity, arthritis and frailty: looking at the whole picture (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and arthritis can make it more visible day to day. This article is about several long-term conditions plus sore joints, written for people and carers in Scotland, especially around a GP surgery.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Last clinically reviewed: 2026-11-02
+Q: Multimorbidity: arthritis, frailty and several conditions together (UK)
+A: Many older people live with several long-term conditions. Treating each separately can lead to many appointments and medicines. NICE recommends a joined-up approach focusing on what matters most to you, with regular medicine reviews.
+Reference: NICE NG56: Multimorbidity — https://www.nice.org.uk/guidance/ng56
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
-## Naps versus inactivity in arthritis and frailty (UK)
+## Naps or inactivity? Rest and arthritis when you are frail (UK)
 URL: https://livingwitharthritis.org.uk/blog/naps-versus-inactivity-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Naps versus inactivity in arthritis and frailty (UK)
-A: When naps versus inactivity in arthritis and frailty is on your mind, treat shrinking range as useful information, not a personal failure. Here we focus on rest that restores, rest that shrinks muscle, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS Inform — https://www.nhsinform.scot
+Last clinically reviewed: 2026-11-02
+Q: Naps or inactivity? Rest and arthritis when you are frail (UK)
+A: Rest is important, but long periods of sitting or lying can increase stiffness and muscle loss. Short naps may help some people, while long daytime sleeps can disrupt night sleep. Breaking up sitting time with gentle movement helps.
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: Tiredness and fatigue — https://www.nhs.uk/conditions/tiredness-and-fatigue/
 
-## Neck osteoarthritis and frailty: looking down, dizziness and balance (UK)
+## Neck osteoarthritis, frailty and balance when looking down (UK)
 URL: https://livingwitharthritis.org.uk/blog/neck-osteoarthritis-frailty-balance-looking-down-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Neck osteoarthritis and frailty: looking down, dizziness and balance (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and neck osteoarthritis can make it more visible. This article is about balance when looking down at steps or a kettle, written for people and carers in Wales, especially around a home.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Neck osteoarthritis, frailty and balance when looking down (UK)
+A: Neck osteoarthritis can cause stiffness that makes looking down at steps or turning the head harder. With frailty, this can affect balance. Good lighting, clear floors, handrails and gentle neck and balance exercises can help.
+Reference: NHS: Neck pain — https://www.nhs.uk/conditions/neck-pain/
+Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/balance-exercises/
 
 ## NHS Access to Biologics: How the Approval Pathway Works
 URL: https://livingwitharthritis.org.uk/blog/nhs-access-to-biologics-how-the-approval-pathway-works
@@ -6061,18 +6055,16 @@ Reference: Age UK: Staying steady (falls prevention) — https://www.ageuk.org.u
 Reference: NHS: Care and support — needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## 999 versus NHS 111 when arthritis, frailty and a crisis collide (UK)
+## 999 or 111? Getting the right help with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/nine-nine-nine-vs-111-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: 999 versus NHS 111 when arthritis, frailty and a crisis collide (UK)
-A: A practical UK guide to 999 versus NHS 111 when arthritis, frailty and a crisis collide, written for days when energy and joints both feel limited. This page explains urgent help without delay or embarrassment if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Last clinically reviewed: 2026-11-02
+Q: 999 or 111? Getting the right help with arthritis and frailty (UK)
+A: Call 999 for life-threatening emergencies such as chest pain, stroke signs, severe breathing problems or serious injury. Use NHS 111 for urgent problems that are not emergencies. Contact your GP for ongoing or non-urgent issues.
+Reference: NHS: When to call 999 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-call-999/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Nordic poles, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/nordic-poles-arthritis-frailty-uk
