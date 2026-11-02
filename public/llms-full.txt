@@ -3346,16 +3346,15 @@ Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Dental care when arthritis, frailty and sore hands collide (UK)
 URL: https://livingwitharthritis.org.uk/blog/dental-care-arthritis-frailty-hands-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Dental care when arthritis, frailty and sore hands collide (UK)
-A: A practical UK guide to dental care when arthritis, frailty and sore hands collide, written for days when energy and joints both feel limited. This UK guide looks at cleaning teeth and getting to the dentist in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+A: Painful hands can make brushing, flossing and cleaning dentures difficult. Electric toothbrushes, chunky handles, interdental brushes with grips and sitting to brush can help. Regular dental check-ups matter, and some areas offer domiciliary dental care for people who cannot get to a dentist.
+Reference: NHS: How to keep your teeth clean — https://www.nhs.uk/live-well/healthy-teeth-and-gums/how-to-keep-your-teeth-clean/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Depression and Arthritis: When to Ask for Help (UK)
 URL: https://livingwitharthritis.org.uk/blog/depression-arthritis-when-to-seek-help
@@ -3399,29 +3398,28 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Diabetes, arthritis and frailty: feet at the centre (UK)
 URL: https://livingwitharthritis.org.uk/blog/diabetes-arthritis-frailty-feet-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Diabetes, arthritis and frailty: feet at the centre (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and arthritis with diabetes can make it more visible. This article is about foot risk when you cannot inspect your own soles, written for people and carers in England, especially around a home.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Diabetes can reduce feeling and blood flow in the feet, while arthritis and frailty can make it hard to reach and check them. Daily foot checks, well-fitting shoes, professional nail care and an annual diabetic foot check help prevent problems. New wounds or colour changes need prompt attention.
+Reference: NICE NG19: Diabetic foot problems — https://www.nice.org.uk/guidance/ng19
+Reference: NHS: Diabetes — https://www.nhs.uk/conditions/diabetes/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Direct Payments for care when arthritis and frailty overlap (UK)
 URL: https://livingwitharthritis.org.uk/blog/direct-payments-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Direct Payments for care when arthritis and frailty overlap (UK)
-A: Here is a plain-English take on direct Payments for care when arthritis and frailty overlap, while arthritis and lower reserve share the same week. This page explains choosing help at home, explained plainly if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Direct Payments are money from your council to arrange your own care and support instead of the council arranging it. You need to have been assessed as eligible for support. They can give more choice and control, but also bring responsibilities such as managing records or employing staff.
+Reference: GOV.UK: Direct payments — https://www.gov.uk/apply-direct-payments
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
 
 ## Arthritis at Work: Your UK Disability Rights Explained
 URL: https://livingwitharthritis.org.uk/blog/disability-rights-workplace-arthritis
@@ -3449,16 +3447,16 @@ Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/s
 
 ## Discharge planning when arthritis and frailty delayed recovery (UK)
 URL: https://livingwitharthritis.org.uk/blog/discharge-planning-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Discharge planning when arthritis and frailty delayed recovery (UK)
-A: In hospital, arthritis and frailty together often mean more time in bed, fewer practised transfers, and a slower discharge. Here we focus on going home with the right kit and visits, for readers in Northern Ireland, with self-management ideas and when to contact a GP, your GP out-of-hours service or emergency services as directed on nidirect or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Discharge planning should start early and involve you and your family. It covers medicines, equipment, home support and follow-up. Reablement or intermediate care may help you regain independence. Ask questions before you leave so you know who to contact if problems arise.
+Reference: NICE NG27: Transition between inpatient hospital settings and community or care home settings — https://www.nice.org.uk/guidance/ng27
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
 
 ## DMARDs Explained: How Methotrexate Slows Rheumatoid Arthritis
 URL: https://livingwitharthritis.org.uk/blog/dmards-explained-how-methotrexate-slows-rheumatoid-arthritis
@@ -3492,16 +3490,15 @@ Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-e
 
 ## Temporary downstairs living with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/downstairs-living-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Temporary downstairs living with arthritis and frailty (UK)
-A: For temporary downstairs living with arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. Arthritis can accelerate that by making every transfer cost more. This article is about a camp-bed phase that needs a plan, written for people and carers in Wales, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: If stairs become unsafe, living downstairs for a while can help, but it needs planning for sleeping, toileting, washing and warmth. An OT can advise on equipment. Longer term, options include a stairlift, grab rails or a Disabled Facilities Grant for adaptations.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Driving With Arthritis in the UK: DVLA Rules, Medicines and Help
 URL: https://livingwitharthritis.org.uk/blog/driving-with-arthritis-uk
