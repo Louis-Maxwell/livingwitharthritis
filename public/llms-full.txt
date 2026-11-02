@@ -3210,18 +3210,27 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 Reference: NHS: Knee replacement recovery — https://www.nhs.uk/tests-and-treatments/knee-replacement/recovery/
 Reference: NHS: Recovering from a hip replacement — https://www.nhs.uk/tests-and-treatments/hip-replacement/recovering-from-a-hip-replacement/
 
-## COPD, arthritis and frailty: breathlessness plus sore joints (UK)
+## COPD and arthritis: staying active when breathlessness and sore joints hold you back (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/copd-arthritis-frailty-breathlessness-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: COPD, arthritis and frailty: breathlessness plus sore joints (UK)
-A: Arthritis with COPD and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at walking aids and pauses when lungs and joints both limit you in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: nidirect — https://www.nidirect.gov.uk
+Last clinically reviewed: 2026-11-02
+Q: COPD and arthritis: staying active when breathlessness and sore joints hold you back (UK guide)
+A: If you have COPD as well as arthritis, breathlessness and sore joints can feed each other: you do less because walking is hard on your chest and your knees, your muscles weaken, and everything then feels harder. Moving regularly at a pace that leaves you slightly out of breath but still able to talk is safe and helps both conditions. Ask your GP or COPD nurse about pulmonary rehabilitation, tell the team about your arthritis so exercises can be adapted, and ask your pharmacist to check your inhaler technique if your hands are stiff. Get urgent help for breathlessness that is much worse than usual, chest pain or blue lips. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Chronic obstructive pulmonary disease (COPD) — https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/
+Reference: NHS: COPD — treatment, including pulmonary rehabilitation — https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/treatment/
+Reference: NHS: Living with COPD — https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/living-with/
+Reference: NICE NG115: Chronic obstructive pulmonary disease in over 16s — https://www.nice.org.uk/guidance/ng115
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: Asthma + Lung UK: COPD — https://www.asthmaandlung.org.uk/conditions/copd-chronic-obstructive-pulmonary-disease
+Reference: NHS: Shortness of breath — https://www.nhs.uk/symptoms/shortness-of-breath/
+Reference: NHS: Side effects of methotrexate — https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/
+Reference: NHS: Rheumatoid arthritis — complications — https://www.nhs.uk/conditions/rheumatoid-arthritis/complications/
+Reference: NHS: Flu vaccine — https://www.nhs.uk/vaccinations/flu-vaccine/
+Reference: NHS: Pneumococcal vaccine — https://www.nhs.uk/vaccinations/pneumococcal-vaccine/
+Reference: NHS: Quit smoking — https://www.nhs.uk/better-health/quit-smoking/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Core Strengthening: Deep Stabilisers for Spinal Arthritis
 URL: https://livingwitharthritis.org.uk/blog/core-strengthening-spinal-arthritis
@@ -7209,18 +7218,24 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: nidirect — https://www.nidirect.gov.uk
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Short-term equipment loans for arthritis and frailty (UK)
+## Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/short-term-equipment-loans-arthritis-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Short-term equipment loans for arthritis and frailty (UK)
-A: Families dealing with short-term equipment loans for arthritis and frailty usually notice skipped invitations and slower rooms before any clinic label. This page explains frames and commodes after a hospital burst if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)
+A: If you need equipment such as a walking frame, commode, raised toilet seat, perching stool or wheelchair for a short time — after a hospital stay, an operation, a fall or a bad flare — you can often borrow it rather than buy it. Equipment you are assessed as needing is free from the council or NHS community equipment service, usually after an occupational therapist or physiotherapist assessment; ask the hospital team before discharge or ask your council for a needs assessment. Charities such as the British Red Cross hire out wheelchairs, and if you buy, ask a therapist what suits you first and check second-hand items carefully. Return loaned equipment when you no longer need it.
+Reference: NHS: Household gadgets and equipment to make life easier — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/household-gadgets-and-equipment-to-make-life-easier/
+Reference: NHS: Walking aids, wheelchairs and mobility scooters — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/walking-aids-wheelchairs-and-mobility-scooters/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Care after a hospital stay — https://www.nhs.uk/social-care-and-support/care-after-a-hospital-stay/
+Reference: NHS: Occupational therapy — https://www.nhs.uk/tests-and-treatments/occupational-therapy/
+Reference: British Red Cross: Hire a wheelchair — https://www.redcross.org.uk/get-help/borrow-a-wheelchair
+Reference: Living Made Easy (Disabled Living Foundation) — https://livingmadeeasy.org.uk/
+Reference: GOV.UK: VAT relief for disabled people — https://www.gov.uk/financial-help-disabled/vat-relief
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Should You Tell Your Employer About Your Arthritis?
 URL: https://livingwitharthritis.org.uk/blog/should-you-tell-your-employer-about-your-arthritis
