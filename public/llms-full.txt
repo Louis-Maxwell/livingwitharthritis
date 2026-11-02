@@ -3136,16 +3136,15 @@ Reference: NICE NG249: Falls — assessment and prevention in older people — h
 
 ## Compression stockings when hand osteoarthritis is severe (UK)
 URL: https://livingwitharthritis.org.uk/blog/compression-stockings-hand-oa-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Compression stockings when hand osteoarthritis is severe (UK)
-A: Here is a plain-English take on compression stockings when hand osteoarthritis is severe, while arthritis and lower reserve share the same week. This page explains hosiery you cannot pull on alone if you live with hand osteoarthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Compression stockings need a firm pull, which can be very hard with painful, stiff hands. Stocking applicators, rubber gloves, zips or wraps may help, and a nurse, pharmacist or occupational therapist can advise. Do not stop prescribed compression without checking with whoever prescribed it.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Scared of falling again? Rebuilding confidence after a fall with arthritis (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/confidence-after-fall-arthritis-frailty-uk
@@ -3876,29 +3875,28 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Faith groups, access and arthritis-related frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/faith-groups-arthritis-frailty-access-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Faith groups, access and arthritis-related frailty (UK)
-A: A frailty-aware note on faith groups, access and arthritis-related frailty: protect joints, keep muscle working, and plan the hardest transfer of the day. This UK guide looks at steps, seating and belonging in a community class setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Faith communities can be an important source of belonging and support. Steps, hard seating and long services can be hard with arthritis and frailty. Asking about access, seating, transport, home visits and online services can help. Hospitals and many care homes offer chaplaincy and spiritual care.
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: Community Transport Association — https://ctauk.org/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Falls clinic with arthritis: what to expect (UK)
 URL: https://livingwitharthritis.org.uk/blog/falls-clinic-arthritis-what-to-expect-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Falls clinic with arthritis: what to expect (UK)
-A: Arthritis is common across the UK; frailty is less so — but when they overlap, days can shrink faster than joint pain alone would suggest. This guide covers a falls assessment when joints already hurt because arthritis with frailty affects several joints, with a focus on Scotland and a hospital setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
+A: A falls clinic or falls service looks at why you might fall and what will reduce your risk. With arthritis, it often includes joint pain, strength, balance, medicines, eyesight, feet and home hazards. You may be offered strength and balance exercise, a medicines review or equipment.
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Community falls response if you live with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/falls-response-service-arthritis-uk
@@ -4065,16 +4063,15 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Indoor footwear: slippers, frailty and arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/footwear-indoor-slippers-frailty-arthritis-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Indoor footwear: slippers, frailty and arthritis (UK)
-A: A frailty-aware note on indoor footwear: slippers, frailty and arthritis: protect joints, keep muscle working, and plan the hardest transfer of the day. This page explains why floppy slippers sabotage sore joints if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Worn, loose or backless slippers and walking in socks can increase the risk of falls. Safer indoor footwear has a fastening, a closed back, a firm heel, a thin grippy sole and enough room for painful toes. A podiatrist can advise if feet are swollen or misshapen.
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Free Arthritis Exercise Classes Near Me England
 URL: https://livingwitharthritis.org.uk/blog/free-arthritis-exercise-classes-england
@@ -5910,16 +5907,15 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Mobility scooters, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/mobility-scooter-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Mobility scooters, arthritis and frailty (UK)
-A: For mobility scooters, arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. Here we focus on when a scooter helps and when strength still needs practice, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS Inform — https://www.nhsinform.scot
+A: A mobility scooter can help you get out further when walking is limited by pain or fatigue. Class 2 scooters are for pavements, and Class 3 can be used on roads and must be registered with the DVLA. Try before buying, check storage and charging, and keep walking where you can.
+Reference: GOV.UK: Mobility scooters and powered wheelchairs: the rules — https://www.gov.uk/mobility-scooters-and-powered-wheelchairs-rules
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Why Morning Knee Stiffness Lasts 30+ Minutes
 URL: https://livingwitharthritis.org.uk/blog/morning-knee-stiffness-30-minutes
