@@ -4276,18 +4276,16 @@ Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolki
 Reference: Rockwood K et al. A global clinical measure of fitness and frailty in elderly people. CMAJ 2005 — https://doi.org/10.1503/cmaj.050051
 Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
-## Asking for a GP home visit if arthritis and frailty trap you indoors (UK)
+## Asking for a GP home visit when arthritis and frailty keep you indoors (UK)
 URL: https://livingwitharthritis.org.uk/blog/gp-home-visit-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Asking for a GP home visit if arthritis and frailty trap you indoors (UK)
-A: If you are navigating asking for a GP home visit if arthritis and frailty trap you indoors, small steady habits usually beat all-or-nothing restarts. This UK guide looks at when leaving the house is the barrier to care in a home setting, with practical steps, warning signs and Wales services. It is general information, not personal medical advice.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Asking for a GP home visit when arthritis and frailty keep you indoors (UK)
+A: GP home visits are usually for people who are housebound or too unwell to travel. Call your practice early in the day and explain why you cannot get there. Phone or video appointments, community nurses or a family member collecting prescriptions may also help.
+Reference: NHS: GP appointments and bookings — https://www.nhs.uk/nhs-services/gps/gp-appointments-and-bookings/
+Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
 
 ## Grab rails at home: arthritis, frailty and safer rooms (UK)
 URL: https://livingwitharthritis.org.uk/blog/grab-rails-arthritis-frailty-home-uk
@@ -4421,16 +4419,15 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Heart failure, arthritis and frailty: pacing two conditions (UK)
 URL: https://livingwitharthritis.org.uk/blog/heart-failure-arthritis-frailty-overlap-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Heart failure, arthritis and frailty: pacing two conditions (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and arthritis with heart failure can make it more visible. This article is about legs that swell, joints that ache, energy that runs out, written for people and carers in Scotland, especially around a home.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Heart failure and arthritis can both limit activity and cause tiredness. Pacing, gentle exercise as advised and medicine reviews help. Some arthritis medicines, such as anti-inflammatories, may not be suitable with heart failure, so check with your GP or pharmacist.
+Reference: NHS: Heart failure — https://www.nhs.uk/conditions/heart-failure/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Heat vs Ice for Arthritis: Which to Use and When (UK)
 URL: https://livingwitharthritis.org.uk/blog/heat-or-ice-for-arthritis
@@ -4639,18 +4636,16 @@ Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
 
-## Hospital stays with arthritis and frailty: what to pack and ask (UK)
+## Hospital stay with arthritis and frailty: what to pack (UK)
 URL: https://livingwitharthritis.org.uk/blog/hospital-stay-arthritis-frailty-what-to-pack-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hospital stays with arthritis and frailty: what to pack and ask (UK)
-A: Reserve is rebuildable for some people: strength work, protein and treating flares can shift frailty even if arthritis remains. This article is about keeping movement, medicines and dignity in hospital, written for people and carers in Scotland, especially around a hospital.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Last clinically reviewed: 2026-11-02
+Q: Hospital stay with arthritis and frailty: what to pack (UK)
+A: Packing the right things can make a hospital stay safer and more comfortable. Bring your medicines and list, walking aid, well-fitting shoes, glasses and hearing aids, and a short note about your needs and routine.
+Reference: NHS: Going into hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/
+Reference: NICE NG27: Transition between inpatient hospital settings and community or care home settings — https://www.nice.org.uk/guidance/ng27
 
 ## Managing Arthritis During a Heatwave: A Practical UK Guide
 URL: https://livingwitharthritis.org.uk/blog/hot-weather-arthritis-management
@@ -4866,18 +4861,17 @@ Reference: NHS: Steroid injections — https://www.nhs.uk/conditions/steroid-inj
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 
-## Intermediate care beds after arthritis-related deconditioning (UK)
+## Intermediate care for people with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/intermediate-care-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Intermediate care beds after arthritis-related deconditioning (UK)
-A: Bring a list of usual arthritis limits — staff cannot guess which transfers were hard before admission. Here we focus on a stepping-stone stay before home, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Intermediate care for people with arthritis and frailty (UK)
+A: Intermediate care is short-term support to help you recover, stay independent and avoid unnecessary hospital admission. It can be at home, in a community bed or a care home. It is often free for up to six weeks in England. Arrangements differ in Wales, Scotland and Northern Ireland.
+Reference: NHS: Care after a hospital stay — https://www.nhs.uk/social-care-and-support/care-after-a-hospital-stay/
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: NICE NG27: Transition between inpatient hospital settings and community or care home settings — https://www.nice.org.uk/guidance/ng27
 
 ## JAK Inhibitors: The Next Wave of RA Treatment
 URL: https://livingwitharthritis.org.uk/blog/jak-inhibitors-the-next-wave-of-ra-treatment
@@ -4955,18 +4949,17 @@ Q: Juvenile Arthritis: A UK Parent's Guide to Childhood Joint Care
 A: Juvenile idiopathic arthritis (JIA) is a group of autoimmune conditions causing joint inflammation in children under 16, affecting approximately 15,000 children and young people in the UK. Parents might notice limping, morning stiffness, swollen joints, or unusual irritability. Diagnosis involves clinical assessment by a paediatric rheumatologist. Treatment aims for remission, using medicines like NSAIDs, methotrexate, and biologics, alongside physiotherapy to maintain joint function and strength.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Kitchen adaptations when arthritis and frailty share the house (UK)
+## Kitchen adaptations for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/kitchen-adaptations-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Kitchen adaptations when arthritis and frailty share the house (UK)
-A: A practical UK guide to kitchen adaptations when arthritis and frailty share the house, written for days when energy and joints both feel limited. This guide covers perching stools, kettle tippers and reachable food when arthritis with frailty affects hands and shoulders, with a focus on England and a home setting.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Kitchen adaptations for arthritis and frailty (UK)
+A: Small changes in the kitchen can reduce pain, effort and risk. Keep items at waist height, use lightweight equipment, sit for tasks and consider a trolley. An occupational therapist can assess you and suggest equipment.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
 
 ## Best Exercises for Knee Arthritis: A Complete UK Physiotherapy Guide
 URL: https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk
