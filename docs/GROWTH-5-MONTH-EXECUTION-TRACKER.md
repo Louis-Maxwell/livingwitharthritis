@@ -108,7 +108,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 111 (Champions 109–111 shipped 30 Oct, after 106–108 on 29 Oct); Champions 112–118 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (212 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | 109–118 list complete: 115 and 117 shipped 2 Nov; 112–114, 116 and 118 rewritten by the Frailty IMPROVE batches (#341, #343, #345). Champions 119–128 re-ranked in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (194 template posts left, 112 of them published) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -121,6 +121,33 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
 
 ---
+
+## Daily log — 2 Nov 2026 (M2 day 16, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 (4 pillars to gold, community pilot, Ad Grants if approved, first linkable asset PDF) starts ~11 Nov. Tracker next-3 from 30 Oct: Champions 112–118. On checking `main`, 112 (activity diary), 113 (advance care planning), 114 (Disabled Facilities Grant), 116 (hip OA chair rise) and 118 (carers) had already been rewritten by the Frailty IMPROVE batches (#341, #343, #345, 1–2 Nov), and the frailty merge plan (#336–#340) had 301-merged about 80 duplicate posts. So this run shipped the two still on the template: 115 and 117. Rewrites on existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable / CloudAgent / other AI tools. Both reviewed by Louis Maxwell (HCPC PH128483). Covers unchanged.
+
+### Shipped
+- **Champion 115 — `/blog/copd-arthritis-frailty-breathlessness-uk`:** full rewrite into "COPD and arthritis: staying active when breathlessness and sore joints hold you back (UK guide)". Why lungs and joints make each other harder, breathlessness on effort is not harmful (talk test), pulmonary rehabilitation (NHS programme shape, NICE NG115) and telling the team about your arthritis, everyday movement, inhalers with stiff hands (pharmacist technique check, spacers, inhaler aids), methotrexate lung warning signs and RA lung inflammation, NSAID caution, vaccines, stopping smoking, warm home, red flags, carers. Replaces template copy that wrongly pointed readers to Northern Ireland services. Category Pain & flares → Exercise & movement. Cites NHS COPD, COPD treatment, living with COPD, NICE NG115 and NG226, Asthma + Lung UK, NHS shortness of breath, methotrexate side effects, RA complications, flu and pneumococcal vaccines, quit smoking, 111
+- **Champion 117 — `/blog/short-term-equipment-loans-arthritis-uk`:** full rewrite into "Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)". Free council/NHS community equipment if assessed as needed (before discharge or via a needs assessment), NHS wheelchair service vs short-term hire, British Red Cross wheelchair hire and local loans, buying new or second-hand safely (keeps the advice merged in from `second-hand-equipment-arthritis-frailty-uk`), VAT relief, safe use, giving equipment back, red flags, carers. No prices quoted (they change). Category Treatments & medicines → Diet & lifestyle. Cites NHS household equipment, walking aids/wheelchairs, needs assessment, care after a hospital stay, OT, GOV.UK needs assessment and VAT relief, British Red Cross, Living Made Easy, 111
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 2 November 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** both in the exercises cluster (with triggers); **chatbot KB:** exercise/falls entry and the infections/vaccines entry `related` links
+- Sitemap `lastmod` **2026-11-02**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 115 and 117 ticked, progress line, Champions 119–128 re-ranked; **194 template posts left** (same all-files scan as the 30 Oct 212; 112 still published)
+- **Tests:** `src/lib/__tests__/gsc-champions-115-117-02-nov.test.ts`; full Vitest suite 861/861 locally before push
+
+### Still blocked on Louis (no change since 30 Oct)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Mechanical frailty-template sweep decision (now 194 posts, 112 published; the merge plan and IMPROVE batches are reducing this)
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the rewritten URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 119–120 (hospital appointments, social care needs assessment), after checking `main` for overlapping Frailty IMPROVE batches
+2. Champions 121–122 (loneliness, pacing housework)
+3. M3 prep: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass and scope the first linkable asset PDF
 
 ## Daily log — 30 Oct 2026 (M2 day 15, weekday run)
 

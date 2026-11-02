@@ -119,12 +119,31 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 | 112 | `activity-diary-arthritis-frailty-uk` | 8 / 5 | Most gold-pass inbound links | Using an activity diary to pace and to show your GP or physio |
 | 113 | `advance-care-planning-arthritis-frailty-uk` | 7 / 4 | Planning ahead; links from carer guides | Advance care planning, LPA and talking about wishes (no legal advice) |
 | 114 | `disabled-facilities-grant-arthritis-frailty-uk` | 6 / 3 | Home adaptations before winter | Disabled Facilities Grant: who it is for, how to apply, nation differences |
-| 115 | `copd-arthritis-frailty-breathlessness-uk` | 5 / 2 | Winter; reserve since 16 Oct | Exercising with arthritis and breathlessness; pulmonary rehab |
+| 115 ✅ 2 Nov | `copd-arthritis-frailty-breathlessness-uk` | 5 / 2 | Winter; reserve since 16 Oct | Exercising with arthritis and breathlessness; pulmonary rehab |
 | 116 | `hip-osteoarthritis-frailty-chair-rise-uk` | 10 / 2 | Pairs with sit-to-stand guides | Getting out of chairs with hip OA: chair height, technique, practice |
-| 117 | `short-term-equipment-loans-arthritis-uk` | 6 / 3 | Linked from 110/111 needs-assessment sections | Borrowing equipment: community equipment services, Red Cross loans |
+| 117 ✅ 2 Nov | `short-term-equipment-loans-arthritis-uk` | 6 / 3 | Linked from 110/111 needs-assessment sections | Borrowing equipment: community equipment services, Red Cross loans |
 | 118 | `carers-how-to-help-without-taking-over-uk` | 6 / 3 | Carers job | Helping without taking over; keeping independence |
 
 **Progress (30 Oct):** 109–111 done. Overlap checked: 109 is the flare-week plan for inflammatory arthritis (flare plan and advice line, keep usual DMARDs and biologics unless told otherwise, short rests and moving every hour, food and drink, falls, infection signs on DMARDs, red flags, rebuilding afterwards, treatment review if flares are frequent) and hands off in its first section to Champion 106 (`flare-versus-frailty-arthritis-uk`) and `arthritis-flare-up-what-to-do`; 110 is the physical side of taking tablets with sore hands (easy-open tops, labels, other forms via the prescriber, dosette boxes and pharmacy packs with suitability checks, blister openers, weekly methotrexate kept separate, missed or extra doses) and hands off to Champion 87 (`pharmacist-medication-review-frail-arthritis-uk`) and the painkillers guide; 111 is daily tasks with hand OA (dressing, washing, kitchen, joint protection, exercise, splints, gels via a pharmacist, OT and needs assessment, GP red flags including carpal tunnel and inflammatory arthritis) and hands off to `cooking-with-arthritis-uk` and `thumb-base-pain-early-hand-arthritis`. All three reviewed by Louis Maxwell (last_reviewed 2026-10-30). **212 template posts left** (repo scan for the main fingerprint, 30 Oct). Next: 112–113, then 114–115.
+
+**Progress (2 Nov):** 112, 113, 114, 116 and 118 were rewritten on `main` by the Frailty IMPROVE batches (#341, #343, #345, 1–2 Nov), so this run shipped the two left in the 109–118 list: 115 and 117. Overlap checked: 115 is staying active with COPD and arthritis together (safe breathlessness, pulmonary rehabilitation adapted for sore joints, everyday movement, inhalers with stiff hands, methotrexate and RA lung warnings, vaccines, smoking, red flags, carers) and hands off in its first section to Champion 99 (`ra-fatigue-frailty-energy-envelope-uk`) and `chest-infection-arthritis-frailty-uk`; category moved to Exercise & movement. 117 is getting equipment for a short spell (free council/NHS community equipment after a needs assessment or before discharge, British Red Cross wheelchair hire, local loans, buying new or second-hand safely, VAT relief, safe use, giving it back) and keeps the second-hand buying advice merged in from `second-hand-equipment-arthritis-frailty-uk` (301 from the merge plan); it hands off early to `gadgets-aids-arthritis-uk`, `walking-aids-arthritis-uk` and the Disabled Facilities Grant guide. Both reviewed by Louis Maxwell (last_reviewed 2026-11-02). **194 template posts left** on the same all-files fingerprint scan as the 30 Oct 212 (112 of them still published; the frailty merge plan unpublished the rest behind 301s). The 109–118 list is now complete.
+
+## Re-ranked next 10 (Champions 119–128), 2 Nov 2026
+
+**Method (honest limit):** still no fresh GSC export. Ranked by inbound links from published non-template posts, then all inbound links from published posts (repo scan, 2 Nov), published template posts only. Off-topic posts (`gene-therapy-and-arthritis-where-are-we-in-2026`, `arthritis-relationships-honest-conversations`) stay consolidation candidates. **Check `main` before each run**: the Frailty IMPROVE batches (another agent) are rewriting from the same pool.
+
+| # | Slug | Inbound (all / from non-template) | Suggested job |
+|---|---|---|---|
+| 119 | `hospital-appointments-frailty-arthritis-uk` | 8 / 5 | Getting to and through hospital appointments: transport, what to bring, asking for adjustments |
+| 120 | `social-care-needs-assessment-arthritis-uk` | 6 / 5 | How to ask for a council needs assessment and what to say (now linked from 117) |
+| 121 | `loneliness-arthritis-frailty-social-contact-uk` | 6 / 5 | Rebuilding social contact when pain keeps you in |
+| 122 | `pacing-housework-arthritis-frailty-uk` | 9 / 4 | Pacing housework and chores; when to get help |
+| 123 | `osteoporosis-arthritis-frailty-bone-joint-uk` | 7 / 4 | Osteoporosis and arthritis together: bones, falls, exercise (hand off to Champion 84) |
+| 124 | `sleep-arthritis-frailty-night-pain-uk` | 7 / 4 | Night pain and sleep (narrow vs the gold-pass sleep guides) |
+| 125 | `wheelchair-for-distance-arthritis-frailty-uk` | 6 / 4 | Using a wheelchair for longer trips without losing walking (pairs with 117) |
+| 126 | `community-ot-waiting-arthritis-frailty-uk` | 8 / 3 | Waiting for community OT: what to do meanwhile (pairs with Champion 107) |
+| 127 | `hip-and-knee-oa-frailty-transfers-uk` | 7 / 3 | Bed, chair, toilet and car transfers with hip and knee OA |
+| 128 | `meal-delivery-arthritis-frailty-uk` | 6 / 3 | Meals on wheels, frozen meal delivery and help with food (pairs with Champion 108) |
 
 ## Re-ranked next 10 (Champions 99–108), 23 Oct 2026
 
