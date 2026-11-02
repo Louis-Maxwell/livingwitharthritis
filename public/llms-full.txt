@@ -2699,18 +2699,17 @@ A: When taking biologics for rheumatoid arthritis, avoid stopping medication wit
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
-## Blood pressure tablets, standing up and arthritic joints (UK)
+## Blood pressure tablets, dizziness and falls with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/blood-pressure-tablets-falls-arthritis-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Blood pressure tablets, standing up and arthritic joints (UK)
-A: If everyday tasks at home feel like they are shrinking week by week, arthritis and frailty may be overlapping. Here we focus on dizziness on standing when knees already slow the rise, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+Last clinically reviewed: 2026-11-02
+Q: Blood pressure tablets, dizziness and falls with arthritis (UK)
+A: Some blood pressure medicines can cause dizziness when you stand up, which can increase falls risk, especially with arthritis and frailty. Do not stop them yourself. Stand up slowly and ask your GP or pharmacist for a medicines review.
+Reference: NHS: Low blood pressure (hypotension) — https://www.nhs.uk/conditions/low-blood-pressure-hypotension/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/blood-test-transport-arthritis-frailty-uk
@@ -3035,18 +3034,16 @@ Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/s
 Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
-## Community alarms when arthritis and frailty raise falls risk (UK)
+## Community alarms for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-alarm-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Community alarms when arthritis and frailty raise falls risk (UK)
-A: This guide stays with community alarms when arthritis and frailty raise falls risk: what still moves safely, what to ask, and how to keep a steadier week. This UK guide looks at pendants, base units and who gets the call in a home setting, with practical steps, warning signs and England services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Community alarms for arthritis and frailty (UK)
+A: A community alarm lets you call for help by pressing a button, often worn as a pendant or wristband. Some include fall detectors. Your council or private providers can supply one; there is usually a charge.
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Community nurses and matrons, arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-matron-arthritis-frailty-uk
@@ -4302,16 +4299,14 @@ Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Grandparenting with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/grandparenting-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Grandparenting with arthritis and frailty (UK)
-A: This guide stays with grandparenting with arthritis and frailty: what still moves safely, what to ask, and how to keep a steadier week. This UK guide looks at floor play, school gates and energy limits in a home setting, with practical steps, warning signs and Wales services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Arthritis and frailty can make lifting, chasing and long visits tiring. Seated activities, letting others lift, pacing and telling family what helps can keep time with grandchildren enjoyable.
+Reference: NHS: Tiredness and fatigue — https://www.nhs.uk/conditions/tiredness-and-fatigue/
+Reference: NHS: 5 steps to mental wellbeing — https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/
 
 ## Grants for Adapting Your Home With Arthritis
 URL: https://livingwitharthritis.org.uk/blog/grants-for-adapting-your-home-with-arthritis
@@ -4596,18 +4591,17 @@ Q: 10 Arthritis-Friendly Hobbies UK Patients Love
 A: From gardening with adapted tools to digital photography, hobbies that bring joy without aggravating joints.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Hoist conversations for family carers of people with arthritis (UK)
+## Talking about hoists with family carers (UK)
 URL: https://livingwitharthritis.org.uk/blog/hoist-conversations-family-carers-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hoist conversations for family carers of people with arthritis (UK)
-A: This guide stays with hoist conversations for family carers of people with arthritis: what still moves safely, what to ask, and how to keep a steadier week. This page explains safe moving and handling without DIY lifting if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Talking about hoists with family carers (UK)
+A: If transfers have become unsafe, an occupational therapist may suggest a hoist. Talk openly with your family about safety and dignity. Hoists should be assessed for and carers trained before use.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Hospital appointments when frailty and arthritis make the day huge (UK)
 URL: https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk
@@ -5109,15 +5103,17 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 Reference: NHS Inform — https://www.nhsinform.scot
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## 5 Longevity Habits That Help People With Arthritis Live Longer
+## Healthy habits for living well with arthritis as you age (UK)
 URL: https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: 5 Longevity Habits That Help People With Arthritis Live Longer
-A: Mediterranean diet, social connection, strength training, sleep and stress management — the evidence stack.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Last clinically reviewed: 2026-11-02
+Q: Healthy habits for living well with arthritis as you age (UK)
+A: There is no single secret to living long with arthritis. Regular activity, strength exercise, eating well, sleep, social contact, not smoking and regular medicine reviews support health and independence.
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Eat well — https://www.nhs.uk/live-well/eat-well/
+Reference: NHS: 5 steps to mental wellbeing — https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/
 
 ## Lower Back Stiffness: Why It Is Worse After Sitting
 URL: https://livingwitharthritis.org.uk/blog/lower-back-stiffness-worse-after-sitting
