@@ -5728,16 +5728,14 @@ Reference: NHS: Septic arthritis — https://www.nhs.uk/conditions/septic-arthri
 
 ## Lymphoedema, arthritis and frailty: heavy limbs (UK)
 URL: https://livingwitharthritis.org.uk/blog/lymphoedema-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Lymphoedema, arthritis and frailty: heavy limbs (UK)
-A: Families dealing with lymphoedema, arthritis and frailty: heavy limbs usually notice skipped invitations and slower rooms before any clinic label. This UK guide looks at heavy legs that change walking and skin in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Lymphoedema is long-term swelling caused by a problem with the lymphatic system. It can make limbs heavy and movement harder alongside arthritis. Skin care, gentle movement, compression and specialist lymphoedema services can help. Infection (cellulitis) needs prompt treatment.
+Reference: NHS: Lymphoedema — https://www.nhs.uk/conditions/lymphoedema/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Night-Time Joint Pain: A Survival Guide for Arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/manage-arthritis-pain-flare-ups-night
@@ -5936,16 +5934,15 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 
 ## Morning stiffness and frailty: a slower start that still starts (UK)
 URL: https://livingwitharthritis.org.uk/blog/morning-stiffness-frailty-routine-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Morning stiffness and frailty: a slower start that still starts (UK)
-A: Living With Arthritis covers morning stiffness and frailty: a slower start that still starts without miracle claims — just safer movement and clearer next steps. This UK guide looks at the first hour without skipping breakfast or tablets in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+A: Morning stiffness is common in arthritis. In osteoarthritis, it usually eases within 30 minutes. Stiffness lasting longer may suggest inflammatory arthritis or polymyalgia rheumatica and should be checked. A slower, planned start with gentle movement, warmth and rest helps.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
 
 ## Motability Scheme and Arthritis: Who Can Join, How It Works and What It Costs (UK)
 URL: https://livingwitharthritis.org.uk/blog/motability-scheme-arthritis-uk
@@ -6050,20 +6047,16 @@ Reference: NICE NG59: Low back pain and sciatica in over 16s — https://www.nic
 
 ## Frailty services and arthritis across the UK: England, Wales, Scotland and NI
 URL: https://livingwitharthritis.org.uk/blog/nhs-frailty-pathway-arthritis-england
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Frailty services and arthritis across the UK: England, Wales, Scotland and NI
-A: Frailty services for older people with arthritis exist across the UK but are organised differently in England, Wales, Scotland and Northern Ireland. Start with your GP surgery; social care help is assessed by your council, or your Health and Social Care Trust in Northern Ireland.
-Reference: Age UK – Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NICE NG249 – Falls in older people — https://www.nice.org.uk/guidance/ng249
-Reference: GOV.UK – Apply for a needs assessment — https://www.gov.uk/apply-needs-assessment-social-services
-Reference: NHS 111 Wales — https://111.wales.nhs.uk/
-Reference: NHS inform — https://www.nhsinform.scot/
-Reference: nidirect – GP out-of-hours service — https://www.nidirect.gov.uk/articles/gp-out-hours-service
-Reference: NHS – When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+A: Frailty services look at your overall health, function and goals, not just one condition. They may offer a comprehensive geriatric assessment, medicines review, falls and strength support. Arrangements vary across England, Wales, Scotland and Northern Ireland. Ask your GP how to access local services.
+Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: nidirect: Health and Social Care Trusts — https://www.nidirect.gov.uk/contacts/health-and-social-care-trusts
+Reference: NICE NG56: Multimorbidity — https://www.nice.org.uk/guidance/ng56
 
 ## How to Find an NHS Rheumatologist Near Me Northern Ireland
 URL: https://livingwitharthritis.org.uk/blog/nhs-rheumatologist-northern-ireland
@@ -6277,16 +6270,15 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Pain clinics for older frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/pain-clinic-older-frail-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Pain clinics for older frail adults with arthritis (UK)
-A: When arthritis and frailty meet on a ward, ask early about movement plans, protein and how you will manage at home. Here we focus on pain programmes that still respect frailty, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Pain clinics are specialist services for long-term pain that is hard to manage. They may offer medicine review, physiotherapy, psychological support, pain management programmes and some injections. Referral is usually through your GP or hospital team.
+Reference: NICE NG193: Chronic pain (primary and secondary) in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Painkillers in later life with arthritis: safer use and what to check (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/painkillers-older-adults-arthritis-caution-uk
@@ -6418,16 +6410,16 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Home-visit physiotherapy for frail osteoarthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/physiotherapy-home-visit-frail-oa-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Home-visit physiotherapy for frail osteoarthritis (UK)
-A: Here is a plain-English take on home-visit physiotherapy for frail osteoarthritis when arthritis and lower reserve share the same week. This page explains strength work in the rooms you actually use if you live with osteoarthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
+A: Physiotherapists may visit at home if you cannot easily attend a clinic, for example after a hospital stay or during reablement. Visits usually include an assessment, a tailored exercise plan and advice on walking aids. Keeping up exercises between visits helps.
+Reference: NHS: Physiotherapy — https://www.nhs.uk/conditions/physiotherapy/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG74: Intermediate care including reablement — https://www.nice.org.uk/guidance/ng74
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-exercises/
 
 ## How to Get PIP for Fibromyalgia Denied on First Application
 URL: https://livingwitharthritis.org.uk/blog/pip-fibromyalgia-denied-reapply
