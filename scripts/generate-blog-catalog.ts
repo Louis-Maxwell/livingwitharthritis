@@ -18,8 +18,10 @@
  *   bun scripts/generate-blog-catalog.ts          # write
  *   bun scripts/generate-blog-catalog.ts --check  # fail if committed files are stale
  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { checkGuideImages } from "../src/lib/blog/imagePolicy";
+import { readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
+import { checkGuideImages, MIN_REAL_IMAGE_BYTES } from "../src/lib/blog/imagePolicy";
+
+const isRealImage = (abs: string) => existsSync(abs) && (abs.endsWith(".svg") || statSync(abs).size >= MIN_REAL_IMAGE_BYTES);
 import { resolve } from "node:path";
 import {
   BLOG_CATALOG_PATH,
@@ -84,10 +86,10 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     const t = p.title.trim().toLowerCase();
     if (seenTitle.has(t)) errors.push(`${p.slug}: duplicate title with ${seenTitle.get(t)}`);
     else seenTitle.set(t, p.slug);
-    if (!existsSync(resolve(root, "public/openverse", p.cover))) {
-      errors.push(`${p.slug}: cover file public/openverse/${p.cover} does not exist`);
+    if (!isRealImage(resolve(root, "public/openverse", p.cover))) {
+      errors.push(`${p.slug}: cover file public/openverse/${p.cover} is missing or a blank placeholder`);
     }
-    for (const issue of checkGuideImages(p.slug, p.cover, p.content ?? "", (pp) => existsSync(resolve(root, "public", `.${pp}`)))) {
+    for (const issue of checkGuideImages(p.slug, p.cover, p.content ?? "", (pp) => isRealImage(resolve(root, "public", `.${pp}`)))) {
       errors.push(`${p.slug}: image ${issue.problem} ${issue.src}`);
     }
     if (seenCover.has(p.cover)) errors.push(`${p.slug}: cover ${p.cover} already used by ${seenCover.get(p.cover)}`);

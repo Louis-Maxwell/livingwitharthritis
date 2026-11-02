@@ -3,13 +3,16 @@ import { describe, expect, it } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
 import { getBlogCatalog } from "@/lib/blog/catalog";
-import { checkGuideImages } from "@/lib/blog/imagePolicy";
+import { checkGuideImages, MIN_REAL_IMAGE_BYTES } from "@/lib/blog/imagePolicy";
 import { coverImage, LOCAL_COVER_FALLBACK } from "@/lib/articleImages";
 import { GUIDE_IMAGE_FALLBACK } from "@/lib/coverFallback";
 import { swapToFallback, withImageDefaults } from "@/lib/imageFallback";
 
 const root = path.resolve(__dirname, "../../..");
-const exists = (p: string) => fs.existsSync(path.join(root, "public", `.${decodeURI(p)}`));
+const exists = (p: string) => {
+  const abs = path.join(root, "public", `.${decodeURI(p)}`);
+  return fs.existsSync(abs) && (abs.endsWith(".svg") || fs.statSync(abs).size >= MIN_REAL_IMAGE_BYTES);
+};
 const postsDir = path.join(root, "src/content/blog/posts");
 
 describe("guide images", () => {
@@ -34,6 +37,12 @@ describe("guide images", () => {
     expect(bad).toEqual([]);
     expect(exists(GUIDE_IMAGE_FALLBACK)).toBe(true);
     expect(exists(LOCAL_COVER_FALLBACK)).toBe(true);
+  });
+
+  it("no blog post (published or draft) uses a blank placeholder cover", () => {
+    const all = fs.readdirSync(postsDir).map((f) => JSON.parse(fs.readFileSync(path.join(postsDir, f), "utf8")));
+    const bad = all.filter((p) => !p.cover || !exists(`/openverse/${p.cover}`)).map((p) => p.slug);
+    expect(bad).toEqual([]);
   });
 
   it("swaps a broken image to the branded fallback exactly once", () => {
