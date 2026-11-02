@@ -4547,16 +4547,15 @@ Reference: GOV.UK: Apply for a needs assessment by social services — https://w
 
 ## Hip osteoarthritis and frailty: getting into a car without a jolt (UK)
 URL: https://livingwitharthritis.org.uk/blog/hip-oa-frailty-getting-into-car-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Hip osteoarthritis and frailty: getting into a car without a jolt (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and hip osteoarthritis can make it more visible. This article is about car transfers when hips are stiff and muscles are weak, written for people and carers in Scotland, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+A: Getting into a car can be painful with hip osteoarthritis. Sitting down first and then swinging your legs in together, a higher seat, a swivel cushion or a plastic bag on the seat, and a portable handle can help. An OT can advise on aids.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Hip replacement — https://www.nhs.uk/conditions/hip-replacement/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Hip osteoarthritis and frailty: getting out of a chair more safely (UK)
 URL: https://livingwitharthritis.org.uk/blog/hip-osteoarthritis-frailty-chair-rise-uk
@@ -4777,16 +4776,14 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Hydration, gout and frailty in older adults (UK)
 URL: https://livingwitharthritis.org.uk/blog/hydration-gout-frailty-older-adults-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Hydration, gout and frailty in older adults (UK)
-A: When gout meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on drinks that support joints without flooding the night, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Gout — https://www.nhs.uk/conditions/gout/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+A: Not drinking enough can raise the risk of gout attacks and cause other problems in frailty, such as confusion, constipation and falls. Drinking regularly, eating well and taking gout medicines as prescribed help. Some medicines and conditions need fluid advice from your GP.
+Reference: NHS: Gout — https://www.nhs.uk/conditions/gout/
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
 
 ## Hydrotherapy for Arthritis: Benefits, Access and What to Expect (UK)
 URL: https://livingwitharthritis.org.uk/blog/hydrotherapy-arthritis-uk
@@ -4875,16 +4872,15 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Knee injections in frail adults: questions worth asking (UK)
 URL: https://livingwitharthritis.org.uk/blog/injections-knee-frail-adults-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Knee injections in frail adults: questions worth asking (UK)
-A: A practical UK guide to knee injections in frail adults: questions worth asking, written for days when energy and joints both feel limited. This guide covers injections as a window for movement, not a cure when knee osteoarthritis affects knees, with a focus on Northern Ireland and a hospital setting.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+A: Steroid injections into the knee can give short-term relief for osteoarthritis pain when other treatments have not helped enough. NICE does not recommend hyaluronic acid injections for osteoarthritis. Exercise remains the core treatment. Ask about benefits, risks and how often injections can be repeated.
+Reference: NHS: Steroid injections — https://www.nhs.uk/conditions/steroid-injections/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 
 ## Intermediate care beds after arthritis-related deconditioning (UK)
 URL: https://livingwitharthritis.org.uk/blog/intermediate-care-arthritis-frailty-uk
@@ -4935,16 +4931,16 @@ Reference: Occupational therapy — https://www.arthritis-uk.org/information-and
 
 ## Joint replacement decisions when frailty is already present (UK)
 URL: https://livingwitharthritis.org.uk/blog/joint-replacement-decision-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Joint replacement decisions when frailty is already present (UK)
-A: If you are navigating joint replacement decisions when frailty is already present, small steady habits usually beat all-or-nothing restarts. This guide covers surgery talks that include stamina, home and recovery when osteoarthritis affects hips or knees, with a focus on England and a GP surgery setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Frailty does not automatically rule out joint replacement, but it affects the risks and recovery. A shared decision with your surgical team should weigh benefits, risks and your goals. Prehabilitation, an anaesthetic assessment and planning for support at home can help.
+Reference: NHS: Hip replacement — https://www.nhs.uk/conditions/hip-replacement/
+Reference: NHS: Knee replacement — https://www.nhs.uk/conditions/knee-replacement/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE CG103: Delirium — https://www.nice.org.uk/guidance/cg103
 
 ## Joint Replacement Surgery for Arthritis — A Complete UK Guide
 URL: https://livingwitharthritis.org.uk/blog/joint-replacement-surgery
@@ -5065,16 +5061,15 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Lasting power of attorney conversations in arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/lasting-power-of-attorney-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Lasting power of attorney conversations in arthritis and frailty (UK)
-A: For lasting power of attorney conversations in arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This article is about planning while you can still say what you want, written for people and carers in Wales, especially around a home.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: A lasting power of attorney (LPA) lets you choose people to make decisions for you if you lose mental capacity. In England and Wales, there are two types: property and financial affairs, and health and welfare. You must make one while you have capacity. Scotland and Northern Ireland have different systems.
+Reference: GOV.UK: Make, register or end a lasting power of attorney — https://www.gov.uk/power-of-attorney
+Reference: NHS: End of life care — advance statements and planning — https://www.nhs.uk/conditions/end-of-life-care/planning-ahead/advance-statement/
+Reference: NHS: Advance decision to refuse treatment — https://www.nhs.uk/conditions/end-of-life-care/planning-ahead/advance-decision-to-refuse-treatment/
 
 ## Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/late-onset-ra-frailty-first-months-uk
