@@ -3564,16 +3564,14 @@ Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.u
 
 ## Joint pain, frailty and comfort-focused care (UK)
 URL: https://livingwitharthritis.org.uk/blog/end-of-life-joint-pain-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Joint pain, frailty and comfort-focused care (UK)
-A: Motion is lotion in a care home is often short corridors and chair practice, not a gym story. Here we focus on comfort, positioning and dignity when cure is not the goal, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: When frailty is advanced or someone is nearing the end of life, the focus often shifts to comfort. Joint pain can be eased with positioning, gentle movement, pressure care and suitable medicines. Palliative care teams, GPs and community nurses can help, and care planning makes wishes clear.
+Reference: NHS: End of life care — https://www.nhs.uk/conditions/end-of-life-care/
+Reference: NHS: End of life care — advance statements and planning — https://www.nhs.uk/conditions/end-of-life-care/planning-ahead/advance-statement/
 
 ## Energy Management and Pacing: Daily Planning for Arthritis Fatigue
 URL: https://livingwitharthritis.org.uk/blog/energy-management-and-pacing-arthritis
@@ -3887,16 +3885,14 @@ Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisa
 
 ## Community falls response if you live with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/falls-response-service-arthritis-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Community falls response if you live with arthritis (UK)
-A: Tell staff what is new this week versus your usual arthritis — scales cannot guess the difference. This article is about who to call if you fall and cannot get up, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: If you fall and cannot get up, ambulance crews or local falls response teams may help you up and check you over. A personal alarm helps you call for help. After any fall, tell your GP, as you may benefit from a falls assessment.
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
 ## Fatty Fish and Omega-3s: The Evidence for Arthritis Pain
 URL: https://livingwitharthritis.org.uk/blog/fatty-fish-omega-3-arthritis-evidence
@@ -4037,16 +4033,14 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Foot and ankle osteoarthritis and frailty: safer indoor walking (UK)
 URL: https://livingwitharthritis.org.uk/blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Foot and ankle osteoarthritis and frailty: safer indoor walking (UK)
-A: Painful feet plus slower recovery is a common UK picture in later life. This page explains indoor walking when feet and ankles ache if you live with foot and ankle osteoarthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Foot and ankle osteoarthritis can make walking painful and less steady. Supportive footwear, insoles, clear routes, good lighting and suitable walking aids can help you walk indoors more safely. A podiatrist or physiotherapist can advise.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Indoor footwear: slippers, frailty and arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/footwear-indoor-slippers-frailty-arthritis-uk
@@ -4098,18 +4092,17 @@ Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact
 Reference: NICE NG56: Multimorbidity — https://www.nice.org.uk/guidance/ng56
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
-## Gabapentinoids, unsteadiness and arthritis in later life (UK)
+## Gabapentin, pregabalin and unsteadiness in later life (UK)
 URL: https://livingwitharthritis.org.uk/blog/gabapentinoids-unsteadiness-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Gabapentinoids, unsteadiness and arthritis in later life (UK)
-A: Keep expectations kind: pain in several joints plus frailty is a reason to simplify the day, not to stop moving altogether. This page explains dizziness from nerve-pain tablets in frail adults if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Last clinically reviewed: 2026-11-02
+Q: Gabapentin, pregabalin and unsteadiness in later life (UK)
+A: Gabapentin and pregabalin are sometimes prescribed for nerve pain. Common side effects include dizziness and drowsiness, which can raise falls risk in frail older people. Do not stop them suddenly. Ask your GP or pharmacist for a review if you feel unsteady.
+Reference: NHS: Gabapentin — https://www.nhs.uk/medicines/gabapentin/
+Reference: NHS: Pregabalin — https://www.nhs.uk/medicines/pregabalin/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## How to Choose Arthritis-Friendly Products: Criteria, Red Flags and VAT Relief
 URL: https://livingwitharthritis.org.uk/blog/gadgets-aids-arthritis-uk
@@ -4273,16 +4266,15 @@ Reference: Versus Arthritis: Gout — https://www.versusarthritis.org/about-arth
 
 ## GP frailty registers if you also live with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/gp-frailty-register-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: GP frailty registers if you also live with arthritis (UK)
-A: When more than one joint hurts, the cost shows up as shorter walks, longer rests and a home that rearranges itself around the chair. This page explains what being on a frailty register can mean in practice if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+A: GP practices may identify people living with frailty, for example using the electronic frailty index in England. Being identified can lead to a medicine review, falls assessment and care planning. It does not mean your care will be reduced.
+Reference: British Geriatrics Society: Comprehensive Geriatric Assessment toolkit — https://www.bgs.org.uk/resources/resource-series/comprehensive-geriatric-assessment-toolkit-for-primary-care-practitioners
+Reference: Rockwood K et al. A global clinical measure of fitness and frailty in elderly people. CMAJ 2005 — https://doi.org/10.1503/cmaj.050051
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
 
 ## Asking for a GP home visit if arthritis and frailty trap you indoors (UK)
 URL: https://livingwitharthritis.org.uk/blog/gp-home-visit-arthritis-frailty-uk
