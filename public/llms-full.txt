@@ -3088,18 +3088,17 @@ Reference: GOV.UK: Apply for a needs assessment — https://www.gov.uk/apply-nee
 Reference: Age UK: Exercise — https://www.ageuk.org.uk/information-advice/health-wellbeing/exercise/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Community strength classes for frail osteoarthritis (UK)
+## Community strength classes for frailty and osteoarthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-strength-classes-frail-oa-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Community strength classes for frail osteoarthritis (UK)
-A: Here is a plain-English take on community strength classes for frail osteoarthritis when arthritis and lower reserve share the same week. This article is about finding a class that will not rush you, written for people and carers in Scotland, especially around a community class.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS Inform — https://www.nhsinform.scot
+Last clinically reviewed: 2026-11-02
+Q: Community strength classes for frailty and osteoarthritis (UK)
+A: Strength and balance classes can help with osteoarthritis and frailty. Many are seated or adapted. Ask your GP, physiotherapist, council or a social prescriber about classes near you.
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/balance-exercises/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Community transport for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-transport-arthritis-frailty-uk
@@ -6317,18 +6316,16 @@ Last clinically reviewed: 2026-10-23
 Q: Pendulum Swings and Wall Slides for Shoulder Mobility
 A: For shoulder mobility, structured exercise is a primary treatment. Aim for 150 minutes of moderate activity per week, divided into 20–30 minute sessions. Begin with small, manageable efforts, like five minutes of movement daily. Most people experience meaningful improvement within 6–12 weeks of consistent practice. Consult a GP or physiotherapist if you have hot, swollen joints or prolonged morning stiffness.
 
-## Pets, dog walking and frailty if you have arthritis (UK)
+## Pets, dog walking and arthritis with frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/pets-arthritis-frailty-walking-dogs-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Pets, dog walking and frailty if you have arthritis (UK)
-A: When pets, dog walking and frailty if you have arthritis is on your mind, treat shrinking range as useful information, not a personal failure. This guide covers keeping an animal without taking a fall when arthritis with frailty affects several joints, with a focus on Scotland and a home setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Pets, dog walking and arthritis with frailty (UK)
+A: Pets give company and a reason to move, but dogs pulling on leads and pets underfoot can cause falls. Training, the right lead, help with walks and planning ahead can make pet ownership safer.
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: 5 steps to mental wellbeing — https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/
 
 ## Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/pharmacist-medication-review-frail-arthritis-uk
@@ -6477,18 +6474,16 @@ Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymya
 Reference: NHS: Prednisolone — https://www.nhs.uk/medicines/prednisolone-tablets-and-liquid/
 Reference: NHS: Steroids — https://www.nhs.uk/conditions/steroids/
 
-## Podiatry and footcare for frail adults with arthritis (UK)
+## Podiatry and foot care with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/podiatry-footcare-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Podiatry and footcare for frail adults with arthritis (UK)
-A: A frailty-aware note on podiatry and footcare for frail adults with arthritis: protect joints, keep muscle working, and plan the hardest transfer of the day. This guide covers nails, skin and shoes when you cannot reach your feet because foot osteoarthritis affects feet, with a focus on Wales and a home setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Podiatry and foot care with arthritis and frailty (UK)
+A: Arthritis and frailty can make it hard to reach your feet. Foot problems affect walking and falls risk. Ask about NHS podiatry if you have medical needs, and get help with nails if you cannot reach.
+Reference: NHS: Foot pain — https://www.nhs.uk/conditions/foot-pain/
+Reference: NHS: Corns and calluses — https://www.nhs.uk/conditions/corns-and-calluses/
 
 ## After a hip replacement: coming home when you are frail (UK)
 URL: https://livingwitharthritis.org.uk/blog/post-hip-replacement-frailty-home-uk
@@ -7138,18 +7133,16 @@ A: Online shopping can reduce lifting, walking and queues. Some supermarkets off
 Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
-## Short accessible breaks for frail adults with arthritis (UK)
+## Accessible short breaks with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/short-breaks-accessible-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Short accessible breaks for frail adults with arthritis (UK)
-A: For short accessible breaks for frail adults with arthritis, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This UK guide looks at one night away without pretending you are 40 in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Accessible short breaks with arthritis and frailty (UK)
+A: Short breaks are possible with arthritis and frailty with planning. Ask about access, book assistance for travel, take enough medicines and pace your days. A holiday at home is a good alternative.
+Reference: NHS: Carer breaks and respite care — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-breaks-and-respite-care/
+Reference: NHS: 5 steps to mental wellbeing — https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/
 
 ## Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/short-term-equipment-loans-arthritis-uk
@@ -7271,18 +7264,15 @@ Reference: NHS: Falls (what to do, falls services and prevention) — https://ww
 Reference: NHS: Physiotherapy — https://www.nhs.uk/tests-and-treatments/physiotherapy/
 Reference: Versus Arthritis (now Arthritis UK): Exercising with arthritis — https://www.versusarthritis.org/about-arthritis/exercising-with-arthritis/
 
-## Skin and pressure care if arthritis keeps you sitting (UK)
+## Skin and pressure care with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/skin-pressure-care-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Skin and pressure care if arthritis keeps you sitting (UK)
-A: Living With Arthritis covers skin and pressure care if arthritis keeps you sitting without miracle claims — just safer movement and clearer next steps. This guide covers skin risk when chairs become the whole day because arthritis with frailty affects several joints, with a focus on England and a home setting.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Skin and pressure care with arthritis and frailty (UK)
+A: If arthritis and frailty limit movement, pressure ulcers can develop. Changing position, checking skin daily, eating well and using pressure-relieving equipment help. Report skin changes early.
+Reference: NHS: Pressure ulcers (pressure sores) — https://www.nhs.uk/conditions/pressure-sores/
 
 ## Night pain management for arthritis: settle pain so you can sleep (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-and-pain-management-arthritis
