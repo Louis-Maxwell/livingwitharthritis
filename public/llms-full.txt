@@ -6066,18 +6066,16 @@ A: Call 999 for life-threatening emergencies such as chest pain, stroke signs, s
 Reference: NHS: When to call 999 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-call-999/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Nordic poles, arthritis and frailty (UK)
+## Nordic walking poles for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/nordic-poles-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Nordic poles, arthritis and frailty (UK)
-A: Families dealing with nordic poles, arthritis and frailty usually notice skipped invitations and slower rooms before any clinic label. Here we focus on four points of contact when wrists allow it, for readers in Northern Ireland, with self-management ideas and when to contact a GP, your GP out-of-hours service or emergency services as directed on nidirect or 999.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+Last clinically reviewed: 2026-11-02
+Q: Nordic walking poles for arthritis and frailty (UK)
+A: Nordic walking poles can help some people walk with better posture and rhythm. They are not a replacement for a walking stick or frame if you need support for balance. Ask a physiotherapist whether poles suit you, and start on flat, even ground.
+Reference: NHS: Physical activity guidelines for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/balance-exercises/
 
 ## NSAID Stomach Protection: When You Need a PPI
 URL: https://livingwitharthritis.org.uk/blog/nsaid-stomach-protection-when-you-need-a-ppi
@@ -6187,18 +6185,17 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
 Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
-## Outdoor steps and handrails when arthritis meets frailty (UK)
+## Outdoor steps, handrails and thresholds with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/outdoor-steps-handrails-arthritis-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Outdoor steps and handrails when arthritis meets frailty (UK)
-A: For outdoor steps and handrails when arthritis meets frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. Here we focus on the front path as a falls hotspot, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Outdoor steps, handrails and thresholds with arthritis (UK)
+A: Outdoor steps and raised thresholds are common trip points. Handrails, good lighting, non-slip surfaces and small ramps can make getting in and out safer. Your council can assess your home, and minor adaptations are often free.
+Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
+Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Pacing housework when arthritis and frailty share the chores (UK)
 URL: https://livingwitharthritis.org.uk/blog/pacing-housework-arthritis-frailty-uk
@@ -6472,18 +6469,17 @@ A: Polymyalgia rheumatica (PMR) causes pain and stiffness in the shoulders, neck
 Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## PMR steroid tapering and frailty: rebuilding strength slowly (UK)
+## PMR steroid tapering, frailty and muscle weakness (UK)
 URL: https://livingwitharthritis.org.uk/blog/pmr-steroid-taper-frailty-weakness-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: PMR steroid tapering and frailty: rebuilding strength slowly (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and polymyalgia rheumatica can make it more visible. This article is about strength after a long steroid course, written for people and carers in Scotland, especially around a home.
-Reference: NHS – Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
-Reference: NHS – Steroids — https://www.nhs.uk/conditions/steroids/
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
+Last clinically reviewed: 2026-11-02
+Q: PMR steroid tapering, frailty and muscle weakness (UK)
+A: Steroids for polymyalgia rheumatica are reduced slowly over many months. Steroids can contribute to muscle weakness, bone thinning and other side effects, especially in older people. Never stop suddenly. Strength exercise and bone protection, if advised, can help.
+Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
+Reference: NHS: Prednisolone — https://www.nhs.uk/medicines/prednisolone-tablets-and-liquid/
+Reference: NHS: Steroids — https://www.nhs.uk/conditions/steroids/
 
 ## Podiatry and footcare for frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/podiatry-footcare-arthritis-frailty-uk
@@ -6512,18 +6508,16 @@ Reference: NICE NG27: Transition between inpatient hospital settings and communi
 Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
 
-## After knee replacement: frailty-aware rehabilitation (UK)
+## After knee replacement when you are frail: rehabilitation at home (UK)
 URL: https://livingwitharthritis.org.uk/blog/post-knee-replacement-frailty-rehab-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: After knee replacement: frailty-aware rehabilitation (UK)
-A: Knee osteoarthritis after replacement and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at rehab when frailty was already present before surgery in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: After knee replacement when you are frail: rehabilitation at home (UK)
+A: Recovery after knee replacement takes time, especially with frailty. Regular exercises from your physiotherapist, managing pain and swelling, safe movement at home and help with daily tasks all support recovery. Report signs of infection or a blood clot promptly.
+Reference: NHS: Knee replacement — https://www.nhs.uk/conditions/knee-replacement/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/conditions/physiotherapy/
 
 ## Pregnancy and Arthritis: What UK Guidelines Recommend
 URL: https://livingwitharthritis.org.uk/blog/pregnancy-and-arthritis-what-uk-guidelines-recommend
@@ -6586,18 +6580,16 @@ Q: Prescription Costs and Arthritis: NHS Prepayment Certificate
 A: A Prescription Prepayment Certificate (PPC) acts like a season ticket for your prescriptions, allowing you to pay a set upfront fee for three or twelve months, during which all your prescriptions become free. This often saves money for individuals needing three or more prescriptions monthly, particularly those with long-term conditions. You can apply online, by phone, or at a pharmacy for a PPC.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Pressure cushions when arthritis keeps you sitting (UK)
+## Pressure cushions for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/pressure-cushion-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Pressure cushions when arthritis keeps you sitting (UK)
-A: This guide stays with pressure cushions when arthritis keeps you sitting: what still moves safely, what to ask, and how to keep a steadier week. This page explains chairs, skin and the afternoon slump if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Pressure cushions for arthritis and frailty (UK)
+A: If you sit for long periods, pressure on the skin over bony areas can cause pressure ulcers. Pressure-relieving cushions, changing position and checking skin help. A nurse or occupational therapist can assess what you need.
+Reference: NHS: Pressure ulcers (pressure sores) — https://www.nhs.uk/conditions/pressure-sores/
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
 ## Preventing Falls: A Guide for Frail and At-Risk Adults
 URL: https://livingwitharthritis.org.uk/blog/preventing-falls-guide-frail-adults
