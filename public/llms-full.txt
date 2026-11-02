@@ -6492,18 +6492,16 @@ Reference: NHS: The vegan diet — https://www.nhs.uk/live-well/eat-well/how-to-
 Reference: BDA: Vegetarian, vegan and plant-based diet food fact sheet — https://www.bda.uk.com/resource/vegetarian-vegan-plant-based-diet.html
 Reference: Arthritis UK: Eating well with arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/
 
-## Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)
+## Polymyalgia rheumatica, frailty and morning stiffness (UK)
 URL: https://livingwitharthritis.org.uk/blog/pmr-frailty-morning-stiffness-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)
-A: When polymyalgia rheumatica meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on telling PMR stiffness from deconditioning, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
-Reference: NHS – Steroids — https://www.nhs.uk/conditions/steroids/
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
+Last clinically reviewed: 2026-11-02
+Q: Polymyalgia rheumatica, frailty and morning stiffness (UK)
+A: Polymyalgia rheumatica (PMR) causes pain and stiffness in the shoulders, neck and hips, usually in people over 50. It is often worse in the morning. It is usually treated with steroids, which need careful monitoring. New headache or vision changes need urgent assessment.
+Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
+Reference: NHS: Steroid injections — https://www.nhs.uk/conditions/steroid-injections/
 
 ## PMR steroid tapering and frailty: rebuilding strength slowly (UK)
 URL: https://livingwitharthritis.org.uk/blog/pmr-steroid-taper-frailty-weakness-uk
@@ -6568,18 +6566,18 @@ Q: Pregnancy and Arthritis: What UK Guidelines Recommend
 A: Managing arthritis during pregnancy requires careful pre-conception planning due to many disease-modifying anti-rheumatic drugs (DMARDs) being unsafe. UK guidelines recommend a multidisciplinary approach involving rheumatologists, obstetricians, and specialist nurses to safely adjust medication. Non-pharmacological strategies like gentle exercise, nutrition, and stress management are also important for well-being.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Prehabilitation for frail adults with arthritis facing surgery (UK)
+## Prehabilitation before joint surgery when you are frail (UK)
 URL: https://livingwitharthritis.org.uk/blog/prehabilitation-frail-arthritis-before-surgery-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Prehabilitation for frail adults with arthritis facing surgery (UK)
-A: Readers asking about prehabilitation for frail adults with arthritis facing surgery often need pacing, protein and practised transfers more than a gym plan. This guide covers getting a little stronger before an operation when arthritis with frailty affects hips and knees, with a focus on Scotland and a home setting.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
+Last clinically reviewed: 2026-11-02
+Q: Prehabilitation before joint surgery when you are frail (UK)
+A: Prehabilitation means getting as fit as possible before surgery. For frail people with arthritis, it can include strength and balance exercises, good nutrition, medicine review and planning help at home. Ask your surgical team about local programmes.
+Reference: NHS: Hip replacement — https://www.nhs.uk/conditions/hip-replacement/
+Reference: NHS: Knee replacement — https://www.nhs.uk/conditions/knee-replacement/
+Reference: NHS: Strength exercises — https://www.nhs.uk/live-well/exercise/strength-exercises/
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
 
 ## Prehabilitation: How Pre-Op Exercise Speeds Recovery
 URL: https://livingwitharthritis.org.uk/blog/prehabilitation-how-pre-op-exercise-speeds-recovery
@@ -6919,18 +6917,16 @@ Q: Resistance Training: The Best-Kept Secret for Arthritis Longevity
 A: Strength training protects joints, builds bone density and slows arthritis progression. How to start…
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Respite care for families living with arthritis and frailty (UK)
+## Respite care for carers of people with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/respite-care-arthritis-frailty-carers-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Respite care for families living with arthritis and frailty (UK)
-A: When arthritis and frailty overlap at home, kindness looks like smaller tasks and steadier practice, not all-or-nothing days. Here we focus on a break for the carer without abandoning the joints plan, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Respite care for carers of people with arthritis and frailty (UK)
+A: Respite care gives carers a break. Options include day centres, sitting services, home care and short stays in a care home. A carer's assessment from your local council can help decide what support you may get. Funding depends on assessments and finances.
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
+Reference: Community Transport Association — https://ctauk.org/
 
 ## Retirement Planning With Arthritis: Pensions, Benefits and Practical Steps (UK)
 URL: https://livingwitharthritis.org.uk/blog/retirement-planning-arthritis-uk
@@ -7176,18 +7172,16 @@ Reference: NHS: Common questions about prednisolone (vaccines) — https://www.n
 Reference: NHS: Taking methotrexate with other medicines — https://www.nhs.uk/medicines/methotrexate/taking-methotrexate-with-other-medicines-and-herbal-supplements/
 Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
 
-## Online food shops for frail adults with arthritis (UK)
+## Online shopping with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/shopping-online-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Online food shops for frail adults with arthritis (UK)
-A: When online food shops for frail adults with arthritis is on your mind, treat shrinking range as useful information, not a personal failure. This guide covers getting food in without a supermarket marathon when arthritis with frailty affects several joints, with a focus on Scotland and a home setting.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Online shopping with arthritis and frailty (UK)
+A: Online shopping can reduce lifting, walking and queues. Some supermarkets offer priority slots. Choose easy-open packaging, smaller items, and plan meals and drinks. Ask a family member or volunteer if you need help setting up.
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Short accessible breaks for frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/short-breaks-accessible-arthritis-frailty-uk
@@ -7256,18 +7250,16 @@ Q: Shoulder Arthroscopy and Arthritis: What It Can and Can't Fix
 A: Shoulder arthroscopy will not cure arthritis or reverse joint damage. Evidence shows short-term benefits for some impingement, but it is not significantly better than non-surgical approaches long-term. For moderate to severe arthritis, arthroscopy offers little lasting benefit. It is typically reserved for specific situations when conservative methods like physical therapy, medication, and injections have failed.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Shoulder osteoarthritis and frailty: reaching, washing and dressing (UK)
+## Shoulder osteoarthritis and frailty: washing and dressing (UK)
 URL: https://livingwitharthritis.org.uk/blog/shoulder-osteoarthritis-frailty-washing-dressing-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Shoulder osteoarthritis and frailty: reaching, washing and dressing (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and shoulder osteoarthritis can make it more visible. This article is about overhead reach and personal care with a stiff shoulder, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: nidirect — https://www.nidirect.gov.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-02
+Q: Shoulder osteoarthritis and frailty: washing and dressing (UK)
+A: Shoulder osteoarthritis can make washing, dressing and reaching difficult. Simple changes, equipment such as long-handled sponges and dressing sticks, gentle exercises and advice from an occupational therapist can help.
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Osteoarthritis treatment — https://www.nhs.uk/conditions/osteoarthritis/treatment/
 
 ## Shoulder Pain When Reaching: RA vs OA Differences
 URL: https://livingwitharthritis.org.uk/blog/shoulder-pain-reaching-ra-vs-oa
