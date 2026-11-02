@@ -2483,16 +2483,17 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Balance practice with painful arthritic feet (UK)
 URL: https://livingwitharthritis.org.uk/blog/balance-painful-feet-frailty-arthritis-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Balance practice with painful arthritic feet (UK)
-A: Frailty is a clinical syndrome — not a personality trait — and foot osteoarthritis can make it more visible. This article is about steadying yourself when every step hurts, written for people and carers in Wales, especially around a home.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Painful feet can make people walk less and less steadily, which raises falls risk. Supportive footwear, foot care, podiatry and gentle supported balance practice can help. Practise near a sturdy support and ask for a falls assessment if you have fallen or feel unsteady.
+Reference: NHS: Foot problems and podiatry — https://www.nhs.uk/conditions/foot-pain/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
 
 ## Balance Training for Arthritis: Safe Exercises to Stay Steady (UK Guide)
 URL: https://livingwitharthritis.org.uk/blog/balance-training-arthritis
@@ -2780,31 +2781,31 @@ Last clinically reviewed: 2026-10-23
 Q: Building Strength and Resilience: Exercise for Frailty Prevention
 A: Regular physical activity helps prevent and reverse frailty by maintaining muscle, improving balance, and supporting bone density. An effective programme combines strength, balance, flexibility, and light aerobic exercises. Start slowly and build gradually — a physical therapist can guide you. Consistency matters; even small improvements make a difference. Consult a doctor before starting if you have existing medical conditions.
 
-## Bunions, arthritis and frailty: shoes that still fit life (UK)
+## Bunions, arthritis and frailty: shoes that still fit (UK)
 URL: https://livingwitharthritis.org.uk/blog/bunions-arthritis-frailty-shoes-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Bunions, arthritis and frailty: shoes that still fit life (UK)
-A: If you are navigating bunions, arthritis and frailty: shoes that still fit life, small steady habits usually beat all-or-nothing restarts. This article is about wide shoes, balance and pride, written for people and carers in Wales, especially around a home. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Q: Bunions, arthritis and frailty: shoes that still fit (UK)
+A: Bunions and big-toe arthritis can make shoes painful and walking less steady. Wide, deep, supportive shoes, padding and podiatry help many people. Surgery is an option for some, but recovery needs careful planning in frailty.
+Reference: NHS: Bunions — https://www.nhs.uk/conditions/bunions/
+Reference: NHS: Foot problems and podiatry — https://www.nhs.uk/conditions/foot-pain/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Life in a care home with arthritis, pain and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/care-home-life-arthritis-pain-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Life in a care home with arthritis, pain and frailty (UK)
-A: In a care home, arthritis and frailty overlap in transfers, seating time and whether practice is still part of the day. Here we focus on asking for movement, pain review and dignity, for readers in Scotland, with self-management ideas and when to contact a GP, NHS 24 on 111 or 999.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: People living in care homes with arthritis should have their pain assessed and reviewed, including if they cannot easily say they are in pain. Staying active, comfortable seating, help at meal times and regular medicine review support comfort and dignity.
+Reference: CQC: Care homes — https://www.cqc.org.uk/care-services/care-homes
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
+Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
 
 ## Caregiver Burnout in Arthritis Families: Spot It Early
 URL: https://livingwitharthritis.org.uk/blog/caregiver-burnout-in-arthritis-families-spot-it-early
@@ -2827,16 +2828,16 @@ A: Caregiver burnout is a state of severe physical, mental and emotional exhaust
 
 ## Carer burnout when arthritis and frailty fill the week (UK)
 URL: https://livingwitharthritis.org.uk/blog/carer-burnout-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Carer burnout when arthritis and frailty fill the week (UK)
-A: Living With Arthritis covers carer burnout when arthritis and frailty fill the week without miracle claims — just safer movement and clearer next steps. This article is about the helper's body and mood matter too, written for people and carers in Northern Ireland, especially around a home.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Caring for someone with arthritis and frailty can be physically and emotionally tiring. Signs of burnout include exhaustion, poor sleep, low mood and irritability. A carer's assessment, respite, sharing tasks and looking after your own health can help.
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
+Reference: Carers UK — https://www.carersuk.org/
+Reference: NHS: NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Carer's Allowance Explained: Help If You Care for Someone With Arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/carers-allowance-help-if-you-care-for-someone
@@ -3025,16 +3026,15 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Commodes at night for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/commode-night-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Commodes at night for arthritis and frailty (UK)
-A: Motion is lotion fits the clinical picture: small, regular movement protects reserve even when joints still hurt. This article is about cutting the scariest walk of the night, written for people and carers in Scotland, especially around a home.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+A: Night-time trips to the toilet are a common time for falls. A bedside commode can shorten the walk. An occupational therapist can advise on the right type and height, and some areas provide commodes through community equipment services.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
 ## Community alarms when arthritis and frailty raise falls risk (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-alarm-arthritis-frailty-uk
