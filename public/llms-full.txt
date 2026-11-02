@@ -1740,16 +1740,15 @@ A: Anti-inflammatory smoothies are an easy way to combine ingredients with real 
 
 ## Anticholinergic load, arthritis medicines and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/anticholinergic-load-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Anticholinergic load, arthritis medicines and frailty (UK)
-A: Readers asking about anticholinergic load, arthritis medicines and frailty often need pacing, protein and practised transfers more than a gym plan. This guide covers dry mouth, constipation and unsteadiness from stacked medicines when arthritis with frailty affects several joints, with a focus on England and a GP surgery setting.
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+A: Some medicines have anticholinergic effects, which can add up when several are taken together. In older and frail people this can contribute to confusion, constipation, dry mouth, dizziness and falls. Do not stop any medicine yourself, but ask your GP or pharmacist for a structured medication review.
+Reference: NHS: Medicines reviews and polypharmacy (NICE NG5: Medicines optimisation) — https://www.nice.org.uk/guidance/ng5
+Reference: NICE NG56: Multimorbidity — https://www.nice.org.uk/guidance/ng56
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Anxiety and Arthritis: Why It Happens and How to Manage It
 URL: https://livingwitharthritis.org.uk/blog/anxiety-and-arthritis-management
@@ -1788,16 +1787,15 @@ Reference: nidirect: Personal Independence Payment (challenging a decision) — 
 
 ## Appetite loss, arthritis pain and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/appetite-loss-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Appetite loss, arthritis pain and frailty (UK)
-A: Frailty is not 'giving up' — it is reduced reserve. Arthritis can accelerate that by making every transfer cost more. This article is about when pain and low mood shrink meals, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Pain, fatigue, medicines, low mood and difficulty preparing food can reduce appetite. Unplanned weight loss can lead to muscle loss and frailty. Small frequent meals, nourishing snacks and help with shopping and cooking can help. See your GP about unexplained weight loss.
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Apprenticeships and Arthritis: A Realistic Look
 URL: https://livingwitharthritis.org.uk/blog/apprenticeships-and-arthritis-a-realistic-look
@@ -2053,15 +2051,18 @@ Q: Clinically recommended Arthritis Exercises
 A: To manage arthritis, the NHS recommends at least 150 minutes of moderate aerobic exercise weekly, strengthening exercises targeting affected joints at least twice a week, and daily flexibility work. Examples include walking, swimming, cycling, Tai Chi, and light strength training. If joints are more painful 24 hours after exercise, reduce intensity, but do not stop exercising.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Arthritis Fatigue Explained: Why It Happens and What Helps
+## Arthritis fatigue explained: why it happens and what helps (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-fatigue-explained
-Last updated: 2026-09-25
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Fatigue Explained: Why It Happens and What Helps
-A: Arthritis fatigue is an overwhelming sense of physical and mental exhaustion that does not improve with sleep. It happens because your body uses vast amounts of energy fighting joint inflammation and managing chronic pain. Coping with this symptom involves balancing your daily activities, adjusting medications with your rheumatology team, and treating underlying factors like anaemia or poor sleep.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
+Last clinically reviewed: 2026-11-02
+Q: Arthritis fatigue explained: why it happens and what helps (UK)
+A: Fatigue is common in many types of arthritis, especially inflammatory arthritis. Inflammation, pain, poor sleep, low mood, anaemia and some medicines can contribute. Pacing, regular activity, good sleep habits and treating underlying causes can help. Talk to your GP or rheumatology team if fatigue is affecting your life.
+Reference: NHS: Tiredness and fatigue — https://www.nhs.uk/conditions/tiredness-and-fatigue/
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
 ## Managing Arthritis Fatigue – A UK Guide
 URL: https://livingwitharthritis.org.uk/blog/arthritis-fatigue-management-uk
@@ -3109,16 +3110,15 @@ Reference: NHS Inform — https://www.nhsinform.scot
 
 ## Community transport for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/community-transport-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Community transport for arthritis and frailty (UK)
-A: In a UK home, the overlap of arthritis and frailty often shows up as shorter indoor range and a chair that becomes the day's HQ. Here we focus on getting to clinics when buses are not realistic, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Community transport schemes offer door-to-door or accessible trips for people who find public transport hard. Options include dial-a-ride, volunteer car schemes, disabled bus passes and NHS non-emergency patient transport for eligible people.
+Reference: Community Transport Association — https://ctauk.org/
+Reference: GOV.UK: Apply for a disabled person's bus pass — https://www.gov.uk/apply-for-disabled-bus-pass
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Comprehensive geriatric assessment in plain English if you have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/comprehensive-geriatric-assessment-arthritis-uk
@@ -3335,16 +3335,14 @@ Reference: Arthritis UK (formerly Versus Arthritis): Exercising with arthritis �
 
 ## Delirium in hospital when you also have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/delirium-hospital-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Delirium in hospital when you also have arthritis (UK)
-A: Several sore joints and slower recovery often travel together; the useful question is what still moves safely this week. This page explains sudden confusion on top of joint pain if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+A: Delirium is a sudden change in thinking, attention and alertness. It is common in older and frail people in hospital, especially after surgery or infection. Pain, dehydration, constipation, some medicines and unfamiliar surroundings can contribute. Tell staff quickly if you notice changes.
+Reference: NICE CG103: Delirium — https://www.nice.org.uk/guidance/cg103
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 
 ## Dental care when arthritis, frailty and sore hands collide (UK)
 URL: https://livingwitharthritis.org.uk/blog/dental-care-arthritis-frailty-hands-uk
