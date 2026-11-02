@@ -2316,16 +2316,19 @@ Reference: NHS: DVT (deep vein thrombosis) — https://www.nhs.uk/conditions/dee
 Reference: NHS: Side effects of methotrexate — https://www.nhs.uk/medicines/methotrexate/side-effects-of-methotrexate/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Arthritis and Relationships: Honest Conversations That Help
+## Arthritis and relationships: honest conversations that help (UK)
 URL: https://livingwitharthritis.org.uk/blog/arthritis-relationships-honest-conversations
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Arthritis and Relationships: Honest Conversations That Help
-A: Arthritis can significantly impact relationships, with 67% of individuals feeling it negatively affects their closest bonds. Open communication with partners about unpredictable energy and pain, specific needs, and emotional impact is crucial. Maintaining intimacy involves planning moments during lower pain, exploring comfortable positions, and focusing on emotional closeness. Professional support from organisations like Relate or Arthritis Action can also help strengthen relationships.
-Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Arthritis and relationships: honest conversations that help (UK)
+A: Arthritis can change roles, plans and intimacy in relationships. Talking honestly about how pain and fatigue vary, asking for specific help, and planning around better times can help. Couples counselling, such as Relate, and an occupational therapist or GP can offer further support.
+Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
+Reference: Arthritis UK helpline — https://www.arthritis-uk.org/information-and-support/support-and-resources/arthritis-uk-helpline/
+Reference: Relate: Relationship counselling — https://www.relate.org.uk/
+Reference: NHS: NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
+Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
 
 ## Personalised Arthritis Roadmaps: Step-by-Step Guides for Your Situation
 URL: https://livingwitharthritis.org.uk/blog/arthritis-roadmaps-uk
@@ -6749,18 +6752,19 @@ Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
 Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
 Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
-## Psoriatic arthritis in later life: joints, skin and frailty (UK)
+## Psoriatic arthritis in later life and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-later-life-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Psoriatic arthritis in later life: joints, skin and frailty (UK)
-A: Psoriatic arthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at psoriatic arthritis when stamina is dropping in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS Inform — https://www.nhsinform.scot
+Q: Psoriatic arthritis in later life and frailty (UK)
+A: Psoriatic arthritis can start or continue into later life, causing painful, swollen joints, tendon pain and fatigue alongside psoriasis. In older or frail people, treatment choices take account of other conditions, infection risk and medicines. Regular review, exercise and good skin and foot care help.
+Reference: NHS: Psoriatic arthritis — https://www.nhs.uk/conditions/psoriatic-arthritis/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NICE: Spondyloarthritis in over 16s (NG65) — https://www.nice.org.uk/guidance/ng65
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Reference: Arthritis UK (formerly Versus Arthritis) — https://www.arthritis-uk.org/
 
 ## Psoriatic Arthritis vs Rheumatoid Arthritis: Tests, Treatments and Prognosis
 URL: https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-vs-rheumatoid-arthritis-tests-treatments
@@ -7023,18 +7027,19 @@ Last clinically reviewed: 2026-10-23
 Q: Rheumatology Waiting Times – What You Can Do
 A: NHS rheumatology waiting times vary, ranging from six weeks to over six months, with many departments exceeding the 18-week target from GP referral to first appointment. You can ask your GP for an urgent referral, inquire about fast-track clinics for suspected inflammatory arthritis, and use the NHS website to choose a hospital with shorter waiting times.
 
-## Rise-recline chairs for arthritis and frailty (UK)
+## Rise and recline chairs for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/rise-recline-chair-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Rise-recline chairs for arthritis and frailty (UK)
-A: Arthritis is about joints and pain; frailty is about muscle, stamina, appetite and bounce-back. They often share the same week. This article is about chair height, naps and getting stuck in a tilt, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: nidirect — https://www.nidirect.gov.uk
+Q: Rise and recline chairs for arthritis and frailty (UK)
+A: A rise and recline chair tilts forward to help you stand and can recline for comfort. It can help some people with arthritis and frailty, but it may also reduce leg strength if it does all the work. Ask an occupational therapist for advice on size and features before buying.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: NHS: Equipment and aids for daily living — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/household-equipment-to-help-you/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Running With Arthritis: Is It Safe for Your Knees and Hips?
 URL: https://livingwitharthritis.org.uk/blog/running-with-arthritis-knees-and-hips
@@ -7426,16 +7431,17 @@ Reference: NICE NG249: Falls — assessment and prevention — https://www.nice.
 
 ## Slow walking groups for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: Slow walking groups for arthritis and frailty (UK)
-A: Living with pain in several joints is tiring enough; adding fear of falling or skipped meals makes the slide steeper. This page explains walking with others at a pace that respects pain if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
+A: Short, slow walking groups such as some Walking for Health walks offer gentle exercise and company. Start with a short route, use your walking aid, and pace yourself. Mild discomfort that settles within a day or so is usually fine, but pain that is much worse the next day means you should do less.
+Reference: NHS: Exercise for older adults — https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: Walking for Health (Ramblers) — https://www.ramblers.org.uk/walking-for-health
+Reference: NICE NG249: Falls — assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Smart speakers for frail adults with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/smart-speakers-arthritis-frailty-uk
@@ -7791,18 +7797,19 @@ A: When talking to your employer about RA: focus on functional impact not diagno
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
 
-## Talking therapies for pain in older adults with arthritis (UK)
+## Talking therapies for arthritis pain in older age (UK)
 URL: https://livingwitharthritis.org.uk/blog/talking-therapies-pain-older-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
-Q: Talking therapies for pain in older adults with arthritis (UK)
-A: For talking therapies for pain in older adults with arthritis, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle. This UK guide looks at NHS talking therapies when pain and mood tangle in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Q: Talking therapies for arthritis pain in older age (UK)
+A: Talking therapies such as cognitive behavioural therapy (CBT) and acceptance and commitment therapy (ACT) do not remove arthritis pain but can help you cope, improve sleep and mood, and do more of what matters. NICE recommends them for chronic primary pain. In England you can refer yourself to NHS Talking Therapies.
+Reference: NHS: NHS Talking Therapies for anxiety and depression — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
+Reference: NICE NG193: Chronic pain (primary and secondary) in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: NICE NG222: Depression in adults — https://www.nice.org.uk/guidance/ng222
+Reference: NHS: Depression in adults — https://www.nhs.uk/mental-health/conditions/depression-in-adults/overview/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Talking to Children About Your Arthritis
 URL: https://livingwitharthritis.org.uk/blog/talking-to-children-about-your-arthritis
