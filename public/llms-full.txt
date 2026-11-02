@@ -4398,18 +4398,17 @@ Reference: NHS: Carpal tunnel syndrome — https://www.nhs.uk/conditions/carpal-
 Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Hand therapy for frail adults with rheumatoid arthritis (UK)
+## Hand therapy for rheumatoid arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/hand-therapy-frail-ra-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hand therapy for frail adults with rheumatoid arthritis (UK)
-A: When hand therapy for frail adults with rheumatoid arthritis is on your mind, treat shrinking range as useful information, not a personal failure. This guide covers splints, practice and swelling when rheumatoid arthritis affects hands, with a focus on Wales and a home setting. Keep 999 for emergencies such as chest pain, suspected hip fracture or a sudden inability to weight-bear.
-Reference: NHS – Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Hand therapy for rheumatoid arthritis and frailty (UK)
+A: Hand therapists, often occupational therapists or physiotherapists, help people with rheumatoid arthritis keep using their hands. They can provide splints, exercises, joint protection advice and gadgets. Ask your rheumatology team or GP.
+Reference: NHS: Rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: Rheumatoid arthritis treatment — https://www.nhs.uk/conditions/rheumatoid-arthritis/treatment/
 
 ## Heart failure, arthritis and frailty: pacing two conditions (UK)
 URL: https://livingwitharthritis.org.uk/blog/heart-failure-arthritis-frailty-overlap-uk
@@ -6143,18 +6142,16 @@ Reference: Osteoarthritis in over 16s: diagnosis and management (NG226) — http
 Reference: Diet and arthritis — https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/eating-well-with-arthritis/
 Reference: Rheumatoid arthritis in adults: management (NG100) — https://www.nice.org.uk/guidance/ng100
 
-## Insoles and orthotics for frail adults with arthritis (UK)
+## Orthotics and insoles for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/orthotics-insoles-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Insoles and orthotics for frail adults with arthritis (UK)
-A: A frailty-aware note on insoles and orthotics for frail adults with arthritis: protect joints, keep muscle working, and plan the hardest transfer of the day. This article is about insoles you can actually get into a shoe, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Last clinically reviewed: 2026-11-02
+Q: Orthotics and insoles for arthritis and frailty (UK)
+A: Insoles and orthotics may help some people with foot or ankle pain. Evidence for knee osteoarthritis is limited. A podiatrist or physiotherapist can assess you, and insoles need shoes with room for them.
+Reference: NHS: Foot pain — https://www.nhs.uk/conditions/foot-pain/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
 ## Osteoarthritis Symptoms & When to See Your GP
 URL: https://livingwitharthritis.org.uk/blog/osteoarthritis-symptoms-uk
@@ -6818,18 +6815,17 @@ A: Chronic pain affects partners, friends and family. Communication frameworks t
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Remote GP apps when arthritis and frailty limit travel (UK)
+## Remote GP apps and online access with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/remote-gp-apps-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Remote GP apps when arthritis and frailty limit travel (UK)
-A: Living With Arthritis covers remote GP apps when arthritis and frailty limit travel without miracle claims — just safer movement and clearer next steps. Arthritis can accelerate that by making every transfer cost more. This article is about video and phone care without losing a proper review, written for people and carers in Northern Ireland, especially around a home.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Remote GP apps and online access with arthritis and frailty (UK)
+A: The NHS App and practice online services let you order prescriptions, view records and contact your GP. Family can help through proxy access. For urgent problems, use NHS 111 or 999.
+Reference: NHS: The NHS App — https://www.nhs.uk/nhs-app/
+Reference: NHS: GP appointments and bookings — https://www.nhs.uk/nhs-services/gps/gp-appointments-and-bookings/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Repeat prescriptions with arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/repeat-prescriptions-arthritis-frailty-uk
