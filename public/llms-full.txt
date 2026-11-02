@@ -6501,7 +6501,7 @@ Last clinically reviewed: 2026-11-02
 Q: Polymyalgia rheumatica, frailty and morning stiffness (UK)
 A: Polymyalgia rheumatica (PMR) causes pain and stiffness in the shoulders, neck and hips, usually in people over 50. It is often worse in the morning. It is usually treated with steroids, which need careful monitoring. New headache or vision changes need urgent assessment.
 Reference: NHS: Polymyalgia rheumatica — https://www.nhs.uk/conditions/polymyalgia-rheumatica/
-Reference: NHS: Steroid injections — https://www.nhs.uk/conditions/steroid-injections/
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## PMR steroid tapering and frailty: rebuilding strength slowly (UK)
 URL: https://livingwitharthritis.org.uk/blog/pmr-steroid-taper-frailty-weakness-uk
@@ -7442,29 +7442,25 @@ Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk
 
 ## Social prescribing for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/social-prescribing-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Social prescribing for arthritis and frailty (UK)
-A: Families dealing with social prescribing for arthritis and frailty usually notice skipped invitations and slower rooms before any clinic label. This guide covers link workers, groups and transport when arthritis with frailty affects several joints, with a focus on Northern Ireland and a GP surgery setting.
-Reference: NHS 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Social prescribing connects you with local non-medical support, such as groups, activities, advice and volunteering. A link worker, usually based in or linked to your GP practice, talks with you about what matters and helps you find options that suit your joints and energy.
+Reference: NHS England: Social prescribing — https://www.england.nhs.uk/personalisedcare/social-prescribing/
+Reference: Age UK: Understanding frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
 
 ## Jaw arthritis, frailty and softer meals (UK)
 URL: https://livingwitharthritis.org.uk/blog/soft-foods-jaw-arthritis-frailty-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Jaw arthritis, frailty and softer meals (UK)
-A: Painful jaw plus slower recovery is a common UK picture in later life. This page explains eating enough when chewing hurts if you live with jaw osteoarthritis, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Exercise — https://www.nhs.uk/live-well/exercise/
-Reference: NHS – Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Arthritis can affect the jaw joint and make chewing painful. If you are frail, eating less can quickly lead to weight and muscle loss. Softer, nourishing foods, smaller bites and jaw-friendly habits can help. See your GP or dentist if pain persists or you are losing weight.
+Reference: NHS: Temporomandibular disorder (TMD) — https://www.nhs.uk/conditions/temporomandibular-disorder-tmd/
+Reference: NHS: Malnutrition — https://www.nhs.uk/conditions/malnutrition/
 
 ## Slow meals, sore hands and frailty: keeping eating safe (UK)
 URL: https://livingwitharthritis.org.uk/blog/speech-swallowing-meals-arthritis-frailty-uk
@@ -7490,16 +7486,15 @@ Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Spinal stenosis, osteoarthritis and frailty: walking with planned stops (UK)
 URL: https://livingwitharthritis.org.uk/blog/spinal-stenosis-oa-frailty-walking-stops-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Spinal stenosis, osteoarthritis and frailty: walking with planned stops (UK)
-A: When spinal stenosis with osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on short walking bouts when legs feel heavy, for readers in Wales, with self-management ideas and when to contact a GP, NHS 111 Wales or 999.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Spinal stenosis is a narrowing in the spine that can press on nerves, often linked to osteoarthritis. It can cause leg pain, numbness or heaviness when walking or standing, which often eases by sitting or leaning forward. Planned rest stops, walking aids and exercise can help.
+Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
+Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Reference: NHS: Physiotherapy — https://www.nhs.uk/conditions/physiotherapy/
 
 ## Night splints for hand osteoarthritis in frail adults (UK)
 URL: https://livingwitharthritis.org.uk/blog/splints-night-hand-oa-frailty-uk
@@ -7733,18 +7728,17 @@ Q: Tai Chi for Arthritis Joint Pain: Benefits and Evidence
 A: Tai chi reduces arthritis pain, improves balance and function based on multiple systematic reviews. The Arthritis Foundation Tai Chi programme is specifically adapted for arthritis. Benefits appear within 8-12 weeks of twice-weekly practice.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Tai Chi for balance when arthritis and frailty overlap (UK)
+## Tai chi for balance when arthritis and frailty overlap (UK)
 URL: https://livingwitharthritis.org.uk/blog/tai-chi-balance-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Tai Chi for balance when arthritis and frailty overlap (UK)
-A: Painful joints quietly train you to sit more; sitting can feed frailty — breaking that loop with small movement is the practical job here. This guide covers slow standing practice without forcing painful joints when arthritis with frailty affects several joints, with a focus on England and a community class setting.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-02
+Q: Tai chi for balance when arthritis and frailty overlap (UK)
+A: Tai chi is a gentle exercise with slow, flowing movements. It can help balance, strength and confidence, and may reduce falls risk. Moves can be adapted, including seated versions. Start slowly and tell the instructor about your arthritis.
+Reference: NHS: A guide to tai chi — https://www.nhs.uk/live-well/exercise/guide-to-tai-chi/
+Reference: NHS: Balance exercises — https://www.nhs.uk/live-well/exercise/balance-exercises/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
 ## Tai Chi for Arthritis: Why the Recommends It
 URL: https://livingwitharthritis.org.uk/blog/tai-chi-for-arthritis-uk
@@ -7848,16 +7842,15 @@ Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/gu
 
 ## Toilet frames and raised seats for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/toilet-frame-arthritis-frailty-uk
-Last updated: 2026-10-11
+Last updated: 2026-11-02
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
+Last clinically reviewed: 2026-11-02
 Q: Toilet frames and raised seats for arthritis and frailty (UK)
-A: A practical UK guide to toilet frames and raised seats for arthritis and frailty, written for days when energy and joints both feel limited. This page explains the transfer that decides whether you stay at home if you live with arthritis with frailty, without pretending rest is always safer. Use it alongside your GP, not instead of them.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+A: Toilet frames and raised seats can make sitting down and standing up from the toilet easier and safer. An occupational therapist can assess what you need. Equipment may be available from your local council or NHS.
+Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/home-adaptations/
 
 ## Topical NSAIDs in later life: safer pain relief for knee and hand osteoarthritis (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/topical-nsaids-frail-hand-knee-oa-uk
