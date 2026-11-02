@@ -467,10 +467,18 @@ async function main() {
     return maxIsoDate(extra, aiDates.get(path), hubDates.get(path), pageDates.get(path), priorDates.get(path));
   }
 
+  function pushStaticRoute(path: string) {
+    const lastmod = lastmodFor(path);
+    entries.push({ path, ...(lastmod ? { lastmod } : {}) });
+  }
+
   for (const p of parseStaticRoutes()) {
     const lastmod = lastmodFor(p);
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
   }
+  // The piriformis image has a dedicated, crawlable HTML page outside the React route tree.
+  // Keep it in the generated sitemap so Google Images can discover the image context.
+  pushStaticRoute("/piriformis-stretch.html");
 
   for (const slug of dailyTipSlugs()) {
     const path = `/daily-tips/${slug}`;
