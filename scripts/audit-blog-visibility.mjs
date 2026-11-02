@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { readPublishedBlogPosts } from './lib/blog-posts.mjs';
+import { buildBlogMetadata } from '../src/lib/blogMetadata.mjs';
+const posts = readPublishedBlogPosts(); const norm = v => String(v ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+const links = body => [...String(body ?? '').matchAll(/(?:href|\]\()=["']?([^\s"')>]+)/gi)].map(m => m[1]);
+const counts = new Map(); for (const p of posts) { const t = norm(buildBlogMetadata(p).title); counts.set(t, (counts.get(t) || 0) + 1); }
+const articles = posts.map(p => { const meta = buildBlogMetadata(p), body = String(p.content ?? ''), issues = []; if (counts.get(norm(meta.title)) > 1) issues.push('duplicate-rendered-title'); if (!meta.description) issues.push('missing-description'); if (!p.direct_answer) issues.push('missing-direct-answer'); if (!p.reviewed_by || !p.last_reviewed) issues.push('missing-review-record'); if (!p.citations?.length) issues.push('missing-structured-sources'); if (!/<h1\b/i.test(body) && !/^#\s+/m.test(body)) issues.push('missing-h1'); if (links(body).filter(x => x.startsWith('/blog/') || x.startsWith('https://')).length < 3) issues.push('few-contextual-links'); return { slug: p.slug, title: meta.title, description: meta.description, issues, readinessScore: Math.max(0, 100 - issues.length * 12) }; });
+const issueCounts = Object.fromEntries([...new Set(articles.flatMap(a => a.issues))].map(code => [code, articles.filter(a => a.issues.includes(code)).length])); const report = { generatedAt: new Date().toISOString(), methodology: 'Editorial and implementation checks only; not a ranking score or clinical accuracy certification.', summary: { articleCount: articles.length, issueCounts }, articles }; const output = process.argv.find(a => a.startsWith('--output='))?.slice(9) || resolve('reports/blog-visibility-audit.json'); mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`); console.log(`[blog-audit] ${articles.length} articles; ${output}`);
