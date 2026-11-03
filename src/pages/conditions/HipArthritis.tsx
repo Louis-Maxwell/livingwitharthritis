@@ -1,6 +1,6 @@
 import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
-﻿import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
