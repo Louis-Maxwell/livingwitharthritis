@@ -85,7 +85,7 @@ function HomePage() {
         <title>Living With Arthritis: Pain Relief & Flare-Up Help</title>
         <meta
           name="description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
+          content="Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461."
         />
         <meta
           name="robots"
@@ -103,11 +103,11 @@ function HomePage() {
         />
         <meta
           property="og:description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
+          content="Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461."
         />
         <meta
           name="twitter:description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
+          content="Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />
