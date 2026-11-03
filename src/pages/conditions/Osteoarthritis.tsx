@@ -1,3 +1,5 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -30,6 +32,8 @@ const BASE = "https://livingwitharthritis.org.uk";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Osteoarthritis – Symptoms, Causes & Management | Living With Arthritis",
   "description": "Comprehensive guide to osteoarthritis (OA): symptoms, causes, risk factors, diagnosis, treatment options, exercises, diet and self-management tips for UK patients.",
   "url": `${BASE}/conditions/osteoarthritis`,
@@ -173,7 +177,7 @@ const Osteoarthritis = () => (
             referral to discuss joint surgery.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <WaveDivider color="hsl(var(--background))" />
@@ -451,6 +455,7 @@ const Osteoarthritis = () => (
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
+      <ClusterGpAndLinks path="/conditions/osteoarthritis" />
       <UrgentHelpAndSources path="/conditions/osteoarthritis" />
       <EducationalDisclaimerBox lastReviewed="2026-09-28" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
