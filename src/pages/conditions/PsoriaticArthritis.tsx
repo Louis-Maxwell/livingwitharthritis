@@ -1,3 +1,5 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -23,6 +25,8 @@ const BASE = "https://livingwitharthritis.org.uk";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Psoriatic Arthritis – Symptoms, Causes & Treatment | Living With Arthritis",
   "description": "Complete UK guide to psoriatic arthritis (PsA): symptoms including joint pain and skin changes, diagnosis, treatment with DMARDs and biologics, exercises and lifestyle management.",
   "url": `${BASE}/conditions/psoriatic-arthritis`,
@@ -84,8 +88,8 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const PsoriaticArthritis = () => (
   <>
     <Helmet>
-      <title>Psoriatic Arthritis | Symptoms & Treatment (UK)</title>
-      <meta name="description" content="UK guide to psoriatic arthritis: the link between psoriasis and joint inflammation, symptoms, diagnosis, treatment and self-care." />
+      <title>Psoriatic Arthritis: Early Signs, Treatment & GP Help (UK)</title>
+      <meta name="description" content="Psoriasis plus sore, swollen joints? Learn the early signs of psoriatic arthritis, when to see a GP, and NICE-backed treatment and self-care." />
       <meta name="keywords" content="psoriatic arthritis, psoriatic arthritis symptoms, psoriatic arthritis treatment, PsA, psoriasis arthritis, dactylitis, enthesitis, ankylosing spondylitis, biologic therapy, psoriatic arthritis diet, anti-inflammatory diet, autoimmune arthritis, joint inflammation, chronic pain management, what causes arthritis, arthritis medication" />
       <meta property="og:title" content="Psoriatic Arthritis – Symptoms, Causes & Treatment" />
       <meta property="og:description" content="Complete UK guide to psoriatic arthritis: symptoms, modern treatments, exercises and self-management." />
@@ -363,6 +367,7 @@ const PsoriaticArthritis = () => (
             heading="Related arthritis reading"
           />
         </div>
+      <ClusterGpAndLinks path="/conditions/psoriatic-arthritis" badge />
       <UrgentHelpAndSources path="/conditions/psoriatic-arthritis" />
       </main>
       <InternalLinks />

@@ -114,8 +114,8 @@
     ]
   },
   "/conditions/psoriatic-arthritis": {
-    "title": "Psoriatic Arthritis UK | Symptoms & Treatment",
-    "description": "UK guide to psoriatic arthritis: the link between psoriasis and joint inflammation, symptoms, diagnosis, treatment and self-care.",
+    "title": "Psoriatic Arthritis: Early Signs, Treatment & GP Help (UK)",
+    "description": "Psoriasis plus sore, swollen joints? Learn the early signs of psoriatic arthritis, when to see a GP, and NICE-backed treatment and self-care.",
     "about": "Psoriatic arthritis",
     "question": "What is psoriatic arthritis?",
     "answer": "Psoriatic arthritis (PsA) is an inflammatory arthritis that affects around 1 in 5 people with psoriasis. It causes joint pain, swelling and stiffness — often in fingers, toes, lower back or knees — plus nail changes and skin plaques. Early diagnosis and DMARDs or biologics prevent joint damage.",
@@ -142,8 +142,8 @@
     ]
   },
   "/conditions/ankylosing-spondylitis": {
-    "title": "Ankylosing Spondylitis (axSpA) | UK Guide",
-    "description": "UK guide to ankylosing spondylitis: inflammatory back pain, morning stiffness, diagnosis, daily exercise, physio and biologic treatment.",
+    "title": "Ankylosing Spondylitis (axSpA): Signs & Treatment (UK)",
+    "description": "Back pain and morning stiffness under 45? Learn the signs of ankylosing spondylitis, when to see a GP, exercise and biologic treatment.",
     "about": "Ankylosing spondylitis",
     "question": "What is ankylosing spondylitis?",
     "answer": "Ankylosing spondylitis (AS), or axial spondyloarthritis, is a long-term inflammatory arthritis mainly affecting the spine and sacroiliac joints. It typically starts in the late teens or twenties with gradual lower back pain and morning stiffness that improves with movement. Daily exercise, physio and biologic drugs keep the spine flexible.",
@@ -186,8 +186,8 @@
     ]
   },
   "/conditions/gout": {
-    "title": "Gout: Causes, Symptoms & Treatment | UK Guide",
-    "description": "UK guide to gout: uric acid crystals, sudden severe joint pain, allopurinol treatment after repeat attacks, diet and alcohol changes.",
+    "title": "Gout: Symptoms, Triggers, Diet & Treatment (UK Guide)",
+    "description": "Sudden, very painful swollen joint? Learn gout symptoms, common triggers, diet changes, allopurinol treatment and when to see a GP.",
     "about": "Gout",
     "question": "What is gout?",
     "answer": "Gout is a type of inflammatory arthritis caused by high uric acid crystallising inside joints — usually the big toe — triggering sudden severe pain, redness and swelling. UK guidelines recommend urate-lowering therapy (allopurinol) after a second attack to prevent joint damage. Diet and alcohol adjustments help.",
@@ -314,8 +314,8 @@
     ]
   },
   "/conditions/knee-arthritis": {
-    "title": "Knee Arthritis UK | Symptoms, Treatment & Exercises",
-    "description": "Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide.",
+    "title": "Knee Arthritis: Symptoms, Best Exercises & Treatment (UK)",
+    "description": "Stiff, painful knees? Plain-English guide to knee arthritis: symptoms, exercises that help, treatment options and when to see a GP.",
     "about": "Knee osteoarthritis",
     "question": "What is knee arthritis?",
     "answer": "Knee arthritis is joint damage in the knee — most often osteoarthritis — causing pain when standing, walking or climbing stairs, stiffness after rest, and swelling. NICE recommends exercise and weight loss as first-line treatment; every 5 kg lost cuts knee load by roughly 20 kg.",
@@ -342,8 +342,8 @@
     ]
   },
   "/conditions/hip-arthritis": {
-    "title": "Hip Arthritis: Symptoms, Exercises & Relief | UK",
-    "description": "UK guide to hip arthritis: groin and buttock pain, stiffness, physio-led strengthening, weight management and hip replacement options.",
+    "title": "Hip Arthritis: Symptoms, Exercises & Treatment (UK)",
+    "description": "Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP.",
     "about": "Hip osteoarthritis",
     "question": "What is hip arthritis?",
     "answer": "Hip arthritis is joint damage — usually osteoarthritis — of the hip, causing groin or buttock pain, stiffness and difficulty putting on socks or shoes. Physio-led strengthening, weight management and, when severe, hip replacement (over 100,000 done in the UK each year) provide long-term relief.",
@@ -386,8 +386,8 @@
     ]
   },
   "/conditions/hand-arthritis": {
-    "title": "Hand Arthritis UK | Symptoms, Treatment & Exercises",
-    "description": "Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids.",
+    "title": "Hand Arthritis: Symptoms, Exercises & Daily Tips (UK)",
+    "description": "Painful, stiff fingers or weak grip? Learn the causes of hand arthritis, exercises, daily tips and when to see a GP. Reviewed by a physio.",
     "about": "Hand arthritis",
     "question": "What is hand arthritis?",
     "answer": "Hand arthritis affects the small joints of the fingers, thumbs and wrists. Osteoarthritis typically causes bony bumps and thumb-base pain; rheumatoid usually causes symmetrical knuckle swelling. Splints, hand exercises and topical NSAID gels help most people.",

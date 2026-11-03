@@ -1,3 +1,4 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
 ﻿import { Suspense, type ReactNode, type ElementType } from "react";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
@@ -144,6 +145,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           signOrSymptom: data.symptoms,
           riskFactor: data.causes,
           image: ogImage,
+          lastReviewed: "2026-10-26",
+          reviewedBy: { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
         }}
         faqs={data.faqs}
         // No breadcrumbs prop: <PageBreadcrumb> below already injects its
@@ -417,6 +420,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               />
             </Suspense>
           </div>
+          <ClusterGpAndLinks path={`/conditions/${data.slug}`} badge />
           <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
