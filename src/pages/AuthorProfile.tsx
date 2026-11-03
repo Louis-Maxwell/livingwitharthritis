@@ -202,7 +202,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
+          <section className="rounded-2xl border border-border p-6 bg-muted/60 mb-10">
             <h2 className="text-lg font-bold mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
               Our editorial standards explain how clinical content is checked
