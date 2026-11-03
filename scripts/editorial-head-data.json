@@ -152,7 +152,7 @@
   "/faq/what-is-osteoarthritis": {
     "title": "What is osteoarthritis? | Living With Arthritis",
     "description": "Osteoarthritis is the most common type of arthritis, caused by wear and tear of cartilage. It typically affects the knees, hips, hands, and spine.",
-    "question": "What is osteoarthritis?",
+    "question": "What is osteoarthritis? Quick answer",
     "answer": "Osteoarthritis is the most common type of arthritis, caused by wear and tear of cartilage. It typically affects the knees, hips, hands, and spine.",
     "breadcrumb": "What is Osteoarthritis?",
     "bodyHtml": "<h2>How Osteoarthritis Develops</h2><p>Cartilage (smooth tissue covering bones) gradually wears away, causing pain, stiffness, and inflammation. It usually develops slowly over years. Risk factors: age, female sex, previous injury, obesity, family history.</p><h2>Symptoms</h2><p>Joint pain (especially with activity), stiffness (especially morning), swelling, reduced movement, creaking sounds, pain in bad weather.</p><h2>Treatment</h2><p>Pain relief, anti-inflammatory drugs, injections, exercise, weight management, heat therapy. Surgery for severe cases.</p><h2>Can It Be Prevented?</h2><p>No guaranteed prevention, but manage weight, stay active, protect joints from injury, eat well, and manage related conditions.</p>",
@@ -177,7 +177,7 @@
   "/faq/what-is-rheumatoid-arthritis": {
     "title": "What is rheumatoid arthritis? | Living With Arthritis",
     "description": "Rheumatoid arthritis is an autoimmune condition where the immune system attacks joints, causing swelling, pain, and fatigue.",
-    "question": "What is rheumatoid arthritis?",
+    "question": "What is rheumatoid arthritis? Quick answer",
     "answer": "Rheumatoid arthritis is an autoimmune condition where the immune system attacks joints, causing swelling, pain, and fatigue.",
     "breadcrumb": "What is Rheumatoid Arthritis?",
     "bodyHtml": "<h2>What Happens in RA</h2><p>Your immune system mistakenly attacks the joints' protective lining, causing inflammation, swelling, pain, and eventually joint damage. Affects hands, feet, and other joints. More serious than OA.</p><h2>Symptoms</h2><p>Joint pain and swelling (usually hands, feet, wrists), morning stiffness (over 30 mins), fatigue, low-grade fever, depression.</p><h2>Diagnosis &amp; Treatment</h2><p>Blood tests (rheumatoid factor, CCP), ultrasound, X-rays. Treatment: DMARDs (disease-modifying drugs), biologics, pain relief, physiotherapy, lifestyle changes.</p><h2>Living Well with RA</h2><p>Early aggressive treatment is key. Most people can achieve remission or low disease activity with modern drugs. Work closely with your rheumatologist.</p>",
@@ -202,7 +202,7 @@
   "/faq/what-is-juvenile-arthritis": {
     "title": "What is juvenile arthritis? | Living With Arthritis",
     "description": "Juvenile arthritis is arthritis in children under 16. Despite the name, it can persist into adulthood and requires early, aggressive treatment.",
-    "question": "What is juvenile arthritis?",
+    "question": "What is juvenile arthritis? Quick answer",
     "answer": "Juvenile arthritis is arthritis in children under 16. Despite the name, it can persist into adulthood and requires early, aggressive treatment.",
     "breadcrumb": "What is Juvenile Arthritis?",
     "bodyHtml": "<h2>Types of Juvenile Arthritis</h2><p>Oligoarticular JA (1-4 joints affected), polyarticular JA (5+ joints), systemic JA (fever, rash, whole-body symptoms). Each requires different treatment.</p><h2>Impact on Children</h2><p>Can affect growth, school attendance, social development, self-esteem. Early diagnosis and treatment are crucial to prevent permanent joint damage.</p><h2>Treatment</h2><p>DMARDs, biologics, physiotherapy, occupational therapy, psychology support. Prognosis has improved dramatically with modern medications.</p><h2>Support Available</h2><p>Specialist paediatric rheumatologists, school support, summer camps for kids with JA, benefits/allowances, family counselling.</p>",
