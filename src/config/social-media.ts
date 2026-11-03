@@ -59,7 +59,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   instagram: {
     platform: 'instagram',
-    url: 'https://www.instagram.com/livingwitharthritisuk/',
+    url: 'https://www.instagram.com/livingwitharthritisorg/',
     label: 'Instagram',
     displayName: 'Instagram',
     icon: 'Instagram',
@@ -89,7 +89,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   threads: {
     platform: 'threads',
-    url: 'https://www.threads.com/@livingwitharthritisuk',
+    url: 'https://www.threads.com/@livingwitharthritisorg',
     label: 'Threads',
     displayName: 'Threads',
     icon: 'AtSign',
