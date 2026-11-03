@@ -119,6 +119,18 @@ export default function Arthritis() {
         <p className="leading-relaxed">A GP or first-contact practitioner will take a detailed history, examine your joints and check for swelling or restricted movement. Blood tests (CRP, ESR, rheumatoid factor, anti-CCP, uric acid) and imaging (X-ray, ultrasound, MRI) help identify the type and severity of arthritis and rule out other causes.</p>
       </section>
 
+      <section id="see-a-gp" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">When to see a GP about joint pain</h2>
+        <p className="mb-3 leading-relaxed">The NHS advises seeing a GP if you have joint pain, stiffness or swelling that does not go away, so the cause can be found. Do not try to self-diagnose. Book a routine GP appointment if:</p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>joint pain, stiffness or swelling has lasted for a few weeks</li>
+          <li>your joints are stiff for a long time in the morning</li>
+          <li>pain or stiffness is making work, sleep or everyday tasks harder</li>
+          <li>painkillers you can buy are not helping</li>
+        </ul>
+        <p className="mt-3 leading-relaxed">If you have persistent joint swelling, ask whether you need a rheumatology referral. NICE advises urgent referral for suspected inflammatory arthritis such as rheumatoid arthritis.</p>
+      </section>
+
       <section id="patients-look-for" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">What do arthritis patients commonly look for?</h2>
         <p className="mb-4 leading-relaxed">People newly diagnosed — and those managing arthritis long-term — typically search for help in four areas:</p>
@@ -140,6 +152,16 @@ export default function Arthritis() {
           <li><strong>Medication:</strong> for knee osteoarthritis NICE recommends a topical NSAID first, with oral NSAIDs considered if needed. Inflammatory arthritis is usually treated with DMARDs and sometimes biologics, prescribed by a rheumatology team. See our <Link to="/guides/arthritis-pain-relief" className="text-primary underline">pain relief guide</Link>.</li>
           <li><strong>Injections and surgery:</strong> corticosteroid injections can give short-term relief for some people. NICE advises against hyaluronic acid injections for osteoarthritis. Joint replacement may be discussed when symptoms seriously affect your life despite other treatment.</li>
           <li><strong>Mental health support:</strong> chronic pain affects mood — see our <Link to="/arthritis-mental-health" className="text-primary underline">mental health guide</Link>.</li>
+        </ul>
+      </section>
+
+      <section id="exercise" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">Exercise and staying active with arthritis</h2>
+        <p className="mb-3 leading-relaxed">Movement is one of the most helpful things you can do. NICE recommends therapeutic exercise, such as muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis, and the NHS encourages people with arthritis to stay active. Start gently, build up slowly, and it is normal to feel some extra aching at first.</p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li><Link to="/exercises" className="text-primary underline">Exercise library</Link>: step-by-step routines by joint.</li>
+          <li><Link to="/guides/exercise" className="text-primary underline">Best exercises for arthritis</Link>: low-impact strength, mobility and walking plans.</li>
+          <li>Ask your GP about NHS physiotherapy. In many areas you can refer yourself.</li>
         </ul>
       </section>
 
@@ -207,6 +229,17 @@ export default function Arthritis() {
             <p className="leading-relaxed text-foreground/85">{f.a}</p>
           </div>
         ))}
+      </section>
+
+      <section id="sources" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">Sources</h2>
+        <ul className="list-disc pl-6 space-y-2 text-sm">
+          <li><a href="https://www.nhs.uk/conditions/arthritis/" className="text-primary underline" rel="noopener" target="_blank">NHS: Arthritis</a></li>
+          <li><a href="https://www.nice.org.uk/guidance/ng226" className="text-primary underline" rel="noopener" target="_blank">NICE NG226: Osteoarthritis in over 16s</a></li>
+          <li><a href="https://www.nice.org.uk/guidance/ng100" className="text-primary underline" rel="noopener" target="_blank">NICE NG100: Rheumatoid arthritis in adults</a></li>
+          <li><a href="https://www.nice.org.uk/guidance/ng219" className="text-primary underline" rel="noopener" target="_blank">NICE NG219: Gout</a></li>
+        </ul>
+        <p className="mt-3 text-sm text-muted-foreground">Clinically reviewed by Louis Maxwell (HCPC PH128483).</p>
       </section>
 
       <UrgentHelpAndSources path="/conditions/arthritis" />
