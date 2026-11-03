@@ -83,6 +83,8 @@ const CURATED = [
   "/conditions/hand-arthritis",
   "/conditions/shoulder-arthritis",
   "/conditions/elbow-arthritis",
+  "/conditions/back-pain",
+  "/conditions/early-arthritis-symptoms",
   "/conditions/polymyalgia-rheumatica",
   "/conditions/reactive-arthritis",
   "/supplements",

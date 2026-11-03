@@ -130,6 +130,8 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
   { label: "Gout", href: "/conditions/gout" },
   { label: "Elbow Pain & Arthritis", href: "/conditions/elbow-arthritis" },
+  { label: "Back Pain & Arthritis", href: "/conditions/back-pain" },
+  { label: "Early Signs of Arthritis", href: "/conditions/early-arthritis-symptoms" },
   { label: "Foot & Ankle Arthritis", href: "/conditions/foot-and-ankle-arthritis" },
   { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
   { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
