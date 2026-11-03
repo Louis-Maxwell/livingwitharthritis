@@ -276,6 +276,8 @@ const ExerciseHub = () => {
       <section aria-label="Movement is medicine" className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">
         <img
           src="/images/diver-movement.webp"
+          srcSet="/images/diver-movement-640.webp 640w, /images/diver-movement-1024.webp 1024w, /images/diver-movement.webp 1920w"
+          sizes="100vw"
           alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
           width={1920}
           height={1440}
