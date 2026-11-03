@@ -387,6 +387,7 @@ function AnimatedRoutes() {
         <Route path="/guides/bone-density-osteoporosis" element={<GuideLayout currentPath="/guides/bone-density-osteoporosis"><BoneDensityOsteoporosis /></GuideLayout>} />
         <Route path="/guides/fall-prevention-older-adults" element={<GuideLayout currentPath="/guides/fall-prevention-older-adults"><FallPreventionOlderAdults /></GuideLayout>} />
         <Route path="/conditions/arthritis" element={<Arthritis />} />
+        <Route path="/arthritis" element={<Navigate to="/conditions/arthritis" replace />} />
         <Route path="/guides/musculoskeletal-health" element={<GuideLayout currentPath="/guides/musculoskeletal-health"><MusculoskeletalHealth /></GuideLayout>} />
         <Route path="/guides/disability-support" element={<GuideLayout currentPath="/guides/disability-support"><DisabilitySupport /></GuideLayout>} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
