@@ -275,7 +275,7 @@ export default function TaiChiForArthritis() {
                       aria-label={`Play ${m.name}`}
                       className="group relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
-                      <div className="aspect-video bg-muted/40 overflow-hidden">
+                      <div className="aspect-video bg-muted/40 overflow-hidden" aria-hidden="true">
                         <Anim className="w-full h-full object-cover" />
                       </div>
                       <span className="absolute inset-0 flex items-center justify-center bg-primary/0 group-hover:bg-primary/40 group-focus-visible:bg-primary/40 transition-colors">

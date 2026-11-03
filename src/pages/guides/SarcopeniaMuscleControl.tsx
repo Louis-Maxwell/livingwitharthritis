@@ -100,7 +100,7 @@ export default function SarcopeniaMuscleControl() {
       <section id="strength" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">4. Strength training for sarcopenia (adapted for arthritis)</h2>
         <p className="leading-relaxed mb-4">Two sessions per week targeting all major muscle groups: legs (sit-to-stand, step-ups), hips (bridges, clamshells), back (band rows), chest (wall push-ups) and core. Use 8–12 reps at a load you can just complete.</p>
-        <p className="leading-relaxed">More in our <Link to="/exercises" className="text-primary underline">exercise hub</Link> and <Link to="/blog/knee-osteoarthritis-exercises" className="text-primary underline">knee OA exercises</Link>.</p>
+        <p className="leading-relaxed">More in our <Link to="/exercises" className="text-primary underline">exercise hub</Link> and <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline">knee OA exercises</Link>.</p>
       </section>
 
       <section id="supplements" className="mb-12">
