@@ -23,6 +23,8 @@ export interface FaqArticle {
   sections: FaqSection[];
   relatedArticles: string[];
   category: string;
+  /** Optional on-page H1 (defaults to question). Use to keep H1s unique. */
+  h1?: string;
   /** Optional CTR title for <title>/OG (defaults to question). */
   seoTitle?: string;
   /** Optional meta description (defaults to quickAnswer slice). */
@@ -182,6 +184,7 @@ export const faqArticles: FaqArticle[] = [
     slug: 'what-is-osteoarthritis',
     title: 'What is Osteoarthritis?',
     question: 'What is osteoarthritis?',
+    h1: 'What is osteoarthritis? Quick answer',
     quickAnswer:
       'Osteoarthritis is the most common type of arthritis, caused by wear and tear of cartilage. It typically affects the knees, hips, hands, and spine.',
     sections: [
@@ -198,6 +201,7 @@ export const faqArticles: FaqArticle[] = [
     slug: 'what-is-rheumatoid-arthritis',
     title: 'What is Rheumatoid Arthritis?',
     question: 'What is rheumatoid arthritis?',
+    h1: 'What is rheumatoid arthritis? Quick answer',
     quickAnswer:
       'Rheumatoid arthritis is an autoimmune condition where the immune system attacks joints, causing swelling, pain, and fatigue.',
     sections: [
@@ -214,6 +218,7 @@ export const faqArticles: FaqArticle[] = [
     slug: 'what-is-juvenile-arthritis',
     title: 'What is Juvenile Arthritis?',
     question: 'What is juvenile arthritis?',
+    h1: 'What is juvenile arthritis? Quick answer',
     quickAnswer:
       'Juvenile arthritis is arthritis in children under 16. Despite the name, it can persist into adulthood and requires early, aggressive treatment.',
     sections: [

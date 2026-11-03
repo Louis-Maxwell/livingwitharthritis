@@ -107,7 +107,7 @@ export default function FaqArticle() {
         keywords={`${article.title}, arthritis, ${article.category}`}
       />
 
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.question}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.h1 ?? article.question}</h1>
 
       <div className="bg-accent/40 border-l-4 border-primary p-6 rounded-r-lg my-6 text-lg font-semibold">
         {article.quickAnswer}
