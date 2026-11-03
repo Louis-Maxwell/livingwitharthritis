@@ -4,6 +4,8 @@ import { useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ukCities } from "@/data/ukCities";
+import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
+import { COMPARISON_CONTENT } from "@/data/comparison-content";
 
 interface SitemapLink {
   label: string;
@@ -75,6 +77,19 @@ const conditionSubpageLinks: SitemapLink[] = CONDITION_SUBPAGE_SLUGS.flatMap(
 const cityLinks: SitemapLink[] = ukCities.map((c) => ({
   label: `Arthritis Support in ${c.name}`,
   href: `/arthritis-support/${c.slug}`,
+}));
+
+// Side-by-side comparison guides (/guides/*-vs-*). Several were only reachable
+// from other comparisons, so the rendered crawl flagged them as orphans.
+const comparisonLinks: SitemapLink[] = COMPARISON_ROUTES.map((href) => ({
+  label:
+    COMPARISON_CONTENT[href]?.title ??
+    href
+      .replace("/guides/", "")
+      .split("-")
+      .map((w) => (w === "vs" ? "vs" : w.charAt(0).toUpperCase() + w.slice(1)))
+      .join(" "),
+  href,
 }));
 
 // Curated set of every public, indexable page. Auth/admin/utility routes
@@ -235,6 +250,18 @@ const ALL_LINKS: SitemapLink[] = [
 
   // XML sitemap (external)
   { label: "XML Sitemap (machine-readable)", href: "/sitemap.xml", external: true },
+  // Pages the rendered crawl found with no inbound links
+  { label: "Arthritis Support in the Midlands", href: "/regions/midlands" },
+  { label: "Arthritis Support in North West England", href: "/regions/north-west" },
+  { label: "Arthritis Support in Scotland", href: "/regions/scotland" },
+  { label: "Arthritis Support in Wales", href: "/regions/wales" },
+  { label: "Step Counter & Pedometer", href: "/pedometer" },
+  { label: "Medical Reviewers", href: "/reviewers" },
+  { label: "Authors", href: "/authors" },
+  { label: "In-depth Arthritis Articles", href: "/expert-articles" },
+  { label: "Neck Arthritis Exercises", href: "/exercises/neck-arthritis-exercises" },
+  { label: "Fund 500 Personalised Exercise Plans", href: "/campaigns/exercise-circuit-500" },
+  ...comparisonLinks,
 ];
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
