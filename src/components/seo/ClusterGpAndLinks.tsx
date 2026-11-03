@@ -12,6 +12,17 @@ const JOINT_GP = [
 
 /** Routine "see a GP" guidance (NHS wording, signposting only) + hub and sideways links. */
 const CLUSTER: Record<string, Entry> = {
+  "/conditions/back-pain": { name: "back pain", gp: [
+    "back pain has not started to improve after a few weeks",
+    "the pain is stopping you doing day-to-day activities",
+    "the pain is very bad or getting worse over time",
+    "back pain and stiffness have lasted more than 3 months, started before age 45 and are worse in the morning"], related: [
+    { to: "/conditions/axial-spondyloarthritis", label: "Axial spondyloarthritis" }, { to: "/conditions/ankylosing-spondylitis", label: "Ankylosing spondylitis" },
+    { to: "/conditions/early-arthritis-symptoms", label: "Early signs of arthritis" }, { to: "/blog/spinal-arthritis-back-pain-uk", label: "Spinal arthritis guide" }] },
+  "/conditions/early-arthritis-symptoms": { name: "early arthritis symptoms", gp: [
+    ...JOINT_GP, "a joint is swollen, or several joints are stiff for more than 30 minutes in the morning"], related: [
+    { to: "/conditions/osteoarthritis", label: "Osteoarthritis" }, { to: "/conditions/rheumatoid-arthritis", label: "Rheumatoid arthritis" },
+    { to: "/conditions/back-pain", label: "Back pain and arthritis" }, { to: "/symptom-checker", label: "Symptom checker" }] },
   "/conditions/osteoarthritis": { name: "osteoarthritis", gp: [...JOINT_GP, "a joint keeps giving way or locking"], related: [
     { to: "/conditions/knee-arthritis", label: "Knee arthritis" }, { to: "/conditions/hip-arthritis", label: "Hip arthritis" },
     { to: "/conditions/hand-arthritis", label: "Hand arthritis" }, { to: "/guides/can-exercise-make-osteoarthritis-worse", label: "Can exercise make osteoarthritis worse?" }] },

@@ -43,6 +43,8 @@ const JOINTS = [
   { to: '/conditions/shoulder-arthritis', label: 'Shoulder arthritis' },
   { to: '/conditions/elbow-arthritis', label: 'Elbow arthritis' },
   { to: '/conditions/foot-and-ankle-arthritis', label: 'Foot and ankle arthritis' },
+  { to: '/conditions/back-pain', label: 'Back pain and arthritis' },
+  { to: '/conditions/early-arthritis-symptoms', label: 'Early signs of arthritis' },
 ];
 
 export default function Arthritis() {

@@ -78,6 +78,8 @@ const HipArthritis = lazyWithRetry(() => import("./pages/conditions/HipArthritis
 const HandArthritis = lazyWithRetry(() => import("./pages/conditions/HandArthritis"));
 const ShoulderArthritis = lazyWithRetry(() => import("./pages/conditions/ShoulderArthritis"));
 const ElbowArthritis = lazyWithRetry(() => import("./pages/conditions/ElbowArthritis"));
+const BackPain = lazyWithRetry(() => import("./pages/conditions/BackPain"));
+const EarlyArthritisSymptoms = lazyWithRetry(() => import("./pages/conditions/EarlyArthritisSymptoms"));
 const FootAndAnkleArthritis = lazyWithRetry(() => import("./pages/conditions/FootAndAnkleArthritis"));
 const PolymyalgiaRheumatica = lazyWithRetry(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazyWithRetry(() => import("./pages/conditions/ReactiveArthritis"));
@@ -361,6 +363,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/hip-arthritis" element={<HipArthritis />} />
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/conditions/elbow-arthritis" element={<ElbowArthritis />} />
+        <Route path="/conditions/back-pain" element={<BackPain />} />
+        <Route path="/conditions/early-arthritis-symptoms" element={<EarlyArthritisSymptoms />} />
         <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
         <Route path="/conditions/foot-and-ankle-arthritis" element={<FootAndAnkleArthritis />} />
         <Route path="/conditions/ankle-arthritis" element={<FootAndAnkleArthritis />} />

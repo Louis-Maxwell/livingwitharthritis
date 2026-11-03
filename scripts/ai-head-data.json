@@ -6926,5 +6926,49 @@
         "url": "https://www.nice.org.uk/guidance/ng100"
       }
     ]
+  },
+  "/conditions/back-pain": {
+    "title": "Is My Back Pain Arthritis? Signs, Types & When to See a GP",
+    "description": "How to tell if back pain could be arthritis: wear-related spinal changes vs inflammatory back pain (axial SpA), self-help that works, red flags and when to see a GP.",
+    "about": "Back pain and arthritis",
+    "question": "Is my back pain caused by arthritis?",
+    "answer": "Most back pain is not caused by arthritis and improves within a few weeks with keeping active. Arthritis is more likely when back pain lasts for months or keeps returning. Inflammatory back pain from axial spondyloarthritis typically starts before 45, lasts over 3 months, is worse in the morning and improves with exercise; it needs a GP review.",
+    "updatedAt": "2026-11-03",
+    "sources": [
+      {
+        "name": "NHS: Back pain",
+        "url": "https://www.nhs.uk/conditions/back-pain/"
+      },
+      {
+        "name": "NICE NG59: Low back pain and sciatica",
+        "url": "https://www.nice.org.uk/guidance/ng59"
+      },
+      {
+        "name": "NICE NG65: Spondyloarthritis in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng65"
+      }
+    ]
+  },
+  "/conditions/early-arthritis-symptoms": {
+    "title": "Early Signs of Arthritis: 7 Symptoms & When to See a GP (UK)",
+    "description": "The early signs of arthritis explained: joint pain, stiffness, swelling and warmth, how osteoarthritis and inflammatory arthritis start differently, and when to see a GP.",
+    "about": "Early symptoms of arthritis",
+    "question": "What are the first signs of arthritis?",
+    "answer": "The first signs of arthritis are joint pain, stiffness, swelling or reduced movement lasting more than a few weeks. Osteoarthritis starts gradually with brief stiffness and pain after activity; inflammatory arthritis more often causes warm swollen joints and morning stiffness over 30 minutes. See a GP if a joint is swollen or symptoms are not settling.",
+    "updatedAt": "2026-11-03",
+    "sources": [
+      {
+        "name": "NHS: Arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: Joint pain",
+        "url": "https://www.nhs.uk/symptoms/joint-pain/"
+      },
+      {
+        "name": "NICE NG100: Rheumatoid arthritis in adults",
+        "url": "https://www.nice.org.uk/guidance/ng100"
+      }
+    ]
   }
 }
