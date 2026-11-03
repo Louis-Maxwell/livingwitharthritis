@@ -108,7 +108,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | 109–118 list complete: 115 and 117 shipped 2 Nov; 112–114, 116 and 118 rewritten by the Frailty IMPROVE batches (#341, #343, #345). Champions 119–128 re-ranked in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (194 template posts left, 112 of them published) |
+| Champions 11–30 upgraded | **done** (in M1) | 119–121 shipped 3 Nov (hospital appointments, council needs assessment, loneliness). After the Frailty IMPROVE batches #347–#367 the published template pool is down to 7 posts (Champions 122–128); 89 template files left in total, the rest unpublished behind merge-plan 301s (`docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -121,6 +121,32 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
 
 ---
+
+## Daily log — 3 Nov 2026 (M2 day 17, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 2 Nov: Champions 119–120, then 121–122, then M3 pillar prep. Checked `main` and open PRs first: no open PR touches 119–122, but the Frailty IMPROVE batches 4–24 (#347–#367, merged 2 Nov) had rewritten about 105 more template posts, so the 2 Nov "194 left" figure was out of date (recount below). This run shipped 119, 120 and 121 as rewrites on their existing URLs: no redirects changed, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483). Covers unchanged. The site now auto-publishes from `main` when CI passes (since 2 Nov), so Louis does not need to press Publish.
+
+### Shipped
+- **Champion 119 — `/blog/hospital-appointments-frailty-arthritis-uk`:** full rewrite into "Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)". Adjustments to ask for before the day (time of day, phone or video, wheelchair or help from the entrance, seating, combined appointments, accessible information), non-emergency patient transport, Healthcare Travel Costs Scheme and Low Income Scheme, community transport, free parking for disabled people in England and the Blue Badge, what to take, eye clinic drops (do not drive home), on the day, ringing before the date if you cannot attend, PALS, carers, red flags. Keeps the eye-clinic and parking topics merged in by the 301s. Cites NHS transport, NEPTS eligibility criteria, HTCS, LIS, DHSC parking guidance, Blue Badge, going into hospital, PALS, NHS App, CTA, 111
+- **Champion 120 — `/blog/social-care-needs-assessment-arthritis-uk`:** full rewrite into "Social care needs assessments for arthritis: how to ask your council for help at home (UK guide)". Free for anyone, how to ask, why arthritis is under-described (Care Act eligibility in plain words: significant pain, much longer, unsafe), diary of bad days, bringing someone or an advocate, what happens in the assessment, care plan, financial assessment, direct payments, advice if not eligible, reviews, complaints and the Ombudsman, carers, when it cannot wait; notes that Scotland, Wales and Northern Ireland have their own rules. Category Conditions → Carers & family. Cites NHS needs assessment, GOV.UK, Care Act statutory guidance, NHS advocate, care after hospital, carer assessments, direct payments, LGSCO, Age UK, 111
+- **Champion 121 — `/blog/loneliness-arthritis-frailty-social-contact-uk`:** full rewrite into "Loneliness and arthritis: rebuilding social contact when pain keeps you at home (UK guide)". How pain, tiredness, fear of falling and transport shrink your world, small steps planned around joints, The Silver Line, telephone and face-to-face befriending (kept from the befriending 301), video calls, social prescribing, slow walking and faith groups, community transport, volunteering, tackling what keeps you in (pain review, falls confidence, hearing and sight, needs assessment), low mood and talking therapies, Samaritans 116 123, 111 and 999, family and neighbours. Cites NHS loneliness, Every Mind Matters, NHS England social prescribing, NHS Talking Therapies, Age UK Silver Line and befriending, Royal Voluntary Service, Samaritans, CTA, NICE NG193, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 3 November 2026", charity 1218461, educational-not-diagnostic wording, early handoffs to the neighbouring gold-pass guides; no frailty-template filler, no "10 million", no percentages, no doses, no prices, no addresses
+- **`topicClusters.ts`:** 119 in treatments, 120 in benefits (pip), 121 in flare-ups (with the mental health guides), each with triggers; **chatbot KB:** related links on the blood-test transport, benefits and mental health entries
+- Sitemap `lastmod` **2026-11-03**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 119–121 ticked with a progress line and the recount: **89 template files left, 7 published** (Champions 122–128)
+- **Tests:** `src/lib/__tests__/gsc-champions-119-121-03-nov.test.ts`
+
+### Still blocked on Louis (no change since 2 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand); GSC URL Inspection on the rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 122–124 (pacing housework, osteoporosis with arthritis, night pain and sleep), after checking `main` for overlapping Frailty IMPROVE batches
+2. Champions 125–128 (wheelchair for distance, waiting for community OT, hip and knee transfers, meal delivery), which clears the published template pool
+3. M3 prep before ~11 Nov: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass and scope the first linkable asset PDF
 
 ## Daily log — 2 Nov 2026 (M2 day 16, weekday run)
 

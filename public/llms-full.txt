@@ -4601,18 +4601,25 @@ Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/s
 Reference: NHS: Help and support for carers — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/
 Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
 
-## Hospital appointments when frailty and arthritis make the day huge (UK)
+## Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-03
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Hospital appointments when frailty and arthritis make the day huge (UK)
-A: Living With Arthritis covers hospital appointments when frailty and arthritis make the day huge without miracle claims — just safer movement and clearer next steps. This UK guide looks at one-stop planning, porters and waiting-room chairs in a hospital setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG56 – Multimorbidity — https://www.nice.org.uk/guidance/ng56
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-03
+Q: Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)
+A: A hospital appointment can take a whole day when arthritis makes walking, sitting and waiting painful, but most of the hard parts can be planned for. Ask the clinic before the day for the adjustments you need, such as a ground-floor room, an early slot, a wheelchair at the entrance or a phone or video appointment instead. Ask your GP or hospital team whether you qualify for free non-emergency patient transport, check the hospital's parking rules for disabled people, and take your appointment letter, a list of your medicines and your questions. If you cannot get there, tell the clinic before the date rather than missing it. Never stop or change a prescribed medicine yourself before a test unless the clinic tells you to.
+Reference: NHS: How to organise transport to and from hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/how-to-organise-transport-to-and-from-hospital/
+Reference: NHS England: Non-emergency patient transport services eligibility criteria — https://www.england.nhs.uk/wp-content/uploads/2022/05/B1244-nepts-eligibility-criteria.pdf
+Reference: NHS: Healthcare Travel Costs Scheme (HTCS) — https://www.nhs.uk/nhs-services/help-with-health-costs/healthcare-travel-costs-scheme-htcs/
+Reference: NHS: NHS Low Income Scheme — https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis/
+Reference: GOV.UK: NHS patient, visitor and staff car parking management — https://www.gov.uk/government/publications/nhs-patient-visitor-and-staff-car-parking-principles
+Reference: GOV.UK: Apply for a Blue Badge — https://www.gov.uk/apply-blue-badge
+Reference: NHS: Going into hospital — https://www.nhs.uk/nhs-services/hospitals/going-into-hospital/
+Reference: NHS: What is PALS (Patient Advice and Liaison Service)? — https://www.nhs.uk/nhs-services/hospitals/what-is-pals-patient-advice-and-liaison-service/
+Reference: NHS App — https://www.nhs.uk/nhs-app/
+Reference: Community Transport Association — https://ctauk.org/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Avoiding deconditioning in hospital when you have arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/hospital-deconditioning-arthritis-stay-uk
@@ -5088,18 +5095,25 @@ Reference: Age UK: Adapting your home — https://www.ageuk.org.uk/information-a
 Reference: NHS: Hypothermia — https://www.nhs.uk/conditions/hypothermia/
 Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
-## Loneliness, arthritis and frailty: rebuilding social contact (UK)
+## Loneliness and arthritis: rebuilding social contact when pain keeps you at home (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/loneliness-arthritis-frailty-social-contact-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-03
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Loneliness, arthritis and frailty: rebuilding social contact (UK)
-A: If walking, rising and recovering all feel harder, arthritis and frailty may be overlapping even without a formal label. This UK guide looks at isolation after walking range shrinks in a home setting, with practical steps, warning signs and Scotland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS Inform — https://www.nhsinform.scot
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-03
+Q: Loneliness and arthritis: rebuilding social contact when pain keeps you at home (UK guide)
+A: Arthritis can shrink your world: pain, tiredness and worry about falling make it harder to get out, and seeing fewer people can then make pain and low mood feel worse. Start small and plan around your joints, such as one phone call a day, a short visit at the time you are least stiff, or a group with seating and easy access. Free phone friendship services, befriending schemes and your GP surgery's social prescribing link worker can help. If loneliness has turned into low mood for more than two weeks, talk to your GP or refer yourself to NHS talking therapies. If you feel you cannot go on, call Samaritans on 116 123 or 999 in an emergency.
+Reference: NHS: Feeling lonely — https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/loneliness-in-older-people/
+Reference: NHS Every Mind Matters: Loneliness — https://www.nhs.uk/every-mind-matters/lifes-challenges/loneliness/
+Reference: NHS England: Social prescribing — https://www.england.nhs.uk/personalisedcare/social-prescribing/
+Reference: NHS: NHS Talking Therapies — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/nhs-talking-therapies/
+Reference: Age UK: The Silver Line Helpline — https://www.ageuk.org.uk/services/silverline/
+Reference: Age UK: Befriending services — https://www.ageuk.org.uk/services/befriending-services/
+Reference: Royal Voluntary Service: Our services — https://www.royalvoluntaryservice.org.uk/our-services/
+Reference: Samaritans: Contact us — https://www.samaritans.org/how-we-can-help/contact-samaritan/
+Reference: Community Transport Association — https://ctauk.org/
+Reference: NICE NG193: Chronic pain in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Healthy habits for living well with arthritis as you age (UK)
 URL: https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients
@@ -7365,18 +7379,25 @@ Q: Smart speakers and voice assistants with arthritis and frailty (UK)
 A: Smart speakers can help with reminders, calls, music and controlling lights or heating without using stiff hands. They are not a replacement for a community alarm or 999 in an emergency. Ask someone you trust to help set one up.
 Reference: NHS: Care services, equipment and care homes — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/
 
-## Social care needs assessments for arthritis and frailty (UK)
+## Social care needs assessments for arthritis: how to ask your council for help at home (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/social-care-needs-assessment-arthritis-uk
-Last updated: 2026-09-05
+Last updated: 2026-11-03
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Social care needs assessments for arthritis and frailty (UK)
-A: The practical overlap of arthritis and frailty is simple to spot: tasks that used to be boring now need a pause or a second person. This UK guide looks at asking the council for a Care Act assessment in plain English in a home setting, with practical steps, warning signs and England services. It is general information, not personal medical advice.
-Reference: GOV.UK – Getting social care — https://www.nhs.uk/conditions/social-care-and-support-guide/
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Last clinically reviewed: 2026-11-03
+Q: Social care needs assessments for arthritis: how to ask your council for help at home (UK guide)
+A: If arthritis makes everyday things like washing, dressing, cooking or getting around your home hard, you can ask your local council's adult social care team for a needs assessment. It is free, anyone can ask for one, and you do not need a diagnosis of anything else or a set level of income. Describe your bad days, not your best ones: say what you cannot do, what takes much longer, what hurts, and what is unsafe. The assessment can lead to equipment, home changes, help from carers or other support, and you can complain if you disagree with the result.
+Reference: NHS: Getting a care needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: GOV.UK: Apply for a needs assessment by social services — https://www.gov.uk/apply-needs-assessment-social-services
+Reference: GOV.UK: Care and support statutory guidance (Care Act 2014) — https://www.gov.uk/government/publications/care-act-statutory-guidance/care-and-support-statutory-guidance
+Reference: NHS: Someone to speak up for you (advocate) — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/someone-to-speak-up-for-you-advocate/
+Reference: NHS: Care after a hospital stay — https://www.nhs.uk/social-care-and-support/care-after-a-hospital-stay/
+Reference: NHS: Carer's assessments — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-assessments/
+Reference: GOV.UK: Apply for direct payments — https://www.gov.uk/apply-direct-payments
+Reference: NHS: Social care and support guide — https://www.nhs.uk/social-care-and-support/
+Reference: Local Government and Social Care Ombudsman — https://www.lgo.org.uk/
+Reference: Age UK: Befriending and support services — https://www.ageuk.org.uk/services/befriending-services/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Social prescribing for arthritis and frailty (UK)
 URL: https://livingwitharthritis.org.uk/blog/social-prescribing-arthritis-frailty-uk

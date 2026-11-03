@@ -134,9 +134,9 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 
 | # | Slug | Inbound (all / from non-template) | Suggested job |
 |---|---|---|---|
-| 119 | `hospital-appointments-frailty-arthritis-uk` | 8 / 5 | Getting to and through hospital appointments: transport, what to bring, asking for adjustments |
-| 120 | `social-care-needs-assessment-arthritis-uk` | 6 / 5 | How to ask for a council needs assessment and what to say (now linked from 117) |
-| 121 | `loneliness-arthritis-frailty-social-contact-uk` | 6 / 5 | Rebuilding social contact when pain keeps you in |
+| 119 ✅ | `hospital-appointments-frailty-arthritis-uk` | 8 / 5 | Getting to and through hospital appointments: transport, what to bring, asking for adjustments |
+| 120 ✅ | `social-care-needs-assessment-arthritis-uk` | 6 / 5 | How to ask for a council needs assessment and what to say (now linked from 117) |
+| 121 ✅ | `loneliness-arthritis-frailty-social-contact-uk` | 6 / 5 | Rebuilding social contact when pain keeps you in |
 | 122 | `pacing-housework-arthritis-frailty-uk` | 9 / 4 | Pacing housework and chores; when to get help |
 | 123 | `osteoporosis-arthritis-frailty-bone-joint-uk` | 7 / 4 | Osteoporosis and arthritis together: bones, falls, exercise (hand off to Champion 84) |
 | 124 | `sleep-arthritis-frailty-night-pain-uk` | 7 / 4 | Night pain and sleep (narrow vs the gold-pass sleep guides) |
@@ -144,6 +144,8 @@ Grouped by slug keywords. A few posts could sit in more than one group.
 | 126 | `community-ot-waiting-arthritis-frailty-uk` | 8 / 3 | Waiting for community OT: what to do meanwhile (pairs with Champion 107) |
 | 127 | `hip-and-knee-oa-frailty-transfers-uk` | 7 / 3 | Bed, chair, toilet and car transfers with hip and knee OA |
 | 128 | `meal-delivery-arthritis-frailty-uk` | 6 / 3 | Meals on wheels, frozen meal delivery and help with food (pairs with Champion 108) |
+
+**Progress (3 Nov):** 119–121 done. Recount first: the Frailty IMPROVE batches 4–24 (#347–#367, merged 2 Nov) rewrote about 105 more posts after the 2 Nov count, so the 194 figure was out of date. On the same all-files scan for the main fingerprint there were **92 files on 3 Nov before this run, 10 of them published**, and those 10 were exactly Champions 119–128 (the other 82 are unpublished behind merge-plan 301s). No open PR touched 119–122. Overlap checked: 119 is getting to and through outpatient appointments (adjustments to ask for, phone or video options, non-emergency patient transport, travel cost refunds and the Low Income Scheme, community transport, free hospital parking for disabled people in England and the Blue Badge, what to take, eye clinic drops and not driving home, PALS, what to do if you cannot attend, carers, red flags). It keeps the eye-clinic and parking topics merged in from `eye-clinic-day-arthritis-frailty-uk` and `hospital-parking-walking-frail-arthritis-uk` (301s) and hands off in its first section to Champion 100 (`blood-test-transport-arthritis-frailty-uk`), `rheumatology-appointment-what-to-expect-uk` and the hospital-stay packing guide. 120 is how to ask the council for a needs assessment and what to say (free for anyone, Care Act eligibility in plain words including "significant pain" and "much longer", a diary of bad days, advocates, what can follow, the financial assessment, direct payments, refusals, complaints and the Ombudsman, carers). It hands off early to Champion 117 (equipment), the carer's assessment and Attendance Allowance; category Conditions → Carers & family. 121 is rebuilding social contact when pain keeps you in (small steps planned around joints, The Silver Line, befriending kept from the `befriending-arthritis-frailty-uk` 301, social prescribing, groups and transport, what keeps you in, low mood, Samaritans 116 123, 111 and 999). It hands off early to `depression-arthritis-when-to-seek-help` and the bereavement guide. All three reviewed by Louis Maxwell (last_reviewed 2026-11-03). Covers unchanged (119 and 120 still have unrelated covers; worth a later swap with the unique-covers test). **89 template files left, 7 published** (122–128). Next: 122–124, then 125–128, which clears the published template pool.
 
 ## Re-ranked next 10 (Champions 99–108), 23 Oct 2026
 
