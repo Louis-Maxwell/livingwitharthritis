@@ -44,7 +44,7 @@ const DEFAULT_POOL: NextReadItem[] = [
     blurb: "A step-by-step plan for the first 24 hours.",
   },
   {
-    to: "/self-help-tool",
+    to: "/self-help",
     eyebrow: "Tool",
     title: "Self-help tool",
     blurb: "Find the right next step for your symptoms in two minutes.",

@@ -223,7 +223,6 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/supplements/glucosamine",
       "/diet/mediterranean-diet-for-arthritis",
       "/diet/foods-to-avoid-with-arthritis",
-      "/library/glucosamine",
     ],
     toolPath: "/chat",
     toolLabel: "Ask about diet",

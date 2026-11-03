@@ -93,7 +93,12 @@ export function buildCityHubHtml(city, assetTags = "") {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Living With Arthritis" />
     <meta property="og:locale" content="en_GB" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${escapeHtml(`Arthritis support in ${city.name} from Living With Arthritis`)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
     <meta name="twitter:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
