@@ -11,7 +11,7 @@ const JOINT_GP = [
 ];
 
 /** Routine "see a GP" guidance (NHS wording, signposting only) + hub and sideways links. */
-export const CLUSTER: Record<string, Entry> = {
+const CLUSTER: Record<string, Entry> = {
   "/conditions/osteoarthritis": { name: "osteoarthritis", gp: [...JOINT_GP, "a joint keeps giving way or locking"], related: [
     { to: "/conditions/knee-arthritis", label: "Knee arthritis" }, { to: "/conditions/hip-arthritis", label: "Hip arthritis" },
     { to: "/conditions/hand-arthritis", label: "Hand arthritis" }, { to: "/guides/can-exercise-make-osteoarthritis-worse", label: "Can exercise make osteoarthritis worse?" }] },
