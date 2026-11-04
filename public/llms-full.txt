@@ -6190,18 +6190,26 @@ A: Osteoarthritis is the most common form of arthritis, affecting millions. It o
 Reference: NHS: Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
 Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
 
-## Osteoporosis, arthritis and frailty: protecting bone and joint together (UK)
+## Osteoporosis and arthritis together: bone scans, falls, exercise and medicines (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/osteoporosis-arthritis-frailty-bone-joint-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-04
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Osteoporosis, arthritis and frailty: protecting bone and joint together (UK)
-A: When osteoarthritis with osteoporosis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on bone fragility plus sore joints, for readers in England, with self-management ideas and when to contact a GP, NHS 111 or 999.
-Reference: NHS – Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
+Last clinically reviewed: 2026-11-04
+Q: Osteoporosis and arthritis together: bone scans, falls, exercise and medicines (UK guide)
+A: Osteoporosis and arthritis are different conditions that often happen together. Arthritis affects joints and causes pain and stiffness. Osteoporosis makes bones weaker and more likely to break, and usually causes no symptoms until a bone breaks. Rheumatoid arthritis, steroid tablets, older age, the menopause and low activity all raise the risk. If you have any of these, or you have broken a bone after a minor fall, ask your GP whether you need a fracture risk check or a bone density (DEXA) scan. Keep active with strength, balance and weight-bearing exercise, get enough calcium and vitamin D, reduce your falls risk, and never stop or change a prescribed bone or arthritis medicine yourself.
+Reference: NHS: Osteoporosis — https://www.nhs.uk/conditions/osteoporosis/
+Reference: NHS: Bone density scan (DEXA scan) — https://www.nhs.uk/conditions/dexa-scan/
+Reference: NICE CG146: Osteoporosis – assessing the risk of fragility fracture — https://www.nice.org.uk/guidance/cg146
+Reference: NICE NG249: Falls – assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: Royal Osteoporosis Society: Osteoporosis — https://theros.org.uk/information-and-support/osteoporosis/
+Reference: Royal Osteoporosis Society: Exercise for bones — https://theros.org.uk/information-and-support/bone-health/exercise-for-bones/
+Reference: NHS: Calcium — https://www.nhs.uk/conditions/vitamins-and-minerals/calcium/
+Reference: NHS: Vitamin D — https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG100: Rheumatoid arthritis in adults — https://www.nice.org.uk/guidance/ng100
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Outdoor steps, handrails and thresholds with arthritis (UK)
 URL: https://livingwitharthritis.org.uk/blog/outdoor-steps-handrails-arthritis-uk
@@ -6215,18 +6223,26 @@ Reference: NHS: Home adaptations — https://www.nhs.uk/social-care-and-support/
 Reference: GOV.UK: Disabled Facilities Grants — https://www.gov.uk/disabled-facilities-grants
 Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 
-## Pacing housework when arthritis and frailty share the chores (UK)
+## Pacing housework with arthritis: cleaning, laundry and chores without the payback (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/pacing-housework-arthritis-frailty-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-04
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Pacing housework when arthritis and frailty share the chores (UK)
-A: A frailty-aware note on pacing housework when arthritis and frailty share the chores: protect joints, keep muscle working, and plan the hardest transfer of the day. This guide covers one room, then a rest, then another when arthritis with frailty affects several joints, with a focus on Wales and a home setting.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS 111 Wales — https://111.wales.nhs.uk
-Reference: Age UK – Frailty — https://www.ageuk.org.uk/our-impact/policy-research/frailty-in-older-people/understanding-frailty/
+Last clinically reviewed: 2026-11-04
+Q: Pacing housework with arthritis: cleaning, laundry and chores without the payback (UK guide)
+A: Housework is easier on painful joints when you stop trying to do it all in one go. Split big jobs into short pieces with rests in between, do the heaviest jobs at your best time of day, sit down for anything you can, and use lighter, long-handled or electric tools so your hands, back, hips and knees do less. Plan a whole week rather than a single day, so a busy day with visitors is followed by an easier one. If chores still leave you exhausted or in more pain, ask your GP about an occupational therapist, or your council for a needs assessment. Never stop or change a prescribed medicine yourself to get through a busy day.
+Reference: NHS: Living with osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/living-with/
+Reference: NHS: Living with rheumatoid arthritis — https://www.nhs.uk/conditions/rheumatoid-arthritis/living-with/
+Reference: NHS: Self-help tips to fight tiredness — https://www.nhs.uk/live-well/sleep-and-tiredness/self-help-tips-to-fight-fatigue/
+Reference: NHS: Household gadgets and equipment to make life easier — https://www.nhs.uk/social-care-and-support/care-services-equipment-and-care-homes/household-gadgets-and-equipment-to-make-life-easier/
+Reference: NHS: Occupational therapy — https://www.nhs.uk/conditions/occupational-therapy/
+Reference: NHS: Getting a needs assessment — https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/
+Reference: NHS: Carer's assessments — https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-assessments/
+Reference: GOV.UK: Attendance Allowance — https://www.gov.uk/attendance-allowance
+Reference: GOV.UK: Personal Independence Payment (PIP) — https://www.gov.uk/pip
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: Living Made Easy (Disabled Living Foundation) — https://livingmadeeasy.org.uk/
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## How to Pace Activities Properly with Arthritis: A Step-by-Step Guide (UK)
 URL: https://livingwitharthritis.org.uk/blog/pacing-techniques-arthritis-pain
@@ -7324,18 +7340,26 @@ Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
 Reference: GOV.UK: Sleep apnoea and driving — https://www.gov.uk/obstructive-sleep-apnoea-and-driving
 Reference: NICE MTG70: Sleepio to treat insomnia and insomnia symptoms — https://www.nice.org.uk/guidance/mtg70
 
-## Sleep, night pain and frailty in arthritis (UK)
+## Night pain and sleep with arthritis in later life: safer nights and when to get help (UK guide)
 URL: https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk
-Last updated: 2026-11-01
+Last updated: 2026-11-04
 Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
 Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Sleep, night pain and frailty in arthritis (UK)
-A: Arthritis and frailty often arrive as a pair of habits — sitting more, eating less, declining invitations — not as a single diagnosis. This UK guide looks at broken nights that make the next day more unsteady in a home setting, with practical steps, warning signs and Northern Ireland services. It is general information, not personal medical advice.
-Reference: NHS – Osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/
-Reference: NICE NG226 – Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
-Reference: NHS – Falls — https://www.nhs.uk/conditions/falls/
-Reference: NICE NG249 – Falls: assessment and prevention — https://www.nice.org.uk/guidance/ng249
+Last clinically reviewed: 2026-11-04
+Q: Night pain and sleep with arthritis in later life: safer nights and when to get help (UK guide)
+A: Arthritis pain often feels worse at night because you are still, tired and less distracted. A regular wind-down routine, gentle movement in the evening, warmth on stiff joints, supportive pillows and taking your usual pain relief as your GP or pharmacist advises can all help. In later life, the night is also when falls happen, so light the route to the toilet, sit on the edge of the bed for a moment before you stand, and be cautious with sleeping tablets, which can make you unsteady. New night pain that wakes you every night, or night pain with weight loss, fever or a hot, swollen joint, needs checking by your GP. Never stop or change a prescribed medicine yourself.
+Reference: NHS: Insomnia — https://www.nhs.uk/conditions/insomnia/
+Reference: NHS: How to get to sleep — https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/
+Reference: NHS Every Mind Matters: How to fall asleep faster and sleep better — https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/
+Reference: NHS: Cognitive behavioural therapy (CBT) — https://www.nhs.uk/mental-health/talking-therapies-medicine-treatments/talking-therapies-and-counselling/cognitive-behavioural-therapy-cbt/
+Reference: NHS: Zopiclone — https://www.nhs.uk/medicines/zopiclone/
+Reference: NHS: Falls — https://www.nhs.uk/conditions/falls/
+Reference: NHS: Living with osteoarthritis — https://www.nhs.uk/conditions/osteoarthritis/living-with/
+Reference: NHS: Back pain — https://www.nhs.uk/conditions/back-pain/
+Reference: NICE NG193: Chronic pain in over 16s — https://www.nice.org.uk/guidance/ng193
+Reference: NICE NG226: Osteoarthritis in over 16s — https://www.nice.org.uk/guidance/ng226
+Reference: NICE NG249: Falls – assessment and prevention in older people — https://www.nice.org.uk/guidance/ng249
+Reference: NHS: When to use 111 — https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/
 
 ## Poor sleep and arthritis pain: how to break the cycle (UK)
 URL: https://livingwitharthritis.org.uk/blog/sleep-quality-arthritis-pain
