@@ -3,7 +3,8 @@
  */
 export function patchEnglishAlternates(html, route, base) {
   if (/^\/(es|fr|de|pt)(?:\/|$)/.test(route)) return html;
-  const path = route === "/" ? "/" : route.replace(/\/+$/, "");
+  const clean = route.split(/[?#]/)[0];
+  const path = clean === "/" ? "/" : clean.replace(/\/+$/, "");
   const url = `${base}${path}`;
   const attr = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
   let out = html;
@@ -15,6 +16,6 @@ export function patchEnglishAlternates(html, route, base) {
       return rel?.toLowerCase() === "alternate" && code?.toLowerCase() === lang.toLowerCase() ? "" : tag;
     });
   }
-  const links = ["en", "en-GB", "x-default"].map((lang) => `  <link rel="alternate" hreflang="${lang}" href="${attr(url)}" />`).join("\n");
+  const links = route.includes('?') ? '' : ["en", "en-GB", "x-default"].map((lang) => `  <link rel="alternate" hreflang="${lang}" href="${attr(url)}" />`).join("\n");
   return out.replace(/<\/head>/i, `${links}\n</head>`);
 }
