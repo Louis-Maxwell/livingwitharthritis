@@ -153,7 +153,7 @@ const SocialShareButtons = ({
               compact ? "min-h-11 py-2" : "min-h-11 py-2.5"
             }`}
           />
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 w-full sm:w-auto shrink-0">
+          <div className="grid grid-cols-1 sm:flex sm:flex-wrap sm:items-center gap-2 w-full sm:w-auto shrink-0">
             <Button
               type="button"
               variant="default"
@@ -176,7 +176,7 @@ const SocialShareButtons = ({
               size="sm"
               onClick={() => writeClipboard(shareText, "group")}
               title="Copy title, summary and link for groups"
-              className="min-h-11 gap-2 rounded-full px-3 col-span-1"
+              className="min-h-11 gap-2 rounded-full px-3 col-span-1 text-xs sm:text-sm"
             >
               {groupCopied ? (
                 <>

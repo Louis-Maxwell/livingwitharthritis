@@ -128,7 +128,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
 
     expect(html).toContain(
-      "<title>Arthritis at Work UK – Rights, Adjustments &amp; | Guide</title>",
+      "<title>Arthritis at Work UK – Rights, Adjustments | Guide</title>",
     );
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',

@@ -21,6 +21,7 @@ import { getPublishedBlogList } from "@/lib/staticBlogCatalog";
 import { getSiteSearchCatalog } from "@/lib/siteSearchCatalog";
 import { ALL_BLOG_POSTS, BLOG_POSTS_BY_SLUG, PUBLISHED_BLOG_POSTS } from "@/test/blogPosts";
 import { PRERENDER_ROUTES } from "../../../scripts/prerender-routes.mjs";
+import { resolveSeoRedirect } from '@/lib/seoRedirects';
 import {
   buildBlogCatalogArtifacts,
   serializeArtifacts,
@@ -179,13 +180,15 @@ describe("generated surfaces agree with the catalog", () => {
   it("includes every published slug in public/sitemap.xml", () => {
     const noindex = new Set<string>(blogNoindexSlugs as string[]);
     const missing = catalogSlugs.filter(
-      (slug) => !noindex.has(slug) && !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
+      (slug) => !noindex.has(slug) && !resolveSeoRedirect(`/blog/${slug}`)
+        && !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
     );
     expect(missing, missing.slice(0, 10).join("\n")).toEqual([]);
   });
 
   it("lists every published slug on PRERENDER_ROUTES", () => {
-    const missing = catalogSlugs.filter((slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`));
+    const missing = catalogSlugs.filter((slug) => !resolveSeoRedirect(`/blog/${slug}`)
+      && !PRERENDER_ROUTES.includes(`/blog/${slug}`));
     expect(missing).toEqual([]);
   });
 
