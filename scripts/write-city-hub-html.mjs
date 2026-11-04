@@ -130,6 +130,8 @@ ${assetTags}
   </body>
 </html>
 `;
+  return finalizeTechnicalHead(patchEnglishAlternates(html, path, SITE),
+    path, { title, description }, SITE);
 }
 
 export function writeCityHubHtml(distDir = DIST) {
