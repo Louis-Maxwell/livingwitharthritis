@@ -3,8 +3,30 @@
 import { writeFileSync } from 'node:fs';
 import { faqArticles } from '../src/data/faqArticles';
 import { GLOSSARY_CONTENT } from '../src/data/glossary-content';
+import { dailyTips, dailyLivingIntro } from '../src/data/dailyTips';
 const esc = (v: string) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const entries: Record<string, unknown> = {};
+const paragraphs = (text: string) => text.split(/\n\n+/)
+  .map((p) => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+for (const tip of dailyTips) {
+  entries[`/daily-tips/${tip.slug}`] = {
+    title: `${tip.metaTitle || tip.title} — Daily Living Tips`,
+    description: tip.desc, question: tip.title, bodyHtml: paragraphs(tip.detail),
+    breadcrumb: tip.title,
+    relatedLinks: [{ path: '/daily-tips/overview', title: dailyLivingIntro.title }],
+  };
+}
+for (const [slug, title, content] of [
+  ['daily-living', dailyLivingIntro.title, dailyLivingIntro.content],
+  ['health-tips', 'Tips for Every Day', dailyLivingIntro.tipsOverview],
+  ['overview', dailyLivingIntro.title, `${dailyLivingIntro.content}\n\n${dailyLivingIntro.tipsOverview}`],
+]) {
+  entries[`/daily-tips/${slug}`] = {
+    title: `${title} — Daily Living Tips`, description: dailyLivingIntro.subtitle,
+    question: title, bodyHtml: paragraphs(content), breadcrumb: title,
+    relatedLinks: dailyTips.map((tip) => ({ path: `/daily-tips/${tip.slug}`, title: tip.title })),
+  };
+}
 for (const article of faqArticles) {
   entries[`/faq/${article.slug}`] = {
     title: article.seoTitle || `${article.question} | Living With Arthritis`,

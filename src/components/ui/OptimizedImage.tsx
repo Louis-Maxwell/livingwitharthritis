@@ -40,7 +40,8 @@ const OptimizedImage = memo(({
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
 
-  const resolvedWebp = webpSrc || deriveWebpSrc(src);
+  // A guessed .webp sibling may not exist and produces a failed image request.
+  const resolvedWebp = webpSrc;
 
   useEffect(() => {
     if (priority) return;

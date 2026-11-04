@@ -86,7 +86,9 @@ export function escText(value) {
 
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
-  const bodyHtml = data?.bodyHtml || renderArticleHtml(data?.article?.content);
+  // The template owns H1. Keep all existing heading words as subordinate H2s.
+  const bodyHtml = (data?.bodyHtml || renderArticleHtml(data?.article?.content))
+    .replace(/<(\/?)h1\b/gi, '<$1h2');
   const answer = data?.answer && !bodyHtml.includes(data.answer)
     ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
     : "";

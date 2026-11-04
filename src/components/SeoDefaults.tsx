@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { cleanJsonLd, cleanBrand } from '@/lib/technicalSeo.mjs';
+import { enforceTitle } from '@/lib/seoMeta';
 import {
   SUPPORTED_LANGS,
   HREFLANG_CODES,
@@ -71,6 +73,23 @@ function isAppManaged(el: Element): boolean {
 }
 
 function pruneStaticMetaDuplicates() {
+  const safeTitle = enforceTitle(document.title, { includeSiteName: false });
+  if (safeTitle !== document.title) document.title = safeTitle;
+  for (const node of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const json = JSON.stringify(cleanJsonLd(JSON.parse(node.textContent || '')));
+      if (node.textContent !== json) node.textContent = json;
+    } catch { /* The static validation gate reports malformed JSON. */ }
+  }
+  for (const node of document.head.querySelectorAll('meta[content]')) {
+    const raw = node.getAttribute('content') || '';
+    const safe = cleanBrand(raw);
+    if (raw !== safe) node.setAttribute('content', safe);
+  }
+  const languageLinks = Array.from(document.head.querySelectorAll('link[hreflang]'));
+  for (const node of languageLinks) {
+    if (location.search || (!isAppManaged(node) && languageLinks.some(isAppManaged))) node.remove();
+  }
   for (const { attr, value } of MANAGED_META) {
     const matches = document.head.querySelectorAll(`meta[${attr}="${value}"]`);
     if (matches.length < 2) continue;
@@ -113,12 +132,12 @@ function pruneStaticMetaDuplicates() {
  * homepage-only). Canonical <link> tags are emitted by <SeoHead>.
  */
 export default function SeoDefaults() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
   useEffect(() => {
     pruneStaticMetaDuplicates();
     const observer = new MutationObserver(pruneStaticMetaDuplicates);
-    observer.observe(document.head, { childList: true });
+    observer.observe(document.head, { childList: true, subtree: true });
     return () => observer.disconnect();
   }, []);
 
@@ -151,8 +170,8 @@ export default function SeoDefaults() {
           once this one mounts. */}
       <link rel="canonical" key="canonical" href={pageUrl} />
       {/* General English reaches English readers across countries without inventing regional versions. */}
-      <link rel="alternate" hrefLang="en" href={`${SITE_URL}${basePath}`} />
-      {hasTranslations ? (
+      {!search && <link rel="alternate" hrefLang="en" href={`${SITE_URL}${basePath}`} />}
+      {!search && (hasTranslations ? (
         <>
           {SUPPORTED_LANGS.map((lang) => (
             <link
@@ -169,7 +188,7 @@ export default function SeoDefaults() {
           <link rel="alternate" hrefLang="en-GB" href={pageUrl} />
           <link rel="alternate" hrefLang="x-default" href={pageUrl} />
         </>
-      )}
+      ))}
       <html lang={HREFLANG_CODES[currentLang]} />
     </Helmet>
   );
