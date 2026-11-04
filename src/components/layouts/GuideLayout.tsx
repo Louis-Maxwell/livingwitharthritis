@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import { DisclaimerStripShown } from "@/components/disclaimerChrome";
-import PageShareButtons from '@/components/PageShareButtons';
 
 // Lazy Footer, matching Index.tsx, keeps the entry chunk small.
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -30,7 +29,6 @@ export default function GuideLayout({ children, currentPath }: GuideLayoutProps)
         <main id="main-content" className="flex-1">
           {children}
         </main>
-        <PageShareButtons path={currentPath} />
         <GuideOnwardJourney currentPath={currentPath} />
         <Suspense fallback={null}>
           <Footer />

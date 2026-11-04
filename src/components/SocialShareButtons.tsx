@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { buildGroupShareText } from "@/lib/groupShareText";
 import { buildCanonicalBlogUrl } from "@/lib/blogShareUrl";
-import { buildShareLinks } from '@/lib/technicalSeo.mjs';
+import { buildShareLinks, canonicalPath, SITE_ORIGIN } from '@/lib/technicalSeo.mjs';
 
 interface SocialShareButtonsProps {
   title: string;
@@ -37,8 +37,7 @@ const SocialShareButtons = ({
   variant = "full",
 }: SocialShareButtonsProps) => {
   const pagePath = path || `/blog/${slug || ''}`;
-  const url = path ? buildShareLinks(path, title)[0]?.href.split('?u=')[1] : buildCanonicalBlogUrl(slug || '');
-  const canonicalUrl = path ? `https://livingwitharthritis.org.uk${path.split(/[?#]/)[0]}` : url || '';
+  const canonicalUrl = path ? `${SITE_ORIGIN}${canonicalPath(path)}` : buildCanonicalBlogUrl(slug || '');
   const shareText = buildGroupShareText(title, canonicalUrl, excerpt);
   const encodedUrl = encodeURIComponent(canonicalUrl);
   const encodedTitle = encodeURIComponent(title);
