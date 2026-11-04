@@ -58,6 +58,7 @@ import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
 import TopicPrevNext from "@/components/blog/TopicPrevNext";
+import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
@@ -238,7 +239,7 @@ const BlogPost = () => {
     return <NotFound />;
   }
 
-  const htmlContent = markdownToHtml(article.content);
+  const htmlContent = markdownToHtml(article.content).replace(/<(\/?)h1\b/gi, '<$1h2');
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
@@ -263,10 +264,10 @@ const BlogPost = () => {
     ? new Date(updatedAtRaw).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
     : null;
   const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
-  const metaTitle = enforceTitle(article.meta_title || article.title, {
+  const metaTitle = distinctSeoTitle(enforceTitle(article.meta_title || article.title, {
     includeSiteName: false,
     route: `/blog/${slug}`,
-  });
+  }), article.title);
   const metaDesc = enforceDescription(
     article.meta_description || article.excerpt || "",
     `/blog/${slug}`,
@@ -546,7 +547,7 @@ const BlogPost = () => {
 
               {slug && (
                 <div className="no-print print:hidden mt-4">
-                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
+                  <SocialShareButtons title={article.title} slug={slug} image={coverAbsolute} excerpt={metaDesc} instance="header" variant="compact" />
                 </div>
               )}
 

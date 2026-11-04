@@ -79,7 +79,7 @@ export default function ClinicPack() {
                   <p className="font-semibold text-foreground">{item.label}</p>
                   <p className="mt-1 break-all text-xs text-muted-foreground">{url}</p>
                   <Link
-                    to={`${item.path}?${item.utm}`}
+                    to={item.path}
                     className="mt-2 inline-block text-sm font-medium text-primary underline underline-offset-2 print:hidden"
                   >
                     Open page

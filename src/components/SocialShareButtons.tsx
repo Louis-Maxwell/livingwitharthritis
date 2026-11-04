@@ -9,15 +9,19 @@ import {
   Check,
   Copy,
   Linkedin,
+  Pin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { buildGroupShareText } from "@/lib/groupShareText";
 import { buildCanonicalBlogUrl } from "@/lib/blogShareUrl";
+import { buildShareLinks } from '@/lib/technicalSeo.mjs';
 
 interface SocialShareButtonsProps {
   title: string;
-  slug: string;
+  slug?: string;
+  path?: string;
+  image?: string;
   excerpt?: string;
   instance?: "header" | "footer";
   variant?: "full" | "compact";
@@ -26,13 +30,17 @@ interface SocialShareButtonsProps {
 const SocialShareButtons = ({
   title,
   slug,
+  path,
+  image,
   excerpt,
   instance = "footer",
   variant = "full",
 }: SocialShareButtonsProps) => {
-  const url = buildCanonicalBlogUrl(slug);
-  const shareText = buildGroupShareText(title, url, excerpt);
-  const encodedUrl = encodeURIComponent(url);
+  const pagePath = path || `/blog/${slug || ''}`;
+  const url = path ? buildShareLinks(path, title)[0]?.href.split('?u=')[1] : buildCanonicalBlogUrl(slug || '');
+  const canonicalUrl = path ? `https://livingwitharthritis.org.uk${path.split(/[?#]/)[0]}` : url || '';
+  const shareText = buildGroupShareText(title, canonicalUrl, excerpt);
+  const encodedUrl = encodeURIComponent(canonicalUrl);
   const encodedTitle = encodeURIComponent(title);
   const encodedShare = encodeURIComponent(shareText);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -43,7 +51,7 @@ const SocialShareButtons = ({
     {
       label: "WhatsApp",
       icon: MessageCircle,
-      href: `https://wa.me/?text=${encodedShare}`,
+      href: `https://api.whatsapp.com/send?text=${encodedShare}`,
     },
     {
       label: "Facebook",
@@ -56,9 +64,14 @@ const SocialShareButtons = ({
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     },
     {
-      label: "Twitter",
+      label: "X",
       icon: Twitter,
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    },
+    {
+      label: 'Pinterest',
+      icon: Pin,
+      href: buildShareLinks(pagePath, title, image).find((link) => link.label === 'Pinterest')?.href || '',
     },
     {
       label: "Email",
@@ -92,7 +105,7 @@ const SocialShareButtons = ({
   const handleShare = async () => {
     if (!navigator.share) return;
     try {
-      await navigator.share({ title, text: shareText, url });
+      await navigator.share({ title, text: shareText, url: canonicalUrl });
     } catch {
       // cancelled
     }
@@ -135,7 +148,7 @@ const SocialShareButtons = ({
             type="text"
             readOnly
             aria-label="Article URL"
-            value={url}
+            value={canonicalUrl}
             onFocus={(e) => e.currentTarget.select()}
             className={`min-w-0 w-full flex-1 rounded-full border border-border/50 bg-background px-4 text-sm text-foreground/80 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
               compact ? "min-h-11 py-2" : "min-h-11 py-2.5"
@@ -146,7 +159,7 @@ const SocialShareButtons = ({
               type="button"
               variant="default"
               size="sm"
-              onClick={() => writeClipboard(url, "link")}
+              onClick={() => writeClipboard(canonicalUrl, "link")}
               data-share="copy_link"
               aria-label={linkCopied ? "Copied" : "Copy link"}
               className="min-h-11 gap-2 rounded-full bg-primary px-4 text-primary-foreground hover:bg-primary/90 col-span-1"
@@ -207,7 +220,7 @@ const SocialShareButtons = ({
               asChild
               className="h-11 w-11 min-h-11 min-w-11 p-0 rounded-full border-border/40 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all"
             >
-              <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Share on ${label}`}>
+              <a href={href} target="_blank" rel="nofollow noopener noreferrer" title={`Share on ${label}`} aria-label={`Share on ${label}`}>
                 <Icon className="w-4 h-4" aria-hidden="true" />
               </a>
             </Button>
