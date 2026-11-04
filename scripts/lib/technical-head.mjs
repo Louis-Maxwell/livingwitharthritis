@@ -19,7 +19,8 @@ export function finalizeTechnicalHead(html, route, data = {}, base) {
     });
   const fields = {
     'og:title': title, 'og:description': description, 'og:url': url,
-    'og:image': image, 'og:type': data.article ? 'article' : 'website',
+    'og:image': image, 'og:image:secure_url': image,
+    'og:type': data.article ? 'article' : 'website',
     'og:site_name': 'Living With Arthritis', 'og:locale': 'en_GB',
     'twitter:card': 'summary_large_image', 'twitter:title': title,
     'twitter:description': description, 'twitter:image': image,

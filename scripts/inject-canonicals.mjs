@@ -719,16 +719,6 @@ function enrichHead(html, route, url, override) {
   // Unique visible article for non-JS readers. Replaces the entire
   // homepage #seo-fallback (not just the first H1) so Google cannot
   // treat the URL as an empty SPA shell or a homepage duplicate.
-  const sources = Array.isArray(d.sources) ? d.sources : [];
-  const sourcesHtml = sources.length
-    ? `<section><h2>Sources and further reading</h2><ul>${sources
-        .map(
-          (s) =>
-            `<li><a href="${escAttr(s.url)}" rel="noopener">${escText(s.name)}</a></li>`,
-        )
-        .join("")}</ul></section>`
-    : "";
-
   // Keep unique article HTML for crawlers, but clip it so JS visitors never
   // see a wall of unstyled text before React paints the designed page.
   out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}`, {

@@ -12,6 +12,7 @@ import {
 } from "../../../scripts/static-article-html.mjs";
 import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 import blogSlugs from "@/data/blog-slugs.generated.json";
+import { resolveSeoRedirect } from '@/lib/seoRedirects';
 
 const TEMPLATE = `<!doctype html>
 <html lang="en-GB">
@@ -105,7 +106,8 @@ describe("static blog HTML for Soft 404s", () => {
 
   it("prerenders every published blog slug and the hand-arthritis exercises page", () => {
     const missing = (blogSlugs as string[]).filter(
-      (slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`),
+      (slug) => !resolveSeoRedirect(`/blog/${slug}`)
+        && !PRERENDER_ROUTES.includes(`/blog/${slug}`),
     );
     expect(missing).toEqual([]);
     expect(PRERENDER_ROUTES).toContain("/blog/arthritis-and-work-uk");
@@ -126,7 +128,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
 
     expect(html).toContain(
-      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips</title>",
+      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical | Guide</title>",
     );
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',
@@ -292,7 +294,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Arthritis Support in London");
     expect(html).toContain('content="index, follow"');
     expect(html).not.toContain("noindex");
-    expect(html).toContain('property="og:title" content="Arthritis Support in London"');
+    expect(html).toContain('property="og:title" content="Arthritis Support in London | Living With Arthritis"');
     expect(html).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
     expect(html).toContain('id="main-content"');
     expect(html).toContain("not a diagnosis");
