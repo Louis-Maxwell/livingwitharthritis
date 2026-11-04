@@ -620,6 +620,7 @@ Pair with pacing (**/exercises**) and flare plans (**/arthritis-flare-ups**).`,
     ],
     related: [
       { type: "article", title: "How to sleep with arthritis (UK)", url: "/blog/how-to-sleep-with-arthritis-uk" },
+      { type: "article", title: "Night pain and sleep in later life", url: "/blog/sleep-arthritis-frailty-night-pain-uk" },
       { type: "article", title: "Best sleep positions for joint pain", url: "/blog/best-sleep-positions-joint-pain" },
       { type: "article", title: "Poor sleep and arthritis pain: breaking the cycle", url: "/blog/sleep-quality-arthritis-pain" },
       { type: "article", title: "Arthritis and sleep problems: what keeps you awake", url: "/blog/arthritis-and-sleep-problems" },
@@ -1184,6 +1185,7 @@ Explore **/conditions/osteoarthritis** and **/exercises**. Hot/red joint with fe
     nextSteps: ["Build a weekly movement habit", "Open /exercises"],
     related: [
       { type: "article", title: "Joint protection everyday tasks", url: "/blog/joint-protection-easier-everyday-tasks" },
+      { type: "article", title: "Pacing housework with arthritis", url: "/blog/pacing-housework-arthritis-frailty-uk" },
       { type: "condition", title: "Osteoarthritis", url: "/conditions/osteoarthritis" },
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "article", title: "Swimming for hip OA", url: "/blog/swimming-exercises-hip-osteoarthritis" },
@@ -1512,6 +1514,7 @@ Read **/guides/steroids-for-arthritis**. Urgent review if you are on steroids an
       { type: "article", title: "Steroids and infection: what to watch for", url: "/blog/ra-steroids-frailty-infection-watch-uk" },
       { type: "article", title: "Steroid emergency cards: when to show yours", url: "/blog/steroid-emergency-card-frail-arthritis-uk" },
       { type: "article", title: "Bone protection on steroids", url: "/blog/bone-protection-steroids-arthritis-frailty-uk" },
+      { type: "article", title: "Osteoporosis and arthritis: bones, scans and falls", url: "/blog/osteoporosis-arthritis-frailty-bone-joint-uk" },
       { type: "guide", title: "Bone density", url: "/guides/bone-density-osteoporosis" },
       { type: "guide", title: "Flare-ups", url: "/arthritis-flare-ups" },
       { type: "condition", title: "Rheumatoid arthritis", url: "/conditions/rheumatoid-arthritis" },
