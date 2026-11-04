@@ -58,7 +58,6 @@ export const ORGANIZATION_PAYLOAD = {
     { "@type": "AdministrativeArea", name: "Wales" },
     { "@type": "AdministrativeArea", name: "Northern Ireland" },
   ],
-  medicalSpecialty: ["Rheumatology", "Physiotherapy", "Nutrition"],
   identifier: [
     {
       "@type": "PropertyValue",
@@ -208,10 +207,6 @@ export const WEBSITE_PAYLOAD = {
     { "@type": "Thing", name: "NHS rheumatology and physiotherapy pathways" },
     { "@type": "Thing", name: "PIP, Attendance Allowance and Access to Work" },
   ],
-  speakable: {
-    "@type": "SpeakableSpecification",
-    cssSelector: ["h1", ".speakable-intro"],
-  },
   publisher: { "@id": `${BASE}/#organization` },
   potentialAction: {
     "@type": "SearchAction",
