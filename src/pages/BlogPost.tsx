@@ -15,7 +15,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import { DisclaimerStripShown } from "@/components/disclaimerChrome";
-import Footer from "@/components/Footer";
+import DeferredMount from '@/components/DeferredMount';
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -78,6 +78,7 @@ const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/Artic
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
 const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
 const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
+const Footer = lazyWithRetry(() => import('@/components/Footer'));
 
 
 /**
@@ -230,7 +231,7 @@ const BlogPost = () => {
           <Skeleton className="h-4 w-1/2 mb-8" />
           <Skeleton className="h-64 w-full" />
         </main>
-        <Footer />
+        <DeferredMount><ViewportSection><Footer /></ViewportSection></DeferredMount>
       </div>
     );
   }
@@ -852,7 +853,7 @@ const BlogPost = () => {
             />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
           </ViewportSection>
-          <Footer />
+          <ViewportSection><Footer /></ViewportSection>
         </div>
 
       </div>
