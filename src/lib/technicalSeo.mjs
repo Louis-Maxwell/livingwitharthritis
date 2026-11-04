@@ -23,7 +23,7 @@ export function distinctSeoTitle(title, headline) {
   while (words.join(' ').length + suffix.length > 60 && words.length > 1) {
     words.pop();
   }
-  return words.join(' ') + suffix;
+  return words.join(' ').replace(/[\s&,:;–—-]+$/, '') + suffix;
 }
 
 /** Remove invalid/retired sitewide properties, never infer review evidence. */
