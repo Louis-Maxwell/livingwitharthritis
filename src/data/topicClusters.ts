@@ -139,6 +139,8 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/exercises",
     pillarTitle: "Exercise hub",
     supportingPaths: [
+      "/blog/wheelchair-for-distance-arthritis-frailty-uk",
+      "/blog/hip-and-knee-oa-frailty-transfers-uk",
       "/blog/swimming-exercises-hip-osteoarthritis",
       "/blog/walking-with-arthritis-start-build-up-keep-going",
       "/blog/best-walking-shoes-arthritis-uk",
@@ -214,6 +216,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/guides/diet",
     pillarTitle: "Diet hub",
     supportingPaths: [
+      "/blog/meal-delivery-arthritis-frailty-uk",
       "/guides/diet",
       "/blog/turmeric-for-arthritis",
       "/blog/protein-painful-joints-frailty-uk",
@@ -292,6 +295,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/guides/painkillers-and-nsaids",
     pillarTitle: "Painkillers & NSAIDs guide",
     supportingPaths: [
+      "/blog/community-ot-waiting-arthritis-frailty-uk",
       "/conditions/gout/treatment",
       "/conditions/gout",
       "/guides/febuxostat-for-gout",
