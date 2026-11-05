@@ -24,11 +24,13 @@ const PUBLISHED_BLOG_SLUGS = new Set(
 export const CITY_HUB_ALIASES: Record<string, string> = {
   stockport: "manchester",
   stirling: "glasgow",
-  winchester: "southampton",
+  // southampton/cambridge/wolverhampton hubs are noindex thin doorways →
+  // alias GSC soft-404s onto nearby indexable city hubs instead.
+  winchester: "portsmouth",
   bradford: "leeds",
-  "milton-keynes": "cambridge",
+  "milton-keynes": "london",
   oswestry: "stoke-on-trent",
-  shrewsbury: "wolverhampton",
+  shrewsbury: "birmingham",
 };
 
 const EXERCISE_TYPES = new Set([
@@ -107,6 +109,19 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/blog/category/treatment": "/blog/category/treatments",
   "/blog/category/frailty": "/blog/category/exercise",
   "/library/glucosamine": "/supplements/glucosamine",
+  // Crawl hygiene Nov 2026: typo / duplicate library topics + noindex doorways
+  // consolidate to canonical pages so crawlers stop wasting budget.
+  "/library/mtx-methotrexal": "/library/methotrexate",
+  "/library/osteoporosis-osteoporosis": "/library/osteoporosis",
+  "/library/hypermobility-and": "/library/hypermobility",
+  "/library/sore-bottom-back": "/library/back-exercises",
+  "/library/naproxen-500mg": "/library/naproxen",
+  "/library/naproxen-adverse": "/library/naproxen-side-effects",
+  "/library/turmeric-benefits": "/library/turmeric",
+  "/library/discomfort-knee": "/library/knee-support",
+  "/library/manchester-marathon": "/library",
+  "/library/lower-back-back": "/library/back-exercises",
+  // Thin / low-value paths discovered-not-indexed — point to live hubs.
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
   "/exercises/knee": "/guides/knee-exercises-for-osteoarthritis",
