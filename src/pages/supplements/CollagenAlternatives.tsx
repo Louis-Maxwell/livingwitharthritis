@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: 'What should I take instead of collagen for knee osteoarthritis?',
-    a: 'For knees specifically, the options with usable trial data are curcumin at about 1,000 mg/day, glucosamine sulfate at 1,500 mg/day, and MSM at 1.5–3 g/day. Effects are modest at best. A progressive quadriceps and glute strengthening programme reliably outperforms any of them.',
+    a: 'For knees specifically, some trials have looked at curcumin, glucosamine sulfate and MSM. Effects are modest at best, and NICE advises against glucosamine on the NHS. Check with your GP or pharmacist before starting any of them. A progressive quadriceps and glute strengthening programme reliably outperforms any of them.',
   },
   {
     q: 'Can diet replace a collagen supplement?',
@@ -375,7 +375,7 @@ export default function CollagenAlternatives() {
                 <li>
                   <strong>An anti-inflammatory eating pattern.</strong> Mediterranean-style
                   eating lowers pain and stiffness scores and supports weight control.{' '}
-                  <Link to="/diet" className="text-primary underline">
+                  <Link to="/guides/diet" className="text-primary underline">
                     Diet guide
                   </Link>
                   .
@@ -421,7 +421,7 @@ export default function CollagenAlternatives() {
                 Read the collagen guide
               </Link>
               <Link
-                to="/diet"
+                to="/guides/diet"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
               >
                 Anti-inflammatory diet

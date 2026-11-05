@@ -34,6 +34,6 @@ describe("MidArticleNextSteps", () => {
       </MemoryRouter>,
     );
     const links = screen.getAllByRole("link");
-    expect(links[0]).toHaveAttribute("href", "/diet");
+    expect(links[0]).toHaveAttribute("href", "/guides/diet");
   });
 });

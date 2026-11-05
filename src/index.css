@@ -278,7 +278,7 @@
 
   /* Buttons / surfaces filled with primary/destructive keep white text */
   [class*="bg-primary"]:not([class*="bg-primary-foreground"]):not([class*="bg-primary/"]),
-  [class*="bg-destructive"]:not([class*="bg-destructive-foreground"]) {
+  [class*="bg-destructive"]:not([class*="bg-destructive-foreground"]):not([class*="bg-destructive/"]) {
     color: hsl(var(--primary-foreground));
   }
 

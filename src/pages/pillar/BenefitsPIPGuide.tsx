@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import PageSchema from "@/components/seo/PageSchema";
 import Header from "@/components/Header";
+import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
@@ -13,6 +14,7 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import FaqAccordion from "@/components/faq/FaqAccordion";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import { FIN_DIR_FAQS, FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_DISABILITY_PIP } from "@/data/clinical/ukCitations";
 import {
@@ -26,7 +28,41 @@ import {
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
-const CONTENT = PIP_GUIDE_HTML;
+// /benefits-pip (financial help directory) was merged here on 2026-10-31.
+// Its heading ids are prefixed "dir-" so they cannot collide with the PIP
+// guide's own ids (both have "sources" and "medical-help").
+const DIRECTORY_HTML = FIN_DIR_HTML.replace(/id="([^"]+)"/g, 'id="dir-$1"').replace(/href="#([^"]+)"/g, 'href="#dir-$1"');
+
+const RELATED_GUIDES_HTML = `<h2 id="benefits-and-work-guides">More benefits and work guides</h2>
+<ul>
+<li><a href="/faq/arthritis-disability-benefits-uk">FAQ: arthritis disability benefits UK</a>: Short answers on PIP, DLA and when arthritis may count as a disability.</li>
+<li><a href="/blog/pip-for-arthritis-uk">PIP for arthritis in the UK</a>: How PIP is assessed for arthritis, evidence to keep, and where to get help.</li>
+<li><a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a>: A one-week activity diary to support a PIP discussion with an adviser.</li>
+<li><a href="/guides/disability-support">Disability support</a>: Aids, adaptations and rights when arthritis limits day-to-day life.</li>
+<li><a href="/arthritis-waiting-list-help">Waiting-list help</a>: What to do while waiting for rheumatology, physio or surgery.</li>
+<li><a href="/library/access-to-work">Access to Work</a>: UK government grants for workplace equipment, travel and support when arthritis affects your job.</li>
+<li><a href="/blog/access-to-work-scheme-arthritis-guide">Access to Work scheme guide</a>: How the scheme can help people with arthritis stay in or return to work.</li>
+<li><a href="/blog/sick-pay-fit-notes-time-off-work-arthritis">Sick pay, fit notes and time off</a>: Statutory sick pay, fit notes and talking to your employer about time off.</li>
+<li><a href="/blog/carers-allowance-help-if-you-care-for-someone">Carer's Allowance</a>: Help if you care for someone with arthritis. Check eligibility on GOV.UK.</li>
+<li><a href="/guides/work-with-arthritis">Working with arthritis</a>: Reasonable adjustments, sick pay and protecting your role.</li>
+<li><a href="/guides/newly-diagnosed">Newly diagnosed</a>: your first weeks with arthritis.</li>
+<li><a href="/guides/arthritis-pain-relief">Arthritis pain relief</a>: practical steps for painful days.</li>
+<li><a href="/guides/insurance-coverage">Treatment access and costs</a>: NHS pathways, private options, grants and related financial support.</li>
+</ul>`;
+
+const CONTENT = `${PIP_GUIDE_HTML}
+<h2 id="financial-help-directory">Financial help directory: other support to check</h2>
+<p>PIP is only one part of the picture. The directory below lists other UK benefits, grants and discounts that people with arthritis may be able to get.</p>
+${DIRECTORY_HTML}
+${RELATED_GUIDES_HTML}`;
+
+const seenQuestions = new Set<string>();
+const ALL_FAQS = [...PIP_GUIDE_FAQS, ...FIN_DIR_FAQS].filter((f) => {
+  const key = f.question.trim().toLowerCase();
+  if (seenQuestions.has(key)) return false;
+  seenQuestions.add(key);
+  return true;
+});
 
 export default function BenefitsPIPGuide() {
   const html = addHeadingIds(CONTENT);
@@ -44,7 +80,7 @@ export default function BenefitsPIPGuide() {
           { name: "Guides", item: "/guides" },
           { name: "Benefits & PIP Guide" },
         ]}
-        faqs={PIP_GUIDE_FAQS}
+        faqs={ALL_FAQS}
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
@@ -88,12 +124,13 @@ export default function BenefitsPIPGuide() {
           { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
         ]
       })}</script>
-      {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={PIP_GUIDE_FAQS})
+      {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={ALL_FAQS})
           for the questions rendered visibly in the accordion below. The
           second, hand-written FAQPage block that used to sit here duplicated
           the schema and covered questions that were not visible on the page. */}
     </Helmet>
       <Header />
+      <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "PIP and benefits" }]} />
       <main id="main-content" className="min-h-screen bg-background">
         <PageHero
           title="Complete PIP guide for arthritis"
@@ -124,7 +161,7 @@ export default function BenefitsPIPGuide() {
             <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion
               idPrefix="benefits-pip-faq"
-              items={PIP_GUIDE_FAQS}
+              items={ALL_FAQS}
               injectSchema={false}
             />
           </section>

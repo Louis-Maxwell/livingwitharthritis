@@ -1,9 +1,8 @@
 import ExerciseVideo from "./ExerciseVideo";
 
 /**
- * Static paths for tai chi demos. Lovable *.mp4.asset.json pointed at
- * /__l5e/ CDN URLs that 404 on GitHub-only hosting — ExerciseVideo
- * shows the SVG / "Demonstration unavailable" fallback when files are missing.
+ * Self-hosted tai chi demos in public/exercise-videos/ (720p H.264, silent,
+ * faststart) with a JPG poster each. Guarded by src/lib/__tests__/exercise-videos.test.ts.
  */
 const VIDEO = {
   "rooted-stance": "/exercise-videos/tai-chi-rooted-stance.mp4",
@@ -17,9 +16,11 @@ interface AnimationProps {
   className?: string;
 }
 
+const poster = (src: string) => src.replace(/\.mp4$/, ".jpg");
+
 const make = (src: string, label: string) =>
   ({ className }: AnimationProps) => (
-    <ExerciseVideo src={src} label={label} className={className} />
+    <ExerciseVideo src={src} poster={poster(src)} label={label} className={className} />
   );
 
 export const RootedStance = make(VIDEO["rooted-stance"], "Rooted Stance");
@@ -40,10 +41,10 @@ export const TAI_CHI_ANIMATIONS = {
 export type TaiChiAnimKey = keyof typeof TAI_CHI_ANIMATIONS;
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const TAI_CHI_VIDEOS: Record<TaiChiAnimKey, { src: string; label: string }> = {
-  "rooted-stance": { src: VIDEO["rooted-stance"], label: "Rooted Stance" },
-  "weight-shift": { src: VIDEO["weight-shift"], label: "Weight Shift" },
-  "cloud-hands": { src: VIDEO["cloud-hands"], label: "Cloud Hands" },
-  "brush-knee": { src: VIDEO["brush-knee"], label: "Brush Knee" },
-  "closing-posture": { src: VIDEO["closing-posture"], label: "Closing Posture" },
+export const TAI_CHI_VIDEOS: Record<TaiChiAnimKey, { src: string; poster: string; label: string }> = {
+  "rooted-stance": { src: VIDEO["rooted-stance"], poster: poster(VIDEO["rooted-stance"]), label: "Rooted Stance" },
+  "weight-shift": { src: VIDEO["weight-shift"], poster: poster(VIDEO["weight-shift"]), label: "Weight Shift" },
+  "cloud-hands": { src: VIDEO["cloud-hands"], poster: poster(VIDEO["cloud-hands"]), label: "Cloud Hands" },
+  "brush-knee": { src: VIDEO["brush-knee"], poster: poster(VIDEO["brush-knee"]), label: "Brush Knee" },
+  "closing-posture": { src: VIDEO["closing-posture"], poster: poster(VIDEO["closing-posture"]), label: "Closing Posture" },
 };

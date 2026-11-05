@@ -268,7 +268,7 @@ export function ChatBot() {
             <h2 className="font-semibold text-sm text-primary-foreground leading-tight">Help & Support</h2>
             <div className="flex items-center gap-1">
               <div className={`w-1.5 h-1.5 rounded-full ${isLoading ? "bg-amber-300 animate-pulse" : "bg-emerald-300"}`} aria-hidden="true" />
-              <span className="text-[10px] text-primary-foreground/70" aria-live="polite">
+              <span className="text-[10px] text-primary-foreground" aria-live="polite">
                 {isLoading ? (statusLabel || "Searching guidance…") : "Online"}
               </span>
             </div>

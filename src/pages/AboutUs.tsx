@@ -249,10 +249,10 @@ const AboutUs = () => {
               <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
               <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
               <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
-              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
               <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
               <li><Link to="/symptom-checker" className="text-primary underline underline-offset-2">Symptom checker</Link></li>
-              <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
+              <li><Link to="/guides/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
             </ul>
           </div>
         </nav>
