@@ -90,7 +90,7 @@ export default function FrailtyManagementHub() {
       <section id="nutrition" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">4. Nutrition strategies for muscle preservation</h2>
         <p className="mb-4 leading-relaxed">Spread protein across meals: 25–30 g per meal triggers muscle protein synthesis better than one large serving. Sources include eggs, Greek yoghurt, fish, lean meat, beans and tofu. Pair with vitamin D (10 Âµg/day October–March, UK healthcare guidance) and adequate calories.</p>
-        <p className="leading-relaxed">Read our <Link to="/diet" className="text-primary underline">diet hub</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
+        <p className="leading-relaxed">Read our <Link to="/guides/diet" className="text-primary underline">diet hub</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
       </section>
 
       <section id="help" className="mb-12">

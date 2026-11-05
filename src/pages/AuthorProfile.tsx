@@ -1,3 +1,4 @@
+import { LOUIS_MAXWELL_PERSON, LIVING_WITH_ARTHRITIS_ORG } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
@@ -78,6 +79,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
       name: realOrg,
     };
   }
+  if (slug === "maxwell") Object.assign(personLd, LOUIS_MAXWELL_PERSON);
   // Strip undefined keys
   Object.keys(personLd).forEach((k) => personLd[k] === undefined && delete personLd[k]);
 
@@ -114,6 +116,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           inLanguage: "en-GB",
         })}</script>
         <script type="application/ld+json">{JSON.stringify(personLd)}</script>
+        {slug === "maxwell" && <script type="application/ld+json">{JSON.stringify(LIVING_WITH_ARTHRITIS_ORG)}</script>}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -199,7 +202,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
+          <section className="rounded-2xl border border-border p-6 bg-muted/60 mb-10">
             <h2 className="text-lg font-bold mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
               Our editorial standards explain how clinical content is checked

@@ -9,7 +9,7 @@ for (const article of faqArticles) {
   entries[`/faq/${article.slug}`] = {
     title: article.seoTitle || `${article.question} | Living With Arthritis`,
     description: article.metaDescription || article.quickAnswer,
-    question: article.question, answer: article.quickAnswer, breadcrumb: article.title,
+    question: article.h1 ?? article.question, answer: article.quickAnswer, breadcrumb: article.title,
     bodyHtml: article.sections.map((s) => `<h2>${esc(s.heading)}</h2><p>${esc(s.content)}</p>`).join(''),
     faqs: [{ q: article.question, a: article.quickAnswer }],
     sources: (article.citations || []).map((c) => ({ name: c.label, url: c.url })),

@@ -23,7 +23,7 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: 'Hip exercises for osteoarthritis', href: '/guides/hip-exercises-for-osteoarthritis' },
   ],
   'arthritis-disability-benefits-uk': [
-    { label: 'Benefits & PIP hub', href: '/benefits-pip' },
+    { label: 'Benefits & PIP hub', href: '/guides/benefits-pip' },
     { label: 'PIP for arthritis in the UK (blog)', href: '/blog/pip-for-arthritis-uk' },
     { label: 'Disability support guide', href: '/guides/disability-support' },
     { label: 'Access to Work', href: '/library/access-to-work' },
@@ -46,7 +46,7 @@ const FAQ_CONDITION_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   'weight-management-osteoarthritis': [
     { label: 'Osteoarthritis guide', href: '/conditions/osteoarthritis' },
-    { label: 'Diet hub', href: '/diet' },
+    { label: 'Diet hub', href: '/guides/diet' },
   ],
 };
 
@@ -107,7 +107,7 @@ export default function FaqArticle() {
         keywords={`${article.title}, arthritis, ${article.category}`}
       />
 
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.question}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-6">{article.h1 ?? article.question}</h1>
 
       <div className="bg-accent/40 border-l-4 border-primary p-6 rounded-r-lg my-6 text-lg font-semibold">
         {article.quickAnswer}

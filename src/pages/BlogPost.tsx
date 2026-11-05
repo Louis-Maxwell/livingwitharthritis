@@ -1,3 +1,6 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
+import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
@@ -297,42 +300,16 @@ const BlogPost = () => {
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
-  const maxwellSchemaFields = {
-    "identifier": "HCPC PH128483",
-    "url": "https://livingwitharthritis.org.uk/authors/maxwell",
-    "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
-  };
   const isMaxwellAuthor =
     /\bmaxwell\b/i.test(authorName) && /\bPH128483\b/.test(authorCreds);
   const isNamedPersonAuthor =
     isMaxwellAuthor ||
     (/louis\s+maxwell/i.test(authorName) && authorName.length < 80);
-  const authorSchema = isMaxwellAuthor
-    ? {
-        "@type": "Person",
-        "name": authorName,
-        "jobTitle": authorCreds,
-        ...maxwellSchemaFields,
-      }
-    : isNamedPersonAuthor
-      ? {
-          "@type": "Person",
-          "name": authorName,
-          ...(authorCreds && authorCreds !== "Editorial content"
-            ? { "jobTitle": authorCreds }
-            : {}),
-        }
-      : {
-          "@type": "Organization",
-          "name": authorName,
-        };
+  const authorSchema = isNamedPersonAuthor
+    ? { ...LOUIS_MAXWELL_REF }
+    : { "@type": "Organization", "name": authorName };
   const reviewedBySchema = hasVerifiedReviewer
-    ? {
-        "@type": "Person",
-        "name": reviewerName,
-        "jobTitle": reviewerCreds,
-        ...maxwellSchemaFields,
-      }
+    ? { ...LOUIS_MAXWELL_REF }
     : null;
   const reviewSchemaFields = blogReviewSchemaFields({ reviewedBy: reviewedBySchema, lastReviewed: blogLastReviewed });
   const citationSchema = citations.map((citation) => ({
@@ -394,7 +371,7 @@ const BlogPost = () => {
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
-          "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+          "publisher": GUIDE_PUBLISHER_SCHEMA,
           "inLanguage": "en-GB",
           "mainEntity": { "@id": `${pageUrl}#article` },
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
@@ -552,7 +529,7 @@ const BlogPost = () => {
                         Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
-                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)}</span>
+                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
                       )}
                     </div>
                   </>
@@ -840,6 +817,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
+            <UrgentHelpAndSources path={`/blog/${slug}`} />
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
               reviewStatus="reviewed"

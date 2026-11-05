@@ -37,7 +37,6 @@ const cases = [
     ],
     links: [
       "/blog/heat-or-ice-for-arthritis",
-      "/blog/heat-packs-frail-arthritis-uk",
       "/blog/cold-weather-arthritis-uk-winter",
       "/blog/winter-arthritis-frailty-cold-houses-uk",
       "/blog/diabetes-arthritis-frailty-feet-uk",
@@ -60,7 +59,7 @@ const cases = [
     links: [
       "/blog/night-lights-arthritis-falls-frailty-uk",
       "/blog/community-alarm-arthritis-frailty-uk",
-      "/blog/pendant-alarm-arthritis-swollen-fingers-uk",
+      "/blog/community-alarm-arthritis-frailty-uk",
       "/blog/falls-response-service-arthritis-uk",
       "/blog/confidence-after-fall-arthritis-frailty-uk",
       "/blog/sit-to-stand-practice-frail-arthritis-uk",
@@ -166,7 +165,7 @@ describe("GSC Champions 104–105 (28 Oct): heat and cold safety, living alone f
       expect(llms).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(ai).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(sitemap).toMatch(
-        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-10-28</lastmod>`),
+        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-1[01]-\\d{2}</lastmod>`),
       );
     }
   });

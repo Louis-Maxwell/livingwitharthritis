@@ -14,7 +14,6 @@ const SHOP_URL = "https://shop.brandangels.co.uk/living-with-arthritis";
 const ResourceLibraryDrawer = lazyWithRetry(() => import("@/components/ResourceLibraryDrawer"));
 const SiteSearch = lazyWithRetry(() => import("@/components/SiteSearch"));
 const DonationQuickBar = lazyWithRetry(() => import("@/components/DonationQuickBar"));
-import SiteDonateBanner from "@/components/SiteDonateBanner";
 import { useExclusiveOverlay } from "@/hooks/useExclusiveOverlay";
 import { GOFUNDME_URL } from "@/components/landing/homeJobs";
 
@@ -154,7 +153,7 @@ const Header = () => {
         { label: "Newly Diagnosed", desc: "Your step-by-step first weeks", icon: Sparkles, href: "/guides/newly-diagnosed", action: () => navigate("/guides/newly-diagnosed"), color: "text-primary bg-primary/10" },
         { label: "Pain Relief", desc: "Evidence-based pain management", icon: HeartPulse, href: "/guides/arthritis-pain-relief", action: () => navigate("/guides/arthritis-pain-relief"), color: "text-primary bg-primary/10" },
         { label: "Exercise & Movement", desc: "Knee, hand, tai chi & more", icon: Dumbbell, href: "/exercises", action: () => navigate("/exercises"), color: "text-primary bg-primary/10" },
-        { label: "Nutrition & Diet", desc: "Anti-inflammatory eating", icon: Utensils, href: "/diet", action: () => navigate("/diet"), color: "text-primary bg-primary/10" },
+        { label: "Nutrition & Diet", desc: "Anti-inflammatory eating", icon: Utensils, href: "/guides/diet", action: () => navigate("/guides/diet"), color: "text-primary bg-primary/10" },
         { label: "Emotional Wellbeing", desc: "Mental health support", icon: Heart, href: "/arthritis-mental-health", action: () => navigate("/arthritis-mental-health"), color: "text-primary bg-primary/10" },
         { label: "Work & Career", desc: "Rights, adjustments, flare plans", icon: ShieldCheck, href: "/guides/work-with-arthritis", action: () => navigate("/guides/work-with-arthritis"), color: "text-primary bg-primary/10" },
         { label: "Travel Tips", desc: "Flying, insurance, Blue Badge", icon: Globe, href: "/guides/travel-with-arthritis", action: () => navigate("/guides/travel-with-arthritis"), color: "text-primary bg-primary/10" },
@@ -309,9 +308,6 @@ const Header = () => {
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
-
-
-        <SiteDonateBanner />
 
         <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
           <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>

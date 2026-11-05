@@ -114,7 +114,7 @@ const GuidesHub = () => {
           </p>
           <nav aria-label="Related hubs" className="flex flex-wrap gap-2 text-sm">
             <Link to="/exercises" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Exercise hub</Link>
-            <Link to="/diet" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Diet hub</Link>
+            <Link to="/guides/diet" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Diet hub</Link>
             <Link to="/guides/benefits-pip" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Benefits &amp; PIP</Link>
             <Link to="/blog" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">Blog</Link>
             <Link to="/editorial-standards" className="rounded-full border border-border/60 px-3 py-1.5 hover:border-primary/40 hover:text-primary">How we write</Link>

@@ -1,6 +1,7 @@
 ﻿import { useParams, Link } from "react-router-dom";
 import NotFound from "@/pages/NotFound";
 import { Helmet } from "react-helmet-async";
+import routeNoindex from "@/data/route-noindex.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
@@ -70,7 +71,7 @@ const CityArthritisPage = () => {
       <Helmet>
         <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
         <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content={routeNoindex.includes(`/arthritis-support/${cityData.slug}`) ? "noindex, follow" : "index, follow"} />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
         <meta property="og:description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta property="og:url" content={`${BASE}/arthritis-support/${cityData.slug}`} />
@@ -172,7 +173,7 @@ const CityArthritisPage = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               {[
                 { icon: Dumbbell, title: "Stay Active", desc: "Regular low-impact exercise like walking, swimming, and cycling helps maintain joint mobility.", link: "/exercises", linkText: "Exercise guides" },
-                { icon: Apple, title: "Eat Well", desc: "An anti-inflammatory Mediterranean diet can reduce pain and stiffness.", link: "/diet", linkText: "Diet hub" },
+                { icon: Apple, title: "Eat Well", desc: "An anti-inflammatory Mediterranean diet can reduce pain and stiffness.", link: "/guides/diet", linkText: "Diet hub" },
                 { icon: Heart, title: "Get Support", desc: "Connect with others living with arthritis in your area and online.", link: "/community", linkText: "Community" },
                 { icon: BookOpen, title: "Learn About Arthritis", desc: "Understand your condition better with our evidence-based guides.", link: "/blog", linkText: "Read our arthritis guides" },
               ].map(({ icon: Icon, title, desc, link, linkText }) => (

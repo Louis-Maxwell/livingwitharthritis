@@ -27,7 +27,7 @@ const SLEEP_LINKS = [
   "/exercises",
   "/blog/arthritis-and-mental-health-uk",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 const MH_LINKS = [
@@ -38,7 +38,7 @@ const MH_LINKS = [
   "/resources/flare-action-plan",
   "/exercises",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/blog/carers-assessment-arthritis-frailty-uk",
 ];
 
@@ -50,7 +50,7 @@ const COLD_LINKS = [
   "/arthritis-flare-ups",
   "/blog/how-to-sleep-with-arthritis-uk",
   "/blog/attendance-allowance-arthritis-frailty-uk",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 const cases: Array<{

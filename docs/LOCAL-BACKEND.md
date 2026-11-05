@@ -31,7 +31,7 @@ Never commit real `.env` / `.env.local` / `.env.production`.
 1. **GA4** measurement IDs + conversions
 2. **Gift Aid** HMRC registration (donate copy already honest)
 3. **Google Ad Grants**
-4. Upload real exercise `.mp4` binaries under `public/exercise-videos/`
+4. Exercise `.mp4` + `.jpg` posters live in `public/exercise-videos/` (guarded by `src/lib/__tests__/exercise-videos.test.ts`)
 5. Confirm new registered office address (`CONTACT_ADDRESS` stays empty — no Oswestry)
 
 ## Do not

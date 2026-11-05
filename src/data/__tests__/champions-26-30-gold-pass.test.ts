@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 const pages = [
-  "src/pages/BenefitsPipHub.tsx",
+  "src/pages/pillar/BenefitsPIPGuide.tsx",
   "src/pages/supplements/SupplementsHub.tsx",
   "src/pages/supplements/Glucosamine.tsx",
   "src/pages/FAQ.tsx",
@@ -16,7 +16,7 @@ describe("Champions 26–30 gold pass", () => {
     expect(src).toContain("EducationalDisclaimerBox");
     expect(src).toContain("TopicClusterNav");
     // PIP hub: 20 Sep sprint / 28 Sep pillar deepen; FAQ + symptom checker: 21 Sep CRO; others 2026-09-16.
-    expect(src).toMatch(/2026-09-1[6]|2026-09-20|2026-09-21|2026-09-28/);
+    expect(src).toMatch(/2026-09-1[6]|2026-09-20|2026-09-21|2026-09-28|2026-10-23/);
     expect(src).toContain("ArticleCitations");
     expect(src).toMatch(/ukCitations/);
   });
