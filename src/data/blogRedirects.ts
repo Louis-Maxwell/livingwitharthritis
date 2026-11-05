@@ -8,8 +8,6 @@ export const BLOG_SLUG_REDIRECTS: Record<string, string> = {
   // Knee-exercise content consolidated onto /guides/knee-exercises-for-osteoarthritis.
   // Legacy blog slugs still resolve via BlogPost; HTTP/_redirects + EXACT_SEO_REDIRECTS
   // send users directly to the guide (no soft intermediate hop).
-  "knee-osteoarthritis-exercises": "knee-arthritis-exercises-uk",
-  "knee-exercises-arthritis": "knee-arthritis-exercises-uk",
   // Batch content-generation duplicated these 15 topics into near-identical
   // pairs (matching titles, published days/weeks apart). Consolidated onto
   // whichever article was most recently updated in each pair.
