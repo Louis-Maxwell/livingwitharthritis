@@ -103,6 +103,9 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
     pillarPath: "/conditions/osteoarthritis",
     pillarTitle: "Osteoarthritis guide",
     supportingPaths: [
+      "/blog/hip-and-knee-oa-frailty-transfers-uk",
+      "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk",
+      "/blog/seated-strength-frail-osteoarthritis-uk",
       "/blog/swimming-exercises-hip-osteoarthritis",
       "/guides/hip-exercises-for-osteoarthritis",
       "/faq/what-is-osteoarthritis",
@@ -131,6 +134,9 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "button hook",
       "degenerative joint",
       "wear and tear",
+      "knee osteoarthritis steady",
+      "seated strength osteoarthritis",
+      "hip knee transfers",
     ],
   },
   {

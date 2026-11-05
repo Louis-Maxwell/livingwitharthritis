@@ -238,17 +238,17 @@ A: Yes. Pregnancy in lupus needs to be planned with your rheumatology and obstet
 
 ## Osteoarthritis: Symptoms, Treatment & Exercises (UK)
 URL: https://livingwitharthritis.org.uk/conditions/osteoarthritis
-Last updated: 2026-07-01
+Last updated: 2026-11-05
 Q: What is osteoarthritis?
-A: Osteoarthritis (OA) is the most common form of arthritis in the UK. It happens when protective cartilage on the ends of your bones wears down over time, most often in knees, hips, hands and spine. Symptoms include joint pain that worsens with activity, morning stiffness under 30 minutes, swelling and reduced movement. It's manageable with exercise, weight control, and, when needed, medication or joint replacement.
-Q: Can osteoarthritis be reversed?
-A: No, cartilage loss can't currently be reversed, but symptoms and progression can be significantly slowed with exercise, weight management and joint-friendly activity.
+A: Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care. Educational only — not a diagnosis.
+Q: Can osteoarthritis be cured?
+A: There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery.
 Q: What's the best exercise for osteoarthritis?
-A: Low-impact aerobic exercise (walking, cycling, swimming) plus strength training around the affected joint. NICE recommends 30 minutes most days.
-Q: Does osteoarthritis show on an X-ray?
-A: Yes — X-rays show joint space narrowing and bone spurs, though symptoms don't always match imaging severity.
+A: NICE recommends therapeutic exercise including muscle strengthening and general fitness. Walking, swimming, cycling, seated strength and tai chi are common starting points — start small and build up.
+Q: Do I need an X-ray for osteoarthritis?
+A: Often no. NICE says osteoarthritis can usually be diagnosed clinically; imaging is used when the diagnosis is unclear, red flags are present, or surgery is being planned.
 Q: When should I see a GP?
-A: If joint pain limits daily activity, wakes you at night, or hasn't improved after 6 weeks of self-management, book a GP appointment.
+A: If joint pain is not improving after a few weeks, wakes you most nights, comes with swelling or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP.
 
 ## Polymyalgia Rheumatica (PMR) | UK Guide
 URL: https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica
