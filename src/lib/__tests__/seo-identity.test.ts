@@ -118,12 +118,13 @@ describe("public SEO / AEO identity", () => {
     expect(org.email).toBe(ORGANIZATION_PAYLOAD.email);
   });
 
-  it("ships a WebSite node with an EntryPoint SearchAction", () => {
+  it("ships a WebSite node without SearchAction (SPA search is not crawlable)", () => {
     const site = jsonLdFromIndex("root-website-jsonld");
     expect(site["@id"]).toBe("https://livingwitharthritis.org.uk/#website");
-    expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
-    expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
-    expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(site.name).toBe("Living With Arthritis");
+    expect(site).not.toHaveProperty("potentialAction");
+    expect(WEBSITE_PAYLOAD).not.toHaveProperty("potentialAction");
+    expect(WEBSITE_PAYLOAD.name).toBe("Living With Arthritis");
     expect(WEBSITE_PAYLOAD.about).toEqual(
       expect.arrayContaining(["Osteoarthritis", "Frailty and musculoskeletal health"]),
     );
