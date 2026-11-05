@@ -16,6 +16,7 @@ describe("Month 3 OA pillar (5 Nov)", () => {
     expect(oa).toContain('date="November 2026"');
     expect(oa).toContain('EducationalDisclaimerBox lastReviewed="2026-11-05"');
     expect(oa).toContain("LOUIS_MAXWELL_REF");
+    expect(oa).toContain('<UrgentHelpAndSources path="/conditions/osteoarthritis"');
   });
 
   it("has the customer-first blocks", () => {
@@ -78,17 +79,22 @@ describe("Month 3 OA pillar (5 Nov)", () => {
     }
   });
 
-  it("keeps TopicClusterNav on the OA path and fronts recent Champions", () => {
+  it("keeps TopicClusterNav on the OA path and surfaces recent Champions", () => {
     expect(oa).toContain('TopicClusterNav path="/conditions/osteoarthritis"');
     expect(getClusterForPath("/conditions/osteoarthritis")?.id).toBe("osteoarthritis");
     const cluster = TOPIC_CLUSTERS.find((c) => c.id === "osteoarthritis")!;
-    expect(cluster.supportingPaths).toEqual(
+    // Keep GSC hip-exercises / swimming / FAQ in the first sibling slots; add transfers
+    // without stealing knee-steady / seated-strength primary ownership from exercises.
+    expect(cluster.supportingPaths.slice(0, 4)).toEqual(
       expect.arrayContaining([
+        "/guides/hip-exercises-for-osteoarthritis",
+        "/blog/swimming-exercises-hip-osteoarthritis",
+        "/faq/what-is-osteoarthritis",
         "/blog/hip-and-knee-oa-frailty-transfers-uk",
-        "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk",
-        "/blog/seated-strength-frail-osteoarthritis-uk",
       ]),
     );
+    expect(getClusterForPath("/blog/knee-osteoarthritis-frailty-staying-steady-home-uk")?.id).toBe("exercises");
+    expect(getClusterForPath("/blog/seated-strength-frail-osteoarthritis-uk")?.id).toBe("exercises");
   });
 
   it("scopes the M3 PIP evidence checklist PDF (not shipped)", () => {

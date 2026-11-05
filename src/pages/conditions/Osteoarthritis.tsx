@@ -20,6 +20,7 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_OA } from "@/data/clinical/ukCitations";
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
@@ -729,6 +730,7 @@ const Osteoarthritis = () => (
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
+      <UrgentHelpAndSources path="/conditions/osteoarthritis" />
       <EducationalDisclaimerBox lastReviewed="2026-11-05" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
       <Footer />
