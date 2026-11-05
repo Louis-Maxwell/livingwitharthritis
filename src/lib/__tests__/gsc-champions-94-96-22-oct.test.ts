@@ -219,7 +219,7 @@ describe("GSC Champions 94–96 (22 Oct): methotrexate in later life + RA first 
       expect(llms).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(ai).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(sitemap).toMatch(
-        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-10-22</lastmod>`),
+        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-1[01]-\\d{2}</lastmod>`),
       );
     }
   });

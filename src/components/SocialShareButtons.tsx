@@ -147,6 +147,7 @@ const SocialShareButtons = ({
               variant="default"
               size="sm"
               onClick={() => writeClipboard(url, "link")}
+              data-share="copy_link"
               aria-label={linkCopied ? "Copied" : "Copy link"}
               className="min-h-11 gap-2 rounded-full bg-primary px-4 text-primary-foreground hover:bg-primary/90 col-span-1"
             >
@@ -183,6 +184,7 @@ const SocialShareButtons = ({
                 variant="outline"
                 size="sm"
                 onClick={handleShare}
+                data-share="native"
                 className="min-h-11 gap-2 rounded-full border-primary/30 px-4 text-primary hover:bg-primary/5 col-span-2 sm:col-span-1"
               >
                 <Share2 className="h-4 w-4" aria-hidden="true" />

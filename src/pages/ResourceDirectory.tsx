@@ -131,7 +131,7 @@ export default function ResourceDirectory() {
                   {categories.map(cat => {
                     const Icon = categoryIcons[cat] || Globe;
                     return (
-                      <TabsTrigger key={cat} value={cat} className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-1.5 text-xs sm:text-sm">
+                      <TabsTrigger key={cat} value={cat} className="text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground gap-1.5 text-xs sm:text-sm">
                         <Icon className="w-3.5 h-3.5" />{cat}
                       </TabsTrigger>
                     );

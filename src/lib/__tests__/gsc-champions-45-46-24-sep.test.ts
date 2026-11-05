@@ -36,8 +36,8 @@ const ALLOWED_HOSTS = [
 const CUSTOMER_JOB_HREFS = [
   "/guides/arthritis-pain-relief",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
-  "/diet",
+  "/guides/benefits-pip",
+  "/guides/diet",
 ];
 
 describe("GSC Champions 45–46 (24 Sep): disability benefits FAQ + RA anti-inflammatory diet", () => {
@@ -74,7 +74,7 @@ describe("GSC Champions 45–46 (24 Sep): disability benefits FAQ + RA anti-infl
 
     expect(getClusterForPath(`/faq/${FAQ_SLUG}`)?.id).toBe("pip");
     expect(faqPage).toContain("href: '/library/access-to-work'");
-    expect(faqPage).toContain("href: '/benefits-pip'");
+    expect(faqPage).toContain("href: '/guides/benefits-pip'");
     expect(faqPage).toContain("href: '/blog/pip-for-arthritis-uk'");
     expect(faqPage).toContain("href: '/guides/disability-support'");
     expect(faqPage).toContain("article.lastReviewed");

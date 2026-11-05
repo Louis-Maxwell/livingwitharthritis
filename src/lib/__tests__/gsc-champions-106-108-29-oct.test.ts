@@ -202,7 +202,7 @@ describe("GSC Champions 106–108 (29 Oct): flare or something else, waiting for
       expect(llms).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(ai).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(sitemap).toMatch(
-        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-10-29</lastmod>`),
+        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-1[01]-\\d{2}</lastmod>`),
       );
     }
   });

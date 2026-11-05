@@ -128,7 +128,7 @@ export default function GlossaryTerm() {
             </p>
           )}
 
-          <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
+          <section className="rounded-2xl border border-border p-6 bg-muted/60 mb-10">
             <h2 className="text-lg font-bold mb-2">Talk to your team</h2>
             <p className="text-sm text-muted-foreground">
               This page is general information, not medical advice. If you've seen{" "}

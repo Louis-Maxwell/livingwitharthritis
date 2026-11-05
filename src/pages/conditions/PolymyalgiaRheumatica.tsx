@@ -140,7 +140,7 @@ const data: ConditionPageData = {
   related: [
     {
       label: "Anti-inflammatory diet",
-      to: "/diet",
+      to: "/guides/diet",
       desc: "Mediterranean meals that pair well with long-term steroid use",
     },
     {

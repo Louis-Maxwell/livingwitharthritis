@@ -64,7 +64,7 @@ const cases: Array<{
       "/resources/flare-action-plan",
       "/exercises",
       "/blog/carers-assessment-arthritis-frailty-uk",
-      "/benefits-pip",
+      "/guides/benefits-pip",
       "/guides/newly-diagnosed",
     ],
   },

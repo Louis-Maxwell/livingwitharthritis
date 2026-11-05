@@ -17,7 +17,7 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     description: "clinically aligned routines for knees, hands, shoulders and more",
   },
   diet: {
-    to: "/diet",
+    to: "/guides/diet",
     icon: Apple,
     label: "Diet & Nutrition Hub",
     description: "Anti-inflammatory Mediterranean diet plans and recipes",
