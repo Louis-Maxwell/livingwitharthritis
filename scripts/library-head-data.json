@@ -99,7 +99,7 @@
   },
   "/library/collagen": {
     "title": "Collagen | Living With Arthritis",
-    "description": "The body's most abundant structural protein",
+    "description": "Collagen supplements for joint pain: what collagen does in your body, what the research shows for arthritis, and what to check before you buy.",
     "question": "Collagen",
     "answer": "Collagen is the most abundant protein in the human body, making up about 30% of all protein. It is the main structural component of connective tissues — including skin, tendons, ligaments, cartilage, and bones. Think of collagen as the \"glue\" that holds the body together, providing structure, strength, and elasticity t",
     "breadcrumb": "Collagen",
@@ -126,7 +126,7 @@
   },
   "/library/rheumatoid-arthritis": {
     "title": "Rheumatoid Arthritis | Living With Arthritis",
-    "description": "An autoimmune condition causing joint inflammation",
+    "description": "Rheumatoid arthritis explained: early signs, how it is diagnosed, treatments such as DMARDs and biologics, and practical ways to manage flares day to day.",
     "question": "Rheumatoid Arthritis",
     "answer": "Rheumatoid arthritis (RA) is a chronic autoimmune disease in which the immune system attacks the lining of joints (the synovium), causing inflammation, pain, swelling, and eventually joint damage. Unlike osteoarthritis, which results from wear and tear, RA is an inflammatory condition driven by the immune system. It ca",
     "breadcrumb": "Rheumatoid Arthritis",
@@ -184,7 +184,7 @@
   },
   "/library/bursitis": {
     "title": "Bursitis | Living With Arthritis",
-    "description": "Inflammation of the fluid-filled sacs around joints",
+    "description": "Bursitis explained: why the fluid-filled sacs around your joints get inflamed, common signs in the hip, knee and shoulder, and how to ease the pain.",
     "question": "Bursitis",
     "answer": "Bursitis is inflammation of the bursae — small, fluid-filled sacs that cushion bones, tendons, and muscles near the joints. Bursae reduce friction and allow smooth movement between tissues. When a bursa becomes inflamed, it causes pain and swelling near the affected joint. Bursitis most commonly occurs in the shoulder,",
     "breadcrumb": "Bursitis",
@@ -242,7 +242,7 @@
   },
   "/library/methotrexate": {
     "title": "Methotrexate | Living With Arthritis",
-    "description": "A key disease-modifying drug for arthritis",
+    "description": "Methotrexate for arthritis: how this disease-modifying drug works, how it is taken, common side effects, blood tests and questions to ask your team.",
     "question": "Methotrexate",
     "answer": "Methotrexate is a disease-modifying antirheumatic drug (DMARD) used to treat a range of inflammatory and autoimmune conditions, including rheumatoid arthritis, psoriatic arthritis, and psoriasis. It works by suppressing the overactive immune response that causes inflammation and joint damage in these conditions. Methot",
     "breadcrumb": "Methotrexate",
@@ -260,7 +260,7 @@
   },
   "/library/acupuncture": {
     "title": "Acupuncture | Living With Arthritis",
-    "description": "Ancient needle therapy for pain and wellbeing",
+    "description": "Acupuncture for arthritis pain: what a session involves, what the evidence says for knee and back pain, safety points and how to find a practitioner.",
     "question": "Acupuncture",
     "answer": "Acupuncture is a traditional Chinese medicine (TCM) practice that involves inserting very fine needles into specific points on the body to stimulate the flow of energy (known as \"qi\" or \"chi\"). According to traditional Chinese medicine, illness occurs when the flow of qi is blocked or disrupted. Modern Western medicine",
     "breadcrumb": "Acupuncture",
@@ -269,7 +269,7 @@
   },
   "/library/allopurinol": {
     "title": "Allopurinol | Living With Arthritis",
-    "description": "Long-term treatment to prevent gout attacks",
+    "description": "Allopurinol for gout: how it lowers uric acid to prevent attacks, how the dose is built up, common side effects and why it is usually taken long term.",
     "question": "Allopurinol",
     "answer": "Allopurinol is a medication used to lower uric acid levels in the blood. It is the most commonly prescribed long-term treatment for gout. High levels of uric acid cause the formation of crystals in the joints, which leads to painful gout attacks. By reducing uric acid production, allopurinol helps prevent these attacks",
     "breadcrumb": "Allopurinol",
@@ -309,7 +309,7 @@
   },
   "/library/psoriatic-arthritis": {
     "title": "Psoriatic Arthritis | Living With Arthritis",
-    "description": "Arthritis linked to the skin condition psoriasis",
+    "description": "Psoriatic arthritis explained: how it links to psoriasis, signs to look out for in joints, skin and nails, and the treatments that can help you.",
     "question": "Psoriatic Arthritis",
     "answer": "Psoriatic arthritis (PsA) is a type of inflammatory arthritis that affects some people who have psoriasis — a chronic skin condition causing red, scaly patches. PsA causes joint pain, stiffness, and swelling, and can affect any joint in the body. It can also affect the spine (psoriatic spondylitis), fingernails and toe",
     "breadcrumb": "Psoriatic Arthritis",
@@ -349,7 +349,7 @@
   },
   "/library/tens-machine": {
     "title": "TENS Machine | Living With Arthritis",
-    "description": "Electrical pain relief at home",
+    "description": "TENS machines for arthritis pain: how electrical pain relief works, how to use one safely at home, who should avoid it and what to look for when buying.",
     "question": "TENS Machine",
     "answer": "TENS stands for Transcutaneous Electrical Nerve Stimulation. A TENS machine is a small, battery-operated device that delivers low-voltage electrical impulses through electrodes (sticky pads) placed on the skin near the area of pain. It is a non-invasive, drug-free method of pain relief that can be used at home.",
     "breadcrumb": "TENS Machine",
@@ -389,7 +389,7 @@
   },
   "/library/ginger": {
     "title": "Ginger | Living With Arthritis",
-    "description": "A natural remedy with anti-inflammatory properties",
+    "description": "Ginger for arthritis: what the research says about its anti-inflammatory effects, how people use it in food or supplements, and safety points to know.",
     "question": "Ginger",
     "answer": "Ginger (Zingiber officinale) is a flowering plant whose root has been used for thousands of years as both a culinary spice and a medicinal herb. It is native to Southeast Asia and is widely used in traditional medicine systems including Ayurveda and Chinese medicine. Its main bioactive compound, gingerol, is responsibl",
     "breadcrumb": "Ginger",
@@ -398,7 +398,7 @@
   },
   "/library/hypermobility": {
     "title": "Hypermobility | Living With Arthritis",
-    "description": "When joints move beyond their normal range",
+    "description": "Joint hypermobility explained: what it means when joints move beyond the normal range, when it causes pain or problems, and ways to manage symptoms.",
     "question": "Hypermobility",
     "answer": "Hypermobility means that joints can move beyond the normal range of motion. Many people have hypermobile joints (\"being double-jointed\") without any problems, and some sports people and dancers even benefit from it. However, for others, hypermobility is associated with pain, joint instability, and a range of other symp",
     "breadcrumb": "Hypermobility",
@@ -407,7 +407,7 @@
   },
   "/library/achilles-tendonitis": {
     "title": "Achilles Tendonitis | Living With Arthritis",
-    "description": "Inflammation of the tendon connecting calf to heel",
+    "description": "Achilles tendonitis explained: causes of pain in the tendon between calf and heel, signs to watch for, and exercises and self-care that help recovery.",
     "question": "Achilles Tendonitis",
     "answer": "Achilles tendonitis (or tendinopathy) is inflammation or degeneration of the Achilles tendon — the large tendon at the back of the ankle that connects the calf muscles to the heel bone. It is one of the most common overuse injuries, particularly in runners and people who participate in sports involving jumping or sudde",
     "breadcrumb": "Achilles Tendonitis",
@@ -478,7 +478,7 @@
   },
   "/library/musculoskeletal": {
     "title": "Musculoskeletal Health | Living With Arthritis",
-    "description": "Looking after your bones, muscles, and joints",
+    "description": "Musculoskeletal health: simple ways to look after your bones, muscles and joints as you age, from staying active to diet, sleep and getting help early.",
     "question": "Musculoskeletal Health",
     "answer": "The musculoskeletal system includes all the bones, muscles, tendons, ligaments, and joints in the body. Together, these structures support the body, enable movement, and protect organs. Musculoskeletal conditions are the leading cause of disability worldwide and include conditions such as arthritis, back pain, osteopor",
     "breadcrumb": "Musculoskeletal Health",
@@ -487,7 +487,7 @@
   },
   "/library/neck-pain": {
     "title": "Neck Pain | Living With Arthritis",
-    "description": "Understanding and managing cervical pain",
+    "description": "Neck pain explained: common causes of cervical pain and stiffness, gentle exercises and self-care that help, and the warning signs that need a doctor.",
     "question": "Neck Pain",
     "answer": "Neck pain is one of the most common musculoskeletal problems and affects most people at some point in their lives. The neck (cervical spine) is made up of seven vertebrae (C1–C7) and is responsible for supporting the head and allowing a wide range of movement. This combination of mobility and the weight of the head mak",
     "breadcrumb": "Neck Pain",
@@ -496,7 +496,7 @@
   },
   "/library/polymyalgia": {
     "title": "Polymyalgia Rheumatica | Living With Arthritis",
-    "description": "Stiffness and pain in older adults",
+    "description": "Polymyalgia rheumatica explained: shoulder and hip stiffness in older adults, how it is diagnosed, steroid treatment and when to seek help urgently.",
     "question": "Polymyalgia Rheumatica",
     "answer": "Polymyalgia rheumatica (PMR) is an inflammatory condition that causes pain and stiffness in the shoulders, neck, upper arms, hips, and thighs. It almost exclusively affects people over 50 and is more common in women. PMR is one of the most common inflammatory conditions in older adults and, if treated promptly, usually",
     "breadcrumb": "Polymyalgia Rheumatica",
@@ -505,7 +505,7 @@
   },
   "/library/selenium": {
     "title": "Selenium | Living With Arthritis",
-    "description": "An essential trace mineral for immune and thyroid health",
+    "description": "Selenium and joint health: what this trace mineral does for immunity and the thyroid, food sources, what research shows for arthritis and safe intake.",
     "question": "Selenium",
     "answer": "Selenium is an essential trace mineral that the body needs in small amounts to function properly. It is found naturally in soil and enters the food chain through plants and animals. Selenium plays a critical role in antioxidant defence, thyroid hormone metabolism, immune function, and DNA synthesis.",
     "breadcrumb": "Selenium",
@@ -514,7 +514,7 @@
   },
   "/library/adalimumab": {
     "title": "Adalimumab | Living With Arthritis",
-    "description": "A biologic treatment for inflammatory conditions",
+    "description": "Adalimumab for arthritis: how this biologic treatment works, who it is offered to, how injections are given, side effects and infection precautions.",
     "question": "Adalimumab",
     "answer": "Adalimumab (brand name Humira, and several biosimilars) is a biologic medication — a type of treatment made from biological sources. It belongs to a class of drugs called TNF (tumour necrosis factor) inhibitors, or anti-TNF agents. TNF is a protein produced by the immune system that promotes inflammation. In conditions",
     "breadcrumb": "Adalimumab",
@@ -523,7 +523,7 @@
   },
   "/library/lower-back-back": {
     "title": "Lower Back Pain | Living With Arthritis",
-    "description": "The most common cause of disability worldwide",
+    "description": "Lower back pain explained: common causes, gentle exercises and self-care that help most people recover, and the red flag symptoms that need urgent care.",
     "question": "Lower Back Pain",
     "answer": "Lower back pain affects up to 80% of people at some point in their lives and is the leading cause of disability worldwide. In most cases, it is not caused by a serious condition and improves with time and self-management. However, for some people it becomes chronic and significantly impacts quality of life.",
     "breadcrumb": "Lower Back Pain",
@@ -532,7 +532,7 @@
   },
   "/library/msm": {
     "title": "MSM (Methylsulfonylmethane) | Living With Arthritis",
-    "description": "A sulphur-based supplement for joint health",
+    "description": "MSM (methylsulfonylmethane) for joints: what this sulphur supplement is, what studies show for osteoarthritis pain, possible side effects and safety.",
     "question": "MSM (Methylsulfonylmethane)",
     "answer": "Methylsulfonylmethane (MSM) is a naturally occurring sulphur compound found in plants, animals, and humans. It is a popular dietary supplement, often used to help manage joint pain, reduce inflammation, and support overall health. MSM is found naturally in small amounts in certain foods including garlic, onions, crucif",
     "breadcrumb": "MSM (Methylsulfonylmethane)",
@@ -541,7 +541,7 @@
   },
   "/library/colchicine": {
     "title": "Colchicine | Living With Arthritis",
-    "description": "Fast-acting treatment for acute gout",
+    "description": "Colchicine for gout: how this fast-acting medicine eases an acute attack, when to take it, usual doses, side effects and medicines it can interact with.",
     "question": "Colchicine",
     "answer": "Colchicine is a medication derived from the autumn crocus plant (Colchicum autumnale). It has been used for centuries to treat gout. Today, it is one of the most effective and recommended treatments for acute gout attacks and is also used to prevent recurrent gout. It is sometimes also used for other conditions includi",
     "breadcrumb": "Colchicine",
@@ -550,7 +550,7 @@
   },
   "/library/hip-pain": {
     "title": "Hip Pain | Living With Arthritis",
-    "description": "Causes, assessment, and management",
+    "description": "Hip pain explained: common causes including arthritis and bursitis, how it is assessed, and treatments, exercises and self-care that can ease it.",
     "question": "Hip Pain",
     "answer": "Hip pain is a very common complaint that can affect people of all ages. The hip is one of the largest and most important weight-bearing joints in the body. Hip pain can originate from structures within the joint itself (intra-articular) or from surrounding muscles, tendons, and bursae (extra-articular). It can also be ",
     "breadcrumb": "Hip Pain",
@@ -559,7 +559,7 @@
   },
   "/library/pins-needles": {
     "title": "Pins and Needles in Hands | Living With Arthritis",
-    "description": "Understanding paraesthesia in the hands",
+    "description": "Pins and needles in your hands: common causes such as carpal tunnel syndrome, when the tingling is linked to arthritis, and when to see a doctor.",
     "question": "Pins and Needles in Hands",
     "answer": "Pins and needles — medically known as paraesthesia — is a sensation of tingling, prickling, or numbness in the hands (or other body parts). Most people are familiar with the temporary \"pins and needles\" feeling after sitting in an awkward position that briefly cuts off blood supply or presses on a nerve. However, persi",
     "breadcrumb": "Pins and Needles in Hands",
@@ -568,7 +568,7 @@
   },
   "/library/scleroderma": {
     "title": "Scleroderma | Living With Arthritis",
-    "description": "A rare autoimmune condition affecting the skin and organs",
+    "description": "Scleroderma explained: a rare autoimmune condition affecting the skin, joints and organs. Learn the symptoms, tests, treatments and support available.",
     "question": "Scleroderma",
     "answer": "Scleroderma (also known as systemic sclerosis) is a rare, chronic autoimmune condition in which the immune system triggers an overproduction of collagen, causing skin and connective tissues to harden and tighten. The name comes from the Greek words for hard (sclero) and skin (derma). Scleroderma can range from a mild c",
     "breadcrumb": "Scleroderma",
@@ -577,7 +577,7 @@
   },
   "/library/aps": {
     "title": "Antiphospholipid Syndrome (APS) | Living With Arthritis",
-    "description": "An autoimmune clotting disorder",
+    "description": "Antiphospholipid syndrome (APS) explained: an autoimmune condition that raises the risk of blood clots. Learn the signs, tests, treatment and lupus link.",
     "question": "Antiphospholipid Syndrome (APS)",
     "answer": "Antiphospholipid syndrome (APS), also known as Hughes syndrome, is an autoimmune condition in which the immune system produces antibodies (antiphospholipid antibodies) that attack normal proteins in the blood, making it prone to clotting. This can lead to blood clots in arteries and veins and is a significant cause of ",
     "breadcrumb": "Antiphospholipid Syndrome (APS)",
@@ -604,7 +604,7 @@
   },
   "/library/shoulder-exercises": {
     "title": "Shoulder Exercises | Living With Arthritis",
-    "description": "Strengthening and rehabilitating the shoulder",
+    "description": "Shoulder exercises for arthritis and stiffness: gentle stretches and strengthening moves to improve movement, with tips for doing them safely at home.",
     "question": "Shoulder Exercises",
     "answer": "Exercise is one of the most important treatments for shoulder problems including rotator cuff injuries, frozen shoulder, impingement syndrome, bursitis, and shoulder arthritis. Strengthening the muscles around the shoulder joint improves stability, reduces pain, and helps restore normal movement. Physiotherapy-guided e",
     "breadcrumb": "Shoulder Exercises",
@@ -613,7 +613,7 @@
   },
   "/library/what-is-gout": {
     "title": "What is Gout? | Living With Arthritis",
-    "description": "Understanding the disease of \"kings\"",
+    "description": "What is gout? How uric acid crystals cause sudden, painful joint attacks, common triggers, treatment for flares and ways to help prevent them returning.",
     "question": "What is Gout?",
     "answer": "Gout is a form of inflammatory arthritis that develops when there is too much uric acid in the blood (hyperuricaemia). Uric acid is produced when the body breaks down purines — substances found naturally in the body and in many foods. When uric acid levels are too high, it can crystallise and deposit in joints as needl",
     "breadcrumb": "What is Gout?",
@@ -622,7 +622,7 @@
   },
   "/library/kawasaki": {
     "title": "Kawasaki Disease | Living With Arthritis",
-    "description": "A childhood vasculitis affecting coronary arteries",
+    "description": "Kawasaki disease explained: a childhood condition causing inflamed blood vessels. Learn the signs, why fast treatment protects the heart, and recovery.",
     "question": "Kawasaki Disease",
     "answer": "Kawasaki disease is a rare but serious condition primarily affecting children under 5 years of age. It is a form of vasculitis — inflammation of blood vessels — that mainly affects medium-sized arteries, including the coronary arteries (the arteries supplying the heart). Without prompt treatment, Kawasaki disease can c",
     "breadcrumb": "Kawasaki Disease",
@@ -631,7 +631,7 @@
   },
   "/library/british-supplements": {
     "title": "British Supplements | Living With Arthritis",
-    "description": "Understanding dietary supplements available in the UK",
+    "description": "Supplements for joint health in the UK: what glucosamine, omega-3, vitamin D and others can and cannot do, and how to choose and use them safely.",
     "question": "British Supplements",
     "answer": "Dietary supplements are widely used in the UK to support health and wellbeing. They include vitamins, minerals, herbal products, amino acids, and other substances. In the UK, supplements are regulated as food products rather than medicines, meaning they do not need to prove their effectiveness before being sold — thoug",
     "breadcrumb": "British Supplements",
@@ -640,7 +640,7 @@
   },
   "/library/plantar-fasciitis-treatment": {
     "title": "Plantar Fasciitis Treatment | Living With Arthritis",
-    "description": "Evidence-based approaches to heel pain relief",
+    "description": "Plantar fasciitis treatment: evidence-based ways to ease heel pain, including stretches, footwear, insoles and what to try if pain lasts for months.",
     "question": "Plantar Fasciitis Treatment",
     "answer": "Most cases of plantar fasciitis resolve with conservative treatment, although it can take several months. The key is consistency and patience. A combination of different approaches tends to be most effective.",
     "breadcrumb": "Plantar Fasciitis Treatment",
@@ -649,7 +649,7 @@
   },
   "/library/aspirin": {
     "title": "Aspirin | Living With Arthritis",
-    "description": "A versatile medicine with many uses",
+    "description": "Aspirin explained: how it works for pain, inflammation and heart protection, why it is rarely used for arthritis now, side effects and who should avoid it.",
     "question": "Aspirin",
     "answer": "Aspirin (acetylsalicylic acid) is one of the oldest and most widely used medications in the world. It belongs to the NSAID class and has three main effects: it relieves mild to moderate pain, reduces fever, and reduces inflammation. At low doses (75mg), it also has blood-thinning (antiplatelet) properties, which is why",
     "breadcrumb": "Aspirin",
@@ -667,7 +667,7 @@
   },
   "/library/back-exercises": {
     "title": "Back Exercises | Living With Arthritis",
-    "description": "Strengthening and stretching for a healthy back",
+    "description": "Back exercises for arthritis and back pain: gentle stretching and strengthening moves to build a healthier back, with safety tips for doing them at home.",
     "question": "Back Exercises",
     "answer": "Exercise is one of the most effective treatments for back pain. Staying active — rather than resting in bed — speeds recovery from acute back pain and reduces the risk of it becoming chronic. For chronic back pain, regular exercise is the cornerstone of management, helping to strengthen the muscles that support the spi",
     "breadcrumb": "Back Exercises",
@@ -774,7 +774,7 @@
   },
   "/library/naproxen-side-effects": {
     "title": "Naproxen Side Effects | Living With Arthritis",
-    "description": "What to watch for when taking naproxen",
+    "description": "Naproxen side effects: common and serious effects to watch for, stomach, heart and kidney risks, and how to take this anti-inflammatory more safely.",
     "question": "Naproxen Side Effects",
     "answer": "Naproxen is well-tolerated by many people, but like all NSAIDs, it can cause side effects. The risk of side effects increases with higher doses and longer duration of use. This guide covers the most important side effects to be aware of.",
     "breadcrumb": "Naproxen Side Effects",
@@ -783,7 +783,7 @@
   },
   "/library/knee-support": {
     "title": "Knee Support | Living With Arthritis",
-    "description": "Braces and supports for knee pain and instability",
+    "description": "Knee supports and braces for arthritis: the main types, when a brace can help with pain or instability, and how to choose one that fits you properly.",
     "question": "Knee Support",
     "answer": "Knee supports range from simple elasticated sleeves to custom-made rigid braces. The right type depends on your condition and the level of support needed:",
     "breadcrumb": "Knee Support",

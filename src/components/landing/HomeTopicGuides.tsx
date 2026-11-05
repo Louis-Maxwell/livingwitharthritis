@@ -7,7 +7,7 @@ const TOPIC_GROUPS = [
   {
     title: "Arthritis exercises",
     description: "Explore joint-specific movement and strengthening routines, with guidance on choosing a suitable starting point.",
-    links: [{ label: "Choose arthritis exercises", href: "/exercise-hub" }, { label: "Exercise and arthritis guide", href: "/guides/exercise" }],
+    links: [{ label: "Choose arthritis exercises", href: "/exercises" }, { label: "Exercise and arthritis guide", href: "/guides/exercise" }],
   },
   {
     title: "PIP arthritis guidance",

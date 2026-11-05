@@ -56,12 +56,12 @@ function getStepConfig(pathname: string): StepConfig | null {
     return {
       eyebrow: "Build your routine",
       primary: { label: "Get exercise plan", href: "/self-help", Icon: ClipboardCheck },
-      secondary: { label: "Anti-inflammatory diet", href: "/diet", Icon: Salad },
+      secondary: { label: "Anti-inflammatory diet", href: "/guides/diet", Icon: Salad },
     };
   }
 
   // Diet pages
-  if (pathname === "/diet" || pathname === "/guides/diet") {
+  if (pathname === "/guides/diet" || pathname === "/guides/diet") {
     return {
       eyebrow: "Reduce inflammation",
       primary: { label: "Find local healthcare help", href: "/arthritis-waiting-list-help", Icon: Stethoscope },

@@ -92,7 +92,7 @@ export default function FlareActionPlan() {
           PH128483) · Updated {FLARE_PLAN_UPDATED}
         </p>
 
-        <EducationalDisclaimerBox />
+        <EducationalDisclaimerBox lastReviewed={FLARE_PLAN_UPDATED} />
         <TopicClusterNav path="/arthritis-flare-ups" />
 
         <article

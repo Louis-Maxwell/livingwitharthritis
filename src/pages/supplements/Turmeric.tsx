@@ -13,7 +13,7 @@ const URL = `${BASE}/supplements/turmeric`;
 
 const META_TITLE = "Is Turmeric Good for Arthritis? UK Curcumin Guide";
 const META_DESC =
-  "Honest UK guide to turmeric and curcumin for arthritis: the evidence, the right dose (around 1,000 mg/day), why black pepper matters for absorption, side effects and interactions.";
+  "Honest UK guide to turmeric and curcumin for arthritis: the evidence, doses used in studies, why black pepper matters for absorption, side effects and interactions.";
 
 const FAQS = [
   {
@@ -200,9 +200,10 @@ export default function Turmeric() {
                   over 28 days, with significantly better tolerability.
                 </li>
                 <li>
-                  <strong>Daily 2016 systematic review and meta-analysis</strong> — around
-                  1,000 mg/day curcumin produces clinically meaningful pain and function
-                  improvements in arthritis, comparable to NSAIDs short-term.
+                  <strong>Daily 2016 systematic review and meta-analysis</strong> — pooled
+                  small, short trials (often around 1,000 mg/day curcumin) and found some
+                  improvement in arthritis pain, but the trials were few and of limited quality.
+                  Check with your GP or pharmacist before starting it.
                 </li>
                 <li>
                   <strong>Wang 2021</strong> — curcumin reduced knee OA pain and improved WOMAC
@@ -315,7 +316,7 @@ export default function Turmeric() {
                 MSM guide
               </Link>
               <Link
-                to="/diet"
+                to="/guides/diet"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
               >
                 Anti-inflammatory diet
@@ -328,7 +329,7 @@ export default function Turmeric() {
             <ul className="text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 m-0 list-none p-0">
               <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
               <li><Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">Newly diagnosed</Link></li>
-              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
               <li><Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline underline-offset-2">Mediterranean diet</Link></li>
               <li><Link to="/blog/turmeric-for-arthritis" className="text-primary underline underline-offset-2">Turmeric evidence blog</Link></li>
               <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes</Link></li>

@@ -74,7 +74,7 @@ export const CONTENT_CLUSTERS: ContentCluster[] = [
     ],
     bestGuide: {
       title: "Diet Hub for Arthritis",
-      to: "/diet",
+      to: "/guides/diet",
       description: "Mediterranean eating, foods to avoid and anti-inflammatory recipes.",
     },
   },

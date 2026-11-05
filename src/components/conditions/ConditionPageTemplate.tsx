@@ -1,4 +1,6 @@
-﻿import { Suspense, type ReactNode, type ElementType } from "react";
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { Suspense, type ReactNode, type ElementType } from "react";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -143,6 +145,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           signOrSymptom: data.symptoms,
           riskFactor: data.causes,
           image: ogImage,
+          lastReviewed: "2026-10-26",
+          reviewedBy: { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
         }}
         faqs={data.faqs}
         // No breadcrumbs prop: <PageBreadcrumb> below already injects its
@@ -319,7 +323,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
                 {
                   title: "Anti-inflammatory diet",
                   links: [
-                    { label: `Best diet for ${data.name.toLowerCase()}`, to: "/diet" },
+                    { label: `Best diet for ${data.name.toLowerCase()}`, to: "/guides/diet" },
                     { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
                     { label: "Foods to avoid with arthritis", to: "/blog/category/diet-lifestyle" },
                     { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
@@ -416,6 +420,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               />
             </Suspense>
           </div>
+          <ClusterGpAndLinks path={`/conditions/${data.slug}`} badge />
+          <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />
           <TopicClusterNav path={`/conditions/${data.slug}`} />
         </main>

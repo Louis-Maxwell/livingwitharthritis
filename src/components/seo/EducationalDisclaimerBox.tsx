@@ -7,6 +7,7 @@ import {
 } from "@/lib/medicalDisclaimer";
 import { useDisclaimerStripShown } from "@/components/disclaimerContext";
 import { PENDING_REVIEW_TEXT, type BlogReviewStatus } from "@/lib/blog/review";
+import { formatReviewDate, nextReviewDate } from "@/lib/reviewDates";
 
 interface EducationalDisclaimerBoxProps {
   /** Explicit clinical-review date; never inferred from content updates. */
@@ -31,11 +32,9 @@ export default function EducationalDisclaimerBox({
   pendingText = PENDING_REVIEW_TEXT,
   className = "",
 }: EducationalDisclaimerBoxProps) {
-  const reviewedLabel = lastReviewed && !Number.isNaN(Date.parse(lastReviewed)) ? new Date(lastReviewed).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }) : null;
+  const hasDate = Boolean(lastReviewed && /^\d{4}-\d{2}-\d{2}/.test(lastReviewed));
+  const reviewedLabel = hasDate ? formatReviewDate(lastReviewed!) : null;
+  const nextIso = hasDate ? nextReviewDate(lastReviewed!) : null;
   const copyMode = educationalDisclaimerCopyMode(useDisclaimerStripShown());
 
   return (
@@ -51,8 +50,19 @@ export default function EducationalDisclaimerBox({
               {pendingText}
             </p>
           ) : (
-            <p className="font-semibold text-foreground">
-              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded`}
+            <p className="font-semibold text-foreground" data-testid="review-dates">
+              {`Clinically reviewed by ${reviewer}`}
+              {reviewedLabel && nextIso ? (
+                <>
+                  {" · Last reviewed "}
+                  <time dateTime={lastReviewed!.slice(0, 10)}>{reviewedLabel}</time>
+                  {" · Next review "}
+                  <time dateTime={nextIso}>{formatReviewDate(nextIso)}</time>
+                </>
+              ) : null}{" "}
+              <Link to="/clinical-governance" className="font-normal text-primary underline underline-offset-2">
+                How we review
+              </Link>
             </p>
           )}
           {copyMode === "full" ? (

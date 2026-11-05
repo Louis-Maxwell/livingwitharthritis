@@ -1,4 +1,7 @@
-﻿import { Helmet } from "react-helmet-async";
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import { Helmet } from "react-helmet-async";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +30,8 @@ const URL = `${BASE}/conditions/hip-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Hip Arthritis – Symptoms, Exercises & Pain Relief | Living With Arthritis",
   "description": "UK guide to hip arthritis (osteoarthritis of the hip): symptoms, causes, best exercises, how to relieve hip pain while sleeping, treatment options and when to consider hip replacement.",
   "url": URL,
@@ -91,11 +96,11 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const HipArthritis = () => (
   <>
     <Helmet>
-      <title>Hip Arthritis: Symptoms, Exercises & Relief | UK</title>
-      <meta name="description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+      <title>Hip Arthritis: Symptoms, Exercises & Treatment (UK)</title>
+      <meta name="description" content="Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP." />
       <meta name="keywords" content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip" />
       <meta property="og:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta property="og:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+      <meta property="og:description" content="Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -106,7 +111,7 @@ const HipArthritis = () => (
       <meta property="og:image:alt" content="Hip arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta name="twitter:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+      <meta name="twitter:description" content="Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
@@ -155,7 +160,7 @@ const HipArthritis = () => (
             options have been tried.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
@@ -244,7 +249,7 @@ const HipArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet helps hip arthritis?">
-          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
+          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
             <li>Plenty of vegetables, berries, nuts, olive oil and whole grains</li>
@@ -311,7 +316,7 @@ const HipArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],
@@ -348,6 +353,8 @@ const HipArthritis = () => (
             </Link>
           </div>
           <ArticleCitations citations={CITATIONS_HIP} />
+          <ClusterGpAndLinks path="/conditions/hip-arthritis" />
+      <UrgentHelpAndSources path="/conditions/hip-arthritis" />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/hip-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />

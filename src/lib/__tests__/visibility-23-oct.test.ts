@@ -23,7 +23,7 @@ describe("23 Oct visibility pass", () => {
     expect(data["/guides/benefits-pip"].answer).toMatch(/0800 917 2222/);
   });
 
-  it("redirects the guessed diet guide URL to the diet hub", () => {
-    expect(read("src/lib/seoRedirects.ts")).toMatch(/"\/guides\/arthritis-diet": "\/diet"/);
+  it("redirects the guessed diet guide URL to the diet guide", () => {
+    expect(read("src/lib/seoRedirects.ts")).toMatch(/"\/guides\/arthritis-diet": "\/guides\/diet"/);
   });
 });
