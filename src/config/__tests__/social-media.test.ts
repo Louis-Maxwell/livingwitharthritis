@@ -15,7 +15,7 @@ describe("charity social pages", () => {
   it("links the charity X, YouTube and Threads profiles and no TikTok", () => {
     expect(SOCIAL_LINKS.twitter.url).toBe("https://x.com/ArthritisOrg");
     expect(SOCIAL_LINKS.youtube.url).toBe("https://www.youtube.com/@livingwitharthritisorg");
-    expect(SOCIAL_LINKS.threads.url).toBe("https://www.threads.com/@livingwitharthritisuk");
+    expect(SOCIAL_LINKS.threads.url).toBe("https://www.threads.com/@livingwitharthritisorg");
     expect(SOCIAL_LINKS.threads.label).toBe("Threads");
     const platforms = getEnabledSocialLinks().map((l) => l.platform);
     expect(platforms).toEqual(expect.arrayContaining(["twitter", "threads", "youtube"]));
