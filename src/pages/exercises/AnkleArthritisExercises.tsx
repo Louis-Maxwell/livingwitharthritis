@@ -88,7 +88,12 @@ export default function AnkleArthritisExercises() {
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
             Ankle exercise PDF: 10 foot and ankle strengthening exercises to do at home
           </h1>
-          <p className="text-lg text-muted-foreground mb-6">{FOOT_ANKLE_INTRO}</p>\n          <p className="mb-8"><a className="underline font-semibold" href="/resources/ankle-exercise-programme.pdf" download>Download the free ankle exercise PDF (printable programme)</a> for a printable version of this programme.</p>
+          <p className="text-lg text-muted-foreground mb-6">{FOOT_ANKLE_INTRO}</p>
+          <p className="mb-8">
+            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.html">Open the printable five-exercise ankle guide</a>
+            {" or "}
+            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.pdf" download>download the free ankle exercise PDF</a>.
+          </p>
           <p className="quick-answer mb-8 p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {FOOT_ANKLE_QUICK_ANSWER}
           </p>

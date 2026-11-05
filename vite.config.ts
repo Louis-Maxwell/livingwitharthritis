@@ -181,7 +181,9 @@ export default defineConfig(({ mode }) => {
           // Only pre-bundle libs that the homepage entry actually needs synchronously.
           // framer-motion is intentionally excluded so Rollup can route-split it with
           // whatever lazy chunk first imports it — keeps unused JS off the LCP critical path.
-          vendor: ["react", "react-dom"],
+          // "vendor" (react/react-dom) removed: the resolve.alias above points
+          // react at an absolute path, so the entry never matched and Rollup
+          // emitted an empty 1-byte vendor chunk preloaded on every page.
           router: ["react-router-dom"],
           query: ["@tanstack/react-query"],
           helmet: ["react-helmet-async"],

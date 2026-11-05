@@ -21,7 +21,7 @@ const HUB_PAGES: SearchCatalogItem[] = [
   {
     id: "hub-diet",
     title: "Diet & nutrition hub",
-    href: "/diet",
+    href: "/guides/diet",
     excerpt: "Anti-inflammatory eating patterns and foods that may ease joint symptoms.",
     topic: "Guides & hubs",
     wordCount: 1100,
@@ -39,7 +39,7 @@ const HUB_PAGES: SearchCatalogItem[] = [
   {
     id: "hub-benefits-pip",
     title: "Benefits & PIP hub",
-    href: "/benefits-pip",
+    href: "/guides/benefits-pip",
     excerpt: "Start here for Personal Independence Payment and related UK arthritis benefits.",
     topic: "Finances & Benefits",
     wordCount: 850,

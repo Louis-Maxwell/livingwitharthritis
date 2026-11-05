@@ -12,9 +12,14 @@ describe("charity social pages", () => {
     expect(SOCIAL_LINKS.email.url).toBe("mailto:info@livingwitharthritis.org.uk");
   });
 
-  it("does not link X to another organisation", () => {
-    expect(SOCIAL_LINKS.twitter.enabled).toBe(false);
-    expect(getEnabledSocialLinks().map((l) => l.platform)).not.toContain("twitter");
+  it("links the charity X, YouTube and Threads profiles and no TikTok", () => {
+    expect(SOCIAL_LINKS.twitter.url).toBe("https://x.com/ArthritisOrg");
+    expect(SOCIAL_LINKS.youtube.url).toBe("https://www.youtube.com/@livingwitharthritisorg");
+    expect(SOCIAL_LINKS.threads.url).toBe("https://www.threads.com/@livingwitharthritisuk");
+    expect(SOCIAL_LINKS.threads.label).toBe("Threads");
+    const platforms = getEnabledSocialLinks().map((l) => l.platform);
+    expect(platforms).toEqual(expect.arrayContaining(["twitter", "threads", "youtube"]));
+    expect(Object.keys(SOCIAL_LINKS)).not.toContain("tiktok");
   });
 
   it("includes Facebook and LinkedIn in schema sameAs", () => {

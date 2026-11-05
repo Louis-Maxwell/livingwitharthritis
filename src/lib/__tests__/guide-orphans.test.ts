@@ -36,7 +36,7 @@ describe("guide discoverability", () => {
   it("homepage and related blocks return real guides", () => {
     expect(latestGuides(4)).toHaveLength(4);
     expect(mostHelpfulGuides(4)).toHaveLength(4);
-    expect(relatedGuidesForPath("/benefits-pip", 4)).toHaveLength(4);
+    expect(relatedGuidesForPath("/guides/benefits-pip", 4)).toHaveLength(4);
     expect(relatedGuidesForPath("/contact", 4)).toHaveLength(4);
   });
 });

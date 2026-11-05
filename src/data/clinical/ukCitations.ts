@@ -246,6 +246,9 @@ export const NHS_FIND_SERVICES: Citation = {
 
 /** Arthritis pain relief / pain science guide */
 export const CITATIONS_PAIN_RELIEF: Citation[] = [
+  NICE_RA_NG100,
+  NHS_RHEUMATOID,
+  NHS_STEROID_INJECTIONS,
   VERSUS_ARTHRITIS_PAIN,
   NICE_OA_NG226,
   NHS_NSAIDS,

@@ -13,7 +13,7 @@ const tools = [
     icon: Apple,
     label: "Diet hub",
     desc: "Anti-inflammatory eating for joint health",
-    to: "/diet",
+    to: "/guides/diet",
   },
   {
     icon: Dumbbell,

@@ -17,6 +17,88 @@ import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
+// HowTo mirrors the 8 visible exercise steps (#ex-1 to #ex-8) on this page.
+const HOWTO_LD = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#howto",
+  "name": "8 knee exercises for osteoarthritis at home",
+  "description": "A NICE NG226-aligned home strengthening routine for knee osteoarthritis.",
+  "totalTime": "PT20M",
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Firm chair"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Rolled towel"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Bottom stair or step with a banister"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Quad sets (thigh tightening)",
+      "text": "Sit or lie with your leg straight and a small rolled towel under the knee. Tighten the muscle at the front of the thigh to press the back of the knee down into the towel. Hold for 5 seconds, relax. Build up to 10 holds of 10 seconds. Good for: bad days, early after a flare and as a starting point if other exercises hurt.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Straight-leg raise",
+      "text": "Lie on your back with one knee bent and foot flat. Tighten the thigh of the straight leg, then lift it to the height of the bent knee. Hold for 2 to 3 seconds and lower slowly. 8 to 12 each leg. Easier: lift only a few centimetres. Harder: add a light ankle weight once 3 sets of 12 feel easy.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Sit-to-stand",
+      "text": "Sit near the front of a firm chair with feet hip-width apart and slightly behind your knees. Lean forward, push through your feet and stand up, then sit back down slowly. Use your hands on the armrests at first. 8 to 12 repetitions. Easier: use a higher chair or add a cushion. Harder: arms crossed, a lower chair, or a slow 3-second lowering.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Mini squat",
+      "text": "Stand holding a worktop, feet hip-width apart. Bend your knees and hips slightly as if starting to sit, keeping your weight through your heels and knees in line with your toes. Go only as far as is comfortable, often 10 to 20 cm, then stand up. 8 to 12 repetitions.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-4"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Step-ups",
+      "text": "Using the bottom stair with a banister, step up with one foot, bring the other up, then step down with control. Lead with the stronger leg first if one is more painful. 8 to 10 each leg. Easier: use a lower step or a thick book. Harder: slow the step down.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-5"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Standing hamstring curl",
+      "text": "Hold a chair back. Bend one knee to bring the heel towards your bottom without moving the thigh forward. Lower slowly. 8 to 12 each leg. Harder: add a light ankle weight or resistance band.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-6"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Calf raise",
+      "text": "Hold a worktop with both hands. Rise up onto the balls of your feet, pause, and lower slowly. 10 to 15 repetitions. Harder: one leg at a time.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-7"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 8,
+      "name": "Knee bend and straighten (range of movement)",
+      "text": "Sit on a chair. Slide one foot back under the chair to bend the knee as far as is comfortable, hold for a few seconds, then slide it forward and straighten the knee fully, tightening the thigh. 10 slow repetitions each leg. Do this daily, including on flare days.",
+      "url": "https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis#ex-8"
+    }
+  ]
+};
+
 const FAQS = [
   {
     question: "How many reps of knee exercises for osteoarthritis should I do?",
@@ -204,6 +286,7 @@ export default function KneeExercisesForOsteoarthritis() {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
+        <script type="application/ld+json">{JSON.stringify(HOWTO_LD)}</script>
       </Helmet>
       <PageSchema
         url="/guides/knee-exercises-for-osteoarthritis"

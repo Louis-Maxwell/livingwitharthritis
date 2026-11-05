@@ -9,7 +9,7 @@ export type SocialPlatform =
   | 'instagram'
   | 'linkedin'
   | 'youtube'
-  | 'tiktok'
+  | 'threads'
   | 'pinterest'
   | 'reddit'
   | 'email';
@@ -40,12 +40,12 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   twitter: {
     platform: 'twitter',
     url: 'https://x.com/ArthritisOrg',
-    label: 'X / Twitter',
-    displayName: 'X (Twitter)',
+    label: 'X',
+    displayName: 'X',
     icon: 'Twitter',
     color: 'hover:text-blue-400',
     description: 'Follow us on X for daily arthritis tips and updates',
-    enabled: false, // @ArthritisOrg is a different organisation — do not link
+    enabled: true, // charity-owned X account (@ArthritisOrg)
   },
   facebook: {
     platform: 'facebook',
@@ -79,7 +79,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   youtube: {
     platform: 'youtube',
-    url: 'https://www.youtube.com/@livingwitharthritisuk',
+    url: 'https://www.youtube.com/@livingwitharthritisorg',
     label: 'YouTube',
     displayName: 'YouTube',
     icon: 'Youtube',
@@ -87,15 +87,15 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     description: 'Subscribe to our YouTube channel for exercise videos and tutorials',
     enabled: true, // confirmed charity-owned profile
   },
-  tiktok: {
-    platform: 'tiktok',
-    url: 'https://www.tiktok.com/@livingwitharthritisuk',
-    label: 'TikTok',
-    displayName: 'TikTok',
-    icon: 'Music',
+  threads: {
+    platform: 'threads',
+    url: 'https://www.threads.com/@livingwitharthritisuk',
+    label: 'Threads',
+    displayName: 'Threads',
+    icon: 'AtSign',
     color: 'hover:text-black dark:hover:text-white',
-    description: 'Follow us on TikTok for quick arthritis tips',
-    enabled: false, // ownership not verified
+    description: 'Follow Living With Arthritis on Threads',
+    enabled: true, // charity-owned Threads profile
   },
   pinterest: {
     platform: 'pinterest',
@@ -202,7 +202,8 @@ export const validateSocialUrl = (url: string): boolean => {
       'instagram.com',
       'linkedin.com',
       'youtube.com',
-      'tiktok.com',
+      'threads.com',
+      'threads.net',
       'pinterest.com',
       'pinterest.co.uk',
       'reddit.com',

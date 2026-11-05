@@ -1,3 +1,6 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
+import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
 import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
@@ -17,6 +20,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import { withImageDefaults } from "@/lib/imageFallback";
 import { htmlToPlainText } from "@/lib/sanitize";
 
 import { useBlogArticle } from "@/hooks/useBlogArticle";
@@ -296,42 +300,16 @@ const BlogPost = () => {
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
-  const maxwellSchemaFields = {
-    "identifier": "HCPC PH128483",
-    "url": "https://livingwitharthritis.org.uk/authors/maxwell",
-    "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
-  };
   const isMaxwellAuthor =
     /\bmaxwell\b/i.test(authorName) && /\bPH128483\b/.test(authorCreds);
   const isNamedPersonAuthor =
     isMaxwellAuthor ||
     (/louis\s+maxwell/i.test(authorName) && authorName.length < 80);
-  const authorSchema = isMaxwellAuthor
-    ? {
-        "@type": "Person",
-        "name": authorName,
-        "jobTitle": authorCreds,
-        ...maxwellSchemaFields,
-      }
-    : isNamedPersonAuthor
-      ? {
-          "@type": "Person",
-          "name": authorName,
-          ...(authorCreds && authorCreds !== "Editorial content"
-            ? { "jobTitle": authorCreds }
-            : {}),
-        }
-      : {
-          "@type": "Organization",
-          "name": authorName,
-        };
+  const authorSchema = isNamedPersonAuthor
+    ? { ...LOUIS_MAXWELL_REF }
+    : { "@type": "Organization", "name": authorName };
   const reviewedBySchema = hasVerifiedReviewer
-    ? {
-        "@type": "Person",
-        "name": reviewerName,
-        "jobTitle": reviewerCreds,
-        ...maxwellSchemaFields,
-      }
+    ? { ...LOUIS_MAXWELL_REF }
     : null;
   const reviewSchemaFields = blogReviewSchemaFields({ reviewedBy: reviewedBySchema, lastReviewed: blogLastReviewed });
   const citationSchema = citations.map((citation) => ({
@@ -393,7 +371,7 @@ const BlogPost = () => {
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
-          "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+          "publisher": GUIDE_PUBLISHER_SCHEMA,
           "inLanguage": "en-GB",
           "mainEntity": { "@id": `${pageUrl}#article` },
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
@@ -551,7 +529,7 @@ const BlogPost = () => {
                         Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
-                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)}</span>
+                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
                       )}
                     </div>
                   </>
@@ -664,12 +642,13 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-4 prose-ol:my-4"
           >
-            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
+            <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlBeforeStrip)) }} />
             {htmlAfterStrip && relatedImages[0] && (
               <figure className="not-prose my-8">
                 <img
                   src={safeCoverSrc(relatedImages[0].src)}
                   alt={relatedImages[0].alt}
+                  onError={onCoverImgError}
                   width={1200}
                   height={800}
                   loading="lazy"
@@ -692,7 +671,7 @@ const BlogPost = () => {
               </ViewportSection>
             )}
             {htmlAfterStrip && (
-              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterStrip)) }} />
             )}
 
             {relatedImages[1] && (
@@ -700,6 +679,7 @@ const BlogPost = () => {
                 <img
                   src={safeCoverSrc(relatedImages[1].src)}
                   alt={relatedImages[1].alt}
+                  onError={onCoverImgError}
                   width={1200}
                   height={800}
                   loading="lazy"
@@ -837,6 +817,7 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
+            <UrgentHelpAndSources path={`/blog/${slug}`} />
             <EducationalDisclaimerBox
               lastReviewed={blogLastReviewed}
               reviewStatus="reviewed"
