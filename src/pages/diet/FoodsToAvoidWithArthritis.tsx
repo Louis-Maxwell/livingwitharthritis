@@ -1,3 +1,4 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -156,16 +157,7 @@ const medicalWebPageJsonLd = {
   url: URL,
   inLanguage: "en-GB",
   lastReviewed: "2026-09-16",
-  reviewedBy: {
-    "@type": "Person",
-    name: "Maxwell",
-    jobTitle: "First Contact Practitioner — Chartered Physiotherapist",
-    identifier: "HCPC PH128483",
-    affiliation: {
-      "@type": "MedicalOrganization",
-      name: "Chartered Society of Physiotherapy (CSP)",
-    },
-  },
+  reviewedBy: { ...LOUIS_MAXWELL_REF },
   audience: {
     "@type": "MedicalAudience",
     audienceType: "Patient",
@@ -219,7 +211,7 @@ export default function FoodsToAvoidWithArthritis() {
 
       <PageBreadcrumb
         segments={[
-          { label: "Diet", href: "/diet" },
+          { label: "Diet", href: "/guides/diet" },
           { label: "Foods to Avoid With Arthritis" },
         ]}
       />

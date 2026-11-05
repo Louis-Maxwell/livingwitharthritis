@@ -246,7 +246,7 @@ const ExerciseConditionPage = () => {
             <ArrowRight className="w-4 h-4 text-primary" />
           </Link>
           <Link
-            to="/diet"
+            to="/guides/diet"
             className="flex items-center justify-between p-4 bg-card border border-border rounded-xl hover:border-primary transition-colors"
           >
             <span className="text-foreground font-medium">Anti-inflammatory diet guide</span>

@@ -6,9 +6,9 @@ const data: ConditionPageData = {
   name: "Gout",
   tagline:
     "Gout is a painful inflammatory arthritis caused by urate crystals in a joint. Treatment can settle attacks and lower the risk of future flares.",
-  metaTitle: "Gout Symptoms, Causes, Diet & Treatment (UK Guide)",
+  metaTitle: "Gout: Symptoms, Triggers, Diet & Treatment (UK Guide)",
   metaDescription:
-    "What is gout? UK guide to gout symptoms, the first signs in the big toe, triggers, low-purine diet, allopurinol treatment and how to prevent attacks.",
+    "Sudden, very painful swollen joint? Learn gout symptoms, common triggers, diet changes, allopurinol treatment and when to see a GP.",
   keywords:
     "gout, what is gout, gout symptoms, first signs of gout, gout in big toe, gout treatment, gout diet, low purine diet, allopurinol, uric acid, gout flare up, foods to avoid gout, gout UK, crystal arthritis, joint pain charity, arthritis support",
   alternateNames: ["Crystal arthritis", "Urate arthropathy", "Podagra"],
@@ -188,7 +188,7 @@ const data: ConditionPageData = {
     },
     {
       label: "Anti-inflammatory diet",
-      to: "/diet",
+      to: "/guides/diet",
       desc: "Mediterranean meal plans that work alongside gout treatment",
     },
     {

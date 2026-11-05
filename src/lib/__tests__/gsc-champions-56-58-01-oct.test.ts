@@ -8,7 +8,7 @@ const REVIEW = "2026-10-01";
 
 const CARERS_LINKS = [
   "/blog/carers-allowance-help-if-you-care-for-someone",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/sick-pay-fit-notes-time-off-work-arthritis",
@@ -25,7 +25,7 @@ const PACING_LINKS = [
   "/arthritis-flare-ups",
   "/guides/newly-diagnosed",
   "/blog/access-to-work-scheme-arthritis-guide",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 const WORK_LINKS = [
@@ -33,7 +33,7 @@ const WORK_LINKS = [
   "/blog/sick-pay-fit-notes-time-off-work-arthritis",
   "/guides/work-with-arthritis",
   "/blog/energy-management-and-pacing-arthritis",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/guides/newly-diagnosed",
   "/guides/arthritis-pain-relief",

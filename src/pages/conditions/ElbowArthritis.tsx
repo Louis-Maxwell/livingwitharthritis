@@ -226,7 +226,7 @@ const ElbowArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet and lifestyle changes help elbow arthritis?">
-          <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For elbows specifically:</p>
+          <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>. For elbows specifically:</p>
           <ul>
             <li>Switch a heavy shoulder bag for a backpack to take load off the arm</li>
             <li>Use a thicker pen, kitchen-knife handle or gardening-tool grip — wider grips reduce flexor-tendon strain</li>
@@ -304,7 +304,7 @@ const ElbowArthritis = () => (
             {
               title: "Diet &amp; supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],

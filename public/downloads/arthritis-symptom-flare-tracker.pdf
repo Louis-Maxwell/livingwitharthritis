@@ -1,74 +1,261 @@
 %PDF-1.3
-%“Œ‹ž ReportLab Generated PDF document (opensource)
+%âãÏÓ
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R
+/Producer (pypdf)
 >>
 endobj
 2 0 obj
 <<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+/Type /Pages
+/Count 1
+/Kids [ 4 0 R ]
 >>
 endobj
 3 0 obj
 <<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+/Type /Catalog
+/Pages 2 0 R
 >>
 endobj
 4 0 obj
 <<
-/Contents 8 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 7 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/Contents 5 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ 9 0 R ]
+/Parent 2 0 R
 >>
 endobj
 5 0 obj
 <<
-/PageMode /UseNone /Pages 7 0 R /Type /Catalog
+/Length 6226
 >>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 18 Tf 21.6 TL ET
+BT 1 0 0 1 40 791.8898 Tm (Arthritis symptom and flare tracker \(7 days\)) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 40 773.8898 Tm (Living With Arthritis \267 Registered charity 1218461 \267 livingwitharthritis.org.uk/resources/symptom-flare-tracker) Tj T* ET
+BT /F2 7 Tf 8.4 TL ET
+BT 1 0 0 1 42 745.8898 Tm (Day / date) Tj T* ET
+BT 1 0 0 1 93.52756 745.8898 Tm (Pain 0-10) Tj T* ET
+BT 1 0 0 1 145.0551 745.8898 Tm (Stiffness \(mins\)) Tj T* ET
+BT 1 0 0 1 196.5827 745.8898 Tm (Fatigue 0-10) Tj T* ET
+BT 1 0 0 1 248.1102 745.8898 Tm (Swollen joints) Tj T* ET
+BT 1 0 0 1 299.6378 745.8898 Tm (Sleep) Tj T* ET
+BT 1 0 0 1 351.1654 745.8898 Tm (Activity) Tj T* ET
+BT 1 0 0 1 402.6929 745.8898 Tm (Medicines taken) Tj T* ET
+BT 1 0 0 1 454.2205 745.8898 Tm (Flare? Y/N) Tj T* ET
+BT 1 0 0 1 505.748 745.8898 Tm (Notes) Tj T* ET
+n 40 741.8898 m 40 321.8898 l S
+n 91.52756 741.8898 m 91.52756 321.8898 l S
+n 143.0551 741.8898 m 143.0551 321.8898 l S
+n 194.5827 741.8898 m 194.5827 321.8898 l S
+n 246.1102 741.8898 m 246.1102 321.8898 l S
+n 297.6378 741.8898 m 297.6378 321.8898 l S
+n 349.1654 741.8898 m 349.1654 321.8898 l S
+n 400.6929 741.8898 m 400.6929 321.8898 l S
+n 452.2205 741.8898 m 452.2205 321.8898 l S
+n 503.748 741.8898 m 503.748 321.8898 l S
+n 555.2756 741.8898 m 555.2756 321.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 40 741.8898 l S
+n 91.52756 741.8898 m 91.52756 741.8898 l S
+n 143.0551 741.8898 m 143.0551 741.8898 l S
+n 194.5827 741.8898 m 194.5827 741.8898 l S
+n 246.1102 741.8898 m 246.1102 741.8898 l S
+n 297.6378 741.8898 m 297.6378 741.8898 l S
+n 349.1654 741.8898 m 349.1654 741.8898 l S
+n 400.6929 741.8898 m 400.6929 741.8898 l S
+n 452.2205 741.8898 m 452.2205 741.8898 l S
+n 503.748 741.8898 m 503.748 741.8898 l S
+n 555.2756 741.8898 m 555.2756 741.8898 l S
+n 40 741.8898 m 555.2756 741.8898 l S
+n 40 681.8898 m 555.2756 681.8898 l S
+n 40 621.8898 m 555.2756 621.8898 l S
+n 40 561.8898 m 555.2756 561.8898 l S
+n 40 501.8898 m 555.2756 501.8898 l S
+n 40 441.8898 m 555.2756 441.8898 l S
+n 40 381.8898 m 555.2756 381.8898 l S
+n 40 321.8898 m 555.2756 321.8898 l S
+n 40 741.8898 m 40 321.8898 l S
+n 91.52756 741.8898 m 91.52756 321.8898 l S
+n 143.0551 741.8898 m 143.0551 321.8898 l S
+n 194.5827 741.8898 m 194.5827 321.8898 l S
+n 246.1102 741.8898 m 246.1102 321.8898 l S
+n 297.6378 741.8898 m 297.6378 321.8898 l S
+n 349.1654 741.8898 m 349.1654 321.8898 l S
+n 400.6929 741.8898 m 400.6929 321.8898 l S
+n 452.2205 741.8898 m 452.2205 321.8898 l S
+n 503.748 741.8898 m 503.748 321.8898 l S
+n 555.2756 741.8898 m 555.2756 321.8898 l S
+BT /F1 9 Tf 10.8 TL ET
+BT 1 0 0 1 40 297.8898 Tm (Take this to your GP, physiotherapist or rheumatology appointment.) Tj T* ET
+BT 1 0 0 1 40 283.8898 Tm (Red flags - get urgent help \(NHS 111, or 999 in an emergency\): a single hot, red, swollen joint with fever;) Tj T* ET
+BT 1 0 0 1 40 269.8898 Tm (sudden inability to bear weight; new weakness, numbness, or loss of bladder/bowel control.) Tj T* ET
+BT 1 0 0 1 40 255.8898 Tm (Educational information, clinically reviewed by Louis Maxwell \(HCPC PH128483\). Not a diagnosis or treatment plan.) Tj T* ET
+ 
+
+Q
+q
+0.0 0.0 595.2756 841.8898 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+/F1-0 8 Tf
+9.6 TL
+ET
+BT
+1 0 0 1 36 827.8898 Tm
+(Accessible HTML version\072 livingwitharthritis\056org\056uk\057resources\057symptom\055flare\055tracker) Tj
+T*
+ET
+Q
+
+endstream
 endobj
 6 0 obj
 <<
-/Author (anonymous) /CreationDate (D:20261026155348+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20261026155348+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (unspecified) /Title (untitled) /Trapped /False
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 7 0 obj
 <<
-/Count 1 /Kids [ 4 0 R ] /Type /Pages
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 8 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1145
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
-stream
-Gb"/g995i-'SZ;[/+0]XPTgsgX*ZSdkL?6;<9f>tC+1*W38fh%,@`4@^E5fJ80!MYmANmX#[b;u&,3kkMnh27eGc?L^kWXU^E>c_XEK,uK44EQT3#sb\d'X$l5ju_ToMm7^b/"]EoK&5:]WNDQ-L,nXG!l3%U'W5`"mNd-jj.?FAEXQD^*hs\m4.L_WhB-roj)3*o,>!2ni5O%m)qY(FCp4S*:oI?.WC"_)Igf;H$#nOQOKOW6H&SN'm7/4E%&dUElDWOXbFPrDM$@<[ss-o&ThRomV,UDB&9lCAc*7/aEk8P;jBfIj-a$c&HLbH'OCcHmeEX+M:Z:&LP<,6ghGi):f5uF=DOeCpt(b2#Xp5R(2F'Y>.D3LqW"MrInpN<HM\O&'#/HY'#BC8'*b+n3\t)b?'p"ie2ap>=qZT@9h^qa?a6b0*UfCD)0W6\-BR:'..%+WVK/q/7k\/TZNd_=/5k?4O4J<N\o(tTC@:)33EVD^ko:<;iai*o.Gjm&]U`8V.`oDG?T!22Wr>Ce3*gqe^l>f@D<2aBD\.B-FetZ@(VlHH8t8cmFf3cZUrZ#3Nuf6@XXbg3VI8rZWQS*?%-GB3n8%)n@HC>[]<PIi;0@=HF,3UA.U_D&q0/iXd*Y9q@BQ/lt!+S4-chb:8Vd4;lNseA?$D,RB"M,V/!7KWS6E4W`O*$<9I6D<9I6D<9I6D<9I6D<9I51k>Wh-0YXF\g-Bp.eCD$-&7/:`D4oYrb-`Z\iZ;I;pIF$9=76#!pV6P;SA4OmpYY_C\Ra-K-!_l>*DA@cBbenJB1;M.FO!M*&o(Puq!2VpLV,7-e2^Oi^e,&6J]_\,&1tH:C*8:!1H$b^d*?E*/b%c+!U)Jr%T]nKmNA8C.[:l+jHL`oIIh^`$j`OqZVcl2^]Y2L[%Iknf'D)"5bMX3itQO5(SKu8!Tj+_&"3eRm-"gWmp<I;-A//#g2;n=$*n!P)7u=ICa`/"Ub'^^3tV$tNlf#'9eJ\1`TH?G1!+!0K&"1s'6=bngrL`%O@l43j:a*Oc:2]D[oH$WPCda`@OG1'Xqm+>-<Nl"YK_L00R>RhgXP^8.hgB5nrMI]S#5"kI/4+EpW/84m&t=JGa-phC!0$oA8+m#;_(JoR,Gc:3&_%[rWOVB0PC~>endstream
+endobj
+9 0 obj
+<<
+/Type /Annot
+/Subtype /Link
+/Rect [ 34 823.8898 331.168 835.8898 ]
+/Border [ 0 0 0 ]
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057livingwitharthritis\056org\056uk\057resources\057symptom\055flare\055tracker)
+>>
+/P 4 0 R
+>>
 endobj
 xref
-0 9
+0 10
 0000000000 65535 f 
-0000000061 00000 n 
-0000000102 00000 n 
-0000000209 00000 n 
-0000000321 00000 n 
-0000000524 00000 n 
-0000000592 00000 n 
-0000000853 00000 n 
-0000000912 00000 n 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000113 00000 n 
+0000000162 00000 n 
+0000000411 00000 n 
+0000006689 00000 n 
+0000006796 00000 n 
+0000006903 00000 n 
+0000007015 00000 n 
 trailer
 <<
-/ID 
-[<52b53751c047cb62029d9d4bbe9b4a20><52b53751c047cb62029d9d4bbe9b4a20>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 6 0 R
-/Root 5 0 R
-/Size 9
+/Size 10
+/Root 3 0 R
+/Info 1 0 R
 >>
 startxref
-2148
+7262
 %%EOF

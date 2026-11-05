@@ -14,7 +14,7 @@ const HUB_LINKS = [
   { label: "Managing arthritis pain", href: "/guides/arthritis-pain-relief" },
   { label: "Arthritis flare-ups", href: "/arthritis-flare-ups" },
   { label: "Exercise hub", href: "/exercises" },
-  { label: "Diet & nutrition hub", href: "/diet" },
+  { label: "Diet & nutrition hub", href: "/guides/diet" },
   { label: "Benefits & PIP guide", href: "/guides/benefits-pip" },
 ] as const;
 

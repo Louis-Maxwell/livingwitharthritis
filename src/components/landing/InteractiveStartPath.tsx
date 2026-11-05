@@ -108,7 +108,7 @@ const EXERCISE_BY_JOINT: Record<JointId, ResultLink> = {
 
 const DIET_LINKS: ResultLink[] = [
   {
-    href: "/diet",
+    href: "/guides/diet",
     label: "Anti-inflammatory diet hub",
     sub: "Food that can support joints — it does not replace treatment.",
   },

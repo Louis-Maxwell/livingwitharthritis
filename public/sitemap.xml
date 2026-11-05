@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -19,15 +19,11 @@
     <loc>https://livingwitharthritis.org.uk/guides</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/benefits-pip</loc>
-    <lastmod>2026-10-23</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog-hub</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -152,6 +148,14 @@
     <lastmod>2026-07-01</lastmod>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/back-pain</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/conditions/early-arthritis-symptoms</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/conditions/foot-and-ankle-arthritis</loc>
     <lastmod>2026-09-21</lastmod>
   </url>
@@ -260,10 +264,6 @@
     <loc>https://livingwitharthritis.org.uk/exercises/neck-arthritis-exercises</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/diet</loc>
-    <lastmod>2026-09-16</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis</loc>
     <lastmod>2026-10-23</lastmod>
   </url>
@@ -282,6 +282,18 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/community</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/trusted-local-services</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/clinical-governance</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/evidence-register</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/corrections-policy</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/privacy</loc>
@@ -344,7 +356,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/arthritis-pain-relief</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/understanding-pain</loc>
@@ -580,23 +592,7 @@
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/brighton</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/plymouth</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/stoke-on-trent</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wolverhampton</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/southampton</loc>
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
@@ -612,19 +608,7 @@
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/oxford</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cambridge</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/exeter</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/york</loc>
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
@@ -636,15 +620,7 @@
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/hull</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/portsmouth</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/sunderland</loc>
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
@@ -653,10 +629,6 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/middlesbrough</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/reading</loc>
-    <lastmod>2026-07-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/peterborough</loc>
@@ -675,33 +647,13 @@
     <lastmod>2026-07-04</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/luton</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/warrington</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/slough</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/bournemouth</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/cheltenham</loc>
-    <lastmod>2026-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/doncaster</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/wigan</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/wakefield</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/arthritis-support/gloucester</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/lincoln</loc>
@@ -1095,9 +1047,6 @@
     <loc>https://livingwitharthritis.org.uk/faq/arthritis-and-sleep</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/faq/arthritis-flare-management</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/faq/returning-to-work-arthritis</loc>
   </url>
   <url>
@@ -1293,9 +1242,6 @@
     <loc>https://livingwitharthritis.org.uk/library/arthritis-symptoms</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/library/naproxen-500mg</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/library/shoulder-exercises</loc>
   </url>
   <url>
@@ -1314,31 +1260,7 @@
     <loc>https://livingwitharthritis.org.uk/library/aspirin</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/library/turmeric-benefits</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/library/back-exercises</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/mtx-methotrexal</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/naproxen-adverse</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/osteoporosis-osteoporosis</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/manchester-marathon</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/hypermobility-and</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/discomfort-knee</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/library/sore-bottom-back</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library/access-to-work</loc>
@@ -1403,7 +1325,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-fatigue-explained</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-arthritis-fatigue-explained.webp</image:loc>
     </image:image>
@@ -1473,156 +1395,93 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/knee-osteoarthritis-frailty-staying-steady-home-uk</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0202-busy-park.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-osteoarthritis-frailty-chair-rise-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/community-07-2018-05-19-15-31-50-ilce-6500-dsc08438-dxo.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hand-osteoarthritis-frailty-dressing-cooking-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0349-out-on-the-town.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/spinal-osteoarthritis-frailty-standing-pacing-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0472-old-woman-sitting-in-a-square-granada.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/shoulder-osteoarthritis-frailty-washing-dressing-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0173-0524071143-jpg.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0310-senior-woman-practicing-yoga-indoors-while-tr.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/neck-osteoarthritis-frailty-balance-looking-down-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0400-img-2792.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0160-siem-reap-s-celebrated-pub-street.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/wrist-osteoarthritis-frailty-walking-aids-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0270-stretching-exercises.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/elbow-osteoarthritis-frailty-kitchen-tasks-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0478-mixed-beans-sprouted.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/big-toe-osteoarthritis-frailty-shoes-balance-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0153-apr-28-2014-camino-de-santiago-tour-frescotou.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/polyarticular-oa-frailty-pacing-several-joints-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0462-20171027-ams-lsc-1300.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-and-knee-oa-frailty-transfers-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0352-d9c9a523-5b84-440f-bf53-e60f260e6d95.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/midfoot-osteoarthritis-frailty-standing-time-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0457-summer-peach-cake.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-walking-frame-bedside-127.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/knee-oa-frailty-stairs-banisters-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/community-12-physical-therapy-session-aboard-the-uss-george-was.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-oa-frailty-getting-into-car-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0132-old-runner-b2.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/hand-oa-frailty-opening-packaging-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0067-old-woman-s-walk-plaza-corredera-cordoba.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/spine-oa-frailty-gardening-pacing-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0466-cup-of-tea-by-a-lake.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/shoulder-oa-frailty-high-cupboards-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0307-an-elderly-chinese-man-practices-tai-chi-jard.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/knee-oa-frailty-rising-from-low-sofa-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0148-children-s-grand-park.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/late-onset-ra-frailty-first-months-uk</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0269-stretching-exercises.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/ra-frailty-older-adults-daily-rhythm-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0086-i-don-t-understand-you.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -1648,14 +1507,14 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pmr-frailty-morning-stiffness-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0082-elderly-in-brighton.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pmr-steroid-taper-frailty-weakness-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/community-06-pride-be-2018-2018-05-19-15-19-41-ilce-6500-dsc082.webp</image:loc>
     </image:image>
@@ -1669,93 +1528,65 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-later-life-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0322-close-elderly-person-hand-holding.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/inflammatory-arthritis-frailty-flare-week-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0140-tashkent-4176rt.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/osteoporosis-arthritis-frailty-bone-joint-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0429-granite-reef-senior-center.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-calcium-and-bone-health-08aa02.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/spinal-stenosis-oa-frailty-walking-stops-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/community-04-renewing-bonds-family-reconnects-at-4th-asog-marri.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/post-knee-replacement-frailty-rehab-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0095-it-s-been-a-long-rainy-life.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/post-hip-replacement-frailty-home-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0441-dinner-salad-from-the-templeton.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/generalised-oa-frailty-whole-body-day-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0131-pondering-man-and-laughing-lady-siena-italy.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/wrist-hand-oa-frailty-self-care-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0191-zam072509238.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/knee-oa-frailty-outdoor-pavements-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0395-img-8513.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-oa-frailty-bed-mobility-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0401-painting-under-a-sakura-tree.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/rockwood-clinical-frailty-scale-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0107-older-wiser-and-more-in-love.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/fried-frailty-phenotype-painful-joints-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0457-silly-mom-silly-dad.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/prefrailty-osteoarthritis-early-action-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0406-tree-top-walk.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -1767,77 +1598,49 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/deconditioning-after-arthritis-flare-uk</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0420-learning-to-swim.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hospital-deconditioning-arthritis-stay-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0414-berkeley-lake-park.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/multimorbidity-arthritis-frailty-whole-picture-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0453-elderly-people-napping.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/comprehensive-geriatric-assessment-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0119-out-for-morning-walk.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nhs-frailty-pathway-arthritis-england</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0203-dil-chora-hospital-dire-dawa-ethiopia-2010.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/frailty-services-arthritis-scotland-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-12-pilates-at-a-gym.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/frailty-older-people-arthritis-wales-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0326-the-art-of-cursive.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/older-adults-arthritis-frailty-northern-ireland-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0432-170813-z-vd276-007.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/sarcopenia-knee-oa-frailty-overlap-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0417-po-hong-park-pebble-walking-trail-and-elderly.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/fear-of-falling-hip-oa-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0176-c-mon-let-s-go.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/falls-clinic-arthritis-what-to-expect-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0432-some-male-residents-century-village.webp</image:loc>
     </image:image>
@@ -1850,22 +1653,15 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/indoor-walking-frame-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/community-05-pride-be-2018-2018-05-19-16-47-31-ilce-6500-dsc081.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/balance-painful-feet-frailty-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0080-buenos-aires-botanical-garden.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/vision-falls-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0416-learning-to-swim.webp</image:loc>
     </image:image>
@@ -1886,21 +1682,21 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/seated-strength-frail-osteoarthritis-uk</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-03-khaleda-zia-hand-development-due-to-arthritis.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/chair-based-exercise-ra-frailty-uk</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0318-fitness-programming-greenville-aquatics.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/tai-chi-balance-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0472-20171027-ams-lsc-1082.webp</image:loc>
     </image:image>
@@ -1914,35 +1710,21 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0465-20171027-ams-lsc-1227.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/resistance-bands-seated-frail-oa-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0418-learning-to-swim.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/bed-exercises-hospital-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0315-emily-malugen.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/reablement-after-discharge-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0077-marika.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/walking-stick-vs-frame-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0306-yoga-class.webp</image:loc>
     </image:image>
@@ -1955,13 +1737,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/mediterranean-eating-frail-osteoarthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/nutrition-09-dfc-3934-a-colorful-medley-of-freshly-chopped-frui.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/vitamin-d-winter-arthritis-frailty-uk</loc>
     <lastmod>2026-10-08</lastmod>
     <image:image>
@@ -1970,63 +1745,35 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/appetite-loss-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0479-salad.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/meal-times-care-home-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0450-glory-foods-skillet-steamed-vegetables.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/hydration-gout-frailty-older-adults-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0487-sauteed-spinach.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/constipation-pain-medicines-frailty-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0170-1699-cidade-de-lugo.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/polypharmacy-arthritis-frailty-review-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0423-141002-d-db155-024.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/painkillers-older-adults-arthritis-caution-uk</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-07-patellofemoral-osteoarthritis-severe-2.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/nsaids-kidneys-heart-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-06-osteoarthritis-left-knee.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/codeine-drowsiness-falls-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0411-generations.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/gabapentinoids-unsteadiness-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0463-while-our-pilgrims-walked-with-another-guide-.webp</image:loc>
     </image:image>
@@ -2036,13 +1783,6 @@
     <lastmod>2026-10-23</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/community-11-us-navy-100306-n-5319a-069-ten-year-old-joseph-cam.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/paracetamol-older-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0422-elderly-man-walking-on-a-dirt-road-constructi.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2068,86 +1808,72 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pharmacist-medication-review-frail-arthritis-uk</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0308-on-lok-senior-health-services-in-san-francisc.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/dosette-boxes-arthritis-frailty-hands-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0427-learning-to-swim.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/grab-rails-arthritis-frailty-home-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0470-fresh-blueberries.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/stairlifts-arthritis-frailty-uk-home</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0447-20171027-ams-lsc-1212.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/wet-rooms-arthritis-frailty-washing-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0141-senior-citizen-walking-club-at-alki-playgroun.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/rise-recline-chair-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0483-perfect-garden.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/kitchen-adaptations-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0441-32e86270-4007-4d1f-8d8a-65d6c40e16f5.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/ot-assessment-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0454-wilted-kale-salad-with-deep-fried-garlic-lemo.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/disabled-facilities-grant-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0152-2-elderly-women-walking-the-trail.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/care-home-life-arthritis-pain-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0293-tai-chi-uncle-2.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/sheltered-housing-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0060-not-all-seniors-are-senile.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/pip-arthritis-frailty-honest-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0482-20171027-ams-lsc-0876.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2173,70 +1899,63 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/social-care-needs-assessment-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0346-the-great-unconformity.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-blue-badge-scheme-and-arthritis-cf567b.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/depression-osteoarthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0184-two-women-walking-down-a-sidewalk.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/loneliness-arthritis-frailty-social-contact-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0101-old-women-gathering-in-plaza-corredera-cordob.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0296-the-tai-chi-lesson-had-already-started.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/anxiety-about-falling-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0069-an-elderly-walking-at-a-once-a-railway-park-i.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0473-grandfather-reading.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/confidence-after-fall-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0428-learning-to-swim.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hospital-stay-arthritis-frailty-what-to-pack-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0476-support-for-japan.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/discharge-planning-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0384-vale-youth-art-project-094.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/rural-living-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0475-20120106-oc-amw-0754.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/high-rise-flat-arthritis-frailty-lifts-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0481-20171027-ams-lsc-0757.webp</image:loc>
     </image:image>
@@ -2250,135 +1969,107 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/heatwave-arthritis-frailty-hydration-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0415-trans-pennine-trail-21st-anniversary-3.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/community-alarm-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0319-fitness-programming-greenville-aquatics.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/podiatry-footcare-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0437-greek-salad.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/hearing-balance-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0159-elderly-couple-walk-together.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/dental-care-arthritis-frailty-hands-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0487-20171027-ams-lsc-0268.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/skin-pressure-care-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0163-new-york-city-street-scenes-elderly-woman-wal.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/chair-yoga-frailty-inflammatory-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0445-frozen-yogurt-cups-sunshine-cups.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/community-strength-classes-frail-oa-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0317-fitness-programming-greenville-aquatics.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gp-frailty-register-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-11-osteoarthritis.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/community-matron-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0342-walk-into-the-sunshine.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/intermediate-care-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0116-alone-in-the-world.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/day-centres-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0201-walking.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/befriending-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-09-pilates-9956559243.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/grandparenting-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-12-osteoarthritis.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pets-arthritis-frailty-walking-dogs-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0330-i-hope-this-is-me-in-40-years.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/faith-groups-arthritis-frailty-access-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0451-couples-and-ponds.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/libraries-arthritis-frailty-getting-out-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0461-hk-tsuen-wan-tsuen-king-circuit-allway-garden.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/community-transport-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0110-hombre-con-galabiya-giza-egipto.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0471-mirepoix-called-also-soffritto.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0460-the-trentham-estate-west-midlands-ambulance-s.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2404,16 +2095,9 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/delirium-hospital-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0309-bethany.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/cognition-arthritis-frailty-remembering-tablets-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0410-14-fox-mountain-trailhead-parking-for-spring-.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2432,140 +2116,98 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/heart-failure-arthritis-frailty-overlap-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0409-tai-chi-cannon-beach.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/copd-arthritis-frailty-breathlessness-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0458-harm-nia-swimming-pool-bicycles-in-gy-mr-pest-3ae74262.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/diabetes-arthritis-frailty-feet-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0456-support-for-japan.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/ckd-nsaids-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0108-old-runner-a3.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/blood-pressure-tablets-falls-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0147-old-runner-b1.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/sleeping-tablets-falls-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0444-file-learning-to-swim-8812288262-jpg.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/anticholinergic-load-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0076-img-7743-jpg.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/direct-payments-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0085-untitled.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/respite-care-arthritis-frailty-carers-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/community-09-us-navy-100306-n-5319a-020-occupational-therapist-.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/extra-care-housing-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0411-cold-steel-triathlon.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/nursing-home-arthritis-pain-review-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0081-julio-shepherd-drive-bridge-over-white-oak-ba.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/reablement-team-arthritis-home-practice-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0452-potato-salad.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/community-ot-waiting-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0452-jelly-donuts.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-bath-grab-rail-126.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/falls-response-service-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0409-think-outside-photo-contest-first-landing-sta.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nine-nine-nine-vs-111-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-11-pilates-9956372676.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gp-home-visit-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0157-this-lady-shows-off-her-wares.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/paramedic-fall-lift-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0481-20140918-nrcs-lsc-0350.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/occupational-therapist-kitchen-visit-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0393-stinky-hotel-in-cancun-fiest-americana-villa.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/physiotherapy-home-visit-frail-oa-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0448-frozen-yogurt-cups-sunshine-cups.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/speech-swallowing-meals-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0300-roy-wilkins-park-td-2019-01-13-025-outdoor-fi.webp</image:loc>
     </image:image>
@@ -2578,85 +2220,43 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/calcium-foods-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0469-organic-olive-oil-salad.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/oily-fish-arthritis-frailty-simple-meals-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0474-salad.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/soft-foods-jaw-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/nutrition-03-colorful-assortment-of-fresh-fruits-arranged-in-a-.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/shopping-online-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0484-bordesley-middleway-camp-hill-site-of-the-shi.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/meal-delivery-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0435-400kcal-diet-020.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/kettle-safety-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0106-wwpw-2014-drizzico-6.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-meals-on-wheels-stepney-128.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/toilet-frame-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0435-birla-senior-secondary-school-swimming-pool.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/commode-night-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0111-photos-and-walking-sticks.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/bed-lever-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0127-contrast.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/sofa-height-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0426-oha-386-appliances-for-hand-exercises.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/threshold-ramps-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0348-older-muslim-couple.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/outdoor-steps-handrails-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0431-swimming-pool-1961.webp</image:loc>
     </image:image>
@@ -2669,115 +2269,59 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/heat-packs-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0420-the-great-hospital-norwich-the-swan-pit.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/pacing-housework-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0424-chesnut-road-looking-eastward-july-2012-cropp.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/pacing-visitors-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0165-gillie-in-the-morning.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0472-old-woman-sitting-in-a-square-granada.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/activity-diary-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0175-a-wooden-bridge-at-the-beginning-of-the-kbal-.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/goal-setting-tiny-wins-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0121-4-4.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/motivation-after-setback-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0430-aquatint-satirising-exercise-therapy-for-gout.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/carers-how-to-help-without-taking-over-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0274-stretching-exercises.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/carer-burnout-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0062-elegance.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/family-meetings-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0377-stinky-hotel-in-cancun-fiesta-americana-villa.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/lasting-power-of-attorney-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0179-elderly-man.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/advance-care-planning-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0479-20171027-ams-lsc-0725.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/dnacpr-conversations-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0189-the-walk.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/end-of-life-joint-pain-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0329-shipping-containers-and-runes.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/spiritual-care-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0437-file-minh-khai-s-swimming-pool-jpg.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/bereavement-arthritis-frailty-living-alone-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0177-tipped-kerbstone-outside-82a-white-hart-lane.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/widowhood-meals-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0486-steamed-kale.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2788,29 +2332,22 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/pendant-alarm-arthritis-swollen-fingers-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0488-autumn-chick-pea-salad.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/smart-speakers-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0469-20171027-ams-lsc-1375.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/remote-gp-apps-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0403-img-8515-1.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/repeat-prescriptions-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0419-learning-to-swim.webp</image:loc>
     </image:image>
@@ -2823,13 +2360,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/eye-clinic-day-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0388-jennifer.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/rheumatology-clinic-frail-older-adult-uk</loc>
     <lastmod>2026-10-26</lastmod>
     <image:image>
@@ -2837,85 +2367,50 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/geriatric-clinic-plus-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0473-grandfather-reading.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/bone-clinic-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0382-the-dip-iii-la-baignade-iii.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/pain-clinic-older-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0098-german-man-walking-down-a-wooded-path.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/injections-knee-frail-adults-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0078-ford-park-old-man-walks-redlands-ca-7-12.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/joint-replacement-decision-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0403-chesnut-road-looking-eastward-july-2012-cropp.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/anaesthetic-risk-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0450-william-cooper.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/prehabilitation-frail-arthritis-before-surgery-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0135-old-runner-a1.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/post-op-constipation-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0417-cancun-wreck-dive-c-58.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/wound-care-reaching-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0405-07-santa-barbara-canyon-road-views-7-walk-2-4.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/compression-stockings-hand-oa-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-04-a-woman-supporting-herself-with-a-walking-frame.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/swelling-legs-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0478-the-trentham-estate-barlaston-community-first.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/lymphoedema-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0441-2014-us-open-synchronized-swimming-championsh.webp</image:loc>
     </image:image>
@@ -2928,260 +2423,148 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/restless-nights-joint-pain-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0437-warm-spinach-mushroom-salad.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/naps-versus-inactivity-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0430-elderly-sitting-on-a-chair-holding-a-cane-nin.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/morning-stiffness-frailty-routine-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0460-harm-nia-swimming-pool-in-gy-mr-pest-county-h-81879b28.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/evening-routine-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0103-grandpa-and-granddaughter.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/weekend-plan-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-02-tai-chi-young-and-old.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/holiday-at-home-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0422-beijing-china-017.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/short-breaks-accessible-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0314-dorchester-senior-center.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/hospital-parking-walking-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0463-b-guinage-of-bruges.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/wheelchair-for-distance-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0375-10070021.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-wheelchair-outdoors-park-125.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mobility-scooter-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0459-20171027-ams-lsc-0383.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/transfer-board-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0397-water-exercise.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/hoist-conversations-family-carers-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0415-learning-to-swim.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pressure-cushion-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0075-painting-of-one-of-your-creative-commons-phot.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/footwear-indoor-slippers-frailty-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0091-who-s-that-in-the-bushes.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/orthotics-insoles-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-02-arthritis-on-the-right-hand.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/podiatry-nails-diabetes-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0124-with-gaia-holmes.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/bunions-arthritis-frailty-shoes-uk</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0445-birthday-boy-bento.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/calluses-pressure-spots-frail-arthritis-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0417-elderly-man-with-a-cane-nino-f-scholten-photo.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/stair-assessments-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0439-file-learning-to-swim-8801703203-jpg.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/downstairs-living-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0429-deer-park-evening-walk.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/second-hand-equipment-arthritis-frailty-uk</loc>
-    <lastmod>2026-10-11</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0063-an-elderly-walking-at-a-once-a-railway-park-i.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/short-term-equipment-loans-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0477-20171027-ams-lsc-1188.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/local-wheelchair-service-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0150-melaka.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/hand-therapy-frail-ra-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0144-walking-up-to-the-st-john-s-church.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/splints-night-hand-oa-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0367-deployed-386th-firefighters-train-to-survive-.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/heat-versus-ice-frail-arthritis-uk</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-13-pilates-9956534863.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/tens-machine-older-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0339-colourful-art.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/mindfulness-pain-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0410-party-harder-31.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/talking-therapies-pain-older-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0350-walking-the-grandkid-birkdale-village.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/social-prescribing-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0455-clementines.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/walking-sport-too-much-frail-arthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0414-learning-to-swim.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/swimming-frail-arthritis-changing-rooms-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0385-img-8520.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/static-bike-frail-osteoarthritis-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0214-141202-d-fw736-007.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/nordic-poles-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0454-20171027-ams-lsc-0019.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/garden-raised-beds-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0451-frozen-yogurt-cups-sunshine-cups.webp</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/allotment-identity-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0073-he-used-to-walk-to-his-office-every-day.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/volunteering-seated-arthritis-frailty-uk</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0442-roasted-brussels-sprouts.webp</image:loc>
     </image:image>
@@ -3254,13 +2637,6 @@
     <lastmod>2026-09-05</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0443-frozen-yogurt-cups-sunshine-cups.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/blog/arthritis-flare-management</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0151-32.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3342,7 +2718,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mediterranean-diet-arthritis-14-day-plan</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/nutrition-01-oliven-v1.webp</image:loc>
     </image:image>
@@ -3377,7 +2753,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/mindfulness-chronic-pain-arthritis-guide</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0125-chungking-mansions.webp</image:loc>
     </image:image>
@@ -3615,7 +2991,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/swimming-for-arthritis</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0130-squishy-feet-rain-closed-stores-but-i-still-l.webp</image:loc>
     </image:image>
@@ -3671,7 +3047,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-relationships-honest-conversations</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0196-water-aerobics.webp</image:loc>
     </image:image>
@@ -3685,7 +3061,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0186-the-long-journey.webp</image:loc>
     </image:image>
@@ -3895,7 +3271,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/tens-machines-arthritis-uk</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0458-green-salad-3.webp</image:loc>
     </image:image>
@@ -4210,7 +3586,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/fatty-fish-omega-3-arthritis-evidence</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0449-grilled-chicken-fattoush-salad.webp</image:loc>
     </image:image>
@@ -4903,7 +4279,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/free-arthritis-support-northern-ireland</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0468-frozen-yogurt-cups-sunshine-cups.webp</image:loc>
     </image:image>
@@ -5218,7 +4594,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/gene-therapy-and-arthritis-where-are-we-in-2026</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0118-twigged-chesnut-road-1.webp</image:loc>
     </image:image>
@@ -5269,7 +4645,7 @@
     <loc>https://livingwitharthritis.org.uk/blog/strength-training-on-biologics-is-it-safe</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0460-the-trentham-estate-west-midlands-ambulance-s.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-pilates-for-arthritis-c562ea.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -5407,7 +4783,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0467-everything-comes-to-those-who-sit-and-wait.webp</image:loc>
     </image:image>
@@ -5596,39 +4972,39 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/carers-family</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/mental-health-fatigue</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/diet-lifestyle</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/conditions</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/treatments</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/benefits-work</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/pain-flares</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/surgery-recovery</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/glossary/dmard</loc>
