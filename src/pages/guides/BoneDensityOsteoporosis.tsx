@@ -128,7 +128,7 @@ export default function BoneDensityOsteoporosis() {
           <li><Link to="/guides/frailty-management-hub" className="text-primary underline">Frailty management</Link></li>
           <li><Link to="/guides/disability-support" className="text-primary underline">Disability support</Link></li>
           <li><Link to="/supplements" className="text-primary underline">Supplements hub</Link></li>
-          <li><Link to="/diet" className="text-primary underline">Diet hub</Link></li>
+          <li><Link to="/guides/diet" className="text-primary underline">Diet hub</Link></li>
         </ul>
       </section>
 

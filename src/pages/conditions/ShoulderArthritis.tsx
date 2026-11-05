@@ -207,7 +207,7 @@ const ShoulderArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet and lifestyle changes help shoulder arthritis?">
-          <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/diet" className="text-primary underline">Diet Hub</Link>. For shoulders specifically:</p>
+          <p>The same anti-inflammatory eating pattern that helps every form of arthritis applies — see our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>. For shoulders specifically:</p>
           <ul>
             <li>Sleep position matters — try lying on the unaffected side with a pillow hugged to the chest to support the painful arm</li>
             <li>Posture work helps: rounded upper-back posture worsens impingement</li>
@@ -266,7 +266,7 @@ const ShoulderArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],

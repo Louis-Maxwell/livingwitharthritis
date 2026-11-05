@@ -111,7 +111,7 @@ function authorHeadData() {
           ? `Medical reviewer profile`
           : `Author profile`;
       out[`/${prefix}/${record.slug}`] = {
-        title: `${record.name}, ${record.title} — ${label} | Living With Arthritis`.slice(0, 115),
+        title: `${record.name} — ${label}: ${record.title} | Living With Arthritis`.slice(0, 115),
         description: `${role}: ${record.name}, ${record.title}${credential ? ` (${credential})` : ""}. ${bio}`
           .replace(/\s+/g, " ")
           .slice(0, 158),
@@ -294,8 +294,68 @@ function baseHeadDataFor(route, override) {
 const SITEMAP_PATHS = existsSync(resolve('public/sitemap.xml'))
   ? [...readFileSync(resolve('public/sitemap.xml'), 'utf8').matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g)]
       .map((m) => new URL(m[1]).pathname) : [];
+// Rendered-body snapshots (scripts/snapshot-rendered-bodies.mjs): each page's
+// own rendered content, used when its static data body is thin (soft-404 fix).
+const RENDERED_BODIES = existsSync(resolve('scripts/data/rendered-bodies.json'))
+  ? JSON.parse(readFileSync(resolve('scripts/data/rendered-bodies.json'), 'utf8')) : {};
+// Same counting rule as scripts/lib/route-words.mjs (the word gate).
+const textWords = (html) => String(html || '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+function withRenderedBody(route, data) {
+  const snap = RENDERED_BODIES[route];
+  if (!data || data.noindex) return data;
+  let out = data;
+  if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
+    out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
+  }
+  return withHubSpotlight(route, withLinkedSummaries(route, out));
+}
+// Strong hubs link to related guides Google had discovered but never crawled
+// (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).
+const HUB_SPOTLIGHT = existsSync(resolve('src/data/hub-spotlight.json'))
+  ? JSON.parse(readFileSync(resolve('src/data/hub-spotlight.json'), 'utf8')) : {};
+function withHubSpotlight(route, data) {
+  const spot = HUB_SPOTLIGHT[route];
+  if (!spot || !data) return data;
+  const items = spot.links
+    .filter((l) => SITEMAP_PATHS.includes(l.href))
+    .map((l) => `<li><a href="${l.href}">${escText(l.title)}</a></li>`);
+  if (!items.length) return data;
+  return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>${escText(spot.heading)}</h2><ul>${items.join('')}</ul>` };
+}
+// Keep only internal links that resolve to a sitemap page; others become text.
+function unwrapUnknownLinks(html) {
+  return String(html).replace(/<a href="(\/[^"#?]*)[^"]*">([\s\S]*?)<\/a>/g, (all, path, inner) =>
+    SITEMAP_PATHS.includes(path.replace(/\/$/, '') || '/') ? all : inner);
+}
+// Still-thin pages (interactive tools, contact screens): describe the pages
+// they already link to, using each target's own meta description.
+function withLinkedSummaries(route, data) {
+  // Count the body only: the answer box is not always repeated in the body.
+  const have = textWords(data.bodyHtml);
+  if (have >= 300) return data;
+  const paths = [
+    ...[...String(data.bodyHtml || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
+    ...(data.relatedLinks || []).map((l) => l.path),
+    ...SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(`${route.split('/').slice(0, 2).join('/')}/`)),
+    '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/guides/diet', '/guides/benefits-pip', '/helpline', '/arthritis-waiting-list-help', '/living-with-arthritis', '/guides/arthritis-pain-relief',
+  ];
+  const items = [];
+  let words = have;
+  for (const path of [...new Set(paths)]) {
+    if (words >= 310) break;
+    if (path === route || !SITEMAP_PATHS.includes(path)) continue;
+    const t = baseHeadDataFor(path);
+    if (!t || t.noindex || !t.description) continue;
+    const title = String(t.breadcrumb || t.question || t.title || path).split(' | ')[0];
+    const li = `<li><a href="${path}">${escText(title)}</a> — ${escText(t.description)}</li>`;
+    items.push(li); words += textWords(li);
+  }
+  if (!items.length) return data;
+  return { ...data, bodyHtml: `${data.bodyHtml || ''}<h2>Where to go next</h2><ul>${items.join('')}</ul>` };
+}
+export { withRenderedBody };
 function headDataFor(route, override) {
-  const data = baseHeadDataFor(route, override);
+  const data = withRenderedBody(route, baseHeadDataFor(route, override));
   if (override || !data || data.noindex || route.startsWith('/blog/')) return data;
   const children = SITEMAP_PATHS.filter((path) =>
     (path.startsWith(`${route}/`) && !path.slice(route.length + 1).includes('/')) ||
@@ -326,6 +386,11 @@ export function applyNoindexMeta(html) {
 // They still get a unique static title/description so no URL on the domain
 // serves the homepage head.
 const NOINDEX_PREFIXES = [
+  // Machine-translated locale landing pages (no reviewed translations yet).
+  "/es",
+  "/fr",
+  "/de",
+  "/pt",
   "/search",
   "/.lovable",
   "/account",
@@ -344,7 +409,12 @@ const BLOG_NOINDEX = new Set(
   existsSync(resolve("src/data/blog-noindex.json")) ? JSON.parse(readFileSync(resolve("src/data/blog-noindex.json"), "utf8")) : [],
 );
 
+const ROUTE_NOINDEX = new Set(
+  existsSync(resolve("src/data/route-noindex.json")) ? JSON.parse(readFileSync(resolve("src/data/route-noindex.json"), "utf8")) : [],
+);
+
 export function isNoindexRoute(route) {
+  if (ROUTE_NOINDEX.has(route)) return true;
   const blog = /^\/blog\/([^/]+)$/.exec(route);
   if (blog && BLOG_NOINDEX.has(blog[1])) return true;
   return NOINDEX_PREFIXES.some((p) => route === p || route.startsWith(`${p}/`));
@@ -539,6 +609,27 @@ export function buildJsonLd(route, url, d) {
     });
   }
 
+  // HowTo — only for routes whose head data carries a howTo that mirrors
+  // visible numbered steps on the page (e.g. the knee exercise routine).
+  if (d.howTo && Array.isArray(d.howTo.steps) && d.howTo.steps.length > 0) {
+    graphs.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": `${url}#howto`,
+      name: d.howTo.name,
+      description: d.howTo.description,
+      totalTime: d.howTo.totalTime,
+      supply: (d.howTo.supply || []).map((name) => ({ "@type": "HowToSupply", name })),
+      step: d.howTo.steps.map((st, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: st.name,
+        text: st.text,
+        url: `${url}#ex-${i + 1}`,
+      })),
+    });
+  }
+
   // 3) FAQPage — the primary Q&A plus any configured FAQs. This is the
   //    highest-value block for answer engines: it hands them a quotable,
   //    attributed question/answer pair per page.
@@ -706,7 +797,13 @@ function writeRouteFiles() {
     return;
   }
   // collectRoutes excludes the root: enrich its English signals separately.
-  writeFileAtomicSync(SRC, patchEnglishAlternates(template, "/", BASE));
+  // Homepage: append its hub spotlight to the static main body only.
+  const rootSpot = withHubSpotlight("/", { bodyHtml: "" });
+  let rootHtml = patchEnglishAlternates(template, "/", BASE);
+  if (rootSpot?.bodyHtml && rootHtml.includes("</main>")) {
+    rootHtml = rootHtml.replace("</main>", `<section aria-label="Popular practical guides">${rootSpot.bodyHtml}</section></main>`);
+  }
+  writeFileAtomicSync(SRC, rootHtml);
   const routes = collectRoutes();
   let written = 0;
   let skipped = 0;
@@ -715,6 +812,8 @@ function writeRouteFiles() {
   let headPatched = 0;
 
   for (const route of routes) {
+    // Sitemap entries may include downloadable assets; keep them as files.
+    if (/\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(route)) continue;
     const dir = join(DIST, route.replace(/^\//, ""));
     const file = join(dir, "index.html");
     const data = headDataFor(route);

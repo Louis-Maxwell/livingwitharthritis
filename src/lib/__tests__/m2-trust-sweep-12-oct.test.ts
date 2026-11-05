@@ -21,11 +21,14 @@ describe("M2 trust sweep — unnamed reviewer labels", () => {
     expect(offenders).toEqual([]);
   });
 
-  it("no published post still says it is pending clinical review (all audited 23 Oct 2026)", () => {
-    const posts = files.map((f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post);
+  it("no blog post is pending clinical review: every guide is reviewed by Louis Maxwell (no exceptions)", () => {
+    const posts = files.map(
+      (f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post & { is_published?: boolean; reviewed_by?: string | null },
+    );
     for (const p of posts) {
       expect(p.reviewStatus, p.slug).toBeUndefined();
       expect(p.content, p.slug).not.toMatch(/pending clinical review/i);
+      if (p.is_published) expect(p.reviewed_by, p.slug).toBe("Louis Maxwell");
     }
   });
 });

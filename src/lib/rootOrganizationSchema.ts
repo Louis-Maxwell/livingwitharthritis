@@ -19,9 +19,9 @@ export const ORGANIZATION_PAYLOAD = {
   url: BASE,
   logo: {
     "@type": "ImageObject",
-    url: `${BASE}/icons/icon-512.png`,
-    width: 512,
-    height: 512,
+    url: `${BASE}/brand/lwa-logo-square-720.png`,
+    width: 720,
+    height: 720,
   },
   // Primary share/photo for platforms that misuse Organization.logo as a preview.
   image: {

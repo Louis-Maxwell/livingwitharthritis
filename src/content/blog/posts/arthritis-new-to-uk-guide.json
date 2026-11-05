@@ -16,5 +16,12 @@
   "author_credentials": null,
   "reviewed_by": null,
   "reviewer_credentials": null,
-  "display_order": 921
+  "display_order": 921,
+  "citations": [
+    {
+      "label": "NHS: Arthritis",
+      "url": "https://www.nhs.uk/conditions/arthritis/",
+      "publisher": "NHS"
+    }
+  ]
 }

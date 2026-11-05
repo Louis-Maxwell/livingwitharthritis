@@ -10,7 +10,7 @@
  */
 
 import { lazyWithRetry } from "@/lib/chunkRecovery";
-import { Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 import Header from "@/components/Header";
@@ -25,7 +25,9 @@ import ViewportSection from "@/components/ViewportSection";
 import OAHero from "@/components/landing/OAHero";
 import HomeTrustStrip from "@/components/landing/HomeTrustStrip";
 import HomeJobRouter from "@/components/landing/HomeJobRouter";
+import TopicClusterLinksHome from "@/components/seo/TopicClusterLinks";
 import HomeTopicGuides from "@/components/landing/HomeTopicGuides";
+const HomeGuidesShowcase = lazy(() => import("@/components/blog/HomeGuidesShowcase"));
 
 // Everything below the router mounts only when scrolled near, so it never
 // competes with the hero for bandwidth or main-thread time on first load.
@@ -80,10 +82,10 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Living With Arthritis | Exercises & PIP Advice</title>
+        <title>Living With Arthritis: Pain Relief & Flare-Up Help</title>
         <meta
           name="description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
+          content="Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461."
         />
         <meta
           name="robots"
@@ -93,19 +95,19 @@ function HomePage() {
         <meta property="og:url" content={SITE_URL + "/"} />
         <meta
           property="og:title"
-          content="Living With Arthritis | Exercises & PIP Advice"
+          content="Living With Arthritis: Pain Relief & Flare-Up Help"
         />
         <meta
           name="twitter:title"
-          content="Living With Arthritis | Exercises & PIP Advice"
+          content="Living With Arthritis: Pain Relief & Flare-Up Help"
         />
         <meta
           property="og:description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
+          content="Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461."
         />
         <meta
           name="twitter:description"
-          content="Free arthritis exercises, PIP arthritis guidance and practical support for joint pain and frailty. Explore guides from Living With Arthritis, registered charity 1218461."
+          content="Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461."
         />
         <meta property="og:image" content={`${SITE_URL}/og/landing-share.png`} />
         <meta property="og:image:secure_url" content={`${SITE_URL}/og/landing-share.png`} />
@@ -137,9 +139,15 @@ function HomePage() {
 
           {/* 03 — Visitor-job router: the main way into the site */}
           <HomeJobRouter />
+          <ViewportSection>
+            <Suspense fallback={null}>
+              <HomeGuidesShowcase />
+            </Suspense>
+          </ViewportSection>
 
           {/* Topic links stay rendered without waiting for a scroll event. */}
           <HomeTopicGuides />
+          <TopicClusterLinksHome />
 
           {/* 04 — Motion is Lotion: pick a joint for a home exercise plan */}
           <ViewportSection rootMargin="200px 0px" fallback={<SectionFallback />}>

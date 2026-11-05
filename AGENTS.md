@@ -36,6 +36,8 @@ Token-thrift on **this** repo:
 
 ## Repo facts (do not reverse)
 
+- Keep Tailwind CSS pinned to v3 with its `tailwindcss` PostCSS plugin;
+  the existing theme configuration and styles require the v3 pipeline.
 - No Supabase client, Google login, or RLS in this repo (removed on purpose).
   `/auth` and admin screens stay paused. Do not rebuild a logged-in product
   unless the CEO explicitly re-opens that decision.

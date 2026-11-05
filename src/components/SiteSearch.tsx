@@ -40,7 +40,7 @@ const headIndex: SearchItem[] = [
   { label: "Home", href: "/", category: "Pages", icon: FileText },
   { label: "About Us", href: "/about", category: "Pages", icon: FileText },
   { label: "Exercise Hub", href: "/exercises", category: "Pages", icon: Dumbbell },
-  { label: "Diet & Nutrition Hub", href: "/diet", category: "Pages", icon: Utensils },
+  { label: "Diet & Nutrition Hub", href: "/guides/diet", category: "Pages", icon: Utensils },
   { label: "Self Help Tool", href: "/self-help", category: "Pages", icon: Dumbbell },
   { label: "Virtual Assistant", href: "/chat", category: "Pages", icon: FileText },
   { label: "Trust & Credibility", href: "/trust", category: "Pages", icon: FileText },

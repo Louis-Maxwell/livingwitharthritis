@@ -14,10 +14,21 @@ interface EventParams {
   [key: string]: string | number | boolean | string[] | undefined;
 }
 
+// Error text can originate from browser APIs, form handlers or third-party
+// responses. Keep GA4 telemetry useful without sending email addresses,
+// URLs/query strings or large user-provided values.
+const redactAnalyticsText = (value: string): string =>
+  value
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[redacted-email]")
+    .replace(/https?:\/\/[^\s]+/gi, "[redacted-url]")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 240);
+
 export const LANDING_PAGES = [
   "/",
   "/about",
-  "/diet",
+  "/guides/diet",
   "/exercises",
   "/arthritis-flare-ups",
   "/guides/exercise",
@@ -38,10 +49,17 @@ export const trackEvent = (
     if (import.meta.env.DEV) {
       console.debug('[GA4]', name, params);
     }
+    // Every event carries the clean page_location/title so sessions whose
+    // first hit is not page_view are not reported as landing page "(not set)".
+    const withPage = {
+      page_location: analyticsUrl(window.location.href),
+      page_title: document.title,
+      ...params,
+    };
     if (typeof window.gtag === "function") {
-      window.gtag("event", name, params);
+      window.gtag("event", name, withPage);
     } else if (Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({ event: name, ...params });
+      window.dataLayer.push({ event: name, ...withPage });
     }
   } catch {
     /* analytics must never break UX */
@@ -276,9 +294,9 @@ export const trackAppError = (
   errorPage?: string,
 ): void => {
   trackEvent("app_error", {
-    error_type: errorType,
-    error_message: errorMessage,
-    error_page: errorPage,
+    error_type: redactAnalyticsText(errorType),
+    error_message: redactAnalyticsText(errorMessage),
+    error_page: errorPage ? redactAnalyticsText(errorPage.split(/[?#]/, 1)[0]) : undefined,
     event_category: "error",
   });
 };

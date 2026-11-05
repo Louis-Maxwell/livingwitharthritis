@@ -19,7 +19,7 @@ const TOP_ARTICLES = [
     blurb: "Low-impact routines for knees, hips and hands, clinically reviewed.",
   },
   {
-    to: "/diet",
+    to: "/guides/diet",
     title: "Anti-inflammatory diet for arthritis",
     blurb: "Mediterranean eating that helps stiffness and joint pain.",
   },
@@ -37,6 +37,21 @@ const QUICK_LINKS = [
 const NotFound = () => {
   const location = useLocation();
   const [query, setQuery] = useState("");
+
+  // A not-found URL must not declare itself canonical or advertise hreflang
+  // alternates (SeoDefaults emits both globally). Strip them while this page
+  // is mounted; the next route's Helmet render restores them.
+  useEffect(() => {
+    const strip = () => {
+      document.head
+        .querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang]')
+        .forEach((el) => el.remove());
+    };
+    strip();
+    const observer = new MutationObserver(strip);
+    observer.observe(document.head, { childList: true });
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   useEffect(() => {
     const missingPath = location.pathname + location.search;

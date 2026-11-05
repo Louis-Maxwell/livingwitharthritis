@@ -46,6 +46,7 @@ const faqLd = {
 };
 
 const RELATED = [
+  { to: "/resources/symptom-flare-tracker", label: "Free printable symptom and flare tracker" },
   { to: "/arthritis-flare-ups", label: "Arthritis flare-ups guide" },
   { to: "/blog/arthritis-flare-up-what-to-do", label: "What to do in a flare-up" },
   { to: "/guides/arthritis-pain-relief", label: "Arthritis pain relief" },
@@ -91,7 +92,7 @@ export default function FlareActionPlan() {
           PH128483) · Updated {FLARE_PLAN_UPDATED}
         </p>
 
-        <EducationalDisclaimerBox />
+        <EducationalDisclaimerBox lastReviewed={FLARE_PLAN_UPDATED} />
         <TopicClusterNav path="/arthritis-flare-ups" />
 
         <article

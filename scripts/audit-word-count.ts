@@ -43,7 +43,7 @@ const ROUTES: Array<{ path: string; file: string }> = [
   { path: "/exercises/tai-chi-for-arthritis", file: "pages/exercises/TaiChiForArthritis.tsx" },
   { path: "/exercises/seated-tai-chi-for-arthritis", file: "pages/exercises/SeatedTaiChiForArthritis.tsx" },
   { path: "/exercises/tai-chi-for-beginners", file: "pages/exercises/TaiChiForBeginners.tsx" },
-  { path: "/diet", file: "pages/DietHub.tsx" },
+  { path: "/guides/diet", file: "pages/DietHub.tsx" },
   { path: "/diet/mediterranean-diet-for-arthritis", file: "pages/diet/MediterraneanDietForArthritis.tsx" },
   { path: "/myths/does-cracking-knuckles-cause-arthritis", file: "pages/myths/DoesCrackingKnucklesCauseArthritis.tsx" },
   { path: "/zakat-appeal", file: "pages/ZakatAppeal.tsx" },

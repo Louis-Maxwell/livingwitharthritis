@@ -1,4 +1,7 @@
-﻿import { Helmet } from "react-helmet-async";
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import { Helmet } from "react-helmet-async";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +30,8 @@ const URL = `${BASE}/conditions/hip-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Hip Arthritis – Symptoms, Exercises & Pain Relief | Living With Arthritis",
   "description": "UK guide to hip arthritis (osteoarthritis of the hip): symptoms, causes, best exercises, how to relieve hip pain while sleeping, treatment options and when to consider hip replacement.",
   "url": URL,
@@ -63,10 +68,7 @@ const faqLd = {
     { "@type": "Question", "name": "Should I keep walking with hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Regular walking strengthens the muscles that support the hip and reduces pain over time. Build up gradually, wear cushioned shoes, and use a walking pole in the hand opposite to the painful hip to offload the joint by up to 25%." } },
     { "@type": "Question", "name": "When is a hip replacement needed?", "acceptedAnswer": { "@type": "Answer", "text": "Hip replacement is usually considered when pain disturbs sleep, severely limits walking or daily activity, and conservative measures (exercise, weight management, painkillers, injections) have not worked over several months. UK outcomes are excellent — over 95% of hip replacements still function well at 10 years." } },
     { "@type": "Question", "name": "Does losing weight help hip arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hip carries roughly three times body weight when walking and up to five times when climbing stairs, so even small weight loss meaningfully reduces joint load and pain." } },
-    /* DRAFT — added 2026-07-28, NOT yet clinically reviewed. Flagging for
-       the site's clinical reviewer before this is treated as reviewed
-       content; do not update LAST_REVIEWED_ISO/reviewer badge for this
-       page until it's been checked. */
+    /* Added 2026-07-28; covered by Louis Maxwell's clinical review of all site content (recorded 23 and 26 Oct 2026, HCPC PH128483). */
     { "@type": "Question", "name": "Can hip arthritis cause pain down the leg?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is a well-recognised pattern called referred pain. Hip arthritis pain often radiates to the groin, the front or side of the thigh, and sometimes as far as the knee, because the hip joint shares nerve pathways with these areas. This can make it feel like the problem is in your leg or knee rather than your hip, which is one reason hip arthritis is sometimes initially misdiagnosed. Pain that's worse with weight-bearing or walking, combined with stiffness after rest, points more toward the hip as the true source." } }
   ]
 };
@@ -94,11 +96,11 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const HipArthritis = () => (
   <>
     <Helmet>
-      <title>Hip Arthritis: Symptoms, Exercises & Relief | UK</title>
-      <meta name="description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+      <title>Hip Arthritis: Symptoms, Exercises & Treatment (UK)</title>
+      <meta name="description" content="Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP." />
       <meta name="keywords" content="hip arthritis, hip osteoarthritis, hip OA, hip pain, how to relieve hip pain while sleeping, hip arthritis exercises, hip arthritis treatment, hip replacement, glute exercises hip" />
       <meta property="og:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta property="og:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+      <meta property="og:description" content="Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -109,7 +111,7 @@ const HipArthritis = () => (
       <meta property="og:image:alt" content="Hip arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Hip Arthritis – Symptoms, Exercises & Pain Relief" />
-      <meta name="twitter:description" content="Hip arthritis treatment: Exercise, mobility aids, injections & surgery options. Manage pain & maintain independence with evidence-based strategies." />
+      <meta name="twitter:description" content="Groin or hip pain and stiffness? Learn the signs of hip arthritis, exercises that help, treatment options and when to see a GP." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
@@ -158,7 +160,7 @@ const HipArthritis = () => (
             options have been tried.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
@@ -247,7 +249,7 @@ const HipArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet helps hip arthritis?">
-          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
+          <p>Weight loss is the single most powerful non-surgical treatment for hip arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in hip pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
             <li>Plenty of vegetables, berries, nuts, olive oil and whole grains</li>
@@ -314,7 +316,7 @@ const HipArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],
@@ -351,6 +353,8 @@ const HipArthritis = () => (
             </Link>
           </div>
           <ArticleCitations citations={CITATIONS_HIP} />
+          <ClusterGpAndLinks path="/conditions/hip-arthritis" />
+      <UrgentHelpAndSources path="/conditions/hip-arthritis" />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/hip-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/hip-arthritis" title="Explore related resources" />

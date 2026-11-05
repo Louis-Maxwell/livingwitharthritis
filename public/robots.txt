@@ -1,8 +1,8 @@
 # Living With Arthritis — robots.txt
 # Reference: https://www.robotstxt.org/robotstxt.html
 # /chat (Help & Support) is public and indexable. /auth and /admin*
-# AI assistants: https://livingwitharthritis.org.uk/llms.txt
 # are private and noindex'd via SeoHead as belt-and-braces.
+# AI assistants: https://livingwitharthritis.org.uk/llms.txt
 #
 # Public HTML directory /site-index remains crawlable for link discovery.
 # Crawling permission does not guarantee indexing or AI citation.

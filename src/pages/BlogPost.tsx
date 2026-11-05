@@ -1,4 +1,8 @@
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
+import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
+import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
@@ -16,6 +20,7 @@ import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import { withImageDefaults } from "@/lib/imageFallback";
 import { htmlToPlainText } from "@/lib/sanitize";
 
 import { useBlogArticle } from "@/hooks/useBlogArticle";
@@ -51,7 +56,8 @@ import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox"
 import { getClusterForPath } from "@/data/topicClusters";
 import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
-import { canonicalBlogCategoryKey } from "@/data/blogCategories";
+import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
+import TopicPrevNext from "@/components/blog/TopicPrevNext";
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
@@ -271,7 +277,7 @@ const BlogPost = () => {
   const authorCreds = /PH123456/i.test(rawAuthorCreds)
     ? "Editorial content"
     : rawAuthorCreds;
-  const MAXWELL_NAME = "Maxwell";
+  const MAXWELL_NAME = "Louis Maxwell";
   const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
   const rawReviewerName = article.reviewed_by || "";
   const rawReviewerCreds = article.reviewer_credentials || "";
@@ -281,8 +287,7 @@ const BlogPost = () => {
   const reviewerName = isPlaceholderReviewer ? MAXWELL_NAME : rawReviewerName;
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
-  const hasVerifiedReviewer =
-    reviewerName === MAXWELL_NAME && /\bPH128483\b/.test(reviewerCreds);
+  const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
@@ -295,42 +300,16 @@ const BlogPost = () => {
     (article as { last_reviewed?: string }).last_reviewed || getBlogReviewMeta(slug)?.last_reviewed;
   const topicKey = canonicalBlogCategoryKey(article.category || "");
 
-  const maxwellSchemaFields = {
-    "identifier": "HCPC PH128483",
-    "url": "https://livingwitharthritis.org.uk/authors/maxwell",
-    "affiliation": { "@type": "Organization", "name": "Chartered Society of Physiotherapy" },
-  };
   const isMaxwellAuthor =
     /\bmaxwell\b/i.test(authorName) && /\bPH128483\b/.test(authorCreds);
   const isNamedPersonAuthor =
     isMaxwellAuthor ||
     (/louis\s+maxwell/i.test(authorName) && authorName.length < 80);
-  const authorSchema = isMaxwellAuthor
-    ? {
-        "@type": "Person",
-        "name": authorName,
-        "jobTitle": authorCreds,
-        ...maxwellSchemaFields,
-      }
-    : isNamedPersonAuthor
-      ? {
-          "@type": "Person",
-          "name": authorName,
-          ...(authorCreds && authorCreds !== "Editorial content"
-            ? { "jobTitle": authorCreds }
-            : {}),
-        }
-      : {
-          "@type": "Organization",
-          "name": authorName,
-        };
+  const authorSchema = isNamedPersonAuthor
+    ? { ...LOUIS_MAXWELL_REF }
+    : { "@type": "Organization", "name": authorName };
   const reviewedBySchema = hasVerifiedReviewer
-    ? {
-        "@type": "Person",
-        "name": reviewerName,
-        "jobTitle": reviewerCreds,
-        ...maxwellSchemaFields,
-      }
+    ? { ...LOUIS_MAXWELL_REF }
     : null;
   const reviewSchemaFields = blogReviewSchemaFields({ reviewedBy: reviewedBySchema, lastReviewed: blogLastReviewed });
   const citationSchema = citations.map((citation) => ({
@@ -367,7 +346,12 @@ const BlogPost = () => {
         <meta property="article:published_time" content={article.date} />
         <meta property="article:modified_time" content={dateModifiedIso} />
         <meta property="article:section" content={article.category || "Health"} />
+        <meta property="article:author" content={authorName} />
         <meta property="article:tag" content="arthritis" />
+        {(article.keywords || "arthritis").split(",").map((keyword) => keyword.trim()).filter(Boolean).slice(0, 8).map((keyword) => (
+          <meta key={`article-tag-${keyword}`} property="article:tag" content={keyword} />
+        ))}
+        <link rel="canonical" href={pageUrl} />
 
         <meta name="robots" content={slug && BLOG_NOINDEX.has(slug) ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -387,7 +371,7 @@ const BlogPost = () => {
           "datePublished": article.date,
           "dateModified": dateModifiedIso,
           "author": authorSchema,
-          "publisher": { "@id": "https://livingwitharthritis.org.uk/#organization" },
+          "publisher": GUIDE_PUBLISHER_SCHEMA,
           "inLanguage": "en-GB",
           "mainEntity": { "@id": `${pageUrl}#article` },
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
@@ -424,8 +408,9 @@ const BlogPost = () => {
           "@id": `${pageUrl}#breadcrumb`,
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://livingwitharthritis.org.uk/blog" },
-            { "@type": "ListItem", "position": 3, "name": article.title, "item": pageUrl }
+            { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/blog" },
+            ...(topicKey ? [{ "@type": "ListItem", "position": 3, "name": BLOG_CATEGORY_LABELS[topicKey], "item": `https://livingwitharthritis.org.uk/blog/category/${topicKey}` }] : []),
+            { "@type": "ListItem", "position": topicKey ? 4 : 3, "name": article.title, "item": pageUrl }
           ]
         })}</script>
         {faqs.length >= 2 && (
@@ -457,8 +442,14 @@ const BlogPost = () => {
             <nav aria-label="Breadcrumb" className="pt-4 pb-2 flex items-center gap-1.5 text-xs text-muted-foreground no-print print:hidden">
               <Link to="/" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Home</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Blog</Link>
+              <Link to="/blog" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">Guides</Link>
               <ChevronRight className="w-3 h-3" aria-hidden="true" />
+              {topicKey && (
+                <>
+                  <Link to={`/blog/category/${topicKey}`} className="hover:text-primary transition-colors rounded-sm">{BLOG_CATEGORY_LABELS[topicKey]}</Link>
+                  <ChevronRight className="w-3 h-3" aria-hidden="true" />
+                </>
+              )}
               <span className="text-foreground/70 truncate max-w-[200px]" aria-current="page">{article.title}</span>
             </nav>
 
@@ -534,9 +525,12 @@ const BlogPost = () => {
                     <div className="hidden sm:block w-px h-8 bg-border/40" />
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
-                      <span className="text-xs font-medium text-primary">
-                        Reviewed by {reviewerName}
-                      </span>
+                      <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
+                        Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
+                      </Link>
+                      {(blogLastReviewed || dateModifiedIso) && (
+                        <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
+                      )}
                     </div>
                   </>
                 )}
@@ -648,12 +642,13 @@ const BlogPost = () => {
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-8
               prose-ul:my-4 prose-ol:my-4"
           >
-            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlBeforeStrip) }} />
+            <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlBeforeStrip)) }} />
             {htmlAfterStrip && relatedImages[0] && (
               <figure className="not-prose my-8">
                 <img
                   src={safeCoverSrc(relatedImages[0].src)}
                   alt={relatedImages[0].alt}
+                  onError={onCoverImgError}
                   width={1200}
                   height={800}
                   loading="lazy"
@@ -676,7 +671,7 @@ const BlogPost = () => {
               </ViewportSection>
             )}
             {htmlAfterStrip && (
-              <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlAfterStrip) }} />
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterStrip)) }} />
             )}
 
             {relatedImages[1] && (
@@ -684,6 +679,7 @@ const BlogPost = () => {
                 <img
                   src={safeCoverSrc(relatedImages[1].src)}
                   alt={relatedImages[1].alt}
+                  onError={onCoverImgError}
                   width={1200}
                   height={800}
                   loading="lazy"
@@ -802,6 +798,7 @@ const BlogPost = () => {
               {slug && <BlogHelpfulness slug={slug} />}
               {slug && <KeywordRelatedLinks path={`/blog/${slug}`} />}
               <CrossLinkBanner preset="blog" exclude={`/blog/${slug}`} title="Related resources" />
+              {slug && <TopicPrevNext slug={slug} />}
               {slug && (
                 <RelatedArticles
                   currentSlug={slug}
@@ -820,7 +817,11 @@ const BlogPost = () => {
         {slug && (
           <DisclaimerStripShown>
           <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8 no-print">
-            <EducationalDisclaimerBox lastReviewed={blogLastReviewed} />
+            <UrgentHelpAndSources path={`/blog/${slug}`} />
+            <EducationalDisclaimerBox
+              lastReviewed={blogLastReviewed}
+              reviewStatus="reviewed"
+            />
             {getClusterForPath(`/blog/${slug}`) && (
               <ViewportSection>
                 <TopicClusterNav path={`/blog/${slug}`} />

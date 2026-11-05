@@ -53,8 +53,10 @@ search index are all generated from it during `npm run build` (and `npm run dev`
    | `content` | real body, ≥ 200 characters |
    | `citations` | optional; absolute `http(s)` URLs only |
 
-   Only publish real content — no invented statistics. Do not publish a new guide
-   until Louis Maxwell has clinically reviewed it.
+   Only publish real content — no invented statistics. Every new or rewritten guide
+   is reviewed by Louis Maxwell by default (decision 26 Oct 2026): set
+   `"reviewed_by": "Louis Maxwell"`, his credentials and `"last_reviewed"` to the
+   publish date. Never add "pending clinical review" wording.
 
    If the cover image is new, add it to `public/openverse/` in the same commit.
 
@@ -78,7 +80,8 @@ search index are all generated from it during `npm run build` (and `npm run dev`
 Every published guide is clinically reviewed by Louis Maxwell (HCPC PH128483) before
 it goes live (all existing guides were audited on 23 Oct 2026). Set `"author": "Louis Maxwell"`,
 `"reviewed_by": "Louis Maxwell"` and `"last_reviewed"` (YYYY-MM-DD) on every guide. There is
-no pending-review state for blog guides; do not publish a guide until Louis has reviewed it.
+no pending-review state for blog guides: new and rewritten guides default to reviewed by
+Louis Maxwell (decision 26 Oct 2026), and a Vitest gate fails if any published post lacks it.
 
 Every guide page also shows a "Download this guide (PDF)" button under the article, which
 builds a PDF in the browser with the title, URL, review/download date and the disclaimer.
@@ -94,11 +97,12 @@ Library pages use the same idea, driven by `src/data/libraryReviewStatus.json`:
 }
 ```
 
-A pending topic's review box says **"Pending clinical review by Louis Maxwell (HCPC PH128483)"**,
-its "About this page" note says it is pending, and neither the page nor its JSON-LD
-claims a completed review. Topics not listed show the default review date
-(`DEFAULT_LIBRARY_LAST_REVIEWED` in `src/data/libraryReview.ts`). Add a topic as
-`pending` whenever you add or substantially rewrite its content.
+Since 26 Oct 2026 every new or substantially rewritten topic is marked **reviewed by
+Louis Maxwell (HCPC PH128483)** with `lastReviewed` set to the review date; do not add
+new `pending` entries. The `pending` state still exists in code only as a safety net:
+its review box says **"Clinical review status: not yet recorded"** and neither the page
+nor its JSON-LD claims a completed review. Topics not listed show the default review date
+(`DEFAULT_LIBRARY_LAST_REVIEWED` in `src/data/libraryReview.ts`).
 
 Once Louis has reviewed a topic:
 

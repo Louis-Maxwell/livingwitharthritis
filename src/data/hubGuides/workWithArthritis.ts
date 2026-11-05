@@ -185,7 +185,7 @@ export const workWithArthritis: HubGuide = {
       "links": [
         {
           "label": "Benefits, PIP and financial help directory",
-          "href": "/benefits-pip"
+          "href": "/guides/benefits-pip"
         }
       ]
     },
