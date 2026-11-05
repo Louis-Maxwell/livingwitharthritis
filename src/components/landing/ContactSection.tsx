@@ -18,7 +18,7 @@ import { trackEvent } from "@/lib/analytics";
 import { reportFormFailure } from "@/lib/errorReporting";
 
 const CONTACT_EMAIL = CONTACT_EMAILS.info;
-const WHATSAPP_URL = `https://wa.me/44${CONTACT_PHONE_TEL.replace(/^0/, "")}`;
+const WHATSAPP_URL = '#footer-whatsapp';
 
 type ContactForm = { name: string; email: string; subject: string; message: string };
 type FieldErr = Partial<ContactForm>;
@@ -73,7 +73,7 @@ const channels: ChannelCard[] = [
     value: "Chat with us",
     sub: "Fast, friendly replies",
     href: WHATSAPP_URL,
-    external: true,
+    internal: true,
   },
   {
     Icon: FileText,

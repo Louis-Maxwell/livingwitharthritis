@@ -1,10 +1,11 @@
 import PageDownloads from '@/components/PageDownloads';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
 import { lazy, Suspense } from "react";
 import DeferredMount from "@/components/DeferredMount";
 const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
+const PageShareButtons = lazy(() => import('@/components/PageShareButtons'));
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
 import HubSpotlight from "@/components/HubSpotlight";
@@ -109,9 +110,15 @@ const columns = [
 ];
 
 const Footer = () => {
+  const { pathname } = useLocation();
   return (
     <>
     <HubSpotlight />
+    {/^\/(guides|conditions|exercises|diet|supplements|daily-tips|resources)\//.test(pathname) && (
+      <DeferredMount><Suspense fallback={null}>
+        <PageShareButtons path={pathname} />
+      </Suspense></DeferredMount>
+    )}
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
       <DeferredMount>

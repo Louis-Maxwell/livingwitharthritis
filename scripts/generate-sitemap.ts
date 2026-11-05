@@ -472,7 +472,7 @@ async function main() {
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
   }
 
-  for (const slug of dailyTipSlugs()) {
+  for (const slug of [...dailyTipSlugs(), "overview", "daily-living", "health-tips"]) {
     const path = `/daily-tips/${slug}`;
     const lastmod = lastmodFor(path);
     entries.push({ path, ...(lastmod ? { lastmod } : {}) });

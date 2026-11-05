@@ -15,7 +15,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import { DisclaimerStripShown } from "@/components/disclaimerChrome";
-import Footer from "@/components/Footer";
+import DeferredMount from '@/components/DeferredMount';
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import { BookOpen, ChevronRight, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -58,6 +58,7 @@ import { getBlogReviewMeta } from "@/lib/blog/reviewIndex";
 import { blogReviewSchemaFields } from "@/lib/blog/review";
 import { canonicalBlogCategoryKey, BLOG_CATEGORY_LABELS } from "@/data/blogCategories";
 import TopicPrevNext from "@/components/blog/TopicPrevNext";
+import { distinctSeoTitle } from '@/lib/technicalSeo.mjs';
 
 // Below-the-fold article furniture loads as the reader scrolls towards it
 // (ViewportSection), so the first paint only pays for the article itself.
@@ -77,6 +78,7 @@ const ArticleClosingCTA = lazyWithRetry(() => import("@/components/article/Artic
 const MidArticleNextSteps = lazyWithRetry(() => import("@/components/article/MidArticleNextSteps"));
 const EndNextArticleCard = lazyWithRetry(() => import("@/components/article/EndNextArticleCard"));
 const ArticleCitations = lazyWithRetry(() => import("@/components/blog/ArticleCitations"));
+const Footer = lazyWithRetry(() => import('@/components/Footer'));
 
 
 /**
@@ -229,7 +231,7 @@ const BlogPost = () => {
           <Skeleton className="h-4 w-1/2 mb-8" />
           <Skeleton className="h-64 w-full" />
         </main>
-        <Footer />
+        <DeferredMount><ViewportSection><Footer /></ViewportSection></DeferredMount>
       </div>
     );
   }
@@ -238,7 +240,7 @@ const BlogPost = () => {
     return <NotFound />;
   }
 
-  const htmlContent = markdownToHtml(article.content);
+  const htmlContent = markdownToHtml(article.content).replace(/<(\/?)h1\b/gi, '<$1h2');
   const faqs = extractFaqs(htmlContent);
   const bodyForRender = renderCallouts(stripQuestionHeadings(htmlContent));
   const htmlWithIds = addHeadingIds(bodyForRender);
@@ -263,10 +265,10 @@ const BlogPost = () => {
     ? new Date(updatedAtRaw).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
     : null;
   const showUpdated = !!updatedAtRaw && new Date(updatedAtRaw).toDateString() !== new Date(article.date).toDateString();
-  const metaTitle = enforceTitle(article.meta_title || article.title, {
+  const metaTitle = distinctSeoTitle(enforceTitle(article.meta_title || article.title, {
     includeSiteName: false,
     route: `/blog/${slug}`,
-  });
+  }), article.title);
   const metaDesc = enforceDescription(
     article.meta_description || article.excerpt || "",
     `/blog/${slug}`,
@@ -546,7 +548,7 @@ const BlogPost = () => {
 
               {slug && (
                 <div className="no-print print:hidden mt-4">
-                  <SocialShareButtons title={article.title} slug={slug} excerpt={metaDesc} instance="header" variant="compact" />
+                  <SocialShareButtons title={article.title} slug={slug} image={coverAbsolute} excerpt={metaDesc} instance="header" variant="compact" />
                 </div>
               )}
 
@@ -851,7 +853,7 @@ const BlogPost = () => {
             />
             <NextReadStrip currentPath={`/blog/${slug}`} heading="Keep reading arthritis insights" />
           </ViewportSection>
-          <Footer />
+          <ViewportSection><Footer /></ViewportSection>
         </div>
 
       </div>

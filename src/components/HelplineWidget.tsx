@@ -117,9 +117,10 @@ export default function HelplineWidget() {
               <li key={eyebrow} className="min-w-0">
                 {external ? (
                   <a
+                    id={track === 'whatsapp' ? 'footer-whatsapp' : undefined}
                     href={href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                     onClick={() => trackClick(track)}
                     className={cardClass}
                   >
