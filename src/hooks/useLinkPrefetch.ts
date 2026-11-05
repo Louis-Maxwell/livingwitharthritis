@@ -1,30 +1,27 @@
 import { useEffect } from "react";
 
-/**
- * useLinkPrefetch
- *
- * Global hover/focus prefetch for internal anchor links.
- * Adds <link rel="prefetch"> for the target route so navigation feels
- * instant on the next click — directly attacks low pages-per-visit
- * (current baseline 1.17) by removing perceived nav latency.
- *
- *  - Prefetches each href at most once per session
- *  - Skips external links, hash-only links, and downloads
- *  - Respects `prefers-reduced-data` (Save-Data) and slow-2g
- */
+const INTERNAL_PREFETCH_DELAY_MS = 120;
+
 export function useLinkPrefetch() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const conn = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
-    if (conn?.saveData) return;
-    if (conn?.effectiveType && /^(slow-2g|2g)$/.test(conn.effectiveType)) return;
+    const connection = (
+      navigator as unknown as {
+        connection?: { saveData?: boolean; effectiveType?: string };
+      }
+    ).connection;
+    if (connection?.saveData) return;
+    if (connection?.effectiveType && /^(slow-2g|2g)$/.test(connection.effectiveType)) {
+      return;
+    }
 
-    const seen = new Set<string>();
+    const prefetched = new Set<string>();
+    const timers = new Map<string, number>();
 
     const prefetch = (href: string) => {
-      if (seen.has(href)) return;
-      seen.add(href);
+      if (prefetched.has(href)) return;
+      prefetched.add(href);
       const link = document.createElement("link");
       link.rel = "prefetch";
       link.href = href;
@@ -32,45 +29,73 @@ export function useLinkPrefetch() {
       document.head.appendChild(link);
     };
 
-    const handler = (e: Event) => {
-      const target = (e.target as HTMLElement | null)?.closest?.("a") as HTMLAnchorElement | null;
+    const schedulePrefetch = (event: Event) => {
+      const target = (event.target as HTMLElement | null)?.closest?.("a") as
+        | HTMLAnchorElement
+        | null;
       if (!target) return;
+
       const href = target.getAttribute("href");
-      if (!href) return;
-      if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
-      if (target.hasAttribute("download")) return;
-      if (target.target === "_blank") return;
+      if (
+        !href ||
+        href.startsWith("#") ||
+        href.startsWith("mailto:") ||
+        href.startsWith("tel:") ||
+        target.hasAttribute("download") ||
+        target.target === "_blank"
+      ) {
+        return;
+      }
 
       try {
         const url = new URL(href, window.location.origin);
         if (url.origin !== window.location.origin) return;
-        if (url.pathname === window.location.pathname) return;
-        prefetch(url.pathname + url.search);
+
+        const route = url.pathname + url.search;
+        if (route === window.location.pathname || prefetched.has(route) || timers.has(route)) {
+          return;
+        }
+
+        const timer = window.setTimeout(() => {
+          timers.delete(route);
+          prefetch(route);
+        }, INTERNAL_PREFETCH_DELAY_MS);
+        timers.set(route, timer);
       } catch {
-        /* invalid url — ignore */
+        /* Ignore malformed URLs. */
       }
     };
 
-    document.addEventListener("mouseover", handler, { passive: true });
-    document.addEventListener("focusin", handler);
+    const cancelPrefetch = (event: Event) => {
+      const target = (event.target as HTMLElement | null)?.closest?.("a") as
+        | HTMLAnchorElement
+        | null;
+      const href = target?.getAttribute("href");
+      if (!href) return;
 
-    // Idle pre-warm of top destinations (from analytics) so the second
-    // click feels instant. Skips the current page.
-    const TOP_ROUTES = ["/about", "/guides/diet", "/exercises", "/arthritis-flare-ups"];
-    const warm = () => {
-      TOP_ROUTES.forEach((p) => {
-        if (p !== window.location.pathname) prefetch(p);
-      });
+      try {
+        const url = new URL(href, window.location.origin);
+        const route = url.pathname + url.search;
+        const timer = timers.get(route);
+        if (timer !== undefined) {
+          window.clearTimeout(timer);
+          timers.delete(route);
+        }
+      } catch {
+        /* Ignore malformed URLs. */
+      }
     };
-    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback;
-    const warmId = ric ? ric(warm, { timeout: 3000 }) : window.setTimeout(warm, 2500);
+
+    document.addEventListener("pointerover", schedulePrefetch, { passive: true });
+    document.addEventListener("pointerout", cancelPrefetch, { passive: true });
+    document.addEventListener("focusin", schedulePrefetch);
 
     return () => {
-      document.removeEventListener("mouseover", handler);
-      document.removeEventListener("focusin", handler);
-      const cic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
-      if (cic && ric) cic(warmId as number);
-      else window.clearTimeout(warmId as number);
+      document.removeEventListener("pointerover", schedulePrefetch);
+      document.removeEventListener("pointerout", cancelPrefetch);
+      document.removeEventListener("focusin", schedulePrefetch);
+      timers.forEach((timer) => window.clearTimeout(timer));
+      timers.clear();
     };
   }, []);
 }
