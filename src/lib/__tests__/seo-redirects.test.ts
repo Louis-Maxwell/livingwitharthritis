@@ -58,7 +58,7 @@ describe("resolveSeoRedirect", () => {
       "/arthritis-support/glasgow",
     );
     expect(resolveSeoRedirect("/arthritis-support/winchester")).toBe(
-      "/arthritis-support/southampton",
+      "/arthritis-support/portsmouth",
     );
   });
 

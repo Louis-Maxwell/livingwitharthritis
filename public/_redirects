@@ -25,11 +25,8 @@
 /exercises/walking-for-back /exercises/walking-for-back-arthritis 301
 /arthritis-support/stockport /arthritis-support/manchester 301
 /arthritis-support/stirling /arthritis-support/glasgow 301
-/arthritis-support/winchester /arthritis-support/southampton 301
 /arthritis-support/bradford /arthritis-support/leeds 301
-/arthritis-support/milton-keynes /arthritis-support/cambridge 301
 /arthritis-support/oswestry /arthritis-support/stoke-on-trent 301
-/arthritis-support/shrewsbury /arthritis-support/wolverhampton 301
 /arthritis-support/sheffield/rheumatoid-arthritis /conditions/rheumatoid-arthritis 301
 /zakat /zakat-appeal 301
 /library/glucosamine /supplements/glucosamine 301
@@ -1778,19 +1775,8 @@
 /library/discomfort-knee /library/knee-support 301
 /library/manchester-marathon /library 301
 /library/lower-back-back /library/back-exercises 301
-/arthritis-support/bournemouth /arthritis-support 301
-/arthritis-support/brighton /arthritis-support 301
-/arthritis-support/cambridge /arthritis-support 301
-/arthritis-support/cheltenham /arthritis-support 301
-/arthritis-support/doncaster /arthritis-support 301
-/arthritis-support/gloucester /arthritis-support 301
-/arthritis-support/hull /arthritis-support 301
-/arthritis-support/luton /arthritis-support 301
-/arthritis-support/oxford /arthritis-support 301
-/arthritis-support/plymouth /arthritis-support 301
-/arthritis-support/reading /arthritis-support 301
-/arthritis-support/southampton /arthritis-support 301
-/arthritis-support/sunderland /arthritis-support 301
-/arthritis-support/wigan /arthritis-support 301
-/arthritis-support/wolverhampton /arthritis-support 301
-/arthritis-support/york /arthritis-support 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-support/winchester /arthritis-support/portsmouth 301
+/arthritis-support/milton-keynes /arthritis-support/london 301
+/arthritis-support/shrewsbury /arthritis-support/birmingham 301
