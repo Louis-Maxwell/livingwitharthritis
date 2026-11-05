@@ -1,5 +1,7 @@
 import { LOUIS_MAXWELL_PERSON, LIVING_WITH_ARTHRITIS_ORG } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import { distinctSeoTitle } from "@/lib/technicalSeo.mjs";
 import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
@@ -87,12 +89,24 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   const canonicalUrl = variant === "reviewer"
     ? `https://livingwitharthritis.org.uk/authors/${slug}`
     : url;
-  const title = variant === "reviewer"
-    ? `${record.name} — Clinical reviewer | Living With Arthritis`
-    : `${record.name} — ${badgeLabel} | Living With Arthritis`;
-  const description = `${badgeLabel} profile: ${record.name}, ${record.title}. ${
-    isPlaceholder(record.bio) ? '' : record.bio
-  }`.slice(0, 155);
+  const h1 = variant === "reviewer"
+    ? `${record.name}: clinical reviewer profile`
+    : `${record.name}: author profile`;
+  const title = enforceTitle(
+    distinctSeoTitle(
+      variant === "reviewer"
+        ? `${record.name} — Clinical reviewer`
+        : `${record.name} — ${badgeLabel}`,
+      h1,
+    ),
+    { includeSiteName: true, route: `/${prefix}/${slug}` },
+  );
+  const description = enforceDescription(
+    `${badgeLabel} profile: ${record.name}, ${record.title}. ${
+      isPlaceholder(record.bio) ? "" : record.bio
+    }`,
+    `/${prefix}/${slug}`,
+  );
 
   return (
     <>
@@ -152,7 +166,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">{record.name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">{h1}</h1>
           <p className="text-lg text-foreground/80 mb-8">
             {record.title}
             {realOrg && <> · {realOrg}</>}

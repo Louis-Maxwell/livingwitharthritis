@@ -31,7 +31,7 @@ export default function SymptomFlareTracker() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Free Arthritis Symptom and Flare Tracker (Printable PDF)"
+        title="Symptom and flare tracker PDF"
         description="Free printable 7-day arthritis symptom and flare tracker: pain, stiffness, fatigue, sleep, activity and medicines to take to your GP or physio."
         path={PATH}
         type="article"

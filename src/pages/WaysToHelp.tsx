@@ -1,5 +1,6 @@
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
+import { enforceTitle } from "@/lib/seoMeta";
 import Header from "@/components/Header";
 import { Suspense, useState } from "react";
 import {
@@ -147,7 +148,7 @@ export default function WaysToHelp() {
   return (
     <>
       <Helmet>
-        <title>Donate, Volunteer or Fundraise for Arthritis Support | Living With Arthritis</title>
+        <title>{enforceTitle("Donate, volunteer or fundraise", { includeSiteName: true, route: "/ways-to-help" })}</title>
         <meta name="description" content="Support people living with arthritis: donate to our charity, volunteer, fundraise, or explore a corporate partnership. Choose a practical way to help today." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
       <meta property="og:title" content="Donate, Volunteer or Fundraise for Arthritis Support | Living With Arthritis" />
