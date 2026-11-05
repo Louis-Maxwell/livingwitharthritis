@@ -8,7 +8,13 @@ const redirects=readFileSync('public/_redirects','utf8').split('\n').map(s=>s.sp
 const meta=(h,key)=>{const tags=h.match(/<meta\b[^>]*>/gi)||[];return tags.find(t=>t.includes(`name="${key}"`)||t.includes(`property="${key}"`))?.match(/content="([^"]*)"/)?.[1]||'';};
 const text=s=>String(s).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 const rows=[];const issues=[];
-for(const url of urls){const path=new URL(url).pathname;const file=path==='/'?'dist/index.html':join('dist',path,'index.html');if(!existsSync(file)){issues.push({severity:'HIGH',path,issue:'Missing static sitemap page'});continue;}const h=readFileSync(file,'utf8');const title=text(h.match(/<title>([\s\S]*?)<\/title>/i)?.[1]||'');const description=meta(h,'description');const canonical=h.match(/<link\b[^>]*rel="canonical"[^>]*href="([^"]*)"/)?.[1];const h1=(h.match(/<h1\b/gi)||[]).length;const robots=meta(h,'robots');const schema=[];let invalidSchema=0;for(const m of h.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)){try{schema.push(JSON.parse(m[1]));}catch{invalidSchema++;}}
+for(const url of urls){const path=new URL(url).pathname;
+if (/\\.(?:pdf|mp4|mov|webm|png|jpe?g|svg|xml|txt)$/i.test(path)) {
+  const assetFile = join('dist', path);
+  if (!existsSync(assetFile)) issues.push({severity:'HIGH',path,issue:'Missing sitemap asset'});
+  continue;
+}
+const file=path==='/'?'dist/index.html':join('dist',path,'index.html');if(!existsSync(file)){issues.push({severity:'HIGH',path,issue:'Missing static sitemap page'});continue;}const h=readFileSync(file,'utf8');const title=text(h.match(/<title>([\s\S]*?)<\/title>/i)?.[1]||'');const description=meta(h,'description');const canonical=h.match(/<link\b[^>]*rel="canonical"[^>]*href="([^"]*)"/)?.[1];const h1=(h.match(/<h1\b/gi)||[]).length;const robots=meta(h,'robots');const schema=[];let invalidSchema=0;for(const m of h.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)){try{schema.push(JSON.parse(m[1]));}catch{invalidSchema++;}}
 const links=[...h.matchAll(/<a\b[^>]*href="([^"]+)"/gi)].map(m=>m[1]).filter(p=>p.startsWith('/')&&!p.startsWith('//')).map(p=>p.split(/[?#]/)[0].replace(/\/$/,'')||'/');const unresolved=[...new Set(links.filter(p=>!paths.has(p)&&!redirects.includes(p)&&!existsSync(join('dist',p))&&!existsSync(join('dist',p,'index.html'))))];
 for (const href of unresolved) issues.push({severity:'HIGH',path,issue:'Unresolved internal link',href});
 rows.push({path,title,description,canonical,h1,robots,schemaBlocks:schema.length,invalidSchema,internalLinks:links.length,unresolvedLinks:unresolved});

@@ -42,3 +42,4 @@ dist-ssr
 .wrangler/
 
 .lighthouseci-mobile/
+.env.development

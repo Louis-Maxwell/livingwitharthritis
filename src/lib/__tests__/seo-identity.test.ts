@@ -29,7 +29,7 @@ const cityPage = readFileSync(resolve("src/pages/CityArthritisPage.tsx"), "utf8"
 const schemaTs = readFileSync(resolve("src/lib/rootOrganizationSchema.ts"), "utf8");
 
 const BRAND_STRING = "Living With Arthritis (charity 1218461)";
-const HOME_TITLE = "Living With Arthritis | Exercises & PIP Advice";
+const HOME_TITLE = "Living With Arthritis: Pain Relief & Flare-Up Help";
 const OFFICIAL_SAME_AS = [
   ...getSchemaOrgSameAs(),
   "https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1218461&subId=0",
@@ -165,7 +165,7 @@ describe("public SEO / AEO identity", () => {
       return host.startsWith("www.") ? host.slice(4) : host;
     });
     expect(sameAsHosts.includes("twitter.com")).toBe(false);
-    expect(sameAsHosts.includes("x.com")).toBe(false);
+    expect(ORGANIZATION_PAYLOAD.sameAs).not.toContain("https://twitter.com/[your-handle]");
   });
 
   it("keeps Bytespider blocked and private paths disallowed for FacebookBot", () => {

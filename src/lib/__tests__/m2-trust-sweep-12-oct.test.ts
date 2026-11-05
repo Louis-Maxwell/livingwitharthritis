@@ -21,13 +21,14 @@ describe("M2 trust sweep — unnamed reviewer labels", () => {
     expect(offenders).toEqual([]);
   });
 
-  it("posts with the editorial-standards line say pending clinical review and are pending", () => {
-    const withLine = files
-      .map((f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post)
-      .filter((p) => /Living With Arthritis editorial team/.test(p.content) && /pending clinical review/.test(p.content));
-    expect(withLine.length).toBeGreaterThanOrEqual(70);
-    for (const p of withLine) {
-      expect(p.reviewStatus, p.slug).toBe("pending");
+  it("no blog post is pending clinical review: every guide is reviewed by Louis Maxwell (no exceptions)", () => {
+    const posts = files.map(
+      (f) => JSON.parse(readFileSync(resolve(postsDir, f), "utf8")) as Post & { is_published?: boolean; reviewed_by?: string | null },
+    );
+    for (const p of posts) {
+      expect(p.reviewStatus, p.slug).toBeUndefined();
+      expect(p.content, p.slug).not.toMatch(/pending clinical review/i);
+      if (p.is_published) expect(p.reviewed_by, p.slug).toBe("Louis Maxwell");
     }
   });
 });
@@ -63,8 +64,8 @@ describe("clinical review transparency", () => {
   });
 
   it("distinguishes content update dates from completed clinical review", () => {
-    expect(standards).toMatch(/publication or an updated date[\s\S]*does not mean clinical review is complete/);
+    expect(standards).toMatch(/clinically reviewed by Louis Maxwell[\s\S]*HCPC PH128483/);
     expect(standards).toMatch(/An update date[\s\S]*is not a clinical review date/);
-    expect(standards).toMatch(/Pending clinical review/);
+    expect(standards).not.toMatch(/Pending clinical review/);
   });
 });

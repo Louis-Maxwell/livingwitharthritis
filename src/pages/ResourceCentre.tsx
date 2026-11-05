@@ -15,7 +15,7 @@ const GROUPS = [
       { title: "Guides hub", href: "/guides" },
       { title: "Newly diagnosed", href: "/guides/newly-diagnosed" },
       { title: "Pain relief guide", href: "/guides/arthritis-pain-relief" },
-      { title: "Benefits & PIP hub", href: "/benefits-pip" },
+      { title: "Benefits & PIP hub", href: "/guides/benefits-pip" },
       { title: "Benefits & PIP guide", href: "/guides/benefits-pip" },
     ],
   },
@@ -23,7 +23,7 @@ const GROUPS = [
     title: "Exercise & diet",
     links: [
       { title: "Exercise hub", href: "/exercises" },
-      { title: "Diet hub", href: "/diet" },
+      { title: "Diet hub", href: "/guides/diet" },
       { title: "Mediterranean diet for arthritis", href: "/diet/mediterranean-diet-for-arthritis" },
       { title: "Self-help tool", href: "/self-help" },
     ],

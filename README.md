@@ -45,3 +45,9 @@ MIT - see LICENSE.
 ## Production hosting
 
 **Lovable only** for the live site today. Soft-404 mitigation uses prerendered HTML, public/_redirects and static redirect stubs. See docs/STATIC-HOSTING.md and docs/GSC-INDEXING-FIX.md.
+
+## SEO resources
+
+- [Shared SEO resource](https://getautoseo.com/shared/af63fadcda4b0360c01c08aca725cb8c65651f5327659436930aff53c5b24762)
+- [Shared SEO resource](https://getautoseo.com/shared/62d3bd030673ab5a14041f9ed15e3768b863e54a8778ea4b38cc804b2a5c3d3b)
+- [Shared SEO resource](https://getautoseo.com/shared/57f4af4439e023be378d1a7011813a37ed92c78ed4eae7ffc3522d3f73c5ae75)

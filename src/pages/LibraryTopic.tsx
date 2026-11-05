@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import routeNoindex from "@/data/route-noindex.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +12,7 @@ import { getHealthTopic, healthTopics } from "@/data/healthTopics";
 import { getLibraryTopicSeo, getLibraryPillarRelated } from "@/data/libraryTopicSeo";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
+import { LIBRARY_META_DESCRIPTIONS } from "@/data/libraryMetaDescriptions";
 import {
   DEFAULT_LIBRARY_LAST_REVIEWED,
   LIBRARY_PENDING_REVIEW_TEXT,
@@ -38,6 +40,7 @@ const LibraryTopic = () => {
       name: seo?.h1 || topic.title,
       description:
         seo?.description ||
+        LIBRARY_META_DESCRIPTIONS[topic.slug] ||
         topic.subtitle ||
         topic.sections[0]?.body?.slice(0, 160),
       url: `https://livingwitharthritis.org.uk/library/${topic.slug}`,
@@ -85,6 +88,7 @@ const LibraryTopic = () => {
   const title = seo?.title ?? `${topic.title} | Living With Arthritis`;
   const description =
     seo?.description ||
+    LIBRARY_META_DESCRIPTIONS[topic.slug] ||
     topic.subtitle ||
     `${topic.title} — plain-English information from Living With Arthritis.`;
   const heading = seo?.h1 ?? topic.title;
@@ -94,6 +98,7 @@ const LibraryTopic = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        {routeNoindex.includes(`/library/${topic.slug}`) && <meta name="robots" content="noindex,follow" />}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="article" />

@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { healthTopics, type HealthTopicSection } from "../src/data/healthTopics";
 import { getLibraryTopicSeo, type ExtraSection } from "../src/data/libraryTopicSeo";
 import { exactRedirectPathSet } from "./seo-redirect-map.mjs";
+import { LIBRARY_META_DESCRIPTIONS } from "../src/data/libraryMetaDescriptions";
 
 const OUT = resolve("scripts/library-head-data.json");
 
@@ -73,6 +74,7 @@ export function buildLibraryHeadData() {
     );
     const description = (
       seo?.description ||
+      LIBRARY_META_DESCRIPTIONS[topic.slug] ||
       topic.subtitle ||
       `${topic.title} — plain-English information from Living With Arthritis.`
     ).slice(0, 158);

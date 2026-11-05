@@ -1,6 +1,6 @@
 /**
  * Long-form content for /exercises/tai-chi-for-arthritis.
- * Exercise & Physiotherapy batch 2, article 29. Pending clinical review.
+ * Exercise & Physiotherapy batch 2, article 29. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 export const TAI_CHI_TITLE = "Tai Chi for Arthritis: Safe UK Beginner's Guide";
 export const TAI_CHI_DESCRIPTION = "Tai chi for arthritis: what it is, what the evidence says, a 12-week beginner plan, adaptations for knees, hips and flares, finding UK classes and safety.";

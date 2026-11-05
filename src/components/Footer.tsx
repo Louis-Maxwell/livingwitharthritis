@@ -2,8 +2,12 @@ import PageDownloads from '@/components/PageDownloads';
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import FooterMostRead from "@/components/FooterMostRead";
+import { lazy, Suspense } from "react";
+import DeferredMount from "@/components/DeferredMount";
+const RelatedGuidesBlock = lazy(() => import("@/components/blog/RelatedGuidesBlock"));
 import HelplineWidget from "@/components/HelplineWidget";
 import SiteLogo from "@/components/SiteLogo";
+import HubSpotlight from "@/components/HubSpotlight";
 import SocialLinks from "@/components/SocialLinks";
 import { CHARITY, hasCharityAddress } from "@/config/charity";
 
@@ -14,7 +18,7 @@ const columns = [
       { label: "Our Services", href: "/services" },
       { label: "Virtual Physiotherapy", href: "/chat" },
       { label: "Exercise Hub", href: "/exercises" },
-      { label: "Diet & Nutrition Hub", href: "/diet" },
+      { label: "Diet & Nutrition Hub", href: "/guides/diet" },
       { label: "Supplements Guide", href: "/supplements" },
       { label: "Self Help Tool", href: "/self-help" },
       { label: "Arthritis Flare-Ups", href: "/arthritis-flare-ups" },
@@ -41,8 +45,25 @@ const columns = [
       { label: "Guides Hub", href: "/guides" },
       { label: "How to claim PIP for arthritis in the UK", href: "/guides/benefits-pip" },
       { label: "Search", href: "/search" },
-      { label: "Benefits & PIP hub", href: "/benefits-pip" },
+      { label: "Benefits & PIP hub", href: "/guides/benefits-pip" },
       { label: "Azathioprine Guide", href: "/guides/azathioprine-for-arthritis" },
+    ],
+  },
+  {
+    title: "Guides",
+    links: [
+      { label: "Guides hub", href: "/guides" },
+      { label: "All guides (A–Z archive)", href: "/blog/archive" },
+      { label: "Pain & flares", href: "/blog/category/pain-flares" },
+      { label: "Exercise & movement", href: "/blog/category/exercise" },
+      { label: "Conditions", href: "/blog/category/conditions" },
+      { label: "Treatments & medicines", href: "/blog/category/treatments" },
+      { label: "Diet & daily living", href: "/blog/category/diet-lifestyle" },
+      { label: "Benefits, PIP & work", href: "/blog/category/benefits-work" },
+      { label: "Mental health & fatigue", href: "/blog/category/mental-health-fatigue" },
+      { label: "Carers & family", href: "/blog/category/carers-family" },
+      { label: "Surgery & recovery", href: "/blog/category/surgery-recovery" },
+      { label: "Symptom & flare tracker", href: "/resources/symptom-flare-tracker" },
     ],
   },
   {
@@ -55,6 +76,9 @@ const columns = [
       { label: "Clinical Sources", href: "/sources" },
       { label: "Editorial Standards", href: "/editorial-standards" },
       { label: "Claims Policy", href: "/about/editorial-claims-policy" },
+      { label: "Clinical Governance", href: "/clinical-governance" },
+      { label: "Evidence Register", href: "/evidence-register" },
+      { label: "Corrections Policy", href: "/corrections-policy" },
       { label: "UK Search Insights", href: "/about/uk-arthritis-search-insights" },
       { label: "Governance", href: "/governance" },
       
@@ -63,6 +87,7 @@ const columns = [
       { label: "Corporate Giving", href: "/corporate-giving" },
       { label: "Press & Media", href: "/press" },
       { label: "Partners", href: "/partners" },
+      { label: "Trusted local services", href: "/trusted-local-services" },
       { label: "Sitemap", href: "/site-index" },
     ],
   },
@@ -85,8 +110,15 @@ const columns = [
 
 const Footer = () => {
   return (
+    <>
+    <HubSpotlight />
     <footer className="bg-muted/30 border-t border-border/20 pb-20 lg:pb-0" role="contentinfo" aria-label="Site footer">
       {/* Helpline strip — sits above the footer on every page */}
+      <DeferredMount>
+        <Suspense fallback={null}>
+          <RelatedGuidesBlock />
+        </Suspense>
+      </DeferredMount>
       <HelplineWidget />
 
       <FooterMostRead />
@@ -207,6 +239,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

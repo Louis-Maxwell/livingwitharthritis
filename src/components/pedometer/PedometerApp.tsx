@@ -23,6 +23,7 @@ import {
   useId,
   type KeyboardEvent,
   type ReactNode,
+  type RefObject,
 } from 'react';
 import { Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -598,7 +599,7 @@ function SettingsPanel({ goal, setGoal, unit, setUnit, onClose, returnFocusRef }
   goal: number; setGoal: (g: number) => void;
   unit: UnitSystem; setUnit: (u: UnitSystem) => void;
   onClose: () => void;
-  returnFocusRef: React.RefObject<HTMLButtonElement>;
+  returnFocusRef: RefObject<HTMLButtonElement | null>;
 }) {
   const [localGoal, setLocalGoal] = useState(goal);
   const presets = [5000, 7500, 10000, 12500, 15000];

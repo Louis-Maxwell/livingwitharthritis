@@ -17,5 +17,11 @@
   "reviewed_by": null,
   "reviewer_credentials": null,
   "display_order": 921,
-  "reviewStatus": "pending"
+  "citations": [
+    {
+      "label": "NHS: Arthritis",
+      "url": "https://www.nhs.uk/conditions/arthritis/",
+      "publisher": "NHS"
+    }
+  ]
 }

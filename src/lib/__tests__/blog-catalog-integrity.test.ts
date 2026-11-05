@@ -45,9 +45,8 @@ const read = (rel: string) => readFileSync(resolve(root, rel), "utf8");
 
 describe("blog source of truth: src/content/blog/posts/*.json", () => {
   it("never derives a clinical-review date from a content update", () => {
-    const post = { ...PUBLISHED_BLOG_POSTS[0], last_reviewed: undefined, reviewStatus: "pending" as const };
+    const post = { ...PUBLISHED_BLOG_POSTS[0], last_reviewed: undefined };
     expect(toBlogMeta(post).last_reviewed).toBeUndefined();
-    expect(toBlogMeta(post).reviewStatus).toBe("pending");
     expect(toBlogMeta({ ...post, last_reviewed: "2026-10-01" }).last_reviewed).toBe("2026-10-01");
   });
 

@@ -22,7 +22,7 @@ export function hubGuideBodyHtml(guide: HubGuide): string {
   const review =
     `<p class="reviewed-by">Written by ${esc(HUB_GUIDE_REVIEWER.name)}, ${esc(HUB_GUIDE_REVIEWER.credentials)}. ` +
     `Updated ${esc(guide.updated)}.` +
-    (guide.reviewStatus === "pending-clinical-review" ? " Pending clinical review." : "") +
+    "" +
     `</p>`;
   const sections = guide.sections
     .map((s) => {

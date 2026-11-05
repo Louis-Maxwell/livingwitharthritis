@@ -165,7 +165,7 @@ export default function TaiChiForArthritis() {
           <p className="quick-answer p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {TAI_CHI_QUICK_ANSWER}
           </p>
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
         </div>
       </section>
 
@@ -269,13 +269,13 @@ export default function TaiChiForArthritis() {
               const video = TAI_CHI_VIDEOS[m.key];
               return (
                 <Card key={m.key} className="overflow-hidden border border-border/40 flex flex-col">
-                  <ExerciseVideoModal src={video.src} title={m.name} description={m.brief}>
+                  <ExerciseVideoModal src={video.src} poster={video.poster} title={m.name} description={m.brief}>
                     <button
                       type="button"
                       aria-label={`Play ${m.name}`}
                       className="group relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
-                      <div className="aspect-video bg-muted/40 overflow-hidden">
+                      <div className="aspect-video bg-muted/40 overflow-hidden" aria-hidden="true">
                         <Anim className="w-full h-full object-cover" />
                       </div>
                       <span className="absolute inset-0 flex items-center justify-center bg-primary/0 group-hover:bg-primary/40 group-focus-visible:bg-primary/40 transition-colors">

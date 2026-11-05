@@ -1,3 +1,6 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -24,6 +27,8 @@ const URL = `${BASE}/conditions/knee-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Knee Arthritis – Symptoms, Exercises & Treatment | Living With Arthritis",
   "description": "UK guide to knee arthritis (osteoarthritis of the knee): symptoms, causes, best exercises, weight management, treatment options and when to consider knee replacement.",
   "url": URL,
@@ -85,11 +90,11 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const KneeArthritis = () => (
   <>
     <Helmet>
-      <title>Knee Arthritis | Symptoms, Treatment & Exercises (UK)</title>
-      <meta name="description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+      <title>Knee Arthritis: Symptoms, Best Exercises & Treatment (UK)</title>
+      <meta name="description" content="Stiff, painful knees? Plain-English guide to knee arthritis: symptoms, exercises that help, treatment options and when to see a GP." />
       <meta name="keywords" content="knee arthritis, knee osteoarthritis, knee OA, knee pain, arthritic knee, knee arthritis exercises, knee arthritis treatment, knee replacement, quadriceps exercises, NICE knee osteoarthritis" />
       <meta property="og:title" content="Knee Arthritis – Symptoms, Exercises & Treatment" />
-      <meta property="og:description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+      <meta property="og:description" content="Stiff, painful knees? Plain-English guide to knee arthritis: symptoms, exercises that help, treatment options and when to see a GP." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -100,7 +105,7 @@ const KneeArthritis = () => (
       <meta property="og:image:alt" content="Knee arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Knee Arthritis – Symptoms, Exercises & Treatment" />
-      <meta name="twitter:description" content="Knee arthritis symptoms, treatment & exercises: Pain relief strategies, exercises & when to see a specialist. Complete management guide." />
+      <meta name="twitter:description" content="Stiff, painful knees? Plain-English guide to knee arthritis: symptoms, exercises that help, treatment options and when to see a GP." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
@@ -148,7 +153,7 @@ const KneeArthritis = () => (
             been tried.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
@@ -224,7 +229,7 @@ const KneeArthritis = () => (
         </Section>
 
         <Section icon={Apple} title="What diet helps knee arthritis?">
-          <p>Weight loss is the single most powerful non-surgical treatment for knee arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in knee pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/diet" className="text-primary underline">Diet Hub</Link>:</p>
+          <p>Weight loss is the single most powerful non-surgical treatment for knee arthritis. A 5% reduction in body weight typically delivers a 20–30% drop in knee pain. Pair calorie control with the Mediterranean pattern covered in our <Link to="/guides/diet" className="text-primary underline">Diet Hub</Link>:</p>
           <ul>
             <li>Oily fish twice a week (salmon, mackerel, sardines)</li>
             <li>Plenty of vegetables, berries, nuts, olive oil and whole grains</li>
@@ -283,7 +288,7 @@ const KneeArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for arthritis", to: "/diet" },
+                { label: "Best diet for arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar", to: "/guides/diet" },
                 { label: "Glucosamine, collagen, turmeric", to: "/blog/category/diet-lifestyle" },
               ],
@@ -320,7 +325,9 @@ const KneeArthritis = () => (
             </Link>
           </div>
 
-      <EducationalDisclaimerBox />
+      <ClusterGpAndLinks path="/conditions/knee-arthritis" />
+      <UrgentHelpAndSources path="/conditions/knee-arthritis" />
+      <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
       <TopicClusterNav path="/conditions/knee-arthritis" />
 <CrossLinkBanner
           links={["guide-knee-oa", "flare-action-plan", "exercises", "guide-benefits"]}

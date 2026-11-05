@@ -490,7 +490,7 @@ const UnderstandingPain = () => (
             — first steps after a diagnosis
           </li>
           <li>
-            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">
+            <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
               Benefits &amp; PIP
             </Link>{" "}
             — when pain limits daily living

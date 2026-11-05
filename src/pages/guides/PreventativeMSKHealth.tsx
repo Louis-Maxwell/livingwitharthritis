@@ -124,7 +124,7 @@ export default function PreventativeMSKHealth() {
         <ul className="space-y-2">
           <li><Link to="/guides/musculoskeletal-health" className="text-primary underline">Musculoskeletal health</Link></li>
           <li><Link to="/living-with-arthritis" className="text-primary underline">Living with arthritis</Link></li>
-          <li><Link to="/diet" className="text-primary underline">Anti-inflammatory diet</Link></li>
+          <li><Link to="/guides/diet" className="text-primary underline">Anti-inflammatory diet</Link></li>
           <li><Link to="/exercises" className="text-primary underline">Exercise hub</Link></li>
           <li><Link to="/conditions/osteoarthritis" className="text-primary underline">Osteoarthritis</Link></li>
         </ul>
