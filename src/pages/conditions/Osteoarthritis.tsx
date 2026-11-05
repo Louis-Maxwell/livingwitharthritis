@@ -1,3 +1,6 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -29,6 +32,8 @@ const BASE = "https://livingwitharthritis.org.uk";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Osteoarthritis – Symptoms, Causes & Management | Living With Arthritis",
   "description": "Comprehensive guide to osteoarthritis (OA): symptoms, causes, risk factors, diagnosis, treatment options, exercises, diet and self-management tips for UK patients.",
   "url": `${BASE}/conditions/osteoarthritis`,
@@ -91,8 +96,8 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const Osteoarthritis = () => (
   <>
     <Helmet>
-      <title>Osteoarthritis UK: Symptoms, Treatment & Exercises</title>
-      <meta name="description" content="Osteoarthritis (OA) in the UK: how to recognise symptoms, when to see a GP, NICE-aligned treatment, exercises and diet — written for patients." />
+      <title>Osteoarthritis: Symptoms, Treatment & Exercises (UK)</title>
+      <meta name="description" content="How to recognise osteoarthritis symptoms, when to see a GP, NICE-aligned treatment, exercises and diet. Plain-English help written for patients." />
       <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
       <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
       <meta property="og:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
@@ -172,7 +177,7 @@ const Osteoarthritis = () => (
             referral to discuss joint surgery.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <WaveDivider color="hsl(var(--background))" />
@@ -376,7 +381,7 @@ const Osteoarthritis = () => (
                 { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
                 { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
                 { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },
-                { label: "Cycling with arthritis", to: "/blog/cycling-with-arthritis" },
+                { label: "Cycling with arthritis", to: "/blog/arthritis-and-cycling-uk" },
                 { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
               ],
             },
@@ -396,7 +401,7 @@ const Osteoarthritis = () => (
                 { label: "Joint protection — easier everyday tasks", to: "/blog/joint-protection-easier-everyday-tasks" },
                 { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
                 { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
-                { label: "Benefits & PIP hub", to: "/benefits-pip" },
+                { label: "Benefits & PIP hub", to: "/guides/benefits-pip" },
                 { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
                 { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 { label: "Community & peer support", to: "/community" },
@@ -446,10 +451,12 @@ const Osteoarthritis = () => (
           <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes (UK)</Link> — footwear that reduces load</li>
           <li><Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline underline-offset-2">Knee supplements</Link> — honest evidence; no joint-rebuild claims</li>
           <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link> — easier everyday tasks</li>
-          <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
+      <ClusterGpAndLinks path="/conditions/osteoarthritis" />
+      <UrgentHelpAndSources path="/conditions/osteoarthritis" />
       <EducationalDisclaimerBox lastReviewed="2026-09-28" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
 <CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />

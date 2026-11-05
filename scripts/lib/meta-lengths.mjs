@@ -1,6 +1,5 @@
 // Match SeoHead's length policy in the HTML read by non-JavaScript crawlers.
 const BRAND = ' | Living With Arthritis';
-const SHORT_BRAND = ' | LWA';
 
 function truncateOnWord(text, max) {
   if (text.length <= max) return text;
@@ -15,9 +14,8 @@ export function normalizeStaticMeta(data) {
   let title = String(data.title ?? '').trim();
   if (title.length > 60 && title.endsWith(BRAND)) {
     const subject = title.slice(0, -BRAND.length);
-    title = subject.length + SHORT_BRAND.length <= 60
-      ? subject + SHORT_BRAND
-      : subject;
+    // One brand suffix only: drop it rather than abbreviate it.
+    title = subject;
   }
   return {
     ...data,

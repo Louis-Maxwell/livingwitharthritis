@@ -50,7 +50,7 @@ const ArticleBookmarkButton = ({
       type="button"
       onClick={onToggle}
       aria-pressed={saved}
-      aria-label={label}
+      aria-label={`${saved ? "Saved" : prominent ? "Save for later" : "Save"}: ${label}`}
       className={`${base} ${tone} ${className}`}
     >
       <Bookmark className={`h-4 w-4 ${saved ? "fill-current" : ""}`} aria-hidden="true" />

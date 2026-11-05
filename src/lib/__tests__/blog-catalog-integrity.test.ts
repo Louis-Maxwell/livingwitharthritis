@@ -1,3 +1,4 @@
+import blogNoindexSlugs from "@/data/blog-noindex.json";
 /// <reference types="node" />
 /**
  * Blog catalog integrity (never-break). Run by CI "Keep green (integrity)".
@@ -44,9 +45,8 @@ const read = (rel: string) => readFileSync(resolve(root, rel), "utf8");
 
 describe("blog source of truth: src/content/blog/posts/*.json", () => {
   it("never derives a clinical-review date from a content update", () => {
-    const post = { ...PUBLISHED_BLOG_POSTS[0], last_reviewed: undefined, reviewStatus: "pending" as const };
+    const post = { ...PUBLISHED_BLOG_POSTS[0], last_reviewed: undefined };
     expect(toBlogMeta(post).last_reviewed).toBeUndefined();
-    expect(toBlogMeta(post).reviewStatus).toBe("pending");
     expect(toBlogMeta({ ...post, last_reviewed: "2026-10-01" }).last_reviewed).toBe("2026-10-01");
   });
 
@@ -177,8 +177,9 @@ describe("generated surfaces agree with the catalog", () => {
   });
 
   it("includes every published slug in public/sitemap.xml", () => {
+    const noindex = new Set<string>(blogNoindexSlugs as string[]);
     const missing = catalogSlugs.filter(
-      (slug) => !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
+      (slug) => !noindex.has(slug) && !sitemapXml.includes(`https://livingwitharthritis.org.uk/blog/${slug}<`),
     );
     expect(missing, missing.slice(0, 10).join("\n")).toEqual([]);
   });

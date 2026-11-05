@@ -40,12 +40,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/rheumatoid-arthritis": withDefaults({
     question: "What is rheumatoid arthritis?",
     answer:
-      "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the lining of your joints, causing pain, swelling and stiffness — usually symmetrical (both hands, both feet). Early treatment with DMARDs (disease-modifying drugs) within 3 months of symptoms starting can prevent joint damage. It affects about 400,000 adults in the UK.",
-    faqs: [
-      { q: "Is rheumatoid arthritis a disability?", a: "It can qualify as a disability under the Equality Act 2010 if it substantially affects daily activities. Many people with RA are eligible for PIP." },
-      { q: "What's the difference between OA and RA?", a: "OA is wear-and-tear cartilage loss. RA is an autoimmune inflammatory disease. RA usually affects joints symmetrically and causes prolonged morning stiffness (>1 hour)." },
-      { q: "Can diet help RA?", a: "A Mediterranean-style diet rich in oily fish, olive oil and vegetables can reduce inflammatory markers. It doesn't replace DMARDs but supports overall control." },
-    ],
+      "Rheumatoid arthritis (RA) is an autoimmune condition where the immune system attacks the joint lining, causing pain, swelling and stiffness, usually first in the small joints of the hands and feet (NHS). If you are newly diagnosed, NICE NG100 says you should be offered a DMARD such as methotrexate as soon as possible, ideally within 3 months of persistent symptoms.",
   }),
   "/conditions/psoriatic-arthritis": withDefaults({
     question: "What is psoriatic arthritis?",
@@ -252,11 +247,11 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/arthritis-pain-relief": withDefaults({
     question: "How do I relieve arthritis pain?",
     answer:
-      "First-line pain relief includes paracetamol, topical NSAID gels and heat/cold packs. Exercise reduces pain more than most drugs long-term. If pain persists, your GP can consider oral NSAIDs, corticosteroid injections or, for inflammatory arthritis, DMARDs.",
+      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, keep moving gently and build up exercise, which NICE recommends as a core treatment for osteoarthritis. For knee osteoarthritis NICE advises trying an NSAID gel first; NSAID tablets may be added at the lowest dose for the shortest time. NICE says paracetamol and weak opioids should not be offered routinely for osteoarthritis. Inflammatory arthritis needs specialist treatment. Check with a pharmacist or GP what is safe for you.",
     faqs: [
-      { q: "What is the fastest way to ease an arthritis flare?", a: "For a hot swollen joint use a cold pack for 10–15 minutes with a cloth barrier, pace activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
-      { q: "Does exercise help arthritis pain?", a: "Yes — consistent low-impact movement and strength work often reduce OA pain as much as medicines over 8–12 weeks, without the same side-effect profile." },
-      { q: "When should I see a GP about joint pain?", a: "If pain lasts more than six weeks, wakes you at night, involves hot swollen joints, or limits daily life — especially with morning stiffness over an hour." },
+      { q: "What is the fastest way to ease an arthritis flare?", a: "Use heat for stiffness or a cold pack wrapped in a cloth for a hot swollen joint, reduce rather than stop activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
+      { q: "Does exercise help arthritis pain?", a: "Yes. NICE recommends therapeutic exercise, including strengthening and general fitness, as a core treatment for osteoarthritis. Start small and build up gradually." },
+      { q: "When should I see a GP about joint pain?", a: "If pain is not improving after a few weeks, wakes you most nights, comes with swollen or warm joints or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
     ],
   }),
   "/guides/hip-exercises-for-osteoarthritis": withDefaults({
@@ -272,12 +267,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE NG226 recommends structured exercise as first-line for knee osteoarthritis. A practical home routine includes quad sets, straight-leg raises, sit-to-stands, mini squats, step-ups, hamstring curls, calf raises and gentle range-of-motion — 2–3 sessions weekly with a 4/10 pain rule.",
-    faqs: [
-      { q: "How many reps should I do?", a: "Typically 2–3 sets of 8–12 reps, two to three times a week on non-consecutive days. Progress by about 10% per week." },
-      { q: "When should I stop?", a: "Stop if pain is sharp, catching, or stays above about 4/10 overnight. Mild ache that settles within 24 hours is usually fine." },
-      { q: "Can I start while waiting for NHS physio?", a: "Yes for most stable knee OA — begin gently at home and ask about MSK self-referral. Seek urgent care for red-flag symptoms." },
-    ],
+      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.",
   }),
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
@@ -347,16 +337,6 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
-  "/guides/diet": withDefaults({
-    question: "What is the best anti-inflammatory diet for arthritis?",
-    answer:
-      "A Mediterranean-style pattern — vegetables, fruit, wholegrains, olive oil, oily fish, nuts and pulses, with less ultra-processed food — has the strongest evidence for supporting joint health. It does not replace prescribed treatment.",
-    faqs: [
-      { q: "Does turmeric cure arthritis?", a: "No. Curcumin supplements show modest pain benefits in some trials but are not a cure and can interact with medicines — ask a pharmacist." },
-      { q: "Will diet replace my medicines?", a: "No. Food patterns support care; they do not replace DMARDs, biologics or GP advice." },
-      { q: "Where is the Mediterranean meal plan?", a: "See our Mediterranean diet for arthritis page for a practical UK-focused plan." },
-    ],
-  }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
     answer:
@@ -383,10 +363,16 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     answer:
       "A Mediterranean diet — oily fish twice a week, olive oil, nuts, wholegrains, plenty of vegetables and fruit — consistently reduces inflammation markers and joint pain in trials. Cut ultra-processed foods, sugary drinks and excess red meat. Weight loss of 5-10% substantially reduces knee OA pain.",
   }),
-  "/exercise-hub": withDefaults({
-    question: "What's the best exercise for arthritis?",
+  "/exercises": withDefaults({
+    question: "What are good free physiotherapy exercises for arthritis at home?",
     answer:
-      "Combine aerobic (walking, swimming, cycling) with strength training 2-3 times a week and flexibility work. NICE guideline NG226 recommends exercise as first-line for all arthritis types — with pain reduction comparable to NSAIDs and no side effects.",
+      "NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis. The NHS advises regular low-impact activity like walking, swimming or yoga. Start with a few gentle repetitions, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.",
+    faqs: [
+      { q: "Can I do physio exercises at home without a referral?", a: "Yes, for most people with stable joint pain. The NHS says that in many areas you can refer yourself to community musculoskeletal (MSK) physiotherapy without seeing a GP, and you can start gentle home exercise while you wait." },
+      { q: "How often should I do arthritis exercises?", a: "Strength exercises are usually done two or three times a week, with gentle range-of-movement exercises daily, as in our knee routine. NICE NG226 advises exercise tailored to you, so build up slowly and adjust to how your joints respond." },
+      { q: "When should I stop and get urgent help?", a: "The NHS advises an urgent GP appointment or NHS 111 if one joint suddenly becomes severely painful and swollen, the skin around it is red or hot, or you have sore joints with a high temperature or feel hot, cold or shivery." },
+      { q: "Are exercises different for rheumatoid arthritis?", a: "NICE NG100 says adults with rheumatoid arthritis should have access to specialist physiotherapy to improve fitness, joint flexibility and muscle strength. During a flare, keep to gentle range-of-movement and follow your rheumatology team's advice." },
+    ],
   }),
 
   // --- Priority UK hubs (AEO / GEO) -----------------------------------------
@@ -410,13 +396,15 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "What is the charity number?", a: "1218461 (England and Wales)." },
     ],
   }),
-  "/diet": withDefaults({
+  "/guides/diet": withDefaults({
     question: "What is the best diet for arthritis?",
     answer:
-      "A Mediterranean-style pattern has the strongest evidence for many people with arthritis: vegetables, fruit, wholegrains, beans, olive oil, nuts and oily fish, with less ultra-processed food and excess alcohol. No diet cures arthritis; weight management helps weight-bearing joints.",
+      "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",
     faqs: [
-      { q: "Can diet cure arthritis?", a: "No. Diet supports self-management alongside exercise and clinical care — it is not a cure." },
-      { q: "Are there foods to avoid?", a: "Cutting back on ultra-processed food, added sugar and excess alcohol is sensible. Blanket elimination diets are not well supported." },
+      { q: "Can diet cure arthritis?", a: "No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends." },
+      { q: "How much weight should I lose for knee or hip osteoarthritis?", a: "NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support." },
+      { q: "What is a Mediterranean diet for arthritis?", a: "NICE NG100 describes it as more bread, fruit, vegetables and fish, less meat, and replacing butter and cheese with products based on vegetable and plant oils." },
+      { q: "Should I cut out alcohol?", a: "The NHS advises people with arthritis not to drink too much alcohol and not to smoke. If you take methotrexate, follow the alcohol limits your rheumatology team gives you." },
     ],
   }),
   "/guides/exercise": withDefaults({

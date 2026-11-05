@@ -23,6 +23,8 @@ export interface FaqArticle {
   sections: FaqSection[];
   relatedArticles: string[];
   category: string;
+  /** Optional on-page H1 (defaults to question). Use to keep H1s unique. */
+  h1?: string;
   /** Optional CTR title for <title>/OG (defaults to question). */
   seoTitle?: string;
   /** Optional meta description (defaults to quickAnswer slice). */
@@ -58,6 +60,9 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-employment-rights-uk',
     title: 'Arthritis and Employment Rights in the UK',
     question: 'What are my employment rights with arthritis in the UK?',
+    seoTitle: 'Arthritis at Work: Your Employment Rights (UK)',
+    metaDescription:
+      'The Equality Act 2010 protects you from discrimination at work and means employers must make reasonable adjustments for arthritis.',
     quickAnswer:
       "The Equality Act 2010 protects you from discrimination and requires employers to make 'reasonable adjustments' for your arthritis.",
     sections: [
@@ -77,9 +82,9 @@ export const faqArticles: FaqArticle[] = [
     slug: 'arthritis-disability-benefits-uk',
     title: 'Arthritis and Disability Benefits in the UK',
     question: 'Is arthritis a disability? UK PIP and claim guide',
-    seoTitle: 'Is Arthritis a Disability? UK PIP & Claim Guide',
+    seoTitle: 'Is Arthritis a Disability in the UK? PIP & Rights',
     metaDescription:
-      'Is arthritis classified as a disability in the UK? How PIP works for adults, who Disability Living Allowance is still for, and Equality Act adjustments.',
+      'It can be under the Equality Act if it has a long-term effect on daily life. How PIP works for adults, who DLA is for, and your rights at work.',
     lastReviewed: '2026-09-24',
     quickAnswer:
       'Arthritis is not automatically a disability. Under the Equality Act 2010 it can be, if a physical impairment has a substantial and long-term adverse effect on normal day-to-day activities. PIP is not awarded from the diagnosis alone. This is educational orientation, not legal advice.',
@@ -179,6 +184,7 @@ export const faqArticles: FaqArticle[] = [
     slug: 'what-is-osteoarthritis',
     title: 'What is Osteoarthritis?',
     question: 'What is osteoarthritis?',
+    h1: 'What is osteoarthritis? Quick answer',
     quickAnswer:
       'Osteoarthritis is the most common type of arthritis, caused by wear and tear of cartilage. It typically affects the knees, hips, hands, and spine.',
     sections: [
@@ -195,6 +201,7 @@ export const faqArticles: FaqArticle[] = [
     slug: 'what-is-rheumatoid-arthritis',
     title: 'What is Rheumatoid Arthritis?',
     question: 'What is rheumatoid arthritis?',
+    h1: 'What is rheumatoid arthritis? Quick answer',
     quickAnswer:
       'Rheumatoid arthritis is an autoimmune condition where the immune system attacks joints, causing swelling, pain, and fatigue.',
     sections: [
@@ -211,6 +218,7 @@ export const faqArticles: FaqArticle[] = [
     slug: 'what-is-juvenile-arthritis',
     title: 'What is Juvenile Arthritis?',
     question: 'What is juvenile arthritis?',
+    h1: 'What is juvenile arthritis? Quick answer',
     quickAnswer:
       'Juvenile arthritis is arthritis in children under 16. Despite the name, it can persist into adulthood and requires early, aggressive treatment.',
     sections: [
@@ -288,25 +296,6 @@ export const faqArticles: FaqArticle[] = [
     ],
     relatedArticles: ['can-arthritis-cause-fatigue', 'reduce-arthritis-pain-naturally'],
     category: 'Symptom Management',
-  },
-  {
-    id: 13,
-    slug: 'arthritis-flare-management',
-    title: 'What to Do During an Arthritis Flare',
-    question: 'What should I do when I have an arthritis flare?',
-    quickAnswer:
-      'Rest affected joints, use ice, take pain relief, maintain some gentle movement, rest more than usual, and contact your doctor if it worsens.',
-    sections: [
-      { heading: 'Recognising a Flare Early', content: "A flare is a sudden worsening of joint pain, swelling, stiffness and fatigue that lasts more than 24 hours and is clearly out of pattern for you. Early warning signs include heavier morning stiffness, low-grade fever, sleep disturbance, brain fog and a 'flu-ish' malaise the day before joints swell. Keeping a simple symptom diary — sleep, steps, mood, stress, food, weather — helps you spot triggers and intervene 24-48 hours earlier each time, which shortens flare duration significantly." },
-      { heading: 'Common Triggers to Audit', content: "The most reported triggers are viral infections, emotional stress, missed or late medication, sudden weather changes, sleep loss, alcohol binges, ultra-processed food, dehydration and overdoing activity on a good day. Hormonal shifts and travel are also frequent. You cannot avoid every trigger, but identifying your top two or three lets you build prevention into normal life rather than reacting after the flare has started." },
-      { heading: 'The First 48 Hours: Rest, Ice, Elevate', content: "Reduce load on the affected joints — sit when possible, swap a long walk for pool work or none at all. Apply a wrapped ice pack for 15-20 minutes every 2-3 hours for the first day to settle acute swelling, then switch to heat for morning stiffness. Take regular pain relief as prescribed rather than waiting for pain to peak. Aim for 8-9 hours of sleep and prioritise hydration." },
-      { heading: '48-72 Hour Protocol', content: "Begin gentle range-of-motion movement every couple of hours — even five slow circles or stretches stops joints stiffening. Eat anti-inflammatory meals (oily fish, leafy greens, berries, olive oil) and avoid alcohol. Use splints only briefly to rest very painful hands or wrists; prolonged immobilisation weakens muscle and worsens recovery. Cancel non-essential commitments without guilt — recovery is the priority." },
-      { heading: 'When to Contact Your GP or Rheumatology Team', content: "Call within 24 hours if you develop a fever above 38°C, a new hot swollen joint that could indicate infection, chest pain, breathlessness, a new rash, or if symptoms are not improving after 72 hours of self-care. Septic arthritis is an emergency. If you are on biologics or DMARDs, your rheumatology helpline can often adjust medication or arrange a steroid injection or short oral steroid course." },
-      { heading: 'Activity Pacing and the Return to Normal', content: "Reintroduce activity at 50% of your pre-flare baseline and add roughly 10% per day. Use the 'two-day rule' — if pain is worse two days after an activity, the dose was too high. Our best exercises for arthritis guide includes gentle resumption plans for knees, hips and hands." },
-      { heading: 'Preventing the Next Flare', content: "After every flare, review what came before it and pick one change for next time — earlier medication, better sleep, more hydration, or saying no to one extra commitment. Long-term, consistent low-impact exercise, anti-inflammatory eating, stress management and never skipping DMARDs cut flare frequency by 30-50% in most studies." },
-    ],
-    relatedArticles: ['reduce-arthritis-pain-naturally', 'arthritis-pain-management'],
-    category: 'Flare Management',
   },
   {
     id: 14,
@@ -422,7 +411,7 @@ export const faqArticles: FaqArticle[] = [
       { heading: 'Five Practical Cold-Weather Strategies', content: "1. Layer up — thermal base layers, fingerless gloves indoors, heated insoles. 2. Warm the joint before activity with a hot shower, wheat bag or paraffin wax bath for hands. 3. Keep moving indoors — chair-based exercise, stairs, or a 10-minute walk after every meal. 4. Eat warm anti-inflammatory meals — soups, stews, oily fish, ginger and turmeric. 5. Top up vitamin D between October and March, as low levels worsen musculoskeletal pain." },
       { heading: 'When Winter Pain is Something More', content: "If a single joint becomes hot, red and very swollen, or if you develop fever, chest pain or breathlessness, do not blame the weather — contact your GP urgently. Sudden severe winter joint pain can occasionally indicate gout, infection or a new inflammatory diagnosis." },
     ],
-    relatedArticles: ['arthritis-flare-management', 'best-exercises-arthritis', 'arthritis-footwear'],
+    relatedArticles: ['best-exercises-arthritis', 'arthritis-footwear'],
     category: 'Symptom Management',
   },
   {
@@ -459,7 +448,7 @@ export const faqArticles: FaqArticle[] = [
       { heading: "Myth 6: 'I'm Too Old / Too Stiff to Start'", content: "Studies in people over 80 with severe OA show meaningful gains in strength, balance and pain within 8-12 weeks. It is never too late. Begin with chair-based exercise, pool work or 5-minute walks and build slowly." },
       { heading: 'What the Evidence Actually Recommends', content: "150 minutes of moderate aerobic activity per week, two strength sessions and daily flexibility work — the same prescription as for the general population, adapted to your joints. Our best exercises for arthritis guide gives a starter plan for every joint." },
     ],
-    relatedArticles: ['best-exercises-arthritis', 'arthritis-flare-management', 'arthritis-hand-exercises'],
+    relatedArticles: ['best-exercises-arthritis', 'arthritis-hand-exercises'],
     category: 'Exercise & Movement',
   },
   {
@@ -629,7 +618,7 @@ export const faqArticles: FaqArticle[] = [
       { heading: 'Reasonable Adjustments — Your Legal Right', content: "Under the Equality Act 2010 your employer must make reasonable adjustments. See our employment rights guide for full detail. Requests should be in writing and confirmed in writing — useful evidence if problems arise later." },
       { heading: 'When to Escalate', content: "If adjustments are refused without good reason, raise a formal grievance, contact ACAS on 0300 123 1100 for free advice, and consider a Disability Rights UK consultation. Most disputes resolve through dialogue, but knowing your options strengthens your position from the start." },
     ],
-    relatedArticles: ['arthritis-employment-rights-uk', 'arthritis-flare-management', 'returning-to-work-arthritis'],
+    relatedArticles: ['arthritis-employment-rights-uk', 'returning-to-work-arthritis'],
     category: 'Work & Support',
   },
   {
@@ -667,7 +656,7 @@ export const faqArticles: FaqArticle[] = [
       { heading: 'Pacing on Holiday', content: "Plan one main activity per day, not three. Build in rest mornings or afternoons. Use taxis or public transport rather than walking everything. A holiday is not the time to push through pain — recovery time on return is often much longer than the trip itself." },
       { heading: 'If You Flare Away From Home', content: "Most pharmacists abroad can help with simple pain relief. The GHIC (replaces EHIC) covers state healthcare in EU countries. For serious flares, contact your travel insurer's 24-hour line first — they will guide you to an approved clinic and authorise costs." },
     ],
-    relatedArticles: ['arthritis-flare-management', 'arthritis-driving-adaptations', 'arthritis-footwear'],
+    relatedArticles: ['arthritis-driving-adaptations', 'arthritis-footwear'],
     category: 'Life with Arthritis',
   },
   {
@@ -686,7 +675,7 @@ export const faqArticles: FaqArticle[] = [
       { heading: 'Questions Worth Asking the Specialist', content: "What is the most likely diagnosis? Which blood tests and imaging are needed? What is the treatment plan and when will we know it is working? What are the side effects and monitoring requirements? What lifestyle changes will help? Will I need ongoing follow-up, and how often?" },
       { heading: 'After the Appointment', content: "Most rheumatology services provide a nurse-led helpline for flares, medication queries and urgent advice — use it. Read our arthritis medication guide so you understand what is being prescribed. Treatment works best when you are an informed partner in your care." },
     ],
-    relatedArticles: ['osteoarthritis-vs-rheumatoid-arthritis', 'arthritis-flare-management', 'arthritis-medication-explained'],
+    relatedArticles: ['osteoarthritis-vs-rheumatoid-arthritis', 'arthritis-medication-explained'],
     category: 'Diagnosis & Specialist Care',
   },
 ];

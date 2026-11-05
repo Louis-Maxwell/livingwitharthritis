@@ -21,7 +21,7 @@ interface Factor {
 }
 
 const factors: Factor[] = [
-  { id: "diet", label: "Diet Quality", description: "How anti-inflammatory is your diet? (fruits, veg, oily fish, whole grains)", type: "slider", weight: 20, defaultValue: 50, tip: "Follow a Mediterranean diet rich in omega-3 fish, berries and olive oil", link: "/diet" },
+  { id: "diet", label: "Diet Quality", description: "How anti-inflammatory is your diet? (fruits, veg, oily fish, whole grains)", type: "slider", weight: 20, defaultValue: 50, tip: "Follow a Mediterranean diet rich in omega-3 fish, berries and olive oil", link: "/guides/diet" },
   { id: "exercise", label: "Physical Activity", description: "How often do you exercise? (Low = rarely, High = 5+ times/week)", type: "slider", weight: 18, defaultValue: 40, tip: "Aim for 150 minutes of low-impact exercise per week — swimming, walking or cycling", link: "/exercises" },
   { id: "weight", label: "Weight Management", description: "How well are you managing your weight? (Low = over target, High = healthy)", type: "slider", weight: 18, defaultValue: 50, tip: "Every 1lb lost removes 4lbs of pressure from your knees", link: "/blog/arthritis-and-weight-loss-uk" },
   { id: "stress", label: "Stress Levels", description: "How stressed are you? (Low = calm, High = very stressed)", type: "slider", weight: 12, defaultValue: 50, tip: "Try mindfulness, deep breathing or tai chi to lower cortisol and inflammation" },

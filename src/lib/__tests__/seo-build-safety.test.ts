@@ -203,23 +203,20 @@ describe("SEO build safety", () => {
 
   it("consolidates database category variants onto canonical hubs", () => {
     expect(canonicalBlogCategoryKey("Exercise Guides")).toBe("exercise");
-    expect(canonicalBlogCategoryKey("Treatments")).toBe("treatment");
-    expect(canonicalBlogCategoryKey("Family & Relationships")).toBe(
-      "lifestyle",
-    );
-    expect(canonicalBlogCategoryKey("Expert Q&A")).toBe("health");
+    expect(canonicalBlogCategoryKey("Treatments")).toBe("treatments");
+    expect(canonicalBlogCategoryKey("Family & Relationships")).toBe("carers-family");
+    expect(canonicalBlogCategoryKey("Expert Q&A")).toBe("conditions");
     expect(new Set(BLOG_CATEGORY_KEYS).size).toBe(BLOG_CATEGORY_KEYS.length);
   });
 
-  it("maps frailty slug and Treatment Guides aliases for BlogIndex filters", () => {
-    expect(canonicalBlogCategoryKey("frailty")).toBe("frailty");
-    expect(canonicalBlogCategoryKey("Frailty")).toBe("frailty");
-    expect(canonicalBlogCategoryKey("Prevention & Longevity")).toBe("frailty");
-    expect(canonicalBlogCategoryKey("Treatment Guides")).toBe("treatment");
-    expect(canonicalBlogCategoryKey("Surgery & Recovery")).toBe("treatment");
-    expect(BLOG_CATEGORY_KEYS).toContain("frailty");
+  it("maps legacy category slugs (old /blog/category URLs) onto the new hubs", () => {
+    expect(canonicalBlogCategoryKey("frailty")).toBe("exercise");
+    expect(canonicalBlogCategoryKey("Prevention & Longevity")).toBe("exercise");
+    expect(canonicalBlogCategoryKey("Treatment Guides")).toBe("treatments");
+    expect(canonicalBlogCategoryKey("Surgery & Recovery")).toBe("surgery-recovery");
+    expect(canonicalBlogCategoryKey("health")).toBe("conditions");
+    expect(BLOG_CATEGORY_KEYS).toHaveLength(9);
   });
-
 
   it("waits for route-specific prerender content and metadata", () => {
     document.title = GENERIC_HOME_TITLE;

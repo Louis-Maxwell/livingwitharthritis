@@ -1,5 +1,7 @@
 # Growth execution tracker — Months 1–5
 
+> **Clinical review (26 Oct 2026):** Louis Maxwell decided every new or rewritten guide is reviewed by him by default. Older rows below that say "pending clinical review" are historical; no blog post is pending now.
+
 **Window:** 11 Sep 2026 – 11 Feb 2027 (M1–M5)  
 **Plan:** CEO Scenario **B** working envelope with Scenario **A** funded floor  
 **Sources:** `docs/CEO-10-MONTH-GROWTH-EXECUTION-PLAN.md`, `docs/SEO-90-DAY-VISIBILITY-PLAN.md`  
@@ -45,6 +47,9 @@
 | Champions 79–81 steroid emergency card + shingles vaccine + UTI confusion | **done** | Gold-pass `/blog/steroid-emergency-card-frail-arthritis-uk`, `/blog/shingles-vaccine-arthritis-frailty-uk`, `/blog/uti-confusion-arthritis-frailty-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", England / Northern Ireland filler, OA advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS prednisolone (red vs blue steroid cards), NHS Addison's (adrenal crisis 999 signs), Society for Endocrinology, NHS shingles vaccine and shingles, NHS UTIs, sudden confusion, kidney infection, sepsis, NHS methotrexate interactions and NICE CG103. No steroid doses given; never stop or change medicines yourself. Treatments cluster fronting + chatbot KB; Vitest `gsc-champions-79-81-15-oct.test.ts` |
 | Champions 82–84 sleeping tablets/falls + sleep apnoea + bone protection on steroids | **done** | Gold-pass `/blog/sleeping-tablets-falls-arthritis-frailty-uk`, `/blog/sleep-apnoea-arthritis-frailty-uk`, `/blog/bone-protection-steroids-arthritis-frailty-uk`: full rewrites of broken frailty-template copy. Each has CTR meta and is **pending clinical review**. Cites NHS insomnia / Sleepio / zolpidem falls risk / sleep apnoea / osteoporosis causes & prevention / prednisolone long-term bone thinning / vitamin D / falls, NICE MTG70 / NG249, GOV.UK driving. Never stop or change medicines yourself; no public steroid or sleeping-tablet dosing. Pain/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-82-84-16-oct.test.ts` |
 | Champions 85–87 strength after a flare + confidence after a fall + medication reviews | **done** | Gold-pass `/blog/deconditioning-after-arthritis-flare-uk`, `/blog/confidence-after-fall-arthritis-frailty-uk`, `/blog/pharmacist-medication-review-frail-arthritis-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", random-nation filler, empty headings, OA advice on non-OA pages). Each has CTR meta and is **pending clinical review**. Cites NHS physiotherapy (MSK self-referral) / older-adult activity guidelines / sitting, strength and balance exercises / DVT / RA treatment / falls / head injury / broken hip / walking aids / Talking Therapies / paracetamol, NHS England Structured Medication Reviews, NHS New Medicine Service, NICE NG226 / NG249 / NG5, Age UK falls prevention, Arthritis UK (formerly Versus Arthritis) exercise and MHRA Yellow Card. Never stop or change medicines yourself; no doses. Flare-ups/exercises/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-85-87-19-oct.test.ts` |
+| Champions 88–90 vitamin D and falls + chair yoga + sit-to-stand | **done** | Gold-pass `/blog/vitamin-d-and-falls-arthritis-uk`, `/blog/chair-yoga-elderly-arthritis-stiffness`, `/blog/sit-to-stand-practice-frail-arthritis-uk`: full rewrites of broken frailty-template copy (and, on chair yoga, an unverifiable trial claim and a made-up website). Each has CTR meta and is **pending clinical review**. Cites NHS vitamin D / calcium / osteoporosis / falls / physiotherapy / older-adult activity guidelines / sitting and strength exercises, NICE NG249 (vitamin D not proven to prevent falls on its own) / NG226, Royal Osteoporosis Society, Age UK and Arthritis UK (formerly Versus Arthritis) exercise. No doses beyond NHS public vitamin D advice. Diet/exercises cluster fronting + chatbot KB; Vitest `gsc-champions-88-90-20-oct.test.ts`; triage list re-ranked for 89–98 |
+| Champions 91–93 knee OA steady at home + seated strength + painkillers in later life | **done** | Gold-pass `/blog/knee-osteoarthritis-frailty-staying-steady-home-uk`, `/blog/seated-strength-frail-osteoarthritis-uk`, `/blog/painkillers-older-adults-arthritis-caution-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", random-nation filler, Rockwood scale filler). Each has CTR meta and is **pending clinical review**. Cites NHS falls / preventing falls / getting up after a fall / strength, balance and sitting exercises / older-adult activity guidelines / walking aids / paracetamol / ibuprofen / NSAIDs / co-codamol / codeine / gabapentin / stomach ulcer, NICE NG226 (pain-medicine recommendations 1.4.2–1.4.7, walking aids 1.3.10–1.3.11) / NG249, Age UK falls prevention, Arthritis UK (formerly Versus Arthritis) exercise and MHRA Yellow Card. No doses; never stop or change medicines yourself. Seated strength narrowed to effort and progression so it does not duplicate the chair routine. Exercises/treatments cluster fronting + chatbot KB; Vitest `gsc-champions-91-93-21-oct.test.ts` |
+| Champions 94–96 methotrexate in later life + RA first months + RA monitoring | **done** | Gold-pass `/blog/methotrexate-older-frail-adults-uk`, `/blog/late-onset-ra-frailty-first-months-uk`, `/blog/ra-monitoring-older-frail-adults-uk`: full rewrites of broken frailty-template copy ("10 million" line, "several joints", random-nation filler, Rockwood scale filler, OA exercise advice on RA/medicines pages, NICE NG56 filler). Each has CTR meta and is **pending clinical review**. Cites NHS methotrexate (how to take / side effects / common questions) / RA diagnosis, treatment, living with and complications / blood tests / flu, shingles and pneumococcal vaccines / sepsis / older-adult activity guidelines / 111, NICE NG100 (1.1.5, 1.2.1–1.2.3, 1.4.1–1.4.3, 1.7–1.9), MHRA Drug Safety Update (once-weekly methotrexate) and Yellow Card, NRAS methotrexate / what is RA / exercise / monitoring RA, Arthritis UK (formerly Versus Arthritis) methotrexate and RA, GOV.UK Attendance Allowance. No doses; never stop or change medicines yourself. Methotrexate (weekly routine, infections, vaccines) and RA monitoring (DAS28, safety tests, annual review, what to report) kept as distinct jobs and cross-linked. Treatments / symptoms (newly diagnosed) cluster fronting + chatbot KB; Vitest `gsc-champions-94-96-22-oct.test.ts` |
 | Research fund campaign creative (M2 P1) | **done** | `docs/RESEARCH-FUND-CAMPAIGN-CREATIVE.md` — draft; Louis/trustee approve before posting |
 | DPIA checklist for analytics/email | **done** | `docs/DPIA-ANALYTICS-EMAIL.md` |
 | Google Ad Grants eligibility pack | **done** | `docs/GOOGLE-AD-GRANTS-PACK.md` — Louis must click apply |
@@ -103,17 +108,389 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 87 (Champions 85–87 shipped 19 Oct, after 82–84 on 16 Oct); Champion 88 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`, then re-rank and pick the next 10 (236 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | 122–124 shipped 4 Nov (pacing housework, osteoporosis with arthritis, night pain and sleep), after 119–121 on 3 Nov. 125–128 shipped later on 4 Nov (wheelchair for distance, waiting for an OT, hip and knee transfers, meal delivery): published template pool is now 0; 82 template files left in total, the rest unpublished behind merge-plan 301s (`docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
-| Clinical review checklist formalised | **done** | `docs/CLINICAL-REVIEW-CHECKLIST.md`; 546 of 568 blog posts are marked pending clinical review awaiting a named reviewer |
+| Clinical review checklist formalised | **done** | `docs/CLINICAL-REVIEW-CHECKLIST.md`; since 26 Oct 2026 every published guide is reviewed by Louis Maxwell (HCPC PH128483); the 27 Oct gate `review-labelling-27-oct.test.ts` keeps "pending clinical review" off the site |
 | Research fund campaign creative | **done** (draft) | Louis/trustee approval before posting |
 | **Trust sweep: remove unnamed reviewer labels** | **done** (12–14 Oct) | 12 Oct: 74 blog posts + `/expert-articles`. 14 Oct spot-check: "reviewed by our clinical team" removed from 23 pending posts, and the `/self-help` virtual-physio section no longer claims review "by our HCPC-registered physiotherapists". No "Clinical Review Board" / "Clinical Advisory Panel" / "Dr. Hannah Clarke" left in any page or post. The remaining template defects (empty headings in 239 posts) are tracked in the triage doc |
 | Frailty-template triage plan | **done** (14 Oct) | `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`: 245 posts left, grouped by topic, next 10 Champions (79–88) picked by season + inbound links; re-rank when a fresh GSC export arrives; mechanical sweep option awaits Louis's decision |
 | HCP clinic-pack distribution prep | **done** (13 Oct) | `docs/HCP-CLINIC-PACK-DISTRIBUTION.md` (#189); sends are Louis-owned |
 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
+
+---
+
+## Daily log — 4 Nov 2026 (M2 day 18, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 3 Nov: Champions 122–124, then 125–128, then M3 pillar prep. Checked `main` and the open PRs first: no open PR touches 122–124, and their last change was the merge-plan PRs (#336–#339), so all three were still on the template. This run shipped 122, 123 and 124 as rewrites on their existing URLs: no redirects changed, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes, so Louis does not need to press Publish.
+
+### Shipped
+- **Champions 125–128 (later 4 Nov):** `/blog/wheelchair-for-distance-arthritis-frailty-uk`, `/blog/community-ot-waiting-arthritis-frailty-uk`, `/blog/hip-and-knee-oa-frailty-transfers-uk` and `/blog/meal-delivery-arthritis-frailty-uk` rewritten on their existing URLs, reviewed by Louis Maxwell, with new credited Commons covers. Tests: `src/lib/__tests__/gsc-champions-125-128-04-nov.test.ts`. Published template pool cleared (82 unpublished template files remain behind 301s). Next: M3 pain pillar.
+- **Champion 122 — `/blog/pacing-housework-arthritis-frailty-uk`:** full rewrite into "Pacing housework with arthritis: cleaning, laundry and chores without the payback (UK guide)". Why chores cause payback (boom and bust), plan / prioritise / pace, easier cleaning, laundry and ironing, beds, kitchen and shopping, visitors, family days and weekends (kept from the two 301s merged in), keep moving, when to get help (occupational therapy, council needs assessment, Attendance Allowance / PIP, family), when it is more than tiredness, carers. Category Pain & flares → Diet & lifestyle. Cites NHS living with OA and RA, tiredness self-help, household equipment, OT, needs assessment, carer's assessments, GOV.UK Attendance Allowance and PIP, NICE NG226, Living Made Easy, 111
+- **Champion 123 — `/blog/osteoporosis-arthritis-frailty-bone-joint-uk`:** full rewrite into "Osteoporosis and arthritis together: bone scans, falls, exercise and medicines (UK guide)". How they differ, why arthritis raises the risk (RA, steroids, age, low activity), spinal fracture signs, fracture risk checks and DEXA (with a tip on lying flat with painful joints), fracture liaison service, safe exercise for bones and joints, calcium foods and vitamin D (no doses), bone medicines (how to take them with stiff hands, dentist, never stop yourself), cutting falls risk, red flags, carers. Hands off to Champion 84 (bone protection on steroids). Cites NHS osteoporosis, DEXA, calcium, vitamin D, falls, NICE CG146, NG249, NG226, NG100, Royal Osteoporosis Society, 111
+- **Champion 124 — `/blog/sleep-arthritis-frailty-night-pain-uk`:** full rewrite into "Night pain and sleep with arthritis in later life: safer nights and when to get help (UK guide)". Narrowed against the gold-pass sleep guides to later life: why pain is worse at night, an evening routine (kept from the evening-routine 301) with heat-pack safety, comfort in bed, what to do if you cannot sleep and CBT-I, getting up at night safely, sleeping tablet cautions, when night pain needs checking, carers. Cites NHS insomnia, how to get to sleep, Every Mind Matters, CBT, zopiclone, falls, living with OA, back pain, NICE NG193, NG226, NG249, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 4 November 2026", charity 1218461, educational-not-diagnostic wording, early handoffs to the neighbouring gold-pass guides; no frailty-template filler, no "10 million", no percentages, no doses, no prices, no addresses
+- **Covers:** swapped to unique unused library images that fit better (122 woman resting in a chair, 123 calcium-foods plate, 124 older man resting under a blanket); cover map stays 1:1. The 119 and 120 covers were already fixed by #371 on 3 Nov
+- **`topicClusters.ts`:** 122 and 124 in pain, 123 in treatments (next to bone protection), each with triggers; **chatbot KB:** related links on the sleep, OA daily-living and steroids entries
+- Sitemap `lastmod` **2026-11-04**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 122–124 ticked with a progress line and the recount: **86 template files left, 4 published** (Champions 125–128)
+- **Tests:** `src/lib/__tests__/gsc-champions-122-124-04-nov.test.ts`
+
+### Still blocked on Louis (no change since 3 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand); GSC URL Inspection on the rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 125–128 (wheelchair for distance, waiting for community OT, hip and knee transfers, meal delivery), which clears the published template pool
+2. M3 prep before ~11 Nov: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass, starting with the pain pillar now that the pain cluster has the night pain and pacing guides
+3. Scope the first M3 linkable asset PDF (printable, reviewed by Louis Maxwell) and the M2 close-out summary for ~11 Nov
+
+## Daily log — 3 Nov 2026 (M2 day 17, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 2 Nov: Champions 119–120, then 121–122, then M3 pillar prep. Checked `main` and open PRs first: no open PR touches 119–122, but the Frailty IMPROVE batches 4–24 (#347–#367, merged 2 Nov) had rewritten about 105 more template posts, so the 2 Nov "194 left" figure was out of date (recount below). This run shipped 119, 120 and 121 as rewrites on their existing URLs: no redirects changed, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483). Covers unchanged. The site now auto-publishes from `main` when CI passes (since 2 Nov), so Louis does not need to press Publish.
+
+### Shipped
+- **Champion 119 — `/blog/hospital-appointments-frailty-arthritis-uk`:** full rewrite into "Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)". Adjustments to ask for before the day (time of day, phone or video, wheelchair or help from the entrance, seating, combined appointments, accessible information), non-emergency patient transport, Healthcare Travel Costs Scheme and Low Income Scheme, community transport, free parking for disabled people in England and the Blue Badge, what to take, eye clinic drops (do not drive home), on the day, ringing before the date if you cannot attend, PALS, carers, red flags. Keeps the eye-clinic and parking topics merged in by the 301s. Cites NHS transport, NEPTS eligibility criteria, HTCS, LIS, DHSC parking guidance, Blue Badge, going into hospital, PALS, NHS App, CTA, 111
+- **Champion 120 — `/blog/social-care-needs-assessment-arthritis-uk`:** full rewrite into "Social care needs assessments for arthritis: how to ask your council for help at home (UK guide)". Free for anyone, how to ask, why arthritis is under-described (Care Act eligibility in plain words: significant pain, much longer, unsafe), diary of bad days, bringing someone or an advocate, what happens in the assessment, care plan, financial assessment, direct payments, advice if not eligible, reviews, complaints and the Ombudsman, carers, when it cannot wait; notes that Scotland, Wales and Northern Ireland have their own rules. Category Conditions → Carers & family. Cites NHS needs assessment, GOV.UK, Care Act statutory guidance, NHS advocate, care after hospital, carer assessments, direct payments, LGSCO, Age UK, 111
+- **Champion 121 — `/blog/loneliness-arthritis-frailty-social-contact-uk`:** full rewrite into "Loneliness and arthritis: rebuilding social contact when pain keeps you at home (UK guide)". How pain, tiredness, fear of falling and transport shrink your world, small steps planned around joints, The Silver Line, telephone and face-to-face befriending (kept from the befriending 301), video calls, social prescribing, slow walking and faith groups, community transport, volunteering, tackling what keeps you in (pain review, falls confidence, hearing and sight, needs assessment), low mood and talking therapies, Samaritans 116 123, 111 and 999, family and neighbours. Cites NHS loneliness, Every Mind Matters, NHS England social prescribing, NHS Talking Therapies, Age UK Silver Line and befriending, Royal Voluntary Service, Samaritans, CTA, NICE NG193, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 3 November 2026", charity 1218461, educational-not-diagnostic wording, early handoffs to the neighbouring gold-pass guides; no frailty-template filler, no "10 million", no percentages, no doses, no prices, no addresses
+- **`topicClusters.ts`:** 119 in treatments, 120 in benefits (pip), 121 in flare-ups (with the mental health guides), each with triggers; **chatbot KB:** related links on the blood-test transport, benefits and mental health entries
+- Sitemap `lastmod` **2026-11-03**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 119–121 ticked with a progress line and the recount: **89 template files left, 7 published** (Champions 122–128)
+- **Tests:** `src/lib/__tests__/gsc-champions-119-121-03-nov.test.ts`
+
+### Still blocked on Louis (no change since 2 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand); GSC URL Inspection on the rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 122–124 (pacing housework, osteoporosis with arthritis, night pain and sleep), after checking `main` for overlapping Frailty IMPROVE batches
+2. Champions 125–128 (wheelchair for distance, waiting for community OT, hip and knee transfers, meal delivery), which clears the published template pool
+3. M3 prep before ~11 Nov: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass and scope the first linkable asset PDF
+
+## Daily log — 2 Nov 2026 (M2 day 16, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 (4 pillars to gold, community pilot, Ad Grants if approved, first linkable asset PDF) starts ~11 Nov. Tracker next-3 from 30 Oct: Champions 112–118. On checking `main`, 112 (activity diary), 113 (advance care planning), 114 (Disabled Facilities Grant), 116 (hip OA chair rise) and 118 (carers) had already been rewritten by the Frailty IMPROVE batches (#341, #343, #345, 1–2 Nov), and the frailty merge plan (#336–#340) had 301-merged about 80 duplicate posts. So this run shipped the two still on the template: 115 and 117. Rewrites on existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable / CloudAgent / other AI tools. Both reviewed by Louis Maxwell (HCPC PH128483). Covers unchanged.
+
+### Shipped
+- **Champion 115 — `/blog/copd-arthritis-frailty-breathlessness-uk`:** full rewrite into "COPD and arthritis: staying active when breathlessness and sore joints hold you back (UK guide)". Why lungs and joints make each other harder, breathlessness on effort is not harmful (talk test), pulmonary rehabilitation (NHS programme shape, NICE NG115) and telling the team about your arthritis, everyday movement, inhalers with stiff hands (pharmacist technique check, spacers, inhaler aids), methotrexate lung warning signs and RA lung inflammation, NSAID caution, vaccines, stopping smoking, warm home, red flags, carers. Replaces template copy that wrongly pointed readers to Northern Ireland services. Category Pain & flares → Exercise & movement. Cites NHS COPD, COPD treatment, living with COPD, NICE NG115 and NG226, Asthma + Lung UK, NHS shortness of breath, methotrexate side effects, RA complications, flu and pneumococcal vaccines, quit smoking, 111
+- **Champion 117 — `/blog/short-term-equipment-loans-arthritis-uk`:** full rewrite into "Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)". Free council/NHS community equipment if assessed as needed (before discharge or via a needs assessment), NHS wheelchair service vs short-term hire, British Red Cross wheelchair hire and local loans, buying new or second-hand safely (keeps the advice merged in from `second-hand-equipment-arthritis-frailty-uk`), VAT relief, safe use, giving equipment back, red flags, carers. No prices quoted (they change). Category Treatments & medicines → Diet & lifestyle. Cites NHS household equipment, walking aids/wheelchairs, needs assessment, care after a hospital stay, OT, GOV.UK needs assessment and VAT relief, British Red Cross, Living Made Easy, 111
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 2 November 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** both in the exercises cluster (with triggers); **chatbot KB:** exercise/falls entry and the infections/vaccines entry `related` links
+- Sitemap `lastmod` **2026-11-02**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 115 and 117 ticked, progress line, Champions 119–128 re-ranked; **194 template posts left** (same all-files scan as the 30 Oct 212; 112 still published)
+- **Tests:** `src/lib/__tests__/gsc-champions-115-117-02-nov.test.ts`; full Vitest suite 861/861 locally before push
+
+### Still blocked on Louis (no change since 30 Oct)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Mechanical frailty-template sweep decision (now 194 posts, 112 published; the merge plan and IMPROVE batches are reducing this)
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the rewritten URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 119–120 (hospital appointments, social care needs assessment), after checking `main` for overlapping Frailty IMPROVE batches
+2. Champions 121–122 (loneliness, pacing housework)
+3. M3 prep: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass and scope the first linkable asset PDF
+
+## Daily log — 30 Oct 2026 (M2 day 15, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 29 Oct: re-rank Champions 109–118, then ship from the new ranking. Re-rank done and Champions 109–111 shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision. Covers unchanged.
+
+**Main tests:** the 8 Vitest failures noted on 29 Oct no longer reproduce on `main`; the full suite passes locally, so no test fixes were needed.
+
+### Shipped
+- **Re-rank (triage doc):** Champions 109–118 ranked by inbound links from gold-pass posts, then all inbound links, then harm and season (no fresh GSC export). Nation and off-topic posts kept out of the queue
+- **Champion 109 — `/blog/inflammatory-arthritis-frailty-flare-week-uk`:** full rewrite into "Getting through a flare week with inflammatory arthritis in later life (UK guide)". Flare plan and advice line (NICE NG100 rapid access), keep usual medicines unless the team says otherwise, short rests and moving every hour, food and drink, staying safe at home, infection signs on DMARDs and biologics, steroid card, NSAID caution, red flags, rebuilding afterwards, treatment review if flares are frequent, carers. Early handoff to Champion 106 and the general flare guide. Cites NICE NG100, NHS RA treatment, psoriatic arthritis, axial SpA, methotrexate side effects, prednisolone, NSAIDs, septic arthritis, sepsis, falls prevention, needs assessment, 111
+- **Champion 110 — `/blog/dosette-boxes-arthritis-frailty-hands-uk`:** full rewrite into "Dosette boxes, blister packs and tablets when arthritis affects your hands (UK guide)". Start with the pharmacist (easy-open tops, large print, other forms via the prescriber, New Medicine Service, Equality Act reasonable adjustments), dosette boxes and pharmacy packs with what to check first (not every medicine can go in a box, changes, weekly methotrexate kept separate), small aids, reminders and carers, missed or extra doses. Category moved from Conditions to Treatments & medicines. Cites NICE NG5 and NG67, NHS pharmacies, newly prescribed medicines, prescriptions, methotrexate, GOV.UK Equality Act guidance, NHS household equipment, hand pain, 111
+- **Champion 111 — `/blog/hand-osteoarthritis-frailty-dressing-cooking-uk`:** full rewrite into "Hand osteoarthritis: easier dressing, cooking and grip day to day (UK guide)". Starting the day gently, dressing and grooming aids, kitchen tips, joint protection, hand exercises (NICE NG226), warmth, gels via a pharmacist, thumb splints, OT and council needs assessment, when to see a GP (hot swollen joint, carpal tunnel signs, signs of inflammatory arthritis), carers. Early handoff to the cooking and thumb base guides. Cites NICE NG226, NHS osteoarthritis, living with OA, hand pain, OT, household equipment, carpal tunnel, RA, GOV.UK needs assessment, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 30 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** 109 in flare-ups, 110 in treatments, 111 in osteoarthritis (with triggers)
+- **Chatbot KB:** flare entry, painkillers/NSAIDs entry and hand exercise entry `related` links
+- Sitemap `lastmod` **2026-10-30** (from real `updated_at`); llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 109–118 re-ranked, 109–111 ticked; 212 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-109-111-30-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, clusters, KB / llms / ai / sitemap). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 212 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 112–113 (activity diary, advance care planning), reviewed by Louis Maxwell
+2. Champions 114–115 (Disabled Facilities Grant, COPD and breathlessness)
+3. Champions 116–118 (hip OA chair rise, short-term equipment loans, carers helping without taking over)
+
+## Daily log — 29 Oct 2026 (M2 day 14, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 28 Oct: Champions 106–108. All three shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision.
+
+**Main build fix:** PR #274 (merged overnight, exercise search topic cluster) added five posts (`what-is-arthritis`, `arthritis-exercise-for-beginners`, `arthritis-exercise-programme`, `arthritis-health-guides`, `gentle-exercises-for-arthritis`) with no author/reviewer credentials, reviewed_by "editorial team" and one shared cover image. That broke the blog catalog step in `prebuild` (so a publish of `main` would fail) and Louis's "reviewed by Louis Maxwell" rule. Fixed here: Louis Maxwell as author and reviewer with PH128483, last_reviewed 2026-10-29, and a unique unused cover for each (the original owner `arthritis-exercises-uk-clinical` keeps its cover). Content of those five posts was not otherwise changed.
+
+### Shipped
+- **Champion 106 — `/blog/flare-versus-frailty-arthritis-uk`:** full rewrite into "Is it an arthritis flare or something else? Warning signs and who to call (UK guide)". What a usual flare looks like, signs it may be something else (sudden confusion, infection and sepsis signs, UTIs, one hot swollen joint with fever, gout, new shoulder and hip stiffness, headache or jaw pain, stroke signs, a fall), who to call (999, same-day GP, NHS 111, rheumatology advice line), what to write down, getting strength back afterwards. Early handoff to the general flare guide and the inflammatory flare-week guide. Cites NHS (confusion, septic arthritis, sepsis, UTIs, gout, PMR, GCA, stroke, falls, 111) and NICE NG100
+- **Champion 107 — `/blog/community-physio-wait-frail-arthritis-uk`:** full rewrite into "Waiting for community physio with arthritis: what to do while you wait (UK guide)". Check the referral, self-referral, home visits, phone/video and classes, safe things to start now (seated strength, sit-to-stand, walking), what to write down for the physio, when to chase, when not to wait. Early handoff to the NHS waiting list guide and the physio home visit guide. Category Treatments & medicines. Cites NHS physiotherapy, NHS osteoarthritis treatment, NICE NG226, NHS activity guidance for older adults, ESCAPE-pain, NHS falls, GOV.UK needs assessment, Age UK
+- **Champion 108 — `/blog/protein-painful-joints-frailty-uk`:** full rewrite into "Getting enough protein when arthritis makes cooking and eating hard (UK guide)". Why protein matters, no-cook and low-effort protein, easier ways with painful hands, softer options if chewing or swallowing is hard, little and often, check before shakes or supplements (kidney disease, swallowing problems, gout), when to get help (weight loss, GP, dietitian). Early handoff to the protein needs guide and the appetite loss guide. Cites NHS malnutrition, Eatwell Guide, BDA, NICE CG32, NHS dysphagia, kidney disease, gout, vitamin D, GOV.UK needs assessment, Age UK
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 29 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** 106 in flare-ups, 107 in treatments, 108 in diet (with triggers)
+- **Chatbot KB:** flare entry, waiting-lists entry and general diet entry `related` links
+- Sitemap `lastmod` **2026-10-29** (from real `updated_at`); llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / cover map / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 106–108 ticked; 215 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-106-108-29-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, clusters, KB / llms / ai / sitemap, plus the five #274 posts' reviewer and unique covers). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 215 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Re-rank the next 10 (Champions 109–118) from inbound links, or from real demand if a GSC export arrives
+2. Champions 109–110 from the new ranking, reviewed by Louis Maxwell
+3. Champions 111–112
+
+## Daily log — 28 Oct 2026 (M2 day 13, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 27 Oct: Champions 104–105. Both shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Both reviewed by Louis Maxwell (HCPC PH128483) under his 26 Oct decision.
+
+### Shipped
+- **Champion 104 — `/blog/heat-versus-ice-frail-arthritis-uk`:** full rewrite into "Heat and cold packs with thin skin, numbness or diabetes: using them safely (UK guide)". Who needs extra care, safe-heat and safe-cold checklists, numb feet and diabetes (ask the diabetes team or podiatrist), never sleeping with a heat pack or hot-water bottle, checking skin, burn first aid (cool running water for 20 minutes), Raynaud's, when heat or cold is the wrong answer (hot swollen joint with fever: possible joint infection, same day / NHS 111 / 999). Early handoff to the general heat-or-ice guide and the heat packs guide. Category moved to Pain & flares. Cites NHS (osteoarthritis treatment, burns and scalds, peripheral neuropathy, diabetes, Raynaud's, cellulitis, frostbite, when to use 111) and NICE NG226
+- **Champion 105 — `/blog/living-alone-falls-plan-arthritis-uk`:** full rewrite into "Living alone with arthritis: your falls plan, alarms and getting help in (UK guide)". An alarm or phone kept on you, daily check-in, key safe or neighbour's key, practising getting up with a physiotherapist, NHS steps for getting up and what to do if you cannot (keep warm, change position about every 30 minutes, 999 for head, neck, back or hip injury), falls service and free care needs assessment, home adaptations. Early handoff to Champion 97 (night lights) and the falls prevention guide. Cites NHS falls pages, NICE NG249, GOV.UK needs assessment, NHS care services and Age UK
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 28 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** 104 in the pain cluster (triggers "heat pack diabetes", "hot water bottle numb feet"); 105 in the exercises cluster (trigger "fall when living alone")
+- **Chatbot KB:** falls/exercise entry and cold-weather entry `related` links
+- Sitemap `lastmod` **2026-10-28** (from real `updated_at`); llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 104–105 ticked; 218 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-104-105-28-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, clusters, KB / llms / ai / sitemap). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 218 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the two URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 106–108 (flare or something else, waiting for community physio, protein when cooking is hard), reviewed by Louis Maxwell
+2. Re-rank the next 10 after 108 from inbound links, or from real demand if a GSC export arrives
+3. Champions 109–110 from the new ranking
+
+## Daily log — 27 Oct 2026 (M2 day 12, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 26 Oct: Champions 102–103, then 104–105. Two PRs today, both through the GitHub API only (no clone, no Lovable credits / CloudAgent / other AI tools). PR #286 (trust labelling) merged first; Champions 102–103 shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims.
+
+**Review status:** Louis's 26 Oct decision applies: every new or rewritten guide is reviewed by Louis Maxwell (HCPC PH128483). The `hasVerifiedReviewer` check on the article page had already been fixed on `main` by #279 (`isVerifiedMaxwellReviewer` matches "Louis Maxwell" plus PH128483); today's gate locks that in.
+
+### Shipped
+- **PR #286 — trust labelling:** last "pending clinical review" wording removed from llms.txt / ai.txt (Champions 99–101 lines), the enterprise audit script and audit doc, the blog-guide how-to, the triage doc, this tracker's M2 row and three condition-page code comments. New gate `src/lib/__tests__/review-labelling-27-oct.test.ts`: no "pending clinical review" in site source or public text files; every published post reviewed by Louis Maxwell with PH128483 and no pending status; `isVerifiedMaxwellReviewer` true for every published post; article page keeps the fixed reviewer check
+- **Champion 102 — `/blog/chair-based-exercise-ra-frailty-uk`:** full rewrite into "Seated exercise with rheumatoid arthritis: flare days and good days". Flare-day range-of-movement moves, building up between flares, hands and feet (hand exercise programme, podiatrist), what NICE NG100 says about physiotherapy and rapid access for flares, when to stop and get help (possible joint infection: same day / NHS 111 / 999). Early handoff to Champion 89 (chair yoga routine) and Champion 92 (seated strength). Cites NRAS, NICE NG100 and NHS pages
+- **Champion 103 — `/blog/continence-night-trips-arthritis-frailty-uk`:** full rewrite into "Waking at night to pee with arthritis: causes, what helps and when to see a GP". Common causes, drink and medicine timing (ask the pharmacist or GP, never stop a prescribed medicine yourself), bladder diary, pelvic floor muscle training and bladder training, NHS continence service, red flags (blood in pee, cannot pee at all, fever / confusion with possible UTI). Handoff to Champion 97 for lighting and the route. Cites Guy's and St Thomas' nocturia leaflet, NHS and NICE NG123 / CG97
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 27 October 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** both in the exercises cluster (with triggers "exercise during an ra flare", "waking at night to pee")
+- **Chatbot KB:** exercise entry and sleep entry `related` links
+- Sitemap `lastmod` **2026-10-27** (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / RSS / head data / review index / content stats / keyword files / search index / llms-full / prerender routes regenerated. The regeneration also brought `scripts/blog-head-data.json` back in line with the citations already in the post JSON on `main` and added `/resources/symptom-flare-tracker` to the prerender list (both already on `main` in source)
+- **Triage doc:** 102–103 ticked; 220 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-102-103-27-oct.test.ts` (reviewed by Louis Maxwell, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, overlap handoffs, cluster, KB / llms / ai / sitemap). Full Vitest suite run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 220 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the two URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 104–105 (`heat-versus-ice-frail-arthritis-uk`, `living-alone-falls-plan-arthritis-uk`), reviewed by Louis Maxwell
+2. Champions 106–108 (flare versus something else, waiting for community physio, protein when cooking is hard)
+3. Re-rank the next 10 after 108 from inbound links, or from real demand if a GSC export arrives
+
+## Daily log — 26 Oct 2026 (M2 day 11, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 23 Oct: Champions 99–101 (RA fatigue, blood-test transport, rheumatology clinic). All three shipped as rewrites on their existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Since 23 Oct, `main` gained Louis's sitewide clinical-review sign-off (#262, #268), the 301 merges (#264, #265) and the thin-archive expansions (#266, #267); none of today's three URLs was merged or redirected.
+
+**Review status (needs Louis):** Louis's 23 Oct audit covered the text that existed then. Today's three guides are new text, so they carry **no reviewer** (`reviewed_by` empty, no `last_reviewed`) and a "Pending clinical review" line in the disclaimer. The article page now shows a pending byline instead of "Clinical reviewer: … Review date not recorded" when a guide has no reviewer (`src/pages/BlogPost.tsx`), and the sitewide "no pending" test has an explicit allowlist of these three slugs only. When Louis signs them off: restore `reviewed_by` / `reviewer_credentials` / `last_reviewed`, drop the pending sentence and remove the slugs from the allowlist.
+
+### Shipped
+- **Champion 99 — `/blog/ra-fatigue-frailty-energy-envelope-uk`:** full rewrite into "RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking". Why it can hit harder (disease activity, pain and sleep, mood, deconditioning, other conditions and medicines), NHS GP triggers and blood tests (anaemia, diabetes, thyroid), sleep apnoea, medication review, NICE NG100 periodic assessment and annual review, pacing the energy envelope, gentle activity and physio / OT, NHS sleep habits and CBT, mood (NICE psychological support, NHS Talking Therapies, 111 mental health option, Samaritans 116 123, 999), questions for the team, carers, red flags. Opening handoff to the general fatigue and pacing guides. **Pending clinical review**
+- **Champion 100 — `/blog/blood-test-transport-arthritis-frailty-uk`:** full rewrite into "getting to monitoring blood tests when travel is hard". Why tests matter (NICE drug monitoring), telling the team early, tests nearer home / better time / home visits if housebound (varies by area), NHS non-emergency patient transport (NHS page + NHS England 2022 eligibility criteria; other nations run their own), the Healthcare Travel Costs Scheme in England (qualifying benefits, Low Income Scheme, taxi agreed in advance, escorts, HC5(T) within 3 months), community transport, Blue Badge, PIP, on the day, results in the NHS App, missed tests (call the team, never stop a medicine yourself), carers, infection red flags. **Pending clinical review**
+- **Champion 101 — `/blog/rheumatology-clinic-frail-older-adult-uk`:** full rewrite into "preparing for a rheumatology appointment later in life". What to bring (top concerns, full medicines list, symptom and function notes, falls), telling the clinic about hearing / sight / memory / mobility needs, getting there, bringing someone, questions to ask, what NICE NG100 says care should include (shared decisions, written information, named coordinator, physio / OT / podiatry, rapid flare access, annual review), before you leave, after (clinic letter, NHS App, PALS, patient-initiated follow-up), carers, when not to wait. **Pending clinical review**
+- **`topicClusters.ts`:** flare-ups fronts RA fatigue; treatments fronts blood-test transport and rheumatology appointments
+- **Chatbot KB:** fatigue entry, RA entry and methotrexate entry `related` links to the three URLs
+- Sitemap `lastmod` **2026-10-26** on all three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / review index / content stats / keyword files / search index / llms-full regenerated
+- **Triage doc:** 99–101 ticked; 222 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-99-101-26-oct.test.ts` (pending status, CTR meta, real UK cites, links, safety lines, template / stats / dose bans, cluster, KB / llms / ai / sitemap, pending byline on the article page); `m2-trust-sweep-12-oct.test.ts` narrowed to an explicit three-slug allowlist. Full Vitest suite, lint and typecheck run before push (results in the PR)
+
+### Still blocked on Louis
+- Clinical review sign-off for Champions 99–101 (esp. the NHS patient transport / travel costs summary in 100 and the "when not to wait" lists)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Decide on the mechanical frailty-template sweep across the remaining 222 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 102–103 (chair-based exercise with RA after an overlap check against Champions 89 and 92; continence at night, paired with 97)
+2. Champions 104–105 (heat versus ice with thin skin or poor sensation; living alone falls plan) for winter
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
+
+---
+
+## Daily log — 23 Oct 2026 (M2 day 10, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 22 Oct: Champions 97–98, then re-rank 99–108. Both Champions shipped and the re-rank is done. Topical NSAIDs (98) was checked against `topical-nsaids-often-overlooked-often-effective` first: both have inbound links and different jobs, so 98 was narrowed (not consolidated) to the later-life safety job with an opening handoff to the general explainer. Night lights (97) was narrowed to lighting and the route at night, handing off to the continence and commode posts. Rewrites, not redirects; no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent. Yesterday's Security Audit vitest advisory is already fixed on `main` (#249, vitest 5.0.5); Louis's 23 Oct commit (accessible PDF download buttons + DOMPurify patch) is noted, no action needed.
+
+### Shipped
+- **Champion 97 — `/blog/night-lights-arthritis-falls-frailty-uk`:** full rewrite into "night lights and safer night-time trips to the toilet with arthritis". Why night-time is risky (stiff joints on waking, low light, standing up quickly, half-asleep), lighting the whole route (plug-in and motion-sensor lights, switches within reach), getting up in stages (sit on the edge of the bed first), clearing the route, when it is more than lighting (getting up more often than you used to, dizziness on standing, water tablets and sleeping tablets, new confusion), council needs assessment for equipment, living alone, what to do after a fall at night, carers. Cites NHS falls prevention, NICE NG249, Guy's and St Thomas' NHS nocturia guidance, NHS low blood pressure, Age UK. **Pending clinical review**
+- **Champion 98 — `/blog/topical-nsaids-frail-hand-knee-oa-uk`:** full rewrite into "topical NSAIDs in later life: safer pain relief for knee and hand osteoarthritis". Who they suit (NICE NG226 offer for knee OA, consider for other joints), how to use a gel, NHS naked-flame fire warning, older skin and diclofenac sunlight advice, check with a pharmacist first (blood thinners, asthma, kidney / heart / stomach problems, not alongside NSAID tablets), hands, other options (heat or cold, capsaicin, exercise), NHS 111 / 999 and Yellow Card. No doses. **Pending clinical review**
+- **`topicClusters.ts`:** exercises (falls) fronts night lights; treatments fronts topical NSAIDs in later life (+ search triggers)
+- **Chatbot KB:** sleep entry `related` + night-time toilet keywords; NSAIDs entry `related` + topical / gel keywords
+- Sitemap `lastmod` **2026-10-23** on both URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–98 pending
+- **Triage doc:** 97–98 ticked; **re-ranked Champions 99–108** (inbound links + pairing with recent gold-pass posts; still no GSC export), led by the four RA template posts; 225 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-97-98-23-oct.test.ts` (also checks 98 stays distinct from the general topical NSAIDs guide and blocks dose wording); full Vitest suite, lint, typecheck and build run before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–98 (esp. today's topical NSAID "check with a pharmacist first" list and the night-time "when it is more than lighting" GP triggers), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 225 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the two URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 99–101 (RA fatigue, blood-test transport, rheumatology clinic) from the 23 Oct re-rank
+2. Champions 102–103 (chair-based exercise with RA after an overlap check against Champions 89 and 92; continence at night, paired with 97)
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
+
+---
+
+## Daily log — 22 Oct 2026 (M2 day 9, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 21 Oct: Champions 94–96 as a medicines-safety and newly-diagnosed RA set. All three shipped. Each was checked against yesterday's #247 blog reorganisation first: none was consolidated or noindexed, so URLs and #247 categories are unchanged (methotrexate stays in Treatments & medicines; the two RA posts stay in Conditions). Methotrexate (94) and RA monitoring (96) were split into distinct jobs and cross-linked so they do not compete. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 94 — `/blog/methotrexate-older-frail-adults-uk`:** full rewrite into "methotrexate in later life: blood tests, infections, vaccines and safety". Once-weekly on the same day (MHRA daily-dosing warning, patient card, keep it apart from daily tablets and blister packs, folic acid on a different day, NHS missed-dose rule, NHS 111 if taken daily by mistake), why the blood tests matter (NHS every 1 to 2 weeks at first, every 2 to 3 months once stable; who checks results; alcohol before a test), infections and sick days ("ask, do not guess", tell every prescriber, trimethoprim / co-trimoxazole, quiet infection signs in older people, chickenpox / shingles contact, sepsis to 999), vaccines (flu injection not nasal spray, pneumococcal, non-live shingles, COVID-19, live vaccines ask first), other medicines and supplements, never change the dose yourself, NHS 111 / 999 symptom lists and Yellow Card, carer checklist. No doses. **Pending clinical review**
+- **Champion 95 — `/blog/late-onset-ra-frailty-first-months-uk`:** full rewrite into "diagnosed with rheumatoid arthritis later in life: the first months". Treated the same as at any age (NICE treat-to-target), baseline tests (anti-CCP, hand and foot X-rays, function questionnaire), first DMARD ideally within 3 months, short steroid bridge, safety checks before methotrexate, monthly CRP / DAS28 until target, step-up, up to 12 weeks to work, named contact and advice line, other medicines and bone protection, staying active (NHS RA rest/activity balance, older-adult strength and balance on at least 2 days a week, NICE physio / OT / podiatry access), fatigue and mood, carers, NRAS and Arthritis UK helplines, Attendance Allowance, when to get help. **Pending clinical review**
+- **Champion 96 — `/blog/ra-monitoring-older-frail-adults-uk`:** full rewrite into "rheumatoid arthritis monitoring in later life: blood tests, reviews and what to report". Two kinds of monitoring (is it controlled / is the medicine safe), DAS28 explained with NICE example targets, NICE monthly-until-target then 6-month and annual review, safety blood tests and shared care with the GP (hands off to the methotrexate post for the weekly routine, and to leflunomide / sulfasalazine guides), what the NICE annual review should cover, what to report between appointments (incl. new cough, eye symptoms, hand numbness or unsteadiness), making monitoring easier, carers. **Pending clinical review**
+- **`topicClusters.ts`:** treatments fronts methotrexate in later life and RA monitoring; symptoms (newly diagnosed pillar) fronts RA first months (+ search triggers)
+- **Chatbot KB:** methotrexate `related` + keywords; RA `related` + late-onset / monitoring / DAS28 keywords
+- Sitemap `lastmod` **2026-10-22** on the three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–96 pending
+- **Triage doc:** 94–96 ticked; 227 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-94-96-22-oct.test.ts` (also blocks any mg / microgram dose wording and checks 94 and 96 stay distinct); full Vitest suite, lint, typecheck and build run locally before push (results in the PR)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–96 (esp. today's methotrexate sick-day wording "ask, do not guess", the quiet-infection-signs line for older people, the NICE NG100 monitoring summary and DAS28 example targets), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 227 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank the triage list on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 97–98 (night lights; topical NSAIDs after an overlap check against `topical-nsaids-often-overlooked-often-effective`)
+2. Re-rank Champions 99–108, starting with the four RA template posts today's gold-pass set now links to (`blood-test-transport-arthritis-frailty-uk`, `rheumatology-clinic-frail-older-adult-uk`, `chair-based-exercise-ra-frailty-uk`, `ra-fatigue-frailty-energy-envelope-uk`) and skipping anything #247 redirected or noindexed
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
+
+---
+
+## Daily log — 21 Oct 2026 (M2 day 8, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 20 Oct: Champions 91–93 from the re-ranked list. All three shipped. Seated strength was checked against the 20-minute chair routine first and narrowed (not consolidated) to a distinct job, because it had 4 inbound links and a different search intent ("how to make chair exercise build strength"). Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 91 — `/blog/knee-osteoarthritis-frailty-staying-steady-home-uk`:** full rewrite into "knee osteoarthritis: staying steady at home". Why sore knees make you less steady (quadriceps weakness), five home changes (clear and light the main route, proper indoor shoes, things within reach, somewhere to hold), strength and balance on at least 2 days a week (sit-to-stand, seated knee straightening, heel raises, supported balance), NICE NG226 walking-aid advice and the "not routinely" line on braces and insoles, night-time and toilet trips, the NHS get-up-after-a-fall steps (with a cushion under sore knees) and what to do if you cannot get up, GP / NHS 111 / 999 routes. **Pending clinical review**
+- **Champion 92 — `/blog/seated-strength-frail-osteoarthritis-uk`:** full rewrite into "seated strength exercises: how to make chair exercise build strength". Hands off in the first paragraph to the 20-minute chair routine and sit-to-stand. How hard it should feel (last two or three repetitions hard, no breath-holding), five seated moves for the big muscle groups, one-change-at-a-time progression (repetitions, slower lowering, holds, light weights, bands, then standing work), joint care (comfortable range, next-day pain rule, flare days, hand OA grip, joint replacement), when to get help. **Pending clinical review**
+- **Champion 93 — `/blog/painkillers-older-adults-arthritis-caution-uk`:** full rewrite into "painkillers in later life: safer use and what to check". Why age changes things, what NICE NG226 actually says (exercise first, topical NSAID for knee OA, oral NSAID lowest dose shortest time with a PPI, paracetamol and weak opioids not routinely offered, no strong opioids for OA), RA painkillers do not control disease, NHS "ask first" list for NSAIDs, hidden paracetamol in combination products and the A&E-even-if-you-feel-well overdose rule, codeine / opioid drowsiness, constipation, falls and do-not-stop-suddenly, gabapentinoid unsteadiness, ways to need fewer tablets, NHS 111 / 999 routes and Yellow Card. No doses. **Pending clinical review**
+- **`topicClusters.ts`:** exercises fronts knee steady-at-home and seated strength; treatments fronts painkillers in later life (+ search triggers)
+- **Chatbot KB:** exercise-general `related` + seated strength / knee giving way keywords; pain `related` + painkillers-in-later-life keywords
+- Sitemap `lastmod` **2026-10-21** on the three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–93 pending
+- **Triage doc:** 91–93 ticked, topical NSAIDs (98) flagged for an overlap check against the existing topical NSAIDs guide; 230 template posts left
+- **Tests:** `src/lib/__tests__/gsc-champions-91-93-21-oct.test.ts` (also blocks any dose wording on the painkillers page); full Vitest suite green (122 files / 816 tests); lint, typecheck and blog catalog check clean (blog HTML gate left to CI, as on 20 Oct)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–93 (esp. today's NICE NG226 medicines summary on the painkillers page, the "weigh under 50kg" paracetamol caution, and the get-up-after-a-fall advice for people with painful knees), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 230 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank the triage list on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 94–96 (methotrexate in later life, late-onset RA first months, RA monitoring) as a medicines-safety and newly-diagnosed RA set
+2. Champions 97–98 (night lights, topical NSAIDs after an overlap check), then re-rank the next 10
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
+
+---
+
+## Daily log — 20 Oct 2026 (M2 day 7, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026). Tracker next-3 from 19 Oct: Champion 88, then re-rank the triage list. Champion 88 shipped, the list was re-ranked (still no fresh GSC export, so by inbound links, season and harm), and the top two re-ranked posts shipped as Champions 89–90 because they pair with the falls and strength work from 19 Oct. Rewrites, not redirects; no URLs removed, no new pages, no doorway cities, no invented traffic claims, no Lovable credits / CloudAgent.
+
+### Shipped
+- **Champion 88 — `/blog/vitamin-d-and-falls-arthritis-uk`:** full rewrite into "vitamin D and falls: what it can and cannot do". NHS vitamin D role (calcium, phosphate, bones and muscles), NHS 10 microgram autumn/winter advice and all-year advice if frail, housebound, in a care home or with dark skin, the 100 microgram (4,000 IU) upper limit and why too much harms, follow a prescribed dose and check kidney problems. NICE NG249 stated plainly: not enough evidence that vitamin D alone lowers falls. What does help (falls service, strength and balance at least 2 days a week, medicines review, eyes and feet, home hazard assessment, winter extras), bones after a minor fall, steroid / RA bone questions, DEXA, calcium food-first. Hands off early to the gold-pass winter vitamin D guide. **Pending clinical review**
+- **Champion 89 — `/blog/chair-yoga-elderly-arthritis-stiffness`:** full rewrite into "chair yoga for older adults with stiff joints". Removed an unverifiable trial claim, a made-up website and unsupported "measurable improvement in 4–6 weeks" copy. NHS chair set-up, a gentle routine built from NHS sitting exercises (chest stretch, upper-body twist, hip marching, ankle stretch, neck turn, no full neck circles), extra care after hip replacement, RA/AS in the neck, osteoporosis or spinal fracture and dizziness, finding a class, stop / 999 / NHS 111 routes; honest that chair yoga is mainly flexibility, so pair it with strength and balance. Hands off early to chair exercises, yoga for beginners and seated tai chi. **Pending clinical review**
+- **Champion 90 — `/blog/sit-to-stand-practice-frail-arthritis-uk`:** full rewrite into "sit-to-stand practice with arthritis". NHS sit-to-stand steps (5 slow repetitions), easier and harder versions, chair safety, hip/knee replacement chair-height advice, discomfort guidance, NHS physio self-referral, OT equipment and free council care needs assessment, carers must not pull or lift, dizziness on standing and medicines review. Hands off early to strength training, chair exercises and strength after a flare. **Pending clinical review**
+- **Triage re-rank:** `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` now lists Champions 89–98 with inbound-link counts and reasons (91 knee OA staying steady at home, 92 seated strength (consolidation check), 93 painkillers in later life, 94 methotrexate, 95 late-onset RA, 96 RA monitoring, 97 night lights, 98 topical NSAIDs) plus reserves; 233 template posts left
+- **`topicClusters.ts`:** exercises fronts sit-to-stand and chair yoga; diet fronts vitamin D and falls (+ search triggers)
+- **Chatbot KB:** exercise-general `related` + chair yoga / sit-to-stand keywords; supplements `related` + vitamin D and falls keywords
+- Sitemap `lastmod` **2026-10-20** on the three URLs (from real `updated_at`) + sitemap-index; llms.txt / ai.txt preferred cites + Q&A lines
+- Catalog / head data / content stats / search index regenerated; review-status test now expects Champions 62–90 pending
+- **Tests:** `src/lib/__tests__/gsc-champions-88-90-20-oct.test.ts` (also blocks the removed trial claim and any "vitamin D prevents falls" wording); full Vitest suite green (121 files / 802 tests) + dependency-security node tests; lint, typecheck and blog catalog check clean (the local blog HTML gate script fails to start on this box's Node 20 on `main` too, a jsdom/parse5 loader issue, so it is left to CI)
+
+### Still blocked on Louis
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts (no new Facebook posts / ads without asking)
+- Clinical review: pending Champions 62–90 (esp. today's vitamin D all-year and kidney wording, the chair yoga cautions for hip replacement, RA neck and osteoporosis, and the sit-to-stand "mild aching that settles within a day" guidance), the 74 swept posts, the 23 posts fixed 14 Oct and the four `/expert-articles` pieces; then `npm run blog:mark-reviewed -- <slug>`
+- Decide on the mechanical frailty-template sweep across the remaining 233 posts vs Champion-by-Champion only
+- **Lovable publish** of latest GitHub `main`, then GSC URL Inspection on the three URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI honestly and to re-rank the triage list on real demand)
+- Approve research-fund creative before campaign posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 91–93 from the re-ranked list: `knee-osteoarthritis-frailty-staying-steady-home-uk`, `seated-strength-frail-osteoarthritis-uk` (check overlap with chair exercises first; consolidate if it duplicates) and `painkillers-older-adults-arthritis-caution-uk`
+2. Champions 94–96 (methotrexate, late-onset RA, RA monitoring) as a medicines-safety and newly-diagnosed RA set
+3. If Louis approves: one mechanical trust sweep PR across the remaining template posts; otherwise re-rank on real demand as soon as a fresh GSC export lands
 
 ---
 
@@ -927,3 +1304,8 @@ Update this tracker at each monthly close with honest A vs B traffic multiples f
 - First partner outreach wave from `docs/PARTNER-OUTREACH-50.md`
 - Live social posting per SOP; clinical spot-check of treatment champions
 - Optional Scenario C moonshot media budget paper
+
+
+### 23 Oct 2026 — blog clinical audit complete
+
+- Louis Maxwell (HCPC PH128483) clinically audited all published blog guides. The blog pending-review state and `blog:mark-reviewed` script were removed; every guide shows Louis Maxwell as author and reviewer, and a "Download this guide (PDF)" button sits under every post. Earlier "then `npm run blog:mark-reviewed`" notes above are historical.

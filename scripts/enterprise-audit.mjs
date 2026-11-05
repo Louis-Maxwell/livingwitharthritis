@@ -45,7 +45,7 @@ for (const url of urls) {
 const posts = readdirSync('src/content/blog/posts').filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync(join('src/content/blog/posts', f), 'utf8'))).filter((p) => p.is_published !== false);
 const blogs = posts.map((p) => {
   const issues = []; const body = String(p.content || ''); const words = text(parse(body)).trim().split(/\s+/).length;
-  if (p.review_status === 'pending' || p.reviewStatus === 'pending') issues.push('HIGH: pending clinical review');
+  if (p.review_status === 'pending' || p.reviewStatus === 'pending') issues.push('HIGH: review status not recorded (needs Louis Maxwell sign-off)');
   if (!p.reviewed_by) issues.push('HIGH: no named reviewer recorded');
   if (!p.citations?.length) issues.push('HIGH: no structured citations; inspect inline sources');
   if (/Here is a plain-English take/i.test(p.direct_answer || '')) issues.push('MEDIUM: generic opening; write a specific answer after clinical review');

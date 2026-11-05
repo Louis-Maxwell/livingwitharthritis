@@ -1,7 +1,7 @@
 /**
  * PIP evidence diary for arthritis: free templates to print and fill in
  * Content for /resources/pip-evidence-diary (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 10 October 2026. Pending clinical and editorial review.
+ * Facts checked on GOV.UK / official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const PIP_DIARY_TITLE = "PIP evidence diary for arthritis: free templates to print and fill in";

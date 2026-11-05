@@ -11,7 +11,7 @@
  */
 
 const SITE_SUFFIX = " | Living With Arthritis";
-const SHORT_SITE_SUFFIX = " | LWA";
+const SHORT_SITE_SUFFIX = " | LWA"; // legacy; no longer appended
 const MAX_TITLE = 60;
 const MAX_DESC = 160;
 const MIN_DESC = 120;
@@ -51,13 +51,8 @@ export function enforceTitle(
   const composed = `${title}${SITE_SUFFIX}`;
   if (composed.length <= MAX_TITLE) return composed;
 
-  // Prefer a short brand tag over dropping branding entirely when it still fits.
-  const shortComposed = `${title}${SHORT_SITE_SUFFIX}`;
-  if (shortComposed.length <= MAX_TITLE) {
-    if (isDev) warnLength("title", composed.length, MAX_TITLE, route, composed);
-    return shortComposed;
-  }
-
+  // One brand suffix only (" | Living With Arthritis"); when it does not fit
+  // we keep the unique page title rather than a second, abbreviated brand tag.
   // Preserve the unique page title before preserving branding. Truncating the
   // page title to make room for the suffix caused hundreds of programmatic
   // city/condition pages to collapse onto identical titles.

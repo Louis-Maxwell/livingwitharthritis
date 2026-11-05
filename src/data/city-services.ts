@@ -186,7 +186,7 @@ function dietSupport(city: UKCity): CityServiceContent {
     ],
     localStats: `${city.name} has around ${city.population} residents. UK data suggests roughly 25% of adults are obese — and excess weight is the largest modifiable risk factor for knee and hip osteoarthritis.`,
     ctaLabel: "Open our anti-inflammatory diet guide",
-    ctaPath: "/diet",
+    ctaPath: "/guides/diet",
     keywords: `arthritis dietitian ${city.name.toLowerCase()}, anti-inflammatory diet ${city.name.toLowerCase()}, nutrition support ${city.region.toLowerCase()}`,
   };
 }

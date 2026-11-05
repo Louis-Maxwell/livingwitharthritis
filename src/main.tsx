@@ -5,12 +5,16 @@ import ErrorBoundary from "./components/ErrorBoundary.tsx";
 import { afterPageLoad } from "./lib/afterPageLoad";
 import { installErrorReporting } from "./lib/errorReporting";
 import { installChunkRecovery, removeStaleServiceWorkers } from "./lib/chunkRecovery.ts";
+import { installImageFallback } from "./lib/imageFallback";
+import { installAutoEvents } from "./lib/auto-events";
 import "./index.css";
 
 // Error reporting first, so failures during start-up are captured too.
 // Stale-deploy recovery must be installed before any lazy chunk is requested.
 installErrorReporting();
+installImageFallback();
 installChunkRecovery();
+installAutoEvents();
 removeStaleServiceWorkers();
 
 // Core Web Vitals (LCP, FCP, CLS, INP, TTFB). Loaded after first paint; the

@@ -49,7 +49,7 @@ const communityFeatures = [
 const newlyDiagnosedSteps = [
   { step: "1", title: "Learn About Your Condition", desc: "Start with our condition guides for osteoarthritis, RA or PsA.", href: "#conditions" },
   { step: "2", title: "Try Gentle Exercises", desc: "Visit the Exercise Hub for knee, hand and chair-based routines.", href: "/exercises" },
-  { step: "3", title: "Improve Your Diet", desc: "Our Diet Hub covers anti-inflammatory foods and meal plans.", href: "/diet" },
+  { step: "3", title: "Improve Your Diet", desc: "Our Diet Hub covers anti-inflammatory foods and meal plans.", href: "/guides/diet" },
   { step: "4", title: "Start a Chat", desc: "Get personalised, evidence-based guidance 24/7.", href: "/chat" },
   { step: "5", title: "Connect with Community", desc: "You're not alone — join our peer support forum and resources.", href: "#community-features" },
 ];
@@ -369,10 +369,10 @@ const CommunityHub = () => {
               {
                 title: "Living well with arthritis",
                 links: [
-                  { label: "Arthritis and mental health", to: "/blog/category/lifestyle" },
-                  { label: "Working with arthritis", to: "/blog/category/lifestyle" },
+                  { label: "Arthritis and mental health", to: "/blog/category/mental-health-fatigue" },
+                  { label: "Working with arthritis", to: "/blog/category/benefits-work" },
                   { label: "How to support someone with chronic pain", to: "/community" },
-                  { label: "Arthritis in cold weather — practical tips", to: "/blog/category/lifestyle" },
+                  { label: "Arthritis in cold weather — practical tips", to: "/blog/category/diet-lifestyle" },
                 ],
               },
               {

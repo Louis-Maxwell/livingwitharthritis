@@ -40,7 +40,7 @@ const headIndex: SearchItem[] = [
   { label: "Home", href: "/", category: "Pages", icon: FileText },
   { label: "About Us", href: "/about", category: "Pages", icon: FileText },
   { label: "Exercise Hub", href: "/exercises", category: "Pages", icon: Dumbbell },
-  { label: "Diet & Nutrition Hub", href: "/diet", category: "Pages", icon: Utensils },
+  { label: "Diet & Nutrition Hub", href: "/guides/diet", category: "Pages", icon: Utensils },
   { label: "Self Help Tool", href: "/self-help", category: "Pages", icon: Dumbbell },
   { label: "Virtual Assistant", href: "/chat", category: "Pages", icon: FileText },
   { label: "Trust & Credibility", href: "/trust", category: "Pages", icon: FileText },
@@ -71,7 +71,7 @@ const tailIndex: SearchItem[] = [
   { label: "Meal Planning for Arthritis (UK)", href: "/blog/arthritis-meal-planning-uk", category: "Blog", icon: Utensils },
   { label: "Arthritis Supplements UK", href: "/blog/best-supplements-arthritis-uk", category: "Blog", icon: FileText },
   { label: "Cold Weather & Joint Pain", href: "/blog/cold-weather-arthritis-uk-winter", category: "Blog", icon: FileText },
-  { label: "Cycling for Arthritis (UK)", href: "/blog/cycling-with-arthritis", category: "Blog", icon: Dumbbell },
+  { label: "Cycling for Arthritis (UK)", href: "/blog/arthritis-and-cycling-uk", category: "Blog", icon: Dumbbell },
   { label: "Tai Chi for Arthritis (UK)", href: "/blog/tai-chi-for-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Hydrotherapy for Arthritis (UK)", href: "/blog/hydrotherapy-arthritis-uk", category: "Blog", icon: Dumbbell },
   { label: "Morning Stretches", href: "/daily-tips/morning-stretches", category: "Tips", icon: Sun },
@@ -197,11 +197,12 @@ export default function SiteSearch() {
       <button
         onClick={() => setOpen(true)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-border/50 bg-muted/30 text-muted-foreground hover:bg-muted/60 transition-colors text-xs"
-        aria-label="Search the site (Ctrl+K)"
+        title="Search the site (Ctrl+K)"
       >
-        <Search className="w-3.5 h-3.5" />
+        <Search className="w-3.5 h-3.5" aria-hidden="true" />
         <span className="hidden sm:inline">Search</span>
-        <kbd className="hidden sm:inline text-[10px] bg-background/60 border border-border/40 px-1 py-0.5 rounded font-mono ml-1">⌘K</kbd>
+        <span className="sr-only sm:hidden">Search the site</span>
+        <kbd aria-hidden="true" className="hidden sm:inline text-[10px] bg-background/60 border border-border/40 px-1 py-0.5 rounded font-mono ml-1">⌘K</kbd>
       </button>
     );
   }

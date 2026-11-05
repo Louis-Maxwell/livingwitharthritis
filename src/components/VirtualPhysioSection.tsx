@@ -151,7 +151,7 @@ const VirtualPhysioSection = memo(() => {
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
             Outdated beliefs prevent millions from getting effective arthritis treatment.
             Here's what the <strong className="text-foreground">latest clinical evidence</strong> actually says —
-            summarised by our editorial team from NICE, NHS and peer-reviewed sources (pending clinical review).
+            summarised by our editorial team from NICE, NHS and peer-reviewed sources, clinically reviewed by Louis Maxwell (HCPC PH128483).
           </p>
 
           {/* Trust badges */}

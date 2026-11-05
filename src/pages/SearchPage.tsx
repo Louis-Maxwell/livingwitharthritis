@@ -112,9 +112,9 @@ const SearchPage = () => {
             Looking for a starting point instead of a keyword? Try the{" "}
             <Link to="/guides" className="text-primary underline underline-offset-2">guides hub</Link>,{" "}
             <Link to="/exercises" className="text-primary underline underline-offset-2">exercise hub</Link>,{" "}
-            <Link to="/diet" className="text-primary underline underline-offset-2">diet hub</Link>,{" "}
+            <Link to="/guides/diet" className="text-primary underline underline-offset-2">diet hub</Link>,{" "}
             <Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">conditions</Link>,{" "}
-            <Link to="/benefits-pip" className="text-primary underline underline-offset-2">benefits &amp; PIP</Link>, or the{" "}
+            <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">benefits &amp; PIP</Link>, or the{" "}
             <Link to="/blog" className="text-primary underline underline-offset-2">arthritis blog</Link>.
           </p>
           <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed">

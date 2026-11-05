@@ -18,6 +18,8 @@ export default function LocalizedHome() {
   return (
     <>
       <Helmet>
+        {/* Machine translation, not reviewed: keep out of search until native review. */}
+        <meta name="robots" content="noindex, follow" />
         <title>{t.home.heroTitle}</title>
         <meta name="description" content={t.home.heroSubtitle} />
         <meta property="og:title" content={t.home.heroTitle} />
@@ -66,7 +68,7 @@ export default function LocalizedHome() {
           {[
             { label: t.home.sectionConditions, to: buildLangUrl(lang, "/conditions/osteoarthritis") },
             { label: t.home.sectionExercises, to: "/exercises" },
-            { label: t.home.sectionDiet, to: "/diet" },
+            { label: t.home.sectionDiet, to: "/guides/diet" },
           ].map((card) => (
             <Link
               key={card.label}

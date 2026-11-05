@@ -50,17 +50,17 @@ const CLUSTERS: HubCluster[] = [
       "Mediterranean eating, foods that calm inflammation and supplements with real evidence — written for UK readers.",
     Icon: Apple,
     accent: "from-primary/15 to-primary/10",
-    primary: { label: "Visit the Diet Hub", to: "/diet" },
+    primary: { label: "Visit the Diet Hub", to: "/guides/diet" },
     questions: [
-      { label: "How to reduce joint inflammation through food", to: "/diet" },
+      { label: "How to reduce joint inflammation through food", to: "/guides/diet" },
       { label: "What is the best anti-inflammatory diet for arthritis?", to: "/guides/diet" },
-      { label: "Foods to avoid with arthritis", to: "/diet" },
+      { label: "Foods to avoid with arthritis", to: "/guides/diet" },
       { label: "Mediterranean diet for joint pain — UK guide", to: "/guides/diet" },
-      { label: "Are turmeric, omega-3 and collagen worth taking?", to: "/blog/category/supplements" },
+      { label: "Are turmeric, omega-3 and collagen worth taking?", to: "/blog/category/diet-lifestyle" },
     ],
     related: [
-      { label: "All Nutrition articles", to: "/blog/category/nutrition" },
-      { label: "All Supplements articles", to: "/blog/category/supplements" },
+      { label: "All Nutrition articles", to: "/blog/category/diet-lifestyle" },
+      { label: "All Supplements articles", to: "/blog/category/diet-lifestyle" },
     ],
   },
   {
@@ -72,7 +72,7 @@ const CLUSTERS: HubCluster[] = [
     accent: "from-primary/15 to-primary/5",
     primary: { label: "Visit the Exercise Hub", to: "/exercises" },
     questions: [
-      { label: "Best arthritis-friendly exercises for knee arthritis", to: "/exercises" },
+      { label: "Knee arthritis exercises: practical guide", to: "/guides/knee-exercises-for-osteoarthritis" },
       { label: "Hand & wrist exercises for arthritis", to: "/exercises" },
       { label: "Hip arthritis: safe stretches and strength work", to: "/exercises" },
       { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
@@ -95,13 +95,13 @@ const CLUSTERS: HubCluster[] = [
     questions: [
       { label: "What to do during an arthritis flare-up", to: "/arthritis-flare-ups" },
       { label: "Common arthritis triggers and how to manage them", to: "/arthritis-flare-ups" },
-      { label: "Arthritis in cold weather — practical tips", to: "/blog/category/lifestyle" },
-      { label: "Working with arthritis — your rights and adjustments", to: "/blog/category/lifestyle" },
-      { label: "Arthritis and mental health support", to: "/blog/category/lifestyle" },
+      { label: "Arthritis in cold weather — practical tips", to: "/blog/category/diet-lifestyle" },
+      { label: "Working with arthritis — your rights and adjustments", to: "/blog/category/benefits-work" },
+      { label: "Arthritis and mental health support", to: "/blog/category/mental-health-fatigue" },
       { label: "How to support someone with chronic pain", to: "/community" },
     ],
     related: [
-      { label: "All Lifestyle articles", to: "/blog/category/lifestyle" },
+      { label: "All Lifestyle articles", to: "/blog/category/diet-lifestyle" },
       { label: "Community & peer support", to: "/community" },
     ],
   },
@@ -112,18 +112,18 @@ const CLUSTERS: HubCluster[] = [
       "Evidence-graded explanations of medication, public healthcare pathways and natural options — including what is and isn't proven.",
     Icon: Pill,
     accent: "from-primary/12 to-primary/8",
-    primary: { label: "Browse Treatment articles", to: "/blog/category/treatment" },
+    primary: { label: "Browse Treatment articles", to: "/blog/category/treatments" },
     questions: [
-      { label: "Best pain relief for arthritis", to: "/blog/category/treatment" },
+      { label: "Best pain relief for arthritis", to: "/blog/category/treatments" },
       { label: "Arthritis medication explained (DMARDs, biologics, NSAIDs)", to: "/conditions/rheumatoid-arthritis" },
-      { label: "Natural remedies for arthritis — what works?", to: "/blog/category/supplements" },
+      { label: "Natural remedies for arthritis — what works?", to: "/blog/category/diet-lifestyle" },
       { label: "Difference between osteoarthritis and rheumatoid arthritis", to: "/conditions/osteoarthritis" },
       { label: "Is arthritis curable? Honest answers", to: "/faq" },
       { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
     ],
     related: [
-      { label: "All Health articles", to: "/blog/category/health" },
-      { label: "All Treatment articles", to: "/blog/category/treatment" },
+      { label: "All Health articles", to: "/blog/category/conditions" },
+      { label: "All Treatment articles", to: "/blog/category/treatments" },
     ],
   },
   {
@@ -141,7 +141,7 @@ const CLUSTERS: HubCluster[] = [
       { label: "How arthritis is diagnosed", to: "/blog/how-arthritis-is-diagnosed-tests-scans-results" },
     ],
     related: [
-      { label: "All Health articles", to: "/blog/category/health" },
+      { label: "All Health articles", to: "/blog/category/conditions" },
       { label: "Newly diagnosed guide", to: "/guides/newly-diagnosed" },
     ],
   },
@@ -152,7 +152,7 @@ const CLUSTERS: HubCluster[] = [
       "UK-focused guidance on PIP, Access to Work, reasonable adjustments and practical help with employment.",
     Icon: BriefcaseBusiness,
     accent: "from-primary/10 to-primary/5",
-    primary: { label: "Visit the Benefits & PIP hub", to: "/benefits-pip" },
+    primary: { label: "Visit the Benefits & PIP hub", to: "/guides/benefits-pip" },
     questions: [
       { label: "Can you claim PIP for arthritis?", to: "/blog/pip-for-arthritis-uk" },
       { label: "Access to Work grants and support", to: "/blog/access-to-work-scheme-arthritis-guide" },
@@ -160,7 +160,7 @@ const CLUSTERS: HubCluster[] = [
       { label: "Fit notes, sick pay and time off", to: "/blog/sick-pay-fit-notes-time-off-work-arthritis" },
     ],
     related: [
-      { label: "All Lifestyle articles", to: "/blog/category/lifestyle" },
+      { label: "All Lifestyle articles", to: "/blog/category/diet-lifestyle" },
       { label: "Benefits and PIP guide", to: "/guides/benefits-pip" },
     ],
   },
@@ -179,7 +179,7 @@ const CLUSTERS: HubCluster[] = [
       { label: "Strength and resilience in later life", to: "/blog/building-strength-resilience-exercise-frailty-prevention" },
     ],
     related: [
-      { label: "All Frailty articles", to: "/blog/category/frailty" },
+      { label: "All Frailty articles", to: "/blog/category/exercise" },
       { label: "Community support", to: "/community" },
     ],
   },
@@ -262,7 +262,7 @@ const BlogHub = () => {
         { "@type": "ListItem", position: 2, name: "Arthritis diet and nutrition", url: `${SITE}/diet` },
         { "@type": "ListItem", position: 3, name: "Arthritis exercises", url: `${SITE}/exercises` },
         { "@type": "ListItem", position: 4, name: "Arthritis flare-ups and daily living", url: `${SITE}/arthritis-flare-ups` },
-        { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatment` },
+        { "@type": "ListItem", position: 5, name: "Arthritis treatment and pain relief", url: `${SITE}/blog/category/treatments` },
         { "@type": "ListItem", position: 6, name: "Arthritis conditions", url: `${SITE}/conditions/arthritis` },
         { "@type": "ListItem", position: 7, name: "Benefits, PIP and work", url: `${SITE}/benefits-pip` },
         { "@type": "ListItem", position: 8, name: "Frailty and carer support", url: `${SITE}/guides/frailty-management-hub` },
@@ -340,10 +340,10 @@ const BlogHub = () => {
             </p>
             <nav aria-label="Main arthritis topic guides" className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
               <Link to="/living-with-arthritis" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Living with arthritis</Link>
-              <Link to="/diet" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Diet & nutrition</Link>
+              <Link to="/guides/diet" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Diet & nutrition</Link>
               <Link to="/exercises" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Exercise</Link>
               <Link to="/arthritis-flare-ups" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Flares & daily life</Link>
-              <Link to="/blog/category/treatment" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Treatment</Link>
+              <Link to="/blog/category/treatments" className="rounded-xl bg-background p-4 font-semibold hover:ring-2 hover:ring-primary/30">Treatment</Link>
             </nav>
           </div>
         </section>
@@ -416,22 +416,22 @@ const BlogHub = () => {
                 <Link to="/blog">All articles</Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
-                <Link to="/blog/category/nutrition">Nutrition</Link>
+                <Link to="/blog/category/diet-lifestyle">Nutrition</Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
                 <Link to="/blog/category/exercise">Exercise</Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
-                <Link to="/blog/category/lifestyle">Lifestyle</Link>
+                <Link to="/blog/category/diet-lifestyle">Lifestyle</Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
-                <Link to="/blog/category/health">Health</Link>
+                <Link to="/blog/category/conditions">Health</Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
-                <Link to="/blog/category/supplements">Supplements</Link>
+                <Link to="/blog/category/diet-lifestyle">Supplements</Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
-                <Link to="/blog/category/treatment">Treatment</Link>
+                <Link to="/blog/category/treatments">Treatment</Link>
               </Button>
             </div>
           </div>

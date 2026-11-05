@@ -172,7 +172,19 @@ describe("BlogPost Page", () => {
 
     renderBlogPost("test-article");
     expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Blog")).toBeInTheDocument();
+    expect(screen.getAllByText("Guides")[0]).toBeInTheDocument();
+  });
+
+  it("provides an article PDF download button on every blog article", () => {
+    (useBlogArticle as ReturnType<typeof vi.fn>).mockReturnValue({
+      data: mockArticle,
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
+    });
+
+    renderBlogPost("test-article");
+    expect(screen.getByRole("button", { name: /download article pdf/i })).toBeInTheDocument();
   });
 
   it("renders related articles and comments sections", async () => {
@@ -250,7 +262,9 @@ describe("BlogPost Page", () => {
 
     const readSchemas = () =>
       Array.from(
-        document.head.querySelectorAll<HTMLScriptElement>(
+        // react-helmet-async 3 on React 19 renders JSON-LD inline (not hoisted
+        // to <head>); Google reads it from either, so search the whole document.
+        document.querySelectorAll<HTMLScriptElement>(
           'script[type="application/ld+json"]',
         ),
       ).map((script) => JSON.parse(script.textContent || "{}"));

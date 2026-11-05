@@ -15,6 +15,15 @@
 type Bucket = "arthritis" | "community" | "nutrition" | "wellness";
 
 import { LOCAL_COVER_FALLBACK } from "@/lib/coverFallback";
+import coverAltOverrides from "@/data/cover-alt-overrides.json";
+import coverCredits from "@/data/cover-credits.generated.json";
+
+/** Hand-written alt text for covers whose content was checked by eye. */
+const ALT_OVERRIDES = coverAltOverrides as Record<string, string>;
+/** Creator + licence per file (CC BY / BY-SA require attribution). */
+const CREDITS = coverCredits as Record<string, string>;
+/** Filename-derived text that says nothing about the picture (camera codes, numbers, placeholders). */
+const JUNK_ALT_RE = /^(?:[\d\s]+|.*\b(?:img|dsc|dscf|p\d{5,}|ams|lsc|ilce|dxo|jpg|imported article)\b.*|.*\b\d{6,}\b.*|[a-z]+)$/i;
 
 export const BROKEN_SRC_RE = /(?:^$|favicon\.(?:ico|png|svg)$|logo-mark)/i;
 
@@ -99,13 +108,18 @@ const STOPWORDS = new Set([
 ]);
 
 function humanizeAlt(filename: string): string {
+  const override = ALT_OVERRIDES[filename];
+  if (override) return override;
   const base = filename.replace(/\.webp$/, "");
   const withoutPrefix = base
     .replace(/^[a-z]+-\d+-/, "")
     .replace(/^cover-\d+-/, "")
     .replace(/^lwa-/, "");
   const words = withoutPrefix.replace(/-/g, " ").trim();
-  return words.replace(/\b\w/g, (c) => c.toUpperCase()) || "Article cover image";
+  // Unknown picture content: mark decorative (alt="") rather than read out a camera code.
+  const cleaned = words.replace(/\s+[0-9a-f]{8}$/i, "").trim();
+  if (!cleaned || JUNK_ALT_RE.test(cleaned)) return "";
+  return cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
 }
 
 export function hashStr(s: string): number {
@@ -120,7 +134,7 @@ export function toImg(filename: string): ArticleImage {
   return {
     src: `/openverse/${filename}`,
     alt: humanizeAlt(filename),
-    credit: "Openly licensed image via Openverse",
+    credit: CREDITS[filename] ?? "Openly licensed image via Openverse",
   };
 }
 

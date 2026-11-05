@@ -8,7 +8,7 @@ const REVIEW = "2026-09-30";
 
 const SICK_LINKS = [
   "/blog/access-to-work-scheme-arthritis-guide",
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/carers-allowance-help-if-you-care-for-someone",
@@ -18,7 +18,7 @@ const SICK_LINKS = [
 ];
 
 const CARERS_LINKS = [
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/carers-assessment-arthritis-frailty-uk",
@@ -36,7 +36,7 @@ const JOINT_LINKS = [
   "/blog/swimming-exercises-hip-osteoarthritis",
   "/blog/energy-management-and-pacing-arthritis",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection", () => {
@@ -83,9 +83,9 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     content: string;
   };
 
-  it("Sick pay blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta, GOV.UK cites and customer-job links", () => {
-    expect(sickJson.reviewStatus).toBe("pending");
-    expect(sickJson.last_reviewed).toBeUndefined();
+  it("Sick pay blog (rewritten in Benefits batch 3, clinically reviewed by Louis Maxwell) keeps CTR meta, GOV.UK cites and customer-job links", () => {
+    expect(sickJson.reviewStatus).toBeUndefined();
+    expect(sickJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(sickJson.meta_title).toMatch(/Sick Pay & Fit Notes for Arthritis: .*\(UK\)/i);
     const urls = (sickJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -101,14 +101,14 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
     }
     expect(sickJson.content).toMatch(/1218461/);
     // Pending re-review: no reviewer credential is claimed in the disclaimer.
-    expect(sickJson.content).toMatch(/Pending clinical and editorial review/);
+    expect(sickJson.content).toMatch(/Clinically reviewed by Louis Maxwell \(HCPC PH128483\)/);
     expect(sick).not.toMatch(/Oswestry/i);
     expect(sick).not.toMatch(/George Dingley|Crewe CW1/i);
   });
 
-  it("Carer's Allowance blog (rewritten in Benefits batch 3, pending re-review) keeps CTR meta and customer-job links", () => {
-    expect(carersJson.reviewStatus).toBe("pending");
-    expect(carersJson.last_reviewed).toBeUndefined();
+  it("Carer's Allowance blog (rewritten in Benefits batch 3, clinically reviewed by Louis Maxwell) keeps CTR meta and customer-job links", () => {
+    expect(carersJson.reviewStatus).toBeUndefined();
+    expect(carersJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(carersJson.meta_title).toMatch(/Carer's Allowance UK for Arthritis Care/i);
     const urls = (carersJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(
@@ -126,11 +126,10 @@ describe("GSC Champions 53–55 (30 Sep): sick-pay + carers + joint-protection",
   });
 
   // Expanded into the Joint Protection Techniques guide in the Exercise & Physiotherapy
-  // batch 2 (Oct 2026), so it is pending clinical review again until Louis
-  // re-reviews it (`npm run blog:mark-reviewed -- joint-protection-easier-everyday-tasks`).
-  it("Joint protection blog is pending re-review after the batch 2 expansion and keeps CTR meta, NHS/NICE cites and customer-job links", () => {
-    expect(jointJson.last_reviewed).toBeUndefined();
-    expect(jointJson.reviewStatus).toBe("pending");
+  // batch 2 (Oct 2026), so it is clinically reviewed by Louis Maxwell again until Louis
+  it("Joint protection blog is clinically reviewed by Louis Maxwell after the batch 2 expansion and keeps CTR meta, NHS/NICE cites and customer-job links", () => {
+    expect(jointJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(jointJson.reviewStatus).toBeUndefined();
     expect(jointJson.meta_title).toMatch(/Joint Protection for Arthritis: .*\(UK\)/i);
     const urls = (jointJson.citations || []).map((c) => c.url);
     expect(urls).toEqual(

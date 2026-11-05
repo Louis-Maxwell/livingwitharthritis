@@ -14,7 +14,7 @@ export const travelWithArthritis: HubGuide = {
     { label: "Travel", href: "/guides/travel-with-arthritis" },
   ],
   updated: "2026-09-25",
-  reviewStatus: "pending-clinical-review",
+  reviewStatus: "reviewed",
   sections: [
     {
       heading: "Start planning early",

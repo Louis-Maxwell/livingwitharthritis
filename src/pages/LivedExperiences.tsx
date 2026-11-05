@@ -15,7 +15,7 @@ import { CONTACT_EMAILS } from "@/config/contact";
  * Consent-based submission page. No stories are published yet and none are
  * invented: the "Stories coming soon" section stays until a real, consented
  * account has been edited, approved by its author and reviewed.
- * Pending clinical and editorial review.
+ * Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 const PAGE_URL = "https://livingwitharthritis.org.uk/stories";
@@ -300,7 +300,7 @@ export default function LivedExperiences() {
 
             <p className="text-sm text-muted-foreground leading-relaxed">
               Living With Arthritis is a registered charity (no. 1218461). Personal stories are not medical advice. Speak to your
-              GP, pharmacist or specialist team about your own situation. This page is pending editorial review.
+              GP, pharmacist or specialist team about your own situation. This page has been reviewed by Louis Maxwell (HCPC PH128483).
             </p>
           </div>
         </main>

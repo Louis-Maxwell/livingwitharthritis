@@ -205,7 +205,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       </PageHero>
 
       {/* Hero image */}
-      <section className="bg-secondary/30 border-b border-border/15">
+      <section className="bg-muted/40 border-b border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px] py-10">
           <figure className="rounded-xl overflow-hidden shadow-lg">
             <img
@@ -246,7 +246,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       </section>
 
       {/* What is actually happening */}
-      <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+      <section className="py-16 lg:py-24 bg-muted/40 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
             <Sparkles className="h-3 w-3 mr-1 inline" /> What's that pop?
@@ -309,7 +309,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       </section>
 
       {/* Toes specifically */}
-      <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+      <section className="py-16 lg:py-24 bg-muted/40 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-5">
             What about cracking your toes?
@@ -381,7 +381,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       </section>
 
       {/* Red flags */}
-      <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+      <section className="py-16 lg:py-24 bg-muted/40 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <Card className="p-8 border-l-4 border-l-rose-500 bg-primary/5">
             <div className="flex items-start gap-3">
@@ -446,7 +446,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       </section>
 
       {/* What to do instead */}
-      <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+      <section className="py-16 lg:py-24 bg-muted/40 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[1200px]">
           <div className="max-w-2xl mb-10">
             <Badge variant="secondary" className="mb-4 bg-background text-primary border-0">
@@ -501,7 +501,7 @@ export default function DoesCrackingKnucklesCauseArthritis() {
       </section>
 
       {/* Sources */}
-      <section className="py-16 lg:py-24 bg-secondary/30 border-y border-border/15">
+      <section className="py-16 lg:py-24 bg-muted/40 border-y border-border/15">
         <div className="container mx-auto px-6 md:px-12 max-w-[900px]">
           <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight mb-5">
             Sources

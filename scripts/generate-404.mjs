@@ -14,6 +14,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { writeFileAtomicSync } from './lib/atomic-write.mjs';
 import { resolve } from 'node:path';
+import { routePatterns, injectFallbackNoindex } from './lib/fallback-noindex.mjs';
 
 const DIST = resolve('dist');
 const indexPath = resolve(DIST, 'index.html');
@@ -149,3 +150,9 @@ const block = [
 
 writeFileAtomicSync(redirectsPath, `${existing.trimEnd()}\n${block}`, 'utf8');
 console.log(`[404] appended ${spaRules.size} SPA rules + catch-all 404 to dist/_redirects`);
+
+// Soft-404 guard on the fallback shell: Lovable ignores _redirects and serves
+// dist/index.html (200) for unknown URLs. Mark those noindex before hydration;
+// "/" and every known route keep "index".
+writeFileAtomicSync(indexPath, injectFallbackNoindex(readFileSync(indexPath, 'utf8'), routePatterns(routePaths)), 'utf8');
+console.log('[404] fallback-noindex guard injected into dist/index.html');

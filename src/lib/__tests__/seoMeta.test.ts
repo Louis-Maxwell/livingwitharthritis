@@ -40,11 +40,11 @@ describe("seoMeta", () => {
       expect(result.length).toBeLessThanOrEqual(60);
     });
 
-    it("uses short brand when full suffix does not fit", () => {
+    it("keeps the page title without an abbreviated brand when the full suffix does not fit", () => {
       const result = enforceTitle("Comprehensive Osteoarthritis Support in Bristol", {
         includeSiteName: true,
       });
-      expect(result).toBe("Comprehensive Osteoarthritis Support in Bristol | LWA");
+      expect(result).toBe("Comprehensive Osteoarthritis Support in Bristol");
       expect(result.length).toBeLessThanOrEqual(60);
     });
   });
