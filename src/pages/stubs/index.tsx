@@ -115,14 +115,39 @@ export const ConnectGroupsStub = () => (
     slug="community/connect-groups"
     title="Connect Groups: UK Arthritis Peer Support Communities"
     description="Free, volunteer-led peer support groups for people with arthritis across the UK — meet online or in person, by condition, life stage or location."
-    answer="Connect groups are free, facilitated peer communities for people living with arthritis. They meet online or in person, organised by condition (OA, RA, gout, lupus) or life stage (young adults, parents, retirees). Every group is moderated, and joining is free."
+    answer="Connect groups are free, facilitated peer communities for people living with arthritis. They meet online or in person, organised by condition (OA, RA, gout, lupus) or life stage (young adults, parents, retirees). Every group is moderated, and joining is free. The former buddy programme now points here."
     breadcrumbs={[home, communityCrumb, { label: "Connect Groups", href: "/community/connect-groups" }]}
     faqs={CONNECT_GROUPS_FAQS}
+    intro={
+      <>
+        <p>
+          Peer support helps when medical appointments are short and friends or family do not fully understand flares, pacing or treatment side effects.
+          Our connect groups give you a regular, moderated space to share what is working, ask practical questions and feel less isolated — online or in person.
+        </p>
+        <p>
+          Groups are organised by condition and by life stage, so you can join an osteoarthritis or rheumatoid arthritis circle and also a young-adult or carer group if that fits.
+          Facilitators are trained volunteers; they do not give medical advice, and they will signpost to clinical or helpline support when needed.
+        </p>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-3">Looking for a buddy?</h2>
+        <p>
+          One-to-one buddy matching has moved into connect groups so support stays moderated and sustainable.
+          Bookmarks to <code>/buddy</code> redirect here. Join a small group first; facilitators can help you find a regular peer contact within that community.
+        </p>
+        <p className="mt-4">
+          Alongside groups, explore <a href="/guides/exercise" className="text-primary underline">exercise guides</a>,{" "}
+          <a href="/guides/diet" className="text-primary underline">diet guidance</a>,{" "}
+          <a href="/advocacy" className="text-primary underline">patient advocacy</a>, and the{" "}
+          <a href="/helpline" className="text-primary underline">helpline</a> if you need a quieter conversation.
+        </p>
+      </>
+    }
     relatedLinks={[
       { label: "Community hub", href: "/community" },
-      { label: "Buddy programme", href: "/buddy" },
+      { label: "Patient advocacy", href: "/advocacy" },
       { label: "Patient stories", href: "/stories" },
       { label: "Helpline & support", href: "/helpline" },
+      { label: "Exercise hub", href: "/guides/exercise" },
+      { label: "Diet hub", href: "/guides/diet" },
     ]}
   />
 );
@@ -245,15 +270,44 @@ const ADVOCACY_FAQS: StubPageFAQ[] = [
 export const AdvocacyStub = () => (
   <StubPage
     slug="advocacy"
-    title="Patient Advocacy & Awareness"
-    description="Help shape arthritis research, services and public understanding by sharing your story, joining patient panels and contributing to consultations — strictly non-partisan."
-    answer="Our advocacy work amplifies patient voices in research and service design — sharing stories, joining research panels and contributing to UK consultations. We're strictly non-partisan and never use your story without explicit, withdrawable consent."
+    title="Patient Advocacy & Awareness for Arthritis"
+    description="Shape UK arthritis research and services: share your story, join patient panels, respond to consultations and raise awareness — strictly non-partisan, consent-first."
+    answer="Advocacy here means putting lived experience at the centre of arthritis research, NHS service design and public understanding. You can share a story, join a patient panel, answer a consultation or help a local awareness event — always non-partisan, and never without your consent."
     breadcrumbs={[home, involvedCrumb, { label: "Advocacy", href: "/advocacy" }]}
     faqs={ADVOCACY_FAQS}
+    intro={
+      <>
+        <p>
+          Living with arthritis often means navigating long waits, fragmented services and advice that does not match day-to-day life with pain, fatigue or flares.
+          Patient advocacy closes that gap: it brings real experience into research priorities, clinic design and public conversation so decisions reflect what people actually need.
+        </p>
+        <p>
+          You do not need to be a campaigner. Most people start with one small step — a short story, a survey, a research panel meeting, or feedback on a local rheumatology pathway.
+          We are strictly non-partisan. We do not endorse parties or candidates. Stories are used only with explicit, withdrawable consent, and anonymous contributions are welcome.
+        </p>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-3">Ways to take part</h2>
+        <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+          <li><strong className="text-foreground">Share your story</strong> — help others feel less alone and show clinicians what good support looks like. Start on our <a href="/stories" className="text-primary underline">patient stories</a> page or contact us.</li>
+          <li><strong className="text-foreground">Join a patient panel</strong> — advise researchers and service teams on plain-English materials, trial design and access barriers.</li>
+          <li><strong className="text-foreground">Respond to consultations</strong> — when UK musculoskeletal or disability policy asks for public input, we summarise the ask and how to reply.</li>
+          <li><strong className="text-foreground">Local awareness</strong> — talks, workplace education or community events that explain arthritis without stigma.</li>
+        </ul>
+        <p className="mt-4">
+          Advocacy sits alongside practical support: <a href="/community/connect-groups" className="text-primary underline">connect groups</a>, the{" "}
+          <a href="/helpline" className="text-primary underline">helpline</a>, and guides on{" "}
+          <a href="/guides/exercise" className="text-primary underline">exercise</a> and{" "}
+          <a href="/guides/diet" className="text-primary underline">diet</a>. If you want to get involved, email{" "}
+          <a href="mailto:info@livingwitharthritis.org.uk" className="text-primary underline">info@livingwitharthritis.org.uk</a>.
+        </p>
+      </>
+    }
     relatedLinks={[
       { label: "Patient stories", href: "/stories" },
+      { label: "Connect groups", href: "/community/connect-groups" },
       { label: "Volunteer", href: "/volunteer" },
       { label: "Research", href: "/research" },
+      { label: "Exercise hub", href: "/guides/exercise" },
+      { label: "Diet hub", href: "/guides/diet" },
       { label: "Contact us", href: "/contact" },
     ]}
   />

@@ -106,13 +106,25 @@ const LINK_LIBRARY: Record<string, CrossLink> = {
     label: "PIP evidence diary",
     description: "Printable one-week diary for PIP claim prep",
   },
+  advocacy: {
+    to: "/advocacy",
+    icon: Heart,
+    label: "Patient advocacy",
+    description: "Share your story and shape arthritis research and services",
+  },
+  "connect-groups": {
+    to: "/community/connect-groups",
+    icon: MessageCircle,
+    label: "Connect groups",
+    description: "Free peer support communities — the buddy programme lives here",
+  },
 };
 
 /** Preset link groups by page context */
 const PRESETS: Record<string, string[]> = {
   "condition": ["exercises", "diet", "chat", "flareups"],
-  "exercise": ["guide-knee-oa", "diet", "guide-free-resources", "osteoarthritis"],
-  "diet": ["exercises", "osteoarthritis", "guide-diet", "chat"],
+  "exercise": ["guide-knee-oa", "diet", "connect-groups", "advocacy"],
+  "diet": ["exercises", "connect-groups", "advocacy", "guide-diet"],
   "blog": ["exercises", "diet", "osteoarthritis", "chat"],
   "flareup": ["flare-action-plan", "exercises", "guide-benefits", "guide-health-services"],
   "guide": ["exercises", "diet", "blog", "chat"],

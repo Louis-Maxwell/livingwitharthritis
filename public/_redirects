@@ -1766,3 +1766,31 @@
 /authors/louis-maxwell /authors/maxwell 301
 /reviewers/louis-maxwell /reviewers/maxwell 301
 /blog/knee-arthritis-exercises /guides/knee-exercises-for-osteoarthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/library/mtx-methotrexal /library/methotrexate 301
+/library/osteoporosis-osteoporosis /library/osteoporosis 301
+/library/hypermobility-and /library/hypermobility 301
+/library/sore-bottom-back /library/back-exercises 301
+/library/naproxen-500mg /library/naproxen 301
+/library/naproxen-adverse /library/naproxen-side-effects 301
+/library/turmeric-benefits /library/turmeric 301
+/library/discomfort-knee /library/knee-support 301
+/library/manchester-marathon /library 301
+/library/lower-back-back /library/back-exercises 301
+/arthritis-support/bournemouth /arthritis-support 301
+/arthritis-support/brighton /arthritis-support 301
+/arthritis-support/cambridge /arthritis-support 301
+/arthritis-support/cheltenham /arthritis-support 301
+/arthritis-support/doncaster /arthritis-support 301
+/arthritis-support/gloucester /arthritis-support 301
+/arthritis-support/hull /arthritis-support 301
+/arthritis-support/luton /arthritis-support 301
+/arthritis-support/oxford /arthritis-support 301
+/arthritis-support/plymouth /arthritis-support 301
+/arthritis-support/reading /arthritis-support 301
+/arthritis-support/southampton /arthritis-support 301
+/arthritis-support/sunderland /arthritis-support 301
+/arthritis-support/wigan /arthritis-support 301
+/arthritis-support/wolverhampton /arthritis-support 301
+/arthritis-support/york /arthritis-support 301
