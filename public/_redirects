@@ -1760,3 +1760,9 @@
 /blog/frailty-services-arthritis-scotland-uk /blog/nhs-frailty-pathway-arthritis-england 301
 /blog/older-adults-arthritis-frailty-northern-ireland-uk /blog/free-arthritis-support-northern-ireland 301
 /arthritis /conditions/arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/pip /guides/benefits-pip 301
+/authors/louis-maxwell /authors/maxwell 301
+/reviewers/louis-maxwell /reviewers/maxwell 301
+/blog/knee-arthritis-exercises /guides/knee-exercises-for-osteoarthritis 301

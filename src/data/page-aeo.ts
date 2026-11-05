@@ -29,12 +29,13 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/osteoarthritis": withDefaults({
     question: "What is osteoarthritis?",
     answer:
-      "Osteoarthritis (OA) is the most common form of arthritis in the UK. It happens when protective cartilage on the ends of your bones wears down over time, most often in knees, hips, hands and spine. Symptoms include joint pain that worsens with activity, morning stiffness under 30 minutes, swelling and reduced movement. It's manageable with exercise, weight control, and, when needed, medication or joint replacement.",
+      "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care. Educational only — not a diagnosis.",
+    updatedAt: "2026-11-05",
     faqs: [
-      { q: "Can osteoarthritis be reversed?", a: "No, cartilage loss can't currently be reversed, but symptoms and progression can be significantly slowed with exercise, weight management and joint-friendly activity." },
-      { q: "What's the best exercise for osteoarthritis?", a: "Low-impact aerobic exercise (walking, cycling, swimming) plus strength training around the affected joint. NICE recommends 30 minutes most days." },
-      { q: "Does osteoarthritis show on an X-ray?", a: "Yes — X-rays show joint space narrowing and bone spurs, though symptoms don't always match imaging severity." },
-      { q: "When should I see a GP?", a: "If joint pain limits daily activity, wakes you at night, or hasn't improved after 6 weeks of self-management, book a GP appointment." },
+      { q: "Can osteoarthritis be cured?", a: "There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery." },
+      { q: "What's the best exercise for osteoarthritis?", a: "NICE recommends therapeutic exercise including muscle strengthening and general fitness. Walking, swimming, cycling, seated strength and tai chi are common starting points — start small and build up." },
+      { q: "Do I need an X-ray for osteoarthritis?", a: "Often no. NICE says osteoarthritis can usually be diagnosed clinically; imaging is used when the diagnosis is unclear, red flags are present, or surgery is being planned." },
+      { q: "When should I see a GP?", a: "If joint pain is not improving after a few weeks, wakes you most nights, comes with swelling or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
     ],
   }),
   "/conditions/rheumatoid-arthritis": withDefaults({
@@ -247,11 +248,11 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/arthritis-pain-relief": withDefaults({
     question: "How do I relieve arthritis pain?",
     answer:
-      "First-line pain relief includes paracetamol, topical NSAID gels and heat/cold packs. Exercise reduces pain more than most drugs long-term. If pain persists, your GP can consider oral NSAIDs, corticosteroid injections or, for inflammatory arthritis, DMARDs.",
+      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, keep moving gently and build up exercise, which NICE recommends as a core treatment for osteoarthritis. For knee osteoarthritis NICE advises trying an NSAID gel first; NSAID tablets may be added at the lowest dose for the shortest time. NICE says paracetamol and weak opioids should not be offered routinely for osteoarthritis. Inflammatory arthritis needs specialist treatment. Check with a pharmacist or GP what is safe for you.",
     faqs: [
-      { q: "What is the fastest way to ease an arthritis flare?", a: "For a hot swollen joint use a cold pack for 10–15 minutes with a cloth barrier, pace activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
-      { q: "Does exercise help arthritis pain?", a: "Yes — consistent low-impact movement and strength work often reduce OA pain as much as medicines over 8–12 weeks, without the same side-effect profile." },
-      { q: "When should I see a GP about joint pain?", a: "If pain lasts more than six weeks, wakes you at night, involves hot swollen joints, or limits daily life — especially with morning stiffness over an hour." },
+      { q: "What is the fastest way to ease an arthritis flare?", a: "Use heat for stiffness or a cold pack wrapped in a cloth for a hot swollen joint, reduce rather than stop activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
+      { q: "Does exercise help arthritis pain?", a: "Yes. NICE recommends therapeutic exercise, including strengthening and general fitness, as a core treatment for osteoarthritis. Start small and build up gradually." },
+      { q: "When should I see a GP about joint pain?", a: "If pain is not improving after a few weeks, wakes you most nights, comes with swollen or warm joints or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
     ],
   }),
   "/guides/hip-exercises-for-osteoarthritis": withDefaults({

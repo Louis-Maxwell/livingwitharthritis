@@ -27,6 +27,8 @@
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
+import { finalizeTechnicalHead } from './lib/technical-head.mjs';
+import { canonicalPath, cleanJsonLd } from '../src/lib/technicalSeo.mjs';
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
@@ -654,7 +656,7 @@ export function buildJsonLd(route, url, d) {
   return graphs
     .map(
       (g) =>
-        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(compact(g)).replace(/</g, "\\u003c")}</script>`,
+        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(cleanJsonLd(compact(g))).replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n");
 }
@@ -717,19 +719,9 @@ function enrichHead(html, route, url, override) {
   // Unique visible article for non-JS readers. Replaces the entire
   // homepage #seo-fallback (not just the first H1) so Google cannot
   // treat the URL as an empty SPA shell or a homepage duplicate.
-  const sources = Array.isArray(d.sources) ? d.sources : [];
-  const sourcesHtml = sources.length
-    ? `<section><h2>Sources and further reading</h2><ul>${sources
-        .map(
-          (s) =>
-            `<li><a href="${escAttr(s.url)}" rel="noopener">${escText(s.name)}</a></li>`,
-        )
-        .join("")}</ul></section>`
-    : "";
-
   // Keep unique article HTML for crawlers, but clip it so JS visitors never
   // see a wall of unstyled text before React paints the designed page.
-  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
+  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}`, {
     visible: false,
   });
   if (d.article) {
@@ -747,6 +739,7 @@ function enrichHead(html, route, url, override) {
 // ---------- head rewrite (og:url + self-referencing canonical; keep AEO injection) ----------
 
 export function rewriteHead(html, route, dataOverride) {
+  route = canonicalPath(route);
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
   let out = html.replace(
@@ -778,7 +771,7 @@ export function rewriteHead(html, route, dataOverride) {
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url, dataOverride);
-  return out;
+  return finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE);
 }
 
 function isDirectRun() {
@@ -799,7 +792,11 @@ function writeRouteFiles() {
   // collectRoutes excludes the root: enrich its English signals separately.
   // Homepage: append its hub spotlight to the static main body only.
   const rootSpot = withHubSpotlight("/", { bodyHtml: "" });
-  let rootHtml = patchEnglishAlternates(template, "/", BASE);
+  const rootData = {
+    title: 'Living With Arthritis: Pain Relief & Flare-Up Help',
+    description: 'Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461.',
+  };
+  let rootHtml = finalizeTechnicalHead(patchEnglishAlternates(template, "/", BASE), '/', rootData, BASE);
   if (rootSpot?.bodyHtml && rootHtml.includes("</main>")) {
     rootHtml = rootHtml.replace("</main>", `<section aria-label="Popular practical guides">${rootSpot.bodyHtml}</section></main>`);
   }
@@ -825,7 +822,7 @@ function writeRouteFiles() {
       // social crawlers pick up cover images after blog-head-data regen.
       const hasSupportDiscovery = !data?.article?.slug || existing.includes('aria-label="Arthritis support and guides"');
       if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data) && hasSupportDiscovery) {
-        let patched = data ? patchShareMeta(existing, data) : existing;
+        let patched = data ? finalizeTechnicalHead(patchShareMeta(existing, data), route, normalizeStaticMeta(data), BASE) : existing;
         if (!isNoindexRoute(route) && !data?.noindex) {
           patched = patchEnglishAlternates(patched, route, BASE);
         }

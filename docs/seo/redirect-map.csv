@@ -1,6 +1,4 @@
 old_url,new_url,desired_status,current_implementation,reason,release_gate
-/blog/knee-osteoarthritis-exercises,/blog/knee-arthritis-exercises-uk,301,client-side-replace,Owner-approved consolidation of overlapping knee exercise intent,Destination clinical review and real edge redirect support
-/blog/knee-exercises-arthritis,/blog/knee-arthritis-exercises-uk,301,client-side-replace,Owner-approved consolidation of overlapping knee exercise intent,Destination clinical review and real edge redirect support
 /blog/nhs-arthritis-exercises,/blog/arthritis-exercises-uk-clinical,301,client-side-replace,Legacy NHS-reference slug cleanup,Confirm historical URL and real edge redirect support
 /blog/nhs-rheumatology-waiting-times-uk,/blog/rheumatology-waiting-times-uk,301,client-side-replace,Legacy NHS-reference slug cleanup,Confirm historical URL and real edge redirect support
 /blog/food-supplements-for-joint-pain,/blog/best-supplements-joint-pain,301,client-side-replace,Duplicate topic consolidation already represented in application map,Confirm destination quality and real edge redirect support

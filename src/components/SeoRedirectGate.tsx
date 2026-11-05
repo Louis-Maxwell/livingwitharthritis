@@ -52,7 +52,7 @@ export default function SeoRedirectGate({ children }: { children: ReactNode }) {
           // Redirect tables unavailable (offline / chunk error): the host-level
           // 301s and static redirect stubs still cover crawlers.
         });
-    }, 1500);
+    }, 0);
     return () => {
       cancelled = true;
       cancelLoad();

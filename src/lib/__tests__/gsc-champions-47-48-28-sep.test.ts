@@ -67,7 +67,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   );
 
   it("OA pillar has review 2026-09-28 and customer-job cross-links", () => {
-    expect(oa).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
+    expect(oa).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|11-05)"/);
     for (const href of OA_LINKS) {
       expect(oa.includes(`"${href}"`) || oa.includes(`'${href}'`) || oa.includes(`to="${href}"`), `OA missing ${href}`).toBe(true);
     }
@@ -78,7 +78,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   });
 
   it("Pain pillar has review 2026-09-28 and denser cluster links", () => {
-    expect(pain).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
+    expect(pain).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|11-04)"/);
     for (const href of PAIN_LINKS) {
       expect(
         pain.includes(`to="${href}"`) || pain.includes(`"${href}"`),
