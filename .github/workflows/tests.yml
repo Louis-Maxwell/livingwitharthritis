@@ -17,7 +17,7 @@ jobs:
   # Vitest — full suite (unit + a11y + validation).
   vitest:
     name: Vitest (unit + a11y)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: Playwright browser deps track the runner image
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
@@ -37,7 +37,7 @@ jobs:
   # HMR flake, no reliance on the deployed site).
   playwright:
     name: Playwright (visual + E2E)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: Playwright browser deps track the runner image
     timeout-minutes: 20
     env:
       PLAYWRIGHT_BASE_URL: http://localhost:4173

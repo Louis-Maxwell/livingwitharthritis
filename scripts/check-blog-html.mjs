@@ -31,7 +31,7 @@ if (!Array.isArray(slugs) || slugs.length === 0) {
 }
 
 const HOMEPAGE_TITLE_SNIPPETS = [
-  'Living With Arthritis | UK charity',
+  'Living With Arthritis | Charity for arthritis',
   'Living With Arthritis | Evidence-Based Health Guides',
   'Living With Arthritis | Registered Charity 1218461',
 ];

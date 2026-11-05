@@ -135,7 +135,7 @@ const additionalActivities = [
   { title: "Walking with arthritis", icon: Activity, href: "/blog/walking-with-arthritis-start-build-up-keep-going", desc: "Start, build up and keep going without boom-and-bust" },
   { title: "Swimming & Hydrotherapy", icon: Waves, href: "/blog/swimming-for-arthritis", desc: "Low-impact aquatic exercise for joint pain relief" },
   { title: "Yoga for Arthritis", icon: Activity, href: "/blog/yoga-for-arthritis-beginners", desc: "Gentle poses for flexibility and strength" },
-  { title: "Cycling for Arthritis", icon: Bike, href: "/blog/cycling-with-arthritis", desc: "Joint-friendly cardio for knee and hip health" },
+  { title: "Cycling for Arthritis", icon: Bike, href: "/blog/arthritis-and-cycling-uk", desc: "Joint-friendly cardio for knee and hip health" },
   { title: "Tai Chi for Arthritis (UK Guide)", icon: Heart, href: "/exercises/tai-chi-for-arthritis", desc: "NICE-recommended — by joint, plus seated options" },
   { title: "Tai Chi for Beginners", icon: Heart, href: "/exercises/tai-chi-for-beginners", desc: "Free 7-day at-home plan — ~10 min/day, no equipment" },
   { title: "Tai Chi for Balance", icon: Heart, href: "/exercises/tai-chi-for-balance", desc: "Gentle movement for balance and pain reduction" },
@@ -191,7 +191,7 @@ const ExerciseHub = () => {
   return (
     <>
       <Helmet>
-        <title>Free Arthritis Exercises at Home UK | Exercise Hub</title>
+        <title>Free Physiotherapy Exercises for Arthritis at Home UK</title>
         <meta name="description" content="Arthritis exercises: Joint-specific routines for knees, hands, hips, back. Low-impact, evidence-based programmes from an HCPC physiotherapist." />
         <meta name="keywords" content="arthritis exercises, arthritis friendly exercises, exercises to avoid with arthritis, knee arthritis exercises, hip arthritis exercises, hand arthritis exercises, shoulder arthritis exercises, osteoarthritis exercises, rheumatoid arthritis exercises, low impact exercises arthritis, chair exercises arthritis, physiotherapy for arthritis, joint pain relief, mobility aids for arthritis, arthritis self-care" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/exercises" />
@@ -276,6 +276,8 @@ const ExerciseHub = () => {
       <section aria-label="Movement is medicine" className="relative h-[320px] md:h-[420px] overflow-hidden bg-foreground">
         <img
           src="/images/diver-movement.webp"
+          srcSet="/images/diver-movement-640.webp 640w, /images/diver-movement-1024.webp 1024w, /images/diver-movement.webp 1920w"
+          sizes="100vw"
           alt="Aerial black-and-white photograph of a diver mid-air above sparkling water, body fully extended in motion"
           width={1920}
           height={1440}
@@ -699,7 +701,7 @@ const ExerciseHub = () => {
               {
                 title: "Support your training",
                 links: [
-                  { label: "Anti-inflammatory diet", to: "/diet" },
+                  { label: "Anti-inflammatory diet", to: "/guides/diet" },
                   { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
                   { label: "Self-help joint tool", to: "/self-help" },
                   { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },

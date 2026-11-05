@@ -1,4 +1,10 @@
 import jsPDF from "jspdf";
+import { trackFileDownload } from "@/lib/ga-events";
+
+function savePdf(doc: jsPDF, filename: string) {
+  doc.save(filename);
+  trackFileDownload({ file_name: filename, file_extension: "pdf", file_url: typeof window !== "undefined" ? window.location.pathname : undefined, source: "generated_pdf" });
+}
 
 /* ── helpers ── */
 const BRAND = { r: 34, g: 139, b: 34 }; // forest-green accent
@@ -22,7 +28,9 @@ function footer(doc: jsPDF) {
   const h = doc.internal.pageSize.getHeight();
   doc.setFontSize(8);
   doc.setTextColor(160, 160, 160);
-  doc.text("Living With Arthritis  •  livingwitharthritis.org.uk  •  Free resource — not medical advice", 15, h - 8);
+  doc.text("Living With Arthritis  •  Free resource — not medical advice", 15, h - 8);
+  const htmlUrl = typeof window !== "undefined" ? window.location.origin + window.location.pathname : "https://livingwitharthritis.org.uk/";
+  doc.textWithLink(`Accessible HTML version: ${htmlUrl}`, 15, h - 4, { url: htmlUrl });
   doc.setTextColor(GRAY.r, GRAY.g, GRAY.b);
 }
 
@@ -95,7 +103,7 @@ export function generateKneeExercisePdf() {
   ]);
 
   footer(doc);
-  doc.save("Knee_Exercise_Routine_LWA.pdf");
+  savePdf(doc, "Knee_Exercise_Routine_LWA.pdf");
 }
 
 export function generateHandExercisePdf() {
@@ -127,7 +135,7 @@ export function generateHandExercisePdf() {
   }
 
   footer(doc);
-  doc.save("Hand_Exercise_Guide_LWA.pdf");
+  savePdf(doc, "Hand_Exercise_Guide_LWA.pdf");
 }
 
 export function generateMealPlanPdf() {
@@ -221,7 +229,7 @@ export function generateMealPlanPdf() {
   ]);
 
   footer(doc);
-  doc.save("7_Day_Meal_Plan_LWA.pdf");
+  savePdf(doc, "7_Day_Meal_Plan_LWA.pdf");
 }
 
 export function generatePainTrackerPdf() {
@@ -268,7 +276,7 @@ export function generatePainTrackerPdf() {
   y = paragraph(doc, y, "Goals for next week: ______________________________________________");
 
   footer(doc);
-  doc.save("Joint_Pain_Tracker_LWA.pdf");
+  savePdf(doc, "Joint_Pain_Tracker_LWA.pdf");
 }
 
 export function generateChairExercisePdf() {
@@ -301,7 +309,7 @@ export function generateChairExercisePdf() {
   }
 
   footer(doc);
-  doc.save("Chair_Exercise_Guide_LWA.pdf");
+  savePdf(doc, "Chair_Exercise_Guide_LWA.pdf");
 }
 
 export function generateFoodsListPdf() {
@@ -347,7 +355,7 @@ export function generateFoodsListPdf() {
   ]);
 
   footer(doc);
-  doc.save("Anti_Inflammatory_Foods_Checklist_LWA.pdf");
+  savePdf(doc, "Anti_Inflammatory_Foods_Checklist_LWA.pdf");
 }
 
 /* ─── NEW: Shoulder Exercise Guide ─── */
@@ -385,7 +393,7 @@ export function generateShoulderExercisePdf() {
   ]);
 
   footer(doc);
-  doc.save("Shoulder_Exercise_Guide_LWA.pdf");
+  savePdf(doc, "Shoulder_Exercise_Guide_LWA.pdf");
 }
 
 /* ─── NEW: Hip Exercise Guide ─── */
@@ -423,7 +431,7 @@ export function generateHipExercisePdf() {
   ]);
 
   footer(doc);
-  doc.save("Hip_Exercise_Guide_LWA.pdf");
+  savePdf(doc, "Hip_Exercise_Guide_LWA.pdf");
 }
 
 /* ─── NEW: Weekly Exercise Progress Tracker ─── */
@@ -469,7 +477,7 @@ export function generateProgressTrackerPdf() {
   y = paragraph(doc, y, "_______________________________________________________________");
 
   footer(doc);
-  doc.save("Weekly_Exercise_Progress_Tracker_LWA.pdf");
+  savePdf(doc, "Weekly_Exercise_Progress_Tracker_LWA.pdf");
 }
 
 /* ─── NEW: Arthritis Fact Sheet ─── */
@@ -517,7 +525,7 @@ export function generateArthritisFactSheet() {
   y = paragraph(doc, y, "Sources: NICE, Arthritis UK (formerly Versus Arthritis), World Health Organization, Public Health England. For educational use — not medical advice.", 8);
 
   footer(doc);
-  doc.save("UK_Arthritis_Fact_Sheet_LWA.pdf");
+  savePdf(doc, "UK_Arthritis_Fact_Sheet_LWA.pdf");
 }
 
 /* ─── NEW: Anti-Inflammatory Shopping List ─── */
@@ -552,7 +560,7 @@ export function generateShoppingListPdf() {
   }
 
   footer(doc);
-  doc.save("Anti_Inflammatory_Shopping_List_LWA.pdf");
+  savePdf(doc, "Anti_Inflammatory_Shopping_List_LWA.pdf");
 }
 
 /* ─── NEW: Joint Pain Self-Assessment ─── */
@@ -619,6 +627,6 @@ export function generateSelfAssessmentPdf() {
   }
 
   footer(doc);
-  doc.save("Joint_Pain_Self_Assessment_LWA.pdf");
+  savePdf(doc, "Joint_Pain_Self_Assessment_LWA.pdf");
 }
 

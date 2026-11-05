@@ -45,7 +45,6 @@ const BlogIndex = lazyWithRetry(() => import("./pages/BlogIndex"));
 const BlogArchive = lazyWithRetry(() => import("./pages/BlogArchive"));
 const Library = lazyWithRetry(() => import("./pages/Library"));
 const GuidesHub = lazyWithRetry(() => import("./pages/GuidesHub"));
-const BenefitsPipHub = lazyWithRetry(() => import("./pages/BenefitsPipHub"));
 const SearchPage = lazyWithRetry(() => import("./pages/SearchPage"));
 const LibraryTopic = lazyWithRetry(() => import("./pages/LibraryTopic"));
 const BlogHub = lazyWithRetry(() => import("./pages/BlogHub"));
@@ -61,6 +60,7 @@ const AIGuidelines = lazyWithRetry(() => import("./pages/about/AIGuidelines"));
 const AiHub = lazyWithRetry(() => import("./pages/AiHub"));
 const AccessibilityForAi = lazyWithRetry(() => import("./pages/about/AccessibilityForAi"));
 const EditorialClaimsPolicy = lazyWithRetry(() => import("./pages/about/EditorialClaimsPolicy"));
+const SymptomFlareTracker = lazyWithRetry(() => import("./pages/resources/SymptomFlareTracker"));
 const FlareActionPlan = lazyWithRetry(() => import("./pages/resources/FlareActionPlan"));
 const PipEvidenceDiary = lazyWithRetry(() => import("./pages/resources/PipEvidenceDiary"));
 const ClinicPack = lazyWithRetry(() => import("./pages/resources/ClinicPack"));
@@ -79,6 +79,8 @@ const HipArthritis = lazyWithRetry(() => import("./pages/conditions/HipArthritis
 const HandArthritis = lazyWithRetry(() => import("./pages/conditions/HandArthritis"));
 const ShoulderArthritis = lazyWithRetry(() => import("./pages/conditions/ShoulderArthritis"));
 const ElbowArthritis = lazyWithRetry(() => import("./pages/conditions/ElbowArthritis"));
+const BackPain = lazyWithRetry(() => import("./pages/conditions/BackPain"));
+const EarlyArthritisSymptoms = lazyWithRetry(() => import("./pages/conditions/EarlyArthritisSymptoms"));
 const FootAndAnkleArthritis = lazyWithRetry(() => import("./pages/conditions/FootAndAnkleArthritis"));
 const PolymyalgiaRheumatica = lazyWithRetry(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazyWithRetry(() => import("./pages/conditions/ReactiveArthritis"));
@@ -87,13 +89,16 @@ const SelfHelpTool = lazyWithRetry(() => import("./pages/SelfHelpTool"));
 const SymptomChecker = lazyWithRetry(() => import("./pages/SymptomChecker"));
 const ZakatAppeal = lazyWithRetry(() => import("./pages/ZakatAppeal"));
 const ExerciseHub = lazyWithRetry(() => import("./pages/ExerciseHub"));
-const DietHub = lazyWithRetry(() => import("./pages/DietHub"));
 const MediterraneanDietForArthritis = lazyWithRetry(() => import("./pages/diet/MediterraneanDietForArthritis"));
 const FoodsToAvoidWithArthritis = lazyWithRetry(() => import("./pages/diet/FoodsToAvoidWithArthritis"));
 const KneeOsteoarthritisExercises = lazyWithRetry(() => import("./pages/blog/KneeOsteoarthritisExercises"));
 const DoesCrackingKnucklesCauseArthritis = lazyWithRetry(() => import("./pages/myths/DoesCrackingKnucklesCauseArthritis"));
 const TrustCredibility = lazyWithRetry(() => import("./pages/TrustCredibility"));
 const CommunityHub = lazyWithRetry(() => import("./pages/CommunityHub"));
+const TrustedLocalServices = lazyWithRetry(() => import("./pages/TrustedLocalServices"));
+const ClinicalGovernance = lazyWithRetry(() => import("./pages/ClinicalGovernance"));
+const EvidenceRegister = lazyWithRetry(() => import("./pages/EvidenceRegister"));
+const CorrectionsPolicy = lazyWithRetry(() => import("./pages/CorrectionsPolicy"));
 const PrivacyPolicy = lazyWithRetry(() => import("./pages/PrivacyPolicy"));
 const CookiesPolicy = lazyWithRetry(() => import("./pages/CookiesPolicy"));
 const AccessibilityPage = lazyWithRetry(() => import("./pages/Accessibility"));
@@ -316,7 +321,6 @@ function AnimatedRoutes() {
         <Route path="/blog" element={withRouteBoundary(<BlogIndex />)} />
         <Route path="/library" element={<Library />} />
         <Route path="/guides" element={<GuidesHub />} />
-        <Route path="/benefits-pip" element={<BenefitsPipHub />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/library/:slug" element={<LibraryTopic />} />
         <Route path="/blog-hub" element={withRouteBoundary(<BlogHub />)} />
@@ -328,6 +332,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/about/ai-transparency" element={<AITransparency />} />
         <Route path="/about/editorial-claims-policy" element={<EditorialClaimsPolicy />} />
+        <Route path="/resources/symptom-flare-tracker" element={<SymptomFlareTracker />} />
         <Route path="/resources/flare-action-plan" element={<FlareActionPlan />} />
         <Route path="/resources/pip-evidence-diary" element={<PipEvidenceDiary />} />
         <Route path="/resources/clinic-pack" element={<ClinicPack />} />
@@ -359,6 +364,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/hip-arthritis" element={<HipArthritis />} />
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/conditions/elbow-arthritis" element={<ElbowArthritis />} />
+        <Route path="/conditions/back-pain" element={<BackPain />} />
+        <Route path="/conditions/early-arthritis-symptoms" element={<EarlyArthritisSymptoms />} />
         <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
         <Route path="/conditions/foot-and-ankle-arthritis" element={<FootAndAnkleArthritis />} />
         <Route path="/conditions/ankle-arthritis" element={<FootAndAnkleArthritis />} />
@@ -385,6 +392,7 @@ function AnimatedRoutes() {
         <Route path="/guides/bone-density-osteoporosis" element={<GuideLayout currentPath="/guides/bone-density-osteoporosis"><BoneDensityOsteoporosis /></GuideLayout>} />
         <Route path="/guides/fall-prevention-older-adults" element={<GuideLayout currentPath="/guides/fall-prevention-older-adults"><FallPreventionOlderAdults /></GuideLayout>} />
         <Route path="/conditions/arthritis" element={<Arthritis />} />
+        <Route path="/arthritis" element={<Navigate to="/conditions/arthritis" replace />} />
         <Route path="/guides/musculoskeletal-health" element={<GuideLayout currentPath="/guides/musculoskeletal-health"><MusculoskeletalHealth /></GuideLayout>} />
         <Route path="/guides/disability-support" element={<GuideLayout currentPath="/guides/disability-support"><DisabilitySupport /></GuideLayout>} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
@@ -400,7 +408,6 @@ function AnimatedRoutes() {
         <Route path="/exercises/tai-chi-for-beginners" element={<TaiChiForBeginners />} />
         <Route path="/exercises/ankle-arthritis-exercises" element={<AnkleArthritisExercises />} />
         <Route path="/exercises/neck-arthritis-exercises" element={<NeckArthritisExercises />} />
-        <Route path="/diet" element={<DietHub />} />
         <Route path="/diet/mediterranean-diet-for-arthritis" element={<MediterraneanDietForArthritis />} />
         <Route path="/diet/foods-to-avoid-with-arthritis" element={<FoodsToAvoidWithArthritis />} />
         <Route path="/myths/does-cracking-knuckles-cause-arthritis" element={<DoesCrackingKnucklesCauseArthritis />} />
@@ -408,6 +415,10 @@ function AnimatedRoutes() {
         <Route path="/zakat" element={<Navigate to="/zakat-appeal" replace />} />
         <Route path="/trust" element={<TrustCredibility />} />
         <Route path="/community" element={<CommunityHub />} />
+        <Route path="/trusted-local-services" element={<TrustedLocalServices />} />
+        <Route path="/clinical-governance" element={<ClinicalGovernance />} />
+        <Route path="/evidence-register" element={<EvidenceRegister />} />
+        <Route path="/corrections-policy" element={<CorrectionsPolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />
         <Route path="/accessibility" element={<AccessibilityPage />} />

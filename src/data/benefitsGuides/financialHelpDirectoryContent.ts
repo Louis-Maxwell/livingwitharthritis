@@ -1,14 +1,14 @@
 /**
  * Financial help directory for arthritis (UK): benefits, grants, discounts and where to apply
  * Content for /benefits-pip (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 10 October 2026. Pending clinical and editorial review.
+ * Facts checked on GOV.UK / official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const FIN_DIR_TITLE = "Financial help directory for arthritis (UK): benefits, grants, discounts and where to apply";
 
-export const FIN_DIR_META_TITLE = "Benefits & PIP for Arthritis: UK Financial Help Directory";
+export const FIN_DIR_META_TITLE = "PIP & Benefits for Arthritis: What You Can Claim (UK)";
 
-export const FIN_DIR_DESCRIPTION = "UK directory of financial help with arthritis: PIP and ADP, UC and ESA, carers, home adaptations, council tax, energy, health costs, travel, crisis help.";
+export const FIN_DIR_DESCRIPTION = "What can you claim with arthritis? PIP and ADP, Universal Credit, ESA, carers, home adaptations, council tax, energy and travel help, checked on official UK sources.";
 
 export const FIN_DIR_QUICK_ANSWER = "If arthritis affects your daily life or work, you may be able to get disability benefits (PIP, or Adult Disability Payment in Scotland, or Attendance Allowance over State Pension age), income support (Universal Credit, ESA, Pension Credit), help for carers, grants for home adaptations, council tax reductions, energy and health cost help, and travel concessions. Rules differ across the UK nations.";
 

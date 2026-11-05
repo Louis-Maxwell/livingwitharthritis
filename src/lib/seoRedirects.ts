@@ -61,6 +61,11 @@ const JOINT_EXERCISE_HUB: Record<string, string> = {
 };
 
 export const EXACT_SEO_REDIRECTS: Record<string, string> = {
+  // Pillar consolidation 2026-10-31: thin duplicate hubs merged into the
+  // full pillar guides; the old OA blog slug never had a post.
+  "/diet": "/guides/diet",
+  "/benefits-pip": "/guides/benefits-pip",
+  "/blog/osteoarthritis-guide": "/conditions/osteoarthritis",
   // Paused placeholder pages removed 2026-09 (shop never launched, buddy
   // matching and podcast not running). 301 to the closest live page.
   "/shop": "/supplements",
@@ -86,18 +91,32 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/library/rheumatoid-arthritis-hub": "/conditions/rheumatoid-arthritis",
   "/library/pain-management-hub": "/guides/arthritis-pain-relief",
   "/library/exercise-hub": "/exercises",
-  "/library/nutrition-hub": "/diet",
+  "/library/nutrition-hub": "/guides/diet",
   // Duplicate without canonical — keep one clear glucosamine URL.
+  // Blog taxonomy v2 (Oct 2026): old category hubs -> new primary categories.
+  "/blog/category/nutrition": "/blog/category/diet-lifestyle",
+  "/blog/category/lifestyle": "/blog/category/diet-lifestyle",
+  "/blog/category/supplements": "/blog/category/diet-lifestyle",
+  "/blog/category/health": "/blog/category/conditions",
+  "/blog/category/mental-health": "/blog/category/mental-health-fatigue",
+  "/blog/category/treatment": "/blog/category/treatments",
+  "/blog/category/frailty": "/blog/category/exercise",
   "/library/glucosamine": "/supplements/glucosamine",
   // Alternate canonical — no dedicated hip exercises subpage; send to the guide.
   "/conditions/hip-arthritis/exercises": "/guides/hip-exercises-for-osteoarthritis",
   "/exercises/knee": "/guides/knee-exercises-for-osteoarthritis",
+  // Guessed diet guide URL served the homepage shell (soft 404); send to the diet hub.
+  "/guides/arthritis-diet": "/guides/diet",
+  "/guides/anti-inflammatory-diet": "/guides/diet",
   // Published slug kept out of EXACT so prerender/catalog integrity still list it;
   // App.tsx Navigate + public/_redirects 301 to the guide. Legacy variants below
   // hop directly to the guide (no soft intermediate).
   "/blog/knee-osteoarthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
   "/blog/knee-exercises-arthritis": "/guides/knee-exercises-for-osteoarthritis",
   "/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
+  // Flare-up consolidation (31 Oct 2026): duplicate flare guides 301 to the pillar.
+  "/blog/arthritis-flare-management": "/arthritis-flare-ups",
+  "/faq/arthritis-flare-management": "/arthritis-flare-ups",
   "/guides/sarcopenia-muscle-control": "/guides/sarcopenia-muscle-loss",
   // Thin GSC city doorway — send to the RA hub, do not promote city×condition pages.
   "/arthritis-support/sheffield/rheumatoid-arthritis": "/conditions/rheumatoid-arthritis",
@@ -127,14 +146,14 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/disability-support": "/guides/disability-support",
   "/waiting-list": "/arthritis-waiting-list-help",
   "/waiting-list-help": "/arthritis-waiting-list-help",
-  "/diet-hub": "/diet",
+  "/diet-hub": "/guides/diet",
   "/de/uk/coventry/waiting-list-help": "/arthritis-support/coventry",
   // Semrush soft-404 / duplicate-homepage-title URLs (still live as SPA shell).
   "/self-help-tool": "/self-help",
   "/sitemap": "/site-index",
   "/regions/england": "/arthritis-support",
   "/regions/northern-ireland": "/blog/free-arthritis-support-northern-ireland",
-  "/finances": "/benefits-pip",
+  "/finances": "/guides/benefits-pip",
   "/lived-experiences": "/community",
   "/impact-stories": "/community",
 };
@@ -161,6 +180,16 @@ function resolveOnce(path: string): string | null {
 
   // Locale 404s must not stay as crawlable URLs.
   if (/^\/(es|fr|de|pt)\/404$/.test(path)) return "/";
+
+  // Retired legacy article PDFs: send readers to the accessible HTML guide.
+  const legacyPdf = path.match(/^\/articles\/(?:\d{3}-)?([a-z0-9-]+)\.pdf$/);
+  if (legacyPdf) {
+    const slug = BLOG_SLUG_REDIRECTS[legacyPdf[1]] ?? legacyPdf[1];
+    return PUBLISHED_BLOG_SLUGS.has(slug) ? `/blog/${slug}` : "/blog";
+  }
+  if (path === "/articles" || path === "/downloads/arthritis-starter-guide-preview.pdf") {
+    return path === "/articles" ? "/blog" : "/arthritis-starter-guide";
+  }
 
   // Shop never launched; old product links land on the supplements hub.
   if (/^\/product\/[^/]+$/.test(path)) return "/supplements";

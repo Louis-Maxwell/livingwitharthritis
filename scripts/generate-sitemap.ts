@@ -592,6 +592,10 @@ async function main() {
   // Trust & partnerships hubs.
   push("/trust");
   push("/corporate-partnerships");
+  push("/trusted-local-services");
+  push("/clinical-governance");
+  push("/evidence-register");
+  push("/corrections-policy");
 
   // Author & reviewer bio pages (E-E-A-T signals for AEO/GEO).
   push("/authors");
@@ -615,10 +619,18 @@ async function main() {
     /^\/arthritis-support\/[^/]+\/[^/]+/,
   ];
   const redirectSources = exactRedirectPathSet();
+  // Thin, pending-review archive posts stay reachable but are noindex,follow.
+  const blogNoindex = new Set<string>(
+    (JSON.parse(read("src/data/blog-noindex.json")) as string[]).map((slug) => `/blog/${slug}`),
+  );
+  // Duplicate keyword-variant routes (noindex,follow; see inject-canonicals).
+  const routeNoindex = new Set<string>(JSON.parse(read("src/data/route-noindex.json")) as string[]);
   const cleaned = entries.filter(
     (e) =>
+      !routeNoindex.has(e.path) &&
       !EXCLUDE_FROM_SITEMAP.some((re) => re.test(e.path)) &&
-      !redirectSources.has(e.path),
+      !redirectSources.has(e.path) &&
+      !blogNoindex.has(e.path),
   );
 
   const xml = build(cleaned);
@@ -671,7 +683,10 @@ async function main() {
   // large array across two generated files.
   // City hubs get unique static HTML from write-city-hub-html.mjs — keep them
   // out of the Chromium prerender list (faster CI; avoids duplicate work).
-  const otherPaths = [...new Set(cleaned.map((e) => e.path))].filter(
+  // Noindexed route variants stay prerendered (noindex,follow static HTML)
+  // even though they are no longer listed in the sitemap.
+  const prerenderable = [...cleaned, ...entries.filter((e) => routeNoindex.has(e.path))];
+  const otherPaths = [...new Set(prerenderable.map((e) => e.path))].filter(
     (p) =>
       (!p.startsWith("/blog/") || p.startsWith("/blog/category/")) &&
       !/^\/arthritis-support\/[^/]+$/.test(p),

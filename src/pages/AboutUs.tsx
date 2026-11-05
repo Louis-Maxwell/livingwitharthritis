@@ -142,11 +142,11 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>About Living With Arthritis | Registered charity 1218461</title>
-        <meta name="description" content="Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
+        <meta name="description" content="Meet Living With Arthritis, registered charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="keywords" content="arthritis charity, arthritis foundation, arthritis organisation, arthritis support, joint pain charity, arthritis awareness, arthritis advocacy, arthritis research, arthritis helpline, arthritis UK charity, living with arthritis, musculoskeletal conditions, volunteer for charity, donate to arthritis charity" />
         <meta property="og:title" content="About Living With Arthritis | Registered charity 1218461" />
-        <meta property="og:description" content="Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
+        <meta property="og:description" content="Meet Living With Arthritis, registered charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
         <meta property="og:url" content={`${CHARITY.siteUrl}/about`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -158,7 +158,7 @@ const AboutUs = () => {
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/og/landing-share.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Living With Arthritis | Registered charity 1218461" />
-        <meta name="twitter:description" content="Meet Living With Arthritis, UK charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
+        <meta name="twitter:description" content="Meet Living With Arthritis, registered charity 1218461. Learn about our team, clinical review process and free guides on pain, exercise, diet and benefits." />
         <meta name="twitter:image:alt" content={`About Us — ${CHARITY.shortName}`} />
         <meta name="geo.region" content="GB" />
         <link rel="alternate" hrefLang="en-GB" href={`${CHARITY.siteUrl}/about`} />
@@ -249,10 +249,10 @@ const AboutUs = () => {
               <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link></li>
               <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis</Link></li>
               <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link></li>
-              <li><Link to="/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
+              <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link></li>
               <li><Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
               <li><Link to="/symptom-checker" className="text-primary underline underline-offset-2">Symptom checker</Link></li>
-              <li><Link to="/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
+              <li><Link to="/guides/diet" className="text-primary underline underline-offset-2">Diet hub</Link></li>
             </ul>
           </div>
         </nav>

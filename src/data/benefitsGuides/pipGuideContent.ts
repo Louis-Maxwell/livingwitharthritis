@@ -1,16 +1,16 @@
 /**
  * Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)
  * Content for /guides/benefits-pip (Benefits & UK Support batch 3, Oct 2026).
- * Facts checked on GOV.UK / official sources on 10 October 2026. Pending clinical and editorial review.
+ * Facts checked on GOV.UK / official sources on 10 October 2026. Clinically reviewed by Louis Maxwell (HCPC PH128483).
  */
 
 export const PIP_GUIDE_TITLE = "Complete PIP guide for arthritis: eligibility, points, claiming and challenges (UK)";
 
-export const PIP_GUIDE_META_TITLE = "Can You Claim PIP for Arthritis While Working? (UK)";
+export const PIP_GUIDE_META_TITLE = "How to Claim PIP for Arthritis: Step-by-Step Guide (2026)";
 
-export const PIP_GUIDE_DESCRIPTION = "Can you claim PIP for arthritis while working? Check UK eligibility, daily living and mobility points, 2026/27 rates, the form, assessment and appeal steps.";
+export const PIP_GUIDE_DESCRIPTION = "Claim PIP for arthritis step by step: call 0800 917 2222, fill in the form, send evidence, prepare for the assessment and appeal if refused.";
 
-export const PIP_GUIDE_QUICK_ANSWER = "Can you claim PIP for arthritis while working? Yes. PIP is not means-tested or an out-of-work benefit. Eligibility depends on how a long-term condition affects daily living or mobility. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
+export const PIP_GUIDE_QUICK_ANSWER = "How do you claim PIP for arthritis? In England and Wales, call the PIP new claims line on 0800 917 2222 (Mon to Fri, 8am to 5pm), then fill in the How your disability affects you form within one month, describing your typical and flare days, and send supporting evidence. Can you claim while working? Yes. PIP is not means-tested or an out-of-work benefit. Eligibility depends on how a long-term condition affects daily living or mobility. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.";
 
 export const PIP_GUIDE_CHECKED = "10 October 2026";
 

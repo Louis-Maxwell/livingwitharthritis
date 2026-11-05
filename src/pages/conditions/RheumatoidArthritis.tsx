@@ -1,3 +1,6 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -29,6 +32,8 @@ const BASE = "https://livingwitharthritis.org.uk";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Rheumatoid Arthritis – Symptoms, Causes & Treatment | Living With Arthritis",
   "description": "Complete guide to rheumatoid arthritis (RA): an autoimmune condition causing joint inflammation. Learn about symptoms, diagnosis, treatment, exercises and diet for UK patients.",
   "url": `${BASE}/conditions/rheumatoid-arthritis`,
@@ -59,11 +64,13 @@ const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What is rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Rheumatoid arthritis (RA) is a chronic autoimmune disease where the immune system mistakenly attacks the lining of the joints (synovium), causing inflammation, pain, swelling, and eventually joint damage." } },
-    { "@type": "Question", "name": "How is rheumatoid arthritis different from osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Unlike osteoarthritis which is a wear-and-tear condition, RA is an autoimmune disease. RA typically affects joints symmetrically, causes prolonged morning stiffness (over 30 minutes), and can affect other organs. OA is localised and caused by cartilage breakdown." } },
-    { "@type": "Question", "name": "What is the best treatment for rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Early treatment with DMARDs (disease-modifying anti-rheumatic drugs) such as methotrexate is the gold standard. Biologic therapies may be added if DMARDs alone aren't sufficient. Exercise, diet, and stress management also play important roles." } },
-    { "@type": "Question", "name": "Can rheumatoid arthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is currently no cure, but early aggressive treatment can achieve remission in many patients. Modern therapies have dramatically improved outcomes, allowing many people with RA to lead active, fulfilling lives." } },
-    { "@type": "Question", "name": "Does diet affect rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An anti-inflammatory Mediterranean diet rich in omega-3 fatty acids, fruits, vegetables, and whole grains can help reduce inflammation and complement medical treatment. Some patients also find benefit from eliminating specific trigger foods." } }
+    { "@type": "Question", "name": "What is rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Rheumatoid arthritis (RA) is a long-term autoimmune condition where the immune system attacks the lining of the joints (synovium), causing inflammation, pain, swelling and, without treatment, joint damage." } },
+    { "@type": "Question", "name": "How is rheumatoid arthritis different from osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Osteoarthritis involves gradual cartilage loss in particular joints. RA is an autoimmune disease: it usually affects joints on both sides of the body, often causes morning stiffness lasting longer than 30 minutes, and can affect other parts of the body." } },
+    { "@type": "Question", "name": "I've just been diagnosed with RA. What treatment should I be offered?", "acceptedAnswer": { "@type": "Answer", "text": "NICE NG100 recommends one conventional DMARD (methotrexate, leflunomide or sulfasalazine) as soon as possible, ideally within 3 months of persistent symptoms, with the dose increased as tolerated. A short course of steroids may be offered while the DMARD takes effect, which can take 2 to 3 months." } },
+    { "@type": "Question", "name": "How will my RA be checked after diagnosis?", "acceptedAnswer": { "@type": "Answer", "text": "NICE NG100 recommends monthly CRP blood tests and a disease activity score in specialist care until your RA reaches remission or low disease activity, then a review about 6 months later and an annual review every year." } },
+    { "@type": "Question", "name": "Who do I contact if my RA flares?", "acceptedAnswer": { "@type": "Answer", "text": "NICE NG100 says everyone with RA should have rapid access to specialist care for flares and a named member of their team, often a specialist nurse, who coordinates their care. Ask for the advice line number at your first appointment." } },
+    { "@type": "Question", "name": "Can rheumatoid arthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is currently no cure. NICE NG100 sets treatment to aim for remission or low disease activity, and starting a DMARD early gives the best chance of reaching that target." } },
+    { "@type": "Question", "name": "Does diet affect rheumatoid arthritis?", "acceptedAnswer": { "@type": "Answer", "text": "NICE NG100 says there is no strong evidence that diet changes will improve RA, but you could follow the principles of a Mediterranean diet: more bread, fruit, vegetables and fish, less meat, and plant oils instead of butter and cheese." } }
   ]
 };
 
@@ -149,7 +156,7 @@ const RheumatoidArthritis = () => (
             function.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
       {/* ─── RA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-blue">
@@ -304,10 +311,10 @@ const RheumatoidArthritis = () => (
             {
               title: "Diet & supplements",
               links: [
-                { label: "Best diet for rheumatoid arthritis", to: "/diet" },
+                { label: "Best diet for rheumatoid arthritis", to: "/guides/diet" },
                 { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                { label: "Foods to avoid with arthritis", to: "/blog/category/nutrition" },
-                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/supplements" },
+                { label: "Foods to avoid with arthritis", to: "/blog/category/diet-lifestyle" },
+                { label: "Turmeric, omega-3 and collagen — what works", to: "/blog/category/diet-lifestyle" },
               ],
             },
             {
@@ -370,7 +377,7 @@ const RheumatoidArthritis = () => (
                 accent: "text-primary",
               },
               {
-                to: "/diet",
+                to: "/guides/diet",
                 eyebrow: "Nutrition",
                 title: "Anti-inflammatory diet for RA",
                 description: "Mediterranean and omega-3 rich foods that may reduce inflammation and stiffness.",
@@ -392,6 +399,8 @@ const RheumatoidArthritis = () => (
             ]}
           />
           <ArticleCitations citations={CITATIONS_RA} />
+          <ClusterGpAndLinks path="/conditions/rheumatoid-arthritis" />
+      <UrgentHelpAndSources path="/conditions/rheumatoid-arthritis" />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/rheumatoid-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/rheumatoid-arthritis" title="Explore related resources" />

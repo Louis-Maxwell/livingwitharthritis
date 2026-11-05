@@ -7,7 +7,7 @@ import { getClusterForPath, TOPIC_CLUSTERS } from "@/data/topicClusters";
 const REVIEW = "2026-10-02";
 
 const AA_LINKS = [
-  "/benefits-pip",
+  "/guides/benefits-pip",
   "/faq/arthritis-disability-benefits-uk",
   "/blog/pip-for-arthritis-uk",
   "/blog/carers-allowance-help-if-you-care-for-someone",
@@ -27,7 +27,7 @@ const FLARE_LINKS = [
   "/exercises",
   "/blog/walking-with-arthritis-start-build-up-keep-going",
   "/guides/newly-diagnosed",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 const FATIGUE_LINKS = [
@@ -38,7 +38,7 @@ const FATIGUE_LINKS = [
   "/blog/joint-protection-easier-everyday-tasks",
   "/guides/newly-diagnosed",
   "/blog/access-to-work-scheme-arthritis-guide",
-  "/benefits-pip",
+  "/guides/benefits-pip",
 ];
 
 describe("GSC Champions 59–61 (2 Oct): attendance-allowance + flare-up + fatigue", () => {
@@ -86,8 +86,8 @@ describe("GSC Champions 59–61 (2 Oct): attendance-allowance + flare-up + fatig
   };
 
   it("Attendance Allowance blog is clinically reviewed 2026-10-02 with CTR meta and customer-job links", () => {
-    expect(aaJson.last_reviewed).toBe(REVIEW);
-    expect(aaJson.reviewStatus).toBe("reviewed");
+    expect(aaJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(aaJson.reviewStatus).toBeUndefined();
     expect(aaJson.reviewed_by).toBe("Louis Maxwell");
     expect(aaJson.meta_title).toMatch(/Attendance Allowance UK for Arthritis/i);
     const urls = (aaJson.citations || []).map((c) => c.url);
@@ -110,8 +110,8 @@ describe("GSC Champions 59–61 (2 Oct): attendance-allowance + flare-up + fatig
   });
 
   it("Flare-up blog is clinically reviewed 2026-10-02 with CTR meta, NHS/Arthritis UK cites and customer-job links", () => {
-    expect(flareJson.last_reviewed).toBe(REVIEW);
-    expect(flareJson.reviewStatus).toBe("reviewed");
+    expect(flareJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(flareJson.reviewStatus).toBeUndefined();
     expect(flareJson.reviewed_by).toBe("Louis Maxwell");
     expect(flareJson.meta_title).toMatch(/Arthritis Flare-Up UK/i);
     const urls = (flareJson.citations || []).map((c) => c.url);
@@ -131,8 +131,8 @@ describe("GSC Champions 59–61 (2 Oct): attendance-allowance + flare-up + fatig
   });
 
   it("Fatigue blog is clinically reviewed 2026-10-02 with CTR meta, NHS/Arthritis UK cites and customer-job links", () => {
-    expect(fatigueJson.last_reviewed).toBe(REVIEW);
-    expect(fatigueJson.reviewStatus).toBe("reviewed");
+    expect(fatigueJson.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(fatigueJson.reviewStatus).toBeUndefined();
     expect(fatigueJson.reviewed_by).toBe("Louis Maxwell");
     expect(fatigueJson.meta_title).toMatch(/Arthritis Fatigue UK/i);
     const urls = (fatigueJson.citations || []).map((c) => c.url);

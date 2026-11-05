@@ -8,7 +8,7 @@ import {
   Instagram,
   Linkedin,
   Youtube,
-  Music,
+  AtSign,
   Mail,
   Github,
   MessageCircle,
@@ -32,7 +32,7 @@ const iconMap: Record<SocialPlatform, React.ComponentType<LucideProps>> = {
   instagram: Instagram,
   linkedin: Linkedin,
   youtube: Youtube,
-  tiktok: Music,
+  threads: AtSign,
   pinterest: Github,
   reddit: MessageCircle,
   email: Mail,
@@ -66,7 +66,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
     : 'inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full border border-border/40 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all';
 
   return (
-    <div className={`${containerClass} ${className}`} role="list" aria-label="Living With Arthritis social pages">
+    <div className={`${containerClass} ${className}`}>
       {socialLinks.map(link => {
         const Icon = iconMap[link.platform];
         if (!Icon) return null;
@@ -83,7 +83,6 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
             aria-label={`Visit ${link.displayName}`}
             title={link.description}
             onClick={() => trackSocialMediaClick(link.platform, context)}
-            role="listitem"
           >
             <span className="sr-only">{link.displayName}</span>
             <Icon className={`${sizeMap[size]} group-hover:scale-110 transition-transform`} />

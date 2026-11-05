@@ -2,9 +2,13 @@ import DOMPurify from "dompurify";
 
 function wrapTablesForMobile(html: string): string {
   // Scroll wide tables inside a wrapper so the page itself never side-scrolls.
+  // Each wrapper is a focusable region, so number them to keep landmark names unique (WCAG/axe landmark-unique).
+  let n = 0;
   return html.replace(/<table(\b[^>]*)>[\s\S]*?<\/table>/gi, (match) => {
     if (/class=["'][^"']*\btable-scroll\b/.test(match)) return match;
-    return `<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table">${match}</div>`;
+    n += 1;
+    const label = n === 1 ? "Scrollable data table" : `Scrollable data table ${n}`;
+    return `<div class="table-scroll" tabindex="0" role="region" aria-label="${label}">${match}</div>`;
   });
 }
 

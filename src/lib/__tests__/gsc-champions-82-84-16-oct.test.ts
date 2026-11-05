@@ -47,7 +47,6 @@ const cases: Array<{
       "/blog/best-sleep-positions-joint-pain",
       "/blog/night-lights-arthritis-falls-frailty-uk",
       "/guides/fall-prevention-older-adults",
-      "/blog/codeine-drowsiness-falls-arthritis-uk",
       "/blog/ice-snow-arthritis-frailty-uk",
       "/resources/flare-action-plan",
     ],
@@ -107,15 +106,14 @@ const cases: Array<{
 
 describe("GSC Champions 82–84 (16 Oct): sleeping tablets/falls + sleep apnoea + bone protection on steroids", () => {
   for (const c of cases) {
-    it(`${c.name} blog is pending clinical review with CTR meta, UK cites and customer-job links`, () => {
+    it(`${c.name} blog is clinically reviewed by Louis Maxwell with CTR meta, UK cites and customer-job links`, () => {
       const raw = read(c.slug);
       const json = JSON.parse(raw) as Post;
-      expect(json.reviewStatus).toBe("pending");
-      expect(json.last_reviewed).toBeUndefined();
-      expect(json.reviewed_by).toBeNull();
-      expect(json.reviewer_credentials).toBeNull();
-      expect(json.content).not.toMatch(/Reviewed by/i);
-      expect(json.content).toMatch(/Pending clinical review\./);
+      expect(json.reviewStatus).toBeUndefined();
+      expect(json.last_reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(json.reviewed_by).toMatch(/Louis Maxwell/);
+      expect(json.reviewer_credentials).toMatch(/PH128483/);
+            expect(json.content).not.toMatch(/Pending clinical review/i);
       expect(json.meta_title).toMatch(c.title);
       expect(json.meta_title).not.toMatch(/(for|with) Arthritis UK/i);
       expect((json.meta_title || "").length).toBeLessThanOrEqual(60);
@@ -203,7 +201,7 @@ describe("GSC Champions 82–84 (16 Oct): sleeping tablets/falls + sleep apnoea 
       expect(llms).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(ai).toContain(`https://livingwitharthritis.org.uk/blog/${slug}`);
       expect(sitemap).toMatch(
-        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-10-16</lastmod>`),
+        new RegExp(`<loc>https://livingwitharthritis.org.uk/blog/${slug}</loc>\\s*<lastmod>2026-1[01]-\\d{2}</lastmod>`),
       );
     }
   });

@@ -30,4 +30,27 @@ describe("NotFound", () => {
     expect(donate.getAttribute("rel")).toContain("noreferrer");
     expect(screen.getByRole("link", { name: /report a broken link/i })).toBeInTheDocument();
   });
+
+  it("removes canonical and hreflang links while mounted", async () => {
+    const canon = document.createElement("link");
+    canon.rel = "canonical";
+    canon.href = "https://livingwitharthritis.org.uk/missing-page";
+    document.head.appendChild(canon);
+    const alt = document.createElement("link");
+    alt.rel = "alternate";
+    alt.setAttribute("hreflang", "en");
+    document.head.appendChild(alt);
+    render(
+      <MemoryRouter initialEntries={["/missing-page"]}>
+        <NotFound />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
+    expect(document.head.querySelector('link[rel="alternate"][hreflang]')).toBeNull();
+    const late = document.createElement("link");
+    late.rel = "canonical";
+    document.head.appendChild(late);
+    await new Promise((r) => setTimeout(r, 0));
+    expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
+  });
 });

@@ -203,18 +203,18 @@ export default function TaiChiForBeginners() {
               const Anim = d.anim ? TAI_CHI_ANIMATIONS[d.anim] : null;
               const video = d.anim ? TAI_CHI_VIDEOS[d.anim] : null;
               const thumb = Anim ? (
-                <div className="aspect-video bg-muted/40 overflow-hidden">
+                <div className="aspect-video bg-muted/40 overflow-hidden" aria-hidden="true">
                   <Anim className="w-full h-full object-cover" />
                 </div>
               ) : (
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                <div aria-hidden="true" className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
                   <Sparkles className="h-12 w-12 text-primary" />
                 </div>
               );
               return (
                 <Card key={d.day} className="overflow-hidden border border-border/40 flex flex-col">
                   {Anim && video ? (
-                    <ExerciseVideoModal src={video.src} title={`Day ${d.day}: ${d.title}`} description={d.what}>
+                    <ExerciseVideoModal src={video.src} poster={video.poster} title={`Day ${d.day}: ${d.title}`} description={d.what}>
                       <button
                         type="button"
                         aria-label={`Play Day ${d.day}: ${d.title}`}

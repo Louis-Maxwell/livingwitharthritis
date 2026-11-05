@@ -70,7 +70,6 @@ const BlogCard = ({
         className={`flex min-w-0 flex-1 focus-visible:outline-none ${
           isLead ? "flex-col md:flex-row" : isCompact ? "flex-row items-stretch" : "flex-col"
         }`}
-        aria-label={`Read: ${title}`}
       >
         <div
           className={`shrink-0 overflow-hidden bg-muted/40 ${

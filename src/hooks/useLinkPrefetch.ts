@@ -56,7 +56,7 @@ export function useLinkPrefetch() {
 
     // Idle pre-warm of top destinations (from analytics) so the second
     // click feels instant. Skips the current page.
-    const TOP_ROUTES = ["/about", "/diet", "/exercises", "/arthritis-flare-ups"];
+    const TOP_ROUTES = ["/about", "/guides/diet", "/exercises", "/arthritis-flare-ups"];
     const warm = () => {
       TOP_ROUTES.forEach((p) => {
         if (p !== window.location.pathname) prefetch(p);

@@ -5,6 +5,8 @@
  * screen readers and crawlers can pick up the review date. Mirrors the
  * pattern used in BlogPost.tsx for consistency across the site.
  */
+import { nextReviewDate } from "@/lib/reviewDates";
+
 interface LastReviewedProps {
   /** ISO-8601 date string, e.g. "2026-07-11". */
   date: string;
@@ -23,6 +25,14 @@ export default function LastReviewed({ date, className }: LastReviewedProps) {
       <time dateTime={date} className="font-medium text-foreground/80">
         {label}
       </time>
+      {nextReviewDate(date) ? (
+        <>
+          {" · Next review "}
+          <time dateTime={nextReviewDate(date)!} className="font-medium text-foreground/80">
+            {new Date(nextReviewDate(date)!).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+          </time>
+        </>
+      ) : null}
     </p>
   );
 }

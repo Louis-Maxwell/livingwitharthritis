@@ -76,7 +76,7 @@ export default function AnkleArthritisExercises() {
         description={FOOT_ANKLE_DESCRIPTION}
         path="/exercises/ankle-arthritis-exercises"
         type="article"
-        keywords="foot arthritis exercises, ankle arthritis exercises UK, big toe arthritis exercises, exercises for arthritic feet, ankle stiffness exercises"
+        keywords="ankle exercise pdf, ankle strengthening exercises PDF, foot arthritis exercises, ankle arthritis exercises, printable ankle exercise programme"
       />
       <Header />
 
@@ -86,9 +86,14 @@ export default function AnkleArthritisExercises() {
             Exercise Hub · Foot &amp; ankle
           </Badge>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-            Foot and ankle arthritis exercises: 10 gentle moves to do at home
+            Ankle exercise PDF: 10 foot and ankle strengthening exercises to do at home
           </h1>
           <p className="text-lg text-muted-foreground mb-6">{FOOT_ANKLE_INTRO}</p>
+          <p className="mb-8">
+            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.html">Open the printable five-exercise ankle guide</a>
+            {" or "}
+            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.pdf" download>download the free ankle exercise PDF</a>.
+          </p>
           <p className="quick-answer mb-8 p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {FOOT_ANKLE_QUICK_ANSWER}
           </p>
@@ -103,7 +108,7 @@ export default function AnkleArthritisExercises() {
             </p>
           </aside>
 
-          <EducationalDisclaimerBox reviewStatus="pending" />
+          <EducationalDisclaimerBox lastReviewed="2026-10-23" />
 
           <div className={PROSE} dangerouslySetInnerHTML={{ __html: sanitizeHtml(FOOT_ANKLE_BEFORE_HTML) }} />
 
@@ -140,7 +145,7 @@ export default function AnkleArthritisExercises() {
           <p className="text-xs text-muted-foreground bg-muted/40 rounded-xl p-4 mb-12">
             <strong>Medical disclaimer:</strong> Educational information for
             people in the UK, not a diagnosis or personal treatment plan.
-            Pending clinical review. Sources: NICE NG226 and NG100, NHS foot
+            Clinically reviewed by Louis Maxwell (HCPC PH128483). Sources: NICE NG226 and NG100, NHS foot
             pain and osteoarthritis guidance, Arthritis UK exercise information.
           </p>
 

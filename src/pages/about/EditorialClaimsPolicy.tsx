@@ -90,7 +90,7 @@ export default function EditorialClaimsPolicy() {
           <h2 className="font-display text-2xl font-bold">Educational, not diagnostic</h2>
           <p>
             {CHARITY.shortName} (charity {CHARITY.number}) publishes plain-English UK education.
-            Pages show whether clinical review is complete or pending. A completed-review
+            All published guides have been clinically reviewed by Louis Maxwell (HCPC PH128483). A completed-review
             claim should be supported by a named reviewer and a recorded review date.
             It does not replace your GP, rheumatology team or pharmacist.
           </p>

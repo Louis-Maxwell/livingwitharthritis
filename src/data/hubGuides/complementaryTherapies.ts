@@ -14,7 +14,7 @@ export const complementaryTherapies: HubGuide = {
     { label: "Complementary therapies", href: "/treatments/complementary-therapies" },
   ],
   updated: "2026-09-25",
-  reviewStatus: "pending-clinical-review",
+  reviewStatus: "reviewed",
   sections: [
     {
       heading: "Complementary, not alternative",
@@ -88,7 +88,7 @@ export const complementaryTherapies: HubGuide = {
         "Long-term pain affects mood, sleep and stress, and each of those can turn the volume of pain up. Mindfulness, relaxation training and cognitive behavioural therapy (CBT) do not fix joints, but they can change how much pain takes over your life. CBT-based support is available through NHS talking therapies services, and in England you can usually refer yourself.",
       ],
       links: [
-        { label: "Mindfulness for arthritis pain", href: "/blog/mindfulness-for-arthritis-pain" },
+        { label: "Mindfulness for arthritis pain", href: "/blog/mindfulness-chronic-pain-arthritis-guide" },
         { label: "CBT for chronic pain", href: "/blog/cbt-chronic-pain-arthritis" },
       ],
     },

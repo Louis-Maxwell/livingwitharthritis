@@ -3,48 +3,18 @@ import { Helmet } from "react-helmet-async";
 import BlogIndex from "./BlogIndex";
 import SeoHead from "@/components/SeoHead";
 import { useConditionArticles } from "@/hooks/useBlogArticles";
+import categoryMeta from "@/data/blogCategoryMeta.json";
 import {
   BLOG_CATEGORY_KEYS,
+  LEGACY_BLOG_CATEGORY_KEYS,
   blogCategoryAliases,
+  BLOG_CATEGORY_LABELS,
   type BlogCategoryKey,
 } from "@/data/blogCategories";
 
 const validCategories = new Set<string>(BLOG_CATEGORY_KEYS);
 
-const CATEGORY_META: Record<string, { title: string; description: string }> = {
-  exercise: {
-    title: "Arthritis Exercise Articles & Guides",
-    description: "Evidence-based articles on safe exercise for arthritis — strength, mobility, low-impact cardio and joint-protective movement, written for UK patients.",
-  },
-  nutrition: {
-    title: "Anti-Inflammatory Nutrition for Arthritis",
-    description: "Mediterranean diet, anti-inflammatory recipes and food guidance for people living with arthritis in the UK.",
-  },
-  lifestyle: {
-    title: "Lifestyle Tips for Living With Arthritis",
-    description: "Practical lifestyle advice for arthritis — sleep, stress, work, daily routines and relationships. UK-focused guidance from our team.",
-  },
-  health: {
-    title: "Arthritis Health & Wellbeing Articles",
-    description: "UK arthritis health articles covering symptoms, flare-ups, mental health, care pathways and treatment updates.",
-  },
-  supplements: {
-    title: "Supplements for Arthritis: Evidence & Reviews",
-    description: "Evidence-led reviews of arthritis supplements including turmeric, omega-3, glucosamine and collagen.",
-  },
-  treatment: {
-    title: "Arthritis Treatment Articles & Updates",
-    description: "Latest arthritis treatment articles — medications, public healthcare pathways, physiotherapy, surgery and emerging research, explained for UK patients.",
-  },
-  "mental-health": {
-    title: "Mental Health & Arthritis: UK Guides",
-    description: "Living with arthritis affects mental wellbeing. Read evidence-based UK guides on mood, anxiety, sleep and coping with chronic pain.",
-  },
-  frailty: {
-    title: "Frailty in Older Adults: UK Guides",
-    description: "UK articles on frailty, sarcopenia, falls prevention, nutrition and exercise for older adults.",
-  },
-};
+const CATEGORY_META = categoryMeta as Record<BlogCategoryKey, { title: string; description: string }>;
 
 const BlogCategory = () => {
   const { category } = useParams<{ category: string }>();
@@ -56,15 +26,16 @@ const BlogCategory = () => {
   // redirect below happens after this, so it's fine to key it on "" here.
   const { data: catArticles = [] } = useConditionArticles(
     canonicalKey ? blogCategoryAliases(canonicalKey) : [],
-    20,
+    60,
   );
 
   if (!category || !canonicalKey) {
-    return <Navigate to="/blog" replace />;
+    const legacy = LEGACY_BLOG_CATEGORY_KEYS[key];
+    return <Navigate to={legacy ? `/blog/category/${legacy}` : "/blog"} replace />;
   }
 
-  const meta = CATEGORY_META[key];
-  const categoryLabel = meta?.title?.split(":")[0]?.split("Articles")[0]?.trim() || key;
+  const meta = CATEGORY_META[canonicalKey];
+  const categoryLabel = BLOG_CATEGORY_LABELS[canonicalKey];
   const url = `https://livingwitharthritis.org.uk/blog/category/${key}`;
 
   const itemListLd = {
