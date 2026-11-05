@@ -170,7 +170,7 @@ export default function SeoDefaults() {
           once this one mounts. */}
       <link rel="canonical" key="canonical" href={pageUrl} />
       {/* General English reaches English readers across countries without inventing regional versions. */}
-      {!search && <link rel="alternate" hrefLang="en" href={`${SITE_URL}${basePath}`} />}
+      {!search && <link rel="alternate" hrefLang="en" href={pageUrl} />}
       {!search && (hasTranslations ? (
         <>
           {SUPPORTED_LANGS.map((lang) => (
