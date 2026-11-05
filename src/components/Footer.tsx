@@ -27,6 +27,7 @@ const columns = [
       { label: "PIP Evidence Diary", href: "/resources/pip-evidence-diary" },
       { label: "Clinic Pack", href: "/resources/clinic-pack" },
       { label: "Resource Centre", href: "/resource-centre" },
+      { label: "Monthly Magazine", href: "/magazine" },
       { label: "Healthcare Professionals", href: "/healthcare-professionals" },
       { label: "Contact Us", href: "/contact" },
       { label: "FAQ", href: "/faq" },
