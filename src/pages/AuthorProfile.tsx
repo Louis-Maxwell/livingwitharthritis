@@ -84,7 +84,12 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   Object.keys(personLd).forEach((k) => personLd[k] === undefined && delete personLd[k]);
 
   const badgeLabel = variant === "reviewer" ? "Medical reviewer" : "Author";
-  const title = `${record.name} — ${badgeLabel} | Living With Arthritis`;
+  const canonicalUrl = variant === "reviewer"
+    ? `https://livingwitharthritis.org.uk/authors/${slug}`
+    : url;
+  const title = variant === "reviewer"
+    ? `${record.name} — Clinical reviewer | Living With Arthritis`
+    : `${record.name} — ${badgeLabel} | Living With Arthritis`;
   const description = `${badgeLabel} profile: ${record.name}, ${record.title}. ${
     isPlaceholder(record.bio) ? '' : record.bio
   }`.slice(0, 155);
@@ -93,7 +98,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
     <>
       <Helmet>
         <title>{title}</title>
-        <link rel="canonical" href={url} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
