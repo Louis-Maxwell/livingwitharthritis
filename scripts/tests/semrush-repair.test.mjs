@@ -7,7 +7,6 @@ import { patchEnglishAlternates } from '../lib/english-alternates.mjs';
 import { buildCityHubHtml } from '../write-city-hub-html.mjs';
 import { CITY_HUBS } from '../seo-redirect-map.mjs';
 const BASE = 'https://livingwitharthritis.org.uk';
-const BASE_RE = 'https://livingwitharthritis\\.org\\.uk';
 const template = readFileSync('index.html', 'utf8');
 test('every static route has its own complete, singular social metadata', () => {
   for (const route of collectRoutes().filter((r) => !/\.[a-z]+$/.test(r))) {
@@ -16,7 +15,7 @@ test('every static route has its own complete, singular social metadata', () => 
       'twitter:card','twitter:title','twitter:description','twitter:image']) {
       assert.equal([...html.matchAll(new RegExp(`(?:property|name)="${key}"`, 'g'))].length, 1, `${route}: ${key}`);
     }
-    assert.match(html, new RegExp(`content="${BASE_RE}${route}"`));
+    assert.ok(html.includes(`content="${BASE}${route}"`), `${route}: og/canonical url`);
     assert.doesNotMatch(html, /"speakable"/);
     assert.doesNotMatch(html, /Living With Arthritis UK/);
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1, route);
@@ -28,7 +27,7 @@ test('query URLs never receive hreflang annotations', () => {
 test('each city output has self-referencing English/default alternates', () => {
   for (const city of CITY_HUBS) {
     const html = buildCityHubHtml(city);
-    assert.match(html, new RegExp(`hreflang="en-GB" href="${BASE_RE}/arthritis-support/${city.slug}"`));
+    assert.ok(html.includes(`hreflang="en-GB" href="${BASE}/arthritis-support/${city.slug}"`), city.slug);
     assert.match(html, /hreflang="x-default"/);
   }
 });

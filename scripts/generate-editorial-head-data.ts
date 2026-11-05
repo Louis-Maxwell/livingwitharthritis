@@ -16,13 +16,14 @@ for (const tip of dailyTips) {
     relatedLinks: [{ path: '/daily-tips/overview', title: dailyLivingIntro.title }],
   };
 }
-for (const [slug, title, content] of [
-  ['daily-living', dailyLivingIntro.title, dailyLivingIntro.content],
-  ['health-tips', 'Tips for Every Day', dailyLivingIntro.tipsOverview],
-  ['overview', dailyLivingIntro.title, `${dailyLivingIntro.content}\n\n${dailyLivingIntro.tipsOverview}`],
-]) {
+const tipHubs: Array<[string, string, string, string]> = [
+  ['daily-living', dailyLivingIntro.title, dailyLivingIntro.subtitle, dailyLivingIntro.content],
+  ['health-tips', 'Tips for Every Day', 'Short UK daily tips that support joint health and everyday living with arthritis.', dailyLivingIntro.tipsOverview],
+  ['overview', 'Daily living overview', 'Overview of practical UK daily-living habits for people with arthritis.', `${dailyLivingIntro.content}\n\n${dailyLivingIntro.tipsOverview}`],
+];
+for (const [slug, title, description, content] of tipHubs) {
   entries[`/daily-tips/${slug}`] = {
-    title: `${title} — Daily Living Tips`, description: dailyLivingIntro.subtitle,
+    title: `${title} — Daily Living Tips`, description,
     question: title, bodyHtml: paragraphs(content), breadcrumb: title,
     relatedLinks: dailyTips.map((tip) => ({ path: `/daily-tips/${tip.slug}`, title: tip.title })),
   };

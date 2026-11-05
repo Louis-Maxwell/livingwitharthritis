@@ -112,7 +112,7 @@
   },
   "/daily-tips/health-tips": {
     "title": "Tips for Every Day — Daily Living Tips",
-    "description": "Practical UK habits that ease stiffness and support everyday life with arthritis.",
+    "description": "Short UK daily tips that support joint health and everyday living with arthritis.",
     "question": "Tips for Every Day",
     "bodyHtml": "<p>Everyday tips work best when they are short, realistic and easy to repeat. Use them as a menu, not a checklist to finish in one day.</p><p>1. Start the morning with a glass of water and a few gentle stretches before getting busy.<br>2. Stand or walk for a minute each hour if you sit for long periods.<br>3. Keep joint-friendly snacks ready — walnuts, berries, yoghurt, vegetable sticks.<br>4. Pace chores: one room or one task, then a short rest.<br>5. Warmth helps many people — layers, warm showers, or a heat pack before activity.<br>6. Note flares in a simple diary so you can spot patterns and discuss them with your GP or rheumatology team.<br>7. Ask about occupational therapy aids if dressing, cooking or bathing is becoming hard.<br>8. Protect sleep: a regular bedtime and a cool, dark room make a real difference to pain and mood.</p><p>Small changes, kept up, usually beat ambitious plans you cannot sustain.</p>",
     "breadcrumb": "Tips for Every Day",
@@ -144,11 +144,11 @@
     ]
   },
   "/daily-tips/overview": {
-    "title": "Daily Living for Joint Health — Daily Living Tips",
-    "description": "Practical UK habits that ease stiffness and support everyday life with arthritis.",
-    "question": "Daily Living for Joint Health",
+    "title": "Daily living overview — Daily Living Tips",
+    "description": "Overview of practical UK daily-living habits for people with arthritis.",
+    "question": "Daily living overview",
     "bodyHtml": "<p>Living well with arthritis is less about perfect routines and more about small, repeatable habits that protect your joints day to day.</p><p>Joints need regular, gentle movement, steady hydration, and enough rest to recover. Long spells of sitting, skipping meals, or pushing through every good day often make stiffness and fatigue worse.</p><p>Focus on four building blocks:</p><p>• Movement — change position often; short walks and light stretches keep joints from locking up<br>• Food — favour oily fish, nuts, fruit, vegetables and whole foods; cut back on ultra-processed snacks where you can<br>• Hydration — water helps joints move more comfortably<br>• Rest — consistent sleep and pacing reduce next-day flares</p><p>At home, favour ergonomic tools (larger-handled cutlery, jar openers, perching stools) and plan tasks in short bursts. On tougher days, scale activity rather than stopping altogether — Arthritis UK (formerly Versus Arthritis) and NHS advice both emphasise staying as active as you safely can.</p><p>These habits will not replace prescribed treatment, but they make daily life more manageable alongside your care team.</p><p>Everyday tips work best when they are short, realistic and easy to repeat. Use them as a menu, not a checklist to finish in one day.</p><p>1. Start the morning with a glass of water and a few gentle stretches before getting busy.<br>2. Stand or walk for a minute each hour if you sit for long periods.<br>3. Keep joint-friendly snacks ready — walnuts, berries, yoghurt, vegetable sticks.<br>4. Pace chores: one room or one task, then a short rest.<br>5. Warmth helps many people — layers, warm showers, or a heat pack before activity.<br>6. Note flares in a simple diary so you can spot patterns and discuss them with your GP or rheumatology team.<br>7. Ask about occupational therapy aids if dressing, cooking or bathing is becoming hard.<br>8. Protect sleep: a regular bedtime and a cool, dark room make a real difference to pain and mood.</p><p>Small changes, kept up, usually beat ambitious plans you cannot sustain.</p>",
-    "breadcrumb": "Daily Living for Joint Health",
+    "breadcrumb": "Daily living overview",
     "relatedLinks": [
       {
         "path": "/daily-tips/morning-stretches",
