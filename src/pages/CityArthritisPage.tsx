@@ -9,10 +9,10 @@ import SocialShareButtons from "@/components/SocialShareButtons";
 import ReadNextCards from "@/components/ReadNextCards";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import { distinctSeoTitle } from "@/lib/technicalSeo.mjs";
 import { ukCities } from "@/data/ukCities";
 import { arthritisConditions } from "@/data/arthritisConditions";
 import { MapPin, Hospital, Phone, BookOpen, ArrowRight, Users, Dumbbell, Apple, Heart, Stethoscope, Timer } from "lucide-react";
-import { motion } from "framer-motion";
 
 const BASE = "https://livingwitharthritis.org.uk";
 
@@ -66,10 +66,16 @@ const CityArthritisPage = () => {
     ],
   };
 
+  const h1 = `Arthritis support near you in ${cityData.name}`;
+  const pageTitle = distinctSeoTitle(
+    `Arthritis Support in ${cityData.name}`,
+    h1,
+  );
+
   return (
     <>
       <Helmet>
-        <title>{enforceTitle(`Arthritis Support in ${cityData.name}`, { route: `/arthritis-support/${cityData.slug}` })}</title>
+        <title>{enforceTitle(pageTitle, { route: `/arthritis-support/${cityData.slug}` })}</title>
         <meta name="description" content={enforceDescription(cityData.description, `/arthritis-support/${cityData.slug}`)} />
         <meta name="robots" content={routeNoindex.includes(`/arthritis-support/${cityData.slug}`) ? "noindex, follow" : "index, follow"} />
         <meta property="og:title" content={`Arthritis Support in ${cityData.name}`} />
@@ -104,7 +110,7 @@ const CityArthritisPage = () => {
       ]} />
 
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-10 max-w-4xl">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <div>
           {/* Hero */}
           <div className="mb-10">
             <div className="flex items-center gap-2 text-primary mb-3">
@@ -112,7 +118,7 @@ const CityArthritisPage = () => {
               <span className="text-sm font-medium">{cityData.region}</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Arthritis Support in {cityData.name}
+              {h1}
             </h1>
             <AeoEnhancement
               route={`/arthritis-support/${cityData.slug}`}
@@ -189,6 +195,33 @@ const CityArthritisPage = () => {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* While you wait — unique local next steps (helps Semrush thin-page + text-HTML) */}
+          <section className="mb-8">
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              While you wait for rheumatology in {cityData.name}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Many people in {cityData.name} ({cityData.region}) spend weeks or months waiting after a GP referral to{" "}
+              <strong>{cityData.localTrust}</strong>. Use that time to prepare: write down which joints hurt, how long morning
+              stiffness lasts, what you can no longer do at home or work, and which pain relief you have already tried.
+              Bring a current medicine list, including pharmacy gels and supplements, to every appointment.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              Ask your GP surgery about community physiotherapy, exercise referral schemes, and whether you can join a
+              cancellation list at {cityData.localTrust}. Local starting points include{" "}
+              {cityData.localResources.slice(0, 2).join(" and ")}. If pain, swelling or function suddenly worsens, contact
+              your GP or NHS 111 rather than waiting for the original appointment date.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Living With Arthritis publishes free UK guides you can use from home in {cityData.name}:{" "}
+              <Link to="/arthritis-waiting-list-help" className="text-primary underline underline-offset-2">waiting-list rights</Link>,{" "}
+              <Link to="/exercises" className="text-primary underline underline-offset-2">joint-friendly exercises</Link>,{" "}
+              <Link to="/guides/diet" className="text-primary underline underline-offset-2">anti-inflammatory diet</Link>, and{" "}
+              <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">PIP and benefits</Link>.
+              These are general educational resources, not a substitute for personal medical advice from your clinical team.
+            </p>
           </section>
 
           {/* How to Get Help */}
@@ -281,7 +314,7 @@ const CityArthritisPage = () => {
           />
 
           <SocialShareButtons title={`Arthritis Support in ${cityData.name}`} slug={`arthritis-support/${cityData.slug}`} />
-        </motion.div>
+        </div>
       </main>
 
       <Footer />

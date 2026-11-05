@@ -1,4 +1,5 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { enforceTitle } from "@/lib/seoMeta";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import Header from "@/components/Header";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
@@ -203,7 +204,7 @@ export default function ExerciseGuide() {
   return (
     <>
       <Helmet>
-        <title>Arthritis Exercises at Home: Free Knee, Hip &amp; Hand Routines</title>
+        <title>{enforceTitle("Arthritis exercises at home", { includeSiteName: true, route: "/exercises" })}</title>
         <meta name="description" content="Free physio-written arthritis exercises at home: knee, hip, hand and chair routines with safe progression tips and clear advice on when to stop." />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="en_GB" />

@@ -208,12 +208,7 @@ export const WEBSITE_PAYLOAD = {
     { "@type": "Thing", name: "PIP, Attendance Allowance and Access to Work" },
   ],
   publisher: { "@id": `${BASE}/#organization` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${BASE}/search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+  // No SearchAction: /search is a client-only SPA shell. Semrush "Sitelinks
+  // search box" flags invalid SearchAction targets when JS is off (~1330
+  // structured-data errors). Re-add only when a crawlable HTML search exists.
 };

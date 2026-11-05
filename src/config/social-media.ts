@@ -95,7 +95,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
     icon: 'AtSign',
     color: 'hover:text-black dark:hover:text-white',
     description: 'Follow Living With Arthritis on Threads',
-    enabled: true, // charity-owned Threads profile
+    enabled: false, // Semrush: Threads returns HTTP 429 to crawlers; re-enable when stable
   },
   pinterest: {
     platform: 'pinterest',
