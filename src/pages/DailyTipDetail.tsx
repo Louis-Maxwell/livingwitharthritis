@@ -80,9 +80,14 @@ const DailyTipDetail = () => {
     );
   }
 
-  const title = slug === 'health-tips' ? 'Tips for Every Day' : isOverview ? dailyLivingIntro.title : tip?.title || '';
+  const title = slug === 'health-tips' ? 'Everyday arthritis tips for joint health' : isOverview ? dailyLivingIntro.title : tip?.title || '';
   const metaTitle = isOverview ? title : (tip?.metaTitle || tip?.title || '');
-  const description = isOverview ? dailyLivingIntro.subtitle : tip?.desc || '';
+  const description = slug === 'health-tips'
+    ? 'Short, practical everyday tips for living with arthritis in the UK — movement, food, pacing and sleep.'
+    : isOverview ? dailyLivingIntro.subtitle : tip?.desc || '';
+  const tipCanonical = slug === 'health-tips'
+    ? 'https://livingwitharthritis.org.uk/daily-tips/daily-living'
+    : `https://livingwitharthritis.org.uk/daily-tips/${slug || 'overview'}`;
   const content = isOverview
     ? slug === 'health-tips' ? dailyLivingIntro.tipsOverview : slug === 'daily-living' ? dailyLivingIntro.content : `${dailyLivingIntro.content}\n\n---\n\n## Tips for Every Day\n\n${dailyLivingIntro.tipsOverview}`
     : tip?.detail || '';
@@ -99,6 +104,7 @@ const DailyTipDetail = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
         <title>{enforceTitle(`${metaTitle} — Daily Living Tips`, { includeSiteName: true })}</title>
+        <link rel="canonical" href={tipCanonical} />
         <meta name="description" content={description} />
         <meta property="og:title" content={`${metaTitle} — Daily Living Tips`} />
         <meta property="og:description" content={description} />
