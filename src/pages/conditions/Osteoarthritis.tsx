@@ -1,79 +1,139 @@
-import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
-import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
-import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NextReadStrip from "@/components/NextReadStrip";
-import { ArrowLeft, Activity, Heart, Apple, Dumbbell, Pill, ThermometerSun, BookOpen, ArrowRight } from "lucide-react";
+import {
+  ArrowLeft,
+  Activity,
+  Heart,
+  Apple,
+  Dumbbell,
+  Pill,
+  ThermometerSun,
+  AlertTriangle,
+  Users,
+  Stethoscope,
+  BookOpen,
+} from "lucide-react";
 import { motion } from "framer-motion";
-import { WaveDivider, HighlightCard } from "@/components/graphics/InfographicElements";
-import InternalLinks from "@/components/InternalLinks";
-import RelatedArticles from "@/components/RelatedArticles";
-import ContextualLinks from "@/components/ContextualLinks";
-import ConditionBlogStrip from "@/components/ConditionBlogStrip";
-import CrossLinkBanner from "@/components/CrossLinkBanner";
-import ReadNextCards from "@/components/ReadNextCards";
-import ConditionSubpageLinks from "@/components/ConditionSubpageLinks";
 import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
-import AnswerBox from "@/components/seo/AnswerBox";
-import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
-import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
-import LastReviewed, { LAST_REVIEWED_ISO } from "@/components/LastReviewed";
+import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_OA } from "@/data/clinical/ukCitations";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import LastReviewed from "@/components/LastReviewed";
 
 const BASE = "https://livingwitharthritis.org.uk";
+const URL = `${BASE}/conditions/osteoarthritis`;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  "reviewedBy": LOUIS_MAXWELL_REF,
-  "lastReviewed": "2026-10-26",
-  "name": "Osteoarthritis – Symptoms, Causes & Management | Living With Arthritis",
-  "description": "Comprehensive guide to osteoarthritis (OA): symptoms, causes, risk factors, diagnosis, treatment options, exercises, diet and self-management tips for UK patients.",
-  "url": `${BASE}/conditions/osteoarthritis`,
+  "name": "Osteoarthritis: UK Symptoms, Treatment and Exercises",
+  "description": "UK osteoarthritis guide: what to do when joints hurt, red flags, plain-English symptoms, NICE NG226 diagnosis and core treatments, pain relief, exercise, aids, flares, PIP and when to see your GP.",
+  "url": URL,
   "inLanguage": "en-GB",
-  "areaServed": { "@type": "Country", "name": "United Kingdom" },
   "datePublished": "2025-06-01",
-  "dateModified": "2025-12-15",
-  "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
-  "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
+  "dateModified": "2026-11-05",
+  "lastReviewed": "2026-11-05",
+  "author": LOUIS_MAXWELL_REF,
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Living With Arthritis",
+    "url": BASE,
+    "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` },
+  },
   "about": {
     "@type": "MedicalCondition",
     "name": "Osteoarthritis",
-    "alternateName": ["OA", "Degenerative Joint Disease", "Wear and Tear Arthritis"],
-    "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Synovial joints (knees, hips, hands, spine)" },
-    "riskFactor": ["Age over 50", "Obesity", "Previous joint injury", "Female sex", "Genetics"],
-    "signOrSymptom": ["Joint pain", "Stiffness", "Swelling", "Reduced range of motion", "Crepitus"],
+    "alternateName": ["OA", "Degenerative joint disease"],
+    "associatedAnatomy": {
+      "@type": "AnatomicalStructure",
+      "name": "Synovial joints (knees, hips, hands, spine)",
+    },
+    "signOrSymptom": [
+      "Joint pain worse with use",
+      "Short-lived morning stiffness",
+      "Swelling",
+      "Reduced range of motion",
+      "Crepitus",
+    ],
     "possibleTreatment": [
-      { "@type": "MedicalTherapy", "name": "Physical therapy" },
+      { "@type": "MedicalTherapy", "name": "Therapeutic exercise" },
       { "@type": "MedicalTherapy", "name": "Weight management" },
-      { "@type": "MedicalTherapy", "name": "Low-impact exercise" },
-      { "@type": "MedicalTherapy", "name": "Anti-inflammatory diet" }
-    ]
+      { "@type": "MedicalTherapy", "name": "Information and support" },
+      { "@type": "MedicalTherapy", "name": "Topical NSAID" },
+    ],
   },
-  "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-  "mainEntityOfPage": `${BASE}/conditions/osteoarthritis`
+  "audience": {
+    "@type": "MedicalAudience",
+    "audienceType": "Patient",
+    "geographicArea": { "@type": "Country", "name": "United Kingdom" },
+  },
+  "mainEntityOfPage": URL,
 };
 
 const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What is osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Osteoarthritis is the most common form of arthritis, a degenerative joint disease where the protective cartilage cushioning the ends of bones gradually wears down, causing pain, stiffness, and reduced mobility." } },
-    { "@type": "Question", "name": "What causes osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "OA is caused by gradual cartilage breakdown. Risk factors include age over 50, obesity, previous joint injuries, genetics, repetitive joint stress, and female sex." } },
-    { "@type": "Question", "name": "Can osteoarthritis be cured?", "acceptedAnswer": { "@type": "Answer", "text": "There is no cure for osteoarthritis, but symptoms can be effectively managed through exercise, weight management, physical therapy, anti-inflammatory diet, and medication." } },
-    { "@type": "Question", "name": "What is the best exercise for osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "Low-impact exercises like walking, swimming, cycling, and tai chi are recommended. Strength training and flexibility exercises also help support joints and reduce stiffness." } },
-    { "@type": "Question", "name": "What foods help osteoarthritis?", "acceptedAnswer": { "@type": "Answer", "text": "An anti-inflammatory Mediterranean diet rich in oily fish, vegetables, olive oil, nuts, berries, and whole grains can help reduce inflammation and manage symptoms." } }
-  ]
+    {
+      "@type": "Question",
+      "name": "What is osteoarthritis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Osteoarthritis is the most common type of arthritis in the UK. It involves changes in the cartilage that cushions the ends of bones, plus other joint tissues, which can cause pain, short-lived stiffness and reduced movement. It is more than simple \"wear and tear\". NICE guideline NG226 covers diagnosis and management for people aged 16 and over.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best treatment for osteoarthritis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NICE recommends therapeutic exercise for everyone with osteoarthritis, weight management where it is relevant, and information and support. Pain medicines support those core treatments rather than replace them: for knee osteoarthritis an anti-inflammatory gel is usually tried first; tablets, if used, should be the lowest dose for the shortest time. Imaging is not needed first for most people.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Can osteoarthritis be cured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no cure that reverses osteoarthritis, but many people manage symptoms well with exercise, pacing, weight advice where relevant, joint protection, and the right pain relief. Severe symptoms that have not improved with core treatments may lead to a discussion about joint surgery.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best exercise for osteoarthritis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NICE recommends therapeutic exercise that includes muscle strengthening and general fitness. Walking, swimming, cycling, seated strength work and tai chi are common starting points. Start small, build up gradually, and expect some aching at first.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "When should I see a GP about osteoarthritis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "See your GP if joint pain is not improving after a few weeks of self-care, wakes you most nights, comes with swelling or morning stiffness lasting longer than 30 minutes, or stops you doing everyday things. Get same-day help from NHS 111 or your GP if a joint is suddenly hot, red and swollen, especially with a fever, and call 999 in an emergency.",
+      },
+    },
+  ],
 };
 
-const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; title: string; children: React.ReactNode }) => (
+const Section = ({
+  icon: Icon,
+  title,
+  children,
+}: {
+  icon: React.ElementType;
+  title: string;
+  children: React.ReactNode;
+}) => (
   <motion.section
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -97,381 +157,582 @@ const Osteoarthritis = () => (
   <>
     <Helmet>
       <title>Osteoarthritis: Symptoms, Treatment & Exercises (UK)</title>
-      <meta name="description" content="How to recognise osteoarthritis symptoms, when to see a GP, NICE-aligned treatment, exercises and diet. Plain-English help written for patients." />
-      <meta name="keywords" content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, osteoarthritis diet, OA, degenerative joint disease, knee arthritis, hip arthritis, hand arthritis, joint pain relief, what causes arthritis, is arthritis curable, difference between osteoarthritis and rheumatoid arthritis, anti-inflammatory diet, arthritis medication, mobility aids for arthritis, musculoskeletal conditions" />
-      <meta property="og:title" content="Osteoarthritis – Symptoms, Causes & Management" />
-      <meta property="og:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
-      <meta property="og:url" content={`${BASE}/conditions/osteoarthritis`} />
+      <meta
+        name="description"
+        content="UK osteoarthritis guide: what to do now, red flags, NICE NG226 diagnosis and core treatments, safe pain relief, exercise, aids, flares and when to see your GP."
+      />
+      <meta
+        name="keywords"
+        content="osteoarthritis, osteoarthritis symptoms, osteoarthritis treatment, osteoarthritis exercises, OA, knee osteoarthritis, hip osteoarthritis, hand osteoarthritis, NICE NG226, joint pain uk"
+      />
+      <meta property="og:title" content="Osteoarthritis: Symptoms, Treatment & Exercises (UK)" />
+      <meta
+        property="og:description"
+        content="What to do now, red flags, NICE-aligned core treatments, exercise, pain relief and when to see your GP — clinically reviewed UK guide."
+      />
+      <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:site_name" content="Living With Arthritis" />
       <meta property="og:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Osteoarthritis – Symptoms, Causes & Management guide" />
+      <meta property="og:image:alt" content="Osteoarthritis UK guide — symptoms, treatment and exercises" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Osteoarthritis – Symptoms, Causes & Management" />
-      <meta name="twitter:description" content="Osteoarthritis treatment & management: Degenerative joint disease explained. Learn about medications, injections, surgery & lifestyle strategies." />
+      <meta name="twitter:title" content="Osteoarthritis: UK Symptoms & Treatment" />
+      <meta
+        name="twitter:description"
+        content="NICE-aligned osteoarthritis guide: exercise, weight advice, pain relief and red flags."
+      />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
-      <link rel="alternate" hrefLang="en-GB" href={`${BASE}/conditions/osteoarthritis`} />
+      <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "url": `${BASE}/conditions/osteoarthritis`,
-        "inLanguage": "en-GB",
-        "areaServed": { "@type": "Country", "name": "United Kingdom" },
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
-      })}</script>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          url: URL,
+          inLanguage: "en-GB",
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ["h1", ".speakable-intro"],
+          },
+        })}
+      </script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Conditions", href: "/#conditions" }, { label: "Osteoarthritis" }]} />
 
-      {/* Decorative hero header */}
       <div className="relative bg-gradient-to-br from-primary/8 via-background to-primary/5 border-b border-border/20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12%" cy="35%" r="3" fill="hsl(var(--primary))" />
-          <circle cx="78%" cy="20%" r="2.5" fill="hsl(var(--secondary))" />
-          <circle cx="65%" cy="75%" r="2" fill="hsl(var(--primary))" />
-        </svg>
-
         <div className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl relative z-10">
-          <Link to="/#conditions" className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all">
+          <Link
+            to="/#conditions"
+            className="text-primary text-sm font-medium inline-flex items-center gap-1.5 mb-6 hover:gap-2.5 transition-all"
+          >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to conditions
           </Link>
-
-          <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
-              <Activity className="w-3 h-3" /> Condition Guide
-            </span>
-            <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
-              Osteoarthritis: UK symptoms, treatment and exercises
-            </h1>
-            <LastReviewed date={LAST_REVIEWED_ISO} className="mb-5" />
-            <AeoEnhancement route="/conditions/osteoarthritis" />
-            <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
-              Osteoarthritis (OA) is the most common form of arthritis in the UK — joint pain and stiffness that you can often manage with exercise, weight advice and NHS care pathways; this page is general information, not a diagnosis.
-            </p>
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 bg-background border border-primary/20 px-3 py-1 rounded-full">
+            <Activity className="w-3 h-3" /> Condition guide
+          </span>
+          <h1 className="font-display text-3xl md:text-5xl font-extrabold text-foreground mb-5 leading-tight tracking-tight">
+            Osteoarthritis: start here when joints ache and stiffen
+          </h1>
+          <AeoEnhancement route="/conditions/osteoarthritis" />
+          <p className="speakable-intro text-lg text-muted-foreground leading-relaxed">
+            Osteoarthritis (OA) is the most common arthritis in the UK. Joints hurt more with use, stiffness is usually short-lived, and the core treatments recommended by NICE are therapeutic exercise, weight management where it helps, and clear information and support — not resting forever or relying on painkillers alone. This page follows NHS and NICE NG226 advice and tells you when to get help. It is educational, not a diagnosis.
+          </p>
+          <div className="mt-5 space-y-2">
+            <LastReviewed date="2026-11-05" />
+            <MedicalReviewBadge
+              reviewer="Louis Maxwell"
+              title="First Contact Practitioner"
+              credential="HCPC PH128483"
+              date="November 2026"
+            />
+          </div>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <Link
+              to="/exercises"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+            >
+              Next: try gentle exercises
+            </Link>
+            <Link
+              to="/guides/arthritis-pain-relief"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/5 transition-colors"
+            >
+              Pain relief hub
+            </Link>
+            <Link
+              to="/guides/newly-diagnosed"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-semibold hover:bg-muted/40 transition-colors"
+            >
+              Newly diagnosed?
+            </Link>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
 
-      <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-10">
-        <AnswerBox
-          question="What is the best treatment for osteoarthritis?"
-          reviewed="2026-06-13"
-        >
-          <p>
-            NICE recommends tailored therapeutic exercise for everyone with
-            osteoarthritis and weight management where appropriate. Other
-            options depend on the joint, symptoms and other health conditions,
-            and can include topical anti-inflammatory medicines,
-            physiotherapy and, for severe symptoms that have not improved,
-            referral to discuss joint surgery.
-          </p>
-        </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
-      </section>
-
-      <WaveDivider color="hsl(var(--background))" />
-
-      <main id="main-content" role="main" tabIndex={-1} className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
-        <div className="mb-6"><MedicalDisclaimerStrip variant="short" /></div>
-
-        <Section icon={Activity} title="What Is Osteoarthritis?">
-          <p>Osteoarthritis is a degenerative joint disease where the protective cartilage that cushions the ends of your bones gradually wears down over time. As cartilage deteriorates, bones begin to rub against each other, causing pain, swelling, stiffness, and reduced mobility.</p>
-          <p>Unlike inflammatory types of arthritis, OA is primarily a mechanical condition — though inflammation does play a role, particularly during flare-ups. It most commonly affects the <strong>knees, hips, hands, and spine</strong>, but can occur in any joint.</p>
-          <h3>How Common Is Osteoarthritis in the UK?</h3>
-          <p>Around <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for osteoarthritis (Arthritis Research UK, now Arthritis UK, 2013; cited by <a href="https://cks.nice.org.uk/topics/osteoarthritis/background-information/prevalence/" target="_blank" rel="noopener noreferrer">NICE CKS</a>). It is the single most common cause of disability among older adults in England and Wales, and its prevalence is rising due to an ageing population and increasing obesity rates.</p>
-        </Section>
-
-        <Section icon={ThermometerSun} title="What are the symptoms of osteoarthritis?">
-          <p>Symptoms typically develop slowly and worsen over time. They may include:</p>
-          <ul>
-            <li><strong>Joint pain</strong> — especially during or after activity, often described as a deep ache</li>
-            <li><strong>Stiffness</strong> — particularly after rest or first thing in the morning (usually lasting less than 30 minutes)</li>
-            <li><strong>Swelling</strong> — caused by inflammation of soft tissues around the joint</li>
-            <li><strong>Tenderness</strong> — the joint may feel tender when light pressure is applied</li>
-            <li><strong>Loss of flexibility</strong> — difficulty moving the joint through its full range</li>
-            <li><strong>Grating sensation (crepitus)</strong> — a feeling or sound of bone rubbing on bone</li>
-            <li><strong>Bone spurs</strong> — extra lumps of bone that form around the affected joint</li>
-          </ul>
-          <h3>When to See a GP</h3>
-          <p>If you experience persistent joint pain or stiffness that doesn't improve, book an appointment with your GP. Early diagnosis can help you access the right support and slow progression.</p>
-        </Section>
-
-        <Section icon={Heart} title="What causes osteoarthritis?">
-          <p>Osteoarthritis develops when the cartilage protecting bone surfaces breaks down faster than it can repair itself. Several factors increase your risk:</p>
-          <ul>
-            <li><strong>Age</strong> — most common after age 50, though younger people can develop it after injury</li>
-            <li><strong>Sex</strong> — women are more commonly affected, particularly after menopause</li>
-            <li><strong>Obesity</strong> — excess weight places additional stress on weight-bearing joints; losing even 5% of body weight can significantly reduce knee pain</li>
-            <li><strong>Previous joint injury</strong> — trauma from sports, accidents, or occupational overuse</li>
-            <li><strong>Genetics</strong> — a family history increases risk</li>
-            <li><strong>Repetitive stress</strong> — occupations involving repeated movements (kneeling, heavy lifting)</li>
-            <li><strong>Other conditions</strong> — diabetes, metabolic disorders, and congenital joint issues</li>
-          </ul>
-        </Section>
-
-        <Section icon={Dumbbell} title="What are the best exercises for osteoarthritis?">
-          <p>Regular exercise is one of the most effective treatments for OA. It strengthens muscles around joints, improves flexibility, reduces pain, and helps manage weight. Always start gradually and consult a physiotherapist if unsure.</p>
-          <h3>Aerobic / Low-Impact</h3>
-          <ul>
-            <li><strong>Walking</strong> — aim for 30 minutes most days; use supportive footwear</li>
-            <li><strong>Swimming & water aerobics</strong> — buoyancy reduces joint stress while providing excellent exercise</li>
-            <li><strong>Cycling</strong> — stationary or outdoor; gentle on knees and hips</li>
-          </ul>
-          <h3>Strengthening</h3>
-          <ul>
-            <li><strong>Straight-leg raises</strong> — strengthen quadriceps without stressing the knee</li>
-            <li><strong>Wall sits</strong> — build leg strength gradually</li>
-            <li><strong>Bridges</strong> — target glutes and core stability</li>
-            <li><strong>Resistance bands</strong> — gentle, progressive strengthening</li>
-          </ul>
-          <h3>Flexibility & Balance</h3>
-          <ul>
-            <li><strong>Yoga</strong> — improves range of motion and mental well-being</li>
-            <li><strong>Tai chi</strong> — evidence-based benefits for balance and pain reduction</li>
-            <li><strong>Daily stretching</strong> — 5-10 minutes morning and evening</li>
-          </ul>
-        </Section>
-
-        <Section icon={Apple} title="What is the best diet for osteoarthritis?">
-          <p>An <strong>anti-inflammatory diet</strong>, particularly the Mediterranean diet, is the most evidence-supported dietary approach for OA management. It can help reduce inflammation, manage weight, and improve overall joint health.</p>
-          <h3>Foods to Eat</h3>
-          <ul>
-            <li><strong>Oily fish</strong> — salmon, mackerel, sardines (omega-3 fatty acids, at least twice weekly)</li>
-            <li><strong>Colourful vegetables</strong> — broccoli, spinach, kale, peppers (antioxidants)</li>
-            <li><strong>Berries</strong> — blueberries, strawberries, cherries (anthocyanins)</li>
-            <li><strong>Olive oil</strong> — extra virgin (oleocanthal has anti-inflammatory properties)</li>
-            <li><strong>Nuts & seeds</strong> — walnuts, almonds, flaxseeds</li>
-            <li><strong>Whole grains</strong> — oats, brown rice, quinoa</li>
-            <li><strong>Turmeric & ginger</strong> — natural anti-inflammatory compounds</li>
-          </ul>
-          <h3>Foods to Limit</h3>
-          <ul>
-            <li>Processed and ultra-processed foods</li>
-            <li>Added sugars and sugary drinks</li>
-            <li>Red and processed meats</li>
-            <li>Refined carbohydrates</li>
-            <li>Excessive alcohol</li>
-          </ul>
-        </Section>
-
-        {/* ─── Quick Self-Management Tips ─── */}
-        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-          <h3 className="font-display text-lg font-bold text-foreground mb-4">Daily Self-Care Checklist</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <HighlightCard title="Stay Active" description="Regular low-impact exercise like walking, swimming, or cycling strengthens muscles and reduces joint pain." />
-            <HighlightCard title="Healthy Weight" description="Losing just 5% of body weight can significantly reduce pain in knees, hips, and other weight-bearing joints." />
-            <HighlightCard title="Eat Well" description="An anti-inflammatory Mediterranean diet rich in fish, vegetables, and olive oil helps manage symptoms." />
-            <HighlightCard title="Sleep Well" description="Good sleep supports healing and pain management. Use pillows to support affected joints at night." />
-          </div>
-        </motion.div>
-
-        <Section icon={Pill} title="How is osteoarthritis treated?">
-          <p>While there is no cure for osteoarthritis, a combination of approaches can significantly improve quality of life:</p>
-          <h3>Self-Management</h3>
-          <ul>
-            <li>Stay active with regular low-impact exercise</li>
-            <li>Maintain a healthy weight</li>
-            <li>Pace activities to avoid overloading joints</li>
-            <li>Use heat or cold packs for symptom relief</li>
-            <li>Try supportive aids (walking sticks, splints, shoe insoles)</li>
-          </ul>
-          <h3>Medical Treatments</h3>
-          <ul>
-            <li><strong>Paracetamol & NSAIDs</strong> — for pain and inflammation (topical NSAIDs preferred for knees/hands)</li>
-            <li><strong>Physiotherapy</strong> — tailored exercise programmes and manual therapy</li>
-            <li><strong>Steroid injections</strong> — for short-term relief during severe flare-ups</li>
-            <li><strong>Joint replacement surgery</strong> — for severe cases when other treatments have not worked</li>
-          </ul>
-          <h3>Supplements</h3>
-          <p>Glucosamine, chondroitin, and collagen supplements have some evidence for modest symptom relief, though results are mixed. Turmeric/curcumin (500-1000 mg/day) shows more consistent anti-inflammatory benefits. Always consult your GP before starting supplements.</p>
-        </Section>
-
-        <Section icon={Pill} title="The Osteoarthritis Journey: From Diagnosis to Management">
-          <p>Osteoarthritis is the most common form of arthritis — a degenerative, wear-related condition that develops slowly over years. Most people first notice deep joint ache after activity, morning stiffness that eases within 30 minutes, and a gradual loss of range of movement. Diagnosis is usually clinical, supported by X-ray when needed.</p>
-          <p>Management is a journey, not a single decision. Conservative care — exercise, weight optimisation, an anti-inflammatory diet, pacing and supportive aids — is the foundation for everyone. If symptoms progress, escalation can include topical or oral anti-inflammatories, physiotherapy-led rehabilitation, injections, and, when conservative care has been exhausted, joint replacement surgery. Decisions are shared between you, your GP, physiotherapist and (if needed) an orthopaedic surgeon.</p>
-          <h3>Common OA Interventions</h3>
-          <ul>
-            <li><strong>Unloader knee braces</strong> — offload the affected compartment in medial knee OA</li>
-            <li><strong>Imaging</strong> — X-ray, MRI or ultrasound when red flags or surgical planning warrant it</li>
-            <li><strong>Viscosupplementation</strong> — hyaluronic acid (gel) injections, often for knee OA</li>
-            <li><strong>Corticosteroid injections</strong> — short-term flare control</li>
-            <li><strong>Joint replacement surgery</strong> — knee, hip or thumb replacement for end-stage OA</li>
-            <li><strong>Regenerative medicine</strong> — platelet-rich plasma (PRP) and stem-cell options, where evidence is still developing</li>
-          </ul>
-          <p>For exercise programmes see our <Link to="/exercises" className="text-primary underline">exercise hub</Link> or the joint-specific <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">hip osteoarthritis exercise routine</Link>. For nutrition strategy see our <Link to="/guides/diet" className="text-primary underline">diet guide</Link> and <Link to="/diet/foods-to-avoid-with-arthritis" className="text-primary underline">foods to avoid with arthritis</Link>.</p>
-          <p className="text-sm text-muted-foreground italic">Educational information only — we don&apos;t endorse specific brands, devices or providers. Always discuss treatment escalation with your clinician.</p>
-        </Section>
-
-        <section className="mb-12" aria-labelledby="osteoarthritis-sources">
-          <h2
-            id="osteoarthritis-sources"
-            className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5"
-          >
-            Sources and further guidance
+      <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
+        <section aria-labelledby="oa-now" className="mb-10 rounded-2xl border border-primary/30 bg-primary/5 p-6">
+          <h2 id="oa-now" className="font-display text-2xl font-bold text-foreground mb-3">
+            OA right now: start here
           </h2>
-          <ul className="space-y-3">
+          <ol className="list-decimal pl-5 space-y-2 text-foreground/85">
             <li>
-              <a
-                href="https://www.nice.org.uk/guidance/ng226"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline underline-offset-2"
-              >
-                NICE NG226: Osteoarthritis in over 16s
-              </a>
+              <strong>Check for red flags</strong> in the box below. If any apply, get help first.
             </li>
             <li>
-              <a
-                href="https://www.nhs.uk/conditions/osteoarthritis/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline underline-offset-2"
-              >
-                NHS: Osteoarthritis
-              </a>
+              <strong>Keep moving gently:</strong> bend and straighten the joint a few times every hour. Complete rest usually makes stiffness worse.
             </li>
-          </ul>
+            <li>
+              <strong>Heat or cold:</strong> warm (not hot) pack or shower for stiff, aching joints; cold pack wrapped in a tea towel for a hot, swollen joint. Up to about 20 minutes.
+            </li>
+            <li>
+              <strong>Pain relief:</strong> for knee osteoarthritis, NICE usually starts with an anti-inflammatory gel. Ask a pharmacist what is safe for you before using tablets.
+            </li>
+            <li>
+              <strong>Lighten the day:</strong> share or drop what can wait, and break jobs into short pieces with rests. See{" "}
+              <Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline">
+                joint protection
+              </Link>
+              .
+            </li>
+          </ol>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Need a fuller pain plan? Use the{" "}
+            <Link to="/guides/arthritis-pain-relief" className="text-primary underline">
+              arthritis pain relief hub
+            </Link>{" "}
+            and the printable{" "}
+            <Link to="/resources/flare-action-plan" className="text-primary underline">
+              flare action plan
+            </Link>
+            .
+          </p>
         </section>
 
-        {/* Live Blog & Stories — Advice & Guidance */}
-        <ConditionBlogStrip
-          conditionName="Osteoarthritis"
-          matchCategories={["Exercise", "Nutrition", "Treatment"]}
-        />
+        <section aria-labelledby="oa-red-flags" className="mb-12 rounded-2xl border border-destructive/40 bg-destructive/5 p-6">
+          <h2 id="oa-red-flags" className="font-display text-2xl font-bold text-foreground mb-3 flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-destructive" /> Red flags: get help now
+          </h2>
+          <p className="text-foreground/85">
+            <strong>Call NHS 111 or your GP for a same-day appointment</strong> if:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-foreground/85">
+            <li>
+              one joint suddenly becomes hot, red, swollen and very painful, especially with a fever or feeling unwell (this can be an infected joint or gout)
+            </li>
+            <li>a joint is very painful after a fall or injury, or you cannot put weight on a leg</li>
+            <li>you suddenly cannot move a joint that usually moves</li>
+          </ul>
+          <p className="text-foreground/85 mt-3">
+            <strong>Call 999 or go to A&amp;E</strong> if you have chest pain; a fall with a suspected broken hip or a head injury; or back pain with numbness around your bottom or genitals, new bladder or bowel control problems, or weakness in both legs.
+          </p>
+        </section>
 
-        {/* Contextual SEO links */}
-        <ConditionSubpageLinks conditionSlug="osteoarthritis" conditionName="Osteoarthritis" />
+        <Section icon={BookOpen} title="1. What osteoarthritis is (plain English)">
+          <p>
+            Osteoarthritis involves changes in the cartilage that cushions the ends of your bones, and in other tissues in and around the joint. Pain, short-lived stiffness and reduced movement are common. Calling it only &quot;wear and tear&quot; undersells how the joint adapts and how much exercise and self-care can help.
+          </p>
+          <p>
+            It most often affects the <strong>knees, hips, hands and spine</strong>, but any synovial joint can be involved. Around{" "}
+            <strong>8.75 million people</strong> aged 45 and over in the UK have sought treatment for osteoarthritis (Arthritis Research UK 2013, cited by{" "}
+            <a
+              href="https://cks.nice.org.uk/topics/osteoarthritis/background-information/prevalence/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              NICE CKS
+            </a>
+            ). Living With Arthritis is an independent UK charity (registered charity 1218461) and is not part of Versus Arthritis / Arthritis UK.
+          </p>
+          <p>
+            Guidance for clinicians and patients is set out in{" "}
+            <a href="https://www.nice.org.uk/guidance/ng226" target="_blank" rel="noopener noreferrer">
+              NICE NG226
+            </a>{" "}
+            and on the{" "}
+            <a href="https://www.nhs.uk/conditions/osteoarthritis/" target="_blank" rel="noopener noreferrer">
+              NHS osteoarthritis pages
+            </a>
+            .
+          </p>
+        </Section>
 
-        {/* Contextual SEO links */}
-        <ContextualLinks
-          heading="Pair osteoarthritis care with the right resources"
-          intro="Use these guides alongside your treatment — diet, exercise, flare-up planning and other arthritis types worth knowing about."
-          groups={[
-            {
-              title: "Diet & supplements",
-              links: [
-                { label: "Best supplement for knee joints — honest evidence (no rebuild claim)", to: "/blog/best-supplement-for-knee-joint" },
-                { label: "Omega-3 foods for joints", to: "/blog/omega-3-foods-for-joints" },
-                { label: "Anti-inflammatory diet for rheumatoid arthritis", to: "/blog/anti-inflammatory-diet-rheumatoid-arthritis" },
-                { label: "Anti-inflammatory diet for arthritis", to: "/blog/anti-inflammatory-diet" },
-                { label: "Mediterranean diet pillar guide", to: "/guides/diet" },
-                { label: "Foods to avoid with arthritis", to: "/diet/foods-to-avoid-with-arthritis" },
-                { label: "Supplements caution — what the evidence says", to: "/supplements" },
-                { label: "Glucosamine, collagen, turmeric — what works", to: "/supplements/glucosamine" },
-              ],
-            },
-            {
-              title: "Exercise & movement",
-              links: [
-                { label: "Exercise hub — start here", to: "/exercises" },
-                { label: "Swimming exercises for hip osteoarthritis", to: "/blog/swimming-exercises-hip-osteoarthritis" },
-                { label: "Walking with arthritis — start, build up, keep going", to: "/blog/walking-with-arthritis-start-build-up-keep-going" },
-                { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
-                { label: "Free knee exercises for osteoarthritis", to: "/guides/knee-exercises-for-osteoarthritis" },
-                { label: "Hip arthritis exercises", to: "/guides/hip-exercises-for-osteoarthritis" },
-                { label: "Tai Chi for arthritis", to: "/exercises/tai-chi-for-arthritis" },
-                { label: "Cycling with arthritis", to: "/blog/arthritis-and-cycling-uk" },
-                { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
-              ],
-            },
-            {
-              title: "Medical treatments",
-              links: [
-                { label: "Arthritis medication guide", to: "/blog/arthritis-medication-guide" },
-                { label: "NSAIDs and paracetamol comparison", to: "/guides/paracetamol-vs-ibuprofen-for-arthritis" },
-                { label: "Joint replacement surgery", to: "/blog/joint-replacement-surgery" },
-                { label: "TENS machines for arthritis pain", to: "/blog/tens-machines-arthritis-uk" },
-              ],
-            },
-            {
-              title: "Flare-ups & support",
-              links: [
-                { label: "Arthritis pain relief — when joints hurt now", to: "/guides/arthritis-pain-relief" },
-                { label: "Joint protection — easier everyday tasks", to: "/blog/joint-protection-easier-everyday-tasks" },
-                { label: "Managing arthritis flare-ups", to: "/arthritis-flare-ups" },
-                { label: "PIP and disability benefits FAQ", to: "/faq/arthritis-disability-benefits-uk" },
-                { label: "Benefits & PIP hub", to: "/guides/benefits-pip" },
-                { label: "Help while waiting for rheumatology", to: "/arthritis-waiting-list-help" },
-                { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
-                { label: "Community & peer support", to: "/community" },
-                { label: "Browse the Advice Hub", to: "/blog-hub" },
-                { label: "Osteoarthritis library note", to: "/library/osteoarthritis" },
-                { label: "What is osteoarthritis? FAQ", to: "/faq/what-is-osteoarthritis" },
-                { label: "OA vs RA FAQ", to: "/faq/osteoarthritis-vs-rheumatoid-arthritis" },
-              ],
-            },
-            {
-              title: "Other conditions",
-              links: [
-                { label: "Knee arthritis", to: "/conditions/knee-arthritis" },
-                { label: "Hand arthritis", to: "/conditions/hand-arthritis" },
-                { label: "Shoulder arthritis", to: "/conditions/shoulder-arthritis" },
-                { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
-                { label: "Psoriatic arthritis", to: "/conditions/psoriatic-arthritis" },
-                { label: "Gout", to: "/conditions/gout" },
-                { label: "Ankylosing spondylitis", to: "/conditions/ankylosing-spondylitis" },
-                { label: "Fibromyalgia", to: "/conditions/fibromyalgia" },
-                { label: "Lupus (SLE)", to: "/conditions/lupus" },
-              ],
-            },
-          ]}
-        />
-
-        <div className="p-8 rounded-2xl bg-accent border border-border/30">
-          <h2 className="font-display text-xl font-bold text-foreground mb-3">Need more support?</h2>
-          <p className="text-muted-foreground mb-5">Explore our resources, start a chat, or book a virtual physiotherapy consultation.</p>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/chat" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
-              Start a chat
+        <Section icon={ThermometerSun} title="2. Symptoms — and when it might not be OA">
+          <p>Typical osteoarthritis symptoms develop gradually:</p>
+          <ul>
+            <li>
+              <strong>Joint pain</strong> that is worse with use and later in the day
+            </li>
+            <li>
+              <strong>Stiffness</strong> after rest or first thing in the morning that usually eases within about 30 minutes
+            </li>
+            <li>
+              <strong>Swelling</strong>, tenderness, reduced range of movement, or a grating feeling (crepitus)
+            </li>
+          </ul>
+          <p>
+            <strong>These patterns point more toward inflammatory arthritis</strong> such as rheumatoid arthritis, and need a different pathway:
+          </p>
+          <ul>
+            <li>morning stiffness that regularly lasts longer than 30 minutes</li>
+            <li>several joints swollen, warm or red at once, often symmetrically</li>
+            <li>feeling generally unwell with joint symptoms</li>
+          </ul>
+          <p>
+            If that sounds like you, read{" "}
+            <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">
+              rheumatoid arthritis
+            </Link>{" "}
+            and{" "}
+            <Link to="/conditions/early-arthritis-symptoms" className="text-primary underline">
+              early arthritis symptoms
             </Link>
-            <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors">
-              Read our articles
+            , and see your GP. Painkillers alone are not enough for inflammatory arthritis.
+          </p>
+        </Section>
+
+        <Section icon={Stethoscope} title="3. Diagnosis: GP first, imaging not always first">
+          <p>
+            NICE says osteoarthritis can usually be diagnosed clinically. Many people do{" "}
+            <strong>not</strong> need an X-ray or MRI before starting core treatments. Imaging is used when the diagnosis is unclear, red flags are present, or surgery is being planned.
+          </p>
+          <p>
+            Your GP can assess the joint, discuss exercise and weight advice, review medicines, and refer you to physiotherapy or other services. In many areas you can also{" "}
+            <strong>self-refer to community musculoskeletal (MSK) physiotherapy</strong> — ask your GP surgery or search for local MSK self-referral.
+          </p>
+          <p>
+            If you were recently told you have osteoarthritis, the{" "}
+            <Link to="/guides/newly-diagnosed" className="text-primary underline">
+              newly diagnosed guide
+            </Link>{" "}
+            has a first-week checklist.
+          </p>
+        </Section>
+
+        <Section icon={Dumbbell} title="4. Core treatments: exercise, weight, information">
+          <p>NICE NG226 puts three things at the centre of care for everyone with osteoarthritis:</p>
+          <ul>
+            <li>
+              <strong>Therapeutic exercise</strong> — muscle strengthening and general fitness, tailored to you
+            </li>
+            <li>
+              <strong>Weight management</strong> — if you are living with overweight or obesity, losing any amount of weight is likely to help load-bearing joints
+            </li>
+            <li>
+              <strong>Information and support</strong> — clear advice about the condition and how to live with it
+            </li>
+          </ul>
+          <p>Practical starting points:</p>
+          <ul>
+            <li>
+              <Link to="/exercises" className="text-primary underline">
+                Exercise hub
+              </Link>{" "}
+              — paced, joint-friendly routines
+            </li>
+            <li>
+              <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline">
+                Knee exercises for osteoarthritis
+              </Link>{" "}
+              ·{" "}
+              <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">
+                Hip exercises for osteoarthritis
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline">
+                Swimming and pool exercises for hip OA
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline">
+                Walking with arthritis
+              </Link>{" "}
+              ·{" "}
+              <Link to="/blog/seated-strength-frail-osteoarthritis-uk" className="text-primary underline">
+                Seated strength for osteoarthritis
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog/knee-osteoarthritis-frailty-staying-steady-home-uk" className="text-primary underline">
+                Knee OA: staying steady at home
+              </Link>
+            </li>
+          </ul>
+          <p>
+            Some aching when you start is normal and should settle; pain that lasts into the next day means do a bit less next time.
+          </p>
+        </Section>
+
+        <Section icon={Pill} title="5. Pain relief aligned with NICE NG226">
+          <p>
+            Medicines support exercise and self-care; they do not replace them. Use the lowest effective dose for the shortest time, and check with a pharmacist or GP what is safe for you.
+          </p>
+          <ul>
+            <li>
+              <strong>Anti-inflammatory gels (topical NSAIDs)</strong> — NICE recommends offering these first for knee osteoarthritis, and considering them for other joints
+            </li>
+            <li>
+              <strong>Anti-inflammatory tablets (oral NSAIDs)</strong> — may be added if gels are not enough or not suitable, often with a stomach-protecting medicine; not safe for everyone
+            </li>
+            <li>
+              <strong>Paracetamol and weak opioids</strong> — NICE says these should not be offered routinely for osteoarthritis
+            </li>
+            <li>
+              <strong>Strong opioids</strong> — NICE says these should not be offered for osteoarthritis
+            </li>
+            <li>
+              <strong>Steroid injections</strong> — may be considered when other treatments have not helped enough; relief is short term, so they are usually combined with exercise
+            </li>
+          </ul>
+          <p>
+            More detail:{" "}
+            <Link to="/guides/painkillers-and-nsaids" className="text-primary underline">
+              painkillers and NSAIDs
+            </Link>
+            ,{" "}
+            <Link to="/guides/arthritis-pain-relief" className="text-primary underline">
+              arthritis pain relief
+            </Link>
+            , and{" "}
+            <Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline">
+              knee supplements — honest evidence
+            </Link>
+            . Never stop or change a prescribed medicine yourself.
+          </p>
+        </Section>
+
+        <Section icon={ThermometerSun} title="6. Heat, cold and flare days">
+          <ul>
+            <li>
+              <strong>Heat</strong> — stiff, aching joints: warm shower, wheat bag or hot water bottle in a cover
+            </li>
+            <li>
+              <strong>Cold</strong> — hot, swollen joints: cold pack or frozen peas wrapped in a tea towel
+            </li>
+            <li>
+              <strong>Safety</strong> — always wrap packs, use for up to about 20 minutes, check skin, do not use on numb or broken skin, and never fall asleep with a heat pack
+            </li>
+          </ul>
+          <p>
+            On a flare day, reduce how much you do rather than stopping altogether, then build back up. Use the{" "}
+            <Link to="/resources/flare-action-plan" className="text-primary underline">
+              flare action plan
+            </Link>{" "}
+            and{" "}
+            <Link to="/arthritis-flare-ups" className="text-primary underline">
+              flare-up guide
+            </Link>
+            .
+          </p>
+        </Section>
+
+        <Section icon={Heart} title="7. Aids, footwear and getting around at home">
+          <ul>
+            <li>
+              <strong>Walking aids</strong> — NICE says a walking stick or similar can be considered for hip or knee osteoarthritis; a physiotherapist can check the height
+            </li>
+            <li>
+              <strong>Footwear</strong> — cushioned, supportive shoes: see{" "}
+              <Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline">
+                walking shoes for arthritis
+              </Link>
+            </li>
+            <li>
+              <strong>Transfers</strong> — getting up from a chair, bed, toilet or car:{" "}
+              <Link to="/blog/hip-and-knee-oa-frailty-transfers-uk" className="text-primary underline">
+                hip and knee OA transfers
+              </Link>
+            </li>
+            <li>
+              <strong>Everyday tasks</strong> —{" "}
+              <Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline">
+                joint protection
+              </Link>
+            </li>
+            <li>
+              <strong>Occupational therapy</strong> — ask your GP or council if dressing, cooking or washing is getting hard
+            </li>
+          </ul>
+        </Section>
+
+        <Section icon={Apple} title="8. Food and weight">
+          <p>
+            No food cures osteoarthritis. A{" "}
+            <Link to="/diet/mediterranean-diet-for-arthritis" className="text-primary underline">
+              Mediterranean-style pattern
+            </Link>{" "}
+            (vegetables, beans, wholegrains, olive oil, oily fish) is a healthy way to eat and can support weight management. NICE&apos;s main dietary message for OA is weight management where relevant. See the{" "}
+            <Link to="/guides/diet" className="text-primary underline">
+              diet hub
+            </Link>
+            . Supplements such as glucosamine are not recommended by NICE for osteoarthritis; check any supplement with a pharmacist.
+          </p>
+        </Section>
+
+        <Section icon={Activity} title="9. Work, money and PIP">
+          <p>
+            If osteoarthritis affects daily living or mobility, you may be able to claim benefits or get workplace support. Start with the{" "}
+            <Link to="/guides/benefits-pip" className="text-primary underline">
+              benefits and PIP hub
+            </Link>
+            , the{" "}
+            <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline">
+              disability benefits FAQ
+            </Link>
+            , and the printable{" "}
+            <Link to="/resources/pip-evidence-diary" className="text-primary underline">
+              PIP evidence diary
+            </Link>
+            .
+          </p>
+        </Section>
+
+        <Section icon={Pill} title="10. Treatments NICE does not recommend for OA">
+          <p>
+            Some options are widely advertised but NICE does not recommend them for osteoarthritis because there is not enough evidence that they help: acupuncture and dry needling, electrotherapy including TENS, glucosamine, and strong opioids. Talk to your GP or physiotherapist before spending money on them. Regenerative injections such as PRP are not routine NHS care for OA.
+          </p>
+        </Section>
+
+        <Section icon={Stethoscope} title="When to see your GP">
+          <p>Book a GP appointment if:</p>
+          <ul>
+            <li>pain is not improving after a few weeks of self-care, or is getting worse</li>
+            <li>a joint is swollen, warm or red</li>
+            <li>morning stiffness regularly lasts longer than 30 minutes</li>
+            <li>pain wakes you most nights</li>
+            <li>you are using painkillers most days, or they are not helping</li>
+            <li>pain is stopping you working, sleeping or doing everyday things</li>
+            <li>you are losing weight, feeling feverish or generally unwell with joint pain</li>
+          </ul>
+          <p>
+            Your GP can check what type of arthritis you have, review medicines, and refer you to physiotherapy, orthopaedics or other services. If you are already waiting, see{" "}
+            <Link to="/arthritis-waiting-list-help" className="text-primary underline">
+              help while you are on a waiting list
+            </Link>
+            . For urgent warning signs, use the red flags box at the top of this page.
+          </p>
+        </Section>
+
+        <Section icon={Users} title="For carers and family">
+          <p>
+            Help the person keep moving gently rather than doing everything for them, support short exercise sessions, and keep a list of medicines for the pharmacist. Watch for red flags, especially a hot, swollen joint with fever. See{" "}
+            <Link to="/blog/carers-allowance-help-if-you-care-for-someone" className="text-primary underline">
+              carers&apos; support
+            </Link>{" "}
+            if you provide regular care.
+          </p>
+        </Section>
+
+        <div className="p-8 rounded-2xl bg-accent border border-border/30 mb-10">
+          <h2 className="font-display text-xl font-bold text-foreground mb-3">Build your own plan</h2>
+          <p className="text-muted-foreground mb-5">
+            Put exercise, pacing and pain relief into a simple weekly routine.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/self-help"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+            >
+              Open the self-help tool
+            </Link>
+            <Link
+              to="/exercises"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-secondary text-sm font-semibold hover:bg-secondary/20 transition-colors"
+            >
+              Browse exercises
             </Link>
           </div>
+        </div>
+      </main>
 
-
-      <nav aria-label="Customer job pathways for osteoarthritis" className="mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
+      <nav
+        aria-label="Customer job pathways for osteoarthritis"
+        className="container mx-auto px-6 md:px-10 max-w-3xl mb-10 rounded-xl border border-border/40 bg-muted/20 p-5"
+      >
         <p className="text-sm font-semibold text-foreground m-0 mb-3">What do you need next?</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
-          <li><Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief hub</Link> — paced movement, heat/cold and medicines overview</li>
-          <li><Link to="/exercises" className="text-primary underline underline-offset-2">Exercise hub</Link> — joint-friendly routines (*Motion is Lotion*)</li>
-          <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip OA</Link> — buoyancy-friendly drills</li>
-          <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — start, build up, keep going</li>
-          <li><Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">Walking shoes (UK)</Link> — footwear that reduces load</li>
-          <li><Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline underline-offset-2">Knee supplements</Link> — honest evidence; no joint-rebuild claims</li>
-          <li><Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">Joint protection</Link> — easier everyday tasks</li>
-          <li><Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP hub</Link> · <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">Disability benefits FAQ</Link></li>
+          <li>
+            <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">
+              Pain relief hub
+            </Link>{" "}
+            — paced movement, heat/cold and medicines overview
+          </li>
+          <li>
+            <Link to="/exercises" className="text-primary underline underline-offset-2">
+              Exercise hub
+            </Link>{" "}
+            ·{" "}
+            <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">
+              Knee exercises
+            </Link>{" "}
+            ·{" "}
+            <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">
+              Hip exercises
+            </Link>
+          </li>
+          <li>
+            <Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">
+              Swimming for hip OA
+            </Link>{" "}
+            ·{" "}
+            <Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">
+              Walking with arthritis
+            </Link>{" "}
+            ·{" "}
+            <Link to="/blog/best-walking-shoes-arthritis-uk" className="text-primary underline underline-offset-2">
+              Walking shoes
+            </Link>
+          </li>
+          <li>
+            <Link to="/blog/knee-osteoarthritis-frailty-staying-steady-home-uk" className="text-primary underline underline-offset-2">
+              Knee OA steady at home
+            </Link>{" "}
+            ·{" "}
+            <Link to="/blog/hip-and-knee-oa-frailty-transfers-uk" className="text-primary underline underline-offset-2">
+              Getting up safely
+            </Link>{" "}
+            ·{" "}
+            <Link to="/blog/seated-strength-frail-osteoarthritis-uk" className="text-primary underline underline-offset-2">
+              Seated strength
+            </Link>
+          </li>
+          <li>
+            <Link to="/blog/joint-protection-easier-everyday-tasks" className="text-primary underline underline-offset-2">
+              Joint protection
+            </Link>{" "}
+            ·{" "}
+            <Link to="/blog/best-supplement-for-knee-joint" className="text-primary underline underline-offset-2">
+              Knee supplements (honest evidence)
+            </Link>
+          </li>
+          <li>
+            <Link to="/guides/painkillers-and-nsaids" className="text-primary underline underline-offset-2">
+              Painkillers &amp; NSAIDs
+            </Link>{" "}
+            ·{" "}
+            <Link to="/resources/flare-action-plan" className="text-primary underline underline-offset-2">
+              Flare action plan
+            </Link>
+          </li>
+          <li>
+            <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
+              Benefits &amp; PIP hub
+            </Link>{" "}
+            ·{" "}
+            <Link to="/faq/arthritis-disability-benefits-uk" className="text-primary underline underline-offset-2">
+              Disability benefits FAQ
+            </Link>{" "}
+            ·{" "}
+            <Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">
+              PIP evidence diary
+            </Link>
+          </li>
+          <li>
+            <Link to="/guides/newly-diagnosed" className="text-primary underline underline-offset-2">
+              Newly diagnosed
+            </Link>{" "}
+            ·{" "}
+            <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline underline-offset-2">
+              Rheumatoid arthritis
+            </Link>{" "}
+            ·{" "}
+            <Link to="/conditions/early-arthritis-symptoms" className="text-primary underline underline-offset-2">
+              Early symptoms
+            </Link>
+          </li>
         </ul>
       </nav>
       <ArticleCitations citations={CITATIONS_OA} />
-      <ClusterGpAndLinks path="/conditions/osteoarthritis" />
       <UrgentHelpAndSources path="/conditions/osteoarthritis" />
-      <EducationalDisclaimerBox lastReviewed="2026-09-28" />
+      <EducationalDisclaimerBox lastReviewed="2026-11-05" />
       <TopicClusterNav path="/conditions/osteoarthritis" />
-<CrossLinkBanner preset="condition" exclude="/conditions/osteoarthritis" title="Explore related resources" />
-        </div>
-        <div className="max-w-6xl mx-auto px-6">
-          <RelatedArticles
-            currentSlug=""
-            currentCategory="Osteoarthritis"
-            clusters={["knee-oa", "hip-oa", "exercise", "diet"]}
-            heading="Related arthritis reading"
-          />
-        </div>
-      </main>
-      <InternalLinks />
-      <NextReadStrip currentPath="/conditions/osteoarthritis" />
       <Footer />
     </div>
   </>

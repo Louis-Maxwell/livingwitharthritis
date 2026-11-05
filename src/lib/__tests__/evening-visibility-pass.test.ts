@@ -140,7 +140,7 @@ describe("evening visibility pass — crawl + AI discovery", () => {
         window.includes("<lastmod>2026-09-20</lastmod>") ||
         window.includes("<lastmod>2026-09-28</lastmod>") ||
         window.includes("<lastmod>2026-09-29</lastmod>") ||
-        window.includes("<lastmod>2026-10-10</lastmod>") ||        window.includes("<lastmod>2026-10-23</lastmod>") || window.includes("<lastmod>2026-11-04</lastmod>");
+        window.includes("<lastmod>2026-10-10</lastmod>") ||        window.includes("<lastmod>2026-10-23</lastmod>") || window.includes("<lastmod>2026-11-04</lastmod>") || window.includes("<lastmod>2026-11-05</lastmod>");
       expect(hasLastmod).toBe(true);
     });
   }

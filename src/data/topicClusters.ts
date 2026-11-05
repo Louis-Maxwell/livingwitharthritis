@@ -106,6 +106,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "/blog/swimming-exercises-hip-osteoarthritis",
       "/guides/hip-exercises-for-osteoarthritis",
       "/faq/what-is-osteoarthritis",
+      "/blog/hip-and-knee-oa-frailty-transfers-uk",
       "/blog/joint-protection-easier-everyday-tasks",
       "/blog/hand-osteoarthritis-frailty-dressing-cooking-uk",
       "/blog/walking-with-arthritis-start-build-up-keep-going",
@@ -131,6 +132,9 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "button hook",
       "degenerative joint",
       "wear and tear",
+      "knee osteoarthritis steady",
+      "seated strength osteoarthritis",
+      "hip knee transfers",
     ],
   },
   {
