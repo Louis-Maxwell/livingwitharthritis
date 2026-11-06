@@ -54,6 +54,8 @@ const MANAGED_META = [
   { attr: "property", value: "og:image:height" },
   { attr: "property", value: "og:image:alt" },
   { attr: "name", value: "twitter:card" },
+  { attr: "name", value: "twitter:site" },
+  { attr: "name", value: "twitter:creator" },
   { attr: "name", value: "twitter:title" },
   { attr: "name", value: "twitter:description" },
   { attr: "name", value: "twitter:image" },
@@ -164,6 +166,8 @@ export default function SeoDefaults() {
       {bingVerify && (
         <meta name="msvalidate.01" content={bingVerify} />
       )}
+      <meta name="twitter:site" content="@ArthritisOrg" />
+      <meta name="twitter:creator" content="@ArthritisOrg" />
       {/* Exactly one self-referencing canonical per page. Emitted here so
           every route gets one, including pages that use raw Helmet rather
           than <SeoHead />. The static index.html canonical is pruned above
