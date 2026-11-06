@@ -49,7 +49,8 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   if (!record) return <NotFound />;
 
   const prefix = variant === "reviewer" ? "reviewers" : "authors";
-  const url = `${BASE}/${prefix}/${slug}`;
+  const requestedUrl = `${BASE}/${prefix}/${slug}`;
+  const url = `${BASE}/authors/${slug}`;
   const isPlaceholder = (v: string) => v.includes("[PLACEHOLDER");
 
   // Real (non-placeholder) credential strings only, for JSON-LD.
@@ -86,9 +87,8 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   Object.keys(personLd).forEach((k) => personLd[k] === undefined && delete personLd[k]);
 
   const badgeLabel = variant === "reviewer" ? "Medical reviewer" : "Author";
-  const canonicalUrl = variant === "reviewer"
-    ? `https://livingwitharthritis.org.uk/authors/${slug}`
-    : url;
+  const canonicalUrl = url;
+  void requestedUrl;
   const h1 = variant === "reviewer"
     ? `${record.name}: clinical reviewer profile`
     : `${record.name}: author profile`;
@@ -116,7 +116,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="profile" />
         <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
@@ -130,7 +130,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfilePage",
-          url,
+          url: canonicalUrl,
           mainEntity: personLd,
           inLanguage: "en-GB",
         })}</script>
@@ -142,7 +142,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
             { "@type": "ListItem", position: 2, name: "Editorial standards", item: `${BASE}/editorial-standards` },
-            { "@type": "ListItem", position: 3, name: record.name, item: url },
+            { "@type": "ListItem", position: 3, name: record.name, item: canonicalUrl },
           ],
         })}</script>
       </Helmet>
