@@ -63,6 +63,12 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      # Keep authoring-time metadata limits enforced in CI as well as at
+      # render-time. This catches static title/description regressions before
+      # they reach the prerendered build and social previews.
+      - name: SEO metadata length check
+        run: npm run seo:meta-lengths
+
       # Alerts on Tailwind utilities that are ambiguous (e.g. duration-[1200ms])
       # or that bypass the design tokens, before they reach a build.
       - name: CSS utility check
