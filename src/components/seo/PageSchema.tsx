@@ -115,10 +115,15 @@ export default function PageSchema({
         "@type": "FAQPage",
         "@id": `${absUrl}#faq`,
         url: absUrl,
-        mainEntity: faqs.map((f) => ({
+        mainEntity: faqs.map((f, index) => ({
           "@type": "Question",
+          "@id": `${absUrl}#faq-question-${index + 1}`,
           name: f.question,
-          acceptedAnswer: { "@type": "Answer", text: f.answer },
+          acceptedAnswer: {
+            "@type": "Answer",
+            "@id": `${absUrl}#faq-answer-${index + 1}`,
+            text: f.answer,
+          },
         })),
       });
     }
