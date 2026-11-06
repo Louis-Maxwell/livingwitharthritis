@@ -137,7 +137,7 @@ const CONTENT = `
 <p>This routine is for adults with knee osteoarthritis (OA), or long-standing knee pain that a GP or physiotherapist has said is likely to be OA. It also suits people waiting for an NHS physiotherapy appointment, people who have been told they are "not ready" for surgery yet, and people preparing for a knee replacement. It is general guidance, not a personal prescription. If a physiotherapist has already given you exercises, do theirs first and use this page to fill in gaps.</p>
 <p>NICE guideline NG226 (2022) recommends therapeutic exercise, tailored to the person, as a core treatment for everyone with osteoarthritis. That means local muscle strengthening around the joint plus general aerobic fitness. NICE also advises against routinely offering paracetamol or weak opioids for OA, and against glucosamine and strong opioids, which puts even more weight on exercise, weight management and self-help as the foundations of care.</p>
 
-<h2 id="why-knee-oa-needs-exercise">Why exercise helps a knee with osteoarthritis</h2>
+<h2 id="why-knee-oa-needs-exercise">Why does exercise help knee osteoarthritis?</h2>
 <p>Knee OA makes the joint stiffer and more painful, especially on stairs, when rising from a chair and after sitting still. The muscles that protect the knee, particularly the quadriceps at the front of the thigh, weaken quickly when the knee hurts. Weaker muscles mean the joint absorbs more load, which can mean more pain, and so the cycle continues. A targeted routine breaks that cycle.</p>
 <ul>
 <li><strong>Muscle support.</strong> Stronger quadriceps, hamstrings, hip and calf muscles share the work the joint would otherwise do on its own.</li>
@@ -148,7 +148,7 @@ const CONTENT = `
 </ul>
 <p>Exercise does not wear the joint out faster when it is built up sensibly. Our guide to <a href="/guides/can-exercise-make-osteoarthritis-worse">whether exercise can make osteoarthritis worse</a> explains the evidence in more detail.</p>
 
-<h2 id="before-you-start">Before you start: safety check</h2>
+<h2 id="before-you-start">Is it safe to start knee exercises at home?</h2>
 <p>Most people with knee OA can start this routine safely at home. Speak to a GP or physiotherapist before starting if you have:</p>
 <ul>
 <li>a recent fall, injury or suspected fracture</li>
@@ -204,7 +204,7 @@ const CONTENT = `
 </tbody>
 </table>
 
-<h2 id="weekly-plan">A sensible weekly plan</h2>
+<h2 id="weekly-plan">What is a sensible weekly plan for knee exercises?</h2>
 <table>
 <thead><tr><th>Day</th><th>Activity</th></tr></thead>
 <tbody>
@@ -300,6 +300,8 @@ export default function KneeExercisesForOsteoarthritis() {
           { name: "Free knee exercises for osteoarthritis UK" },
         ]}
         faqs={FAQS}
+        lastReviewed="2026-10-23"
+        reviewedBy={{ name: "Louis Maxwell", jobTitle: "First Contact Practitioner", identifier: "HCPC PH128483" }}
         idPrefix="knee-oa-exercises"
       />
       <Header />
@@ -310,7 +312,7 @@ export default function KneeExercisesForOsteoarthritis() {
           badge="Clinical Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
-          <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" />
+          <AeoEnhancement route="/guides/knee-exercises-for-osteoarthritis" renderFaqs={false} />
           <ArticleCitations citations={CITATIONS_KNEE_EXERCISES} />
           <EducationalDisclaimerBox lastReviewed="2026-10-23" />
           <TopicClusterNav path="/guides/knee-exercises-for-osteoarthritis" />
