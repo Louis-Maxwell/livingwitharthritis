@@ -112,6 +112,8 @@ export default function PageSchema({
       blocks.push({
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        "@id": `${absUrl}#faq`,
+        url: absUrl,
         mainEntity: faqs.map((f) => ({
           "@type": "Question",
           name: f.question,
@@ -124,6 +126,7 @@ export default function PageSchema({
       const medicalPage: Record<string, unknown> = {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
+        "@id": `${absUrl}#medicalwebpage`,
         name,
         description,
         url: absUrl,
@@ -163,6 +166,8 @@ export default function PageSchema({
       blocks.push({
         "@context": "https://schema.org",
         "@type": "HowTo",
+        "@id": `${absUrl}#howto`,
+        url: absUrl,
         name: howTo.name,
         ...(howTo.totalTime ? { totalTime: howTo.totalTime } : {}),
         step: howTo.steps.map((s, i) => ({
