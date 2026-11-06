@@ -35,18 +35,21 @@ export const ORGANIZATION_PAYLOAD = {
   foundingDate: "2026-06-15",
   founder: {
     "@type": "Person",
+    name: "David Williams",
+  },
+  employee: {
+    "@type": "Person",
     name: "Louis Maxwell",
-    alternateName: "Maxwell",
-    jobTitle: "First Contact Practitioner",
+    jobTitle: "Clinical Lead and First Contact Practitioner",
     identifier: {
       "@type": "PropertyValue",
       propertyID: "HCPC",
       value: "PH128483",
     },
-    url: `${BASE}/authors/maxwell`,
+    url: BASE + "/authors/maxwell",
   },
   description:
-    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
+    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free arthritis education, practical exercise guidance, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
   keywords:
     "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
