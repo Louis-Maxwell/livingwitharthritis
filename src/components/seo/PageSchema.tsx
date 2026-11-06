@@ -107,11 +107,14 @@ export default function PageSchema({
     // single source of truth; the `breadcrumbs` prop is kept for API
     // compatibility but no longer used.
     void breadcrumbs;
+    void speakableSelector;
 
     if (faqs && faqs.length > 0) {
       blocks.push({
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        "@id": `${absUrl}#faq`,
+        url: absUrl,
         mainEntity: faqs.map((f) => ({
           "@type": "Question",
           name: f.question,
@@ -124,27 +127,17 @@ export default function PageSchema({
       const medicalPage: Record<string, unknown> = {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
+        "@id": `${absUrl}#medicalwebpage`,
         name,
         description,
         url: absUrl,
         inLanguage: "en-GB",
         publisher: { "@id": `${BASE}/#organization` },
-        audience: {
-          "@type": "MedicalAudience",
-          audienceType: "Patient",
-          geographicArea: { "@type": "Country", name: "United Kingdom" },
-        },
       };
       if (medical?.condition) {
         medicalPage.about = {
           "@type": "MedicalCondition",
           name: medical.condition,
-        };
-      }
-      if (speakableSelector) {
-        medicalPage.speakable = {
-          "@type": "SpeakableSpecification",
-          cssSelector: [speakableSelector],
         };
       }
       if (lastReviewed && reviewedBy) {
@@ -163,6 +156,8 @@ export default function PageSchema({
       blocks.push({
         "@context": "https://schema.org",
         "@type": "HowTo",
+        "@id": `${absUrl}#howto`,
+        url: absUrl,
         name: howTo.name,
         ...(howTo.totalTime ? { totalTime: howTo.totalTime } : {}),
         step: howTo.steps.map((s, i) => ({
