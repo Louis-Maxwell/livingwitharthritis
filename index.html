@@ -110,7 +110,10 @@
 
         window.__loadAnalytics = loadAnalytics;
         window.addEventListener('cookie-consent-accepted', loadAnalytics);
-        if (hasAnalyticsConsent()) loadAnalytics();
+        if (hasAnalyticsConsent()) {
+          var schedule = window.requestIdleCallback || function (cb) { setTimeout(cb, 1500); };
+          schedule(loadAnalytics);
+        }
       })();
     </script>
 
