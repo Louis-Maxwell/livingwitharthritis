@@ -84,6 +84,11 @@ export function escText(value) {
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
 
+function bodyTextIncludes(value, html) {
+  const needle = stripToText(value);
+  return needle.length >= 40 && stripToText(html).includes(needle);
+}
+
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
   // The template owns H1. Keep all existing heading words as subordinate H2s.
@@ -91,6 +96,10 @@ export function buildStaticArticleInner(data) {
     .replace(/<(\/?)h1\b/gi, '<$1h2');
   const answer = data?.answer && !bodyHtml.includes(data.answer)
     ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
+    : "";
+  const summary = data?.article?.excerpt || data?.description || "";
+  const summaryHtml = summary && !bodyTextIncludes(summary, bodyHtml)
+    ? `<p class="article-summary"><strong>In brief:</strong> ${escText(summary)}</p>`
     : "";
   const bodyText = stripToText(bodyHtml);
   const faqPairs = Array.isArray(data?.faqs)
@@ -123,7 +132,7 @@ export function buildStaticArticleInner(data) {
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
     author + reviewer +
-    answer +
+    answer + summaryHtml +
     (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
