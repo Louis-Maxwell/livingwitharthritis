@@ -51,7 +51,7 @@ const articleSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${entries.map((entry) => `  <url>${entry.trim()}</url>`).join('\n')}
 </urlset>
 `;
-writeFileSync(OUTPUT_PATH, articleSitemap);
+writeFileSync(OUTPUT_PATH, articleSitemap);\nconst distOutputPath = 'dist/sitemap-articles.xml';\ntry {\n  writeFileSync(distOutputPath, articleSitemap);\n} catch (error) {\n  if (error.code !== 'ENOENT') throw error;\n}
 
 const index = requiredFile(INDEX_PATH);
 if (!/<sitemapindex\b/.test(index)) throw new Error(`${INDEX_PATH} is not a sitemap index.`);
