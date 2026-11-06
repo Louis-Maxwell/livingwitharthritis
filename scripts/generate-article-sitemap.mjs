@@ -30,8 +30,17 @@ const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)]
   .map((match) => match[1])
   .filter((entry) => {
     const loc = entry.match(/<loc>([^<]+)<\/loc>/)?.[1];
-    const path = loc?.startsWith(BASE_URL) ? loc.slice(BASE_URL.length) : '';
-    const slug = path.match(/^\/blog\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/)?.[1];
+    if (!loc) return false;
+
+    let url;
+    try {
+      url = new URL(loc);
+    } catch {
+      return false;
+    }
+    if (url.origin !== BASE_URL || url.search || url.hash) return false;
+
+    const slug = url.pathname.match(/^\/blog\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/)?.[1];
     return Boolean(slug && !excludedSlugs.has(slug));
   });
 
