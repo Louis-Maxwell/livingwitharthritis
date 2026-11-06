@@ -38,6 +38,26 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   // Inject FAQPage JSON-LD when FAQs are present
   useEffect(() => {
     if (!faqs.length) return;
+    // Many legacy route components already emit a FAQPage JSON-LD block.
+    // Avoid adding a second FAQPage for the same document, which makes
+    // structured-data crawlers treat the page as ambiguous or invalid.
+    const hasExistingFaqPage = Array.from(
+      document.querySelectorAll('script[type="application/ld+json"]'),
+    ).some((node) => {
+      try {
+        const value = JSON.parse(node.textContent || "");
+        const items = Array.isArray(value) ? value : [value];
+        return items.some((item) => {
+          const types = Array.isArray(item?.["@type"])
+            ? item["@type"]
+            : [item?.["@type"]];
+          return types.includes("FAQPage");
+        });
+      } catch {
+        return false;
+      }
+    });
+    if (hasExistingFaqPage) return;
     const pageUrl = `https://livingwitharthritis.org.uk${props.route.startsWith("/") ? props.route : `/${props.route}`}`;
     const script = document.createElement("script");
     script.type = "application/ld+json";
