@@ -1,63 +1,23 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { afterPageLoad } from "@/lib/afterPageLoad";
+import { resolveSeoRedirect } from "@/lib/seoRedirects";
 
 const SITE = "https://livingwitharthritis.org.uk";
 
-type Resolver = (pathname: string) => string | null;
-let resolverPromise: Promise<Resolver> | null = null;
-let resolver: Resolver | null = null;
-
 /**
- * The redirect tables (blog slug renames, city aliases, locale rules) are
- * ~60 KB of data that almost no visit needs, so they are loaded in their own
- * chunk instead of the entry bundle. Once loaded, resolution is synchronous.
- */
-function loadResolver(): Promise<Resolver> {
-  resolverPromise ??= import("@/lib/seoRedirects").then((m) => {
-    resolver = m.resolveSeoRedirect;
-    return resolver;
-  });
-  return resolverPromise;
-}
-
-/**
- * Client-side redirect for hosts that serve the SPA shell for every path
- * (HTTP 200). Paired with:
- *   - public/_redirects          — Netlify / static-host 301s
- *   - dist/<path>/index.html     — static noindex+canonical+refresh stubs
- *     written by scripts/write-redirect-html.mjs for Lovable's SPA host,
- *     which ignores _redirects and otherwise returns the homepage shell.
+ * Resolve retired/aliased URLs synchronously during the first render.
+ *
+ * This matters for crawlers: waiting for an after-load dynamic import can
+ * expose the SPA shell as a 200 before the redirect table is available,
+ * which is reported as a soft 404 or broken page. The redirect map is kept
+ * in the application bundle so both browsers and crawlers see the canonical
+ * destination immediately. Host-level 301 rules and generated redirect
+ * documents remain the preferred server-side path.
  */
 export default function SeoRedirectGate({ children }: { children: ReactNode }) {
   const { pathname, search, hash } = useLocation();
-  const [dest, setDest] = useState<string | null>(() => (resolver ? resolver(pathname) : null));
-
-  useEffect(() => {
-    let cancelled = false;
-    if (resolver) {
-      setDest(resolver(pathname));
-      return;
-    }
-    // First visit: fetch the tables once the page has loaded. Retired URLs
-    // are already answered by the host 301s / static redirect stubs, so this
-    // client check is a fallback and should not compete with the page.
-    const cancelLoad = afterPageLoad(() => {
-      loadResolver()
-        .then((resolve) => {
-          if (!cancelled) setDest(resolve(pathname));
-        })
-        .catch(() => {
-          // Redirect tables unavailable (offline / chunk error): the host-level
-          // 301s and static redirect stubs still cover crawlers.
-        });
-    }, 0);
-    return () => {
-      cancelled = true;
-      cancelLoad();
-    };
-  }, [pathname]);
+  const dest = resolveSeoRedirect(pathname);
 
   useEffect(() => {
     if (!dest) return;
