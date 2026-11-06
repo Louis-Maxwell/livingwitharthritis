@@ -64,7 +64,7 @@ export default function MedicalPageSchema({
         }
       });
 
-    if (medical) {
+    if (medical && !hasSchemaType("MedicalWebPage")) {
       cleanups.push(injectJsonLd(`${id}-medicalwebpage`, buildMedicalWebPage(medical)));
     }
     if (faqs && faqs.length && !hasSchemaType("FAQPage")) {
