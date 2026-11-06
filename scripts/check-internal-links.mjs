@@ -71,6 +71,15 @@ const routePatterns = [...appSource.matchAll(/<Route\s+path="([^"]+)"/g)]
   .map((m) => m[1])
   .filter((p) => p !== "*");
 
+// Comparison pages are registered through COMPARISON_ROUTES.map(...) rather
+// than individual <Route path="..."> elements, so include the generated
+// route list when validating sitemap and source links.
+const comparisonRoutesFile = join(ROOT, "src/data/comparison-routes.generated.ts");
+if (existsSync(comparisonRoutesFile)) {
+  const comparisonRoutes = [...readFileSync(comparisonRoutesFile, "utf8").matchAll(/"(\/guides\/[^"\n]+)"/g)].map((m) => m[1]);
+  routePatterns.push(...comparisonRoutes);
+}
+
 const blogSlugs = new Set(
   JSON.parse(readFileSync(join(ROOT, "src/data/blog-slugs.generated.json"), "utf8")),
 );
