@@ -132,22 +132,11 @@ export default function PageSchema({
         url: absUrl,
         inLanguage: "en-GB",
         publisher: { "@id": `${BASE}/#organization` },
-        audience: {
-          "@type": "MedicalAudience",
-          audienceType: "Patient",
-          geographicArea: { "@type": "Country", name: "United Kingdom" },
-        },
       };
       if (medical?.condition) {
         medicalPage.about = {
           "@type": "MedicalCondition",
           name: medical.condition,
-        };
-      }
-      if (speakableSelector) {
-        medicalPage.speakable = {
-          "@type": "SpeakableSpecification",
-          cssSelector: [speakableSelector],
         };
       }
       if (lastReviewed && reviewedBy) {
