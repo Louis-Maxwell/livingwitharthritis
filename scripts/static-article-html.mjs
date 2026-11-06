@@ -124,9 +124,8 @@ export function buildStaticArticleInner(data) {
   const related = links.length
     ? `<nav aria-label="Related guides"><h2>Related guides</h2><ul>${links.map((link) => `<li><a href="${escText(link.path).replace(/"/g, "&quot;")}">${escText(link.title)}</a></li>`).join("")}</ul></nav>` : "";
 
-  const supportLinks = data?.article?.slug
-    ? `<nav aria-label="Arthritis support and guides"><a href="/arthritis-support">Arthritis support</a> · <a href="/guides">Arthritis guides</a> · <a href="/authors">Authors and editorial team</a></nav>`
-    : "";
+  const supportLinks =
+    `<nav aria-label="Arthritis support and guides"><a href="/arthritis-support">Arthritis support</a> · <a href="/guides">Arthritis guides</a> · <a href="/authors">Authors and editorial team</a></nav>`;
 
   return (
     `<article id="static-article" class="static-article">` +
