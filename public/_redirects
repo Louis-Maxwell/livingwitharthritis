@@ -119,6 +119,10 @@
 # Shop never launched (removed 2026-09); product URLs go to the supplements hub.
 /product/* /supplements 301
 
+/reviewers/maxwell /authors/maxwell 301
+/daily-tips/daily-living /daily-tips/overview 301
+/daily-tips/health-tips /daily-tips/overview 301
+
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /exercises/swimming-for-knee /exercises/swimming-for-knee-arthritis 301
 /exercises/swimming-for-hip /exercises/swimming-for-hip-arthritis 301
