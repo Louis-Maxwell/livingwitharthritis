@@ -48,17 +48,32 @@ export default function MedicalPageSchema({
 }: MedicalPageSchemaProps) {
   useEffect(() => {
     const cleanups: Array<() => void> = [];
+    const hasSchemaType = (schemaType: string) =>
+      Array.from(document.querySelectorAll('script[type="application/ld+json"]')).some((node) => {
+        try {
+          const value = JSON.parse(node.textContent || "");
+          const items = Array.isArray(value) ? value : [value];
+          return items.some((item) => {
+            const types = Array.isArray(item?.["@type"])
+              ? item["@type"]
+              : [item?.["@type"]];
+            return types.includes(schemaType);
+          });
+        } catch {
+          return false;
+        }
+      });
 
     if (medical) {
       cleanups.push(injectJsonLd(`${id}-medicalwebpage`, buildMedicalWebPage(medical)));
     }
-    if (faqs && faqs.length) {
+    if (faqs && faqs.length && !hasSchemaType("FAQPage")) {
       cleanups.push(injectJsonLd(`${id}-faqpage`, buildFAQPage(faqs)));
     }
-    if (howTo) {
+    if (howTo && !hasSchemaType("HowTo")) {
       cleanups.push(injectJsonLd(`${id}-howto`, buildHowTo(howTo)));
     }
-    if (breadcrumbs && breadcrumbs.length) {
+    if (breadcrumbs && breadcrumbs.length && !hasSchemaType("BreadcrumbList")) {
       cleanups.push(injectJsonLd(`${id}-breadcrumb`, buildBreadcrumb(breadcrumbs)));
     }
 
