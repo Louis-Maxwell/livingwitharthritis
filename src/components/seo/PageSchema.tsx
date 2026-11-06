@@ -107,6 +107,7 @@ export default function PageSchema({
     // single source of truth; the `breadcrumbs` prop is kept for API
     // compatibility but no longer used.
     void breadcrumbs;
+    void speakableSelector;
 
     if (faqs && faqs.length > 0) {
       blocks.push({
