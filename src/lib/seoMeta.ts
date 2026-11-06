@@ -101,7 +101,13 @@ function warnLength(
   route: string | undefined,
   value: string,
 ): void {
-   
+  const location = route ? ` for ${route}` : "";
+  const preview = value.length > 120 ? `${value.slice(0, 117)}…` : value;
+  // Authoring feedback only: this is guarded by isDev at the call sites and
+  // never changes rendered metadata or production behaviour.
+  console.warn(
+    `[seo] ${kind}${location} is ${actual} characters (limit ${max}): ${preview}`,
+  );
 }
 
 export const SEO_LIMITS = {
