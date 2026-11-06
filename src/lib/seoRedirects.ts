@@ -66,6 +66,9 @@ export const EXACT_SEO_REDIRECTS: Record<string, string> = {
   "/pip": "/guides/benefits-pip",
   "/authors/louis-maxwell": "/authors/maxwell",
   "/reviewers/louis-maxwell": "/reviewers/maxwell",
+  "/reviewers/maxwell": "/authors/maxwell",
+  "/daily-tips/daily-living": "/daily-tips/overview",
+  "/daily-tips/health-tips": "/daily-tips/overview",
   "/blog/knee-arthritis-exercises": "/guides/knee-exercises-for-osteoarthritis",
   "/blog/knee-arthritis-exercises-uk": "/guides/knee-exercises-for-osteoarthritis",
   // Pillar consolidation 2026-10-31: thin duplicate hubs merged into the
