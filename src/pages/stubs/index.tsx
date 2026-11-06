@@ -1,11 +1,8 @@
 ﻿/**
  * Route stubs for navigation destinations that don't yet have full
  * editorial pages. Each export is a thin wrapper around `StubPage` so the
- * URL is indexable (AnswerBox + FAQ + Breadcrumb JSON-LD + MedicalReviewBadge)
- * instead of a 404 while we expand the content.
- *
- * Adding a new stub: add a new exported component below, then register
- * the route in `src/App.tsx` and append the URL to `public/sitemap.xml`.
+ * URL remains useful to visitors while editorial work is in progress.
+ * StubPage enforces noindex; do not add a stub URL to any sitemap.
  */
 import StubPage, { type StubPageFAQ } from "@/components/StubPage";
 import HubGuidePage from "@/components/HubGuidePage";
