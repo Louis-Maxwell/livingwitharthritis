@@ -11,7 +11,7 @@ const REGISTER_URL =
 
 export const ORGANIZATION_PAYLOAD = {
   "@context": "https://schema.org",
-  "@type": ["MedicalOrganization", "NGO", "Organization"],
+  "@type": ["NGO", "Organization"],
   "@id": `${BASE}/#organization`,
   name: "Living With Arthritis",
   legalName: "Living With Arthritis",
@@ -46,7 +46,7 @@ export const ORGANIZATION_PAYLOAD = {
     url: `${BASE}/authors/maxwell`,
   },
   description:
-    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, providing free virtual physiotherapy, NICE-aligned exercises, anti-inflammatory nutrition guidance and peer support for people living with joint pain across the United Kingdom.",
+    "Living With Arthritis is a registered charity in England and Wales no. 1218461, independent of Arthritis UK, publishing free educational guidance about arthritis, exercise, diet, benefits and self-management for people across the United Kingdom.",
   keywords:
     "arthritis charity UK, arthritis help UK, osteoarthritis exercises, rheumatoid arthritis support, joint pain advice, frailty support, PIP arthritis guidance, NICE aligned exercise, arthritis pain relief UK, arthritis waiting list help, arthritis disability benefits UK, Mediterranean diet for arthritis",
   email: "info@livingwitharthritis.org.uk",
@@ -70,68 +70,6 @@ export const ORGANIZATION_PAYLOAD = {
     "@type": "CreativeWork",
     name: "UK Charity Commission Register entry",
     url: REGISTER_URL,
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Free UK arthritis support from Living With Arthritis",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        name: "Arthritis exercise and movement guides",
-        url: `${BASE}/guides/exercise`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "Service",
-          serviceType: "NICE-aligned arthritis exercise guidance",
-          areaServed: "GB",
-          audience: {
-            "@type": "MedicalAudience",
-            audienceType: "People living with arthritis",
-          },
-        },
-      },
-      {
-        "@type": "Offer",
-        name: "Benefits and PIP guidance for arthritis",
-        url: `${BASE}/guides/benefits-pip`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "Service",
-          serviceType: "UK benefits information for arthritis and disability",
-          areaServed: "GB",
-        },
-      },
-      {
-        "@type": "Offer",
-        name: "Waiting-list and appointment preparation help",
-        url: `${BASE}/arthritis-waiting-list-help`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "Service",
-          serviceType: "Plain-English UK healthcare navigation support",
-          areaServed: "GB",
-        },
-      },
-      {
-        "@type": "Offer",
-        name: "AI-readable arthritis content export",
-        url: `${BASE}/llms.txt`,
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "GBP",
-        itemOffered: {
-          "@type": "DigitalDocument",
-          encodingFormat: "text/plain",
-          name: "Living With Arthritis llms.txt",
-        },
-      },
-    ],
   },
   contactPoint: [
     {
