@@ -6,4 +6,4 @@
     <loc>https://livingwitharthritis.org.uk/sitemap.xml</loc>
     <lastmod>2026-11-05</lastmod>
   </sitemap>
-</sitemapindex>
+  <sitemap>\n    <loc>https://livingwitharthritis.org.uk/sitemap-articles.xml</loc>\n  </sitemap>\n</sitemapindex>
