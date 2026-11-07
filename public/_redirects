@@ -59,6 +59,8 @@
 /de/corporate-partnerships /corporate-partnerships 301
 /pt/corporate-partnerships /corporate-partnerships 301
 
+/resources/ankle-exercise-programme.pdf /resources/ankle-exercise-programme.html 301
+
 # --- Locale 404s (must sit above the /{lang}/* splats) ---
 /es/404 / 301
 /fr/404 / 301
