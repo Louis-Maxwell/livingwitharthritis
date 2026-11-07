@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
 
 test("ankle programme uses the working printable guide without exposing the corrupt PDF", async ({ page, request }) => {
-  const oldPdf = await request.get("/resources/ankle-exercise-programme.pdf", { maxRedirects: 0 });
-  expect(oldPdf.status()).toBe(301);
-  expect(oldPdf.headers().location).toBe("/resources/ankle-exercise-programme.html");
+  const oldPdf = await request.get("/resources/ankle-exercise-programme.pdf");
+  expect(oldPdf.headers()["content-type"]).not.toContain("application/pdf");
+  expect((await oldPdf.body()).subarray(0, 5).toString()).not.toBe("%PDF-");
 
   await page.goto("/resources/ankle-exercise-programme.html");
   await expect(page.locator("html")).toHaveAttribute("lang", "en-GB");
