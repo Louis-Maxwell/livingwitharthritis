@@ -62,7 +62,7 @@ const faqs = [
     q: "What sources were used for this guide?",
     a: "This guide links to NHS arthritis information and relevant NICE guidance. It is general education and does not replace personalised advice.",
   },
-
+];
 
 /* ---------- Section heading ---------- */
 const SectionHeading = ({ id, icon: Icon, children }: { id: string; icon: React.ElementType; children: React.ReactNode }) => (
