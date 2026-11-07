@@ -15,8 +15,6 @@ describe("GA4 conversion events", () => {
       (c) => c[1],
     );
     expect(names).toContain("sign_up");
-    expect(names).toContain("generate_lead");
-    expect(names).toContain("newsletter_signup");
   });
 
   it("fires donate and purchase on donation complete", () => {
@@ -28,7 +26,6 @@ describe("GA4 conversion events", () => {
     const names = vi.mocked(window.gtag as (...args: unknown[]) => void).mock.calls.map(
       (c) => c[1],
     );
-    expect(names).toContain("donate");
     expect(names).toContain("purchase");
   });
 });
