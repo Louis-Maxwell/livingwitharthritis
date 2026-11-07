@@ -396,8 +396,8 @@ export default function WaysToHelp() {
                   },
                   {
                     icon: Gift,
-                    title: "Fund Services",
-                    description: "Your donations fund free virtual physiotherapy, diet plans, and community support groups across the UK.",
+                    title: "Fund Information",
+                    description: "Your donations support the publication and accessibility of free arthritis information and resources.",
                     color: "from-primary to-secondary",
                     bg: "bg-primary/5",
                   },
