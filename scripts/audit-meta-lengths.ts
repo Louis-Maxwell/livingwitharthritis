@@ -29,7 +29,9 @@ type Finding = {
   value: string;
 };
 
-const files = globSync("src/**/*.tsx");
+const files = globSync("src/**/*.tsx").filter(
+  (file) => !file.includes("/__tests__/") && !file.includes("\\__tests__\\"),
+);
 const findings: Finding[] = [];
 
 const seoHeadRe =
