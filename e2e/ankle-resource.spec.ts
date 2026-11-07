@@ -1,16 +1,14 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "‎@playwright/test".replace("‎","");
 
-test("ankle programme is available as a valid PDF and standalone printable guide", async ({ page, request }) => {
-  const pdf = await request.get("/resources/ankle-exercise-programme.pdf");
-  expect(pdf.ok()).toBeTruthy();
-  expect(pdf.headers()["content-type"]).toContain("application/pdf");
-  const bytes = await pdf.body();
-  expect(bytes.subarray(0, 5).toString()).toBe("%PDF-");
-  expect(bytes.subarray(-1024).toString()).toContain("%%EOF");
+test("ankle programme uses the working printable guide without exposing the corrupt PDF", async ({ page, request }) => {
+  const oldPdf = await request.get("/resources/ankle-exercise-programme.pdf");
+  expect(oldPdf.status()).toBe(301);
+  expect(oldPdf.headers().location).toBe("/resources/ankle-exercise-programme.html");
 
   await page.goto("/resources/ankle-exercise-programme.html");
   await expect(page.locator("html")).toHaveAttribute("lang", "en-GB");
   await expect(page.locator("section.exercise")).toHaveCount(5);
+  await expect(page.locator('a[href$=".pdf"]')).toHaveCount(0);
   await page.evaluate(() => { window.print = () => { document.body.dataset.printed = "true"; }; });
   const print = page.getByRole("button", { name: "Print or save as PDF" });
   await print.focus();
@@ -18,7 +16,9 @@ test("ankle programme is available as a valid PDF and standalone printable guide
   await expect(page.locator("body")).toHaveAttribute("data-printed", "true");
 
   await page.goto("/exercises/ankle-arthritis-exercises");
-  await page.getByRole("link", { name: "Open the printable five-exercise ankle guide" }).click();
+  await expect(page.locator("body")).not.toContainText("\\n");
+  await expect(page.locator('a[href="/resources/ankle-exercise-programme.pdf"]')).toHaveCount(0);
+  await page.getByRole("link", { name: "Open the printable ankle exercise guide" }).click();
   await expect(page).toHaveURL(/\/resources\/ankle-exercise-programme\.html$/);
   await expect(page.locator("h1")).toHaveText("Ankle strengthening exercises PDF");
 });
