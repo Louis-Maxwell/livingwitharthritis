@@ -280,7 +280,7 @@ const BlogPost = () => {
     ? "Editorial content"
     : rawAuthorCreds;
   const MAXWELL_NAME = "Louis Maxwell";
-  const MAXWELL_CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
+  const MAXWELL_CREDS = "First Contact Physiotherapist, HCPC PH128483";
   const rawReviewerName = article.reviewed_by || "";
   const rawReviewerCreds = article.reviewer_credentials || "";
   // Normalise any legacy placeholder credentials to the verified clinician
@@ -505,6 +505,14 @@ const BlogPost = () => {
                 {article.title}
               </h1>
 
+              {directAnswer && (
+                <section className="direct-answer speakable-intro mb-5" aria-label="Direct answer">
+                  <AnswerBox question={article.title.replace(/[?.!]+$/, "").trim() + "?"}>
+                    {directAnswer}
+                  </AnswerBox>
+                </section>
+              )}
+
               <p className="text-lg text-muted-foreground leading-relaxed mb-5 max-w-[65ch] text-pretty">
                 {metaDesc}
               </p>
@@ -528,7 +536,7 @@ const BlogPost = () => {
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
-                        Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
+                        Clinically reviewed by {reviewerName} (First Contact Physiotherapist, HCPC PH128483)
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
                         <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
@@ -578,14 +586,6 @@ const BlogPost = () => {
           <div className="mb-6 print:hidden"><MedicalDisclaimerStrip variant="short" /></div>
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
           <div className="min-w-0 max-w-[760px]">
-          {directAnswer && (
-            <AnswerBox
-              question={article.title.replace(/[?.!]+$/, "").trim() + "?"}
-            >
-              {directAnswer}
-            </AnswerBox>
-          )}
-
           {/* Print header: only visible when saving to PDF / printing */}
           <div className="print-only mb-6 pb-4 border-b border-black">
             <div className="flex items-center justify-between text-xs">
@@ -615,7 +615,7 @@ const BlogPost = () => {
           {hasVerifiedReviewer && (
             <MedicalReviewBadge
               reviewer={reviewerName}
-              title="First Contact Practitioner"
+              title="First Contact Physiotherapist"
               credential="HCPC PH128483"
               authorSlug="maxwell"
               date={updatedDate ?? publishDate}
