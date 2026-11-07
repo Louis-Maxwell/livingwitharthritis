@@ -87,7 +87,6 @@ const ArthritisPainRelief = () => (
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
     <div className="min-h-screen bg-background">
       <Header />
@@ -129,7 +128,7 @@ const ArthritisPainRelief = () => (
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
 
         <section aria-labelledby="pain-now" className="mb-10 rounded-2xl border border-primary/30 bg-primary/5 p-6">
-          <h2 id="pain-now" className="font-display text-2xl font-bold text-foreground mb-3">Pain right now: what to do in the next hour</h2>
+          <h2 id="pain-now" className="font-display text-2xl font-bold text-foreground mb-3">What can I do right now for arthritis pain?</h2>
           <ol className="list-decimal pl-5 space-y-2 text-foreground/85">
             <li><strong>Check for red flags</strong> in the box below. If any apply, get help first.</li>
             <li><strong>Heat or cold:</strong> a warm (not hot) wheat bag or shower for stiff, aching joints; a cold pack wrapped in a tea towel for a hot, swollen joint. Up to about 20 minutes at a time.</li>
