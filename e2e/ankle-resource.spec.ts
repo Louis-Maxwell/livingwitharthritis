@@ -1,7 +1,7 @@
-import { test, expect } from "‎@playwright/test".replace("‎","");
+import { test, expect } from "@playwright/test";
 
 test("ankle programme uses the working printable guide without exposing the corrupt PDF", async ({ page, request }) => {
-  const oldPdf = await request.get("/resources/ankle-exercise-programme.pdf");
+  const oldPdf = await request.get("/resources/ankle-exercise-programme.pdf", { maxRedirects: 0 });
   expect(oldPdf.status()).toBe(301);
   expect(oldPdf.headers().location).toBe("/resources/ankle-exercise-programme.html");
 
