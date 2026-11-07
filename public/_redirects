@@ -1761,7 +1761,8 @@
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
 /pip /guides/benefits-pip 301
 /authors/louis-maxwell /authors/maxwell 301
-/reviewers/louis-maxwell /reviewers/maxwell 301
+/reviewers/louis-maxwell /authors/maxwell 301
+/reviewers/maxwell /authors/maxwell 301
 /blog/knee-arthritis-exercises /guides/knee-exercises-for-osteoarthritis 301
 
 # --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---

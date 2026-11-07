@@ -49,7 +49,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   if (!record) return <NotFound />;
 
   const prefix = variant === "reviewer" ? "reviewers" : "authors";
-  const url = `${BASE}/${prefix}/${slug}`;
+  const url = `${BASE}/authors/${slug}`;
   const isPlaceholder = (v: string) => v.includes("[PLACEHOLDER");
 
   // Real (non-placeholder) credential strings only, for JSON-LD.
@@ -86,9 +86,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   Object.keys(personLd).forEach((k) => personLd[k] === undefined && delete personLd[k]);
 
   const badgeLabel = variant === "reviewer" ? "Medical reviewer" : "Author";
-  const canonicalUrl = variant === "reviewer"
-    ? `https://livingwitharthritis.org.uk/authors/${slug}`
-    : url;
+  const canonicalUrl = url;
   const h1 = variant === "reviewer"
     ? `${record.name}: clinical reviewer profile`
     : `${record.name}: author profile`;
@@ -116,7 +114,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="profile" />
         <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
@@ -130,7 +128,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfilePage",
-          url,
+          url: canonicalUrl,
           mainEntity: personLd,
           inLanguage: "en-GB",
         })}</script>
@@ -142,7 +140,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
             { "@type": "ListItem", position: 2, name: "Editorial standards", item: `${BASE}/editorial-standards` },
-            { "@type": "ListItem", position: 3, name: record.name, item: url },
+            { "@type": "ListItem", position: 3, name: record.name, item: canonicalUrl },
           ],
         })}</script>
       </Helmet>
@@ -224,9 +222,9 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           <section className="rounded-2xl border border-border p-6 bg-muted/60 mb-10">
             <h2 className="text-lg font-bold mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
-              Our editorial standards explain how clinical content is checked
-              by qualified UK healthcare professionals. Each article shows its
-              review status by Louis Maxwell (HCPC PH128483). Read the full{" "}
+              Our editorial standards explain how clinical content is checked.
+              Articles reviewed by Louis Maxwell name him and show a review date;
+              other pages must not imply clinical review. Read the full{" "}
               <Link to="/editorial-standards" className="text-primary underline">
                 editorial standards
               </Link>{" "}

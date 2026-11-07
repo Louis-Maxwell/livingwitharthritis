@@ -26,7 +26,7 @@ const WAYS = [
   {
     icon: Heart,
     title: "Make a Donation",
-    description: "Your gift directly funds physiotherapy sessions, exercise programmes and community support for people living with arthritis across the UK.",
+    description: "Your gift supports the charity's free public information, accessibility work and operating costs.",
     impact: "Your contribution helps keep free arthritis information and practical support available.",
     cta: "Donate Now",
     href: GOFUNDME_URL,
@@ -38,7 +38,7 @@ const WAYS = [
   {
     icon: Users,
     title: "Volunteer With Us",
-    description: "Share your time and skills — from peer mentoring to event support, there are many ways to get involved in your community.",
+    description: "Register your interest in volunteering. We will only offer roles that have been confirmed and appropriately supported.",
     impact: "Choose an activity that fits your time, skills and availability.",
     cta: "Sign Up Below",
     href: "#volunteer-form",
@@ -50,7 +50,7 @@ const WAYS = [
   {
     icon: Trophy,
     title: "Fundraise for Us",
-    description: "Run a marathon, host a bake sale, or organise a sponsored event. We'll provide everything you need to get started.",
+    description: "Register a fundraising idea and contact us before using the charity's name or branding.",
     impact: "Invite friends or colleagues to support free arthritis resources.",
     cta: "Start Fundraising",
     href: "/corporate-giving",
@@ -61,7 +61,7 @@ const WAYS = [
   {
     icon: Building2,
     title: "Corporate Partnerships",
-    description: "Partner with us for sponsorship, employee engagement programmes, and cause-related marketing that makes a real difference.",
+    description: "Contact us to explore a potential sponsorship, workplace fundraising or corporate-support arrangement.",
     impact: "Explore a partnership, sponsorship or workplace fundraising idea.",
     cta: "Partner With Us",
     href: "/corporate-giving",
@@ -72,7 +72,7 @@ const WAYS = [
   {
     icon: ScrollText,
     title: "Leave a Legacy",
-    description: "A gift in your will ensures future generations of people with arthritis receive the support they need to live well.",
+    description: "Contact us for current information before including the charity in a will or estate plan.",
     impact: "Ask us about leaving a gift in your will.",
     cta: "Learn about leaving a legacy",
     href: "/about",
@@ -90,9 +90,9 @@ const IMPACT_STATS = [
 ];
 
 const INTEREST_OPTIONS = [
-  "Peer Mentoring",
-  "Event Support",
-  "Community Outreach",
+  "Accessibility support",
+  "Content review",
+  "Community outreach interest",
   "Content & Blog Writing",
   "Social Media",
   "Fundraising",
@@ -149,7 +149,7 @@ export default function WaysToHelp() {
     <>
       <Helmet>
         <title>{enforceTitle("Donate, volunteer or fundraise", { includeSiteName: true, route: "/ways-to-help" })}</title>
-        <meta name="description" content="Support people living with arthritis: donate to our charity, volunteer, fundraise, or explore a corporate partnership. Choose a practical way to help today." />
+        <meta name="description" content="Support Living With Arthritis through current donation options, volunteering interest, fundraising enquiries or potential corporate support." />
         <meta name="keywords" content="volunteer for charity, donate to arthritis charity, fundraising ideas for health charity, arthritis events, arthritis advocacy, arthritis charity, arthritis foundation, arthritis research, arthritis awareness, arthritis support, joint pain charity, financial help for arthritis patients" />
       <meta property="og:title" content="Donate, Volunteer or Fundraise for Arthritis Support | Living With Arthritis" />
       <meta property="og:description" content="Support people living with arthritis: donate to our charity, volunteer, fundraise, or explore a corporate partnership. Choose a practical way to help today." />
@@ -163,7 +163,7 @@ export default function WaysToHelp() {
         <meta property="og:image:alt" content="Ways To Help | Living With Arthritis" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Ways to Help | Living With Arthritis" />
-      <meta name="twitter:description" content="Discover how you can support people living with arthritis across the UK. Donate, volunteer, fundraise, partner with us or leave a legacy." />
+      <meta name="twitter:description" content="See current ways to support Living With Arthritis, including donations and expressions of interest in volunteering or fundraising." />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
     </Helmet>
 
@@ -286,9 +286,9 @@ export default function WaysToHelp() {
                         </p>
                         <ul className="space-y-2 mb-6">
                           {[
-                            "100% of donations go towards patient services",
-                            "Gift Aid (+25%) after HMRC registration is live",
-                            "One-off or monthly giving options available",
+                            "Donations support free public information and charity operating costs",
+                            "Gift Aid is not currently claimed",
+                            "Current giving options are shown on the donation page",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm text-foreground">
                               <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -374,7 +374,7 @@ export default function WaysToHelp() {
                   How Your Support Changes Lives
                 </h2>
                 <p className="text-muted-foreground max-w-lg mx-auto">
-                  Every contribution — no matter the size — creates tangible, measurable change.
+                  Every contribution helps us keep practical arthritis information free and accessible.
                 </p>
               </div>
 
@@ -396,8 +396,8 @@ export default function WaysToHelp() {
                   },
                   {
                     icon: Gift,
-                    title: "Fund Services",
-                    description: "Your donations fund free virtual physiotherapy, diet plans, and community support groups across the UK.",
+                    title: "Fund Information",
+                    description: "Your donations support the publication and accessibility of free arthritis information and resources.",
                     color: "from-primary to-secondary",
                     bg: "bg-primary/5",
                   },
@@ -578,7 +578,7 @@ export default function WaysToHelp() {
                 Ready to Make a Difference?
               </h2>
               <p className="text-base sm:text-lg text-primary-foreground leading-relaxed mb-8 max-w-xl mx-auto">
-                Join thousands of supporters across the UK who are helping people with arthritis live better, more active lives.
+                Support a young UK charity working to keep practical arthritis information free and accessible.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button asChild size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 font-bold h-12 px-8 shadow-lg">
