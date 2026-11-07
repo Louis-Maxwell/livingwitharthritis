@@ -58,8 +58,8 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
       : 'Authors and editorial team | Living With Arthritis';
   const description =
     variant === 'reviewer'
-      ? 'The registered clinicians who review Living With Arthritis content, including Louis Maxwell, First Contact Practitioner (HCPC PH128483).'
-      : 'The people who write Living With Arthritis guides, led by Louis Maxwell, First Contact Practitioner (HCPC PH128483).';
+      ? 'The registered clinicians who review Living With Arthritis content, including Louis Maxwell, First Contact Physiotherapist (HCPC PH128483).'
+      : 'The people who write Living With Arthritis guides, led by Louis Maxwell, First Contact Physiotherapist (HCPC PH128483).';
 
   const itemListLd = {
     '@context': 'https://schema.org',
