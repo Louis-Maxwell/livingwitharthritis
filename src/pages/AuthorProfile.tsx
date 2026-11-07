@@ -49,7 +49,6 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   if (!record) return <NotFound />;
 
   const prefix = variant === "reviewer" ? "reviewers" : "authors";
-  const requestedUrl = `${BASE}/${prefix}/${slug}`;
   const url = `${BASE}/authors/${slug}`;
   const isPlaceholder = (v: string) => v.includes("[PLACEHOLDER");
 
@@ -88,7 +87,6 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
 
   const badgeLabel = variant === "reviewer" ? "Medical reviewer" : "Author";
   const canonicalUrl = url;
-  void requestedUrl;
   const h1 = variant === "reviewer"
     ? `${record.name}: clinical reviewer profile`
     : `${record.name}: author profile`;
@@ -224,9 +222,9 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           <section className="rounded-2xl border border-border p-6 bg-muted/60 mb-10">
             <h2 className="text-lg font-bold mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
-              Our editorial standards explain how clinical content is checked
-              by qualified UK healthcare professionals. Each article shows its
-              review status by Louis Maxwell (HCPC PH128483). Read the full{" "}
+              Our editorial standards explain how clinical content is checked.
+              Articles reviewed by Louis Maxwell name him and show a review date;
+              other pages must not imply clinical review. Read the full{" "}
               <Link to="/editorial-standards" className="text-primary underline">
                 editorial standards
               </Link>{" "}
