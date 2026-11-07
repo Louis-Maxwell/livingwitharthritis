@@ -52,7 +52,7 @@ export default function EducationalDisclaimerBox({
             </p>
           ) : (
             <p className="font-semibold text-foreground">
-              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded — update this page before publication`}
+              {reviewedLabel ? `Clinically reviewed · ${reviewer} · ${reviewedLabel}` : `Clinical reviewer: ${reviewer} · Review date not recorded`}
             </p>
           )}
           {copyMode === "full" ? (
