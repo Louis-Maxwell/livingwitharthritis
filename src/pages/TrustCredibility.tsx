@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import {
   Shield, Award, Users, BookOpen, Heart, ExternalLink,
-  Stethoscope, GraduationCap, Scale, FileCheck, Globe,
+  GraduationCap, Scale, FileCheck, Globe,
   Building2
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,7 +22,6 @@ const evidenceSources = [
   { name: "British Medical Journal", desc: "Peer-reviewed evidence on Mediterranean diet and arthritis outcomes", url: "https://www.bmj.com/", icon: BookOpen },
   { name: "Cochrane Library", desc: "Systematic reviews on physiotherapy and exercise interventions", url: "https://www.cochranelibrary.com/", icon: GraduationCap },
   { name: "World Health Organization", desc: "Global musculoskeletal health frameworks and data", url: "https://www.who.int/", icon: Globe },
-  { name: "Arthritis Research UK (legacy)", desc: "Foundational research informing UK arthritis care standards", url: "#", icon: Stethoscope },
 ];
 
 
@@ -87,7 +86,7 @@ const TrustCredibility = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Shield className="w-3.5 h-3.5 mr-1.5" /> Trust & Governance</Badge>}
         title={<>Why You Can <span className="text-primary">Trust Us</span></>}
-        subtitle="We're a UK registered charity committed to transparency, medical accuracy and patient-centred care. Here's everything you need to know about our governance."
+        subtitle="We're a UK registered charity committed to transparency, medical accuracy and accessible public information. Here is how we describe our governance and evidence standards."
       />
 
       <main id="main-content">
@@ -136,7 +135,7 @@ const TrustCredibility = () => {
                 <Users className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">Board of Trustees & Medical Advisors</h2>
+                <h2 className="text-2xl font-bold text-foreground">Governance and clinical review</h2>
                 <p className="text-sm text-muted-foreground">Governance and clinical-review information</p>
               </div>
             </div>
