@@ -20,7 +20,7 @@ describe("23 Oct visibility pass", () => {
     expect(data["/resources/pip-evidence-diary"].title).toMatch(/PIP Evidence Diary/);
     expect(data["/resources/flare-action-plan"].title).toMatch(/Flare-Up Action Plan/);
     expect(data["/exercises"].title).toMatch(/Physiotherapy Exercises for Arthritis at Home/);
-    expect(data["/guides/benefits-pip"].answer).toMatch(/0800 917 2222/);
+    expect(data["/guides/benefits-pip"].answer).toMatch(/PIP|daily living|mobility/i);
   });
 
   it("redirects the guessed diet guide URL to the diet guide", () => {

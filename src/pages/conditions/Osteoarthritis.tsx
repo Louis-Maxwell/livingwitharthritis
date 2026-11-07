@@ -188,7 +188,6 @@ const Osteoarthritis = () => (
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -259,7 +258,7 @@ const Osteoarthritis = () => (
       <main id="main-content" className="container mx-auto px-6 md:px-10 py-12 md:py-16 max-w-3xl">
         <section aria-labelledby="oa-now" className="mb-10 rounded-2xl border border-primary/30 bg-primary/5 p-6">
           <h2 id="oa-now" className="font-display text-2xl font-bold text-foreground mb-3">
-            OA right now: start here
+            What should I do when osteoarthritis pain starts?
           </h2>
           <ol className="list-decimal pl-5 space-y-2 text-foreground/85">
             <li>
