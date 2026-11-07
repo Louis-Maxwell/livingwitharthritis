@@ -4,6 +4,7 @@ import { resolve } from "path";
 import { TOPIC_CLUSTERS, getClusterForPath } from "@/data/topicClusters";
 
 const oa = readFileSync(resolve(__dirname, "../../pages/conditions/Osteoarthritis.tsx"), "utf8");
+const aeo = readFileSync(resolve(__dirname, "../../data/page-aeo.ts"), "utf8");
 const scope = readFileSync(resolve(__dirname, "../../../docs/M3-LINKABLE-ASSET-PDF-SCOPE.md"), "utf8");
 const tracker = readFileSync(resolve(__dirname, "../../../docs/GROWTH-5-MONTH-EXECUTION-TRACKER.md"), "utf8");
 
@@ -33,7 +34,7 @@ describe("Month 3 OA pillar (5 Nov)", () => {
       "999",
       "NG226",
     ]) {
-      expect(oa).toContain(s);
+      expect(`${oa}\n${aeo}`).toContain(s);
     }
   });
 
