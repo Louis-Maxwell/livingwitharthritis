@@ -132,6 +132,7 @@ export default function PageSchema({
         description,
         url: absUrl,
         inLanguage: "en-GB",
+        author: { ...LOUIS_MAXWELL_REF },
         publisher: { "@id": `${BASE}/#organization` },
       };
       if (medical?.condition) {
@@ -141,6 +142,7 @@ export default function PageSchema({
         };
       }
       if (lastReviewed && reviewedBy) {
+        medicalPage.dateModified = lastReviewed;
         medicalPage.lastReviewed = lastReviewed;
         medicalPage.reviewedBy = isLouisMaxwell(reviewedBy.name, reviewedBy.identifier) ? { ...LOUIS_MAXWELL_REF } : {
           "@type": "Person",
