@@ -21,7 +21,7 @@ const FounderStoryBand = memo(() => {
             id="founder-story-heading"
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
           >
-            Founded by a clinician who lived the lonely bit too
+            Founded by a charity created to close the lonely gap
           </h2>
 
           {/* Body copy */}
@@ -62,7 +62,7 @@ const FounderStoryBand = memo(() => {
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/95 transition-colors shadow-lg shadow-primary/20"
             >
               <Stethoscope className="w-5 h-5 mr-2" aria-hidden="true" />
-              Meet Louis
+              Meet our Clinical Lead
             </a>
             <Link
               to="/editorial-standards"
