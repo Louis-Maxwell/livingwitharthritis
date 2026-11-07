@@ -10,6 +10,8 @@
 export interface AeoPage {
   question: string;
   answer: string;
+  /** Short, page-specific points shown directly below the answer. */
+  keyTakeaways?: string[];
   faqs?: { q: string; a: string }[];
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
@@ -29,7 +31,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/osteoarthritis": withDefaults({
     question: "What is osteoarthritis?",
     answer:
-      "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care. Educational only — not a diagnosis.",
+      "Osteoarthritis (OA) is a joint condition that can cause pain, stiffness and reduced movement, most often in the knees, hips, hands and spine. Pain is often worse with use and morning stiffness usually lasts under 30 minutes. NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care.",
+    keyTakeaways: [
+      "NICE recommends therapeutic exercise, weight management where relevant, and information and support as core care.",
+      "Pain-relief medicines should support self-management; ask a pharmacist or GP what is safe for you.",
+      "A suddenly hot, red or swollen joint, especially with fever, needs same-day NHS advice.",
+    ],
     updatedAt: "2026-11-05",
     faqs: [
       { q: "Can osteoarthritis be cured?", a: "There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery." },
@@ -248,11 +255,18 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/arthritis-pain-relief": withDefaults({
     question: "How do I relieve arthritis pain?",
     answer:
-      "Use heat for stiff joints or a wrapped cold pack for hot, swollen ones, keep moving gently and build up exercise, which NICE recommends as a core treatment for osteoarthritis. For knee osteoarthritis NICE advises trying an NSAID gel first; NSAID tablets may be added at the lowest dose for the shortest time. NICE says paracetamol and weak opioids should not be offered routinely for osteoarthritis. Inflammatory arthritis needs specialist treatment. Check with a pharmacist or GP what is safe for you.",
+      "To ease arthritis pain, use warmth for stiff joints or a wrapped cold pack for a hot, swollen joint, keep moving gently, and use only medicines advised for you. For knee osteoarthritis, NICE advises trying an NSAID gel first. Exercise is a core treatment; ask a pharmacist or GP what is safe.",
+    keyTakeaways: [
+      "Use warmth for stiffness or a wrapped cold pack for a hot, swollen joint, for short periods.",
+      "Gentle movement and therapeutic exercise are core parts of osteoarthritis care; complete rest can increase stiffness.",
+      "For knee osteoarthritis, NICE advises trying an NSAID gel first; ask a pharmacist or GP before using medicines.",
+      "A suddenly hot, red, swollen joint with fever needs same-day advice from NHS 111 or your GP.",
+    ],
     faqs: [
       { q: "What is the fastest way to ease an arthritis flare?", a: "Use heat for stiffness or a cold pack wrapped in a cloth for a hot swollen joint, reduce rather than stop activity, and use only medicines your GP or pharmacist has advised. Full rest often increases stiffness." },
       { q: "Does exercise help arthritis pain?", a: "Yes. NICE recommends therapeutic exercise, including strengthening and general fitness, as a core treatment for osteoarthritis. Start small and build up gradually." },
       { q: "When should I see a GP about joint pain?", a: "If pain is not improving after a few weeks, wakes you most nights, comes with swollen or warm joints or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
+      { q: "Should I use heat or cold for arthritis pain?", a: "Heat often suits stiff, aching joints, while a wrapped cold pack can help a hot, swollen joint. Use either for a short period, protect your skin and do not use it on numb skin." },
     ],
   }),
   "/guides/hip-exercises-for-osteoarthritis": withDefaults({
@@ -268,7 +282,21 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.",
+      "For knee osteoarthritis, combine strengthening with general aerobic activity rather than complete rest. Start with a comfortable range of movement and, if suitable, build towards 2–3 sets of 8–12 repetitions two or three times weekly. Mild discomfort that settles within 24 hours may be acceptable; ask a physiotherapist if unsure.",
+    keyTakeaways: [
+      "Combine local strengthening with general aerobic activity, starting at a level you can manage.",
+      "If you are new to exercise, start with one set and build towards 2 to 3 sets of 8 to 12 repetitions.",
+      "Mild discomfort that settles within 24 hours may be acceptable; reduce the load if pain or swelling persists.",
+      "Stop and seek advice for sharp pain, locking, giving way, sudden swelling or a hot, red knee with fever.",
+    ],
+    faqs: [
+      { q: "How many reps of knee exercises for osteoarthritis should I do?", a: "Aim for 2 to 3 sets of 8 to 12 repetitions of each strength exercise, two or three times a week on non-consecutive days. For quad sets, hold for 5 to 10 seconds and build up to 10 holds. If you are new to exercise, start with one set and build up over a few weeks. Regular practice over 6 to 12 weeks matters more than doing a lot in one session." },
+      { q: "When should I stop knee exercises?", a: "Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine. Stop that session and do less next time if you get sharp or catching pain, the knee locks or gives way, new swelling lasts overnight, or pain stays higher the next day. Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf." },
+      { q: "Can I start knee OA exercises at home without seeing a physio?", a: "Most people with stable knee osteoarthritis can start a gentle home routine like this safely. See a GP or physiotherapist first after a recent fall or injury, if your knee is suddenly hot and swollen, locks or gives way, or after recent surgery. In many UK areas you can self-refer to NHS physiotherapy." },
+      { q: "What if I am on an NHS physiotherapy waiting list?", a: "You can usually start gentle strengthening and movement at home while you wait. Begin at the gentle level, use the 4/10 pain rule, and take notes on what helps to show your physiotherapist. If your symptoms change suddenly or you develop red flag symptoms, do not wait for the routine appointment; contact your GP or NHS 111." },
+      { q: "Does walking help knee osteoarthritis?", a: "Yes, for most people. Regular walking is a good way to build general fitness, which NICE recommends alongside strengthening for osteoarthritis. Start with short walks on flat ground at a comfortable pace, wear supportive shoes, and add a few minutes each week. Cycling and swimming are good alternatives if walking is painful." },
+      { q: "Should I use a knee brace or support for exercise?", a: "Braces and insoles are not needed by everyone with osteoarthritis, but they can help some people, particularly if the knee feels unstable. A physiotherapist can advise whether a support is likely to help you. A brace should not replace strengthening exercises." },
+    ],
   }),
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
@@ -336,7 +364,13 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
+      "You may be able to claim PIP if you are 16 or over and a long-term condition makes everyday tasks or getting around difficult, with difficulties expected to last at least 12 months. Eligibility depends on how you are affected, not simply your diagnosis. PIP has daily living and mobility parts; Scotland uses Adult Disability Payment.",
+    keyTakeaways: [
+      "PIP is assessed by how your condition affects daily living and mobility, not by diagnosis alone.",
+      "For a new claim, GOV.UK says you must usually be 16 or over and expect the difficulties to last at least 12 months.",
+      "Keep examples of what you can and cannot do safely, repeatedly and in a reasonable time, including help or aids you need.",
+      "If you live in Scotland, apply for Adult Disability Payment rather than PIP.",
+    ],
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",
@@ -411,10 +445,12 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/exercise": withDefaults({
     question: "What exercise is best for arthritis?",
     answer:
-      "NICE places exercise first-line for osteoarthritis: combine low-impact aerobic activity (walking, cycling, swimming) with strengthening two or more days a week and flexibility work. Moderate discomfort that settles within 24 hours is expected; reduce intensity if pain stays high overnight or joints swell.",
-    faqs: [
-      { q: "Should I exercise if my joints hurt?", a: "Yes — start gently. Stop and scale back if pain stays high overnight or swelling increases." },
-      { q: "How much each week?", a: "Around 150 minutes of moderate low-impact activity plus two strengthening sessions, split into short blocks if needed." },
+      "Useful arthritis exercise combines low-impact aerobic activity, muscle strengthening and flexibility work, chosen around your symptoms, ability and goals. Walking, cycling, swimming, tai chi and seated or resistance exercise may all be suitable. Start gradually, build regularity, and seek individual advice if pain, swelling or another condition affects safety.",
+    keyTakeaways: [
+      "A balanced programme combines low-impact aerobic activity, muscle strengthening and flexibility work.",
+      "Start with short, manageable sessions and build gradually; regular activity matters more than doing a lot at once.",
+      "During a flare, reduce intensity and range of movement rather than stopping all activity, unless a clinician advises otherwise.",
+      "Ask a physiotherapist or GP for individual advice if pain, swelling or another health condition affects safety.",
     ],
   }),
   "/arthritis-waiting-list-help": withDefaults({
