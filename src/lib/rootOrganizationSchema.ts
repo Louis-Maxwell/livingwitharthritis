@@ -37,7 +37,7 @@ export const ORGANIZATION_PAYLOAD = {
     "@type": "Person",
     name: "Louis Maxwell",
     alternateName: "Maxwell",
-    jobTitle: "First Contact Practitioner",
+    jobTitle: "First Contact Physiotherapist",
     identifier: {
       "@type": "PropertyValue",
       propertyID: "HCPC",
