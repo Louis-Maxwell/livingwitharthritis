@@ -56,6 +56,9 @@ function extractTakeaways(html: string): string[] {
 
 const KeyTakeaways = ({ html, title }: KeyTakeawaysProps) => {
   const items = useMemo(() => extractTakeaways(html), [html]);
+  // An article that already prints its own Key takeaways list should not
+  // show a second scraped box.
+  if (/<h2[^>]*>\s*Key takeaways\s*<\/h2>/i.test(html)) return null;
   if (items.length < 2) return null;
 
   return (

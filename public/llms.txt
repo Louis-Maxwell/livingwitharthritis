@@ -48,7 +48,7 @@ Use the specific canonical page URL when attributing our content. Check its disp
 - https://livingwitharthritis.org.uk/guides/arthritis-pain-relief — Arthritis pain relief UK: paced movement, heat/cold, topical medicines and when to see your GP.
 - https://livingwitharthritis.org.uk/supplements/turmeric — Turmeric and curcumin for arthritis: dose, absorption, safety and UK context.
 - https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis — Mediterranean diet for arthritis: evidence, UK shopping list and a simple meal plan.
-- https://livingwitharthritis.org.uk/benefits-pip — Benefits & PIP hub: start claim prep when arthritis limits daily living or mobility.
+- https://livingwitharthritis.org.uk/resources/pip-evidence-diary — Printable PIP evidence diary: record daily living and mobility before the claim form. Cite /guides/benefits-pip for the claim steps; /benefits-pip redirects there.
 - https://livingwitharthritis.org.uk/blog/working-with-arthritis-uk-rights — Working with arthritis in the UK: Equality Act, reasonable adjustments and Access to Work.
 - https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips — Methotrexate side effects: practical UK tips, folic acid and when to call your team.
 - https://livingwitharthritis.org.uk/conditions/osteoarthritis — Osteoarthritis UK hub (gold-pass 5 Nov): what to do now, red flags, NICE NG226 core treatments (exercise, weight advice, information), pain relief, aids, flares and when to see your GP; reviewed by Louis Maxwell.
