@@ -16,7 +16,7 @@ export const PIP_GUIDE_CHECKED = "10 October 2026";
 
 export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 October 2026</strong> against <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment</a> and the DWP <a href="https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027" rel="noopener">benefit and pension rates 2026 to 2027</a>. Benefit rules can change, so always check the official pages before you claim.</p>
 
-<p><strong>Before you apply:</strong> if you are still deciding whether arthritis may qualify, read <a href="/blog/pip-for-arthritis-uk">can you get PIP for arthritis?</a> That page is about eligibility, including rates checked against GOV.UK. This page is the claim itself. Use the <a href="/resources/pip-evidence-diary">printable PIP evidence diary</a> to record daily living and mobility for two to four weeks before you fill in the form.</p>
+<p><strong>Before you apply:</strong> if you are still deciding whether arthritis may qualify, read <a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a> That page is about eligibility, including rates checked against GOV.UK. This page is the claim itself. Use the <a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a> to record daily living and mobility for two to four weeks before you fill in the form.</p>
 
 <p>Arthritis can make ordinary tasks harder, slower or more painful: getting dressed, cooking a meal, washing, managing tablets or walking to the shops. Personal Independence Payment (PIP) exists to help with the extra costs that come with this. Many people with arthritis are eligible but never claim, or are turned down because their form did not show the real impact. This guide covers the whole process, from checking whether you qualify to challenging a decision, so you know what to expect at each stage.</p>
 
@@ -91,7 +91,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <p>So if you can get dressed, but it takes you 40 minutes and leaves you exhausted and in pain, or you can walk 50 metres once but not again that day, you should explain that.</p>
 
 <h3 id="fluctuating">Flares and fluctuating arthritis</h3>
-<p>The regulations look at which descriptor applies on <strong>more than 50% of days</strong> over the relevant period. If different descriptors apply on different days and none reaches 50% on its own, but scoring descriptors together cover more than half the days, the descriptor that applies for the highest proportion of days is used. In practice, describe what a typical week and month look like: how many bad days, what you can and cannot do on them, and how long flares last. A diary is the best way to show this; use our <a href="/resources/pip-evidence-diary">PIP evidence diary</a>.</p>
+<p>The regulations look at which descriptor applies on <strong>more than 50% of days</strong> over the relevant period. If different descriptors apply on different days and none reaches 50% on its own, but scoring descriptors together cover more than half the days, the descriptor that applies for the highest proportion of days is used. In practice, describe what a typical week and month look like: how many bad days, what you can and cannot do on them, and how long flares last. A diary is the best way to show this; use our <a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a>.</p>
 
 <h3 id="medicines-aids">Painkillers, aids and timing</h3>
 <p>The assessment guide also says assessors should consider whether you can do an activity when you need to. If painkillers let you get washed and dressed soon after waking, you may not score; if you have to wait a couple of hours for them to work, a scoring descriptor may apply. Using aids such as a perching stool, long-handled sponge, grab rails or a walking stick can score points if you need them to complete an activity reliably.</p>
@@ -174,7 +174,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 </ul>
 
 <p>If this guide helped you, you can help keep free arthritis information available: <a href="/ways-to-help">volunteer, fundraise or partner with us</a>, or <a href="/donate">support our charity with a donation</a>.</p>
-<p>If you are not sure whether to apply, <a href="/blog/pip-for-arthritis-uk">can you get PIP for arthritis?</a> covers eligibility. Stay on this page for the application itself, and use the <a href="/resources/pip-evidence-diary">PIP evidence diary</a> while you fill in the form.</p>
+<p>If you are not sure whether to apply, <a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a> covers eligibility. Stay on this page for the application itself, and use the <a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a> while you fill in the form.</p>
 <h2 id="sources">Sources and further reading</h2>
 <ul>
 <li><a href="https://www.gov.uk/pip" rel="noopener">GOV.UK: Personal Independence Payment (full guide)</a></li>

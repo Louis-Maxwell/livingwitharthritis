@@ -83,7 +83,9 @@ export default function ComparisonPage() {
 
   const fullTitle = enforceTitle(`${title} — Compared`, { route: path });
   const safeDesc = enforceDescription(metaDescription, path);
-  const aeoQuestion = `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
+  const aeoQuestion = path === "/guides/dmards-vs-biologics"
+    ? "How do DMARDs and biologics differ for rheumatoid arthritis?"
+    : `How do ${a} and ${b} compare${context ? ` for ${context.toLowerCase()}` : ""}?`;
   const aeoAnswer = article?.intro ?? metaDescription;
   const aeoFaqs = article?.takeaways?.slice(0, 4).map((t, i) => ({
     q: `Key point ${i + 1}: ${a} vs ${b}`,

@@ -152,7 +152,7 @@ export default function BenefitsPIPGuide() {
               to="/resources/pip-evidence-diary"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
             >
-              Open the PIP evidence diary
+              Printable PIP evidence diary
             </Link>
           </div>
           <TableOfContents html={html} />

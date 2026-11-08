@@ -251,12 +251,15 @@ export const faqArticles: FaqArticle[] = [
     slug: 'is-arthritis-a-disability',
     title: 'Is Arthritis a Disability?',
     question: 'Is arthritis considered a disability?',
+    seoTitle: 'Is Arthritis a Disability? Everyday Impact and Rights',
+    metaDescription:
+      'Is arthritis a disability? Learn how substantial, long-term effects on everyday activities relate to disability rights, adjustments and further support.',
     quickAnswer:
-      "Legally, yes — if it substantially limits your ability to do normal activities. This means you're protected by the Equality Act 2010.",
+      'Arthritis can be considered a disability when it substantially and over the long term affects normal day-to-day activities. The effect on everyday life matters, not simply the diagnosis. This page explains the legal definition, substantial impact, rights and reasonable adjustments, with links to employment and benefits questions.',
     sections: [
-      { heading: 'Legal Definition', content: 'Under UK law, arthritis is a disability if it substantially and long-term limits your ability to carry out normal day-to-day activities. This includes work, self-care, mobility, relationships.' },
+      { heading: 'Is arthritis a disability?', content: 'Under UK law, arthritis can be a disability if it substantially and over the long term limits your ability to carry out normal day-to-day activities. This includes work, self-care, mobility and relationships. The diagnosis on its own is not enough.' },
       { heading: "What 'Substantial' Means", content: "More than minor or trivial impact. If arthritis stops you doing something most people do, it's substantial. Examples: unable to walk far, can't dress yourself, can't work full-time." },
-      { heading: 'Your Rights', content: 'Protection from discrimination, access to reasonable adjustments, eligibility for benefits, right to flexible working, occupational health support at work.' },
+      { heading: 'Your Rights', content: 'If the effect on your day-to-day life is substantial and long-term, you may have protection from discrimination and can ask for reasonable adjustments at work. Benefits are not automatic; they depend on how your condition affects you, not on the diagnosis alone.' },
       { heading: 'Telling People', content: "You don't have to disclose disability to employers unless you need adjustments. Some people worry about stigma, but disclosure often helps." },
     ],
     relatedArticles: ['arthritis-employment-rights-uk', 'arthritis-disability-benefits-uk'],

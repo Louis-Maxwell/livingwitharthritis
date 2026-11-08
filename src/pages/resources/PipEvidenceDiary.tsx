@@ -146,7 +146,7 @@ export default function PipEvidenceDiary() {
             </li>
             <li>
               <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
-                Step-by-step guide to claiming PIP for arthritis
+                How to claim PIP for arthritis: step-by-step guide
               </Link>
               {" — "}the phone call, the form, the assessment and appeals
             </li>
