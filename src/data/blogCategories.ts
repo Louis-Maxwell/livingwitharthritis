@@ -45,7 +45,7 @@ export const LEGACY_BLOG_CATEGORY_KEYS: Record<string, BlogCategoryKey> = {
 const ALIASES: Record<BlogCategoryKey, string[]> = {
   "pain-flares": ["Pain & flares", "Pain", "Flares"],
   exercise: ["Exercise & movement", "Exercise", "Exercises", "Exercise Guides", "Frailty", "Prevention & Longevity"],
-  conditions: ["Conditions", "Health", "Symptoms", "Inflammatory", "Expert Q&A"],
+  conditions: ["Conditions", "Health", "Symptoms", "Inflammatory", "Expert Q&A", "Joint Pain & Conditions"],
   "benefits-work": ["Benefits, PIP & work", "Finances & Benefits", "Work & Career"],
   "diet-lifestyle": [
     "Diet & lifestyle",
