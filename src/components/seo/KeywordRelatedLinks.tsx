@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import links from "@/data/keywordRelatedLinks.generated.json";
+import journey from "@/data/readerJourneyLinks.json";
 const byPath = links as Record<string, { href: string; title: string }[]>;
+const byJourney = journey as Record<string, { href: string; title: string }[]>;
 export default function KeywordRelatedLinks({ path }: { path: string }) {
-  const rows = byPath[path] || [];
+  const rows = byJourney[path] || byPath[path] || [];
   if (!rows.length) return null;
   return <nav aria-label="Related reading" className="my-8 rounded-xl border border-border/50 p-5">
     <h2 className="mb-3 text-lg font-semibold">Related reading</h2>

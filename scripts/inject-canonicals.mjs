@@ -309,12 +309,24 @@ function withRenderedBody(route, data) {
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
-  return withHubSpotlight(route, withLinkedSummaries(route, out));
+  return withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out)));
 }
 // Strong hubs link to related guides Google had discovered but never crawled
 // (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).
 const HUB_SPOTLIGHT = existsSync(resolve('src/data/hub-spotlight.json'))
   ? JSON.parse(readFileSync(resolve('src/data/hub-spotlight.json'), 'utf8')) : {};
+const READER_JOURNEY = existsSync(resolve('src/data/readerJourneyLinks.json'))
+  ? JSON.parse(readFileSync(resolve('src/data/readerJourneyLinks.json'), 'utf8')) : {};
+function withIntentLinks(route, data) {
+  const rows = READER_JOURNEY[route];
+  if (!data || !Array.isArray(rows) || !rows.length) return data;
+  return {
+    ...data,
+    relatedLinks: rows
+      .filter((row) => row?.href && row?.title)
+      .map((row) => ({ path: row.href, title: row.title })),
+  };
+}
 function withHubSpotlight(route, data) {
   const spot = HUB_SPOTLIGHT[route];
   if (!spot || !data) return data;
@@ -332,13 +344,20 @@ function unwrapUnknownLinks(html) {
 // Still-thin pages (interactive tools, contact screens): describe the pages
 // they already link to, using each target's own meta description.
 function withLinkedSummaries(route, data) {
-  // Count the body only: the answer box is not always repeated in the body.
-  const have = textWords(data.bodyHtml);
+  if (!data) return data;
+  // Count the authored article as well as bodyHtml. A full guide is not a
+  // thin shell, even when bodyHtml is empty and the answer box is short.
+  const have = textWords(data.bodyHtml) + textWords(data.article?.content);
   if (have >= 300) return data;
+  // Every blog URL shares the /blog/ prefix. Using that as a sibling list
+  // repeated the same intimacy and carer guides on unrelated articles.
+  const section = `/${String(route || "").split("/").filter(Boolean)[0] || ""}`;
+  const siblingPrefix = section && section !== "/blog" ? `${section}/` : "";
   const paths = [
     ...[...String(data.bodyHtml || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
+    ...[...String(data.article?.content || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
     ...(data.relatedLinks || []).map((l) => l.path),
-    ...SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(`${route.split('/').slice(0, 2).join('/')}/`)),
+    ...(siblingPrefix ? SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(siblingPrefix)) : []),
     '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/guides/diet', '/guides/benefits-pip', '/helpline', '/arthritis-waiting-list-help', '/living-with-arthritis', '/guides/arthritis-pain-relief',
   ];
   const items = [];

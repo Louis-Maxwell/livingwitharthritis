@@ -2,7 +2,7 @@ import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { nextReviewDate, GUIDE_PUBLISHER_SCHEMA } from "@/lib/reviewDates";
 import BlogPdfDownload from '@/components/BlogPdfDownload';
-import { isVerifiedMaxwellReviewer } from "@/lib/blog/review";
+import { isDisclosedSelfReview, isVerifiedMaxwellReviewer, SELF_REVIEW_DISCLOSURE } from "@/lib/blog/review";
 import CaudaEquinaQuestions from '@/components/CaudaEquinaQuestions';
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { useEffect, useState } from "react";
@@ -87,10 +87,12 @@ const Footer = lazyWithRetry(() => import('@/components/Footer'));
  * we drop them from the main prose to prevent duplicate content.
  */
 function stripQuestionHeadings(html: string): string {
-  return html.replace(
-    /<h([23])[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
-    "",
-  );
+  return html
+    .replace(
+      /<h([23])[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
+      "",
+    )
+    .replace(/<h2[^>]*>\s*Frequently asked questions\s*<\/h2>/gi, "");
 }
 
 /** Build a fallback direct-answer sentence from the first substantive paragraph. */
@@ -290,6 +292,7 @@ const BlogPost = () => {
   const reviewerCreds = isPlaceholderReviewer ? MAXWELL_CREDS : rawReviewerCreds;
   // Every published guide has been clinically reviewed by Louis Maxwell (Oct 2026).
   const hasVerifiedReviewer = isVerifiedMaxwellReviewer(reviewerName, reviewerCreds);
+  const selfReview = isDisclosedSelfReview(authorName, reviewerName);
   const citations = Array.isArray(article.citations)
     ? article.citations.filter(
         (citation): citation is Citation =>
@@ -528,7 +531,9 @@ const BlogPost = () => {
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 w-fit">
                       <BookOpen className="w-3.5 h-3.5 text-primary" />
                       <Link to="/authors/maxwell" className="text-xs font-medium text-primary underline-offset-2 hover:underline">
-                        Clinically reviewed by {reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)
+                        {selfReview
+                          ? `Written and reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist). ${SELF_REVIEW_DISCLOSURE}`
+                          : `Clinically reviewed by ${reviewerName} (HCPC PH128483, Band 8 Advanced Practice Physiotherapist)`}
                       </Link>
                       {(blogLastReviewed || dateModifiedIso) && (
                         <span className="text-xs text-muted-foreground">· Last reviewed {String(blogLastReviewed || dateModifiedIso).slice(0, 10)} · Next review {nextReviewDate(String(blogLastReviewed || dateModifiedIso))}</span>
@@ -594,7 +599,9 @@ const BlogPost = () => {
             </div>
             {hasVerifiedReviewer && (
               <div className="text-[10px] mt-1">
-                Reviewed by {reviewerName}, {reviewerCreds}
+                {selfReview
+                  ? `Written and reviewed by ${reviewerName}, ${reviewerCreds}. ${SELF_REVIEW_DISCLOSURE}`
+                  : `Reviewed by ${reviewerName}, ${reviewerCreds}`}
               </div>
             )}
           </div>
@@ -619,6 +626,7 @@ const BlogPost = () => {
               credential="HCPC PH128483"
               authorSlug="maxwell"
               date={updatedDate ?? publishDate}
+              selfReview={selfReview}
             />
           )}
 
