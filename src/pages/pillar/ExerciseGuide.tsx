@@ -55,7 +55,7 @@ const CONTENT = `
 <li><strong><a href="/guides/free-arthritis-resources-uk">Free arthritis resources UK</a></strong> — guides, home physio and tools (charity 1218461)</li>
 </ul>
 
-<h2 id="types-of-exercise">Types of Exercise for Arthritis</h2>
+<h2 id="types-of-exercise">Which types of exercise help arthritis?</h2>
 <p>A balanced arthritis exercise programme should include <strong>three types</strong> of activity:</p>
 
 <h3 id="aerobic-exercise">1. Aerobic (Cardiovascular) Exercise</h3>
@@ -137,7 +137,7 @@ const CONTENT = `
 </ul>
 <p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Arthritis UK (formerly Versus Arthritis)</strong> maintain directories of arthritis-friendly swimming sessions.</p>
 
-<h2 id="exercise-during-flares">Exercising During Flare-Ups</h2>
+<h2 id="exercise-during-flares">Can I exercise during an arthritis flare-up?</h2>
 <p>A common question is whether to exercise during a flare-up. The answer is: <strong>yes, but modify</strong>. During active flares:</p>
 <ul>
 <li><strong>Reduce intensity and duration</strong> — do gentle range-of-motion exercises rather than strengthening or aerobic work</li>
@@ -235,6 +235,7 @@ export default function ExerciseGuide() {
         ]}
         faqs={EXERCISE_GUIDE_FAQS}
         lastReviewed="2026-09-17"
+        reviewedBy={{ name: "Louis Maxwell", jobTitle: "First Contact Practitioner", identifier: "HCPC PH128483" }}
         idPrefix="exercise-guide"
       />
       <Header />
@@ -245,6 +246,7 @@ export default function ExerciseGuide() {
           badge="Pillar Guide"
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
+          <AeoEnhancement route="/guides/exercise" />
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
             Exercise is the single most effective non-drug treatment for arthritis. UK NICE
             guidelines (NG226) put it ahead of medication for osteoarthritis. Aim for 150
@@ -252,7 +254,6 @@ export default function ExerciseGuide() {
             plus two sessions of strength work and a flexibility practice such as tai chi.
             Start short, build gradually, and pick activities you enjoy.
           </p>
-          <AeoEnhancement route="/guides/exercise" />
           <TableOfContents html={html} />
           <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
           <section id="exercise-guide-faq" className="mt-16 pt-8 border-t border-border/30">

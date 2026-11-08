@@ -22,8 +22,6 @@ import {
   PIP_GUIDE_FAQS,
   PIP_GUIDE_HTML,
   PIP_GUIDE_META_TITLE,
-  PIP_GUIDE_QUICK_ANSWER,
-  PIP_GUIDE_TITLE,
 } from "@/data/benefitsGuides/pipGuideContent";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -81,6 +79,8 @@ export default function BenefitsPIPGuide() {
           { name: "Benefits & PIP Guide" },
         ]}
         faqs={ALL_FAQS}
+        lastReviewed="2026-10-10"
+        reviewedBy={{ name: "Louis Maxwell", jobTitle: "First Contact Practitioner", identifier: "HCPC PH128483" }}
         idPrefix="benefits-pip-guide"
       />
       <Helmet>
@@ -103,27 +103,6 @@ export default function BenefitsPIPGuide() {
       <meta name="twitter:title" content={PIP_GUIDE_META_TITLE} />
       <meta name="twitter:description" content={PIP_GUIDE_DESCRIPTION} />
       <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "MedicalWebPage",
-        "name": PIP_GUIDE_TITLE,
-        "description": PIP_GUIDE_DESCRIPTION,
-        "url": "https://livingwitharthritis.org.uk/guides/benefits-pip",
-        "inLanguage": "en-GB",
-        "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
-        "about": { "@type": "MedicalCondition", "name": "Arthritis" },
-        "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://livingwitharthritis.org.uk/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://livingwitharthritis.org.uk/guides/uk-arthritis" },
-          { "@type": "ListItem", "position": 3, "name": "Benefits & PIP Guide", "item": "https://livingwitharthritis.org.uk/guides/benefits-pip" }
-        ]
-      })}</script>
       {/* FAQPage JSON-LD is emitted once by PageSchema (faqs={ALL_FAQS})
           for the questions rendered visibly in the accordion below. The
           second, hand-written FAQPage block that used to sit here duplicated
@@ -140,9 +119,6 @@ export default function BenefitsPIPGuide() {
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
           <TopicClusterNav path="/guides/benefits-pip" />
-          <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
-            <strong>Quick answer:</strong> {PIP_GUIDE_QUICK_ANSWER}
-          </p>
           <div className="mb-10 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6 print:hidden">
             <p className="text-sm font-semibold text-foreground m-0 mb-2">Free tool: printable PIP evidence diary</p>
             <p className="text-sm text-muted-foreground m-0 mb-4">

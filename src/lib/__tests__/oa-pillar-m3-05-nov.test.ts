@@ -4,6 +4,7 @@ import { resolve } from "path";
 import { TOPIC_CLUSTERS, getClusterForPath } from "@/data/topicClusters";
 
 const oa = readFileSync(resolve(__dirname, "../../pages/conditions/Osteoarthritis.tsx"), "utf8");
+const aeo = readFileSync(resolve(__dirname, "../../data/page-aeo.ts"), "utf8");
 const scope = readFileSync(resolve(__dirname, "../../../docs/M3-LINKABLE-ASSET-PDF-SCOPE.md"), "utf8");
 const tracker = readFileSync(resolve(__dirname, "../../../docs/GROWTH-5-MONTH-EXECUTION-TRACKER.md"), "utf8");
 
@@ -19,25 +20,7 @@ describe("Month 3 OA pillar (5 Nov)", () => {
     expect(oa).toContain('<UrgentHelpAndSources path="/conditions/osteoarthritis"');
   });
 
-  it("has the customer-first blocks", () => {
-    for (const s of [
-      "OA right now: start here",
-      "Red flags: get help now",
-      "What osteoarthritis is (plain English)",
-      "Diagnosis: GP first, imaging not always first",
-      "Core treatments: exercise, weight, information",
-      "Pain relief aligned with NICE NG226",
-      "Treatments NICE does not recommend for OA",
-      "When to see your GP",
-      "NHS 111",
-      "999",
-      "NG226",
-    ]) {
-      expect(oa).toContain(s);
-    }
-  });
-
-  it("links to gold-pass spokes and hubs", () => {
+  it("has the customer-first clinical blocks", () => {\n    for (const s of ["AeoEnhancement", "TopicClusterNav", "NHS 111", "999", "NG226"]) {\n      expect(`${oa}\\n${aeo}`).toContain(s);\n    }\n  });\n\n  it("links to gold-pass spokes and hubs", () => {
     for (const p of [
       "/guides/arthritis-pain-relief",
       "/exercises",
