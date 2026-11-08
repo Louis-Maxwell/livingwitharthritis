@@ -246,18 +246,23 @@ async function main() {
   };
 
   const data = {};
+  const journey = JSON.parse(readFileSync(new URL('../src/data/readerJourneyLinks.json', import.meta.url), 'utf8'));
   for (const row of rows) {
     if (!row.slug || redirectSlugs.has(row.slug)) continue;
     const entry = buildEntry(row, extractFaqs, coverMap);
     if (entry) {
       // Link every article back into its existing topic and to nearby guides.
       // All destinations come from the same published inventory, never guessed slugs.
+      // An unmapped category must not match every other unmapped category.
       const topic = categoryKey(row.category);
       const terms = new Set(`${row.title} ${row.keywords || ''}`.toLowerCase().match(/[a-z]{4,}/g) || []);
-      const peers = rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
+      const peers = topic ? rows.filter((p) => p.slug !== row.slug && !redirectSlugs.has(p.slug) && categoryKey(p.category) === topic)
         .map((p) => ({ post: p, score: (p.title.toLowerCase().match(/[a-z]{4,}/g) || []).filter((t) => terms.has(t)).length }))
-        .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3);
-      entry.relatedLinks = [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
+        .sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug)).slice(0, 3) : [];
+      const intent = journey[`/blog/${row.slug}`];
+      entry.relatedLinks = Array.isArray(intent) && intent.length
+        ? intent.filter((link) => link.href && link.title).map((link) => ({ path: link.href, title: link.title }))
+        : [{ path: '/blog/archive', title: 'Browse all arthritis guides' },
         ...(topic ? [{ path: `/blog/category/${topic}`, title: `${row.category} guides` }] : []),
         ...peers.map(({ post }) => ({ path: `/blog/${post.slug}`, title: post.title }))];
       data[`/blog/${row.slug}`] = entry;

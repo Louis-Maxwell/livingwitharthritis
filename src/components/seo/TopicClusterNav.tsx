@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getClusterForPath, type TopicCluster } from "@/data/topicClusters";
 import { isResolvableClusterHref } from "@/lib/clusterHref";
+import { visibleLinkLabel } from "@/lib/linkLabel";
 
 interface TopicClusterNavProps {
   /** Current page path, e.g. /conditions/osteoarthritis */
@@ -37,13 +38,7 @@ export default function TopicClusterNav({
 
   if (!pillarOk && siblings.length === 0 && !toolOk) return null;
 
-  const labelFor = (p: string) =>
-    p
-      .replace(/^\/(guides|conditions|diet|exercises|pillar|blog|faq)\//, "")
-      .replace(/^\//, "")
-      .split("-")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ");
+  const labelFor = (p: string) => visibleLinkLabel(p);
 
   return (
     <nav

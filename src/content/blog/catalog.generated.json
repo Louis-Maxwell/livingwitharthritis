@@ -4340,7 +4340,7 @@
   "meta_title": "PIP for Arthritis: Points, Evidence & Rates (UK)",
   "excerpt": "Can you claim PIP for arthritis while working? Learn how daily living, mobility and fluctuating symptoms are assessed, and what evidence to prepare.",
   "date": "2026-03-01",
-  "updated_at": "2026-11-01T19:24:39.000Z",
+  "updated_at": "2026-11-08T18:30:00.000Z",
   "category": "Benefits, PIP & work",
   "cover": "commons-arthritis-at-work-8cd1ea.webp",
   "author": "Louis Maxwell",
@@ -4348,8 +4348,8 @@
   "display_order": 959,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/commons-arthritis-at-work-8cd1ea.webp",
-  "word_count": 1263,
-  "reading_minutes": 7
+  "word_count": 1427,
+  "reading_minutes": 8
  },
  {
   "slug": "arthritis-and-diet-myths-uk",
@@ -7585,9 +7585,9 @@
   "slug": "pip-for-arthritis-how-to-build-a-strong-application",
   "title": "PIP for Arthritis: How to Build a Strong Application",
   "meta_title": "PIP for Arthritis: How to Build a Strong Application",
-  "excerpt": "The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It…",
+  "excerpt": "How to describe daily living and mobility in a PIP application for arthritis, with the official points rules and a diary to take into the form.",
   "date": "2026-06-28",
-  "updated_at": "2026-09-05T11:02:30.700Z",
+  "updated_at": "2026-11-08T18:30:00.000Z",
   "category": "Benefits, PIP & work",
   "cover": "cover-0475-20171027-ams-lsc-1150.webp",
   "author": "Louis Maxwell",
@@ -7595,8 +7595,8 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0475-20171027-ams-lsc-1150.webp",
-  "word_count": 1451,
-  "reading_minutes": 8
+  "word_count": 1066,
+  "reading_minutes": 6
  },
  {
   "slug": "universal-credit-and-arthritis-limited-capability-for-work",
@@ -7976,9 +7976,9 @@
   "slug": "hip-replacement-recovery-week-by-week",
   "title": "Hip Replacement Recovery Week by Week",
   "meta_title": "Hip Replacement Recovery: Week-by-Week UK Guide",
-  "excerpt": "After hip replacement, most people gradually reduce walking aid reliance over 2-6 weeks. Driving may resume around 6 weeks, depending on comfort and being…",
+  "excerpt": "NHS advice: recovery can take several months and varies. You need a walking aid at first, should wait at least 6 weeks before driving, and should follow your surgical team rather than a fixed timetable.",
   "date": "2026-06-22",
-  "updated_at": "2026-09-05T11:02:30.702Z",
+  "updated_at": "2026-11-08T18:30:00.000Z",
   "category": "Surgery & recovery",
   "cover": "wellness-08-pilates-reformer2.webp",
   "author": "Louis Maxwell",
@@ -7986,8 +7986,8 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/wellness-08-pilates-reformer2.webp",
-  "word_count": 1573,
-  "reading_minutes": 8
+  "word_count": 1258,
+  "reading_minutes": 7
  },
  {
   "slug": "prehabilitation-how-pre-op-exercise-speeds-recovery",
