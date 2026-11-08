@@ -1,22 +1,22 @@
 {
   "/blog/pip-for-arthritis-uk": [
-    { "href": "/guides/benefits-pip", "title": "Complete PIP guide for arthritis" },
-    { "href": "/resources/pip-evidence-diary", "title": "PIP evidence diary for arthritis: free templates to print and fill in" },
+    { "href": "/guides/benefits-pip", "title": "How to claim PIP for arthritis: step-by-step guide" },
+    { "href": "/resources/pip-evidence-diary", "title": "Printable PIP evidence diary" },
     { "href": "/blog/appeal-rejected-pip-arthritis", "title": "PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case" }
   ],
   "/blog/pip-for-arthritis-how-to-build-a-strong-application": [
-    { "href": "/blog/pip-for-arthritis-uk", "title": "Can You Get PIP for Arthritis? UK Points & Evidence" },
-    { "href": "/guides/benefits-pip", "title": "Complete PIP guide for arthritis" },
-    { "href": "/resources/pip-evidence-diary", "title": "PIP evidence diary for arthritis: free templates to print and fill in" }
+    { "href": "/blog/pip-for-arthritis-uk", "title": "Can you get PIP for arthritis?" },
+    { "href": "/guides/benefits-pip", "title": "How to claim PIP for arthritis: step-by-step guide" },
+    { "href": "/resources/pip-evidence-diary", "title": "Printable PIP evidence diary" }
   ],
   "/guides/benefits-pip": [
-    { "href": "/blog/pip-for-arthritis-uk", "title": "Can You Get PIP for Arthritis? UK Points & Evidence" },
-    { "href": "/resources/pip-evidence-diary", "title": "PIP evidence diary for arthritis: free templates to print and fill in" },
+    { "href": "/blog/pip-for-arthritis-uk", "title": "Can you get PIP for arthritis?" },
+    { "href": "/resources/pip-evidence-diary", "title": "Printable PIP evidence diary" },
     { "href": "/blog/appeal-rejected-pip-arthritis", "title": "PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case" }
   ],
   "/resources/pip-evidence-diary": [
-    { "href": "/blog/pip-for-arthritis-uk", "title": "Can You Get PIP for Arthritis? UK Points & Evidence" },
-    { "href": "/guides/benefits-pip", "title": "Complete PIP guide for arthritis" },
+    { "href": "/blog/pip-for-arthritis-uk", "title": "Can you get PIP for arthritis?" },
+    { "href": "/guides/benefits-pip", "title": "How to claim PIP for arthritis: step-by-step guide" },
     { "href": "/blog/appeal-rejected-pip-arthritis", "title": "PIP Appeal Guide for Arthritis: Mandatory Reconsideration, Tribunal and How to Build a Strong Case" }
   ],
   "/blog/hip-replacement-recovery-week-by-week": [
