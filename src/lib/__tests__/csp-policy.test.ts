@@ -72,6 +72,12 @@ describe("Content-Security-Policy", () => {
       expect(readFileSync(resolve(root, "public" + path), "utf8").length).toBeGreaterThan(0);
     }
     expect(indexHtml.indexOf('src="/security/analytics-consent.js"')).toBeLessThan(indexHtml.indexOf('src="/src/main.tsx"'));
+    const prerender = readFileSync(resolve(root, "scripts/prerender-routes.mjs"), "utf8");
+    const inject = readFileSync(resolve(root, "scripts/inject-canonicals.mjs"), "utf8");
+    expect(prerender).not.toContain('unsafe-inline');
+    expect(inject).toContain('type="application/ld+json"');
+    expect(inject).not.toMatch(/<script\\s*>/i);
+    expect(indexHtml).toContain('id="root-organization-jsonld" type="application/ld+json"');
   });
 
   it("does not allow unused vendors, eval or plugins", () => {
