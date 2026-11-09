@@ -6,39 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <!-- X-Frame-Options must be sent as an HTTP header (see public/_headers) — browsers ignore it in <meta> and log a console error. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.g.doubleclick.net https://www.google.com; frame-src 'self' https://www.google.com https://www.google.co.uk https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://formsubmit.co https://*.evarist.ai https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.g.doubleclick.net https://www.google.com; frame-src 'self' https://www.google.com https://www.google.co.uk https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
     <!-- CSP: this meta tag is the policy that actually applies. Lovable's host
          ignores public/_headers (checked 28 Sep 2026: the live response only
          carries "frame-ancestors 'self'"), so keep the two in sync; the header
          copy adds frame-ancestors, which a meta tag cannot set. Allowlist = only
          what the site uses: GA4 + Evarist (after consent), FormSubmit (newsletter),
          Google Maps embed (contact). Stripe is a redirect to Checkout, so it needs
-         no entry. 'unsafe-inline' remains for the boot/consent scripts. -->
+         no entry. Executable boot and consent scripts are same-origin external files. -->
 
     <!-- Stale-deploy boot guard. If this HTML was served from a cache after a
          new publish, its hashed /assets/* entry files no longer exist and the
          page would stay blank. Resource errors do not bubble, so listen in the
          capture phase and reload ONCE with a cache-busting param (same key and
          param as src/lib/chunkRecovery.ts, which strips the param on boot). -->
-    <script>
-      (function () {
-        var KEY = 'lwa:stale-reload-at', WINDOW_MS = 300000;
-        window.addEventListener('error', function (e) {
-          var t = e && e.target;
-          if (!t || (t.tagName !== 'SCRIPT' && t.tagName !== 'LINK')) return;
-          var url = t.src || t.href || '';
-          if (url.indexOf('/assets/') === -1) return;
-          try {
-            var last = Number(sessionStorage.getItem(KEY) || 0);
-            if (Date.now() - last < WINDOW_MS) return;
-            sessionStorage.setItem(KEY, String(Date.now()));
-          } catch (err) { return; /* no storage = no loop guard, so never auto-reload */ }
-          var u = new URL(location.href);
-          u.searchParams.set('_r', Date.now().toString(36));
-          location.replace(u.toString());
-        }, true);
-      })();
-    </script>
+    <script src="/security/stale-deploy-guard.js"></script>
 
     <!-- Analytics are consent-gated: nothing loads until the visitor has
          explicitly accepted analytics cookies in the site cookie banner.
@@ -57,62 +39,7 @@
          before the banner is answered, no analytics scripts load at all.
          The banner dispatches `cookie-consent-accepted` on acceptance, which
          loads the tags immediately without a page reload. -->
-    <script>
-      (function () {
-        var GA_ID = 'G-ZLLSD3PXZ9';
-        var loaded = false;
-
-        function hasAnalyticsConsent() {
-          try {
-            if (localStorage.getItem('cookie-consent') === 'accepted') return true;
-            var raw = localStorage.getItem('lwa_cv3');
-            if (!raw) return false;
-            return JSON.parse(raw).a === true;
-          } catch (e) { return false; }
-        }
-
-        function loadAnalytics() {
-          if (loaded) return;
-          loaded = true;
-
-          // GA4 — send_page_view:false; the SPA router sends page_view itself.
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function () { window.dataLayer.push(arguments); };
-          window.gtag('js', new Date());
-          // Do not let automatic events inherit search queries, contact data or fragments.
-          var safeLocation = new URL(window.location.href);
-          safeLocation.search = ''; safeLocation.hash = '';
-          if (/@|%40/i.test(safeLocation.pathname)) safeLocation.pathname = '/';
-          var safeReferrer = '';
-          try { safeReferrer = new URL(document.referrer).origin + '/'; } catch (e) {}
-          window.gtag('config', GA_ID, {
-            send_page_view: false,
-            page_location: safeLocation.href,
-            page_referrer: safeReferrer
-          });
-          var ga = document.createElement('script');
-          ga.async = true;
-          ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-          (document.head || document.documentElement).appendChild(ga);
-
-          // Evarist analytics
-          window.evarist = window.evarist || function () {
-            (window.evarist.q = window.evarist.q || []).push(arguments);
-          };
-          var ev = document.createElement('script');
-          ev.src = 'https://app.evarist.ai/script.js';
-          ev.setAttribute('data-evarist', '11C6BZx6hg');
-          (document.head || document.documentElement).appendChild(ev);
-
-          window.__ANALYTICS_READY__ = true;
-          window.dispatchEvent(new Event('analytics-ready'));
-        }
-
-        window.__loadAnalytics = loadAnalytics;
-        window.addEventListener('cookie-consent-accepted', loadAnalytics);
-        if (hasAnalyticsConsent()) loadAnalytics();
-      })();
-    </script>
+    <script src="/security/analytics-consent.js"></script>
 
     <!-- Static fallbacks for non-JS crawlers (social previews, basic SEO bots).
          Per-route SeoHead (react-helmet-async) overrides title / description /
@@ -312,14 +239,7 @@
           </section>
         </div>
       </div>
-      <script>
-        (function () {
-          if (location.pathname !== "/") return;
-          var shell = document.getElementById("boot-hero");
-          if (!shell) return;
-          shell.hidden = false;
-        })();
-      </script>
+      <script src="/security/boot-hero-reveal.js"></script>
       <!--
         Static SEO fallback. React's createRoot().render() replaces these
         children on hydration, so real users never see this. Non-JS
@@ -454,6 +374,6 @@
     </div>
     <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
     <!-- YouTube preconnect deferred to when video is clicked -->
-  <script>var fallback = document.getElementById("seo-fallback"); if (fallback) fallback.setAttribute("aria-hidden", "true");</script>
+  <script src="/security/seo-fallback-a11y.js"></script>
   </body>
 </html>

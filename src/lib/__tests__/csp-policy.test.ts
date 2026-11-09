@@ -45,6 +45,35 @@ describe("Content-Security-Policy", () => {
     expect(allows(meta, "frame-src", "https://www.google.com/maps/embed?pb=x")).toBe(true);
   });
 
+  it("permits only external executable scripts while leaving JSON-LD as data", () => {
+    for (const policy of [meta, directives(headerCsp)]) {
+      const sources = policy.get("script-src") ?? [];
+      expect(sources).toContain("'self'");
+      expect(sources).not.toContain("'unsafe-inline'");
+      expect(sources).not.toContain("'unsafe-eval'");
+    }
+    expect(headers).toMatch(/^\s*X-Frame-Options: DENY$/m);
+    const scripts = [...indexHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
+    const inlineData = scripts.filter(([, attrs, body]) => body.trim() && /type=["']application\/ld\+json["']/i.test(attrs));
+    expect(inlineData.length).toBeGreaterThanOrEqual(2);
+    for (const [, attrs, body] of scripts) {
+      if (body.trim()) {
+        expect(attrs).toMatch(/type=["']application\/ld\+json["']/i);
+        expect(() => JSON.parse(body)).not.toThrow();
+      } else if (attrs.includes("src=")) {
+        expect(attrs).toMatch(/src=["']\/(?:security\/|src\/)/i);
+      }
+    }
+    const classicSources = scripts.filter(([, attrs]) => /src=["']\/security\//.test(attrs));
+    expect(classicSources).toHaveLength(4);
+    for (const [, attrs] of classicSources) {
+      const path = attrs.match(/src=["'](\/security\/[^"']+)/)?.[1];
+      expect(path).toBeTruthy();
+      expect(readFileSync(resolve(root, "public" + path), "utf8").length).toBeGreaterThan(0);
+    }
+    expect(indexHtml.indexOf('src="/security/analytics-consent.js"')).toBeLessThan(indexHtml.indexOf('src="/src/main.tsx"'));
+  });
+
   it("does not allow unused vendors, eval or plugins", () => {
     expect(metaCsp).not.toMatch(/unsafe-eval|stripe|paypal|resend|lovable/i);
     expect(meta.get("object-src")).toEqual(["'none'"]);
