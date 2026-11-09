@@ -50,7 +50,7 @@ describe("Content-Security-Policy", () => {
       expect(policy.get("default-src")).toEqual(["'self'"]);
       expect(policy.get("base-uri")).toEqual(["'self'"]);
       expect(policy.get("object-src")).toEqual(["'none'"]);
-      expect(policy.get("upgrade-insecure-requests")).toEqual([]);
+      expect(policy.has("upgrade-insecure-requests")).toBe(true);
       expect((policy.get("script-src") ?? []).join(" ")).not.toContain("unsafe-eval");
     }
     expect(headers).toMatch(/^\s*X-Frame-Options: DENY$/m);
