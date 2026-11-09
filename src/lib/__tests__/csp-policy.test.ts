@@ -67,23 +67,29 @@ describe("Content-Security-Policy", () => {
       expect(sources).not.toContain("'unsafe-eval'");
     }
     expect(headers).toMatch(/^\s*X-Frame-Options: DENY$/m);
-    const scripts = [...indexHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
-    const inlineData = scripts.filter(([, attrs, body]) => body.trim() && /type=["']application\/ld\+json["']/i.test(attrs));
+    const parsedIndex = new DOMParser().parseFromString(indexHtml, "text/html");
+    const scripts = [...parsedIndex.querySelectorAll("script")].map((element) => ({
+      attrs: [...element.attributes].map(({ name, value }) => `${name}="${value}"`).join(" "),
+      body: element.textContent ?? "",
+    }));
+    const inlineData = scripts.filter(({ attrs, body }) =>
+      body.trim() && /type=["']application\\/ld\\+json["']/i.test(attrs),
+    );
     expect(inlineData.length).toBeGreaterThanOrEqual(2);
-    for (const [, attrs, body] of scripts) {
+    for (const { attrs, body } of scripts) {
       if (body.trim()) {
-        expect(attrs).toMatch(/type=["']application\/ld\+json["']/i);
+        expect(attrs).toMatch(/type=["']application\\/ld\\+json["']/i);
         expect(() => JSON.parse(body)).not.toThrow();
       } else if (attrs.includes("src=")) {
-        expect(attrs).toMatch(/src=["']\/(?:security\/|src\/)/i);
+        expect(attrs).toMatch(/src=["']\\/(?:security\\/|src\\/)/i);
       }
     }
-    const classicSources = scripts.filter(([, attrs]) => /src=["']\/security\//.test(attrs));
+    const classicSources = scripts.filter(({ attrs }) => /src=["']\\/security\\//.test(attrs));
     expect(classicSources).toHaveLength(4);
-    for (const [, attrs] of classicSources) {
-      const path = attrs.match(/src=["'](\/security\/[^"']+)/)?.[1];
-      expect(path).toBeTruthy();
-      expect(readFileSync(resolve(root, "public" + path), "utf8").length).toBeGreaterThan(0);
+    for (const { attrs } of classicSources) {
+      const scriptPath = attrs.match(/src=["'](\\/security\\/[^"']+)/)?.[1];
+      expect(scriptPath).toBeTruthy();
+      expect(readFileSync(resolve(root, "public" + scriptPath), "utf8").length).toBeGreaterThan(0);
     }
     expect(indexHtml.indexOf('src="/security/analytics-consent.js"')).toBeLessThan(indexHtml.indexOf('src="/src/main.tsx"'));
     const prerender = readFileSync(resolve(root, "scripts/prerender-routes.mjs"), "utf8");
