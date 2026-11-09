@@ -1782,3 +1782,6 @@
 /arthritis-support/winchester /arthritis-support/portsmouth 301
 /arthritis-support/milton-keynes /arthritis-support/london 301
 /arthritis-support/shrewsbury /arthritis-support/birmingham 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-pain-management-day-by-day /blog/arthritis-pain-management-day-by-day 301
