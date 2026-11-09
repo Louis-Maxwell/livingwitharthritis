@@ -12,7 +12,7 @@ describe("sanitised outbound article links", () => {
     const el = document.createElement("div");
     el.innerHTML = result;
     const link = el.querySelector("a");
-    expect(link?.getAttribute("rel")?.split(/\\s+/)).toEqual(expect.arrayContaining(["nofollow", "noopener", "noreferrer"]));
+    expect(link?.getAttribute("rel")?.split(/\s+/)).toEqual(expect.arrayContaining(["nofollow", "noopener", "noreferrer"]));
   });
 
   it("protects other external links without unnecessary nofollow", () => {
