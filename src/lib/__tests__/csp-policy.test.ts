@@ -45,6 +45,20 @@ describe("Content-Security-Policy", () => {
     expect(allows(meta, "frame-src", "https://www.google.com/maps/embed?pb=x")).toBe(true);
   });
 
+  it("requires hardened baseline directives and disallows unsafe eval", () => {
+    for (const policy of [meta, directives(headerCsp)]) {
+      expect(policy.get("default-src")).toEqual(["'self'"]);
+      expect(policy.get("base-uri")).toEqual(["'self'"]);
+      expect(policy.get("object-src")).toEqual(["'none'"]);
+      expect(policy.get("upgrade-insecure-requests")).toEqual([]);
+      expect((policy.get("script-src") ?? []).join(" ")).not.toContain("unsafe-eval");
+    }
+    expect(headers).toMatch(/^\s*X-Frame-Options: DENY$/m);
+    expect(headers).toMatch(/^\s*X-Content-Type-Options: nosniff$/m);
+    expect(headers).toMatch(/^\s*Referrer-Policy: strict-origin-when-cross-origin$/m);
+    expect(headers).toMatch(/^\s*Permissions-Policy: camera=\(\), microphone=\(\), geolocation=\(\), payment=\(\)$/m);
+    expect(directives(headerCsp).get("frame-ancestors")).toEqual(["'none'"]);
+  });
   it("permits only external executable scripts while leaving JSON-LD as data", () => {
     for (const policy of [meta, directives(headerCsp)]) {
       const sources = policy.get("script-src") ?? [];
