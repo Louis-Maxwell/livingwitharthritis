@@ -4,6 +4,7 @@ import { Link, useLocation, Navigate } from "react-router-dom";
 import { Suspense, useMemo } from "react";
 import { ChevronLeft, Scale, ArrowRight, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
+import SeoHead from "@/components/SeoHead";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { getComparisonArticle, COMPARISON_META_DESCRIPTIONS } from "@/data/comparison-content";
@@ -94,13 +95,14 @@ export default function ComparisonPage() {
 
   return (
     <>
+      <SeoHead
+        title={fullTitle}
+        description={safeDesc}
+        path={path}
+        type="article"
+        includeSiteName={false}
+      />
       <Helmet>
-        <title>{fullTitle}</title>
-        <meta name="description" content={safeDesc} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={safeDesc} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="article" />
         <script type="application/ld+json">{JSON.stringify(medicalWebPageLd)}</script>
       </Helmet>
 
