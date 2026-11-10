@@ -7235,47 +7235,29 @@
       }
     ]
   },
-  "/guides/diet": {
-    "title": "Arthritis Diet UK | Mediterranean Eating Guide",
-    "description": "Explore UK arthritis diet guidance: Mediterranean meals, omega-3, foods to limit, supplement evidence and a sample meal plan from Living With Arthritis.",
-    "question": "What is the best diet for arthritis?",
-    "answer": "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",
-    "breadcrumb": "Arthritis diet",
-    "condition": {
-      "name": "Arthritis",
-      "icd10": [
-        "M00-M25"
-      ],
-      "sameAs": [
-        "https://en.wikipedia.org/wiki/Arthritis",
-        "https://www.wikidata.org/wiki/Q170990",
-        "https://id.nlm.nih.gov/mesh/D001168"
-      ]
-    },
-    "reviewedBy": "Louis Maxwell",
-    "reviewerCredentials": "Physiotherapist, HCPC PH128483",
-    "keyTakeaways": [
-      "No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.",
-      "If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).",
-      "NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.",
-      "Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate."
-    ],
+  "/living-with-arthritis": {
+    "title": "Living with arthritis: a daily guide | Living With Arthritis",
+    "description": "Practical help for living with arthritis: symptoms, when to see your GP, exercise, diet, mood, work rights, benefits and equipment that keeps you independent.",
+    "question": "How can you live well with arthritis?",
+    "answer": "Most types of arthritis cannot be cured, but symptoms and daily function can often be improved. Many people continue working, exercising and enjoying hobbies by combining treatment from their GP or rheumatology team with regular gentle movement, pacing, good sleep, helpful equipment and the right financial support.",
+    "breadcrumb": "Living with arthritis",
+    "bodyHtml": "<p class=\"checked-note\"><strong>Checked on 10 November 2026</strong> against <a href=\"https://www.nhs.uk/conditions/arthritis/\" rel=\"noopener\">NHS: Arthritis</a> and GOV.UK benefit rules. This is general information, not personal medical advice.</p>\n<h2>What is arthritis?</h2>\n<p>Arthritis causes pain, stiffness and reduced movement in one or more joints. There are many types; osteoarthritis and rheumatoid arthritis are the most common. In osteoarthritis the protective cartilage on the ends of the bones breaks down, causing pain, swelling and problems moving the joint. Rheumatoid arthritis is an autoimmune condition in which the immune system attacks the joints, causing swelling, pain and often fatigue.</p>\n<h2>Which symptoms are common?</h2>\n<ul>\n<li>Joint pain and stiffness, especially in the morning</li>\n<li>Swelling, redness and warmth around affected joints</li>\n<li>Reduced range of movement</li>\n<li>Fatigue, low mood and disturbed sleep</li>\n</ul>\n<p>If joint pain, stiffness or swelling lasts more than 2 weeks, contact your GP. Early diagnosis matters, especially for inflammatory types such as rheumatoid arthritis.</p>\n<h2>How can you manage arthritis day to day?</h2>\n<p>No single approach works for everyone. Most people combine medical treatment from their GP or rheumatology team with regular movement, weight management, heat or cold for pain, good sleep and pacing.</p>\n<ul>\n<li><strong>Exercise:</strong> start gently, build up gradually, include strengthening 2 to 3 times a week and daily stretching. Stop if you get sharp pain. See the <a href=\"/exercises\">arthritis exercise hub</a> and <a href=\"/guides/knee-exercises-for-osteoarthritis\">knee exercises for osteoarthritis</a>.</li>\n<li><strong>Diet:</strong> diet cannot cure arthritis, but a Mediterranean-style pattern with oily fish, olive oil, vegetables, fruit, nuts and whole grains supports overall health. See the <a href=\"/guides/diet\">arthritis diet guide</a>.</li>\n<li><strong>Mood:</strong> pain, fatigue and limits on daily life can lead to low mood and anxiety. Talk to your GP; talking therapies such as CBT can help with long-term pain.</li>\n<li><strong>Equipment:</strong> jar openers, kettle tippers, long-handled shoehorns, grab rails and shower seats can keep you independent. An occupational therapy assessment is often the best starting point.</li>\n</ul>\n<h2>What help is there with work and money?</h2>\n<p>The Equality Act 2010 protects disabled workers, including many people with arthritis, and gives a right to reasonable adjustments. Benefits that may help include Personal Independence Payment (PIP) for people aged 16 or over (new claims usually need you to be under State Pension age), Attendance Allowance once you have reached State Pension age, and Disability Living Allowance for children under 16. See the <a href=\"/guides/benefits-pip\">PIP and benefits guide</a>.</p>\n<h2>Where to go next</h2>\n<ul>\n<li><a href=\"/conditions/osteoarthritis\">Osteoarthritis guide</a></li>\n<li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis guide</a></li>\n<li><a href=\"/arthritis-flare-ups\">Arthritis flare plan</a></li>\n<li><a href=\"/guides/benefits-pip\">PIP and benefits for arthritis</a></li>\n</ul>",
     "faqs": [
       {
-        "q": "Can diet cure arthritis?",
-        "a": "No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends."
+        "q": "Can arthritis be cured?",
+        "a": "Most types of arthritis cannot be cured, but symptoms and function can often be improved with an individually appropriate combination of treatment, movement and practical support."
       },
       {
-        "q": "How much weight should I lose for knee or hip osteoarthritis?",
-        "a": "NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support."
+        "q": "Is arthritis only for older people?",
+        "a": "No. Arthritis can affect people of any age, including children and younger adults."
       },
       {
-        "q": "What is a Mediterranean diet for arthritis?",
-        "a": "NICE NG100 describes it as more bread, fruit, vegetables and fish, less meat, and replacing butter and cheese with products based on vegetable and plant oils."
+        "q": "Can exercise make arthritis worse?",
+        "a": "Suitable, gradually introduced activity often supports strength and function, but the type and amount should match the person and condition. Seek professional advice if symptoms are severe, persistent or unusual."
       },
       {
-        "q": "Should I cut out alcohol?",
-        "a": "The NHS advises people with arthritis not to drink too much alcohol and not to smoke. If you take methotrexate, follow the alcohol limits your rheumatology team gives you."
+        "q": "Can I have a normal life with arthritis?",
+        "a": "Many people with arthritis continue working, exercising, travelling and enjoying hobbies, although support and adaptations may be helpful."
       }
     ],
     "sources": [
@@ -7284,12 +7266,20 @@
         "url": "https://www.nhs.uk/conditions/arthritis/"
       },
       {
-        "name": "NICE NG226: Osteoarthritis in over 16s",
-        "url": "https://www.nice.org.uk/guidance/ng226"
+        "name": "NHS: Osteoarthritis",
+        "url": "https://www.nhs.uk/conditions/osteoarthritis/"
       },
       {
-        "name": "NICE NG100: Rheumatoid arthritis in adults",
-        "url": "https://www.nice.org.uk/guidance/ng100"
+        "name": "GOV.UK: PIP eligibility",
+        "url": "https://www.gov.uk/pip/eligibility"
+      },
+      {
+        "name": "GOV.UK: Attendance Allowance",
+        "url": "https://www.gov.uk/attendance-allowance"
+      },
+      {
+        "name": "GOV.UK: Disability rights at work",
+        "url": "https://www.gov.uk/rights-disabled-person/employment"
       }
     ],
     "updatedAt": "2026-11-10"
@@ -7419,6 +7409,65 @@
       {
         "name": "NHS: Vitamin D",
         "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/"
+      }
+    ],
+    "updatedAt": "2026-11-10"
+  },
+  "/guides/diet": {
+    "title": "Arthritis Diet UK | Mediterranean Eating Guide",
+    "description": "Explore UK arthritis diet guidance: Mediterranean meals, omega-3, foods to limit, supplement evidence and a sample meal plan from Living With Arthritis.",
+    "question": "What is the best diet for arthritis?",
+    "answer": "The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.",
+    "breadcrumb": "Arthritis diet",
+    "condition": {
+      "name": "Arthritis",
+      "icd10": [
+        "M00-M25"
+      ],
+      "sameAs": [
+        "https://en.wikipedia.org/wiki/Arthritis",
+        "https://www.wikidata.org/wiki/Q170990",
+        "https://id.nlm.nih.gov/mesh/D001168"
+      ]
+    },
+    "reviewedBy": "Louis Maxwell",
+    "reviewerCredentials": "Physiotherapist, HCPC PH128483",
+    "keyTakeaways": [
+      "No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.",
+      "If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).",
+      "NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.",
+      "Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate."
+    ],
+    "faqs": [
+      {
+        "q": "Can diet cure arthritis?",
+        "a": "No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends."
+      },
+      {
+        "q": "How much weight should I lose for knee or hip osteoarthritis?",
+        "a": "NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support."
+      },
+      {
+        "q": "What is a Mediterranean diet for arthritis?",
+        "a": "NICE NG100 describes it as more bread, fruit, vegetables and fish, less meat, and replacing butter and cheese with products based on vegetable and plant oils."
+      },
+      {
+        "q": "Should I cut out alcohol?",
+        "a": "The NHS advises people with arthritis not to drink too much alcohol and not to smoke. If you take methotrexate, follow the alcohol limits your rheumatology team gives you."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NHS: Arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NICE NG226: Osteoarthritis in over 16s",
+        "url": "https://www.nice.org.uk/guidance/ng226"
+      },
+      {
+        "name": "NICE NG100: Rheumatoid arthritis in adults",
+        "url": "https://www.nice.org.uk/guidance/ng100"
       }
     ],
     "updatedAt": "2026-11-10"
