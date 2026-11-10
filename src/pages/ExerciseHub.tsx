@@ -11,17 +11,14 @@ import { Link } from "react-router-dom";
 import {
   Dumbbell, Footprints, Hand, ArrowRight, Activity,
   Waves, Bike, Heart, Clock, CheckCircle, Star,
-  ChevronRight, Sparkles, Shield, TrendingUp, Users, Timer, Target,
+  ChevronRight, Sparkles, Shield, Users, AlertTriangle, Stethoscope,
   Zap, MessageCircle, BarChart3,
 } from "lucide-react";
 import ExerciseProgressTracker from "@/components/ExerciseProgressTracker";
 import Pedometer from "@/components/Pedometer";
 import {
-  StatCounter,
-  HorizontalBar,
   WaveDivider,
   HighlightCard,
-  DonutChart,
   Timeline,
 } from "@/components/graphics/InfographicElements";
 import InternalLinks from "@/components/InternalLinks";
@@ -36,6 +33,9 @@ import MedicalDisclaimerStrip from "@/components/MedicalDisclaimerStrip";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import LastReviewed from "@/components/LastReviewed";
 
 const exerciseCategories = [
   {
@@ -168,9 +168,13 @@ const ExerciseHub = () => {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
     name: "Best Exercises for Arthritis – Complete UK Guide",
-    description: "Evidence-based arthritis exercises for knees, hands, shoulders and more. clinically aligned physiotherapy routines for osteoarthritis and rheumatoid arthritis.",
+    description: "Free arthritis exercises for knees, hips, hands, shoulders and chair-based routines, in line with NICE and NHS advice: how to start today, how to read pain, flare days, red flags and when to see a physiotherapist.",
     url: "https://livingwitharthritis.org.uk/exercises",
     inLanguage: "en-GB",
+    dateModified: "2026-11-10",
+    lastReviewed: "2026-11-10",
+    author: LOUIS_MAXWELL_REF,
+    reviewedBy: LOUIS_MAXWELL_REF,
     areaServed: { "@type": "Country", name: "United Kingdom" },
     mainEntity: {
       "@type": "MedicalCondition",
@@ -258,8 +262,8 @@ const ExerciseHub = () => {
           </Button>
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mt-4">
-          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> Clinically Aligned</span>
-          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Physiotherapy Approved</span>
+          <span className="flex items-center gap-1.5"><Shield className="w-4 h-4 text-primary" /> In line with NICE and NHS advice</span>
+          <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Reviewed by Louis Maxwell, HCPC PH128483</span>
           <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-primary" /> 10–20 min routines</span>
         </div>
       </PageHero>
@@ -270,6 +274,16 @@ const ExerciseHub = () => {
           Living with arthritis can make movement feel scary. These routines are gentle on purpose —
           free, plain-English, and designed so you can take one small step today without a gym or a lecture.
         </p>
+        <p className="speakable-intro text-foreground/85 text-base leading-relaxed max-w-3xl mt-3">
+          Exercise is one of the main treatments for osteoarthritis, and NICE recommends strengthening and general
+          fitness exercise as core care. Start today with a few gentle movements, keep the effort comfortable, and
+          build up slowly. Some aching while you exercise is normal; if pain is much worse the next day, do a bit less
+          next time rather than stopping. Motion is lotion.
+        </p>
+        <div className="mt-4 space-y-2">
+          <LastReviewed date="2026-11-10" />
+          <MedicalReviewBadge reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="November 2026" />
+        </div>
       </section>
 
       {/* Editorial photo band — movement as discipline */}
@@ -301,29 +315,68 @@ const ExerciseHub = () => {
         <section className="container mx-auto px-6 md:px-10 max-w-3xl pt-8">
           <AnswerBox
             question="What are the best exercises for arthritis?"
-            reviewed="2026-06-13"
+            reviewed="2026-11-10"
           >
             <p>
-              UK physiotherapy guidance recommends a mix of <strong>low-impact aerobic
-              activity</strong> (walking, cycling, swimming — 30 minutes most days),
-              <strong> strength training</strong> for the muscles around painful joints
-              (2–3 sessions a week) and <strong>flexibility work</strong> like yoga or tai chi.
-              This combination reduces pain by up to 40% and is the NICE first-line treatment
-              for osteoarthritis — more effective than painkillers.
+              A mix usually works best: <strong>low-impact aerobic activity</strong> such as
+              walking, cycling or swimming, <strong>strengthening exercises</strong> for the
+              muscles around painful joints, and <strong>gentle movement for flexibility and
+              balance</strong> such as tai chi or yoga. NICE recommends therapeutic exercise as a
+              core treatment for osteoarthritis, and UK guidance for adults is to build towards
+              150 minutes of moderate activity a week with strengthening on at least two days.
+              The best exercise is one you can keep doing.
             </p>
           </AnswerBox>
         </section>
-        {/* ─── Key Stats Infographic ─── */}
-        <section className="py-12 lg:py-16 bg-tint-blue">
-          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <p className="section-label text-primary mb-6">Why Exercise Matters</p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <StatCounter value="40" suffix="%" label="Pain reduction with regular exercise" icon={<TrendingUp className="w-6 h-6" />} color="emerald" />
-              <StatCounter value="30" suffix=" min" label="Daily target for best results" icon={<Timer className="w-6 h-6" />} color="sky" />
-              <StatCounter value="8.75" suffix="M" label="Aged 45+ treated for OA in the UK" icon={<Users className="w-6 h-6" />} color="amber" />
-              <StatCounter value="4" label="Joint-specific routines below" icon={<Target className="w-6 h-6" />} color="violet" />
+        {/* ─── Customer-first start: today, pain rule, red flags (10 Nov 2026) ─── */}
+        <section className="container mx-auto px-6 md:px-10 max-w-3xl py-10 space-y-8">
+          <section aria-labelledby="exercise-today" className="rounded-2xl border border-primary/30 bg-primary/5 p-6">
+            <h2 id="exercise-today" className="font-display text-2xl font-bold text-foreground mb-3">Exercise today: start here</h2>
+            <ol className="list-decimal pl-5 space-y-2 text-foreground/85">
+              <li><strong>Check the red flags</strong> in the box below. If any apply, get help before you exercise.</li>
+              <li><strong>Warm up for a few minutes:</strong> march on the spot, roll your shoulders or circle your ankles.</li>
+              <li><strong>Pick one routine</strong> for the joint that bothers you most: <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline">knee</Link>, <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">hip</Link>, <a href="#hand" className="text-primary underline">hand</a>, <a href="#shoulder" className="text-primary underline">shoulder</a> or <a href="#chair" className="text-primary underline">seated</a>.</li>
+              <li><strong>Do a few slow repetitions</strong> at a comfortable effort. You should be able to talk while you move.</li>
+              <li><strong>Check how you feel tomorrow</strong> and adjust using the pain guide below. Little and often beats one big session.</li>
+            </ol>
+            <p className="mt-3 text-sm text-muted-foreground">In pain right now? Start with the <Link to="/guides/arthritis-pain-relief" className="text-primary underline">pain relief guide</Link>, then come back to gentle movement.</p>
+          </section>
+
+          <section aria-labelledby="exercise-red-flags" className="rounded-2xl border border-destructive/40 bg-destructive/5 p-6">
+            <h2 id="exercise-red-flags" className="font-display text-2xl font-bold text-foreground mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-destructive" /> Red flags: stop and get help</h2>
+            <p className="text-foreground/85"><strong>Do not exercise the joint, and call NHS 111 or your GP for a same-day appointment</strong> if:</p>
+            <ul className="list-disc pl-5 space-y-1 text-foreground/85">
+              <li>one joint suddenly becomes hot, red, swollen and very painful, especially with a fever or feeling unwell</li>
+              <li>you take medicines that lower your immunity, such as methotrexate or biologics, and you have signs of infection</li>
+              <li>a joint is very painful after a fall or injury, or you cannot put weight on a leg</li>
+            </ul>
+            <p className="text-foreground/85 mt-3"><strong>Stop and call 999</strong> if you get chest pain or tightness, severe breathlessness, or feel faint while exercising.</p>
+          </section>
+
+          <section aria-labelledby="exercise-pain-rule">
+            <h2 id="exercise-pain-rule" className="font-display text-2xl font-bold text-foreground mb-3">Is it safe? How to read pain when you exercise</h2>
+            <div className="prose prose-lg max-w-none text-foreground/85">
+              <p>Exercise is unlikely to harm your joints. NICE advises explaining this to people with osteoarthritis, along with the fact that some extra aching at first can happen.</p>
+              <ul>
+                <li><strong>Mild ache that settles within a day:</strong> usually fine. Carry on and build up slowly.</li>
+                <li><strong>Pain much worse the next day, or more swelling:</strong> do fewer repetitions or a shorter session next time. Do not stop altogether.</li>
+                <li><strong>Sharp, catching pain, or a joint that gives way:</strong> stop that exercise and ask a physiotherapist.</li>
+              </ul>
+              <p>Worried exercise will make things worse? Read <Link to="/guides/can-exercise-make-osteoarthritis-worse" className="text-primary underline">can exercise make osteoarthritis worse?</Link></p>
             </div>
-          </div>
+          </section>
+
+          <section aria-labelledby="exercise-starting-point">
+            <h2 id="exercise-starting-point" className="font-display text-2xl font-bold text-foreground mb-3">Pick your starting point</h2>
+            <ul className="space-y-2 text-foreground/85 list-disc pl-5">
+              <li><strong>Newly diagnosed:</strong> start with the <Link to="/guides/newly-diagnosed" className="text-primary underline">newly diagnosed guide</Link>, then one routine from this page.</li>
+              <li><strong>Knee or hip osteoarthritis:</strong> the <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline">knee routine</Link>, the <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline">hip routine</Link> and <Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline">walking with arthritis</Link>.</li>
+              <li><strong>Rheumatoid or other inflammatory arthritis:</strong> NICE says you should be able to see a specialist physiotherapist. Keep to gentle movement in a flare and follow your rheumatology team. See <Link to="/conditions/rheumatoid-arthritis" className="text-primary underline">rheumatoid arthritis</Link> and <Link to="/blog/chair-based-exercise-ra-frailty-uk" className="text-primary underline">chair-based exercise for RA</Link>.</li>
+              <li><strong>Unsteady, older or low on energy:</strong> start seated with <Link to="/blog/seated-strength-frail-osteoarthritis-uk" className="text-primary underline">seated strength</Link> and <Link to="/blog/sit-to-stand-practice-frail-arthritis-uk" className="text-primary underline">sit-to-stand practice</Link>; after a fall, see <Link to="/blog/confidence-after-fall-arthritis-frailty-uk" className="text-primary underline">confidence after a fall</Link>.</li>
+              <li><strong>Joint replacement or recent surgery:</strong> follow the exercises your surgical or physiotherapy team gave you before using general routines.</li>
+              <li><strong>Pool or water:</strong> <Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline">swimming for hip osteoarthritis</Link>; the water supports your weight.</li>
+            </ul>
+          </section>
         </section>
 
         <WaveDivider color="hsl(var(--background))" />
@@ -479,36 +532,28 @@ const ExerciseHub = () => {
           </div>
         </section>
 
-        {/* ─── Exercise Effectiveness Chart ─── */}
+        {/* ─── Flare days + when to see a physio (replaces unsourced effectiveness chart, 10 Nov 2026) ─── */}
         <section className="py-12 lg:py-16 bg-tint-green">
-          <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-10 items-center">
-              <div>
-                <p className="section-label text-primary mb-3">Research Findings</p>
-                <h2 className="text-2xl font-bold text-foreground mb-2">Exercise Effectiveness by Type</h2>
-                <p className="text-sm text-muted-foreground mb-6">Patients reporting improvement after 12 weeks.</p>
-                <HorizontalBar
-                  items={[
-                    { label: "Swimming / Hydrotherapy", value: 78, color: "hsl(var(--sky))" },
-                    { label: "Walking (30 min/day)", value: 72, color: "hsl(var(--emerald))" },
-                    { label: "Strength Training", value: 68, color: "hsl(var(--violet))" },
-                    { label: "Yoga / Tai Chi", value: 65, color: "hsl(var(--amber))" },
-                    { label: "Cycling", value: 62, color: "hsl(var(--primary))" },
-                  ]}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-6">
-                <DonutChart
-                  label="Exercise Benefits Breakdown"
-                  segments={[
-                    { percent: 35, color: "hsl(var(--emerald))", label: "Pain relief" },
-                    { percent: 25, color: "hsl(var(--sky))", label: "Mobility" },
-                    { percent: 20, color: "hsl(var(--violet))", label: "Strength" },
-                    { percent: 20, color: "hsl(var(--amber))", label: "Mood" },
-                  ]}
-                />
-              </div>
-            </div>
+          <div className="container mx-auto px-6 md:px-10 max-w-3xl space-y-10">
+            <section aria-labelledby="exercise-flare-days">
+              <h2 id="exercise-flare-days" className="text-2xl font-bold text-foreground mb-3">Flare days: do less, not nothing</h2>
+              <ul className="list-disc pl-5 space-y-2 text-foreground/85">
+                <li>Swap strengthening for gentle range-of-movement: bend and straighten the joint slowly a few times every hour.</li>
+                <li>Cut the time or repetitions, rather than stopping. Complete rest makes stiffness worse.</li>
+                <li>Use heat on stiff joints, or a wrapped cold pack on a hot, swollen joint, for up to about 20 minutes.</li>
+                <li>Build back up over a few days once the flare settles. Use the <Link to="/arthritis-flare-ups" className="text-primary underline">flare-up guide</Link> and the printable <Link to="/resources/flare-action-plan" className="text-primary underline">flare action plan</Link>.</li>
+              </ul>
+            </section>
+            <section aria-labelledby="exercise-see-physio">
+              <h2 id="exercise-see-physio" className="text-2xl font-bold text-foreground mb-3 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-primary" /> When to see your GP or a physiotherapist</h2>
+              <ul className="list-disc pl-5 space-y-2 text-foreground/85">
+                <li>pain or swelling keeps getting worse after exercise, even when you do less</li>
+                <li>you are not sure which exercises are safe after an injury, an operation or a joint replacement</li>
+                <li>you have heart or lung problems, or feel dizzy or breathless with gentle activity</li>
+                <li>a joint locks, gives way or you are falling</li>
+              </ul>
+              <p className="text-foreground/85 mt-3">In many areas you can refer yourself to NHS physiotherapy without seeing a GP: check your GP surgery or local NHS website. Waiting already? See <Link to="/arthritis-waiting-list-help" className="text-primary underline">help while you are on a waiting list</Link>.</p>
+            </section>
           </div>
         </section>
 
@@ -521,7 +566,7 @@ const ExerciseHub = () => {
             <p className="text-sm text-muted-foreground mb-8">Simple guidelines for safe, effective arthritis exercise.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               <HighlightCard title="Warm Up" description="Five minutes of gentle marching or shoulder rolls before you load a sore joint." />
-              <HighlightCard title="Stay Hydrated" description="Sip water before and after — dehydration makes stiffness worse." />
+              <HighlightCard title="Good Shoes" description="Cushioned, supportive footwear makes walking easier on knees and hips." />
               <HighlightCard title="Pace Yourself" description="Keep effort around 4 out of 10. Next-day soreness means do less, not more." />
               <HighlightCard title="Ice After" description="Ten minutes of ice on a warm, swollen joint, cloth barrier, after you finish." />
               <HighlightCard title="Be Consistent" description="A short daily session beats one long weekend burst that leaves you sore." />
@@ -623,10 +668,10 @@ const ExerciseHub = () => {
         <section className="py-12 lg:py-16 bg-tint-peach">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-2">Sample Weekly Plan</h2>
-            <p className="text-sm text-muted-foreground mb-8">A balanced week of arthritis-friendly exercise.</p>
+            <p className="text-sm text-muted-foreground mb-8">An example week to build towards over time, not a starting point. UK guidance for adults is about 150 minutes of moderate activity a week plus strengthening on at least two days; start well below this and build up.</p>
             <Timeline items={[
               { title: "Monday — Knee Strengthening", description: "20 min quad & hamstring routine." },
-              { title: "Tuesday — Walking", description: "30 min brisk walk with supportive footwear." },
+              { title: "Tuesday — Walking", description: "A comfortable walk with supportive footwear, adding a few minutes each week." },
               { title: "Wednesday — Hand Exercises", description: "15 min grip & flexibility." },
               { title: "Thursday — Swimming", description: "30 min pool session or aqua aerobics." },
               { title: "Friday — Yoga / Tai Chi", description: "20 min gentle flexibility and balance." },
@@ -686,7 +731,7 @@ const ExerciseHub = () => {
                   { label: "Hip arthritis stretches", to: "/guides/hip-exercises-for-osteoarthritis" },
                   { label: "Best walking shoes for arthritis (UK)", to: "/blog/best-walking-shoes-arthritis-uk" },
                   { label: "Tai Chi for balance", to: "/exercises/tai-chi-for-balance" },
-                  { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },
+                  { label: "Can exercise make osteoarthritis worse?", to: "/guides/can-exercise-make-osteoarthritis-worse" },
                 ],
               },
               {
@@ -704,7 +749,7 @@ const ExerciseHub = () => {
                   { label: "Anti-inflammatory diet", to: "/guides/diet" },
                   { label: "Managing flare-ups during exercise", to: "/arthritis-flare-ups" },
                   { label: "Self-help joint tool", to: "/self-help" },
-                  { label: "Physiotherapy for arthritis — pillar guide", to: "/guides/exercise" },
+                  { label: "Exercise guide: types, progression and safety", to: "/guides/exercise" },
                   { label: "Free arthritis resources UK", to: "/guides/free-arthritis-resources-uk" },
                 ],
               },
@@ -736,18 +781,24 @@ const ExerciseHub = () => {
         </div>
       </div>
 
+      <section aria-labelledby="exercise-carers" className="container mx-auto max-w-3xl px-6 md:px-10 mb-10">
+        <h2 id="exercise-carers" className="font-display text-2xl font-bold text-foreground mb-3 flex items-center gap-2"><Users className="w-5 h-5 text-primary" /> For carers and family</h2>
+        <p className="text-foreground/85">Encourage little and often rather than doing everything for the person. Stand nearby for balance work, use a sturdy chair without wheels, and keep a note of what they managed so you can both see progress. Stop and get help if they become breathless, dizzy or have chest pain, or if a joint becomes hot, red and swollen. Looking after someone? You may be entitled to a <Link to="/blog/carers-assessment-arthritis-frailty-uk" className="text-primary underline">carer&apos;s assessment</Link>.</p>
+      </section>
+
       <nav aria-label="Customer job pathways for exercise" className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">Popular next steps from the exercise hub</p>
         <ul className="text-sm text-muted-foreground space-y-2 m-0 list-disc list-inside">
           <li><Link to="/blog/swimming-exercises-hip-osteoarthritis" className="text-primary underline underline-offset-2">Swimming for hip osteoarthritis</Link> — pool drills when land impact flares you</li>
           <li><Link to="/blog/walking-with-arthritis-start-build-up-keep-going" className="text-primary underline underline-offset-2">Walking with arthritis</Link> — build a sustainable habit</li>
           <li><Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Knee OA exercises</Link> · <Link to="/guides/hip-exercises-for-osteoarthritis" className="text-primary underline underline-offset-2">Hip OA exercises</Link></li>
+          <li><Link to="/blog/energy-management-and-pacing-arthritis" className="text-primary underline underline-offset-2">Pacing and energy</Link> — avoid boom-and-bust · <Link to="/resources/flare-action-plan" className="text-primary underline underline-offset-2">Flare action plan</Link></li>
           <li><Link to="/conditions/osteoarthritis" className="text-primary underline underline-offset-2">Osteoarthritis hub</Link> · <Link to="/guides/arthritis-pain-relief" className="text-primary underline underline-offset-2">Pain relief</Link> · <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">Benefits &amp; PIP</Link> · <Link to="/resources/pip-evidence-diary" className="text-primary underline underline-offset-2">PIP evidence diary</Link></li>
         </ul>
       </nav>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-28" />
+        <EducationalDisclaimerBox lastReviewed="2026-11-10" />
         <TopicClusterNav path="/exercises" />
       </div>
       </main>

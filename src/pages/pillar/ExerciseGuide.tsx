@@ -20,8 +20,8 @@ import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
 const EXERCISE_GUIDE_FAQS = [
-  { question: "What is the best exercise for arthritis?", answer: "Low-impact aerobic activity (walking, swimming, cycling), strength training and a flexibility practice such as tai chi or yoga. UK NICE guidelines (NG226) put exercise ahead of medication for osteoarthritis. The single best exercise is the one you'll actually do 3–5 times per week." },
-  { question: "Should I exercise if my joints hurt?", answer: "Yes — moderate joint pain (up to about 4/10) during arthritis exercise is normal and safe, provided the pain settles within 24 hours. Stop and reduce intensity if pain stays high overnight, joints swell, or you experience sharp catching pain." },
+  { question: "What is the best exercise for arthritis?", answer: "Low-impact aerobic activity (walking, swimming, cycling), strength training and a flexibility practice such as tai chi or yoga. NICE (NG226) recommends therapeutic exercise as a core treatment for osteoarthritis. The best exercise is the one you will keep doing most weeks." },
+  { question: "Should I exercise if my joints hurt?", answer: "Usually yes. Some aching while you exercise is normal and should settle within about a day. If pain is much worse the next day or the joint swells, do less next time rather than stopping. Stop and get advice for sharp, catching pain, and get same-day help (NHS 111 or your GP) for a hot, red, swollen joint with fever." },
   { question: "How much exercise should someone with arthritis do per week?", answer: "Aim for 150 minutes of moderate aerobic activity per week (e.g. five 30-minute walks), plus 2 sessions of muscle-strengthening work, in line with UK Chief Medical Officer guidelines. Break it into 10-minute blocks if needed — short, frequent sessions count." },
   { question: "Is walking good for arthritis?", answer: "Yes. Walking is one of the most strongly evidenced exercises for knee and hip osteoarthritis. Start with 10–15 minutes on flat ground and build up. Supportive footwear and walking poles may improve comfort and confidence for some people." },
   { question: "Is swimming better than the gym for arthritis?", answer: "Swimming and water-based exercise remove weight-bearing stress, making them excellent during flares or for severe joint disease. Gym-based strength training, however, is essential for protecting joints long-term — most people benefit from a combination." },
@@ -29,17 +29,17 @@ const EXERCISE_GUIDE_FAQS = [
 ];
 
 const CONTENT = `
-<h2 id="why-exercise-matters">Why Exercise Is the Best Medicine for Arthritis</h2>
-<p>If arthritis exercise could be packaged into a pill, it would be hailed as a miracle drug. The evidence is overwhelming: regular, appropriate physical activity is the <strong>single most effective non-pharmacological treatment</strong> for arthritis. NICE guidelines (NG226) place exercise <em>ahead of medication</em> in the treatment hierarchy for osteoarthritis, and the Chartered Society of Physiotherapy describes it as "the most important thing you can do" for joint health.</p>
-<p>Despite this, research shows that <strong>over 60%</strong> of adults with arthritis in the UK are insufficiently active (Sport England, 2023). Fear of worsening symptoms, lack of guidance and misinformation ("rest is best") are the primary barriers. In reality, <strong>not exercising</strong> is far more harmful: inactivity leads to muscle weakening, joint stiffness, weight gain, cardiovascular decline and worsened pain — creating a vicious cycle of deconditioning.</p>
+<h2 id="why-exercise-matters">Why exercise helps arthritis</h2>
+<p>Exercise is one of the main treatments for osteoarthritis. NICE guideline NG226 recommends therapeutic exercise, including muscle strengthening and general aerobic fitness, as a core treatment, and advises explaining that exercise is unlikely to harm your joints, even if it causes some extra aching at first. For rheumatoid arthritis, NICE NG100 says adults should have access to specialist physiotherapy to improve fitness, flexibility and muscle strength.</p>
+<p>Many people worry that exercise will wear their joints out, so they rest. Too much rest usually makes things worse: muscles weaken, joints stiffen and everyday tasks get harder. Motion is lotion: little and often is the aim.</p>
 <p>Benefits of regular exercise for arthritis include:</p>
 <ul>
-<li><strong>Pain reduction</strong> — exercise releases endorphins (natural painkillers) and reduces inflammatory markers</li>
+<li><strong>Less pain over time</strong> — stronger muscles and regular movement help many people manage pain</li>
 <li><strong>Improved joint mobility</strong> — regular movement prevents stiffness and maintains range of motion</li>
 <li><strong>Stronger muscles</strong> — muscles act as shock absorbers, protecting and stabilising joints</li>
-<li><strong>Weight management</strong> — every 1 kg lost reduces knee load by 4 kg per step</li>
+<li><strong>Weight management</strong> — NICE says losing any amount of weight is likely to help if you are overweight and have osteoarthritis</li>
 <li><strong>Better sleep</strong> — physical activity improves sleep quality, which in turn reduces pain perception</li>
-<li><strong>Improved mental health</strong> — exercise reduces depression and anxiety by up to 30% (WHO, 2022)</li>
+<li><strong>Better mood</strong> — being active can help with low mood and stress</li>
 <li><strong>Cardiovascular protection</strong> — vital for people with inflammatory arthritis who have increased heart disease risk</li>
 <li><strong>Reduced fatigue</strong> — counterintuitively, regular exercise reduces the chronic fatigue associated with RA</li>
 </ul>
@@ -62,15 +62,15 @@ const CONTENT = `
 <p>Low-impact aerobic exercise improves cardiovascular fitness, helps manage weight, reduces inflammation and boosts mood. The health service recommends at least <strong>150 minutes of moderate-intensity activity per week</strong> (or 75 minutes of vigorous activity). For people with arthritis, suitable options include:</p>
 <ul>
 <li><strong>Walking</strong> — the most accessible exercise; start with 10–15 minutes and gradually increase. Nordic walking (with poles) may improve comfort and confidence for some people, but evidence on its effect on knee loading is mixed.</li>
-<li><strong>Swimming and water aerobics</strong> — buoyancy reduces joint load by up to 90%, making it ideal for painful joints. Many the public health service and local authority pools offer arthritis-specific sessions</li>
+<li><strong>Swimming and water aerobics</strong> — the water supports your weight, which many people with painful joints find easier. Many leisure centre pools run gentle or warm-water sessions</li>
 <li><strong>Cycling</strong> — stationary or outdoor; very low joint impact. Excellent for knee OA</li>
 <li><strong>Elliptical trainer</strong> — smooth, controlled movement without impact</li>
 <li><strong>Rowing</strong> — full-body workout with minimal joint jarring</li>
 </ul>
-<p><strong>Tip:</strong> Start at a level you can manage and build up gradually. The "talk test" is useful — if you can hold a conversation while exercising, the intensity is appropriate. If joints are sore for more than 2 hours after exercise, you may have done too much.</p>
+<p><strong>Tip:</strong> Start at a level you can manage and build up gradually. The "talk test" is useful — if you can hold a conversation while exercising, the intensity is about right. If joints are much sorer the next day, do a bit less next time.</p>
 
 <h3 id="strength-training">2. Strength (Resistance) Training</h3>
-<p>Strengthening the muscles around affected joints is critical. Strong muscles absorb shock, reduce load on joints and improve stability. A 2021 Cochrane review found that <strong>resistance training significantly reduces pain and improves function</strong> in knee OA, with effects comparable to or better than most medications.</p>
+<p>Strengthening the muscles around affected joints matters. Stronger muscles support and steady the joint. NICE recommends local muscle strengthening as part of exercise for osteoarthritis. UK guidance for adults is to do strengthening activities on at least two days a week.</p>
 <p><strong>Key exercises by joint:</strong></p>
 
 <h3>Knee exercises</h3>
@@ -113,7 +113,7 @@ const CONTENT = `
 <li>Stretch <strong>daily</strong>, ideally when joints are warm (after a bath/shower or light activity)</li>
 <li>Hold each stretch for <strong>15–30 seconds</strong>; never bounce</li>
 <li>Breathe normally and relax into the stretch; stop if you feel sharp pain</li>
-<li><strong>Yoga and tai chi</strong> are excellent structured flexibility programmes — both have strong evidence for arthritis benefit. Tai chi in particular has been shown to reduce pain, improve balance and reduce fall risk in older adults with OA (a 2019 BMJ meta-analysis found tai chi as effective as standard physiotherapy for knee OA)</li>
+<li><strong>Yoga and tai chi</strong> are gentle, structured ways to work on flexibility and balance. See <a href="/exercises/tai-chi-for-arthritis">tai chi for arthritis</a></li>
 </ul>
 
 <h2 id="chair-exercises">Chair-Based Exercises</h2>
@@ -130,10 +130,10 @@ const CONTENT = `
 <h2 id="water-exercise">Water-Based Exercise (Hydrotherapy)</h2>
 <p>Exercising in warm water (typically 33–36°C) is one of the most effective environments for arthritis exercise. Benefits include:</p>
 <ul>
-<li><strong>Buoyancy</strong> — water supports up to 90% of body weight, dramatically reducing joint load</li>
+<li><strong>Buoyancy</strong> — water supports much of your body weight, so there is less load on painful joints</li>
 <li><strong>Warmth</strong> — warm water relaxes muscles and increases blood flow to joints</li>
 <li><strong>Resistance</strong> — water provides natural resistance for strengthening without weights</li>
-<li><strong>Pain relief</strong> — hydrostatic pressure reduces swelling</li>
+<li><strong>Comfort</strong> — many people find movement easier and less painful in water</li>
 </ul>
 <p>The health service provides hydrotherapy at some hospitals (referral via GP or physiotherapist). Many local authority pools and leisure centres also offer warm-water sessions. Organisations like <strong>Swim England</strong> and <strong>Arthritis UK (formerly Versus Arthritis)</strong> maintain directories of arthritis-friendly swimming sessions.</p>
 
@@ -143,7 +143,7 @@ const CONTENT = `
 <li><strong>Reduce intensity and duration</strong> — do gentle range-of-motion exercises rather than strengthening or aerobic work</li>
 <li><strong>Focus on affected joints</strong> — gentle stretching and movement to prevent stiffness</li>
 <li><strong>Use ice after exercise</strong> — 10–15 minutes to reduce inflammation</li>
-<li><strong>Listen to your body</strong> — pain during exercise that worsens or persists for more than 2 hours suggests you've overdone it</li>
+<li><strong>Listen to your body</strong> — if pain is much worse the next day, you have done too much; do less next time</li>
 <li><strong>Avoid complete rest</strong> — prolonged inactivity during flares leads to muscle wasting and longer recovery times</li>
 </ul>
 
@@ -178,10 +178,10 @@ const CONTENT = `
 <ul>
 <li><strong>Warm up</strong> for 5 minutes before strengthening or vigorous activity</li>
 <li><strong>Cool down</strong> with gentle stretches afterwards</li>
-<li><strong>Use the 2-hour pain rule</strong> — if joint pain is worse 2 hours after exercise, reduce intensity next time</li>
+<li><strong>Use the next-day rule</strong> — if joint pain is much worse the next day, do less next time rather than stopping</li>
 <li><strong>Avoid high-impact activities</strong> during flares — running, jumping, contact sports</li>
 <li><strong>Wear supportive footwear</strong> — proper shoes reduce knee and hip strain</li>
-<li><strong>Stay hydrated</strong> — dehydration can worsen joint stiffness</li>
+<li><strong>Get help first</strong> — call NHS 111 or your GP the same day for a hot, red, swollen joint, especially with a fever; call 999 for chest pain, severe breathlessness or fainting while exercising</li>
 <li><strong>Consult a physiotherapist</strong> — for a personalised programme, especially if you're newly diagnosed or post-surgery</li>
 </ul>
 
@@ -189,13 +189,13 @@ const CONTENT = `
 <ul>
 <li><strong>Living With Arthritis</strong> — <a href="/exercises">free exercise programmes</a> for every major joint</li>
 <li><strong>Arthritis UK (formerly Versus Arthritis)</strong> — exercise guides and video library at <a href="https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/" target="_blank" rel="noopener noreferrer">arthritis-uk.org</a></li>
-<li><strong>UK Health Fitness Studio</strong> — free exercise videos at <a href="https://www.nhs.uk/nhs-services/" target="_blank" rel="noopener noreferrer">NHS services</a></li>
+<li><strong>NHS</strong> — free exercise ideas and activity guidelines at <a href="https://www.nhs.uk/live-well/exercise/" target="_blank" rel="noopener noreferrer">nhs.uk</a></li>
 <li><strong>Chartered Society of Physiotherapy</strong> — find a physiotherapist at <a href="https://www.csp.org.uk" target="_blank" rel="noopener noreferrer">csp.org.uk</a></li>
-<li><strong>We Are Undefeatable</strong> — campaign supporting people with long-term conditions to be active</li>
+<li><strong>Newly diagnosed?</strong> Start with the <a href="/guides/newly-diagnosed">newly diagnosed guide</a>; in pain right now, see <a href="/guides/arthritis-pain-relief">arthritis pain relief</a></li>
 </ul>
 
 <h2 id="sources-exercise">Sources &amp; Disclaimer</h2>
-<p>This guide is based on NICE guidelines (NG226), Cochrane systematic reviews of exercise interventions for OA and RA, the public health service physical activity guidelines, Sport England Active Lives survey data, and guidance from the Chartered Society of Physiotherapy and British Society for Rheumatology. Statistics cited are from the most recent publications available as of 2024. This information is for educational purposes only. Consult a physiotherapist or GP before starting a new exercise programme, particularly if you have severe or unstable joint disease.</p>
+<p>This guide is based on NICE guidelines NG226 (osteoarthritis) and NG100 (rheumatoid arthritis), NHS advice and the UK Chief Medical Officers' physical activity guidelines. Reviewed by Louis Maxwell, First Contact Practitioner (HCPC PH128483), November 2026. This information is educational, not a diagnosis or personal medical advice. Speak to a physiotherapist or GP before starting a new exercise programme, particularly after surgery or if you have heart or lung problems.</p>
 `;
 
 export default function ExerciseGuide() {
@@ -234,7 +234,7 @@ export default function ExerciseGuide() {
           { name: "Exercise Guide" },
         ]}
         faqs={EXERCISE_GUIDE_FAQS}
-        lastReviewed="2026-09-17"
+        lastReviewed="2026-11-10"
         idPrefix="exercise-guide"
       />
       <Header />
@@ -246,10 +246,10 @@ export default function ExerciseGuide() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <p className="speakable-intro text-lg md:text-xl text-foreground/85 leading-relaxed mb-8">
-            Exercise is the single most effective non-drug treatment for arthritis. UK NICE
-            guidelines (NG226) put it ahead of medication for osteoarthritis. Aim for 150
-            minutes of low-impact aerobic activity per week (walking, swimming, cycling),
-            plus two sessions of strength work and a flexibility practice such as tai chi.
+            Exercise is one of the main treatments for arthritis, and NICE (NG226) recommends
+            strengthening and general fitness exercise as core care for osteoarthritis. Build
+            towards about 150 minutes of moderate activity a week (walking, swimming, cycling),
+            with strengthening on at least two days and gentle flexibility or balance work.
             Start short, build gradually, and pick activities you enjoy.
           </p>
           <AeoEnhancement route="/guides/exercise" />
@@ -284,7 +284,7 @@ export default function ExerciseGuide() {
       </main>
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_EXERCISE_HUB} />
-        <EducationalDisclaimerBox lastReviewed="2026-09-17" />
+        <EducationalDisclaimerBox lastReviewed="2026-11-10" />
         <TopicClusterNav path="/guides/exercise" />
       </div>
       <GuideOnwardJourney currentPath="/guides/exercise" />
