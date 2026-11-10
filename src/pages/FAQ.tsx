@@ -46,19 +46,19 @@ const FAQ = () => {
   return (
     <>
       <Helmet>
-        <title>Arthritis FAQs UK: symptoms, treatment, diet & PIP</title>
+        <title>Arthritis FAQs: Symptoms, Treatment, Diet and PIP Help</title>
         <meta
           name="description"
-          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
+          content="Find plain-English answers about arthritis symptoms, treatment, exercise, diet and PIP. Explore questions and practical guides from Living With Arthritis."
         />
         <meta
           name="keywords"
           content="what causes arthritis, is arthritis curable, how to reduce joint inflammation, best pain relief for arthritis, difference between osteoarthritis and rheumatoid arthritis, exercises to avoid with arthritis, how to support someone with chronic pain, arthritis symptoms, arthritis treatment, arthritis medication, arthritis diet, anti-inflammatory diet, arthritis flare up, joint swelling causes, natural remedies for arthritis, arthritis FAQ"
         />
-        <meta property="og:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
+        <meta property="og:title" content="Arthritis FAQs: Symptoms, Treatment, Diet and PIP Help" />
         <meta
           property="og:description"
-          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
+          content="Find plain-English answers about arthritis symptoms, treatment, exercise, diet and PIP. Explore questions and practical guides from Living With Arthritis."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE}/faq`} />
@@ -69,10 +69,10 @@ const FAQ = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Frequently Asked Questions | Living With Arthritis" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Arthritis FAQs UK: symptoms, treatment, diet & PIP" />
+        <meta name="twitter:title" content="Arthritis FAQs: Symptoms, Treatment, Diet and PIP Help" />
         <meta
           name="twitter:description"
-          content="UK arthritis FAQs in plain English: OA vs RA, gout, cold weather, PIP, exercise, diet and when to see a GP. Find answers from Living With Arthritis."
+          content="Find plain-English answers about arthritis symptoms, treatment, exercise, diet and PIP. Explore questions and practical guides from Living With Arthritis."
         />
         <meta name="twitter:image" content={`${SITE}/images/hero-walking-group-1600.webp`} />
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
@@ -84,6 +84,14 @@ const FAQ = () => {
           title="Arthritis questions answered for people in the UK"
           subtitle="Start with pain, a new diagnosis, benefits/PIP or the symptom checker — then browse the full library. Written for people with arthritis and carers, not search engines."
         />
+        <section className="container mx-auto max-w-4xl px-6 pt-10 md:px-12" aria-labelledby="faq-start-here">
+          <h2 id="faq-start-here" className="font-display text-2xl font-bold md:text-3xl">
+            Arthritis questions: symptoms, treatment, diet and PIP
+          </h2>
+          <p className="mt-3 max-w-3xl text-base leading-relaxed text-foreground/90">
+            Start with the arthritis question that matters to you: symptoms, a new diagnosis, treatment, exercise, diet or benefits. This library brings together plain-English answers and links to practical guides. Use the related questions to explore the topic further and check each page for its sources and clinical-review status.
+          </p>
+        </section>
         <Suspense fallback={<SkeletonSection />}>
           <FAQSection />
         </Suspense>

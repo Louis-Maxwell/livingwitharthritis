@@ -1,4 +1,5 @@
 ﻿import { Helmet } from "react-helmet-async";
+import { enforceTitle } from "@/lib/seoMeta";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/ui/PageHero";
@@ -204,7 +205,7 @@ export default function ExpertArticles() {
   return (
     <>
       <Helmet>
-        <title>In-depth Arthritis Articles (UK guide) | Living With Arthritis</title>
+        <title>{enforceTitle("In-depth arthritis articles", { includeSiteName: true, route: "/expert-articles" })}</title>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",

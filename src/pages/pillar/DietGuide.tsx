@@ -10,6 +10,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import AnswerBox from "@/components/seo/AnswerBox";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -271,7 +272,7 @@ export default function DietGuide() {
             </p>
           </AnswerBox>
           <TableOfContents html={html} />
-          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <ArticleHtmlWithNextStep html={html} path="/guides/diet" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <section id="diet-guide-faq" className="mt-16 pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion

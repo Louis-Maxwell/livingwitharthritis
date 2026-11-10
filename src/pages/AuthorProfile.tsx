@@ -1,5 +1,7 @@
 import { LOUIS_MAXWELL_PERSON, LIVING_WITH_ARTHRITIS_ORG } from "@/lib/louisMaxwell";
 import { Helmet } from "react-helmet-async";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import { distinctSeoTitle } from "@/lib/technicalSeo.mjs";
 import { Link, useParams } from "react-router-dom";
 import { ChevronLeft, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
@@ -47,7 +49,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   if (!record) return <NotFound />;
 
   const prefix = variant === "reviewer" ? "reviewers" : "authors";
-  const url = `${BASE}/${prefix}/${slug}`;
+  const url = `${BASE}/authors/${slug}`;
   const isPlaceholder = (v: string) => v.includes("[PLACEHOLDER");
 
   // Real (non-placeholder) credential strings only, for JSON-LD.
@@ -84,20 +86,35 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
   Object.keys(personLd).forEach((k) => personLd[k] === undefined && delete personLd[k]);
 
   const badgeLabel = variant === "reviewer" ? "Medical reviewer" : "Author";
-  const title = `${record.name} — ${record.title} | Living With Arthritis`;
-  const description = isPlaceholder(record.bio)
-    ? `${record.name}, ${record.title}. ${badgeLabel} on Living With Arthritis.`
-    : record.bio.slice(0, 155);
+  const canonicalUrl = url;
+  const h1 = variant === "reviewer"
+    ? `${record.name}: clinical reviewer profile`
+    : `${record.name}: author profile`;
+  const title = enforceTitle(
+    distinctSeoTitle(
+      variant === "reviewer"
+        ? `${record.name} — Clinical reviewer`
+        : `${record.name} — ${badgeLabel}`,
+      h1,
+    ),
+    { includeSiteName: true, route: `/${prefix}/${slug}` },
+  );
+  const description = enforceDescription(
+    `${badgeLabel} profile: ${record.name}, ${record.title}. ${
+      isPlaceholder(record.bio) ? "" : record.bio
+    }`,
+    `/${prefix}/${slug}`,
+  );
 
   return (
     <>
       <Helmet>
         <title>{title}</title>
-        <link rel="canonical" href={url} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="profile" />
         <meta property="og:site_name" content="Living With Arthritis" />
         <meta property="og:locale" content="en_GB" />
@@ -111,7 +128,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfilePage",
-          url,
+          url: canonicalUrl,
           mainEntity: personLd,
           inLanguage: "en-GB",
         })}</script>
@@ -123,7 +140,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
             { "@type": "ListItem", position: 2, name: "Editorial standards", item: `${BASE}/editorial-standards` },
-            { "@type": "ListItem", position: 3, name: record.name, item: url },
+            { "@type": "ListItem", position: 3, name: record.name, item: canonicalUrl },
           ],
         })}</script>
       </Helmet>
@@ -147,7 +164,7 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">{record.name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">{h1}</h1>
           <p className="text-lg text-foreground/80 mb-8">
             {record.title}
             {realOrg && <> · {realOrg}</>}
@@ -202,12 +219,12 @@ export default function AuthorProfile({ variant }: AuthorProfileProps) {
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-border p-6 bg-secondary/40 mb-10">
+          <section className="rounded-2xl border border-border p-6 bg-muted/60 mb-10">
             <h2 className="text-lg font-bold mb-2">How we review content</h2>
             <p className="text-sm text-muted-foreground">
-              Our editorial standards explain how clinical content is checked
-              by qualified UK healthcare professionals. Each article shows its
-              review status by Louis Maxwell (HCPC PH128483). Read the full{" "}
+              Our editorial standards explain how clinical content is checked.
+              Articles reviewed by Louis Maxwell name him and show a review date;
+              other pages must not imply clinical review. Read the full{" "}
               <Link to="/editorial-standards" className="text-primary underline">
                 editorial standards
               </Link>{" "}

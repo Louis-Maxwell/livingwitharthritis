@@ -31,7 +31,7 @@ export default function SymptomFlareTracker() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Free Arthritis Symptom and Flare Tracker (Printable PDF)"
+        title="Symptom and flare tracker PDF"
         description="Free printable 7-day arthritis symptom and flare tracker: pain, stiffness, fatigue, sleep, activity and medicines to take to your GP or physio."
         path={PATH}
         type="article"
@@ -49,7 +49,7 @@ export default function SymptomFlareTracker() {
           will have clear notes to share with your GP, physiotherapist or rheumatology team.
         </p>
         <p className="mb-6 text-sm text-muted-foreground">
-          Clinically reviewed by <Link to="/authors/maxwell" className="underline">Louis Maxwell</Link> (HCPC PH128483, Band 8 Advanced Practice Physiotherapist) · Last reviewed 2026-10-26
+          Clinically reviewed by <Link to="/authors/maxwell" className="underline">Louis Maxwell</Link> (First Contact Physiotherapist, HCPC PH128483) · Last reviewed 2026-10-26
         </p>
         <div className="mb-8 flex flex-wrap gap-3 print:hidden">
           <a href={PDF} download className="min-h-11 inline-flex items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">

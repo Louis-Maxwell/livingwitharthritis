@@ -5,6 +5,7 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
   { q: 'What is frailty?', a: 'Frailty is a clinical state of reduced reserve and resilience across multiple body systems, leaving older adults more vulnerable to falls, hospital admission and slower recovery.' },
@@ -87,6 +88,7 @@ export default function FrailtyManagementHub() {
         <p className="leading-relaxed">See our <Link to="/exercises" className="text-primary underline">exercise hub</Link> for progressions.</p>
       </section>
 
+      <RecommendedNextStep path="/guides/frailty-management-hub" placement="mid" />
       <section id="nutrition" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">4. Nutrition strategies for muscle preservation</h2>
         <p className="mb-4 leading-relaxed">Spread protein across meals: 25–30 g per meal triggers muscle protein synthesis better than one large serving. Sources include eggs, Greek yoghurt, fish, lean meat, beans and tofu. Pair with vitamin D (10 Âµg/day October–March, UK healthcare guidance) and adequate calories.</p>

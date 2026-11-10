@@ -1,3 +1,5 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -30,6 +32,8 @@ const BASE = "https://livingwitharthritis.org.uk";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Rheumatoid Arthritis – Symptoms, Causes & Treatment | Living With Arthritis",
   "description": "Complete guide to rheumatoid arthritis (RA): an autoimmune condition causing joint inflammation. Learn about symptoms, diagnosis, treatment, exercises and diet for UK patients.",
   "url": `${BASE}/conditions/rheumatoid-arthritis`,
@@ -152,7 +156,7 @@ const RheumatoidArthritis = () => (
             function.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
       {/* ─── RA Key Stats ─── */}
       <section className="py-12 lg:py-16 bg-tint-blue">
@@ -395,7 +399,8 @@ const RheumatoidArthritis = () => (
             ]}
           />
           <ArticleCitations citations={CITATIONS_RA} />
-          <UrgentHelpAndSources path="/conditions/rheumatoid-arthritis" />
+          <ClusterGpAndLinks path="/conditions/rheumatoid-arthritis" />
+      <UrgentHelpAndSources path="/conditions/rheumatoid-arthritis" />
           <EducationalDisclaimerBox lastReviewed="2026-09-15" />
           <TopicClusterNav path="/conditions/rheumatoid-arthritis" />
           <CrossLinkBanner preset="condition" exclude="/conditions/rheumatoid-arthritis" title="Explore related resources" />

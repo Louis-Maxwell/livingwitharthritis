@@ -1,8 +1,28 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { ensureMainContentTarget } from "@/lib/skipLinkTarget";
+
 /**
  * First focusable control in the document — jumps past header/nav to #main-content.
  * Visible only on keyboard focus (WCAG 2.4.1 Bypass Blocks).
  */
 export default function SkipToContent() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (ensureMainContentTarget()) return;
+    const observer = new MutationObserver(() => {
+      if (ensureMainContentTarget()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    const stop = window.setTimeout(() => observer.disconnect(), 5000);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(stop);
+    };
+  }, [pathname]);
+
   return (
     <a
       id="skip-to-content"

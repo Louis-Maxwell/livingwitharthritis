@@ -4,6 +4,8 @@ import { useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ukCities } from "@/data/ukCities";
+import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
+import { COMPARISON_CONTENT } from "@/data/comparison-content";
 
 interface SitemapLink {
   label: string;
@@ -77,6 +79,19 @@ const cityLinks: SitemapLink[] = ukCities.map((c) => ({
   href: `/arthritis-support/${c.slug}`,
 }));
 
+// Side-by-side comparison guides (/guides/*-vs-*). Several were only reachable
+// from other comparisons, so the rendered crawl flagged them as orphans.
+const comparisonLinks: SitemapLink[] = COMPARISON_ROUTES.map((href) => ({
+  label:
+    COMPARISON_CONTENT[href]?.title ??
+    href
+      .replace("/guides/", "")
+      .split("-")
+      .map((w) => (w === "vs" ? "vs" : w.charAt(0).toUpperCase() + w.slice(1)))
+      .join(" "),
+  href,
+}));
+
 // Curated set of every public, indexable page. Auth/admin/utility routes
 // (/auth, /admin/*, /donation-result, /unsubscribe,
 // /debug/*) are intentionally omitted from this user-facing index.
@@ -109,6 +124,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Health Tools", href: "/health-tools" },
   { label: "Impact Stories", href: "/impact" },
   { label: "Library", href: "/library" },
+  { label: "Monthly Magazine", href: "/magazine" },
   { label: "Lived Experiences", href: "/stories" },
   { label: "Partners", href: "/partners" },
   { label: "Pedometer", href: "/pedometer" },
@@ -130,6 +146,8 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Fibromyalgia", href: "/conditions/fibromyalgia" },
   { label: "Gout", href: "/conditions/gout" },
   { label: "Elbow Pain & Arthritis", href: "/conditions/elbow-arthritis" },
+  { label: "Back Pain & Arthritis", href: "/conditions/back-pain" },
+  { label: "Early Signs of Arthritis", href: "/conditions/early-arthritis-symptoms" },
   { label: "Foot & Ankle Arthritis", href: "/conditions/foot-and-ankle-arthritis" },
   { label: "Hand Arthritis", href: "/conditions/hand-arthritis" },
   { label: "Juvenile Arthritis", href: "/conditions/juvenile-arthritis" },
@@ -168,8 +186,7 @@ const ALL_LINKS: SitemapLink[] = [
   { label: "Waiting Time Calculator", href: "/tools/waiting-time" },
 
   // Buddy
-  { label: "Buddy Programme", href: "/buddy" },
-  { label: "Buddy Match", href: "/buddy/match" },
+  { label: "Connect groups", href: "/community/connect-groups" },
 
   // Regional hubs
   { label: "North West Region", href: "/regions/north-west" },
@@ -234,6 +251,18 @@ const ALL_LINKS: SitemapLink[] = [
 
   // XML sitemap (external)
   { label: "XML Sitemap (machine-readable)", href: "/sitemap.xml", external: true },
+  // Pages the rendered crawl found with no inbound links
+  { label: "Arthritis Support in the Midlands", href: "/regions/midlands" },
+  { label: "Arthritis Support in North West England", href: "/regions/north-west" },
+  { label: "Arthritis Support in Scotland", href: "/regions/scotland" },
+  { label: "Arthritis Support in Wales", href: "/regions/wales" },
+  { label: "Step Counter & Pedometer", href: "/pedometer" },
+  { label: "Medical Reviewers", href: "/reviewers" },
+  { label: "Authors", href: "/authors" },
+  { label: "In-depth Arthritis Articles", href: "/expert-articles" },
+  { label: "Neck Arthritis Exercises", href: "/exercises/neck-arthritis-exercises" },
+  { label: "Fund 500 Personalised Exercise Plans", href: "/campaigns/exercise-circuit-500" },
+  ...comparisonLinks,
 ];
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

@@ -246,6 +246,9 @@ export const NHS_FIND_SERVICES: Citation = {
 
 /** Arthritis pain relief / pain science guide */
 export const CITATIONS_PAIN_RELIEF: Citation[] = [
+  NICE_RA_NG100,
+  NHS_RHEUMATOID,
+  NHS_STEROID_INJECTIONS,
   VERSUS_ARTHRITIS_PAIN,
   NICE_OA_NG226,
   NHS_NSAIDS,
@@ -279,6 +282,8 @@ export const CITATIONS_WAITING_LIST: Citation[] = [
 /** Exercise hub + exercise pillar */
 export const CITATIONS_EXERCISE_HUB: Citation[] = [
   NICE_OA_NG226,
+  NICE_RA_NG100,
+  NHS_OSTEOARTHRITIS,
   VERSUS_ARTHRITIS_EXERCISE,
   CMO_PHYSICAL_ACTIVITY,
   CSP_HOME,

@@ -108,7 +108,7 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 
 | Must-do (CEO plan §12, M2) | Status | Notes |
 |---|---|---|
-| Champions 11–30 upgraded | **done** (in M1) | Now at 111 (Champions 109–111 shipped 30 Oct, after 106–108 on 29 Oct); Champions 112–118 queued in `docs/M2-FRAILTY-TEMPLATE-TRIAGE.md` (212 template posts left) |
+| Champions 11–30 upgraded | **done** (in M1) | 122–128 shipped 4 Nov; published template pool 0; unpublished templates remain behind merge-plan 301s (`docs/M2-FRAILTY-TEMPLATE-TRIAGE.md`). M3 pillar gold started 4–5 Nov (pain + OA) |
 | Email welcome + PECR compliance | **done** (brought forward) | ESP send-live is Louis-owned |
 | Partner target list 50 + first 15 outreaches | list **done**; sends **blocked-on-Louis** | First 15 from `docs/PARTNER-OUTREACH-50.md`, public contact routes only |
 | Social cadence SOPs (FB/IG/LI) | **done** | `docs/SOCIAL-CADENCE-SOPS.md`; posting needs Louis's go-ahead |
@@ -121,6 +121,170 @@ The planned Fri 9 Oct close-out run did not complete, so this is written on the 
 M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a fresh GSC export to measure), 5 / 15 partner conversations, Regulator pathway progressed / 3 grant apps submitted, email signup rate tracked / tool completion tracked.
 
 ---
+
+
+## Month 3 must-do status (from ~11 Nov 2026; early starts 4–5 Nov)
+
+| Must-do (CEO plan §12–13, M3) | Status | Notes |
+|---|---|---|
+| Pain pillar gold-standard pass | **done** (4 Nov) | `/guides/arthritis-pain-relief` customer-first rewrite; Vitest `pain-pillar-m3-04-nov.test.ts`; PR #390 |
+| OA pillar gold-standard pass | **done** (5 Nov) | `/conditions/osteoarthritis` customer-first rewrite; dates aligned 2026-11-05; Vitest `oa-pillar-m3-05-nov.test.ts` |
+| Exercise pillar gold-standard pass | **done** (10 Nov) | `/exercises` hub customer-first pass (start today, red flags, pain rule, starting points, flare days, GP/physio, carers); unsourced stat counters and effectiveness charts removed; `/guides/exercise` claims cleaned; Vitest `exercise-pillar-m3-10-nov.test.ts` |
+| PIP pillar gold-standard pass | **pending** | Next digital action (`/guides/benefits-pip`, `src/pages/pillar/BenefitsPIPGuide.tsx`) |
+| First M3 linkable asset PDF | **scoped** (5 Nov) | PIP evidence checklist PDF complementary to `/resources/pip-evidence-diary` — `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` (not shipped) |
+| Google Ad Grants live | **blocked-on-Louis** | Pack ready (`docs/GOOGLE-AD-GRANTS-PACK.md`); apply via Google for Nonprofits |
+| Community / partner pilot | **blocked-on-Louis** | First 15 outreaches + NHS/clinic intros still unsent |
+| Fresh GSC/GA4 for M2 close-out KPIs | **blocked-on-Louis** | Needed before any traffic-multiple claim |
+
+### M2 close-out draft skeleton (~11 Nov — do not invent KPIs)
+
+Fill only after a fresh GSC Pages/Queries + GA4 export (B₁ remains the Year 0 lock in `docs/YEAR-0-ANALYTICS-BASELINE.md`).
+
+| M2 KPI theme | Scenario A / B (CEO plan) | Status / evidence |
+|---|---|---|
+| Organic traffic vs M1 cohort | +10–20% / +25–40% | **TBD** — needs fresh GSC/GA4 (no invented numbers) |
+| Partner conversations | 5 / 15 | **TBD** — sends still Louis-owned |
+| Regulator / grants | pathway progressed / 3 apps | Regulator + Gift Aid + Ad Grants still blocked-on-Louis |
+| Content | Champions + pillars | **Ahead on content** — Champions through 128; pain + OA + exercise pillars gold (3 of 4); PDF scoped |
+| Honest read | — | Content/governance ahead of distribution; distribution gap is Louis-owned actions outside GitHub |
+
+---
+
+## M2 close-out (12 Oct – 11 Nov 2026) — written 10 Nov 2026
+
+No fresh GSC/GA4 export has been recorded in this repo since B₁, so **no traffic multiple vs M1 or Year 0 is claimed**. The KPI rows in the skeleton above stay **TBD** until Louis exports GSC Pages/Queries + GA4 for the M2 window.
+
+- **Content (ahead of plan):** Champions through 128 rewritten on existing URLs and reviewed by Louis Maxwell; published template pool cleared 4 Nov; pain (4 Nov), OA (5 Nov) and exercise (10 Nov) pillars gold; first M3 PDF scoped (PIP evidence checklist, not shipped).
+- **Technical / trust (6–9 Nov, other runs):** Semrush site-audit fixes (#396), AI crawler discovery and regression gate (#397, #413), AEO/GEO strategy doc (#399), edge-protection doc (#403), technical SEO + prerender parity + sitemap integrity gates (#409–#411), priority guide metadata (#412), PIP/hip guides complete in first HTML (#418), GSC snippets and short answers (#419, #420), social previews (#421), CSP hardening and no inline scripts (#422, #423), CLS fixes (#424), new pain-management blog (#425), November magazine (#393, #394).
+- **Distribution (behind plan, Louis-owned):** first 15 partner outreaches, Ad Grants application, Fundraising Regulator + Gift Aid, live social posting and HCP clinic-pack sends are still not recorded as done.
+- **Honest read:** M2 Scenario A content and governance floors are met; the traffic, partnership and revenue KPIs cannot be scored without the export and the Louis-owned sends. M3 priorities: PIP pillar (last of 4), PIP checklist PDF after Louis review, Ad Grants, first outreaches.
+
+## Daily log — 10 Nov 2026 (M2 last weekday; M3 starts 11 Nov)
+
+**Programme month:** M2 (12 Oct – 11 Nov 2026). Tracker next-3 from 5 Nov: (1) exercise pillar gold pass (2) PIP pillar gold pass (3) PIP checklist PDF after Louis review. Checked merged PRs 5–9 Nov (#393–#425) and open PRs first: none touched `src/pages/ExerciseHub.tsx` content beyond the 3 Nov image srcset (#381), and `/guides/exercise` only had title/schema hygiene (#396). This run shipped the **exercise pillar gold-standard pass**. No new URLs, no redirects changed, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes.
+
+### Shipped
+- **Exercise pillar gold (`/exercises`, cluster pillar):** answer-first speakable lead ("Motion is lotion"); LastReviewed + MedicalReviewBadge (Louis Maxwell, HCPC PH128483, November 2026); MedicalWebPage `dateModified` / `lastReviewed` **2026-11-10**, author + reviewedBy `LOUIS_MAXWELL_REF`. New customer-first blocks: "Exercise today: start here" (5 steps); "Red flags: stop and get help" (NHS 111 same day for hot, red, swollen joint / immunosuppressed with infection / injury; 999 for chest pain, severe breathlessness, fainting); "Is it safe? How to read pain" (NICE NG226 framing: exercise unlikely to harm joints, next-day rule); "Pick your starting point" (newly diagnosed, knee/hip OA, RA with NICE NG100 specialist physio, unsteady/older, after surgery, pool); "Flare days: do less, not nothing"; "When to see your GP or a physiotherapist" (incl. NHS self-referral); "For carers and family". **Removed unsourced numbers:** stat counters (40% pain reduction, 8.75M), the "effectiveness by type" bar chart and benefits donut (no source), AnswerBox "up to 40%" / "more effective than painkillers", "Physiotherapy Approved" badge, hydration claim. Weekly plan reframed as a build-towards example using UK CMO guidance (150 min moderate + strength 2 days). Mislabelled "Exercises to avoid" link now goes to `/guides/can-exercise-make-osteoarthritis-worse`.
+- **`/guides/exercise` claims clean-up:** removed "over 60% (Sport England)", "up to 30% (WHO)", "1 kg = 4 kg knee load", "Cochrane 2021", "up to 90% buoyancy", "2019 BMJ", "single most effective" and the "statistics as of 2024" line; replaced with NICE NG226 / NG100, NHS and CMO wording; next-day pain rule replaces the 2-hour rule; red-flag line added; broken "UK Health Fitness Studio" link replaced with nhs.uk exercise; reviewed by Louis Maxwell; dates **2026-11-10**.
+- **Citations:** `CITATIONS_EXERCISE_HUB` adds NICE NG100 + NHS osteoarthritis. **Head data / sitemap:** `updatedAt` / `lastmod` **2026-11-10** for `/exercises` and `/guides/exercise`.
+- **Tests:** new `src/lib/__tests__/exercise-pillar-m3-10-nov.test.ts`; Champions 47–48 gate accepts exercise review `2026-11-10`.
+
+### Still blocked on Louis
+- Fresh GSC Pages/Queries + GA4 export for the M2 window (needed to score the M2 close-out KPIs)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants / Google for Nonprofits; Fundraising Regulator + Gift Aid; first 15 partner outreaches; HCP clinic-pack sends; live social posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation)
+
+### Next 3 digital actions (GTM)
+1. PIP pillar gold-standard pass (`/guides/benefits-pip`) — last of the 4 M3 pillars
+2. GSC URL Inspection / indexing requests for `/exercises`, `/guides/exercise`, `/conditions/osteoarthritis`, `/guides/arthritis-pain-relief` once auto-publish has deployed
+3. Build the PIP evidence checklist PDF after Louis reviews the scope doc
+
+## Daily log — 5 Nov 2026 (M2 day 19, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 4 Nov: (1) Champions 125–128 — already done later on 4 Nov (2) M3 pain pillar — done 4 Nov (#390) (3) scope first M3 linkable asset PDF + M2 close-out; continue 4 pillars gold → OA next. This run shipped the **OA pillar gold-standard pass**, the **M3 PDF scope doc**, tracker M3 status + M2 close-out skeleton, and Vitest `oa-pillar-m3-05-nov.test.ts`. No new public URLs, no redirects changed, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes, so Louis does not need to press Publish.
+
+### Shipped
+- **OA pillar gold (`/conditions/osteoarthritis`):** full customer-first rewrite matching the pain-pillar pattern. Answer-first speakable intro; “OA right now: start here”; early red flags (NHS 111 / 999); plain-English OA (cartilage + joint changes, not wear-and-tear-only; NICE NG226); symptoms vs inflammatory handoff (RA / early symptoms); diagnosis (GP, imaging not first for many); core treatments (therapeutic exercise, weight management if relevant, information/support); pain relief aligned with NG226 / pain pillar (topical NSAID first for knee OA; oral NSAID lowest/shortest; paracetamol and weak opioids not routinely; no strong opioids); heat/cold safety; aids / transfers / joint protection; flares; work/PIP; carers; NICE-not-recommended list. Dates aligned: jsonLd `dateModified` / `lastReviewed`, LastReviewed, MedicalReviewBadge (November 2026), EducationalDisclaimerBox → **2026-11-05**; author `LOUIS_MAXWELL_REF`. Dense internal links to gold-pass spokes (pain hub, exercises, hip/knee OA guides, swimming, walking, shoes, joint protection, knee steady at home, transfers, seated strength, painkillers/NSAIDs, PIP hub + FAQ, flare plan, newly diagnosed, RA). Kept TopicClusterNav path + `CITATIONS_OA`; removed stale AnswerBox “June 2026”, viscosupplementation/PRP promotion, supplement doses, and Organisation-only author.
+- **`topicClusters.ts`:** OA cluster fronts hip-and-knee transfers, knee OA steady at home, seated strength; triggers added. **Chatbot KB** `oa-general`: related links for those three Champions; softened wear-and-tear framing.
+- **`page-aeo.ts`:** OA AEO answer/FAQs aligned with NG226 (clinical diagnosis, no cure claim, exercise wording); `updatedAt` 2026-11-05.
+- **Sitemap** `lastmod` **2026-11-05** for `/conditions/osteoarthritis`; **llms.txt / ai.txt** preferred-cite line refreshed.
+- **M3 PDF scope:** `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` — chosen asset = **PIP evidence checklist PDF** complementary to `/resources/pip-evidence-diary` (higher ROI than inventing an MSK page; flare + PIP printables already exist; partner-ready static file). Scope only — PDF not shipped.
+- **Tracker:** M3 must-do status table started; M2 close-out draft skeleton (KPIs blank pending GSC/GA4).
+- **Tests:** `src/lib/__tests__/oa-pillar-m3-05-nov.test.ts`; Champions 47–48 gate accepts OA review `2026-11-05`.
+
+### Still blocked on Louis (no change since 4 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and complete the close-out table); GSC URL Inspection on rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Exercise pillar gold-standard pass (`/exercises` or canonical exercise guide — match pain/OA customer-first pattern)
+2. PIP pillar gold-standard pass (`/guides/benefits-pip`)
+3. Implement the scoped PIP evidence checklist PDF (`docs/M3-LINKABLE-ASSET-PDF-SCOPE.md`) on a later weekday after Louis review
+
+## Daily log — 4 Nov 2026 (M2 day 18, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 3 Nov: Champions 122–124, then 125–128, then M3 pillar prep. Checked `main` and the open PRs first: no open PR touches 122–124, and their last change was the merge-plan PRs (#336–#339), so all three were still on the template. This run shipped 122, 123 and 124 as rewrites on their existing URLs: no redirects changed, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes, so Louis does not need to press Publish.
+
+### Shipped
+- **Champions 125–128 (later 4 Nov):** `/blog/wheelchair-for-distance-arthritis-frailty-uk`, `/blog/community-ot-waiting-arthritis-frailty-uk`, `/blog/hip-and-knee-oa-frailty-transfers-uk` and `/blog/meal-delivery-arthritis-frailty-uk` rewritten on their existing URLs, reviewed by Louis Maxwell, with new credited Commons covers. Tests: `src/lib/__tests__/gsc-champions-125-128-04-nov.test.ts`. Published template pool cleared (82 unpublished template files remain behind 301s). Next: M3 pain pillar.
+- **Champion 122 — `/blog/pacing-housework-arthritis-frailty-uk`:** full rewrite into "Pacing housework with arthritis: cleaning, laundry and chores without the payback (UK guide)". Why chores cause payback (boom and bust), plan / prioritise / pace, easier cleaning, laundry and ironing, beds, kitchen and shopping, visitors, family days and weekends (kept from the two 301s merged in), keep moving, when to get help (occupational therapy, council needs assessment, Attendance Allowance / PIP, family), when it is more than tiredness, carers. Category Pain & flares → Diet & lifestyle. Cites NHS living with OA and RA, tiredness self-help, household equipment, OT, needs assessment, carer's assessments, GOV.UK Attendance Allowance and PIP, NICE NG226, Living Made Easy, 111
+- **Champion 123 — `/blog/osteoporosis-arthritis-frailty-bone-joint-uk`:** full rewrite into "Osteoporosis and arthritis together: bone scans, falls, exercise and medicines (UK guide)". How they differ, why arthritis raises the risk (RA, steroids, age, low activity), spinal fracture signs, fracture risk checks and DEXA (with a tip on lying flat with painful joints), fracture liaison service, safe exercise for bones and joints, calcium foods and vitamin D (no doses), bone medicines (how to take them with stiff hands, dentist, never stop yourself), cutting falls risk, red flags, carers. Hands off to Champion 84 (bone protection on steroids). Cites NHS osteoporosis, DEXA, calcium, vitamin D, falls, NICE CG146, NG249, NG226, NG100, Royal Osteoporosis Society, 111
+- **Champion 124 — `/blog/sleep-arthritis-frailty-night-pain-uk`:** full rewrite into "Night pain and sleep with arthritis in later life: safer nights and when to get help (UK guide)". Narrowed against the gold-pass sleep guides to later life: why pain is worse at night, an evening routine (kept from the evening-routine 301) with heat-pack safety, comfort in bed, what to do if you cannot sleep and CBT-I, getting up at night safely, sleeping tablet cautions, when night pain needs checking, carers. Cites NHS insomnia, how to get to sleep, Every Mind Matters, CBT, zopiclone, falls, living with OA, back pain, NICE NG193, NG226, NG249, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 4 November 2026", charity 1218461, educational-not-diagnostic wording, early handoffs to the neighbouring gold-pass guides; no frailty-template filler, no "10 million", no percentages, no doses, no prices, no addresses
+- **Covers:** swapped to unique unused library images that fit better (122 woman resting in a chair, 123 calcium-foods plate, 124 older man resting under a blanket); cover map stays 1:1. The 119 and 120 covers were already fixed by #371 on 3 Nov
+- **`topicClusters.ts`:** 122 and 124 in pain, 123 in treatments (next to bone protection), each with triggers; **chatbot KB:** related links on the sleep, OA daily-living and steroids entries
+- Sitemap `lastmod` **2026-11-04**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 122–124 ticked with a progress line and the recount: **86 template files left, 4 published** (Champions 125–128)
+- **Tests:** `src/lib/__tests__/gsc-champions-122-124-04-nov.test.ts`
+
+### Still blocked on Louis (no change since 3 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand); GSC URL Inspection on the rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 125–128 (wheelchair for distance, waiting for community OT, hip and knee transfers, meal delivery), which clears the published template pool
+2. M3 prep before ~11 Nov: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass, starting with the pain pillar now that the pain cluster has the night pain and pacing guides
+3. Scope the first M3 linkable asset PDF (printable, reviewed by Louis Maxwell) and the M2 close-out summary for ~11 Nov
+
+## Daily log — 3 Nov 2026 (M2 day 17, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 starts ~11 Nov. Tracker next-3 from 2 Nov: Champions 119–120, then 121–122, then M3 pillar prep. Checked `main` and open PRs first: no open PR touches 119–122, but the Frailty IMPROVE batches 4–24 (#347–#367, merged 2 Nov) had rewritten about 105 more template posts, so the 2 Nov "194 left" figure was out of date (recount below). This run shipped 119, 120 and 121 as rewrites on their existing URLs: no redirects changed, no URLs removed, no new pages, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. All reviewed by Louis Maxwell (HCPC PH128483). Covers unchanged. The site now auto-publishes from `main` when CI passes (since 2 Nov), so Louis does not need to press Publish.
+
+### Shipped
+- **Champion 119 — `/blog/hospital-appointments-frailty-arthritis-uk`:** full rewrite into "Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)". Adjustments to ask for before the day (time of day, phone or video, wheelchair or help from the entrance, seating, combined appointments, accessible information), non-emergency patient transport, Healthcare Travel Costs Scheme and Low Income Scheme, community transport, free parking for disabled people in England and the Blue Badge, what to take, eye clinic drops (do not drive home), on the day, ringing before the date if you cannot attend, PALS, carers, red flags. Keeps the eye-clinic and parking topics merged in by the 301s. Cites NHS transport, NEPTS eligibility criteria, HTCS, LIS, DHSC parking guidance, Blue Badge, going into hospital, PALS, NHS App, CTA, 111
+- **Champion 120 — `/blog/social-care-needs-assessment-arthritis-uk`:** full rewrite into "Social care needs assessments for arthritis: how to ask your council for help at home (UK guide)". Free for anyone, how to ask, why arthritis is under-described (Care Act eligibility in plain words: significant pain, much longer, unsafe), diary of bad days, bringing someone or an advocate, what happens in the assessment, care plan, financial assessment, direct payments, advice if not eligible, reviews, complaints and the Ombudsman, carers, when it cannot wait; notes that Scotland, Wales and Northern Ireland have their own rules. Category Conditions → Carers & family. Cites NHS needs assessment, GOV.UK, Care Act statutory guidance, NHS advocate, care after hospital, carer assessments, direct payments, LGSCO, Age UK, 111
+- **Champion 121 — `/blog/loneliness-arthritis-frailty-social-contact-uk`:** full rewrite into "Loneliness and arthritis: rebuilding social contact when pain keeps you at home (UK guide)". How pain, tiredness, fear of falling and transport shrink your world, small steps planned around joints, The Silver Line, telephone and face-to-face befriending (kept from the befriending 301), video calls, social prescribing, slow walking and faith groups, community transport, volunteering, tackling what keeps you in (pain review, falls confidence, hearing and sight, needs assessment), low mood and talking therapies, Samaritans 116 123, 111 and 999, family and neighbours. Cites NHS loneliness, Every Mind Matters, NHS England social prescribing, NHS Talking Therapies, Age UK Silver Line and befriending, Royal Voluntary Service, Samaritans, CTA, NICE NG193, 111
+- All three: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 3 November 2026", charity 1218461, educational-not-diagnostic wording, early handoffs to the neighbouring gold-pass guides; no frailty-template filler, no "10 million", no percentages, no doses, no prices, no addresses
+- **`topicClusters.ts`:** 119 in treatments, 120 in benefits (pip), 121 in flare-ups (with the mental health guides), each with triggers; **chatbot KB:** related links on the blood-test transport, benefits and mental health entries
+- Sitemap `lastmod` **2026-11-03**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 119–121 ticked with a progress line and the recount: **89 template files left, 7 published** (Champions 122–128)
+- **Tests:** `src/lib/__tests__/gsc-champions-119-121-03-nov.test.ts`
+
+### Still blocked on Louis (no change since 2 Nov)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand); GSC URL Inspection on the rewritten URLs once auto-publish has deployed them
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 122–124 (pacing housework, osteoporosis with arthritis, night pain and sleep), after checking `main` for overlapping Frailty IMPROVE batches
+2. Champions 125–128 (wheelchair for distance, waiting for community OT, hip and knee transfers, meal delivery), which clears the published template pool
+3. M3 prep before ~11 Nov: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass and scope the first linkable asset PDF
+
+## Daily log — 2 Nov 2026 (M2 day 16, weekday run)
+
+**Programme month:** M2 (12 Oct – ~11 Nov 2026); M3 (4 pillars to gold, community pilot, Ad Grants if approved, first linkable asset PDF) starts ~11 Nov. Tracker next-3 from 30 Oct: Champions 112–118. On checking `main`, 112 (activity diary), 113 (advance care planning), 114 (Disabled Facilities Grant), 116 (hip OA chair rise) and 118 (carers) had already been rewritten by the Frailty IMPROVE batches (#341, #343, #345, 1–2 Nov), and the frailty merge plan (#336–#340) had 301-merged about 80 duplicate posts. So this run shipped the two still on the template: 115 and 117. Rewrites on existing URLs: no redirects, no URLs removed, no new pages, no invented traffic claims, no Lovable / CloudAgent / other AI tools. Both reviewed by Louis Maxwell (HCPC PH128483). Covers unchanged.
+
+### Shipped
+- **Champion 115 — `/blog/copd-arthritis-frailty-breathlessness-uk`:** full rewrite into "COPD and arthritis: staying active when breathlessness and sore joints hold you back (UK guide)". Why lungs and joints make each other harder, breathlessness on effort is not harmful (talk test), pulmonary rehabilitation (NHS programme shape, NICE NG115) and telling the team about your arthritis, everyday movement, inhalers with stiff hands (pharmacist technique check, spacers, inhaler aids), methotrexate lung warning signs and RA lung inflammation, NSAID caution, vaccines, stopping smoking, warm home, red flags, carers. Replaces template copy that wrongly pointed readers to Northern Ireland services. Category Pain & flares → Exercise & movement. Cites NHS COPD, COPD treatment, living with COPD, NICE NG115 and NG226, Asthma + Lung UK, NHS shortness of breath, methotrexate side effects, RA complications, flu and pneumococcal vaccines, quit smoking, 111
+- **Champion 117 — `/blog/short-term-equipment-loans-arthritis-uk`:** full rewrite into "Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)". Free council/NHS community equipment if assessed as needed (before discharge or via a needs assessment), NHS wheelchair service vs short-term hire, British Red Cross wheelchair hire and local loans, buying new or second-hand safely (keeps the advice merged in from `second-hand-equipment-arthritis-frailty-uk`), VAT relief, safe use, giving equipment back, red flags, carers. No prices quoted (they change). Category Treatments & medicines → Diet & lifestyle. Cites NHS household equipment, walking aids/wheelchairs, needs assessment, care after a hospital stay, OT, GOV.UK needs assessment and VAT relief, British Red Cross, Living Made Easy, 111
+- Both: CTR meta (titles ≤55 characters, descriptions 120–150), "Clinically reviewed by Louis Maxwell (HCPC PH128483) on 2 November 2026", charity 1218461, educational-not-diagnostic wording; no frailty-template filler, no "10 million", no percentages, no doses, no addresses
+- **`topicClusters.ts`:** both in the exercises cluster (with triggers); **chatbot KB:** exercise/falls entry and the infections/vaccines entry `related` links
+- Sitemap `lastmod` **2026-11-02**; llms.txt / ai.txt preferred cites + Q&A lines; catalog / RSS / head data / review index / content stats / keyword files / evidence register / search index / llms-full regenerated
+- **Triage doc:** 115 and 117 ticked, progress line, Champions 119–128 re-ranked; **194 template posts left** (same all-files scan as the 30 Oct 212; 112 still published)
+- **Tests:** `src/lib/__tests__/gsc-champions-115-117-02-nov.test.ts`; full Vitest suite 861/861 locally before push
+
+### Still blocked on Louis (no change since 30 Oct)
+- Fundraising Regulator pathway + Gift Aid HMRC registration before live reclaim copy
+- Google Ad Grants / Google for Nonprofits apply (M3 must-do depends on it)
+- First 15 partner outreaches (`docs/M2-FIRST-15-OUTREACH-SEND-SHEET.md`); NHS / clinic intros (`docs/HCP-CLINIC-PACK-DISTRIBUTION.md`); live social posts
+- Mechanical frailty-template sweep decision (now 194 posts, 112 published; the merge plan and IMPROVE batches are reducing this)
+- **Lovable publish** of latest GitHub `main` (only if Louis does it himself; no Lovable credits), then GSC URL Inspection on the rewritten URLs
+- Fresh GSC Pages/Queries + GA4 export (needed to measure the M2 traffic KPI and re-rank on real demand)
+- Host: www→apex 301, true HTTP 404 (SPA limitation) — still open
+
+### Next 3 digital actions (GTM)
+1. Champions 119–120 (hospital appointments, social care needs assessment), after checking `main` for overlapping Frailty IMPROVE batches
+2. Champions 121–122 (loneliness, pacing housework)
+3. M3 prep: pick the first of the 4 pillars (pain, OA, exercise, PIP) for a gold-standard pass and scope the first linkable asset PDF
 
 ## Daily log — 30 Oct 2026 (M2 day 15, weekday run)
 

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -36,7 +37,7 @@ const DIRECTORY_HTML = FIN_DIR_HTML.replace(/id="([^"]+)"/g, 'id="dir-$1"').repl
 const RELATED_GUIDES_HTML = `<h2 id="benefits-and-work-guides">More benefits and work guides</h2>
 <ul>
 <li><a href="/faq/arthritis-disability-benefits-uk">FAQ: arthritis disability benefits UK</a>: Short answers on PIP, DLA and when arthritis may count as a disability.</li>
-<li><a href="/blog/pip-for-arthritis-uk">PIP for arthritis in the UK</a>: How PIP is assessed for arthritis, evidence to keep, and where to get help.</li>
+<li><a href="/blog/pip-for-arthritis-uk">Can you get PIP for arthritis?</a>: Eligibility, points and evidence. This claim guide stays separate from that page.</li>
 <li><a href="/resources/pip-evidence-diary">Printable PIP evidence diary</a>: A one-week activity diary to support a PIP discussion with an adviser.</li>
 <li><a href="/guides/disability-support">Disability support</a>: Aids, adaptations and rights when arthritis limits day-to-day life.</li>
 <li><a href="/arthritis-waiting-list-help">Waiting-list help</a>: What to do while waiting for rheumatology, physio or surgery.</li>
@@ -152,11 +153,11 @@ export default function BenefitsPIPGuide() {
               to="/resources/pip-evidence-diary"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
             >
-              Open the PIP evidence diary
+              Printable PIP evidence diary
             </Link>
           </div>
           <TableOfContents html={html} />
-          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <ArticleHtmlWithNextStep html={html} path="/guides/benefits-pip" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <section id="benefits-pip-faq" className="mt-16 pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             <FaqAccordion

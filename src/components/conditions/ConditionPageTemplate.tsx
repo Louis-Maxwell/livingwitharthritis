@@ -1,7 +1,10 @@
-﻿import { Suspense, type ReactNode, type ElementType } from "react";
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { Suspense, type ReactNode, type ElementType } from "react";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Helmet } from "react-helmet-async";
+import { enforceTitle, enforceDescription } from "@/lib/seoMeta";
+import { distinctSeoTitle } from "@/lib/technicalSeo.mjs";
 import { Link } from "react-router-dom";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import {
@@ -129,6 +132,8 @@ const Section = ({
 
 export default function ConditionPageTemplate({ data }: { data: ConditionPageData }) {
   const url = `${BASE}/conditions/${data.slug}`;
+  const pageTitle = enforceTitle(distinctSeoTitle(data.metaTitle, data.name), { includeSiteName: true, route: `/conditions/${data.slug}` });
+  const pageDescription = enforceDescription(data.metaDescription, `/conditions/${data.slug}`);
   const ogImage = resolveOgImage(data.slug, data.ogImage);
 
   return (
@@ -144,20 +149,22 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
           signOrSymptom: data.symptoms,
           riskFactor: data.causes,
           image: ogImage,
+          lastReviewed: "2026-10-26",
+          reviewedBy: { name: "Louis Maxwell", jobTitle: "First Contact Practitioner Physiotherapist", identifier: "HCPC PH128483", profileUrl: "https://livingwitharthritis.org.uk/authors/maxwell" },
         }}
         faqs={data.faqs}
         // No breadcrumbs prop: <PageBreadcrumb> below already injects its
         // own BreadcrumbList JSON-LD from the same segments.
       />
       <Helmet>
-        <title>{`${data.metaTitle} | Living With Arthritis`}</title>
-        <meta name="description" content={data.metaDescription} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
         <meta name="keywords" content={data.keywords} />
         
         <link rel="alternate" hrefLang="en-GB" href={url} />
         <meta name="geo.region" content="GB" />
-        <meta property="og:title" content={data.metaTitle} />
-        <meta property="og:description" content={data.metaDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={url} />
         <meta property="og:locale" content="en_GB" />
@@ -168,8 +175,8 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
         <meta property="og:image:alt" content={data.metaTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImage} />
-        <meta name="twitter:title" content={data.metaTitle} />
-        <meta name="twitter:description" content={data.metaDescription} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -417,6 +424,7 @@ export default function ConditionPageTemplate({ data }: { data: ConditionPageDat
               />
             </Suspense>
           </div>
+          <ClusterGpAndLinks path={`/conditions/${data.slug}`} badge />
           <UrgentHelpAndSources path={`/conditions/${data.slug}`} />
           <EducationalDisclaimerBox lastReviewed="2026-09-17" />
           <TopicClusterNav path={`/conditions/${data.slug}`} />

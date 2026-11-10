@@ -139,10 +139,16 @@ export default function PipEvidenceDiary() {
           <p className="font-semibold text-foreground m-0 mb-2">Next steps</p>
           <ul className="m-0 list-disc space-y-1 pl-5">
             <li>
-              <Link to={`/guides/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
-                Complete PIP guide for arthritis
+              <Link to="/blog/pip-for-arthritis-uk" className="text-primary underline underline-offset-2">
+                Can you get PIP for arthritis?
               </Link>
-              {" — "}eligibility, points, the form and challenges
+              {" — "}eligibility, points and rates. Separate from the claim steps.
+            </li>
+            <li>
+              <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
+                How to claim PIP for arthritis: step-by-step guide
+              </Link>
+              {" — "}the phone call, the form, the assessment and appeals
             </li>
             <li>
               <a
@@ -156,7 +162,7 @@ export default function PipEvidenceDiary() {
               {" — "}official rules and claim routes
             </li>
             <li>
-              <Link to={`/benefits-pip${PRINT_UTM}`} className="text-primary underline underline-offset-2">
+              <Link to="/guides/benefits-pip" className="text-primary underline underline-offset-2">
                 Benefits &amp; PIP hub
               </Link>
               {" — "}related finances and work links

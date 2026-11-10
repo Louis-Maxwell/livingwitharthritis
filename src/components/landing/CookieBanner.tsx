@@ -35,7 +35,7 @@ const CookieBanner = memo(({ onAnalyticsChange }: CookieBannerProps) => {
 
   return (
     <div
-      className="fixed right-4 left-4 sm:left-auto z-[100] sm:max-w-sm max-w-full"
+      className="fixed right-4 left-4 sm:left-auto z-[100] sm:max-w-sm max-w-full min-h-[190px] sm:min-h-[172px]"
       // Sits just above the mobile bottom nav as a compact sheet, so it no
       // longer covers the page title on phones. It is above the help button
       // (z-50) while visible: one prompt at a time.

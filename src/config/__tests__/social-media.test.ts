@@ -12,13 +12,16 @@ describe("charity social pages", () => {
     expect(SOCIAL_LINKS.email.url).toBe("mailto:info@livingwitharthritis.org.uk");
   });
 
-  it("links the charity X, YouTube and Threads profiles and no TikTok", () => {
+  it("links the charity X and YouTube profiles, keeps Threads disabled, and has no TikTok", () => {
     expect(SOCIAL_LINKS.twitter.url).toBe("https://x.com/ArthritisOrg");
     expect(SOCIAL_LINKS.youtube.url).toBe("https://www.youtube.com/@livingwitharthritisorg");
-    expect(SOCIAL_LINKS.threads.url).toBe("https://www.threads.com/@livingwitharthritisuk");
+    expect(SOCIAL_LINKS.threads.url).toBe("https://www.threads.com/@livingwitharthritisorg");
     expect(SOCIAL_LINKS.threads.label).toBe("Threads");
+    expect(SOCIAL_LINKS.threads.enabled).toBe(false); // Semrush: Threads returns HTTP 429 to crawlers
     const platforms = getEnabledSocialLinks().map((l) => l.platform);
-    expect(platforms).toEqual(expect.arrayContaining(["twitter", "threads", "youtube"]));
+    expect(platforms).toEqual(expect.arrayContaining(["twitter", "youtube"]));
+    expect(platforms).not.toContain("threads");
+    expect(getSchemaOrgSameAs()).not.toContain("https://www.threads.com/@livingwitharthritisorg");
     expect(Object.keys(SOCIAL_LINKS)).not.toContain("tiktok");
   });
 

@@ -72,7 +72,7 @@ const CLUSTERS: HubCluster[] = [
     accent: "from-primary/15 to-primary/5",
     primary: { label: "Visit the Exercise Hub", to: "/exercises" },
     questions: [
-      { label: "Knee arthritis exercises: practical guide", to: "/blog/knee-arthritis-exercises-uk" },
+      { label: "Knee arthritis exercises: practical guide", to: "/guides/knee-exercises-for-osteoarthritis" },
       { label: "Hand & wrist exercises for arthritis", to: "/exercises" },
       { label: "Hip arthritis: safe stretches and strength work", to: "/exercises" },
       { label: "Exercises to avoid with arthritis", to: "/guides/exercise" },

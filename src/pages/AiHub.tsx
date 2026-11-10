@@ -30,7 +30,7 @@ const sections = [
     title: "Management Guides",
     links: [
       { to: "/guides/newly-diagnosed", label: "Newly diagnosed" },
-      { to: "/blog/knee-osteoarthritis-exercises", label: "Knee OA exercises" },
+      { to: "/guides/knee-exercises-for-osteoarthritis", label: "Knee OA exercises" },
       { to: "/diet/foods-to-avoid-with-arthritis", label: "Foods to avoid" },
       { to: "/guides/arthritis-pain-relief", label: "Pain management" },
       { to: "/arthritis-flare-ups", label: "Flare-up management" },

@@ -14,6 +14,7 @@ import ArticleCitations from "@/components/blog/ArticleCitations";
 import { CITATIONS_KNEE_EXERCISES } from "@/data/clinical/ukCitations";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -133,11 +134,11 @@ const FAQS = [
 ];
 
 const CONTENT = `
-<h2 id="who-this-is-for">Who this routine is for</h2>
+<h2 id="who-this-is-for">Who are these knee exercises for?</h2>
 <p>This routine is for adults with knee osteoarthritis (OA), or long-standing knee pain that a GP or physiotherapist has said is likely to be OA. It also suits people waiting for an NHS physiotherapy appointment, people who have been told they are "not ready" for surgery yet, and people preparing for a knee replacement. It is general guidance, not a personal prescription. If a physiotherapist has already given you exercises, do theirs first and use this page to fill in gaps.</p>
 <p>NICE guideline NG226 (2022) recommends therapeutic exercise, tailored to the person, as a core treatment for everyone with osteoarthritis. That means local muscle strengthening around the joint plus general aerobic fitness. NICE also advises against routinely offering paracetamol or weak opioids for OA, and against glucosamine and strong opioids, which puts even more weight on exercise, weight management and self-help as the foundations of care.</p>
 
-<h2 id="why-knee-oa-needs-exercise">Why exercise helps a knee with osteoarthritis</h2>
+<h2 id="why-knee-oa-needs-exercise">Why does exercise help a knee with osteoarthritis?</h2>
 <p>Knee OA makes the joint stiffer and more painful, especially on stairs, when rising from a chair and after sitting still. The muscles that protect the knee, particularly the quadriceps at the front of the thigh, weaken quickly when the knee hurts. Weaker muscles mean the joint absorbs more load, which can mean more pain, and so the cycle continues. A targeted routine breaks that cycle.</p>
 <ul>
 <li><strong>Muscle support.</strong> Stronger quadriceps, hamstrings, hip and calf muscles share the work the joint would otherwise do on its own.</li>
@@ -148,7 +149,7 @@ const CONTENT = `
 </ul>
 <p>Exercise does not wear the joint out faster when it is built up sensibly. Our guide to <a href="/guides/can-exercise-make-osteoarthritis-worse">whether exercise can make osteoarthritis worse</a> explains the evidence in more detail.</p>
 
-<h2 id="before-you-start">Before you start: safety check</h2>
+<h2 id="before-you-start">Is it safe to start knee exercises at home?</h2>
 <p>Most people with knee OA can start this routine safely at home. Speak to a GP or physiotherapist before starting if you have:</p>
 <ul>
 <li>a recent fall, injury or suspected fracture</li>
@@ -194,7 +195,7 @@ const CONTENT = `
 <h3 id="ex-8">8. Knee bend and straighten (range of movement)</h3>
 <p>Sit on a chair. Slide one foot back under the chair to bend the knee as far as is comfortable, hold for a few seconds, then slide it forward and straighten the knee fully, tightening the thigh. 10 slow repetitions each leg. Do this daily, including on flare days.</p>
 
-<h2 id="three-levels">Choose your starting level</h2>
+<h2 id="three-levels">Which starting level should you choose?</h2>
 <table>
 <thead><tr><th>Level</th><th>Who it suits</th><th>What to do</th></tr></thead>
 <tbody>
@@ -204,7 +205,7 @@ const CONTENT = `
 </tbody>
 </table>
 
-<h2 id="weekly-plan">A sensible weekly plan</h2>
+<h2 id="weekly-plan">How often should you do knee exercises each week?</h2>
 <table>
 <thead><tr><th>Day</th><th>Activity</th></tr></thead>
 <tbody>
@@ -218,7 +219,7 @@ const CONTENT = `
 </table>
 <p>The UK Chief Medical Officers recommend adults build up to at least 150 minutes of moderate activity a week, plus strengthening on at least two days. Build up gradually; small, regular amounts count. Our guide to <a href="/blog/walking-with-arthritis-start-build-up-keep-going">walking with arthritis</a> explains how to build up walking safely.</p>
 
-<h2 id="progression">How to progress</h2>
+<h2 id="progression">How do you progress knee exercises safely?</h2>
 <p>Move up when you can do the top of the rep range with good form, and your knee settles within 24 hours, for three sessions in a row. Change only one thing at a time:</p>
 <ol>
 <li>add repetitions (up to 12 to 15)</li>
@@ -245,7 +246,7 @@ const CONTENT = `
 <h2 id="group-programmes">Group programmes and NHS physiotherapy</h2>
 <p>In many areas you can refer yourself to NHS musculoskeletal (MSK) physiotherapy without seeing a GP. Ask your GP practice or check your local NHS website. Some areas also offer group exercise and education programmes for knee and hip pain, such as ESCAPE-pain, through NHS services or leisure centres. For other activities that suit knees, see our <a href="/exercises">exercise hub</a>.</p>
 
-<h2 id="progression-and-red-flags">Stop rules and when to get medical help</h2>
+<h2 id="progression-and-red-flags">When should you stop and get medical help?</h2>
 <p><strong>Stop the session and rest if you get:</strong> sharp or stabbing pain, the knee locking or giving way, sudden new swelling, or pain that keeps increasing as you go.</p>
 <ul>
 <li><strong>Call 999</strong> if you have chest pain, severe breathlessness, or feel faint during exercise and it does not settle with rest.</li>
@@ -263,6 +264,10 @@ const CONTENT = `
 
 export default function KneeExercisesForOsteoarthritis() {
   const html = addHeadingIds(CONTENT);
+  // Mid-article "Recommended next step" sits before the starting-level section.
+  const midAt = html.search(/<h2[^>]*id="three-levels"/);
+  const htmlFirstHalf = midAt > 0 ? html.slice(0, midAt) : html;
+  const htmlSecondHalf = midAt > 0 ? html.slice(midAt) : "";
   const title = "Knee Osteoarthritis Exercises: 8-Move Home Routine (UK)";
   const description =
     "Free NICE-aligned knee osteoarthritis exercises: 8 home moves with levels, weekly plan, progression, 4/10 pain rule, stop rules and when to see a physio.";
@@ -323,10 +328,11 @@ export default function KneeExercisesForOsteoarthritis() {
             plus a weekly plan and clear rules for flares.
           </p>
           <TableOfContents html={html} />
-          <article
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
-          />
+          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary">
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlFirstHalf) }} />
+            <RecommendedNextStep path="/guides/knee-exercises-for-osteoarthritis" placement="mid" />
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlSecondHalf) }} />
+          </article>
 
           <div className="mt-12 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">

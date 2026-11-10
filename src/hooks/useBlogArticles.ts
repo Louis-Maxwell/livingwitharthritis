@@ -116,7 +116,16 @@ export function useRelatedArticles(currentSlug: string, options: RelatedArticles
       if (top.length >= 3) return top.map((s) => s.article);
 
       const picked = new Set(top.map((t) => t.article.slug));
-      const filler = candidates.filter((c) => !picked.has(c.slug)).slice(0, 3 - top.length);
+      const rest = candidates.filter((c) => !picked.has(c.slug));
+      const sameCategory = sourceCategory
+        ? rest.filter((c) => c.category === sourceCategory)
+        : [];
+      const byDate = [...rest].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+      const filler: RelatedArticle[] = [];
+      for (const article of [...sameCategory, ...byDate]) {
+        if (filler.length >= 3 - top.length) break;
+        if (!filler.some((item) => item.slug === article.slug)) filler.push(article);
+      }
       return [...top.map((s) => s.article), ...filler];
     },
   });

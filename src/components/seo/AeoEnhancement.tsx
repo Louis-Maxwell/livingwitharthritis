@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, CalendarClock } from "lucide-react";
 import { getPageAeo } from "@/data/page-aeo";
+import KeyTakeaways from "@/components/article/KeyTakeaways";
 
 interface AeoEnhancementProps {
   /** Route path used to look up AEO data, e.g. "/conditions/osteoarthritis". */
@@ -33,6 +34,7 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
   const answer = props.answer ?? configured?.answer;
   const faqs = useMemo(() => props.faqs ?? configured?.faqs ?? [], [props.faqs, configured?.faqs]);
   const reviewer = props.reviewer ?? configured?.reviewer;
+  const takeaways = configured?.takeaways ?? [];
   const updatedAt = props.updatedAt ?? configured?.updatedAt ?? "2026-07-01";
 
   // Inject FAQPage JSON-LD when FAQs are present
@@ -71,6 +73,9 @@ export default function AeoEnhancement(props: AeoEnhancementProps) {
         <AnswerBox question={question} reviewed={updatedAt}>
           <p>{answer}</p>
         </AnswerBox>
+      )}
+      {question && answer && takeaways.length >= 3 && (
+        <KeyTakeaways html="" title={question} items={takeaways} heading="Key clinical takeaways" />
       )}
 
       <div className="flex flex-wrap items-center gap-2 text-xs">

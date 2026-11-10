@@ -27,7 +27,7 @@ const jsonLd = {
   "url": URL,
   "inLanguage": "en-GB",
   "datePublished": "2025-06-01",
-  "dateModified": "2026-09-16",
+  "dateModified": "2026-11-05",
   "author": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE },
   "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": BASE, "logo": { "@type": "ImageObject", "url": `${BASE}/og/landing-share.png` } },
   "about": {
@@ -193,7 +193,7 @@ const ShoulderArthritis = () => (
           <p>The aim is to maintain range of motion and rotator cuff strength <em>without</em> impinging the joint. Avoid heavy overhead pressing.</p>
           <h3>Range of motion</h3>
           <ul>
-            <li><strong>Pendulum swings</strong> — lean forwards, let the arm hang and swing in small circles. 60 seconds, 2–3× a day.</li>
+            <li><strong>Pendulum swings</strong> — lean forwards, let the arm hang and swing in small circles. 60 seconds, two to three times a day.</li>
             <li><strong>Doorway stretch</strong> — forearms on the door frame, gentle lean forwards. Hold 30 seconds.</li>
             <li><strong>Wand-assisted external rotation</strong> — use a broom handle to gently rotate the affected arm outwards.</li>
           </ul>
@@ -235,7 +235,7 @@ const ShoulderArthritis = () => (
           </ul>
           <h3>Medical treatments</h3>
           <ul>
-            <li><strong>Paracetamol & oral NSAIDs</strong> — short courses for flares</li>
+            <li><strong>Pain relief</strong> — try an anti-inflammatory gel first; oral NSAIDs only as short courses at the lowest dose if a gel is not enough. NICE does not recommend routine paracetamol for osteoarthritis. See the <Link to="/guides/arthritis-pain-relief" className="text-primary underline">arthritis pain relief guide</Link>.</li>
             <li><strong>Physiotherapy</strong> — supervised programme; the single most cost-effective intervention</li>
             <li><strong>Corticosteroid injection</strong> — into the glenohumeral joint, AC joint or subacromial space depending on diagnosis; usually 6–12 weeks of relief</li>
             <li><strong>Hydrodilatation</strong> — sometimes used where stiffness dominates</li>

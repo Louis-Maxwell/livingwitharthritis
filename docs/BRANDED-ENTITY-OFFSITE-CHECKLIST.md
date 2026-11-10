@@ -31,7 +31,7 @@ Use the exact brand string + number + URL. Do not add a street.
 | Platform | Profile | Bio / About (suggested) |
 |----------|---------|-------------------------|
 | Facebook | [Page id 61583723925315](https://www.facebook.com/profile.php?id=61583723925315) | Living With Arthritis (charity 1218461). Independent of Arthritis UK. https://livingwitharthritis.org.uk |
-| Instagram | [@livingwitharthritisuk](https://www.instagram.com/livingwitharthritisuk/) | Living With Arthritis (charity 1218461) · https://livingwitharthritis.org.uk |
+| Instagram | [@livingwitharthritisorg](https://www.instagram.com/livingwitharthritisorg/) | Living With Arthritis (charity 1218461) · https://livingwitharthritis.org.uk |
 | LinkedIn | [company/112596569](https://www.linkedin.com/company/112596569/) | Living With Arthritis (charity 1218461). Independent UK CIO. https://livingwitharthritis.org.uk |
 | YouTube | [@livingwitharthritisuk](https://www.youtube.com/@livingwitharthritisuk) | Living With Arthritis (charity 1218461). https://livingwitharthritis.org.uk |
 

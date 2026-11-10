@@ -17,6 +17,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const SLUG = "guides/newly-diagnosed";
@@ -517,6 +518,7 @@ export default function NewlyDiagnosed() {
             );
           })}
 
+          <RecommendedNextStep path="/guides/newly-diagnosed" placement="mid" />
           {/* FAQ */}
           <section
             aria-labelledby="faq-heading"
