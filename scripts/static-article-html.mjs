@@ -130,7 +130,7 @@ export function buildStaticArticleInner(data) {
   const takeawayItems = rawTakeaways.filter((t) => typeof t === "string" && t.trim());
   const takeawaysHeading = data?.article ? "Key clinical takeaways" : data?.takeawaysHeading || "Key takeaways";
   const takeaways = takeawayItems.length >= 3
-    ? `<section class="key-takeaways" aria-label="${escText(takeawaysHeading)}"><h2>${escText(takeawaysHeading)}</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
+    ? `<section class="key-takeaways" aria-labelledby="static-key-takeaways"><h2 id="static-key-takeaways">${escText(takeawaysHeading)}</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
     : "";
   const nextStep = data?.article?.slug
     ? recommendedNextStepsHtml(`/blog/${data.article.slug}`, `${data.article.title || ""} ${data.article.keywords || ""}`)

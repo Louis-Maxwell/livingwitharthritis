@@ -68,7 +68,7 @@ describe("GEO priority pages", () => {
   it("static JSON-LD for PMR symptoms has reviewer, coded entity and citations", () => {
     const route = "/conditions/polymyalgia-rheumatica/symptoms";
     const html = buildJsonLd(route, `${BASE}${route}`, { title: "PMR symptoms", description: "d", question: "q", answer: "a" });
-    const page = [...html.matchAll(/<script[^>]*>(.*?)<\/script>/g)]
+    const page = [...html.matchAll(/<script[^>]*>(.*?)<\/script\s*>/gi)]
       .map((m) => JSON.parse(m[1]))
       .find((g) => g["@type"] === "MedicalWebPage");
     expect(page.reviewedBy.name).toBe("Louis Maxwell");
@@ -127,7 +127,7 @@ describe("Answer blocks and FAQs", () => {
       keyTakeaways: ["One fact.", "Two facts.", "Three facts."],
       takeawaysHeading: "Key takeaways",
     });
-    expect(html).toContain("<h2>Key takeaways</h2>");
+    expect(html).toContain(">Key takeaways</h2>");
     expect(html.indexOf("answer-box")).toBeLessThan(html.indexOf("Key takeaways"));
   });
 });
