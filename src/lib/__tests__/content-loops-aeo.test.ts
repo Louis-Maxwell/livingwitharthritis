@@ -109,12 +109,12 @@ describe("schema and crawler HTML", () => {
   it("binds the reviewer to Louis Maxwell with his HCPC number on the MedicalWebPage", () => {
     const p = post("hip-replacement-recovery-week-by-week");
     const out = buildJsonLd("/blog/x", "https://livingwitharthritis.org.uk/blog/x", { title: p.title, description: "d", article: p });
-    const graphs = [...out.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
+    const graphs = out.split("\n").filter(Boolean).map((line) => JSON.parse(line.slice(line.indexOf(">") + 1, line.lastIndexOf("<"))));
     const page = graphs.find((g) => g["@type"] === "MedicalWebPage");
     const article = graphs.find((g) => g["@type"] === "Article");
     expect(page.reviewedBy).toMatchObject({ "@type": "Person", name: "Louis Maxwell", jobTitle: "Physiotherapist" });
     expect(page.reviewedBy.identifier.value).toBe("PH128483");
-    expect(article.citation.some((c: { url: string }) => /nice\.org\.uk\/guidance\/ng157/.test(c.url))).toBe(true);
+    expect(article.citation.some((c: { url: string }) => c.url === "https://www.nice.org.uk/guidance/ng157")).toBe(true);
     expect(out).not.toMatch(/speakable|medicalAudience/);
   });
 

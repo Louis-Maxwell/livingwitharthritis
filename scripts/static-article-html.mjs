@@ -186,21 +186,43 @@ export function buildStaticArticleInner(data) {
  * payload (#static-article-data), and is only applied to <body> markup.
  */
 export function stripBodyBloat(html) {
-  return String(html ?? "")
-    .replace(/<svg\b(?=[^>]*aria-hidden=["']true["'])[\s\S]*?<\/svg>/gi, "")
-    .replace(/<!--(?!\s*\/?(?:ko|\[if))[\s\S]*?-->/g, "")
-    .replace(/<script\b(?=[^>]*type=["']application\/json["'])(?![^>]*id=["']static-article-data["'])[^>]*>[\s\S]*?<\/script>/gi, "");
+  const src = String(html ?? "");
+  return removeBloatRanges(src, parseFragment(src, { sourceCodeLocationInfo: true }));
 }
 
 /** Apply stripBodyBloat to the <body> of a full HTML document only. */
 export function stripDocumentBodyBloat(html) {
-  const doc = String(html ?? "");
-  const start = doc.search(/<body\b[^>]*>/i);
-  if (start < 0) return doc;
-  const open = doc.indexOf(">", start) + 1;
-  const end = doc.search(/<\/body>/i);
-  if (end < open) return doc;
-  return doc.slice(0, open) + stripBodyBloat(doc.slice(open, end)) + doc.slice(end);
+  const src = String(html ?? "");
+  const doc = parse(src, { sourceCodeLocationInfo: true });
+  const htmlEl = doc.childNodes?.find((n) => n.tagName === "html");
+  const body = htmlEl?.childNodes?.find((n) => n.tagName === "body");
+  return body ? removeBloatRanges(src, body) : src;
+}
+
+// DOM-based (parse5 source offsets), not regex: removes whole nodes from the
+// original string so nothing else in the document is re-serialised.
+function removeBloatRanges(src, root) {
+  const attr = (node, name) => node.attrs?.find((a) => a.name === name)?.value;
+  const ranges = [];
+  const visit = (node) => {
+    for (const child of node.childNodes || []) {
+      const loc = child.sourceCodeLocation;
+      const isComment = child.nodeName === "#comment";
+      const isDecorativeSvg = child.tagName === "svg" && attr(child, "aria-hidden") === "true";
+      const isRawJson = child.tagName === "script"
+        && String(attr(child, "type") || "").toLowerCase() === "application/json"
+        && attr(child, "id") !== "static-article-data";
+      if (loc && (isComment || isDecorativeSvg || isRawJson)) {
+        ranges.push([loc.startOffset, loc.endOffset]);
+      } else {
+        visit(child.content || child);
+      }
+    }
+  };
+  visit(root);
+  let out = src;
+  for (const [a, b] of ranges.sort((x, y) => y[0] - x[0])) out = out.slice(0, a) + out.slice(b);
+  return out;
 }
 
 export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {
