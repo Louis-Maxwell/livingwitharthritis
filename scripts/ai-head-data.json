@@ -6591,7 +6591,8 @@
     "description": "Free physio-written arthritis exercises at home: knee, hip, hand and chair routines with safe progression tips and clear advice on when to stop.",
     "question": "What exercise is best for arthritis?",
     "answer": "Exercise is first-line care for osteoarthritis in the UK. Combine low-impact aerobic activity (walking, cycling, swimming), strengthening work for the muscles around the affected joint, and flexibility or balance work. Build up gradually; some discomfort that settles within 24 hours is expected and does not mean harm.",
-    "breadcrumb": "Exercise guide"
+    "breadcrumb": "Exercise guide",
+    "updatedAt": "2026-11-10"
   },
   "/guides/benefits-pip": {
     "title": "How to Claim PIP for Arthritis: Step-by-Step Guide (2026)",
@@ -6925,7 +6926,8 @@
         "name": "NICE NG100: Rheumatoid arthritis in adults",
         "url": "https://www.nice.org.uk/guidance/ng100"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-10"
   },
   "/conditions/back-pain": {
     "title": "Is My Back Pain Arthritis? Signs, Types & When to See a GP",
