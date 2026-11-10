@@ -70,7 +70,11 @@
     "seo:built-audit": "node scripts/audit-built-site.mjs",
     "seo:route-words": "node scripts/check-route-words.mjs",
     "seo:snapshot-bodies": "node scripts/snapshot-rendered-bodies.mjs",
-    "seo:sitemap-html": "node scripts/check-sitemap-html.mjs"
+    "seo:sitemap-html": "node scripts/check-sitemap-html.mjs",
+    "seo:priority-audit": "node scripts/audit-priority-seo.mjs",
+    "seo:prerender-parity": "node scripts/audit-prerender-parity.mjs",
+    "seo:sitemap-integrity": "node scripts/audit-sitemap-integrity.mjs",
+    "seo:crawler-access": "node scripts/audit-crawler-access.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.3.1",

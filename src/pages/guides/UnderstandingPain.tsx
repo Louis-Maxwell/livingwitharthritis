@@ -19,6 +19,7 @@ import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const PATH = "/guides/understanding-pain";
@@ -346,6 +347,8 @@ const UnderstandingPain = () => (
             Finding the cause matters: untreated psoriatic arthritis, osteoarthritis and rheumatoid arthritis can permanently damage joints.
           </p>
         </Section>
+
+        <RecommendedNextStep path="/guides/understanding-pain" placement="mid" />
 
         <Section icon={Sparkles} title="Fibromyalgia Pain">
           <p>

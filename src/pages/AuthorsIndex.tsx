@@ -47,6 +47,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
   );
 
   const prefix = variant === 'reviewer' ? 'reviewers' : 'authors';
+  const profilePrefix = 'authors';
   const heading =
     variant === 'reviewer'
       ? 'Our medical reviewers'
@@ -57,8 +58,8 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
       : 'Authors and editorial team | Living With Arthritis';
   const description =
     variant === 'reviewer'
-      ? 'The registered clinicians who review Living With Arthritis content, including Louis Maxwell, First Contact Practitioner (HCPC PH128483).'
-      : 'The people who write Living With Arthritis guides, led by Louis Maxwell, First Contact Practitioner (HCPC PH128483).';
+      ? 'The registered clinicians who review Living With Arthritis content, including Louis Maxwell, First Contact Physiotherapist (HCPC PH128483).'
+      : 'The people who write Living With Arthritis guides, led by Louis Maxwell, First Contact Physiotherapist (HCPC PH128483).';
 
   const itemListLd = {
     '@context': 'https://schema.org',
@@ -73,7 +74,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
         '@type': 'Person',
         name: record.name,
         jobTitle: record.title,
-        url: `${BASE}/${prefix}/${record.slug}`,
+        url: `${BASE}/${profilePrefix}/${record.slug}`,
         ...(isPlaceholder(record.credential)
           ? {}
           : { identifier: record.credential }),
@@ -98,7 +99,7 @@ export default function AuthorsIndex({ variant }: AuthorsIndexProps) {
             {records.map((record) => (
               <li key={record.slug}>
                 <Link
-                  to={`/${prefix}/${record.slug}`}
+                  to={`/${profilePrefix}/${record.slug}`}
                   className="block rounded-2xl bg-muted/40 p-6 transition-colors hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                 >
                   <div className="flex items-center gap-3 mb-2">

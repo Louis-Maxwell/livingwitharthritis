@@ -14,6 +14,7 @@ import { CITATIONS_PAIN_RELIEF } from "@/data/clinical/ukCitations";
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import LastReviewed from "@/components/LastReviewed";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const BASE = "https://livingwitharthritis.org.uk";
 const URL = `${BASE}/guides/arthritis-pain-relief`;
@@ -215,6 +216,8 @@ const ArthritisPainRelief = () => (
           </ul>
           <p>More in <Link to="/blog/pacing-techniques-arthritis-pain" className="text-primary underline">pacing techniques</Link> and <Link to="/blog/pacing-housework-arthritis-frailty-uk" className="text-primary underline">pacing housework</Link>.</p>
         </Section>
+
+        <RecommendedNextStep path="/guides/arthritis-pain-relief" placement="mid" />
 
         <Section icon={Moon} title="7. Protect your sleep">
           <p>Pain disturbs sleep, and poor sleep can make pain feel worse.</p>

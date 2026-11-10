@@ -82,12 +82,13 @@ describe("public SEO / AEO identity", () => {
     expect(hasCharityAddress()).toBe(false);
   });
 
-  it("ships one NGO + Organization + MedicalOrganization node with charity 1218461", () => {
+  it("ships one NGO + Organization node with charity 1218461", () => {
     const org = jsonLdFromIndex("root-organization-jsonld");
     expect(org["@id"]).toBe("https://livingwitharthritis.org.uk/#organization");
     expect(org["@type"]).toEqual(
-      expect.arrayContaining(["NGO", "Organization", "MedicalOrganization"]),
+      expect.arrayContaining(["NGO", "Organization"]),
     );
+    expect(org["@type"]).not.toContain("MedicalOrganization");
     expect(JSON.stringify(org.identifier)).toContain("1218461");
     expect(org.name).toBe("Living With Arthritis");
     expect(org.legalName).toBe("Living With Arthritis");

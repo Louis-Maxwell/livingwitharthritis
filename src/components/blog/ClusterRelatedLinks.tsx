@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Compass, Route, Wrench } from "lucide-react";
 import {
   getClusterForSlug,
+  TOPIC_CLUSTERS,
   type TopicCluster,
 } from "@/data/topicClusters";
+import { visibleLinkLabel } from "@/lib/linkLabel";
 
 interface ClusterRelatedLinksProps {
   slug: string;
@@ -16,11 +18,13 @@ interface ClusterRelatedLinksProps {
 }
 
 function pathLabel(path: string): string {
-  const leaf = path.split("/").filter(Boolean).pop() ?? path;
-  return leaf
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+  return visibleLinkLabel(path);
+}
+
+/** A guide listed on a cluster uses that cluster, ahead of loose keyword scoring. */
+function listedCluster(slug: string): TopicCluster | null {
+  const path = `/blog/${slug}`;
+  return TOPIC_CLUSTERS.find((cluster) => cluster.pillarPath === path || cluster.supportingPaths.includes(path)) ?? null;
 }
 
 /** Next supporting path after the current article (or first sibling if not in list). */
@@ -51,7 +55,7 @@ const ClusterRelatedLinks = ({
   className = "",
 }: ClusterRelatedLinksProps) => {
   const hay = [title, excerpt, category, keywords].filter(Boolean).join(" ");
-  const cluster: TopicCluster | null = getClusterForSlug(slug, hay);
+  const cluster: TopicCluster | null = listedCluster(slug) ?? getClusterForSlug(slug, hay);
   if (!cluster) return (
     <aside aria-label="Arthritis support and guides" className={`mt-8 rounded-xl border border-border p-5 ${className}`}>
       <h2 className="text-lg font-semibold mb-2">Find arthritis support</h2>

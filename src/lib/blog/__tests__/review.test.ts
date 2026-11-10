@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { blogReviewSchemaFields, isVerifiedMaxwellReviewer } from "@/lib/blog/review";
+import { blogReviewSchemaFields, isDisclosedSelfReview, isVerifiedMaxwellReviewer } from "@/lib/blog/review";
 
 const CREDS = "First Contact Practitioner, HCPC PH128483, CSP member";
 
@@ -15,6 +15,11 @@ describe("isVerifiedMaxwellReviewer", () => {
     expect(isVerifiedMaxwellReviewer("Louis Maxwell", "Physiotherapist")).toBe(false);
     expect(isVerifiedMaxwellReviewer("Sarah Jennings", CREDS)).toBe(false);
     expect(isVerifiedMaxwellReviewer(null, null)).toBe(false);
+  });
+  it("treats the same author and reviewer as a disclosed self-review", () => {
+    expect(isDisclosedSelfReview("Louis Maxwell", "Louis Maxwell")).toBe(true);
+    expect(isDisclosedSelfReview("Maxwell", "Louis Maxwell")).toBe(true);
+    expect(isDisclosedSelfReview("Louis Maxwell", "Another clinician")).toBe(false);
   });
   it("yields reviewedBy JSON-LD for a reviewed guide", () => {
     const person = { "@type": "Person", name: "Louis Maxwell" };

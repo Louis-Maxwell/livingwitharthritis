@@ -7,6 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
@@ -246,10 +247,7 @@ export default function HipExercisesForOsteoarthritis() {
             today.
           </p>
           <TableOfContents html={html} />
-          <article
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
-          />
+          <ArticleHtmlWithNextStep html={html} path="/guides/hip-exercises-for-osteoarthritis" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
 
           <div className="mt-12 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">

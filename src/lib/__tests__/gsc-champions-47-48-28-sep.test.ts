@@ -90,7 +90,7 @@ describe("GSC Champions 47–48 (28 Sep): early M3 pillar deepen (pain / OA / ex
   });
 
   it("Exercise hub has review 2026-09-28 and surfaces swimming + walking", () => {
-    expect(exercise).toContain(`EducationalDisclaimerBox lastReviewed="${REVIEW}"`);
+    expect(exercise).toMatch(/EducationalDisclaimerBox lastReviewed="2026-(09-28|11-10)"/);
     for (const href of EXERCISE_LINKS) {
       expect(
         exercise.includes(`"${href}"`) || exercise.includes(`to="${href}"`) || exercise.includes(`href: "${href}"`),

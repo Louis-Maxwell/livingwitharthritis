@@ -1,5 +1,22 @@
 [
  {
+  "slug": "arthritis-pain-management-day-by-day",
+  "title": "Arthritis Pain Management: What Actually Helps Day by Day?",
+  "meta_title": "Arthritis Pain Management Day by Day: What Helps",
+  "excerpt": "Practical, day-by-day arthritis pain management: how gentle movement, pacing, rest, heat or cold, everyday adaptations and healthcare support can fit together.",
+  "date": "2026-11-09",
+  "updated_at": "2026-11-09T21:00:00.000Z",
+  "category": "Pain & flares",
+  "cover": "arthritis-pain-management-day-by-day.webp",
+  "author": "Louis Maxwell",
+  "keywords": "arthritis pain management, managing arthritis pain day to day, arthritis pain relief, pacing arthritis, heat or ice for arthritis, arthritis flare-up",
+  "display_order": 6018,
+  "last_reviewed": "2026-11-09",
+  "image_url": "/openverse/arthritis-pain-management-day-by-day.webp",
+  "word_count": 1634,
+  "reading_minutes": 9
+ },
+ {
   "slug": "sex-and-intimacy-with-arthritis",
   "title": "Sex and Intimacy With Arthritis: Pain-Free Positions and Techniques",
   "meta_title": "Sex and Intimacy With Arthritis: Comfort Tips",
@@ -206,7 +223,7 @@
  {
   "slug": "medication-supplement-interactions-arthritis",
   "title": "Medication and Supplement Interactions: DMARD, Biologic and NSAID Safety",
-  "meta_title": "Medication and Supplement Interactions in Arthritis",
+  "meta_title": "Arthritis Medicines and Supplements: Safety Guide (UK)",
   "excerpt": "Mixing arthritis medication supplements can alter how your prescribed drugs work, sometimes increasing side effects or lowering their effectiveness. Before combining over-the-counter remedies with…",
   "date": "2026-09-05",
   "updated_at": "2026-09-25T09:00:00.000Z",
@@ -217,7 +234,7 @@
   "display_order": 6005,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/lwa-medication-supplement-interactions-arthritis.webp",
-  "word_count": 3040,
+  "word_count": 3001,
   "reading_minutes": 16
  },
  {
@@ -3708,10 +3725,10 @@
  {
   "slug": "best-supplements-arthritis-uk",
   "title": "Best Supplements for Arthritis in the UK",
-  "meta_title": "Best Arthritis Supplements UK: Evidence Guide",
+  "meta_title": "Arthritis Supplements: Evidence and Safety",
   "excerpt": "Evidence-based UK guide to arthritis supplements. Compare glucosamine, chondroitin, turmeric, omega-3, collagen and more. What works, what doesn't, and where.",
   "date": "2026-03-13",
-  "updated_at": "2026-09-05T11:02:30.680Z",
+  "updated_at": "2026-11-10T19:30:00.000Z",
   "category": "Diet & lifestyle",
   "cover": "cover-0338-faith-in-humanity.webp",
   "author": "Louis Maxwell",
@@ -3719,7 +3736,7 @@
   "display_order": 990,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0338-faith-in-humanity.webp",
-  "word_count": 1250,
+  "word_count": 1299,
   "reading_minutes": 7
  },
  {
@@ -3821,7 +3838,7 @@
   "display_order": 986,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0461-korean-food.webp",
-  "word_count": 844,
+  "word_count": 840,
   "reading_minutes": 5
  },
  {
@@ -4093,7 +4110,7 @@
   "display_order": 972,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/commons-yoga-for-arthritis-b86ca5.webp",
-  "word_count": 1053,
+  "word_count": 1063,
   "reading_minutes": 6
  },
  {
@@ -4337,10 +4354,10 @@
  {
   "slug": "pip-for-arthritis-uk",
   "title": "Can You Get PIP for Arthritis? UK Points & Evidence",
-  "meta_title": "PIP for Arthritis: Points, Evidence & Rates (UK)",
+  "meta_title": "Can You Get PIP for Arthritis? Eligibility and Evidence",
   "excerpt": "Can you claim PIP for arthritis while working? Learn how daily living, mobility and fluctuating symptoms are assessed, and what evidence to prepare.",
   "date": "2026-03-01",
-  "updated_at": "2026-11-01T19:24:39.000Z",
+  "updated_at": "2026-11-10T19:30:00.000Z",
   "category": "Benefits, PIP & work",
   "cover": "commons-arthritis-at-work-8cd1ea.webp",
   "author": "Louis Maxwell",
@@ -4348,8 +4365,8 @@
   "display_order": 959,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/commons-arthritis-at-work-8cd1ea.webp",
-  "word_count": 1263,
-  "reading_minutes": 7
+  "word_count": 1437,
+  "reading_minutes": 8
  },
  {
   "slug": "arthritis-and-diet-myths-uk",
@@ -4796,7 +4813,7 @@
  {
   "slug": "hip-replacement-arthritis-uk",
   "title": "Hip Replacement for Arthritis – UK Guide",
-  "meta_title": "Hip Replacement for Arthritis: UK NHS Guide",
+  "meta_title": "Hip Replacement for Arthritis: NHS Guide",
   "excerpt": "Considering a hip replacement for arthritis? UK guide to NHS eligibility, types of hip replacement, recovery timeline, and physiotherapy after surgery.",
   "date": "2026-01-20",
   "updated_at": "2026-09-05T11:02:30.686Z",
@@ -5833,7 +5850,7 @@
  {
   "slug": "best-plantar-fasciitis-shoes-women-uk",
   "title": "Best Plantar Fasciitis Shoes for Women (UK Guide, 2026)",
-  "meta_title": "Best Plantar Fasciitis Shoes for Women: 8 Features (2026)",
+  "meta_title": "Plantar Fasciitis Shoes for Women: Footwear Guide (UK)",
   "excerpt": "Choose the right plantar fasciitis shoes: 8 features to look for, indicative UK prices, insoles, stretches and when to see a GP or physio. UK educational guide.",
   "date": "2026-05-16",
   "updated_at": "2026-09-05T11:02:30.691Z",
@@ -5844,7 +5861,7 @@
   "display_order": 5,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0210-ballet-and-macs-at-pleasantview-care-facility.webp",
-  "word_count": 1687,
+  "word_count": 1689,
   "reading_minutes": 9
  },
  {
@@ -6524,7 +6541,7 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/lwa-rheumatology-appointment-what-to-expect-uk.webp",
-  "word_count": 2310,
+  "word_count": 2391,
   "reading_minutes": 12
  },
  {
@@ -7585,9 +7602,9 @@
   "slug": "pip-for-arthritis-how-to-build-a-strong-application",
   "title": "PIP for Arthritis: How to Build a Strong Application",
   "meta_title": "PIP for Arthritis: How to Build a Strong Application",
-  "excerpt": "The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It…",
+  "excerpt": "How to describe daily living and mobility in a PIP application for arthritis, with the official points rules and a diary to take into the form.",
   "date": "2026-06-28",
-  "updated_at": "2026-09-05T11:02:30.700Z",
+  "updated_at": "2026-11-08T18:30:00.000Z",
   "category": "Benefits, PIP & work",
   "cover": "cover-0475-20171027-ams-lsc-1150.webp",
   "author": "Louis Maxwell",
@@ -7595,8 +7612,8 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0475-20171027-ams-lsc-1150.webp",
-  "word_count": 1451,
-  "reading_minutes": 8
+  "word_count": 1118,
+  "reading_minutes": 6
  },
  {
   "slug": "universal-credit-and-arthritis-limited-capability-for-work",
@@ -7976,9 +7993,9 @@
   "slug": "hip-replacement-recovery-week-by-week",
   "title": "Hip Replacement Recovery Week by Week",
   "meta_title": "Hip Replacement Recovery: Week-by-Week UK Guide",
-  "excerpt": "After hip replacement, most people gradually reduce walking aid reliance over 2-6 weeks. Driving may resume around 6 weeks, depending on comfort and being…",
+  "excerpt": "NHS advice: recovery can take several months and varies. You need a walking aid at first, should wait at least 6 weeks before driving, and should follow your surgical team rather than a fixed timetable.",
   "date": "2026-06-22",
-  "updated_at": "2026-09-05T11:02:30.702Z",
+  "updated_at": "2026-11-10T19:30:00.000Z",
   "category": "Surgery & recovery",
   "cover": "wellness-08-pilates-reformer2.webp",
   "author": "Louis Maxwell",
@@ -7986,8 +8003,8 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/wellness-08-pilates-reformer2.webp",
-  "word_count": 1573,
-  "reading_minutes": 8
+  "word_count": 1297,
+  "reading_minutes": 7
  },
  {
   "slug": "prehabilitation-how-pre-op-exercise-speeds-recovery",
@@ -8411,7 +8428,7 @@
   "display_order": 0,
   "last_reviewed": "2026-10-23",
   "image_url": "/openverse/cover-0337-love-by-the-bridge.webp",
-  "word_count": 1265,
+  "word_count": 1323,
   "reading_minutes": 7
  },
  {

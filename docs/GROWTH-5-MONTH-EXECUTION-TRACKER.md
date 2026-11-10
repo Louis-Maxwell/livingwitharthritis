@@ -129,8 +129,8 @@ M2 KPI targets (A / B): organic +10–20% / +25–40% vs the M1 cohort (needs a 
 |---|---|---|
 | Pain pillar gold-standard pass | **done** (4 Nov) | `/guides/arthritis-pain-relief` customer-first rewrite; Vitest `pain-pillar-m3-04-nov.test.ts`; PR #390 |
 | OA pillar gold-standard pass | **done** (5 Nov) | `/conditions/osteoarthritis` customer-first rewrite; dates aligned 2026-11-05; Vitest `oa-pillar-m3-05-nov.test.ts` |
-| Exercise pillar gold-standard pass | **pending** | Next digital action after OA |
-| PIP pillar gold-standard pass | **pending** | After exercise (or parallel if GSC shows PIP demand) |
+| Exercise pillar gold-standard pass | **done** (10 Nov) | `/exercises` hub customer-first pass (start today, red flags, pain rule, starting points, flare days, GP/physio, carers); unsourced stat counters and effectiveness charts removed; `/guides/exercise` claims cleaned; Vitest `exercise-pillar-m3-10-nov.test.ts` |
+| PIP pillar gold-standard pass | **pending** | Next digital action (`/guides/benefits-pip`, `src/pages/pillar/BenefitsPIPGuide.tsx`) |
 | First M3 linkable asset PDF | **scoped** (5 Nov) | PIP evidence checklist PDF complementary to `/resources/pip-evidence-diary` — `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` (not shipped) |
 | Google Ad Grants live | **blocked-on-Louis** | Pack ready (`docs/GOOGLE-AD-GRANTS-PACK.md`); apply via Google for Nonprofits |
 | Community / partner pilot | **blocked-on-Louis** | First 15 outreaches + NHS/clinic intros still unsent |
@@ -145,10 +145,40 @@ Fill only after a fresh GSC Pages/Queries + GA4 export (B₁ remains the Year 0 
 | Organic traffic vs M1 cohort | +10–20% / +25–40% | **TBD** — needs fresh GSC/GA4 (no invented numbers) |
 | Partner conversations | 5 / 15 | **TBD** — sends still Louis-owned |
 | Regulator / grants | pathway progressed / 3 apps | Regulator + Gift Aid + Ad Grants still blocked-on-Louis |
-| Content | Champions + pillars | **Ahead on content** — Champions through 128; pain + OA pillars gold; PDF scoped |
+| Content | Champions + pillars | **Ahead on content** — Champions through 128; pain + OA + exercise pillars gold (3 of 4); PDF scoped |
 | Honest read | — | Content/governance ahead of distribution; distribution gap is Louis-owned actions outside GitHub |
 
 ---
+
+## M2 close-out (12 Oct – 11 Nov 2026) — written 10 Nov 2026
+
+No fresh GSC/GA4 export has been recorded in this repo since B₁, so **no traffic multiple vs M1 or Year 0 is claimed**. The KPI rows in the skeleton above stay **TBD** until Louis exports GSC Pages/Queries + GA4 for the M2 window.
+
+- **Content (ahead of plan):** Champions through 128 rewritten on existing URLs and reviewed by Louis Maxwell; published template pool cleared 4 Nov; pain (4 Nov), OA (5 Nov) and exercise (10 Nov) pillars gold; first M3 PDF scoped (PIP evidence checklist, not shipped).
+- **Technical / trust (6–9 Nov, other runs):** Semrush site-audit fixes (#396), AI crawler discovery and regression gate (#397, #413), AEO/GEO strategy doc (#399), edge-protection doc (#403), technical SEO + prerender parity + sitemap integrity gates (#409–#411), priority guide metadata (#412), PIP/hip guides complete in first HTML (#418), GSC snippets and short answers (#419, #420), social previews (#421), CSP hardening and no inline scripts (#422, #423), CLS fixes (#424), new pain-management blog (#425), November magazine (#393, #394).
+- **Distribution (behind plan, Louis-owned):** first 15 partner outreaches, Ad Grants application, Fundraising Regulator + Gift Aid, live social posting and HCP clinic-pack sends are still not recorded as done.
+- **Honest read:** M2 Scenario A content and governance floors are met; the traffic, partnership and revenue KPIs cannot be scored without the export and the Louis-owned sends. M3 priorities: PIP pillar (last of 4), PIP checklist PDF after Louis review, Ad Grants, first outreaches.
+
+## Daily log — 10 Nov 2026 (M2 last weekday; M3 starts 11 Nov)
+
+**Programme month:** M2 (12 Oct – 11 Nov 2026). Tracker next-3 from 5 Nov: (1) exercise pillar gold pass (2) PIP pillar gold pass (3) PIP checklist PDF after Louis review. Checked merged PRs 5–9 Nov (#393–#425) and open PRs first: none touched `src/pages/ExerciseHub.tsx` content beyond the 3 Nov image srcset (#381), and `/guides/exercise` only had title/schema hygiene (#396). This run shipped the **exercise pillar gold-standard pass**. No new URLs, no redirects changed, no invented traffic claims, no Lovable credits / CloudAgent / other AI tools. Reviewed by Louis Maxwell (HCPC PH128483). The site auto-publishes from `main` when CI passes.
+
+### Shipped
+- **Exercise pillar gold (`/exercises`, cluster pillar):** answer-first speakable lead ("Motion is lotion"); LastReviewed + MedicalReviewBadge (Louis Maxwell, HCPC PH128483, November 2026); MedicalWebPage `dateModified` / `lastReviewed` **2026-11-10**, author + reviewedBy `LOUIS_MAXWELL_REF`. New customer-first blocks: "Exercise today: start here" (5 steps); "Red flags: stop and get help" (NHS 111 same day for hot, red, swollen joint / immunosuppressed with infection / injury; 999 for chest pain, severe breathlessness, fainting); "Is it safe? How to read pain" (NICE NG226 framing: exercise unlikely to harm joints, next-day rule); "Pick your starting point" (newly diagnosed, knee/hip OA, RA with NICE NG100 specialist physio, unsteady/older, after surgery, pool); "Flare days: do less, not nothing"; "When to see your GP or a physiotherapist" (incl. NHS self-referral); "For carers and family". **Removed unsourced numbers:** stat counters (40% pain reduction, 8.75M), the "effectiveness by type" bar chart and benefits donut (no source), AnswerBox "up to 40%" / "more effective than painkillers", "Physiotherapy Approved" badge, hydration claim. Weekly plan reframed as a build-towards example using UK CMO guidance (150 min moderate + strength 2 days). Mislabelled "Exercises to avoid" link now goes to `/guides/can-exercise-make-osteoarthritis-worse`.
+- **`/guides/exercise` claims clean-up:** removed "over 60% (Sport England)", "up to 30% (WHO)", "1 kg = 4 kg knee load", "Cochrane 2021", "up to 90% buoyancy", "2019 BMJ", "single most effective" and the "statistics as of 2024" line; replaced with NICE NG226 / NG100, NHS and CMO wording; next-day pain rule replaces the 2-hour rule; red-flag line added; broken "UK Health Fitness Studio" link replaced with nhs.uk exercise; reviewed by Louis Maxwell; dates **2026-11-10**.
+- **Citations:** `CITATIONS_EXERCISE_HUB` adds NICE NG100 + NHS osteoarthritis. **Head data / sitemap:** `updatedAt` / `lastmod` **2026-11-10** for `/exercises` and `/guides/exercise`.
+- **Tests:** new `src/lib/__tests__/exercise-pillar-m3-10-nov.test.ts`; Champions 47–48 gate accepts exercise review `2026-11-10`.
+
+### Still blocked on Louis
+- Fresh GSC Pages/Queries + GA4 export for the M2 window (needed to score the M2 close-out KPIs)
+- Review of `docs/M3-LINKABLE-ASSET-PDF-SCOPE.md` before the PIP evidence checklist PDF is built
+- Google Ad Grants / Google for Nonprofits; Fundraising Regulator + Gift Aid; first 15 partner outreaches; HCP clinic-pack sends; live social posts
+- Host: www→apex 301, true HTTP 404 (SPA limitation)
+
+### Next 3 digital actions (GTM)
+1. PIP pillar gold-standard pass (`/guides/benefits-pip`) — last of the 4 M3 pillars
+2. GSC URL Inspection / indexing requests for `/exercises`, `/guides/exercise`, `/conditions/osteoarthritis`, `/guides/arthritis-pain-relief` once auto-publish has deployed
+3. Build the PIP evidence checklist PDF after Louis reviews the scope doc
 
 ## Daily log — 5 Nov 2026 (M2 day 19, weekday run)
 
