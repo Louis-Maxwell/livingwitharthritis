@@ -1596,6 +1596,20 @@ A: Stiffness; stress and mood benefits; balance work; enjoy mindfulness.
 Q: What should I be careful about?
 A: Skip any class that pushes 'no pain no gain' — arthritis-friendly practice should never sharply hurt.
 
+## Living with arthritis: a practical guide to daily life
+URL: https://livingwitharthritis.org.uk/living-with-arthritis
+Last updated: 2026-11-10
+Q: How can you live well with arthritis?
+A: Most types of arthritis cannot be cured, but symptoms and daily function can often be improved. Many people continue working, exercising and enjoying hobbies by combining treatment from their GP or rheumatology team with regular gentle movement, pacing, good sleep, helpful equipment and the right financial support.
+Q: Can arthritis be cured?
+A: Most types of arthritis cannot be cured, but symptoms and function can often be improved with an individually appropriate combination of treatment, movement and practical support.
+Q: Is arthritis only for older people?
+A: No. Arthritis can affect people of any age, including children and younger adults.
+Q: Can exercise make arthritis worse?
+A: Suitable, gradually introduced activity often supports strength and function, but the type and amount should match the person and condition. Seek professional advice if symptoms are severe, persistent or unusual.
+Q: Can I have a normal life with arthritis?
+A: Many people with arthritis continue working, exercising, travelling and enjoying hobbies, although support and adaptations may be helpful.
+
 ## Arthritis Flare-Up Action Plan: What to Do (Free Printable)
 URL: https://livingwitharthritis.org.uk/resources/flare-action-plan
 Q: What should I do in an arthritis flare-up?
@@ -2278,16 +2292,6 @@ Q: How Arthritis Medications Affect Sexual Function: DMARDs, Biologics and NSAID
 A: Arthritis treatments manage pain and inflammation but can sometimes impact your intimate life. While physical dysfunction is rare, indirect methotrexate sexual side effects can include lowered libido due to severe fatigue or nausea. Other drugs, like steroids or opioids, might reduce desire or alter hormone levels. Always discuss rheumatoid arthritis sexual dysfunction with your rheumatology team.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Arthritis Pain Management — A Kind, Practical Guide
-URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Pain Management — A Kind, Practical Guide
-A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
 ## Arthritis Pain Management: What Actually Helps Day by Day?
 URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day
 Last updated: 2026-11-09
@@ -2299,6 +2303,16 @@ A: Arthritis pain management often works best as a combination of gentle movemen
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
 Reference: NICE NG226: Osteoarthritis in over 16s — recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+
+## Arthritis Pain Management — A Kind, Practical Guide
+URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
+Last updated: 2026-09-05
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-23
+Q: Arthritis Pain Management — A Kind, Practical Guide
+A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Arthritis Pain Map by Joint: Where It Hurts and What It May Mean
 URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-map-by-joint

@@ -82,8 +82,8 @@ export default function LivingWithArthritis() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Practical arthritis guide"
-        description="Living with arthritis in the UK: complete guide to managing pain, independence, work, relationships & daily routines. Evidence-based strategies."
+        title="Living with arthritis: a practical guide to daily life"
+        description="Practical help for living with arthritis: symptoms, when to see your GP, exercise, diet, mood, work rights, benefits and equipment that keeps you independent."
         path="/living-with-arthritis"
         type="article"
         keywords="living with arthritis, arthritis management, arthritis guide UK"
@@ -140,7 +140,8 @@ export default function LivingWithArthritis() {
         </h3>
         <p className="leading-relaxed mb-4">
           The most common type, affecting around 8 million people in the UK.
-          Osteoarthritis is caused by wear and tear of cartilage over time. It typically
+          In osteoarthritis the protective cartilage on the ends of the bones breaks down,
+          causing pain, swelling and problems moving the joint (NHS). It typically
           affects the knees, hips, hands and spine. Symptoms develop gradually and
           worsen with activity.{' '}
           <Link to="/conditions/osteoarthritis" className="text-primary hover:underline font-semibold">
@@ -336,9 +337,9 @@ export default function LivingWithArthritis() {
           </Link>
         </p>
         <ul className="list-disc list-inside space-y-2 mb-4 ml-4">
-          <li>Personal Independence Payment (PIP) — ages 16-64</li>
+          <li>Personal Independence Payment (PIP) — age 16 or over; new claims usually need you to be under State Pension age</li>
           <li>Employment Support Allowance (ESA) — if unable to work</li>
-          <li>Attendance Allowance — for those 65+</li>
+          <li>Attendance Allowance — if you have reached State Pension age</li>
           <li>Disability Living Allowance (DLA) — under 16</li>
         </ul>
       </section>
