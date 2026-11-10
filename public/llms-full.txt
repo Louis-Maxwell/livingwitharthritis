@@ -37,6 +37,69 @@ Free, clinically reviewed, customer-first guidance for people living with arthri
 - [Access to Work](https://livingwitharthritis.org.uk/library/access-to-work) and [disability support](https://livingwitharthritis.org.uk/guides/disability-support)
 - Scotland: new claims usually go to Adult Disability Payment. Northern Ireland: claims go through nidirect.
 
+## Core guidance digest
+
+Plain-English summaries of our core guidance, taken from each guide. Cite the canonical URL shown.
+
+### Diet and arthritis: what the evidence says
+Canonical: https://livingwitharthritis.org.uk/guides/diet
+Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
+
+The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.
+
+- No diet cures arthritis; a balanced diet supports exercise, medicines and your other treatment.
+- If you have osteoarthritis and are overweight, any weight loss helps, and losing 10% of body weight is likely better than 5% (NICE NG226).
+- NICE NG100 encourages Mediterranean diet principles for rheumatoid arthritis: more fruit, vegetables, fish and plant oils, less meat.
+- Don't drink too much alcohol, and follow your rheumatology team's limits if you take methotrexate.
+
+Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226); [NICE NG100: Rheumatoid arthritis in adults](https://www.nice.org.uk/guidance/ng100)
+
+### Exercise for arthritis
+Canonical: https://livingwitharthritis.org.uk/exercises
+
+NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for osteoarthritis. The NHS advises regular low-impact activity like walking, swimming or yoga. Start with a few gentle repetitions, keep effort around 4 out of 10, and build up slowly; next-day soreness means do less, not stop.
+
+Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226); [NICE NG100: Rheumatoid arthritis in adults](https://www.nice.org.uk/guidance/ng100)
+
+### Knee osteoarthritis exercises
+Canonical: https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis
+Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483 (last reviewed 2026-10-23).
+
+NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.
+
+- NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.
+- Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.
+- Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.
+- Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.
+
+Sources: [NHS: Osteoarthritis](https://www.nhs.uk/conditions/osteoarthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226)
+
+### What to do in an arthritis flare-up
+Canonical: https://livingwitharthritis.org.uk/arthritis-flare-ups
+Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483 (last reviewed 2026-09-17).
+
+During a flare, pace activity and keep gently moving within comfort, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.
+
+- Pace activity and avoid boom-and-bust; keep gentle range-of-motion movement unless advised otherwise.
+- Use heat or cold for comfort and take only medicines your GP or pharmacist has advised.
+- Many osteoarthritis flares settle over days to a couple of weeks; inflammatory flares vary, so follow your rheumatology care plan.
+- A single hot, swollen joint with fever, or sudden inability to bear weight, needs urgent care.
+
+Sources: [NHS: Arthritis](https://www.nhs.uk/conditions/arthritis/); [NICE NG226: Osteoarthritis in over 16s](https://www.nice.org.uk/guidance/ng226); [NICE NG100: Rheumatoid arthritis in adults](https://www.nice.org.uk/guidance/ng100)
+
+### Claiming PIP with arthritis
+Canonical: https://livingwitharthritis.org.uk/guides/benefits-pip
+Clinically reviewed by Louis Maxwell, Physiotherapist, HCPC PH128483.
+
+In England and Wales, start a PIP claim by calling 0800 917 2222. DWP then sends the How your disability affects you form: describe typical and flare days, time taken, pain, aids and help, and send evidence such as a symptom diary. PIP is not means-tested and you can claim while working. In Scotland, claim Adult Disability Payment instead.
+
+- PIP depends on how arthritis affects daily living and mobility, not on the diagnosis alone.
+- Daily living and mobility are scored separately: 8 to 11 points gives the standard rate and 12 or more the enhanced rate.
+- PIP is not means-tested and you can claim while working.
+- In England and Wales call the PIP new claims line on 0800 917 2222; in Scotland claim Adult Disability Payment.
+
+Sources: [GOV.UK: Personal Independence Payment](https://www.gov.uk/pip); [GOV.UK: How to claim PIP](https://www.gov.uk/pip/how-to-claim); [GOV.UK: PIP eligibility](https://www.gov.uk/pip/eligibility); [mygov.scot: Adult Disability Payment](https://www.mygov.scot/adult-disability-payment)
+
 ## Living With Arthritis | Evidence-Based Health Guides
 URL: https://livingwitharthritis.org.uk/
 Last updated: 2026-09-20
@@ -53,6 +116,20 @@ URL: https://livingwitharthritis.org.uk/about/editorial-claims-policy
 Last updated: 2026-10-09
 Q: How does Living With Arthritis support its public claims?
 A: Public content counts reflect published guides, not people supported or clinical outcomes. Pages show whether clinical review is complete or pending. Review claims should have a named reviewer and a recorded date. Patient stories must come from real consenting contributors. Survey reports explain recruitment, dates, per-question response counts and limitations. Partnerships and endorsements are described only when agreed. An editorial update is not a clinical review.
+
+## Managing Arthritis Flare-Ups: What to Do (UK Guide)
+URL: https://livingwitharthritis.org.uk/arthritis-flare-ups
+Last updated: 2026-11-10
+Q: What should I do during an arthritis flare-up?
+A: During a flare, pace activity and keep gently moving within comfort, use heat or cold as appropriate, take only medicines advised by your GP or pharmacist, and note possible triggers. Seek urgent care for a single hot, swollen joint with fever or sudden inability to weight-bear. This is educational guidance, not personal medical advice.
+Q: How long do arthritis flares last?
+A: Many OA flares settle over days to a couple of weeks with pacing and usual treatments. Inflammatory disease flares vary — contact your rheumatology team if your care plan says to.
+Q: Should I stop all exercise in a flare?
+A: Avoid boom-and-bust. Keep gentle range-of-motion unless advised otherwise; rebuild load gradually as pain settles.
+Q: Where is the printable flare plan?
+A: Use our free printable flare action plan under Resources, then read the full flare-ups guide for detail.
+Q: When is a flare an emergency?
+A: Seek urgent care for a single hot, swollen joint with fever or a sudden inability to bear weight.
 
 ## UK Arthritis Support Directory | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/arthritis-support
@@ -273,7 +350,7 @@ A: Yes. Pregnancy in lupus needs to be planned with your rheumatology and obstet
 URL: https://livingwitharthritis.org.uk/conditions/osteoarthritis
 Last updated: 2026-11-05
 Q: What is osteoarthritis?
-A: Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care. Educational only — not a diagnosis.
+A: Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care.
 Q: Can osteoarthritis be cured?
 A: There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery.
 Q: What's the best exercise for osteoarthritis?
@@ -1120,7 +1197,17 @@ A: Both respond to graded exercise, sleep hygiene and CBT — different medicati
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
 Last updated: 2026-10-23
 Q: How do I claim PIP for arthritis in the UK?
-A: In England and Wales, call the PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP then sends the How your disability affects you form, which you usually return within one month: describe typical and flare days, time taken, pain, aids and help, and send evidence such as a symptom diary. You may then have an assessment. PIP is not means-tested and you can claim while working; Daily living and mobility are scored separately: in each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead. Free guide from Living With Arthritis, registered charity 1218461.
+A: In England and Wales, start a PIP claim by calling 0800 917 2222. DWP then sends the How your disability affects you form: describe typical and flare days, time taken, pain, aids and help, and send evidence such as a symptom diary. PIP is not means-tested and you can claim while working. In Scotland, claim Adult Disability Payment instead.
+Q: Can I get PIP for arthritis in the UK?
+A: PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It depends on how your condition affects daily living and mobility, not on the diagnosis. It is not means-tested and you can claim while working.
+Q: How many points do I need for PIP?
+A: Daily living and mobility are scored separately. In each part, 8 to 11 points gives the standard rate and 12 or more gives the enhanced rate.
+Q: How do I start a PIP claim?
+A: In England and Wales call the PIP new claims line on 0800 917 2222. DWP then sends the How your disability affects you form, which you usually return within one month.
+Q: What evidence helps a PIP claim for arthritis?
+A: Describe typical and flare days, how long tasks take, pain, aids and help you need, and send supporting evidence such as a symptom diary.
+Q: Can I claim PIP if I live in Scotland?
+A: New claims in Scotland go to Adult Disability Payment instead of PIP.
 
 ## Blue Badge vs Disability Parking Concessions
 URL: https://livingwitharthritis.org.uk/guides/blue-badge-vs-disability-parking
@@ -1181,6 +1268,20 @@ Q: When would you pick Cold plunge (<15°C)?
 A: Not recommended for most arthritis. If you want cold exposure, use targeted ice packs on inflamed joints only.
 Q: What should I be careful about?
 A: Never cold plunge if you have heart disease, high blood pressure, Raynaud's, or you're pregnant, without medical advice.
+
+## Arthritis Diet UK | Mediterranean Eating Guide
+URL: https://livingwitharthritis.org.uk/guides/diet
+Last updated: 2026-11-10
+Q: What is the best diet for arthritis?
+A: The NHS advises a healthy, balanced diet and keeping to a healthy weight, because extra weight strains your joints. NICE NG226 says any weight loss helps people with osteoarthritis who are overweight, and NICE NG100 encourages people with rheumatoid arthritis to follow Mediterranean diet principles: more fruit, vegetables, fish and plant oils, less meat. No diet cures arthritis.
+Q: Can diet cure arthritis?
+A: No. The NHS says there is currently no cure for arthritis, and NICE NG100 says there is no strong evidence that changing your diet will improve rheumatoid arthritis. A balanced diet supports exercise, medicines and the other treatment your clinical team recommends.
+Q: How much weight should I lose for knee or hip osteoarthritis?
+A: NICE NG226 says any amount of weight loss is likely to help if you are overweight, and losing 10% of your body weight is likely to be better than 5%. Ask your GP about local NHS weight management support.
+Q: What is a Mediterranean diet for arthritis?
+A: NICE NG100 describes it as more bread, fruit, vegetables and fish, less meat, and replacing butter and cheese with products based on vegetable and plant oils.
+Q: Should I cut out alcohol?
+A: The NHS advises people with arthritis not to drink too much alcohol and not to smoke. If you take methotrexate, follow the alcohol limits your rheumatology team gives you.
 
 ## Your Disability Rights With Arthritis: Equality Act 2010
 URL: https://livingwitharthritis.org.uk/guides/disability-support
@@ -1635,6 +1736,20 @@ Q: Can I mention the treatment or products that helped me?
 A: You can describe your treatment. We will not publish recommendations of specific products, private practitioners or unproven treatments, and we may add a note pointing to NHS or NICE information.
 Q: Can young people share their story?
 A: Yes, with the written agreement of a parent or guardian if they are under 18. We take extra care with identifying details for under-18s.
+
+## Arthritis Supplements UK: What Works and What to Check
+URL: https://livingwitharthritis.org.uk/supplements
+Last updated: 2026-11-10
+Q: Do supplements really work for arthritis?
+A: The evidence is mixed, and for most supplements it is weak. Some people report small improvements, but none work as well as exercise and weight management, and none reverse joint damage. Check with your GP or pharmacist before starting one.
+Q: Does NICE recommend glucosamine?
+A: No. NICE guideline NG226 says glucosamine should not be offered to manage osteoarthritis. If you ask about it, your clinician should explain that there is no strong evidence that it helps.
+Q: Which arthritis supplement has the best evidence?
+A: None has strong evidence. For knee osteoarthritis, some small trials of curcumin report modest benefits. For rheumatoid arthritis, some trials of omega-3 fish oil suggest it may ease stiffness. NICE advises against glucosamine. Check with your GP or pharmacist before starting any of them.
+Q: Are joint supplements safe?
+A: Many are well tolerated, but they can interact with prescription medicines. Turmeric, ginger and fish oil may add to the effect of blood thinners. Always check with your GP or pharmacist before starting one, especially if you take blood thinners, methotrexate or diabetes medicines.
+Q: How long should I try a supplement for?
+A: Agree a trial period with your pharmacist and keep a simple symptom diary. If you notice no clear benefit by the end of it, it is reasonable to stop rather than keep paying for it.
 
 ## Is Turmeric Good for Arthritis? UK Curcumin Guide | Living With Arthritis
 URL: https://livingwitharthritis.org.uk/supplements/turmeric
@@ -2278,16 +2393,6 @@ Q: How Arthritis Medications Affect Sexual Function: DMARDs, Biologics and NSAID
 A: Arthritis treatments manage pain and inflammation but can sometimes impact your intimate life. While physical dysfunction is rare, indirect methotrexate sexual side effects can include lowered libido due to severe fatigue or nausea. Other drugs, like steroids or opioids, might reduce desire or alter hormone levels. Always discuss rheumatoid arthritis sexual dysfunction with your rheumatology team.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
-## Arthritis Pain Management — A Kind, Practical Guide
-URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Pain Management — A Kind, Practical Guide
-A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
 ## Arthritis Pain Management: What Actually Helps Day by Day?
 URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day
 Last updated: 2026-11-09
@@ -2299,6 +2404,16 @@ A: Arthritis pain management often works best as a combination of gentle movemen
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 Reference: NHS: Joint pain — https://www.nhs.uk/symptoms/joint-pain/
 Reference: NICE NG226: Osteoarthritis in over 16s — recommendations — https://www.nice.org.uk/guidance/ng226/chapter/recommendations
+
+## Arthritis Pain Management — A Kind, Practical Guide
+URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
+Last updated: 2026-09-05
+Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
+Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
+Last clinically reviewed: 2026-10-23
+Q: Arthritis Pain Management — A Kind, Practical Guide
+A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
+Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Arthritis Pain Map by Joint: Where It Hurts and What It May Mean
 URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-map-by-joint
