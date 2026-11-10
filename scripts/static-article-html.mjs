@@ -5,6 +5,7 @@
 import { marked } from "marked";
 import { keywordRelatedLinks } from "./keyword-related-links.mjs";
 import { conditionTopicLinks } from "./condition-topic-links.mjs";
+import { recommendedNextStepsHtml } from "../src/lib/recommendedNextSteps.mjs";
 import { JSDOM } from "jsdom";
 import createDOMPurify from "dompurify";
 import { parse, parseFragment } from "parse5";
@@ -122,6 +123,14 @@ export function buildStaticArticleInner(data) {
   const answer = data?.answer && !bodyHtml.includes(data.answer)
     ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
     : "";
+  const takeawayItems = Array.isArray(data?.article?.key_takeaways)
+    ? data.article.key_takeaways.filter((t) => typeof t === "string" && t.trim()) : [];
+  const takeaways = takeawayItems.length >= 3
+    ? `<section class="key-takeaways" aria-label="Key clinical takeaways"><h2>Key clinical takeaways</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
+    : "";
+  const nextStep = data?.article?.slug
+    ? recommendedNextStepsHtml(`/blog/${data.article.slug}`, `${data.article.title || ""} ${data.article.keywords || ""}`)
+    : "";
   const bodyText = stripToText(bodyHtml);
   const faqPairs = Array.isArray(data?.faqs)
     ? data.faqs.filter((f) => !bodyText.includes(stripToText(f.q))) : [];
@@ -157,15 +166,41 @@ export function buildStaticArticleInner(data) {
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
     author + reviewer +
-    answer +
-    (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
+    answer + takeaways +
+    (bodyHtml ? `<div class="static-article-body">${stripBodyBloat(bodyHtml)}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
+    nextStep +
     references + related + supportLinks +
     conditionTopicLinks(data?.article) +
     keywordRelatedLinks(data?.article) +
     `</article>`
   );
+}
+
+/**
+ * Remove markup that adds bytes but no readable text for crawlers and LLMs:
+ * decorative inline <svg> icons (aria-hidden), HTML comments, and raw JSON
+ * <script> payloads.
+ * Never touches JSON-LD (application/ld+json) or the article hydration
+ * payload (#static-article-data), and is only applied to <body> markup.
+ */
+export function stripBodyBloat(html) {
+  return String(html ?? "")
+    .replace(/<svg\b(?=[^>]*aria-hidden=["']true["'])[\s\S]*?<\/svg>/gi, "")
+    .replace(/<!--(?!\s*\/?(?:ko|\[if))[\s\S]*?-->/g, "")
+    .replace(/<script\b(?=[^>]*type=["']application\/json["'])(?![^>]*id=["']static-article-data["'])[^>]*>[\s\S]*?<\/script>/gi, "");
+}
+
+/** Apply stripBodyBloat to the <body> of a full HTML document only. */
+export function stripDocumentBodyBloat(html) {
+  const doc = String(html ?? "");
+  const start = doc.search(/<body\b[^>]*>/i);
+  if (start < 0) return doc;
+  const open = doc.indexOf(">", start) + 1;
+  const end = doc.search(/<\/body>/i);
+  if (end < open) return doc;
+  return doc.slice(0, open) + stripBodyBloat(doc.slice(open, end)) + doc.slice(end);
 }
 
 export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {

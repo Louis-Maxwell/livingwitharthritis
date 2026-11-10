@@ -36,6 +36,7 @@ import { CITATIONS_EXERCISE_HUB } from "@/data/clinical/ukCitations";
 import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import MedicalReviewBadge from "@/components/MedicalReviewBadge";
 import LastReviewed from "@/components/LastReviewed";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const exerciseCategories = [
   {
@@ -535,6 +536,7 @@ const ExerciseHub = () => {
         {/* ─── Flare days + when to see a physio (replaces unsourced effectiveness chart, 10 Nov 2026) ─── */}
         <section className="py-12 lg:py-16 bg-tint-green">
           <div className="container mx-auto px-6 md:px-10 max-w-3xl space-y-10">
+            <RecommendedNextStep path="/exercises" placement="mid" className="my-0" />
             <section aria-labelledby="exercise-flare-days">
               <h2 id="exercise-flare-days" className="text-2xl font-bold text-foreground mb-3">Flare days: do less, not nothing</h2>
               <ul className="list-disc pl-5 space-y-2 text-foreground/85">
@@ -785,6 +787,10 @@ const ExerciseHub = () => {
         <h2 id="exercise-carers" className="font-display text-2xl font-bold text-foreground mb-3 flex items-center gap-2"><Users className="w-5 h-5 text-primary" /> For carers and family</h2>
         <p className="text-foreground/85">Encourage little and often rather than doing everything for the person. Stand nearby for balance work, use a sturdy chair without wheels, and keep a note of what they managed so you can both see progress. Stop and get help if they become breathless, dizzy or have chest pain, or if a joint becomes hot, red and swollen. Looking after someone? You may be entitled to a <Link to="/blog/carers-assessment-arthritis-frailty-uk" className="text-primary underline">carer&apos;s assessment</Link>.</p>
       </section>
+
+      <div className="container mx-auto max-w-3xl px-6 md:px-10">
+        <RecommendedNextStep path="/exercises" placement="end" />
+      </div>
 
       <nav aria-label="Customer job pathways for exercise" className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-8 rounded-xl border border-border/40 bg-muted/20 p-5">
         <p className="text-sm font-semibold text-foreground m-0 mb-3">Popular next steps from the exercise hub</p>

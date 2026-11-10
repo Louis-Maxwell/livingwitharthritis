@@ -109,7 +109,7 @@ describe("Article evidence and FAQ visibility", () => {
     await waitFor(() => {
       expect(screen.getAllByRole("heading", { name: "Frequently asked questions" })).toHaveLength(1);
       expect(screen.getAllByText(/disclosed self-review by the author, not an independent clinical review/i).length).toBeGreaterThan(0);
-      expect(screen.getByRole("link", { name: /printable PIP evidence diary/i })).toBeInTheDocument();
+      expect(screen.getAllByRole("link", { name: /printable PIP evidence diary/i }).length).toBeGreaterThan(0);
     });
   });
 

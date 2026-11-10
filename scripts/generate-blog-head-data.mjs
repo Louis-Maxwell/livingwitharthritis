@@ -185,6 +185,7 @@ export function buildEntry(row, extractFaqs, coverMap) {
       updated_at: row.updated_at ?? null,
       ...(row.last_reviewed ? { last_reviewed: row.last_reviewed } : {}),
       direct_answer: row.direct_answer ?? null,
+      ...(Array.isArray(row.key_takeaways) && row.key_takeaways.length ? { key_takeaways: row.key_takeaways } : {}),
       citations: row.citations ?? null,
     },
   };
@@ -223,6 +224,8 @@ async function main() {
       while ((m = re.exec(body)) !== null) {
         const q = stripTags(m[1]);
         const a = stripTags(m[2]).slice(0, 500);
+        // class="q-heading" marks search-question body subheadings, not FAQs.
+        if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
         if (q.endsWith('?') && a.length > 30) pairs.push({ q, a });
         if (pairs.length >= 6) break;
       }
