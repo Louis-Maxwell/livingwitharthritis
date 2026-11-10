@@ -4,3 +4,5 @@ export declare function composeArticleBody(...args: unknown[]): string;
 export declare function htmlHasFullArticle(...args: unknown[]): boolean;
 export declare function replaceSeoFallback(...args: unknown[]): string;
 export declare function renderArticleHtml(content: string): string;
+export declare function stripBodyBloat(html: string): string;
+export declare function stripDocumentBodyBloat(html: string): string;

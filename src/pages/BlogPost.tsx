@@ -30,6 +30,7 @@ import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
 import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -85,11 +86,13 @@ const Footer = lazyWithRetry(() => import('@/components/Footer'));
  * Remove any H2/H3 whose text ends in "?" plus everything up to the next
  * heading. These get rendered as a dedicated FAQ block below the body, so
  * we drop them from the main prose to prevent duplicate content.
+ * Headings marked class="q-heading" are search-question subheadings that
+ * belong to the body, so they stay in the prose and out of the FAQ.
  */
 function stripQuestionHeadings(html: string): string {
   return html
     .replace(
-      /<h([23])[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
+      /<h([23])(?![^>]*\bq-heading\b)[^>]*>([^<]*\?)\s*<\/h\1>[\s\S]*?(?=<h[1-3][^>]*>|$)/gi,
       "",
     )
     .replace(/<h2[^>]*>\s*Frequently asked questions\s*<\/h2>/gi, "");
@@ -165,6 +168,29 @@ function markdownToHtml(md: string): string {
   return sanitizeHtml(unwrapEscapedHtmlCodeBlocks(rawHtml));
 }
 
+/** Split HTML at the <h2> nearest `target` characters in. Second is "" if none. */
+function splitAtMiddleH2(html: string, target: number): { first: string; second: string } {
+  if (!html) return { first: "", second: "" };
+  let best = -1;
+  let bestDist = Infinity;
+  const re = /<h2\b/gi;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html)) !== null) {
+    if (m.index === 0) continue;
+    // Only split at top level, never inside a wrapper (section, div, list…).
+    const before = html.slice(0, m.index);
+    const opens = (before.match(/<(section|div|ul|ol|table|blockquote|aside|details)\b/gi) || []).length;
+    const closes = (before.match(/<\/(section|div|ul|ol|table|blockquote|aside|details)>/gi) || []).length;
+    if (opens !== closes) continue;
+    const dist = Math.abs(m.index - target);
+    if (dist < bestDist) {
+      best = m.index;
+      bestDist = dist;
+    }
+  }
+  return best > 0 ? { first: html.slice(0, best), second: html.slice(best) } : { first: html, second: "" };
+}
+
 function getReadingTime(html: string) {
   const text = htmlToPlainText(html);
   const words = text.split(/\s+/).filter(Boolean).length;
@@ -184,6 +210,7 @@ function extractFaqs(html: string): { question: string; answer: string }[] {
   while ((m = headingRe.exec(html)) !== null) {
     const qRaw = htmlToPlainText(m[1]);
     if (!qRaw.endsWith("?")) continue;
+    if (/^<h[23][^>]*\bq-heading\b/i.test(m[0])) continue;
     const aRaw = htmlToPlainText(m[2]).slice(0, 500);
     if (qRaw && aRaw && aRaw.length > 30) {
       faqs.push({ question: qRaw, answer: aRaw });
@@ -251,6 +278,9 @@ const BlogPost = () => {
   const splitAt = firstH2End >= 0 ? firstH2End + "</h2>".length : -1;
   const htmlBeforeStrip = splitAt > 0 ? htmlWithIds.slice(0, splitAt) : htmlWithIds;
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
+  // Second split at the section boundary (<h2>) closest to the halfway point,
+  // for the prerendered "Recommended next step" module.
+  const { first: htmlAfterA, second: htmlAfterB } = splitAtMiddleH2(htmlAfterStrip, htmlWithIds.length / 2 - splitAt);
   // The loaded guide carries its own cover file (the same value the listing
   // cover map is generated from), so the article page never needs that map.
   const cover = coverFromFile(article.cover);
@@ -260,6 +290,7 @@ const BlogPost = () => {
     ? `https://livingwitharthritis.org.uk${cover.src}`
     : `https://livingwitharthritis.org.uk${DEFAULT_OG_PATH}`;
   const directAnswer = article.direct_answer || firstParagraphSummary(htmlContent);
+  const keyTakeaways = Array.isArray(article.key_takeaways) ? article.key_takeaways.filter(Boolean) : [];
   const readingTime = getReadingTime(htmlContent);
   const publishDate = new Date(article.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   const updatedAtRaw = (article as { updated_at?: string | null }).updated_at ?? null;
@@ -382,7 +413,6 @@ const BlogPost = () => {
           "about": { "@type": "MedicalCondition", "name": "Arthritis" },
           "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
           ...reviewSchemaFields,
-          "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
@@ -403,7 +433,6 @@ const BlogPost = () => {
           "isAccessibleForFree": true,
           "articleSection": article.category || "Health",
           "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".speakable-intro", ".speakable-takeaways", ".speakable-faq"] },
-          ...reviewSchemaFields,
           ...(citationSchema.length ? { "citation": citationSchema } : {})
         })}</script>
 
@@ -590,6 +619,9 @@ const BlogPost = () => {
               {directAnswer}
             </AnswerBox>
           )}
+          {keyTakeaways.length >= 3 && (
+            <KeyTakeaways html="" title={article.title} items={keyTakeaways} heading="Key clinical takeaways" />
+          )}
 
           {/* Print header: only visible when saving to PDF / printing */}
           <div className="print-only mb-6 pb-4 border-b border-black">
@@ -631,7 +663,7 @@ const BlogPost = () => {
           )}
 
           {slug === 'cauda-equina-warning-signs-uk' && <CaudaEquinaQuestions />}
-          <KeyTakeaways html={htmlContent} title={article.title} />
+          {keyTakeaways.length < 3 && <KeyTakeaways html={htmlContent} title={article.title} />}
           <div className="lg:hidden">
             <TableOfContents html={htmlWithIds} variant="inline" />
           </div>
@@ -680,8 +712,14 @@ const BlogPost = () => {
                 />
               </ViewportSection>
             )}
-            {htmlAfterStrip && (
-              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterStrip)) }} />
+            {htmlAfterA && (
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterA)) }} />
+            )}
+            {slug && htmlAfterB && (
+              <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="mid" />
+            )}
+            {htmlAfterB && (
+              <div dangerouslySetInnerHTML={{ __html: withImageDefaults(sanitizeHtml(htmlAfterB)) }} />
             )}
 
             {relatedImages[1] && (
@@ -704,6 +742,9 @@ const BlogPost = () => {
           </section>
 
           <ArticleFaqSection faqs={faqs} />
+          {slug && (
+            <RecommendedNextStep path={`/blog/${slug}`} context={`${article.title} ${article.keywords ?? ""}`} placement="end" />
+          )}
             {slug && (
               <ClusterRelatedLinks
                 slug={slug}

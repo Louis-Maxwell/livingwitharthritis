@@ -39,6 +39,7 @@ import { deriveHeadData } from "./route-head-fallback.mjs";
 import {
   buildStaticArticleInner,
   embedArticleJson,
+  stripDocumentBodyBloat,
   htmlHasFullArticle,
   replaceSeoFallback,
   stripToText,
@@ -559,12 +560,17 @@ export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
   const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
-  const person = (name, credentials, prefix) => name && !/placeholder/i.test(name)
-    ? { "@type": /louis.*maxwell|^maxwell$/i.test(name) ? "Person" : "Organization", name,
-        ...(/louis.*maxwell|^maxwell$/i.test(name) ? {
-          ...(credentials ? { jobTitle: credentials } : {}), url: `${BASE}/${prefix}/maxwell` } : {}) } : undefined;
-  const author = person(article?.author, article?.author_credentials, "authors");
-  const reviewer = person(article?.reviewed_by, article?.reviewer_credentials, "reviewers");
+  // Louis Maxwell is the only registered clinician: one stable Person node
+  // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.
+  const person = (name) => name && !/placeholder/i.test(name)
+    ? /louis.*maxwell|^maxwell$/i.test(name)
+      ? { "@type": "Person", "@id": `${BASE}/authors/maxwell#person`, name: "Louis Maxwell",
+          jobTitle: "Physiotherapist", url: `${BASE}/authors/maxwell`,
+          identifier: { "@type": "PropertyValue", propertyID: "HCPC", value: "PH128483" } }
+      : { "@type": "Organization", name }
+    : undefined;
+  const author = person(article?.author);
+  const reviewer = person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
 
@@ -744,8 +750,12 @@ function enrichHead(html, route, url, override) {
     visible: false,
   });
   if (d.article) {
+    // Lean first response for crawlers/LLMs: drop decorative SVG icons,
+    // comments and stray JSON from <body>. JSON-LD lives in <head>, and the
+    // #static-article-data hydration payload is kept (it avoids a second
+    // network request before the article can paint).
+    out = stripDocumentBodyBloat(out);
     out = embedArticleJson(out, d.article);
-
   }
 
   // Discover the requested route and its dependencies in the first response,
