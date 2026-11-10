@@ -82,7 +82,7 @@ export default function LivingWithArthritis() {
   return (
     <article className="max-w-4xl mx-auto py-12 px-4">
       <SeoHead
-        title="Living with arthritis: a practical guide to daily life"
+        title="Living with arthritis: a daily guide"
         description="Practical help for living with arthritis: symptoms, when to see your GP, exercise, diet, mood, work rights, benefits and equipment that keeps you independent."
         path="/living-with-arthritis"
         type="article"
