@@ -29,7 +29,12 @@ type Finding = {
   value: string;
 };
 
-const files = globSync("src/**/*.tsx");
+// Test fixtures intentionally use short placeholder metadata to exercise
+// Helmet behaviour. They are not shipped pages and must not fail the
+// production content audit.
+const files = globSync("src/**/*.tsx").filter(
+  (file) => !file.includes("/__tests__/") && !file.includes("\\__tests__\\"),
+);
 const findings: Finding[] = [];
 
 const seoHeadRe =
