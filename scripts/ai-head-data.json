@@ -7128,5 +7128,54 @@
         "title": "Printable PIP evidence diary"
       }
     ]
+  },
+  "/living-with-arthritis": {
+    "title": "Living with arthritis: a daily guide | Living With Arthritis",
+    "description": "Practical help for living with arthritis: symptoms, when to see your GP, exercise, diet, mood, work rights, benefits and equipment that keeps you independent.",
+    "question": "How can you live well with arthritis?",
+    "answer": "Most types of arthritis cannot be cured, but symptoms and daily function can often be improved. Many people continue working, exercising and enjoying hobbies by combining treatment from their GP or rheumatology team with regular gentle movement, pacing, good sleep, helpful equipment and the right financial support.",
+    "breadcrumb": "Living with arthritis",
+    "bodyHtml": "<p class=\"checked-note\"><strong>Checked on 10 November 2026</strong> against <a href=\"https://www.nhs.uk/conditions/arthritis/\" rel=\"noopener\">NHS: Arthritis</a> and GOV.UK benefit rules. This is general information, not personal medical advice.</p>\n<h2>What is arthritis?</h2>\n<p>Arthritis causes pain, stiffness and reduced movement in one or more joints. There are many types; osteoarthritis and rheumatoid arthritis are the most common. In osteoarthritis the protective cartilage on the ends of the bones breaks down, causing pain, swelling and problems moving the joint. Rheumatoid arthritis is an autoimmune condition in which the immune system attacks the joints, causing swelling, pain and often fatigue.</p>\n<h2>Which symptoms are common?</h2>\n<ul>\n<li>Joint pain and stiffness, especially in the morning</li>\n<li>Swelling, redness and warmth around affected joints</li>\n<li>Reduced range of movement</li>\n<li>Fatigue, low mood and disturbed sleep</li>\n</ul>\n<p>If joint pain, stiffness or swelling lasts more than 2 weeks, contact your GP. Early diagnosis matters, especially for inflammatory types such as rheumatoid arthritis.</p>\n<h2>How can you manage arthritis day to day?</h2>\n<p>No single approach works for everyone. Most people combine medical treatment from their GP or rheumatology team with regular movement, weight management, heat or cold for pain, good sleep and pacing.</p>\n<ul>\n<li><strong>Exercise:</strong> start gently, build up gradually, include strengthening 2 to 3 times a week and daily stretching. Stop if you get sharp pain. See the <a href=\"/exercises\">arthritis exercise hub</a> and <a href=\"/guides/knee-exercises-for-osteoarthritis\">knee exercises for osteoarthritis</a>.</li>\n<li><strong>Diet:</strong> diet cannot cure arthritis, but a Mediterranean-style pattern with oily fish, olive oil, vegetables, fruit, nuts and whole grains supports overall health. See the <a href=\"/guides/diet\">arthritis diet guide</a>.</li>\n<li><strong>Mood:</strong> pain, fatigue and limits on daily life can lead to low mood and anxiety. Talk to your GP; talking therapies such as CBT can help with long-term pain.</li>\n<li><strong>Equipment:</strong> jar openers, kettle tippers, long-handled shoehorns, grab rails and shower seats can keep you independent. An occupational therapy assessment is often the best starting point.</li>\n</ul>\n<h2>What help is there with work and money?</h2>\n<p>The Equality Act 2010 protects disabled workers, including many people with arthritis, and gives a right to reasonable adjustments. Benefits that may help include Personal Independence Payment (PIP) for people aged 16 or over (new claims usually need you to be under State Pension age), Attendance Allowance once you have reached State Pension age, and Disability Living Allowance for children under 16. See the <a href=\"/guides/benefits-pip\">PIP and benefits guide</a>.</p>\n<h2>Where to go next</h2>\n<ul>\n<li><a href=\"/conditions/osteoarthritis\">Osteoarthritis guide</a></li>\n<li><a href=\"/conditions/rheumatoid-arthritis\">Rheumatoid arthritis guide</a></li>\n<li><a href=\"/arthritis-flare-ups\">Arthritis flare plan</a></li>\n<li><a href=\"/guides/benefits-pip\">PIP and benefits for arthritis</a></li>\n</ul>",
+    "faqs": [
+      {
+        "q": "Can arthritis be cured?",
+        "a": "Most types of arthritis cannot be cured, but symptoms and function can often be improved with an individually appropriate combination of treatment, movement and practical support."
+      },
+      {
+        "q": "Is arthritis only for older people?",
+        "a": "No. Arthritis can affect people of any age, including children and younger adults."
+      },
+      {
+        "q": "Can exercise make arthritis worse?",
+        "a": "Suitable, gradually introduced activity often supports strength and function, but the type and amount should match the person and condition. Seek professional advice if symptoms are severe, persistent or unusual."
+      },
+      {
+        "q": "Can I have a normal life with arthritis?",
+        "a": "Many people with arthritis continue working, exercising, travelling and enjoying hobbies, although support and adaptations may be helpful."
+      }
+    ],
+    "sources": [
+      {
+        "name": "NHS: Arthritis",
+        "url": "https://www.nhs.uk/conditions/arthritis/"
+      },
+      {
+        "name": "NHS: Osteoarthritis",
+        "url": "https://www.nhs.uk/conditions/osteoarthritis/"
+      },
+      {
+        "name": "GOV.UK: PIP eligibility",
+        "url": "https://www.gov.uk/pip/eligibility"
+      },
+      {
+        "name": "GOV.UK: Attendance Allowance",
+        "url": "https://www.gov.uk/attendance-allowance"
+      },
+      {
+        "name": "GOV.UK: Disability rights at work",
+        "url": "https://www.gov.uk/rights-disabled-person/employment"
+      }
+    ],
+    "updatedAt": "2026-11-10"
   }
 }
