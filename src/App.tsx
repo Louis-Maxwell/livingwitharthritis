@@ -78,6 +78,8 @@ const HipArthritis = lazyWithRetry(() => import("./pages/conditions/HipArthritis
 const HandArthritis = lazyWithRetry(() => import("./pages/conditions/HandArthritis"));
 const ShoulderArthritis = lazyWithRetry(() => import("./pages/conditions/ShoulderArthritis"));
 const ElbowArthritis = lazyWithRetry(() => import("./pages/conditions/ElbowArthritis"));
+const BackPain = lazyWithRetry(() => import("./pages/conditions/BackPain"));
+const EarlyArthritisSymptoms = lazyWithRetry(() => import("./pages/conditions/EarlyArthritisSymptoms"));
 const FootAndAnkleArthritis = lazyWithRetry(() => import("./pages/conditions/FootAndAnkleArthritis"));
 const PolymyalgiaRheumatica = lazyWithRetry(() => import("./pages/conditions/PolymyalgiaRheumatica"));
 const ReactiveArthritis = lazyWithRetry(() => import("./pages/conditions/ReactiveArthritis"));
@@ -137,6 +139,7 @@ const PainkillersNsaidsGuide = lazyWithRetry(() => import("./pages/pillar/Painki
 const BenefitsPIPGuide = lazyWithRetry(() => import("./pages/pillar/BenefitsPIPGuide"));
 const KneeReplacementSurgeryGuide = lazyWithRetry(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazyWithRetry(() => import("./pages/Press"));
+const Magazine = lazyWithRetry(() => import("./pages/Magazine"));
 const Partners = lazyWithRetry(() => import("./pages/Partners"));
 const LivedExperiences = lazyWithRetry(() => import("./pages/LivedExperiences"));
 const ExpertArticles = lazyWithRetry(() => import("./pages/ExpertArticles"));
@@ -361,6 +364,8 @@ function AnimatedRoutes() {
         <Route path="/conditions/hip-arthritis" element={<HipArthritis />} />
         <Route path="/conditions/shoulder-arthritis" element={<ShoulderArthritis />} />
         <Route path="/conditions/elbow-arthritis" element={<ElbowArthritis />} />
+        <Route path="/conditions/back-pain" element={<BackPain />} />
+        <Route path="/conditions/early-arthritis-symptoms" element={<EarlyArthritisSymptoms />} />
         <Route path="/conditions/elbow-pain" element={<ElbowArthritis />} />
         <Route path="/conditions/foot-and-ankle-arthritis" element={<FootAndAnkleArthritis />} />
         <Route path="/conditions/ankle-arthritis" element={<FootAndAnkleArthritis />} />
@@ -387,6 +392,7 @@ function AnimatedRoutes() {
         <Route path="/guides/bone-density-osteoporosis" element={<GuideLayout currentPath="/guides/bone-density-osteoporosis"><BoneDensityOsteoporosis /></GuideLayout>} />
         <Route path="/guides/fall-prevention-older-adults" element={<GuideLayout currentPath="/guides/fall-prevention-older-adults"><FallPreventionOlderAdults /></GuideLayout>} />
         <Route path="/conditions/arthritis" element={<Arthritis />} />
+        <Route path="/arthritis" element={<Navigate to="/conditions/arthritis" replace />} />
         <Route path="/guides/musculoskeletal-health" element={<GuideLayout currentPath="/guides/musculoskeletal-health"><MusculoskeletalHealth /></GuideLayout>} />
         <Route path="/guides/disability-support" element={<GuideLayout currentPath="/guides/disability-support"><DisabilitySupport /></GuideLayout>} />
         <Route path="/faq/:slug" element={<FaqArticle />} />
@@ -456,6 +462,7 @@ function AnimatedRoutes() {
         <Route path="/guides/febuxostat-for-gout" element={<FebuxostatGoutGuide />} />
         <Route path="/guides/painkillers-and-nsaids" element={<PainkillersNsaidsGuide />} />
         <Route path="/press" element={<Press />} />
+        <Route path="/magazine" element={<Magazine />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
         <Route path="/expert-articles" element={<ExpertArticles />} />

@@ -54,6 +54,7 @@ const CURATED = [
   "/regions/wales",
   "/site-index",
   "/stories",
+  "/magazine",
   // "/reviewers/dr-amina-patel" removed 2026-08-15: that reviewer profile
   // was a fabricated placeholder credential, already scrubbed from
   // blog_articles by a 2026-07-30 migration; the route itself no longer
@@ -83,6 +84,8 @@ const CURATED = [
   "/conditions/hand-arthritis",
   "/conditions/shoulder-arthritis",
   "/conditions/elbow-arthritis",
+  "/conditions/back-pain",
+  "/conditions/early-arthritis-symptoms",
   "/conditions/polymyalgia-rheumatica",
   "/conditions/reactive-arthritis",
   "/supplements",

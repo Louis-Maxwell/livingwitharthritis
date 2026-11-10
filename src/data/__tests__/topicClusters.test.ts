@@ -84,10 +84,12 @@ describe("topicClusters", () => {
       ]),
     );
     const pip = TOPIC_CLUSTERS.find((c) => c.id === "pip");
-    expect(pip?.supportingPaths.slice(0, 4)).toEqual(
+    expect(pip?.supportingPaths.slice(0, 6)).toEqual(
       expect.arrayContaining([
-        "/faq/arthritis-disability-benefits-uk",
         "/blog/pip-for-arthritis-uk",
+        "/resources/pip-evidence-diary",
+        "/blog/appeal-rejected-pip-arthritis",
+        "/faq/arthritis-disability-benefits-uk",
         "/guides/benefits-pip",
       ]),
     );

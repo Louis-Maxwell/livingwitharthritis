@@ -16,6 +16,8 @@ import { CITY_HUBS, SITE } from "./seo-redirect-map.mjs";
 // Near-duplicate city templates Google never crawled: noindex,follow and out of the sitemap.
 const ROUTE_NOINDEX = new Set(JSON.parse(readFileSync(resolve("src/data/route-noindex.json"), "utf8")));
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
+import { finalizeTechnicalHead } from './lib/technical-head.mjs';
+import { patchEnglishAlternates } from './lib/english-alternates.mjs';
 
 // Each hub's own rendered content (scripts/snapshot-rendered-bodies.mjs).
 const RENDERED_BODIES_FILE = resolve("scripts/data/rendered-bodies.json");
@@ -78,7 +80,7 @@ export function buildCityHubHtml(city, assetTags = "") {
       { "@type": "ListItem", position: 3, name: city.name, item: abs },
     ],
   };
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
@@ -93,7 +95,12 @@ export function buildCityHubHtml(city, assetTags = "") {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Living With Arthritis" />
     <meta property="og:locale" content="en_GB" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${escapeHtml(`Arthritis support in ${city.name} from Living With Arthritis`)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://livingwitharthritis.org.uk/og/landing-share.png" />
     <meta name="twitter:title" content="${escapeHtml(`Arthritis Support in ${city.name}`)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
@@ -107,7 +114,7 @@ ${assetTags}
     <div id="root">
       <main id="main-content" role="main" tabindex="-1" style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:Inter,system-ui,sans-serif;">
         <h1>Arthritis Support in ${escapeHtml(city.name)}</h1>
-        ${RENDERED_BODIES[`/arthritis-support/${city.slug}`] || `<p>${escapeHtml(description)}</p>`}
+        ${(RENDERED_BODIES[`/arthritis-support/${city.slug}`] || `<p>${escapeHtml(description)}</p>`).replace(/<(\/?)h1\b/gi, '<$1h2')}
         <p>Living With Arthritis is a <strong>UK national charity</strong> offering free educational guides for people in ${escapeHtml(city.name)}${regionBit} and across the country. We do not run a local clinic list on this page — use the hubs below for evidence-based information, then speak with your GP or rheumatology team about local care.</p>
         <ul>
           <li><a href="/exercises">Exercise hub</a> — joint-friendly movement guides</li>
@@ -123,6 +130,8 @@ ${assetTags}
   </body>
 </html>
 `;
+  return finalizeTechnicalHead(patchEnglishAlternates(html, path, SITE),
+    path, { title, description }, SITE);
 }
 
 export function writeCityHubHtml(distDir = DIST) {

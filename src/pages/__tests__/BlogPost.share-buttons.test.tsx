@@ -159,7 +159,7 @@ describe("BlogPost SocialShareButtons regression", () => {
       copy.focus();
       expect(copy).toHaveFocus();
 
-      for (const network of ["Twitter", "Facebook", "WhatsApp", "Email"]) {
+      for (const network of ["X", "Facebook", "WhatsApp", "Pinterest", "LinkedIn", "Email"]) {
         const share = within(block).getByRole("link", { name: `Share on ${network}` });
         expect(share).toHaveAttribute("aria-label", `Share on ${network}`);
         expect(share).not.toHaveAttribute("tabindex", "-1");

@@ -16,6 +16,7 @@ import {
   DIS_RIGHTS_QUICK_ANSWER,
   DIS_RIGHTS_TITLE,
 } from "@/data/benefitsGuides/disabilityRightsContent";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 /**
  * /guides/disability-support — "Your disability rights in the UK: the
@@ -77,6 +78,7 @@ export default function DisabilitySupport() {
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(DIS_RIGHTS_HTML) }}
       />
 
+      <RecommendedNextStep path="/guides/disability-support" placement="mid" />
       <section id="faq" className="my-12">
         <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
         {DIS_RIGHTS_FAQS.map((f) => (

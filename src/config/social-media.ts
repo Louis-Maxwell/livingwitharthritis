@@ -59,7 +59,7 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   instagram: {
     platform: 'instagram',
-    url: 'https://www.instagram.com/livingwitharthritisuk/',
+    url: 'https://www.instagram.com/livingwitharthritisorg/',
     label: 'Instagram',
     displayName: 'Instagram',
     icon: 'Instagram',
@@ -89,13 +89,13 @@ export const SOCIAL_LINKS: Record<SocialPlatform, SocialLink> = {
   },
   threads: {
     platform: 'threads',
-    url: 'https://www.threads.com/@livingwitharthritisuk',
+    url: 'https://www.threads.com/@livingwitharthritisorg',
     label: 'Threads',
     displayName: 'Threads',
     icon: 'AtSign',
     color: 'hover:text-black dark:hover:text-white',
     description: 'Follow Living With Arthritis on Threads',
-    enabled: true, // charity-owned Threads profile
+    enabled: false, // Semrush: Threads returns HTTP 429 to crawlers; re-enable when stable
   },
   pinterest: {
     platform: 'pinterest',

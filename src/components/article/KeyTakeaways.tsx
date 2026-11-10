@@ -4,6 +4,10 @@ import { Sparkles } from "lucide-react";
 interface KeyTakeawaysProps {
   html: string;
   title: string;
+  /** Editor-written bullets. When given, nothing is scraped from `html`. */
+  items?: string[];
+  /** Box heading. Defaults to "Key takeaways". */
+  heading?: string;
 }
 
 /**
@@ -54,8 +58,12 @@ function extractTakeaways(html: string): string[] {
   return sentences.slice(0, 3);
 }
 
-const KeyTakeaways = ({ html, title }: KeyTakeawaysProps) => {
-  const items = useMemo(() => extractTakeaways(html), [html]);
+const KeyTakeaways = ({ html, title, items: explicitItems, heading = "Key takeaways" }: KeyTakeawaysProps) => {
+  const scraped = useMemo(() => (explicitItems?.length ? [] : extractTakeaways(html)), [html, explicitItems]);
+  const items = explicitItems?.length ? explicitItems : scraped;
+  // An article that already prints its own Key takeaways list should not
+  // show a second scraped box.
+  if (!explicitItems?.length && /<h2[^>]*>\s*Key takeaways\s*<\/h2>/i.test(html)) return null;
   if (items.length < 2) return null;
 
   return (
@@ -67,7 +75,7 @@ const KeyTakeaways = ({ html, title }: KeyTakeawaysProps) => {
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-primary" aria-hidden="true" />
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.12em] text-primary m-0">
-            Key takeaways
+            {heading}
           </h2>
         </div>
         <a

@@ -10,6 +10,7 @@
  * violates the limits so authors see the issue in the console.
  */
 
+import { cleanBrand } from './technicalSeo.mjs';
 const SITE_SUFFIX = " | Living With Arthritis";
 const SHORT_SITE_SUFFIX = " | LWA"; // legacy; no longer appended
 const MAX_TITLE = 60;
@@ -40,7 +41,7 @@ export function enforceTitle(
   opts: EnforceTitleOptions = {},
 ): string {
   const { includeSiteName = true, route } = opts;
-  const title = (rawTitle ?? "").trim();
+  const title = cleanBrand(rawTitle).trim();
 
   if (!includeSiteName) {
     if (title.length <= MAX_TITLE) return title;
@@ -65,7 +66,7 @@ export function enforceDescription(
   rawDesc: string,
   route?: string,
 ): string {
-  const desc = (rawDesc ?? "").trim().replace(/\s+/g, " ");
+  const desc = cleanBrand(rawDesc).trim().replace(/\s+/g, " ");
   if (desc.length > MAX_DESC) {
     if (isDev) warnLength("description", desc.length, MAX_DESC, route, desc);
     return truncateOnWord(desc, MAX_DESC);
@@ -100,7 +101,13 @@ function warnLength(
   route: string | undefined,
   value: string,
 ): void {
-   
+  const location = route ? ` for ${route}` : "";
+  const preview = value.length > 120 ? `${value.slice(0, 117)}…` : value;
+  // Authoring feedback only: this is guarded by isDev at the call sites and
+  // never changes rendered metadata or production behaviour.
+  console.warn(
+    `[seo] ${kind}${location} is ${actual} characters (limit ${max}): ${preview}`,
+  );
 }
 
 export const SEO_LIMITS = {

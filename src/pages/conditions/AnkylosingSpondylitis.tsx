@@ -6,9 +6,9 @@ const data: ConditionPageData = {
   name: "Ankylosing Spondylitis & Axial Spondyloarthritis",
   tagline:
     "Axial spondyloarthritis (axSpA) is the umbrella term for inflammatory arthritis of the spine and pelvis. Ankylosing spondylitis (AS) is the form with visible changes on X-ray. Early diagnosis and daily exercise keep most people mobile for life.",
-  metaTitle: "Axial Spondyloarthritis (axSpA) & Ankylosing Spondylitis: UK Guide",
+  metaTitle: "Ankylosing Spondylitis (axSpA): Signs & Treatment (UK)",
   metaDescription:
-    "UK guide to axial spondyloarthritis (axSpA) and ankylosing spondylitis — symptoms, HLA-B27 testing, the difference between radiographic AS and non-radiographic axSpA, biologic treatment and daily exercise.",
+    "Back pain and morning stiffness under 45? Learn the signs of ankylosing spondylitis, when to see a GP, exercise and biologic treatment.",
   keywords:
     "axial spondyloarthritis, axSpA, non-radiographic axial spondyloarthritis, nr-axSpA, ankylosing spondylitis, AS, spinal arthritis, lower back pain young adult, HLA-B27, biologic therapy, ankylosing spondylitis exercises, inflammatory back pain, NASS, axial spa, spondyloarthropathy",
   alternateNames: [

@@ -16,6 +16,11 @@ describe("CookieBanner", () => {
     vi.clearAllMocks();
   });
 
+  it("reserves a stable minimum banner footprint", () => {
+    const { container } = renderBanner();
+    expect(container.querySelector('[aria-label="Cookie consent"]')).toHaveClass("min-h-[190px]", "sm:min-h-[172px]");
+  });
+
   it("shows banner when no consent stored", () => {
     renderBanner();
     expect(screen.getByText(/we value your privacy/i)).toBeInTheDocument();

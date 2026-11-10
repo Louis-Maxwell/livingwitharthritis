@@ -111,7 +111,7 @@ export function deriveHeadData(route) {
     section
       ? `this ${section.toLowerCase()} covers what people in the UK most often ask about ${base.toLowerCase()}.`
       : `this page covers what people in the UK most often ask about ${base.toLowerCase()}.`,
-    'Written in plain English and reviewed by a First Contact Practitioner (HCPC PH128483).',
+    'Check this page for its sources and clinical-review status.',
   ].join(' ');
 
   return {

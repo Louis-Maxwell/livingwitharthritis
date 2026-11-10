@@ -82,12 +82,13 @@ describe("public SEO / AEO identity", () => {
     expect(hasCharityAddress()).toBe(false);
   });
 
-  it("ships one NGO + Organization + MedicalOrganization node with charity 1218461", () => {
+  it("ships one NGO + Organization node with charity 1218461", () => {
     const org = jsonLdFromIndex("root-organization-jsonld");
     expect(org["@id"]).toBe("https://livingwitharthritis.org.uk/#organization");
     expect(org["@type"]).toEqual(
-      expect.arrayContaining(["NGO", "Organization", "MedicalOrganization"]),
+      expect.arrayContaining(["NGO", "Organization"]),
     );
+    expect(org["@type"]).not.toContain("MedicalOrganization");
     expect(JSON.stringify(org.identifier)).toContain("1218461");
     expect(org.name).toBe("Living With Arthritis");
     expect(org.legalName).toBe("Living With Arthritis");
@@ -118,12 +119,13 @@ describe("public SEO / AEO identity", () => {
     expect(org.email).toBe(ORGANIZATION_PAYLOAD.email);
   });
 
-  it("ships a WebSite node with an EntryPoint SearchAction", () => {
+  it("ships a WebSite node without SearchAction (SPA search is not crawlable)", () => {
     const site = jsonLdFromIndex("root-website-jsonld");
     expect(site["@id"]).toBe("https://livingwitharthritis.org.uk/#website");
-    expect(site.potentialAction.target["@type"]).toBe("EntryPoint");
-    expect(site.potentialAction.target.urlTemplate).toContain("/search?q=");
-    expect(WEBSITE_PAYLOAD.potentialAction.target["@type"]).toBe("EntryPoint");
+    expect(site.name).toBe("Living With Arthritis");
+    expect(site).not.toHaveProperty("potentialAction");
+    expect(WEBSITE_PAYLOAD).not.toHaveProperty("potentialAction");
+    expect(WEBSITE_PAYLOAD.name).toBe("Living With Arthritis");
     expect(WEBSITE_PAYLOAD.about).toEqual(
       expect.arrayContaining(["Osteoarthritis", "Frailty and musculoskeletal health"]),
     );

@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { dailyTips, dailyLivingIntro } from "@/data/dailyTips";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SeoHead from '@/components/SeoHead';
+import { enforceTitle } from '@/lib/seoMeta';
 
 const iconMap: Record<string, React.ElementType> = {
   Sun, Droplets, Apple, Footprints, Moon, Lightbulb,
@@ -59,16 +61,17 @@ const DailyTipDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
-  const isOverview = slug === "overview";
+  const isOverview = slug === "overview" || slug === 'daily-living' || slug === 'health-tips';
   const tip = !isOverview ? dailyTips.find((t) => t.slug === slug) : null;
 
   if (!isOverview && !tip) {
     return (
       <div className="min-h-screen flex flex-col">
+        <SeoHead title="Tip not found" description="This daily tip is not available. Browse the published daily-living tips from Living With Arthritis." path={`/daily-tips/${slug || ''}`} noindex />
         <Header />
         <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Tip not found</h2>
+            <h1 className="text-2xl font-bold text-foreground mb-4">Tip not found</h1>
             <Button variant="outline" onClick={() => navigate("/")}>Back to Home</Button>
           </div>
         </main>
@@ -77,13 +80,18 @@ const DailyTipDetail = () => {
     );
   }
 
-  const title = isOverview ? dailyLivingIntro.title : tip!.title;
-  const metaTitle = isOverview ? dailyLivingIntro.title : (tip!.metaTitle || tip!.title);
-  const description = isOverview ? dailyLivingIntro.subtitle : tip!.desc;
+  const title = slug === 'health-tips' ? 'Everyday arthritis tips for joint health' : isOverview ? dailyLivingIntro.title : tip?.title || '';
+  const metaTitle = isOverview ? title : (tip?.metaTitle || tip?.title || '');
+  const description = slug === 'health-tips'
+    ? 'Short, practical everyday tips for living with arthritis in the UK — movement, food, pacing and sleep.'
+    : isOverview ? dailyLivingIntro.subtitle : tip?.desc || '';
+  const tipCanonical = slug === 'health-tips'
+    ? 'https://livingwitharthritis.org.uk/daily-tips/daily-living'
+    : `https://livingwitharthritis.org.uk/daily-tips/${slug || 'overview'}`;
   const content = isOverview
-    ? `${dailyLivingIntro.content}\n\n---\n\n## Tips for Every Day\n\n${dailyLivingIntro.tipsOverview}`
-    : tip!.detail;
-  const image = isOverview ? dailyLivingIntro.image : tip!.image;
+    ? slug === 'health-tips' ? dailyLivingIntro.tipsOverview : slug === 'daily-living' ? dailyLivingIntro.content : `${dailyLivingIntro.content}\n\n---\n\n## Tips for Every Day\n\n${dailyLivingIntro.tipsOverview}`
+    : tip?.detail || '';
+  const image = isOverview ? dailyLivingIntro.image : tip?.image || '';
   const IconComponent = !isOverview && tip ? iconMap[tip.icon] : null;
   const readingTime = estimateReadingTime(content);
   const keyTakeaways = extractKeyTakeaways(content);
@@ -95,7 +103,8 @@ const DailyTipDetail = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>{metaTitle} — Daily Living Tips | Living With Arthritis</title>
+        <title>{enforceTitle(`${metaTitle} — Daily Living Tips`, { includeSiteName: true })}</title>
+        <link rel="canonical" href={tipCanonical} />
         <meta name="description" content={description} />
         <meta property="og:title" content={`${metaTitle} — Daily Living Tips`} />
         <meta property="og:description" content={description} />

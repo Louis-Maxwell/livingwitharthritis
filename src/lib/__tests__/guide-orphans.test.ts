@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
 import { getBlogCatalog } from "@/lib/blog/catalog";
+import { resolveSeoRedirect } from '@/lib/seoRedirects';
 import { topicNeighbours, relatedGuidesForPath, latestGuides, mostHelpfulGuides } from "@/lib/blog/guideLinks";
 
 describe("guide discoverability", () => {
@@ -29,7 +30,8 @@ describe("guide discoverability", () => {
     const root = path.resolve(__dirname, "../../..");
     const sitemap = fs.readFileSync(path.join(root, "public/sitemap.xml"), "utf8");
     const rss = fs.readFileSync(path.join(root, "public/rss.xml"), "utf8");
-    const missing = guides.filter((g) => !sitemap.includes(`/blog/${g.slug}<`) || !rss.includes(`/blog/${g.slug}<`));
+    const missing = guides.filter((g) => !resolveSeoRedirect(`/blog/${g.slug}`)
+      && (!sitemap.includes(`/blog/${g.slug}<`) || !rss.includes(`/blog/${g.slug}<`)));
     expect(missing.map((g) => g.slug)).toEqual([]);
   });
 

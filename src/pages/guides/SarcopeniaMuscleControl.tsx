@@ -5,6 +5,7 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
   { q: 'What is sarcopenia?', a: 'Sarcopenia is age-related loss of muscle mass, strength and function. It typically begins after age 40 and accelerates after 60, raising the risk of falls, frailty and disability.' },
@@ -91,6 +92,7 @@ export default function SarcopeniaMuscleControl() {
         </ul>
       </section>
 
+      <RecommendedNextStep path="/guides/sarcopenia-muscle-loss" placement="mid" />
       <section id="protein" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">3. Protein: how much and which sources work best</h2>
         <p className="leading-relaxed mb-4">Aim for 1.0–1.2 g/kg body weight daily. A 70 kg adult needs 70–84 g. Split across 3 meals — 25–30 g each — to maximise muscle protein synthesis. Leucine-rich sources (whey, eggs, dairy, fish, chicken, soya) are most effective.</p>
@@ -100,7 +102,7 @@ export default function SarcopeniaMuscleControl() {
       <section id="strength" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">4. Strength training for sarcopenia (adapted for arthritis)</h2>
         <p className="leading-relaxed mb-4">Two sessions per week targeting all major muscle groups: legs (sit-to-stand, step-ups), hips (bridges, clamshells), back (band rows), chest (wall push-ups) and core. Use 8–12 reps at a load you can just complete.</p>
-        <p className="leading-relaxed">More in our <Link to="/exercises" className="text-primary underline">exercise hub</Link> and <Link to="/blog/knee-osteoarthritis-exercises" className="text-primary underline">knee OA exercises</Link>.</p>
+        <p className="leading-relaxed">More in our <Link to="/exercises" className="text-primary underline">exercise hub</Link> and <Link to="/guides/knee-exercises-for-osteoarthritis" className="text-primary underline">knee OA exercises</Link>.</p>
       </section>
 
       <section id="supplements" className="mb-12">

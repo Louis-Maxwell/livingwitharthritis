@@ -1,4 +1,181 @@
 {
+  "/daily-tips/morning-stretches": {
+    "title": "Morning Stretches — Daily Living Tips",
+    "description": "Start each day with 5 minutes of gentle stretching to ease morning stiffness.",
+    "question": "Morning Stretches",
+    "bodyHtml": "<p>Overnight rest often leaves joints stiff. Five minutes of gentle stretching before you rush into the day can ease that &quot;gel&quot; feeling and get blood flowing.</p><p>Try a simple sequence, moving only within a comfortable range:<br>• Slow neck turns<br>• Shoulder shrugs and rolls<br>• Gentle arm circles<br>• Seated or standing torso twists<br>• Hamstring or calf stretches<br>• Ankle circles and flexes</p><p>Breathe steadily and avoid bouncing. If a movement sharp-pains a joint, skip it and ask a physiotherapist for arthritis-friendly alternatives. Bed-based stretches are fine on harder mornings.</p><p>Pair stretches with your first drink of water, then ease into the day rather than leaping straight into chores.</p>",
+    "breadcrumb": "Morning Stretches",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/overview",
+        "title": "Daily Living for Joint Health"
+      }
+    ]
+  },
+  "/daily-tips/stay-hydrated": {
+    "title": "Stay Hydrated — Daily Living Tips",
+    "description": "Aim for 6-8 glasses of water daily — dehydration can worsen joint stiffness.",
+    "question": "Stay Hydrated",
+    "bodyHtml": "<p>Aim for about 6–8 glasses of fluid a day (more if you are active or it is hot). Dehydration can leave you more fatigued and joints feeling stiffer.</p><p>Practical ways to keep up:<br>• Drink a glass of water on waking<br>• Keep a reusable bottle with you<br>• Include hydrating foods such as cucumber, melon and soup<br>• Flavour water with lemon, mint or berries if plain water puts you off<br>• Count tea and coffee towards fluids, but balance with water</p><p>Dark urine, dry mouth and an afternoon slump can be early signs you need more fluid. Steady sipping through the day beats large gulps only when you remember.</p>",
+    "breadcrumb": "Stay Hydrated",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/overview",
+        "title": "Daily Living for Joint Health"
+      }
+    ]
+  },
+  "/daily-tips/anti-inflammatory-snacks": {
+    "title": "Anti-inflammatory Snacks — Daily Living Tips",
+    "description": "Keep walnuts, berries, and dark leafy greens handy for quick, joint-friendly snacking.",
+    "question": "Anti-inflammatory Snacks",
+    "bodyHtml": "<p>Handy snacks help you avoid long gaps that leave energy crashing — especially useful when cooking feels hard on a flare day.</p><p>Good everyday options:<br>• A small handful of walnuts or mixed nuts<br>• Fresh or frozen berries<br>• Greek yoghurt with fruit<br>• Vegetable sticks with hummus<br>• Apple slices with nut butter<br>• A spinach and berry smoothie when chewing is tiring</p><p>Oily fish, nuts and colourful plants are linked with lower inflammation as part of a balanced diet; they are not a cure on their own. Keep portions modest if you are watching weight — less load on weight-bearing joints often helps pain.</p><p>Prep a few options when you have energy so they are ready on tougher days.</p>",
+    "breadcrumb": "Anti-inflammatory Snacks",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/overview",
+        "title": "Daily Living for Joint Health"
+      }
+    ]
+  },
+  "/daily-tips/walk-20-minutes": {
+    "title": "20-Minute Daily Walk for Arthritis: Simple Pain Relief Routine — Daily Living Tips",
+    "description": "A steady 20-minute walk can ease stiffness, lift mood and support joint health — start gently.",
+    "question": "Walk 20 Minutes",
+    "bodyHtml": "<p>A daily 20-minute walk is one of the simplest ways to keep joints moving, support heart health and lift mood. NHS and Arthritis UK (formerly Versus Arthritis) guidance both encourage regular, low-impact activity for arthritis.</p><p>Keep the pace comfortable — you should still be able to talk. Choose flat routes when joints are sore; parks and quiet streets often feel easier than busy pavements.</p><p>Build up gradually:<br>• Start with shorter walks if 20 minutes is too much<br>• Use supportive shoes<br>• On wet or cold days, try a shopping centre, treadmill or marching on the spot at home<br>• Walking poles can steady balance and share load through the arms</p><p>Consistency matters more than speed. If pain spikes sharply during or after walking (beyond normal muscle ache), shorten the next session and check with a physiotherapist or your clinical team.</p>",
+    "breadcrumb": "Walk 20 Minutes",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/overview",
+        "title": "Daily Living for Joint Health"
+      }
+    ]
+  },
+  "/daily-tips/prioritise-sleep": {
+    "title": "Prioritise Sleep — Daily Living Tips",
+    "description": "Quality sleep reduces inflammation — aim for 7-9 hours with a consistent schedule.",
+    "question": "Prioritise Sleep",
+    "bodyHtml": "<p>Aim for 7–9 hours with a regular bedtime and wake time. Poor sleep often heightens pain sensitivity and next-day fatigue.</p><p>Sleep habits that help many people with arthritis:<br>• Cool, dark, quiet bedroom<br>• Screens off around 30 minutes before bed<br>• Same routine on weekdays and weekends where possible<br>• Side sleeping with a pillow between the knees, or back sleeping with a pillow under the knees</p><p>A warm shower or heat pack before bed can ease stiff joints. If pain regularly wakes you, talk to your GP about timing of pain relief, mattress support or a sleep referral — do not struggle alone for months.</p>",
+    "breadcrumb": "Prioritise Sleep",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/overview",
+        "title": "Daily Living for Joint Health"
+      }
+    ]
+  },
+  "/daily-tips/pace-yourself": {
+    "title": "Pace Yourself — Daily Living Tips",
+    "description": "Balance activity with rest. Break tasks into smaller chunks to protect your joints.",
+    "question": "Pace Yourself",
+    "bodyHtml": "<p>Pacing means spreading activity so you stay involved in life without crashing the next day. Boom-and-bust cycles — overdoing it on good days — are a common trigger for flares.</p><p>Practical pacing:<br>• Break housework into one room or one task at a time<br>• Use short work/rest cycles (for example 20–25 minutes on, 5 minutes off)<br>• Sit for food prep; use kitchen aids where helpful<br>• Split shopping across days or use online delivery when needed<br>• Plan rest after demanding appointments</p><p>Pacing is not giving up. It is choosing a sustainable pace so you can keep doing what matters — family, work, hobbies — more often. Occupational therapists can help tailor this to your condition and home.</p>",
+    "breadcrumb": "Pace Yourself",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/overview",
+        "title": "Daily Living for Joint Health"
+      }
+    ]
+  },
+  "/daily-tips/daily-living": {
+    "title": "Daily Living for Joint Health — Daily Living Tips",
+    "description": "Practical UK habits that ease stiffness and support everyday life with arthritis.",
+    "question": "Daily Living for Joint Health",
+    "bodyHtml": "<p>Living well with arthritis is less about perfect routines and more about small, repeatable habits that protect your joints day to day.</p><p>Joints need regular, gentle movement, steady hydration, and enough rest to recover. Long spells of sitting, skipping meals, or pushing through every good day often make stiffness and fatigue worse.</p><p>Focus on four building blocks:</p><p>• Movement — change position often; short walks and light stretches keep joints from locking up<br>• Food — favour oily fish, nuts, fruit, vegetables and whole foods; cut back on ultra-processed snacks where you can<br>• Hydration — water helps joints move more comfortably<br>• Rest — consistent sleep and pacing reduce next-day flares</p><p>At home, favour ergonomic tools (larger-handled cutlery, jar openers, perching stools) and plan tasks in short bursts. On tougher days, scale activity rather than stopping altogether — Arthritis UK (formerly Versus Arthritis) and NHS advice both emphasise staying as active as you safely can.</p><p>These habits will not replace prescribed treatment, but they make daily life more manageable alongside your care team.</p>",
+    "breadcrumb": "Daily Living for Joint Health",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/morning-stretches",
+        "title": "Morning Stretches"
+      },
+      {
+        "path": "/daily-tips/stay-hydrated",
+        "title": "Stay Hydrated"
+      },
+      {
+        "path": "/daily-tips/anti-inflammatory-snacks",
+        "title": "Anti-inflammatory Snacks"
+      },
+      {
+        "path": "/daily-tips/walk-20-minutes",
+        "title": "Walk 20 Minutes"
+      },
+      {
+        "path": "/daily-tips/prioritise-sleep",
+        "title": "Prioritise Sleep"
+      },
+      {
+        "path": "/daily-tips/pace-yourself",
+        "title": "Pace Yourself"
+      }
+    ]
+  },
+  "/daily-tips/health-tips": {
+    "title": "Tips for Every Day — Daily Living Tips",
+    "description": "Short UK daily tips that support joint health and everyday living with arthritis.",
+    "question": "Tips for Every Day",
+    "bodyHtml": "<p>Everyday tips work best when they are short, realistic and easy to repeat. Use them as a menu, not a checklist to finish in one day.</p><p>1. Start the morning with a glass of water and a few gentle stretches before getting busy.<br>2. Stand or walk for a minute each hour if you sit for long periods.<br>3. Keep joint-friendly snacks ready — walnuts, berries, yoghurt, vegetable sticks.<br>4. Pace chores: one room or one task, then a short rest.<br>5. Warmth helps many people — layers, warm showers, or a heat pack before activity.<br>6. Note flares in a simple diary so you can spot patterns and discuss them with your GP or rheumatology team.<br>7. Ask about occupational therapy aids if dressing, cooking or bathing is becoming hard.<br>8. Protect sleep: a regular bedtime and a cool, dark room make a real difference to pain and mood.</p><p>Small changes, kept up, usually beat ambitious plans you cannot sustain.</p>",
+    "breadcrumb": "Tips for Every Day",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/morning-stretches",
+        "title": "Morning Stretches"
+      },
+      {
+        "path": "/daily-tips/stay-hydrated",
+        "title": "Stay Hydrated"
+      },
+      {
+        "path": "/daily-tips/anti-inflammatory-snacks",
+        "title": "Anti-inflammatory Snacks"
+      },
+      {
+        "path": "/daily-tips/walk-20-minutes",
+        "title": "Walk 20 Minutes"
+      },
+      {
+        "path": "/daily-tips/prioritise-sleep",
+        "title": "Prioritise Sleep"
+      },
+      {
+        "path": "/daily-tips/pace-yourself",
+        "title": "Pace Yourself"
+      }
+    ]
+  },
+  "/daily-tips/overview": {
+    "title": "Daily living overview — Daily Living Tips",
+    "description": "Overview of practical UK daily-living habits for people with arthritis.",
+    "question": "Daily living overview",
+    "bodyHtml": "<p>Living well with arthritis is less about perfect routines and more about small, repeatable habits that protect your joints day to day.</p><p>Joints need regular, gentle movement, steady hydration, and enough rest to recover. Long spells of sitting, skipping meals, or pushing through every good day often make stiffness and fatigue worse.</p><p>Focus on four building blocks:</p><p>• Movement — change position often; short walks and light stretches keep joints from locking up<br>• Food — favour oily fish, nuts, fruit, vegetables and whole foods; cut back on ultra-processed snacks where you can<br>• Hydration — water helps joints move more comfortably<br>• Rest — consistent sleep and pacing reduce next-day flares</p><p>At home, favour ergonomic tools (larger-handled cutlery, jar openers, perching stools) and plan tasks in short bursts. On tougher days, scale activity rather than stopping altogether — Arthritis UK (formerly Versus Arthritis) and NHS advice both emphasise staying as active as you safely can.</p><p>These habits will not replace prescribed treatment, but they make daily life more manageable alongside your care team.</p><p>Everyday tips work best when they are short, realistic and easy to repeat. Use them as a menu, not a checklist to finish in one day.</p><p>1. Start the morning with a glass of water and a few gentle stretches before getting busy.<br>2. Stand or walk for a minute each hour if you sit for long periods.<br>3. Keep joint-friendly snacks ready — walnuts, berries, yoghurt, vegetable sticks.<br>4. Pace chores: one room or one task, then a short rest.<br>5. Warmth helps many people — layers, warm showers, or a heat pack before activity.<br>6. Note flares in a simple diary so you can spot patterns and discuss them with your GP or rheumatology team.<br>7. Ask about occupational therapy aids if dressing, cooking or bathing is becoming hard.<br>8. Protect sleep: a regular bedtime and a cool, dark room make a real difference to pain and mood.</p><p>Small changes, kept up, usually beat ambitious plans you cannot sustain.</p>",
+    "breadcrumb": "Daily living overview",
+    "relatedLinks": [
+      {
+        "path": "/daily-tips/morning-stretches",
+        "title": "Morning Stretches"
+      },
+      {
+        "path": "/daily-tips/stay-hydrated",
+        "title": "Stay Hydrated"
+      },
+      {
+        "path": "/daily-tips/anti-inflammatory-snacks",
+        "title": "Anti-inflammatory Snacks"
+      },
+      {
+        "path": "/daily-tips/walk-20-minutes",
+        "title": "Walk 20 Minutes"
+      },
+      {
+        "path": "/daily-tips/prioritise-sleep",
+        "title": "Prioritise Sleep"
+      },
+      {
+        "path": "/daily-tips/pace-yourself",
+        "title": "Pace Yourself"
+      }
+    ]
+  },
   "/faq/can-arthritis-cause-fatigue": {
     "title": "Can arthritis cause fatigue? | Living With Arthritis",
     "description": "Yes. Arthritis fatigue is real and common. It's caused by inflammation, chronic pain, poor sleep, and the body fighting disease.",
@@ -152,7 +329,7 @@
   "/faq/what-is-osteoarthritis": {
     "title": "What is osteoarthritis? | Living With Arthritis",
     "description": "Osteoarthritis is the most common type of arthritis, caused by wear and tear of cartilage. It typically affects the knees, hips, hands, and spine.",
-    "question": "What is osteoarthritis?",
+    "question": "What is osteoarthritis? Quick answer",
     "answer": "Osteoarthritis is the most common type of arthritis, caused by wear and tear of cartilage. It typically affects the knees, hips, hands, and spine.",
     "breadcrumb": "What is Osteoarthritis?",
     "bodyHtml": "<h2>How Osteoarthritis Develops</h2><p>Cartilage (smooth tissue covering bones) gradually wears away, causing pain, stiffness, and inflammation. It usually develops slowly over years. Risk factors: age, female sex, previous injury, obesity, family history.</p><h2>Symptoms</h2><p>Joint pain (especially with activity), stiffness (especially morning), swelling, reduced movement, creaking sounds, pain in bad weather.</p><h2>Treatment</h2><p>Pain relief, anti-inflammatory drugs, injections, exercise, weight management, heat therapy. Surgery for severe cases.</p><h2>Can It Be Prevented?</h2><p>No guaranteed prevention, but manage weight, stay active, protect joints from injury, eat well, and manage related conditions.</p>",
@@ -177,7 +354,7 @@
   "/faq/what-is-rheumatoid-arthritis": {
     "title": "What is rheumatoid arthritis? | Living With Arthritis",
     "description": "Rheumatoid arthritis is an autoimmune condition where the immune system attacks joints, causing swelling, pain, and fatigue.",
-    "question": "What is rheumatoid arthritis?",
+    "question": "What is rheumatoid arthritis? Quick answer",
     "answer": "Rheumatoid arthritis is an autoimmune condition where the immune system attacks joints, causing swelling, pain, and fatigue.",
     "breadcrumb": "What is Rheumatoid Arthritis?",
     "bodyHtml": "<h2>What Happens in RA</h2><p>Your immune system mistakenly attacks the joints' protective lining, causing inflammation, swelling, pain, and eventually joint damage. Affects hands, feet, and other joints. More serious than OA.</p><h2>Symptoms</h2><p>Joint pain and swelling (usually hands, feet, wrists), morning stiffness (over 30 mins), fatigue, low-grade fever, depression.</p><h2>Diagnosis &amp; Treatment</h2><p>Blood tests (rheumatoid factor, CCP), ultrasound, X-rays. Treatment: DMARDs (disease-modifying drugs), biologics, pain relief, physiotherapy, lifestyle changes.</p><h2>Living Well with RA</h2><p>Early aggressive treatment is key. Most people can achieve remission or low disease activity with modern drugs. Work closely with your rheumatologist.</p>",
@@ -202,7 +379,7 @@
   "/faq/what-is-juvenile-arthritis": {
     "title": "What is juvenile arthritis? | Living With Arthritis",
     "description": "Juvenile arthritis is arthritis in children under 16. Despite the name, it can persist into adulthood and requires early, aggressive treatment.",
-    "question": "What is juvenile arthritis?",
+    "question": "What is juvenile arthritis? Quick answer",
     "answer": "Juvenile arthritis is arthritis in children under 16. Despite the name, it can persist into adulthood and requires early, aggressive treatment.",
     "breadcrumb": "What is Juvenile Arthritis?",
     "bodyHtml": "<h2>Types of Juvenile Arthritis</h2><p>Oligoarticular JA (1-4 joints affected), polyarticular JA (5+ joints), systemic JA (fever, rash, whole-body symptoms). Each requires different treatment.</p><h2>Impact on Children</h2><p>Can affect growth, school attendance, social development, self-esteem. Early diagnosis and treatment are crucial to prevent permanent joint damage.</p><h2>Treatment</h2><p>DMARDs, biologics, physiotherapy, occupational therapy, psychology support. Prognosis has improved dramatically with modern medications.</p><h2>Support Available</h2><p>Specialist paediatric rheumatologists, school support, summer camps for kids with JA, benefits/allowances, family counselling.</p>",
@@ -250,16 +427,16 @@
     ]
   },
   "/faq/is-arthritis-a-disability": {
-    "title": "Is arthritis considered a disability? | Living With Arthritis",
-    "description": "Legally, yes — if it substantially limits your ability to do normal activities. This means you're protected by the Equality Act 2010.",
+    "title": "Is Arthritis a Disability? Everyday Impact and Rights",
+    "description": "Is arthritis a disability? Learn how substantial, long-term effects on everyday activities relate to disability rights, adjustments and further support.",
     "question": "Is arthritis considered a disability?",
-    "answer": "Legally, yes — if it substantially limits your ability to do normal activities. This means you're protected by the Equality Act 2010.",
+    "answer": "Arthritis can be considered a disability when it substantially and over the long term affects normal day-to-day activities. The effect on everyday life matters, not simply the diagnosis. This page explains the legal definition, substantial impact, rights and reasonable adjustments, with links to employment and benefits questions.",
     "breadcrumb": "Is Arthritis a Disability?",
-    "bodyHtml": "<h2>Legal Definition</h2><p>Under UK law, arthritis is a disability if it substantially and long-term limits your ability to carry out normal day-to-day activities. This includes work, self-care, mobility, relationships.</p><h2>What 'Substantial' Means</h2><p>More than minor or trivial impact. If arthritis stops you doing something most people do, it's substantial. Examples: unable to walk far, can't dress yourself, can't work full-time.</p><h2>Your Rights</h2><p>Protection from discrimination, access to reasonable adjustments, eligibility for benefits, right to flexible working, occupational health support at work.</p><h2>Telling People</h2><p>You don't have to disclose disability to employers unless you need adjustments. Some people worry about stigma, but disclosure often helps.</p>",
+    "bodyHtml": "<h2>Is arthritis a disability?</h2><p>Under UK law, arthritis can be a disability if it substantially and over the long term limits your ability to carry out normal day-to-day activities. This includes work, self-care, mobility and relationships. The diagnosis on its own is not enough.</p><h2>What 'Substantial' Means</h2><p>More than minor or trivial impact. If arthritis stops you doing something most people do, it's substantial. Examples: unable to walk far, can't dress yourself, can't work full-time.</p><h2>Your Rights</h2><p>If the effect on your day-to-day life is substantial and long-term, you may have protection from discrimination and can ask for reasonable adjustments at work. Benefits are not automatic; they depend on how your condition affects you, not on the diagnosis alone.</p><h2>Telling People</h2><p>You don't have to disclose disability to employers unless you need adjustments. Some people worry about stigma, but disclosure often helps.</p>",
     "faqs": [
       {
         "q": "Is arthritis considered a disability?",
-        "a": "Legally, yes — if it substantially limits your ability to do normal activities. This means you're protected by the Equality Act 2010."
+        "a": "Arthritis can be considered a disability when it substantially and over the long term affects normal day-to-day activities. The effect on everyday life matters, not simply the diagnosis. This page explains the legal definition, substantial impact, rights and reasonable adjustments, with links to employment and benefits questions."
       }
     ],
     "sources": [],

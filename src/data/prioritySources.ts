@@ -72,6 +72,8 @@ export const PRIORITY_SOURCES: Record<string, PrioritySourceEntry> = {
   "/conditions/psoriatic-arthritis": { sources: [S.nhsPsA, S.niceSpA, S.nicePsoriasis], redFlags: ["joint", "back"] },
   "/conditions/gout": { sources: [S.nhsGout, S.niceGout], redFlags: ["gout", "joint"] },
   "/conditions/ankylosing-spondylitis": { sources: [S.nhsAS, S.nhsBackPain, S.niceSpA, S.niceBack], redFlags: ["back"] },
+  "/conditions/back-pain": { sources: [S.nhsBackPain, S.niceBack, S.niceSpA], redFlags: ["back"] },
+  "/conditions/early-arthritis-symptoms": { sources: [S.nhsArthritis, S.nhsJointPain, S.niceOA, S.niceRA], redFlags: ["joint"] },
   "/conditions/knee-arthritis": { sources: [S.nhsKneePain, S.nhsOA, S.niceOA], redFlags: ["joint"] },
   "/conditions/hip-arthritis": { sources: [S.nhsHipPain, S.nhsOA, S.niceOA], redFlags: ["joint"] },
   "/conditions/hand-arthritis": { sources: [S.nhsHandPain, S.nhsOA, S.niceOA], redFlags: ["joint"] },

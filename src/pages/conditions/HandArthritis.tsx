@@ -1,3 +1,5 @@
+import ClusterGpAndLinks from "@/components/seo/ClusterGpAndLinks";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
 import UrgentHelpAndSources from "@/components/seo/UrgentHelpAndSources";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -26,6 +28,8 @@ const URL = `${BASE}/conditions/hand-arthritis`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
+  "reviewedBy": LOUIS_MAXWELL_REF,
+  "lastReviewed": "2026-10-26",
   "name": "Hand Arthritis – Symptoms, Exercises & Treatment | Living With Arthritis",
   "description": "UK guide to hand and finger arthritis: thumb base (CMC) arthritis, finger joint OA, symptoms, the best hand exercises, splints, topical treatments and surgical options.",
   "url": URL,
@@ -91,11 +95,11 @@ const Section = ({ icon: Icon, title, children }: { icon: React.ElementType; tit
 const HandArthritis = () => (
   <>
     <Helmet>
-      <title>Hand Arthritis | Symptoms, Treatment & Exercises (UK)</title>
-      <meta name="description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+      <title>Hand Arthritis: Symptoms, Exercises & Daily Tips (UK)</title>
+      <meta name="description" content="Painful, stiff fingers or weak grip? Learn the causes of hand arthritis, exercises, daily tips and when to see a GP. Reviewed by a physio." />
       <meta name="keywords" content="hand arthritis, finger arthritis, thumb arthritis, thumb base arthritis, CMC arthritis, Heberden's nodes, Bouchard's nodes, hand osteoarthritis, hand exercises arthritis, hand splint" />
       <meta property="og:title" content="Hand Arthritis – Symptoms, Exercises & Treatment" />
-      <meta property="og:description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+      <meta property="og:description" content="Painful, stiff fingers or weak grip? Learn the causes of hand arthritis, exercises, daily tips and when to see a GP. Reviewed by a physio." />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="en_GB" />
@@ -106,7 +110,7 @@ const HandArthritis = () => (
       <meta property="og:image:alt" content="Hand arthritis – symptoms, exercises and treatment guide" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Hand Arthritis – Symptoms, Exercises & Treatment" />
-      <meta name="twitter:description" content="Hand arthritis: Symptoms, functional strategies & adaptive equipment. Maintain independence with expert physiotherapy & practical aids." />
+      <meta name="twitter:description" content="Painful, stiff fingers or weak grip? Learn the causes of hand arthritis, exercises, daily tips and when to see a GP. Reviewed by a physio." />
       <meta name="twitter:image" content={`${BASE}/images/og-osteoarthritis.webp`} />
       <meta name="geo.region" content="GB" />
       <link rel="alternate" hrefLang="en-GB" href={URL} />
@@ -153,7 +157,7 @@ const HandArthritis = () => (
             severe thumb-base or finger arthritis that fails conservative care.
           </p>
         </AnswerBox>
-        <MedicalReviewBadge compact reviewer="Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
+        <MedicalReviewBadge compact reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="June 2026" />
       </section>
 
       <section className="py-12 lg:py-16 bg-tint-green">
@@ -335,6 +339,7 @@ const HandArthritis = () => (
             </Link>
           </div>
 
+      <ClusterGpAndLinks path="/conditions/hand-arthritis" />
       <UrgentHelpAndSources path="/conditions/hand-arthritis" />
       <EducationalDisclaimerBox lastReviewed={LAST_REVIEWED_ISO} />
       <TopicClusterNav path="/conditions/hand-arthritis" />

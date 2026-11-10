@@ -38,6 +38,21 @@ const NotFound = () => {
   const location = useLocation();
   const [query, setQuery] = useState("");
 
+  // A not-found URL must not declare itself canonical or advertise hreflang
+  // alternates (SeoDefaults emits both globally). Strip them while this page
+  // is mounted; the next route's Helmet render restores them.
+  useEffect(() => {
+    const strip = () => {
+      document.head
+        .querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang]')
+        .forEach((el) => el.remove());
+    };
+    strip();
+    const observer = new MutationObserver(strip);
+    observer.observe(document.head, { childList: true });
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   useEffect(() => {
     const missingPath = location.pathname + location.search;
     const referrer = typeof document !== "undefined" ? document.referrer : "";

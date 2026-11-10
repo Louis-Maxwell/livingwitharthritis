@@ -6,7 +6,15 @@
     <atom:link href="https://livingwitharthritis.org.uk/rss.xml" rel="self" type="application/rss+xml" />
     <description>Free, clinically reviewed arthritis guides from Living With Arthritis, registered charity 1218461.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 25 Oct 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 09:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Arthritis Pain Management: What Actually Helps Day by Day?</title>
+      <link>https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day</link>
+      <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day</guid>
+      <pubDate>Mon, 09 Nov 2026 09:00:00 GMT</pubDate>
+      <category>Pain &amp; flares</category>
+      <description>Practical, day-by-day arthritis pain management: how gentle movement, pacing, rest, heat or cold, everyday adaptations and healthcare support can fit together.</description>
+    </item>
     <item>
       <title>Arthritis Exercise for Beginners: Safe First Steps</title>
       <link>https://livingwitharthritis.org.uk/blog/arthritis-exercise-for-beginners</link>
@@ -912,12 +920,12 @@
       <description>Living with persistent joint pain naturally brings worry, but when persistent arthritis anxiety takes hold, it can make managing your physical symptoms significantly harder. Successfully managing…</description>
     </item>
     <item>
-      <title>Arthritis Fatigue Explained: Why It Happens and What Helps</title>
+      <title>Arthritis fatigue explained: why it happens and what helps (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/arthritis-fatigue-explained</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/arthritis-fatigue-explained</guid>
       <pubDate>Sat, 05 Sep 2026 09:00:00 GMT</pubDate>
       <category>Mental health &amp; fatigue</category>
-      <description>Arthritis fatigue is an overwhelming sense of physical and mental exhaustion that does not improve with sleep. It happens because your body uses vast amounts of energy fighting joint inflammation and…</description>
+      <description>Why arthritis causes fatigue, how it differs from ordinary tiredness, common contributing factors and practical, evidence-based ways to manage it.</description>
     </item>
     <item>
       <title>How Arthritis Medications Affect Sexual Function: DMARDs, Biologics and NSAIDs</title>
@@ -1045,7 +1053,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/anticholinergic-load-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Readers asking about anticholinergic load, arthritis medicines and frailty often need pacing, protein and practised transfers more than a gym plan.</description>
+      <description>What anticholinergic burden means, which common medicines may add to it, why it matters in frailty, and how to ask for a medicines review safely.</description>
     </item>
     <item>
       <title>Appetite loss, arthritis pain and frailty (UK)</title>
@@ -1053,7 +1061,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/appetite-loss-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Frailty is not 'giving up' — it is reduced reserve. Arthritis can accelerate that by making every transfer cost more. This article is about when pain.</description>
+      <description>Why appetite can drop with arthritis and frailty, the risks of unintentional weight loss, and practical ways to eat enough, plus when to see your GP.</description>
     </item>
     <item>
       <title>Attendance Allowance for Arthritis: Care Needs After State Pension Age</title>
@@ -1069,7 +1077,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/balance-painful-feet-frailty-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and foot osteoarthritis can make it more visible. This article is about steadying yourself.</description>
+      <description>How painful arthritic feet can affect balance in older people, safe balance practice, footwear, foot care and when to ask for a podiatry or falls review.</description>
     </item>
     <item>
       <title>Bereavement, living alone, arthritis and frailty (UK)</title>
@@ -1077,15 +1085,15 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/bereavement-arthritis-frailty-living-alone-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>When bereavement, living alone, arthritis and frailty is on your mind, treat shrinking range as useful information, not a personal failure. This article.</description>
+      <description>Coping after bereavement when you have arthritis and frailty and now live alone: grief, practical safety, staying connected and where to get support.</description>
     </item>
     <item>
-      <title>Blood pressure tablets, standing up and arthritic joints (UK)</title>
+      <title>Blood pressure tablets, dizziness and falls with arthritis (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/blood-pressure-tablets-falls-arthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/blood-pressure-tablets-falls-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>If everyday tasks at home feel like they are shrinking week by week, arthritis and frailty may be overlapping. Here we focus on dizziness on standing.</description>
+      <description>How blood pressure tablets can cause dizziness on standing and raise falls risk, simple precautions, and why you should ask for a review, not stop them.</description>
     </item>
     <item>
       <title>Getting to monitoring blood tests when travel is hard: patient transport, home visits and travel costs (UK guide)</title>
@@ -1112,12 +1120,12 @@
       <description>Steroids can thin bones. Ask about bone protection, DEXA scans, vitamin D and calcium, and falls prevention — never stop steroids yourself. UK guide.</description>
     </item>
     <item>
-      <title>Bunions, arthritis and frailty: shoes that still fit life (UK)</title>
+      <title>Bunions, arthritis and frailty: shoes that still fit (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/bunions-arthritis-frailty-shoes-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/bunions-arthritis-frailty-shoes-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>If you are navigating bunions, arthritis and frailty: shoes that still fit life, small steady habits usually beat all-or-nothing restarts. This article.</description>
+      <description>How bunions and toe arthritis affect older people, choosing shoes that fit, foot care, falls risk and when to ask about podiatry or surgery.</description>
     </item>
     <item>
       <title>Life in a care home with arthritis, pain and frailty (UK)</title>
@@ -1125,7 +1133,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/care-home-life-arthritis-pain-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Pain &amp; flares</category>
-      <description>In a care home, arthritis and frailty overlap in transfers, seating time and whether practice is still part of the day. Here we focus on asking for movement.</description>
+      <description>How people with arthritis and frailty can stay comfortable and active in a care home, including pain review, movement, meal times and dignity.</description>
     </item>
     <item>
       <title>Carer burnout when arthritis and frailty fill the week (UK)</title>
@@ -1133,7 +1141,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/carer-burnout-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Carers &amp; family</category>
-      <description>Carer burnout when arthritis and frailty fill the week (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Signs of carer burnout when caring for someone with arthritis and frailty, and practical help including carer's assessments, breaks and support lines.</description>
     </item>
     <item>
       <title>Carer's Assessments When You Care for Someone With Arthritis (UK)</title>
@@ -1173,31 +1181,31 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/commode-night-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Motion is lotion fits the clinical picture: small, regular movement protects reserve even when joints still hurt. This article is about cutting the scariest.</description>
+      <description>How a bedside commode can reduce night-time falls for people with arthritis and frailty, choosing one, safe use, and getting one through an OT.</description>
     </item>
     <item>
-      <title>Community alarms when arthritis and frailty raise falls risk (UK)</title>
+      <title>Community alarms for arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/community-alarm-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/community-alarm-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>This guide stays with community alarms when arthritis and frailty raise falls risk: what still moves safely, what to ask, and how to keep a steadier week.</description>
+      <description>How community alarms and pendant alarms work for people with arthritis and frailty, buttons for stiff fingers, fall detectors and how to get one.</description>
     </item>
     <item>
-      <title>Community matrons, arthritis and frailty (UK)</title>
+      <title>Community nurses and matrons, arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/community-matron-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/community-matron-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Families dealing with community matrons, arthritis and frailty usually notice skipped invitations and slower rooms before any clinic label. This guide covers.</description>
+      <description>What community nurses and matrons do for people with arthritis, frailty and several long-term conditions, how to access them and what to ask.</description>
     </item>
     <item>
-      <title>Waiting for community OT with arthritis and frailty (UK)</title>
+      <title>Waiting for a community occupational therapist with arthritis: what to do in the meantime (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/community-ot-waiting-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/community-ot-waiting-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>When waiting for community OT with arthritis and frailty is on your mind, treat shrinking range as useful information, not a personal failure.</description>
+      <description>Waiting for a community occupational therapist with arthritis: how to chase, stay safe at home, simple aids and when to ask for faster help (UK).</description>
     </item>
     <item>
       <title>Waiting for community physio with arthritis: what to do while you wait (UK guide)</title>
@@ -1208,12 +1216,12 @@
       <description>On a long wait for NHS community physio? Safe exercises to start now, self-referral, home visits, when to chase and when not to wait (UK).</description>
     </item>
     <item>
-      <title>Community strength classes for frail osteoarthritis (UK)</title>
+      <title>Community strength classes for frailty and osteoarthritis (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/community-strength-classes-frail-oa-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/community-strength-classes-frail-oa-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Here is a plain-English take on community strength classes for frail osteoarthritis when arthritis and lower reserve share the same week. This article.</description>
+      <description>Finding community strength and balance classes for osteoarthritis and frailty: what they involve, seated options, safety and how to find one locally.</description>
     </item>
     <item>
       <title>Community transport for arthritis and frailty (UK)</title>
@@ -1221,7 +1229,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/community-transport-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>In a UK home, the overlap of arthritis and frailty often shows up as shorter indoor range and a chair that becomes the day's HQ. Here we focus on getting.</description>
+      <description>How community transport, dial-a-ride, disabled bus passes and hospital transport can help people with arthritis and frailty get out and about in the UK.</description>
     </item>
     <item>
       <title>Comprehensive geriatric assessment in plain English if you have arthritis (UK)</title>
@@ -1237,7 +1245,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/compression-stockings-hand-oa-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Here is a plain-English take on compression stockings when hand osteoarthritis is severe, while arthritis and lower reserve share the same week.</description>
+      <description>Practical ways to put on and take off compression stockings when hand osteoarthritis makes gripping hard, including aids, alternatives and who can help.</description>
     </item>
     <item>
       <title>Scared of falling again? Rebuilding confidence after a fall with arthritis (UK guide)</title>
@@ -1253,7 +1261,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/constipation-pain-medicines-frailty-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>When several joints complain at once, boom-and-bust patterns get expensive — especially if recovery already takes days. This page explains bowels, pain.</description>
+      <description>Why some pain medicines cause constipation, how it affects frail people with arthritis, practical prevention, and when to seek help.</description>
     </item>
     <item>
       <title>Waking at night to pee with arthritis: causes, what helps and when to see a GP (UK guide)</title>
@@ -1264,12 +1272,12 @@
       <description>Why you wake at night to pee, drink and medicine timing, pelvic floor help, the NHS continence service and when to see a GP, with stiff joints (UK).</description>
     </item>
     <item>
-      <title>COPD, arthritis and frailty: breathlessness plus sore joints (UK)</title>
+      <title>COPD and arthritis: staying active when breathlessness and sore joints hold you back (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/copd-arthritis-frailty-breathlessness-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/copd-arthritis-frailty-breathlessness-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Pain &amp; flares</category>
-      <description>Arthritis with COPD and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at walking aids and pauses.</description>
+      <category>Exercise &amp; movement</category>
+      <description>Living with COPD and arthritis: safe breathlessness, pulmonary rehab adapted for sore joints, inhalers with stiff hands and when to get help (UK).</description>
     </item>
     <item>
       <title>Winter viruses and arthritis medicines: a UK guide to staying safe</title>
@@ -1285,7 +1293,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/day-centres-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Pain across several joints plus a slower bounce-back is a familiar later-life picture in the UK. This page explains company, a meal and a reason.</description>
+      <description>What day centres offer people with arthritis and frailty, how to find one, transport, costs and how to make the first visit easier.</description>
     </item>
     <item>
       <title>Getting your strength back after an arthritis flare or illness week (UK guide)</title>
@@ -1301,7 +1309,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/delirium-hospital-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Several sore joints and slower recovery often travel together; the useful question is what still moves safely this week. This page explains sudden confusion.</description>
+      <description>What delirium is, why older people with arthritis and frailty are at risk in hospital, signs for families to watch for and how it can be prevented.</description>
     </item>
     <item>
       <title>Dental care when arthritis, frailty and sore hands collide (UK)</title>
@@ -1309,7 +1317,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/dental-care-arthritis-frailty-hands-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Pain &amp; flares</category>
-      <description>A practical UK guide to dental care when arthritis, frailty and sore hands collide, written for days when energy and joints both feel limited.</description>
+      <description>Practical ways to keep teeth, gums and dentures clean when arthritis affects your hands and frailty limits energy, plus dental access and home visits.</description>
     </item>
     <item>
       <title>Low mood and depression with osteoarthritis and frailty (UK)</title>
@@ -1325,7 +1333,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/diabetes-arthritis-frailty-feet-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and arthritis with diabetes can make it more visible. This article is about foot risk.</description>
+      <description>Why feet need extra care when you have diabetes, arthritis and frailty, daily foot checks, nail care, footwear and when to seek urgent help.</description>
     </item>
     <item>
       <title>Direct Payments for care when arthritis and frailty overlap (UK)</title>
@@ -1333,7 +1341,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/direct-payments-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Here is a plain-English take on direct Payments for care when arthritis and frailty overlap, while arthritis and lower reserve share the same week.</description>
+      <description>How Direct Payments work if you need care because of arthritis and frailty, who can get them, what they can pay for and things to consider in the UK.</description>
     </item>
     <item>
       <title>Disabled Facilities Grants for arthritis and frailty (UK)</title>
@@ -1349,7 +1357,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/discharge-planning-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>In hospital, arthritis and frailty together often mean more time in bed, fewer practised transfers, and a slower discharge. Here we focus on going home.</description>
+      <description>How hospital discharge planning works for people with arthritis and frailty, questions to ask, equipment, reablement and support at home.</description>
     </item>
     <item>
       <title>Dosette boxes, blister packs and tablets when arthritis affects your hands (UK guide)</title>
@@ -1365,7 +1373,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/downstairs-living-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>For temporary downstairs living with arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.</description>
+      <description>How to plan temporary downstairs living when stairs become hard with arthritis and frailty, including beds, toileting, washing and longer-term options.</description>
     </item>
     <item>
       <title>Elbow osteoarthritis and frailty: kitchen tasks with less pain (UK)</title>
@@ -1381,7 +1389,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/end-of-life-joint-pain-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Pain &amp; flares</category>
-      <description>Motion is lotion in a care home is often short corridors and chair practice, not a gym story. Here we focus on comfort, positioning and dignity.</description>
+      <description>Managing joint pain comfortably near the end of life or when frailty is advanced: positioning, medicines, care planning and palliative support.</description>
     </item>
     <item>
       <title>Faith groups, access and arthritis-related frailty (UK)</title>
@@ -1389,7 +1397,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/faith-groups-arthritis-frailty-access-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Faith groups, access and arthritis-related frailty (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>How people with arthritis and frailty can keep taking part in faith communities, including access, seating, home visits and spiritual care.</description>
     </item>
     <item>
       <title>Falls clinic with arthritis: what to expect (UK)</title>
@@ -1397,7 +1405,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/falls-clinic-arthritis-what-to-expect-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Arthritis is common across the UK; frailty is less so — but when they overlap, days can shrink faster than joint pain alone would suggest. This guide covers.</description>
+      <description>What happens at a falls clinic or falls assessment if you have arthritis, how to prepare, and the help that may follow, such as strength and balance training.</description>
     </item>
     <item>
       <title>Community falls response if you live with arthritis (UK)</title>
@@ -1405,7 +1413,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/falls-response-service-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Tell staff what is new this week versus your usual arthritis — scales cannot guess the difference. This article is about who to call if you fall and cannot.</description>
+      <description>What happens if you fall and cannot get up, how falls response services and alarms work, getting up safely, and follow-up after a fall with arthritis.</description>
     </item>
     <item>
       <title>Is it an arthritis flare or something else? Warning signs and who to call (UK guide)</title>
@@ -1429,7 +1437,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/foot-ankle-osteoarthritis-frailty-indoor-walking-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Painful feet plus slower recovery is a common UK picture in later life. This page explains indoor walking when feet and ankles ache if you live with foot.</description>
+      <description>Walking safely indoors with foot and ankle osteoarthritis and frailty: footwear, insoles, clear routes, aids and when to see a podiatrist.</description>
     </item>
     <item>
       <title>Indoor footwear: slippers, frailty and arthritis (UK)</title>
@@ -1437,7 +1445,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/footwear-indoor-slippers-frailty-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Indoor footwear: slippers, frailty and arthritis (UK). Practical educational UK guidance for people living with arthritis.</description>
+      <description>How to choose safer indoor footwear and slippers when you have arthritis and frailty, what to avoid, and when to ask for podiatry or footwear advice.</description>
     </item>
     <item>
       <title>The Fried frailty phenotype when joints are painful (UK)</title>
@@ -1448,12 +1456,12 @@
       <description>What the Fried frailty phenotype measures, how arthritis pain can affect the five criteria, how it differs from the Clinical Frailty Scale, and what you can do.</description>
     </item>
     <item>
-      <title>Gabapentinoids, unsteadiness and arthritis in later life (UK)</title>
+      <title>Gabapentin, pregabalin and unsteadiness in later life (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/gabapentinoids-unsteadiness-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/gabapentinoids-unsteadiness-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Keep expectations kind: pain in several joints plus frailty is a reason to simplify the day, not to stop moving altogether. This page explains dizziness.</description>
+      <description>How gabapentin and pregabalin can cause dizziness and drowsiness in older people with arthritis, falls risk, and questions to ask about your medicines.</description>
     </item>
     <item>
       <title>Raised beds and perch seating for frail gardeners with arthritis (UK)</title>
@@ -1461,7 +1469,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/garden-raised-beds-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Raised beds and perch seating for frail gardeners with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>How raised beds, perch seats and adapted tools help people with arthritis and frailty keep gardening, including allotments and protecting a stiff back.</description>
     </item>
     <item>
       <title>Generalised osteoarthritis and frailty: planning a whole-body day (UK)</title>
@@ -1469,7 +1477,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/generalised-oa-frailty-whole-body-day-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and generalised osteoarthritis can make it more visible. This article is about a day plan.</description>
+      <description>How to plan the day when osteoarthritis affects several joints and frailty limits energy, including pacing, movement, rest and getting help.</description>
     </item>
     <item>
       <title>Gout in winter: dehydration, uric acid and flares (UK guide)</title>
@@ -1485,15 +1493,15 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/gp-frailty-register-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>When more than one joint hurts, the cost shows up as shorter walks, longer rests and a home that rearranges itself around the chair. This page explains.</description>
+      <description>What it means to be identified as frail by your GP practice, how this can help people with arthritis, and questions to ask about reviews and support.</description>
     </item>
     <item>
-      <title>Asking for a GP home visit if arthritis and frailty trap you indoors (UK)</title>
+      <title>Asking for a GP home visit when arthritis and frailty keep you indoors (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/gp-home-visit-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/gp-home-visit-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>If you are navigating asking for a GP home visit if arthritis and frailty trap you indoors, small steady habits usually beat all-or-nothing restarts.</description>
+      <description>When you might ask for a GP home visit with arthritis and frailty, how to request one, other options such as phone appointments, and when to call 111 or 999.</description>
     </item>
     <item>
       <title>Grab rails at home: arthritis, frailty and safer rooms (UK)</title>
@@ -1501,7 +1509,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/grab-rails-arthritis-frailty-home-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>This guide stays with grab rails at home: arthritis, frailty and safer rooms: what still moves safely, what to ask, and how to keep a steadier week.</description>
+      <description>Where grab rails help most for people with arthritis and frailty, choosing rails for painful hands, getting them fitted and help with costs in the UK.</description>
     </item>
     <item>
       <title>Grandparenting with arthritis and frailty (UK)</title>
@@ -1509,7 +1517,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/grandparenting-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>This guide stays with grandparenting with arthritis and frailty: what still moves safely, what to ask, and how to keep a steadier week. This UK guide.</description>
+      <description>Enjoying time with grandchildren when you have arthritis and frailty: seated activities, lifting safely, pacing visits and telling family what helps.</description>
     </item>
     <item>
       <title>Hand osteoarthritis: easier dressing, cooking and grip day to day (UK guide)</title>
@@ -1520,12 +1528,12 @@
       <description>Practical help for hand osteoarthritis: easier dressing, washing and kitchen tasks, simple aids, hand exercises, splints and when to see a GP (UK).</description>
     </item>
     <item>
-      <title>Hand therapy for frail adults with rheumatoid arthritis (UK)</title>
+      <title>Hand therapy for rheumatoid arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/hand-therapy-frail-ra-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hand-therapy-frail-ra-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>When hand therapy for frail adults with rheumatoid arthritis is on your mind, treat shrinking range as useful information, not a personal failure.</description>
+      <description>How hand therapy helps rheumatoid arthritis with frailty: splints, joint protection, exercises and gadgets, getting referred and keeping up with treatment.</description>
     </item>
     <item>
       <title>Heart failure, arthritis and frailty: pacing two conditions (UK)</title>
@@ -1533,7 +1541,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/heart-failure-arthritis-frailty-overlap-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Pain &amp; flares</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and arthritis with heart failure can make it more visible. This article is about legs that swell, j.</description>
+      <description>Living with heart failure and arthritis when frail: pacing activity, medicines that need care, swollen ankles, and symptoms that need urgent help.</description>
     </item>
     <item>
       <title>Heat and cold packs with thin skin, numbness or diabetes: using them safely (UK guide)</title>
@@ -1549,7 +1557,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/heatwave-arthritis-frailty-hydration-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>UK home life shapes heatwaves, arthritis and frailty as much as any clinic score — kettle, bathroom, stairs and night trips count. This UK guide.</description>
+      <description>How hot weather affects older and frail people with arthritis, staying cool and hydrated, medicines in heat, and signs of heat exhaustion.</description>
     </item>
     <item>
       <title>Living in a high-rise flat with arthritis and frailty (UK)</title>
@@ -1560,12 +1568,12 @@
       <description>Practical tips for living in an upstairs or high-rise flat with arthritis and frailty: broken lifts, stairs, deliveries, fire safety and getting help.</description>
     </item>
     <item>
-      <title>Hip and knee osteoarthritis together: frailty-friendly transfers (UK)</title>
+      <title>Hip and knee osteoarthritis: safer ways to get up from a chair, bed, toilet and car (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/hip-and-knee-oa-frailty-transfers-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hip-and-knee-oa-frailty-transfers-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Conditions</category>
-      <description>When hip and knee osteoarthritis meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on bed.</description>
+      <category>Exercise &amp; movement</category>
+      <description>Hip and knee osteoarthritis: safer ways to stand from a chair, get in and out of bed, use the toilet and get into a car, plus aids that help (UK).</description>
     </item>
     <item>
       <title>Hip osteoarthritis and frailty: turning in bed and getting up (UK)</title>
@@ -1581,7 +1589,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hip-oa-frailty-getting-into-car-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and hip osteoarthritis can make it more visible. This article is about car transfers when hips.</description>
+      <description>Step-by-step tips for getting in and out of a car with painful hip osteoarthritis and frailty, plus aids such as swivel cushions and handy bars.</description>
     </item>
     <item>
       <title>Hip osteoarthritis and frailty: getting out of a chair more safely (UK)</title>
@@ -1592,20 +1600,20 @@
       <description>How to stand up from a chair more safely with hip osteoarthritis and frailty: technique, seat height, chair raisers, practice and when to get help.</description>
     </item>
     <item>
-      <title>Hoist conversations for family carers of people with arthritis (UK)</title>
+      <title>Talking about hoists with family carers (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/hoist-conversations-family-carers-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hoist-conversations-family-carers-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Carers &amp; family</category>
-      <description>This guide stays with hoist conversations for family carers of people with arthritis: what still moves safely, what to ask, and how to keep a steadier week.</description>
+      <description>How families can talk about using a hoist for someone with arthritis and frailty: assessment, training, dignity, and getting equipment from the council.</description>
     </item>
     <item>
-      <title>Hospital appointments when frailty and arthritis make the day huge (UK)</title>
+      <title>Hospital appointments with arthritis: transport, parking, waiting rooms and asking for help (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hospital-appointments-frailty-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Living With Arthritis covers hospital appointments when frailty and arthritis make the day huge without miracle claims — just safer movement and clearer next.</description>
+      <description>Making hospital appointments easier with arthritis: free patient transport, parking, travel costs, adjustments to ask for and what to take (UK).</description>
     </item>
     <item>
       <title>Avoiding deconditioning in hospital when you have arthritis (UK)</title>
@@ -1616,12 +1624,12 @@
       <description>How time in bed during a hospital stay can weaken older people with arthritis and frailty, and what you and your family can do to stay active and recover.</description>
     </item>
     <item>
-      <title>Hospital stays with arthritis and frailty: what to pack and ask (UK)</title>
+      <title>Hospital stay with arthritis and frailty: what to pack (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/hospital-stay-arthritis-frailty-what-to-pack-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hospital-stay-arthritis-frailty-what-to-pack-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Reserve is rebuildable for some people: strength work, protein and treating flares can shift frailty even if arthritis remains. This article is about keeping.</description>
+      <description>What to pack for a hospital stay when you have arthritis and frailty: medicines, aids, footwear, comfort items and information for staff.</description>
     </item>
     <item>
       <title>Hydration, gout and frailty in older adults (UK)</title>
@@ -1629,7 +1637,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hydration-gout-frailty-older-adults-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>When gout meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on drinks that support joints without f.</description>
+      <description>Why drinking enough matters for gout and frailty in older adults, practical ways to stay hydrated, and how gout treatment and diet fit together.</description>
     </item>
     <item>
       <title>Ice and snow with arthritis: staying steady and what to do if you fall (UK guide)</title>
@@ -1653,15 +1661,15 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/injections-knee-frail-adults-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>A practical UK guide to knee injections in frail adults: questions worth asking, written for days when energy and joints both feel limited. This guide covers.</description>
+      <description>What knee injections for osteoarthritis can and cannot do, which injections NICE recommends, and questions frail adults may want to ask before having one.</description>
     </item>
     <item>
-      <title>Intermediate care beds after arthritis-related deconditioning (UK)</title>
+      <title>Intermediate care for people with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/intermediate-care-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/intermediate-care-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Bring a list of usual arthritis limits — staff cannot guess which transfers were hard before admission. Here we focus on a stepping-stone stay before home.</description>
+      <description>What intermediate care is, the types of short-term support after hospital or to avoid admission, costs and how to make the most of it with arthritis.</description>
     </item>
     <item>
       <title>Joint replacement decisions when frailty is already present (UK)</title>
@@ -1669,23 +1677,23 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/joint-replacement-decision-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Surgery &amp; recovery</category>
-      <description>If you are navigating joint replacement decisions when frailty is already present, small steady habits usually beat all-or-nothing restarts.</description>
+      <description>How frailty affects decisions about hip or knee replacement, questions to ask, anaesthetic considerations, prehabilitation and planning recovery.</description>
     </item>
     <item>
-      <title>Kitchen adaptations when arthritis and frailty share the house (UK)</title>
+      <title>Kitchen adaptations for arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/kitchen-adaptations-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/kitchen-adaptations-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>A practical UK guide to kitchen adaptations when arthritis and frailty share the house, written for days when energy and joints both feel limited.</description>
+      <description>Practical kitchen adaptations for arthritis and frailty: layout, equipment, safe use of kettles and hot pans, and what an occupational therapist can do.</description>
     </item>
     <item>
-      <title>Knee osteoarthritis and frailty: stairs, banisters and rest stops (UK)</title>
+      <title>Knee osteoarthritis and frailty: stairs and banisters (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/knee-oa-frailty-stairs-banisters-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/knee-oa-frailty-stairs-banisters-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Living With Arthritis covers knee osteoarthritis and frailty: stairs, banisters and rest stops without miracle claims — just safer movement and clearer next.</description>
+      <description>Managing stairs with knee osteoarthritis and frailty: step technique, banisters, lighting, strength exercises and when to ask about a second rail.</description>
     </item>
     <item>
       <title>Knee osteoarthritis: staying steady at home and avoiding falls (UK guide)</title>
@@ -1701,7 +1709,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/lasting-power-of-attorney-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>For lasting power of attorney conversations in arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become.</description>
+      <description>What a lasting power of attorney is, the two types, how to make one in England and Wales, how other UK nations differ, and starting the conversation.</description>
     </item>
     <item>
       <title>Diagnosed with rheumatoid arthritis later in life: the first months (UK guide)</title>
@@ -1720,12 +1728,12 @@
       <description>A falls plan if you live alone with arthritis: alarms you can press, daily check-ins, key safes, getting up from the floor and who to call (UK).</description>
     </item>
     <item>
-      <title>Loneliness, arthritis and frailty: rebuilding social contact (UK)</title>
+      <title>Loneliness and arthritis: rebuilding social contact when pain keeps you at home (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/loneliness-arthritis-frailty-social-contact-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/loneliness-arthritis-frailty-social-contact-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Mental health &amp; fatigue</category>
-      <description>If walking, rising and recovering all feel harder, arthritis and frailty may be overlapping even without a formal label. This UK guide looks at isolation.</description>
+      <description>When arthritis keeps you in: small steps to see people again, phone friendship lines, befriending, social prescribing and help for low mood (UK).</description>
     </item>
     <item>
       <title>Lymphoedema, arthritis and frailty: heavy limbs (UK)</title>
@@ -1733,15 +1741,15 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/lymphoedema-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Lymphoedema, arthritis and frailty: heavy limbs (UK). Practical educational UK guidance for people living with arthritis.</description>
+      <description>What lymphoedema is, how it can affect people with arthritis and frailty, skin care, compression, movement, and when swelling needs urgent attention.</description>
     </item>
     <item>
-      <title>Meal delivery services when arthritis and frailty shrink cooking (UK)</title>
+      <title>Meal delivery and help with food when arthritis makes cooking hard (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/meal-delivery-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/meal-delivery-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>When arthritis makes frailty more visible, the goal is not a perfect body — it is a steadier week at home. This article is about ready meals as a bridge.</description>
+      <description>When arthritis makes cooking hard: meals on wheels, frozen meal delivery, online shopping, help from the council and eating well enough (UK).</description>
     </item>
     <item>
       <title>Methotrexate in later life: blood tests, infections, vaccines and safety (UK guide)</title>
@@ -1757,7 +1765,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/mobility-scooter-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>For mobility scooters, arthritis and frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.</description>
+      <description>Whether a mobility scooter could help with arthritis and frailty, the UK rules, choosing and trying one, storage, costs and keeping active alongside it.</description>
     </item>
     <item>
       <title>Morning stiffness and frailty: a slower start that still starts (UK)</title>
@@ -1765,31 +1773,31 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/morning-stiffness-frailty-routine-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Pain &amp; flares</category>
-      <description>Living With Arthritis covers morning stiffness and frailty: a slower start that still starts without miracle claims — just safer movement and clearer next.</description>
+      <description>Practical morning routines when arthritis stiffness and frailty make getting up hard, plus when long morning stiffness may need a medical review.</description>
     </item>
     <item>
-      <title>Multimorbidity, arthritis and frailty: looking at the whole picture (UK)</title>
+      <title>Multimorbidity: arthritis, frailty and several conditions together (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/multimorbidity-arthritis-frailty-whole-picture-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/multimorbidity-arthritis-frailty-whole-picture-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and arthritis can make it more visible day to day. This article is about several long-term.</description>
+      <description>Living with arthritis, frailty and other long-term conditions: why a whole-picture approach matters, medicine reviews and planning care around you.</description>
     </item>
     <item>
-      <title>Naps versus inactivity in arthritis and frailty (UK)</title>
+      <title>Naps or inactivity? Rest and arthritis when you are frail (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/naps-versus-inactivity-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/naps-versus-inactivity-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Naps versus inactivity in arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis.</description>
+      <description>Balancing rest and activity with arthritis and frailty: when naps help, how long sitting can stiffen joints, and simple ways to break up the day.</description>
     </item>
     <item>
-      <title>Neck osteoarthritis and frailty: looking down, dizziness and balance (UK)</title>
+      <title>Neck osteoarthritis, frailty and balance when looking down (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/neck-osteoarthritis-frailty-balance-looking-down-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/neck-osteoarthritis-frailty-balance-looking-down-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and neck osteoarthritis can make it more visible. This article is about balance when looking.</description>
+      <description>How neck osteoarthritis can affect balance and looking down at your feet or steps, practical safety tips, exercises and when to seek help.</description>
     </item>
     <item>
       <title>Frailty services and arthritis across the UK: England, Wales, Scotland and NI</title>
@@ -1797,7 +1805,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/nhs-frailty-pathway-arthritis-england</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>How frailty services work for older people with arthritis in England, Wales, Scotland and Northern Ireland, and who to ask in each nation.</description>
+      <description>How frailty services work across the UK, what they can offer people with arthritis, how to ask for an assessment and how they fit with arthritis care.</description>
     </item>
     <item>
       <title>Night lights and safer night-time trips to the toilet with arthritis (UK guide)</title>
@@ -1808,52 +1816,52 @@
       <description>Safer night-time trips to the toilet with stiff joints: lighting the route, getting up slowly, footwear, clearing hazards and when to see a GP (UK).</description>
     </item>
     <item>
-      <title>999 versus NHS 111 when arthritis, frailty and a crisis collide (UK)</title>
+      <title>999 or 111? Getting the right help with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/nine-nine-nine-vs-111-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/nine-nine-nine-vs-111-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>A practical UK guide to 999 versus NHS 111 when arthritis, frailty and a crisis collide, written for days when energy and joints both feel limited.</description>
+      <description>When to call 999, NHS 111 or your GP if you have arthritis and frailty: emergencies, urgent problems, hot swollen joints, falls and what to have ready.</description>
     </item>
     <item>
-      <title>Nordic poles, arthritis and frailty (UK)</title>
+      <title>Nordic walking poles for arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/nordic-poles-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/nordic-poles-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Nordic poles, arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Information only — not a personal diagnosis.</description>
+      <description>Whether Nordic walking poles suit people with arthritis and frailty, how they differ from sticks, grip tips for sore hands, and getting advice first.</description>
     </item>
     <item>
-      <title>Insoles and orthotics for frail adults with arthritis (UK)</title>
+      <title>Orthotics and insoles for arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/orthotics-insoles-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/orthotics-insoles-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Insoles and orthotics for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>How insoles and orthotics may help foot, knee and ankle arthritis with frailty: getting assessed, footwear that fits them, and limits of the evidence.</description>
     </item>
     <item>
-      <title>Osteoporosis, arthritis and frailty: protecting bone and joint together (UK)</title>
+      <title>Osteoporosis and arthritis together: bone scans, falls, exercise and medicines (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/osteoporosis-arthritis-frailty-bone-joint-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/osteoporosis-arthritis-frailty-bone-joint-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Osteoporosis, arthritis and frailty: protecting bone and joint toge . Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Osteoporosis and arthritis together: how they differ, who needs a bone scan, safe exercise, falls, calcium and vitamin D, and bone medicines (UK).</description>
     </item>
     <item>
-      <title>Outdoor steps and handrails when arthritis meets frailty (UK)</title>
+      <title>Outdoor steps, handrails and thresholds with arthritis (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/outdoor-steps-handrails-arthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/outdoor-steps-handrails-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>For outdoor steps and handrails when arthritis meets frailty, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.</description>
+      <description>Making outdoor steps, paths and door thresholds safer with arthritis and frailty: handrails, lighting, ramps, assessment and help with costs.</description>
     </item>
     <item>
-      <title>Pacing housework when arthritis and frailty share the chores (UK)</title>
+      <title>Pacing housework with arthritis: cleaning, laundry and chores without the payback (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/pacing-housework-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pacing-housework-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Pain &amp; flares</category>
-      <description>A frailty-aware note on pacing housework when arthritis and frailty share the chores: protect joints, keep muscle working, and plan the hardest transfer.</description>
+      <category>Diet &amp; lifestyle</category>
+      <description>Pacing housework with arthritis: split chores, sit for jobs, use easier tools, plan visitors and weekends, and know when to ask for help at home (UK).</description>
     </item>
     <item>
       <title>Pain clinics for older frail adults with arthritis (UK)</title>
@@ -1861,7 +1869,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pain-clinic-older-frail-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>When arthritis and frailty meet on a ward, ask early about movement plans, protein and how you will manage at home. Here we focus on pain programmes.</description>
+      <description>What NHS pain clinics offer older and frail people with arthritis, referral, what to expect, and how medicines and non-drug approaches fit together.</description>
     </item>
     <item>
       <title>Painkillers in later life with arthritis: safer use and what to check (UK guide)</title>
@@ -1872,12 +1880,12 @@
       <description>Why painkillers need more care with age and arthritis: what NICE says, anti-inflammatory and codeine risks, hidden paracetamol and when to get help.</description>
     </item>
     <item>
-      <title>Pets, dog walking and frailty if you have arthritis (UK)</title>
+      <title>Pets, dog walking and arthritis with frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/pets-arthritis-frailty-walking-dogs-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pets-arthritis-frailty-walking-dogs-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>When pets, dog walking and frailty if you have arthritis is on your mind, treat shrinking range as useful information, not a personal failure.</description>
+      <description>Keeping a pet with arthritis and frailty: safer dog walking, avoiding falls from leads and trips, help with care, and planning ahead for your pet.</description>
     </item>
     <item>
       <title>Medication reviews with arthritis: how to get one and what to ask your pharmacist (UK guide)</title>
@@ -1893,31 +1901,31 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/physiotherapy-home-visit-frail-oa-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Here is a plain-English take on home-visit physiotherapy for frail osteoarthritis when arthritis and lower reserve share the same week. This page explains.</description>
+      <description>When home physiotherapy may be offered for frail people with osteoarthritis, what a visit involves, and how to keep up strength exercises between visits.</description>
     </item>
     <item>
-      <title>Polymyalgia rheumatica and frailty: morning stiffness versus muscle loss (UK)</title>
+      <title>Polymyalgia rheumatica, frailty and morning stiffness (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/pmr-frailty-morning-stiffness-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pmr-frailty-morning-stiffness-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Pain &amp; flares</category>
-      <description>When polymyalgia rheumatica meets frailty, everyday tasks in a home can shrink faster than the joints alone would suggest. Here we focus on telling PMR stiffn.</description>
+      <description>What polymyalgia rheumatica is, typical symptoms in older people, steroid treatment and side effects, and urgent warning signs of giant cell arteritis.</description>
     </item>
     <item>
-      <title>PMR steroid tapering and frailty: rebuilding strength slowly (UK)</title>
+      <title>PMR steroid tapering, frailty and muscle weakness (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/pmr-steroid-taper-frailty-weakness-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pmr-steroid-taper-frailty-weakness-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and polymyalgia rheumatica can make it more visible. This article is about strength after.</description>
+      <description>How steroids for polymyalgia rheumatica are reduced slowly, why muscle weakness and frailty matter, bone protection, and staying strong during treatment.</description>
     </item>
     <item>
-      <title>Podiatry and footcare for frail adults with arthritis (UK)</title>
+      <title>Podiatry and foot care with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/podiatry-footcare-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/podiatry-footcare-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Podiatry and footcare for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Foot care when arthritis makes reaching feet hard: nails, calluses and pressure spots, footwear, NHS podiatry referral and when to seek help quickly.</description>
     </item>
     <item>
       <title>After a hip replacement: coming home when you are frail (UK)</title>
@@ -1928,28 +1936,28 @@
       <description>What to expect in the first weeks at home after a hip replacement if you are frail: exercises, equipment, pain relief, warning signs and support.</description>
     </item>
     <item>
-      <title>After knee replacement: frailty-aware rehabilitation (UK)</title>
+      <title>After knee replacement when you are frail: rehabilitation at home (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/post-knee-replacement-frailty-rehab-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/post-knee-replacement-frailty-rehab-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Surgery &amp; recovery</category>
-      <description>After knee replacement: frailty-aware rehabilitation (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Recovering from knee replacement when frail: exercises, pain relief, swelling, safety at home, and warning signs to report after surgery.</description>
     </item>
     <item>
-      <title>Prehabilitation for frail adults with arthritis facing surgery (UK)</title>
+      <title>Prehabilitation before joint surgery when you are frail (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/prehabilitation-frail-arthritis-before-surgery-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/prehabilitation-frail-arthritis-before-surgery-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Surgery &amp; recovery</category>
-      <description>Readers asking about prehabilitation for frail adults with arthritis facing surgery often need pacing, protein and practised transfers more than a gym plan.</description>
+      <description>How to prepare body and home before hip or knee surgery when frail: strength exercises, nutrition, medicines, smoking and planning for coming home.</description>
     </item>
     <item>
-      <title>Pressure cushions when arthritis keeps you sitting (UK)</title>
+      <title>Pressure cushions for arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/pressure-cushion-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pressure-cushion-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>This guide stays with pressure cushions when arthritis keeps you sitting: what still moves safely, what to ask, and how to keep a steadier week.</description>
+      <description>How pressure-relieving cushions can protect skin for people with arthritis and frailty who sit for long periods, getting assessed, and checking skin.</description>
     </item>
     <item>
       <title>Getting enough protein when arthritis makes cooking and eating hard (UK guide)</title>
@@ -1960,12 +1968,12 @@
       <description>Easy, no-cook protein when arthritis makes cooking, opening packets or chewing hard: food ideas, little and often, and when to get help (UK).</description>
     </item>
     <item>
-      <title>Psoriatic arthritis in later life: joints, skin and frailty (UK)</title>
+      <title>Psoriatic arthritis in later life and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-later-life-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/psoriatic-arthritis-later-life-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Psoriatic arthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at psoriatic arthritis.</description>
+      <description>How psoriatic arthritis can affect older people, how it overlaps with frailty, treatment considerations in later life and practical ways to stay active.</description>
     </item>
     <item>
       <title>RA fatigue in later life: pacing, sleep, mood and when tiredness needs checking (UK guide)</title>
@@ -2000,28 +2008,28 @@
       <description>What reablement is, how it helps you regain independence after hospital when you have arthritis, how to get it, what it costs and how to make the most of it.</description>
     </item>
     <item>
-      <title>Remote GP apps when arthritis and frailty limit travel (UK)</title>
+      <title>Remote GP apps and online access with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/remote-gp-apps-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/remote-gp-apps-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Remote GP apps when arthritis and frailty limit travel (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Using the NHS App and online GP services with arthritis and frailty: booking, prescriptions, records, proxy access for family and when to call instead.</description>
     </item>
     <item>
-      <title>Repeat prescriptions when leaving the house is the hard part (UK)</title>
+      <title>Repeat prescriptions with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/repeat-prescriptions-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/repeat-prescriptions-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Here is a plain-English take on repeat prescriptions when leaving the house is the hard part, while arthritis and lower reserve share the same week.</description>
+      <description>Managing repeat prescriptions with arthritis and frailty: ordering through the NHS App, pharmacy delivery, easy-open packaging and medicine reviews.</description>
     </item>
     <item>
-      <title>Respite care for families living with arthritis and frailty (UK)</title>
+      <title>Respite care for carers of people with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/respite-care-arthritis-frailty-carers-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/respite-care-arthritis-frailty-carers-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Carers &amp; family</category>
-      <description>Respite care for families living with arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>What respite care is, types of short breaks, how to arrange a carer's assessment, and who may pay, for carers of people with arthritis and frailty.</description>
     </item>
     <item>
       <title>Preparing for a rheumatology appointment later in life: what to bring, what to ask and what happens next (UK guide)</title>
@@ -2032,12 +2040,12 @@
       <description>How to prepare for a rheumatology appointment later in life: what to bring, questions to ask, bringing someone with you and what happens next (UK).</description>
     </item>
     <item>
-      <title>Rise-recline chairs for arthritis and frailty (UK)</title>
+      <title>Rise and recline chairs for arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/rise-recline-chair-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/rise-recline-chair-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Arthritis is about joints and pain; frailty is about muscle, stamina, appetite and bounce-back. They often share the same week. This article is about.</description>
+      <description>Whether a rise and recline chair could help with arthritis and frailty, what to check before buying, the risks, and how to get advice from an occupational therapist.</description>
     </item>
     <item>
       <title>Rural living with arthritis and frailty (UK)</title>
@@ -2045,7 +2053,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/rural-living-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Rural living with arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Information only — not a personal diagnosis.</description>
+      <description>Living rurally with arthritis and frailty: transport, getting care and equipment, staying connected, home safety and planning ahead for bad weather.</description>
     </item>
     <item>
       <title>Sarcopenia and knee osteoarthritis: the frailty overlap (UK)</title>
@@ -2053,7 +2061,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/sarcopenia-knee-oa-frailty-overlap-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Painful knees plus slower recovery is a common UK picture in later life. This page explains muscle loss that makes knee osteoarthritis harder to live.</description>
+      <description>How age-related muscle loss (sarcopenia) and knee osteoarthritis affect each other, and how strength exercise and good nutrition can help in later life.</description>
     </item>
     <item>
       <title>Seated strength exercises for osteoarthritis: how to make chair exercise build strength (UK guide)</title>
@@ -2069,7 +2077,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/sheltered-housing-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>UK services vary by nation, but the home pattern is shared: shorter range, longer recovery, fewer invitations answered. This UK guide looks at alarms.</description>
+      <description>What sheltered and extra care housing offer people with arthritis and frailty, how they differ, questions to ask and how to apply in the UK.</description>
     </item>
     <item>
       <title>Shingles vaccine and arthritis: who is eligible and is it safe with your medicines? (UK guide)</title>
@@ -2080,36 +2088,36 @@
       <description>NHS shingles vaccine eligibility at 65, 70 to 79 or on strong immune-suppressing medicines, safety with prednisolone, side effects, early shingles signs.</description>
     </item>
     <item>
-      <title>Online food shops for frail adults with arthritis (UK)</title>
+      <title>Online shopping with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/shopping-online-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/shopping-online-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>When online food shops for frail adults with arthritis is on your mind, treat shrinking range as useful information, not a personal failure.</description>
+      <description>Tips for shopping online for food and essentials when arthritis and frailty make shops hard: priority slots, easy packaging, and meals and drinks.</description>
     </item>
     <item>
-      <title>Short accessible breaks for frail adults with arthritis (UK)</title>
+      <title>Accessible short breaks with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/short-breaks-accessible-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/short-breaks-accessible-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>For short accessible breaks for frail adults with arthritis, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.</description>
+      <description>Planning an accessible short break with arthritis and frailty: questions to ask, travel help, medicines, pacing and enjoying a holiday at home.</description>
     </item>
     <item>
-      <title>Short-term equipment loans for arthritis and frailty (UK)</title>
+      <title>Borrowing equipment for arthritis: frames, commodes and wheelchairs after hospital or a fall (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/short-term-equipment-loans-arthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/short-term-equipment-loans-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Treatments &amp; medicines</category>
-      <description>Short-term equipment loans for arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <category>Diet &amp; lifestyle</category>
+      <description>How to borrow a walking frame, commode or wheelchair short term in the UK: free council and NHS loans, Red Cross hire, and buying second-hand safely.</description>
     </item>
     <item>
-      <title>Shoulder osteoarthritis and frailty: reaching, washing and dressing (UK)</title>
+      <title>Shoulder osteoarthritis and frailty: washing and dressing (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/shoulder-osteoarthritis-frailty-washing-dressing-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/shoulder-osteoarthritis-frailty-washing-dressing-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Frailty is a clinical syndrome — not a personality trait — and shoulder osteoarthritis can make it more visible. This article is about overhead.</description>
+      <description>Practical tips for washing, dressing and reaching with shoulder osteoarthritis and frailty, including equipment, exercises and occupational therapy.</description>
     </item>
     <item>
       <title>Sit-to-stand practice with arthritis: getting up from a chair more easily (UK guide)</title>
@@ -2120,12 +2128,12 @@
       <description>Getting out of a chair harder with arthritis? The NHS sit-to-stand step by step, how to make it easier or harder, chair height and when to get help (UK).</description>
     </item>
     <item>
-      <title>Skin and pressure care if arthritis keeps you sitting (UK)</title>
+      <title>Skin and pressure care with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/skin-pressure-care-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/skin-pressure-care-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Skin and pressure care if arthritis keeps you sitting (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Protecting skin from pressure ulcers when arthritis limits movement: changing position, daily skin checks, cushions and mattresses, and what to report.</description>
     </item>
     <item>
       <title>Sleep apnoea and arthritis: signs, referral and why tired days hurt more (UK guide)</title>
@@ -2136,12 +2144,12 @@
       <description>NHS sleep apnoea signs with arthritis, when to see a GP, sleep-clinic referral and CPAP, and how poor sleep makes daytime pain feel worse.</description>
     </item>
     <item>
-      <title>Sleep, night pain and frailty in arthritis (UK)</title>
+      <title>Night pain and sleep with arthritis in later life: safer nights and when to get help (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/sleep-arthritis-frailty-night-pain-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Mental health &amp; fatigue</category>
-      <description>Arthritis and frailty often arrive as a pair of habits — sitting more, eating less, declining invitations — not as a single diagnosis. This UK guide.</description>
+      <category>Pain &amp; flares</category>
+      <description>Arthritis pain at night in later life: an evening routine, comfort in bed, safer trips to the toilet, sleeping tablet cautions and red flags (UK).</description>
     </item>
     <item>
       <title>Sleeping tablets, night falls and arthritis: safer options first (UK guide)</title>
@@ -2157,23 +2165,23 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/slow-walking-groups-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Living with pain in several joints is tiring enough; adding fear of falling or skipped meals makes the slide steeper. This page explains walking with others.</description>
+      <description>How gentle, short walking groups can help with arthritis and frailty, how to find one, how to know if you are doing too much, and alternatives like walking sports.</description>
     </item>
     <item>
-      <title>Smart speakers for frail adults with arthritis (UK)</title>
+      <title>Smart speakers and voice assistants with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/smart-speakers-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/smart-speakers-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Smart speakers for frail adults with arthritis (UK). Practical educational UK guidance for people living with arthritis.</description>
+      <description>How smart speakers can help people with arthritis and frailty: reminders, calls, lights and heating by voice, privacy, and limits for emergencies.</description>
     </item>
     <item>
-      <title>Social care needs assessments for arthritis and frailty (UK)</title>
+      <title>Social care needs assessments for arthritis: how to ask your council for help at home (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/social-care-needs-assessment-arthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/social-care-needs-assessment-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Conditions</category>
-      <description>The practical overlap of arthritis and frailty is simple to spot: tasks that used to be boring now need a pause or a second person. This UK guide.</description>
+      <category>Carers &amp; family</category>
+      <description>How to get a free council needs assessment when arthritis makes home life hard: how to ask, what to say, paying for care and how to complain (UK).</description>
     </item>
     <item>
       <title>Social prescribing for arthritis and frailty (UK)</title>
@@ -2181,7 +2189,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/social-prescribing-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Social prescribing for arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Plain-English UK guide (not a diagnosis).</description>
+      <description>How social prescribing link workers can connect people with arthritis and frailty to groups, activity, practical help and company, and how to ask for one.</description>
     </item>
     <item>
       <title>Jaw arthritis, frailty and softer meals (UK)</title>
@@ -2189,7 +2197,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/soft-foods-jaw-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Painful jaw plus slower recovery is a common UK picture in later life. This page explains eating enough when chewing hurts if you live with jaw osteoarthritis.</description>
+      <description>Eating enough when jaw arthritis makes chewing painful and frailty raises the risk of weight loss: softer meal ideas, jaw care and when to get help.</description>
     </item>
     <item>
       <title>Slow meals, sore hands and frailty: keeping eating safe (UK)</title>
@@ -2197,7 +2205,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/speech-swallowing-meals-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Ask what movement is encouraged each day — safety and practice can share a plan when joints and reserve are both limited. Here we focus on time, positioning.</description>
+      <description>Practical help with eating when arthritis affects your hands and frailty slows meals, including adapted cutlery, positioning, and signs of swallowing problems.</description>
     </item>
     <item>
       <title>Spinal stenosis, osteoarthritis and frailty: walking with planned stops (UK)</title>
@@ -2205,31 +2213,31 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/spinal-stenosis-oa-frailty-walking-stops-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Spinal stenosis, osteoarthritis and frailty: walking with planned s . Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Walking with spinal stenosis and osteoarthritis when frail: why legs ache on walking, planning rest stops, aids, exercise and urgent warning signs.</description>
     </item>
     <item>
-      <title>Night splints for hand osteoarthritis in frail adults (UK)</title>
+      <title>Night splints for hand osteoarthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/splints-night-hand-oa-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/splints-night-hand-oa-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Night splints for hand osteoarthritis in frail adults (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>How splints can help hand and thumb osteoarthritis, night wear, fit and skin checks, getting one from hand therapy, and protecting joints in the day.</description>
     </item>
     <item>
-      <title>Stairlifts, arthritis and frailty: questions before you buy (UK)</title>
+      <title>Stairlifts for arthritis and frailty at home (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/stairlifts-arthritis-frailty-uk-home</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/stairlifts-arthritis-frailty-uk-home</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Diet &amp; lifestyle</category>
-      <description>Painful hips and knees plus slower recovery is a common UK picture in later life. This page explains stairs, funding conversations and joint pain if you live.</description>
+      <description>Whether a stairlift suits arthritis and frailty, getting an occupational therapy assessment first, alternatives, costs and the Disabled Facilities Grant.</description>
     </item>
     <item>
-      <title>Static bikes for frail osteoarthritis (UK)</title>
+      <title>Static exercise bikes for frailty and osteoarthritis (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/static-bike-frail-osteoarthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/static-bike-frail-osteoarthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>For static bikes for frail osteoarthritis, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.</description>
+      <description>Using a static or pedal exercise bike with osteoarthritis and frailty: safe set-up, starting gently, seat height, pedal exercisers and when to stop.</description>
     </item>
     <item>
       <title>Steroid emergency cards and arthritis: who needs one and when to show it (UK guide)</title>
@@ -2240,28 +2248,28 @@
       <description>On prednisolone or steroid injections? The red NHS Steroid Emergency Card, the blue card, sick-day steps and adrenal crisis 999 signs for carers.</description>
     </item>
     <item>
-      <title>Tai Chi for balance when arthritis and frailty overlap (UK)</title>
+      <title>Tai chi for balance when arthritis and frailty overlap (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/tai-chi-balance-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/tai-chi-balance-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Painful joints quietly train you to sit more; sitting can feed frailty — breaking that loop with small movement is the practical job here. This guide covers.</description>
+      <description>How tai chi may help balance and confidence for people with arthritis and frailty, adapting moves, seated options and finding a suitable class.</description>
     </item>
     <item>
-      <title>Talking therapies for pain in older adults with arthritis (UK)</title>
+      <title>Talking therapies for arthritis pain in older age (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/talking-therapies-pain-older-arthritis-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/talking-therapies-pain-older-arthritis-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>For talking therapies for pain in older adults with arthritis, Motion is lotion still applies: short honest movement, then rest that does not become a lifestyle.</description>
+      <description>How talking therapies such as CBT and acceptance and commitment therapy can help older people live with arthritis pain, and how to get them across the UK.</description>
     </item>
     <item>
-      <title>Thumb-base osteoarthritis and frailty: jars, taps and daily grip (UK)</title>
+      <title>Thumb base osteoarthritis, frailty and daily grip (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/thumb-base-osteoarthritis-frailty-daily-grip-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Living With Arthritis writes for the overlap of sore joints and slower recovery — the part that shrinks a home life week by week. This guide covers opening.</description>
+      <description>Managing thumb base osteoarthritis when frail: gadgets for grip, splints, exercises, pain relief options and when to ask your GP about hand therapy.</description>
     </item>
     <item>
       <title>Toilet frames and raised seats for arthritis and frailty (UK)</title>
@@ -2269,7 +2277,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/toilet-frame-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>A practical UK guide to toilet frames and raised seats for arthritis and frailty, written for days when energy and joints both feel limited.</description>
+      <description>How toilet frames, raised seats and grab rails can make toileting safer with arthritis and frailty, getting an assessment and fitting safely.</description>
     </item>
     <item>
       <title>Topical NSAIDs in later life: safer pain relief for knee and hand osteoarthritis (UK guide)</title>
@@ -2293,7 +2301,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/vision-falls-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>A medicines review, a protein plan and a practised sit-to-stand are frailty tools that still respect arthritis pain. This UK guide looks at eyesight checks.</description>
+      <description>How eyesight and hearing changes add to falls risk with arthritis and frailty, free NHS eye tests, lighting, and practical steps to stay steady at home.</description>
     </item>
     <item>
       <title>Vitamin D and falls with arthritis: what it can and cannot do (UK guide)</title>
@@ -2317,15 +2325,15 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/volunteering-seated-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Seated volunteering with arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis.</description>
+      <description>Volunteering roles that suit arthritis and frailty: seated and home-based options, pacing, telling organisations what you need, and finding local roles.</description>
     </item>
     <item>
-      <title>Walking stick versus frame: arthritis, wrists and frailty (UK)</title>
+      <title>Walking stick or frame with arthritis and frailty? (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/walking-stick-vs-frame-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/walking-stick-vs-frame-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>A frailty-aware note on walking stick versus frame: arthritis, wrists and frailty: protect joints, keep muscle working, and plan the hardest transfer.</description>
+      <description>Choosing between a walking stick and walking frame with arthritis and frailty: what each offers, getting assessed, correct height and using a frame indoors.</description>
     </item>
     <item>
       <title>Wet rooms and arthritis: washing when you are frail (UK)</title>
@@ -2333,15 +2341,15 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/wet-rooms-arthritis-frailty-washing-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Arthritis steers the joints; frailty steers recovery time. Together they can shrink a week faster than either alone. This UK guide looks at bathroom changes.</description>
+      <description>How a wet room or level-access shower can make washing safer with arthritis and frailty, what to include, assessments and grants that may help.</description>
     </item>
     <item>
-      <title>A wheelchair for distance, not for giving up: arthritis and frailty (UK)</title>
+      <title>Using a wheelchair for longer distances with arthritis: getting one, staying active and getting out (UK guide)</title>
       <link>https://livingwitharthritis.org.uk/blog/wheelchair-for-distance-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/wheelchair-for-distance-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
-      <category>Conditions</category>
-      <description>Here is a plain-English take on a wheelchair for distance, not for giving up: arthritis and frailty when arthritis and lower reserve share the same week.</description>
+      <category>Exercise &amp; movement</category>
+      <description>Using a wheelchair for longer trips with arthritis: NHS wheelchair services, hiring or buying, keeping your legs strong and getting out again (UK).</description>
     </item>
     <item>
       <title>Cold home and arthritis: keeping warm and keeping moving (UK)</title>
@@ -2352,12 +2360,12 @@
       <description>Keep warm at home with arthritis without sitting still all day: rooms to heat, a five-minute warm-up, safer moving, and UK heating help to check.</description>
     </item>
     <item>
-      <title>Wound care you cannot reach: arthritis and frailty (UK)</title>
+      <title>Wound care when reaching is hard with arthritis and frailty (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/wound-care-reaching-arthritis-frailty-uk</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/wound-care-reaching-arthritis-frailty-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Wound care you cannot reach: arthritis and frailty (UK). Practical educational UK guidance for people living with arthritis. Information only.</description>
+      <description>Looking after cuts and wounds when arthritis makes reaching hard: basic care, getting help from community nurses, and signs of infection to report.</description>
     </item>
     <item>
       <title>Wrist osteoarthritis and frailty: choosing a walking aid that does not hurt (UK)</title>
@@ -2365,7 +2373,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/wrist-osteoarthritis-frailty-walking-aids-uk</guid>
       <pubDate>Thu, 03 Sep 2026 09:00:00 GMT</pubDate>
       <category>Exercise &amp; movement</category>
-      <description>Wrist osteoarthritis and frailty often travel together because pain changes how you walk, rise and recover. This UK guide looks at walking aids when wrists.</description>
+      <description>How to choose a walking aid when wrist arthritis makes gripping a stick or frame painful, including handle types, forearm supports and getting assessed.</description>
     </item>
     <item>
       <title>Arthritis in Older Adults: What Changes &amp; What Helps</title>
@@ -2677,7 +2685,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/pip-for-arthritis-how-to-build-a-strong-application</guid>
       <pubDate>Sun, 28 Jun 2026 09:00:00 GMT</pubDate>
       <category>Benefits, PIP &amp; work</category>
-      <description>The post explains that a strong PIP application for arthritis should focus on how symptoms affect daily living and mobility, not just the diagnosis. It…</description>
+      <description>How to describe daily living and mobility in a PIP application for arthritis, with the official points rules and a diary to take into the form.</description>
     </item>
     <item>
       <title>ESA and Universal Credit for Arthritis: Limited Capability for Work, the WCA and What You Could Get</title>
@@ -2861,7 +2869,7 @@
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week</guid>
       <pubDate>Mon, 22 Jun 2026 09:00:00 GMT</pubDate>
       <category>Surgery &amp; recovery</category>
-      <description>After hip replacement, most people gradually reduce walking aid reliance over 2-6 weeks. Driving may resume around 6 weeks, depending on comfort and being…</description>
+      <description>NHS advice: recovery can take several months and varies. You need a walking aid at first, should wait at least 6 weeks before driving, and should follow your surgical team rather than a fixed timetable.</description>
     </item>
     <item>
       <title>Prehabilitation: How Pre-Op Exercise Speeds Recovery</title>
@@ -2936,12 +2944,12 @@
       <description>Before joining a clinical trial, ask about its purpose, the treatments involved, and its duration. Inquire about expectations, potential risks and benefits…</description>
     </item>
     <item>
-      <title>Gene Therapy and Arthritis: Where Are We in 2026?</title>
+      <title>Gene therapy and arthritis: where are we in 2026? (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/gene-therapy-and-arthritis-where-are-we-in-2026</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/gene-therapy-and-arthritis-where-are-we-in-2026</guid>
       <pubDate>Fri, 19 Jun 2026 09:00:00 GMT</pubDate>
       <category>Treatments &amp; medicines</category>
-      <description>Gene therapy for common forms of arthritis, such as osteoarthritis and rheumatoid arthritis, is not currently a standard treatment option in the UK…</description>
+      <description>What gene therapy is, why it is being researched for arthritis, why it is not a standard UK treatment, and how to find genuine clinical trials.</description>
     </item>
     <item>
       <title>JAK Inhibitors: The Next Wave of RA Treatment</title>
@@ -3208,12 +3216,12 @@
       <description>Quick answer: Catching arthritis in the first 12 weeks dramatically changes long-term outcomes. UK pathways to fast What the evidence says Why Early.</description>
     </item>
     <item>
-      <title>5 Longevity Habits That Help People With Arthritis Live Longer</title>
+      <title>Healthy habits for living well with arthritis as you age (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/longevity-habits-arthritis-patients</guid>
       <pubDate>Fri, 12 Jun 2026 09:00:00 GMT</pubDate>
       <category>Conditions</category>
-      <description>Quick answer: Mediterranean diet, social connection, strength training, sleep and stress management — the evidence stack. What the evidence says 5 Longevity.</description>
+      <description>Everyday habits that support living well with arthritis as you age: regular movement, strength, eating well, sleep, staying connected and medicine reviews.</description>
     </item>
     <item>
       <title>Can You Prevent Knee Osteoarthritis? UK Evidence Review</title>
@@ -3928,12 +3936,12 @@
       <description>A guide to gentle yoga poses recommended for arthritis. Improve flexibility, reduce stiffness and manage pain naturally.</description>
     </item>
     <item>
-      <title>Arthritis and Relationships: Honest Conversations That Help</title>
+      <title>Arthritis and relationships: honest conversations that help (UK)</title>
       <link>https://livingwitharthritis.org.uk/blog/arthritis-relationships-honest-conversations</link>
       <guid isPermaLink="true">https://livingwitharthritis.org.uk/blog/arthritis-relationships-honest-conversations</guid>
       <pubDate>Thu, 05 Mar 2026 09:00:00 GMT</pubDate>
       <category>Carers &amp; family</category>
-      <description>Living with arthritis affects everyone around you. Learn how to communicate your needs, maintain intimacy, and build a stronger support network.</description>
+      <description>How arthritis can affect relationships with partners, family and friends, and practical ways to talk honestly about pain, fatigue, roles and intimacy.</description>
     </item>
     <item>
       <title>Best Shoes for Arthritis: How to Choose (UK Buying Guide)</title>

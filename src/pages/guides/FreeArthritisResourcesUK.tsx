@@ -10,6 +10,7 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { CHARITY } from "@/config/charity";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -164,6 +165,7 @@ export default function FreeArthritisResourcesUK() {
             ))}
           </ul>
 
+          <RecommendedNextStep path="/guides/free-arthritis-resources-uk" placement="mid" />
           <section className="pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">
               Frequently asked questions

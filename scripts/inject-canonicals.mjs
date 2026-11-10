@@ -27,6 +27,8 @@
 
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { patchEnglishAlternates } from "./lib/english-alternates.mjs";
+import { finalizeTechnicalHead } from './lib/technical-head.mjs';
+import { canonicalPath, cleanJsonLd } from '../src/lib/technicalSeo.mjs';
 import { writeFileAtomicSync } from "./lib/atomic-write.mjs";
 import { normalizeStaticMeta } from "./lib/meta-lengths.mjs";
 import { articleJsonLd, ensureArticleJsonLd } from "./article-jsonld.mjs";
@@ -37,6 +39,7 @@ import { deriveHeadData } from "./route-head-fallback.mjs";
 import {
   buildStaticArticleInner,
   embedArticleJson,
+  stripDocumentBodyBloat,
   htmlHasFullArticle,
   replaceSeoFallback,
   stripToText,
@@ -307,12 +310,24 @@ function withRenderedBody(route, data) {
   if (snap && !(textWords(data.bodyHtml) + textWords(data.answer) >= 300 && textWords(data.bodyHtml) >= textWords(snap))) {
     out = { ...data, bodyHtml: unwrapUnknownLinks(snap) };
   }
-  return withHubSpotlight(route, withLinkedSummaries(route, out));
+  return withHubSpotlight(route, withLinkedSummaries(route, withIntentLinks(route, out)));
 }
 // Strong hubs link to related guides Google had discovered but never crawled
 // (src/data/hub-spotlight.json, also rendered by <HubSpotlight /> in React).
 const HUB_SPOTLIGHT = existsSync(resolve('src/data/hub-spotlight.json'))
   ? JSON.parse(readFileSync(resolve('src/data/hub-spotlight.json'), 'utf8')) : {};
+const READER_JOURNEY = existsSync(resolve('src/data/readerJourneyLinks.json'))
+  ? JSON.parse(readFileSync(resolve('src/data/readerJourneyLinks.json'), 'utf8')) : {};
+function withIntentLinks(route, data) {
+  const rows = READER_JOURNEY[route];
+  if (!data || !Array.isArray(rows) || !rows.length) return data;
+  return {
+    ...data,
+    relatedLinks: rows
+      .filter((row) => row?.href && row?.title)
+      .map((row) => ({ path: row.href, title: row.title })),
+  };
+}
 function withHubSpotlight(route, data) {
   const spot = HUB_SPOTLIGHT[route];
   if (!spot || !data) return data;
@@ -330,13 +345,20 @@ function unwrapUnknownLinks(html) {
 // Still-thin pages (interactive tools, contact screens): describe the pages
 // they already link to, using each target's own meta description.
 function withLinkedSummaries(route, data) {
-  // Count the body only: the answer box is not always repeated in the body.
-  const have = textWords(data.bodyHtml);
+  if (!data) return data;
+  // Count the authored article as well as bodyHtml. A full guide is not a
+  // thin shell, even when bodyHtml is empty and the answer box is short.
+  const have = textWords(data.bodyHtml) + textWords(data.article?.content);
   if (have >= 300) return data;
+  // Every blog URL shares the /blog/ prefix. Using that as a sibling list
+  // repeated the same intimacy and carer guides on unrelated articles.
+  const section = `/${String(route || "").split("/").filter(Boolean)[0] || ""}`;
+  const siblingPrefix = section && section !== "/blog" ? `${section}/` : "";
   const paths = [
     ...[...String(data.bodyHtml || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
+    ...[...String(data.article?.content || '').matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
     ...(data.relatedLinks || []).map((l) => l.path),
-    ...SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(`${route.split('/').slice(0, 2).join('/')}/`)),
+    ...(siblingPrefix ? SITEMAP_PATHS.filter((p) => p !== route && p.startsWith(siblingPrefix)) : []),
     '/guides/newly-diagnosed', '/conditions/osteoarthritis', '/conditions/rheumatoid-arthritis', '/exercises', '/guides/diet', '/guides/benefits-pip', '/helpline', '/arthritis-waiting-list-help', '/living-with-arthritis', '/guides/arthritis-pain-relief',
   ];
   const items = [];
@@ -538,12 +560,17 @@ export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
   const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
-  const person = (name, credentials, prefix) => name && !/placeholder/i.test(name)
-    ? { "@type": /louis.*maxwell|^maxwell$/i.test(name) ? "Person" : "Organization", name,
-        ...(/louis.*maxwell|^maxwell$/i.test(name) ? {
-          ...(credentials ? { jobTitle: credentials } : {}), url: `${BASE}/${prefix}/maxwell` } : {}) } : undefined;
-  const author = person(article?.author, article?.author_credentials, "authors");
-  const reviewer = person(article?.reviewed_by, article?.reviewer_credentials, "reviewers");
+  // Louis Maxwell is the only registered clinician: one stable Person node
+  // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.
+  const person = (name) => name && !/placeholder/i.test(name)
+    ? /louis.*maxwell|^maxwell$/i.test(name)
+      ? { "@type": "Person", "@id": `${BASE}/authors/maxwell#person`, name: "Louis Maxwell",
+          jobTitle: "Physiotherapist", url: `${BASE}/authors/maxwell`,
+          identifier: { "@type": "PropertyValue", propertyID: "HCPC", value: "PH128483" } }
+      : { "@type": "Organization", name }
+    : undefined;
+  const author = person(article?.author);
+  const reviewer = person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
 
@@ -654,7 +681,7 @@ export function buildJsonLd(route, url, d) {
   return graphs
     .map(
       (g) =>
-        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(compact(g)).replace(/</g, "\\u003c")}</script>`,
+        `  <script type="application/ld+json" data-static-route-schema>${JSON.stringify(cleanJsonLd(compact(g))).replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n");
 }
@@ -717,24 +744,18 @@ function enrichHead(html, route, url, override) {
   // Unique visible article for non-JS readers. Replaces the entire
   // homepage #seo-fallback (not just the first H1) so Google cannot
   // treat the URL as an empty SPA shell or a homepage duplicate.
-  const sources = Array.isArray(d.sources) ? d.sources : [];
-  const sourcesHtml = sources.length
-    ? `<section><h2>Sources and further reading</h2><ul>${sources
-        .map(
-          (s) =>
-            `<li><a href="${escAttr(s.url)}" rel="noopener">${escText(s.name)}</a></li>`,
-        )
-        .join("")}</ul></section>`
-    : "";
-
   // Keep unique article HTML for crawlers, but clip it so JS visitors never
   // see a wall of unstyled text before React paints the designed page.
-  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}${sourcesHtml}`, {
+  out = replaceSeoFallback(out, `${buildStaticArticleInner(d)}`, {
     visible: false,
   });
   if (d.article) {
+    // Lean first response for crawlers/LLMs: drop decorative SVG icons,
+    // comments and stray JSON from <body>. JSON-LD lives in <head>, and the
+    // #static-article-data hydration payload is kept (it avoids a second
+    // network request before the article can paint).
+    out = stripDocumentBodyBloat(out);
     out = embedArticleJson(out, d.article);
-
   }
 
   // Discover the requested route and its dependencies in the first response,
@@ -747,6 +768,7 @@ function enrichHead(html, route, url, override) {
 // ---------- head rewrite (og:url + self-referencing canonical; keep AEO injection) ----------
 
 export function rewriteHead(html, route, dataOverride) {
+  route = canonicalPath(route);
   const url = `${BASE}${route}`;
   // Replace homepage og:url with route-specific og:url.
   let out = html.replace(
@@ -778,7 +800,7 @@ export function rewriteHead(html, route, dataOverride) {
 
   // AI-visibility enrichment (title, description, JSON-LD) for curated routes.
   out = enrichHead(out, route, url, dataOverride);
-  return out;
+  return finalizeTechnicalHead(out, route, normalizeStaticMeta(headMeta), BASE);
 }
 
 function isDirectRun() {
@@ -799,7 +821,11 @@ function writeRouteFiles() {
   // collectRoutes excludes the root: enrich its English signals separately.
   // Homepage: append its hub spotlight to the static main body only.
   const rootSpot = withHubSpotlight("/", { bodyHtml: "" });
-  let rootHtml = patchEnglishAlternates(template, "/", BASE);
+  const rootData = {
+    title: 'Living With Arthritis: Pain Relief & Flare-Up Help',
+    description: 'Free arthritis exercises, PIP guidance and practical support for joint pain and frailty, from Living With Arthritis, registered charity 1218461.',
+  };
+  let rootHtml = finalizeTechnicalHead(patchEnglishAlternates(template, "/", BASE), '/', rootData, BASE);
   if (rootSpot?.bodyHtml && rootHtml.includes("</main>")) {
     rootHtml = rootHtml.replace("</main>", `<section aria-label="Popular practical guides">${rootSpot.bodyHtml}</section></main>`);
   }
@@ -825,7 +851,7 @@ function writeRouteFiles() {
       // social crawlers pick up cover images after blog-head-data regen.
       const hasSupportDiscovery = !data?.article?.slug || existing.includes('aria-label="Arthritis support and guides"');
       if (!existing.includes('data-static-route-schema') && htmlHasFullArticle(existing, data) && hasSupportDiscovery) {
-        let patched = data ? patchShareMeta(existing, data) : existing;
+        let patched = data ? finalizeTechnicalHead(patchShareMeta(existing, data), route, normalizeStaticMeta(data), BASE) : existing;
         if (!isNoindexRoute(route) && !data?.noindex) {
           patched = patchEnglishAlternates(patched, route, BASE);
         }
