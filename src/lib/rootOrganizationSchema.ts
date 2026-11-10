@@ -35,9 +35,17 @@ export const ORGANIZATION_PAYLOAD = {
   foundingDate: "2026-06-15",
   founder: {
     "@type": "Person",
+    "@id": `${BASE}/#founder`,
+    name: "David Williams",
+    jobTitle: "Founder, Living With Arthritis",
+  },
+  // Operations Director and clinical reviewer (not the founder).
+  employee: {
+    "@type": "Person",
+    "@id": `${BASE}/authors/maxwell#person`,
     name: "Louis Maxwell",
     alternateName: "Maxwell",
-    jobTitle: "First Contact Physiotherapist",
+    jobTitle: "Operations Director",
     identifier: {
       "@type": "PropertyValue",
       propertyID: "HCPC",

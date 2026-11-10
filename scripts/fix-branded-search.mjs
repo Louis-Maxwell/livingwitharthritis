@@ -75,7 +75,7 @@ function generateFaqSchema() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Living With Arthritis is an independent UK registered charity (1218461) founded by Louis Maxwell, an HCPC-registered First Contact Practitioner. We provide free virtual physiotherapy, NICE-aligned exercises, and peer support. We are separate from and independent of Arthritis UK.',
+            'Living With Arthritis is an independent UK registered charity (1218461) founded by David Williams. Our Operations Director, Louis Maxwell, is an HCPC-registered First Contact Practitioner. We provide free virtual physiotherapy, NICE-aligned exercises, and peer support. We are separate from and independent of Arthritis UK.',
         },
       },
       {
@@ -93,7 +93,7 @@ function generateFaqSchema() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Living With Arthritis was founded by Louis Maxwell, an HCPC-registered First Contact Practitioner (registration PH128483). We combine clinical expertise with peer support.',
+            'Living With Arthritis was founded by David Williams. Louis Maxwell, an HCPC-registered First Contact Practitioner (registration PH128483), is Operations Director. We combine clinical expertise with peer support.',
         },
       },
     ],
@@ -268,7 +268,7 @@ export default function NotArthritisUk() {
                   <strong>Founder</strong>
                 </td>
                 <td className="border border-gray-300 p-4">
-                  Louis Maxwell (HCPC First Contact Practitioner, PH128483)
+                  David Williams (Operations Director: Louis Maxwell, HCPC First Contact Practitioner, PH128483)
                 </td>
                 <td className="border border-gray-300 p-4">Multiple trustees</td>
               </tr>
@@ -319,7 +319,7 @@ export default function NotArthritisUk() {
           </p>
 
           <p>
-            Our founder, Louis Maxwell, established Living With Arthritis to provide direct physiotherapy support
+            Living With Arthritis was founded by David Williams to provide direct physiotherapy support
             and community-led peer care — complementing the excellent advocacy work Arthritis UK does.
           </p>
         </div>

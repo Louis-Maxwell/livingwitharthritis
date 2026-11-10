@@ -22,6 +22,8 @@ describe("Louis Maxwell Person schema", () => {
     expect(JSON.stringify(LOUIS_MAXWELL_PERSON)).not.toMatch(/Band 8|AI Engineer/);
     expect(LOUIS_MAXWELL_REF["@id"]).toBe(LOUIS_MAXWELL_PERSON["@id"]);
     expect(LIVING_WITH_ARTHRITIS_ORG.identifier.value).toBe("1218461");
-    expect(LIVING_WITH_ARTHRITIS_ORG.founder["@id"]).toBe(LOUIS_MAXWELL_PERSON["@id"]);
+    expect(LIVING_WITH_ARTHRITIS_ORG.founder.name).toBe("David Williams");
+    expect(LIVING_WITH_ARTHRITIS_ORG.employee["@id"]).toBe(LOUIS_MAXWELL_PERSON["@id"]);
+    expect(JSON.stringify(LOUIS_MAXWELL_PERSON)).not.toMatch(/Founder/);
   });
 });

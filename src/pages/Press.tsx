@@ -20,8 +20,8 @@ const keyFacts = [
 const spokespeople = [
   {
     name: "Operations Director",
-    role: "Founder & Operations Director",
-    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Founded Living With Arthritis to bridge the gap between health service waiting lists and accessible patient support.",
+    role: "Operations Director",
+    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Runs Living With Arthritis day to day, helping to bridge the gap between health service waiting lists and accessible patient support.",
   },
   {
     name: "Clinical Lead",

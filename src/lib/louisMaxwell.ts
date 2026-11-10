@@ -20,7 +20,7 @@ export const LOUIS_MAXWELL_PERSON = {
   name: "Louis Maxwell",
   url: LOUIS_MAXWELL_PROFILE_URL,
   mainEntityOfPage: LOUIS_MAXWELL_PROFILE_URL,
-  jobTitle: ["First Contact Physiotherapist", "Founder, Living With Arthritis"],
+  jobTitle: ["First Contact Physiotherapist", "Operations Director, Living With Arthritis"],
   identifier: HCPC,
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
@@ -47,7 +47,7 @@ export const LOUIS_MAXWELL_PERSON = {
   sameAs: [] as string[],
 } as Record<string, unknown>;
 
-/** Founding relationship, attached to the charity node on the profile page. */
+/** Charity node on the profile page: founded by David Williams; Louis is Operations Director. */
 export const LIVING_WITH_ARTHRITIS_ORG = {
   "@context": "https://schema.org",
   "@type": "NGO",
@@ -59,7 +59,8 @@ export const LIVING_WITH_ARTHRITIS_ORG = {
     propertyID: "Charity Commission for England and Wales",
     value: "1218461",
   },
-  founder: { "@id": LOUIS_MAXWELL_ID },
+  founder: { "@type": "Person", "@id": `${BASE}/#founder`, name: "David Williams" },
+  employee: { "@id": LOUIS_MAXWELL_ID },
 };
 
 /** Compact reference for author / reviewedBy in guide schema. */

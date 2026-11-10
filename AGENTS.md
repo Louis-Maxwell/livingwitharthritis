@@ -1,4 +1,4 @@
-# Agent rules — Living With Arthritis UK
+# Agent rules — Living With Arthritis
 
 Read this before changing the site. The live public site is
 https://livingwitharthritis.org.uk (charity 1218461).
@@ -36,6 +36,10 @@ Token-thrift on **this** repo:
 
 ## Repo facts (do not reverse)
 
+- Brand name is exactly "Living With Arthritis" (registered charity 1218461).
+  Never put "UK" straight after it.
+- David Williams is the founder. Louis Maxwell (HCPC PH128483) is Operations
+  Director and clinical reviewer, not the founder.
 - Keep Tailwind CSS pinned to v3 with its `tailwindcss` PostCSS plugin;
   the existing theme configuration and styles require the v3 pipeline.
 - No Supabase client, Google login, or RLS in this repo (removed on purpose).

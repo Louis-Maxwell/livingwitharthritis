@@ -21,7 +21,7 @@ const FounderStoryBand = memo(() => {
             id="founder-story-heading"
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6"
           >
-            Founded by a clinician who lived the lonely bit too
+            Run by a clinician who lived the lonely bit too
           </h2>
 
           {/* Body copy */}
@@ -38,8 +38,9 @@ const FounderStoryBand = memo(() => {
             </p>
 
             <p>
-              You are not alone in that gap. It became the mission of
-              <strong className="text-foreground"> Living With Arthritis</strong>. We exist to give
+              You are not alone in that gap. Closing it is the mission of
+              <strong className="text-foreground"> Living With Arthritis</strong>, founded by David
+              Williams, where Louis is Operations Director. We exist to give
               people what Louis did not get: clinically honest, emotionally kind guidance — and a
               human reply when you need one.
             </p>

@@ -144,7 +144,7 @@ This chat cannot replace emergency services.`,
 We are **Living With Arthritis** — an independent UK charity (Charitable Incorporated Organisation, registered charity **1218461** in England and Wales).
 
 - We are **not** Arthritis UK (formerly Versus Arthritis) and **not** the US Arthritis Foundation.
-- Clinical review is led by our founder **Louis Maxwell**, an HCPC-registered First Contact Practitioner (**PH128483**) and CSP member.
+- The charity was founded by **David Williams**. Clinical review is led by our Operations Director **Louis Maxwell**, an HCPC-registered First Contact Practitioner (**PH128483**) and CSP member.
 - Our motto: **Motion is Lotion** — gentle, regular movement is one of the best treatments for most arthritis.
 - Everything on the site is free; we do **not** diagnose or prescribe.
 
