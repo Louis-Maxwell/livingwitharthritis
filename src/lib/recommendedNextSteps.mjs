@@ -19,6 +19,12 @@ const L = {
   supplements: { href: "/supplements", label: "Supplements and arthritis: what the evidence says", description: "Plain-English evidence summaries before you spend money." },
   flarePlan: { href: "/resources/flare-action-plan", label: "Flare action plan", description: "A printable plan for what to do on a bad day." },
   newlyDiagnosed: { href: "/guides/newly-diagnosed", label: "Newly diagnosed with arthritis", description: "Your first steps, questions for your GP and where to find support." },
+  frailty: { href: "/guides/frailty-management-hub", label: "Frailty and arthritis", description: "How to stay strong, steady and independent, and when to ask for help." },
+  fallPrevention: { href: "/guides/fall-prevention-older-adults", label: "Preventing falls with arthritis", description: "A home safety checklist, balance and strength work, and what to do after a fall." },
+  sarcopenia: { href: "/guides/sarcopenia-muscle-loss", label: "Muscle loss (sarcopenia) and arthritis", description: "Simple home checks, protein and strength training adapted for sore joints." },
+  boneDensity: { href: "/guides/bone-density-osteoporosis", label: "Bone health and osteoporosis", description: "How weak bones and arthritis overlap, and what helps both." },
+  msk: { href: "/guides/musculoskeletal-health", label: "Musculoskeletal health", description: "Common joint, muscle and back problems, and who can help." },
+  preventativeMsk: { href: "/guides/preventative-msk-health", label: "Looking after your joints early", description: "Posture, load and exercise habits that protect joints over time." },
   disability: { href: "/guides/disability-support", label: "Disability support and your rights", description: "Benefits, work adjustments and practical help in the UK." },
 };
 
@@ -31,7 +37,32 @@ const EXACT = {
   "/guides/hip-exercises-for-osteoarthritis": [L.kneeExercises, L.exerciseHub],
   "/blog/best-supplements-arthritis-uk": [L.supplements, L.diet],
   "/guides/benefits-pip": [L.pipDiary, L.disability],
+  "/guides/frailty-management-hub": [L.fallPrevention, L.sarcopenia],
+  "/guides/sarcopenia-muscle-loss": [L.frailty, L.exerciseGuide],
+  "/guides/fall-prevention-older-adults": [L.frailty, L.boneDensity],
+  "/guides/bone-density-osteoporosis": [L.fallPrevention, L.exerciseGuide],
+  "/guides/preventative-msk-health": [L.exerciseHub, L.msk],
+  "/guides/musculoskeletal-health": [L.preventativeMsk, L.exerciseHub],
+  "/guides/disability-support": [L.pipGuide, L.pipDiary],
+  "/guides/newly-diagnosed": [L.painRelief, L.exerciseHub],
+  "/guides/free-arthritis-resources-uk": [L.newlyDiagnosed, L.pipDiary],
+  "/guides/arthritis-pain-relief": [L.painkillers, L.flarePlan],
+  "/guides/understanding-pain": [L.painRelief, L.flarePlan],
+  "/guides/painkillers-and-nsaids": [L.painRelief, L.flarePlan],
+  "/guides/exercise": [L.kneeExercises, L.hipExercises],
+  "/guides/diet": [L.supplements, L.painRelief],
+  "/guides/knee-replacement-surgery": [L.kneeExercises, L.painkillers],
+  "/guides/steroids-for-arthritis": [L.painkillers, L.newlyDiagnosed],
+  "/guides/azathioprine-for-arthritis": [L.painkillers, L.newlyDiagnosed],
+  "/guides/febuxostat-for-gout": [L.diet, L.painkillers],
+  "/guides/health-services": [L.newlyDiagnosed, L.exerciseGuide],
+  "/guides/uk-arthritis": [L.newlyDiagnosed, L.pipGuide],
+  "/guides/shoulder-pain-relief": [L.exerciseHub, L.painRelief],
+  "/guides/can-exercise-make-osteoarthritis-worse": [L.kneeExercises, L.hipExercises],
 };
+
+/** Paths with an agreed mapping, for tests. */
+export const RECOMMENDED_NEXT_STEP_PATHS = Object.keys(EXACT);
 
 /** Keyword defaults, first match wins. Tested against path + title text. */
 const RULES = [

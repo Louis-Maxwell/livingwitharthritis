@@ -31,6 +31,7 @@ import ArticleBookmarkButton from "@/components/blog/ArticleBookmarkButton";
 import ClusterRelatedLinks from "@/components/blog/ClusterRelatedLinks";
 import BlogSoftCTAs from "@/components/blog/BlogSoftCTAs";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
+import { splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -168,29 +169,6 @@ function markdownToHtml(md: string): string {
   return sanitizeHtml(unwrapEscapedHtmlCodeBlocks(rawHtml));
 }
 
-/** Split HTML at the <h2> nearest `target` characters in. Second is "" if none. */
-function splitAtMiddleH2(html: string, target: number): { first: string; second: string } {
-  if (!html) return { first: "", second: "" };
-  let best = -1;
-  let bestDist = Infinity;
-  const re = /<h2\b/gi;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) {
-    if (m.index === 0) continue;
-    // Only split at top level, never inside a wrapper (section, div, list…).
-    const before = html.slice(0, m.index);
-    const opens = (before.match(/<(section|div|ul|ol|table|blockquote|aside|details)\b/gi) || []).length;
-    const closes = (before.match(/<\/(section|div|ul|ol|table|blockquote|aside|details)>/gi) || []).length;
-    if (opens !== closes) continue;
-    const dist = Math.abs(m.index - target);
-    if (dist < bestDist) {
-      best = m.index;
-      bestDist = dist;
-    }
-  }
-  return best > 0 ? { first: html.slice(0, best), second: html.slice(best) } : { first: html, second: "" };
-}
-
 function getReadingTime(html: string) {
   const text = htmlToPlainText(html);
   const words = text.split(/\s+/).filter(Boolean).length;
@@ -280,7 +258,7 @@ const BlogPost = () => {
   const htmlAfterStrip = splitAt > 0 ? htmlWithIds.slice(splitAt) : "";
   // Second split at the section boundary (<h2>) closest to the halfway point,
   // for the prerendered "Recommended next step" module.
-  const { first: htmlAfterA, second: htmlAfterB } = splitAtMiddleH2(htmlAfterStrip, htmlWithIds.length / 2 - splitAt);
+  const { first: htmlAfterA, second: htmlAfterB } = splitHtmlAtMiddleH2(htmlAfterStrip, htmlWithIds.length / 2 - splitAt);
   // The loaded guide carries its own cover file (the same value the listing
   // cover map is generated from), so the article page never needs that map.
   const cover = coverFromFile(article.cover);

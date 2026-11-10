@@ -9,6 +9,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
@@ -254,7 +255,7 @@ export default function ExerciseGuide() {
           </p>
           <AeoEnhancement route="/guides/exercise" />
           <TableOfContents html={html} />
-          <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} />
+          <ArticleHtmlWithNextStep html={html} path="/guides/exercise" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <section id="exercise-guide-faq" className="mt-16 pt-8 border-t border-border/30">
             <h2 className="font-display font-bold text-2xl mb-6">Frequently asked questions</h2>
             {/* Schema for these same questions is emitted once by PageSchema
