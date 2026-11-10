@@ -2,7 +2,10 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { readdirSync } from "node:fs";
+import { splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
 import {
+  RECOMMENDED_NEXT_STEP_PATHS,
   RECOMMENDED_NEXT_STEP_HREFS,
   recommendedNextSteps,
   recommendedNextStepsHtml,
@@ -71,6 +74,41 @@ describe("Recommended next step content loops", () => {
     expect(blog).toContain('placement="end"');
     expect(readFileSync(resolve("src/components/guides/GuideOnwardJourney.tsx"), "utf8")).toContain("<RecommendedNextStep");
     expect(readFileSync(resolve("src/pages/ExerciseHub.tsx"), "utf8")).toContain('path="/exercises" placement="mid"');
+  });
+});
+
+describe("mid-article next step on bespoke guides", () => {
+  const guideFiles = ["src/pages/guides", "src/pages/pillar"].flatMap((d) =>
+    readdirSync(resolve(d)).filter((f) => f.endsWith(".tsx")).map((f) => `${d}/${f}`));
+  const midPaths = guideFiles.flatMap((f) => {
+    const src = readFileSync(resolve(f), "utf8");
+    return [
+      ...src.matchAll(/<RecommendedNextStep path="([^"]+)" placement="mid"/g),
+      ...src.matchAll(/<ArticleHtmlWithNextStep html=\{[^}]+\} path="([^"]+)"/g),
+    ].map((m) => m[1]);
+  });
+
+  it("covers every bespoke guide page with a mapped, real route", () => {
+    expect(midPaths.length).toBeGreaterThanOrEqual(25);
+    for (const p of midPaths) {
+      expect(app.includes(`path="${p}"`), p).toBe(true);
+      expect(RECOMMENDED_NEXT_STEP_PATHS, p).toContain(p);
+    }
+  });
+
+  it("every mapped page is a real route", () => {
+    for (const p of RECOMMENDED_NEXT_STEP_PATHS) {
+      const real = app.includes(`path="${p}"`) || (p.startsWith("/blog/") && existsSync(resolve(`src/content/blog/posts/${p.slice(6)}.json`)));
+      expect(real, p).toBe(true);
+    }
+  });
+
+  it("splits only at a top-level h2 near the middle", () => {
+    const html = "<p>a</p><h2>One</h2><p>bbbb</p><section><h2>In</h2></section><h2>Two</h2><p>c</p>";
+    const { first, second } = splitHtmlAtMiddleH2(html);
+    expect(second.startsWith("<h2>Two</h2>") || second.startsWith("<h2>One</h2>")).toBe(true);
+    expect(first + second).toBe(html);
+    expect(splitHtmlAtMiddleH2("<p>no headings</p>").second).toBe("");
   });
 });
 

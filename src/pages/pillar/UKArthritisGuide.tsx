@@ -7,6 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import TableOfContents, { addHeadingIds } from "@/components/TableOfContents";
 import PageSchema from "@/components/seo/PageSchema";
 import GuideOnwardJourney from "@/components/guides/GuideOnwardJourney";
+import ArticleHtmlWithNextStep from "@/components/ArticleHtmlWithNextStep";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
@@ -259,10 +260,7 @@ export default function UKArthritisGuide() {
             diagnosed and treated, and the UK services and benefits available to you.
           </p>
           <TableOfContents html={html} />
-          <article
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
-          />
+          <ArticleHtmlWithNextStep html={html} path="/guides/uk-arthritis" className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-primary" />
           <div className="mt-16 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">Continue Reading</h3>
             <div className="grid sm:grid-cols-2 gap-4">
