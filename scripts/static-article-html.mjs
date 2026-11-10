@@ -123,10 +123,14 @@ export function buildStaticArticleInner(data) {
   const answer = data?.answer && !bodyHtml.includes(data.answer)
     ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
     : "";
-  const takeawayItems = Array.isArray(data?.article?.key_takeaways)
-    ? data.article.key_takeaways.filter((t) => typeof t === "string" && t.trim()) : [];
+  // Blog articles carry key_takeaways; guide/condition head data carries
+  // keyTakeaways (same visible "Key clinical takeaways" box in React).
+  const rawTakeaways = Array.isArray(data?.article?.key_takeaways) ? data.article.key_takeaways
+    : Array.isArray(data?.keyTakeaways) ? data.keyTakeaways : [];
+  const takeawayItems = rawTakeaways.filter((t) => typeof t === "string" && t.trim());
+  const takeawaysHeading = data?.article ? "Key clinical takeaways" : data?.takeawaysHeading || "Key takeaways";
   const takeaways = takeawayItems.length >= 3
-    ? `<section class="key-takeaways" aria-label="Key clinical takeaways"><h2>Key clinical takeaways</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
+    ? `<section class="key-takeaways" aria-label="${escText(takeawaysHeading)}"><h2>${escText(takeawaysHeading)}</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
     : "";
   const nextStep = data?.article?.slug
     ? recommendedNextStepsHtml(`/blog/${data.article.slug}`, `${data.article.title || ""} ${data.article.keywords || ""}`)

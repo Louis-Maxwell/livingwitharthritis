@@ -54,6 +54,8 @@ const BLOG_DATA_PATH = resolve("scripts/blog-head-data.json");
 const CONDITION_DATA_PATH = resolve("scripts/condition-head-data.json");
 const LIBRARY_DATA_PATH = resolve("scripts/library-head-data.json");
 const HUB_GUIDE_DATA_PATH = resolve("scripts/hub-guide-head-data.json");
+// Priority-page entity data (about codes / sameAs, reviewedBy, citations).
+const GEO_PAGE_SCHEMA_PATH = resolve("src/data/geo-page-schema.json");
 
 const template = existsSync(SRC) ? readFileSync(SRC, "utf8") : "";
 
@@ -556,10 +558,18 @@ function compact(obj) {
   );
 }
 
+const GEO_PAGE_SCHEMA = (() => {
+  const raw = existsSync(GEO_PAGE_SCHEMA_PATH) ? JSON.parse(readFileSync(GEO_PAGE_SCHEMA_PATH, "utf8")) : {};
+  delete raw._comment;
+  return raw;
+})();
+export { GEO_PAGE_SCHEMA };
+
 export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
-  const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
+  const geo = GEO_PAGE_SCHEMA[route] || {};
+  const medical = Boolean(article) || geo.medical === true || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
   // Louis Maxwell is the only registered clinician: one stable Person node
   // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.
   const person = (name) => name && !/placeholder/i.test(name)
@@ -573,6 +583,15 @@ export function buildJsonLd(route, url, d) {
   const reviewer = person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
+  // Non-article priority pages: reviewer and references come from
+  // src/data/geo-page-schema.json (mirrors the visible review line) or the
+  // route's own visible "sources" list.
+  const pageReviewer = !article && geo.reviewedBy === "maxwell" ? person("Louis Maxwell") : undefined;
+  const pageCitations = article ? citations
+    : [...(geo.citations || []), ...(geo.citations ? [] : d.sources || [])]
+        .map((c) => ({ ...c, label: c.label || c.name }))
+        .filter((c) => /^https?:\/\//i.test(c.url) && c.label)
+        .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
 
   // 1) MedicalWebPage — the page entity itself, tied to the sitewide
   //    Organization/WebSite nodes already present in the static head.
@@ -586,13 +605,16 @@ export function buildJsonLd(route, url, d) {
     description: d.description,
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
-    about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
+    about: geo.about ? geo.about
+      : article ? { "@type": "MedicalCondition", name: "Arthritis" }
       : d.about ? { "@type": "Thing", name: d.about } : undefined,
-    dateModified: d.updatedAt,
+    dateModified: geo.dateModified || d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
     ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
     ...(article ? { mainEntity: { "@id": `${url}#article` }, author, reviewedBy: reviewer,
       ...(reviewer && article.last_reviewed ? { lastReviewed: article.last_reviewed } : {}) } : {}),
+    ...(pageReviewer ? { reviewedBy: pageReviewer, ...(geo.lastReviewed ? { lastReviewed: geo.lastReviewed } : {}) } : {}),
+    ...(pageCitations.length && geo.about ? { citation: pageCitations } : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,

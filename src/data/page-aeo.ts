@@ -13,6 +13,8 @@ export interface AeoPage {
   faqs?: { q: string; a: string }[];
   /** Optional 3-4 "Key clinical takeaways" shown under the answer. */
   takeaways?: string[];
+  /** Heading for the takeaways box (default "Key clinical takeaways"). */
+  takeawaysHeading?: string;
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
 }
@@ -218,8 +220,8 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   
     faqs: [
       { q: "How is polymyalgia rheumatica diagnosed in the UK?", a: "Your GP will check your symptoms, examine your shoulders and hips, and arrange blood tests (CRP and ESR) to look for inflammation. A dramatic improvement within a few days of starting prednisolone helps confirm the diagnosis." },
-      { q: "How long does polymyalgia rheumatica last?", a: "Most people need steroid treatment for 1 to 3 years. Around half of those affected have one or more flares during the taper, but the condition usually goes into long-term remission." },
-      { q: "Is polymyalgia rheumatica an autoimmune disease?", a: "Yes — PMR is driven by an overactive immune response that inflames the lining of joints and bursae, particularly in the shoulders and hips. It is not contagious and is not caused by anything you have done." },
+      { q: "How long does polymyalgia rheumatica last?", a: "Most people need prednisolone for 12 months to 2 years, with the dose reduced slowly, and some need a low dose for several years. Relapses are common while the dose is being reduced, but they usually respond to restarting or increasing the dose." },
+      { q: "Is polymyalgia rheumatica an autoimmune disease?", a: "The cause is not fully understood. The NHS says a combination of genetic and environmental factors is thought to be responsible. PMR is an inflammatory condition. It is not contagious and is not caused by anything you have done." },
       { q: "What is the link with giant cell arteritis?", a: "Around 1 in 5 people with PMR also develop giant cell arteritis (GCA), which inflames blood vessels in the head. New headaches, scalp tenderness, jaw pain when chewing, or any change in vision need urgent medical attention." },
       { q: "Can I exercise with polymyalgia rheumatica?", a: "Yes, and you should. Gentle walking, shoulder and hip mobility work, and light resistance training protect muscle and bone during long-term steroid use. Start slowly and build up." },
       { q: "Are there natural alternatives to steroids for PMR?", a: "There is no proven natural alternative to steroids for PMR — untreated inflammation can damage tissue and increase the risk of GCA. A Mediterranean diet, exercise and bone-protection medicines support steroid treatment rather than replace it." },
@@ -342,10 +344,21 @@ export const PAGE_AEO: Record<string, AeoPage> = {
       { q: "Where is the printable flare plan?", a: "Use our free printable flare action plan under Resources, then read the full flare-ups guide for detail." },
     ],
   }),
+  // Checked 10 Nov 2026: GOV.UK PIP + how to claim; PIP Regulations 2013
+  // reg 4(2A) (safely, acceptable standard, repeatedly, reasonable time),
+  // reg 7 (over 50% of days) and Schedule 1 (10 daily living + 2 mobility).
   "/guides/benefits-pip": withDefaults({
-    question: "Can I get PIP for arthritis in the UK?",
+    question: "How do I claim PIP for arthritis in the UK?",
     answer:
-      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. Daily living and mobility are scored separately. In each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
+      "In England and Wales, call the PIP new claims line on 0800 917 2222. You will then be sent the How your disability affects you form, which you should return within 1 month. Describe your typical and worse days, how long tasks take and the help you need, and send evidence such as a symptom diary. In Scotland, claim Adult Disability Payment instead.",
+    takeaways: [
+      "PIP is not means-tested. You can get it even if you are working or have savings.",
+      "It is scored on 12 activities: 10 for daily living and 2 for mobility. In each part, 8 to 11 points gives the standard rate and 12 or more the enhanced rate.",
+      "A descriptor applies to you if it fits on more than half of the days in the period assessed, so describe your worse days as well as your better ones.",
+      "You should only be counted as able to do an activity if you can do it safely, to an acceptable standard, repeatedly and in a reasonable time.",
+    ],
+    takeawaysHeading: "Key takeaways",
+    updatedAt: "2026-11-10",
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",

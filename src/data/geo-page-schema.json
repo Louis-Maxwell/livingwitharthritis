@@ -1,0 +1,126 @@
+{
+  "_comment": "Per-route schema.org entity data for the priority pages. Read by scripts/inject-canonicals.mjs (static JSON-LD) and src/pages/ConditionSubpagePage.tsx. Codes and sameAs URIs were checked on 10 November 2026: ICD-10 against the WHO ICD-10 2019 browser (icd.who.int/browse10), MeSH against id.nlm.nih.gov. reviewedBy/lastReviewed must mirror the clinical review line already visible on the page; never bump lastReviewed for a content edit.",
+  "/blog/hip-replacement-recovery-week-by-week": {
+    "about": {
+      "@type": "MedicalProcedure",
+      "name": "Total hip replacement",
+      "alternateName": "Hip arthroplasty",
+      "sameAs": "https://id.nlm.nih.gov/mesh/D019644"
+    }
+  },
+  "/blog/best-supplements-arthritis-uk": {
+    "about": [
+      {
+        "@type": "MedicalCondition",
+        "name": "Osteoarthritis",
+        "code": {
+          "@type": "MedicalCode",
+          "code": "M15-M19",
+          "codingSystem": "ICD-10"
+        },
+        "sameAs": "https://id.nlm.nih.gov/mesh/D010003"
+      },
+      {
+        "@type": "Thing",
+        "name": "Dietary supplements",
+        "sameAs": "https://id.nlm.nih.gov/mesh/D019587"
+      }
+    ]
+  },
+  "/blog/pip-for-arthritis-uk": {
+    "about": {
+      "@type": "GovernmentService",
+      "name": "Personal Independence Payment (PIP)",
+      "url": "https://www.gov.uk/pip",
+      "provider": {
+        "@type": "GovernmentOrganization",
+        "name": "Department for Work and Pensions"
+      }
+    }
+  },
+  "/guides/benefits-pip": {
+    "reviewedBy": "maxwell",
+    "lastReviewed": "2026-10-23",
+    "about": {
+      "@type": "GovernmentService",
+      "name": "Personal Independence Payment (PIP)",
+      "url": "https://www.gov.uk/pip",
+      "provider": {
+        "@type": "GovernmentOrganization",
+        "name": "Department for Work and Pensions"
+      }
+    },
+    "citations": [
+      {
+        "name": "GOV.UK: Personal Independence Payment",
+        "url": "https://www.gov.uk/pip"
+      },
+      {
+        "name": "GOV.UK: How to claim PIP",
+        "url": "https://www.gov.uk/pip/how-to-claim"
+      },
+      {
+        "name": "The Social Security (Personal Independence Payment) Regulations 2013, regulation 4",
+        "url": "https://www.legislation.gov.uk/uksi/2013/377/regulation/4"
+      },
+      {
+        "name": "The Social Security (Personal Independence Payment) Regulations 2013, regulation 7",
+        "url": "https://www.legislation.gov.uk/uksi/2013/377/regulation/7"
+      },
+      {
+        "name": "The Social Security (Personal Independence Payment) Regulations 2013, Schedule 1",
+        "url": "https://www.legislation.gov.uk/uksi/2013/377/schedule/1"
+      }
+    ]
+  },
+  "/guides/knee-exercises-for-osteoarthritis": {
+    "medical": true,
+    "reviewedBy": "maxwell",
+    "lastReviewed": "2026-10-23",
+    "dateModified": "2026-11-10",
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Knee osteoarthritis",
+      "alternateName": "Gonarthrosis",
+      "code": {
+        "@type": "MedicalCode",
+        "code": "M17",
+        "codingSystem": "ICD-10"
+      },
+      "sameAs": "https://id.nlm.nih.gov/mesh/D020370"
+    }
+  },
+  "/conditions/polymyalgia-rheumatica/symptoms": {
+    "reviewedBy": "maxwell",
+    "lastReviewed": "2026-09-17",
+    "dateModified": "2026-11-10",
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Polymyalgia rheumatica",
+      "code": {
+        "@type": "MedicalCode",
+        "code": "M35.3",
+        "codingSystem": "ICD-10"
+      },
+      "sameAs": "https://id.nlm.nih.gov/mesh/D011111"
+    },
+    "citations": [
+      {
+        "name": "NHS: Polymyalgia rheumatica",
+        "url": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/"
+      },
+      {
+        "name": "NHS: Diagnosing polymyalgia rheumatica",
+        "url": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/diagnosis/"
+      },
+      {
+        "name": "NICE Clinical Knowledge Summaries: Polymyalgia rheumatica",
+        "url": "https://cks.nice.org.uk/topics/polymyalgia-rheumatica/"
+      },
+      {
+        "name": "NHS: Temporal arteritis",
+        "url": "https://www.nhs.uk/conditions/temporal-arteritis/"
+      }
+    ]
+  }
+}

@@ -97,7 +97,8 @@ describe("evening visibility pass — unique heads", () => {
       // Diet batch 4 (10 Oct 2026) refreshed the Mediterranean page content;
       // /benefits-pip gained its financial help directory in Benefits batch 3 (2026-10-10).
       // /benefits-pip merged into /guides/benefits-pip on 2026-10-31 (guide reviewed 2026-10-23).
-      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23", "2026-11-04"]).toContain(head!.updatedAt);
+      // GEO pass (2026-11-10) added the claim answer block and takeaways to /guides/benefits-pip.
+      expect(["2026-09-20", "2026-09-29", "2026-10-10", "2026-10-23", "2026-11-04", "2026-11-10"]).toContain(head!.updatedAt);
     });
   }
 

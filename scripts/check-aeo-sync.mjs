@@ -44,6 +44,10 @@ for (const [route, page] of Object.entries(PAGE_AEO)) {
   }
   const pageFaqs = page.faqs ?? [];
   const buildFaqs = build.faqs ?? [];
+  // A page with no runtime AeoEnhancement FAQs may render its own visible
+  // FAQ accordion (e.g. /guides/benefits-pip); its static FAQs are then
+  // owned by that page's data, not page-aeo.ts.
+  if (pageFaqs.length === 0) continue;
   if (pageFaqs.length !== buildFaqs.length) {
     mismatches.push(
       `${route}: faq count differs (page-aeo.ts=${pageFaqs.length}, ai-head-data.json=${buildFaqs.length})`,

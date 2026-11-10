@@ -114,12 +114,12 @@ const data: ConditionPageData = {
     {
       question: "How long does polymyalgia rheumatica last?",
       answer:
-        "Most people need steroid treatment for 1 to 3 years. Around half of those affected have one or more flares during the taper, but the condition usually goes into long-term remission.",
+        "Most people need prednisolone for 12 months to 2 years, with the dose reduced slowly, and some need a low dose for several years. Relapses are common while the dose is being reduced, but they usually respond to restarting or increasing the dose.",
     },
     {
       question: "Is polymyalgia rheumatica an autoimmune disease?",
       answer:
-        "Yes — PMR is driven by an overactive immune response that inflames the lining of joints and bursae, particularly in the shoulders and hips. It is not contagious and is not caused by anything you have done.",
+        "The cause is not fully understood. The NHS says a combination of genetic and environmental factors is thought to be responsible. PMR is an inflammatory condition. It is not contagious and is not caused by anything you have done.",
     },
     {
       question: "What is the link with giant cell arteritis?",

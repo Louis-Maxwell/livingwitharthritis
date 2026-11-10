@@ -291,9 +291,9 @@ A: Polymyalgia rheumatica (PMR) causes sudden shoulder and hip stiffness and pai
 Q: How is polymyalgia rheumatica diagnosed in the UK?
 A: Your GP will check your symptoms, examine your shoulders and hips, and arrange blood tests (CRP and ESR) to look for inflammation. A dramatic improvement within a few days of starting prednisolone helps confirm the diagnosis.
 Q: How long does polymyalgia rheumatica last?
-A: Most people need steroid treatment for 1 to 3 years. Around half of those affected have one or more flares during the taper, but the condition usually goes into long-term remission.
+A: Most people need prednisolone for 12 months to 2 years, with the dose reduced slowly, and some need a low dose for several years. Relapses are common while the dose is being reduced, but they usually respond to restarting or increasing the dose.
 Q: Is polymyalgia rheumatica an autoimmune disease?
-A: Yes — PMR is driven by an overactive immune response that inflames the lining of joints and bursae, particularly in the shoulders and hips. It is not contagious and is not caused by anything you have done.
+A: The cause is not fully understood. The NHS says a combination of genetic and environmental factors is thought to be responsible. PMR is an inflammatory condition. It is not contagious and is not caused by anything you have done.
 Q: What is the link with giant cell arteritis?
 A: Around 1 in 5 people with PMR also develop giant cell arteritis (GCA), which inflames blood vessels in the head. New headaches, scalp tenderness, jaw pain when chewing, or any change in vision need urgent medical attention.
 Q: Can I exercise with polymyalgia rheumatica?
@@ -1118,9 +1118,37 @@ A: Both respond to graded exercise, sleep hygiene and CBT — different medicati
 
 ## How to Claim PIP for Arthritis: Step-by-Step Guide (2026)
 URL: https://livingwitharthritis.org.uk/guides/benefits-pip
-Last updated: 2026-10-23
+Last updated: 2026-11-10
 Q: How do I claim PIP for arthritis in the UK?
-A: In England and Wales, call the PIP new claims line on 0800 917 2222 (Monday to Friday, 8am to 5pm). DWP then sends the How your disability affects you form, which you usually return within one month: describe typical and flare days, time taken, pain, aids and help, and send evidence such as a symptom diary. You may then have an assessment. PIP is not means-tested and you can claim while working; Daily living and mobility are scored separately: in each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead. Free guide from Living With Arthritis, registered charity 1218461.
+A: In England and Wales, call the PIP new claims line on 0800 917 2222. You will then be sent the How your disability affects you form, which you should return within 1 month. Describe your typical and worse days, how long tasks take and the help you need, and send evidence such as a symptom diary. In Scotland, claim Adult Disability Payment instead.
+Q: Can I get PIP for arthritis?
+A: Yes, if arthritis makes everyday tasks or getting around difficult on most days and you expect this to last at least 12 months from when it started. PIP is based on how your condition affects you, not the diagnosis itself. Check the current rules on GOV.UK.
+Q: How much is PIP in 2026/27?
+A: The daily living part is £76.70 a week (standard) or £114.60 (enhanced). The mobility part is £30.30 (standard) or £80 (enhanced). These figures were checked on GOV.UK on 10 October 2026.
+Q: How many points do I need for PIP?
+A: Daily living and mobility are scored separately. For daily living, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. Mobility uses the same thresholds on its own points total.
+Q: Can I work and claim PIP?
+A: Yes. PIP is not means-tested and is not an out-of-work benefit, so you can claim whether or not you work. Your income and savings do not affect it.
+Q: How do I show that my arthritis flares?
+A: Describe a typical week and month: how many bad days you have, what you cannot do on them and how long flares last. PIP looks at which descriptor applies on more than half of days, so a diary covering several weeks is very helpful.
+Q: What if I live in Scotland?
+A: Working-age adults in Scotland apply for Adult Disability Payment from Social Security Scotland instead of PIP. It has daily living and mobility parts at the same 2026/27 rates.
+Q: How long do I have to challenge a PIP decision?
+A: You usually need to ask for mandatory reconsideration within one month of the date on your decision letter, and appeal to the tribunal within one month of your mandatory reconsideration notice.
+Q: Is PIP means-tested?
+A: No. PIP (and Adult Disability Payment in Scotland) is not affected by your income or savings, and you can claim while working.
+Q: What can I get if I am over State Pension age?
+A: You cannot make a new PIP claim, but you can claim Attendance Allowance (Pension Age Disability Payment in Scotland) if you need help with personal care. Also check Pension Credit, which can unlock other help.
+Q: Can I get a grant to adapt my home?
+A: In England, Wales and Northern Ireland, you can apply to your council for a Disabled Facilities Grant. Scotland does not have Disabled Facilities Grants but has its own support for adaptations through councils.
+Q: Are prescriptions free for arthritis?
+A: Prescriptions are free for everyone in Scotland, Wales and Northern Ireland. In England, arthritis does not give you a medical exemption, but a prescription prepayment certificate can cut costs if you need regular medicines.
+Q: Do I have to pay VAT on mobility aids?
+A: Not usually, if you are disabled or have a long-term illness and the product is designed or adapted for your personal use. You need to confirm this in writing to the supplier.
+Q: Will claiming one benefit affect another?
+A: It can. For example, Carer's Allowance can affect the benefits of the person you care for. Use a benefits calculator or get free advice before you claim.
+Q: Where can I get free help with forms?
+A: Citizens Advice, local welfare rights services, Turn2us, Scope and Disability Rights UK provide free information. You should not need to pay for help with benefit forms.
 
 ## Blue Badge vs Disability Parking Concessions
 URL: https://livingwitharthritis.org.uk/guides/blue-badge-vs-disability-parking
@@ -1286,7 +1314,7 @@ A: Evidence-based hip OA exercises include glute bridges, clamshells, standing h
 URL: https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis
 Last updated: 2026-09-23
 Q: What are the best free knee exercises for osteoarthritis in the UK?
-A: NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.
+A: NICE guideline NG226 recommends therapeutic exercise, including muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine builds thigh and hip strength. Aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping exercise pain at 4 out of 10 or less.
 Q: How many reps of knee exercises for osteoarthritis should I do?
 A: Aim for 2 to 3 sets of 8 to 12 repetitions of each strength exercise, two or three times a week on non-consecutive days. For quad sets, hold for 5 to 10 seconds and build up to 10 holds. If you are new to exercise, start with one set and build up over a few weeks. Regular practice over 6 to 12 weeks matters more than doing a lot in one session.
 Q: When should I stop knee exercises?
@@ -2276,16 +2304,6 @@ Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
 Last clinically reviewed: 2026-10-23
 Q: How Arthritis Medications Affect Sexual Function: DMARDs, Biologics and NSAIDs
 A: Arthritis treatments manage pain and inflammation but can sometimes impact your intimate life. While physical dysfunction is rare, indirect methotrexate sexual side effects can include lowered libido due to severe fatigue or nausea. Other drugs, like steroids or opioids, might reduce desire or alter hormone levels. Always discuss rheumatoid arthritis sexual dysfunction with your rheumatology team.
-Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
-
-## Arthritis Pain Management — A Kind, Practical Guide
-URL: https://livingwitharthritis.org.uk/blog/arthritis-pain-management
-Last updated: 2026-09-05
-Author: Louis Maxwell (First Contact Practitioner, HCPC PH128483)
-Reviewer: Louis Maxwell (First Contact Practitioner, HCPC PH128483, CSP member)
-Last clinically reviewed: 2026-10-23
-Q: Arthritis Pain Management — A Kind, Practical Guide
-A: Arthritis pain is influenced by physical factors, muscle tension, nervous system sensitisation, emotions, and sleep. Effective management takes a whole-person approach: exercise, sensible medication use, heat and cold therapy, and mindfulness. Prioritising sleep, setting realistic daily goals, and having a plan for flare-ups reduces pain and improves well-being. If pain affects your mood, speak to your GP.
 Reference: NHS: Arthritis — https://www.nhs.uk/conditions/arthritis/
 
 ## Arthritis Pain Management: What Actually Helps Day by Day?

@@ -15,6 +15,7 @@ import { CITATIONS_KNEE_EXERCISES } from "@/data/clinical/ukCitations";
 import FaqAccordion from "@/components/faq/FaqAccordion";
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import RecommendedNextStep from "@/components/RecommendedNextStep";
+import GeoPageActions from "@/components/geo/GeoPageActions";
 
 const Footer = lazyWithRetry(() => import("@/components/Footer"));
 
@@ -333,6 +334,8 @@ export default function KneeExercisesForOsteoarthritis() {
             <RecommendedNextStep path="/guides/knee-exercises-for-osteoarthritis" placement="mid" />
             <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlSecondHalf) }} />
           </article>
+
+          <GeoPageActions path="/guides/knee-exercises-for-osteoarthritis" title="Free knee exercises for osteoarthritis" />
 
           <div className="mt-12 pt-8 border-t border-border/30">
             <h3 className="font-display font-bold text-lg mb-4">

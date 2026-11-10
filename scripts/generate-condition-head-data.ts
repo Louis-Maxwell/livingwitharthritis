@@ -72,11 +72,24 @@ function bodyHtml(
 ): string {
   const extra = extraSectionsHtml(content);
   if (subpage === "symptoms" && "commonSymptoms" in content) {
+    const table = content.table
+      ? `<table><caption>${esc(content.table.caption)}</caption><thead><tr>${content.table.headers
+          .map((h) => `<th scope="col">${esc(h)}</th>`)
+          .join("")}</tr></thead><tbody>${content.table.rows
+          .map(
+            (row) =>
+              `<tr>${row
+                .map((cell, i) => (i === 0 ? `<th scope="row">${esc(cell)}</th>` : `<td>${esc(cell)}</td>`))
+                .join("")}</tr>`,
+          )
+          .join("")}</tbody></table>`
+      : "";
     return [
       `<p>${esc(content.intro)}</p>`,
-      `<h2>Common symptoms of ${esc(name.toLowerCase())}</h2>`,
+      `<h2>${esc(content.symptomsHeading ?? `Common symptoms of ${name.toLowerCase()}`)}</h2>`,
       `<ul>${content.commonSymptoms.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>`,
-      `<h2>When to see your GP</h2>`,
+      table,
+      `<h2>${esc(content.gpHeading ?? "When to see your GP")}</h2>`,
       `<p>${esc(content.whenToSeeGP)}</p>`,
       extra,
     ].join("");
@@ -123,6 +136,7 @@ const data: Record<
     about: string;
     bodyHtml: string;
     faqs: { q: string; a: string }[];
+    keyTakeaways?: string[];
   }
 > = {};
 
@@ -140,11 +154,14 @@ for (const [slug, pages] of Object.entries(conditionSubpages)) {
       ),
       description: pageDescription(cond.name, subpage),
       question: sub.headline,
-      answer: sub.intro,
+      answer: "quickAnswer" in sub && sub.quickAnswer ? sub.quickAnswer : sub.intro,
       breadcrumb: sub.headline,
       about: cond.name,
       bodyHtml: bodyHtml(cond.name, subpage, sub),
       faqs: faqs.map((f) => ({ q: f.question, a: f.answer })),
+      ...("keyTakeaways" in sub && (sub.keyTakeaways?.length ?? 0) >= 3
+        ? { keyTakeaways: sub.keyTakeaways }
+        : {}),
     };
   }
 }

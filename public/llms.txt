@@ -41,6 +41,48 @@ Free, clinically reviewed, customer-first guidance for people living with arthri
 - [Access to Work](https://livingwitharthritis.org.uk/library/access-to-work) and [disability support](https://livingwitharthritis.org.uk/guides/disability-support)
 - Scotland: new claims usually go to Adult Disability Payment. Northern Ireland: claims go through nidirect.
 
+## Top 30 guides (index, checked 10 November 2026)
+
+Our strongest practical guides, one line each: canonical URL, title, clinical review status and a short summary. Every URL below is in our sitemap. Review status is the one shown on the page; a page edited after its last review keeps the earlier review date until it is reviewed again.
+
+### Exercise, pain and recovery
+- [Knee exercises for osteoarthritis: 8-move home routine](https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis) — Reviewed by Louis Maxwell (physiotherapist, HCPC PH128483), last reviewed 23 October 2026. Eight home strengthening moves for knee osteoarthritis with starting levels, a weekly plan, the 4/10 pain rule and signs to stop.
+- [Hip exercises for osteoarthritis](https://livingwitharthritis.org.uk/guides/hip-exercises-for-osteoarthritis) — Review status shown on page. Home hip osteoarthritis routine: glute bridges, clamshells, hip abduction, wall squats and cycling, with weekly targets in line with NICE NG226.
+- [Hip replacement recovery week by week](https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week) — Reviewed by Louis Maxwell, last reviewed 23 October 2026. NHS-based recovery milestones after hip replacement: walking aids, at least 6 weeks before driving, return to work and urgent warning signs.
+- [Free physiotherapy exercises for arthritis at home](https://livingwitharthritis.org.uk/exercises) — Review status shown on page. Joint-by-joint home routines for knees, hips, hands, shoulders and back, with start-here steps, red flags, flare-day options and carer notes.
+- [Can exercise make osteoarthritis worse?](https://livingwitharthritis.org.uk/guides/can-exercise-make-osteoarthritis-worse) — Review status shown on page. What normal exercise soreness looks like, warning signs of overdoing it, and how to progress safely without stopping activity altogether.
+- [Fall prevention with arthritis](https://livingwitharthritis.org.uk/guides/fall-prevention-older-adults) — Review status shown on page. Strength and balance exercises, a home safety checklist, medication review and practical steps after a fall for older adults with arthritis.
+- [Arthritis pain relief](https://livingwitharthritis.org.uk/guides/arthritis-pain-relief) — Review status shown on page. What to do now for arthritis pain: a flare plan, medicines in line with NICE, heat and cold, exercise, sleep and red flags.
+- [Painkillers and NSAIDs for arthritis](https://livingwitharthritis.org.uk/guides/painkillers-and-nsaids) — Review status shown on page. Topical gels, oral NSAIDs, paracetamol and weak opioids: what NICE recommends, what to avoid long-term and when to ask for a medicines review.
+- [Arthritis flare-ups](https://livingwitharthritis.org.uk/arthritis-flare-ups) — Review status shown on page. Pacing, heat or cold, medicines advised by your GP or pharmacist and tracking triggers, plus when a hot joint with fever needs urgent care.
+- [Arthritis flare-up action plan (printable)](https://livingwitharthritis.org.uk/resources/flare-action-plan) — Review status shown on page. Free printable plan with green, amber and red zones, comfort steps, agreed medicines, contacts and red flags to complete with your team.
+- [Help while you are on a waiting list](https://livingwitharthritis.org.uk/arthritis-waiting-list-help) — Review status shown on page. NHS waiting time rights in each UK nation for rheumatology, physiotherapy or joint surgery, what to do meanwhile and when to go back.
+
+### Diet and supplements
+- [Best supplements for arthritis](https://livingwitharthritis.org.uk/blog/best-supplements-arthritis-uk) — Reviewed by Louis Maxwell, last reviewed 23 October 2026. Omega-3 and turmeric have mixed evidence; NICE NG226 says do not offer glucosamine for osteoarthritis; NHS vitamin D advice and safety checks.
+- [Diet and arthritis](https://livingwitharthritis.org.uk/guides/diet) — Review status shown on page. Mediterranean-style eating for arthritis in the UK: what helps, what to limit, omega-3s, supplements and a practical meal plan. Diet does not replace treatment.
+- [Mediterranean diet for arthritis](https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis) — Review status shown on page. What NICE and the research say about Mediterranean eating for arthritis, with a UK shopping list, sample week and medicine safety notes.
+
+### Benefits and work
+- [How to claim PIP for arthritis: step by step](https://livingwitharthritis.org.uk/guides/benefits-pip) — Reviewed by Louis Maxwell, last reviewed 23 October 2026. The claim line, the How your disability affects you form, evidence that helps, the assessment, points, rates and how to challenge a decision.
+- [Can you get PIP for arthritis?](https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk) — Reviewed by Louis Maxwell, last reviewed 23 October 2026. PIP depends on how arthritis affects daily living and mobility, not the diagnosis; points thresholds, rates and describing better and worse days.
+- [Printable PIP evidence diary](https://livingwitharthritis.org.uk/resources/pip-evidence-diary) — Review status shown on page. Daily and weekly templates, a flare log and a supporter statement to record how arthritis affects you before filling in the PIP form.
+- [PIP or Attendance Allowance?](https://livingwitharthritis.org.uk/guides/pip-vs-attendance-allowance) — Review status shown on page. PIP is for people aged 16 to State Pension age; people over State Pension age usually claim Attendance Allowance instead. How the two differ.
+- [Access to Work](https://livingwitharthritis.org.uk/library/access-to-work) — Review status shown on page. How Access to Work can fund equipment, travel and support workers when arthritis affects your job, who can apply and how.
+- [Newly diagnosed with arthritis](https://livingwitharthritis.org.uk/guides/newly-diagnosed) — Review status shown on page. First steps after an arthritis diagnosis in the UK, questions for your GP, preparing for rheumatology, and where to start with pain, exercise and benefits.
+
+### Conditions
+- [Osteoarthritis](https://livingwitharthritis.org.uk/conditions/osteoarthritis) — Review status shown on page. UK osteoarthritis guide: diagnosis under NICE NG226, core treatments of exercise and weight management, safe pain relief, aids, flares and red flags.
+- [Rheumatoid arthritis](https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis) — Review status shown on page. Early rheumatoid arthritis symptoms, GP referral, DMARD treatment, managing flares and self-care, written for people using UK rheumatology services.
+- [Psoriatic arthritis](https://livingwitharthritis.org.uk/conditions/psoriatic-arthritis) — Review status shown on page. Early signs of psoriatic arthritis in people with psoriasis, when to see a GP, NICE-backed treatment options and practical self-care.
+- [Ankylosing spondylitis (axial spondyloarthritis)](https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis) — Review status shown on page. Signs of inflammatory back pain and morning stiffness, when to see a GP, daily exercise and biologic treatment in UK care.
+- [Gout](https://livingwitharthritis.org.uk/conditions/gout) — Review status shown on page. Sudden painful swollen joint: gout symptoms, common triggers, diet changes, allopurinol treatment and when to see a GP.
+- [Fibromyalgia](https://livingwitharthritis.org.uk/conditions/fibromyalgia) — Review status shown on page. Widespread pain, fatigue, fibro fog and sleep problems, with NICE-recommended exercise, psychological support and pacing for people in the UK.
+- [Polymyalgia rheumatica](https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica) — Review status shown on page. Shoulder and hip stiffness in people over 50, steroid treatment with prednisolone, the link with temporal arteritis and what recovery looks like.
+- [Polymyalgia rheumatica symptoms](https://livingwitharthritis.org.uk/conditions/polymyalgia-rheumatica/symptoms) — Reviewed by Louis Maxwell, last reviewed 17 September 2026. Morning stiffness lasting more than 45 minutes, when to see a GP, and urgent warning signs of temporal arteritis.
+- [Knee arthritis](https://livingwitharthritis.org.uk/conditions/knee-arthritis) — Review status shown on page. Stiff, painful knees: symptoms of knee arthritis, exercises that help, treatment options on the NHS and when to see a GP.
+- [Hip arthritis](https://livingwitharthritis.org.uk/conditions/hip-arthritis) — Review status shown on page. Groin or hip pain and stiffness: signs of hip arthritis, exercises that help, treatment options and when to see a GP.
+
 ## Source attribution
 
 Use the specific canonical page URL when attributing our content. Check its displayed review status, publication date, references and scope before relying on it. This file is a discovery guide; it does not guarantee inclusion, ranking or citation by any AI service.

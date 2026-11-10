@@ -20,7 +20,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 
 <p>Arthritis can make ordinary tasks harder, slower or more painful: getting dressed, cooking a meal, washing, managing tablets or walking to the shops. Personal Independence Payment (PIP) exists to help with the extra costs that come with this. Many people with arthritis are eligible but never claim, or are turned down because their form did not show the real impact. This guide covers the whole process, from checking whether you qualify to challenging a decision, so you know what to expect at each stage.</p>
 
-<h2 id="what-pip-is">What PIP is, and what it is not</h2>
+<h2 id="what-pip-is">What is PIP, and what is it not?</h2>
 <ul>
 <li><strong>It is for extra living costs</strong> if you have a long-term physical or mental health condition or disability and find everyday tasks or getting around difficult.</li>
 <li><strong>It is not means-tested.</strong> GOV.UK states that the amount you get is not affected by your income or savings.</li>
@@ -34,7 +34,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <li>a <strong>mobility part</strong>, if you need help getting around</li>
 </ul>
 
-<h2 id="rates">How much PIP is in 2026/27</h2>
+<h2 id="rates">How much is PIP in 2026/27?</h2>
 <table>
 <thead><tr><th>Part</th><th>Standard (lower) weekly rate</th><th>Enhanced (higher) weekly rate</th></tr></thead>
 <tbody>
@@ -44,7 +44,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 </table>
 <p>Source: <a href="https://www.gov.uk/pip" rel="noopener">GOV.UK PIP guide</a> and the DWP rates publication for 2026 to 2027, checked on 10 October 2026. Adult Disability Payment in Scotland is paid at the same rates for 2026/27, according to <a href="https://www.mygov.scot/adult-disability-payment" rel="noopener">mygov.scot</a>.</p>
 
-<h2 id="eligibility">Who can claim</h2>
+<h2 id="eligibility">Who can claim PIP?</h2>
 <p>According to GOV.UK, you can get PIP if all of the following apply:</p>
 <ul>
 <li>you are 16 or over</li>
@@ -66,7 +66,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 </table>
 <p>If you move between Scotland and England or Wales, GOV.UK says you must tell the relevant agency and make a new claim for the other benefit. For example, if you move from England or Wales to Scotland, your PIP stops 13 weeks after you move, so apply for ADP as soon as possible.</p>
 
-<h2 id="points">How the points system works</h2>
+<h2 id="points">How does the PIP points system work?</h2>
 <p>PIP is assessed against 12 activities: 10 daily living activities and 2 mobility activities. Each activity has a list of statements (called descriptors) worth different points. The PIP regulations set the thresholds:</p>
 <ul>
 <li><strong>8 to 11 points</strong> in the daily living activities = standard rate of the daily living part</li>
@@ -109,7 +109,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 </tbody>
 </table>
 
-<h2 id="claim">How to claim, step by step</h2>
+<h2 id="claim">How do I claim PIP, step by step?</h2>
 <ol>
 <li><strong>Start the claim.</strong> In England and Wales, call the PIP new claims line on 0800 917 2222 (Relay UK: 18001 then 0800 917 2222), Monday to Friday, 8am to 5pm. Or write to <em>Freepost DWP PIP 1</em> asking to start a claim. In some areas you can now apply fully online; GOV.UK lets you check by postcode. Have your National Insurance number, bank details and your GP or health worker's details ready.</li>
 <li><strong>Complete the "How your disability affects you" form.</strong> You will be sent it by post (usually within 2 weeks) or emailed a link if you applied by phone. GOV.UK says you should return it within 1 month; contact the PIP enquiry line if you need more time.</li>
@@ -129,7 +129,7 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 <li>Give real examples: "On 4 or 5 days a week I cannot do up buttons or a bra; my partner helps me. Getting dressed takes me about 30 minutes and I have to sit down to rest."</li>
 </ul>
 
-<h2 id="evidence">Evidence that helps</h2>
+<h2 id="evidence">What evidence helps a PIP claim?</h2>
 <ul>
 <li>Clinic letters from rheumatology, orthopaedics or pain services that describe your condition, treatment and its effects</li>
 <li>Reports from a physiotherapist or occupational therapist describing function, aids and limits</li>
@@ -139,20 +139,20 @@ export const PIP_GUIDE_HTML = `<p class="checked-note"><strong>Checked on 10 Oct
 </ul>
 <p>You do not need to pay for new medical reports. Send what you have and explain the gaps in your own words.</p>
 
-<h2 id="assessment">The assessment</h2>
+<h2 id="assessment">What happens at the PIP assessment?</h2>
 <p>GOV.UK says you might be invited to an assessment with a health professional if more information is needed. It can take place at an assessment centre, at your home, over the phone or by video call, and usually takes about 1 hour. You can have someone with you, such as a friend or support worker. The audio is recorded; if you do not want it recorded, contact the assessment provider using the details in your invitation letter. They may ask you to do some simple movements. Only do what you can do safely and without causing more pain, and say if something would hurt or you could not repeat it.</p>
 
 <h2 id="decision">The decision and reviews</h2>
 <p>You will get a letter saying whether you will get PIP, the date of your first payment and when your claim will be reviewed. GOV.UK says a first award is between 9 months and 10 years, depending on whether your needs are likely to change. You keep getting PIP while a review is being carried out. Tell the PIP enquiry line straight away if your needs change, you go into hospital or a care home, or you plan to go abroad for more than 4 weeks.</p>
 
-<h2 id="challenge">If you disagree with the decision</h2>
+<h2 id="challenge">What can I do if I disagree with the PIP decision?</h2>
 <ol>
 <li><strong>Mandatory reconsideration.</strong> Ask DWP to look at the decision again, usually within one month of the date on your decision letter. It is free.</li>
 <li><strong>Appeal to a tribunal.</strong> If you are still unhappy, appeal to the Social Security and Child Support Tribunal within one month of your mandatory reconsideration notice. It is free and independent of DWP.</li>
 </ol>
 <p>Our step-by-step <a href="/blog/appeal-rejected-pip-arthritis">PIP appeal guide</a> explains how to build a strong challenge. In Scotland, ADP decisions are challenged through Social Security Scotland; in Northern Ireland, through the Department for Communities and The Appeals Service.</p>
 
-<h2 id="what-pip-unlocks">What a PIP award can unlock</h2>
+<h2 id="what-pip-unlocks">What else can a PIP award help you get?</h2>
 <p>GOV.UK lists extra help linked to PIP. Depending on your award, this can include:</p>
 <ul>
 <li>a <strong>Blue Badge</strong> (in England you automatically qualify if you score 8 points or more in the "moving around" activity)</li>
