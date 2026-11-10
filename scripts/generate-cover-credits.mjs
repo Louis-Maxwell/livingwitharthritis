@@ -10,6 +10,8 @@ const LIC = { by: 'CC BY', 'by-sa': 'CC BY-SA', cc0: 'CC0', pdm: 'Public domain'
 const out = {};
 for (const [file, a] of Object.entries(attr)) {
   if (!a || a.source === 'existing') continue;
+  // Images supplied by Living With Arthritis carry their own credit line.
+  if (typeof a.credit === 'string' && a.credit.trim()) { out[file] = a.credit.trim(); continue; }
   const rawLic = String(a.license || '').trim();
   const lic = LIC[rawLic.toLowerCase()] ?? rawLic;
   const ver = (a.license_url || '').match(/\/(\d\.\d)\/?/)?.[1];

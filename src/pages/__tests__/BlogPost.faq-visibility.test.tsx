@@ -81,6 +81,8 @@ beforeAll(async () => {
 
 
 import tens from "@/content/blog/posts/tens-machines-arthritis-uk.json";
+import pipEligibility from "@/content/blog/posts/pip-for-arthritis-uk.json";
+import hipRecovery from "@/content/blog/posts/hip-replacement-recovery-week-by-week.json";
 
 describe("Article evidence and FAQ visibility", () => {
   it("shows TENS safety and FAQs before deferred sections enter the viewport", async () => {
@@ -95,6 +97,32 @@ describe("Article evidence and FAQ visibility", () => {
       expect(screen.getByRole("region", { name: "Frequently asked questions" })).toBeInTheDocument();
       expect(screen.getByText("Will a TENS machine cure arthritis?")).toBeInTheDocument();
       expect(screen.getByText("No. Temporary symptom relief does not establish that a treatment alters the disease.")).toBeVisible();
+    });
+  });
+
+  it("shows one PIP FAQ heading and names a self-review when the author is the reviewer", async () => {
+    vi.mocked(useBlogArticle).mockReturnValue({
+      data: pipEligibility,
+      isLoading: false,
+    } as unknown as ReturnType<typeof useBlogArticle>);
+    renderBlogPost(pipEligibility.slug);
+    await waitFor(() => {
+      expect(screen.getAllByRole("heading", { name: "Frequently asked questions" })).toHaveLength(1);
+      expect(screen.getAllByText(/disclosed self-review by the author, not an independent clinical review/i).length).toBeGreaterThan(0);
+      expect(screen.getAllByRole("link", { name: /printable PIP evidence diary/i }).length).toBeGreaterThan(0);
+    });
+  });
+
+  it("uses one driving answer and one walking-aid answer on the hip recovery guide", async () => {
+    vi.mocked(useBlogArticle).mockReturnValue({
+      data: hipRecovery,
+      isLoading: false,
+    } as unknown as ReturnType<typeof useBlogArticle>);
+    renderBlogPost(hipRecovery.slug);
+    await waitFor(() => {
+      expect(screen.getAllByText("When can I drive after a hip replacement?")).toHaveLength(1);
+      expect(screen.getAllByText("How long will I need crutches or a walking frame after hip replacement?")).toHaveLength(1);
+      expect(screen.getAllByText(/not a promise about your operation/i).length).toBeGreaterThan(0);
     });
   });
 });

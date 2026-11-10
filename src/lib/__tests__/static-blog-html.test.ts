@@ -7,11 +7,13 @@ import { patchShareMeta, rewriteHead } from "../../../scripts/inject-canonicals.
 import {
   HOME_SHELL_HEADING,
   buildStaticArticleInner,
+  composeArticleBody,
   htmlHasFullArticle,
   replaceSeoFallback,
 } from "../../../scripts/static-article-html.mjs";
 import { readEmbeddedBlogArticle } from "@/lib/embeddedBlogArticle";
 import blogSlugs from "@/data/blog-slugs.generated.json";
+import { resolveSeoRedirect } from '@/lib/seoRedirects';
 
 const TEMPLATE = `<!doctype html>
 <html lang="en-GB">
@@ -105,7 +107,8 @@ describe("static blog HTML for Soft 404s", () => {
 
   it("prerenders every published blog slug and the hand-arthritis exercises page", () => {
     const missing = (blogSlugs as string[]).filter(
-      (slug) => !PRERENDER_ROUTES.includes(`/blog/${slug}`),
+      (slug) => !resolveSeoRedirect(`/blog/${slug}`)
+        && !PRERENDER_ROUTES.includes(`/blog/${slug}`),
     );
     expect(missing).toEqual([]);
     expect(PRERENDER_ROUTES).toContain("/blog/arthritis-and-work-uk");
@@ -126,7 +129,7 @@ describe("static blog HTML for Soft 404s", () => {
     );
 
     expect(html).toContain(
-      "<title>Arthritis at Work UK – Rights, Adjustments &amp; Practical Tips</title>",
+      "<title>Arthritis at Work UK – Rights, Adjustments | Guide</title>",
     );
     expect(html).toContain(
       'rel="canonical" href="https://livingwitharthritis.org.uk/blog/arthritis-and-work-uk"',
@@ -171,6 +174,32 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Equality Act 2010");
     expect(html).toContain("clip:rect(0 0 0 0)");
     expect(html).not.not.toContain('id="seo-fallback" aria-hidden="true"');
+  });
+
+  it("keeps a full article when a thin where-to-go-next list is attached", () => {
+    const repeated = "Daily living and mobility are scored separately for PIP. ";
+    const html = buildStaticArticleInner({
+      question: "Can you get PIP for arthritis?",
+      answer: "Short answer only.",
+      bodyHtml:
+        '<h2>Where to go next</h2><ul><li><a href="/blog/sex-and-intimacy-with-arthritis">Sex and intimacy</a></li></ul>',
+      article: {
+        title: "Can you get PIP for arthritis?",
+        author: "Louis Maxwell",
+        author_credentials: "First Contact Practitioner, HCPC PH128483",
+        reviewed_by: "Louis Maxwell",
+        reviewer_credentials: "First Contact Practitioner, HCPC PH128483, CSP member",
+        content: `<p>${repeated.repeat(30)} Use the printable PIP evidence diary before the claim form.</p>`,
+      },
+    });
+    expect(html).toContain("PIP evidence diary");
+    expect(html).toContain("disclosed self-review");
+    expect(html).not.toContain("sex-and-intimacy-with-arthritis");
+    expect(html).not.toContain(">Reviewed by Louis Maxwell");
+    expect(composeArticleBody({
+      bodyHtml: "<p>Only a teaser.</p>",
+      article: { content: `<p>${repeated.repeat(30)}</p>` },
+    })).not.toContain("Only a teaser");
   });
 
   it("reads an embedded article only when the slug matches", () => {
@@ -292,7 +321,7 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Arthritis Support in London");
     expect(html).toContain('content="index, follow"');
     expect(html).not.toContain("noindex");
-    expect(html).toContain('property="og:title" content="Arthritis Support in London"');
+    expect(html).toContain('property="og:title" content="Arthritis Support in London | Living With Arthritis"');
     expect(html).not.toMatch(/Living With Arthritis \| UK charity for arthritis/i);
     expect(html).toContain('id="main-content"');
     expect(html).toContain("not a diagnosis");

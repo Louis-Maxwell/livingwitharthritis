@@ -276,6 +276,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
 
   return (
     <>
+      {!initialCategory && !heroTitle && (
       <Helmet>
         <title>Arthritis blog UK | Exercise, diet, PIP and pain guides</title>
         <meta
@@ -342,6 +343,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
           })}
         </script>
       </Helmet>
+      )}
       <div className="min-h-screen bg-background">
         <Header />
 

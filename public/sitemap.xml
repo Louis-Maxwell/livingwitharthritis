@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library</loc>
@@ -23,7 +23,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/archive</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/about</loc>
@@ -97,7 +97,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/conditions/osteoarthritis</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis</loc>
@@ -242,6 +242,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/exercises</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/exercises/tai-chi-for-balance</loc>
@@ -352,7 +353,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/exercise</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/arthritis-pain-relief</loc>
@@ -410,6 +411,9 @@
     <loc>https://livingwitharthritis.org.uk/press</loc>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/magazine</loc>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/partners</loc>
   </url>
   <url>
@@ -465,42 +469,12 @@
     <lastmod>2026-09-25</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/guides/insurance-coverage</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/guides/work-with-arthritis</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/guides/travel-with-arthritis</loc>
     <lastmod>2026-09-25</lastmod>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/tools/find-specialist</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/community/connect-groups</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/events</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/helpline</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/volunteer</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/advocacy</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/research</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/research/clinical-trials</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/research/grants</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/pets</loc>
@@ -530,6 +504,15 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/daily-tips/pace-yourself</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/overview</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/daily-living</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/daily-tips/health-tips</loc>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/arthritis-support/london</loc>
@@ -1218,9 +1201,6 @@
     <loc>https://livingwitharthritis.org.uk/library/adalimumab</loc>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/library/lower-back-back</loc>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/library/msm</loc>
   </url>
   <url>
@@ -1273,6 +1253,13 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/library/collagen-vs-glucosamine</loc>
+  </url>
+  <url>
+    <loc>https://livingwitharthritis.org.uk/blog/arthritis-pain-management-day-by-day</loc>
+    <lastmod>2026-11-09</lastmod>
+    <image:image>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/arthritis-pain-management-day-by-day.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/sex-and-intimacy-with-arthritis</loc>
@@ -2874,7 +2861,7 @@
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-flare-up-what-to-do</loc>
     <lastmod>2026-10-02</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0138-old-runner-a2.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0466-cup-of-tea-by-a-lake.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2916,7 +2903,7 @@
     <loc>https://livingwitharthritis.org.uk/blog/exercise-for-hip-arthritis</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0480-20171027-ams-lsc-1597.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0159-elderly-couple-walk-together.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2944,21 +2931,21 @@
     <loc>https://livingwitharthritis.org.uk/blog/glucosamine-vs-collagen</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0429-learning-to-swim.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-gout-causes-symptoms-and-treatment-11ce46.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hand-exercises-for-arthritis</loc>
     <lastmod>2026-10-10</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0455-the-coopers.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-hand-exercises-for-arthritis-79ba42.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/knee-exercises-for-arthritis</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/lwa-turmeric-and-methotrexate-interaction.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-yoga-for-arthritis-b86ca5.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3028,7 +3015,7 @@
     <loc>https://livingwitharthritis.org.uk/blog/turmeric-for-arthritis</loc>
     <lastmod>2026-09-20</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0438-spinach-salad.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-turmeric-for-arthritis-96c722.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3061,9 +3048,9 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0186-the-long-journey.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-arthritis-at-work-8cd1ea.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3105,7 +3092,7 @@
     <loc>https://livingwitharthritis.org.uk/blog/yoga-for-arthritis-beginners</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0379-old-man-taking-a-dip-in-the-sea-vieil-homme-s.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/commons-mental-health-and-arthritis-062b4c.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3165,17 +3152,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/knee-arthritis-exercises-uk</loc>
-    <lastmod>2026-09-05</lastmod>
-    <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0450-frozen-yogurt-cups-sunshine-cups.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/arthritis-pain-relief-natural</loc>
     <lastmod>2026-09-05</lastmod>
     <image:image>
-      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0423-learning-to-swim.webp</image:loc>
+      <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0307-an-elderly-chinese-man-practices-tai-chi-jard.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -4398,7 +4378,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/pip-for-arthritis-how-to-build-a-strong-application</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/cover-0475-20171027-ams-lsc-1150.webp</image:loc>
     </image:image>
@@ -4559,7 +4539,7 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <image:image>
       <image:loc>https://livingwitharthritis.org.uk/openverse/wellness-08-pilates-reformer2.webp</image:loc>
     </image:image>
@@ -4971,6 +4951,10 @@
     </image:image>
   </url>
   <url>
+    <loc>https://livingwitharthritis.org.uk/blog/category/pain-flares</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/carers-family</loc>
     <lastmod>2026-11-03</lastmod>
   </url>
@@ -4992,19 +4976,15 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/benefits-work</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-08</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/exercise</loc>
     <lastmod>2026-11-04</lastmod>
   </url>
   <url>
-    <loc>https://livingwitharthritis.org.uk/blog/category/pain-flares</loc>
-    <lastmod>2026-11-04</lastmod>
-  </url>
-  <url>
     <loc>https://livingwitharthritis.org.uk/blog/category/surgery-recovery</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-08</lastmod>
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/glossary/dmard</loc>
@@ -5274,8 +5254,5 @@
   </url>
   <url>
     <loc>https://livingwitharthritis.org.uk/authors/maxwell</loc>
-  </url>
-  <url>
-    <loc>https://livingwitharthritis.org.uk/reviewers/maxwell</loc>
   </url>
 </urlset>

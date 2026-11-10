@@ -1172,7 +1172,7 @@ Learn more: **/conditions/osteoarthritis**, **/conditions/rheumatoid-arthritis**
     chips: ["OA exercises", "Knee OA", "Diet hub"],
     answer: `**Osteoarthritis (OA) — essentials**
 
-OA is the most common arthritis. Cartilage cushioning wears, so joints feel stiff, achy and sometimes swollen — often knees, hips, hands and spine.
+OA is the most common arthritis. It involves changes in the cartilage that cushions bone ends and in other joint tissues, so joints feel stiff, achy and sometimes swollen — often knees, hips, hands and spine.
 
 **Typical pattern**
 - Pain worse with activity, easier with rest
@@ -1194,6 +1194,9 @@ Explore **/conditions/osteoarthritis** and **/exercises**. Hot/red joint with fe
       { type: "exercise", title: "Exercise hub", url: "/exercises" },
       { type: "article", title: "Swimming for hip OA", url: "/blog/swimming-exercises-hip-osteoarthritis" },
       { type: "article", title: "Walking with arthritis", url: "/blog/walking-with-arthritis-start-build-up-keep-going" },
+      { type: "article", title: "Getting up safely from a chair, bed or car", url: "/blog/hip-and-knee-oa-frailty-transfers-uk" },
+      { type: "article", title: "Knee osteoarthritis: staying steady at home", url: "/blog/knee-osteoarthritis-frailty-staying-steady-home-uk" },
+      { type: "article", title: "Seated strength exercises", url: "/blog/seated-strength-frail-osteoarthritis-uk" },
       { type: "guide", title: "Pain relief", url: "/guides/arthritis-pain-relief" },
       { type: "guide", title: "Benefits & PIP hub", url: "/guides/benefits-pip" },
       { type: "guide", title: "Diet hub", url: "/guides/diet" },

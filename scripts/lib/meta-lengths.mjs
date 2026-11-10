@@ -1,4 +1,5 @@
 // Match SeoHead's length policy in the HTML read by non-JavaScript crawlers.
+import { cleanBrand } from '../../src/lib/technicalSeo.mjs';
 const BRAND = ' | Living With Arthritis';
 
 function truncateOnWord(text, max) {
@@ -11,7 +12,7 @@ function truncateOnWord(text, max) {
 
 export function normalizeStaticMeta(data) {
   if (!data) return data;
-  let title = String(data.title ?? '').trim();
+  let title = cleanBrand(data.title).trim();
   if (title.length > 60 && title.endsWith(BRAND)) {
     const subject = title.slice(0, -BRAND.length);
     // One brand suffix only: drop it rather than abbreviate it.
@@ -20,6 +21,6 @@ export function normalizeStaticMeta(data) {
   return {
     ...data,
     title: truncateOnWord(title, 60),
-    description: truncateOnWord(String(data.description ?? '').trim().replace(/\s+/g, ' '), 160),
+    description: truncateOnWord(cleanBrand(data.description).trim().replace(/\s+/g, ' '), 160),
   };
 }

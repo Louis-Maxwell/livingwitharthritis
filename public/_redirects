@@ -25,11 +25,8 @@
 /exercises/walking-for-back /exercises/walking-for-back-arthritis 301
 /arthritis-support/stockport /arthritis-support/manchester 301
 /arthritis-support/stirling /arthritis-support/glasgow 301
-/arthritis-support/winchester /arthritis-support/southampton 301
 /arthritis-support/bradford /arthritis-support/leeds 301
-/arthritis-support/milton-keynes /arthritis-support/cambridge 301
 /arthritis-support/oswestry /arthritis-support/stoke-on-trent 301
-/arthritis-support/shrewsbury /arthritis-support/wolverhampton 301
 /arthritis-support/sheffield/rheumatoid-arthritis /conditions/rheumatoid-arthritis 301
 /zakat /zakat-appeal 301
 /library/glucosamine /supplements/glucosamine 301
@@ -61,6 +58,8 @@
 /fr/corporate-partnerships /corporate-partnerships 301
 /de/corporate-partnerships /corporate-partnerships 301
 /pt/corporate-partnerships /corporate-partnerships 301
+
+/resources/ankle-exercise-programme.pdf /resources/ankle-exercise-programme.html 301
 
 # --- Locale 404s (must sit above the /{lang}/* splats) ---
 /es/404 / 301
@@ -1043,7 +1042,6 @@
 /sitemap /site-index 301
 /regions/england /arthritis-support 301
 /regions/northern-ireland /blog/free-arthritis-support-northern-ireland 301
-/finances /benefits-pip 301
 /lived-experiences /community 301
 /impact-stories /community 301
 
@@ -1521,7 +1519,7 @@
 /articles/071-arthritis-and-omega-3-fish-oil.pdf /blog/arthritis-and-omega-3-fish-oil 301
 /articles/073-arthritis-and-weight-loss-uk.pdf /blog/arthritis-and-weight-loss-uk 301
 /articles/074-arthritis-and-work-uk.pdf /blog/arthritis-and-work-uk 301
-/articles/075-knee-arthritis-exercises-uk.pdf /blog/knee-arthritis-exercises-uk 301
+/articles/075-knee-arthritis-exercises-uk.pdf /guides/knee-exercises-for-osteoarthritis 301
 /articles/076-arthritis-pain-relief-natural.pdf /blog/arthritis-pain-relief-natural 301
 /articles/077-assistive-devices-arthritis-uk.pdf /blog/assistive-devices-arthritis-uk 301
 /articles/078-hip-arthritis-symptoms-uk.pdf /blog/hip-arthritis-symptoms-uk 301
@@ -1760,3 +1758,30 @@
 /blog/frailty-services-arthritis-scotland-uk /blog/nhs-frailty-pathway-arthritis-england 301
 /blog/older-adults-arthritis-frailty-northern-ireland-uk /blog/free-arthritis-support-northern-ireland 301
 /arthritis /conditions/arthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/pip /guides/benefits-pip 301
+/authors/louis-maxwell /authors/maxwell 301
+/reviewers/louis-maxwell /authors/maxwell 301
+/reviewers/maxwell /authors/maxwell 301
+/blog/knee-arthritis-exercises /guides/knee-exercises-for-osteoarthritis 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/library/mtx-methotrexal /library/methotrexate 301
+/library/osteoporosis-osteoporosis /library/osteoporosis 301
+/library/hypermobility-and /library/hypermobility 301
+/library/sore-bottom-back /library/back-exercises 301
+/library/naproxen-500mg /library/naproxen 301
+/library/naproxen-adverse /library/naproxen-side-effects 301
+/library/turmeric-benefits /library/turmeric 301
+/library/discomfort-knee /library/knee-support 301
+/library/manchester-marathon /library 301
+/library/lower-back-back /library/back-exercises 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-support/winchester /arthritis-support/portsmouth 301
+/arthritis-support/milton-keynes /arthritis-support/london 301
+/arthritis-support/shrewsbury /arthritis-support/birmingham 301
+
+# --- Exact map sync (from scripts/seo-redirect-map.mjs; do not drop) ---
+/arthritis-pain-management-day-by-day /blog/arthritis-pain-management-day-by-day 301

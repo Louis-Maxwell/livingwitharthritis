@@ -11,6 +11,8 @@ export interface AeoPage {
   question: string;
   answer: string;
   faqs?: { q: string; a: string }[];
+  /** Optional 3-4 "Key clinical takeaways" shown under the answer. */
+  takeaways?: string[];
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
 }
@@ -29,12 +31,13 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/osteoarthritis": withDefaults({
     question: "What is osteoarthritis?",
     answer:
-      "Osteoarthritis (OA) is the most common form of arthritis in the UK. It happens when protective cartilage on the ends of your bones wears down over time, most often in knees, hips, hands and spine. Symptoms include joint pain that worsens with activity, morning stiffness under 30 minutes, swelling and reduced movement. It's manageable with exercise, weight control, and, when needed, medication or joint replacement.",
+      "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care. Educational only — not a diagnosis.",
+    updatedAt: "2026-11-05",
     faqs: [
-      { q: "Can osteoarthritis be reversed?", a: "No, cartilage loss can't currently be reversed, but symptoms and progression can be significantly slowed with exercise, weight management and joint-friendly activity." },
-      { q: "What's the best exercise for osteoarthritis?", a: "Low-impact aerobic exercise (walking, cycling, swimming) plus strength training around the affected joint. NICE recommends 30 minutes most days." },
-      { q: "Does osteoarthritis show on an X-ray?", a: "Yes — X-rays show joint space narrowing and bone spurs, though symptoms don't always match imaging severity." },
-      { q: "When should I see a GP?", a: "If joint pain limits daily activity, wakes you at night, or hasn't improved after 6 weeks of self-management, book a GP appointment." },
+      { q: "Can osteoarthritis be cured?", a: "There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery." },
+      { q: "What's the best exercise for osteoarthritis?", a: "NICE recommends therapeutic exercise including muscle strengthening and general fitness. Walking, swimming, cycling, seated strength and tai chi are common starting points — start small and build up." },
+      { q: "Do I need an X-ray for osteoarthritis?", a: "Often no. NICE says osteoarthritis can usually be diagnosed clinically; imaging is used when the diagnosis is unclear, red flags are present, or surgery is being planned." },
+      { q: "When should I see a GP?", a: "If joint pain is not improving after a few weeks, wakes you most nights, comes with swelling or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
     ],
   }),
   "/conditions/rheumatoid-arthritis": withDefaults({
@@ -267,7 +270,14 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.",
+      "NICE guideline NG226 recommends therapeutic exercise, including muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine builds thigh and hip strength. Aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping exercise pain at 4 out of 10 or less.",
+    takeaways: [
+      "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
+      "Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.",
+      "Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.",
+      "Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.",
+    ],
+    updatedAt: "2026-11-10",
   }),
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
@@ -335,7 +345,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. Daily living and mobility are scored separately. In each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",

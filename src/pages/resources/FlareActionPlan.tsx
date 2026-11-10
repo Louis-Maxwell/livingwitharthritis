@@ -59,7 +59,7 @@ export default function FlareActionPlan() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="Arthritis Flare-Up Action Plan: What to Do (Free Printable)"
+        title="Flare-up action plan (printable)"
         description="Free printable arthritis flare-up action plan for the UK: green, amber and red zones, comfort steps, agreed medicines, contacts and red flags."
         path={PATH}
         type="article"

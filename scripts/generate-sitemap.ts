@@ -95,6 +95,18 @@ const STATIC_EXCLUDE = new Set([
   "/gallery",
   "/shop",
   "/buddy",
+  // Draft StubPage routes are useful to visitors but are noindex until their
+  // service claims and editorial content have been approved.
+  "/guides/insurance-coverage",
+  "/tools/find-specialist",
+  "/community/connect-groups",
+  "/events",
+  "/helpline",
+  "/volunteer",
+  "/advocacy",
+  "/research",
+  "/research/clinical-trials",
+  "/research/grants",
 ]);
 
 // Prefix-based exclusions for entire route trees that must never appear in
@@ -472,7 +484,7 @@ async function main() {
     entries.push({ path: p, ...(lastmod ? { lastmod } : {}) });
   }
 
-  for (const slug of dailyTipSlugs()) {
+  for (const slug of [...dailyTipSlugs(), "overview", "daily-living", "health-tips"]) {
     const path = `/daily-tips/${slug}`;
     const lastmod = lastmodFor(path);
     entries.push({ path, ...(lastmod ? { lastmod } : {}) });
@@ -605,11 +617,6 @@ async function main() {
   for (const rec of Object.values(authors)) {
     const prefix = rec.kind === "reviewer" ? "reviewers" : "authors";
     push(`/${prefix}/${rec.slug}`);
-    // HCPC/GMC-registered authors also review content, so their /reviewers
-    // bio URL is a real page and belongs in the sitemap.
-    if (prefix === "authors" && /HCPC|GMC|NMC/i.test(rec.credential ?? "")) {
-      push(`/reviewers/${rec.slug}`);
-    }
   }
 
   // Final safety net: never ship empty locale stubs. Keep real city hubs.

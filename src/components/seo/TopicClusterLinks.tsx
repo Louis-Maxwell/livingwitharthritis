@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { resolvedClusters } from "@/lib/topicClusterLinks";
-
-const pretty = (slug: string) =>
-  slug.replace(/-uk$/, "").replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+import { visibleLinkLabel } from "@/lib/linkLabel";
 
 /** Hub-level internal links into each arthritis topic cluster. */
 export default function TopicClusterLinks() {
@@ -18,7 +16,7 @@ export default function TopicClusterLinks() {
             <ul className="space-y-1 list-disc pl-5">
               {c.slugs.map((s) => (
                 <li key={s}>
-                  <Link to={`/blog/${s}`} className="text-primary underline underline-offset-2">{pretty(s)}</Link>
+                  <Link to={`/blog/${s}`} className="text-primary underline underline-offset-2">{visibleLinkLabel(`/blog/${s}`)}</Link>
                 </li>
               ))}
             </ul>

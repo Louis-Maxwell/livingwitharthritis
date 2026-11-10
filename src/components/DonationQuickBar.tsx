@@ -30,7 +30,7 @@ const DonationQuickBar = () => {
 
   return (
     <>
-      <div className="bg-primary text-primary-foreground">
+      <div className="bg-primary text-primary-foreground min-h-[52px] sm:min-h-[88px]">
         <div className="container mx-auto px-3 sm:px-4 py-2">
           {!mobileExpanded && (
             <div className="flex items-center justify-center gap-2 sm:hidden">

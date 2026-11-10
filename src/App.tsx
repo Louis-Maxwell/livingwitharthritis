@@ -139,6 +139,7 @@ const PainkillersNsaidsGuide = lazyWithRetry(() => import("./pages/pillar/Painki
 const BenefitsPIPGuide = lazyWithRetry(() => import("./pages/pillar/BenefitsPIPGuide"));
 const KneeReplacementSurgeryGuide = lazyWithRetry(() => import("./pages/pillar/KneeReplacementSurgeryGuide"));
 const Press = lazyWithRetry(() => import("./pages/Press"));
+const Magazine = lazyWithRetry(() => import("./pages/Magazine"));
 const Partners = lazyWithRetry(() => import("./pages/Partners"));
 const LivedExperiences = lazyWithRetry(() => import("./pages/LivedExperiences"));
 const ExpertArticles = lazyWithRetry(() => import("./pages/ExpertArticles"));
@@ -461,6 +462,7 @@ function AnimatedRoutes() {
         <Route path="/guides/febuxostat-for-gout" element={<FebuxostatGoutGuide />} />
         <Route path="/guides/painkillers-and-nsaids" element={<PainkillersNsaidsGuide />} />
         <Route path="/press" element={<Press />} />
+        <Route path="/magazine" element={<Magazine />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/stories" element={<LivedExperiences />} />
         <Route path="/expert-articles" element={<ExpertArticles />} />

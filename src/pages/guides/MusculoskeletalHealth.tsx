@@ -6,6 +6,7 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
   { q: 'What does musculoskeletal mean?', a: 'Musculoskeletal (MSK) refers to the bones, joints, muscles, tendons, ligaments and nerves that allow you to move. MSK conditions are the leading cause of disability worldwide.' },
@@ -109,6 +110,7 @@ export default function MusculoskeletalHealth() {
         <p className="leading-relaxed">Imaging (X-ray, ultrasound or MRI) is reserved for suspected fractures, red-flag symptoms, or when the result would change treatment — for example before considering injections or surgery.</p>
       </section>
 
+      <RecommendedNextStep path="/guides/musculoskeletal-health" placement="mid" />
       <section id="care" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">5. Physiotherapy, chiropractic care and sports massage</h2>
         <p className="leading-relaxed mb-4">Physiotherapy is the first-line, evidence-backed treatment for most MSK conditions. Chiropractic and osteopathic care may help in selected cases. Sports and remedial massage support recovery from soft-tissue injuries and tightness, but should sit alongside — not replace — active rehabilitation.</p>

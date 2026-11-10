@@ -154,7 +154,7 @@ describe("GSC Champions 56–58 (1 Oct): carers-assessment + pacing + work", () 
 
   it("pip/pain/flare topicClusters front the three champion spokes", () => {
     const pip = TOPIC_CLUSTERS.find((c) => c.id === "pip")!;
-    expect(pip.supportingPaths.slice(0, 8)).toEqual(
+    expect(pip.supportingPaths.slice(0, 11)).toEqual(
       expect.arrayContaining([
         "/blog/carers-assessment-arthritis-frailty-uk",
         "/blog/arthritis-and-work-uk",

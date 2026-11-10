@@ -34,6 +34,8 @@ export const blogPostSchema = z
     meta_description: nullableText,
     excerpt: nonEmpty("excerpt"),
     direct_answer: nullableText,
+    /** Optional 3-4 editor-written "Key clinical takeaways" shown under the direct answer. */
+    key_takeaways: z.array(z.string().trim().min(10).max(220)).min(3).max(4).optional(),
     /** Publish date, YYYY-MM-DD. */
     date: z.string().regex(ISO_DATE_PATTERN, "date must be YYYY-MM-DD"),
     updated_at: z.string().regex(ISO_DATETIME_PATTERN, "updated_at must be ISO 8601"),
