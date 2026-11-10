@@ -73,11 +73,11 @@ const CommunityHub = () => {
     <>
       <Helmet>
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
-        <meta name="description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management." />
+        <meta name="description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
         <meta name="keywords" content="arthritis information UK, newly diagnosed arthritis, arthritis self-management, arthritis exercise guides, arthritis printable resources" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
         <meta property="og:title" content="Arthritis Community & Support UK" />
-        <meta property="og:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management." />
+        <meta property="og:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/community" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -89,7 +89,7 @@ const CommunityHub = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Community & Support UK" />
-        <meta name="twitter:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management." />
+        <meta name="twitter:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management of arthritis at home." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
