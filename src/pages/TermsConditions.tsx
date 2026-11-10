@@ -112,7 +112,7 @@ const TermsConditions = () => (
               We make every effort to ensure our content is accurate, evidence-based, and up to date,
               but we do not guarantee the completeness or reliability of any information on the site.
               Using the site does not create a clinician–patient relationship with the charity or its
-              clinical lead unless separately agreed.
+              clinical reviewers unless separately agreed.
             </p>
           </section>
 

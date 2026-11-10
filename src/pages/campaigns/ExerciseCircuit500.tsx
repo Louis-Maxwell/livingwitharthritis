@@ -46,7 +46,7 @@ function ExerciseCircuit500() {
             <CampaignBand
               title="Fund 500 Personalised Exercise Plans"
               subtitle="Help us grow free, clinician-reviewed exercise support"
-              description="Living With Arthritis aims to fund free educational exercise plans for people living with arthritis. Donations support content, tools and guidance reviewed by our clinical lead — not a promised private physio waiting-list bypass. Goal figures are fundraising targets; we only show a progress meter when totals are verified from donation records."
+              description="Living With Arthritis aims to fund free educational exercise plans for people living with arthritis. Donations support content, tools and guidance reviewed by Louis Maxwell, Operations Director — not a promised private physio waiting-list bypass. Goal figures are fundraising targets; we only show a progress meter when totals are verified from donation records."
               goalGbp={50000}
               beneficiaries={500}
               urgency="none"
@@ -76,7 +76,7 @@ function ExerciseCircuit500() {
                   <div className="rounded-xl bg-card border border-border p-6">
                     <h3 className="font-semibold text-foreground mb-2">Clinical review</h3>
                     <p className="text-sm text-foreground/70">
-                      Educational pages are checked by our clinical lead before we publish them. We do not invent patient results.
+                      Educational pages are checked by Louis Maxwell, Operations Director, before we publish them. We do not invent patient results.
                     </p>
                   </div>
                 </div>

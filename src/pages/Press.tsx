@@ -19,14 +19,14 @@ const keyFacts = [
 
 const spokespeople = [
   {
-    name: "Operations Director",
-    role: "Founder & Operations Director",
-    bio: "Qualified physiotherapist with extensive experience in musculoskeletal health. Founded Living With Arthritis to bridge the gap between health service waiting lists and accessible patient support.",
+    name: "David Williams",
+    role: "Founder",
+    bio: "Founder of Living With Arthritis, registered charity 1218461.",
   },
   {
-    name: "Clinical Lead",
-    role: "Senior Physiotherapist",
-    bio: "HCPC-registered physiotherapist specialising in osteoarthritis, rheumatoid arthritis and joint rehabilitation. Available for expert commentary on exercise-based management of arthritis.",
+    name: "Louis Maxwell",
+    role: "Operations Director · First Contact Practitioner",
+    bio: "HCPC-registered physiotherapist (PH128483) specialising in osteoarthritis, rheumatoid arthritis and joint rehabilitation. Available for expert commentary on exercise-based management of arthritis.",
   },
 ];
 
