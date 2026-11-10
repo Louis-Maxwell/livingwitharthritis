@@ -18,7 +18,7 @@
  *   bun scripts/generate-blog-catalog.ts          # write
  *   bun scripts/generate-blog-catalog.ts --check  # fail if committed files are stale
  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
 import { checkGuideImages } from "../src/lib/blog/imagePolicy";
 import { resolve } from "node:path";
 import {
@@ -36,6 +36,8 @@ import {
   type BlogPost,
 } from "../src/lib/blog/schema";
 
+/** Smallest plausible real cover image; anything below is a blank placeholder. */
+export const MIN_COVER_BYTES = 2048;
 export const COVER_MAP_PATH = "src/data/blog-cover-map.generated.json";
 export const CONTENT_STATS_PATH = "src/data/contentStats.generated.json";
 export const MOST_READ_PATH = "src/data/blogMostRead.generated.json";
@@ -86,6 +88,10 @@ export function buildBlogCatalogArtifacts(root = process.cwd()): BlogCatalogArti
     else seenTitle.set(t, p.slug);
     if (!existsSync(resolve(root, "public/openverse", p.cover))) {
       errors.push(`${p.slug}: cover file public/openverse/${p.cover} does not exist`);
+    } else if (statSync(resolve(root, "public/openverse", p.cover)).size < MIN_COVER_BYTES) {
+      // 1x1 placeholder webps load "successfully" so the card's onError fallback never fires
+      // and the card renders blank. Every published cover must be a real picture.
+      errors.push(`${p.slug}: cover file public/openverse/${p.cover} is a placeholder (< ${MIN_COVER_BYTES} bytes)`);
     }
     for (const issue of checkGuideImages(p.slug, p.cover, p.content ?? "", (pp) => existsSync(resolve(root, "public", `.${pp}`)))) {
       errors.push(`${p.slug}: image ${issue.problem} ${issue.src}`);
