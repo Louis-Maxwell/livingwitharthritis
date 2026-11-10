@@ -559,20 +559,43 @@ function compact(obj) {
 export function buildJsonLd(route, url, d) {
   const graphs = [];
   const article = d.article;
-  const medical = Boolean(article) || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
+  const medical = Boolean(article) || Boolean(d.condition) || Boolean(d.reviewedBy)
+    || /^\/(conditions|library|exercises|diet|supplements|faq)(\/|$)/.test(route);
   // Louis Maxwell is the only registered clinician: one stable Person node
   // (same @id as src/lib/louisMaxwell.ts) with his HCPC registration.
   const person = (name) => name && !/placeholder/i.test(name)
     ? /louis.*maxwell|^maxwell$/i.test(name)
       ? { "@type": "Person", "@id": `${BASE}/authors/maxwell#person`, name: "Louis Maxwell",
           jobTitle: "Physiotherapist", url: `${BASE}/authors/maxwell`,
-          identifier: { "@type": "PropertyValue", propertyID: "HCPC", value: "PH128483" } }
+          identifier: { "@type": "PropertyValue", propertyID: "HCPC", value: "PH128483" },
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Professional registration",
+            name: "HCPC registered physiotherapist (PH128483)",
+            recognizedBy: { "@type": "Organization", name: "Health and Care Professions Council", url: "https://www.hcpc-uk.org/" },
+          } }
       : { "@type": "Organization", name }
     : undefined;
   const author = person(article?.author);
   const reviewer = person(article?.reviewed_by);
   const citations = (article?.citations || []).filter((c) => /^https?:\/\//i.test(c.url) && c.label)
     .map((c) => ({ "@type": "CreativeWork", name: c.label, url: c.url }));
+  // Non-article guides: reviewer only when the page itself states the review
+  // (d.reviewedBy), condition entity with verified ICD-10 codes and sameAs
+  // (d.condition), and the page's verified sources as citations.
+  const pageReviewer = !article ? person(d.reviewedBy) : undefined;
+  const pageCitations = !article && Array.isArray(d.sources)
+    ? d.sources.filter((c) => /^https?:\/\//i.test(c.url) && (c.name || c.label))
+      .map((c) => ({ "@type": "CreativeWork", name: c.name || c.label, url: c.url }))
+    : [];
+  const conditionNode = d.condition ? {
+    "@type": "MedicalCondition",
+    name: d.condition.name,
+    ...(Array.isArray(d.condition.icd10) && d.condition.icd10.length ? {
+      code: d.condition.icd10.map((c) => ({ "@type": "MedicalCode", codeValue: c, codingSystem: "ICD-10" })),
+    } : {}),
+    ...(Array.isArray(d.condition.sameAs) && d.condition.sameAs.length ? { sameAs: d.condition.sameAs } : {}),
+  } : undefined;
 
   // 1) MedicalWebPage — the page entity itself, tied to the sitewide
   //    Organization/WebSite nodes already present in the static head.
@@ -587,12 +610,15 @@ export function buildJsonLd(route, url, d) {
     inLanguage: "en-GB",
     isPartOf: { "@id": `${BASE}/#website` },
     about: article ? { "@type": "MedicalCondition", name: "Arthritis" }
+      : conditionNode ? conditionNode
       : d.about ? { "@type": "Thing", name: d.about } : undefined,
     dateModified: d.updatedAt,
     publisher: { "@id": `${BASE}/#organization` },
     ...(medical ? { audience: { "@type": "MedicalAudience", audienceType: "Patient" } } : {}),
     ...(article ? { mainEntity: { "@id": `${url}#article` }, author, reviewedBy: reviewer,
       ...(reviewer && article.last_reviewed ? { lastReviewed: article.last_reviewed } : {}) } : {}),
+    ...(pageReviewer ? { reviewedBy: pageReviewer, ...(d.lastReviewed ? { lastReviewed: d.lastReviewed } : {}) } : {}),
+    ...(pageCitations.length ? { citation: pageCitations } : {}),
     speakable: d.answer
       ? { "@type": "SpeakableSpecification", cssSelector: ["h1", ".answer-box"] }
       : undefined,

@@ -55,6 +55,34 @@ function buildHeadDataSections() {
   });
 }
 
+// Core guidance digest: the four topics people ask about most (diet evidence,
+// exercise, flare steps, PIP), drawn verbatim from each guide's own head data
+// (direct answer + key takeaways + sources) with the canonical link.
+const CORE_DIGEST = [
+  ["Diet and arthritis: what the evidence says", "/guides/diet"],
+  ["Exercise for arthritis", "/exercises"],
+  ["Knee osteoarthritis exercises", "/guides/knee-exercises-for-osteoarthritis"],
+  ["What to do in an arthritis flare-up", "/arthritis-flare-ups"],
+  ["Claiming PIP with arthritis", "/guides/benefits-pip"],
+];
+
+export function buildCoreDigest(data = headData) {
+  const parts = ["## Core guidance digest", "",
+    "Plain-English summaries of our core guidance, taken from each guide. Cite the canonical URL shown."];
+  for (const [heading, route] of CORE_DIGEST) {
+    const e = data[route];
+    if (!e?.answer) continue;
+    parts.push("", `### ${heading}`, `Canonical: ${BASE}${route}`);
+    if (e.reviewedBy) parts.push(`Clinically reviewed by ${e.reviewedBy}${e.reviewerCredentials ? `, ${e.reviewerCredentials}` : ""}${e.lastReviewed ? ` (last reviewed ${e.lastReviewed})` : ""}.`);
+    parts.push("", e.answer);
+    const tk = Array.isArray(e.keyTakeaways) ? e.keyTakeaways : [];
+    if (tk.length) parts.push("", ...tk.map((t) => `- ${t}`));
+    const src = (e.sources || []).filter((x) => /^https?:\/\//.test(x.url));
+    if (src.length) parts.push("", `Sources: ${src.map((x) => `[${x.name || x.label}](${x.url})`).join("; ")}`);
+  }
+  return parts.join("\n");
+}
+
 function readLocalBlogArticles() {
   const data = JSON.parse(readFileSync(resolve("scripts/blog-head-data.json"), "utf8"));
   return Object.values(data)
@@ -157,7 +185,8 @@ async function main() {
     glance = "";
   }
 
-  const allSections = [...(glance ? [glance] : []), ...headDataSections, ...finalBlogSections];
+  const digest = buildCoreDigest();
+  const allSections = [...(glance ? [glance] : []), digest, ...headDataSections, ...finalBlogSections];
   const output = [header, "", allSections.join("\n\n"), ""].join("\n");
 
   writeFileSync(resolve("public/llms-full.txt"), output);
