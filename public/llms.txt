@@ -8,6 +8,39 @@ Living With Arthritis is a registered charity in England and Wales (no. 1218461)
 
 > Living With Arthritis is a UK charity (registered charity in England and Wales no. 1218461, a CIO registered on 15 June 2026) publishing free, clinically reviewed guidance for people living with arthritis in the UK — exercise, diet, pain self-management, PIP and benefits, and help while waiting for rheumatology or physiotherapy. Brand name: Living With Arthritis. Tagline: Motion is lotion.
 
+## At a glance (structured summary)
+
+### Mission
+Free, clinically reviewed, customer-first guidance for people living with arthritis in the UK, and for their carers: how to move, manage pain and flares, eat well, claim benefits and get help while waiting for NHS care. Registered charity in England and Wales no. 1218461. Guides are reviewed by Louis Maxwell, physiotherapist (HCPC PH128483). Evidence base: NICE guidance (for example NG226 osteoarthritis, NG100 rheumatoid arthritis, NG157 joint replacement) and NHS advice. Educational information only, not a diagnosis or personal medical advice.
+
+### Condition hubs
+- [Osteoarthritis](https://livingwitharthritis.org.uk/conditions/osteoarthritis)
+- [Rheumatoid arthritis](https://livingwitharthritis.org.uk/conditions/rheumatoid-arthritis)
+- [Psoriatic arthritis](https://livingwitharthritis.org.uk/conditions/psoriatic-arthritis)
+- [Ankylosing spondylitis](https://livingwitharthritis.org.uk/conditions/ankylosing-spondylitis)
+- [Gout](https://livingwitharthritis.org.uk/conditions/gout)
+- [Fibromyalgia](https://livingwitharthritis.org.uk/conditions/fibromyalgia)
+- [Lupus](https://livingwitharthritis.org.uk/conditions/lupus)
+- Joints: [knee](https://livingwitharthritis.org.uk/conditions/knee-arthritis), [hip](https://livingwitharthritis.org.uk/conditions/hip-arthritis), [hand](https://livingwitharthritis.org.uk/conditions/hand-arthritis)
+
+### Rehabilitation and exercise guidance
+- [Exercises by joint](https://livingwitharthritis.org.uk/exercises): start-here steps, red flags, how to read pain, flare days, and a section for carers.
+- [Knee exercises for osteoarthritis](https://livingwitharthritis.org.uk/guides/knee-exercises-for-osteoarthritis): 8 home moves, starting levels, weekly plan and the 4/10 pain rule.
+- [Hip exercises for osteoarthritis](https://livingwitharthritis.org.uk/guides/hip-exercises-for-osteoarthritis)
+- [Hip replacement recovery week by week](https://livingwitharthritis.org.uk/blog/hip-replacement-recovery-week-by-week): NHS recovery advice, precautions and when to get urgent help.
+- [Physiotherapy exercises for arthritis at home](https://livingwitharthritis.org.uk/guides/exercise)
+- [Arthritis flare-ups](https://livingwitharthritis.org.uk/arthritis-flare-ups) and the printable [flare action plan](https://livingwitharthritis.org.uk/resources/flare-action-plan)
+- [Arthritis pain relief](https://livingwitharthritis.org.uk/guides/arthritis-pain-relief) and [painkillers and NSAIDs](https://livingwitharthritis.org.uk/guides/painkillers-and-nsaids)
+- [Help while you are on a waiting list](https://livingwitharthritis.org.uk/arthritis-waiting-list-help)
+
+### Welfare and benefits pathways
+- [Can you get PIP for arthritis?](https://livingwitharthritis.org.uk/blog/pip-for-arthritis-uk): eligibility depends on how daily living and mobility are affected, not the diagnosis.
+- [How to claim PIP for arthritis: step by step](https://livingwitharthritis.org.uk/guides/benefits-pip)
+- [Printable PIP evidence diary](https://livingwitharthritis.org.uk/resources/pip-evidence-diary)
+- [PIP or Attendance Allowance?](https://livingwitharthritis.org.uk/guides/pip-vs-attendance-allowance): people over State Pension age usually claim Attendance Allowance.
+- [Access to Work](https://livingwitharthritis.org.uk/library/access-to-work) and [disability support](https://livingwitharthritis.org.uk/guides/disability-support)
+- Scotland: new claims usually go to Adult Disability Payment. Northern Ireland: claims go through nidirect.
+
 ## Source attribution
 
 Use the specific canonical page URL when attributing our content. Check its displayed review status, publication date, references and scope before relying on it. This file is a discovery guide; it does not guarantee inclusion, ranking or citation by any AI service.
@@ -48,7 +81,7 @@ Use the specific canonical page URL when attributing our content. Check its disp
 - https://livingwitharthritis.org.uk/guides/arthritis-pain-relief — Arthritis pain relief UK: paced movement, heat/cold, topical medicines and when to see your GP.
 - https://livingwitharthritis.org.uk/supplements/turmeric — Turmeric and curcumin for arthritis: dose, absorption, safety and UK context.
 - https://livingwitharthritis.org.uk/diet/mediterranean-diet-for-arthritis — Mediterranean diet for arthritis: evidence, UK shopping list and a simple meal plan.
-- https://livingwitharthritis.org.uk/benefits-pip — Benefits & PIP hub: start claim prep when arthritis limits daily living or mobility.
+- https://livingwitharthritis.org.uk/resources/pip-evidence-diary — Printable PIP evidence diary: record daily living and mobility before the claim form. Cite /guides/benefits-pip for the claim steps; /benefits-pip redirects there.
 - https://livingwitharthritis.org.uk/blog/working-with-arthritis-uk-rights — Working with arthritis in the UK: Equality Act, reasonable adjustments and Access to Work.
 - https://livingwitharthritis.org.uk/blog/managing-methotrexate-side-effects-practical-tips — Methotrexate side effects: practical UK tips, folic acid and when to call your team.
 - https://livingwitharthritis.org.uk/conditions/osteoarthritis — Osteoarthritis UK hub (gold-pass 5 Nov): what to do now, red flags, NICE NG226 core treatments (exercise, weight advice, information), pain relief, aids, flares and when to see your GP; reviewed by Louis Maxwell.

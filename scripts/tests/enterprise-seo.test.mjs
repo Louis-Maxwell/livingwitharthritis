@@ -45,8 +45,12 @@ test('first-response Article schema names the real reviewer and links real autho
   const entry = graphs.find((g) => g['@type'] === 'Article');
   assert.equal(entry.headline, article.title);
   assert.equal(entry.author.url, 'https://livingwitharthritis.org.uk/authors/maxwell');
-  assert.equal(entry.reviewedBy.name, 'Louis Maxwell');
-  assert.equal(entry.reviewedBy.jobTitle, 'HCPC PH128483');
+  // reviewedBy is a WebPage property, so it lives on MedicalWebPage, not Article.
+  assert.ok(!('reviewedBy' in entry));
+  const page = graphs.find((g) => g['@type'] === 'MedicalWebPage');
+  assert.equal(page.reviewedBy.name, 'Louis Maxwell');
+  assert.equal(page.reviewedBy.jobTitle, 'Physiotherapist');
+  assert.equal(page.reviewedBy.identifier.value, 'PH128483');
   assert.equal(entry.citation[0].url, article.citations[0].url);
   assert.equal(graphs.find((g) => g['@type'] === 'BreadcrumbList').itemListElement.length, 3);
   const ordinary = buildJsonLd('/donate', 'https://livingwitharthritis.org.uk/donate', { title: 'Donate', description: 'Support the charity.' });

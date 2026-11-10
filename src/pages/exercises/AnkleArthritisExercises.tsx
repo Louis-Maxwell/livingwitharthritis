@@ -90,9 +90,10 @@ export default function AnkleArthritisExercises() {
           </h1>
           <p className="text-lg text-muted-foreground mb-6">{FOOT_ANKLE_INTRO}</p>
           <p className="mb-8">
-            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.html">Open the printable five-exercise ankle guide</a>
-            {" or "}
-            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.pdf" download>download the free ankle exercise PDF</a>.
+            <a className="underline font-semibold" href="/resources/ankle-exercise-programme.html">
+              Open the printable ankle exercise guide
+            </a>
+            .
           </p>
           <p className="quick-answer mb-8 p-5 rounded-xl bg-muted/40 leading-relaxed">
             <strong>Quick answer:</strong> {FOOT_ANKLE_QUICK_ANSWER}

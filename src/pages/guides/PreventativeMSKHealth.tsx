@@ -5,6 +5,7 @@ import MedicalReviewBadge from '@/components/MedicalReviewBadge';
 import AnswerBox from '@/components/seo/AnswerBox';
 import { injectJsonLd, buildBreadcrumb } from '@/lib/jsonLd';
 import AeoEnhancement from "@/components/seo/AeoEnhancement";
+import RecommendedNextStep from "@/components/RecommendedNextStep";
 
 const FAQS = [
   { q: 'Can arthritis be prevented?', a: 'You cannot fully prevent age-related joint changes, but you can significantly delay onset and reduce severity by managing weight, building strength, treating injuries early, and addressing posture and load.' },
@@ -81,6 +82,7 @@ export default function PreventativeMSKHealth() {
         <p className="leading-relaxed mb-4">There is no single "perfect" posture. The body needs variety. Long hours in one position — at a desk, on a sofa, behind the wheel — overload specific tissues. Aim to change position every 30–45 minutes and strengthen muscles that support your daily postures. See our <Link to="/guides/musculoskeletal-health" className="text-primary underline">musculoskeletal health guide</Link> for a full workplace ergonomics checklist.</p>
       </section>
 
+      <RecommendedNextStep path="/guides/preventative-msk-health" placement="mid" />
       <section id="load" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">4. Load management during daily activities</h2>
         <ul className="list-disc pl-6 space-y-2">

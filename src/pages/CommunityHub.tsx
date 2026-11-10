@@ -13,51 +13,51 @@ import PageBreadcrumb from "@/components/ui/PageBreadcrumb";
 import { dailyTips } from "@/data/dailyTips";
 import { CONTENT_INVENTORY, formatInventoryCount } from "@/config/contentInventory";
 import {
-  Users, MessageCircle, Calendar, Sparkles, ArrowRight,
-  Heart, Star, Globe, BookOpen, HandHeart, Download
+  Users, MessageCircle, Sparkles, ArrowRight,
+  Heart, Globe, BookOpen, Download
 } from "lucide-react";
 import {
   StatCounter,
-  HorizontalBar,
   WaveDivider,
   HighlightCard,
-  DonutChart,
 } from "@/components/graphics/InfographicElements";
 
 const communityFeatures = [
   {
-    icon: Calendar,
-    title: "Live Webinars & Events",
-    description: "Monthly virtual sessions with physiotherapists, dietitians and patient advocates on topics like flare management, exercise programmes and nutrition.",
+    icon: BookOpen,
+    title: "Free guides",
+    description: "Browse practical UK guides on movement, pain, benefits and everyday self-management.",
     color: "text-primary bg-primary/10",
+    href: "/guides",
   },
   {
-    icon: HandHeart,
-    title: "Volunteer & Mentor",
-    description: "Give back to the community as a peer mentor, event organiser or content contributor. Support others on their arthritis journey.",
+    icon: Download,
+    title: "Printable resources",
+    description: "Download free trackers and action plans to use at home or discuss with your healthcare team.",
     color: "text-primary bg-primary/10",
+    href: "/resource-centre",
   },
   {
-    icon: Sparkles,
-    title: "Health Tools",
-    description: "Take our symptom quiz, check your inflammation risk score, or generate a personalised exercise plan — all free and instant.",
+    icon: MessageCircle,
+    title: "Help chat",
+    description: "Use the local information assistant for general signposting. It does not diagnose or provide a personal treatment plan.",
     color: "text-primary bg-primary/10",
-    href: "/health-tools",
+    href: "/chat",
   },
 ];
 
 const newlyDiagnosedSteps = [
   { step: "1", title: "Learn About Your Condition", desc: "Start with our condition guides for osteoarthritis, RA or PsA.", href: "#conditions" },
   { step: "2", title: "Try Gentle Exercises", desc: "Visit the Exercise Hub for knee, hand and chair-based routines.", href: "/exercises" },
-  { step: "3", title: "Improve Your Diet", desc: "Our Diet Hub covers anti-inflammatory foods and meal plans.", href: "/guides/diet" },
-  { step: "4", title: "Start a Chat", desc: "Get personalised, evidence-based guidance 24/7.", href: "/chat" },
-  { step: "5", title: "Connect with Community", desc: "You're not alone — join our peer support forum and resources.", href: "#community-features" },
+  { step: "3", title: "Plan Everyday Habits", desc: "Use our diet, pacing and symptom-tracking guides to plan manageable changes.", href: "/guides/diet" },
+  { step: "4", title: "Start a Chat", desc: "Use the general information assistant for UK signposting and relevant guides.", href: "/chat" },
+  { step: "5", title: "Connect with Community", desc: "Browse practical resources for common day-to-day situations.", href: "#community-features" },
 ];
 
 const situationCards = [
-  { title: "Newly diagnosed", text: "Start with the condition guides, then the exercise hub. No invented walking-distance claims.", href: "/guides/newly-diagnosed" },
-  { title: "Sore knees after sport", text: "Chair work, swimming and knee-strength pages — general information, not a named recovery story.", href: "/exercises" },
-  { title: "RA in your thirties", text: "Diet notes, pacing and the help chat. We will not invent a young-adult membership total.", href: "/conditions/rheumatoid-arthritis" },
+  { title: "Newly diagnosed", text: "Start with a plain-English condition guide, questions for your appointment and gentle activity options.", href: "/guides/newly-diagnosed" },
+  { title: "Sore knees after activity", text: "Explore general information on pacing, swimming and knee-strengthening exercises.", href: "/exercises" },
+  { title: "Living with rheumatoid arthritis", text: "Find information on pacing, movement, daily routines and when to contact your healthcare team.", href: "/conditions/rheumatoid-arthritis" },
 ];
 
 const CommunityHub = () => {
@@ -65,7 +65,7 @@ const CommunityHub = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Arthritis Community Hub UK",
-    description: "Join the Living With Arthritis community. Peer support, patient stories, webinars and a guided pathway for the newly diagnosed.",
+    description: "Free UK arthritis guides, printable resources and a guided pathway for people who are newly diagnosed.",
     url: "https://livingwitharthritis.org.uk/community",
   };
 
@@ -73,11 +73,11 @@ const CommunityHub = () => {
     <>
       <Helmet>
         <title>Arthritis Community & Support UK | Living With Arthritis</title>
-        <meta name="description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
-        <meta name="keywords" content="arthritis support groups near me, arthritis community, peer support arthritis, arthritis webinars, newly diagnosed arthritis, arthritis stories, arthritis helpline, arthritis advocacy, living with arthritis, arthritis and mental health, how to support someone with chronic pain, arthritis events, volunteer for charity" />
+        <meta name="description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management." />
+        <meta name="keywords" content="arthritis information UK, newly diagnosed arthritis, arthritis self-management, arthritis exercise guides, arthritis printable resources" />
         <link rel="alternate" hrefLang="en-GB" href="https://livingwitharthritis.org.uk/community" />
         <meta property="og:title" content="Arthritis Community & Support UK" />
-        <meta property="og:description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+        <meta property="og:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management." />
         <meta property="og:url" content="https://livingwitharthritis.org.uk/community" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -89,7 +89,7 @@ const CommunityHub = () => {
         <meta name="twitter:image" content="https://livingwitharthritis.org.uk/images/hero-walking-group-1600.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Arthritis Community & Support UK" />
-        <meta name="twitter:description" content="Community support for arthritis: Connect groups, webinars, stories & peer support. Join others managing arthritis in the UK." />
+        <meta name="twitter:description" content="Free UK arthritis guides, printable resources and general information tools for everyday self-management." />
         <meta name="geo.region" content="GB" />
         <meta name="geo.placename" content="United Kingdom" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -101,14 +101,14 @@ const CommunityHub = () => {
       <PageHero
         badge={<Badge variant="outline" className="bg-primary/5 text-primary border-primary/20"><Users className="w-3.5 h-3.5 mr-1.5" /> Community</Badge>}
         title={<>You're Not <span className="text-primary">Alone</span></>}
-        subtitle="Connect with others living with arthritis. Find support, share your story, and access guided resources whether you're newly diagnosed or managing long-term."
+        subtitle="Find free, practical arthritis information and printable resources, whether you are newly diagnosed or managing symptoms over time."
       />
 
       <main id="main-content">
         {/* ─── Community Impact Stats ─── */}
         <section className="py-12 lg:py-16 bg-tint-rose">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <p className="section-label text-primary mb-6">Our Community Impact</p>
+            <p className="section-label text-primary mb-6">Information at a glance</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCounter value="10M+" label="People with arthritis in the UK" icon={<Users className="w-6 h-6" />} color="primary" />
               <StatCounter value="24/7" label="help chat availability" icon={<MessageCircle className="w-6 h-6" />} color="sky" />
@@ -120,34 +120,20 @@ const CommunityHub = () => {
 
         <WaveDivider color="hsl(var(--background))" />
 
-        {/* ─── Self-management Benefits Chart ─── */}
+        {/* Evidence and scope */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-6 md:px-10 max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-10 items-center">
-              <div>
-                <p className="section-label text-primary mb-3">Evidence-Based Benefits</p>
-                <h2 className="text-2xl font-bold text-foreground mb-4">Why Community & Self-Management Work</h2>
-                <p className="text-sm text-muted-foreground mb-6">Research shows that people who actively self-manage their arthritis report better outcomes.</p>
-                <HorizontalBar
-                  items={[
-                    { label: "Less pain with daily exercise", value: 78, color: "hsl(var(--emerald))" },
-                    { label: "Better mood with peer support", value: 72, color: "hsl(var(--sky))" },
-                    { label: "Improved sleep quality", value: 65, color: "hsl(var(--violet))" },
-                    { label: "Reduced GP visits", value: 58, color: "hsl(var(--amber))" },
-                  ]}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-6">
-                <DonutChart
-                  label="What Helps Most"
-                  segments={[
-                    { percent: 30, color: "hsl(var(--emerald))", label: "Exercise" },
-                    { percent: 25, color: "hsl(var(--sky))", label: "Diet" },
-                    { percent: 25, color: "hsl(var(--violet))", label: "Support" },
-                    { percent: 20, color: "hsl(var(--amber))", label: "Education" },
-                  ]}
-                />
-              </div>
+            <div className="max-w-3xl">
+              <p className="section-label text-primary mb-3">Evidence and scope</p>
+              <h2 className="text-2xl font-bold text-foreground mb-4">Practical information without invented outcomes</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                This hub brings together free educational guides and tools. We do not publish
+                patient outcome percentages, testimonials or service claims without documented
+                sources, consent and governance approval.
+              </p>
+              <Link to="/about/editorial-claims-policy" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                Read our public claims policy <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </section>
@@ -204,7 +190,7 @@ const CommunityHub = () => {
               <HighlightCard title="Exercise Hub" description="Knee, hand, chair and tai chi routines you can start at home." />
               <HighlightCard title="Diet Hub" description="Anti-inflammatory and Mediterranean ideas for a real UK kitchen." />
               <HighlightCard title="Help Chat" description="Ask about pain, flares, diet, exercises or PIP — UK-safe, no diagnosis." />
-              <HighlightCard title="Blog Articles" description="505 clinically reviewed guides — search by topic when you know what you need." />
+              <HighlightCard title="Written Guides" description={`${formatInventoryCount(CONTENT_INVENTORY.pillarGuides)} free guides, with clinical review status shown on each page.`} />
               <HighlightCard title="Self-Help Tool" description="Tap a joint on the diagram for a short home exercise plan." />
               <HighlightCard title="Supplements" description="What the evidence actually says about turmeric, omega-3 and glucosamine." />
             </div>
@@ -220,7 +206,7 @@ const CommunityHub = () => {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Situations we write for</h2>
-                <p className="text-sm text-muted-foreground">Guides for common situations. Not named patients and not star ratings.</p>
+                <p className="text-sm text-muted-foreground">General information for common situations and day-to-day questions.</p>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -256,7 +242,7 @@ const CommunityHub = () => {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-foreground">More Community Features</h2>
-                <p className="text-sm text-muted-foreground">Building a supportive arthritis community in the UK</p>
+                <p className="text-sm text-muted-foreground">Free information and resources from a young UK charity</p>
               </div>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -348,7 +334,7 @@ const CommunityHub = () => {
             <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-foreground mb-4">Help Us Build This Community</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Your donations fund free resources, webinars and support programmes for people living with arthritis across the UK.
+              Donations support the publication and accessibility of free arthritis information and resources.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" className="min-h-[44px]">
@@ -381,7 +367,7 @@ const CommunityHub = () => {
                   { label: "Osteoarthritis", to: "/conditions/osteoarthritis" },
                   { label: "Rheumatoid arthritis", to: "/conditions/rheumatoid-arthritis" },
                   { label: "Juvenile arthritis — for parents", to: "/conditions/juvenile-arthritis" },
-                  { label: "Fibromyalgia peer support", to: "/conditions/fibromyalgia" },
+                  { label: "Fibromyalgia information", to: "/conditions/fibromyalgia" },
                   { label: "Lupus support", to: "/conditions/lupus" },
                 ],
               },

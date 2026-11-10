@@ -5,6 +5,7 @@
 import { marked } from "marked";
 import { keywordRelatedLinks } from "./keyword-related-links.mjs";
 import { conditionTopicLinks } from "./condition-topic-links.mjs";
+import { recommendedNextStepsHtml } from "../src/lib/recommendedNextSteps.mjs";
 import { JSDOM } from "jsdom";
 import createDOMPurify from "dompurify";
 import { parse, parseFragment } from "parse5";
@@ -84,13 +85,51 @@ export function escText(value) {
 
 /** Mirror of PENDING_REVIEW_TEXT (src/lib/blog/review.ts); a test keeps them equal. */
 
+function sameNamedPerson(a, b) {
+  const key = (value) => String(value || "").toLowerCase().replace(/[^a-z]+/g, " ").trim();
+  const left = key(a);
+  const right = key(b);
+  if (!left || !right) return false;
+  if (left === right) return true;
+  return /\bmaxwell\b/.test(left) && /\bmaxwell\b/.test(right);
+}
+
+/**
+ * Article HTML in the first response. A thin "where to go next" supplement
+ * must not replace the guide the reader (and a non-JS fetcher) came for.
+ */
+export function composeArticleBody(data) {
+  const fromArticle = data?.article?.content
+    ? renderArticleHtml(data.article.content).replace(/<(\/?)h1\b/gi, "<$1h2")
+    : "";
+  const extra = String(data?.bodyHtml || "").replace(/<(\/?)h1\b/gi, "<$1h2");
+  if (!fromArticle) return extra;
+  if (!extra) return fromArticle;
+  const articleText = stripToText(fromArticle);
+  const extraText = stripToText(extra);
+  const needle = articleText.slice(80, 160);
+  if (needle.length >= 40 && extraText.includes(needle)) {
+    return extraText.length >= articleText.length ? extra : fromArticle;
+  }
+  const articleWords = articleText.split(/\s+/).filter(Boolean).length;
+  if (articleWords >= 180) return fromArticle;
+  return fromArticle + extra;
+}
+
 export function buildStaticArticleInner(data) {
   const heading = data?.article?.title || data?.question || data?.title || "";
   // The template owns H1. Keep all existing heading words as subordinate H2s.
-  const bodyHtml = (data?.bodyHtml || renderArticleHtml(data?.article?.content))
-    .replace(/<(\/?)h1\b/gi, '<$1h2');
+  const bodyHtml = composeArticleBody(data);
   const answer = data?.answer && !bodyHtml.includes(data.answer)
     ? `<p class="answer-box"><strong>${escText(data.answer)}</strong></p>`
+    : "";
+  const takeawayItems = Array.isArray(data?.article?.key_takeaways)
+    ? data.article.key_takeaways.filter((t) => typeof t === "string" && t.trim()) : [];
+  const takeaways = takeawayItems.length >= 3
+    ? `<section class="key-takeaways" aria-label="Key clinical takeaways"><h2>Key clinical takeaways</h2><ul>${takeawayItems.map((t) => `<li>${escText(t)}</li>`).join("")}</ul></section>`
+    : "";
+  const nextStep = data?.article?.slug
+    ? recommendedNextStepsHtml(`/blog/${data.article.slug}`, `${data.article.title || ""} ${data.article.keywords || ""}`)
     : "";
   const bodyText = stripToText(bodyHtml);
   const faqPairs = Array.isArray(data?.faqs)
@@ -102,9 +141,13 @@ export function buildStaticArticleInner(data) {
     : "";
   const updated = data?.updatedAt ? `Last updated ${escText(data.updatedAt)}. ` : "";
   const article = data?.article;
-  const author = article?.author && !/placeholder/i.test(article.author)
+  const selfReview = article?.author && article?.reviewed_by && sameNamedPerson(article.author, article.reviewed_by);
+  const creds = article?.reviewer_credentials || article?.author_credentials;
+  const author = !selfReview && article?.author && !/placeholder/i.test(article.author)
     ? `<p class="article-byline">Written by ${escText(article.author)}${article.author_credentials ? ` — ${escText(article.author_credentials)}` : ""}.</p>` : "";
-  const reviewer = article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
+  const reviewer = selfReview
+    ? `<p class="article-byline">Written and reviewed by ${escText(article.reviewed_by)}${creds ? ` — ${escText(creds)}` : ""}. This is a disclosed self-review by the author, not an independent clinical review.</p>`
+    : article?.reviewed_by && !/placeholder/i.test(article.reviewed_by)
     ? `<p>Reviewed by ${escText(article.reviewed_by)}${article.reviewer_credentials ? ` — ${escText(article.reviewer_credentials)}` : ""}.</p>` : "";
   const citations = (article?.citations || data?.sources || [])
     .map((c) => ({ ...c, label: c.label || c.name }))
@@ -123,15 +166,63 @@ export function buildStaticArticleInner(data) {
     `<article id="static-article" class="static-article">` +
     `<h1>${escText(heading)}</h1>` +
     author + reviewer +
-    answer +
-    (bodyHtml ? `<div class="static-article-body">${bodyHtml}</div>` : "") +
+    answer + takeaways +
+    (bodyHtml ? `<div class="static-article-body">${stripBodyBloat(bodyHtml)}</div>` : "") +
     `<p><em>${updated}This is general information, not a substitute for personalised medical advice.</em></p>` +
     faqHtml +
+    nextStep +
     references + related + supportLinks +
     conditionTopicLinks(data?.article) +
     keywordRelatedLinks(data?.article) +
     `</article>`
   );
+}
+
+/**
+ * Remove markup that adds bytes but no readable text for crawlers and LLMs:
+ * decorative inline <svg> icons (aria-hidden), HTML comments, and raw JSON
+ * <script> payloads.
+ * Never touches JSON-LD (application/ld+json) or the article hydration
+ * payload (#static-article-data), and is only applied to <body> markup.
+ */
+export function stripBodyBloat(html) {
+  const src = String(html ?? "");
+  return removeBloatRanges(src, parseFragment(src, { sourceCodeLocationInfo: true }));
+}
+
+/** Apply stripBodyBloat to the <body> of a full HTML document only. */
+export function stripDocumentBodyBloat(html) {
+  const src = String(html ?? "");
+  const doc = parse(src, { sourceCodeLocationInfo: true });
+  const htmlEl = doc.childNodes?.find((n) => n.tagName === "html");
+  const body = htmlEl?.childNodes?.find((n) => n.tagName === "body");
+  return body ? removeBloatRanges(src, body) : src;
+}
+
+// DOM-based (parse5 source offsets), not regex: removes whole nodes from the
+// original string so nothing else in the document is re-serialised.
+function removeBloatRanges(src, root) {
+  const attr = (node, name) => node.attrs?.find((a) => a.name === name)?.value;
+  const ranges = [];
+  const visit = (node) => {
+    for (const child of node.childNodes || []) {
+      const loc = child.sourceCodeLocation;
+      const isComment = child.nodeName === "#comment";
+      const isDecorativeSvg = child.tagName === "svg" && attr(child, "aria-hidden") === "true";
+      const isRawJson = child.tagName === "script"
+        && String(attr(child, "type") || "").toLowerCase() === "application/json"
+        && attr(child, "id") !== "static-article-data";
+      if (loc && (isComment || isDecorativeSvg || isRawJson)) {
+        ranges.push([loc.startOffset, loc.endOffset]);
+      } else {
+        visit(child.content || child);
+      }
+    }
+  };
+  visit(root);
+  let out = src;
+  for (const [a, b] of ranges.sort((x, y) => y[0] - x[0])) out = out.slice(0, a) + out.slice(b);
+  return out;
 }
 
 export function replaceSeoFallback(html, innerHtml, { visible = false } = {}) {

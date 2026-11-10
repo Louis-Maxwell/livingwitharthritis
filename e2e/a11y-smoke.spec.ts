@@ -41,6 +41,10 @@ function describeViolations(violations: AxeViolation[]): string {
 }
 
 test.describe("Accessibility smoke (WCAG 2.1 AA, must fail CI)", () => {
+  // axe-core is injected by Playwright from a local file as inline JavaScript.
+  // Bypass CSP in this test context only; production CSP remains unchanged
+  // and is asserted separately in the CSP regression tests.
+  test.use({ bypassCSP: true });
   for (const viewport of [
     { name: "mobile", width: 390, height: 844 },
     { name: "desktop", width: 1366, height: 900 },

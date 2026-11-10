@@ -11,6 +11,8 @@ export interface AeoPage {
   question: string;
   answer: string;
   faqs?: { q: string; a: string }[];
+  /** Optional 3-4 "Key clinical takeaways" shown under the answer. */
+  takeaways?: string[];
   reviewer?: string;
   updatedAt?: string; // ISO YYYY-MM-DD
 }
@@ -268,7 +270,14 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis, and the NHS advises regular low-impact activity. This 8-move home routine builds thigh and hip strength: aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping pain at 4/10 or less.",
+      "NICE guideline NG226 recommends therapeutic exercise, including muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine builds thigh and hip strength. Aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping exercise pain at 4 out of 10 or less.",
+    takeaways: [
+      "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
+      "Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.",
+      "Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.",
+      "Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.",
+    ],
+    updatedAt: "2026-11-10",
   }),
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
@@ -336,7 +345,7 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/benefits-pip": withDefaults({
     question: "Can I get PIP for arthritis in the UK?",
     answer:
-      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. You score points for difficulty with 12 everyday activities: 8 points gives the standard rate and 12 the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
+      "PIP (Personal Independence Payment) helps with the extra costs of a long-term condition such as arthritis. It is not means-tested and you can claim while working. Daily living and mobility are scored separately. In each part, 8 to 11 points is the standard rate and 12 or more is the enhanced rate. In Scotland you claim Adult Disability Payment instead.",
   }),
   "/diet/mediterranean-diet-for-arthritis": withDefaults({
     question: "Does the Mediterranean diet help arthritis?",

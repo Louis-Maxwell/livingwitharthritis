@@ -7,6 +7,7 @@ import { patchShareMeta, rewriteHead } from "../../../scripts/inject-canonicals.
 import {
   HOME_SHELL_HEADING,
   buildStaticArticleInner,
+  composeArticleBody,
   htmlHasFullArticle,
   replaceSeoFallback,
 } from "../../../scripts/static-article-html.mjs";
@@ -173,6 +174,32 @@ describe("static blog HTML for Soft 404s", () => {
     expect(html).toContain("Equality Act 2010");
     expect(html).toContain("clip:rect(0 0 0 0)");
     expect(html).not.not.toContain('id="seo-fallback" aria-hidden="true"');
+  });
+
+  it("keeps a full article when a thin where-to-go-next list is attached", () => {
+    const repeated = "Daily living and mobility are scored separately for PIP. ";
+    const html = buildStaticArticleInner({
+      question: "Can you get PIP for arthritis?",
+      answer: "Short answer only.",
+      bodyHtml:
+        '<h2>Where to go next</h2><ul><li><a href="/blog/sex-and-intimacy-with-arthritis">Sex and intimacy</a></li></ul>',
+      article: {
+        title: "Can you get PIP for arthritis?",
+        author: "Louis Maxwell",
+        author_credentials: "First Contact Practitioner, HCPC PH128483",
+        reviewed_by: "Louis Maxwell",
+        reviewer_credentials: "First Contact Practitioner, HCPC PH128483, CSP member",
+        content: `<p>${repeated.repeat(30)} Use the printable PIP evidence diary before the claim form.</p>`,
+      },
+    });
+    expect(html).toContain("PIP evidence diary");
+    expect(html).toContain("disclosed self-review");
+    expect(html).not.toContain("sex-and-intimacy-with-arthritis");
+    expect(html).not.toContain(">Reviewed by Louis Maxwell");
+    expect(composeArticleBody({
+      bodyHtml: "<p>Only a teaser.</p>",
+      article: { content: `<p>${repeated.repeat(30)}</p>` },
+    })).not.toContain("Only a teaser");
   });
 
   it("reads an embedded article only when the slug matches", () => {

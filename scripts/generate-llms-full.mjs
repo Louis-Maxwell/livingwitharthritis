@@ -74,6 +74,7 @@ function readLocalBlogArticles() {
       reviewer_credentials: a.reviewer_credentials,
       last_reviewed: a.last_reviewed,
       citations: a.citations,
+      key_takeaways: a.key_takeaways,
     }));
 }
 
@@ -101,6 +102,7 @@ function buildBlogSections(rows) {
               ...(r.last_reviewed ? [`Last clinically reviewed: ${r.last_reviewed}`] : [])] : ['Clinical review: no named reviewer recorded.']),
         `Q: ${r.title ?? r.slug}`,
         `A: ${answer}`,
+        ...((Array.isArray(r.key_takeaways) ? r.key_takeaways : []).map((t) => `Key clinical takeaway: ${t}`)),
         ...((r.citations || []).map((c) => `Reference: ${c.label} — ${c.url}`)),
       ];
       return lines.join("\n");
@@ -144,7 +146,18 @@ async function main() {
     }
   }
 
-  const allSections = [...headDataSections, ...finalBlogSections];
+  // Reuse the hand-reviewed structured summary from llms.txt (mission,
+  // condition hubs, rehabilitation, welfare) so both files say the same thing.
+  let glance = "";
+  try {
+    const llms = readFileSync(resolve("public/llms.txt"), "utf8");
+    const m = llms.match(/## At a glance[\s\S]*?(?=\n## (?!#))/);
+    if (m) glance = m[0].trim();
+  } catch {
+    glance = "";
+  }
+
+  const allSections = [...(glance ? [glance] : []), ...headDataSections, ...finalBlogSections];
   const output = [header, "", allSections.join("\n\n"), ""].join("\n");
 
   writeFileSync(resolve("public/llms-full.txt"), output);
