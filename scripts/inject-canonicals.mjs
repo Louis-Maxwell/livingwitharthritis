@@ -663,7 +663,7 @@ export function buildJsonLd(route, url, d) {
     });
   }
 
-  // Organization — the About page restates the charity entity (founder,
+  // Organization — the About page restates the charity entity (
   // Operations Director, charity number, free offer) as its main entity.
   if (d.organization && d.organization["@id"]) {
     graphs.push({ "@context": "https://schema.org", ...d.organization });

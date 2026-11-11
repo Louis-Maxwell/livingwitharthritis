@@ -39,17 +39,17 @@ describe("/guides/benefits-pip claim answer", () => {
 });
 
 describe("/about free-offer answer", () => {
-  it("states charity number, founder and what is free, in step with crawler data", () => {
+  it("states charity number and what is free, names no founder, in step with crawler data", () => {
     const aeo = PAGE_AEO["/about"];
     expect(words(aeo.answer)).toBeGreaterThanOrEqual(45);
     expect(words(aeo.answer)).toBeLessThanOrEqual(65);
     expect(aeo.answer).toContain("1218461");
-    expect(aeo.answer).toContain("David Williams");
+    expect(aeo.answer).not.toMatch(/founde[dr]/i);
     expect(aeo.answer).not.toMatch(/Living With Arthritis\s*\(?UK/);
     expect(data["/about"].answer).toBe(aeo.answer);
     expect(data["/about"].faqs).toEqual((aeo.faqs ?? []).map((f) => ({ q: f.q, a: f.a })));
     const org = data["/about"].organization as Record<string, unknown>;
-    expect((org.founder as { name: string }).name).toBe("David Williams");
+    expect(org).not.toHaveProperty("founder");
     expect((org.employee as { jobTitle: string }).jobTitle).toBe("Operations Director");
   });
 });
