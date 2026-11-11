@@ -11,7 +11,8 @@ interface EmailSignupFormProps {
   label?: string;
   buttonText?: string;
   sequence?: string;
-  onSuccess?: () => void;
+  /** Called after a signup. `via` is "formsubmit" (confirmed by the form service) or "mailto" (mail app opened; not confirmed). */
+  onSuccess?: (via: "formsubmit" | "mailto") => void;
   compact?: boolean;
   className?: string;
 }
@@ -58,7 +59,7 @@ const EmailSignupForm = memo(({
     try {
       const result = await subscribeNewsletter({ email: addr, source: sequence });
       if (result.ok && result.via === "formsubmit") {
-        trackNewsletterSignup();
+        trackNewsletterSignup({ sequence_id: sequence });
         trackEvent("email_signup", { sequence, via: "formsubmit" });
         setSuccessCopy(
           "Request emailed to the charity inbox — nothing is stored in a website database.",
@@ -66,10 +67,10 @@ const EmailSignupForm = memo(({
         setSuccess(true);
         setEmail("");
         toast.message(result.message);
-        onSuccess?.();
+        onSuccess?.("formsubmit");
         setTimeout(() => setSuccess(false), 10000);
       } else if (result.via === "mailto") {
-        trackNewsletterSignup();
+        trackNewsletterSignup({ sequence_id: sequence });
         trackEvent("email_signup", { sequence, via: "mailto" });
         setSuccessCopy(
           "Almost there — please send the email that opened so we can add you.",
@@ -77,7 +78,7 @@ const EmailSignupForm = memo(({
         setSuccess(true);
         setEmail("");
         toast.message(result.message);
-        onSuccess?.();
+        onSuccess?.("mailto");
         setTimeout(() => setSuccess(false), 8000);
       } else if (result.via === "throttled") {
         setError(null);

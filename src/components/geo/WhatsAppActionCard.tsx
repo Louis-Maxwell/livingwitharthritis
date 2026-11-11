@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Check, Copy, MessageCircle } from "lucide-react";
 import { SITE_ORIGIN, canonicalPath } from "@/lib/technicalSeo.mjs";
-import { buildWhatsAppMessage } from "@/lib/whatsappShare";
+import { trackEvent } from "@/lib/analytics";
+import { buildWhatsAppHref, buildWhatsAppMessage, guideSlugFromPath, withWhatsAppUtm } from "@/lib/whatsappShare";
 
 interface WhatsAppActionCardProps {
   /** Page title as shown to the reader. */
@@ -10,22 +11,28 @@ interface WhatsAppActionCardProps {
   path: string;
   /** One-sentence factual summary included in the message. */
   summary: string;
+  /** Where the card sits on the page, sent with share events. */
+  position?: string;
 }
 
 /**
  * "Send this to someone" card for family, friends and carer groups.
  * Uses the public wa.me share link (no tracking script, no API key).
- * Clicks are already counted as social_share by src/lib/auto-events.ts.
+ * The shared URL carries WhatsApp UTM tags so return visits are attributed.
+ * Taps and copies go to GA4 through the shared consent-gated trackEvent
+ * helper (a no-op until the visitor accepts analytics cookies).
  */
-export default function WhatsAppActionCard({ title, path, summary }: WhatsAppActionCardProps) {
+export default function WhatsAppActionCard({ title, path, summary, position = "after_article" }: WhatsAppActionCardProps) {
   const [copied, setCopied] = useState(false);
-  const url = `${SITE_ORIGIN}${canonicalPath(path)}`;
+  const url = withWhatsAppUtm(`${SITE_ORIGIN}${canonicalPath(path)}`);
   const message = buildWhatsAppMessage(title, url, summary);
-  const href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  const href = buildWhatsAppHref(message);
+  const eventParams = { guide_slug: guideSlugFromPath(path), position, method: "whatsapp" };
 
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(message);
+      trackEvent("whatsapp_share_copy", eventParams);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2500);
     } catch {
@@ -57,6 +64,7 @@ export default function WhatsAppActionCard({ title, path, summary }: WhatsAppAct
           href={href}
           target="_blank"
           rel="nofollow noopener noreferrer"
+          onClick={() => trackEvent("whatsapp_share_click", eventParams)}
           className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />

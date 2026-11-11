@@ -20,8 +20,15 @@
           window.gtag = function () { window.dataLayer.push(arguments); };
           window.gtag('js', new Date());
           // Do not let automatic events inherit search queries, contact data or fragments.
+          // Keep only plain-token UTM campaign tags (same rule as src/lib/analytics-url.ts)
+          // so GA4 can attribute tagged visits such as WhatsApp shares.
           var safeLocation = new URL(window.location.href);
-          safeLocation.search = ''; safeLocation.hash = '';
+          var campaign = new URLSearchParams();
+          ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+            var v = safeLocation.searchParams.get(k);
+            if (v && /^[a-z0-9][a-z0-9_.-]{0,59}$/i.test(v)) campaign.set(k, v);
+          });
+          safeLocation.search = campaign.toString(); safeLocation.hash = '';
           if (/@|%40/i.test(safeLocation.pathname)) safeLocation.pathname = '/';
           var safeReferrer = '';
           try { safeReferrer = new URL(document.referrer).origin + '/'; } catch (e) {}

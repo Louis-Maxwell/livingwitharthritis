@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FileText, Printer } from "lucide-react";
 import EmailSignupForm from "@/components/EmailSignupForm";
+import { trackLeadMagnetConversion } from "@/lib/analytics";
+import { canonicalPath } from "@/lib/technicalSeo.mjs";
 
 interface ResourceDownloadCardProps {
   title: string;
@@ -11,6 +13,8 @@ interface ResourceDownloadCardProps {
   link?: { href: string; label: string };
   /** Offer the browser's print / save-as-PDF for this page. */
   printable?: boolean;
+  /** Page the card is on, sent with lead_magnet_conversion. */
+  pagePath?: string;
 }
 
 /**
@@ -24,7 +28,15 @@ export default function ResourceDownloadCard({
   sequence,
   link,
   printable = false,
+  pagePath,
 }: ResourceDownloadCardProps) {
+  // Only a signup confirmed by the form service counts; the mailto fallback
+  // just opens the reader's mail app, so it is not a conversion yet.
+  const handleSignup = (via: "formsubmit" | "mailto") => {
+    if (via !== "formsubmit") return;
+    const path = canonicalPath(pagePath ?? (typeof window === "undefined" ? "/" : window.location.pathname));
+    trackLeadMagnetConversion(sequence, path);
+  };
   const isFile = link ? /\.[a-z0-9]{2,4}$/i.test(link.href) : false;
   const buttonClass =
     "inline-flex min-h-11 items-center gap-2 rounded-full border border-primary/40 bg-background px-5 text-sm font-semibold text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
@@ -75,6 +87,7 @@ export default function ResourceDownloadCard({
         label="Free practical guides by email"
         buttonText="Send me free guides"
         sequence={sequence}
+        onSuccess={handleSignup}
       />
     </aside>
   );

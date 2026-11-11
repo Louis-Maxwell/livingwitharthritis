@@ -89,13 +89,23 @@ export const trackContactSubmit = (opts: { topic?: string } = {}): void => {
   trackEvent("generate_lead", { ...params, method: "contact" });
 };
 
-export const trackNewsletterSignup = (): void => {
+export const trackNewsletterSignup = (context: { sequence_id?: string } = {}): void => {
   trackEvent("newsletter_signup", {
     event_category: "conversion",
     value: 0,
+    ...context,
   });
-  trackEvent("sign_up", { method: "newsletter" });
-  trackEvent("generate_lead", { method: "newsletter", value: 1, currency: "GBP" });
+  trackEvent("sign_up", { method: "newsletter", ...context });
+  trackEvent("generate_lead", { method: "newsletter", value: 1, currency: "GBP", ...context });
+};
+
+/**
+ * Lead-magnet signup from a guide's resource card. Call only after the form
+ * service has confirmed the signup (never on a submit attempt). GA4's standard
+ * generate_lead already fires from trackNewsletterSignup for the same signup.
+ */
+export const trackLeadMagnetConversion = (sequence_id: string, page_path: string): void => {
+  trackEvent("lead_magnet_conversion", { sequence_id, page_path });
 };
 
 export const trackBuddySchemeSignup = (): void => {
