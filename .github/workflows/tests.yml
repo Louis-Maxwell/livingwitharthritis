@@ -52,7 +52,7 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Install Playwright browsers
-        run: bunx playwright install --with-deps chromium
+        run: bunx playwright install --with-deps chromium || bunx playwright install chromium  # fall back to the runner image's preinstalled browser deps when apt mirrors are unreachable
       - name: Build
         run: bun run build
       - name: Serve build
