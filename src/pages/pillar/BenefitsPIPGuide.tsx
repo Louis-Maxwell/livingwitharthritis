@@ -13,6 +13,9 @@ import AeoEnhancement from "@/components/seo/AeoEnhancement";
 import TopicClusterNav from "@/components/seo/TopicClusterNav";
 import EducationalDisclaimerBox from "@/components/seo/EducationalDisclaimerBox";
 import FaqAccordion from "@/components/faq/FaqAccordion";
+import { LOUIS_MAXWELL_REF } from "@/lib/louisMaxwell";
+import MedicalReviewBadge from "@/components/MedicalReviewBadge";
+import LastReviewed from "@/components/LastReviewed";
 
 import { sanitizeHtml } from "@/utils/sanitizeHtml";
 import { FIN_DIR_HTML } from "@/data/benefitsGuides/financialHelpDirectoryContent";
@@ -111,6 +114,10 @@ export default function BenefitsPIPGuide() {
         "audience": { "@type": "MedicalAudience", "audienceType": "Patient", "geographicArea": { "@type": "Country", "name": "United Kingdom" } },
         "about": { "@type": "MedicalCondition", "name": "Arthritis" },
         "publisher": { "@type": "Organization", "name": "Living With Arthritis", "url": "https://livingwitharthritis.org.uk" },
+        "dateModified": "2026-11-11",
+        "lastReviewed": "2026-11-11",
+        "author": LOUIS_MAXWELL_REF,
+        "reviewedBy": LOUIS_MAXWELL_REF,
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-intro"] }
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -152,6 +159,20 @@ export default function BenefitsPIPGuide() {
         />
         <div className="container mx-auto px-5 md:px-10 max-w-3xl py-16">
           <AeoEnhancement route="/guides/benefits-pip" />
+          <LastReviewed date="2026-11-11" />
+          <MedicalReviewBadge reviewer="Louis Maxwell" title="First Contact Practitioner" credential="HCPC PH128483" date="November 2026" />
+          <section id="pip-start-here" aria-labelledby="pip-start-here-heading" className="my-8 rounded-2xl border border-border/40 bg-card p-5 sm:p-6">
+            <h2 id="pip-start-here-heading" className="font-display font-bold text-xl mt-0 mb-3">Start here: where are you with PIP?</h2>
+            <ul className="space-y-2 text-sm text-muted-foreground m-0 pl-5 list-disc">
+              <li><strong>Thinking about claiming:</strong> check <a href="#eligibility" className="text-primary underline">who can claim</a> and <a href="#points" className="text-primary underline">how the points work</a>, then start a week of notes in the <Link to="/resources/pip-evidence-diary" className="text-primary underline">PIP evidence diary</Link>. In Scotland, new claims are for Adult Disability Payment instead (see <a href="#nations" className="text-primary underline">the nations section</a>).</li>
+              <li><strong>Ready to claim:</strong> follow the <a href="#claim" className="text-primary underline">step-by-step claim</a> and the <a href="#form" className="text-primary underline">form tips</a>.</li>
+              <li><strong>Assessment coming up:</strong> read <a href="#assessment" className="text-primary underline">what happens at the assessment</a> and take your diary with you.</li>
+              <li><strong>Turned down or awarded less than you expected:</strong> see <a href="#challenge" className="text-primary underline">how to challenge the decision</a>. Time limits apply, so act soon.</li>
+              <li><strong>Over State Pension age:</strong> new PIP claims usually need you to be under State Pension age. Read our <Link to="/blog/attendance-allowance-arthritis-frailty-uk" className="text-primary underline">Attendance Allowance guide</Link> instead.</li>
+              <li><strong>Caring for someone with arthritis:</strong> see <Link to="/blog/carers-allowance-help-if-you-care-for-someone" className="text-primary underline">Carer's Allowance</Link> and get <a href="#free-help" className="text-primary underline">free, independent help</a> with the claim.</li>
+            </ul>
+            <p className="text-xs text-muted-foreground mt-4 mb-0">This guide is general information, not benefits advice. A free adviser, such as Citizens Advice, can look at your own situation.</p>
+          </section>
           <TopicClusterNav path="/guides/benefits-pip" />
           <p className="speakable-intro text-muted-foreground text-base leading-relaxed mb-8">
             <strong>How the points work:</strong> {PIP_GUIDE_QUICK_ANSWER}
@@ -197,7 +218,7 @@ export default function BenefitsPIPGuide() {
 
       <div className="container mx-auto px-5 md:px-10 max-w-3xl pb-8">
         <ArticleCitations citations={CITATIONS_PIP_CLAIM} />
-        <EducationalDisclaimerBox lastReviewed="2026-10-23" />
+        <EducationalDisclaimerBox lastReviewed="2026-11-11" />
       </div>
 <GuideOnwardJourney currentPath="/guides/benefits-pip" />
       <Suspense fallback={null}><Footer /></Suspense>
