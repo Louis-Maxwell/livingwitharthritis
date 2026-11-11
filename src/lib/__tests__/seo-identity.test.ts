@@ -56,7 +56,7 @@ describe("public SEO / AEO identity", () => {
     expect(CONTACT_PHONE).toBe("07760 512 084");
     expect(CONTACT_PHONE_E164).toBe("+447760512084");
     expect(FACEBOOK_PAGE_ID).toBe("61583723925315");
-    expect(ORGANIZATION_PAYLOAD).not.toHaveProperty("founder");
+    expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
     expect(ORGANIZATION_PAYLOAD.contactPoint[0].telephone.replace(/\D/g, "")).toBe(
       "447760512084",
     );
@@ -98,9 +98,9 @@ describe("public SEO / AEO identity", () => {
         "Living With Arthritis (charity 1218461)",
       ]),
     );
-    // The founder is kept private: no founder field in any Organization node.
-    expect(org).not.toHaveProperty("founder");
-    expect(ORGANIZATION_PAYLOAD).not.toHaveProperty("founder");
+    expect(org.founder.name).toBe("David Williams");
+    expect(ORGANIZATION_PAYLOAD.founder.name).toBe("David Williams");
+    expect(org.founder).not.toHaveProperty("identifier");
     expect(org.sameAs).toEqual(OFFICIAL_SAME_AS);
     expect(org.sameAs).toEqual(ORGANIZATION_PAYLOAD.sameAs);
     expect(org).not.toHaveProperty("address");
@@ -114,7 +114,7 @@ describe("public SEO / AEO identity", () => {
     expect(org.name).toBe(ORGANIZATION_PAYLOAD.name);
     expect(org.legalName).toBe(ORGANIZATION_PAYLOAD.legalName);
     expect(org.sameAs).toEqual(ORGANIZATION_PAYLOAD.sameAs);
-    expect(org).not.toHaveProperty("founder");
+    expect(org.founder).toEqual(ORGANIZATION_PAYLOAD.founder);
     expect(org.identifier).toEqual(ORGANIZATION_PAYLOAD.identifier);
     expect(org.email).toBe(ORGANIZATION_PAYLOAD.email);
   });
@@ -197,8 +197,9 @@ describe("public SEO / AEO identity", () => {
   });
 });
 
-describe("founder privacy", () => {
-  it("names no founder in public crawler files or rendered bodies", () => {
+describe("founder attribution", () => {
+  it("names David Williams as founder and never calls Louis Maxwell founder", () => {
+    expect((ORGANIZATION_PAYLOAD.founder as { name: string }).name).toBe("David Williams");
     const files = [
       "index.html",
       "public/llms.txt",
@@ -212,10 +213,10 @@ describe("founder privacy", () => {
       "scripts/data/rendered-bodies.json",
     ];
     for (const f of files) {
-      const text = readFileSync(f, "utf8");
-      expect(text, f).not.toMatch(/David Williams/i);
-      expect(text, f).not.toMatch(/"founder"\s*:/);
-      expect(text, f).not.toMatch(/founded by|^Founder:/im);
+      const text = readFileSync(resolve(f), "utf8");
+      expect(text, f).not.toMatch(/founded by (Louis|Maxwell)/i);
+      expect(text, f).not.toMatch(/founder[^.\n]{0,40}(Louis|Maxwell)/i);
+      expect(text, f).not.toMatch(/(Louis|Maxwell)[^.\n]{0,40}\b(co-)?founder\b/i);
     }
   });
 });

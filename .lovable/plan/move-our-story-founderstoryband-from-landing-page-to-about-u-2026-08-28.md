@@ -2,7 +2,7 @@
 
 ## What changes
 
-The "Our story" story band currently sits on the homepage (`src/pages/Index.tsx`). Move it to the About Us page (`src/pages/AboutUs.tsx`), placed directly after the PageHero and before the Team section — a natural narrative position, since the hero title ("From a personal mission to a national movement") leads straight into the story.
+The "Founded by a clinician who lived it" story band currently sits on the homepage (`src/pages/Index.tsx`). Move it to the About Us page (`src/pages/AboutUs.tsx`), placed directly after the PageHero and before the Team section — a natural narrative position, since the hero title ("From a personal mission to a national movement") leads straight into the story.
 
 ## Steps
 

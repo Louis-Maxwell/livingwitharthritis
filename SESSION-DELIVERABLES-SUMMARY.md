@@ -353,7 +353,7 @@ livingwitharthritis/
 
 You have:
 - Yes 20k organic social followers (real audience)
-- Yes HCPC-registered clinical reviewer (medical credibility)
+- Yes HCPC-registered founder (medical credibility)
 - Yes Independent positioning (vs. large charities)
 - Yes Grant funding (sustainable)
 - Yes Now: Complete growth playbook (this package)
