@@ -22,6 +22,7 @@ import SkipToContent from "@/components/SkipToContent";
 import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
+import SiteMotion from "@/components/motion/SiteMotion";
 import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -307,6 +308,7 @@ function AnimatedRoutes() {
   return (
     <ErrorBoundary resetKey={location.pathname}>
     {showReadingProgress && <ScrollProgress />}
+    <SiteMotion key={location.pathname} />
     <SeoRedirectGate>
     <PageTransition key={location.pathname}>
       <Routes location={location}>

@@ -26,8 +26,6 @@ export default function ChatBotWidget() {
         aria-expanded={open}
         className="fixed bottom-[88px] right-4 z-50 h-16 w-16 rounded-full bg-background text-primary shadow-xl hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-200 flex items-center justify-center lg:bottom-8 lg:right-8 border-2 border-primary/20 group"
       >
-        {/* Pulse ring */}
-        {!open && <span className="absolute inset-0 rounded-full animate-ping bg-primary/10 pointer-events-none" style={{ animationDuration: '2.5s' }} />}
         {open ? (
           <X className="h-6 w-6 motion-safe:animate-in motion-safe:spin-in-90 motion-safe:duration-150" aria-hidden="true" />
         ) : (

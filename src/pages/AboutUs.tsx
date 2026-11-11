@@ -548,7 +548,7 @@ const AboutUs = () => {
                   >
                     {/* Year badge on the line */}
                     <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20 top-0 md:top-1/2 md:-translate-y-1/2">
-                      <div className={`relative ${isLatest ? "animate-pulse" : ""}`}>
+                      <div className="relative">
                         <div className="absolute inset-0 rounded-full bg-primary/30 blur-md" />
                         <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-large">
                           <span className="text-[11px] md:text-xs font-extrabold text-primary tracking-tight">{c.year}</span>
