@@ -66,7 +66,7 @@ const DailyTipDetail = () => {
 
   if (!isOverview && !tip) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-dvh flex flex-col">
         <SeoHead title="Tip not found" description="This daily tip is not available. Browse the published daily-living tips from Living With Arthritis." path={`/daily-tips/${slug || ''}`} noindex />
         <Header />
         <main id="main-content" className="flex-1 flex items-center justify-center">
@@ -101,7 +101,7 @@ const DailyTipDetail = () => {
   const nextTip = currentIndex < dailyTips.length - 1 ? dailyTips[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-dvh flex flex-col bg-background">
       <Helmet>
         <title>{enforceTitle(`${metaTitle} — Daily Living Tips`, { includeSiteName: true })}</title>
         <link rel="canonical" href={tipCanonical} />

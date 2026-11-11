@@ -25,7 +25,7 @@ afterPageLoad(() => {
 
 
 const AppCrashFallback = (
-  <div className="min-h-screen flex items-center justify-center bg-background p-6">
+  <div className="min-h-dvh flex items-center justify-center bg-background p-6">
     <div className="text-center max-w-md space-y-4">
       <h1 className="font-display text-2xl font-bold text-foreground">
         Something went wrong
