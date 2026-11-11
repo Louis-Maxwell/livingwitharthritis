@@ -239,7 +239,7 @@ const AboutUs = () => {
               </Badge>
             </div>
           }
-          title={<>From one hard diagnosis to a <span className="text-primary">small charity with a big heart</span></>}
+          title={<>Free, honest arthritis support from a <span className="text-primary">small charity with a big heart</span></>}
           subtitle="Living with arthritis is exhausting. Our Operations Director, Louis Maxwell, an HCPC-registered First Contact Practitioner, reviews our clinical content. We are still young, independent of Arthritis UK, and building this with you."
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
