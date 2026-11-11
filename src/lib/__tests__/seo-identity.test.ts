@@ -196,3 +196,27 @@ describe("public SEO / AEO identity", () => {
     expect(cityPage).not.toMatch(/14 to 22 weeks/);
   });
 });
+
+describe("founder attribution", () => {
+  it("names David Williams as founder and never calls Louis Maxwell founder", () => {
+    expect((ORGANIZATION_PAYLOAD.founder as { name: string }).name).toBe("David Williams");
+    const files = [
+      "index.html",
+      "public/llms.txt",
+      "public/llms-full.txt",
+      "public/.well-known/llms.txt",
+      "public/ai.txt",
+      "public/.well-known/ai.txt",
+      "public/humans.txt",
+      "public/answer-engine.json",
+      "scripts/ai-head-data.json",
+      "scripts/data/rendered-bodies.json",
+    ];
+    for (const f of files) {
+      const text = readFileSync(resolve(f), "utf8");
+      expect(text, f).not.toMatch(/founded by (Louis|Maxwell)/i);
+      expect(text, f).not.toMatch(/founder[^.\n]{0,40}(Louis|Maxwell)/i);
+      expect(text, f).not.toMatch(/(Louis|Maxwell)[^.\n]{0,40}\b(co-)?founder\b/i);
+    }
+  });
+});
