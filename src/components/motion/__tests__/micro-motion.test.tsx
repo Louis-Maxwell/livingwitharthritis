@@ -83,8 +83,14 @@ describe("RevealOnScroll", () => {
   });
 
   it("CSS only hides elements the component armed after hydration", () => {
-    expect(css).toMatch(/\.reveal\[data-reveal="armed"\]:not\(\.is-visible\)\s*\{\s*opacity: 0;/);
+    expect(css).toMatch(/\.reveal\[data-reveal="armed"\]:not\(\.is-visible\)\s*\{\s*translate: 0 14px;\s*\}/);
     expect(css).not.toMatch(/(^|\n)\s*\.reveal\s*\{[^}]*opacity:\s*0/);
+  });
+
+  it("never fades revealed text, so contrast holds at every frame", () => {
+    const start = css.indexOf("/* Reveal on scroll (RevealOnScroll).");
+    const region = css.slice(start, css.indexOf("/* Text split reveal */", start));
+    expect(region).not.toMatch(/opacity:\s*0/);
   });
 
   it("arms a below-the-fold card, reveals once and disconnects", () => {
