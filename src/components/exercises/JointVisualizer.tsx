@@ -84,7 +84,7 @@ export default function JointVisualizer({ joint }: JointVisualizerProps) {
     <section
       aria-labelledby={headingId}
       data-joint-visualizer={joint}
-      className="my-10 rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8"
+      className="my-10 rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-8"
     >
       <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Explore the {jointName}</p>
       <h2 id={headingId} className="mb-2 font-display text-2xl font-bold tracking-tight text-foreground">
@@ -95,7 +95,7 @@ export default function JointVisualizer({ joint }: JointVisualizerProps) {
         This is a general guide, not a diagnosis.
       </p>
 
-      <div className="grid items-start gap-8 lg:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
         <div
           role="group"
           aria-label={`Areas of the ${jointName}`}
@@ -118,7 +118,7 @@ export default function JointVisualizer({ joint }: JointVisualizerProps) {
                 onKeyDown={(e) => onKeyDown(e, i)}
                 style={{ left: `${area.x}%`, top: `${area.y}%` }}
                 className={`absolute flex min-h-[44px] min-w-[44px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring motion-safe:transition-transform motion-safe:duration-150 ${
-                  selected ? "z-20 motion-safe:scale-110" : "z-10 motion-safe:hover:scale-105"
+                  selected ? "z-20 motion-safe:sm:scale-110" : "z-10 motion-safe:hover:scale-105"
                 }`}
               >
                 <span className="sr-only">{area.name}</span>

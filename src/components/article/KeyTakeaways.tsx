@@ -87,7 +87,7 @@ const KeyTakeaways = ({ html, title, items: explicitItems, heading = "Key takeaw
       </div>
       <ul className="space-y-2.5 m-0 p-0 list-none">
         {items.map((item, i) => (
-          <li key={i} className="flex gap-3 text-[0.95rem] leading-relaxed text-foreground/85">
+          <li key={i} className="flex gap-3 text-xs leading-relaxed text-foreground/85">
             <span
               aria-hidden="true"
               className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary"

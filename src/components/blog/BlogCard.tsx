@@ -114,7 +114,7 @@ const BlogCard = ({
           </Heading>
           {!isCompact && (
             <p
-              className={`mt-2 text-[0.95rem] leading-relaxed text-muted-foreground ${
+              className={`mt-2 text-xs leading-relaxed text-muted-foreground ${
                 isLead ? "line-clamp-4" : "line-clamp-3"
               }`}
             >

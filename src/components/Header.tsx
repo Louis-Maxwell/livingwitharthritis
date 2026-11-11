@@ -3,6 +3,7 @@ import { lazyWithRetry } from "@/lib/chunkRecovery";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, BookOpen, BookMarked, ChevronDown, Stethoscope, Activity, Newspaper, HandHeart, ArrowRight, Utensils, MessageCircle, Dumbbell, Bone, ShieldCheck, HeartPulse, Sparkles, Globe, Search, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { createPortal } from "react-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import SiteLogo from "@/components/SiteLogo";
@@ -36,6 +37,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [resourceDrawerOpen, setResourceDrawerOpen] = useState(false);
   // Mount the drawer on first open, then keep it mounted so its close
@@ -274,6 +276,8 @@ const Header = () => {
     const onKeyDown = (e: globalThis.KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileMenuOpen(false);
+        // Return focus to the control that opened the menu.
+        window.setTimeout(() => menuButtonRef.current?.focus(), 0);
         return;
       }
       if (e.key !== "Tab" || !panel) return;
@@ -303,14 +307,15 @@ const Header = () => {
 
   return (
     <>
+      {/* Scrolls away with the page so the sticky bar stays short on phones. */}
+      <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
+        <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
+      </aside>
       {/* â”€â”€ STICKY WRAPPER — entire header block sticks together â”€â”€ */}
       <div
         className={`sticky top-0 z-50 transition-transform duration-300 ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
 
-        <aside aria-label="Clinical review information" className="w-full border-b border-primary/20 bg-accent text-foreground">
-          <p className="container mx-auto max-w-7xl px-4 py-2 text-center text-xs leading-relaxed sm:px-6 sm:text-sm">Clinical review status and review dates are shown on each guide. We update content when relevant evidence or guidance changes.</p>
-        </aside>
 
         {/* Logo Bar */}
         <div
@@ -369,6 +374,7 @@ const Header = () => {
                 variant="ghost"
                 size="icon"
                 className="rounded-lg h-11 w-11 min-h-11 min-w-11 shrink-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                ref={menuButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
@@ -573,18 +579,20 @@ const Header = () => {
       </div>
 
       {/* Mobile menu — id ties to menu button aria-controls */}
-      {mobileMenuOpen && (
+      {/* Portalled to <body>: a transformed ancestor would otherwise make this
+          "fixed" drawer page-tall, and it must sit above the bottom nav (z-80). */}
+      {mobileMenuOpen && typeof document !== "undefined" && createPortal(
         <>
           <div
-            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[60] lg:hidden animate-in fade-in duration-200"
+            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[85] lg:hidden animate-in fade-in duration-200"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-y-0 end-0 w-[min(80%,24rem)] max-w-sm bg-background z-[70] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" id="mobile-primary-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
-            <div className="flex items-center justify-between p-6 border-b border-border/20">
-              <div className="flex items-center gap-2.5">
+          <div className="fixed inset-y-0 end-0 w-[min(88%,24rem)] max-w-sm bg-background z-[90] lg:hidden shadow-2xl flex flex-col border-s border-border/30 animate-in slide-in-from-right rtl:slide-in-from-left duration-300 pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]" id="mobile-primary-nav" role="dialog" aria-modal="true" aria-label="Navigation menu" data-mobile-nav-panel>
+            <div className="flex items-center justify-between gap-2 px-4 py-4 sm:p-6 border-b border-border/20">
+              <div className="flex min-w-0 items-center gap-2.5">
                 <SiteLogo variant="mark" markClassName="h-8 w-auto" />
-                <span className="text-lg font-extrabold text-primary">Menu</span>
+                <span className="text-lg font-extrabold text-primary max-[359px]:sr-only">Menu</span>
               </div>
               <div className="flex items-center gap-1.5">
                 {/* On narrow phones these controls live here instead of the
@@ -693,7 +701,8 @@ const Header = () => {
               </Button>
             </div>
           </div>
-        </>
+        </>,
+        document.body,
       )}
 
       {resourceDrawerMounted && <Suspense fallback={null}><ResourceLibraryDrawer open={resourceDrawerOpen} onOpenChange={setResourceDrawerOpen} /></Suspense>}
