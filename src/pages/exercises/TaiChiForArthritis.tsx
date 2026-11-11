@@ -127,7 +127,7 @@ export default function TaiChiForArthritis() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title={TAI_CHI_TITLE}
         description={TAI_CHI_DESCRIPTION}

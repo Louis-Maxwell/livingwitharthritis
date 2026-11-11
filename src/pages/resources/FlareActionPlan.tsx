@@ -57,7 +57,7 @@ const RELATED = [
 
 export default function FlareActionPlan() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Flare-up action plan (printable)"
         description="Free printable arthritis flare-up action plan for the UK: green, amber and red zones, comfort steps, agreed medicines, contacts and red flags."

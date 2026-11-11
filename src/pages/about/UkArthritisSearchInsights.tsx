@@ -93,7 +93,7 @@ export default function UkArthritisSearchInsights() {
         <link rel="alternate" hrefLang="en-GB" href={URL} />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb
           segments={[

@@ -40,7 +40,7 @@ const TrustedLocalServices = () => (
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="robots" content="index, follow" />
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageHero
         gradient="from-muted/30 via-background to-muted/10"

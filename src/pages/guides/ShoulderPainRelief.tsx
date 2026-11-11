@@ -164,7 +164,7 @@ export default function ShoulderPainRelief() {
         idPrefix="shoulder-pain-relief"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Shoulder pain relief"
           subtitle="What is causing it, what settles it fastest, and a staged mobility-then-strength routine you can start at home today."

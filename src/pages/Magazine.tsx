@@ -169,7 +169,7 @@ const Magazine = () => {
     <>
       <SeoHead title={PAGE_TITLE} description={PAGE_DESCRIPTION} path={PAGE_PATH} />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <div className="container mx-auto px-4 pt-6 max-w-6xl">
           <PageBreadcrumb segments={[{ label: "Monthly magazine" }]} />
         </div>

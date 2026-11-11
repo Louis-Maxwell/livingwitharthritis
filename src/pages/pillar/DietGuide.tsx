@@ -249,7 +249,7 @@ export default function DietGuide() {
       />
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/guides" }, { label: "Diet" }]} />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Best arthritis diet advice UK: anti-inflammatory Mediterranean guide"
           subtitle="Evidence-based anti-inflammatory and Mediterranean eating for arthritis in the UK — what helps, what to limit, omega-3s, supplements and a practical meal plan."

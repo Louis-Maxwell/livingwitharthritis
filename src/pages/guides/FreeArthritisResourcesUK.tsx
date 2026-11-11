@@ -121,7 +121,7 @@ export default function FreeArthritisResourcesUK() {
         idPrefix="free-arthritis-resources"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Free arthritis resources UK"
           subtitle={`Clinically reviewed guides and printable tools from Living With Arthritis — registered charity ${CHARITY.number}. Independent of Arthritis UK (formerly Versus Arthritis).`}

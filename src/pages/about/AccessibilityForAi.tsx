@@ -31,7 +31,7 @@ const AccessibilityForAi = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Machine-Readable Content for AI"
         description="Discoverability surfaces for AI crawlers on Living With Arthritis: JSON-LD schemas, llms.txt, ai.txt, sitemap and robots policy explained in detail."

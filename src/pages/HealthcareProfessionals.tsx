@@ -43,7 +43,7 @@ const SHAREABLE = [
  */
 export default function HealthcareProfessionals() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Healthcare professionals"
         description="Free clinic pack, shareable patient guides and educational tools from Living With Arthritis for physiotherapists, GPs and rheumatology teams. Charity 1218461."

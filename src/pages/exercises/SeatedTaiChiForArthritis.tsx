@@ -115,7 +115,7 @@ export default function SeatedTaiChiForArthritis() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Seated Tai Chi for Arthritis"
         description="Chair-based tai chi for arthritis. A 13-minute seated routine for severe knee or hip OA, post-surgery recovery and balance concerns. UK guidance, no equipment."

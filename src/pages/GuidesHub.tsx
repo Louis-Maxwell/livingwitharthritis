@@ -81,7 +81,7 @@ const GuidesHub = () => {
       </Helmet>
 
       <Header />
-      <main id="main-content" className="min-h-screen bg-background text-foreground">
+      <main id="main-content" className="min-h-dvh bg-background text-foreground">
         <PageBreadcrumb segments={[{ label: "Guides" }]} />
         <PageHero
           badge={
