@@ -321,7 +321,7 @@ const Header = () => {
         <div
           className={`transition-all duration-300 ${
             scrolled
-              ? "bg-background/95 backdrop-blur-xl border-b border-border/30"
+              ? "bg-background/95 backdrop-blur-xl border-b border-border/30 shadow-sm"
               : "bg-background border-b border-border/15"
           }`}
         >

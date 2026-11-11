@@ -1368,6 +1368,49 @@
     border-color 0.25s ease;
 }
 
+/* Site-wide motion (SiteMotion). Same rules as above, driven by data
+   attributes so React re-renders never drop the state: cards below the fold
+   are armed after hydration and glide up 14px once ("shown"); text keeps full
+   opacity at every frame. */
+[data-site-reveal] {
+  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-site-reveal="armed"] {
+  translate: 0 14px;
+}
+/* Tactile lift on cards and list-link grids, fine pointers only. */
+[data-site-lift] {
+  transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
+}
+[data-site-lift][data-site-reveal] {
+  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-site-lift]:not([data-site-reveal="armed"]):hover {
+    translate: 0 -3px;
+    box-shadow: var(--shadow-large);
+  }
+}
+/* Subtle press on every button (zero specificity, so components can opt out). */
+:where(button, [role="button"], input[type="submit"], input[type="button"]):not(:disabled):active {
+  scale: 0.98;
+}
+/* Gentler FAQ opening for native <details> (Radix accordions use the
+   accordion-down keyframes in tailwind.config.ts). */
+details[open] > :not(summary) {
+  animation: details-open 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes details-open {
+  from {
+    translate: 0 -6px;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
 /* Text split reveal */
 .text-split-word {
   opacity: 0;
@@ -1737,6 +1780,18 @@
   .btn-press:active,
   .btn-map:active {
     scale: none !important;
+  }
+  [data-site-reveal],
+  [data-site-lift],
+  [data-site-lift]:hover {
+    transition: none !important;
+    translate: none !important;
+  }
+  :where(button, [role="button"], input[type="submit"], input[type="button"]):active {
+    scale: none !important;
+  }
+  details[open] > :not(summary) {
+    animation: none !important;
   }
   *,
   *::before,

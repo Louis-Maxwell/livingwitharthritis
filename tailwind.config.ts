@@ -143,7 +143,7 @@ export default {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-down": "accordion-down 0.28s cubic-bezier(0.16, 1, 0.3, 1)",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
         "fade-in-up": "fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards",
