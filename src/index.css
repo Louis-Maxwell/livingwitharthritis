@@ -506,17 +506,6 @@
     opacity: 0.04;
   }
 
-  /* ─── Animations ─── */
-  .reveal-up {
-    animation: revealUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    opacity: 0;
-  }
-
-  @keyframes revealUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
   /* ─── Section Dividers ─── */
   .section-divider {
     @apply relative;
@@ -789,12 +778,18 @@
   }
 
   /* ─── Hover lift for interactive cards ─── */
+  /* Uses the individual translate/scale properties so it composes with any
+     Tailwind transform utilities already on the element. */
   .hover-lift {
-    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   }
-  .hover-lift:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-large);
+  /* Only for devices that can really hover with a fine pointer (not touch). */
+  @media (hover: hover) and (pointer: fine) {
+    .hover-lift:hover {
+      translate: 0 -3px;
+      box-shadow: var(--shadow-large);
+      border-color: hsl(var(--primary) / 0.3);
+    }
   }
 
   /* ─── Magnetic hover — subtle tilt effect ─── */
@@ -947,10 +942,12 @@
 
   /* ─── Button press effect ─── */
   .btn-press {
-    transition: transform 0.15s ease;
+    transition-property: color, background-color, border-color, scale;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
   }
-  .btn-press:active {
-    transform: scale(0.97);
+  .btn-press:active:not(:disabled) {
+    scale: 0.98;
   }
 
   /* ─── Magnetic card hover with border glow ─── */
@@ -1003,7 +1000,6 @@
   /* ─── Reading progress indicator ─── */
   .reading-progress {
     background: hsl(var(--primary));
-    transition: width 0.15s ease-out;
   }
 
   /* ─── Smooth count-up transition ─── */
@@ -1357,23 +1353,19 @@
 
 /* ───────────────────────── Motion primitives ───────────────────────── */
 
-/* Reveal on scroll */
-.reveal {
-  opacity: 0;
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+/* Reveal on scroll (RevealOnScroll). Visible by default; only elements the
+   component arms after hydration (below the fold, motion allowed) start
+   14px lower and glide up once. Translate only: text keeps full opacity, so
+   colour contrast passes at every frame, and there is no layout shift. */
+.reveal[data-reveal="armed"] {
+  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal-up { transform: translate3d(0, 24px, 0); filter: blur(2px); }
-.reveal-left { transform: translate3d(-24px, 0, 0); filter: blur(2px); }
-.reveal-right { transform: translate3d(24px, 0, 0); filter: blur(2px); }
-.reveal-fade { filter: blur(2px); }
-.reveal.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  filter: blur(0);
+.reveal[data-reveal="armed"]:not(.is-visible) {
+  translate: 0 14px;
+}
+.reveal.hover-lift[data-reveal="armed"] {
+  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
 }
 
 /* Text split reveal */
@@ -1461,10 +1453,6 @@
 /* Reduced motion override — kill all of the above */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .reveal-up,
-  .reveal-left,
-  .reveal-right,
-  .reveal-fade,
   .text-split-word,
   .duotone-img,
   .duotone-overlay {
@@ -1581,8 +1569,9 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     border-radius: 0;
-    transition: background-color 150ms ease;
+    transition: background-color 150ms ease, scale 150ms ease;
   }
+  .btn-map:active:not(:disabled) { scale: 0.98; }
   .btn-map:hover { background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); }
   .btn-map:focus-visible {
     outline: 3px solid hsl(var(--ring));
@@ -1595,14 +1584,6 @@
   }
   .btn-map.btn-map-dark { background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); }
   .btn-map.btn-map-dark:hover { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
-
-  /* Scroll reveal — staggered fade-up */
-  .reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 600ms ease-out, transform 600ms ease-out;
-  }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
   /* Full-bleed red band (MAP hero) */
   .band-red {
@@ -1743,6 +1724,20 @@
    users who request reduced motion, and avoid transition/animation work that
    can otherwise contribute to poor INP on low-powered devices. */
 @media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none !important;
+    translate: none !important;
+    opacity: 1 !important;
+  }
+  .hover-lift,
+  .hover-lift:hover {
+    transition: none !important;
+    translate: none !important;
+  }
+  .btn-press:active,
+  .btn-map:active {
+    scale: none !important;
+  }
   *,
   *::before,
   *::after {

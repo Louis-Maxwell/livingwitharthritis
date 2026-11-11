@@ -34,7 +34,6 @@ import RecommendedNextStep from "@/components/RecommendedNextStep";
 import { splitHtmlAtMiddleH2 } from "@/lib/splitHtmlAtMiddleH2";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import ScrollProgress from "@/components/ScrollProgress";
 import ViewportSection from "@/components/ViewportSection";
 import ArticleFaqSection from "@/components/article/ArticleFaqSection";
 import { getMarkdownParser, loadMarkdownParser } from "@/lib/markdownParser";
@@ -441,7 +440,6 @@ const BlogPost = () => {
         )}
       </Helmet>
       <div className="min-h-screen bg-background">
-        <div className="no-print print:hidden"><ScrollProgress /></div>
         <div className="no-print print:hidden"><Header /></div>
 
         <main id="main-content" tabIndex={-1} className="outline-none">

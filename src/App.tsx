@@ -22,6 +22,7 @@ import SkipToContent from "@/components/SkipToContent";
 import RouteFocus from "@/components/RouteFocus";
 import { COMPARISON_ROUTES } from "@/data/comparison-routes.generated";
 import { isPrerenderDocumentReady } from "@/lib/prerenderReady";
+import ScrollProgress from "@/components/ScrollProgress";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Home is eager — it's the top entry point (~36% of pageviews) so
@@ -300,8 +301,12 @@ function AnimatedRoutes() {
   }, [location.pathname, location.search]);
 
 
+  // One reading-progress bar for every blog post and guide (homepage mounts its own).
+  const showReadingProgress = /^\/(blog|guides)\/[^/]+\/?$/.test(location.pathname);
+
   return (
     <ErrorBoundary resetKey={location.pathname}>
+    {showReadingProgress && <ScrollProgress />}
     <SeoRedirectGate>
     <PageTransition key={location.pathname}>
       <Routes location={location}>

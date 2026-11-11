@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { trackDonationClick, trackStartHereCard } from "@/lib/ga-events";
+import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import { GOFUNDME_URL, MORE_TOPICS, VISITOR_JOBS, type VisitorJob } from "./homeJobs";
 
 /**
@@ -42,13 +43,15 @@ export default function HomeJobRouter() {
         </p>
 
         <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {VISITOR_JOBS.map((job) => {
+          {VISITOR_JOBS.map((job, i) => {
             const Icon = job.icon;
             const isDonate = job.id === "donate";
             return (
-              <li
+              <RevealOnScroll
+                as="li"
                 key={job.id}
-                className={`flex min-w-0 flex-col rounded-2xl border p-4 sm:p-5 transition-shadow hover:shadow-md ${
+                delay={(i % 4) * 60}
+                className={`hover-lift flex min-w-0 flex-col rounded-2xl border p-4 sm:p-5 ${
                   isDonate ? "border-border/60 bg-muted/40" : "border-border/60 bg-card"
                 }`}
               >
@@ -128,7 +131,7 @@ export default function HomeJobRouter() {
                     </li>
                   ))}
                 </ul>
-              </li>
+              </RevealOnScroll>
             );
           })}
         </ul>
