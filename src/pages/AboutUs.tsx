@@ -129,12 +129,6 @@ const impactStats = [
 
 const teamMembers = [
   {
-    name: "David Williams",
-    role: "Founder",
-    credentials: "Living With Arthritis, charity 1218461",
-    bio: "Founder of Living With Arthritis, a registered charity in England and Wales (no. 1218461).",
-  },
-  {
     name: "Louis Maxwell",
     role: "Operations Director · First Contact Practitioner",
     credentials: "HCPC PH128483 · Chartered Society of Physiotherapy",
@@ -198,7 +192,6 @@ const AboutUs = () => {
               "url": CHARITY.registerUrl,
             },
             "areaServed": { "@type": "Country", "name": "United Kingdom" },
-            "founder": { "@type": "Person", "name": "David Williams" },
             "employee": {
               "@type": "Person",
               "@id": `${CHARITY.siteUrl}/authors/maxwell#person`,
@@ -246,8 +239,8 @@ const AboutUs = () => {
               </Badge>
             </div>
           }
-          title={<>From one hard diagnosis to a <span className="text-primary">small charity with a big heart</span></>}
-          subtitle="Living with arthritis is exhausting. Living With Arthritis was founded by David Williams. Our Operations Director, Louis Maxwell, an HCPC-registered First Contact Practitioner, reviews our clinical content. We are still young, independent of Arthritis UK, and building this with you."
+          title={<>Free, honest arthritis support from a <span className="text-primary">small charity with a big heart</span></>}
+          subtitle="Living with arthritis is exhausting. Our Operations Director, Louis Maxwell, an HCPC-registered First Contact Practitioner, reviews our clinical content. We are still young, independent of Arthritis UK, and building this with you."
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {impactStats.map((stat) => (
@@ -388,7 +381,7 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Our Story — founder narrative moved from landing page */}
+        {/* Our Story — narrative moved from landing page */}
         <Suspense fallback={<div className="py-16" />}>
           <FounderStoryBand />
         </Suspense>

@@ -23,7 +23,7 @@ The codebase already has a mature SEO foundation. The scan found shared route-le
 | Crawl issues | Guarded in code | `public/robots.txt` allows public content and blocks private utility routes. Build-time crawl checks exist. Full rendered crawl could not run because the local environment lacks Bun/Puppeteer. |
 | Broken links | Automated checks exist | `npm run links:check` and route/link tests are present. A complete check requires installing the repository dependencies. |
 | Internal linking | Strong but ongoing | Hub pages, blog clusters, breadcrumbs, site index, and orphan/cluster tests are present. Orphan-page monitoring should remain part of CI. |
-| EEAT signals | Present | Charity Commission identifier, named founder, clinical-review fields, reviewer/author routes, editorial standards, evidence register, corrections policy, and governance pages are present. |
+| EEAT signals | Present | Charity Commission identifier, named Operations Director, clinical-review fields, reviewer/author routes, editorial standards, evidence register, corrections policy, and governance pages are present. |
 | AI retrieval | Present | `public/llms-full.txt`, `public/ai.txt`, `public/answer-engine.json`, `humans.txt`, explicit AI crawler rules, entity JSON-LD, and AI guidance pages are present. |
 
 ## Low-risk change implemented
