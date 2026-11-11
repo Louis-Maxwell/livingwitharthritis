@@ -66,8 +66,9 @@ describe("GEO priority pages", () => {
   it("static JSON-LD for PMR symptoms has reviewer, coded entity and citations", () => {
     const route = "/conditions/polymyalgia-rheumatica/symptoms";
     const html = buildJsonLd(route, `${BASE}${route}`, { title: "PMR symptoms", description: "d", question: "q", answer: "a" });
-    const page = [...html.matchAll(/<script[^>]*>(.*?)<\/script\s*>/gi)]
-      .map((m) => JSON.parse(m[1]))
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const page = [...doc.querySelectorAll('script[type="application/ld+json"]')]
+      .map((s) => JSON.parse(s.textContent || "{}"))
       .find((g) => g["@type"] === "MedicalWebPage");
     expect(page.reviewedBy.name).toBe("Louis Maxwell");
     expect(page.reviewedBy.identifier.value).toBe("PH128483");

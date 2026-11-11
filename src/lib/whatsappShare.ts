@@ -32,7 +32,7 @@ export function buildWhatsAppHref(message: string): string {
   return `https://wa.me/?text=${encodeURIComponent(message)}`;
 }
 
-/** Analytics slug for a guide path: "/blog/x" -> "x", "/conditions/a/b" -> "a/b". */
+/** Analytics slug for a guide path: drops the leading blog, guides or conditions segment. */
 export function guideSlugFromPath(path: string): string {
   return path
     .split(/[?#]/)[0]
