@@ -313,7 +313,7 @@ const Sitemap = () => {
         <meta property="og:locale" content="en_GB" />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
 
         <main id="main-content" className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl pt-12 pb-20 md:pt-20 md:pb-28">

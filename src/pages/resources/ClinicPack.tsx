@@ -35,7 +35,7 @@ const QR_LINKS = [
  */
 export default function ClinicPack() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <SeoHead
         title="Clinic Pack for Healthcare Teams"
         description="Free printable clinic pack from Living With Arthritis: waiting-room QR links to exercises, flares, PIP and newly diagnosed guides. Charity 1218461."

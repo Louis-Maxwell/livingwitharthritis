@@ -89,7 +89,7 @@ export default function SymptomChecker() {
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
         <PageBreadcrumb
           segments={[

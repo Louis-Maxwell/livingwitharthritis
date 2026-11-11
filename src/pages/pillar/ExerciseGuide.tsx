@@ -239,7 +239,7 @@ export default function ExerciseGuide() {
         idPrefix="exercise-guide"
       />
       <Header />
-      <main id="main-content" className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-dvh bg-background">
         <PageHero
           title="Free physiotherapy exercises for arthritis at home UK"
           subtitle="NICE-aligned home physio routines for knees, hips, hands and more — free from Living With Arthritis (charity 1218461). Start gently, progress safely."

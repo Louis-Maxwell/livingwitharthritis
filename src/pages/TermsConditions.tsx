@@ -40,7 +40,7 @@ const TermsConditions = () => (
         <meta property="og:image:alt" content="Terms & Conditions | Living With Arthritis" />
         <meta name="twitter:image" content={`${CHARITY.siteUrl}/images/hero-walking-group-1600.webp`} />
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageHero
         gradient="from-muted/30 via-background to-muted/10"

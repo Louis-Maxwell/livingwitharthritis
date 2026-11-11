@@ -90,7 +90,7 @@ const ArthritisPainRelief = () => (
       {/* BreadcrumbList intentionally not emitted here — <PageBreadcrumb> below covers it. */}
       <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
     </Helmet>
-    <div className="min-h-screen bg-background">
+    <div className="min-h-dvh bg-background">
       <Header />
       <PageBreadcrumb segments={[{ label: "Guides", href: "/blog" }, { label: "Arthritis pain relief" }]} />
 

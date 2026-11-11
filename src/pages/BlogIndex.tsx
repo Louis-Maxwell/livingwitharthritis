@@ -344,7 +344,7 @@ const BlogIndex = ({ initialCategory, heroTitle, heroSubtitle }: BlogIndexProps 
         </script>
       </Helmet>
       )}
-      <div className="min-h-screen bg-background">
+      <div className="min-h-dvh bg-background">
         <Header />
 
         <main id="main-content" role="main" tabIndex={-1} className="outline-none">
