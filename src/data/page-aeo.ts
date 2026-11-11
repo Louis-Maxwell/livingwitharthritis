@@ -32,17 +32,18 @@ export const PAGE_AEO: Record<string, AeoPage> = {
     question: "What is osteoarthritis?",
     answer:
       "Osteoarthritis (OA) is the most common arthritis in the UK. It involves changes in the cartilage that cushions bone ends and in other joint tissues, most often in knees, hips, hands and spine. Pain is usually worse with use, morning stiffness is typically under 30 minutes, and NICE NG226 recommends therapeutic exercise, weight management where relevant, and information and support as core care.",
-    updatedAt: "2026-11-05",
+    updatedAt: "2026-11-11",
     takeaways: [
       "There is no cure that reverses osteoarthritis, but exercise, pacing, weight advice where relevant and the right pain relief help many people.",
       "NICE recommends therapeutic exercise, including muscle strengthening and general fitness, as core care.",
-      "Osteoarthritis can usually be diagnosed without an X-ray; imaging is for unclear cases, red flags or surgical planning.",
+      "Osteoarthritis can usually be diagnosed without an X-ray if you are 45 or over, have activity-related joint pain and morning stiffness of 30 minutes or less (NICE NG226).",
       "A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP."
     ],
     faqs: [
       { q: "Can osteoarthritis be cured?", a: "There is no cure that reverses osteoarthritis, but many people manage symptoms with exercise, pacing, weight advice where relevant and the right pain relief. Severe symptoms may lead to a discussion about joint surgery." },
       { q: "What's the best exercise for osteoarthritis?", a: "NICE recommends therapeutic exercise including muscle strengthening and general fitness. Walking, swimming, cycling, seated strength and tai chi are common starting points — start small and build up." },
       { q: "Do I need an X-ray for osteoarthritis?", a: "Often no. NICE says osteoarthritis can usually be diagnosed clinically; imaging is used when the diagnosis is unclear, red flags are present, or surgery is being planned." },
+      { q: "What pain relief does NICE recommend for osteoarthritis?", a: "NICE says medicines should be used alongside exercise, at the lowest effective dose for the shortest time. A topical NSAID is offered first for knee osteoarthritis and can be considered for other joints. Paracetamol and weak opioids are not routinely recommended, as there is no strong evidence that paracetamol helps. Ask a pharmacist or GP before starting any medicine." },
       { q: "When should I see a GP?", a: "If joint pain is not improving after a few weeks, wakes you most nights, comes with swelling or morning stiffness over 30 minutes, or limits daily life. A suddenly hot, red, swollen joint with fever needs same-day help from NHS 111 or your GP." },
     ],
   }),
@@ -124,10 +125,17 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/conditions/knee-arthritis": withDefaults({
     question: "What is knee arthritis?",
     answer:
-      "Knee arthritis is joint damage in the knee — most often osteoarthritis — causing pain when standing, walking or climbing stairs, stiffness after rest, and swelling. NICE recommends exercise and weight loss as first-line treatment; every 5 kg lost cuts knee load by roughly 20 kg.",
+      "Knee arthritis is most often osteoarthritis. It typically causes knee pain with activity such as walking or stairs, stiffness after rest and sometimes swelling. NICE guideline NG226 recommends therapeutic exercise and, if you are living with overweight, weight loss as core treatment, with a topical NSAID as the first medicine to offer for knee osteoarthritis.",
+    updatedAt: "2026-11-11",
+    takeaways: [
+      "Osteoarthritis can usually be diagnosed without an X-ray if you are 45 or over, have activity-related joint pain and have no morning stiffness or stiffness lasting 30 minutes or less (NICE NG226).",
+      "If you are living with overweight, any weight loss is likely to help; NICE says losing 10% of body weight is likely to be better than 5%.",
+      "NICE recommends offering a topical NSAID for knee osteoarthritis and does not routinely recommend paracetamol or weak opioids.",
+      "Joint replacement may be considered when symptoms substantially affect your quality of life and non-surgical treatment has not worked or is unsuitable.",
+    ],
     faqs: [
-      { q: "What's the best exercise for knee arthritis?", a: "Quadriceps strengthening (straight-leg raises, wall sits) plus low-impact aerobic (cycling, swimming). 3-5 sessions a week for 8+ weeks shows meaningful pain reduction." },
-      { q: "Should I use a walking stick?", a: "Use it in the opposite hand to the painful knee — this reduces load by up to 25%." },
+      { q: "What's the best exercise for knee arthritis?", a: "Exercise that strengthens the muscles around the knee, such as straight-leg raises, sit-to-stands and mini squats, plus general fitness such as walking, cycling or swimming. NICE recommends therapeutic exercise tailored to your needs for everyone with osteoarthritis. Start gently and build up gradually." },
+      { q: "Should I use a walking stick?", a: "A stick can help some people walk more comfortably and steadily. NICE suggests considering walking aids, such as walking sticks, for knee or hip osteoarthritis. A physiotherapist can check the height and show you which hand to hold it in." },
     ],
   }),
   "/conditions/hip-arthritis": withDefaults({
@@ -272,24 +280,26 @@ export const PAGE_AEO: Record<string, AeoPage> = {
   "/guides/hip-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best hip exercises for osteoarthritis?",
     answer:
-      "Evidence-based hip OA exercises include glute bridges, clamshells, standing hip abduction, wall squats and stationary cycling. Aim for 3 sessions per week of 30 minutes; expect meaningful pain reduction after 8-12 weeks. NICE guideline NG226 recommends supervised programmes.",
-    faqs: [
-      { q: "Can I exercise during a hip flare?", a: "Use gentle range-of-motion and avoid sharp pain. Reduce load, then rebuild. Seek advice if pain lasts more than 24 hours after activity." },
-      { q: "How often should I strengthen my hip?", a: "Most people do well with two to three short strength sessions each week plus daily walking as tolerated." },
-      { q: "Do I need a gym?", a: "No — bridges, clamshells and sit-to-stands can be done at home. A physiotherapist can tailor progression." },
+      "NICE guideline NG226 recommends therapeutic exercise tailored to you, such as local muscle strengthening and general aerobic fitness, as a core treatment for hip osteoarthritis. Useful home moves include glute bridges, clamshells, side-lying leg lifts, sit-to-stands and mini squats, alongside walking, cycling or swimming. NICE also suggests considering supervised exercise sessions.",
+    takeaways: [
+      "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
+      "Joint pain may increase when you first start; NICE says regular, consistent exercise is still beneficial for your joints.",
+      "NICE suggests considering walking aids, such as a walking stick, for hip or knee osteoarthritis.",
+      "Get urgent help for a hot, red, swollen joint with fever, or if you cannot put weight on the leg after a fall.",
     ],
+    updatedAt: "2026-11-11",
   }),
   "/guides/knee-exercises-for-osteoarthritis": withDefaults({
     question: "What are the best free knee exercises for osteoarthritis in the UK?",
     answer:
-      "NICE guideline NG226 recommends therapeutic exercise, including muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine builds thigh and hip strength. Aim for 2 to 3 sets of 8 to 12 repetitions, two or three times a week, keeping exercise pain at 4 out of 10 or less.",
+      "NICE guideline NG226 recommends therapeutic exercise, including local muscle strengthening and general aerobic fitness, as a core treatment for knee osteoarthritis. This free 8-move home routine strengthens the thigh, hip and calf muscles that support the knee. Pain may increase at first; NICE says regular, consistent exercise is still beneficial, so build up gradually.",
     takeaways: [
       "NICE NG226 lists therapeutic exercise, and weight management if appropriate, as core treatments for osteoarthritis.",
-      "Mild discomfort up to about 4 out of 10 that settles within 24 hours is usually fine.",
+      "Long-term, regular exercise increases the benefits, reducing pain and improving function and quality of life (NICE NG226).",
       "Stop that session if pain is sharp or catching, the knee locks or gives way, or new swelling lasts overnight.",
       "Get urgent help for a hot, red, swollen knee with fever, or a painful, swollen calf.",
     ],
-    updatedAt: "2026-11-10",
+    updatedAt: "2026-11-11",
   }),
   "/guides/free-arthritis-resources-uk": withDefaults({
     question: "What free arthritis resources do UK charities offer?",
